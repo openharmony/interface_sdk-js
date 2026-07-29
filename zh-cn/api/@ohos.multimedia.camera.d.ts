@@ -25,15 +25,11 @@ import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
- * The module provides a set of camera service APIs for you to easily develop a camera application. The application can 
- * access and operate the camera hardware to implement basic operations, such as preview, taking photos, and recording 
- * videos. It can also perform more operations, for example, controlling the flash and exposure time, and focusing or 
- * adjusting the focus.
+ * 本模块为开发者提供一套简单且易于理解的相机服务接口，开发者通过调用接口可以开发相机应用。应用通过访问和操作相机硬件，实现基础操作，如预览、拍照和录像；还可以通过接口组合完成更多操作，如控制闪光灯和曝光时间、对焦或调焦等。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This topic describes only system APIs provided by the module. For details about its public APIs, see 
- * > [@ohos.multimedia.camera (Camera Management)]{@link camera}.
+ * > - 当前页面仅包含本模块的系统接口，其他公开接口参见[@ohos.multimedia.camera (相机管理)]{@link camera}。
  *
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice [since 12]
@@ -42,10 +38,10 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  */
 declare namespace camera {
   /**
-   * Obtains a CameraManager instance. This API returns the result synchronously.
+   * 获取相机管理器实例，同步返回结果。
    *
-   * @param { Context } context - Application context.
-   * @returns { CameraManager } CameraManager instance obtained.
+   * @param { Context } context - 应用上下文。
+   * @returns { CameraManager } 相机管理器。
    * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
    * @throws { BusinessError } 7400201 - Camera service fatal error.
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -56,7 +52,7 @@ declare namespace camera {
   function getCameraManager(context: Context): CameraManager;
 
   /**
-   * Enumerates the camera statuses.
+   * 枚举，相机状态。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -65,7 +61,7 @@ declare namespace camera {
    */
   enum CameraStatus {
     /**
-     * A camera appears.
+     * 新的相机出现。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -75,7 +71,7 @@ declare namespace camera {
     CAMERA_STATUS_APPEAR = 0,
 
     /**
-     * The camera disappears.
+     * 相机被移除。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -85,7 +81,7 @@ declare namespace camera {
     CAMERA_STATUS_DISAPPEAR = 1,
 
     /**
-     * The camera is available.
+     * 相机可用。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -95,7 +91,7 @@ declare namespace camera {
     CAMERA_STATUS_AVAILABLE = 2,
 
     /**
-     * The camera is unavailable.
+     * 相机不可用。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -106,7 +102,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the fold states available for a fordable device.
+   * 枚举，折叠机折叠状态。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -115,7 +111,7 @@ declare namespace camera {
    */
   enum FoldStatus {
     /**
-     * The device is not foldable.
+     * 表示当前设备不可折叠。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -125,7 +121,7 @@ declare namespace camera {
     NON_FOLDABLE = 0,
 
     /**
-     * The device is fully unfolded.
+     * 表示当前设备折叠状态为完全展开。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -135,7 +131,7 @@ declare namespace camera {
     EXPANDED = 1,
 
     /**
-     * The device is folded.
+     * 表示当前设备折叠状态为折叠。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -146,7 +142,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the arrangement modes of the sensor color filter.
+   * 枚举，传感器颜色滤镜排列方式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -155,7 +151,7 @@ declare namespace camera {
    */
   enum SensorColorFilterArrangement {  
     /**
-     * Blue-green-green-red filter arrangement.
+     * 蓝绿绿红（Blue-Green-Green-Red）滤镜排列方式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -165,7 +161,7 @@ declare namespace camera {
     BGGR = 0,
 
     /**
-     * Green-blue-red-green filter arrangement.
+     * 绿蓝红绿（Green-Blue-Red-Green）滤镜排列方式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -175,7 +171,7 @@ declare namespace camera {
     GBRG = 1,
 
     /**
-     * Green-red-blue-green arrangement mode.
+     * 绿红蓝绿（Green-Red-Blue-Green）滤镜排列方式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -185,7 +181,7 @@ declare namespace camera {
     GRBG = 2,
 
     /**
-     * Red-green-green-blue arrangement mode.
+     * 红绿绿蓝（Red-Green-Green-Blue）滤镜排列方式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -196,7 +192,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the camera profile.
+   * 相机配置信息项。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -205,7 +201,7 @@ declare namespace camera {
    */
   interface Profile {
     /**
-     * Output format.
+     * 输出格式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -215,10 +211,9 @@ declare namespace camera {
     readonly format: CameraFormat;
 
     /**
-     * Resolution.
+     * 分辨率。
      * 
-     * The size setting corresponds to the camera's resolution width and height, rather than the actual dimensions of 
-     * the output image.
+     * 设置的是相机的分辨率宽度和高度，而非实际输出图像的宽度和高度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -229,7 +224,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the frame rate range.
+   * 帧率范围。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -238,7 +233,7 @@ declare namespace camera {
    */
   interface FrameRateRange {
     /**
-     * Minimum frame rate. Unit: FPS
+     * 最小帧率。单位：fps。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -248,7 +243,7 @@ declare namespace camera {
     readonly min: int;
 
     /**
-     * Maximum frame rate. Unit: FPS
+     * 最大帧率。单位：fps。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -259,7 +254,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the video configuration information. It inherits from [Profile]{@link camera.Profile}.
+   * 视频配置信息项，继承[Profile]{@link camera.Profile}。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -268,7 +263,7 @@ declare namespace camera {
    */
   interface VideoProfile extends Profile {
     /**
-     * Describes the frame rate range. Unit: FPS
+     * 帧率范围。单位：fps(frames per second)。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -279,7 +274,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the camera output capability.
+   * 相机输出能力项。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -288,7 +283,7 @@ declare namespace camera {
    */
   interface CameraOutputCapability {
     /**
-     * Supported preview profiles.
+     * 支持的预览配置信息集合。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -298,7 +293,7 @@ declare namespace camera {
     readonly previewProfiles: Array<Profile>;
 
     /**
-     * Supported photo profiles.
+     * 支持的拍照配置信息集合。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -308,7 +303,7 @@ declare namespace camera {
     readonly photoProfiles: Array<Profile>;
 
     /**
-     * Supported video profiles.
+     * 支持的录像配置信息集合。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -328,7 +323,7 @@ declare namespace camera {
     readonly depthProfiles: Array<DepthProfile>;
 
     /**
-     * Supported metadata object types.
+     * 支持的metadata流类型信息集合。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -339,7 +334,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the effect status information of a camera controller.
+   * 相机控制器效果激活状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -348,7 +343,7 @@ declare namespace camera {
    */
   interface ControlCenterStatusInfo {
     /**
-     * Effect type of the camera controller.
+     * 相机控制器效果类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -358,7 +353,7 @@ declare namespace camera {
     readonly effectType: ControlCenterEffectType;
    
     /**
-     * Whether the camera controller is activated. **true** if activated, **false** otherwise.
+     * 相机控制器效果激活状态。true表示已激活，false表示未激活。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -369,9 +364,9 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera error codes,
+   * 相机错误码。
    * 
-   * which are returned when an API call is incorrect or the **on()** API is used to listen for the error status.
+   * 接口使用不正确以及on接口监听error状态返回。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -380,7 +375,7 @@ declare namespace camera {
    */
   enum CameraErrorCode {
     /**
-     * A parameter is missing or the parameter type is incorrect.
+     * 参数缺失或者参数类型不对。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -390,7 +385,7 @@ declare namespace camera {
     INVALID_ARGUMENT = 7400101,
 
     /**
-     * The operation is not allowed.
+     * 操作流程不对，不允许。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -400,7 +395,7 @@ declare namespace camera {
     OPERATION_NOT_ALLOWED = 7400102,
 
     /**
-     * The session is not configured.
+     * session 未配置返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -410,7 +405,7 @@ declare namespace camera {
     SESSION_NOT_CONFIG = 7400103,
 
     /**
-     * The session is not running.
+     * session 未运行返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -420,7 +415,7 @@ declare namespace camera {
     SESSION_NOT_RUNNING = 7400104,
 
     /**
-     * The session configuration is locked.
+     * session 配置已锁定返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -430,7 +425,7 @@ declare namespace camera {
     SESSION_CONFIG_LOCKED = 7400105,
 
     /**
-     * The device setting is locked.
+     * 设备设置已锁定返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -440,7 +435,7 @@ declare namespace camera {
     DEVICE_SETTING_LOCKED = 7400106,
 
     /**
-     * The device is already started.
+     * 设备重复打开返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -450,7 +445,7 @@ declare namespace camera {
     CONFLICT_CAMERA = 7400107,
 
     /**
-     * The camera is disabled for security reasons.
+     * 安全原因相机被禁用。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -460,7 +455,7 @@ declare namespace camera {
     DEVICE_DISABLED = 7400108,
 
     /**
-     * The camera is preempted.
+     * 相机被抢占导致无法使用。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -470,7 +465,7 @@ declare namespace camera {
     DEVICE_PREEMPTED = 7400109,
 
     /**
-     * The configuration conflicts with the current configuration.
+     * 与当前配置存在冲突。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -480,7 +475,7 @@ declare namespace camera {
     UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS = 7400110,
 
     /**
-     * The camera service is abnormal.
+     * 相机服务异常返回。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -650,8 +645,7 @@ declare namespace camera {
   }
 
   /**
-   * **CameraManager** implements camera management. Before calling any API in **CameraManager**, you must use 
-   * [getCameraManager]{@link camera.getCameraManager} to obtain a **CameraManager** instance.
+   * 相机管理器类，使用前需要通过[getCameraManager]{@link camera.getCameraManager}接口获取相机管理实例。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -660,13 +654,12 @@ declare namespace camera {
    */
   interface CameraManager {
     /**
-     * Obtains the supported cameras (such as the default camera whose **CameraType** is **CAMERA_TYPE_DEFAULT**). This 
-     * API returns the result synchronously.
+     * 获取支持的基础相机设备对象（如获取CameraType为CAMERA_TYPE_DEFAULT的默认相机），同步返回结果。
      * 
-     * Other cameras (such as the telephoto camera whose **CameraType** is **CAMERA_TYPE_TELEPHOTO**) can be obtained 
-     * using [getCameraDevices]{@link camera.CameraManager.getCameraDevices} API.
+     * 如果需要获取额外的相机设备对象（如获取CameraType为CAMERA_TYPE_TELEPHOTO的长焦相机），可通过
+     * [getCameraDevices]{@link camera.CameraManager.getCameraDevices}接口获取。
      *
-     * @returns { Array<CameraDevice> } Array of camera devices supported.
+     * @returns { Array<CameraDevice> } 相机设备列表。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -675,10 +668,14 @@ declare namespace camera {
     getSupportedCameras(): Array<CameraDevice>;
 
     /**
-     * Obtains the output capability supported by a camera device. This API returns the result synchronously.
+     * 查询相机设备支持的输出能力，同步返回结果。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
      * @param { CameraDevice } camera - Camera device.
-     * @returns { CameraOutputCapability } Camera output capability obtained.
+     * @returns { CameraOutputCapability } 相机输出能力。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -687,10 +684,10 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
     /**
-     * Obtains the scene modes supported by a camera device. This API returns the result synchronously.
+     * 获取指定的相机设备对象支持的模式，同步返回结果。
      *
      * @param { CameraDevice } camera - Camera device.
-     * @returns { Array<SceneMode> } Array of scene modes supported.
+     * @returns { Array<SceneMode> } 相机支持的模式列表。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -699,12 +696,11 @@ declare namespace camera {
     getSupportedSceneModes(camera: CameraDevice): Array<SceneMode>;
 
     /**
-     * Obtains the output capability supported by a camera device in a given scene mode. This API returns the result 
-     * synchronously.
+     * 查询相机设备在指定模式下支持的输出能力，同步返回结果。
      *
      * @param { CameraDevice } camera - Camera device.
      * @param { SceneMode } mode - Scene mode.
-     * @returns { CameraOutputCapability } Camera output capability obtained.
+     * @returns { CameraOutputCapability } 相机输出能力。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -713,17 +709,15 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability;
 
     /**
-     * Obtains the complete output capabilities supported by a specified camera in a specified mode, including YUV, 
-     * HEIF, and HDR.
+     * 查询指定相机在指定模式下支持的完整输出能力，包括未压缩图（YUV）、HEIF和HDR等能力。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Before using YUV, HEIF, or HDR, you need to explicitly call this method to ensure that the complete output 
-     * > capabilities are obtained.
+     * > 使用YUV，HEIF或HDR等能力前，需要先显式调用此方法确保获取完整输出能力。
      *
      * @param { CameraDevice } camera - Camera device.
      * @param { SceneMode } mode - Scene mode.
-     * @returns { CameraOutputCapability } Camera output capability obtained.
+     * @returns { CameraOutputCapability } 相机输出能力。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -732,9 +726,9 @@ declare namespace camera {
     getSupportedFullOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability;
 
     /**
-     * Checks whether this camera is muted.
+     * 查询当前相机是否禁用。
      *
-     * @returns { boolean } Check result for whether the camera is muted. **true** if muted, **false** otherwise.
+     * @returns { boolean } 返回true表示相机被禁用，返回false表示相机未被禁用。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -786,18 +780,15 @@ declare namespace camera {
     muteCameraPersistent(mute: boolean, type: PolicyType): void;
 
     /**
-     * Creates a **CameraInput** instance with the specified **CameraDevice** instance. This API returns the result 
-     * synchronously.
+     * 使用CameraDevice对象创建CameraInput实例，同步返回结果。
      * 
-     * Before calling this API, call [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} to obtain the
-     * list of supported camera devices, select the camera device that meets the requirements based on the actual usage 
-     * scenario, and then create the **CameraInput** instance.
+     * 该接口使用前首先通过[getSupportedCameras]{@link camera.CameraManager.getSupportedCameras}接口查询当前设备支持的相机设备信息列表，开发者需要根据具体使用场景选
+     * 择符合需求的相机设备，然后使用该接口创建CameraInput实例。
      *
      * @permission ohos.permission.CAMERA
-     * @param { CameraDevice } camera - **CameraDevice** instance, which is obtained through
-     *     [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras}.
-     * @returns { CameraInput } **CameraInput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { CameraDevice } camera - CameraDevice对象，通过
+     *     [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} 接口获取。
+     * @returns { CameraInput } 返回CameraInput实例。接口调用失败会返回相应错误码，错误码类型为[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
@@ -809,21 +800,16 @@ declare namespace camera {
     createCameraInput(camera: CameraDevice): CameraInput;
 
     /**
-     * Creates a **CameraInput** instance with the specified camera position and type. This API returns the result 
-     * synchronously.
+     * 根据相机位置和类型创建CameraInput实例，同步返回结果。
      * 
-     * Before calling this API, specify the camera position and type based on the usage scenario. For example, open the 
-     * front camera for the selfie feature
+     * 该接口使用前需要开发者根据应用具体使用场景自行指定相机位置和类型，例如打开前置相机进入自拍功能。
      *
      * @permission ohos.permission.CAMERA
-     * @param { CameraPosition } position - Camera position. You need to obtain the supported camera object by calling
-     *     [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} and then obtain the device position
-     *     information based on the returned camera object.
-     * @param { CameraType } type - Camera type. You need to obtain the supported camera object by calling
-     *     [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} and then obtain the camera type based
-     *     on the returned camera object.
-     * @returns { CameraInput } **CameraInput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { CameraPosition } position - 相机位置，首先通过
+     *     [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} 接口获取支持的相机设备对象，然后根据返回的相机设备对象获取设备位置信息。
+     * @param { CameraType } type - 相机类型，首先通过 [getSupportedCameras]{@link camera.CameraManager.getSupportedCameras} 接口获取
+     *     支持的相机设备对象，然后根据返回的相机设备对象获取设备类型信息。
+     * @returns { CameraInput } 返回CameraInput实例。接口调用失败会返回相应错误码，错误码类型为[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
@@ -859,14 +845,14 @@ declare namespace camera {
     createCameraInputWithTokenId(camera: CameraDevice, tokenId: int): CameraInput;
 
     /**
-     * Creates a **PreviewOutput** instance. This API returns the result synchronously.
+     * 创建预览输出对象，同步返回结果。
      *
-     * @param { Profile } profile - Supported preview profile, which is obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [XComponent]{@link XComponent} or [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}.
-     * @returns { PreviewOutput } **PreviewOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { Profile } profile - 支持的预览配置信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     * @param { string } surfaceId - 从[XComponent]{@link XComponent}或者
+     *     [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}组件获取的surfaceId。
+     * @returns { PreviewOutput } PreviewOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -877,13 +863,11 @@ declare namespace camera {
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
     /**
-     * Creates a **PreviewOutput** instance without configuration. This API returns the result synchronously. It must be
-     * used with [preconfig]{@link camera.PhotoSession.preconfig}.
+     * 创建无配置信息的预览输出对象，同步返回结果。该接口需配合[preconfig]{@link camera.PhotoSession.preconfig}一起使用。
      *
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [XComponent]{@link XComponent} or [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}.
-     * @returns { PreviewOutput } **PreviewOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { string } surfaceId - 从[XComponent]{@link XComponent}或者
+     *     [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}组件获取的surfaceId。
+     * @returns { PreviewOutput } PreviewOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -894,18 +878,19 @@ declare namespace camera {
     createPreviewOutput(surfaceId: string): PreviewOutput;
 
     /**
-     * Creates a **PhotoOutput** instance. This API returns the result synchronously.
+     * 创建拍照输出对象，同步返回结果。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This API can only be used to create a **PhotoOutput** object in JPEG format.
+     * > - 从API version 10开始支持，从API version 11开始废弃。
+     * >
+     * > - 该接口只支持创建JPEG格式的拍照输出对象。
      *
-     * @param { Profile } profile - Supported photo profile, which is obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}.
-     * @returns { PhotoOutput } **PhotoOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { Profile } profile - 支持的拍照配置信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     * @param { string } surfaceId - 从[ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}获取的surfaceId。
+     * @returns { PhotoOutput } PhotoOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -915,14 +900,14 @@ declare namespace camera {
     createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput;
 
     /**
-     * Creates a **PhotoOutput** instance. This API returns the result synchronously.
+     * 创建拍照输出对象，同步返回结果。
      *
-     * @param { Profile } profile - Supported photo profile, which is obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     *     <br>In API version 11, this parameter is mandatory. Starting from API version 12, it will overwrite the
-     *     preconfigured parameters passed in through [preconfig]{@link camera.PhotoSession.preconfig}.
-     * @returns { PhotoOutput } **PhotoOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { Profile } profile - 支持的拍照配置信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     *     <br>API version 11时，该参数必填；从API version 12开始，如果使用[preconfig]{@link camera.PhotoSession.preconfig}进行预配置，传入
+     *     profile参数会覆盖preconfig的预配置参数。
+     * @returns { PhotoOutput } PhotoOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -933,23 +918,20 @@ declare namespace camera {
     createPhotoOutput(profile?: Profile): PhotoOutput;
 
     /**
-     * Creates a **VideoOutput** instance. This API returns the result synchronously.
+     * 创建录像输出对象，同步返回结果。
      * 
-     * In video recording mode, if SDR or HDR VIVID is enabled, the camera format and color space must be configured 
-     * according to the relationships specified in the table below. Configurations that do not match the table will 
-     * cause issues such as preview exceptions.
+     * 在录像模式下，使能SDR或HDR_VIVID拍摄效果时，CameraFormat与ColorSpace必须按照下列表格中的对应关系配置，若不满足表格中CameraFormat与ColorSpace配置，会导致预览异常等问题。
      * 
-     * | SDR/HDR Photo Capture        | CameraFormat             | ColorSpace       |
+     * | SDR/HDR拍摄         | CameraFormat             | ColorSpace       |
      * |--------------------|--------------------------|------------------|
      * | SDR                | CAMERA_FORMAT_YUV_420_SP | BT709_LIMIT      |
      * | HDR_VIVID          | CAMERA_FORMAT_YCRCB_P010<br>CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG_LIMIT<br>BT2020_HLG_FULL |
      *
-     * @param { VideoProfile } profile - Supported video profile, which is obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [AVRecorder]{@link @ohos.multimedia.media:media.AVRecorder}.
-     * @returns { VideoOutput } **VideoOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { VideoProfile } profile - 支持的录像配置信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     * @param { string } surfaceId - 从[AVRecorder]{@link @ohos.multimedia.media:media.AVRecorder}获取的surfaceId。
+     * @returns { VideoOutput } VideoOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -960,13 +942,10 @@ declare namespace camera {
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
-     * Creates a **VideoOutput** instance without configuration. This API returns the result synchronously. It must be 
-     * used with [preconfig]{@link camera.VideoSession.preconfig}.
+     * 创建无配置信息的录像输出对象，同步返回结果。该接口需配合[preconfig]{@link camera.VideoSession.preconfig}功能一起使用。
      *
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [AVRecorder]{@link @ohos.multimedia.media:media.AVRecorder}.
-     * @returns { VideoOutput } **VideoOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { string } surfaceId - 从[AVRecorder]{@link @ohos.multimedia.media:media.AVRecorder}获取的surfaceId。
+     * @returns { VideoOutput } VideoOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -977,12 +956,12 @@ declare namespace camera {
     createVideoOutput(surfaceId: string): VideoOutput;
 
     /**
-     * Creates a **MetadataOutput** instance. This API returns the result synchronously.
+     * 创建metadata流输出对象，同步返回结果。
      *
-     * @param { Array<MetadataObjectType> } metadataObjectTypes - Metadata object types, which are obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     * @returns { MetadataOutput } **MetadataOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { Array<MetadataObjectType> } metadataObjectTypes - metadata流类型信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     * @returns { MetadataOutput } MetadataOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1010,10 +989,13 @@ declare namespace camera {
     createDepthDataOutput(profile: DepthProfile): DepthDataOutput;
 
     /**
-     * Creates a **CaptureSession** instance. This API returns the result synchronously.
+     * 创建CaptureSession实例，同步返回结果。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { CaptureSession } **CaptureSession** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { CaptureSession } CaptureSession实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -1023,12 +1005,10 @@ declare namespace camera {
     createCaptureSession(): CaptureSession;
 
     /**
-     * Creates a **Session** instance with a given scene mode. This API returns the result synchronously.
+     * 创建指定SceneMode的Session实例，同步返回结果。
      *
-     * @param { SceneMode } mode - Scene mode. The API does not take effect if the input parameter is invalid (for
-     *     example, the value is out of range, null, or undefined).
-     * @returns { T } **Session** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { SceneMode } mode - 相机支持的模式。如果传入的参数异常（如超出范围、传入null或未定义等），实际接口不会生效。
+     * @returns { T } Session实例。接口调用失败会返回相应的错误码，错误码类型为[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @throws { BusinessError } 7400101 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
@@ -1041,16 +1021,14 @@ declare namespace camera {
     createSession<T extends Session>(mode: SceneMode): T;
 
     /**
-     * Subscribes to camera status events. This API uses an asynchronous callback to return the result.
+     * 相机设备状态回调，通过注册回调函数获取相机的状态变化。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'cameraStatus' } type - Event type. The value is fixed at **'cameraStatus'**. The event can be listened
-     *     for when a **CameraManager** instance is obtained. This event is triggered and the corresponding information
-     *     is returned only when the camera device is enabled or disabled.
-     * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to return the camera status change.
+     * @param { 'cameraStatus' } type - 监听事件，固定为'cameraStatus'。cameraManager对象获取成功后可监听。目前只支持对设备打开或者关闭会触发该事件并返回对应信息。
+     * @param { AsyncCallback<CameraStatusInfo> } callback - 回调函数，用于获取镜头状态变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -1067,14 +1045,10 @@ declare namespace camera {
     onCameraStatus(callback: AsyncCallback<CameraStatusInfo>): void;
 
     /**
-     * Unsubscribes from camera status events. This API uses an asynchronous callback to return the result.
+     * 相机设备状态注销回调，通过注销回调函数取消获取相机的状态变化。
      *
-     * @param { 'cameraStatus' } type - Event type. The value is fixed at **'cameraStatus'**. The event can be listened
-     *     for when a **CameraManager** instance is obtained.
-     * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'cameraStatus' } type - 监听事件，固定为'cameraStatus'。cameraManager对象获取成功后可监听。
+     * @param { AsyncCallback<CameraStatusInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -1091,17 +1065,14 @@ declare namespace camera {
     offCameraStatus(callback?: AsyncCallback<CameraStatusInfo>): void;
 
     /**
-     * Subscribes to fold status change events of the foldable device. This API uses an asynchronous callback to return 
-     * the result.
+     * 注册折叠设备折叠状态变化的监听。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'foldStatusChange' } type - Event type. The value is fixed at **'foldStatusChange'**. The event is
-     *     triggered when the fold state of the foldable device changes.
-     * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to return the fold state information about the
-     *     foldable device.
+     * @param { 'foldStatusChange' } type - 监听事件，固定为'foldStatusChange'。表示折叠设备折叠状态发生变化。
+     * @param { AsyncCallback<FoldStatusInfo> } callback - 回调函数。返回折叠设备折叠信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -1118,14 +1089,11 @@ declare namespace camera {
     onFoldStatusChange(callback: AsyncCallback<FoldStatusInfo>): void;
 
     /**
-     * Unsubscribes from fold state change events of the foldable device.
+     * 关闭折叠设备折叠状态变化的监听。
      *
-     * @param { 'foldStatusChange' } type - Event type. The value is fixed at **'foldStatusChange'**. The event is
-     *     triggered when the fold state of the foldable device changes.
-     * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to return the fold state information about the
-     *     foldable device. If this parameter is specified, the subscription to the specified event with the specified
-     *     callback is canceled. (The callback object cannot be an anonymous function.) Otherwise, the subscriptions to
-     *     the specified event with all the callbacks are canceled.
+     * @param { 'foldStatusChange' } type - 监听事件，固定为'foldStatusChange'。表示折叠设备折叠状态发生变化。
+     * @param { AsyncCallback<FoldStatusInfo> } callback - 回调函数，返回折叠设备折叠信息。如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有
+     *     callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -1328,13 +1296,12 @@ declare namespace camera {
     preSwitchCamera(cameraId: string): void;
 
     /**
-     * Creates a deferred **PreviewOutput** instance and adds it, instead of a common **PreviewOutput** instance, to the
-     * data stream during stream configuration.
+     * 创建延迟预览输出对象，在配流时替代普通的预览输出对象加入数据流。
      *
-     * @param { Profile } profile - Supported preview profile, which is obtained through
-     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
-     * @returns { PreviewOutput } **PreviewOutput** instance created. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { Profile } profile - 支持的预览配置信息，通过
+     *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}
+     *     接口获取。
+     * @returns { PreviewOutput } PreviewOutput实例。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 23]
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 24]
@@ -1348,16 +1315,15 @@ declare namespace camera {
     createDeferredPreviewOutput(profile: Profile): PreviewOutput;
 
     /**
-     * Checks whether the camera device supports the flashlight.
+     * 检测设备是否支持手电筒。
      *
-     * @returns { boolean } Whether the device supports the flashlight. **true** if supported, **false** otherwise.
-     *     <br>If **false** is returned, [isTorchModeSupported]{@link camera.CameraManager.isTorchModeSupported},
-     *     [getTorchMode]{@link camera.CameraManager.getTorchMode},
-     *     [setTorchMode]{@link camera.CameraManager.setTorchMode},
-     *     [isTorchLevelControlSupported]{@link camera.CameraManager.isTorchLevelControlSupported}, and
-     *     [setTorchModeOnWithLevel](docroot://reference/apis-camera-kit/arkts-apis-camera-CameraManager.md#settorchmodeonwithlevel)
-     *     do not take effect.
-     *     <br>If the API call fails, undefined is returned.
+     * @returns { boolean } 表示设备是否支持手电筒，true表示设备支持手电筒，false表示设备不支持手电。
+     *     <br>如果返回false，则[isTorchModeSupported]{@link camera.CameraManager.isTorchModeSupported}、
+     *     [getTorchMode]{@link camera.CameraManager.getTorchMode}、
+     *     [setTorchMode]{@link camera.CameraManager.setTorchMode}、
+     *     [isTorchLevelControlSupported]{@link camera.CameraManager.isTorchLevelControlSupported}和
+     *     [setTorchModeOnWithLevel]{@link camera.CameraManager.setTorchModeOnWithLevel}都不会生效。
+     *     <br>若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -1366,12 +1332,10 @@ declare namespace camera {
     isTorchSupported(): boolean;
 
     /**
-     * Checks whether a flashlight mode is supported.
+     * 检测是否支持设置的手电筒模式。
      *
-     * @param { TorchMode } mode - Flashlight mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     the flashlight is turned off.
-     * @returns { boolean } Check result for the support of the flashlight mode. **true** if supported, **false**
-     *     otherwise. If the API call fails, undefined is returned.
+     * @param { TorchMode } mode - 手电筒模式。传参为null或者undefined，作为0处理，手电筒关闭。
+     * @returns { boolean } 返回true表示设备支持设置的手电筒模式，返回false表示设备不支持的手电筒模式。若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -1380,9 +1344,9 @@ declare namespace camera {
     isTorchModeSupported(mode: TorchMode): boolean;
 
     /**
-     * Obtains the flashlight mode of this camera device.
+     * 获取当前设备手电筒模式。
      *
-     * @returns { TorchMode } Flashlight mode.
+     * @returns { TorchMode } 返回设备当前手电筒模式。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -1391,10 +1355,9 @@ declare namespace camera {
     getTorchMode(): TorchMode;
 
     /**
-     * Sets the flashlight mode.
+     * 设置设备手电筒模式。
      *
-     * @param { TorchMode } mode - Flashlight mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     the flashlight is turned off.
+     * @param { TorchMode } mode - 手电筒模式。传参为null或者undefined，作为0处理，手电筒关闭。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 11 - 17]
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
@@ -1406,10 +1369,9 @@ declare namespace camera {
     setTorchMode(mode: TorchMode): void;
 
     /**
-     * Checks whether the device supports flashlight brightness control.
+     * 检测设备是否支持手电筒亮度调节功能。
      *
-     * @returns { boolean } Whether the device supports flashlight brightness control. Returns **true** if supported,
-     *     **false** if not. If the API call fails, undefined is returned.
+     * @returns { boolean } 表示设备是否支持手电筒亮度调节功能。返回true表示支持，返回false表示不支持。若接口调用失败，返回undefined。
      * @throws { BusinessError } 202 - Not System Application. [since 23 - 24]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -1421,9 +1383,9 @@ declare namespace camera {
     isTorchLevelControlSupported(): boolean;
 
     /**
-     * Sets the torch mode to {@link camera.TorchMode.ON} with the specified torch level.
+     * 手电筒设置指定亮度级别。
      *
-     * @param { double } torchLevel - the specified torch level, the value range is [0.0, 1.0]
+     * @param { double } torchLevel - 手电筒亮度级别。通常范围是[0.0, 1.0]（0.0为最暗，1.0为最亮）。
      * @throws { BusinessError } 202 - Not System Application. [since 23 - 24]
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -1437,16 +1399,15 @@ declare namespace camera {
     setTorchModeOnWithLevel(torchLevel: double): void;
 
     /**
-     * Subscribes to flashlight status change events. This API uses an asynchronous callback to return the result.
+     * 手电筒状态变化回调，通过注册回调函数获取手电筒状态变化。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'torchStatusChange' } type - Event type. The value is fixed at **'torchStatusChange'**. The event can be
-     *     listened for when a **CameraManager** instance is obtained. Currently, this event is triggered only in the
-     *     following scenarios: The flashlight is turned on or turned off, or becomes unavailable or available.
-     * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the flashlight status.
+     * @param { 'torchStatusChange' } type - 监听事件，固定为'torchStatusChange'。cameraManager对象获取成功后可监听。目前只支持手电筒打开，手电筒关闭，手电筒不可
+     *     用，手电筒恢复可用会触发该事件并返回对应信息。
+     * @param { AsyncCallback<TorchStatusInfo> } callback - 回调函数，用于获取手电筒状态变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -1463,14 +1424,10 @@ declare namespace camera {
     onTorchStatusChange(callback: AsyncCallback<TorchStatusInfo>): void;
 
     /**
-     * Unsubscribes from flashlight status change events. This API uses an asynchronous callback to return the result.
+     * 手电筒状态变化注销回调，通过注销回调函数取消获取手电筒状态变化。
      *
-     * @param { 'torchStatusChange' } type - Event type. The value is fixed at **'torchStatusChange'**. The event can be
-     *     listened for when a **CameraManager** instance is obtained.
-     * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'torchStatusChange' } type - 监听事件，固定为'torchStatusChange'。cameraManager对象获取成功后可监听。
+     * @param { AsyncCallback<TorchStatusInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -1487,15 +1444,14 @@ declare namespace camera {
     offTorchStatusChange(callback?: AsyncCallback<TorchStatusInfo>): void;
 
     /**
-     * Obtains the specified camera based on the camera position and type.
+     * 根据相机位置和相机类型查询对应相机。
      * 
-     * Obtains the camera lens of the specified [CameraPosition]{@link camera.CameraPosition} and 
-     * [CameraType]{@link camera.CameraType}. If the returned result is undefined, the camera lens is not found on the 
-     * current device.
+     * 获取指定[CameraPosition]{@link camera.CameraPosition}和[CameraType]{@link camera.CameraType}的相机镜头，如果该接口返回结果为undefined，
+     * 表示当前设备未查询到该镜头。
      *
-     * @param { CameraPosition } position - Camera position.
-     * @param { CameraType } type - Camera type.
-     * @returns { CameraDevice } Camera obtained.
+     * @param { CameraPosition } position - 需要得到的CameraDevice对象对应的CameraPosition条件。
+     * @param { CameraType } type - 需要得到的CameraDevice对象对应的CameraType条件。
+     * @returns { CameraDevice } 根据相机位置和相机类型查询的对应相机。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1505,13 +1461,11 @@ declare namespace camera {
     getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
 
     /**
-     * Obtains the concurrency information of the specified cameras. If the return value is an empty array, concurrency 
-     * is not supported.
+     * 获取指定相机设备的并发信息。返回空数组表示不支持并发。
      *
-     * @param { Array<CameraDevice> } cameras - Array of **CameraDevice** objects. You are advised to use the front and
-     *     rear cameras obtained by calling [getCameraDevice]{@link camera.CameraManager.getCameraDevice}.
-     * @returns { Array<CameraConcurrentInfo> } Array of concurrency information corresponding to the provided
-     *     CameraDevice objects, with a one-to-one mapping.
+     * @param { Array<CameraDevice> } cameras - 一组CameraDevice相机设备，并得到与这一组CameraDevice对应的并发信息，推荐设置为由
+     *     [getCameraDevice]{@link camera.CameraManager.getCameraDevice}获取的前置与后置两个用于并发的相机设备。
+     * @returns { Array<CameraConcurrentInfo> } 一组CameraDevice相机设备对象对应的并发信息，与CameraDevice相机设备一一对应。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1521,13 +1475,12 @@ declare namespace camera {
     getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>;
 
     /**
-     * Obtains the list of cameras that meet the search criteria based on the camera position, camera types, and 
-     * connection type.
+     * 根据相机位置、相机类型数组和连接类型查询符合条件的相机列表。
      *
-     * @param { CameraPosition } position - Camera position.
-     * @param { Array<CameraType> } types - Array of camera types.
-     * @param { ConnectionType } connectType - Camera connection type.
-     * @returns { Array<CameraDevice> } Array of cameras that meet the search criteria.
+     * @param { CameraPosition } position - 相机的位置。
+     * @param { Array<CameraType> } types - 相机类型数组。
+     * @param { ConnectionType } connectType - 相机的连接类型。
+     * @returns { Array<CameraDevice> } 根据相机位置、相机类型数组和连接类型查询符合条件的相机列表。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -1537,7 +1490,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the flashlight status information.
+   * 手电筒回调返回的接口实例，表示手电筒状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1546,7 +1499,7 @@ declare namespace camera {
    */
   interface TorchStatusInfo {
     /**
-     * Whether the flashlight is available. **true** if available, **false** otherwise.
+     * 手电筒是否可用。true表示手电筒可用，false表示手电筒不可用。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1556,7 +1509,7 @@ declare namespace camera {
     readonly isTorchAvailable: boolean;
 
     /**
-     * Whether the flashlight is activated. **true** if activated, **false** otherwise.
+     * 手电筒是否被激活。true表示手电筒被激活，false表示手电筒未被激活。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1566,7 +1519,7 @@ declare namespace camera {
     readonly isTorchActive: boolean;
 
     /**
-     * Flashlight brightness level. The value range is [0, 1]. A larger value indicates a greater luminance.
+     * 手电筒亮度等级，取值范围为[0,1]，越靠近1，亮度越大。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1577,7 +1530,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the flashlight modes.
+   * 枚举，手电筒模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1586,7 +1539,7 @@ declare namespace camera {
    */
   enum TorchMode {
     /**
-     * The flashlight is off.
+     * 常关模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1596,7 +1549,7 @@ declare namespace camera {
     OFF = 0,
 
     /**
-     * The flashlight is on.
+     * 常开模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1606,7 +1559,7 @@ declare namespace camera {
     ON = 1,
 
     /**
-     * The system automatically adjusts the flashlight brightness according to the environment.
+     * 自动模式，系统根据环境自动调节手电筒亮度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1617,7 +1570,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the camera status information.
+   * 相机管理器回调返回的接口实例，该实例表示相机状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1626,7 +1579,7 @@ declare namespace camera {
    */
   interface CameraStatusInfo {
     /**
-     * Camera device.
+     * 相机信息。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1636,7 +1589,7 @@ declare namespace camera {
     camera: CameraDevice;
 
     /**
-     * Camera status.
+     * 相机状态。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1647,7 +1600,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the fold state information about a foldable device.
+   * 相机管理器回调返回的接口实例，表示折叠机折叠状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1656,7 +1609,7 @@ declare namespace camera {
    */
   interface FoldStatusInfo {
     /**
-     * List of cameras supported in the current fold state.
+     * 当前折叠状态所支持的相机信息列表。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1666,7 +1619,7 @@ declare namespace camera {
     readonly supportedCameras: Array<CameraDevice>;
 
     /**
-     * Fold state.
+     * 折叠屏折叠状态。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1677,7 +1630,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera positions.
+   * 枚举，相机位置。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 12]
@@ -1686,7 +1639,7 @@ declare namespace camera {
    */
   enum CameraPosition {
     /**
-     * A camera that does not have a fixed orientation relative to the device screen.
+     * 相对于设备屏幕没有固定的朝向的相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -1696,7 +1649,7 @@ declare namespace camera {
     CAMERA_POSITION_UNSPECIFIED = 0,
 
     /**
-     * Rear camera.
+     * 后置相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -1706,7 +1659,7 @@ declare namespace camera {
     CAMERA_POSITION_BACK = 1,
 
     /**
-     * Front camera.
+     * 前置相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -1716,9 +1669,9 @@ declare namespace camera {
     CAMERA_POSITION_FRONT = 2,
 
     /**
-     * Folded camera.
+     * 折叠态相机。
      * 
-     * This API is supported since API version 11 and deprecated since API version 12.
+     * 从API version 11开始支持，从API version 12开始废弃。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -1731,7 +1684,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera types.
+   * 枚举，相机类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1740,7 +1693,7 @@ declare namespace camera {
    */
   enum CameraType {
     /**
-     * Default camera type.
+     * 默认相机类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1750,7 +1703,7 @@ declare namespace camera {
     CAMERA_TYPE_DEFAULT = 0,
 
     /**
-     * Wide camera.
+     * 广角相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1760,7 +1713,7 @@ declare namespace camera {
     CAMERA_TYPE_WIDE_ANGLE = 1,
 
     /**
-     * Ultra-wide camera.
+     * 超广角相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1770,7 +1723,7 @@ declare namespace camera {
     CAMERA_TYPE_ULTRA_WIDE = 2,
 
     /**
-     * Telephoto camera.
+     * 长焦相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1780,7 +1733,7 @@ declare namespace camera {
     CAMERA_TYPE_TELEPHOTO = 3,
 
     /**
-     * Camera with depth of field information.
+     * 带景深信息的相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1791,7 +1744,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera connection types.
+   * 枚举，相机连接类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1800,7 +1753,7 @@ declare namespace camera {
    */
   enum ConnectionType {
     /**
-     * Built-in camera.
+     * 内置相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1810,7 +1763,7 @@ declare namespace camera {
     CAMERA_CONNECTION_BUILT_IN = 0,
 
     /**
-     * Camera connected using USB.
+     * USB连接的相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1820,7 +1773,7 @@ declare namespace camera {
     CAMERA_CONNECTION_USB_PLUGIN = 1,
 
     /**
-     * Remote camera.
+     * 远程连接的相机。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1831,7 +1784,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the remote camera types.
+   * 枚举，远端相机设备类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 10 - 14]
@@ -1842,7 +1795,7 @@ declare namespace camera {
    */
   enum HostDeviceType {
     /**
-     * Unknown type.
+     * 未知设备类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
@@ -1854,7 +1807,7 @@ declare namespace camera {
     UNKNOWN_TYPE = 0,
 
     /**
-     * Mobile phone.
+     * 手机设备。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
@@ -1866,7 +1819,7 @@ declare namespace camera {
     PHONE = 0x0E,
 
     /**
-     * Tablet.
+     * 平板设备。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
@@ -1879,7 +1832,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the camera device information.
+   * 相机设备信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -1888,7 +1841,7 @@ declare namespace camera {
    */
   interface CameraDevice {
     /**
-     * Camera ID.
+     * 相机ID。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1898,7 +1851,7 @@ declare namespace camera {
     readonly cameraId: string;
 
     /**
-     * Camera position.
+     * 相机位置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1908,7 +1861,7 @@ declare namespace camera {
     readonly cameraPosition: CameraPosition;
 
     /**
-     * Camera type.
+     * 相机类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1918,7 +1871,7 @@ declare namespace camera {
     readonly cameraType: CameraType;
 
     /**
-     * Camera connection type.
+     * 相机连接类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1928,7 +1881,7 @@ declare namespace camera {
     readonly connectionType: ConnectionType;
 
     /**
-     * Remote device name. If no remote device is available, an empty value is returned.
+     * 远端设备名称。若当前无远端设备，返回为空。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
@@ -1940,7 +1893,7 @@ declare namespace camera {
     readonly hostDeviceName: string;
 
     /**
-     * Remote device type.
+     * 远端设备类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
@@ -1952,7 +1905,7 @@ declare namespace camera {
     readonly hostDeviceType: HostDeviceType;
 
     /**
-     * Camera installation angle, which does not change as the screen rotates. The value range is [0, 360], in degrees.
+     * 相机安装角度，不会随着屏幕旋转而改变。取值范围为[0, 360]。单位：度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -1972,7 +1925,7 @@ declare namespace camera {
     readonly isRetractable?: boolean;
 
     /**
-     * Equivalent focal length of the camera lens.
+     * 相机镜头等效焦距。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 20 - 23]
@@ -1984,8 +1937,7 @@ declare namespace camera {
     readonly lensEquivalentFocalLength?: Array<int>;
 
     /**
-     * Whether a camera is a logical camera (consisting of multiple physical cameras). **true** if the camera is a 
-     * logical camera, **false** otherwise.
+     * 是否为逻辑摄像头（由多个物理相机组成）, true表示是逻辑摄像头，false表示是物理摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -1995,7 +1947,7 @@ declare namespace camera {
     readonly isLogicalCamera?: boolean;
 
     /**
-     * List of physical cameras that form the logical camera.
+     * 组成此逻辑相机的物理相机列表。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2005,7 +1957,7 @@ declare namespace camera {
     readonly constituentCameraDevices?: Array<CameraDevice>;
 
     /**
-     * Actual focal length of the lens.
+     * 镜头实际焦距。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2015,7 +1967,7 @@ declare namespace camera {
     readonly lensFocalLength?: double;
 
     /**
-     * Minimum focus distance of the camera.
+     * 相机最小对焦距离。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2025,7 +1977,7 @@ declare namespace camera {
     readonly minimumFocusDistance?: double;
 
     /**
-     * Array of lens distortion parameters.
+     * 镜头畸变参数数组。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2035,7 +1987,7 @@ declare namespace camera {
     readonly lensDistortion?: Array<double>;
 
     /**
-     * Array of lens intrinsic calibration parameters.
+     * 镜头内参标定参数数组。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2045,7 +1997,7 @@ declare namespace camera {
     readonly lensIntrinsicCalibration?: Array<double>;
 
     /**
-     * Physical dimensions (width and height) of the sensor.
+     * 传感器物理尺寸（宽度和高度）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2055,7 +2007,7 @@ declare namespace camera {
     readonly sensorPhysicalSize?: Array<double>;
 
     /**
-     * Pixel array dimensions (width and height, in pixels) of the sensor.
+     * 传感器像素阵列尺寸（宽度和高度。单位：像素）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2065,7 +2017,7 @@ declare namespace camera {
     readonly sensorPixelArraySize?: Array<int>;
 
     /**
-     * Arrangement mode of the sensor color filter.
+     * 传感器颜色滤镜排列方式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2075,7 +2027,7 @@ declare namespace camera {
     readonly sensorColorFilterArrangement?: SensorColorFilterArrangement;
 
     /**
-     * Automotive camera position attribute.
+     * Car设备摄像头位置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -2086,7 +2038,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the image dimensions.
+   * 尺寸参数。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2095,7 +2047,7 @@ declare namespace camera {
    */
   interface Size {
     /**
-     * Image height, in pixels.
+     * 图像尺寸高（像素）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2105,7 +2057,7 @@ declare namespace camera {
     height: int;
 
     /**
-     * Image width, in pixels.
+     * 图像尺寸宽（像素）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2116,7 +2068,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the point coordinates, which are used for focus and exposure configuration.
+   * 点坐标用于对焦和曝光配置。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2125,7 +2077,7 @@ declare namespace camera {
    */
   interface Point {
     /**
-     * X coordinate of a point.
+     * 点的x坐标。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2135,7 +2087,7 @@ declare namespace camera {
     x: double;
 
     /**
-     * Y coordinate of a point.
+     * 点的y坐标。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2146,9 +2098,9 @@ declare namespace camera {
   }
 
   /**
-   * **CameraInput** defines the camera input object.
+   * 相机设备输入对象。
    * 
-   * It provides camera device information used in [Session]{@link camera.Session}.
+   * 会话中[Session]{@link camera.Session}使用的相机信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2157,11 +2109,10 @@ declare namespace camera {
    */
   interface CameraInput {
     /**
-     * Opens this camera device. This API uses an asynchronous callback to return the result.
+     * 打开相机，通过注册回调函数获取状态。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the camera device is opened
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当打开相机成功，err为undefined，否则为错误对象，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2173,9 +2124,9 @@ declare namespace camera {
     open(callback: AsyncCallback<void>): void;
 
     /**
-     * Opens this camera device. This API uses a promise to return the result.
+     * 打开相机，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
@@ -2188,12 +2139,11 @@ declare namespace camera {
     open(): Promise<void>;
 
     /**
-     * Opens this camera device. This API uses a promise to return the result.
+     * 打开相机。使用Promise异步回调。
      *
-     * @param { boolean } isSecureEnabled - Whether to open the camera device in secure mode. **true** to open in secure
-     *     mode, **false** otherwise. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
-     * @returns { Promise<bigint> } Promise used to return the handle to the camera device in secure mode.
+     * @param { boolean } isSecureEnabled - 设置true为使能以安全的方式打开相机，设置false则反之。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
+     * @returns { Promise<bigint> } Promise对象，返回安全相机的句柄。
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -2205,11 +2155,10 @@ declare namespace camera {
     open(isSecureEnabled: boolean): Promise<bigint>;
 
     /**
-     * Closes this camera device. This API uses an asynchronous callback to return the result.
+     * 关闭相机，通过注册回调函数获取状态。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the camera device is closed
-     *     successfully, **err** is **undefined**. Otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当关闭相机成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2219,9 +2168,9 @@ declare namespace camera {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes this camera device. This API uses a promise to return the result.
+     * 关闭相机，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2246,19 +2195,15 @@ declare namespace camera {
     closeDelayed(time: int): Promise<void>;
 
     /**
-     * Subscribes to CameraInput error events. This API uses an asynchronous callback to return the result.
+     * 监听CameraInput的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     CameraInput instance is created. This event is triggered and the result is returned when an error occurs on
-     *     the camera device. For example, if the camera device is unavailable or a conflict occurs, the error
-     *     information is returned.
-     * @param { CameraDevice } camera - Camera device.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，CameraInput对象创建成功可监听。相机设备出错情况下可触发该事件并返回结果，比如设备不可用或者冲突等返回对应错误信息。
+     * @param { CameraDevice } camera - CameraDevice对象。
+     * @param { ErrorCallback } callback - 回调函数，用于获取结果。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -2276,16 +2221,11 @@ declare namespace camera {
     onError(camera: CameraDevice, callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from CameraInput error events.
+     * 注销监听CameraInput的错误事件。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     CameraInput instance is created. This event is triggered and the result is returned when an error occurs on
-     *     the camera device. For example, if the camera device is unavailable or a conflict occurs, the error
-     *     information is returned.
-     * @param { CameraDevice } camera - Camera device.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, only the
-     *     corresponding callback will be unregistered (the callback object cannot be an anonymous function); otherwise,
-     *     all registered callbacks will be unregistered.
+     * @param { 'error' } type - 监听事件，固定为'error'，CameraInput对象创建成功可监听。相机设备出错情况下可触发该事件并返回结果，比如设备不可用或者冲突等返回对应错误信息。
+     * @param { CameraDevice } camera - CameraDevice对象。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -2303,16 +2243,15 @@ declare namespace camera {
     offError(camera: CameraDevice, callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to **CameraInput** occlusion events. This API uses an asynchronous callback to return the result.
+     * 监听CameraInput的镜头遮挡或脏污事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'cameraOcclusionDetection' } type - Event type. The value is fixed at **'cameraOcclusionDetection'**.
-     *     The event can be listened for when a **CameraInput** instance is created. It is triggered when the occlusion
-     *     status of the camera lens changes, and the occlusion status is returned.
-     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to return the occlusion status.
+     * @param { 'cameraOcclusionDetection' } type - 监听事件，固定为'cameraOcclusionDetection'，CameraInput对象创建成功可监听。相机镜头被遮挡或有脏污可
+     *     触发该事件并返回结果。
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - 回调函数，用于获取结果。返回遮挡状态。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 22]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 22]
@@ -2332,15 +2271,12 @@ declare namespace camera {
     onCameraOcclusionDetection(callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
-     * Unsubscribes from **CameraInput** occlusion events. This API uses an asynchronous callback to return the result.
+     * 注销监听CameraInput的镜头遮挡或脏污事件。使用callback异步回调。
      *
-     * @param { 'cameraOcclusionDetection' } type - Event type. The value is fixed at **'cameraOcclusionDetection'**.
-     *     The event can be listened for when a **CameraInput** instance is created. It is triggered when the occlusion
-     *     status of the camera lens changes, and the occlusion status is returned.
-     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to return the result. If this
-     *     parameter is specified, the subscription to the specified event with the specified callback is canceled. (The
-     *     callback object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with
-     *     all the callbacks are canceled.
+     * @param { 'cameraOcclusionDetection' } type - 监听事件，固定为'cameraOcclusionDetection'，CameraInput对象创建成功可监听。相机镜头被遮挡或有脏污可
+     *     触发该事件并返回结果。
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否
+     *     则取消所有callback。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 22]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 22]
@@ -2390,10 +2326,9 @@ declare namespace camera {
     controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
 
     /**
-     * Checks whether the physical camera orientation is adjustable in different fold states of the device.
+     * 查询设备不同折叠状态下，相机物理镜头角度是否可变。
      *
-     * @returns { boolean } Checks whether the physical camera orientation is adjustable in different fold states of the
-     *     device. **true** if adjustable, **false** otherwise. If the API call fails, undefined is returned.
+     * @returns { boolean } 查询设备不同折叠状态下，相机物理镜头角度是否可变。true表示可变，false表示不可变。若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 22 dynamic
@@ -2402,10 +2337,10 @@ declare namespace camera {
     isPhysicalCameraOrientationVariable(): boolean;
 
     /**
-     * Obtains the physical camera orientation in the current fold state of the device.
+     * 获取设备当前折叠状态下的物理镜头角度。
      *
-     * @returns { int } Physical camera orientation.
-     *     <br>The value ranges from 0 to 360, in degrees.
+     * @returns { int } 返回设备当前折叠状态下的物理镜头角度。
+     *     <br>单位为度数（degree），取值范围为[0, 360]。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 22 dynamic
@@ -2414,10 +2349,9 @@ declare namespace camera {
     getPhysicalCameraOrientation(): int;
 
     /**
-     * Enables or disables the use of the physical camera orientation.
+     * 选择是否使用物理镜头角度。
      *
-     * @param { boolean } isUsed - Enables or disables the use of the physical camera orientation. **true** to enable,
-     *     **false** otherwise.
+     * @param { boolean } isUsed - 选择是否使用物理镜头角度。true表示使用，false表示不使用。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2428,11 +2362,10 @@ declare namespace camera {
     usePhysicalCameraOrientation(isUsed: boolean): void;
 
     /**
-     * Opens the camera with the specified concurrency type. This API uses a promise to return the result.
+     * 以指定的并发类型打开相机。使用Promise异步回调。
      *
-     * @param { CameraConcurrentType } type - Concurrency type. If the API fails to be called, an error code is
-     *     returned.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { CameraConcurrentType } type - 以指定的并发类型打开相机。接口调用失败会返回相应错误码。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
@@ -2446,7 +2379,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera scene modes.
+   * 枚举，相机模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2455,7 +2388,7 @@ declare namespace camera {
    */
   enum SceneMode {
     /**
-     * Normal photo mode. For details, see [PhotoSession]{@link camera.PhotoSession}.
+     * 普通拍照模式。详情见[PhotoSession]{@link camera.PhotoSession}。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2465,7 +2398,7 @@ declare namespace camera {
     NORMAL_PHOTO = 1,
 
     /**
-     * Normal record mode. For details, see [VideoSession]{@link camera.VideoSession}.
+     * 普通录像模式。详情见[VideoSession]{@link camera.VideoSession}。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2574,7 +2507,7 @@ declare namespace camera {
     HIGH_RESOLUTION_PHOTO = 11,
 
     /**
-     * Secure mode. For details, see [SecureSession]{@link camera.SecureSession}.
+     * 安全相机模式。详情见[SecureSession]{@link camera.SecureSession}。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2640,7 +2573,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera output formats.
+   * 枚举，输出格式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2649,7 +2582,7 @@ declare namespace camera {
    */
   enum CameraFormat {
     /**
-     * RGBA_8888 image.
+     * RGBA_8888格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2659,7 +2592,7 @@ declare namespace camera {
     CAMERA_FORMAT_RGBA_8888 = 3,
 
     /**
-     * Digital Negative (DNG) image.
+     * DNG（数字负片）格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -2671,7 +2604,7 @@ declare namespace camera {
     CAMERA_FORMAT_DNG = 4,
 
     /**
-     * YUV_420_SP image, which corresponds to the NV21 image.
+     * YUV_420_SP格式的图片，对应为NV21格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2681,7 +2614,7 @@ declare namespace camera {
     CAMERA_FORMAT_YUV_420_SP = 1003,
 
     /**
-     * JPEG image.
+     * JPEG格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2691,7 +2624,7 @@ declare namespace camera {
     CAMERA_FORMAT_JPEG = 2000,
 
     /**
-     * YCBCR_P010 image.
+     * YCBCR_P010格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2701,7 +2634,7 @@ declare namespace camera {
     CAMERA_FORMAT_YCBCR_P010,
 
     /**
-     * YCRCB_P010 image.
+     * YCRCB_P010格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2711,7 +2644,7 @@ declare namespace camera {
     CAMERA_FORMAT_YCRCB_P010 = 2002,
 
     /**
-     * HEIF image.
+     * HEIF格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2741,7 +2674,7 @@ declare namespace camera {
     CAMERA_FORMAT_DEPTH_32 = 3001,
 
     /**
-     * Enhanced image in DNG format.
+     * 增强型DNG格式的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 18 - 24]
@@ -2754,7 +2687,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the flash modes.
+   * 枚举，闪光灯模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2763,7 +2696,7 @@ declare namespace camera {
    */
   enum FlashMode {
     /**
-     * The flash is off.
+     * 闪光灯关闭。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2773,7 +2706,7 @@ declare namespace camera {
     FLASH_MODE_CLOSE = 0,
 
     /**
-     * The flash is on.
+     * 闪光灯打开。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2783,7 +2716,7 @@ declare namespace camera {
     FLASH_MODE_OPEN = 1,
 
     /**
-     * The flash mode is auto, indicating that the flash fires automatically depending on the photo capture conditions.
+     * 自动闪光灯。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2793,7 +2726,7 @@ declare namespace camera {
     FLASH_MODE_AUTO = 2,
 
     /**
-     * The flash is steady on.
+     * 闪光灯常亮。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2834,14 +2767,11 @@ declare namespace camera {
   }
 
   /**
-   * FlashQuery provides APIs to query the flash status and mode of a camera device.
+   * 提供了查询设备的闪光灯状态和模式的能力。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This interface was first introduced in API version 12. In this version, a compatibility change was made that 
-   * > preserved the initial version information of inner elements. As a result, you might see outer element's @since 
-   * > version number being higher than that of the inner elements. However, this discrepancy does not affect the 
-   * > functionality of the interface.
+   * > - 本Interface的起始版本为API version 12。接口在API version 12发生兼容变更，保留了内层元素的起始版本信息，会出现外层元素@since版本号大于内层元素的情况，不影响接口使用。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2850,14 +2780,12 @@ declare namespace camera {
    */
   interface FlashQuery {
     /**
-     * Checks whether the camera device has flash.
+     * 检测是否有闪光灯，返回是否支持闪光灯。
      *
-     * @returns { boolean } Whether the camera has flash. **true** if it has, **false** otherwise.
-     *     <br>If **false** is returned, [isFlashModeSupported]{@link camera.FlashQuery.isFlashModeSupported},
-     *     [setFlashMode]{@link camera.Flash.setFlashMode}, and [getFlashMode]{@link camera.Flash.getFlashMode} do not
-     *     take effect.
-     *     <br>If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is
-     *     returned.
+     * @returns { boolean } 表示设备是否支持闪光灯。true表示支持闪光灯，false表示不支持闪光灯。
+     *     <br>如果返回false，则[isFlashModeSupported]{@link camera.FlashQuery.isFlashModeSupported}、
+     *     [setFlashMode]{@link camera.Flash.setFlashMode}和[getFlashMode]{@link camera.Flash.getFlashMode}都不会生效。
+     *     <br>接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2867,13 +2795,11 @@ declare namespace camera {
     hasFlash(): boolean;
 
     /**
-     * Checks whether a flash mode is supported.
+     * 检测闪光灯模式是否支持。
      *
-     * @param { FlashMode } flashMode - Flash mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     the flash is turned off.
-     * @returns { boolean } Check result for the support of the flash mode. **true** if supported, **false** otherwise.
-     *     If the operation fails, undefined is returned and an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @param { FlashMode } flashMode - 指定闪光灯模式。传参为null或者undefined，作为0处理，闪光灯关闭。
+     * @returns { boolean } 检测表示支持该闪光灯模式。true表示支持，false表示不支持。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2897,9 +2823,9 @@ declare namespace camera {
   }
 
   /**
-   * **Flash** inherits from [FlashQuery]{@link camera.FlashQuery}.
+   * Flash继承自[FlashQuery]{@link camera.FlashQuery}。
    * 
-   * It provides APIs related to the flash.
+   * 闪光灯类，对设备闪光灯操作。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -2908,10 +2834,10 @@ declare namespace camera {
    */
   interface Flash extends FlashQuery {
     /**
-     * Obtains the flash mode in use.
+     * 获取当前设备的闪光灯模式。
      *
-     * @returns { FlashMode } Flash mode obtained. If the operation fails, undefined is returned and an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @returns { FlashMode } 获取当前设备的闪光灯模式。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2921,15 +2847,14 @@ declare namespace camera {
     getFlashMode(): FlashMode;
 
     /**
-     * Sets a flash mode.
+     * 设置闪光灯模式。
      * 
-     * Before the setting, do the following checks:
+     * 进行设置之前，需要先检查：
      * 
-     * 1. Use [hasFlash]{@link camera.FlashQuery.hasFlash} to check whether the camera device has flash.
-     * 2. Use [isFlashModeSupported]{@link camera.FlashQuery.isFlashModeSupported} to check whether the camera device supports the flash mode.
+     * 1. 设备是否支持闪光灯，可使用方法[hasFlash]{@link camera.FlashQuery.hasFlash}。
+     * 2. 设备是否支持指定的闪光灯模式，可使用方法[isFlashModeSupported]{@link camera.FlashQuery.isFlashModeSupported}。
      *
-     * @param { FlashMode } flashMode - Flash mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     the flash is turned off.
+     * @param { FlashMode } flashMode - 指定闪光灯模式。传参为null或者undefined，作为0处理，闪光灯关闭。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -2956,9 +2881,9 @@ declare namespace camera {
     enableLcdFlash(enabled: boolean): void;
 
     /**
-     * Subscribes to flash light status change events.
+     * 订阅闪光灯状态变化事件回调。
      *
-     * @param { Callback<FlashState> } callback - Callback used to return the flash light status.
+     * @param { Callback<FlashState> } callback - 回调函数，用于获取闪光灯状态变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -2967,12 +2892,9 @@ declare namespace camera {
     onFlashStateChange(callback: Callback<FlashState>): void;
 
     /**
-     * Unsubscribes from flash light status change events.
+     * 取消订阅闪光灯状态变化事件回调。
      *
-     * @param { Callback<FlashState> } [callback] - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { Callback<FlashState> } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -2982,7 +2904,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the flash states.
+   * 枚举，闪光灯状态。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -2991,7 +2913,7 @@ declare namespace camera {
    */
   enum FlashState {
     /**
-     * The flash is unavailable. This is the default value.
+     * 闪光灯为不可用状态，为默认值。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3001,7 +2923,7 @@ declare namespace camera {
     FLASH_STATE_UNAVAILABLE = 0,
 
     /**
-     * The flash is available.
+     * 闪光灯为可用状态。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3011,7 +2933,7 @@ declare namespace camera {
     FLASH_STATE_READY = 1,
 
     /**
-     * The flash is turned on.
+     * 闪光灯已经被打开。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3022,7 +2944,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the exposure modes.
+   * 枚举，曝光模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3031,7 +2953,7 @@ declare namespace camera {
    */
   enum ExposureMode {
     /**
-     * Unspecified exposure.
+     * 曝光模式未指定。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3041,9 +2963,9 @@ declare namespace camera {
     EXPOSURE_MODE_UNSPECIFIED = -1,
 
     /**
-     * Exposure locked. The metering point cannot be set.
+     * 锁定曝光模式。不支持曝光区域中心点设置。
      * 
-     * After this mode is used, the exposure will be locked by default for each photo capture.
+     * 设置该模式后，每次拍照时曝光都会默认锁定。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3053,10 +2975,9 @@ declare namespace camera {
     EXPOSURE_MODE_LOCKED = 0,
 
     /**
-     * Auto exposure. The metering point can be set by calling 
-     * [AutoExposure.setMeteringPoint]{@link camera.AutoExposure.setMeteringPoint}.
+     * 自动曝光模式。支持曝光区域中心点设置，可以使用[AutoExposure.setMeteringPoint]{@link camera.AutoExposure.setMeteringPoint}接口设置曝光区域中心点。
      * 
-     * After this mode is used, it takes effect only for the first photo capture.
+     * 设置该模式后，仅设置后的首次拍照生效。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3066,10 +2987,9 @@ declare namespace camera {
     EXPOSURE_MODE_AUTO = 1,
 
     /**
-     * Continuous auto exposure. The metering point cannot be set.
+     * 连续自动曝光。不支持曝光区域中心点设置。
      * 
-     * After this mode is used, the camera system automatically adjusts the exposure based on the environment changes 
-     * each time.
+     * 设置该模式后，拍照系统会根据每次的环境变化自动调整曝光。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3079,10 +2999,11 @@ declare namespace camera {
     EXPOSURE_MODE_CONTINUOUS_AUTO = 2,
 
     /**
-     * Manual exposure. The exposure duration can be set.
+     * 手动曝光。支持设置曝光时长。
      * 
-     * In this mode, you can set the exposure duration by calling 
-     * [ManualExposure.setExposureDuration](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md#setexposureduration24).
+     * 设置该模式后，用户可通过
+     * [ManualExposure.setExposureDuration](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md#setexposureduration24)
+     * 设置曝光时长。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -3095,7 +3016,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the exposure states.
+   * 枚举，曝光状态。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -3104,7 +3025,7 @@ declare namespace camera {
    */
   enum ExposureState {
     /**
-     * Focusing.
+     * 曝光处于扫描状态。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3114,7 +3035,7 @@ declare namespace camera {
     EXPOSURE_STATE_SCAN = 0,
 
     /**
-     * Exposure converged.
+     * 曝光已经收敛。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3125,7 +3046,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the exposure metering modes.
+   * 枚举，曝光测光模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 23]
@@ -3136,7 +3057,7 @@ declare namespace camera {
    */
   enum ExposureMeteringMode {
     /**
-     * Matrix metering mode. A wide area of the screen is selected, which is ideal for shooting natural landscapes.
+     * 矩阵测光模式。对画面广泛区域进行测光，适合拍摄自然风光。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -3148,8 +3069,7 @@ declare namespace camera {
     MATRIX = 0,
 
     /**
-     * Center-weighted metering mode. Metering is performed on the entire image, with the center allocated with the 
-     * maximum weight, which is ideal for shooting portraits.
+     * 中心测光模式。对整个画面进行测光，但最大比重分配给中央区域，适合拍摄人像。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -3161,8 +3081,7 @@ declare namespace camera {
     CENTER = 1,
 
     /**
-     * Spot metering mode. Metering is performed around 2.5% of the metering points, focusing on the light in a specific
-     * small area, such as the eyes of the subject.
+     * 点测光模式。对画面测光点周围约2.5%进行测光，专注于特定微小区域的光线，如被摄主体的眼睛。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -3186,11 +3105,9 @@ declare namespace camera {
   }
 
   /**
-   * AutoExposureQuery provides APIs to query the automatic exposure feature of a camera device.
+   * 针对设备的自动曝光特性提供了一系列查询功能。
    * >
-   * > - In this version, a compatibility change was made that preserved the initial version information of inner 
-   * > elements. As a result, you might see outer element's @since version number being higher than that of the inner 
-   * > elements. However, this discrepancy does not affect the functionality of the interface.
+   * > - 本模块接口在API version 12发生兼容变更，保留了内层元素的起始版本信息，会出现外层元素@since版本号大于内层元素的情况，不影响接口使用。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3199,13 +3116,11 @@ declare namespace camera {
    */
   interface AutoExposureQuery {
     /**
-     * Checks whether an exposure mode is supported.
+     * 检测曝光模式是否支持。
      *
-     * @param { ExposureMode } aeMode - Exposure mode. If the input parameter is null or undefined, it is treated as 0
-     *     and exposure is locked.
-     * @returns { boolean } Check result for the support of the exposure mode. **true** if supported, **false**
-     *     otherwise. If the operation fails, undefined is returned and an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @param { ExposureMode } aeMode - 曝光模式。传参为null或者undefined，作为0处理，曝光锁定。
+     * @returns { boolean } 获取是否支持曝光模式，true为支持，false为不支持。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3215,10 +3130,9 @@ declare namespace camera {
     isExposureModeSupported(aeMode: ExposureMode): boolean;
 
     /**
-     * Obtains the exposure compensation values of the camera device.
+     * 查询曝光补偿范围。
      *
-     * @returns { Array<double> } Array of compensation values. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Array<double> } 获取补偿范围的数组。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3228,10 +3142,10 @@ declare namespace camera {
     getExposureBiasRange(): Array<double>;
 
     /**
-     * Checks whether the specified exposure metering mode is supported.
+     * 检测是否支持指定的曝光测光模式。
      *
-     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
-     * @returns { boolean } Whether the exposure metering mode is supported. **true** if supported, **false** otherwise.
+     * @param { ExposureMeteringMode } aeMeteringMode - 曝光测光模式。
+     * @returns { boolean } 是否支持曝光测光模式。true表示支持，false表示不支持
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 23]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12 - 23]
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
@@ -3246,9 +3160,9 @@ declare namespace camera {
   }
 
   /**
-   * **AutoExposure** inherits from [AutoExposureQuery]{@link camera.AutoExposureQuery}.
+   * AutoExposure继承自[AutoExposureQuery]{@link camera.AutoExposureQuery}。
    * 
-   * It provides APIs related to auto exposure.
+   * 自动曝光类，对设备自动曝光（AE）操作。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3257,15 +3171,14 @@ declare namespace camera {
    */
   interface AutoExposure extends AutoExposureQuery {
     /**
-     * Obtains the exposure mode in use.
+     * 获取当前曝光模式。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API directly returns an invalid value if you have not set the exposure mode using 
-     * > [setExposureMode]{@link camera.AutoExposure.setExposureMode}.
+     * > 若未通过[setExposureMode]{@link camera.AutoExposure.setExposureMode}接口进行设置，直接调用该接口查询当前曝光模式，会返回无效值。
      *
-     * @returns { ExposureMode } Exposure mode obtained. If the operation fails, undefined is returned and an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @returns { ExposureMode } 获取当前曝光模式。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3275,12 +3188,10 @@ declare namespace camera {
     getExposureMode(): ExposureMode;
 
     /**
-     * Sets an exposure mode. Before the setting, call 
-     * [isExposureModeSupported]{@link camera.AutoExposureQuery.isExposureModeSupported} to check whether the exposure 
-     * mode is supported.
+     * 设置曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法
+     * [isExposureModeSupported]{@link camera.AutoExposureQuery.isExposureModeSupported}。
      *
-     * @param { ExposureMode } aeMode - Exposure mode. If the input parameter is null or undefined, it is treated as 0
-     *     and exposure is locked.
+     * @param { ExposureMode } aeMode - 曝光模式。传参为null或者undefined，作为0处理，曝光锁定。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 19]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -3291,10 +3202,9 @@ declare namespace camera {
     setExposureMode(aeMode: ExposureMode): void;
 
     /**
-     * Obtains the metering point of the camera device.
+     * 查询曝光区域中心点。
      *
-     * @returns { Point } Metering point obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Point } 获取当前曝光点。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3304,16 +3214,11 @@ declare namespace camera {
     getMeteringPoint(): Point;
 
     /**
-     * Sets the metering point, which is the center point of the metering rectangle. The metering point must be in the 
-     * coordinate system (0-1), where the top-left corner is {0, 0} and the bottom-right corner is {1, 1}.
+     * 设置曝光区域中心点，曝光点应在0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
      * 
-     * The coordinate system is based on the horizontal device direction with the device's charging port on the right. 
-     * If the layout of the preview screen of an application is based on the vertical direction with the charging port 
-     * on the lower side, the layout width and height are {w, h}, and the touch point is {x, y}, then the coordinate 
-     * point after conversion is {y/h, 1-x/w}.
+     * 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触摸点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
      *
-     * @param { Point } point - Metering point. The value range of x and y must be within [0, 1]. If a value less than 0
-     *     is passed, the value **0** is used. If a value greater than **1** is passed, the value **1** is used.
+     * @param { Point } point - 曝光点，x、y设置范围应在[0，1]之内，超过范围，如果小于0设置0，大于1设置1。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3323,19 +3228,14 @@ declare namespace camera {
     setMeteringPoint(point: Point): void;
 
     /**
-     * Sets an exposure compensation value (EV).
+     * 设置曝光补偿，曝光补偿值（EV）。
      * 
-     * Before the setting, you are advised to use 
-     * [getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange} to obtain the supported values.
+     * 进行设置之前，建议先通过方法[getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange}查询支持的范围。
      *
-     * @param { double } exposureBias - EV. The supported EV range can be obtained by calling
-     *     [getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange}. If the value passed is not
-     *     within the supported range, the nearest critical point is used.
-     *     <br>Exposure compensation is adjusted in steps, and the step size may vary across devices due to hardware
-     *     differences. For example, if the step size is 0.5, setting a value of 1.2 would result in an actual effective
-     *     exposure compensation value of 1.0.
-     *     <br>If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is
-     *     returned.
+     * @param { double } exposureBias - 曝光补偿，[getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange}
+     *     查询支持的范围，如果设置超过支持范围的值，自动匹配到就近临界点。
+     *     <br>曝光补偿存在步长，由于设备差异，步长也存在差异。例如步长为0.5，则设置1.2时，获取到实际生效曝光补偿为1.0。
+     *     <br>接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -3346,12 +3246,10 @@ declare namespace camera {
     setExposureBias(exposureBias: double): void;
 
     /**
-     * Obtains the exposure value in use.
+     * 查询当前曝光值。
      *
-     * @returns { double } Exposure value obtained. There is a step for EV. For example, if the step is 0.5 and this
-     *     parameter is set to 1.2, the EV that takes effect is 1.0.
-     *     <br>If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is
-     *     returned.
+     * @returns { double } 获取曝光值。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。
+     *     <br>接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3361,9 +3259,9 @@ declare namespace camera {
     getExposureValue(): double;
 
     /**
-     * Obtains the exposure metering mode in use.
+     * 获取当前曝光测光模式。
      *
-     * @returns { ExposureMeteringMode } Exposure metering mode obtained.
+     * @returns { ExposureMeteringMode } 当前曝光测光模式。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 23]
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400102 - Operation not allowed, the inputDevice or the session is abnormal. [since 24]
@@ -3377,9 +3275,9 @@ declare namespace camera {
     getExposureMeteringMode(): ExposureMeteringMode;
 
     /**
-     * Sets exposure metering mode.
+     * 设置曝光测光模式。
      *
-     * @param { ExposureMeteringMode } aeMeteringMode - Exposure metering mode.
+     * @param { ExposureMeteringMode } aeMeteringMode - 曝光测光模式。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 23]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12 - 23]
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
@@ -3394,9 +3292,9 @@ declare namespace camera {
     setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void;
 
     /**
-     * Listens to exposure state change events. This API uses an asynchronous callback to return the result.
+     * 监听曝光状态事件变更。使用callback异步回调。
      *
-     * @param { Callback<ExposureState> } callback - Callback used to return the exposure state.
+     * @param { Callback<ExposureState> } callback - 回调函数，返回当前曝光状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -3405,13 +3303,9 @@ declare namespace camera {
     onExposureStateChange(callback: Callback<ExposureState>): void
 
     /**
-     * Unregisters the listener for exposure state change events. This API uses an asynchronous callback to return the 
-     * result.
+     * 注销监听曝光状态事件变更。使用callback异步回调。
      *
-     * @param { Callback<ExposureState> } [callback] - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. If the callback
-     *     object is null or an anonymous function, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { Callback<ExposureState> } [callback] - 回调函数，如果指定参数则取消对应callback，callback对象如果为空或为匿名函数，则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -3421,7 +3315,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the focus modes.
+   * 枚举，焦距模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3430,8 +3324,7 @@ declare namespace camera {
    */
   enum FocusMode {
     /**
-     * Manual focus. The focal length of the camera can be manually set to change the focus position. However, the focal
-     * point cannot be set.
+     * 手动对焦。通过手动修改相机焦距来改变对焦位置，不支持对焦点设置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3441,7 +3334,7 @@ declare namespace camera {
     FOCUS_MODE_MANUAL = 0,
 
     /**
-     * Continuous auto focus. The focal point cannot be set.
+     * 连续自动对焦。不支持对焦点设置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3451,8 +3344,7 @@ declare namespace camera {
     FOCUS_MODE_CONTINUOUS_AUTO = 1,
 
     /**
-     * Auto focus. The focal point can be set by calling [Focus.setFocusPoint]{@link camera.Focus.setFocusPoint}, and 
-     * auto focus is performed once based on the focal point.
+     * 自动对焦。支持对焦点设置，可以使用[Focus.setFocusPoint]{@link camera.Focus.setFocusPoint}设置对焦点，根据对焦点执行一次自动对焦。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3462,7 +3354,7 @@ declare namespace camera {
     FOCUS_MODE_AUTO = 2,
 
     /**
-     * Focus locked. The focal point cannot be set.
+     * 对焦锁定。不支持对焦点设置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3473,7 +3365,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the focus states.
+   * 枚举，焦距状态。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3482,7 +3374,7 @@ declare namespace camera {
    */
   enum FocusState {
     /**
-     * Focusing.
+     * 触发对焦。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3492,7 +3384,7 @@ declare namespace camera {
     FOCUS_STATE_SCAN = 0,
 
     /**
-     * Focused.
+     * 对焦成功。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3502,7 +3394,7 @@ declare namespace camera {
     FOCUS_STATE_FOCUSED = 1,
 
     /**
-     * Unfocused.
+     * 未完成对焦。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3624,14 +3516,11 @@ declare namespace camera {
   }
 
   /**
-   * FocusQuery provides APIs to check whether a focus mode is supported.
+   * 提供了查询是否支持当前对焦模式的方法。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This interface was first introduced in API version 12. In this version, a compatibility change was made that 
-   * > preserved the initial version information of inner elements. As a result, you might see outer element's @since 
-   * > version number being higher than that of the inner elements. However, this discrepancy does not affect the 
-   * > functionality of the interface.
+   * > - 本Interface的起始版本为API version 12。接口在API version 12发生兼容变更，保留了内层元素的起始版本信息，会出现外层元素@since版本号大于内层元素的情况，不影响接口使用。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -3640,13 +3529,11 @@ declare namespace camera {
    */
   interface FocusQuery {
     /**
-     * Checks whether a focus mode is supported.
+     * 检测对焦模式是否支持。
      *
-     * @param { FocusMode } afMode - Focus mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     manual focus is used.
-     * @returns { boolean } Check result for the support of the focus mode. **true** if supported, **false** otherwise.
-     *     If the operation fails, undefined is returned and an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @param { FocusMode } afMode - 指定的焦距模式。传参为null或者undefined，作为0处理，手动对焦模式。
+     * @returns { boolean } 检测对焦模式是否支持。true表示支持，false表示不支持。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3709,9 +3596,9 @@ declare namespace camera {
     isFocusDrivenTypeSupported(type: FocusDrivenType): boolean;
   
     /**
-     * Checks whether lock focus tracking is supported.
+     * 检查设备是否支持锁定焦点跟踪的功能。
      *
-     * @returns { boolean } Is the lock focus tracking supported.
+     * @returns { boolean } 检查是否支持锁定焦点跟踪。true表示支持，false表示不支持。接口调用失败会抛出相应错误码并返回undefined。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -3722,10 +3609,10 @@ declare namespace camera {
   }
 
   /**
-   * **Focus** inherits from [FocusQuery]{@link camera.FocusQuery}.
+   * Focus继承自[FocusQuery]{@link camera.FocusQuery}。
    * 
-   * It provides APIs related to focus operations.
-   *
+   * 对焦类，对设备对焦操作。
+   * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
@@ -3733,10 +3620,10 @@ declare namespace camera {
    */
   interface Focus extends FocusQuery {
     /**
-     * Obtains the focus mode in use.
+     * 获取当前的对焦模式。
      *
-     * @returns { FocusMode } Focus mode obtained. If the operation fails, undefined is returned and an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @returns { FocusMode } 获取当前设备的焦距模式。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3746,13 +3633,11 @@ declare namespace camera {
     getFocusMode(): FocusMode;
 
     /**
-     * Sets a focus mode.
+     * 设置对焦模式。
      * 
-     * Before the setting, call [isFocusModeSupported]{@link camera.FocusQuery.isFocusModeSupported} to check whether 
-     * the focus mode is supported.
+     * 进行设置之前，需要先检查设备是否支持指定的焦距模式，可使用方法[isFocusModeSupported]{@link camera.FocusQuery.isFocusModeSupported}。
      *
-     * @param { FocusMode } afMode - Focus mode. If the input parameter is null or undefined, it is treated as 0 and
-     *     manual focus is used.
+     * @param { FocusMode } afMode - 指定的焦距模式。传参为null或者undefined，作为0处理，手动对焦模式。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3762,16 +3647,11 @@ declare namespace camera {
     setFocusMode(afMode: FocusMode): void;
 
     /**
-     * Sets the focal point. The focal point must be in the coordinate system (0-1), where the top-left corner is {0, 0}
-     * and the bottom-right corner is {1, 1}.
+     * 设置焦点，焦点应在0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
      * 
-     * The coordinate system is based on the horizontal device direction with the device's charging port on the right. 
-     * If the layout of the preview screen of an application is based on the vertical direction with the charging port 
-     * on the lower side, the layout width and height are {w, h}, and the touch point is {x, y}, then the coordinate 
-     * point after conversion is {y/h, 1-x/w}.
+     * 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触碰点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
      *
-     * @param { Point } point - Focal point. The value range of x and y must be within [0, 1]. If a value less than 0 is
-     *     passed, the value **0** is used. If a value greater than **1** is passed, the value **1** is used.
+     * @param { Point } point - 焦点。x、y设置范围应在[0，1]之内，超过范围，如果小于0设置0，大于1设置1。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3781,10 +3661,9 @@ declare namespace camera {
     setFocusPoint(point: Point): void;
 
     /**
-     * Obtains the focal point in use.
+     * 查询当前的焦点。
      *
-     * @returns { Point } Focal point obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Point } 用于获取当前的焦点。接口调用失败会返回相应错误码，错误码类型为[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3794,10 +3673,9 @@ declare namespace camera {
     getFocusPoint(): Point;
 
     /**
-     * Obtains the focal length in use.
+     * 查询当前的焦距值。
      *
-     * @returns { double } Focal length, in mm. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { double } 用于获取当前焦距，单位mm。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -3903,9 +3781,9 @@ declare namespace camera {
     setFocusDriven(type: FocusDrivenType): void;
 
     /**
-     * Lock focus tracking.
+     * 锁定焦点跟踪，使对焦持续追踪指定的物体。通过focusPoint参数指定追踪目标。
      *
-     * @param { Point } focusPoint - lock focus tracking point.
+     * @param { Point } focusPoint - 锁定对焦跟踪点。x、y的取值范围均为 [0, 1]，超出范围则设置不生效。(0, 0)表示画面左上角，(1, 1)表示画面右下角。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -3916,7 +3794,7 @@ declare namespace camera {
     lockFocusTracking(focusPoint: Point): void;
 
     /**
-     * Unlock focus tracking.
+     * 解锁焦点跟踪。
      *
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -3996,7 +3874,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the white balance modes.
+   * 枚举，白平衡模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 19]
@@ -4007,7 +3885,7 @@ declare namespace camera {
    */
   enum WhiteBalanceMode {
     /**
-     * Automatic.
+     * 自动
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4019,7 +3897,7 @@ declare namespace camera {
     AUTO = 0,
 
     /**
-     * Cloudy.
+     * 阴天
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4031,7 +3909,7 @@ declare namespace camera {
     CLOUDY = 1,
 
     /**
-     * Incandescent light.
+     * 白炽光
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4043,7 +3921,7 @@ declare namespace camera {
     INCANDESCENT =2,
 
     /**
-     * Fluorescence light.
+     * 荧光
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4055,7 +3933,7 @@ declare namespace camera {
     FLUORESCENT =3,
 
     /**
-     * Daylight.
+     * 日光
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4067,7 +3945,7 @@ declare namespace camera {
     DAYLIGHT = 4,
 
     /**
-     * Manual.
+     * 手动
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4079,7 +3957,7 @@ declare namespace camera {
     MANUAL = 5,
 
     /**
-     * Locked.
+     * 锁定
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 19]
@@ -4092,8 +3970,7 @@ declare namespace camera {
   }
 
   /**
-   * WhiteBalanceQuery provides APIs to check whether a white balance mode is supported and obtain the white balance 
-   * mode range supported.
+   * 提供了查询设备对指定的白平衡模式是否支持，以及获取设备支持的白平衡模式范围的方法。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 19]
@@ -4104,11 +3981,10 @@ declare namespace camera {
    */
   interface WhiteBalanceQuery {
     /**
-     * Checks whether a white balance mode is supported.
+     * 检测是否支持当前传入的白平衡模式。
      *
-     * @param { WhiteBalanceMode } mode - White balance mode.
-     * @returns { boolean } Check result for the support of the white balance mode. **true** if supported, **false**
-     *     otherwise. If the API call fails, undefined is returned.
+     * @param { WhiteBalanceMode } mode - 白平衡模式。
+     * @returns { boolean } 表示是否支持白平衡模式。true表示支持，false表示不支持。若接口调用失败，返回undefined。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
@@ -4122,10 +3998,9 @@ declare namespace camera {
     isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean;
 
     /**
-     * Obtains the range of white balance values in manual white balance mode.
+     * 获取手动白平衡模式下，白平衡值的范围。
      *
-     * @returns { Array<int> } Range of white balance values, for example, [2800, ...,10000], in units of K (Kelvin).
-     *     The actual value depends on the bottom-layer capability. If the API call fails, undefined is returned.
+     * @returns { Array<int> } 用于获取手动白平衡值的可调范围，如[2800，10000]，单位为K（Kelvin，温度单位），实际情况根据底层能力返回为准。若接口调用失败，返回undefined。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4138,9 +4013,9 @@ declare namespace camera {
     getWhiteBalanceRange(): Array<int>;
  
     /**
-     * Obtains the supported white balance hue adjustment range.
+     * 获取支持配置的白平衡色调调节范围。
      *
-     * @returns { Array<int> } Hue adjustment range. If the API call fails, **undefined** is returned.
+     * @returns { Array<int> } 用于获取色调调节值的可调范围。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -4166,10 +4041,9 @@ declare namespace camera {
   }
 
   /**
-   * **WhiteBalance** inherits from [WhiteBalanceQuery]{@link camera.WhiteBalanceQuery}.
+   * WhiteBalance继承自[WhiteBalanceQuery]{@link camera.WhiteBalanceQuery}。
    * 
-   * It provides APIs to process white balance, including obtaining and setting the white balance mode and white balance
-   * value.
+   * 提供了处理设备白平衡的相关功能，包括获取和设置白平衡模式以及白平衡值。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 19]
@@ -4180,9 +4054,9 @@ declare namespace camera {
    */
   interface WhiteBalance extends WhiteBalanceQuery {
     /**
-     * Obtains the white balance mode in use.
+     * 获取当前白平衡模式。
      *
-     * @returns { WhiteBalanceMode } White balance mode in use. If the API call fails, undefined is returned.
+     * @returns { WhiteBalanceMode } 获取当前白平衡模式。若接口调用失败，返回undefined。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4195,11 +4069,10 @@ declare namespace camera {
     getWhiteBalanceMode(): WhiteBalanceMode;
 
     /**
-     * Sets a white balance mode. Before the setting, run
-     * [isWhiteBalanceModeSupported]{@link camera.WhiteBalanceQuery.isWhiteBalanceModeSupported}
-     * to check whether the device supports the specified white balance mode.
+     * 设置白平衡模式。设置之前需要先检查设备是否支持指定的白平衡模式，具体方法请参考
+     * [isWhiteBalanceModeSupported]{@link camera.WhiteBalanceQuery.isWhiteBalanceModeSupported}。
      *
-     * @param { WhiteBalanceMode } mode - White balance mode.
+     * @param { WhiteBalanceMode } mode - 白平衡模式。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -4213,9 +4086,9 @@ declare namespace camera {
     setWhiteBalanceMode(mode: WhiteBalanceMode): void;
 
     /**
-     * Obtains the current white balance value.
+     * 获取当前手动白平衡的值。
      *
-     * @returns { int } White balance value, in units of K (Kelvin)
+     * @returns { int } 返回当前白平衡值，单位为K（Kelvin，温度单位）。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4228,12 +4101,11 @@ declare namespace camera {
     getWhiteBalance(): int;
 
     /**
-     * Sets a white balance value.
-     * Before the setting, run
-     * [getWhiteBalanceRange]{@link camera.WhiteBalanceQuery.getWhiteBalanceRange} to check the
-     * white balance value range supported by the device.
+     * 设置手动白平衡值。
+     * 
+     * 设置之前需要先检查设备支持的白平衡值范围，具体方法请参考[getWhiteBalanceRange]{@link camera.WhiteBalanceQuery.getWhiteBalanceRange}。
      *
-     * @param { int } whiteBalance - White balance value, in units of K (Kelvin)
+     * @param { int } whiteBalance - 设置手动白平衡值，单位为K（Kelvin，温度单位）。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -4247,10 +4119,11 @@ declare namespace camera {
     setWhiteBalance(whiteBalance: int): void;
  
     /**
-     * Sets color tint.
+     * 设置白平衡的色调调节值。
+     * 
+     * 设置之前需要先检查设备支持配置的白平衡色调调节范围，具体方法请参考[getColorTintRange]{@link camera.WhiteBalanceQuery.getColorTintRange}。
      *
-     * @param { int } colorTint - Color tint, the supported range can be obtained by calling
-     *     [getColorTintRange]{@link camera.WhiteBalanceQuery.getColorTintRange}.
+     * @param { int } colorTint - 设置手动白平衡色调调节值。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -4260,9 +4133,9 @@ declare namespace camera {
     setColorTint(colorTint: int): void;
  
     /**
-     * Gets current color tint.
+     * 获取当前白平衡的色调调节值。
      *
-     * @returns { int } The current color tint.
+     * @returns { int } 返回当前白平衡色调调节值。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -4400,7 +4273,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the smooth zoom modes.
+   * 平滑变焦模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4409,7 +4282,7 @@ declare namespace camera {
    */
   enum SmoothZoomMode {
     /**
-     * Bessel curve mode.
+     * 贝塞尔曲线模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4420,7 +4293,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the smooth zoom information.
+   * 平滑变焦参数信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4429,7 +4302,7 @@ declare namespace camera {
    */
   interface SmoothZoomInfo {
     /**
-     * Total duration of smooth zoom, in milliseconds.
+     * 平滑变焦总时长。单位ms。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4440,7 +4313,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the equivalent focal length information.
+   * 等效焦距信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 24]
@@ -4451,7 +4324,7 @@ declare namespace camera {
    */
   interface ZoomPointInfo {
     /**
-     * Zoom ratio.
+     * 可变焦距比。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 24]
@@ -4463,7 +4336,7 @@ declare namespace camera {
     readonly zoomRatio: double;
 
     /**
-     * Equivalent focal length corresponding to the current focal length ratio.
+     * 当前焦距比对应的等效焦距值。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 24]
@@ -4476,15 +4349,11 @@ declare namespace camera {
   }
 
   /**
-   * ZoomQuery provides APIs to query the zoom feature of a device camera, including the API to obtain the supported 
-   * zoom ratio range.
+   * 提供了与设备的缩放相关的查询功能，包括获取支持的缩放比例范围。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This interface was first introduced in API version 12. In this version, a compatibility change was made that 
-   * > preserved the initial version information of inner elements. As a result, you might see outer element's @since 
-   * > version number being higher than that of the inner elements. However, this discrepancy does not affect the 
-   * > functionality of the interface.
+   * > - 本Interface的起始版本为API version 12。接口在API version 12发生兼容变更，保留了内层元素的起始版本信息，会出现外层元素@since版本号大于内层元素的情况，不影响接口使用。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4493,11 +4362,10 @@ declare namespace camera {
    */
   interface ZoomQuery {
     /**
-     * Obtains the supported zoom ratio range.
+     * 获取支持的变焦范围。
      *
-     * @returns { Array<double> } Array containing the minimum and maximum zoom ratios. If the operation fails,
-     *     undefined is returned and an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
-     *     If the device does not support zoom, **undefined** is returned when this API is called.
+     * @returns { Array<double> } 用于获取可变焦距比范围，返回的数组包括其最小值和最大值。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。若当前设备不支持变焦，调用该接口会返回undefined。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4507,9 +4375,9 @@ declare namespace camera {
     getZoomRatioRange(): Array<double>;
 
     /**
-     * Obtains the equivalent focal length information list in the current mode.
+     * 获取当前模式的等效焦距信息列表。
      *
-     * @returns { Array<ZoomPointInfo> } Equivalent focal length information list in the current mode.
+     * @returns { Array<ZoomPointInfo> } 获取当前模式的等效焦距信息列表。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 24]
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4535,9 +4403,9 @@ declare namespace camera {
     isZoomCenterPointSupported(): boolean;
 
     /**
-     * Obtains the supported zoom ratio range during shooting in RAW format.
+     * 获取RAW拍摄期间支持的变焦比例范围。
      *
-     * @returns { Array<double> } Zoom ratio range.
+     * @returns { Array<double> } 变焦比例范围。
      * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4549,9 +4417,9 @@ declare namespace camera {
   }
 
   /**
-   * **Zoom** inherits from [ZoomQuery]{@link camera.ZoomQuery}.
+   * Zoom继承自[ZoomQuery]{@link camera.ZoomQuery}。
    * 
-   * It provides APIs related to zoom operations.
+   * 变焦类，对设备变焦操作。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4560,10 +4428,9 @@ declare namespace camera {
    */
   interface Zoom extends ZoomQuery {
     /**
-     * Obtains the zoom ratio in use.
+     * 获取当前的变焦比。
      *
-     * @returns { double } Zoom ratio obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { double } 获取当前的变焦比结果。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4574,13 +4441,11 @@ declare namespace camera {
     getZoomRatio(): double;
 
     /**
-     * Sets a zoom ratio, with a maximum precision of two decimal places.
+     * 设置变焦比，变焦精度最高为小数点后两位，如果设置超过支持的精度范围，则只保留精度范围内数值。
      *
-     * @param { double } zoomRatio - Zoom ratio. The supported zoom ratio range can be obtained by calling
-     *     [getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}. If the value passed in is not within the
-     *     supported range, the value within the precision range is retained.
-     *     <br>It takes some time for the zoom ratio to take effect at the bottom layer. To obtain the correct zoom
-     *     ratio, you need to wait for one to two frames.
+     * @param { double } zoomRatio - 可变焦距比，通过[getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}获取支持的变焦范围，如果设置
+     *     超过支持范围的值，则只保留精度范围内数值。
+     *     <br>设置可变焦距比到底层生效需要一定时间，获取正确设置的可变焦距比需要等待1~2帧的时间。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4590,12 +4455,11 @@ declare namespace camera {
     setZoomRatio(zoomRatio: double): void;
 
     /**
-     * Sets smooth zoom.
+     * 触发平滑变焦。
      *
-     * @param { double } targetRatio - Target zoom ratio. The supported zoom ratio range can be obtained by calling
-     *     [getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}. If the value passed in is not within the
-     *     supported range, the value within the precision range is retained.
-     * @param { SmoothZoomMode } mode - Smooth zoom mode. The default value is **0**.
+     * @param { double } targetRatio - 目标值。通过[getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}获取支持的变焦范围，如果设置
+     *     超过支持范围的值，则只保留精度范围内数值。
+     * @param { SmoothZoomMode } mode - 平滑变焦模式。默认为0。
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4656,7 +4520,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the video stabilization modes.
+   * 枚举，视频防抖模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4665,7 +4529,7 @@ declare namespace camera {
    */
   enum VideoStabilizationMode {
     /**
-     * Video stabilization is disabled.
+     * 关闭视频防抖功能。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4675,7 +4539,7 @@ declare namespace camera {
     OFF = 0,
 
     /**
-     * The basic video stabilization algorithm is used.
+     * 使用基础防抖算法。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4685,7 +4549,7 @@ declare namespace camera {
     LOW = 1,
 
     /**
-     * A video stabilization algorithm with a stabilization effect better than that of the **LOW** type is used.
+     * 使用防抖效果一般的防抖算法，防抖效果优于LOW类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4695,7 +4559,7 @@ declare namespace camera {
     MIDDLE = 2,
 
     /**
-     * A video stabilization algorithm with a stabilization effect better than that of the **MIDDLE** type is used.
+     * 使用防抖效果最好的防抖算法，防抖效果优于MIDDLE类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4705,7 +4569,7 @@ declare namespace camera {
     HIGH = 3,
 
     /**
-     * The system automatically selects a video stabilization algorithm.
+     * 自动进行选择防抖算法。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4716,14 +4580,11 @@ declare namespace camera {
   }
 
   /**
-   * StabilizationQuery provides APIs to check the support for video stabilization.
+   * 提供了查询设备在录像模式下是否支持对应的视频防抖模式的能力。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - This interface was first introduced in API version 12. In this version, a compatibility change was made that 
-   * > preserved the initial version information of inner elements. As a result, you might see outer element's @since 
-   * > version number being higher than that of the inner elements. However, this discrepancy does not affect the 
-   * > functionality of the interface.
+   * > - 本Interface的起始版本为API version 12。接口在API version 12发生兼容变更，保留了内层元素的起始版本信息，会出现外层元素@since版本号大于内层元素的情况，不影响接口使用。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -4732,12 +4593,11 @@ declare namespace camera {
    */
   interface StabilizationQuery {
     /**
-     * Checks whether a video stabilization mode is supported.
+     * 查询是否支持指定的视频防抖模式。
      *
-     * @param { VideoStabilizationMode } vsMode - Video stabilization mode.
-     * @returns { boolean } Check result for the support of the video stabilization mode. **true** if supported,
-     *     **false** otherwise. If the operation fails, undefined is returned and an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is thrown.
+     * @param { VideoStabilizationMode } vsMode - 视频防抖模式。
+     * @returns { boolean } 返回视频防抖模式是否支持。true表示支持，false表示不支持。接口调用失败会抛出相应错误码并返回undefined，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4748,12 +4608,12 @@ declare namespace camera {
   }
 
   /**
-   * **Stabilization** inherits from [StabilizationQuery]{@link camera.StabilizationQuery}.
+   * Stabilization继承自[StabilizationQuery]{@link camera.StabilizationQuery}。
    * 
-   * It provides APIs to set video stabilization.
+   * 提供设备在录像模式下设置视频防抖的操作。
    * 
-   * You can set video stabilization only when a [VideoOutput]{@link camera.VideoOutput} stream exists in the session.
-   * 
+   * 需要会话中有录像流（[VideoOutput]{@link camera.VideoOutput}）的前提下，才可以对视频进行防抖设置。
+   *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
@@ -4761,10 +4621,9 @@ declare namespace camera {
    */
   interface Stabilization extends StabilizationQuery {
     /**
-     * Obtains the video stabilization mode in use.
+     * 查询当前正在使用的视频防抖模式。
      *
-     * @returns { VideoStabilizationMode } Video stabilization mode obtained. If the API call fails, undefined is
-     *     returned.
+     * @returns { VideoStabilizationMode } 视频防抖是否正在使用。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -4774,12 +4633,11 @@ declare namespace camera {
     getActiveVideoStabilizationMode(): VideoStabilizationMode;
 
     /**
-     * Sets a video stabilization mode. Before the setting, call 
-     * [isVideoStabilizationModeSupported]{@link camera.StabilizationQuery.isVideoStabilizationModeSupported} to check 
-     * whether the target video stabilization mode is supported. It is recommended that you set the video stabilization 
-     * mode between [commitConfig]{@link camera.Session.commitConfig()} and [Start]{@link camera.Session.start()}.
+     * 设置视频防抖模式。需要先检查设备是否支持对应的防抖模式，可以通过
+     * [isVideoStabilizationModeSupported]{@link camera.StabilizationQuery.isVideoStabilizationModeSupported}方法判断所设置的模式是
+     * 否支持。建议在[commitConfig]{@link camera.Session.commitConfig()}与[Start]{@link camera.Session.start()}之间设置视频防抖。
      *
-     * @param { VideoStabilizationMode } mode - Video stabilization mode.
+     * @param { VideoStabilizationMode } mode - 需要设置的视频防抖模式。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5197,7 +5055,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the effect types supported by the camera controller.
+   * 枚举，相机控制器支持的效果类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -5206,7 +5064,7 @@ declare namespace camera {
    */
   enum ControlCenterEffectType {
     /**
-     * Beauty effect.
+     * 美颜。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -5216,7 +5074,7 @@ declare namespace camera {
     BEAUTY = 0,
 
     /**
-     * Portrait blur effect.
+     * 人像虚化。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -5226,7 +5084,7 @@ declare namespace camera {
     PORTRAIT = 1,
 
     /**
-     * Auto focus.
+     * 自动对焦。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -5235,7 +5093,7 @@ declare namespace camera {
     AUTO_FRAMING = 2,
 
     /**
-     * Color effect
+     * 色彩效果。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -5328,7 +5186,7 @@ declare namespace camera {
   }
 
   /**
-   * ColorManagementQuery provides the APIs for color space query.
+   * 色彩管理类，用于查询色彩空间参数。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5337,10 +5195,9 @@ declare namespace camera {
    */
   interface ColorManagementQuery {
     /**
-     * Obtains the supported color spaces.
+     * 获取支持的色彩空间列表。
      *
-     * @returns { Array<colorSpaceManager.ColorSpace> } Array of color spaces supported. If the API call fails,
-     *     undefined is returned.
+     * @returns { Array<colorSpaceManager.ColorSpace> } 支持的色彩空间列表。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage. [since 12 - 17]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5351,9 +5208,9 @@ declare namespace camera {
   }
 
   /**
-   * **ColorManagement** inherits from [ColorManagementQuery]{@link camera.ColorManagementQuery}.
+   * ColorManagement继承自[ColorManagementQuery]{@link camera.ColorManagementQuery}。
    * 
-   * It provides the APIs for color space settings.
+   * 色彩管理类，用于设置色彩空间参数。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5362,9 +5219,9 @@ declare namespace camera {
    */
   interface ColorManagement extends ColorManagementQuery {
     /**
-     * Obtains the color space in use.
+     * 获取当前设置的色彩空间。
      *
-     * @returns { colorSpaceManager.ColorSpace } Color space.
+     * @returns { colorSpaceManager.ColorSpace } 当前设置的色彩空间。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5374,56 +5231,49 @@ declare namespace camera {
     getActiveColorSpace(): colorSpaceManager.ColorSpace;
 
     /**
-     * Sets a color space.
+     * 设置色彩空间。
      * 
-     * Before the setting, call [getSupportedColorSpaces]{@link camera.ColorManagementQuery.getSupportedColorSpaces} to 
-     * obtain the supported color spaces. You are advised to call this API after 
-     * [addOutput]{@link camera.Session.addOutput} and before [commitConfig]{@link camera.Session.commitConfig()}. If 
-     * this API is called after [commitConfig]{@link camera.Session.commitConfig()}, the camera session configuration 
-     * will take a longer time.
+     * 使用该接口前，必须先通过[getSupportedColorSpaces]{@link camera.ColorManagementQuery.getSupportedColorSpaces}获取当前设备所支持的
+     * ColorSpaces。该接口建议在[addOutput]{@link camera.Session.addOutput}之后、
+     * [commitConfig]{@link camera.Session.commitConfig()}之前调用，如果在[commitConfig]{@link camera.Session.commitConfig()}之后调
+     * 用该接口，会导致相机会话配置耗时增加。
      * 
-     * P3 wide color gamut and HDR imaging:
+     * P3广色域与HDR高动态范围成像：
      * 
-     * An application can deliver different color space parameters to declare its support for P3 and HDR. If an 
-     * application does not proactively set the color space, SDR is used by default in photo and video recording modes.
+     * 应用可以下发不同的色彩空间（ColorSpace）参数来支持P3广色域以及HDR的功能。若应用不主动设置色彩空间，拍照、录像模式均默认为SDR拍摄。
      * 
-     * For different modes, enabling HDR, setting the color space, and configuring 
-     * [CameraFormat]{@link camera.CameraFormat} in the camera output stream [profile]{@link camera.Profile} should 
-     * match. For details, see the table below. For example, to enable HDR in video recording mode, set 
-     * [CameraFormat]{@link camera.CameraFormat} in the camera preview and video output stream 
-     * [profiles]{@link camera.Profile} to **CAMERA_FORMAT_YCRCB_P010** and the color space to **BT2020_HLG_LIMIT**.
+     * 应用针对不同模式使能HDR效果、设置的色彩空间以及设置相机输出流[Profile]{@link camera.Profile}中的[CameraFormat]{@link camera.CameraFormat}一一对应关系可
+     * 参考下表。例如，在录像模式下若需要选择HDR拍摄，相机预览输出流和录像输出流[Profile]{@link camera.Profile}中的[CameraFormat]{@link camera.CameraFormat}可
+     * 选择CAMERA_FORMAT_YCRCB_P010，色彩空间ColorSpace可选择设置BT2020_HLG_LIMIT。
      * 
-     * To obtain HDR images in photo mode, set the color space to **DISPLAY_P3** or **BT2020_HLG**. **BT2020_HLG** 
-     * provides a wider color gamut, and should be used together with the **CameraFormat**, including 
-     * **CAMERA_FORMAT_YCRCB_P010** and **CAMERA_FORMAT_YCBCR_P010**, to improve the image quality.
+     * 在拍照模式下，若需要获取HDR高显效果的图片，可通过设置色彩空间（ColorSpace）为DISPLAY_P3或BT2020_HLG实现。其中BT2020_HLG能够表示更广的色域，需要搭配使用预览输出格式（
+     * Profile.format）P010（CAMERA_FORMAT_YCRCB_P010/CAMERA_FORMAT_YCBCR_P010）来提升图像质感。
      * 
-     * Since API version 23, you can call the 
-     * [getSupportedFullOutputCapability]{@link camera.CameraManager.getSupportedFullOutputCapability} API to check 
-     * whether the preview format P010 is supported in photo mode.
+     * 在录像模式下，通过设置色彩空间为H_LOG, 可以录制LOG视频（不支持前置与微距）。
      * 
-     * - If the application does not set the color space, the default color space in photo mode is SRGB when the 
-     * **CameraFormat** is **CAMERA_FORMAT_YUV_420_SP**, and the default color space is **BT2020_HLG** when the 
-     * **CameraFormat** is **CAMERA_FORMAT_YCRCB_P010** or **CAMERA_FORMAT_YCBCR_P010**.
-     * - If the application sets the color space, in photo mode, the **CameraFormat** and **ColorSpace** must be 
-     * configured according to the following mapping table. Otherwise, an error code will be returned in 
-     * [setColorSpace]{@link camera.ColorManagement.setColorSpace} or 
-     * [commitConfig]{@link camera.Session.commitConfig()}.
+     * 从API version 23开始，可以通过接口
+     * [getSupportedFullOutputCapability]{@link camera.CameraManager.getSupportedFullOutputCapability}查询是否支持拍照模式下的预览P010
+     * 格式。
      * 
-     * Photo mode:
+     * - 若应用不主动设置色彩空间，在拍照模式下，当预览输出格式为CAMERA_FORMAT_YUV_420_SP时，色彩空间默认为SRGB；当预览输出格式为CAMERA_FORMAT_YCRCB_P010/
+     * CAMERA_FORMAT_YCBCR_P010时，色彩空间默认为BT2020_HLG。
+     * - 若应用主动设置色彩空间，在拍照模式下，预览输出格式与色彩空间必须按照下列表格中的对应关系配置，若不满足则会在
+     * [setColorSpace]{@link camera.ColorManagement.setColorSpace}或[commitConfig]{@link camera.Session.commitConfig()}时返
+     * 回错误码。
      * 
-     * | SDR/HDR Photo Capture       | CameraFormat| ColorSpace|
+     * 拍照模式：
+     * 
+     * | SDR/HDR拍摄        | 预览输出格式 | 色彩空间 |
      *   |--------------------|------------| ------------|
      *   | SDR(Default)       | CAMERA_FORMAT_YUV_420_SP       | SRGB       |
      *   | HDR P3               | CAMERA_FORMAT_YUV_420_SP | DISPLAY_P3 |
      *  | HDR BT.2020 | CAMERA_FORMAT_YCRCB_P010,<br>CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG |
      * 
-     * In video recording mode, if SDR or HDR VIVID is enabled, the camera format and color space must be configured 
-     * according to the relationships specified in the table below. Configurations that do not match the table will 
-     * cause issues such as preview exceptions.
+     * 在录像模式下，使能SDR或HDR_VIVID拍摄效果时，CameraFormat与ColorSpace必须按照下列表格中的对应关系配置，若不满足表格中CameraFormat与ColorSpace配置，会导致预览异常等问题。
      * 
-     * Recording mode:
+     * 录像模式：
      * 
-     * | SDR/HDR Photo Capture        | CameraFormat             | ColorSpace       |
+     * | SDR/HDR拍摄         | CameraFormat             | ColorSpace       |
      * |--------------------|--------------------------|------------------|
      * | SDR(Default)               | CAMERA_FORMAT_YUV_420_SP | BT709_LIMIT      |
      * | HDR_VIVID          | CAMERA_FORMAT_YCRCB_P010 | BT2020_HLG_LIMIT,<br>BT2020_HLG |
@@ -5442,7 +5292,7 @@ declare namespace camera {
   }
 
   /**
-   * ControlCenterQuery is used to check whether the camera controller is supported.
+   * 控制中心类，用于查询是否支持相机控制器。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -5451,10 +5301,9 @@ declare namespace camera {
    */
   interface ControlCenterQuery {
     /**
-     * Checks whether the camera controller is supported.
+     * 查询是否支持相机控制器。
      *
-     * @returns { boolean } Check result for the support of the camera controller. **true** if supported, **false**
-     *     otherwise.
+     * @returns { boolean } 返回是否支持相机控制器。true表示支持，false表示不支持。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -5463,9 +5312,9 @@ declare namespace camera {
     isControlCenterSupported(): boolean;
 
     /**
-     * Obtains the effect types supported by the camera controller.
+     * 查询相机控制器支持的效果类型。
      *
-     * @returns { Array<ControlCenterEffectType> } Array of effect types supported.
+     * @returns { Array<ControlCenterEffectType> } 支持的效果类型。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -5475,9 +5324,9 @@ declare namespace camera {
   }
 
   /**
-   * **ControlCenter** inherits from [ControlCenterQuery]{@link camera.ControlCenterQuery}.
+   * ControlCenter继承自[ControlCenterQuery]{@link camera.ControlCenterQuery}。
    * 
-   * It is used to enable the camera controller.
+   * 控制中心类，用于使能相机控制器。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -5486,10 +5335,9 @@ declare namespace camera {
    */
   interface ControlCenter extends ControlCenterQuery {
     /**
-     * Enables the camera controller.
+     * 使能相机控制器。
      *
-     * @param { boolean } enabled - Whether to enable or disable the camera controller. **true** to enable, **false**
-     *     otherwise.
+     * @param { boolean } enabled - 开启或关闭相机控制器。true表示开启，false表示关闭。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -5500,11 +5348,10 @@ declare namespace camera {
   }
 
   /**
-   * **AutoDeviceSwitchQuery** is used to check whether a device supports automatic camera switch.
+   * 自动切换镜头查询类，用于查询设备是否支持自动切换镜头。
    * 
-   * [Automatic Camera Switching]{@link camera.AutoDeviceSwitch.enableAutoDeviceSwitch} is supported only on foldable 
-   * devices. For details about how to enable this capability, see 
-   * [enableAutoDeviceSwitch]{@link camera.AutoDeviceSwitch.enableAutoDeviceSwitch}.
+   * [自动切换镜头能力](docroot://media/camera/camera-auto-switch.md)仅支持折叠屏设备使用，如需使能该能力请参考
+   * [enableAutoDeviceSwitch]{@link camera.AutoDeviceSwitch.enableAutoDeviceSwitch}。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5513,10 +5360,9 @@ declare namespace camera {
    */
   interface AutoDeviceSwitchQuery {
     /**
-     * Checks whether the device supports automatic camera switch.
+     * 查询设备是否支持自动切换镜头能力。
      *
-     * @returns { boolean } Check result for the support of automatic camera switch. **true** if supported, **false**
-     *     otherwise.
+     * @returns { boolean } 是否支持自动切换镜头，true为支持，false为不支持。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage. [since 13 - 17]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5527,18 +5373,12 @@ declare namespace camera {
   }
 
   /**
-   * **AutoDeviceSwitch** inherits from [AutoDeviceSwitchQuery]{@link camera.AutoDeviceSwitchQuery} and is used to 
-   * enable or disable automatic camera switch. This capability can be used only on foldable devices. For details about 
-   * the development, see 
-   * [Practices for Automatic Camera Switching (ArkTS)](docroot://media/camera/camera-auto-switch.md).
+   * 自动切换镜头类，继承自[AutoDeviceSwitchQuery]{@link camera.AutoDeviceSwitchQuery}，用于使能或去使能自动切换镜头。自动切换镜头能力仅支持折叠屏设备使用，详细开发指导请参考
+   * [自动切换摄像头实践](docroot://media/camera/camera-auto-switch.md)。
    * 
-   * It is recommended that the system automatically handle input device switching, session configuration, and parameter
-   * continuity during automatic camera switch. If the system detects that the zoom ranges of the two cameras are 
-   * different during camera switching, it will notify the application through the **isDeviceCapabilityChanged** field 
-   * in [AutoDeviceSwitchStatus]{@link camera.AutoDeviceSwitchStatus}. However, the application still needs to handle 
-   * the UX change. For example, for the zoom range adjustment, the application needs to call 
-   * [getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange} to obtain data and update the UX. Therefore, 
-   * **AutoDeviceSwitch** is more applicable to simplified UX interactions.
+   * 使用建议：自动切换镜头功能由系统自动完成输入设备切换、会话配置和参数接续。如系统发现镜头切换时，两颗镜头的变焦范围不一致，则会通过
+   * [AutoDeviceSwitchStatus]{@link camera.AutoDeviceSwitchStatus}中的isDeviceCapabilityChanged字段告知应用，但仍需要应用自己处理UX的变更（如变焦范
+   * 围的调整，需要重新通过[getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}接口获取数据并更新UX），因此更适用于极简UX交互的场景。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5547,17 +5387,14 @@ declare namespace camera {
    */
   interface AutoDeviceSwitch extends AutoDeviceSwitchQuery {
     /**
-     * Enables or disables automatic camera switch. You can use 
-     * [isAutoDeviceSwitchSupported]{@link camera.AutoDeviceSwitchQuery.isAutoDeviceSwitchSupported} to check whether 
-     * the device supports automatic camera switch.
+     * 使能或去使能自动切换镜头。可以先通过[isAutoDeviceSwitchSupported]{@link camera.AutoDeviceSwitchQuery.isAutoDeviceSwitchSupported}获取
+     * 当前设备是否支持自动切换镜头。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is used only for foldable devices with multiple front cameras. In different fold states, the system 
-     * > can automatically switch to an available front camera. It does not enable automatic switching between front and
-     * > rear cameras.
+     * > 该接口仅用于有多个前置镜头的折叠设备，在不同的折叠状态下可自动切换到当前可使用的前置镜头。无法实现前后置镜头的切换。
      *
-     * @param { boolean } enabled - Whether to enable automatic camera switch. **true** to enable, **false** otherwise.
+     * @param { boolean } enabled - 使能或去使能自动切换镜头。true表示使能，false表示不使能。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -5573,7 +5410,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the information about the automatic camera switch status.
+   * 自动切换镜头状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5582,7 +5419,7 @@ declare namespace camera {
    */
   interface AutoDeviceSwitchStatus {
     /**
-     * Whether the camera is automatically switched. **true** if auto-switched, **false** otherwise.
+     * 自动切换镜头是否成功。true表示成功，false表示失败。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5592,8 +5429,7 @@ declare namespace camera {
     readonly isDeviceSwitched: boolean;
 
     /**
-     * Whether the camera capability is changed after the camera is automatically switched. **true** if changed, 
-     * **false** otherwise.
+     * 自动切换镜头成功后，其镜头能力值是否发生改变。true表示发生变化，false表示未发生变化。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5604,7 +5440,7 @@ declare namespace camera {
   }
 
   /**
-   * MacroQuery provides the API to check the support for macro photography.
+   * 提供查询设备是否支持相机微距拍摄的方法。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 18]
@@ -5615,11 +5451,10 @@ declare namespace camera {
    */
   interface MacroQuery {
     /**
-     * Checks whether macro photography is supported in the current state. This API must be called after 
-     * [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}.
+     * 检测当前状态下是否支持微距能力，需要在CaptureSession调用
+     * [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}之后进行调用。
      *
-     * @returns { boolean } Check result for the support of macro photography. **true** if supported, **false**
-     *     otherwise.
+     * @returns { boolean } 返回是否支持微距能力。true表示支持，false表示不支持。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 18]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 18]
@@ -5632,9 +5467,9 @@ declare namespace camera {
   }
 
   /**
-   * **Macro** inherits from [MacroQuery]{@link camera.MacroQuery}.
+   * Macro继承自[MacroQuery]{@link camera.MacroQuery}。
    * 
-   * It provides the API to enable macro photography.
+   * 提供使能微距能力的接口。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 11 - 18]
@@ -5645,14 +5480,13 @@ declare namespace camera {
    */
   interface Macro extends MacroQuery {
     /**
-     * Enables or disables macro photography.
+     * 使能当前的微距能力。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Before calling this API, call [isMacroSupported]{@link camera.MacroQuery.isMacroSupported} to check whether the
-     * > current device supports macro photography.
+     * > 使用该接口前，需要先通过[isMacroSupported]{@link camera.MacroQuery.isMacroSupported}接口查询当前设备是否支持微距能力。
      *
-     * @param { boolean } enabled - Whether to enable macro photography. **true** to enable, **false** otherwise.
+     * @param { boolean } enabled - 是否开启微距能力。true表示开启微距能力，false表示关闭微距能力。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 18]
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
@@ -5687,9 +5521,8 @@ declare namespace camera {
   }
 
   /**
-   * **Session** implements a session, which saves all [CameraInput]{@link camera.CameraInput} and 
-   * [CameraOutput]{@link camera.CameraOutput} instances required to run the camera and requests the camera to take a 
-   * photo or record a video.
+   * 会话类，保存一次相机运行所需要的所有资源[CameraInput]{@link camera.CameraInput}、[CameraOutput]{@link camera.CameraOutput}，并向相机设备申请完成相机功
+   * 能（录像，拍照）。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -5698,7 +5531,7 @@ declare namespace camera {
    */
   interface Session {
     /**
-     * Starts configuration for the session.
+     * 开始配置会话。
      *
      * @throws { BusinessError } 7400105 - Session config locked.
      * @throws { BusinessError } 7400201 - Camera service fatal error. [since 12]
@@ -5710,12 +5543,10 @@ declare namespace camera {
     beginConfig(): void;
 
     /**
-     * Commits the configuration for this session. This API uses an asynchronous callback to return the result.
+     * 提交配置信息，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the configuration is
-     *     successfully committed, **err** is **undefined**; otherwise, **err** is an error object with an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode}. For example, if the aspect ratio of the preview
-     *     stream is different from that of the video output stream, error code 7400201 is returned.
+     * @param { AsyncCallback<void> } callback - 回调函数。当提交配置信息成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}，比如预览流与录像输出流的分辨率的宽高比不一致，会返回7400201。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -5726,9 +5557,9 @@ declare namespace camera {
     commitConfig(callback: AsyncCallback<void>): void;
 
     /**
-     * Commits the configuration for this session. This API uses a promise to return the result.
+     * 提交配置信息。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -5739,13 +5570,11 @@ declare namespace camera {
     commitConfig(): Promise<void>;
 
     /**
-     * Checks whether a **CameraInput** instance can be added to this session. This API must be called after 
-     * [beginConfig]{@link camera.Session.beginConfig} and before [commitConfig]{@link camera.Session.commitConfig()}.
+     * 判断当前cameraInput是否可以添加到session中。当前函数需要在[beginConfig]{@link camera.Session.beginConfig}和
+     * [commitConfig]{@link camera.Session.commitConfig()}之间生效。
      *
-     * @param { CameraInput } cameraInput - **CameraInput** instance to add. The API does not take effect if the input
-     *     parameter is invalid (for example, the value is out of range, null, or undefined).
-     * @returns { boolean } Check result for adding the **CameraInput** instance. **true** if it can be added, **false**
-     *     otherwise.
+     * @param { CameraInput } cameraInput - 需要添加的CameraInput实例。传参异常（如超出范围、传入null、未定义等），实际接口不会生效。
+     * @returns { boolean } 判断当前cameraInput是否可以添加到session中。true表示支持添加当前cameraInput，false表示不支持添加。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -5754,9 +5583,9 @@ declare namespace camera {
     canAddInput(cameraInput: CameraInput): boolean;
 
     /**
-     * Adds a [CameraInput]{@link camera.CameraInput} instance to this session.
+     * 把[CameraInput]{@link camera.CameraInput}加入到会话。
      *
-     * @param { CameraInput } cameraInput - **CameraInput** instance to add.
+     * @param { CameraInput } cameraInput - 需要添加的CameraInput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
@@ -5769,10 +5598,10 @@ declare namespace camera {
     addInput(cameraInput: CameraInput): void;
 
     /**
-     * Removes a [CameraInput]{@link camera.CameraInput} instance from this session. This API must be called after 
-     * [beginConfig]{@link camera.Session.beginConfig} and before [commitConfig]{@link camera.Session.commitConfig()}.
+     * 移除[CameraInput]{@link camera.CameraInput}。当前函数需要在[beginConfig]{@link camera.Session.beginConfig}和
+     * [commitConfig]{@link camera.Session.commitConfig()}之间生效。
      *
-     * @param { CameraInput } cameraInput - **CameraInput** instance to remove.
+     * @param { CameraInput } cameraInput - 需要移除的CameraInput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
@@ -5785,13 +5614,11 @@ declare namespace camera {
     removeInput(cameraInput: CameraInput): void;
 
     /**
-     * Determines whether a CameraOutput instance can be added to this session. This API must be called after 
-     * [addInput]{@link camera.Session.addInput} and before [commitConfig]{@link camera.Session.commitConfig()}.
+     * 判断当前cameraOutput是否可以添加到session中。当前函数需要在[addInput]{@link camera.Session.addInput}和
+     * [commitConfig]{@link camera.Session.commitConfig()}之间生效。
      *
-     * @param { CameraOutput } cameraOutput - **CameraOutput** instance to add. The API does not take effect if the
-     *     input parameter is invalid (for example, the value is out of range, null, or undefined).
-     * @returns { boolean } Check result for adding the **CameraOutput** instance. **true** if it can be added,
-     *     **false** otherwise.
+     * @param { CameraOutput } cameraOutput - 需要添加的CameraOutput实例。传参异常（如超出范围、传入null、未定义等），实际接口不会生效。
+     * @returns { boolean } 是否可以添加当前cameraOutput到session中，true为可添加，false为不可添加。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -5800,9 +5627,9 @@ declare namespace camera {
     canAddOutput(cameraOutput: CameraOutput): boolean;
 
     /**
-     * Adds a [CameraOutput]{@link camera.CameraOutput} instance to this session.
+     * 把[CameraOutput]{@link camera.CameraOutput}加入到会话。
      *
-     * @param { CameraOutput } cameraOutput - **CameraOutput** instance to add.
+     * @param { CameraOutput } cameraOutput - 需要添加的CameraOutput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
@@ -5815,9 +5642,9 @@ declare namespace camera {
     addOutput(cameraOutput: CameraOutput): void;
 
     /**
-     * Removes a [CameraOutput]{@link camera.CameraOutput} instance from this session.
+     * 从会话中移除[CameraOutput]{@link camera.CameraOutput}。
      *
-     * @param { CameraOutput } cameraOutput - **CameraOutput** instance to remove.
+     * @param { CameraOutput } cameraOutput - 需要移除的CameraOutput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
@@ -5830,11 +5657,10 @@ declare namespace camera {
     removeOutput(cameraOutput: CameraOutput): void;
 
     /**
-     * Starts this session. This API uses an asynchronous callback to return the result.
+     * 开始会话工作，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session starts successfully,
-     *     **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当开始会话工作成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
@@ -5846,9 +5672,9 @@ declare namespace camera {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts this session. This API uses a promise to return the result.
+     * 开始会话工作。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @throws { BusinessError } 7400102 - Operation not allowed. [since 12]
@@ -5860,11 +5686,10 @@ declare namespace camera {
     start(): Promise<void>;
 
     /**
-     * Stops this session. This API uses an asynchronous callback to return the result.
+     * 停止会话工作，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session stops successfully,
-     *     **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当停止会话工作成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5874,9 +5699,9 @@ declare namespace camera {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stops this session. This API uses a promise to return the result.
+     * 停止会话工作。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5886,11 +5711,10 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
-     * Releases this session. This API uses an asynchronous callback to return the result.
+     * 释放会话资源，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session is released
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当释放会话资源成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -5900,9 +5724,9 @@ declare namespace camera {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases this session. This API uses a promise to return the result.
+     * 释放会话资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6006,9 +5830,12 @@ declare namespace camera {
   }
 
   /**
-   * **CaptureSession** implements a capture session, which saves all [CameraInput]{@link camera.CameraInput} and 
-   * [CameraOutput]{@link camera.CameraOutput} instances required to run the camera and requests the camera to complete 
-   * shooting or video recording.
+   * 拍照会话类，保存一次相机运行所需要的所有资源[CameraInput]{@link camera.CameraInput}、[CameraOutput]{@link camera.CameraOutput}，并向相机设备申请完成相
+   * 机功能(录像，拍照)。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 10开始支持，从API version 11开始废弃。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10 dynamiconly
@@ -6017,7 +5844,11 @@ declare namespace camera {
    */
   interface CaptureSession {
     /**
-     * Starts configuration for the session.
+     * 开始配置会话。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
      * @throws { BusinessError } 7400105 - Session config locked.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6028,11 +5859,14 @@ declare namespace camera {
     beginConfig(): void;
 
     /**
-     * Commits the configuration for this session. This API uses an asynchronous callback to return the result.
+     * 提交配置信息，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the configuration is
-     *     successfully committed, **err** is **undefined**; otherwise, **err** is an error object with an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当提交配置信息成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6043,9 +5877,13 @@ declare namespace camera {
     commitConfig(callback: AsyncCallback<void>): void;
 
     /**
-     * Commits the configuration for this session. This API uses a promise to return the result.
+     * 提交配置信息。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6056,9 +5894,13 @@ declare namespace camera {
     commitConfig(): Promise<void>;
 
     /**
-     * Adds a [CameraInput]{@link camera.CameraInput} instance to this session.
+     * 把[CameraInput]{@link camera.CameraInput}加入到会话。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { CameraInput } cameraInput - CameraInput instance to add.
+     * @param { CameraInput } cameraInput - 需要添加的CameraInput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6069,9 +5911,13 @@ declare namespace camera {
     addInput(cameraInput: CameraInput): void;
 
     /**
-     * Removes a [CameraInput]{@link camera.CameraInput} instance from this session.
+     * 移除[CameraInput]{@link camera.CameraInput}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { CameraInput } cameraInput - CameraInput instance to remove.
+     * @param { CameraInput } cameraInput - 需要移除的CameraInput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6082,9 +5928,13 @@ declare namespace camera {
     removeInput(cameraInput: CameraInput): void;
 
     /**
-     * Adds a [CameraOutput]{@link camera.CameraOutput} instance to this session.
+     * 把[CameraOutput]{@link camera.CameraOutput}加入到会话。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { CameraOutput } cameraOutput - CameraOutput instance to add.
+     * @param { CameraOutput } cameraOutput - 需要添加的CameraOutput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6095,9 +5945,13 @@ declare namespace camera {
     addOutput(cameraOutput: CameraOutput): void;
 
     /**
-     * Removes a [CameraOutput]{@link camera.CameraOutput} instance from this session.
+     * 从会话中移除[CameraOutput]{@link camera.CameraOutput}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { CameraOutput } cameraOutput - CameraOutput instance to remove.
+     * @param { CameraOutput } cameraOutput - 需要移除的CameraOutput实例。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6108,11 +5962,14 @@ declare namespace camera {
     removeOutput(cameraOutput: CameraOutput): void;
 
     /**
-     * Starts this session. This API uses an asynchronous callback to return the result.
+     * 开始会话工作，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session starts successfully,
-     *     **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当开始会话工作成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6123,9 +5980,13 @@ declare namespace camera {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts this session. This API uses a promise to return the result.
+     * 开始会话工作。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6136,11 +5997,14 @@ declare namespace camera {
     start(): Promise<void>;
 
     /**
-     * Stops this session. This API uses an asynchronous callback to return the result.
+     * 停止会话工作，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session stops successfully,
-     *     **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当停止会话工作成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6150,9 +6014,13 @@ declare namespace camera {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stops this session. This API uses a promise to return the result.
+     * 停止会话工作。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6162,11 +6030,14 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
-     * Releases this session. This API uses an asynchronous callback to return the result.
+     * 释放会话资源，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the session is released
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当释放会话资源成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6176,9 +6047,13 @@ declare namespace camera {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases this session. This API uses a promise to return the result.
+     * 释放会话资源。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6188,11 +6063,14 @@ declare namespace camera {
     release(): Promise<void>;
 
     /**
-     * Checks whether the camera device has flash.
+     * 检测是否有闪光灯。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { boolean } Check result for whether the camera device has flash. **true** if it has flash, **false**
-     *     otherwise. If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode}
-     *     is returned.
+     * @returns { boolean } 设备支持闪光灯。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6202,11 +6080,15 @@ declare namespace camera {
     hasFlash(): boolean;
 
     /**
-     * Checks whether the flash mode is supported.
+     * 检测闪光灯模式是否支持。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { FlashMode } flashMode - Flash mode.
-     * @returns { boolean } Check result for the support of the flash mode. **true** if supported, **false** otherwise.
-     *     If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { FlashMode } flashMode - 指定闪光灯模式。
+     * @returns { boolean } 检测闪光灯模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6216,10 +6098,13 @@ declare namespace camera {
     isFlashModeSupported(flashMode: FlashMode): boolean;
 
     /**
-     * Obtains the flash mode in use.
+     * 获取当前设备的闪光灯模式。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { FlashMode } Flash mode obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { FlashMode } 获取当前设备的闪光灯模式。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6229,14 +6114,18 @@ declare namespace camera {
     getFlashMode(): FlashMode;
 
     /**
-     * Sets a flash mode.
+     * 设置闪光灯模式。
      * 
-     * Before the setting, do the following checks:
+     * 进行设置之前，需要先检查：
      * 
-     * 1. Use [hasFlash]{@link camera.CaptureSession.hasFlash} to check whether the camera device has flash.
-     * 2. Use [isFlashModeSupported]{@link camera.CaptureSession.isFlashModeSupported} to check whether the camera device supports the flash mode.
+     * 1. 设备是否支持闪光灯，可使用方法[hasFlash]{@link camera.CaptureSession.hasFlash}。
+     * 2. 设备是否支持指定的闪光灯模式，可使用方法[isFlashModeSupported]{@link camera.CaptureSession.isFlashModeSupported}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { FlashMode } flashMode - Flash mode.
+     * @param { FlashMode } flashMode - 指定闪光灯模式。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6246,12 +6135,15 @@ declare namespace camera {
     setFlashMode(flashMode: FlashMode): void;
 
     /**
-     * Checks whether an exposure mode is supported.
+     * 查询曝光模式是否支持。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { ExposureMode } aeMode - Exposure mode.
-     * @returns { boolean } Check result for the support of the exposure mode. **true** if supported, **false**
-     *     otherwise. If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode}
-     *     is returned.
+     * @param { ExposureMode } aeMode - 曝光模式。
+     * @returns { boolean } 获取是否支持曝光模式。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6261,10 +6153,13 @@ declare namespace camera {
     isExposureModeSupported(aeMode: ExposureMode): boolean;
 
     /**
-     * Obtains the exposure mode in use.
+     * 获取当前曝光模式。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { ExposureMode } Exposure mode obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { ExposureMode } 获取当前曝光模式。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6274,11 +6169,14 @@ declare namespace camera {
     getExposureMode(): ExposureMode;
 
     /**
-     * Sets an exposure mode. Before the setting, call 
-     * [isExposureModeSupported]{@link camera.CaptureSession.isExposureModeSupported} to check whether the target 
-     * exposure mode is supported.
+     * 设置曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法
+     * [isExposureModeSupported]{@link camera.CaptureSession.isExposureModeSupported}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { ExposureMode } aeMode - Exposure mode.
+     * @param { ExposureMode } aeMode - 曝光模式。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6288,10 +6186,13 @@ declare namespace camera {
     setExposureMode(aeMode: ExposureMode): void;
 
     /**
-     * Obtains the metering point of the camera device.
+     * 查询曝光区域中心点。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Point } Metering point obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Point } 获取当前曝光点。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6301,16 +6202,15 @@ declare namespace camera {
     getMeteringPoint(): Point;
 
     /**
-     * Sets the metering point, which is the center point of the metering rectangle. The metering point must be in the 
-     * coordinate system (0-1), where the top-left corner is {0, 0} and the bottom-right corner is {1, 1}.
+     * 设置曝光区域中心点，曝光点应位于0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
      * 
-     * The coordinate system is based on the horizontal device direction with the device's charging port on the right. 
-     * If the layout of the preview screen of an application is based on the vertical direction with the charging port 
-     * on the lower side, the layout width and height are {w, h}, and the touch point is {x, y}, then the coordinate 
-     * point after conversion is {y/h, 1-x/w}.
+     * 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触碰点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { Point } point - Metering point. The value range of x and y must be within [0,1]. If a value less than 0
-     *     is passed, the value **0** is used. If a value greater than **1** is passed, the value **1** is used.
+     * @param { Point } point - 曝光点，x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6320,10 +6220,13 @@ declare namespace camera {
     setMeteringPoint(point: Point): void;
 
     /**
-     * Obtains the exposure compensation values of the camera device.
+     * 查询曝光补偿范围。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Array<number> } Array of compensation values. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Array<number> } 获取补偿范围的数组。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6333,17 +6236,17 @@ declare namespace camera {
     getExposureBiasRange(): Array<number>;
 
     /**
-     * Sets an exposure compensation value (EV).
+     * 设置曝光补偿，曝光补偿值（EV）。
      * 
-     * Before the setting, you are advised to use 
-     * [getExposureBiasRange]{@link camera.CaptureSession.getExposureBiasRange} to obtain the supported values.
+     * 进行设置之前，建议先通过方法[getExposureBiasRange]{@link camera.CaptureSession.getExposureBiasRange}查询支持的范围。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { number } exposureBias - EV. The supported EV range can be obtained by calling
-     *     [getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange}. If the value passed is not
-     *     within the supported range, the nearest critical point is used. There is a step for EV. For example, if the
-     *     step is 0.5 and this parameter is set to 1.2, the EV that takes effect is 1.0. If the operation fails, an
-     *     error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned. If the input parameter is
-     *     null or undefined, the EV is set to 0.
+     * @param { number } exposureBias - 曝光补偿，[getExposureBiasRange]{@link camera.AutoExposureQuery.getExposureBiasRange}
+     *     查询支持的范围，如果设置超过支持范围的值，自动匹配到就近临界点。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。传参为null或者undefined，作为0处理，曝光补偿设置0。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6353,11 +6256,14 @@ declare namespace camera {
     setExposureBias(exposureBias: number): void;
 
     /**
-     * Obtains the exposure value in use.
+     * 查询当前的曝光值。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { number } Exposure value obtained. There is a step for EV. For example, if the step is 0.5 and this
-     *     parameter is set to 1.2, the EV that takes effect is 1.0. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { number } 获取曝光值。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6367,11 +6273,15 @@ declare namespace camera {
     getExposureValue(): number;
 
     /**
-     * Checks whether a focus mode is supported.
+     * 查询对焦模式是否支持。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { FocusMode } afMode - Focus mode.
-     * @returns { boolean } Check result for the support of the focus mode. **true** if supported, **false** otherwise.
-     *     If the operation fails, an error code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { FocusMode } afMode - 指定的焦距模式。
+     * @returns { boolean } 检测对焦模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6381,10 +6291,13 @@ declare namespace camera {
     isFocusModeSupported(afMode: FocusMode): boolean;
 
     /**
-     * Obtains the focus mode in use.
+     * 获取当前的对焦模式。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { FocusMode } Focus mode obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { FocusMode } 获取当前设备的焦距模式。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6394,12 +6307,15 @@ declare namespace camera {
     getFocusMode(): FocusMode;
 
     /**
-     * Sets a focus mode.
+     * 设置对焦模式。
      * 
-     * Before the setting, call [isFocusModeSupported]{@link camera.CaptureSession.isFocusModeSupported} to check 
-     * whether the focus mode is supported.
+     * 进行设置之前，需要先检查设备是否支持指定的焦距模式，可使用方法[isFocusModeSupported]{@link camera.CaptureSession.isFocusModeSupported}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { FocusMode } afMode - Focus mode.
+     * @param { FocusMode } afMode - 指定的焦距模式。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6409,16 +6325,15 @@ declare namespace camera {
     setFocusMode(afMode: FocusMode): void;
 
     /**
-     * Sets the focal point. The focal point must be in the coordinate system (0-1), where the top-left corner is {0, 0}
-     * and the bottom-right corner is {1, 1}.
+     * 设置焦点，焦点应在0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
      * 
-     * The coordinate system is based on the horizontal device direction with the device's charging port on the right. 
-     * If the layout of the preview screen of an application is based on the vertical direction with the charging port 
-     * on the lower side, the layout width and height are {w, h}, and the touch point is {x, y}, then the coordinate 
-     * point after conversion is {y/h, 1-x/w}.
+     * 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触碰点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { Point } point - Focal point. The value range of x and y must be within [0,1]. If a value less than 0 is
-     *     passed, the value **0** is used. If a value greater than **1** is passed, the value **1** is used.
+     * @param { Point } point - 焦点。x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6428,10 +6343,13 @@ declare namespace camera {
     setFocusPoint(point: Point): void;
 
     /**
-     * Obtains the focal point of the camera device.
+     * 查询焦点。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Point } Focal point obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Point } 用于获取当前焦点。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6441,10 +6359,13 @@ declare namespace camera {
     getFocusPoint(): Point;
 
     /**
-     * Obtains the focal length of the camera device.
+     * 查询焦距值。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { number } Focal length obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { number } 用于获取当前焦距。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6454,10 +6375,14 @@ declare namespace camera {
     getFocalLength(): number;
 
     /**
-     * Obtains the supported zoom ratio range.
+     * 获取支持的变焦范围。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Array<number> } Array containing the minimum and maximum zoom ratios. If the operation fails, an error
-     *     code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { Array<number> } 用于获取可变焦距比范围，返回的数组包括其最小值和最大值。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6467,10 +6392,13 @@ declare namespace camera {
     getZoomRatioRange(): Array<number>;
 
     /**
-     * Obtains the zoom ratio in use.
+     * 获取当前的变焦比。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { number } Zoom ratio obtained. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { number } 获取当前的变焦比结果。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6480,12 +6408,14 @@ declare namespace camera {
     getZoomRatio(): number;
 
     /**
-     * Sets a zoom ratio, with a maximum precision of two decimal places.
+     * 设置变焦比，变焦精度最高为小数点后两位，如果设置超过支持的精度范围，则只保留精度范围内数值。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { number } zoomRatio - Zoom ratio. The supported zoom ratio range can be obtained by calling
-     *     [getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}. If the value passed in is not within the
-     *     supported range, the value within the precision range is retained. If the input parameter is null or
-     *     undefined, it is treated as 0 and the minimum zoom ratio is used.
+     * @param { number } zoomRatio - 可变焦距比，通过[getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}获取支持的变焦范围，如果设置
+     *     超过支持范围的值，则只保留精度范围内数值。传参为null或者undefined，作为0处理，变焦设置最小值。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6495,13 +6425,15 @@ declare namespace camera {
     setZoomRatio(zoomRatio: number): void;
 
     /**
-     * Checks whether a video stabilization mode is supported.
+     * 查询是否支持指定的视频防抖模式。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { VideoStabilizationMode } vsMode - Video stabilization mode. If the input parameter is null or undefined,
-     *     it is treated as 0 and video stabilization is disabled.
-     * @returns { boolean } Check result for the support of the video stabilization mode. **true** if supported,
-     *     **false** otherwise. If the operation fails, an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { VideoStabilizationMode } vsMode - 视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。
+     * @returns { boolean } 返回视频防抖模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6511,10 +6443,14 @@ declare namespace camera {
     isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean;
 
     /**
-     * Obtains the video stabilization mode in use.
+     * 查询当前正在使用的视频防抖模式。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { VideoStabilizationMode } Video stabilization mode obtained. If the operation fails, an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @returns { VideoStabilizationMode } 视频防抖是否正在使用。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6524,12 +6460,14 @@ declare namespace camera {
     getActiveVideoStabilizationMode(): VideoStabilizationMode;
 
     /**
-     * Sets a video stabilization mode. Before the setting, call 
-     * [isVideoStabilizationModeSupported]{@link camera.CaptureSession.isVideoStabilizationModeSupported} to check 
-     * whether the target video stabilization mode is supported.
+     * 设置视频防抖模式。需要先检查设备是否支持对应的防抖模式，可以通过
+     * [isVideoStabilizationModeSupported]{@link camera.CaptureSession.isVideoStabilizationModeSupported}方法判断所设置的模式是否支持。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { VideoStabilizationMode } mode - Video stabilization mode. If the input parameter is null or undefined,
-     *     it is treated as 0 and video stabilization is disabled.
+     * @param { VideoStabilizationMode } mode - 需要设置的视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -6539,16 +6477,16 @@ declare namespace camera {
     setVideoStabilizationMode(mode: VideoStabilizationMode): void;
 
     /**
-     * Subscribes to focus state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 从 API version 10开始支持，从API version 11开始废弃。
+     * >
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created. This event is triggered only when the camera focus state changes in
-     *     auto focus mode.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the focus state change.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session 创建成功可监听。仅当自动对焦模式时,且相机对焦状态发生改变时可触发该事件。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，用于获取当前对焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -6557,14 +6495,14 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus state change events.
+     * 注销监听相机聚焦的状态变化。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session 创建成功可监听。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -6573,19 +6511,19 @@ declare namespace camera {
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
     /**
-     * Subscribes to CaptureSession error events. This API uses an asynchronous callback to return the result.
+     * 监听拍照会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created. This event is triggered and the error message is returned when an error occurs during the
-     *     calling of a session-related API such as [beginConfig]{@link camera.CaptureSession.beginConfig},
-     *     [commitConfig]{@link camera.CaptureSession.commitConfig()}, and
-     *     [addInput]{@link camera.CaptureSession.addInput}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用
+     *     [beginConfig]{@link camera.CaptureSession.beginConfig}，
+     *     [commitConfig]{@link camera.CaptureSession.commitConfig()}，[addInput]{@link camera.CaptureSession.addInput}等接
+     *     口发生错误时返回错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -6594,14 +6532,14 @@ declare namespace camera {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from CaptureSession error events. This API uses a callback to return the result.
+     * 注销监听拍照会话的错误事件，通过注册回调函数获取结果。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -6676,7 +6614,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the preconfigured resolution types.
+   * 枚举，提供预配置的类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -6685,7 +6623,7 @@ declare namespace camera {
    */
   enum PreconfigType {
     /**
-     * 720p resolution.
+     * 720P预配置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6695,7 +6633,7 @@ declare namespace camera {
     PRECONFIG_720P = 0,
 
     /**
-     * 1080p resolution.
+     * 1080P预配置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6705,7 +6643,7 @@ declare namespace camera {
     PRECONFIG_1080P = 1,
 
     /**
-     * 4K resolution.
+     * 4K预配置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6715,7 +6653,7 @@ declare namespace camera {
     PRECONFIG_4K = 2,
 
     /**
-     * High-quality resolution.
+     * 高质量预配置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6725,7 +6663,7 @@ declare namespace camera {
     PRECONFIG_HIGH_QUALITY = 3,
 
     /**
-     * Resolution that supports HDR preview and GIF photography.
+     * 预配置支持预览高动态范围显示和HDR动图拍摄。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -6736,7 +6674,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the preconfigured aspect ratios.
+   * 枚举，提供预配置的分辨率比例。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -6745,7 +6683,7 @@ declare namespace camera {
    */
   enum PreconfigRatio {
     /**
-     * 1:1 aspect ratio.
+     * 1:1画幅。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6755,7 +6693,7 @@ declare namespace camera {
     PRECONFIG_RATIO_1_1 = 0,
 
     /**
-     * 4:3 aspect ratio.
+     * 4:3画幅。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6765,7 +6703,7 @@ declare namespace camera {
     PRECONFIG_RATIO_4_3 = 1,
 
     /**
-     * 16:9 aspect ratio.
+     * 16:9画幅。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7093,7 +7031,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the photo quality prioritization strategies.
+   * 枚举，拍照画质优先策略。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -7102,8 +7040,7 @@ declare namespace camera {
    */
   enum PhotoQualityPrioritization {
     /**
-     * Focuses on image quality, which may increase the time required for capturing photos to ensure high-quality 
-     * output.
+     * 画质优先，拍照需要较长的时间，以输出高画质的图片。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -7113,7 +7050,7 @@ declare namespace camera {
     HIGH_QUALITY = 0,
 
     /**
-     * Focuses on performance, trading off image quality for faster capture times.
+     * 性能优先，会降低画质来提升拍照的速度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -7124,22 +7061,19 @@ declare namespace camera {
   }
 
   /**
-   * **PhotoSession** inherits from [Session]{@link camera.Session}, [Flash]{@link camera.Flash}, 
-   * [AutoExposure]{@link camera.AutoExposure}, [WhiteBalance]{@link camera.WhiteBalance}, [Focus]{@link camera.Focus}, 
-   * [Zoom]{@link camera.Zoom}, [ColorManagement]{@link camera.ColorManagement}, 
-   * [AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}, [Macro]{@link camera.Macro}, 
-   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md), 
-   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md), 
-   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md), 
-   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md), and 
-   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md).
+   * PhotoSession继承自[Session]{@link camera.Session}、[Flash]{@link camera.Flash}、
+   * [AutoExposure]{@link camera.AutoExposure}、[WhiteBalance]{@link camera.WhiteBalance}、[Focus]{@link camera.Focus}、
+   * [Zoom]{@link camera.Zoom}、[ColorManagement]{@link camera.ColorManagement}、
+   * [AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}、[Macro]{@link camera.Macro}、
+   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md)、
+   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md)、
+   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md)、
+   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md)、
+   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md)。
    * 
-   * It implements a photo session, which provides operations on the flash, exposure, white balance, focus, zoom, color 
-   * space, macro mode, manual exposure, manual focus, manual ISO setting, optical image stabilization (OIS), and 
-   * aperture.
+   * 普通拍照模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦、色彩空间、微距、手动曝光、手动对焦、手动ISO、光学防抖及光圈的操作。
    * 
-   * **PhotoSession** is provided for the default photo mode. It is used to take standard photos. It supports multiple 
-   * photo formats and resolutions, which are suitable for most daily photo capture scenarios.
+   * 默认的拍照模式，用于拍摄标准照片。支持多种照片格式和分辨率，适合大多数日常拍摄场景。
    * 
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement [since 11 - 12]
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch [since 13 - 18]
@@ -7156,11 +7090,11 @@ declare namespace camera {
   interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement,
       AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture {
     /**
-     * Checks whether this session supports a preconfigured resolution.
+     * 查询当前Session是否支持指定的预配置类型。
      *
-     * @param { PreconfigType } preconfigType - Resolution type.
-     * @param { PreconfigRatio } preconfigRatio - Aspect ratio. The default value is 4:3.
-     * @returns { boolean } Whether a preconfigured resolution is supported. **true** if supported, **false** otherwise.
+     * @param { PreconfigType } preconfigType - 指定配置预期分辨率。
+     * @param { PreconfigRatio } preconfigRatio - 可选画幅比例，默认为4:3。
+     * @returns { boolean } 是否支持指定预配置类型。true表示支持，false表示不支持。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7170,10 +7104,10 @@ declare namespace camera {
     canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
     /**
-     * Preconfigures this session.
+     * 对当前Session进行预配置。
      *
-     * @param { PreconfigType } preconfigType - Resolution type.
-     * @param { PreconfigRatio } preconfigRatio - Aspect ratio. The default value is 4:3.
+     * @param { PreconfigType } preconfigType - 指定配置预期分辨率。
+     * @param { PreconfigRatio } preconfigRatio - 可选画幅比例，默认为4:3。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7183,19 +7117,17 @@ declare namespace camera {
     preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
 
     /**
-     * Subscribes to **PhotoSession** error events. This API uses an asynchronous callback to return the result.
+     * 监听普通拍照会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created. This event is triggered and the error message is returned when an error occurs during the
-     *     calling of a session-related API such as [beginConfig]{@link camera.Session.beginConfig},
-     *     [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}, and
-     *     [addInput]{@link camera.Session.addInput}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用
+     *     [beginConfig]{@link camera.Session.beginConfig}，
+     *     [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}，
+     *     [addInput]{@link camera.Session.addInput}等接口发生错误时返回错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7212,14 +7144,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **PhotoSession** error events. This API uses a callback to return the result.
+     * 注销监听普通拍照会话的错误事件，通过注册回调函数获取结果。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7236,16 +7164,14 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to focus state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created. This event is triggered only when the camera focus state changes in
-     *     autofocus mode.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the focus state change.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。仅当自动对焦模式时，且相机对焦状态发生改变时可触发该事件。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，用于获取当前对焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7262,14 +7188,10 @@ declare namespace camera {
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus state change events.
+     * 注销监听相机聚焦的状态变化。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7286,15 +7208,14 @@ declare namespace camera {
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
-     * Subscribes to smooth zoom state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机平滑变焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type. The value is fixed at **'smoothZoomInfoAvailable'**. The
-     *     event can be listened for when a session is created.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to return the smooth zoom state change.
+     * @param { 'smoothZoomInfoAvailable' } type - 监听事件，固定为'smoothZoomInfoAvailable'，session创建成功可监听。
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - 回调函数，用于获取当前平滑变焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7311,14 +7232,10 @@ declare namespace camera {
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
-     * Unsubscribes from smooth zoom state change events.
+     * 注销监听相机平滑变焦的状态变化。
      *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type. The value is fixed at **'smoothZoomInfoAvailable'**. The
-     *     event can be listened for when a session is created.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'smoothZoomInfoAvailable' } type - 监听事件，固定为'smoothZoomInfoAvailable'，session创建成功可监听。
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7335,12 +7252,10 @@ declare namespace camera {
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
-     * Subscribes to macro state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机微距状态变化，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { 'macroStatusChanged' } type - Event type. The value is fixed at **'macroStatusChanged'**. The event can
-     *     be listened for when a session is created.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the macro state. **true** if enabled,
-     *     **false** otherwise.
+     * @param { 'macroStatusChanged' } type - 监听事件，固定为'macroStatusChanged'，session创建成功可监听。
+     * @param { AsyncCallback<boolean> } callback - 回调函数，用于获取当前微距状态，返回true为开启状态，返回false为禁用状态。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 19]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 19]
@@ -7362,14 +7277,10 @@ declare namespace camera {
     onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Unsubscribes from macro state change events.
+     * 注销相机微距状态变化的监听。
      *
-     * @param { 'macroStatusChanged' } type - Event type. The value is fixed at **'macroStatusChanged'**. The event can
-     *     be listened for when a session is created.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'macroStatusChanged' } type - 注销监听事件，固定为'macroStatusChanged'，session创建成功可触发此事件。
+     * @param { AsyncCallback<boolean> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 19]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 19]
@@ -7490,17 +7401,14 @@ declare namespace camera {
     offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
-     * Subscribes to automatic camera switch status change events. This API uses an asynchronous callback to return the 
-     * result.
+     * 监听相机自动切换镜头状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'autoDeviceSwitchStatusChange' } type - Event type. The value is fixed at
-     *     **'autoDeviceSwitchStatusChange'**. The event can be listened for when a session is created.
-     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback function, which is used to obtain the status
-     *     of automatic camera switch.
+     * @param { 'autoDeviceSwitchStatusChange' } type - 监听事件，固定为'autoDeviceSwitchStatusChange'，session创建成功可监听。
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - 回调函数，用于获取当前自动切换镜头的状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 13 dynamic
@@ -7517,14 +7425,11 @@ declare namespace camera {
     onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
-     * Unsubscribes from automatic camera switch status change events.
+     * 注销监听相机自动切换镜头状态变化。
      *
-     * @param { 'autoDeviceSwitchStatusChange' } type - Event type. The value is fixed at
-     *     **'autoDeviceSwitchStatusChange'**. The event can be listened for when a session is created.
-     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result. If this parameter
-     *     is specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'autoDeviceSwitchStatusChange' } type - 监听事件，固定为'autoDeviceSwitchStatusChange'，session创建成功可监听。
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有
+     *     callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 13 dynamic
@@ -7591,16 +7496,14 @@ declare namespace camera {
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
-     * Subscribes to system pressure level change events. This API uses an asynchronous callback to return the result.
+     * 监听系统压力状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'systemPressureLevelChange' } type - Event type. The value is fixed at **'systemPressureLevelChange'**.
-     *     The event can be listened for when a session is created.
-     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the current system pressure
-     *     level.
+     * @param { 'systemPressureLevelChange' } type - 监听事件，固定为'systemPressureLevelChange'，session创建成功可监听。
+     * @param { AsyncCallback<SystemPressureLevel> } callback - 回调函数，用于获取当前系统压力状态.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -7617,14 +7520,11 @@ declare namespace camera {
     onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void;
 
     /**
-     * Unsubscribes from system pressure level change events.
+     * 注销监听系统压力状态变化。
      *
-     * @param { 'systemPressureLevelChange' } type - Event type. The value is fixed at **'systemPressureLevelChange'**.
-     *     The event can be listened for when a session is created.
-     * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result. If this parameter
-     *     is specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'systemPressureLevelChange' } type - 注销监听事件，固定为'systemPressureLevelChange'，session创建成功可触发此事件。
+     * @param { AsyncCallback<SystemPressureLevel> } [callback] - 回调函数，如果指定参数则取消对应callback (callback对象不可是匿名函数)，否则参数默认为空，
+     *     取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -7668,9 +7568,9 @@ declare namespace camera {
     getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
 
     /**
-     * Subscribes to ISO information change events.
+     * 订阅ISO信息变化事件回调。
      *
-     * @param { Callback<IsoInfo> } callback - Callback used to obtain the ISO information.
+     * @param { Callback<IsoInfo> } callback - 回调函数，用于获取ISO信息变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -7679,12 +7579,9 @@ declare namespace camera {
     onIsoInfoChange(callback: Callback<IsoInfo>): void;
 
     /**
-     * Unsubscribes from ISO information change events.
+     * 取消订阅ISO信息变化事件回调。
      *
-     * @param { Callback<IsoInfo> } [callback] - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { Callback<IsoInfo> } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -7693,10 +7590,9 @@ declare namespace camera {
     offIsoInfoChange(callback?: Callback<IsoInfo>): void;
 
     /**
-     * Subscribes to exposure information change events. After the exposure parameters are modified, the system returns 
-     * the updated exposure information. This API uses an asynchronous callback to return the result.
+     * 订阅曝光信息变化事件回调。曝光参数更改后，系统将返回更新后的曝光信息。使用callback异步回调。
      *
-     * @param { Callback<ExposureInfo> } callback - Callback used to obtain the exposure information.
+     * @param { Callback<ExposureInfo> } callback - 回调函数，用于获取曝光值变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -7705,14 +7601,9 @@ declare namespace camera {
     onExposureInfoChange(callback: Callback<ExposureInfo>): void;
 
     /**
-     * Unsubscribes from exposure information change events. If you have subscribed to exposure information change 
-     * events, cancel the subscription before releasing the camera object. This API uses an asynchronous callback to 
-     * return the result.
+     * 取消订阅曝光信息变化事件回调。如果订阅了曝光信息，请在释放相机前取消订阅。使用callback异步回调。
      *
-     * @param { Callback<ExposureInfo> } [callback] - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { Callback<ExposureInfo> } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -7741,7 +7632,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the priority levels for video recording quality.
+   * 枚举，录像质量优先级。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -7750,7 +7641,7 @@ declare namespace camera {
    */
   enum QualityPrioritization {
     /**
-     * Prioritizes high-quality video recording.
+     * 高录像质量。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7760,7 +7651,7 @@ declare namespace camera {
     HIGH_QUALITY = 0,
 
     /**
-     * Prioritizes video recording quality while balancing power consumption.
+     * 功耗平衡的录像质量。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7771,23 +7662,20 @@ declare namespace camera {
   }
 
   /**
-   * VideoSession inherits from [Session]{@link camera.Session}, [Flash]{@link camera.Flash}, 
-   * [AutoExposure]{@link camera.AutoExposure}, [WhiteBalance]{@link camera.WhiteBalance}, [Focus]{@link camera.Focus}, 
-   * [Zoom]{@link camera.Zoom}, [Stabilization]{@link camera.Stabilization}, 
-   * [ColorManagement]{@link camera.ColorManagement}, [AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}, 
-   * [Macro]{@link camera.Macro}, [ControlCenter]{@link camera.ControlCenter}, 
-   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md), 
-   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md), 
-   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md), 
-   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md), and 
-   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md).
+   * VideoSession继承自[Session]{@link camera.Session}、[Flash]{@link camera.Flash}、
+   * [AutoExposure]{@link camera.AutoExposure}、[WhiteBalance]{@link camera.WhiteBalance}、[Focus]{@link camera.Focus}、
+   * [Zoom]{@link camera.Zoom}、[Stabilization]{@link camera.Stabilization}、
+   * [ColorManagement]{@link camera.ColorManagement}、[AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}、
+   * [Macro]{@link camera.Macro}、[ControlCenter]{@link camera.ControlCenter}、
+   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md)、
+   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md)、
+   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md)、
+   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md)、
+   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md)。
    * 
-   * It implements a video session, which provides operations on the flash, exposure, white balance, focus, zoom, video 
-   * stabilization, color space, macro mode and controller, manual exposure, manual focus, manual ISO, optical image 
-   * stabilization, and aperture.
+   * 普通录像模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦、视频防抖、色彩空间、微距及控制器、手动曝光、手动对焦、手动ISO、光学防抖及光圈的操作。
    * 
-   * **VideoSession** is provided for the default video recording mode. It applies to common scenarios. It supports 
-   * recording at various resolutions (such as 720p and 1080p) and frame rates (such as 30 fps and 60 fps).
+   * 默认的视频录制模式，适用于一般场景。支持720P、1080p等多种分辨率的录制，可选择不同帧率（如30fps、60fps）。
    * 
    * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement [since 11 - 12]
    * @extends AutoDeviceSwitch [since 13 - 18]
@@ -7806,12 +7694,11 @@ declare namespace camera {
     ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
     Aperture {
     /**
-     * Checks whether this session supports a preconfigured resolution.
+     * 查询当前Session是否支持指定的预配置类型。
      *
-     * @param { PreconfigType } preconfigType - Resolution type.
-     * @param { PreconfigRatio } preconfigRatio - Aspect ratio. The default value is 16:9.
-     * @returns { boolean } **true**: The preconfigured resolution is supported.
-     *     <br>**false**: The preconfigured resolution is not supported.
+     * @param { PreconfigType } preconfigType - 指定配置预期分辨率。
+     * @param { PreconfigRatio } preconfigRatio - 可选画幅比例，默认为16:9。
+     * @returns { boolean } true: 支持指定预配置类型。<br/>false: 不支持指定预配置类型。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7821,10 +7708,10 @@ declare namespace camera {
     canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
     /**
-     * Preconfigures this session.
+     * 对当前Session进行预配置。
      *
-     * @param { PreconfigType } preconfigType - Resolution type.
-     * @param { PreconfigRatio } preconfigRatio - Aspect ratio. The default value is 16:9.
+     * @param { PreconfigType } preconfigType - 指定配置预期分辨率。
+     * @param { PreconfigRatio } preconfigRatio - 可选画幅比例，默认为16:9。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -7834,19 +7721,17 @@ declare namespace camera {
     preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
 
     /**
-     * Subscribes to **VideoSession** error events. This API uses an asynchronous callback to return the result.
+     * 监听普通录像会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created. This event is triggered and the error message is returned when an error occurs during the
-     *     calling of a session-related API such as [beginConfig]{@link camera.Session.beginConfig},
-     *     [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}, and
-     *     [addInput]{@link camera.Session.addInput}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用
+     *     [beginConfig]{@link camera.Session.beginConfig}，
+     *     [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}，
+     *     [addInput]{@link camera.Session.addInput}等接口发生错误时返回错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7863,14 +7748,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from **VideoSession** error events. This API uses a callback to return the result.
+     * 注销监听普通录像会话的错误事件，通过注册回调函数获取结果。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7887,16 +7768,14 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to focus state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created. This event is triggered only when the camera focus state changes in
-     *     auto focus mode.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the focus state change.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。仅当自动对焦模式时，且相机对焦状态发生改变时可触发该事件。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，用于获取当前对焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7913,14 +7792,10 @@ declare namespace camera {
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus state change events.
+     * 注销监听相机聚焦的状态变化。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7937,15 +7812,14 @@ declare namespace camera {
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
-     * Subscribes to smooth zoom state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机平滑变焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type. The value is fixed at **'smoothZoomInfoAvailable'**. The
-     *     event can be listened for when a session is created.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to return the smooth zoom state change.
+     * @param { 'smoothZoomInfoAvailable' } type - 监听事件，固定为'smoothZoomInfoAvailable'，session创建成功可监听。
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - 回调函数，用于获取当前平滑变焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7962,14 +7836,10 @@ declare namespace camera {
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
-     * Unsubscribes from smooth zoom state change events.
+     * 注销监听相机平滑变焦的状态变化。
      *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type. The value is fixed at **'smoothZoomInfoAvailable'**. The
-     *     event can be listened for when a session is created.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'smoothZoomInfoAvailable' } type - 监听事件，固定为'smoothZoomInfoAvailable'，session创建成功可监听。
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -7986,17 +7856,14 @@ declare namespace camera {
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
-      * Subscribes to events indicating that the camera controller effect status changes. This API uses an asynchronous 
-      * callback to return the result.
+      * 监听相机控制器效果激活状态变化，通过注册回调函数获取结果。使用callback异步回调。
       * 
-      * > **NOTE**
+      * > **说明：**
       * >
-      * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+      * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
       *
-      * @param { 'controlCenterEffectStatusChange' } type - Event type. The value is fixed at
-      *     **'controlCenterEffectStatusChange'**. The event can be listened for when a session is created.
-      * @param { AsyncCallback<ControlCenterStatusInfo> } callback - Callback used to return the effect status of the
-      *     current controller.
+      * @param { 'controlCenterEffectStatusChange' } type - 监听事件，固定为'controlCenterEffectStatusChange'，session创建成功可监听。
+      * @param { AsyncCallback<ControlCenterStatusInfo> } callback - 回调函数，用于获取当前控制器激活状态。
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @atomicservice
       * @since 20 dynamic
@@ -8013,14 +7880,12 @@ declare namespace camera {
      onControlCenterEffectStatusChange(callback: AsyncCallback<ControlCenterStatusInfo>): void;
 
      /**
-      * Unsubscribes from events indicating that the camera controller effect status changes.
+      * 注销监听相机控制器激活状态变化。
       *
-      * @param { 'controlCenterEffectStatusChange' } type - Event type. The value is fixed at
-      *     **'controlCenterEffectStatusChange'**. The event can be listened for when a session is created.
-      * @param { AsyncCallback<ControlCenterStatusInfo> } [callback] - Callback used to return the result. If this
-      *     parameter is specified, the subscription to the specified event with the specified callback is canceled. (
-      *     The callback object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event
-      *     with all the callbacks are canceled.
+      * @param { 'controlCenterEffectStatusChange' } type - 注销监听事件，固定为'controlCenterEffectStatusChange'，session创建成功可触发此事
+      *     件。
+      * @param { AsyncCallback<ControlCenterStatusInfo> } [callback] - 回调函数，如果指定参数则取消对应callback (callback对象不可是匿名函数)，否则参数
+      *     默认为空，取消所有callback。
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @atomicservice
       * @since 20 dynamic
@@ -8038,12 +7903,10 @@ declare namespace camera {
      offControlCenterEffectStatusChange(callback?: AsyncCallback<ControlCenterStatusInfo>): void;
 
     /**
-     * Subscribes to macro state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机微距状态变化，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { 'macroStatusChanged' } type - Event type. The value is fixed at **'macroStatusChanged'**. The event can
-     *     be listened for when a session is created.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the macro state. **true** if enabled,
-     *     **false** otherwise.
+     * @param { 'macroStatusChanged' } type - 监听事件，固定为'macroStatusChanged'，session创建成功可监听。
+     * @param { AsyncCallback<boolean> } callback - 回调函数，用于获取当前微距状态，返回true是开启状态，返回false是禁用状态。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 19]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 19]
@@ -8065,15 +7928,11 @@ declare namespace camera {
     onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Unsubscribes from macro state change events.
+     * 注销相机微距状态变化的监听。
      *
-     * @param { 'macroStatusChanged' } type - Event type. The value is fixed at **'macroStatusChanged'**. The event can
-     *     be listened for when a session is created.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled. If **true** is returned, the unsubscription is successful. If **false** is returned, the
-     *     unsubscription fails.
+     * @param { 'macroStatusChanged' } type - 注销监听事件，固定为'macroStatusChanged'，session创建成功可触发此事件。
+     * @param { AsyncCallback<boolean> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则参数默认为空，取消所有callback, 返
+     *     回true表示成功，false表示失败。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 19]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 19]
@@ -8145,17 +8004,14 @@ declare namespace camera {
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
-     * Subscribes to automatic camera switch status change events. This API uses an asynchronous callback to return the 
-     * result.
+     * 监听相机自动切换镜头状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'autoDeviceSwitchStatusChange' } type - Event type. The value is fixed at
-     *     **'autoDeviceSwitchStatusChange'**. The event can be listened for when a session is created.
-     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to obtain the status of automatic
-     *     camera switch.
+     * @param { 'autoDeviceSwitchStatusChange' } type - 监听事件，固定为'autoDeviceSwitchStatusChange'，session创建成功可监听。
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - 回调函数，用于获取当前自动切换镜头的状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 13 dynamic
@@ -8172,14 +8028,11 @@ declare namespace camera {
     onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
-     * Unsubscribes from automatic camera switch status change events.
+     * 注销监听相机自动切换镜头状态变化。
      *
-     * @param { 'autoDeviceSwitchStatusChange' } type - Event type. The value is fixed at
-     *     **'autoDeviceSwitchStatusChange'**. The event can be listened for when a session is created.
-     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result. If this parameter
-     *     is specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'autoDeviceSwitchStatusChange' } type - 监听事件，固定为'autoDeviceSwitchStatusChange'，session创建成功可监听。
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有
+     *     callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 13 dynamic
@@ -8344,16 +8197,14 @@ declare namespace camera {
     offLightStatusChange(callback?: AsyncCallback<LightStatus>): void;
 
     /**
-     * Subscribes to system pressure level change events. This API uses an asynchronous callback to return the result.
+     * 监听系统压力状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'systemPressureLevelChange' } type - Event type. The value is fixed at **'systemPressureLevelChange'**.
-     *     The event can be listened for when a session is created.
-     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the current system pressure
-     *     level.
+     * @param { 'systemPressureLevelChange' } type - 监听事件，固定为'systemPressureLevelChange'，session创建成功可监听。
+     * @param { AsyncCallback<SystemPressureLevel> } callback - 回调函数，用于获取当前系统压力状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -8370,14 +8221,11 @@ declare namespace camera {
     onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void;
 
     /**
-     * Unsubscribes from system pressure level change events.
+     * 注销监听系统压力状态变化。
      *
-     * @param { 'systemPressureLevelChange' } type - Event type. The value is fixed at **'systemPressureLevelChange'**.
-     *     The event can be listened for when a session is created.
-     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'systemPressureLevelChange' } type - 注销监听事件，固定为'systemPressureLevelChange'，session创建成功可触发此事件。
+     * @param { AsyncCallback<SystemPressureLevel> } callback - 回调函数，如果指定参数则取消对应callback (callback对象不可是匿名函数)，否则参数默认为空，取消
+     *     所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
@@ -8421,18 +8269,16 @@ declare namespace camera {
     getSessionConflictFunctions(): Array<VideoConflictFunctions>;
 
     /**
-     * Sets the priority level for video recording quality.
+     * 设置录像质量优先级。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - The default value is **HIGH_QUALITY**. Switching to **POWER_BALANCE** will compromise video recording quality
-     * > to achieve lower power usage. The extent of power conservation achieved varies depending on the platform.
+     * > - 默认为高录像质量，设置为功耗平衡将降低录像质量以减少功耗。实际功耗收益因平台而异。
      * >
-     * > - It is recommended that this API be called between 
-     * > [commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)} and 
-     * > [start]{@link camera.Session.start()}.
+     * > - 建议该接口在[commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}和
+     * > [start]{@link camera.Session.start()}之间调用。
      *
-     * @param { QualityPrioritization } quality - Priority level to set. The default value is **HIGH_QUALITY**.
+     * @param { QualityPrioritization } quality - 需要设置的视频质量优先级（默认为高录像质量）。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -8445,9 +8291,9 @@ declare namespace camera {
     setQualityPrioritization(quality: QualityPrioritization): void;
 
     /**
-     * Subscribes to sensitivity (ISO) state change events and obtains the latest ISO value through a callback.
+     * 监听相机感光度（ISO）状态变化，通过注册回调函数获取最新ISO值。
      *
-     * @param { Callback<IsoInfo> } callback - Callback used to obtain the current ISO value of the camera.
+     * @param { Callback<IsoInfo> } callback - 回调函数，用于获取相机当前的ISO值。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -8457,12 +8303,11 @@ declare namespace camera {
     onIsoInfoChange(callback: Callback<IsoInfo>): void;
 
     /**
-     * Unsubscribes from ISO state change events.
+     * 取消监听相机感光度（ISO）状态的变化。
      *
-     * @param { Callback<IsoInfo> } [callback] - Callback used for unsubscription.
-     *     <br>If this parameter is specified, the subscription to the specified event with the specified callback is
-     *     canceled. (The callback object cannot be an anonymous function.)
-     *     <br>Otherwise, the subscriptions to the specified event with all the callbacks are canceled.
+     * @param { Callback<IsoInfo> } [callback] - 回调函数，可选。
+     *     <br>如果指定callback参数则注销该callback监听，callback不可是匿名函数。
+     *     <br>如果未指定callback，则注销所有已存在的callback监听。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -8472,10 +8317,9 @@ declare namespace camera {
     offIsoInfoChange(callback?: Callback<IsoInfo>): void;
 
     /**
-     * Subscribes to exposure information change events. After the exposure parameters are changed, the system returns 
-     * the updated exposure information. This API uses an asynchronous callback to return the result.
+     * 订阅曝光信息变化事件回调。曝光参数更改后，系统将返回更新后的曝光信息。使用callback异步回调。
      *
-     * @param { Callback<ExposureInfo> } callback - Callback used to obtain the exposure information.
+     * @param { Callback<ExposureInfo> } callback - 回调函数，用于获取曝光值变化信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -8484,13 +8328,9 @@ declare namespace camera {
     onExposureInfoChange(callback: Callback<ExposureInfo>): void;
 
     /**
-     * Unsubscribes from exposure information change events. If you have subscribed to exposure information, cancel the 
-     * subscription before releasing the camera. This API uses an asynchronous callback to return the result.
+     * 取消订阅曝光信息变化事件回调。如果订阅了曝光信息，请在释放相机前取消订阅。使用callback异步回调。
      *
-     * @param { Callback<ExposureInfo> } [callback] - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { Callback<ExposureInfo> } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -8564,7 +8404,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the system pressure levels.
+   * 枚举，系统压力等级。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -8573,7 +8413,7 @@ declare namespace camera {
    */
   enum SystemPressureLevel {
     /**
-     * The system pressure is normal.
+     * 系统压力正常。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -8583,7 +8423,7 @@ declare namespace camera {
     SYSTEM_PRESSURE_NORMAL = 0,
 
     /**
-     * The system pressure is elevated but not actively managed by the system.
+     * 系统压力升高，但是系统不会主动管控。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -8593,7 +8433,7 @@ declare namespace camera {
     SYSTEM_PRESSURE_MILD = 1,
 
     /**
-     * The system pressure may affect the overall image quality and performance.
+     * 系统压力可能对图像总质量、性能产生影响。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -8603,7 +8443,7 @@ declare namespace camera {
     SYSTEM_PRESSURE_SEVERE = 2,
 
     /**
-     * The system pressure has a significant impact on the image quality and performance.
+     * 系统压力对图像质量、性能产生显著影响。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -8613,7 +8453,7 @@ declare namespace camera {
     SYSTEM_PRESSURE_CRITICAL = 3,
 
     /**
-     * The system pressure is too high, causing the system to shut down.
+     * 系统压力过高，停止工作。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -8787,7 +8627,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the zoom range.
+   * 变焦范围。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 11 - 23]
@@ -8798,7 +8638,7 @@ declare namespace camera {
    */
   interface ZoomRange {
     /**
-     * Minimum zoom value.
+     * 最小变焦值。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 23]
@@ -8810,7 +8650,7 @@ declare namespace camera {
     readonly min: double;
 
     /**
-     * Maximum zoom value.
+     * 最大变焦值。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 23]
@@ -8823,7 +8663,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the physical aperture object.
+   * 物理光圈对象。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 11 - 23]
@@ -8834,7 +8674,7 @@ declare namespace camera {
    */
   interface PhysicalAperture {
     /**
-     * Zoom range of a given physical aperture.
+     * 特定物理光圈的变焦范围。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 23]
@@ -8846,7 +8686,7 @@ declare namespace camera {
     zoomRange: ZoomRange;
 
     /**
-     * Supported physical aperture.
+     * 支持的物理光圈值。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 11 - 23]
@@ -9709,7 +9549,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the information about the sensitivity (ISO) settings.
+   * 感光度（ISO）参数信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 21]
@@ -9733,7 +9573,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the exposure information object.
+   * 曝光信息对象。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 23]
@@ -9744,7 +9584,7 @@ declare namespace camera {
    */
   interface ExposureInfo {
     /**
-     * Exposure time, in microseconds.
+     * 曝光时间值。单位：微秒。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 23]
@@ -11311,20 +11151,16 @@ declare namespace camera {
   }
 
   /**
-   * **SecureSession** inherits from [Session]{@link camera.Session}, [Flash]{@link camera.Flash}, 
-   * [AutoExposure]{@link camera.AutoExposure}, [WhiteBalance]{@link camera.WhiteBalance}, [Focus]{@link camera.Focus}, 
-   * and [Zoom]{@link camera.Zoom}.
+   * SecureSession继承自[Session]{@link camera.Session}、[Flash]{@link camera.Flash}、
+   * [AutoExposure]{@link camera.AutoExposure}、[WhiteBalance]{@link camera.WhiteBalance}、[Focus]{@link camera.Focus}、
+   * [Zoom]{@link camera.Zoom}。
    * 
-   * It implements a secure session, which provides operations on the flash, exposure, white balance, focus, and zoom.
+   * 安全模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦的操作。
    * 
-   * You can call [createSession]{@link camera.CameraManager.createSession} with [SceneMode]{@link camera.SceneMode} set
-   * to **SECURE_PHOTO** to create a session in secure mode. The secure mode is designed for applications with high 
-   * security requirements, such as facial recognition systems and banking services. It must be used together with the <
-   * !--RP1-->security TA<!--RP1End--> to support service scenarios where both standard preview streams and security 
-   * streams are output.<!--RP2-->
+   * 通过[createSession]{@link camera.CameraManager.createSession}接口传入[SceneMode]{@link camera.SceneMode}为SECURE_PHOTO模式创建
+   * 一个安全模式的会话。该模式开放给人脸识别、银行等有安全诉求的应用，需要结合<!--RP1-->安全TA<!--RP1End-->使用，支持同时输出普通预览流和安全流的业务场景。<!--RP2-->
    * 
-   * The security TA can verify the signature of data delivered by the server, sign images, parse and assemble TLV 
-   * logic, and read, create, and operate keys. It applies to image processing.<!--RP2End-->
+   * 安全TA：可用于图片处理，它具备验证服务器下发数据的验签能力、图片签名、解析及组装tlv逻辑的能力，还具备密钥读取、创建及操作能力。<!--RP2End-->
    * 
    * @extends Session, Flash, AutoExposure, Focus, Zoom [since 12 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom [since 20]
@@ -11335,10 +11171,9 @@ declare namespace camera {
    */
   interface SecureSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom {
     /**
-     * Marks a [PreviewOutput]{@link camera.PreviewOutput} stream as secure output.
+     * 将其中一条[PreviewOutput]{@link camera.PreviewOutput}标记成安全输出。
      *
-     * @param { PreviewOutput } previewOutput - Preview output stream. An error code is returned if the input parameter
-     *     is invalid.
+     * @param { PreviewOutput } previewOutput - 需要标记成安全输出的预览流，传参异常时，会返回错误码。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config. [since 12 - 17]
@@ -11350,18 +11185,16 @@ declare namespace camera {
     addSecureOutput(previewOutput: PreviewOutput): void;
 
     /**
-     * Subscribes to SecureSession error events. This API uses an asynchronous callback to return the result.
+     * 监听安全相机会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created. This event is triggered and the error message is returned when an error occurs during the
-     *     calling of a session-related API such as [beginConfig]{@link camera.Session.beginConfig},
-     *     [commitConfig]{@link camera.Session.commitConfig()}, and [addInput]{@link camera.Session.addInput}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用
+     *     [beginConfig]{@link camera.Session.beginConfig}，[commitConfig]{@link camera.Session.commitConfig()}，
+     *     [addInput]{@link camera.Session.addInput}等接口发生错误时返回错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -11378,14 +11211,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from SecureSession error events.
+     * 注销监听安全相机会话的错误事件，通过注册回调函数获取结果。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，session创建成功之后可监听该接口。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -11402,16 +11231,14 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to focus state change events. This API uses an asynchronous callback to return the result.
+     * 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created. This event is triggered only when the camera focus state changes in
-     *     auto focus mode.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the focus state change.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。仅当自动对焦模式时，且相机对焦状态发生改变时可触发该事件。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，用于获取当前对焦状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -11428,14 +11255,10 @@ declare namespace camera {
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus state change events.
+     * 注销监听相机聚焦的状态变化。
      *
-     * @param { 'focusStateChange' } type - Event type. The value is fixed at **'focusStateChange'**. The event can be
-     *     listened for when a session is created.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'focusStateChange' } type - 监听事件，固定为'focusStateChange'，session创建成功可监听。
+     * @param { AsyncCallback<FocusState> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -12170,8 +11993,7 @@ declare namespace camera {
   }
 
   /**
-   * CameraOutput implements output information used in [Session]{@link camera.Session}. It is the base class of 
-   * **output**.
+   * 会话中[Session]{@link camera.Session}使用的输出信息，output的基类。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12180,11 +12002,10 @@ declare namespace camera {
    */
   interface CameraOutput {
     /**
-     * Releases output resources. This API uses an asynchronous callback to return the result.
+     * 释放输出资源，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the output resources are
-     *     released successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code
-     *     defined in [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当释放输出资源成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12194,9 +12015,9 @@ declare namespace camera {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases output resources. This API uses a promise to return the result.
+     * 释放输出资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12247,7 +12068,7 @@ declare namespace camera {
   }
 
   /**
-   * PreviewOutput implements preview output. It inherits from [CameraOutput]{@link camera.CameraOutput}.
+   * 预览输出类。继承[CameraOutput]{@link camera.CameraOutput}。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12256,11 +12077,14 @@ declare namespace camera {
    */
   interface PreviewOutput extends CameraOutput {
     /**
-     * Starts to output preview streams. This API uses an asynchronous callback to return the result.
+     * 开始输出预览流，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the preview stream output starts
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当开始输出预览流成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -12270,9 +12094,13 @@ declare namespace camera {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts to output preview streams. This API uses a promise to return the result.
+     * 开始输出预览流。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
@@ -12282,10 +12110,13 @@ declare namespace camera {
     start(): Promise<void>;
 
     /**
-     * Stops outputting preview streams. This API uses an asynchronous callback to return the result.
+     * 停止输出预览流，通过注册回调函数获取结果。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the preview stream output stops
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当停止输出预览流成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -12294,9 +12125,13 @@ declare namespace camera {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stops outputting preview streams. This API uses a promise to return the result.
+     * 停止输出预览流。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -12305,17 +12140,14 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
-     * Subscribes to preview frame start events. This API uses an asynchronous callback to return the result.
+     * 监听预览帧启动，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
-     *     when a previewOutput instance is created. This event is triggered and returned when the bottom layer starts
-     *     exposure for the first time.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. The preview starts as long as this
-     *     event is returned.
+     * @param { 'frameStart' } type - 监听事件，固定为'frameStart'，previewOutput创建成功可监听。底层第一次开始曝光时触发该事件并返回。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取结果。只要有该事件返回就证明预览开始。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12332,14 +12164,10 @@ declare namespace camera {
     onFrameStart(callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from preview frame start events.
+     * 注销预览帧启动的监听。
      *
-     * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
-     *     when a previewOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'frameStart' } type - 监听事件，固定为'frameStart'，previewOutput创建成功可监听。
+     * @param { AsyncCallback<void> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12356,17 +12184,14 @@ declare namespace camera {
     offFrameStart(callback?: AsyncCallback<void>): void;
 
     /**
-     * Subscribes to preview frame end events. This API uses an asynchronous callback to return the result.
+     * 监听预览帧结束，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
-     *     a previewOutput instance is created. This event is triggered and returned when the last frame of preview
-     *     ends.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. The preview ends as long as this
-     *     event is returned.
+     * @param { 'frameEnd' } type - 监听事件，固定为'frameEnd'，previewOutput创建成功可监听。预览完全结束最后一帧时触发该事件并返回。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取结果。只要有该事件返回就证明预览结束。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12383,14 +12208,10 @@ declare namespace camera {
     onFrameEnd(callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from preview frame end events.
+     * 注销监听预览帧结束。
      *
-     * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
-     *     a previewOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'frameEnd' } type - 监听事件，固定为'frameEnd'，previewOutput创建成功可监听。
+     * @param { AsyncCallback<void> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12407,18 +12228,16 @@ declare namespace camera {
     offFrameEnd(callback?: AsyncCallback<void>): void;
 
     /**
-     * Subscribes to PreviewOutput error events. This API uses an asynchronous callback to return the result.
+     * 监听预览输出的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     previewOutput instance is created. This event is triggered and the corresponding error message is returned
-     *     when an error occurs during the use of a preview-related API such as
-     *     [Session.start]{@link camera.Session.start()} or [CameraOutput.release]{@link camera.CameraOutput.release()}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，previewOutput创建成功可监听。预览接口使用错误时触发该事件，比如调用
+     *     [Session.start]{@link camera.Session.start()}，[CameraOutput.release]{@link camera.CameraOutput.release()}等接口发
+     *     生错误时返回对应错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12435,14 +12254,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from PreviewOutput error events.
+     * 注销监听预览输出的错误事件。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     previewOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，previewOutput创建成功可监听。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -12459,9 +12274,9 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the supported frame rates.
+     * 查询支持的帧率范围。
      *
-     * @returns { Array<FrameRateRange> } Array of supported frame rates. If the API call fails, undefined is returned.
+     * @returns { Array<FrameRateRange> } 支持的帧率范围列表。若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -12470,19 +12285,16 @@ declare namespace camera {
     getSupportedFrameRates(): Array<FrameRateRange>;
 
     /**
-     * Sets a frame rate range for preview streams. The range must be within the supported frame rate range,
+     * 设置预览流帧率范围，设置的范围必须在支持的帧率范围内。
      * 
-     * which can be obtained by calling [getSupportedFrameRates]{@link camera.PreviewOutput.getSupportedFrameRates}.
+     * 进行设置前，可通过[getSupportedFrameRates]{@link camera.PreviewOutput.getSupportedFrameRates}接口查询支持的帧率范围。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is valid only in [PhotoSession]{@link camera.PhotoSession} or 
-     * > [VideoSession]{@link camera.VideoSession} mode.
+     * > 仅在[PhotoSession]{@link camera.PhotoSession}或[VideoSession]{@link camera.VideoSession}模式下支持。
      *
-     * @param { int } minFps - Minimum frame rate, in fps. When the maximum value is less than the minimum value, the
-     *     API does not take effect.
-     * @param { int } maxFps - Maximum frame rate, in fps. When the minimum value is greater than the maximum value, the
-     *     API does not take effect.
+     * @param { int } minFps - 最小帧率（单位：fps），当传入的最大值小于最小值时，传参异常，接口不生效。
+     * @param { int } maxFps - 最大帧率（单位：fps），当传入的最小值大于最大值时，传参异常，接口不生效。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -12493,12 +12305,11 @@ declare namespace camera {
     setFrameRate(minFps: int, maxFps: int): void;
 
     /**
-     * Obtains the configured frame rate range.
+     * 获取已设置的帧率范围。
      * 
-     * This API is valid only after [setFrameRate]{@link camera.PreviewOutput.setFrameRate} is called to set a frame 
-     * rate range for preview streams.
+     * 使用[setFrameRate]{@link camera.PreviewOutput.setFrameRate}接口对预览流设置过帧率后可查询。
      *
-     * @returns { FrameRateRange } Frame rate range.
+     * @returns { FrameRateRange } 帧率范围
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -12507,28 +12318,23 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
-     * Obtains the preview rotation angle.
+     * 获取预览旋转角度。
      * 
-     * - Device' natural orientation: the default orientation for using a device. For example, the default orientation 
-     * of the bar-type phone is in portrait mode, with the charging port facing downward.
-     * - Camera lens angle: equivalent to the angle at which the camera is rotated clockwise to match the device's 
-     * natural orientation. For example, the rear camera sensor of a bar-type phone is installed in landscape mode. 
-     * Therefore, it needs to be rotated by 90 degrees clockwise to match the device's natural orientation.
+     * - 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
+     * - 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
      * - 
-     * [Screen Rotation](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-multi-device-window-direction):
-     * indicates the clockwise rotation angle of the device screen.
+     * [屏幕旋转角度](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-direction#section737072712182)：
+     * 显示设备的屏幕顺时针旋转角度。
      *
-     * @param { int } displayRotation - Screen rotation angle of the display. It is obtained by calling
-     *     [display.getDefaultDisplaySync]{@link @ohos.display:display.getDefaultDisplaySync}.
-     *     <br> Since API version 23, the input parameter **displayRotation** is optional. If no parameter is passed,
-     *     the system obtains the **displayRotation** value to calculate rotation angle of a video.
-     *     <br> The value ranges from 0 to 360, in degrees. [since 12 - 22]
-     * @param { int } [displayRotation] - Screen rotation angle of the display. It is obtained by calling
-     *     [display.getDefaultDisplaySync]{@link @ohos.display:display.getDefaultDisplaySync}.
-     *     <br> Since API version 23, the input parameter **displayRotation** is optional. If no parameter is passed,
-     *     the system obtains the **displayRotation** value to calculate rotation angle of a video.
-     *     <br> The value ranges from 0 to 360, in degrees. [since 23]
-     * @returns { ImageRotation } The preview rotation angle obtained. If the API call fails, undefined is returned.
+     * @param { int } displayRotation - 显示设备的屏幕旋转角度，通过
+     *     [display.getDefaultDisplaySync]{@link @ohos.display:display.getDefaultDisplaySync}获得。
+     *     <br> 从API version 23开始，入参displayRotation为可选参数，当不传入参数时，由系统获取displayRotation进行预览旋转角度计算。
+     *     <br> 单位为度数（degree），取值范围为[0, 360]。 [since 12 - 22]
+     * @param { int } [displayRotation] - 显示设备的屏幕旋转角度，通过
+     *     [display.getDefaultDisplaySync]{@link @ohos.display:display.getDefaultDisplaySync}获得。
+     *     <br> 从API version 23开始，入参displayRotation为可选参数，当不传入参数时，由系统获取displayRotation进行预览旋转角度计算。
+     *     <br> 单位为度数（degree），取值范围为[0, 360]。 [since 23]
+     * @returns { ImageRotation } 返回预览旋转角度。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12 - 22]
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -12540,13 +12346,11 @@ declare namespace camera {
     getPreviewRotation(displayRotation?: int): ImageRotation;
 
     /**
-     * Sets the preview rotation angle.
+     * 设置预览旋转角度。
      *
-     * @param { ImageRotation } previewRotation - Preview rotation angle.
-     * @param { boolean } isDisplayLocked - Whether the orientation of the surface is locked when the screen rotates. If
-     *     this parameter is not set, the default value **false** is used, indicating that the orientation is not
-     *     locked. **true** if locked, **false** otherwise. For details, see
-     *     [SurfaceRotationOptions]{@link SurfaceRotationOptions}.
+     * @param { ImageRotation } previewRotation - 预览旋转角度
+     * @param { boolean } isDisplayLocked - Surface在屏幕旋转时是否锁定方向，未设置时默认取值为false，即不锁定方向。true表示锁定方向，false表示不锁定方向。详情请参考
+     *     [SurfaceRotationOptions]{@link SurfaceRotationOptions}
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -12557,9 +12361,9 @@ declare namespace camera {
     setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
 
     /**
-     * Obtains the profile that takes effect currently.
+     * 获取当前生效的配置信息。
      *
-     * @returns { Profile } Profile obtained.
+     * @returns { Profile } 当前生效的配置信息
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12569,11 +12373,10 @@ declare namespace camera {
     getActiveProfile(): Profile;
 
     /**
-     * Adds a surface for delayed preview. This API can run after [commitConfig]{@link camera.Session.commitConfig()} or
-     * [start]{@link camera.Session.start()} is called.
+     * 配置延迟预览的Surface，可以在[commitConfig]{@link camera.Session.commitConfig()}配流和[start]{@link camera.Session.start()}启流之后
+     * 运行。
      *
-     * @param { string } surfaceId - Surface ID, which is obtained from
-     *     [XComponent]{@link XComponent}.
+     * @param { string } surfaceId - 从[XComponent]{@link XComponent}组件获取的surfaceId。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 13 - 23]
@@ -12695,11 +12498,9 @@ declare namespace camera {
     offSketchStatusChanged(callback?: AsyncCallback<SketchStatusData>): void;
 
     /**
-     * Checks whether preview bandwidth compression is supported. This involves reducing data volume through encoding to
-     * minimize bandwidth usage during transmission.
+     * 检查是否支持预览带宽压缩（指通过编码减少数据量，降低其在传输链路中的带宽占用）。
      *
-     * @returns { boolean } Check result for the support of preview bandwidth compression. **true** if supported,
-     *     **false** otherwise.
+     * @returns { boolean } 是否支持预览带宽压缩。true表示支持，false表示不支持。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 23 dynamic&static
@@ -12707,20 +12508,17 @@ declare namespace camera {
     isBandwidthCompressionSupported(): boolean;
 
     /**
-     * Enables preview bandwidth compression.
+     * 使能预览带宽压缩。
      * 
-     * Before enabling this feature, you can call 
-     * [isBandwidthCompressionSupported]{@link camera.PreviewOutput.isBandwidthCompressionSupported} to check whether 
-     * the device supports preview bandwidth compression.
+     * 使能之前，可先使用方法[isBandwidthCompressionSupported]{@link camera.PreviewOutput.isBandwidthCompressionSupported}对设备是否支持预览
+     * 带宽压缩进行检查。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This function must be called prior to 
-     * > [Session.commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}. Otherwise, the 
-     * > preview output stream format will be affected.
+     * > 该接口只能在使用[Session.commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}接口之前调用，否则会影响预览流
+     * > 出流格式。
      *
-     * @param { boolean } enabled - Whether to enable preview bandwidth compression. **true** to enable, **false**
-     *     otherwise.
+     * @param { boolean } enabled - 是否使能预览带宽压缩。true表示使能，false表示不使能。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -12731,10 +12529,13 @@ declare namespace camera {
     enableBandwidthCompression(enabled: boolean): void;
 
     /**
-     * Checks whether log video view assistance is supported.
+     * LOG视频下，查询是否支持辅助监看功能。辅助监看开启后，预览画面还原至原色域，录制出的视频仍然是LOG视频格式。
+     * 
+     * > **说明：**
+     * >
+     * > 辅助监看效果仅支持1080P及以下分辨率。
      *
-     * @returns { boolean } Check result for the support of log video view assistance. **true** if supported,
-     *     **false** otherwise.
+     * @returns { boolean } 是否支持辅助监看功能。true表示支持，false表示不支持。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -12743,11 +12544,16 @@ declare namespace camera {
     isLogViewAssistSupported(): boolean;
 
     /**
-     * Log video view assistance toggle. Before enabling this feature, you can call
-     * [isLogViewAssistSupported]{@link camera.PreviewOutput.isLogViewAssistSupported} to check whether
-     * the device supports log video view assistance.
+     * LOG视频下，使能辅助监看之前，可先使用方法[isLogViewAssistSupported]{@link camera.PreviewOutput.isLogViewAssistSupported}查询设备是否支持预览辅助
+     * 监看。
+     * 
+     * > **说明：**
+     * >
+     * > - 该接口只能在使用[Session.commitConfig]{@link camera.Session.commitConfig(callback: AsyncCallback<void>)}接口之后调用。
+     * >
+     * > - 预览辅助监看效果仅支持1080P及以下分辨率。
      *
-     * @param { boolean } enable - Whether to enable log video view assistance, **true** to enable, **false** otherwise.
+     * @param { boolean } enable - 是否使能辅助监看。true表示使能，false表示不使能。
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -12857,7 +12663,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the image rotation angles.
+   * 枚举，图片旋转角度。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12866,7 +12672,7 @@ declare namespace camera {
    */
   enum ImageRotation {
     /**
-     * The image rotates 0 degrees.
+     * 图片旋转0度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12876,7 +12682,7 @@ declare namespace camera {
     ROTATION_0 = 0,
 
     /**
-     * The image rotates 90 degrees.
+     * 图片旋转90度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12886,7 +12692,7 @@ declare namespace camera {
     ROTATION_90 = 90,
 
     /**
-     * The image rotates 180 degrees.
+     * 图片旋转180度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12896,7 +12702,7 @@ declare namespace camera {
     ROTATION_180 = 180,
 
     /**
-     * The image rotates 270 degrees.
+     * 图片旋转270度。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12907,7 +12713,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the geolocation information.
+   * 图片地理位置信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12916,7 +12722,7 @@ declare namespace camera {
    */
   interface Location {
     /**
-     * Latitude, in degrees, within the range [–90, 90].
+     * 纬度（度）。取值范围：[-90, 90]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12926,7 +12732,7 @@ declare namespace camera {
     latitude: double;
 
     /**
-     * Longitude, in degrees, within the range [–180, 180].
+     * 经度（度）。取值范围：[-180, 180]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12936,7 +12742,7 @@ declare namespace camera {
     longitude: double;
 
     /**
-     * Altitude, in meters.
+     * 海拔（米）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12947,7 +12753,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the image quality levels.
+   * 枚举，图片质量。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12956,7 +12762,7 @@ declare namespace camera {
    */
   enum QualityLevel {
     /**
-     * High image quality.
+     * 图片质量高。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12966,7 +12772,7 @@ declare namespace camera {
     QUALITY_LEVEL_HIGH = 0,
 
     /**
-     * Medium image quality.
+     * 图片质量中等。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12976,7 +12782,7 @@ declare namespace camera {
     QUALITY_LEVEL_MEDIUM = 1,
 
     /**
-     * Low image quality.
+     * 图片质量差。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -12987,7 +12793,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the settings for taking an image.
+   * 拍摄照片的设置。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -12996,7 +12802,10 @@ declare namespace camera {
    */
   interface PhotoCaptureSetting {
     /**
-     * Image quality (high by default).
+     * 图片质量。
+     * 
+     * 当quality未下发时，默认按compressionQuality下发生效；若quality与compressionQuality同时下发则按compressionQuality下发生效；若quality与
+     * compressionQuality均未下发则图片质量默认是高等。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13006,7 +12815,7 @@ declare namespace camera {
     quality?: QualityLevel;
 
     /**
-     * Rotation angle of the image. The default value is **0**, indicating clockwise rotation.
+     * 图片旋转角度（默认0度，顺时针旋转）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13016,7 +12825,7 @@ declare namespace camera {
     rotation?: ImageRotation;
 
     /**
-     * Geolocation information of the image (depending on the device hardware information by default).
+     * 图片地理位置信息（默认以设备硬件信息为准）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13026,9 +12835,7 @@ declare namespace camera {
     location?: Location;
 
     /**
-     * Whether mirror photography is enabled (disabled by default). Before using this enumerated value, call 
-     * [isMirrorSupported]{@link camera.PhotoOutput.isMirrorSupported} to check whether mirror photography is supported.
-     * **true** if enabled, **false** otherwise.
+     * 镜像使能开关（默认关）。使用之前需要使用[isMirrorSupported]{@link camera.PhotoOutput.isMirrorSupported}进行判断是否支持。true表示使能，false表示不使能。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13038,7 +12845,10 @@ declare namespace camera {
     mirror?: boolean;
 
     /**
-     * Photo image compression quality.
+     * 图片压缩质量值，取值范围为(1, 100)。
+     * 
+     * 当compressionQuality未下发时，默认按quality生效；若quality与compressionQuality同时下发则按compressionQuality下发生效；若quality与
+     * compressionQuality均未下发则图片质量默认是高等。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -13091,7 +12901,7 @@ declare namespace camera {
   }
 
   /**
-   * Photo defines a full-quality image object.
+   * 全质量图对象。
    * 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -13142,10 +12952,10 @@ declare namespace camera {
   }
 
   /**
-   * Defines the image container type, which is used to obtain full-quality images or uncompressed images (YUV).
+   * 图片容器类型，用于获取全质量图和未压缩图(YUV)。
    *
-   * @unionmember { image.Image } Image container type that obtains full-quality images.
-   * @unionmember { image.Picture } Image container type that obtains uncompressed images (YUV).
+   * @unionmember { image.Image } 图片容器类型，用于获取全质量图。
+   * @unionmember { image.Picture } 图片容器类型，用于获取未压缩图(YUV)。
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 23 dynamic&static
@@ -13153,7 +12963,7 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
-   * **CapturePhoto** provides APIs for obtaining the objects of the full-quality image and the uncompressed image.
+   * 获取全质量图和未压缩图的对象。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -13219,7 +13029,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the video codec types.
+   * 枚举，视频编码类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -13228,7 +13038,7 @@ declare namespace camera {
    */
   enum VideoCodecType {
     /**
-     * AVC.
+     * 视频编码类型AVC。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13238,7 +13048,7 @@ declare namespace camera {
     AVC = 0,
 
     /**
-     * HEVC.
+     * 视频编码类型HEVC。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13249,8 +13059,7 @@ declare namespace camera {
   }
 
   /**
-   * PhotoOutput implements output information used in a photo session. It inherits from 
-   * [CameraOutput]{@link camera.CameraOutput}.
+   * 拍照会话中使用的输出信息，继承[CameraOutput]{@link camera.CameraOutput}。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -13259,12 +13068,10 @@ declare namespace camera {
    */
   interface PhotoOutput extends CameraOutput {
     /**
-     * Captures a photo with the default photo capture parameters. This API uses an asynchronous callback to return the 
-     * result.
+     * 以默认设置触发一次拍照，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the photo is successfully
-     *     captured with the default parameters, **err** is **undefined**; otherwise, **err** is an error object with an
-     *     error code defined in [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当以默认设置触发拍照成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -13275,9 +13082,9 @@ declare namespace camera {
     capture(callback: AsyncCallback<void>): void;
 
     /**
-     * Captures a photo with the default photo capture parameters. This API uses a promise to return the result.
+     * 以默认设置触发一次拍照。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -13288,13 +13095,11 @@ declare namespace camera {
     capture(): Promise<void>;
 
     /**
-     * Captures a photo with the specified photo capture parameters. This API uses an asynchronous callback to return 
-     * the result.
+     * 以指定参数触发一次拍照，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { PhotoCaptureSetting } setting - Photo capture settings. If the input data is of the **undefined** type,
-     *     a photo capture operation is triggered based on the default settings.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
-     *     code defined in [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
+     * @param { PhotoCaptureSetting } setting - 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取结果。接口调用失败会返回相应错误码，错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -13306,11 +13111,10 @@ declare namespace camera {
     capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void;
 
     /**
-     * Captures a photo with the specified photo capture parameters. This API uses a promise to return the result.
+     * 以指定参数触发一次拍照。使用Promise异步回调。
      *
-     * @param { PhotoCaptureSetting } setting - Photo capture settings. If the input data is of the **undefined** type,
-     *     a photo capture operation is triggered based on the default settings.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { PhotoCaptureSetting } setting - 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -13465,10 +13269,9 @@ declare namespace camera {
     enableDepthDataDelivery(enabled: boolean): void;
 
     /**
-     * Obtains the supported video codec types of moving photos.
+     * 查询支持的动态照片短视频编码类型。
      *
-     * @returns { Array<VideoCodecType> } Array holding the supported video codec types. If the API call fails,
-     *     undefined is returned.
+     * @returns { Array<VideoCodecType> } 支持的动态照片短视频编码类型列表。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13478,10 +13281,10 @@ declare namespace camera {
     getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>;
 
     /**
-     * Sets a video codec type for moving photos.
+     * 设置动态照片短视频编码类型。
      *
-     * @param { VideoCodecType } codecType - Video codec type.
-     *     <br>If the value is not within the enumerated value range, this parameter does not take effect.
+     * @param { VideoCodecType } codecType - 动态照片短视频编码类型。
+     *     <br>如果设置不在枚举范围内，则该参数不会生效。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -13491,16 +13294,14 @@ declare namespace camera {
     setMovingPhotoVideoCodecType(codecType: VideoCodecType): void;
 
     /**
-     * Subscribes to the events of returning available photos. This API uses an asynchronous callback to return the 
-     * result.
+     * 注册监听拍照返回照片上报事件。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'photoAvailable' } type - Event type. The value is fixed at **'photoAvailable'**. The event can be
-     *     listened for when a **photoOutput** instance is created.
-     * @param { AsyncCallback<Photo> } callback - Callback used to listen for the event of returning available photos.
+     * @param { 'photoAvailable' } type - 监听事件，固定为'photoAvailable'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<Photo> } callback - 回调函数，用于监听拍照返回照片上报事件。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -13517,14 +13318,10 @@ declare namespace camera {
     onPhotoAvailable(callback: AsyncCallback<Photo>): void;
 
     /**
-     * Unsubscribes from the events of returning available photos.
+     * 注销监听拍照返回照片上报事件。
      *
-     * @param { 'photoAvailable' } type - Event type. The value is fixed at **'photoAvailable'**. The event can be
-     *     listened for when a **photoOutput** instance is created.
-     * @param { AsyncCallback<Photo> } callback - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'photoAvailable' } type - 监听事件，固定为'photoAvailable'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<Photo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -13541,19 +13338,17 @@ declare namespace camera {
     offPhotoAvailable(callback?: AsyncCallback<Photo>): void;
 
     /**
-     * Subscribes to the events of returning full-quality images and uncompressed images. This API uses an asynchronous 
-     * callback to return the result.
+     * 注册监听全质量图和未压缩图。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - You cannot call 
+     * > - 注册监听接口时，不支持在该接口监听的回调方法里调用
      * > [offCapturePhotoAvailable]{@link camera.PhotoOutput.offCapturePhotoAvailable(callback?: Callback<CapturePhoto>)}
-     * > to unregister the callback in the callback listened by this API.
+     * > 注销回调。
      * >
-     * > - This API can be used to register listeners only when uncompressed images in the YUV format are captured.
+     * > - 拍摄未压缩图（YUV）格式图片时，仅支持使用此接口注册监听。
      *
-     * @param { Callback<CapturePhoto> } callback - Callback used to listen for the event of returning full-quality
-     *     images and uncompressed images.
+     * @param { Callback<CapturePhoto> } callback - 回调函数，用于监听全质量图和未压缩图上报事件。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -13562,13 +13357,9 @@ declare namespace camera {
     onCapturePhotoAvailable(callback: Callback<CapturePhoto>): void;
 
     /**
-     * Unsubscribes from the events of returning full-quality images and uncompressed images. This API uses an 
-     * asynchronous callback to return the result.
+     * 注销监听全质量图和未压缩图。使用callback异步回调。
      *
-     * @param { Callback<CapturePhoto> } [callback] - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { Callback<CapturePhoto> } [callback] - 回调函数，如果指定参数则取消对应callback，callback对象不可是匿名函数，否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -13629,15 +13420,14 @@ declare namespace camera {
     offDeferredPhotoProxyAvailable(callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
-     * Subscribes to photo asset available events. This API uses an asynchronous callback to return the result.
+     * 注册监听photoAsset上报。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'photoAssetAvailable' } type - Event type. The value is fixed at **'photoAssetAvailable'**. The event
-     *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the photo asset.
+     * @param { 'photoAssetAvailable' } type - 监听事件，固定为'photoAssetAvailable'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - 回调函数，用于监听photoAsset上报。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13659,14 +13449,11 @@ declare namespace camera {
     onPhotoAssetAvailable(callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * Unsubscribes from photo asset available events.
+     * 注销photoAsset上报。
      *
-     * @param { 'photoAssetAvailable' } type - Event type. The value is fixed at **'photoAssetAvailable'**. The event
-     *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used for unsubscription. If this
-     *     parameter is specified, the subscription to the specified event with the specified callback is canceled. (The
-     *     callback object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with
-     *     all the callbacks are canceled.
+     * @param { 'photoAssetAvailable' } type - 监听事件，固定为'photoAssetAvailable'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - 需要解监听的回调方法。如果callback不为空且与此对应的监听方法一致，不为匿名方法，则解注
+     *     册该方法；如果callback为空，则解监听所有回调。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13683,10 +13470,9 @@ declare namespace camera {
     offPhotoAssetAvailable(callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * Checks whether mirror photography is supported.
+     * 查询是否支持镜像拍照。
      *
-     * @returns { boolean } Check result for the support of mirror photography. **true** if supported, **false**
-     *     otherwise. If the API call fails, undefined is returned.
+     * @returns { boolean } 返回是否支持镜像拍照，true表示支持，false表示不支持。若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -13695,13 +13481,12 @@ declare namespace camera {
     isMirrorSupported(): boolean;
 
     /**
-     * Enables or disables dynamic photo capture.
+     * 是否启用动态照片镜像拍照。
      * 
-     * Before calling this API, check whether moving photo capture is supported by calling 
-     * [isMovingPhotoSupported]{@link camera.PhotoOutput.isMovingPhotoSupported} and whether mirroring is supported by 
-     * calling [isMirrorSupported]{@link camera.PhotoOutput.isMirrorSupported}.
+     * 调用该接口前，需要通过[isMovingPhotoSupported]{@link camera.PhotoOutput.isMovingPhotoSupported}查询是否支持动态照片拍摄功能以及通过
+     * [isMirrorSupported]{@link camera.PhotoOutput.isMirrorSupported}查询是否支持镜像拍照功能。
      *
-     * @param { boolean } enabled - Enables or disables dynamic photo capture. **true** to enable, **false** otherwise.
+     * @param { boolean } enabled - 是否启用动态照片镜像拍照。true为开启动态照片镜像拍照，false为关闭动态照片镜像拍照。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -13713,16 +13498,16 @@ declare namespace camera {
     enableMirror(enabled: boolean): void;
 
     /**
-     * Subscribes to capture start events. This API uses an asynchronous callback to return the result.
+     * 监听拍照开始，通过注册回调函数获取Capture ID。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 从 API version 10开始支持，从API version 11开始废弃。
+     * >
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'captureStart' } type - Event type. The value is fixed at **'captureStart'**. The event can be listened
-     *     for when a photoOutput instance is created. This event is triggered and returned when the bottom layer starts
-     *     exposure each time a photo is taken.
-     * @param { AsyncCallback<number> } callback - Callback used to return the capture ID.
+     * @param { 'captureStart' } type - 监听事件，固定为'captureStart'，photoOutput创建成功后可监听。每次拍照，底层开始曝光时触发该事件并返回。
+     * @param { AsyncCallback<number> } callback - 使用callback的方式获取Capture ID。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -13731,18 +13516,16 @@ declare namespace camera {
     on(type: 'captureStart', callback: AsyncCallback<number>): void;
 
     /**
-     * Unsubscribes from capture start events.
+     * 注销拍照开始的监听。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 从 API version 10开始支持，从API version 11开始废弃。
+     * >
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'captureStart' } type - Event type. The value is fixed at **'captureStart'**. The event can be listened
-     *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'captureStart' } type - 监听事件，固定为'captureStart'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<number> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10 dynamiconly
      * @deprecated since 11
@@ -13751,16 +13534,14 @@ declare namespace camera {
     off(type: 'captureStart', callback?: AsyncCallback<number>): void;
 
     /**
-     * Subscribes to capture start events. This API uses an asynchronous callback to return the 
-     * [capture start ID]{@link camera.CaptureStartInfo}.
+     * 监听拍照开始，通过注册回调函数获取[CaptureStartInfo]{@link camera.CaptureStartInfo}。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'captureStartWithInfo' } type - Event type. The value is fixed at **'captureStartWithInfo'**. The event
-     *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to return the capture ID.
+     * @param { 'captureStartWithInfo' } type - 监听事件，固定为'captureStartWithInfo'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<CaptureStartInfo> } callback - 使用callback的方式获取Capture ID。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -13777,14 +13558,10 @@ declare namespace camera {
     onCaptureStartWithInfo(callback: AsyncCallback<CaptureStartInfo>): void;
 
     /**
-     * Unsubscribes from capture start events.
+     * 注销监听拍照。
      *
-     * @param { 'captureStartWithInfo' } type - Event type. The value is fixed at **'captureStartWithInfo'**. The event
-     *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'captureStartWithInfo' } type - 监听事件，固定为'captureStartWithInfo'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<CaptureStartInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 11 dynamic
@@ -13801,12 +13578,10 @@ declare namespace camera {
     offCaptureStartWithInfo(callback?: AsyncCallback<CaptureStartInfo>): void;
 
     /**
-     * Subscribes to frame shutter events. This API uses an asynchronous callback to return the result.
+     * 监听拍照帧输出捕获，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { 'frameShutter' } type - Event type. The value is fixed at **'frameShutter'**. The event can be listened
-     *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to return the result. A new photo capture
-     *     request can be delivered as long as this event is returned.
+     * @param { 'frameShutter' } type - 监听事件，固定为'frameShutter'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<FrameShutterInfo> } callback - 回调函数，用于获取相关信息。该回调返回意味着可以再次下发拍照请求。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -13823,14 +13598,10 @@ declare namespace camera {
     onFrameShutter(callback: AsyncCallback<FrameShutterInfo>): void;
 
     /**
-     * Unsubscribes from frame shutter events.
+     * 注销监听拍照帧输出捕获。
      *
-     * @param { 'frameShutter' } type - Event type. The value is fixed at **'frameShutter'**. The event can be listened
-     *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'frameShutter' } type - 监听事件，固定为'frameShutter'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<FrameShutterInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -13847,16 +13618,14 @@ declare namespace camera {
     offFrameShutter(callback?: AsyncCallback<FrameShutterInfo>): void;
 
     /**
-     * Subscribes to frame shutter end events. This API uses an asynchronous callback to return the result.
+     * 监听拍照曝光结束捕获，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'frameShutterEnd' } type - Event type. The value is fixed at **'frameShutterEnd'**. The event can be
-     *     listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to return the result. It is invoked when
-     *     the frame shutter ends.
+     * @param { 'frameShutterEnd' } type - 监听事件，固定为'frameShutterEnd'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<FrameShutterEndInfo> } callback - 回调函数，用于获取相关信息。该回调返回表示拍照曝光结束。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13873,14 +13642,11 @@ declare namespace camera {
     onFrameShutterEnd(callback: AsyncCallback<FrameShutterEndInfo>): void;
 
     /**
-     * Unsubscribes from frame shutter end events.
+     * 注销监听拍照曝光结束捕获。
      *
-     * @param { 'frameShutterEnd' } type - Event type. The value is fixed at **'frameShutterEnd'**. The event can be
-     *     listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'frameShutterEnd' } type - 监听事件，固定为'frameShutterEnd'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<FrameShutterEndInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有
+     *     callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13898,16 +13664,14 @@ declare namespace camera {
     offFrameShutterEnd(callback?: AsyncCallback<FrameShutterEndInfo>): void;
 
     /**
-     * Subscribes to capture end events. This API uses an asynchronous callback to return the result.
+     * 监听拍照结束，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'captureEnd' } type - Event type. The value is fixed at **'captureEnd'**. The event can be listened for
-     *     when a photoOutput instance is created. This event is triggered and the corresponding information is returned
-     *     when the photo capture is complete.
-     * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to return the result.
+     * @param { 'captureEnd' } type - 监听事件，固定为'captureEnd'。photoOutput创建成功后可监听。拍照完全结束可触发该事件发生并返回相应信息。
+     * @param { AsyncCallback<CaptureEndInfo> } callback - 回调函数，用于获取相关信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -13924,14 +13688,10 @@ declare namespace camera {
     onCaptureEnd(callback: AsyncCallback<CaptureEndInfo>): void;
 
     /**
-     * Unsubscribes from capture end events.
+     * 注销监听拍照结束。
      *
-     * @param { 'captureEnd' } type - Event type. The value is fixed at **'captureEnd'**. The event can be listened for
-     *     when a photoOutput instance is created.
-     * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to return the result. If this parameter is
-     *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'captureEnd' } type - 监听事件，固定为'captureEnd'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<CaptureEndInfo> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -13948,16 +13708,14 @@ declare namespace camera {
     offCaptureEnd(callback?: AsyncCallback<CaptureEndInfo>): void;
 
     /**
-     * Subscribes to capture ready events. This API uses an asynchronous callback to return the result.
+     * 监听可拍下一张，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'captureReady' } type - Event type. The value is fixed at **'captureReady'**. The event can be listened
-     *     for when a photoOutput instance is created. The event is triggered and the corresponding information is
-     *     returned when it is ready to take the next photo.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { 'captureReady' } type - 监听事件，固定为'captureReady'，photoOutput创建成功后可监听。当下一张可拍时可触发该事件发生并返回相应信息。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取相关信息。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13974,14 +13732,10 @@ declare namespace camera {
     onCaptureReady(callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from capture ready events.
+     * 注销监听可拍下一张。
      *
-     * @param { 'captureReady' } type - Event type. The value is fixed at **'captureReady'**. The event can be listened
-     *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'captureReady' } type - 监听事件，固定为'captureReady'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<void> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -13998,18 +13752,15 @@ declare namespace camera {
     offCaptureReady(callback?: AsyncCallback<void>): void;
 
     /**
-     * Subscribes to estimated capture duration events. This API uses an asynchronous callback to return the result.
+     * 监听预估的拍照时间，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'estimatedCaptureDuration' } type - Event type. The value is fixed at **'estimatedCaptureDuration'**.
-     *     The event can be listened for when a photoOutput instance is created. This event is triggered and the
-     *     corresponding information is returned when the photo capture is complete.
-     * @param { AsyncCallback<double> } callback - Callback used to return the estimated duration when the sensor
-     *     captures frames at the bottom layer in a single capture, measured in units of milliseconds. If **–1** is
-     *     reported, there is no estimated duration.
+     * @param { 'estimatedCaptureDuration' } type - 监听事件，固定为'estimatedCaptureDuration'，photoOutput创建成功后可监听。拍照完全结束可触发该事件发
+     *     生并返回相应信息。
+     * @param { AsyncCallback<double> } callback - 回调函数，用于获取预估的单次拍照底层出sensor采集帧时间，单位：毫秒。如果上报-1，代表没有预估时间。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -14027,14 +13778,10 @@ declare namespace camera {
     onEstimatedCaptureDuration(callback: AsyncCallback<double>): void;
 
     /**
-     * Unsubscribes from estimated capture duration events.
+     * 注销监听预估的拍照时间。
      *
-     * @param { 'estimatedCaptureDuration' } type - Event type. The value is fixed at **'estimatedCaptureDuration'**.
-     *     The event can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<double> } callback - Callback used to return the result. If this parameter is specified,
-     *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
-     *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'estimatedCaptureDuration' } type - 监听事件，固定为'estimatedCaptureDuration'，photoOutput创建成功后可监听。
+     * @param { AsyncCallback<double> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -14052,17 +13799,14 @@ declare namespace camera {
     offEstimatedCaptureDuration(callback?: AsyncCallback<double>): void;
 
     /**
-     * Subscribes to PhotoOutput error events. This API uses an asynchronous callback to return the result.
+     * 监听拍照输出发生错误，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     photoOutput instance is created. This event is triggered and the corresponding error message is returned when
-     *     an error occurs during the calling of a photo-related API.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，photoOutput创建成功后可监听。拍照接口调用时出现错误触发该事件并返回错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -14079,14 +13823,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from PhotoOutput error events.
+     * 注销监听拍照输出发生错误。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，photoOutput创建成功后可监听。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -14103,9 +13843,9 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the profile that takes effect currently.
+     * 获取当前生效的配置信息。
      *
-     * @returns { Profile } Profile obtained.
+     * @returns { Profile } 当前生效的配置信息
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14258,10 +13998,9 @@ declare namespace camera {
     enableAutoCloudImageEnhancement(enabled: boolean): void;
 
     /**
-     * Checks whether taking moving photos is supported.
+     * 查询是否支持动态照片拍摄。
      *
-     * @returns { boolean } Check result for the support of taking moving photos. **true** if supported, **false**
-     *     otherwise. If the API call fails, undefined is returned.
+     * @returns { boolean } 返回是否支持动态照片拍照。true表示支持，false表示不支持。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14271,11 +14010,10 @@ declare namespace camera {
     isMovingPhotoSupported(): boolean;
 
     /**
-     * Enables or disables the feature of taking moving photos.
+     * 使能动态照片拍照。
      *
      * @permission ohos.permission.MICROPHONE
-     * @param { boolean } enabled - Enables or disables the feature of taking moving photos. **true** to enable,
-     *     **false** otherwise.
+     * @param { boolean } enabled - 使能动态照片拍照。true为开启动态照片，false为关闭动态照片。
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -14287,11 +14025,10 @@ declare namespace camera {
     enableMovingPhoto(enabled: boolean): void;
 
     /**
-     * Checks whether the specified photo quality prioritization strategy is supported.
+     * 检查是否支持指定的拍照画质优先策略。
      *
-     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization strategy.
-     * @returns { boolean } Check result for the support of the specified photo quality prioritization strategy.
-     *     **true** if supported, **false** otherwise.
+     * @param { PhotoQualityPrioritization } qualityPrioritization - 要检查的拍照画质优先策略。
+     * @returns { boolean } 是否支持指定的拍照画质优先策略。true表示支持，false表示不支持。
      * @throws { BusinessError } 7400201 - Camera service fatal error,
      *     reconfiguring streams is needed to recover from failure.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14302,13 +14039,13 @@ declare namespace camera {
     isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
 
     /**
-     * Sets the photo quality prioritization strategy.
+     * 设置拍照画质优先策略。
      * 
-     * Before setting the strategy, you can call 
-     * [isPhotoQualityPrioritizationSupported]{@link camera.PhotoOutput.isPhotoQualityPrioritizationSupported} to check 
-     * whether the device supports the specified photo quality prioritization strategy.
+     * 设置之前，可先使用方法
+     * [isPhotoQualityPrioritizationSupported]{@link camera.PhotoOutput.isPhotoQualityPrioritizationSupported}对设备是否支持指定的
+     * 拍照画质优先策略进行检查。
      *
-     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization strategy.
+     * @param { PhotoQualityPrioritization } qualityPrioritization - 要设置的拍照画质优先策略。
      * @throws { BusinessError } 7400201 - Camera service fatal error,
      *     reconfiguring streams is needed to recover from failure.
      * @throws { BusinessError } 7400102 - Operation not allowed.
@@ -14320,25 +14057,18 @@ declare namespace camera {
     setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
 
     /**
-     * Obtains the photo rotation angle.
+     * 获取拍照旋转角度。
      * 
-     * - Device' natural orientation: the default orientation for using a device. For example, the default orientation 
-     * of the bar-type phone is in portrait mode, with the charging port facing downward.
-     * - Camera lens angle: equivalent to the angle at which the camera is rotated clockwise to match the device's 
-     * natural orientation. For example, the rear camera sensor of a bar-type phone is installed in landscape mode. 
-     * Therefore, it needs to be rotated by 90 degrees clockwise to match the device's natural orientation.
+     * - 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
+     * - 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
      *
-     * @param { int } deviceDegree - Device rotation angle, measured in degrees, within the range of [0, 360].
-     *     <br>If the input value goes beyond this range, the system uses the remainder of the input value divided by 36
-     *     0.
-     *     <br>Since API version 23, the input parameter **deviceDegree** is optional. If no parameter is passed, the
-     *     system obtains the **deviceDegree** value to calculate the photo rotation angle. [since 12 - 22]
-     * @param { int } [deviceDegree] - Device rotation angle, measured in degrees, within the range of [0, 360].
-     *     <br>If the input value goes beyond this range, the system uses the remainder of the input value divided by 36
-     *     0.
-     *     <br>Since API version 23, the input parameter **deviceDegree** is optional. If no parameter is passed, the
-     *     system obtains the **deviceDegree** value to calculate the photo rotation angle. [since 23]
-     * @returns { ImageRotation } Rotation angle of the photo. If the API call fails, undefined is returned.
+     * @param { int } deviceDegree - 设备旋转角度，单位度，取值范围：[0, 360]。
+     *     <br>若入参超过该范围，则取入参除以360的余数。
+     *     <br>从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行拍照旋转角度计算。 [since 12 - 22]
+     * @param { int } [deviceDegree] - 设备旋转角度，单位度，取值范围：[0, 360]。
+     *     <br>若入参超过该范围，则取入参除以360的余数。
+     *     <br>从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行拍照旋转角度计算。 [since 23]
+     * @returns { ImageRotation } 返回拍照旋转角度。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12 - 22]
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14465,10 +14195,9 @@ declare namespace camera {
     enableOriginalImageGeneration(enabled: boolean): void;
 
     /**
-     * Checks whether automatic extended gain map delivery is supported.
+     * 确认是否支持自动扩展增益图（Gainmap）的输出。
      *
-     * @returns { boolean } Whether automatic extended gain map delivery is supported. The value **true** indicates it
-     *     is supported, and the value **false** indicates it is not supported.
+     * @returns { boolean } 是否支持自动扩展增益图（Gainmap）的输出。true表示支持，false表示不支持。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -14477,10 +14206,9 @@ declare namespace camera {
     isAutoExtendedGainmapDeliverySupported(): boolean;
 
     /**
-     * Enables or disables automatic extended gain map delivery.
+     * 是否启用自动扩展增益图（Gainmap）的输出。
      *
-     * @param { boolean } enabled - Whether to enable automatic extended gain map delivery. The value **true** indicates
-     *     it is enabled, and the value **false** indicates it is disabled.
+     * @param { boolean } enabled - 是否启用自动扩展增益图（Gainmap）的输出。true表示启用，false表示不启用。
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -14493,7 +14221,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the frame shutter information.
+   * 拍照帧输出信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -14502,7 +14230,7 @@ declare namespace camera {
    */
   interface FrameShutterInfo {
     /**
-     * ID of this capture action.
+     * 拍照的ID。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14511,7 +14239,7 @@ declare namespace camera {
      */
     captureId: int;
     /**
-     * Timestamp when the frame shutter event is triggered, in milliseconds.
+     * 快门时间戳。单位毫秒。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14522,7 +14250,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the frame shutter end information during capture.
+   * 拍照曝光结束信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -14531,7 +14259,7 @@ declare namespace camera {
    */
   interface FrameShutterEndInfo {
     /**
-     * ID of this capture action.
+     * 拍照的ID。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14542,7 +14270,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the capture start information.
+   * 拍照开始信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -14551,7 +14279,7 @@ declare namespace camera {
    */
   interface CaptureStartInfo {
     /**
-     * ID of this capture action.
+     * 拍照的ID。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14560,8 +14288,7 @@ declare namespace camera {
      */
     captureId: int;
     /**
-     * Estimated duration when the sensor captures frames at the bottom layer in a single capture. If **-1** is 
-     * reported, there is no estimated duration.
+     * 预估的单次拍照底层出sensor采集帧时间，如果上报-1，代表没有预估时间。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14572,7 +14299,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the capture end information.
+   * 拍照停止信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -14581,7 +14308,7 @@ declare namespace camera {
    */
   interface CaptureEndInfo {
     /**
-     * ID of this capture action.
+     * 拍照的ID。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14590,7 +14317,7 @@ declare namespace camera {
      */
     captureId: int;
     /**
-     * Number of frames captured.
+     * 帧数。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -14630,8 +14357,7 @@ declare namespace camera {
   }
 
   /**
-   * VideoOutput implements output information used in a video session. It inherits from 
-   * [CameraOutput]{@link camera.CameraOutput}.
+   * 录像会话中使用的输出信息，继承[CameraOutput]{@link camera.CameraOutput}。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -14640,11 +14366,10 @@ declare namespace camera {
    */
   interface VideoOutput extends CameraOutput {
     /**
-     * Starts video recording. This API uses an asynchronous callback to return the result.
+     * 启动录制，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If video recording starts
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当启动录制成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14655,9 +14380,9 @@ declare namespace camera {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts video recording. This API uses a promise to return the result.
+     * 启动录制。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14668,10 +14393,9 @@ declare namespace camera {
     start(): Promise<void>;
 
     /**
-     * Stops video recording. This API uses an asynchronous callback to return the result.
+     * 结束录制，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If video recording stops
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当结束录制成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -14680,9 +14404,9 @@ declare namespace camera {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stops video recording. This API uses a promise to return the result.
+     * 结束录制。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -14691,10 +14415,9 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
-     * Checks whether mirror recording is supported.
+     * 查询是否支持镜像录像。
      *
-     * @returns { boolean } Check result for the support of mirror recording. **true** if supported, **false**
-     *     otherwise. If the API call fails, undefined is returned.
+     * @returns { boolean } 返回是否支持镜像录像，true表示支持，false表示不支持。若接口调用失败，返回undefined。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 14]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 14]
@@ -14706,15 +14429,13 @@ declare namespace camera {
     isMirrorSupported(): boolean;
 
     /**
-     * Enables or disables mirror recording.
+     * 启用/关闭镜像录像。
      * 
-     * - Before calling this API, check whether mirror recording is supported by using 
-     * [isMirrorSupported]{@link camera.VideoOutput.isMirrorSupported}.
-     * - After enabling or disabling mirror recording, call 
-     * [getVideoRotation]{@link camera.VideoOutput.getVideoRotation} to obtain the rotation angle and 
-     * [updateRotation]{@link @ohos.multimedia.media:media.AVRecorder.updateRotation} to update the rotation angle.
+     * - 调用该接口前，需要通过[isMirrorSupported]{@link camera.VideoOutput.isMirrorSupported}查询是否支录像镜像功能。
+     * - 启用/关闭录像镜像后，需要通过[getVideoRotation]{@link camera.VideoOutput.getVideoRotation}获取录像旋转角度以及
+     * [updateRotation]{@link @ohos.multimedia.media:media.AVRecorder.updateRotation}更新旋转角度。
      *
-     * @param { boolean } enabled - Whether to enable mirror recording. **true** to enable, **false** otherwise.
+     * @param { boolean } enabled - 启用/关闭镜像录像。true为开启镜像录像，false为关闭镜像录像。
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 14]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -14728,9 +14449,9 @@ declare namespace camera {
     enableMirror(enabled: boolean): void;
 
     /**
-     * Obtains the supported frame rates.
+     * 查询支持的帧率范围。
      *
-     * @returns { Array<FrameRateRange> } Array of supported frame rates. If the API call fails, undefined is returned.
+     * @returns { Array<FrameRateRange> } 支持的帧率范围列表。若接口调用失败，返回undefined。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -14739,23 +14460,19 @@ declare namespace camera {
     getSupportedFrameRates(): Array<FrameRateRange>;
 
     /**
-     * Sets a frame rate range for video streams. The range must be within the supported frame rate range,
+     * 设置录像流帧率范围，设置的范围必须在支持的帧率范围内。
      * 
-     * which can be obtained by calling [getSupportedFrameRates]{@link camera.VideoOutput.getSupportedFrameRates}.
+     * 进行设置前，可通过[getSupportedFrameRates]{@link camera.VideoOutput.getSupportedFrameRates}查询支持的帧率范围。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is valid only in [PhotoSession]{@link camera.PhotoSession} or 
-     * > [VideoSession]{@link camera.VideoSession} mode.
+     * > 仅在[PhotoSession]{@link camera.PhotoSession}或[VideoSession]{@link camera.VideoSession}模式下支持。
      * >
-     * > Before calling this API, call [getActiveFrameRate]{@link camera.VideoOutput.getActiveFrameRate} to obtain the 
-     * > current frame rate of the video session. If the delivered frame rate matches the current frame rate, the 
-     * > delivered frame rate is not applied.
+     * > 接口调用前，先调用[getActiveFrameRate]{@link camera.VideoOutput.getActiveFrameRate}接口查询当前VideoSession的帧率，若下发的帧率与当前帧率相等，则
+     * > 下发的帧率不会生效。
      *
-     * @param { int } minFps - Minimum frame rate, in fps. When the maximum value is less than the minimum value, the
-     *     API does not take effect.
-     * @param { int } maxFps - Maximum frame rate, in fps. When the minimum value is greater than the maximum value, the
-     *     API does not take effect.
+     * @param { int } minFps - 最小帧率，单位：fps。当传入的最大值小于最小值时，传参异常，接口不生效。
+     * @param { int } maxFps - 最大帧率，单位：fps。当传入的最小值大于最大值时，传参异常，接口不生效。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14766,12 +14483,11 @@ declare namespace camera {
     setFrameRate(minFps: int, maxFps: int): void;
 
     /**
-     * Obtains the configured frame rate range.
+     * 获取已设置的帧率范围。
      * 
-     * This API is valid only after [setFrameRate]{@link camera.VideoOutput.setFrameRate} is called to set a frame rate 
-     * range for video streams.
+     * 使用[setFrameRate]{@link camera.VideoOutput.setFrameRate}对录像流设置过帧率后可查询。
      *
-     * @returns { FrameRateRange } Frame rate range.
+     * @returns { FrameRateRange } 帧率范围
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 12 dynamic
@@ -14780,21 +14496,16 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
-     * Obtains the video rotation angle.
+     * 获取录像旋转角度。
      * 
-     * - Device' natural orientation: the default orientation for using a device. For example, the default orientation 
-     * of the bar-type phone is in portrait mode, with the charging port facing downward.
-     * - Camera lens angle: equivalent to the angle at which the camera is rotated clockwise to match the device's 
-     * natural orientation. For example, the rear camera sensor of a bar-type phone is installed in landscape mode. 
-     * Therefore, it needs to be rotated by 90 degrees clockwise to match the device's natural orientation.
+     * - 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
+     * - 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
      *
-     * @param { int } deviceDegree - Device rotation angle, measured in degrees, within the range of [0, 360].
-     *     <br> Since API version 23, the input parameter **deviceDegree** is optional. If no parameter is passed, the
-     *     system obtains the **deviceDegree** value to calculate the video rotation angle. [since 12 - 22]
-     * @param { int } [deviceDegree] - Device rotation angle, measured in degrees, within the range of [0, 360].
-     *     <br> Since API version 23, the input parameter **deviceDegree** is optional. If no parameter is passed, the
-     *     system obtains the **deviceDegree** value to calculate the video rotation angle. [since 23]
-     * @returns { ImageRotation } Returns the rotation angle of a video. If the API call fails, undefined is returned.
+     * @param { int } deviceDegree - 设备旋转角度，单位度，取值范围[0, 360]。
+     *     <br> 从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行录像旋转角度计算。 [since 12 - 22]
+     * @param { int } [deviceDegree] - 设备旋转角度，单位度，取值范围[0, 360]。
+     *     <br> 从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行录像旋转角度计算。 [since 23]
+     * @returns { ImageRotation } 返回录像旋转角度。若接口调用失败，返回undefined。
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12 - 22]
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14954,17 +14665,14 @@ declare namespace camera {
     offDeferredVideoEnhancementInfo(callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
     /**
-     * Subscribes to video recording start events. This API uses an asynchronous callback to return the result.
+     * 监听录像开始，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
-     *     when a videoOutput instance is created. The event is triggered and the corresponding information is returned
-     *     when the bottom layer starts exposure for the first time.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.  The recording starts as long as
-     *     this event is returned.
+     * @param { 'frameStart' } type - 监听事件，固定为'frameStart'，videoOutput创建成功后可监听。底层第一次曝光时触发该事件并返回。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取结果。  只要有该事件返回就证明录像开始。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -14981,18 +14689,14 @@ declare namespace camera {
     onFrameStart(callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from video recording start events.
+     * 注销监听录像开始。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
-     *     when a videoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'frameStart' } type - 监听事件，固定为'frameStart'，videoOutput创建成功后可监听。
+     * @param { AsyncCallback<void> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15009,13 +14713,10 @@ declare namespace camera {
     offFrameStart(callback?: AsyncCallback<void>): void;
 
     /**
-     * Subscribes to video recording stop events. This API uses an asynchronous callback to return the result.
+     * 监听录像结束，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
-     *     a videoOutput instance is created. This event is triggered and returned when the last frame of recording is
-     *     complete.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. The recording ends as long as this
-     *     event is returned.
+     * @param { 'frameEnd' } type - 监听事件，固定为'frameEnd'，videoOutput创建成功后可监听。录像完全结束最后一帧时触发该事件并返回。
+     * @param { AsyncCallback<void> } callback - 回调函数，用于获取结果。 只要有该事件返回就证明录像结束。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15032,14 +14733,10 @@ declare namespace camera {
     onFrameEnd(callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from video recording stop events.
+     * 注销监听录像结束。
      *
-     * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
-     *     a videoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'frameEnd' } type - 监听事件，固定为'frameEnd'，videoOutput创建成功后可监听。
+     * @param { AsyncCallback<void> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15056,18 +14753,16 @@ declare namespace camera {
     offFrameEnd(callback?: AsyncCallback<void>): void;
 
     /**
-     * Subscribes to VideoOutput error events. This API uses an asynchronous callback to return the result.
+     * 监听录像输出发生错误，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     videoOutput instance is created. This event is triggered and the corresponding error message is returned when
-     *     an error occurs during the use of a recording-related API such as [start]{@link camera.VideoOutput.start()}
-     *     or [CameraOutput.release]{@link camera.CameraOutput.release()}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，videoOutput创建成功后可监听。录像接口调用出现错误时触发该事件并返回对应错误码，比如调用
+     *     [start]{@link camera.VideoOutput.start()}，[CameraOutput.release]{@link camera.CameraOutput.release()}接口时出现错误返
+     *     回对应错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15084,14 +14779,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from VideoOutput error events.
+     * 注销监听录像输出发生错误。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，photoOutput创建成功后可监听。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15108,9 +14799,9 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Obtains the profile that takes effect currently.
+     * 获取当前生效的配置信息。
      *
-     * @returns { VideoProfile } Profile obtained.
+     * @returns { VideoProfile } 当前生效的配置信息
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15169,7 +14860,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the types of metadata objects used for camera detection.
+   * 枚举，metadata元数据检测类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -15178,7 +14869,7 @@ declare namespace camera {
    */
   enum MetadataObjectType {
     /**
-     * Metadata object used for face detection.
+     * 元数据的对象类型，用于人脸检测。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15188,7 +14879,7 @@ declare namespace camera {
     FACE_DETECTION = 0,
 
     /**
-     * Metadata object used for body detection.
+     * 元数据的对象类型，用于人体检测。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 22]
@@ -15200,7 +14891,7 @@ declare namespace camera {
     HUMAN_BODY = 1,
 
     /**
-     * Metadata object used for cat face detection.
+     * 用于检测猫脸的metadata类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15212,7 +14903,7 @@ declare namespace camera {
     CAT_FACE = 2,
 
     /**
-     * Metadata object used for cat body detection.
+     * 用于检测猫的身体的metadata类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15224,7 +14915,7 @@ declare namespace camera {
     CAT_BODY = 3,
 
     /**
-     * Metadata object used for dog face detection.
+     * 用于检测狗脸的metadata类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15236,7 +14927,7 @@ declare namespace camera {
     DOG_FACE = 4,
 
     /**
-     * Metadata object used for dog body detection.
+     * 用于检测狗的身体的metadata类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15248,7 +14939,7 @@ declare namespace camera {
     DOG_BODY = 5,
 
     /**
-     * Metadata object used for salient detection.
+     * 用于显著性检测。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15260,7 +14951,7 @@ declare namespace camera {
     SALIENT_DETECTION = 6,
 
     /**
-     * Metadata object used for QR code detection.
+     * 用于二维码检测。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15272,7 +14963,7 @@ declare namespace camera {
     BAR_CODE_DETECTION = 7,
 
     /**
-     * Metadata object for basic face detection.
+     * 用于基础人脸检测。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15344,19 +15035,12 @@ declare namespace camera {
   }
 
   /**
-   * Describes a rectangle. The coordinate system for the returned detection points is based on the landscape device 
-   * orientation, with the charging port on the right. In this coordinate system, the top-left corner is (0, 0), and the
-   * bottom-right corner is (1, 1). Here, **topLeftX** and **topLeftY** represent the coordinates of the top-left corner
-   * of the rectangle, whereas **width** and **height** represent the width and height of the rectangle, respectively. 
-   * When cropping or selecting a face region based on specific requirements, the x and y coordinates of the rectangle 
-   * must be multiplied by the width and height of the actual camera preview output stream to obtain the cropped face 
-   * region.
+   * 相机矩形。用于各类检测对象的矩形框绘制。返回的检测点坐标系以设备充电口在右侧时的横向设备方向为基准。该坐标系左上角为（0，0），右下角为（1，1），其中（topLeftX，topLeftY）表示矩形区域的左上角坐标，width和
+   * height分别表示矩形区域的宽和高。因此在实际使用中根据业务诉求需要裁剪或者选择人脸区域时，必须将矩形区域的x坐标和y坐标分别乘以实际相机预览输出流的宽和高，即可得到裁剪后的人脸矩形区域。
    * 
-   * The width and height of the actual preview stream refer to the resolution of the camera output stream. For details,
-   * see **size** in [profile]{@link camera.Profile}.
+   * 实际预览流的宽高指的是相机输出流的分辨率，请参考[profile]{@link camera.Profile}中的size。
    * 
-   * For details about how to obtain the preview stream data, see 
-   * [Dual-Channel Preview (ArkTS)](docroot://media/camera/camera-dual-channel-preview.md).
+   * 预览流的数据获取请参考[双路预览(ArkTs)](docroot://media/camera/camera-dual-channel-preview.md)。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -15365,7 +15049,7 @@ declare namespace camera {
    */
   interface Rect {
     /**
-     * X coordinate of the top-left corner of the rectangle, in the range of [0, 1].
+     * 矩形区域左上角x坐标，范围[0, 1]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15374,7 +15058,7 @@ declare namespace camera {
      */
     topLeftX: double;
     /**
-     * Y coordinate of the top-left corner of the rectangle, in the range of [0, 1].
+     * 矩形区域左上角y坐标，范围[0, 1]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15383,7 +15067,7 @@ declare namespace camera {
      */
     topLeftY: double;
     /**
-     * Width of the rectangle, in the range of [0, 1].
+     * 矩形宽，范围[0, 1]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15392,7 +15076,7 @@ declare namespace camera {
      */
     width: double;
     /**
-     * Height of the rectangle, in the range of [0, 1].
+     * 矩形高，范围[0, 1]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15403,7 +15087,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the types of emotions in the detected human face information.
+   * 枚举，人脸检测信息中的情绪类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15414,7 +15098,7 @@ declare namespace camera {
    */
   enum Emotion {
     /**
-     * Neutral.
+     * 平静。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15426,7 +15110,7 @@ declare namespace camera {
     NEUTRAL = 0,
 
     /**
-     * Sad.
+     * 悲伤。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15438,7 +15122,7 @@ declare namespace camera {
     SADNESS = 1,
 
     /**
-     * Smile.
+     * 微笑。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15450,7 +15134,7 @@ declare namespace camera {
     SMILE = 2,
 
     /**
-     * Surprise.
+     * 惊讶。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15463,8 +15147,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the camera metadata, which is the data source of [CameraInput]{@link camera.CameraInput}. The metadata is
-   * obtained through **metadataOutput.on('metadataObjectsAvailable')**.
+   * 相机元能力信息，[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通过metadataOutput.on('metadataObjectsAvailable')接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -15473,7 +15156,7 @@ declare namespace camera {
    */
   interface MetadataObject {
     /**
-     * Metadata object type.
+     * metadata 类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15483,7 +15166,7 @@ declare namespace camera {
     readonly type: MetadataObjectType;
 
     /**
-     * Timestamp, in ns.
+     * 当前时间戳。单位为纳秒（ns）。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15493,7 +15176,7 @@ declare namespace camera {
     readonly timestamp: int;
 
     /**
-     * Metadata rectangle.
+     * metadata 区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -15523,7 +15206,7 @@ declare namespace camera {
     readonly confidence: double;
 
     /**
-     * Whether the focus is locked and being tracked currently.
+     * 是否已锁定焦点跟踪。true表示已锁定，false表示未锁定。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -15534,10 +15217,10 @@ declare namespace camera {
   }
 
   /**
-   * Basic face metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. 
-   * It serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained 
-   * by calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的基础人脸元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，
+   * 通过metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 23 - 24]
@@ -15547,7 +15230,7 @@ declare namespace camera {
    */
   interface MetadataBasicFaceObject extends MetadataObject {
     /**
-     * Left eye area.
+     * 左眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15558,7 +15241,7 @@ declare namespace camera {
     readonly leftEyeBoundingBox?: Rect;
 
     /**
-     * Right eye area.
+     * 右眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15569,7 +15252,7 @@ declare namespace camera {
     readonly rightEyeBoundingBox?: Rect;
 
     /**
-     * Pitch angle. The value range is [-90, 90], with the positive direction being downwards.
+     * 俯仰角度。取值范围为[-90, 90]，以向下为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15580,7 +15263,7 @@ declare namespace camera {
     readonly pitchAngle?: int;
 
     /**
-     * Yaw angle. The value range is [-90, 90], with the positive direction being rightwards.
+     * 左右旋转角度。取值范围为[-90, 90]，以向右为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15591,7 +15274,7 @@ declare namespace camera {
     readonly yawAngle?: int;
 
     /**
-     * Roll angle. The value range is [-180, 180], with the positive direction being clockwise.
+     * 平面内旋转角度。取值范围为[-180, 180]，以顺时针方向为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 23 - 24]
@@ -15603,10 +15286,10 @@ declare namespace camera {
   }
 
   /**
-   * Face metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的人脸元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通过
+   * metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15617,7 +15300,7 @@ declare namespace camera {
    */
   interface MetadataFaceObject extends MetadataObject {
     /**
-     * Left eye area.
+     * 左眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15629,7 +15312,7 @@ declare namespace camera {
     readonly leftEyeBoundingBox: Rect;
 
     /**
-     * Right eye area.
+     * 右眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15641,7 +15324,7 @@ declare namespace camera {
     readonly rightEyeBoundingBox: Rect;
 
     /**
-     * Detected emotion.
+     * 检测到的情绪类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15653,7 +15336,7 @@ declare namespace camera {
     readonly emotion: Emotion;
 
     /**
-     * Emotion detection confidence. The value range is [0, 1].
+     * 情绪检测置信度。取值范围为[0, 1]。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15665,7 +15348,7 @@ declare namespace camera {
     readonly emotionConfidence: double;
 
     /**
-     * Pitch angle. The value range is [-90, 90], with the positive direction being downwards.
+     * 俯仰角度。取值范围为[-90, 90]，以向下为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15677,7 +15360,7 @@ declare namespace camera {
     readonly pitchAngle: int;
 
     /**
-     * Yaw angle. The value range is [-90, 90], with the positive direction being rightwards.
+     * 左右旋转角度。取值范围为[-90, 90]，以向右为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15689,7 +15372,7 @@ declare namespace camera {
     readonly yawAngle: int;
 
     /**
-     * Roll angle. The value range is [-180, 180], with the positive direction being clockwise.
+     * 平面内旋转角度。取值范围为[-180, 180]，以顺时针方向为正方向。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15702,10 +15385,10 @@ declare namespace camera {
   }
 
   /**
-   * Human body metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. 
-   * It serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained 
-   * by calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的人体元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通过
+   * metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15718,10 +15401,10 @@ declare namespace camera {
   }
 
   /**
-   * Cat face metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的猫脸元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通过
+   * metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15732,7 +15415,7 @@ declare namespace camera {
    */
   interface MetadataCatFaceObject extends MetadataObject {
     /**
-     * Left eye area.
+     * 左眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15744,7 +15427,7 @@ declare namespace camera {
     readonly leftEyeBoundingBox: Rect;
 
     /**
-     * Right eye area.
+     * 右眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15757,10 +15440,10 @@ declare namespace camera {
   }
 
   /**
-   * Cat body metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的猫的身体元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，
+   * 通过metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15773,10 +15456,10 @@ declare namespace camera {
   }
 
   /**
-   * Dog face metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的狗脸元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通过
+   * metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15787,7 +15470,7 @@ declare namespace camera {
    */
   interface MetadataDogFaceObject extends MetadataObject {
     /**
-     * Left eye area.
+     * 左眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15799,7 +15482,7 @@ declare namespace camera {
     readonly leftEyeBoundingBox: Rect;
 
     /**
-     * Right eye area.
+     * 右眼区域框。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 24]
@@ -15812,10 +15495,10 @@ declare namespace camera {
   }
 
   /**
-   * Dog body metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的狗的身体元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，
+   * 通过metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15828,10 +15511,10 @@ declare namespace camera {
   }
 
   /**
-   * Salient subject metadata detected by the camera, which is extended from 
-   * [MetadataObject]{@link camera.MetadataObject}. It serves as the data source of the camera information in 
-   * [CameraInput]{@link camera.CameraInput}. It is obtained by calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的显著性物体元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来
+   * 源，通过metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 13 - 24]
@@ -15844,10 +15527,10 @@ declare namespace camera {
   }
 
   /**
-   * Barcode metadata detected by the camera, which is extended from [MetadataObject]{@link camera.MetadataObject}. It 
-   * serves as the data source of the camera information in [CameraInput]{@link camera.CameraInput}. It is obtained by 
-   * calling metadataOutput.
-   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
+   * 相机检测到的二维码元数据信息，继承自[MetadataObject]{@link camera.MetadataObject}。[CameraInput]{@link camera.CameraInput}相机信息中的数据来源，通
+   * 过metadataOutput.
+   * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}
+   * 接口获取。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 14 - 24]
@@ -15860,8 +15543,7 @@ declare namespace camera {
   }
 
   /**
-   * Describes the instance returned by the occlusion status callback, which indicates whether the camera lens is 
-   * blocked or dirty.
+   * 镜头遮挡或脏污检测回调返回的接口实例，表示镜头遮挡或脏污状态信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 22]
@@ -15872,7 +15554,7 @@ declare namespace camera {
    */
   interface CameraOcclusionDetectionResult {
     /**
-     * Whether the camera lens is blocked. **true** if blocked, **false** otherwise.
+     * 镜头是否被遮挡。true表示镜头被遮挡，false表示镜头无遮挡。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 22]
@@ -15884,7 +15566,7 @@ declare namespace camera {
     readonly isCameraOccluded: boolean;
 
     /**
-     * Whether the camera lens is dirty. **true** if dirty, false otherwise.
+     * 镜头是否有脏污。true表示镜头有脏污，false表示镜头无脏污。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 13 - 22]
@@ -15897,7 +15579,7 @@ declare namespace camera {
   }
 
   /**
-   * MetadataOutput implements metadata streams. It inherits from [CameraOutput]{@link camera.CameraOutput}.
+   * metadata流。继承[CameraOutput]{@link camera.CameraOutput}。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -15906,11 +15588,10 @@ declare namespace camera {
    */
   interface MetadataOutput extends CameraOutput {
     /**
-     * Starts to output metadata. This API uses an asynchronous callback to return the result.
+     * 开始输出metadata，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the metadata output starts
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object with an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { AsyncCallback<void> } callback - 回调函数。当开始输出metadata成功，err为undefined，否则为错误对象。错误码类型
+     *     [CameraErrorCode]{@link camera.CameraErrorCode}。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -15921,9 +15602,9 @@ declare namespace camera {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * Starts to output metadata. This API uses a promise to return the result.
+     * 开始输出metadata。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -15934,10 +15615,9 @@ declare namespace camera {
     start(): Promise<void>;
 
     /**
-     * Stops outputting metadata. This API uses an asynchronous callback to return the result.
+     * 停止输出metadata，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the metadata output stops
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当停止输出metadata成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15946,9 +15626,9 @@ declare namespace camera {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * Stops outputting metadata. This API uses a promise to return the result.
+     * 停止输出metadata。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -15957,10 +15637,9 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
-     * Adds the types of metadata objects to be detected.
+     * 新增需要上报的检测对象类型。
      *
-     * @param { Array<MetadataObjectType> } types - Metadata object types, which are obtained through
-     *     **getSupportedOutputCapability**.
+     * @param { Array<MetadataObjectType> } types - metadata流类型信息，通过getSupportedOutputCapability接口获取。
      * @throws { BusinessError } 202 - Not System Application. [since 13 - 22]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -15975,10 +15654,9 @@ declare namespace camera {
     addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
     /**
-     * Removes the types of metadata objects to be detected.
+     * 删除需要上报的检测对象类型。
      *
-     * @param { Array<MetadataObjectType> } types - Metadata object types, which are obtained through
-     *     **getSupportedOutputCapability**.
+     * @param { Array<MetadataObjectType> } types - metadata流类型信息，通过getSupportedOutputCapability接口获取。
      * @throws { BusinessError } 202 - Not System Application. [since 13 - 22]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -15993,18 +15671,15 @@ declare namespace camera {
     removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
     /**
-     * Subscribes to events indicating available metadata objects. This API uses an asynchronous callback to return the 
-     * result.
+     * 监听检测到的metadata对象，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'metadataObjectsAvailable' } type - Event type. The value is fixed at **'metadataObjectsAvailable'**.
-     *     The event can be listened for when a metadataOutput instance is created.
-     *     <br>This event is triggered and the corresponding metadata is returned when valid metadata is detected. If
-     *     the input field is incorrect, no valid listening will be created.
-     * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to return the metadata.
+     * @param { 'metadataObjectsAvailable' } type - 监听事件，固定为'metadataObjectsAvailable'，metadataOutput创建成功后可监听。
+     *     <br>检测到有效的metadata数据时，触发该事件发生并返回相应的metadata数据。如果输入错误字段，则不会创建有效监听。
+     * @param { AsyncCallback<Array<MetadataObject>> } callback - 回调函数，用于获取metadata数据。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -16021,14 +15696,11 @@ declare namespace camera {
     onMetadataObjectsAvailable(callback: AsyncCallback<Array<MetadataObject>>): void;
 
     /**
-     * Unsubscribes from events indicating available metadata objects.
+     * 注销监听检测到的metadata对象。
      *
-     * @param { 'metadataObjectsAvailable' } type - Event type. The value is fixed at **'metadataObjectsAvailable'**.
-     *     The event can be listened for when a metadataOutput instance is created.
-     * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to return the result. If this parameter
-     *     is specified, the subscription to the specified event with the specified callback is canceled. (The callback
-     *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
-     *     callbacks are canceled.
+     * @param { 'metadataObjectsAvailable' } type - 监听事件，固定为'metadataObjectsAvailable'，metadataOutput创建成功后可监听。
+     * @param { AsyncCallback<Array<MetadataObject>> } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有
+     *     callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -16045,18 +15717,16 @@ declare namespace camera {
     offMetadataObjectsAvailable(callback?: AsyncCallback<Array<MetadataObject>>): void;
 
     /**
-     * Subscribes to metadata error events. This API uses an asynchronous callback to return the result.
+     * 监听metadata流的错误，通过注册回调函数获取结果。使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > Currently, you cannot use **off()** to unregister the callback in the callback method of **on()**.
+     * > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     metadataOutput instance is created. This event is triggered and the corresponding error message is returned
-     *     when an error occurs during the use of a metadata-related API such as
-     *     [start]{@link camera.MetadataOutput.start()} or [CameraOutput.release]{@link camera.CameraOutput.release()}.
-     * @param { ErrorCallback } callback - Callback used to return an error code defined in
-     *     [CameraErrorCode]{@link camera.CameraErrorCode}.
+     * @param { 'error' } type - 监听事件，固定为'error'，metadataOutput创建成功后可监听。metadata接口使用错误时触发该事件并返回对应错误码，比如调用
+     *     [start]{@link camera.MetadataOutput.start()}，[CameraOutput.release]{@link camera.CameraOutput.release()}接口时发生
+     *     错误返回对应错误信息。
+     * @param { ErrorCallback } callback - 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode]{@link camera.CameraErrorCode}。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -16073,14 +15743,10 @@ declare namespace camera {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from VideoOutput error events.
+     * 注销监听metadata流的错误。
      *
-     * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
-     *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
-     *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
-     *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
-     *     canceled.
+     * @param { 'error' } type - 监听事件，固定为'error'，metadataOutput创建成功后可监听。
+     * @param { ErrorCallback } callback - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
      * @since 10 dynamic
@@ -16097,11 +15763,9 @@ declare namespace camera {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Checks whether the device supports the function of locking a metadata object (such as a cat or dog face) for 
-     * tracking.
+     * 检查设备是否支持锁定元数据对象（如猫脸、狗脸）追踪功能。
      *
-     * @returns { boolean } Whether the device supports the function of locking a metadata object for tracking. **true**
-     *     if supported; **false** otherwise.
+     * @returns { boolean } 表示是否支持锁定元数据对象追踪功能。true表示支持，false表示不支持。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
@@ -16110,17 +15774,15 @@ declare namespace camera {
     isLockMetadataObjectTrackingSupported(): boolean;
 
     /**
-     * Locks a metadata object (such as a cat or dog face) for tracking.
+     * 锁定对特定元数据对象（如猫脸、狗脸）的追踪。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - This function tracks the object pointed to by **point**. If such object does not exist, this function does 
-     * > not take effect.
+     * > - 该功能以point所指向的点所在的对象为追踪对象，如果该点不存在追踪对象，则功能不生效。
      * >
-     * > - Locking for tracking is automatically canceled when the tracked object has left the viewfinder range for more
-     * > than three seconds or the object is unlocked.
+     * > - 被锁定追踪的对象离开取景范围超过三秒或调用解锁追踪后，锁定追踪自动取消。
      *
-     * @param { Point } point - Point used to lock the metadata object for tracking.
+     * @param { Point } point - 锁定元数据对象追踪的点位。
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -16131,7 +15793,7 @@ declare namespace camera {
     lockMetadataObjectTracking(point: Point): void;
 
     /**
-     * Unlocks the metadata object (such as a cat or dog face) for tracking.
+     * 解锁元数据对象（如猫脸、狗脸）追踪。
      *
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -17340,7 +17002,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the camera concurrency types.
+   * 枚举，镜头并发类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -17349,7 +17011,7 @@ declare namespace camera {
    */
   enum CameraConcurrentType {
     /**
-     * Full camera concurrency.
+     * 镜头全量能力并发。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17359,7 +17021,7 @@ declare namespace camera {
     CAMERA_FULL_CAPABILITY = 1,
 
     /**
-     * Limited camera concurrency.
+     * 镜头受限能力并发。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17370,7 +17032,7 @@ declare namespace camera {
    }
 
   /**
-   * Describes the camera's concurrency information.
+   * 相机的输出并发能力信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
@@ -17379,7 +17041,7 @@ declare namespace camera {
    */
   interface CameraConcurrentInfo {
     /**
-     * Concurrent camera device.
+     * 相机并发设备。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17389,7 +17051,7 @@ declare namespace camera {
     readonly device: CameraDevice;
 
     /**
-     * Scene mode.
+     * 相机支持的模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17399,7 +17061,7 @@ declare namespace camera {
     readonly modes: Array<SceneMode>;
 
     /**
-     * Output capabilities of the camera.
+     * 相机对应模式的输出能力集。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17409,7 +17071,7 @@ declare namespace camera {
     readonly outputCapabilities: Array<CameraOutputCapability>;
 
     /**
-     * Concurrency type.
+     * 镜头并发类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -17479,7 +17141,7 @@ declare namespace camera {
     CONTRACT_LENS = 0
    }
   /**
-   * Enumerates the optical image stabilization (OIS) mode.
+   * 枚举，光学防抖（Optical Image Stabilization）模式。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -17488,7 +17150,7 @@ declare namespace camera {
    */
   enum OISMode {  
     /**
-     * OIS is disabled.
+     * 光学防抖关闭。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17498,7 +17160,7 @@ declare namespace camera {
     OFF = 0,
 
     /**
-     * OIS is automatically controlled.
+     * 光学防抖自动控制。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17508,7 +17170,7 @@ declare namespace camera {
     AUTO = 1,
 
     /**
-     * OIS is controlled by the application.
+     * 光学防抖由应用控制。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17518,7 +17180,7 @@ declare namespace camera {
     CUSTOM = 2
   }
   /**
-   * Enumerates the OIS axes.
+   * 枚举，光学防抖（OIS）轴向。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -17527,8 +17189,7 @@ declare namespace camera {
    */
   enum OISAxes {  
     /**
-     * Pitch axis. It controls the up-down rotation of the camera body, that is, the camera body rotates around the axis
-     * horizontal to the lens.
+     * 俯仰轴。相控制相机机身上下旋转，即机身围绕与镜头水平方向的轴旋转。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17538,8 +17199,7 @@ declare namespace camera {
     PITCH = 0,
 
     /**
-     * Yaw axis. It controls the left-right rotation of the camera body, that is, the camera body rotates around the 
-     * axis perpendicular to the lens.
+     * 偏航轴。控制相机机身左右旋转，即机身围绕与镜头垂直方向的轴旋转。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17665,7 +17325,7 @@ declare namespace camera {
   }
 
   /**
-   * Enum for automotive camera position.
+   * 表示Car设备摄像头位置的枚举。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @stagemodelonly
@@ -17674,7 +17334,7 @@ declare namespace camera {
    */
   enum AutomotiveCameraPosition {
     /**
-     * Exterior other position.
+     * Car设备外部其他位置摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17684,7 +17344,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_OTHER = 0,
 
     /**
-     * Exterior front position.
+     * Car设备外部前侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17694,7 +17354,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_FRONT = 1,
 
     /**
-     * Exterior rear position.
+     * Car设备外部后侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17704,7 +17364,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_REAR = 2,
 
     /**
-     * Exterior left position.
+     * Car设备外部左侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17714,7 +17374,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_LEFT = 3,
 
     /**
-     * Exterior right position.
+     * Car设备外部右侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17724,7 +17384,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_EXTERIOR_RIGHT = 4,
 
     /**
-     * Interior other position.
+     * Car设备内部其他位置摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17734,7 +17394,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_OTHER = 5,
 
     /**
-     * Interior left side position of the first row.
+     * Car设备内部第一排左侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17744,7 +17404,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_LEFT = 6,
 
     /**
-     * Interior center side position of the first row.
+     * Car设备内部第一排中央摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17754,7 +17414,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_CENTER = 7,
 
     /**
-     * Interior right side position of the first row.
+     * Car设备内部第一排右侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17764,7 +17424,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_1_RIGHT = 8,
 
     /**
-     * Interior left side position of the second row.
+     * Car设备内部第二排左侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17774,7 +17434,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_LEFT = 9,
 
     /**
-     * Interior center side position of the second row.
+     * Car设备内部第二排中央摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17784,7 +17444,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_CENTER = 10,
 
     /**
-     * Interior right side position of the second row.
+     * Car设备内部第二排右侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17794,7 +17454,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_2_RIGHT = 11,
 
     /**
-     * Interior left side position of the third row.
+     * Car设备内部第三排左侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17804,7 +17464,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_3_LEFT = 12,
 
     /**
-     * Interior center side position of the third row.
+     * Car设备内部第三排中央摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -17814,7 +17474,7 @@ declare namespace camera {
     AUTOMOTIVE_CAMERA_POSITION_INTERIOR_ROW_3_CENTER = 13,
 
     /**
-     * Interior right side position of the third row.
+     * Car设备内部第三排右侧摄像头。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
