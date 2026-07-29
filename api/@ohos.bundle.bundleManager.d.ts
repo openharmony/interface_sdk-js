@@ -1559,7 +1559,8 @@ declare namespace bundleManager {
    * Enumerates the application installation statuses.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 23 - 25]
+   * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
   export enum BundleInstallStatus {
@@ -1567,7 +1568,8 @@ declare namespace bundleManager {
      * The application is not installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 25]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_NOT_EXIST = 1,
@@ -1576,7 +1578,8 @@ declare namespace bundleManager {
      * The application is being installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 25]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLING = 2,
@@ -1585,7 +1588,8 @@ declare namespace bundleManager {
      * The application has been installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 25]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLED = 3
@@ -4501,9 +4505,10 @@ declare namespace bundleManager {
    * @param { string } bundleName - Bundle name.
    * @returns { BundleInstallStatus } Application installation status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API. [since 23 - 25]
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 23 - 25]
+   * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
