@@ -5459,6 +5459,7 @@ export interface Watcher {
    * 开启监听。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
@@ -5481,6 +5482,7 @@ export interface Watcher {
    * 停止监听并移除Watcher对象。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
