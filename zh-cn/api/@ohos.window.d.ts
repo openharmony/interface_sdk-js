@@ -123,6 +123,7 @@ declare namespace window {
    * 窗口类型枚举。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 7 dynamic
    * @since 23 static
@@ -303,6 +304,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2319,6 +2321,7 @@ declare namespace window {
    * 创建子窗口或系统窗口时的参数。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2328,6 +2331,7 @@ declare namespace window {
      * 窗口名称。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2338,6 +2342,7 @@ declare namespace window {
      * 窗口类型。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2348,6 +2353,7 @@ declare namespace window {
      * 当前应用上下文信息。不设置，则默认为空。<br>FA模型下不需要使用该参数，即可创建子窗口，使用该参数时会报错。<br>Stage模型必须使用该参数，用于创建全局悬浮窗、模态窗或系统窗口。 <br>
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2909,6 +2915,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2943,6 +2950,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -12517,7 +12525,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -12528,7 +12536,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
