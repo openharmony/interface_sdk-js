@@ -29,6 +29,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.UiAppearance
  * @systemapi hide this for inner system use [since 10 - 19]
  * @publicapi [since 20]
+ * @crossplatform [since 26.0.0]
  * @since 10 dynamic
  */
 declare namespace uiAppearance {
@@ -40,6 +41,7 @@ declare namespace uiAppearance {
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use [since 10 - 19]
    * @publicapi [since 20]
+   * @crossplatform [since 26.0.0]
    * @since 10 dynamic
    */
   enum DarkMode {
@@ -50,6 +52,7 @@ declare namespace uiAppearance {
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use [since 10 - 19]
      * @publicapi [since 20]
+     * @crossplatform [since 26.0.0]
      * @since 10 dynamic
      */
     ALWAYS_DARK = 0,
@@ -60,6 +63,7 @@ declare namespace uiAppearance {
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use [since 10 - 19]
      * @publicapi [since 20]
+     * @crossplatform [since 26.0.0]
      * @since 10 dynamic
      */
     ALWAYS_LIGHT = 1
