@@ -28589,6 +28589,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
 /**
  * Defines the callback type used in mutableBuilder.
  *
+ * @typedef { function } BuilderCallback
  * @param { Args } args - The parameter of MutableBuilder.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28596,7 +28597,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback = (...args: Args) => void
 
 /**
  * Defining mutableBuilder function.
