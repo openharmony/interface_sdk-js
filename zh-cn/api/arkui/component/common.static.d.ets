@@ -3768,8 +3768,7 @@ export declare enum ThemeColorMode {
 
 /**
  * enum color mode of pointing popup
-
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -3781,15 +3780,15 @@ export declare enum AnchoredColorMode {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
-    */
+     */
     FOLLOW_SYSTEM = 0,
     /**
      * Defines the mode which is follow up with target.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
-    */
+     */
     FOLLOW_TARGET = 1
 }
 
