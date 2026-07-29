@@ -65,7 +65,6 @@ declare namespace power {
    * @permission ohos.permission.REBOOT
    * @param { string } reason - Indicates the restart reason. For example, "updater" indicates entering the updater mode
    *     after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
-   *     reason parameter must be of type string.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -231,7 +230,7 @@ declare namespace power {
   function hibernate(clearMemory: boolean): void;
 
   /**
-   * Sets the screen-off timeout duration, in unit of ms.
+   * Sets the screen-off timeout duration.
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
    * @param { long } timeout - Screen-off timeout duration, in milliseconds. A value greater than **0** indicates the
@@ -436,7 +435,7 @@ declare namespace power {
      */
     DISABLE_LONG_PRESS_FILTERING = 0,
     /**
-     * Filters the long-press event of the current power key once. The next is not filtered by default.
+     * Filters the current power key long-press event once. Subsequent long-press events are not filtered by default.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic
