@@ -22,7 +22,7 @@
  * This module provides the serial port management functions, including enabling and disabling the serial port of the
  * device, writing and reading data, setting and obtaining the configuration parameters of the serial port, and managing
  * permissions.
- *
+ * 
  * @syscap SystemCapability.USB.USBManager.Serial
  * @since 19 dynamic
  * @since 23 static
@@ -40,11 +40,11 @@ declare namespace serialManager {
   function getPortList(): Readonly<SerialPort>[];
 
   /**
-   * Checks whether the application has the permission to access the serial port device. When an application is
+   * Checks whether the application has the permission to access the serial port device. When an application is 
    * restarted after exits, you need to request the permission from the user again.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @returns {boolean} The value **true** indicates that the permission is authorized, and **false** indicates the opposite.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -58,13 +58,13 @@ declare namespace serialManager {
   function hasSerialRight(portId: int): boolean;
 
   /**
-   * Requests the permission for the application to access the serial port device. After the application exits, the
-   * access permission on the serial port device is automatically removed. After the application is restarted, you need
+   * Requests the permission for the application to access the serial port device. After the application exits, the 
+   * access permission on the serial port device is automatically removed. After the application is restarted, you need 
    * to request the permission again. This API uses a promise to return the result.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
-   * @returns { Promise<boolean>} Promise used to return the result. The value **true** indicates that the permission is
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
+   * @returns { Promise<boolean>} Promise used to return the result. The value **true** indicates that the permission is 
    *     successfully requested, and **false** indicates the opposite.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -79,16 +79,16 @@ declare namespace serialManager {
 
   /**
    * Adds the permission to an application for accessing the serial port device.
-   * serialManager.requestSerialRight triggers a dialog box to request user authorization. addSerialRight does not
-   * trigger a dialog box but directly adds the device access permission for the application. After the application
+   * serialManager.requestSerialRight triggers a dialog box to request user authorization. addSerialRight does not 
+   * trigger a dialog box but directly adds the device access permission for the application. After the application 
    * exits, the access permission on the serial port device is automatically removed. After the application is restarted
    * , you need to request the permission again.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { int } tokenId - ID of the token that requires the access permission.
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
-   * @throws { BusinessError } 201 Permission verification failed. The application does not have the permission required to
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
+   * @throws { BusinessError } 201 Permission verification failed. The application does not have the permission required to 
    *     call the API.
    * @throws { BusinessError } 202 Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
@@ -104,11 +104,11 @@ declare namespace serialManager {
   function addSerialRight(tokenId: int, portId: int): void;
 
   /**
-   * Cancels the permission to access the serial port device when the application is running. This API is used to close
+   * Cancels the permission to access the serial port device when the application is running. This API is used to close 
    * the enabled serial port device.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
@@ -124,8 +124,8 @@ declare namespace serialManager {
   /**
    * Opens a serial port device.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -141,8 +141,8 @@ declare namespace serialManager {
   /**
    * Closes the serial port device.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -157,8 +157,8 @@ declare namespace serialManager {
   /**
    * Obtains the configuration parameters of a specified serial port.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @returns { Readonly<SerialAttribute>} Configuration parameters of the serial port.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -175,8 +175,8 @@ declare namespace serialManager {
    * Sets the parameters of the serial port. If this method is not called, the default configuration parameters are used
    *  (baud rate: 9600 bit/s; data bit: 8; parity bit: 0; stop bit: 1).
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @param { SerialAttribute} attribute - Configuration parameters of the serial port.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -192,11 +192,11 @@ declare namespace serialManager {
   /**
    * Reads data from the serial port device asynchronously. This API uses a promise to return the result.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for reading data, with a maximum length of 8192 bytes.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
-   *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the
+   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it 
+   *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the 
    *     result without waiting.
    * @returns { Promise<int> } Promise used to return the length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
@@ -206,9 +206,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
-   *
+   *     
    *     <br>1. The transfer was canceled.
-   *
+   *     
    *     <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -219,11 +219,11 @@ declare namespace serialManager {
   /**
    * Reads data from the serial port device synchronously.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for reading data, with a maximum length of 8192 bytes.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
-   *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the
+   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it 
+   *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the 
    *     result without waiting.
    * @returns {int} Length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
@@ -233,9 +233,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
-   *
+   *     
    *     <br>1. The transfer was canceled.
-   *
+   *     
    *     <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -244,17 +244,16 @@ declare namespace serialManager {
   function readSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
   /**
-   * Writes data to the serial port device asynchronously. The length of data written each time cannot exceed 4 KB;
-   * otherwise, data loss may occur. You are advised to write long data in multiple packets. This API uses a promise to
+   * Writes data to the serial port device asynchronously. The length of data written each time cannot exceed 4 KB; 
+   * otherwise, data loss may occur. You are advised to write long data in multiple packets. This API uses a promise to 
    * return the result.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for writing data, with a maximum length of 4 KB.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
-   *     specified time. If yes, the API is processed properly; otherwise, a timeout message is returned after the specified
-   *     time. The default value **0** indicates that the API returns the result immediately when the target port is not
-   *     writable.
+   * @param { int } timeout - Timeout interval for checking whether the buffer is writable, Unit: milliseconds.
+   *     If not, **0** is returned after the interval. The default value **0** is returned
+   *     when data cannot be written into the target port.
    * @returns { Promise<int> } Promise used to return the length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -263,9 +262,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
-   *
+   *     
    *     <br>1. The transfer was canceled.
-   *
+   *     
    *     <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -274,16 +273,15 @@ declare namespace serialManager {
   function write(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
   /**
-   * Writes data to the serial port device synchronously. The length of data written each time cannot exceed 4 KB;
+   * Writes data to the serial port device synchronously. The length of data written each time cannot exceed 4 KB; 
    * otherwise, data loss may occur. You are advised to write long data in multiple packets.
    *
-   * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
-   *     returned by [getPortList]{@link serialManager.getPortList()}.
+   * @param { int} portId - Port number, which is the value of the **SerialPort** parameter obtained
+   *     by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Destination buffer for writing data, with a maximum length of 4 KB.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
-   *     specified time. If yes, the API is processed properly; otherwise, a timeout message is returned after the specified
-   *     time. The default value **0** indicates that the API returns the result immediately when the target port is not
-   *     writable.
+   * @param { int } timeout - Timeout interval for checking whether the buffer is writable, Unit: milliseconds.
+   *     If not, **0** is returned after the interval. The default value **0** is returned
+   *     when data cannot be written into the target port.
    * @returns { int } Length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -292,9 +290,9 @@ declare namespace serialManager {
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
-   *
+   *     
    *     <br>1. The transfer was canceled.
-   *
+   *     
    *     <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -339,7 +337,7 @@ declare namespace serialManager {
   interface SerialAttribute {
 
     /**
-     * Baud rate.
+     * Baud rate. Unit: bit/s
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -348,7 +346,7 @@ declare namespace serialManager {
     baudRate: BaudRates;
 
     /**
-     * Data bits. The default value is **8**.
+     * Data bits. The default value is **8**. Unit: bit
      *
      * @default DATABIT_8
      * @syscap SystemCapability.USB.USBManager.Serial
@@ -368,7 +366,7 @@ declare namespace serialManager {
     parity?: Parity;
 
     /**
-     * Stop bits. The default value is **1**.
+     * Stop bits. The default value is **1**. Unit: bit
      *
      * @default STOPBIT_1
      * @syscap SystemCapability.USB.USBManager.Serial
@@ -378,7 +376,7 @@ declare namespace serialManager {
     stopBits?: StopBits;
  }
   /**
-   * Enumerates the baud rates.
+   * Enumerates the baud rates. Unit: bit/s
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -657,7 +655,7 @@ declare namespace serialManager {
     BAUDRATE_4000000 = 4000000
  }
   /**
-   * Enumerates the number of data bits.
+   * Enumerates the number of data bits. Unit: bit
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -756,7 +754,7 @@ declare namespace serialManager {
     PARITY_SPACE = 4
  }
   /**
-   * Enumerates of the number of stop bits.
+   * Enumerates of the number of stop bits. Unit: bit
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
