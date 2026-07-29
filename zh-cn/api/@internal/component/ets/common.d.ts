@@ -31198,7 +31198,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * `mutableBuilder`是一个泛型函数，它返回一个`MutableBuilder`对象，只接受一个全局的`@Builder`函数作为其参数。
