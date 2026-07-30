@@ -26,12 +26,40 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 /*** endif */
 
 /**
- * The **resourceManager** module provides the resource management functionality. It allows an application to obtain the
- * best matched application resources or system resources based on the specified 
- * [configuration]{@link resourceManager.Configuration}. For details about the matching rules, see 
+ * This module provides the capabilities to access application resources and system resources. It allows applications 
+ * to obtain the best-matching application or system resources based on the current 
+ * [configuration]{@link resourceManager.Configuration}, supporting internationalization resource matching and multi-
+ * device adaptation. For details about the matching rules, see 
  * [Matching Resources](docroot://quick-start/resource-categories-and-access.md#matching-resources).
- * The configuration includes language, region, screen orientation, color mode, mobile country code (MCC), mobile network code (MNC)
- * , device capability, and density.
+ *
+ * The configuration includes language, script, country/region, orientation, color mode, Mobile Country Code (MCC), 
+ * Mobile Network Code (MNC), device type, and screen density.
+ *
+ * **Use scenarios**
+ * - Application internationalization: Automatically obtains matching string resources based on the user's language and 
+ * region.
+ * - Multi-device adaptation: Obtains appropriate media resources based on device type and screen density.
+ * - Dynamic resource configuration: Obtains resources corresponding to the current device state, such as orientation 
+ * and color mode.
+ *
+ * **How to Use**
+ * - In the FA model, you need to import the module and then call 
+ * [getResourceManager]{@link resourceManager.getResourceManager} to obtain a **ResourceManager** object.
+ * - Since API version 9, in the stage model, the stage model allows you to obtain the **resourceManager** object 
+ * through context without importing any module. For details about the context, see 
+ * [application context](docroot://application-models/application-context-stage.md).
+ *
+ *   ```ts
+ *   import { UIAbility } from '@kit.AbilityKit';
+ *   import { window } from '@kit.ArkUI';
+ *
+ *   export default class EntryAbility extends UIAbility {
+ *     onWindowStageCreate(windowStage: window.WindowStage) {
+ *       let context = this.context;
+ *       let resourceManager = context.resourceManager;
+ *     }
+ *   }
+ *   ```
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform [since 10]
@@ -75,6 +103,10 @@ declare namespace resourceManager {
 
   /**
    * Enumerates the device types.
+   *
+   * <!--RP1-->
+   *
+   * <!--RP1End-->
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 10]
@@ -248,7 +280,6 @@ declare namespace resourceManager {
    * @since 23 static
    */
   export enum ColorMode {
-
     /**
      * Dark mode.
      *
@@ -284,7 +315,7 @@ declare namespace resourceManager {
   export class Configuration {
     /**
      * Screen orientation modes.
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -295,7 +326,7 @@ declare namespace resourceManager {
 
     /**
      * Language locale.
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -306,7 +337,7 @@ declare namespace resourceManager {
 
     /**
      * Device type.
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -317,7 +348,7 @@ declare namespace resourceManager {
 
     /**
      * Screen density
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -328,7 +359,7 @@ declare namespace resourceManager {
 
     /**
      * Color mode.
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -339,7 +370,7 @@ declare namespace resourceManager {
 
     /**
      * Mobile country code (MCC).
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -350,7 +381,7 @@ declare namespace resourceManager {
 
     /**
      * Mobile network code (MNC).
-     * 
+     *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -394,7 +425,7 @@ declare namespace resourceManager {
   }
 
   /**
-   * The ResourceManager callback.
+   * Asynchronous callback interface.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @since 6 dynamiconly
@@ -416,8 +447,8 @@ declare namespace resourceManager {
   }
 
   /**
-   * Obtains the **ResourceManager** object of this application. This API uses an asynchronous callback to return the 
-   * result.
+   * Obtains the **ResourceManager** object of the current application. This API uses an asynchronous callback to 
+   * return the result.
    *
    * @param { AsyncCallback<ResourceManager> } callback - Callback used to return the **ResourceManager** object.
    * @syscap SystemCapability.Global.ResourceManager
@@ -439,7 +470,7 @@ declare namespace resourceManager {
   export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
 
   /**
-   * Obtains the **ResourceManager** object of this application. This API uses a promise to return the result.
+   * Obtains the **ResourceManager** object of the current application. This API uses a promise to return the result.
    *
    * @returns { Promise<ResourceManager> } Promise used to return the **ResourceManager** object.
    * @syscap SystemCapability.Global.ResourceManager
@@ -460,13 +491,13 @@ declare namespace resourceManager {
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
   /**
-   * Obtains a system **ResourceManager** object.
-   * 
+   * Obtains a system resource management object for accessing preset system resources.
+   *
    * > **NOTE**
    * >
-   * > The **Configuration** field in the **ResourceManager** object obtained via this API uses the default value,
-   * > which is as follows:
-   * > {"locale": "", "direction": -1, "deviceType": -1, "screenDensity": 0, "colorMode": 1, "mcc": 0, "mnc": 0}.
+   * > The **Configuration** parameter in the **ResourceManager** object obtained via this API uses the default value.
+   * > The default value is 
+   * > **{"locale": "", "direction": -1, "deviceType": -1, "screenDensity": 0, "colorMode": 1, "mcc": 0, "mnc": 0}**.
    *
    * @returns { ResourceManager } The system **ResourceManager** object.
    * @throws { BusinessError } 9001009 - Failed to access the system resource.
@@ -481,7 +512,7 @@ declare namespace resourceManager {
   export function getSystemResourceManager(): ResourceManager;
 
   /**
-   * Obtains a system **ResourceManager** object.
+   * Obtains a system resource management object for accessing preset system resources.
    *
    * @returns { ResourceManager } The system **ResourceManager** object.
    * @throws { BusinessError } 9001009 - Failed to access the system resource.
@@ -495,33 +526,30 @@ declare namespace resourceManager {
   export function getSysResourceManager(): ResourceManager;
 
   /**
-   * Provides APIs for accessing application resources and system resources.
-   * 
+   * Provides the capability of accessing application resources and system resources. The accessible resources include 
+   * the resources in the HAP/HSP module corresponding to the current context and all system resources.
+   *
    * > **NOTE**
    * >
-   * > - The methods involved in **ResourceManager** are applicable only to the TypeScript-based declarative development
-   * > paradigm.
+   * > - The methods involved in **ResourceManager** are applicable only to the TypeScript-based declarative 
+   * > development paradigm.
    * >
    * > - Resource files are defined in the **resources** directory of the project. You can obtain resource values such 
-   * > as strings, string arrays, and colors based on the specified **resName**, **resId**, or **Resource** object. 
-   * > **resName** indicates the resource name, **resId** indicates the resource ID, which can be obtained through `$r(
-   * > *resource-address*).id`, for example, `$r('app.string.test').id`.
+   * > as strings, string arrays, and colors based on the specified **resName**, **resId**, or **Resource** object.
+   * > **resName** indicates the resource name, **resId** indicates the resource ID, which can be obtained through 
+   * > `$r(*resource-address*).id`, for example, `$r('app.string.test').id`.
    * >
    * > - No matter whether resources are in the same HAP or different HAPs or HSPs, you are advised to use the API with 
    * > **resName** or **resId** specified. Using the **Resource** object will take a longer time. If the resources are 
    * > in different HAPs or HSPs, you first need to use 
-   * > [createModuleContext]{@link @ohos.app.ability.application:application.createModuleContext(context: Context, moduleName: string)}
-   * > to create the context of the corresponding module and then call the API with **resName** or **resId** specified. 
-   * > For details, see 
+   * > [createModuleContext]{@link @ohos.app.ability.application:application.createModuleContext} to create the context 
+   * > of the corresponding module and then call the API with **resName** or **resId** specified. For more information, 
+   * > see [Accessing Resources](docroot://quick-start/resource-categories-and-access.md#accessing-resources).
+   * >
+   * > - In API version 22 and earlier versions, an exception is thrown due to an invalid ID when the intermediate-code 
+   * > HAR or bytecode HAR accesses resources through resource ID-related APIs. From API version 23, the intermediate-
+   * > code HAR or bytecode HAR can properly access resources through resource ID-related APIs. For details, see 
    * > [Accessing Resources](docroot://quick-start/resource-categories-and-access.md#accessing-resources).
-   * >
-   * > - In API version 22 and earlier versions, an exception is thrown due to an invalid ID when the intermediate-code
-   * > HAR or bytecode HAR accesses resources through resource ID-related APIs. From API version 23, the
-   * > intermediate-code HAR or bytecode HAR can properly access resources through resource ID-related APIs.
-   * > For details, see [Accessing Resources](docroot://quick-start/resource-categories-and-access.md#accessing-resources).
-   * >
-   * > - For details about the content of the test files used in the sample code, see 
-   * > [Appendix](docroot://reference/apis-localization-kit/js-apis-resource-manager.md#appendix).
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 10]
@@ -531,7 +559,8 @@ declare namespace resourceManager {
    */
   export interface ResourceManager {
     /**
-     * Obtains a string based on the specified resource ID. This API uses an asynchronous callback to return the result.
+     * Obtains the string corresponding to the specified resource ID. This API uses an asynchronous callback to return 
+     * the result.
      *
      * @param { number } resId - Resource ID.
      * @param { AsyncCallback<string> } callback - Callback used to return the obtained string.
@@ -543,7 +572,7 @@ declare namespace resourceManager {
     getString(resId: number, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains a string based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the string corresponding to the specified resource ID. This API uses a promise to return the result.
      *
      * @param { number } resId - Resource ID.
      * @returns { Promise<string> } Promise used to return the obtained string.
@@ -555,12 +584,12 @@ declare namespace resourceManager {
     getString(resId: number): Promise<string>;
 
     /**
-     * Obtains a string based on the specified resource object. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the string corresponding to the specified resource object. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { Resource } resource - Resource object.
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -575,11 +604,11 @@ declare namespace resourceManager {
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains a string based on the specified resource object. This API uses a promise to return the result.
+     * Obtains the string corresponding to the specified resource object. This API uses a promise to return the result.
      *
      * @param { Resource } resource - Resource object.
      * @returns { Promise<string> } Promise used to return the obtained string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -594,8 +623,8 @@ declare namespace resourceManager {
     getStringValue(resource: Resource): Promise<string>;
 
     /**
-     * Obtains a string array based on the specified resource ID. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the string array corresponding to the specified resource ID. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { number } resId - Resource ID.
      * @param { AsyncCallback<Array<string>> } callback - Callback used to return the obtained string array.
@@ -607,7 +636,8 @@ declare namespace resourceManager {
     getStringArray(resId: number, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains a string array based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the string array corresponding to the specified resource ID. This API uses a promise to return the 
+     * result.
      *
      * @param { number } resId - Resource ID.
      * @returns { Promise<Array<string>> } Promise used to return the obtained string array.
@@ -619,12 +649,12 @@ declare namespace resourceManager {
     getStringArray(resId: number): Promise<Array<string>>;
 
     /**
-     * Obtains a string array based on the specified resource object. This API uses an asynchronous callback to return 
-     * the result.
+     * Obtains the string array corresponding to the specified resource object. This API uses an asynchronous callback 
+     * to return the result.
      *
      * @param { Resource } resource - Resource object.
      * @param { _AsyncCallback<Array<string>> } callback - Callback used to return the obtained string array.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -639,11 +669,12 @@ declare namespace resourceManager {
     getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains a string array based on the specified resource object. This API uses a promise to return the result.
+     * Obtains the string array corresponding to the specified resource object. This API uses a promise to return the 
+     * result.
      *
      * @param { Resource } resource - Resource object.
      * @returns { Promise<Array<string>> } Promise used to return the obtained string array.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -658,8 +689,8 @@ declare namespace resourceManager {
     getStringArrayValue(resource: Resource): Promise<Array<string>>;
 
     /**
-     * Obtains media file content based on the specified resource ID. This API uses an asynchronous callback to return 
-     * the result.
+     * Obtains the content of the media file corresponding to the specified resource ID. This API uses an asynchronous 
+     * callback to return the result.
      *
      * @param { number } resId - Resource ID.
      * @param { AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
@@ -671,7 +702,8 @@ declare namespace resourceManager {
     getMedia(resId: number, callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains media file content based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the content of the media file corresponding to the specified resource ID. This API uses a promise to 
+     * return the result.
      *
      * @param { number } resId - Resource ID.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
@@ -683,12 +715,12 @@ declare namespace resourceManager {
     getMedia(resId: number): Promise<Uint8Array>;
 
     /**
-     * Obtains media file content based on the specified resource object. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the content of the media file corresponding to the specified resource object. This API uses an 
+     * asynchronous callback to return the result.
      *
      * @param { Resource } resource - Resource object.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
@@ -702,13 +734,14 @@ declare namespace resourceManager {
     getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains media file content for the specified screen density based on the specified resource object. This API uses
-     * an asynchronous callback to return the result.
+     * Obtains the media file content for the specified screen density based on the specified resource object. This API
+     * uses an asynchronous callback to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The value **0** indicates the default screen density.
+     * @param { number } density - Screen density. The value **0** indicates the default screen density. For details 
+     *     about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -723,11 +756,12 @@ declare namespace resourceManager {
     getMediaContent(resource: Resource, density: number, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains media file content based on the specified resource object. This API uses a promise to return the result.
+     * Obtains the content of the media file corresponding to the specified resource object. This API uses a promise to 
+     * return the result.
      *
      * @param { Resource } resource - Resource object.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
@@ -741,13 +775,14 @@ declare namespace resourceManager {
     getMediaContent(resource: Resource): Promise<Uint8Array>;
 
     /**
-     * Obtains media file content for the specified screen density based on the specified resource object. This API uses
-     * a promise to return the result.
+     * Obtains the media file content for the specified screen density based on the specified resource object. This API 
+     * uses a promise to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The value **0** indicates the default screen density.
+     * @param { number } density - Screen density. The value **0** indicates the default screen density. For details 
+     *     about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -762,11 +797,11 @@ declare namespace resourceManager {
     getMediaContent(resource: Resource, density: number): Promise<Uint8Array>;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource ID. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID. This API uses an 
+     * asynchronous callback to return the result.
      *
      * @param { number } resId - Resource ID.
-     * @param { AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
+     * @param { AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -775,10 +810,11 @@ declare namespace resourceManager {
     getMediaBase64(resId: number, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID. This API uses a 
+     * promise to return the result.
      *
      * @param { number } resId - Resource ID.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -787,12 +823,12 @@ declare namespace resourceManager {
     getMediaBase64(resId: number): Promise<string>;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource object. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource object. This API uses 
+     * an asynchronous callback to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
@@ -806,13 +842,14 @@ declare namespace resourceManager {
     getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource object. This API 
-     * uses an asynchronous callback to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource object and the 
+     * specified screen density. This API uses an asynchronous callback to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The value **0** indicates the default screen density.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @param { number } density - Screen density. The value **0** indicates the default screen density. For details 
+     *     about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -827,12 +864,12 @@ declare namespace resourceManager {
     getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource object. This API uses a promise to return the 
-     * result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource object. This API uses 
+     * a promise to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
@@ -846,13 +883,14 @@ declare namespace resourceManager {
     getMediaContentBase64(resource: Resource): Promise<string>;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource object. This API 
-     * uses a promise to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource object and the 
+     * specified screen density. This API uses a promise to return the result.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The value **0** indicates the default screen density.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @param { number } density - Screen density. The value **0** indicates the default screen density. For details 
+     *     about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -867,7 +905,7 @@ declare namespace resourceManager {
     getMediaContentBase64(resource: Resource, density: number): Promise<string>;
 
     /**
-     * Obtains the device capability. This API uses an asynchronous callback to return the result.
+     * Obtains the device capabilities of a device. This API uses an asynchronous callback to return the result.
      *
      * @param { _AsyncCallback<DeviceCapability> } callback - Callback used to return the device capability.
      * @syscap SystemCapability.Global.ResourceManager
@@ -879,7 +917,7 @@ declare namespace resourceManager {
     getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
 
     /**
-     * Obtains the device capability. This API uses a promise to return the result.
+     * Obtains the device capabilities of a device. This API uses a promise to return the result.
      *
      * @returns { Promise<DeviceCapability> } Promise used to return the device capability.
      * @syscap SystemCapability.Global.ResourceManager
@@ -891,7 +929,7 @@ declare namespace resourceManager {
     getDeviceCapability(): Promise<DeviceCapability>;
 
     /**
-     * Obtains the device configuration. This API uses an asynchronous callback to return the result.
+     * Obtains the configuration of a device. This API uses an asynchronous callback to return the result.
      *
      * @param { _AsyncCallback<Configuration> } callback - Callback used to return the device configuration.
      * @syscap SystemCapability.Global.ResourceManager
@@ -903,7 +941,7 @@ declare namespace resourceManager {
     getConfiguration(callback: _AsyncCallback<Configuration>): void;
 
     /**
-     * Obtains the device configuration. This API uses a promise to return the result.
+     * Obtains the configuration of a device. This API uses a promise to return the result.
      *
      * @returns { Promise<Configuration> } Promise used to return the device configuration.
      * @syscap SystemCapability.Global.ResourceManager
@@ -915,18 +953,18 @@ declare namespace resourceManager {
     getConfiguration(): Promise<Configuration>;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource ID. This API uses an asynchronous 
-     * callback to return the result.
-     * 
+     * Obtains the plural string based on the specified resource ID and the specified resource quantity. This API uses 
+     * an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { number } resId - Resource ID.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @param { AsyncCallback<string> } callback - Callback used to return the obtained singular/plural string.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 6 dynamiconly
@@ -936,18 +974,18 @@ declare namespace resourceManager {
     getPluralString(resId: number, num: number, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource ID. This API uses a promise to 
-     * return the result.
-     * 
+     * Obtains the plural string based on the specified resource ID and the specified resource quantity. This API uses 
+     * a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { number } resId - Resource ID.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { Promise<string> } Promise used to return the obtained singular/plural string.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 6 dynamiconly
@@ -957,20 +995,20 @@ declare namespace resourceManager {
     getPluralString(resId: number, num: number): Promise<string>;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource object. This API uses an 
-     * asynchronous callback to return the result.
-     * 
+     * Obtains the plural string based on the specified resource information and the specified resource quantity. This 
+     * API uses an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained singular/plural string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -985,20 +1023,20 @@ declare namespace resourceManager {
     getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource object. This API uses a promise to 
-     * return the result.
-     * 
+     * Obtains the plural string based on the specified resource information and the specified resource quantity. This 
+     * API uses a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { Promise<string> } Promise used to return the obtained singular/plural string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1013,10 +1051,11 @@ declare namespace resourceManager {
     getPluralStringValue(resource: Resource, num: number): Promise<string>;
 
     /**
-     * Obtains the content of a rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback 
+     * Obtain the content of a rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback 
      * to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { AsyncCallback<Uint8Array> } callback - Callback used to return the rawfile content.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 8 dynamiconly
@@ -1026,10 +1065,11 @@ declare namespace resourceManager {
     getRawFile(path: string, callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains the content of a rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
+     * Obtain the content of a rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
      * result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<Uint8Array> } Promise used to return the rawfile content.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 8 dynamiconly
@@ -1039,10 +1079,11 @@ declare namespace resourceManager {
     getRawFile(path: string): Promise<Uint8Array>;
 
     /**
-     * Obtains the fd of the rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the file descriptor (fd) of a specific rawfile in the **resources/rawfile** directory. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { AsyncCallback<RawFileDescriptor> } callback - Callback used to return the obtained fd.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 8 dynamiconly
@@ -1052,10 +1093,11 @@ declare namespace resourceManager {
     getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
     /**
-     * Obtains the fd of the rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
-     * result.
+     * Obtains the file descriptor (fd) of a specific rawfile in the **resources/rawfile** directory. This API uses a 
+     * promise to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<RawFileDescriptor> } Promise used to return the obtained fd.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 8 dynamiconly
@@ -1065,10 +1107,11 @@ declare namespace resourceManager {
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
     /**
-     * Closes the fd of the rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback to 
-     * return the result.
+     * Closes the file descriptor (fd) of a specific rawfile in the **resources/rawfile** directory. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Global.ResourceManager
@@ -1079,10 +1122,11 @@ declare namespace resourceManager {
     closeRawFileDescriptor(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Closes the fd of the rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
-     * result.
+     * Closes the file descriptor (fd) of a specific rawfile in the **resources/rawfile** directory. This API uses a 
+     * promise to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Global.ResourceManager
      * @since 8 dynamiconly
@@ -1092,12 +1136,12 @@ declare namespace resourceManager {
     closeRawFileDescriptor(path: string): Promise<void>;
 
     /**
-     * Obtains a string based on the specified resource name. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the string corresponding to the specified resource name. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { string } resName - Resource name.
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1110,11 +1154,11 @@ declare namespace resourceManager {
     getStringByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains a string based on the specified resource name. This API uses a promise to return the result.
+     * Obtains the string corresponding to the specified resource name. This API uses a promise to return the result.
      *
      * @param { string } resName - Resource name.
      * @returns { Promise<string> } Promise used to return the obtained string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1127,12 +1171,12 @@ declare namespace resourceManager {
     getStringByName(resName: string): Promise<string>;
 
     /**
-     * Obtains a string array based on the specified resource name. This API uses an asynchronous callback to return the
-     * result.
+     * Obtains the string array corresponding to the specified resource name. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { string } resName - Resource name.
      * @param { _AsyncCallback<Array<string>> } callback - Callback used to return the obtained string array.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1145,11 +1189,12 @@ declare namespace resourceManager {
     getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains a string array based on the specified resource name. This API uses a promise to return the result.
+     * Obtains the string array corresponding to the specified resource name. This API uses a promise to return the 
+     * result.
      *
      * @param { string } resName - Resource name.
      * @returns { Promise<Array<string>> } Promise used to return the obtained string array.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1162,12 +1207,12 @@ declare namespace resourceManager {
     getStringArrayByName(resName: string): Promise<Array<string>>;
 
     /**
-     * Obtains media file content based on the specified resource name. This API uses an asynchronous callback to return
-     * the result.
+     * Obtains the content of the media file corresponding to the specified resource name. This API uses an 
+     * asynchronous callback to return the result.
      *
      * @param { string } resName - Resource name.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
@@ -1183,7 +1228,8 @@ declare namespace resourceManager {
      * uses an asynchronous callback to return the result.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -1199,11 +1245,12 @@ declare namespace resourceManager {
     getMediaByName(resName: string, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains media file content based on the specified resource name. This API uses a promise to return the result.
+     * Obtains the content of the media file corresponding to the specified resource name. This API uses a promise to 
+     * return the result.
      *
      * @param { string } resName - Resource name.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
@@ -1219,7 +1266,8 @@ declare namespace resourceManager {
      * uses a promise to return the result.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -1235,12 +1283,12 @@ declare namespace resourceManager {
     getMediaByName(resName: string, density: int): Promise<Uint8Array>;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource name. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource name. This API uses an 
+     * asynchronous callback to return the result.
      *
      * @param { string } resName - Resource name.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
@@ -1252,12 +1300,13 @@ declare namespace resourceManager {
     getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource name. This API 
-     * uses an asynchronous callback to return the result.
-     * 
+     * Obtains the Base64 encoding of the image resource for the specified screen density corresponding to the 
+     * specified resource name. This API uses an asynchronous callback to return the result.
+     *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -1272,12 +1321,12 @@ declare namespace resourceManager {
     getMediaBase64ByName(resName: string, density: int, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource name. This API uses a promise to return the 
-     * result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource name. This API uses a 
+     * promise to return the result.
      *
      * @param { string } resName - Resource name.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
@@ -1289,12 +1338,13 @@ declare namespace resourceManager {
     getMediaBase64ByName(resName: string): Promise<string>;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource name. This API 
-     * uses a promise to return the result.
+     * Obtains the Base64 encoding of the image resource for the specified screen density corresponding to the 
+     * specified resource name. This API uses a promise to return the result.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -1309,20 +1359,20 @@ declare namespace resourceManager {
     getMediaBase64ByName(resName: string, density: int): Promise<string>;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource name. This API uses an asynchronous 
-     * callback to return the result.
-     * 
+     * Obtains the plural string based on the specified resource name and the specified resource quantity. This API 
+     * uses an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
-     * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
+     * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { string } resName - Resource name.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the
+     *     current language's
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained singular/plural string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1336,21 +1386,21 @@ declare namespace resourceManager {
     getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource name. This API uses a promise to 
-     * return the result.
-     * 
+     * Obtains the plural string based on the specified resource name and the specified resource quantity. This API 
+     * uses a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { string } resName - Resource name.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { Promise<string> } Promise used to return the result, which is the singular/plural string corresponding
      *     to the specified resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1364,7 +1414,7 @@ declare namespace resourceManager {
     getPluralStringByName(resName: string, num: number): Promise<string>;
 
     /**
-     * Obtains a string based on the specified resource ID. This API returns the result synchronously.
+     * Obtains the string corresponding to the specified resource ID. This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
      * @returns { string } String corresponding to the specified resource ID.
@@ -1380,18 +1430,18 @@ declare namespace resourceManager {
     getStringSync(resId: long): string;
 
     /**
-     * Obtains a string based on the specified resource ID and formats the string based on **args**. This API returns 
-     * the result synchronously.
+     * Obtains the string corresponding to the specified resource ID, and replaces the format placeholders in the 
+     * string in sequence using the **args** parameter. This API returns the result synchronously.
      *
      * @param { number } resId - Resource ID.
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1404,15 +1454,21 @@ declare namespace resourceManager {
     getStringSync(resId: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a string resource based on the specified resource ID.
+     * Obtains the string corresponding to the specified resource ID, and replaces the format placeholders in the 
+     * string in sequence using the **args** parameter. This API returns the result synchronously.
      *
-     * @param { long } resId Resource ID.
-     * @param { (string | double)[] } args Parameters used to populate placeholders in the string.
-     * @returns { string } String obtained based on the specified resource ID.
-     * @throws { BusinessError } 9001001 Invalid resource ID.
-     * @throws { BusinessError } 9001002 No matching resource is found based on the resource ID.
-     * @throws { BusinessError } 9001006 The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 Failed to format the resource obtained based on the resource ID.
+     * @param { long } resId - Resource ID.
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource ID.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1425,7 +1481,7 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { string } String corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1440,18 +1496,18 @@ declare namespace resourceManager {
     getStringSync(resource: Resource): string;
 
     /**
-     * Obtains a string based on the specified resource object and formats the string based on **args**. This API 
-     * returns the result synchronously.
+     * Obtains the string corresponding to the specified resource object, and replaces the format placeholders in the 
+     * string in sequence using the **args** parameter. This API returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1467,11 +1523,11 @@ declare namespace resourceManager {
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a string based on the specified resource name. This API returns the result synchronously.
+     * Obtains the string corresponding to the specified resource name. This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
      * @returns { string } String corresponding to the specified resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1483,22 +1539,22 @@ declare namespace resourceManager {
     getStringByNameSync(resName: string): string;
 
     /**
-     * Obtains a string based on the specified resource name and formats the string based on **args**. This API returns 
-     * the result synchronously.
+     * Obtains the string corresponding to the specified resource name, and replaces the format placeholders in the 
+     * string in sequence using the **args** parameter. This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice [since 11]
@@ -1507,15 +1563,21 @@ declare namespace resourceManager {
     getStringByNameSync(resName: string, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a string resource based on the specified resource name.
+     * Obtains the string corresponding to the specified resource name, and replaces the format placeholders in the 
+     * string in sequence using the **args** parameter. This API returns the result synchronously.
      *
-     * @param { string } resName Resource name.
-     * @param { (string | double)[] } args Parameters used to populate placeholders in the string.
-     * @returns { string } String obtained based on the specified resource name.
+     * @param { string } resName - Resource name.
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource Name.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -1545,7 +1607,7 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { boolean } Boolean value.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1564,7 +1626,7 @@ declare namespace resourceManager {
      *
      * @param { string } resName - Resource name.
      * @returns { boolean } Boolean value.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1578,12 +1640,13 @@ declare namespace resourceManager {
 
     /**
      * Obtains an integer or float number based on the specified resource ID. This API returns the result synchronously.
-     * 
      *
      * @param { number } resId - Resource ID.
      * @returns { number } Integer or float value corresponding to the specified resource ID.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
-     *     a float number with the unit of vp or fp indicates the px value. For details, see the sample code.
+     *     <br>For resources of the integer type, the original value defined in the resource file is returned.
+     *     <br>For resources of the float type, the original value defined in the resource file is returned if no unit 
+     *     is specified. If the unit is vp or fp, the converted pixel (px) value is returned. The conversion formula is:
+     *     Pixel value = Original value × `densityPixels`.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1596,10 +1659,11 @@ declare namespace resourceManager {
     getNumber(resId: number): number;
 
     /**
-     * Obtains the number result with a specified resource ID.
+     * Obtains an integer number based on the specified resource ID. This API returns the result synchronously.
      *
      * @param { long } resId - Indicates the resource ID.
-     * @returns { int } The number resource corresponding to the resource ID.
+     * @returns { int } Integer value corresponding to the specified resource ID.
+     *     <br>For resources of the integer type, the original value defined in the resource file is returned.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1611,10 +1675,13 @@ declare namespace resourceManager {
     getInt(resId: long): int;
 
     /**
-     * Obtains the number result with a specified resource ID.
+     * Obtains an float number based on the specified resource ID. This API returns the result synchronously.
      *
      * @param { long } resId - Indicates the resource ID.
-     * @returns { double } The number resource corresponding to the resource ID.
+     * @returns { double } Float value corresponding to the specified resource ID.
+     *     <br>For resources of the float type, the original value defined in the resource file is returned if no unit 
+     *     is specified. If the unit is vp or fp, the converted pixel (px) value is returned. The conversion formula is:
+     *     Pixel value = Original value × `densityPixels`.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1631,9 +1698,11 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { number } Integer or float number.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
-     *     a float number with the unit of vp or fp indicates the px value.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     *     <br>For resources of the integer type, the original value defined in the resource file is returned.
+     *     <br>For resources of the float type, the original value defined in the resource file is returned if no unit 
+     *     is specified. If the unit is vp or fp, the converted pixel (px) value is returned. The conversion formula is:
+     *     Pixel value = Original value × `densityPixels`.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1653,8 +1722,10 @@ declare namespace resourceManager {
      *
      * @param { string } resName - Resource name.
      * @returns { number } Integer or float value corresponding to the specified resource name.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
-     *     a float number with the unit of vp or fp indicates the px value.
+     *     <br>For resources of the integer type, the original value defined in the resource file is returned.
+     *     <br>For resources of the float type, the original value defined in the resource file is returned if no unit 
+     *     is specified. If the unit is vp or fp, the converted pixel (px) value is returned. The conversion formula is:
+     *     Pixel value = Original value × `densityPixels`.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1667,10 +1738,11 @@ declare namespace resourceManager {
     getNumberByName(resName: string): number;
 
     /**
-     * Obtains the number result with a specified resource name.
+     * Obtains an integer number based on the specified resource name. This API returns the result synchronously.
      *
      * @param { string } resName - Indicates the resource name.
-     * @returns { int } The number resource corresponding to the resource name.
+     * @returns { int } Integer value corresponding to the specified resource name.
+     *     <br>For resources of the integer type, the original value defined in the resource file is returned.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1680,12 +1752,15 @@ declare namespace resourceManager {
      * @since 23 static
      */
     getIntByName(resName: string): int;
-    
+
     /**
-     * Obtains the number result with a specified resource name.
+     * Obtains an float number based on the specified resource name. This API returns the result synchronously.
      *
      * @param { string } resName - Indicates the resource name.
-     * @returns { double } The number resource corresponding to the resource name.
+     * @returns { double } Float value corresponding to the specified resource name.
+     *     <br>For resources of the float type, the original value defined in the resource file is returned if no unit 
+     *     is specified. If the unit is vp or fp, the converted pixel (px) value is returned. The conversion formula is:
+     *     Pixel value = Original value × `densityPixels`.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1697,7 +1772,8 @@ declare namespace resourceManager {
     getDoubleByName(resName: string): double;
 
     /**
-     * Releases a **ResourceManager** object. This API is not supported currently.
+     * Releases an **resourceManager **object. This API is not supported currently. Calling this API does not have any 
+     * effect.
      *
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -1708,8 +1784,8 @@ declare namespace resourceManager {
     release();
 
     /**
-     * Obtains a string based on the specified resource ID. This API uses an asynchronous callback to return the result.
-     * 
+     * Obtains the string corresponding to the specified resource ID. This API uses an asynchronous callback to return 
+     * the result.
      *
      * @param { long } resId - Resource ID.
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained string.
@@ -1726,7 +1802,7 @@ declare namespace resourceManager {
     getStringValue(resId: long, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains a string based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the string corresponding to the specified resource ID. This API uses a promise to return the result.
      *
      * @param { long } resId - Resource ID.
      * @returns { Promise<string> } Promise used to return the obtained string.
@@ -1743,8 +1819,8 @@ declare namespace resourceManager {
     getStringValue(resId: long): Promise<string>;
 
     /**
-     * Obtains a string array based on the specified resource ID. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the string array corresponding to the specified resource ID. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { long } resId - Resource ID.
      * @param { _AsyncCallback<Array<string>> } callback - Callback used to return the obtained string array.
@@ -1761,7 +1837,8 @@ declare namespace resourceManager {
     getStringArrayValue(resId: long, callback: _AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains a string array based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the string array corresponding to the specified resource ID. This API uses a promise to return the 
+     * result.
      *
      * @param { long } resId - Resource ID.
      * @returns { Promise<Array<string>> } Promise used to return the obtained string array.
@@ -1778,20 +1855,20 @@ declare namespace resourceManager {
     getStringArrayValue(resId: long): Promise<Array<string>>;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource ID. This API uses an asynchronous 
-     * callback to return the result.
-     * 
+     * Obtains the plural string based on the specified resource ID and the specified resource quantity. This API uses 
+     * an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { number } resId - Resource ID.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @param { _AsyncCallback<string> } callback - Callback used to return the obtained singular/plural string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1805,20 +1882,20 @@ declare namespace resourceManager {
     getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains singular/plural strings based on the specified quantity and resource ID. This API uses a promise to 
-     * return the result.
-     * 
+     * Obtains the plural string based on the specified resource ID and the specified resource quantity. This API uses 
+     * a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { number } resId - Resource ID.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { Promise<string> } Promise used to return the obtained singular/plural string.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1832,9 +1909,10 @@ declare namespace resourceManager {
     getPluralStringValue(resId: number, num: number): Promise<string>;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource ID and formats the string based on the **args** parameter. This API returns the result synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource ID, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -1847,12 +1925,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1866,14 +1944,27 @@ declare namespace resourceManager {
     getIntPluralStringValueSync(resId: number, num: number,...args: Array<string | number>): string;
 
     /**
-     * Obtains the singular-plural character string represented by the ID string corresponding to
-     * the specified number.
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource object, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
+     * > **NOTE**
+     * >
+     * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see
+     * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { long } resId - Indicates the resource ID.
-     * @param { int } num - an integer used to get the correct string for the current plural rules.
-     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
-     * @returns { string } The singular-plural character string represented by the ID string
-     *     corresponding to the specified number.
+     * @param { int } num - Integer number used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     *     <br>The value should be an integer.
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1886,10 +1977,10 @@ declare namespace resourceManager {
     getIntPluralStringValueSync(resId: long, num: int,...args: (string | double)[]): string;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource object and formats the string based on the **args** parameter. This API returns the result 
-     * synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource object, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -1899,12 +1990,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource object.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1921,9 +2012,10 @@ declare namespace resourceManager {
     getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource name and formats the string based on the **args** parameter. This API returns the result synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource name, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -1936,12 +2028,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1955,13 +2047,30 @@ declare namespace resourceManager {
     getIntPluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a singular/plural string based on the specified resource name and number.
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource name, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
      *
-     * @param { string } resName Resource name.
-     * @param { int } num Integer number used to obtain the corresponding string representation for the
-     *     current language's plural rules.
-     * @param { (string | double)[] } args String resource formatting parameters.
-     * @returns { string } Singular/plural string obtained based on the specified resource name and number.
+     * > **NOTE**
+     * >
+     * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
+     * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * >
+     * > - In languages such as English and German, singular/plural numbers are classified into cardinal numbers (for 
+     * > example, 1, 2, 3) and ordinal numbers (for example, 1st, 2nd, 3rd). This API applies only to cardinal numbers.
+     *
+     * @param { string } resName - Resource name.
+     * @param { int } num - Integer number used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     *     <br>The value should be an integer.
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -1974,9 +2083,10 @@ declare namespace resourceManager {
     getIntPluralStringByNameSync(resName: string, num: int, ...args: (string | double)[]): string;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource ID and formats the string based on the **args** parameter. This API returns the result synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource ID, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -1989,12 +2099,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2008,17 +2118,33 @@ declare namespace resourceManager {
     getDoublePluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a singular/plural string based on the specified resource ID and number.
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource ID, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
      *
-     * @param { long } resId Resource ID.
-     * @param { double } num Double floating-point number used to obtain the corresponding string
-     *     representation for the current language's plural rules.
-     * @param { (string | double)[] } args String resource formatting parameters.
-     * @returns { string } Singular/plural string obtained based on the specified resource ID and number.
-     * @throws { BusinessError } 9001001 Invalid resource ID.
-     * @throws { BusinessError } 9001002 No matching resource is found based on the resource ID.
-     * @throws { BusinessError } 9001006 The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 Failed to format the resource obtained based on the resource ID.
+     * > **NOTE**
+     * >
+     * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
+     * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * >
+     * > - In languages such as English and German, singular/plural numbers are classified into cardinal numbers (for 
+     * > example, 1, 2, 3) and ordinal numbers (for example, 1st, 2nd, 3rd). This API applies only to cardinal numbers.
+     *
+     * @param { long } resId - Resource ID.
+     * @param { double } num - Quantity value (a floating point number), used to obtain the corresponding string 
+     *     representation based on the current language's
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource ID.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -2027,10 +2153,10 @@ declare namespace resourceManager {
     getDoublePluralStringValueSync(resId: long, num: double, ...args: (string | double)[]): string;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource object and formats the string based on the **args** parameter. This API returns the result 
-     * synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource object, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -2040,12 +2166,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource object.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2062,9 +2188,10 @@ declare namespace resourceManager {
     getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a [singular/plural](docroot://internationalization/l10n-singular-plural.md) string based on the specified
-     * resource name and formats the string based on the **args** parameter. This API returns the result synchronously.
-     * 
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource name, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
@@ -2077,12 +2204,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.
-     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
-     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
-     *     in **args**.
-     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
-     *     is used.
+     * @param { Array<string | number> } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
      * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -2096,13 +2223,26 @@ declare namespace resourceManager {
     getDoublePluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
     /**
-     * Obtains a singular/plural string based on the specified resource name and number.
+     * Obtains the [plural](docroot://internationalization/l10n-singular-plural.md) string corresponding to the 
+     * specified resource name, and replaces the format placeholders in the string in sequence using the **args** 
+     * parameters. This API returns the result synchronously.
      *
-     * @param { string } resName Resource name.
-     * @param { double } num Double floating-point number used to obtain the corresponding string
-     *     representation for the current language's plural rules.
-     * @param { (string | double)[] } args String resource formatting parameters.
-     * @returns { string } Singular/plural string obtained based on the specified resource name and number.
+     * > **NOTE**
+     * >
+     * > - Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
+     * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     *
+     * @param { string } resName - Resource name.
+     * @param { double } num - Quantity value (a floating point number), used to obtain the corresponding string 
+     *     representation based on the current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { (string | double)[] } args - Parameters for the formatted string resource. Supported parameter types 
+     *     include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>**NOTE**
+     *     <br>- `%%` is escaped as `%`. For example, `%%d` is formatted as `%d`.
+     *     <br>- In `%number$d`, `number` indicates the parameter index, starting from `1`. For example, `%1$d` uses 
+     *     `args[0]` for formatting, `%2$d` uses `args[1]`, and so on.
+     * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2115,8 +2255,8 @@ declare namespace resourceManager {
     getDoublePluralStringByNameSync(resName: string, num: double, ...args: (string | double)[]): string;
 
     /**
-     * Obtains media file content based on the specified resource ID. This API uses an asynchronous callback to return 
-     * the result.
+     * Obtains the content of the media file corresponding to the specified resource ID. This API uses an asynchronous 
+     * callback to return the result.
      *
      * @param { long } resId - Resource ID.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
@@ -2132,11 +2272,12 @@ declare namespace resourceManager {
     getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains the media file content for the specified screen density based on the specified resource ID. This API uses
-     * an asynchronous callback to return the result.
+     * Obtains the media file content for the specified screen density based on the specified resource ID. This API 
+     * uses an asynchronous callback to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the media file content.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2152,7 +2293,8 @@ declare namespace resourceManager {
     getMediaContent(resId: long, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains media file content based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the content of the media file corresponding to the specified resource ID. This API uses a promise to 
+     * return the result.
      *
      * @param { long } resId - Resource ID.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
@@ -2168,11 +2310,12 @@ declare namespace resourceManager {
     getMediaContent(resId: long): Promise<Uint8Array>;
 
     /**
-     * Obtains the media file content for the specified screen density based on the specified resource ID. This API uses
-     * a promise to return the result.
+     * Obtains the media file content for the specified screen density based on the specified resource ID. This API 
+     * uses a promise to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Promise<Uint8Array> } Promise used to return the media file content.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2188,11 +2331,11 @@ declare namespace resourceManager {
     getMediaContent(resId: long, density: int): Promise<Uint8Array>;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource ID. This API uses an asynchronous callback to 
-     * return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID. This API uses an 
+     * asynchronous callback to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2205,12 +2348,13 @@ declare namespace resourceManager {
     getMediaContentBase64(resId: long, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource ID. This API uses
-     * an asynchronous callback to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID and the specified 
+     * screen density. This API uses an asynchronous callback to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 code of the image.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -2225,10 +2369,11 @@ declare namespace resourceManager {
     getMediaContentBase64(resId: long, density: int, callback: _AsyncCallback<string>): void;
 
     /**
-     * Obtains an image's Base64 code based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID. This API uses a 
+     * promise to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2241,12 +2386,13 @@ declare namespace resourceManager {
     getMediaContentBase64(resId: long): Promise<string>;
 
     /**
-     * Obtains an image's Base64 code for the specified screen density based on the specified resource ID. This API uses
-     * a promise to return the result.
+     * Obtains the Base64 encoding of the image resource corresponding to the specified resource ID and the specified 
+     * screen density. This API uses a promise to return the result.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The value **0** indicates the default screen density.
-     * @returns { Promise<string> } Promise used to return the Base64 code of the image.
+     * @param { int } density - Screen density. The value **0** indicates the default screen density. For details about 
+     *     the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { Promise<string> } Promise used to return the Base64 encoding of the image.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -2261,12 +2407,13 @@ declare namespace resourceManager {
     getMediaContentBase64(resId: long, density: int): Promise<string>;
 
     /**
-     * Obtains the content of a rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback 
+     * Obtain the content of a rawfile in the **resources/rawfile** directory. This API uses an asynchronous callback 
      * to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { _AsyncCallback<Uint8Array> } callback - Callback used to return the content of the rawfile.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2277,12 +2424,13 @@ declare namespace resourceManager {
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains the content of a rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
+     * Obtain the content of a rawfile in the **resources/rawfile** directory. This API uses a promise to return the 
      * result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<Uint8Array> } Promise used to return the content of the rawfile.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2293,18 +2441,19 @@ declare namespace resourceManager {
     getRawFileContent(path: string): Promise<Uint8Array>;
 
     /**
-     * Obtains the fd of the HAP where a specific rawfile in the **resources/rawfile** directory is located. This API 
-     * uses an asynchronous callback to return the result.
-     * 
+     * Obtains the file descriptor (fd) of the HAP where a specific rawfile in the **resources/rawfile** directory is 
+     * located. This API uses an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
      * > To prevent resource leakage, call [closeRawFdSync]{@link resourceManager.ResourceManager.closeRawFdSync} or 
-     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} to
-     * > close the fd after use.
+     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} 
+     * > to close the fd after use.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { _AsyncCallback<RawFileDescriptor> } callback - Callback used to return the fd of the HAP.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2315,18 +2464,19 @@ declare namespace resourceManager {
     getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
 
     /**
-     * Obtains the fd of the HAP where a specific rawfile in the **resources/rawfile** directory is located. This API 
-     * uses a promise to return the result.
-     * 
+     * Obtains the file descriptor (fd) of the HAP where a specific rawfile in the **resources/rawfile** directory is 
+     * located. This API uses a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > To prevent resource leakage, call [closeRawFdSync]{@link resourceManager.ResourceManager.closeRawFdSync} or 
-     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} to
-     * > close the fd after use.
+     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} 
+     * > to close the fd after use.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<RawFileDescriptor> } Promise used to return the fd of the HAP.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2337,13 +2487,14 @@ declare namespace resourceManager {
     getRawFd(path: string): Promise<RawFileDescriptor>;
 
     /**
-     * Closes the fd of the HAP where a specific rawfile in the **resources/rawfile** directory is located. This API 
-     * uses an asynchronous callback to return the result.
+     * Closes the file descriptor (fd) of the HAP where a specific rawfile in the **resources/rawfile** directory is 
+     * located. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @param { _AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2354,12 +2505,13 @@ declare namespace resourceManager {
     closeRawFd(path: string, callback: _AsyncCallback<void>): void;
 
     /**
-     * Closes the fd of the HAP where a specific rawfile in the **resources/rawfile** directory is located. This API 
-     * uses a promise to return the result.
+     * Closes the file descriptor (fd) of the HAP where a specific rawfile in the **resources/rawfile** directory is 
+     * located. This API uses a promise to return the result.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 10]
@@ -2370,12 +2522,13 @@ declare namespace resourceManager {
     closeRawFd(path: string): Promise<void>;
 
     /**
-     * Obtains a **DrawableDescriptor** object for icon display based on the specified resource ID. This API returns the
-     * result synchronously.
+     * Obtains the **DrawableDescriptor** object for icon display corresponding to the specified resource ID. This API 
+     * returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @param { int } type - Icon type. The Default value is **0**.
+     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { int } type - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
@@ -2393,12 +2546,13 @@ declare namespace resourceManager {
     getDrawableDescriptor(resId: long, density?: int, type?: int): DrawableDescriptor;
 
     /**
-     * Obtains a **DrawableDescriptor** object for icon display based on the specified resource name. This API returns 
-     * the result synchronously.
+     * Obtains the **DrawableDescriptor** object for icon display corresponding to the specified resource name. This 
+     * API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @param { int } type - Icon type. The Default value is **0**.
+     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { int } type - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object.
@@ -2416,17 +2570,17 @@ declare namespace resourceManager {
     getDrawableDescriptorByName(resName: string, density?: int, type?: int): DrawableDescriptor;
 
     /**
-     * Obtains a **DrawableDescriptor** object for icon display based on the specified resource object. This API returns
-     * the result synchronously.
+     * Obtains a **DrawableDescriptor** object for icon display based on the specified resource object. This API 
+     * returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
      * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
-     *     density.
-     * @param { number } type - Icon type. The Default value is **0**.
+     *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @param { number } type - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2441,17 +2595,21 @@ declare namespace resourceManager {
     getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 
     /**
-     * Obtains the list of folders and files in the **resources/rawfile** directory. This API uses an asynchronous 
-     * callback to return the result.
-     * 
+     * Obtains the list of directories and files in the specified subdirectory under **resources/rawfile**. This API 
+     * uses an asynchronous callback to return the result.
+     *
      * > **NOTE**
      * >
      * > If there is no folder or file in the directory, an exception is thrown. If there are folders and files in the 
      * > directory, the list of the folders and files is returned.
      *
-     * @param { string } path - **rawfile** directory.
-     * @param { _AsyncCallback<Array<string>> } callback - Callback used to return the list of folders and files.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { string } path - rawfile subdirectory path relative to the **resources/rawfile** directory, such as 
+     *     **subdir**. The path must not start with a slash (/).
+     *     <br>An empty string **""** indicates that the list of directories and files in the **rawfile** root 
+     *     directory is obtained.
+     * @param { _AsyncCallback<Array<string>> } callback - Callback used to return the list of directories and files in 
+     *     a rawfile subdirectory.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2462,17 +2620,21 @@ declare namespace resourceManager {
     getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains the list of folders and files in the **resources/rawfile** directory. This API uses a promise to return 
-     * the result.
-     * 
+     * Obtains the list of directories and files in the specified subdirectory under **resources/rawfile**. This API 
+     * uses a promise to return the result.
+     *
      * > **NOTE**
      * >
      * > If there is no folder or file in the directory, an exception is thrown. If there are folders and files in the 
      * > directory, the list of the folders and files is returned.
      *
-     * @param { string } path - **rawfile** directory.
-     * @returns { Promise<Array<string>> } Promise used to return the list of folders and files.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { string } path - rawfile subdirectory path relative to the **resources/rawfile** directory, such as 
+     *     **subdir**. The path must not start with a slash (/).
+     *     <br>An empty string **""** indicates that the list of directories and files in the **rawfile** root 
+     *     directory is obtained.
+     * @returns { Promise<Array<string>> } Promise used to return the list of directories and files in a rawfile 
+     *     subdirectory.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2483,8 +2645,8 @@ declare namespace resourceManager {
     getRawFileList(path: string): Promise<Array<string>>;
 
     /**
-     * Obtains a color value based on the specified resource ID. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the color value corresponding to the specified resource ID. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { long } resId - Resource ID.
      * @param { _AsyncCallback<long> } callback - Callback used to return the color value (decimal).
@@ -2501,7 +2663,7 @@ declare namespace resourceManager {
     getColor(resId: long, callback: _AsyncCallback<long>): void;
 
     /**
-     * Obtains a color value based on the specified resource ID. This API uses a promise to return the result.
+     * Obtains the color value corresponding to the specified resource ID. This API uses a promise to return the result.
      *
      * @param { long } resId - Resource ID.
      * @returns { Promise<long> } Promise used to return the color value (decimal).
@@ -2518,12 +2680,12 @@ declare namespace resourceManager {
     getColor(resId: long): Promise<long>;
 
     /**
-     * Obtains a color value based on the specified resource object. This API uses an asynchronous callback to return 
-     * the result.
+     * Obtains the color value corresponding to the specified resource object. This API uses an asynchronous callback 
+     * to return the result.
      *
      * @param { Resource } resource - Resource object.
      * @param { _AsyncCallback<number> } callback - Callback used to return the color value (decimal).
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2538,11 +2700,12 @@ declare namespace resourceManager {
     getColor(resource: Resource, callback: _AsyncCallback<number>): void;
 
     /**
-     * Obtains a color value based on the specified resource object. This API uses a promise to return the result.
+     * Obtains the color value corresponding to the specified resource object. This API uses a promise to return the 
+     * result.
      *
      * @param { Resource } resource - Resource object.
      * @returns { Promise<number> } Promise used to return the color value (decimal).
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2557,8 +2720,8 @@ declare namespace resourceManager {
     getColor(resource: Resource): Promise<number>;
 
     /**
-     * Obtains a color value based on the specified resource name. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the color value corresponding to the specified resource name. This API uses an asynchronous callback to 
+     * return the result.
      *
      * @param { string } resName - Resource name.
      * @param { _AsyncCallback<long> } callback - Callback used to return the color value (decimal).
@@ -2575,7 +2738,8 @@ declare namespace resourceManager {
     getColorByName(resName: string, callback: _AsyncCallback<long>): void;
 
     /**
-     * Obtains a color value based on the specified resource name. This API uses a promise to return the result.
+     * Obtains the color value corresponding to the specified resource name. This API uses a promise to return the 
+     * result.
      *
      * @param { string } resName - Resource name.
      * @returns { Promise<long> } Promise used to return the color value (decimal).
@@ -2613,7 +2777,7 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { number } Color value (decimal) corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2645,14 +2809,15 @@ declare namespace resourceManager {
     getColorByNameSync(resName: string) : long;
 
     /**
-     * Loads resources from the specified path.
-     * 
+     * Loads the specified overlay resource during application runtime to implement theme switching or resource
+     * overriding.
+     *
      * > **NOTE**
      * >
      * > Resource overwriting is not supported for the **rawfile** and **resfile** directories.
      *
-     * @param { string } path - Resource path.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { string } path - Absolute path of the HSP or HAP resource package to be loaded.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2663,14 +2828,15 @@ declare namespace resourceManager {
     addResource(path: string) : void;
 
     /**
-     * Removes the resources loaded from the specified path to restore the original resources.
-     * 
+     * Removes the specified overlay resource during application runtime and restores the original resource before the 
+     * override.
+     *
      * > **NOTE**
      * >
      * > Resource overwriting is not supported for the **rawfile** and **resfile** directories.
      *
-     * @param { string } path - Resource path.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { string } path - Absolute path of the HSP or HAP resource package to be removed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001010 - Invalid overlay path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2683,16 +2849,17 @@ declare namespace resourceManager {
     /**
      * Obtains the file descriptor (fd) of the HAP where the rawfile file in the resources/rawfile directory is located.
      * This API is called in synchronous mode.
-     * 
+     *
      * > **NOTE**
      * >
      * > To prevent resource leakage, call [closeRawFdSync]{@link resourceManager.ResourceManager.closeRawFdSync} or 
-     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} to
-     * > close the fd after use.
+     * > [closeRawFd]{@link resourceManager.ResourceManager.closeRawFd(path: string, callback: _AsyncCallback<void>)} 
+     * > to close the fd after use.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { RawFileDescriptor } fd of the HAP where the rawfile is located.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2706,8 +2873,9 @@ declare namespace resourceManager {
      * Closes the file descriptor (fd) of the HAP where the **rawfile** file in the **resources/rawfile** directory is 
      * located. This API returns the result synchronously.
      *
-     * @param { string } path - Path of the rawfile.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2718,17 +2886,20 @@ declare namespace resourceManager {
     closeRawFdSync(path: string): void;
 
     /**
-     * Obtains the list of folders and files in the **resources/rawfile** directory. This API returns the result 
-     * synchronously.
-     * 
+     * Obtains the list of directories and files in the specified subdirectory under **resources/rawfile**. This API 
+     * returns the result synchronously.
+     *
      * > **NOTE**
      * >
      * > If there is no folder or file in the directory, an exception is thrown. If there are folders and files in the 
      * > directory, the list of the folders and files is returned.
      *
-     * @param { string } path - **rawfile** directory.
+     * @param { string } path - rawfile subdirectory path relative to the **resources/rawfile** directory, such as 
+     *     **subdir**. The path must not start with a slash (/).
+     *     <br>An empty string **""** indicates that the list of directories and files in the **rawfile** root 
+     *     directory is obtained.
      * @returns { Array<string> } List of folders and files in the **rawfile** directory.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2742,9 +2913,10 @@ declare namespace resourceManager {
      * Obtains the content of a rawfile in the **resources/rawfile** directory. This API returns the result 
      * synchronously.
      *
-     * @param { string } path - Path of the rawfile.
+     * @param { string } path - rawfile path relative to the **resources/rawfile** directory, such as **test.txt** or 
+     *     **subdir/test.txt**. The path must not start with a slash (/).
      * @returns { Uint8Array } Content of the rawfile.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform [since 11]
@@ -2755,11 +2927,12 @@ declare namespace resourceManager {
     getRawFileContentSync(path: string): Uint8Array;
 
     /**
-     * Obtains the media file content for the default or specified screen density based on the specified resource ID. 
+     * Obtains the media file content for the default or specified screen density based on the specified resource ID.
      * This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
      * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2780,9 +2953,9 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
-     *     density.
+     *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Content of the media file corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2797,12 +2970,13 @@ declare namespace resourceManager {
     getMediaContentSync(resource: Resource, density?: number): Uint8Array;
 
     /**
-     * Obtains an image's Base64 code for the default or specified screen density based on the specified resource ID. 
-     * This API returns the result synchronously.
+     * Obtains an image's Base64 encoding for the default or specified screen density based on the specified resource 
+     * ID. This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
      * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @returns { string } Base64 code of the image corresponding to the specified resource ID.
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { string } Base64 encoding of the image corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -2817,14 +2991,14 @@ declare namespace resourceManager {
     getMediaContentBase64Sync(resId: long, density?: int): string;
 
     /**
-     * Obtains an image's Base64 code for the default or specified screen density based on the specified resource 
+     * Obtains an image's Base64 encoding for the default or specified screen density based on the specified resource 
      * object. This API returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
      * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
-     *     density.
-     * @returns { string } Base64 code of the image corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
+     *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { string } Base64 encoding of the image corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2841,18 +3015,18 @@ declare namespace resourceManager {
     /**
      * Obtains singular/plural strings based on the specified resource ID and quantity. This API returns the result 
      * synchronously.
-     * 
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { number } resId - Resource ID.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { string } Singular/plural string corresponding to the specified quantity and resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2868,16 +3042,16 @@ declare namespace resourceManager {
     /**
      * Obtains singular/plural strings based on the specified quantity and resource object. This API returns the result 
      * synchronously.
-     * 
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { string } Singular/plural string corresponding to the specified quantity and resource object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2894,7 +3068,7 @@ declare namespace resourceManager {
     getPluralStringValueSync(resource: Resource, num: number): string;
 
     /**
-     * Obtains a string array based on the specified resource ID. This API returns the result synchronously.
+     * Obtains the string array corresponding to the specified resource ID. This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
      * @returns { Array<string> } String array corresponding to the specified resource ID.
@@ -2915,7 +3089,7 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { Array<string> } String array corresponding to the specified resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2932,18 +3106,18 @@ declare namespace resourceManager {
     /**
      * Obtains singular/plural strings based on the specified quantity and resource name. This API returns the result 
      * synchronously.
-     * 
+     *
      * > **NOTE**
      * >
      * > Strings distinguish between singular and plural forms in all languages except Chinese. For details, see 
      * > [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      *
      * @param { string } resName - Resource name.
-     * @param { number } num - Quantity value, which is used to obtain the corresponding string representation based on 
-     *     the current language's plural rules. For details about the plural rules of a language, see 
-     *     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
+     * @param { number } num - Quantity value, used to obtain the corresponding string representation based on the 
+     *     current language's 
+     *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @returns { string } Singular/plural string corresponding to the specified quantity and resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2957,11 +3131,12 @@ declare namespace resourceManager {
     getPluralStringByNameSync(resName: string, num: number): string;
 
     /**
-     * Obtains the media file content for the default or specified screen density based on the specified resource name. 
+     * Obtains the media file content for the default or specified screen density based on the specified resource name.
      * This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
+     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Promise used to return the result, which is the content of the media file corresponding 
      *     to the specified resource name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2978,12 +3153,13 @@ declare namespace resourceManager {
     getMediaByNameSync(resName: string, density?: int): Uint8Array;
 
     /**
-     * Obtains an image's Base64 code for the default or specified screen density based on the specified resource name. 
-     * This API returns the result synchronously.
+     * Obtains an image's Base64 encoding for the default or specified screen density based on the specified resource 
+     * name. This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @returns { string } Base64 code of the image corresponding to the specified resource name.
+     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
+     * @returns { string } Base64 encoding of the image corresponding to the specified resource name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
      *     2.Parameter verification failed.
@@ -2998,11 +3174,11 @@ declare namespace resourceManager {
     getMediaBase64ByNameSync(resName: string, density?: int): string;
 
     /**
-     * Obtains a string array based on the specified resource name. This API returns the result synchronously.
+     * Obtains the string array corresponding to the specified resource name. This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
      * @returns { Array<string> } String array corresponding to the specified resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3047,7 +3223,7 @@ declare namespace resourceManager {
      *     <br>If the value of **includeSystem** is invalid, the language list of system resources will be returned.
      * @returns { Array<string> } Language list. The strings in the list are comprised of the language, script (optional
      *     ), and region (optional), which are connected by a hyphen (-).
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3080,7 +3256,7 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { number } Unicode code (decimal) of the symbol.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3115,11 +3291,12 @@ declare namespace resourceManager {
     /**
      * Checks whether a path is a subdirectory in the **rawfile** directory. This API returns the result synchronously.
      *
-     * @param { string } path - Path of a rawfile.
+     * @param { string } path - rawfile or subdirectory path relative to the **resources/rawfile** directory, such as 
+     *     **test.txt** or **subdir**. The path must not start with a slash (/).
      * @returns { boolean } Whether the path is a subdirectory in the **rawfile** directory.
-     *     - **true**: The path is a subdirectory in the **rawfile** directory.
-     *     - **false**: The path is not a subdirectory in the **rawfile** directory.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     *     <br> - **true**: The path is a subdirectory in the **rawfile** directory.
+     *     <br> - **false**: The path is not a subdirectory in the **rawfile** directory.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001005 - Invalid relative path.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
@@ -3132,18 +3309,19 @@ declare namespace resourceManager {
     /**
      * Obtains a **ResourceManager** object for loading differentiated resources. This API returns the result 
      * synchronously.
-     * The resource configuration (including the language, color mode, resolution, and orientation) obtained by a common
-     * **ResourceManager** object is determined by the system. With this API, an application can obtain resources of the
-     * specified configuration (that is, differentiated resources), for example, dark color resources in light color 
-     * mode.
      *
-     * @param { Configuration } [configuration] - Resource configuration.<br>After obtaining the configuration of 
-     *     differentiated resources through 
+     * The resource configuration (including the language, color mode, resolution, and orientation) obtained by a 
+     * common **ResourceManager** object is determined by the system. With this API, an application can obtain 
+     * resources of the specified configuration (that is, differentiated resources), for example, dark color resources 
+     * in light color mode.
+     *
+     * @param { Configuration } [configuration] - Resource configuration.
+     *     <br>After obtaining the configuration of differentiated resources through 
      *     [getOverrideConfiguration]{@link resourceManager.ResourceManager.getOverrideConfiguration}, modify the 
-     *     configuration items as required, and then pass these items as input parameters to the API.<br>If no 
-     *     configuration is specified, the current system configuration is used.
+     *     configuration items as required, and then pass these items as input parameters to the API.
+     *     <br>If no configuration is specified, the current system configuration is used.
      * @returns { ResourceManager } **ResourceManager** object for loading differentiated resources.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3153,10 +3331,11 @@ declare namespace resourceManager {
     getOverrideResourceManager(configuration?: Configuration): ResourceManager;
 
     /**
-     * Obtains the configuration of differentiated resources. This API returns the result synchronously. This API allows
-     * a common **ResourceManager** object and a **ResourceManager** object obtained through 
-     * [getOverrideResourceManager]{@link resourceManager.ResourceManager.getOverrideResourceManager} to obtain the 
-     * configuration of differentiated resources.
+     * Obtains the configuration of differentiated resources. This API returns the result synchronously.
+     *
+     * For both the common resource management object and the differentiated resource management object obtained 
+     * through the [getOverrideResourceManager]{@link resourceManager.ResourceManager.getOverrideResourceManager} API, 
+     * this API returns the same configuration information.
      *
      * @returns { Configuration } Configuration of differentiated resources.
      * @syscap SystemCapability.Global.ResourceManager
@@ -3168,16 +3347,17 @@ declare namespace resourceManager {
     getOverrideConfiguration(): Configuration;
 
     /**
-     * Updated configuration of differentiated resources. This API allows a common **ResourceManager** object and a 
-     * **ResourceManager** object obtained through 
-     * [getOverrideResourceManager]{@link resourceManager.ResourceManager.getOverrideResourceManager} to update the 
-     * configuration of differentiated resources.
+     * Updates the configuration of a differentiated resource management object.
+     *
+     * This API updates the configuration of the differentiated resource management object, regardless of whether it is 
+     * called on the common resource management object or on the differentiated one obtained via 
+     * [getOverrideResourceManager]{@link resourceManager.ResourceManager.getOverrideResourceManager}.
      *
      * @param { Configuration } configuration - Configuration of differentiated resources. After obtaining the 
      *     configuration of differentiated resources through 
      *     [getOverrideConfiguration]{@link resourceManager.ResourceManager.getOverrideConfiguration}, modify the 
      *     configuration items as required, and then pass these items as input parameters to the API.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
@@ -3187,10 +3367,10 @@ declare namespace resourceManager {
     updateOverrideConfiguration(configuration: Configuration): void;
 
     /**
-     * Obtains the resource name based on the specified resource ID.
+     * Obtains the resource name corresponding to the specified resource ID.
      *
      * @param { long } resId - Resource ID.
-     * @returns { string } Resource name based on the specified resource ID
+     * @returns { string } Resource name corresponding to the resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @syscap SystemCapability.Global.ResourceManager
      * @stagemodelonly
@@ -3201,7 +3381,7 @@ declare namespace resourceManager {
   }
 
   /**
-   * File descriptor (fd) of the HAP where the rawfile is located.
+   * Describes the file descriptor information of the HAP where the rawfile is located.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 10]
@@ -3212,8 +3392,8 @@ declare namespace resourceManager {
   export type RawFileDescriptor = _RawFileDescriptor;
 
   /**
-   * Resource information, including the resource ID, application package name, and module name. Generally, you can
-   * use $r to obtain the resource information.
+   * Describes the resource information, including the application package name, application module name, resource ID,
+   * resource type, and formatting parameters.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 10]
