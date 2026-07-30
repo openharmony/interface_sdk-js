@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Builder, CustomBuilderT } from './builder';
+import { Builder } from './builder';
 
 import { ComponentBuilder } from './builder';
 
@@ -672,47 +672,6 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * 设置LazyForEach选项。
-   *
-   * @param { IDataSource<T> } dataSource - 数据源提供数据
-   * @param { ItemGeneratorFunc<T> } itemGenerator - 项目生成器函数
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 密钥生成器函数
-   * @returns { this } LazyForEachAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
-        itemGenerator: ItemGeneratorFunc<T>,
-        keyGenerator?: KeyGeneratorFunc<T>): this;
-
-  /**
-   * 设置LazyForEach选项。
-   *
-   * @param { IDataSource<T> } dataSource - 提供数据的数据源。
-   * @param { ItemGeneratorFunc<T> } itemGenerator - 项生成器函数。
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 键生成器函数。
-   * @param { LazyForEachOptions } [options] - LazyForEach可选参数选项。
-   * @returns { this } LazyForEachAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
-        itemGenerator: ItemGeneratorFunc<T>,
-        keyGenerator?: KeyGeneratorFunc<T>,
-        options?: LazyForEachOptions): this;
-
-  /**
-     * 通知LazyForEach已完成属性设置。
-     *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**

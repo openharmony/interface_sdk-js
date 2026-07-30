@@ -20,7 +20,9 @@
  */
 
 import { Content } from '../../@ohos.arkui.node';
+
 import { ComponentBuilder, CustomBuilder } from './builder';
+
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -59,4 +61,4 @@ export declare interface ContentSlotAttribute {
 @ComponentBuilder
 export declare function ContentSlot(
     content: Content
-): ContentSlotAttribute;
+): ContentSlotAttribute
