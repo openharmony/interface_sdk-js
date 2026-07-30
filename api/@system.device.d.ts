@@ -163,7 +163,7 @@ export interface DeviceResponse {
    * @deprecated since 26.0.0
    * @reserved ["liteWearable"]
    */
-  sdkMinorApiVersion: number;
+  sdkMinorApiVersion?: number;
 
   /**
    * Minor API version of the system software.
@@ -178,7 +178,7 @@ export interface DeviceResponse {
    * @deprecated since 26.0.0
    * @reserved ["liteWearable"]
    */
-  sdkPatchApiVersion: number;
+  sdkPatchApiVersion?: number;
 
   /**
    * Device type. The options are as follows:
