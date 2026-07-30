@@ -88,7 +88,6 @@ declare interface PluginComponentOptions {
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

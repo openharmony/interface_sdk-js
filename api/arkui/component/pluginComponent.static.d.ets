@@ -19,9 +19,10 @@
  */
 
 import { VoidCallback } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * PluginComponentTemplate
