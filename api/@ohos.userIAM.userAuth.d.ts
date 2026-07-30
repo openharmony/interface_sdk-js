@@ -2085,7 +2085,7 @@ declare namespace userAuth {
      * > to subscribe to the event.
      *
      * @param { 'result' } type - Event type. The value is **result**, which indicates the authentication result.
-     * @param { IAuthCallback } callback - Callback used to return the user authentication result. If this parameter is
+     * @param { IAuthCallback } [callback] - Callback used to return the user authentication result. If this parameter is
      *     not passed, the value passed when the
      *     [on('result')]{@link userAuth.UserAuthInstance.on(type: 'result', callback: IAuthCallback)} API is called is
      *     used by default.
