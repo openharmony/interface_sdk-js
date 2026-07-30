@@ -73,9 +73,9 @@ declare namespace screen {
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
   /**
-   * Register the callback for screen connection events.
+   * 开启屏幕连接事件的监听。
    *
-   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @param { Callback<long> } callback - 回调函数。返回屏幕的id，该参数为整数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -84,9 +84,9 @@ declare namespace screen {
   function onConnect(callback: Callback<long>): void;
 
   /**
-   * Register the callback for screen disconnection events.
+   * 开启屏幕断连事件的监听。
    *
-   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @param { Callback<long> } callback - 回调函数。返回屏幕的id，该参数为整数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -95,9 +95,9 @@ declare namespace screen {
   function onDisconnect(callback: Callback<long>): void;
 
   /**
-   * Register the callback for screen change.
+   * 开启屏幕状态改变事件的监听。
    *
-   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @param { Callback<long> } callback - 回调函数。返回屏幕的id，该参数为整数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -121,10 +121,10 @@ declare namespace screen {
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for screen connection events.
+   * 关闭屏幕连接变化的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 回调函数。返回屏幕的id，该参数为整数。
+   *     若无此参数，则取消注册屏幕连接变化监听的所有回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -133,10 +133,10 @@ declare namespace screen {
   function offConnect(callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for screen disconnection events.
+   * 关闭屏幕断连变化的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 回调函数。返回屏幕的id，该参数为整数。
+   *     若无此参数，则取消注册屏幕断连变化监听的所有回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -145,10 +145,10 @@ declare namespace screen {
   function offDisconnect(callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for screen changes.
+   * 关闭屏幕状态改变事件的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 回调函数。返回屏幕的id，该参数为整数。
+   *     若无此参数，则取消注册屏幕状态改变事件监听的所有回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -886,7 +886,7 @@ declare namespace screen {
     /**
      * 设置屏幕方向
      *
-     * @param { Orientation } orientation - 屏幕方向。方向值必须来自方向枚举值。
+     * @param { Orientation } orientation - 屏幕方向。方向值必须来自枚举 Orientation。
      * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -972,6 +972,15 @@ declare namespace screen {
      * @since 23 static
      */
     readonly serialNumber?: string;
+    /**
+     * Physical pixel density of the screen, that is, the number of pixels per inch.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly densityDpi?: double;
   }
 
   /**

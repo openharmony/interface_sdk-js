@@ -206,9 +206,9 @@ declare namespace display {
   function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
 
   /**
-   * Register the callback for display add events.
+   * 开启增加显示设备变化的监听。
    *
-   * @param { Callback<long> } callback the display id of changed
+   * @param { Callback<long> } callback - 回调函数。返回监听到的屏幕ID，该参数为整数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -216,9 +216,9 @@ declare namespace display {
   function onAdd(callback: Callback<long>): void;
 
   /**
-   * Register the callback for display remove events.
+   * 开启移除显示设备变化的监听。
    *
-   * @param { Callback<long> } callback the display id of changed
+   * @param { Callback<long> } callback - 回调函数。返回监听到的屏幕ID，该参数为整数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -226,9 +226,9 @@ declare namespace display {
   function onRemove(callback: Callback<long>): void;
 
   /**
-   * Register the callback for display changes.
+   * 开启改变显示设备变化的监听。
    *
-   * @param { Callback<long> } callback the display id of changed
+   * @param { Callback<long> } callback - 回调函数。返回监听到的屏幕ID，该参数为整数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -252,10 +252,10 @@ declare namespace display {
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for display add events.
+   * 关闭增加显示设备变化的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 需要取消注册的回调函数。返回监听到的屏幕ID，该参数为整数。
+   *     若无此参数，则取消注册当前增加显示设备变化的所有回调函数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -263,10 +263,10 @@ declare namespace display {
   function offAdd(callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for display remove events.
+   * 关闭移除显示设备变化的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 需要取消注册的回调函数。返回监听到的屏幕ID，该参数为整数。
+   *     若无此参数，则取消注册当前改变显示设备变化的所有回调函数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -325,10 +325,10 @@ declare namespace display {
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for private mode changes.
+   *  关闭屏幕隐私模式变化的监听。
    *
-   * @param { Callback<boolean> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<boolean> } [callback] - 需要取消注册的回调函数。
+   *     若无此参数，则取消注册屏幕隐私模式变化监听的所有回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -389,9 +389,9 @@ declare namespace display {
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
   /**
-   * Register the callback for fold status changes.
+   * 开启折叠设备折叠状态变化的监听。
    *
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @param { Callback<FoldStatus> } callback - 回调函数。表示折叠设备折叠状态。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -416,10 +416,10 @@ declare namespace display {
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
   /**
-   * Unregister the callback for fold status changes.
+   * 关闭折叠设备折叠状态变化的监听。
    *
-   * @param { Callback<FoldStatus> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<FoldStatus> } [callback] - 需要取消注册的回调函数。表示折叠设备折叠状态。
+   *     若无此参数，则取消注册折叠状态变化监听的所有回调函数。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -444,9 +444,10 @@ declare namespace display {
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
 
   /**
-   * Register the callback for fold angle changes.
+   * 开启折叠设备折叠角度变化的监听。如果是双折轴设备，则有两个角度值；在充电口朝下的状态下，从右到左分别是折轴一和折轴二。
    *
-   * @param { Callback<Array<double>> } callback Callback used to return the current fold angle of device.
+   * @param { Callback<Array<double>> } callback - 回调函数。表示折叠设备屏幕折叠角度值（0度~180度）。如果是双折轴设备，
+   *     则数组返回两个角度值，第一个值是折轴一的折叠角度值，第二个值是折轴二的折叠角度值。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -473,10 +474,10 @@ declare namespace display {
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
 
   /**
-   * Unregister the callback for fold angle changes.
+   * 关闭折叠设备折叠角度变化的监听。
    *
-   * @param { Callback<Array<double>> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<Array<double>> } [callback] - 需要取消注册的回调函数。表示折叠设备屏幕折叠角度值（0度~180度）。
+   *     若无此参数，则取消注册折叠角度变化监听的所有回调函数。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -500,9 +501,10 @@ declare namespace display {
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the callback for device capture, casting, or recording status changes.
+   * 开启设备的屏幕显示信息是否被获取的监听。
    *
-   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
+   * @param { Callback<boolean> } 回调函数。表示设备的屏幕显示信息是否被获取。true表示设备的屏幕显示信息开始被获取，包括处于截屏、投屏、录屏状态，
+   *     或创建了虚拟屏幕(虚拟屏幕可能被应用获取屏幕图像)，截屏仅返回一次true；false表示获取结束。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 23 static
@@ -525,10 +527,11 @@ declare namespace display {
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture, casting, or recording status changes.
+   * 关闭设备的屏幕显示信息是否被获取的监听。
    *
-   * @param { Callback<boolean> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<boolean> } [callback] - 需要取消注册的回调函数。表示设备的屏幕显示信息是否被获取。true表示设备的屏幕显示信息开始被获取，
+   *     包括处于截屏、投屏、录屏状态，或创建了虚拟屏幕(虚拟屏幕可能被应用获取屏幕图像)，截屏仅返回一次true；false表示获取结束。若无此参数，
+   *     则取消注册设备的屏幕显示信息是否存在被获取监听的所有回调函数。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 23 static
@@ -549,9 +552,9 @@ declare namespace display {
   function isCaptured(): boolean;
 
   /**
-   * 检查该设备是否被bundle名称列表中的任何应用抓拍、投影或录制。
+   * 检查设备的屏幕显示信息是否正被应用列表中的应用获取。
    *
-   * @param { Array<string> } bundleNameList - 需要检查的应用包名称列表。数组的最大大小为100。
+   * @param { Array<string> } bundleNameList - 需要检查的应用列表。数组最大长度为100，超过最大长度返回1400004错误码。
    * @returns { boolean } true表示该设备包名称列表中的任何应用捕获、投影或录制。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause:
@@ -612,9 +615,13 @@ declare namespace display {
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
   /**
-   * Register the callback for fold display mode changes.
+   * 开启折叠设备屏幕显示模式变化的监听。
+   * 
+   * 本接口监听设备屏幕显示模式的变化，如果要监听设备物理折叠状态的变化，需要使用[display.onFoldStatusChange](#displayonfoldstatuschange23)接口。
+   * 
+   * 两者存在差异，时序上物理折叠状态变化在前，底层会根据物理折叠状态匹配屏幕显示模式状态。
    *
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @param { Callback<FoldDisplayMode> } callback - 回调函数。表示折叠设备屏幕显示模式。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -640,10 +647,10 @@ declare namespace display {
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
   /**
-   * Unregister the callback for fold display mode changes.
+   * 关闭折叠设备屏幕显示模式变化的监听。
    *
-   * @param { Callback<FoldDisplayMode> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<FoldDisplayMode> } [callback] - 需要取消注册的回调函数。表示折叠设备屏幕显示模式。
+   *     若无此参数，则取消注册屏幕显示模式变化监听的所有回调函数。
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
@@ -928,10 +935,11 @@ declare namespace display {
   function off(type: 'brightnessInfoChange', callback?: BrightnessCallback<long, BrightnessInfo>): void;
 
   /**
-   * Register the callback for brightness info changes.
+   * 开启所有屏幕亮度信息变化的监听。如果屏幕不支持HDR，监听到的[BrightnessInfo](#brightnessinfo22)对象中的currentHeadroom和maxHeadroom为默认值。
+   * 
+   * 虚拟屏的BrightnessInfo对象中sdrNits为默认值。
    *
-   * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display if and
-   *     corresponding brightness info.
+   * @param { BrightnessCallback<long, BrightnessInfo> } callback - 回调函数。返回屏幕亮度信息改变的displayId(参数1)及对应的屏幕亮度信息(参数2)。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -941,10 +949,10 @@ declare namespace display {
   function onBrightnessInfoChange(callback: BrightnessCallback<long, BrightnessInfo>): void;
 
   /**
-   * Unregister the callback for brightness info changes.
+   * 关闭所有屏幕亮度信息状态变化的监听。
    *
-   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
-   *     brightness info. If not provided, all callbacks for the given event type will be removed.
+   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - 需要取消注册的回调函数。表示brightnessInfo状态发生改变。
+   *     若无此参数，则取消所有注册brightnessInfo状态发生改变的回调函数。参数1为dispalyId，参数2为屏幕亮度信息。
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -1982,9 +1990,9 @@ declare namespace display {
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
     /**
-     * Register the callback for available area changes.
+     * 开启当前设备屏幕的可用区域监听。当前设备屏幕有可用区域变化时，触发回调函数，返回可用区域。
      *
-     * @param { Callback<Rect> } callback - Callback used to return the available area
+     * @param { Callback<Rect> } callback - 回调函数。返回改变后的可用区域。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
