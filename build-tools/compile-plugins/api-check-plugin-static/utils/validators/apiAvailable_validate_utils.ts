@@ -57,13 +57,6 @@ function isNumericLiteral(node: arkts.AstNode): boolean {
 function isNullOrUndefinedScene(node: arkts.AstNode): boolean {
   const nodeValue: string = node.dumpSrc();
   return nodeValue === 'null' || nodeValue === 'undefined';
-  // if (node) {
-  //   const type: arkts.Type | arkts.Type[] = typeOfNodeFunc(node);
-  //   if (type && !Array.isArray(type) && (type.flags & arkts.TypeFlags.Nullable)) {
-  //     return true;
-  //   }
-  // }
-  // return node.kind === arkts.SyntaxKind.NullKeyword || (arkts.isIdentifier(node) && node.text === 'undefined');
 }
 
 function parseMSFVersion(since: string): { major: number; hasParentheses: boolean } | null {
