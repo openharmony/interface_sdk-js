@@ -23,6 +23,7 @@ import { DiagnosticCategory, ConditionCheckResult } from './api_check_wrapper_ty
 import { NodeTraverseMode } from '../../utils/api_check_plugin_define';
 import { getGlobalMonitor } from '../../utils/performance_monitor';
 import { PERF } from '../../utils/perf_constants';
+import { isApiAvailableVersionSpecifications } from '../../utils/api_check_base_utils';
 /**
  * @file ts_wrapper_node_util_update.ts
  * @brief AST 节点遍历工具模块
@@ -279,13 +280,20 @@ function nodeTraverseByFilter(program: arkts.ETSModule): void {
   if (!program) {
     return;
   }
-  let nodeArray: arkts.AstNode[] = arkts.filterNodesByTypes(program, [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IDENTIFIER, arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ANNOTATION_USAGE]);
+  const astNodeTypeList: arkts.Es2pandaAstNodeType[] = [
+    arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IDENTIFIER,
+    arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ANNOTATION_USAGE,
+    arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CALL_EXPRESSION
+  ]
+  let nodeArray: arkts.AstNode[] = arkts.filterNodesByTypes(program, astNodeTypeList);
   nodeArray.forEach((node: arkts.AstNode) => {
     let kind: number = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer);
     if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IDENTIFIER) {
       checkIdentifier(node as arkts.Identifier);
     } else if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ANNOTATION_USAGE) {
       handleAvailableDecoratorCheck(node as arkts.AnnotationUsage);
+    } else if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CALL_EXPRESSION) {
+      checkCallExpression(node as arkts.CallExpression);
     }
   })
 }
@@ -368,6 +376,36 @@ function handleAvailableDecoratorCheck(node: arkts.AnnotationUsage): void {
     
     // 获取校验节点的行列信息
     if (!!node.expr && arkts.isIdentifier(node.expr) && confirmNodeChecked(node.expr.name, node.startPosition.getIndex())) {
+      return;
+    }
+    const address = getCurrentAddressByNode(node);
+    const program = arkts.getProgramFromAstNode(node);
+    const filePath = program?.sourceFilePath || curApiCheckWrapper.fileName;
+    const apiName = !!node.parent && arkts.isIdentifier(node.parent) ? node.parent.name : '';
+    curApiCheckWrapper.apiCheckHost.pushLogInfo(
+      apiName,
+      filePath,
+      address,
+      checkResult.type || DiagnosticCategory.WARNING,
+      checkResult.message || ''
+    );
+  };
+}
+
+function checkCallExpression(node: arkts.CallExpression): void {
+  if (!node) {
+    return;
+  }
+  handleApiAvailableInterfaceCheck(node);
+}
+
+function handleApiAvailableInterfaceCheck(node: arkts.CallExpression): void {
+  const checkResult: ConditionCheckResult = isApiAvailableVersionSpecifications(node);
+  
+  if (!checkResult.valid) {
+    const expr = node.callee?.property;
+    // 获取校验节点的行列信息
+    if (!!expr && arkts.isIdentifier(expr) && confirmNodeChecked(expr.name, node.startPosition.getIndex())) {
       return;
     }
     const address = getCurrentAddressByNode(node);

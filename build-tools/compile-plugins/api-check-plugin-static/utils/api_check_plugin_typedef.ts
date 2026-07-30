@@ -230,3 +230,9 @@ export interface DistributionOSApiAvailableVersionResult {
   version: string;
   message: string;
 }
+
+export interface ApiAvailableResult {
+  valid: boolean,
+  message: string,
+  type: arkts.DiagnosticCategory.Error
+}

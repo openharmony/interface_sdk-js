@@ -21,16 +21,27 @@ import {
   ComparisonSenario,
   comparisonFunctions,
   MSF_INTEGER_VERSION,
+  MSF_SANDF_VERSION,
   RUNTIME_OS_OH,
   AVAILABLE_VERSION_FORMAT_ERROR,
   AVAILABLE_TAG_NAME,
   SINCE_TAG_NAME,
+  APIAVAILABLE_CHECK_ERROR,
+  APIAVAILABLE_OPENHARMONY_CONTENT_ERROR,
+  APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR,
+  ERROR_CODE_INFO,
   ValueCheckerFunction,
   FormatCheckerFunction,
-  VersionValidationResult
+  VersionValidationResult,
+  APIAVAILABLE_NUMBER_FORMAT_ERROR,
+  APIAVAILABLE_STRING_DISTRIBUTIONOS_FORMAT_ERROR,
+  APIAVAILABLE_CHECK_NUMBER_STRING_ERROR
 } from './api_check_plugin_define';
-import { ParsedVersion, DistributionOSApiAvailableVersionResult, AnnotationAllowedAstNode } from './api_check_plugin_typedef';
-import { globalObject, externalApiCheckPlugin } from '../index';
+import { ParsedVersion, DistributionOSApiAvailableVersionResult, AnnotationAllowedAstNode, ApiAvailableResult, MSFVersionCheckResult } from './api_check_plugin_typedef';
+import { globalObject, externalApiCheckPlugin, fileApiAvailableCheckCache } from '../index';
+import { SDK_CONSTANTS } from './validators/sdk_comparison_helper';
+import { DiagnosticCategory, ConditionCheckResult } from '../api-check-wrapper/utils/api_check_wrapper_typedef';
+import { validateApiAvailableArgument } from './validators/apiAvailable_validate_utils';
 
 
 export function isAnnotationAllowed(node: arkts.AstNode): node is AnnotationAllowedAstNode {
@@ -85,7 +96,7 @@ export function defaultFormatCheckerCompatibileIntegerAndMSF(since: string): Ver
 }
 
 export function checkMSFVersionMajor(since: string): boolean {
-  const msfVersionReg: RegExp = /^[1-9]\d?\.\d{1,2}\.\d{1,2}$/;
+  const msfVersionReg: RegExp = /^[1-9]\d?\.\d{1,2}\.\d{1,2}|[1-9]\d?\.\d{1,2}\.\d{1,2}\(\d+\)$/;
   if (msfVersionReg.test(since)) {
     const majorVersion = parseInt(since.split('.')[0]);
     if (majorVersion < MSF_INTEGER_VERSION) {
@@ -184,7 +195,7 @@ export function initValueChecker(osName: string, tag: string): void {
   if (comparisonFunctions.valueChecker.has(cacheKey)) {
     return;
   }
-  
+
   // Try new format first: {osName}/{tag}/CompatibilityCheck
   let formatKey = `${osName}/${tag}/CompatibilityCheck`;
   if (!externalApiCheckPlugin.has(formatKey)) {
@@ -233,7 +244,7 @@ export function initFormatChecker(osName: string, tag: string): void {
   if (comparisonFunctions.formatChecker.has(cacheKey)) {
     return;
   }
-  
+
   // Try to load external plugin
   const plugins = externalApiCheckPlugin.get(pluginKey);
   if (!plugins || plugins.length === 0) {
@@ -282,7 +293,7 @@ export function compareVersions(
 }
 
 export function checkIntegerMoreVersion(since: string): boolean {
-  const IntVersionReg: RegExp = /^(?:[1-9]\d{0,2})$/;
+  const IntVersionReg: RegExp = /^(?:[1-9]\d*)$/;
   if (IntVersionReg.test(since)) {
     if (Number(since) >= MSF_INTEGER_VERSION) {
       return false;
@@ -295,7 +306,7 @@ export function isApiAvailableStatement(expression: arkts.AstNode): boolean {
   if (!arkts.isCallExpression(expression)) {
     return false;
   }
-  const expr = expression.expr;
+  const expr = expression.callee?.property;
   if (!expr || expr.name !== 'apiAvailable') {
     return false;
   }
@@ -303,23 +314,155 @@ export function isApiAvailableStatement(expression: arkts.AstNode): boolean {
 }
 
 export function isCheckDistributionOSVersion(tag: string, version: string): DistributionOSApiAvailableVersionResult {
-  const result: DistributionOSApiAvailableVersionResult = {
-    valid: true,
-    version: version,
+  const runtimeOS = globalObject.projectConfig.runtimeOS;
+  let distributionOSCheck: DistributionOSApiAvailableVersionResult = {
+    valid: false,
+    version: '',
     message: ''
   };
-  
-  const runtimeOS = globalObject.projectConfig.runtimeOS;
-  if (runtimeOS === RUNTIME_OS_OH) {
+  const tagName: string = `${runtimeOS}/${tag}`;
+  const externalCheckers = externalApiCheckPlugin.get(tagName);
+  if (!externalCheckers || externalCheckers.length === 0) {
+    return distributionOSCheck;
+  }
+  for (const plugin of externalCheckers) {
+    try {
+      const externalModule = require(plugin.path);
+      const externalMethod = externalModule[plugin.functionName];
+
+      if (typeof externalMethod === 'function') {
+        distributionOSCheck = externalMethod(version);
+      }
+    } catch (error) {
+      return distributionOSCheck;
+    }
+  }
+  return distributionOSCheck;
+}
+
+export function checkMSFVersionMajorError(since: string): MSFVersionCheckResult {
+  const noParenthesesReg: RegExp = /^[1-9]\d?\.(?:0|[1-9]\d?)\.(?:0|[1-9]\d?)$/;
+  const withParenthesesReg: RegExp = /^[1-9]\d?\.(?:0|[1-9]\d?)\.(?:0|[1-9]\d?)\(\d+\)$/;
+
+  const hasParentheses: boolean = withParenthesesReg.test(since);
+  const noParentheses: boolean = noParenthesesReg.test(since);
+
+  if (!hasParentheses && !noParentheses) {
+    return { valid: false, needDistCheck: false };
+  }
+
+  const parts: string[] = since.split('.');
+  const mValue: number = parseInt(parts[0], 10);
+  const sValue: number = parseInt(parts[1], 10);
+  const fValue: number = hasParentheses ? parseInt(parts[2].split('(')[0], 10) : parseInt(parts[2], 10);
+
+  if (sValue > MSF_SANDF_VERSION || fValue > MSF_SANDF_VERSION) {
+    return { valid: false, needDistCheck: false };
+  }
+
+  if (isOpenHarmonyRuntime()) {
+    if (hasParentheses || mValue < MSF_INTEGER_VERSION) {
+      return { valid: false, needDistCheck: false };
+    }
+    return { valid: true, needDistCheck: false };
+  }
+
+  if (mValue >= MSF_INTEGER_VERSION) {
+    if (hasParentheses) {
+      return { valid: false, needDistCheck: false };
+    }
+    return { valid: true, needDistCheck: false };
+  }
+
+  return { valid: false, needDistCheck: true };
+}
+
+export function isApiAvailableGetTypeOfNodeStatement(expression: arkts.AstNode): boolean {
+  if (!arkts.isCallExpression(expression)) {
+    return false;
+  }
+  const expr = expression.callee?.property;
+  if (!expr || !arkts.isIdentifier(expr)) {
+    return false;
+  }
+  if (expr.name !== SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO) {
+    return false;
+  }
+  const nodeDecl = arkts.getDecl(expr);
+  if (!nodeDecl) {
+    return false;
+  }
+  const program = arkts.getProgramFromAstNode(nodeDecl);
+  if (!program) {
+    return false;
+  }
+  const sourceFilePath = program.sourceFilePath || '';
+  if (!sourceFilePath.endsWith(SDK_CONSTANTS.DEVICE_INFO_PACKAGE)) {
+    return false;
+  }
+  return true;
+}
+
+export function checkApiAvailableCache(node: arkts.AstNode): boolean {
+  if (!node) {
+    return false;
+  }
+
+  const program = arkts.getProgramFromAstNode(node);
+  const sourceFileName = program?.sourceFilePath || '';
+  const sourceFileText = program?.ast.dumpSrc() || '';
+
+  if (fileApiAvailableCheckCache.has(sourceFileName)) {
+    const hasApiAvailable = fileApiAvailableCheckCache.get(sourceFileName)!;
+    if (!hasApiAvailable) {
+      return false;
+    }
+  } else {
+    try {
+      const apiAvailableContentChecker = /\.apiAvailable\b/g.test(sourceFileText);
+      fileApiAvailableCheckCache.set(sourceFileName, apiAvailableContentChecker);
+      if (!apiAvailableContentChecker) {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export function isApiAvailableVersionSpecifications(node: arkts.AstNode): ConditionCheckResult {
+  let result: ConditionCheckResult = {
+    valid: true,
+    type: DiagnosticCategory.ERROR,
+    message: APIAVAILABLE_CHECK_ERROR
+  };
+
+  if (!checkApiAvailableCache(node)) {
     return result;
   }
-  
-  const formatChecker = getFormatChecker(tag);
-  const formatResult = formatChecker(version);
-  if (!formatResult.result) {
-    result.valid = false;
-    result.message = formatResult.message || AVAILABLE_VERSION_FORMAT_ERROR;
+
+  if (!arkts.isCallExpression(node)) {
+    return result;
   }
-  
-  return result;
+
+  const expr = node.callee?.property;
+  if (!expr || !arkts.isIdentifier(expr) || expr.name !== SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO) {
+    return result;
+  }
+
+  if (!node.arguments || node.arguments.length !== 1) {
+    return result;
+  }
+
+  if (!isApiAvailableGetTypeOfNodeStatement(node)) {
+    return result;
+  }
+ 
+  return validateApiAvailableArgument({
+    node,
+    isOpenHarmonyRuntime,
+    isCheckDistributionOSVersion
+  });
 }
