@@ -145,15 +145,15 @@ declare namespace display {
   function getAllDisplays(): Promise<Array<Display>>;
 
   /**
-    * 获取当前设备支持的所有显示模式及其对应的物理屏幕分辨率信息对象。使用Promise异步回调。
-    *
-    * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise对象。返回当前所有的DisplayPhysicalResolution对象。
-    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-    * @syscap SystemCapability.WindowManager.WindowManager.Core
-    * @atomicservice
-    * @since 12 dynamic
-    * @since 23 static
-    */
+   * 获取当前设备支持的所有显示模式及其对应的物理屏幕分辨率信息对象。使用Promise异步回调。
+   *
+   * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise对象。返回当前所有的DisplayPhysicalResolution对象。
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 23 static
+   */
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
   /**
@@ -274,10 +274,10 @@ declare namespace display {
   function offRemove(callback?: Callback<long>): void;
 
   /**
-   * Unregister the callback for display changes.
+   * 关闭改变显示设备变化的监听。
    *
-   * @param { Callback<long> } [callback] - Unregister the callback function.
-   *     If not provided, all callbacks for the given event type will be removed.
+   * @param { Callback<long> } [callback] - 需要取消注册的回调函数。返回监听到的屏幕ID，该参数为整数。
+   *     若无此参数，则取消注册当前改变显示设备变化的所有回调函数。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 23 static
@@ -299,9 +299,9 @@ declare namespace display {
   function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the callback for private mode changes.
+   * 开启屏幕隐私模式变化的监听。
    *
-   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @param { Callback<boolean> } callback - 回调函数。表示屏幕隐私模式是否改变。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
