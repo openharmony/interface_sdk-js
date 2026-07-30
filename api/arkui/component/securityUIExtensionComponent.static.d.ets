@@ -19,9 +19,9 @@
  */
 import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT  } from './builder';
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common';
 import { ComponentContent } from '../ComponentContent';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT  } from './builder';
 import { Builder } from '@ohos.arkui.component';
 
 /**

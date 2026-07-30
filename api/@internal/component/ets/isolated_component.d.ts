@@ -51,7 +51,6 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
 /**
  * Describes the optional construction parameters during **IsolatedComponent** construction.
  *
- * @interface IsolatedOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

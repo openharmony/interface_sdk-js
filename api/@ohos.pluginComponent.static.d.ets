@@ -1,6 +1,4 @@
 'use static';
-import { AsyncCallback } from './@ohos.base';
-import Want from './@ohos.app.ability.Want';
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +18,9 @@ import Want from './@ohos.app.ability.Want';
  * @file
  * @kit ArkUI
  */
-
+ 
+import { AsyncCallback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Plugin component template property.

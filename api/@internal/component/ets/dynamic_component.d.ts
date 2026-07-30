@@ -21,7 +21,6 @@
 /**
  * Defines the worker thread object for running the .abc file.
  *
- * @typedef { import('../api/@ohos.worker').default.Worker } Worker
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -32,7 +31,6 @@ declare type Worker = import('../api/@ohos.worker').default.Worker;
 /**
  * Defines the error callback type, which is used to receive exception information.
  *
- * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
