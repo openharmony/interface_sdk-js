@@ -14,6 +14,12 @@
 */
 
 /**
+ * ###### Child Components
+ * 
+ * Supported
+ * 
+ * Since API version 10, you are advised to use [NavPathStack]{@link NavPathStack} for page routing.
+ *
  * @file This section describes the interfaces used by AtomicServiceNavigation
  * @kit ArkUI
  */
@@ -21,16 +27,15 @@
 import { Callback } from '@ohos.base';
 
 /**
- * the enum for the blend mode of background color.
+ * Provides options for background color blending modes.
  *
- * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export declare enum MixMode {
   /**
-   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal proportions.
+   * Both colors are evenly mixed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -38,8 +43,7 @@ export declare enum MixMode {
    */
   AVERAGE = 1,
   /**
-   * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses 
-   *  through to another.
+   * One color passes through the other.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -47,26 +51,25 @@ export declare enum MixMode {
    */
   CROSS = 2,
   /**
-   * when the MixMode set TOWARDS,the color mixing method for the background is a transition from one color to another.
+   * One color gradually blends into the other.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
-  TOWARDS = 3,
+  TOWARDS = 3
 }
 
 /**
- * the enum for the opacity  of the background color.
+ * Enumerates the opacity levels of the navigation bar background.
  *
- * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export declare enum GradientAlpha {
   /**
-   * when the GradientAlpha set OPACITY_20,the opacity of background colors is 0.2.
+   * 0.2 opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -74,7 +77,7 @@ export declare enum GradientAlpha {
    */
   OPACITY_20 = 1,
   /**
-   * when the GradientAlpha set OPACITY_60,the opacity of background colors is 0.6.
+   * 0.6 opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -82,7 +85,7 @@ export declare enum GradientAlpha {
    */
   OPACITY_60 = 2,
   /**
-   * when the GradientAlpha set OPACITY_80,the opacity of background colors is 0.8.
+   * 0.8 opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -90,26 +93,25 @@ export declare enum GradientAlpha {
    */
   OPACITY_80 = 3,
   /**
-   * when the GradientAlpha set OPACITY_100,the opacity of background colors is 1.0.
+   * 1.0 opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
-  OPACITY_100 = 4,
+  OPACITY_100 = 4
 }
 
 /**
- * the theme of the background color.
+ * Enumerates the navigation bar background themes.
  *
- * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export declare enum BackgroundTheme {
   /**
-   * when the BackgroundTheme set DARK,the basic color of background is dark.
+   * Dark theme.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -117,7 +119,7 @@ export declare enum BackgroundTheme {
    */
   DARK = 1,
   /**
-   * when the BackgroundTheme set LIGHT,the basic color of background  is white.
+   * Light theme.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -125,19 +127,20 @@ export declare enum BackgroundTheme {
    */
   LIGHT = 2,
   /**
-   * when the BackgroundTheme set DEFAULT,the basic color of background  is F1F3F5.
+   * Light gray theme, with the color value of #F1F3F5.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
-  DEFAULT = 3,
+  DEFAULT = 3
 }
 
 /**
- * Defines AtomicServiceNavigation.
+ * **AtomicServiceNavigation** is a component that serves as the root container of a page. By default, it includes a
+ * title bar, content area, and toolbar. The content area switches between the home page content (child components of
+ * [NavDestination]{@link ./@internal/component/ets/nav_destination}) and non-home page content through routing.
  *
- * @struct { AtomicServiceNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -193,7 +196,7 @@ export declare struct AtomicServiceNavigation {
    * @since 18 dynamiconly
    */
   @Prop
-  gradientBackground?: GradientBackground;  
+  gradientBackground?: GradientBackground;
   /**
    * Hide navigation title bar.
    *
@@ -308,9 +311,8 @@ export declare struct AtomicServiceNavigation {
 }
 
 /**
- * Indicates the options of Navigation's Titlebar.
+ * Title bar options.
  *
- * @typedef TitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -372,9 +374,8 @@ export interface TitleOptions {
 }
 
 /**
- * Indicates the options of Navigation's gradientBackground.
+ * Provides options for setting gradient colors for branding.
  *
- * @typedef GradientBackground
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
@@ -432,9 +433,8 @@ export interface GradientBackground {
 }
 
 /**
- * Side bar options.
+ * Defines sidebar options.
  *
- * @typedef SideBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
@@ -473,16 +473,15 @@ export interface SideBarOptions {
 }
 
 /**
- * Title bar types.
+ * Enumerates the title bar types. The default type is **ROUND_ICON**.
  *
- * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export declare enum TitleBarType {
   /**
-   * Set title bar type with squared icon.
+   * Square icon style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -491,7 +490,7 @@ export declare enum TitleBarType {
   SQUARED_ICON = 1,
 
   /**
-   * Set title bar type with round icon.
+   * Round icon style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -500,7 +499,7 @@ export declare enum TitleBarType {
   ROUND_ICON = 2,
 
   /**
-   * Set title bar type with drawer.
+   * Drawer style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -510,11 +509,11 @@ export declare enum TitleBarType {
 }
 
 /**
- * The builder function of NavDestination component.
+ * Defines the content of the **NavDestination** component.
  *
- * @typedef { function } NavDestinationBuilder.
- * @param { string } name - The name of route page.
- * @param { ?Object } - param - The detailed parameter of the route page.
+ * @param { string } name - Name of the [NavDestination]{@link ./@internal/component/ets/nav_destination} page.
+ * @param { Object } [param] - Settings of the [NavDestination]{@link ./@internal/component/ets/nav_destination} page.
+ *     The default value is undefined.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
