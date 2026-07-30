@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Camera Picker
+ * @file 相机选择器
  * @kit CameraKit
  */
 
@@ -22,9 +22,7 @@ import type Context from './application/Context';
 import type camera from './@ohos.multimedia.camera';
 
 /**
- * The module provides APIs for an application to use the system camera to take photos or record videos, depending on 
- * the media type specified by the application. The application must call these APIs within a UIAbility. Otherwise, the 
- * camera picker cannot be started.
+ * 本模块提供相机拍照与录制的能力。应用可选择媒体类型实现拍照和录制的功能。调用此类接口时，应用必须在界面UIAbility中调用，否则无法启动cameraPicker应用。
  *
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice [since 12]
@@ -34,7 +32,7 @@ import type camera from './@ohos.multimedia.camera';
 declare namespace cameraPicker {
 
   /**
-   * Defines the configuration information about the camera picker.
+   * 相机选择器的配置信息。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 12]
@@ -43,7 +41,7 @@ declare namespace cameraPicker {
    */
   class PickerProfile {
     /**
-     * Camera position.
+     * 相机的位置。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -53,11 +51,8 @@ declare namespace cameraPicker {
     cameraPosition: camera.CameraPosition;
 
     /**
-     * URI for saving the configuration information. For details about the default value, see 
-     * [File URI]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}. The **saveUri** parameter is optional. If it is
-     * not specified, images and videos are automatically saved to the media library. To prevent them from being saved 
-     * to the media library, specify a valid file path within your application's sandbox. When you use your own resource
-     * path, ensure that the file exists and is writable; otherwise, the save operation fails.
+     * 保存配置信息的uri，默认值请参考[文件uri]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}。当前saveUri参数为可选参数，若未配置该参数，则拍摄的照片和视频
+     * 会默认存入媒体库中；若不想将照片和视频存入媒体库中，请自行配置应用沙箱内的文件资源路径，如自行传入资源路径时请确保该文件存在且具备写入权限，否则会保存失败。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -67,8 +62,7 @@ declare namespace cameraPicker {
     saveUri?: string;
 
     /**
-     * Maximum video duration, in seconds. The default value is **0**, indicating that the maximum video duration is not
-     * set.
+     * 录制的最大时长（单位：秒）。默认为0，不设置最大录制时长。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -79,7 +73,7 @@ declare namespace cameraPicker {
   }
 
   /**
-   * Enumerates the media types displayed in the camera picker.
+   * 枚举，相机选择器的媒体类型。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 12]
@@ -88,7 +82,7 @@ declare namespace cameraPicker {
    */
   enum PickerMediaType {
     /**
-     * Photo mode.
+     * 拍照模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -98,7 +92,7 @@ declare namespace cameraPicker {
     PHOTO = 'photo',
 
     /**
-     * Video mode.
+     * 录制模式。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -109,7 +103,7 @@ declare namespace cameraPicker {
   }
 
   /**
-   * Defines the processing result of the camera picker.
+   * 相机选择器的处理结果。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 12]
@@ -118,7 +112,7 @@ declare namespace cameraPicker {
    */
   class PickerResult {
     /**
-     * Result code. The value **0** means that the processing is successful, and **-1** means that the processing fails.
+     * 处理的结果，成功返回0，失败返回-1。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -128,10 +122,7 @@ declare namespace cameraPicker {
     resultCode: int;
 
     /**
-     * URI of the result. If **saveUri** is empty, **resultUri** is a public media path. If **saveUri** is not empty and
-     * the application has the write permission on the URI, the value of **resultUri** is the same as that of 
-     * **saveUri**. If **saveUri** is not empty and the application does not have the write permission on the URI, 
-     * **resultUri** cannot be obtained.
+     * 返回的uri地址。若saveUri为空，resultUri为公共媒体路径。若saveUri不为空且具备写权限，resultUri与saveUri相同。若saveUri不为空且不具备写权限，则无法获取到resultUri。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -141,7 +132,7 @@ declare namespace cameraPicker {
     resultUri: string;
 
     /**
-     * Media type.
+     * 返回的媒体类型。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 12]
@@ -152,20 +143,16 @@ declare namespace cameraPicker {
   }
 
   /**
-   * Starts the camera picker and enters the corresponding mode based on the media type. This API uses a promise to 
-   * return the result.
+   * 拉起相机选择器，根据媒体类型进入相应的模式。使用Promise异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > When an application is running on a widescreen foldable device and the camera picker is launched while the device
-   * > is unfolded, switching the device from unfolded to folded will automatically move the camera picker to the 
-   * > background.
+   * > 当应用在阔折叠设备上运行时，如果已在设备展开态下启动相机picker，将设备由展开态切换到折叠态，相机picker被自动推至后台。
    *
-   * @param { Context } context - Application context.
-   * @param { Array<PickerMediaType> } mediaTypes - Media type.
-   * @param { PickerProfile } pickerProfile - Profile of the camera picker.
-   * @returns { Promise<PickerResult> } Promise used to return the processing result (
-   *     [PickerResult]{@link cameraPicker.PickerResult}) of the camera picker.
+   * @param { Context } context - 应用上下文。
+   * @param { Array<PickerMediaType> } mediaTypes - 媒体类型。
+   * @param { PickerProfile } pickerProfile - pickerProfile对象。
+   * @returns { Promise<PickerResult> } Promise对象，返回相机选择器的处理结果[PickerResult]{@link cameraPicker.PickerResult}。
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 12]
    * @since 11 dynamic
