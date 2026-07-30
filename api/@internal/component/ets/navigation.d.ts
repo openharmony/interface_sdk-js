@@ -2308,6 +2308,21 @@ declare interface NavigationConfiguration {
    * @since 26.1.0 dynamic
    */
   clearContentStackOnPrimaryNavigation?: boolean;
+
+  /**
+   * Whether to recycle invisible pages when a low memory signal is received.
+   *
+   * When enabled, Navigation recycles invisible NavDestination page instance after receiving
+   * low memory pressure notifications. NavPathInfo is preserved, and the page can be reconstructed later.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  recyclePagesOnLowMemory?: boolean;
 }
 
 /**
