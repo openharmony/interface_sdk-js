@@ -145,15 +145,15 @@ declare namespace display {
   function getAllDisplays(): Promise<Array<Display>>;
 
   /**
-   * 获取当前设备支持的所有显示模式及其对应的物理屏幕分辨率信息对象。使用Promise异步回调。
-   *
-   * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise对象。返回当前所有的DisplayPhysicalResolution对象。
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 23 static
-   */
+    * 获取当前设备支持的所有显示模式及其对应的物理屏幕分辨率信息对象。使用Promise异步回调。
+    *
+    * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise对象。返回当前所有的DisplayPhysicalResolution对象。
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @atomicservice
+    * @since 12 dynamic
+    * @since 23 static
+    */
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
   /**
@@ -188,7 +188,7 @@ declare namespace display {
    * @since 7 dynamic
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
-
+  
   /**
    * 开启显示设备指定属性变化的监听。
    *
