@@ -1276,11 +1276,11 @@ declare namespace display {
    *
    * > **NOTE**
    *
-   * > For foldable devices where both the inner and outer screens can serve as the primary screen �� like large or wide-
-   * > folding models �� the inner screen's display mode is **FOLD_DISPLAY_MODE_FULL**, and the outer screen's display
+   * > For foldable devices where both the inner and outer screens can serve as the primary screen ― like large or wide-
+   * > folding models ― the inner screen's display mode is **FOLD_DISPLAY_MODE_FULL**, and the outer screen's display
    * > mode is **FOLD_DISPLAY_MODE_MAIN**.
    *
-   * > For foldable devices where the outer screen serves only as an auxiliary display �� like small-folding models �� the
+   * > For foldable devices where the outer screen serves only as an auxiliary display ― like small-folding models ― the
    * > inner screen's display mode is **FOLD_DISPLAY_MODE_MAIN**, and the outer screen's display mode is
    * > **FOLD_DISPLAY_MODE_SUB**.
    *
@@ -1788,10 +1788,10 @@ declare namespace display {
 
     /**
      * Clockwise rotation angle of the display.
-     * The value **0** indicates that the display rotates clockwise by 0��, which is the standard display direction.
-     * The value **1** indicates that the display rotates clockwise by 90��.
-     * The value **2** indicates that the display rotates clockwise by 180��.
-     * The value **3** indicates that the display rotates clockwise by 270��.
+     * The value **0** indicates that the display rotates clockwise by 0°, which is the standard display direction.
+     * The value **1** indicates that the display rotates clockwise by 90°.
+     * The value **2** indicates that the display rotates clockwise by 180°.
+     * The value **3** indicates that the display rotates clockwise by 270°.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 11]
