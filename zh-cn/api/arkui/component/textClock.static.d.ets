@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, DateTimeOptions } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, Callback } from "./common";
 
 /**
@@ -343,17 +343,6 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置TextClock组件的选项。
-     *
-     * @param { TextClockOptions } [options] - 构造TextClock组件的选项。
-     * @returns { TextClockAttribute } 返回TextClock属性的实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setTextClockOptions(options?: TextClockOptions): this;
 }
 /**
  * 创建文本时钟组件。
@@ -368,19 +357,4 @@ export declare interface TextClockAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TextClock(
     options?: TextClockOptions
-): TextClockAttribute;
-
-/**
- * 定义TextClock组件。
- *
- * @param { CustomBuilderT<TextClockAttribute> } style - TextClock属性的实例。
- * @returns { TextClockAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function TextClock(
-    style: CustomBuilderT<TextClockAttribute>,
 ): TextClockAttribute;

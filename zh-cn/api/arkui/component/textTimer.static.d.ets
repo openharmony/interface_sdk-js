@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -303,17 +303,6 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置TextTimer组件的选项。
-     *
-     * @param { TextTimerOptions } [options] - 构建TextTimer组件的选项。
-     * @returns { TextTimerAttribute } 返回TextTimer属性的实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setTextTimerOptions(options?: TextTimerOptions): this;
 }
 /**
  * 创建文本计时器组件。
@@ -328,19 +317,4 @@ export declare interface TextTimerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TextTimer(
     options?: TextTimerOptions
-): TextTimerAttribute;
-
-/**
- * 定义TextTimer组件。
- *
- * @param { CustomBuilderT<TextTimerAttribute> } style - TextTimer属性的实例。
- * @returns { TextTimerAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function TextTimer(
-    style: CustomBuilderT<TextTimerAttribute>,
 ): TextTimerAttribute;

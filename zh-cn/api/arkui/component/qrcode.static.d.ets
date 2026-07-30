@@ -21,7 +21,7 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -75,17 +75,6 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置QRCode组件选项。
-     *
-     * @param { ResourceStr } value - QRCode组件内容。
-     * @returns { QRCodeAttribute } 返回QRCode属性实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setQRCodeOptions(value: ResourceStr): this;
 }
 /**
  * 创建二维码组件，通过扫描组件显示的二维码图案可以获取二维码中包含的字符串信息。
@@ -101,19 +90,4 @@ export declare interface QRCodeAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function QRCode(
     value: ResourceStr
-): QRCodeAttribute;
-
-/**
- * 定义QRCode组件。
- *
- * @param { CustomBuilderT<QRCodeAttribute> } style - QRCode属性实例。
- * @returns { QRCodeAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function QRCode(
-    style: CustomBuilderT<QRCodeAttribute>,
 ): QRCodeAttribute;

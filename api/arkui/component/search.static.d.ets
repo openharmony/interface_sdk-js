@@ -1271,17 +1271,6 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default shaderStyle(shader: ShaderStyle | undefined): this;
-
-    /**
-     * Set Search options.
-     *
-     * @param { SearchOptions } [options] - Search constructor options
-     * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setSearchOptions(options?: SearchOptions): this;
 }
 
 /**

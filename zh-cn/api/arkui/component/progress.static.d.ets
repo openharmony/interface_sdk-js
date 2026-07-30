@@ -23,7 +23,7 @@ import { Resource } from '../../global/resource';
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -550,17 +550,6 @@ export declare interface ProgressAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置Progress组件选项。
-     *
-     * @param { ProgressOptions } options - 构建Progress组件的选项。
-     * @returns { ProgressAttribute } 返回Progress属性的实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setProgressOptions(options: ProgressOptions): this;
 }
 /**
  * 进度条配置。继承自[CommonConfiguration]{@link CommonConfiguration}。
@@ -610,19 +599,4 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
 @ComponentBuilder
 export declare function Progress(
     options: ProgressOptions
-): ProgressAttribute;
-
-/**
- * 定义Progress组件。
- *
- * @param { CustomBuilderT<ProgressAttribute> } style - Progress属性实例。
- * @returns { ProgressAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Progress(
-    style: CustomBuilderT<ProgressAttribute>,
 ): ProgressAttribute;

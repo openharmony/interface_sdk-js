@@ -21,7 +21,7 @@
 
 import { CommonMethod } from './common';
 import { VoidCallback } from "./units";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -87,16 +87,6 @@ export declare interface CounterAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<CounterAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置Counter选项。
-     *
-     * @returns { CounterAttribute } 返回Counter属性实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setCounterOptions(): this;
 }
 /**
  * 创建计数器组件。
@@ -111,21 +101,4 @@ export declare interface CounterAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Counter(
     content_?: CustomBuilder
-): CounterAttribute;
-
-/**
- * 定义Counter组件。
- *
- * @param { CustomBuilderT<CounterAttribute> } style - Counter属性实例。
- * @param { CustomBuilder } [content_] - 子组件。
- * @returns { CounterAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Counter(
-    style: CustomBuilderT<CounterAttribute>,
-    content_?: CustomBuilder,
 ): CounterAttribute;

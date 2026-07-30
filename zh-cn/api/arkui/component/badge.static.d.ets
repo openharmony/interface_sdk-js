@@ -22,7 +22,7 @@
 import { ResourceColor, Length, Position, Resource, ResourceStr, LengthMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -289,17 +289,6 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置数字或者字符串类型的标记组件参数。
-     *
-     * @param { BadgeParamWithNumber | BadgeParamWithString } value - 数字、字符串类型的标记组件参数。
-     * @returns { BadgeAttribute } Returns the instance of the BadgeAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setBadgeOptions(value: BadgeParamWithNumber | BadgeParamWithString): this;
 }
 
 /**
@@ -317,21 +306,4 @@ export declare interface BadgeAttribute extends CommonMethod {
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
     content_?: CustomBuilder
-): BadgeAttribute;
-
-/**
- * 定义Badge组件
- *
- * @param { CustomBuilderT<BadgeAttribute> } style - badge属性实例。
- * @param { CustomBuilder } [content_] - 子组件。
- * @returns { BadgeAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Badge(
-    style: CustomBuilderT<BadgeAttribute>,
-    content_?: CustomBuilder,
 ): BadgeAttribute;
