@@ -28,7 +28,6 @@
  * @since 11 dynamic
  */
 
-
 export interface PopupTextOptions {
   /**
    * Text content.
@@ -338,7 +337,6 @@ export interface PopupOptions {
     * 
     * Default value: **Direction.Auto**
     *
-    * @type { ?Direction }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @crossplatform

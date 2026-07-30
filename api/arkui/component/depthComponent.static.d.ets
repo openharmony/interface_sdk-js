@@ -23,7 +23,7 @@ import { BusinessError} from '../../@ohos.base'
 import colorSpaceManager from '../../@ohos.graphics.colorSpaceManager';
 import { CommonMethod, PixelMap, DepthVector3, DepthVector4, DepthColorRGB } from './common';
 import { ResourceStr } from './units';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Depth space type enumeration.
@@ -493,21 +493,4 @@ export declare function DepthComponent(
     background: ResourceStr | PixelMap,
     options?: DepthComponentOptions,
     content_?: CustomBuilder,
-): DepthComponentAttribute;
-
-/**
- * Defines DepthComponent
- *
- * @param { CustomBuilderT<DepthComponentAttribute> } style_ - DepthComponent attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { DepthComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function DepthComponent(
-  style_: CustomBuilderT<DepthComponentAttribute>,
-  content_?: CustomBuilder,
 ): DepthComponentAttribute;
