@@ -4353,18 +4353,6 @@ declare namespace webview {
     closeCamera(): void;
 
     /**
-     * Gets URL of frame that sent the latest postMessage to native application.
-     *
-     * @returns { string } The URL of frame that last sent a postMessage.
-     * @throws { BusinessError } 17100001 - Init error.
-     *     The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    getLastPostMessageURL(): string;
-
-    /**
      * Called when the Web component enters the inactive state. You can implement the behavior to
      * perform after the application loses focus. When this API is called, any content that can
      * be safely paused, such as animations and geographical locations, is paused as much as
