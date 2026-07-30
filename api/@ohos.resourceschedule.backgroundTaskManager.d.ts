@@ -373,12 +373,12 @@ declare namespace backgroundTaskManager {
     /**
      * Notify progress data.
      *
-     * @param { ProgressInfo } [value]
+     * @param { ProgressInfo | undefined } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 26.1.0 static
      */
-    set progressInfo(value?: ProgressInfo);
+    set progressInfo(value: ProgressInfo | undefined);
 
     /**
      * Notify progress data.
@@ -398,7 +398,7 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  interface ProgressInfo {  
+  export interface ProgressInfo {  
     /**
      * Notification title.
      *
@@ -441,7 +441,7 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  interface DataTransferProgress {  
+  export interface DataTransferProgress {  
     /**
      * Continuous task ID.
      * The value should be an integer.

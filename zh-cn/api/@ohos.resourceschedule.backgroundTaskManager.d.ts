@@ -332,12 +332,12 @@ declare namespace backgroundTaskManager {
     /**
      * 通知进度信息。
      *
-     * @param { ProgressInfo } [value] - 通知进度信息。
+     * @param { ProgressInfo | undefined } value - 通知进度信息。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 26.1.0 static
      */
-    set progressInfo(value?: ProgressInfo);
+    set progressInfo(value: ProgressInfo | undefined);
 
     /**
      * 通知进度信息。
@@ -357,7 +357,7 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  interface ProgressInfo {  
+  export interface ProgressInfo {  
     /**
      * 通知标题。
      *
@@ -400,7 +400,7 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  interface DataTransferProgress {  
+  export interface DataTransferProgress {  
     /**
      * 长时任务ID。
      * 取值限定为整数。
