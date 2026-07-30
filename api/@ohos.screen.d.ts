@@ -974,6 +974,8 @@ declare namespace screen {
      * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: The screen is not a wired external
+     *     display in extended mode.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -1080,6 +1082,57 @@ declare namespace screen {
      * @since 26.0.0 dynamic&static
      */
     readonly isInUse?: boolean;
+
+    /**
+     * Screen type
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly screenType?: ScreenType;
+  }
+
+  /**
+   * Enumerates the types of screens.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum ScreenType {
+    /**
+     * The built-in, on-board screen that is physically integrated into the device.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BUILT_IN = 0,
+
+    /**
+     * An external physical display connected via a wired interface.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    EXTERNAL = 1,
+
+    /**
+     * An virtual display created by software, typically used for screen casting,
+     * screen recording, or multi-screen collaboration.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    VIRTUAL = 2
   }
 
   /**
@@ -1150,7 +1203,7 @@ declare namespace screen {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface OrientationOptions {
+  interface OrientationOptions { 
     /**
      * Whether to need animation.
      * The value true means rotating the screen with animation,
