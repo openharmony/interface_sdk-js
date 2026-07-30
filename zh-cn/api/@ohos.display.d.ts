@@ -188,7 +188,7 @@ declare namespace display {
    * @since 7 dynamic
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
-  
+
   /**
    * 开启显示设备指定属性变化的监听。
    *
