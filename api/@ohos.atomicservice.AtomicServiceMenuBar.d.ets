@@ -14,12 +14,21 @@
  */
 
 /**
- * @file Defines provides a configuration capabilities for the menuBar of atomicservice.
+ * ###### Child Components
+ *
+ * Not supported
+ *
+ * ###### Attributes
+ *
+ * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ *
+ * @file System API
  * @kit ArkUI
  */
 
 /**
- * Provide configuration capabilities for the menuBar of atomicservice
+ * Creates an **AtomicServiceMenuBar** object based on the context of the current atomic service. The object is used to
+ * control the display of the menu function capsule in the upper right corner.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -29,9 +38,9 @@
  */
 export declare class AtomicServiceMenuBar {
   /**
-   * The constructor used to create a AtomicServiceMenuBar object.
+   * A constructor used to create an **AtomicServiceMenuBar** object.
    *
-   * @param { UIContext } uiContext - The atomicservice context instance.
+   * @param { UIContext } uiContext - Context information of the current atomic service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -41,9 +50,10 @@ export declare class AtomicServiceMenuBar {
   constructor(uiContext: UIContext);
 
   /**
-   * Set the visibility of the atomicservice menubar.
+   * Sets whether to display or hide the menu function capsule of the current atomic service.
    *
-   * @param { boolean } visible - whether this bar is visible,true indicate the menubar is visible.
+   * @param { boolean } visible - Expected status of the menu function capsule. true: The menu function capsule is
+   *     displayed. false: The menu function capsule is hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
