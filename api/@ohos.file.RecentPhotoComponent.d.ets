@@ -14,7 +14,22 @@
  */
 
 /**
- * @file A component which support other applications to select recent photos or videos
+ * The RecentPhotoComponent embedded in the UI of an application allows the application to access the recent image or 
+ * video in the user directory without the required permission. This component grants the application only the read 
+ * permission.
+ * 
+ * Note that **RecentPhotoComponent** does not support nesting. Additionally, prevent overlaying components with the 
+ * **overlay** attribute or of higher levels on top it, as this will prevent it from receiving gesture events.
+ * 
+ * > **NOTE**
+ * >
+ * > - This component does not support [same-layer rendering](docroot://web/web-same-layer.md).
+ * 
+ * ###### Properties
+ * 
+ * The [universal properties]{@link common} are supported.
+ *
+ * @file RecentPhotoComponent
  * @kit MediaLibraryKit
  */
 
@@ -22,7 +37,12 @@ import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
 
 /**
- * Declare struct RecentPhotoComponent
+ * RecentPhotoComponent({ recentPhotoOptions?: RecentPhotoOptions, onRecentPhotoCheckResult?:
+ * RecentPhotoCheckResultCallback, onRecentPhotoClick: RecentPhotoClickCallback, onRecentPhotoCheckInfo?:
+ * RecentPhotoCheckInfoCallback, })
+ *
+ * Allows an application to access the latest image or video file in the public directory  to access the recent image or
+ * video in the user directory without the media access permission.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -33,7 +53,6 @@ export declare struct RecentPhotoComponent {
   /**
    * recentPhotoOptions
    *
-   * @type { ?recentPhotoOptions }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -43,7 +62,6 @@ export declare struct RecentPhotoComponent {
   /**
    * Callback when check whether photos or videos exists
    *
-   * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -53,7 +71,6 @@ export declare struct RecentPhotoComponent {
   /**
    * Callback when select photos or videos
    *
-   * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -63,7 +80,6 @@ export declare struct RecentPhotoComponent {
   /**
    * Callback when check whether photos or videos exists and return the recent photo info
    *
-   * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
@@ -72,10 +88,10 @@ export declare struct RecentPhotoComponent {
 }
 
 /**
- * The callback of onRecentPhotoCheckResult event
+ * Called to return the query result of the recent image or video.
  *
- * @typedef { function } RecentPhotoCheckResultCallback
- * @param { boolean } recentPhotoExists - Does the recent photo exist?
+ * @param { boolean } recentPhotoExists - Whether the recent image or video exists. **true** if it exists, **false**
+ *     otherwise. The default value is **true**.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -83,10 +99,11 @@ export declare struct RecentPhotoComponent {
 export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void;
 
 /**
- * The callback of onRecentPhotoClick event
+ * Called when the recent image or video is selected. No special processing is performed on the return value.
  *
- * @typedef { function } RecentPhotoClickCallback
- * @param { BaseItemInfo } recentPhotoInfo - The item information of recent photo
+ * @param { BaseItemInfo } recentPhotoInfo - Information about the recent image or video.
+ * @returns { boolean } Processing result of the recent image or video. The value **true** means that the processing is
+ *     complete.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
@@ -94,11 +111,11 @@ export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => voi
 export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean;
 
 /**
- * The callback of onRecentPhotoCheckInfo event
+ * Called to return whether the recent image or video exists and the information about it.
  *
- * @typedef { function } RecentPhotoCheckInfoCallback
- * @param { boolean } recentPhotoExists - Does the recent photo exist?
- * @param { RecentPhotoInfo } info - the recent photo info
+ * @param { boolean } recentPhotoExists - Whether the recent image or video exists. **true** if it exists, **false**
+ *     otherwise. The default value is **true**.
+ * @param { RecentPhotoInfo } info - Information about the recent image or video.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 13 dynamic
@@ -106,7 +123,7 @@ export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolea
 export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPhotoInfo) => void;
 
 /**
- * RecentPhotoOptions Object
+ * Represents the configuration of the recent image or video.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -114,9 +131,13 @@ export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: Re
  */
 export declare class RecentPhotoOptions {
   /**
-   * Support set period time
+   * Time period for displaying the latest image sorted by creation time, in seconds. The longest duration you can set
+   * is 1 day (86400s).
    *
-   * @type { ?number }
+   * If the value is less than or equal to 0, greater than 86400, or not set, the most recent photos over the longest
+   * period of up to one day is displayed by default. If there is no image or video in the specified period, the
+   * component is not displayed.
+   *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -124,9 +145,8 @@ export declare class RecentPhotoOptions {
   period?: number;
 
   /**
-   * The Type of the file in the recent photo window.
+   * Types of the file displayed. The default value is **PhotoViewMIMETypes.IMAGE_VIDEO_TYPE**.
    *
-   * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -134,9 +154,9 @@ export declare class RecentPhotoOptions {
   MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
 
   /**
-   * PhotoSource
+   * Source of the recent image or video, for example, image or video taken by the camera or screenshot. By default, the
+   * source is not restricted.
    *
-   * @type { ?PhotoSource }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
@@ -144,9 +164,15 @@ export declare class RecentPhotoOptions {
   photoSource?: PhotoSource;
 
   /**
-   * isSupportAutoRefresh
+   * Whether the **RecentPhotoComponent** automatically refreshes when there are changes (including additions,
+   * deletions, or modifications) to the recent images or videos that meet the requirements.
    *
-   * @type { ?boolean }
+   * If the component's originally displayed image or video is deleted and there are no other images or videos that meet
+   * the requirements, a placeholder is displayed and the component does not automatically close.
+   *
+   * The default value is **false**, indicating that the component does not automatically refresh. If this parameter is
+   * set to **true**, all images are displayed, and the **period** parameter is invalid.
+   *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
@@ -154,9 +180,13 @@ export declare class RecentPhotoOptions {
   isAutoRefreshSupported?: boolean;
 
   /**
-   * color mode of recentPhotoComponent placeholder
+   * Color mode of the placeholder.
    *
-   * @type { ?PickerColorMode }
+   * This setting is used when **isAutoRefreshSupported** is set to **true** and no recent image or video meets the
+   * requirements, showing a placeholder instead.
+   *
+   * By default, it follows the system's dark/light color mode.
+   *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
@@ -165,7 +195,7 @@ export declare class RecentPhotoOptions {
 }
 
 /**
- * Recent photo info
+ * Represents information about the recent image or video.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -173,9 +203,9 @@ export declare class RecentPhotoOptions {
  */
 export declare class RecentPhotoInfo {
   /**
-   * The dateTaken of photos or videos
+   * Time when the recent image or video is taken, in ms. The value is the number of milliseconds elapsed since the Unix
+   * epoch (00:00:00 UTC on January 1, 1970).
    *
-   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
@@ -183,9 +213,9 @@ export declare class RecentPhotoInfo {
   dateTaken?: number;
 
   /**
-   * The identifier of photos or videos
+   * Hash value of the name of the recent image or video, which is used to help the application determine whether the
+   * image or video to be displayed is the same as the one displayed before.
    *
-   * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 13 dynamic
@@ -194,16 +224,15 @@ export declare class RecentPhotoInfo {
 }
 
 /**
- * Enumeration of PhotoSource type
+ * Enumerates the sources of the image or video data.
  *
- * @enum { number } PhotoSource
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12 dynamic
  */
 export declare enum PhotoSource {
   /**
-   * all resource
+   * Image or video from all sources.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
@@ -212,7 +241,7 @@ export declare enum PhotoSource {
   ALL = 0,
 
   /**
-   * camera resource
+   * Image or video taken by the camera.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
@@ -221,7 +250,7 @@ export declare enum PhotoSource {
   CAMERA = 1,
 
   /**
-   * screenshot resource
+   * Screenshot or screen capture video.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
