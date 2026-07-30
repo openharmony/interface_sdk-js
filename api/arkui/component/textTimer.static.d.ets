@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -324,17 +324,6 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * Set TextTimer options.
-     *
-     * @param { TextTimerOptions } [options] - TextTimer constructor options
-     * @returns { TextTimerAttribute } Returns the instance of the TextTimerAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setTextTimerOptions(options?: TextTimerOptions): this;
 }
 /**
  * Defines the TextTimer component.
@@ -349,19 +338,4 @@ export declare interface TextTimerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TextTimer(
     options?: TextTimerOptions
-): TextTimerAttribute;
-
-/**
- * Defines TextTimer Component.
- *
- * @param { CustomBuilderT<TextTimerAttribute> } style - TextTimer attribute instance
- * @returns { TextTimerAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function TextTimer(
-    style: CustomBuilderT<TextTimerAttribute>,
 ): TextTimerAttribute;

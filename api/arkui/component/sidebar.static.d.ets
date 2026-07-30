@@ -23,7 +23,7 @@
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Sets the sidebar style of showing
@@ -362,18 +362,6 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-  /**
-   * Set sidebar container options.
-   *
-   * @param { SideBarContainerType } [type] - Sidebar container type options
-   *     <br>Default value:SideBarContainerType.Embed
-   * @returns { SideBarContainerAttribute } Returns the instance of the SideBarContainerAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setSideBarContainerOptions(type?: SideBarContainerType): this;
 }
 
 /**
@@ -391,20 +379,4 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
 export declare function SideBarContainer(
   type?: SideBarContainerType,
   content_?: CustomBuilder
-): SideBarContainerAttribute;
-
-/**
- * Defines sidebar Component
- *
- * @param { CustomBuilderT<SideBarContainerAttribute> } style_ - sidebar attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { SideBarContainerAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function SideBarContainer(
- 	style_: CustomBuilderT<SideBarContainerAttribute>,
- 	content_?: CustomBuilder,
 ): SideBarContainerAttribute;

@@ -21,11 +21,9 @@ import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContentBase } from '../ComponentContent';
-
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { VoidCallback } from './units';
-import { Builder } from '@ohos.arkui.component';
 
 /**
  * Enumeration of different types of DpiFollowStrategy.

@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * The IfAttribute.
@@ -68,26 +68,6 @@ export declare interface IfAttribute {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * Sets If options.
-   *
-   * @param { boolean } condition - condition of the branch.
-   * @returns { this } IfAttribute instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setIfOptions(condition: boolean): this;
-
-  /**
-   * Notify If has finished setting up its attributes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -104,21 +84,4 @@ export declare interface IfAttribute {
 export declare function If(
   condition: boolean,
   content_: CustomBuilder
-): IfAttribute;
-
-/**
- * Defines If Component. It requires call setIfOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
- *
- * @param { CustomBuilderT<IfAttribute> } style - callback to set up If's attributes.
- * @param { CustomBuilder } content_ - code for the branch
- * @returns { IfAttribute } The attribute of If.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function If(
-    style: CustomBuilderT<IfAttribute>,
-    content_: CustomBuilder
 ): IfAttribute;

@@ -23,7 +23,7 @@
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
 import { CommonModifier } from '@ohos.arkui.modifier';
 
@@ -1217,17 +1217,6 @@ export declare interface TabsAttribute extends CommonMethod {
   default onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): this;
 
   /**
-   * Set tabs options.
-   *
-   * @param { TabsOptions } [options] - tabs options
-   * @returns { TabsAttribute } Returns the instance of the TabsAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setTabsOptions(options?: TabsOptions): this;
-
-  /**
    * Enable floating style for bar.
    *
    * @param { FloatingTabBarStyle | undefined } style - floating style for bar.
@@ -1323,20 +1312,4 @@ export declare interface TabContentTransitionProxy {
 export declare function Tabs(
     options?: TabsOptions, 
     content_?: CustomBuilder,
-): TabsAttribute;
-
-/**
- * Defines Tabs Component
- *
- * @param { CustomBuilderT<TabsAttribute> } style_ - tabs attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { TabsAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function Tabs(
- style_: CustomBuilderT<TabsAttribute>,
- content_?: CustomBuilder,
 ): TabsAttribute;

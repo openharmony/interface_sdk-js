@@ -19,11 +19,9 @@
  */
 
 import { VoidCallback } from './units';
-
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
-import { Builder } from '@ohos.arkui.component';
 
 /**
  * PluginComponentTemplate
@@ -138,7 +136,6 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
  * @noninterop
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
-
   /**
    * PluginComponent onComplete callback
    * AnonyMous Object Rectification

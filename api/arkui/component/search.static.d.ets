@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
-import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
+import { CustomBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics, LengthMetrics } from "./units";
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
@@ -26,6 +26,7 @@ import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 
 /**
@@ -1297,18 +1298,3 @@ export declare interface SearchAttribute extends CommonMethod {
 export declare function Search(
     options?: SearchOptions
 ): SearchAttribute
-
-/**
- * Defines Search Component.
- *
- * @param { CustomBuilderT<SearchAttribute> } style - Search attribute instance
- * @returns { SearchAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Search(
-    style: CustomBuilderT<SearchAttribute>,
-): SearchAttribute;

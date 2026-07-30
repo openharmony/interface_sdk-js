@@ -22,7 +22,7 @@
 
 import { Resource } from "../../global/resource";
 import { AnimationStatus, FillMode } from "./enums";
-import { ComponentBuilder, CustomBuilderT, Builder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PixelMap } from "./common";
 
 /**
@@ -300,17 +300,3 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ImageAnimator(): ImageAnimatorAttribute;
-
-/**
- * Defines the ImageAnimator component. It requires call setImageAnimatorOptions at start of the component
- * attribute set-up. and it requires call applyAttributeFinish at the end of the component attribute set-up.
- *
- * @param { CustomBuilderT<ImageAnimatorAttribute> } style - the callback to set up component's attribute.
- * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ImageAnimator(style: CustomBuilderT<ImageAnimatorAttribute>): ImageAnimatorAttribute;

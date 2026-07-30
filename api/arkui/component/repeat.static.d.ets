@@ -19,8 +19,7 @@
  * @kit ArkUI
  */
 
-import { Builder, CustomBuilderT } from './builder';
-
+import { Builder } from './builder';
 import { ComponentBuilder } from './builder';
 
 import { DynamicNode } from './common';
@@ -283,26 +282,6 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * Sets Repeat options.
-   *
-   * @param { RepeatArray<T> } arr - Data source array.
-   * @returns { this } RepeatAttribute instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setRepeatOptions<T>(arr: RepeatArray<T>): this;
-
-  /**
-   * Notify the Repeat has finished setting up its attributes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -345,18 +324,3 @@ export enum RepeatMemOptStrategy {
    */
   ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
 }
-
-/**
- * Defines Repeat Component. It requires call setRepeatOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
- *
- * @param { CustomBuilderT<RepeatAttribute<T>> } style - callback to set up Repeat's attributes.
- * @returns { RepeatAttribute<T> } The attribute of Repeat.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function Repeat<T>(
-    style: CustomBuilderT<RepeatAttribute<T>>
-): RepeatAttribute<T>;

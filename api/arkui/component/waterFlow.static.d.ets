@@ -17,13 +17,15 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier, UIScrollableCommonEvent, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
-import { CustomBuilder, ComponentBuilder } from './builder';
+import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
+import { CustomBuilder } from './builder';
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
 import { ComponentContentBase } from '../../arkui/ComponentContent';
+import { ComponentBuilder } from './builder';
+import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * function that returns item main size by index.
  *
@@ -594,6 +596,6 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function WaterFlow(
-    options?: WaterFlowOptions,
+    options?: WaterFlowOptions, 
     content_?: CustomBuilder,
-): WaterFlowAttribute;
+): WaterFlowAttribute
