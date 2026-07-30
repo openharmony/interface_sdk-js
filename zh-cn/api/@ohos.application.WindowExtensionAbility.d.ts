@@ -14,18 +14,16 @@
  */
 
 /**
- * **WindowExtensionAbility** inherits from **ExtensionAbility**. The content in a WindowExtensionAbility object can be 
- * displayed as an ability component in other application windows.
+ * WindowExtensionAbility基于ExtensionAbility。WindowExtensionAbility中展示的内容可作为一个控件（AbilityComponent）内容展示在其他应用窗口中。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This is deprecated since API version 21. You are advised to use 
- * > [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instead. For details about how 
- * > to set an embedded UIAbility, see [UIExtensionAbility](docroot://application-models/uiextensionability-sys.md).
+ * > - 从API version 21开始废弃，推荐使用[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}，针对设置一
+ * > 个嵌入式UIAbility的场景，请参见[UIExtensionAbility使用指南](docroot://application-models/uiextensionability-sys.md)。
  * >
- * > - The APIs provided by this module are system APIs.
+ * > - 本模块接口为系统接口。
  * >
- * > - The APIs of this module can be used only in the stage model.
+ * > - 本模块接口仅可在Stage模型下使用。
  *
  * @file
  * @kit ArkUI
@@ -37,7 +35,7 @@ import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
 /**
- * class of window extension ability.
+ * WindowExtensionAbility类。
  *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi hide for inner use.
@@ -58,9 +56,9 @@ declare class WindowExtensionAbility {
   context: WindowExtensionContext;
 
   /**
-   * Called back when a window extension is first connected to an ability.
+   * 当窗口扩展组件第一次连接ability时回调。
    *
-   * @param { Want } want Indicates connection information about the Window ability.
+   * @param { Want } want 当前ability的Want类型信息，包括ability名称、bundle名称等。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @stagemodelonly
@@ -70,9 +68,9 @@ declare class WindowExtensionAbility {
   onConnect(want: Want): void;
 
   /**
-   * Called back when all abilities connected to a window extension are disconnected.
+   * 当所有连接到窗口扩展组件的ability断开连接时回调。
    *
-   * @param { Want } want Indicates disconnection information about the window extension.
+   * @param { Want } want 当前Ability的Want类型信息，包括ability名称、bundle名称等。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @stagemodelonly
@@ -82,9 +80,9 @@ declare class WindowExtensionAbility {
   onDisconnect(want: Want): void;
 
   /**
-   * Called back when window is created.
+   * 当窗口被创建时回调。
    *
-   * @param { window.Window } window Current Window instance.
+   * @param { window.Window } window 当前窗口实例。
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @stagemodelonly
@@ -97,8 +95,7 @@ declare class WindowExtensionAbility {
 export default WindowExtensionAbility;
 
 /**
- * The context of window extension. It allows access to
- * windowExtension-specific resources.
+ * WindowExtension上下文信息。
  *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
