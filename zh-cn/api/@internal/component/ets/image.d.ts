@@ -419,10 +419,6 @@ declare enum ImageRotateOrientation {
  * >
  * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
  * >
- * > - 如果图片加载过程中出现白色块，请参考
- * > [Image白块问题解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时
- * > 间过长，请参考
- * > [预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance#section91526132216)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -793,7 +789,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { string | Resource } value - 加载过程中显示的占位图。支持本地图片（PNG、JPG、BMP、
    *     SVG、GIF 或 HEIF 格式），但不支持在线图片。<br>- 支持 Base64 字符串。<br>- 支持以 **file://** 路径为前缀的字符串（应用沙箱 URI：**file://<bundleName>/<sandboxPath>**）。
    *     有关如何构造应用沙箱路径 URI 的详细信息，请参见[constructor]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}。
-   *     沙箱路径必须使用[fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API 转换为应用沙箱 URI 后再传入以进行显示。此外，请确保应用具有指定路径下文件的读取权限。<br>默认值：**null**<br>当该值从有效值（可正确解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件将保留先前成功加载的图片内容，不会清除或重置它。[since 7 - 11]
+   *     沙箱路径必须使用[fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API 转换为应用沙箱 URI 后再传入以进行显示。此外，
+   *     请确保应用具有指定路径下文件的读取权限。<br>默认值：**null**<br>当该值从有效值（可正确解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，
+   *     组件将保留先前成功加载的图片内容，不会清除或重置它。[since 7 - 11]
    * @param { string | Resource | PixelMap } value - 设置图片加载过程中显示的占位图，支持本地图片（png、jpg、bmp、svg、gif和heif类型），支持
    *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型图片，不支持网络图片。
    *     <br>- 支持`Base64`字符串。
