@@ -61,7 +61,7 @@ export declare interface BlankAttribute extends CommonMethod {
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  * @noninterop
  */
 @ComponentBuilder
