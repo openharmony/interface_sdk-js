@@ -22,7 +22,7 @@
 
 import { Resource } from "../../global/resource";
 import { AnimationStatus, FillMode } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod, PixelMap } from "./common";
 
 /**
