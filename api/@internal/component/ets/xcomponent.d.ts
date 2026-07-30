@@ -532,7 +532,7 @@ interface XComponentInterface {
    * @deprecated since 12
    * @useinstead (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController })
    */
-  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute
+  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * Creates an **XComponent** component, whose lifecycle callbacks can be triggered from the native side.
@@ -549,7 +549,7 @@ interface XComponentInterface {
    * @atomicservice [since 12]
    * @since 10 dynamic
    */
-  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute
+  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * Creates an **XComponent** component, allowing you to obtain the **SurfaceId** value on the ArkTS side, register the

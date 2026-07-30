@@ -141,17 +141,6 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
 export declare interface PluginComponentAttribute extends CommonMethod {
 
   /**
-   * 设置插件组件选项。
-   *
-   * @param { PluginComponentOptions } options - 选项
-   * @returns { this } PluginComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setPluginComponentOptions(options: PluginComponentOptions): this;
-  /**
    * 组件加载完成时触发回调。
    * AnonyMous Object Rectification
    *
@@ -201,20 +190,4 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function PluginComponent(
     options: PluginComponentOptions
-): PluginComponentAttribute;
-
-/**
- * 定义PluginComponent组件。它要求在组件属性设置开始时调用setPluginComponentOptions，
- * 并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<PluginComponentAttribute> } style - 用于设置plugincomponent属性的回调。
- * @returns { PluginComponentAttribute } PluginComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function PluginComponent(
-    style: CustomBuilderT<PluginComponentAttribute>
 ): PluginComponentAttribute;

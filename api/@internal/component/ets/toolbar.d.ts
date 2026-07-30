@@ -45,7 +45,7 @@ declare enum ToolBarItemPlacement {
    * @crossplatform
    * @since 20 dynamic
    */
-  TOP_BAR_TRAILING = 1
+  TOP_BAR_TRAILING = 1,
 }
 
 /**
@@ -115,7 +115,7 @@ interface ToolBarItemInterface {
  * @crossplatform
  * @since 20 dynamic
  */
-declare class ToolBarItemAttribute {}
+declare class ToolBarItemAttribute { }
 
 /**
  * You can use the **ToolBarItem** component to add toolbar items to the title bar using the

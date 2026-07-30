@@ -45,7 +45,7 @@ declare enum DpiFollowStrategy {
    * @stagemodelonly
    * @since 12 dynamic
    */
-  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
+  FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
 }
 
 /**

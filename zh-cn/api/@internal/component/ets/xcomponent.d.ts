@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-import { VoidCallback } from './units';
-
-import { CommonMethod } from './common';
-
 /**
  * 描述XComponent所持有的surface的矩形。
  *
@@ -95,10 +91,6 @@ declare interface SurfaceRect {
    */
   surfaceHeight: number;
 }
-
-import { XComponentType } from './enums';
-
-import { DrawingCanvas } from './canvas';
 
 /**
  * 定义屏幕旋转时是否锁定当前XComponent所持有的surface的方向。
@@ -531,7 +523,7 @@ interface XComponentInterface {
    * @deprecated since 12
    * @useinstead (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController })
    */
-  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute
+  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * 创建**XComponent**组件，其生命周期回调可以从native侧触发。
@@ -546,7 +538,7 @@ interface XComponentInterface {
    * @atomicservice [since 12]
    * @since 10 dynamic
    */
-  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute
+  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * 创建**XComponent**组件，允许您在ArkTS侧获取**SurfaceId**值，注册**XComponent**所持有的surface的生命周期回调以及触摸、鼠标、按键等组件事件的回调，并配置AI分析器功能。

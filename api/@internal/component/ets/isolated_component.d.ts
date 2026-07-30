@@ -21,7 +21,6 @@
 /**
  * Indicates restricted worker for run abc.
  *
- * @typedef { import('../api/@ohos.worker').default.RestrictedWorker } RestrictedWorker
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -32,7 +31,6 @@ declare type RestrictedWorker = import('../api/@ohos.worker').default.Restricted
 /**
  * Indicates error callback.
  *
- * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -43,7 +41,6 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 /**
  * Indicates want.
  *
- * @typedef { import('../api/@ohos.app.ability.Want').default } Want
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -86,7 +83,6 @@ declare interface IsolatedOptions {
  *
  * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
  * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
- * @typedef { function } IsolatedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

@@ -45,7 +45,7 @@ declare enum ToolBarItemPlacement {
    * @crossplatform
    * @since 20 dynamic
    */
-  TOP_BAR_TRAILING = 1
+  TOP_BAR_TRAILING = 1,
 }
 
 /**

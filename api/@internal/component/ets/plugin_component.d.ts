@@ -21,7 +21,6 @@
 /**
  * PluginComponentTemplate
  *
- * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9 dynamic
