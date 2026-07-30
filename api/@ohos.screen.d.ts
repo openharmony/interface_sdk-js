@@ -1152,7 +1152,7 @@ declare namespace screen {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface OrientationOptions { 
+  interface OrientationOptions {
     /**
      * Whether to need animation.
      * The value true means rotating the screen with animation,
