@@ -30,7 +30,7 @@
 declare enum Sticky {
 
   /**
-   * 不吸顶。
+   * 无吸顶效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -71,7 +71,7 @@ declare enum Sticky {
 declare enum EditMode {
 
   /**
-   * 无操作限制。
+   * 编辑操作不限制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -102,7 +102,7 @@ declare enum EditMode {
 }
 
 /**
- * 滑动效果枚举
+ * 滑动效果枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -113,7 +113,11 @@ declare enum EditMode {
 declare enum SwipeEdgeEffect {
 
   /**
-   * 弹性物理动效，滑动到边缘后按初始速度或触摸事件继续滑动一段距离，释放后回弹。
+   * ListItem划动距离超过划出组件大小后可以继续划动。
+   *
+   * 如果设置了删除区域，ListItem划动距离超过删除阈值后可以继续划动，
+   *
+   * 松手后按照弹簧阻尼曲线回弹。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -124,7 +128,11 @@ declare enum SwipeEdgeEffect {
   Spring,
 
   /**
-   * 滑动到边缘后无效果。
+   * ListItem划动距离不能超过划出组件大小。
+   *
+   * 如果设置了删除区域，ListItem划动距离不能超过删除阈值，
+   *
+   * 并且在设置删除回调的情况下，达到删除阈值后松手触发删除回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -147,7 +155,7 @@ declare enum SwipeEdgeEffect {
 declare enum SwipeActionState {
 
   /**
-   * 折叠状态。
+   * 收起状态，操作项处于隐藏状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -158,7 +166,11 @@ declare enum SwipeActionState {
   COLLAPSED,
 
   /**
-   * 展开状态。
+   * 展开状态，操作项处于显示状态。
+   *
+   * **说明：**
+   *
+   * 需要ListItem设置划出操作项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -169,7 +181,11 @@ declare enum SwipeActionState {
   EXPANDED,
 
   /**
-   * 操作中状态。
+   * 长距离状态，当ListItem进入长距删除区后删除ListItem的状态。
+   *
+   * **说明：**
+   *
+   * actionAreaDistance的最终取值大于0，且小于ListItem在划动方向上的尺寸减去划出组件在划动方向上的尺寸时，滑动后松手的位置超过或等于该取值才能进入该状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -228,6 +244,10 @@ declare class ListItemSwipeActionManager {
   /**
    * 展开指定ListItem的划出菜单。
    *
+   * > **说明：**
+   * >
+   * > - 如果List组件cachedCount属性show参数设置为true，List显示区域外已预加载完成的ListItem支持展开，否则List显示区域外节点不支持展开。
+   *
    * @param { FrameNode } node - ListItem节点对象。
    * @param { ListItemSwipeActionDirection } direction - ListItem划出菜单的展开方向。
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
@@ -256,8 +276,11 @@ declare class ListItemSwipeActionManager {
 }
 
 /**
- * List垂直布局，ListItem向右滑动时，item左边的长距离滑动删除选项。向左滑动时，item右边的长距离滑动删除选项。
- * List水平布局，ListItem向上滑动时，item下边的长距离滑动删除选项。向下滑动时，item上边的长距离滑动删除选项。
+ * SwipeActionItem用于配置[SwipeActionOptions]{@link SwipeActionOptions}中的start或end划出项，包括划出时显示的操作项、长距离操作区域的距离阈值，以及进入、退出长距离操作
+ * 区域、抬手触发操作和状态变化时的回调。
+ *
+ * 作为start划出项时，List为垂直布局时显示在ListItem左侧，List为水平布局时显示在ListItem上方；作为end划出项时，List为垂直布局时显示在ListItem右侧，List为水平布局时显示在ListItem下
+ * 方。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -352,11 +375,9 @@ declare interface SwipeActionItem {
 }
 
 /**
- * start和end对应的@builder函数中顶层必须是单个组件，否则会引发未定义行为。
- * 如果@builder函数中顶层是if/else、ForEach等语句，那么需要保证if/else、ForEach等语句必须能生成单个组件。
+ * start和end对应的@builder函数中顶层必须是单个组件（如果顶层是if/else、ForEach等渲染控制语句，则必须保证其仅能生成单个组件），否则会引发未定义行为。
  *
- * 滑动手势只在listItem区域上，如果子组件划出ListItem区域外，在ListItem以外部分不会响应划动手势。
- * 所以在多列模式下，建议不要将划出组件设置太宽。
+ * 滑动手势只在ListItem区域上生效，如果子组件滑出ListItem区域外，在ListItem以外部分不会响应滑动手势。所以在多列模式下，建议不要将划出组件设置太宽。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -412,7 +433,7 @@ declare interface SwipeActionOptions {
 }
 
 /**
- * List组件卡片样式枚举。
+ * ListItem组件卡片样式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -434,7 +455,7 @@ declare enum ListItemStyle {
   NONE = 0,
 
   /**
-   * 显示默认样式。
+   * 显示默认卡片样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -476,15 +497,16 @@ declare interface ListItemOptions {
 }
 
 /**
- * 用来展示列表具体item，必须配合[List]{@link list}来使用。
+ * ListItem用于展示列表中的具体列表项，支持设置划出菜单、选中状态、鼠标框选和卡片样式等能力，必须配合List组件使用，适用于需要在列表中展示内容并对单个列表项进行交互操作（如滑动删除、选中标记）的场景。
  *
  * > **说明：**
  * >
- * > *
+ * > - 该组件的父组件只能是[List]{@link ./list}或者[ListItemGroup]{@link ./list_item_group}。
  * >
- * > * 该组件的父组件只能是[List]{@link list}或者[ListItemGroup]{@link list_item_group}。
- * >
- * > * 当ListItem配合LazyForEach使用时，ListItem子组件在ListItem创建时创建。配合if/else、ForEach使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
+ * > - 当ListItem配合[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)使用时，ListItem子组件在
+ * > ListItem创建时创建。配合[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)使用时，或父组件为List/ListItemGroup时，ListItem子组
+ * > 件在ListItem布局时创建。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -513,6 +535,10 @@ interface ListItemInterface {
   /**
    * 创建ListItem组件。
    *
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 10开始废弃。
+   *
    * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -526,7 +552,7 @@ interface ListItemInterface {
 }
 
 /**
- * 除支持[通用属性]{@link common}外，还支持以下属性：
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -540,6 +566,10 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * 设置ListItem吸顶效果。
+   *
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @param { Sticky } value
    * @returns { ListItemAttribute }
@@ -564,7 +594,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
-   * 设置当前ListItem元素是否可以被鼠标框选。外层List容器的鼠标框选开启时，ListItem的框选才生效。
+   * 设置当前ListItem元素是否可以被鼠标框选。外层[List]{@link ./list}组件设置[multiSelectable]{@link ListAttribute#multiSelectable}为true开启鼠标框选
+   * 时，ListItem的框选才生效。
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -578,10 +609,11 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selectable(value: boolean): ListItemAttribute;
 
   /**
-   * 设置当前ListItem选中状态。该属性支持$$双向绑定变量。
-   * 该属性需要在设置多态样式前使用才能生效选中态样式。
+   * 设置当前ListItem选中状态。该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。该属性需要在设置
+   * [多态样式]{@link ./common}前使用才能生效选中态样式。
    *
-   * @param { boolean } value - 当前ListItem选中状态。设置为true时为选中状态，设置为false时为默认状态。默认值：false
+   * @param { boolean } value - 当前ListItem选中状态。设置为true时为选中状态，设置为false时为默认状态。<br/>默认值：false<br/>**说明：** 需要在设置多态样式前使用才能生效选
+   *     中态样式。
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -595,7 +627,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * 用于设置ListItem的划出组件。
    *
-   * @param { SwipeActionOptions } value - ListItem的划出组件。
+   * @param { SwipeActionOptions } value - ListItem的划出组件配置，用于设置划出时显示的组件、滑动效果和滑动状态回调等。
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -607,6 +639,9 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * ListItem元素被鼠标框选的状态改变时触发回调。
+   *
+   * 外层[List]{@link ./list}组件设置[multiSelectable]{@link ListAttribute#multiSelectable}为true开启鼠标框选，且当前ListItem的
+   * [selectable]{@link ListItemAttribute#selectable}属性为true时，触发该回调。
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -634,15 +669,16 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 declare const ListItemInstance: ListItemAttribute;
 
 /**
- * 用来展示列表具体item，必须配合[List]{@link list}来使用。
+ * ListItem用于展示列表中的具体列表项，支持设置划出菜单、选中状态、鼠标框选和卡片样式等能力，必须配合List组件使用，适用于需要在列表中展示内容并对单个列表项进行交互操作（如滑动删除、选中标记）的场景。
  *
  * > **说明：**
  * >
- * > *
+ * > - 该组件的父组件只能是[List]{@link ./list}或者[ListItemGroup]{@link ./list_item_group}。
  * >
- * > * 该组件的父组件只能是[List]{@link list}或者[ListItemGroup]{@link list_item_group}。
- * >
- * > * 当ListItem配合LazyForEach使用时，ListItem子组件在ListItem创建时创建。配合if/else、ForEach使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
+ * > - 当ListItem配合[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)使用时，ListItem子组件在
+ * > ListItem创建时创建。配合[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)使用时，或父组件为List/ListItemGroup时，ListItem子组
+ * > 件在ListItem布局时创建。
  *
  * ###### 子组件
  *
