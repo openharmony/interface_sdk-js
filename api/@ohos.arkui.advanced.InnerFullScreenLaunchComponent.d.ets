@@ -14,7 +14,19 @@
  */
 
 /**
- * @file Defines the inner fullScreen launch component for system applications
+ * ###### Child Components
+ *
+ * Not supported
+ *
+ * ###### Attributes
+ *
+ * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ *
+ * ###### Events
+ *
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ *
+ * @file System API
  * @kit ArkUI
  */
 
@@ -22,7 +34,17 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * Declare component InnerFullScreenLaunchComponent
+ * **InnerFullScreenLaunchComponent** is a component that allows the invoker to choose the timing for launching an
+ * atomic service. If the invoked app (the one being launched) grants the invoker the authorization to run the atomic
+ * service in an embedded manner, the invoker can operate the atomic service in full-screen embedded mode. If
+ * authorization is not provided, the invoker will launch the atomic service in a pop-up manner.
+ *
+ * > **NOTE**
+ * >
+ * > To implement an embeddable atomic service within this component, it must inherit from
+ * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. If it does not inherit from
+ * > **EmbeddableUIAbility**, the system cannot guarantee that the atomic service will function properly.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamiconly
@@ -30,46 +52,49 @@ import { Callback, ErrorCallback } from '@ohos.base';
 @Component
 export declare struct InnerFullScreenLaunchComponent {
   /**
-   * Sets the component content.
-   * @type { Callback<void> }
+   * Content displayed in the component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamiconly
    */
-  @BuilderParam content: Callback<void>;
-
+  @BuilderParam
+  content: Callback<void>;
   /**
-   * Sets the component Controller.
-   * @type { LaunchController }.
+   * Controller for launching the atomic service.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamiconly
    */
   controller: LaunchController;
-
   /**
-   * Indicates the callback of onReceive.
-   * @type { ?Callback<Record<string, Object>> }
+   * Callback triggered when an embedded atomic service calls [@ohos.window (window)]{@link @ohos.window} APIs.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20 dynamiconly
    */
   onReceive?: Callback<Record<string, Object>>;
   /**
-   * Callback triggered when an error occurs during running of the started ExtensionAbility.
-   * It is supported only when the atomic service runs in embedded mode,
-   * with the parameter being of type BusinessError.
-   * @type { ?ErrorCallback }
+   * Callback triggered when an exception occurs during the execution of an embedded atomic service. You can obtain the
+   * error information based on the **code**, **name**, and **message** parameters in the callback and rectify the
+   * exception accordingly.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 23 dynamiconly
    */
   onError?: ErrorCallback;
   /**
-   * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
-   * about the termination. It is supported only when the atomic service runs in embedded mode,
-   * with the parameter being of type TerminationInfo.
-   * @type { ?Callback<TerminationInfo> }
+   * Callback triggered when an embedded atomic service exits normally. Exit scenarios include user-triggered exit
+   * button taps or edge swipes, or calls to
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
+   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * or
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
+   * (callback: AsyncCallback<void>)}.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 23 dynamiconly
@@ -78,33 +103,30 @@ export declare struct InnerFullScreenLaunchComponent {
 }
 
 /**
- * Declare type LaunchController
+ * Controller for launching the atomic service.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamiconly
  */
 export declare class LaunchController {
-
   /**
    * Function to launch atomicservice.
    *
-   * @type { LaunchAtomicServiceCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamiconly
-   **/
+   */
   public launchAtomicService: LaunchAtomicServiceCallback;
 }
 
-
 /**
- * Callback for launch atomicservice.
+ * Triggered when an atomic service is launched.
  *
- * @typedef { function } LaunchAtomicServiceCallback
- * @param { string } appId - appId of atomicservice.
- * @param { AtomicServiceOptions } [options] - options that could be empty.
+ * @param { string } appId - App ID for the atomic service.
+ * @param { AtomicServiceOptions } [options] - Parameters for launching the atomic service.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamiconly
- **/
+ */
 export declare type LaunchAtomicServiceCallback = (appId: string, options?: AtomicServiceOptions) => void;
