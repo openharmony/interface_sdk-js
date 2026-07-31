@@ -63,9 +63,9 @@ declare namespace PiPWindow {
    *     templateType，需保证templateType是[PiPTemplateType]{@link PiPWindow.PiPTemplateType}类型；如果指定了controlGroups，需保证
    *     controlGroups与templateType匹配，详见[PiPControlGroup]{@link PiPWindow.PiPControlGroup}。
    * @returns { Promise<PiPController> } Promise对象。返回当前创建的画中画控制器。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
-   *                                                                   3. Parameter verification failed
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -83,9 +83,9 @@ declare namespace PiPWindow {
    *     templateType匹配，详见[PiPControlGroup]{@link PiPWindow.PiPControlGroup}。
    * @param { typeNode.XComponent } contentNode - 用于渲染画中画窗口中的内容。该参数不能为空。
    * @returns { Promise<PiPController> } Promise对象。返回当前创建的画中画控制器。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -969,7 +969,7 @@ declare namespace PiPWindow {
      *
      * @param { int } width - 表示媒体内容宽度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。
      * @param { int } height - 表示媒体内容高度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -983,7 +983,7 @@ declare namespace PiPWindow {
      * @param { PiPControlType } controlType - 表示画中画控制面板控件类型。目前仅支持VIDEO_PLAY_PAUSE、MICROPHONE_SWITCH、CAMERA_SWITCH和
      *     MUTE_SWITCH这几种控件类型，传入其他控件类型不生效也不报错。
      * @param { PiPControlStatus } status - 表示画中画控制面板控件状态。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -996,9 +996,9 @@ declare namespace PiPWindow {
      *
      * @param { typeNode.XComponent } contentNode - 用于渲染画中画窗口中的内容。该参数不能为空。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                   2. Incorrect parameter types.
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1014,7 +1014,7 @@ declare namespace PiPWindow {
      *
      * @param { PiPControlType } controlType - 表示画中画控制面板控件类型。
      * @param { boolean } enabled - 表示画中画控制面板控件使能状态。true表示控件为可使用状态，false则为禁用状态。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1200,7 +1200,7 @@ declare namespace PiPWindow {
      *
      * @param { 'pipWindowSizeChange' } type - 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。
      * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: Callback is already registered.
+     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1228,9 +1228,9 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。
      * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。如果传入参数，则关闭该监听。如果未传入参数，解除type为'pipWindowSizeChange
      *     '的所有回调。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                   2. Incorrect parameter types.
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
