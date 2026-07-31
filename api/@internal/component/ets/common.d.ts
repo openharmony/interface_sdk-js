@@ -22295,12 +22295,11 @@ declare class CommonMethod<T> {
   offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
-   * Sets whether the component responds to user interactions. If **enabled** is not set, the component responds to user
-   * interactions by default.
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   * If it is set to false, click operations are not responded.
    *
-   * @param { boolean } value - Whether the component responds to user interactions, including clicks and touches. The
-   *     value **true** means that the component responds to user interactions, and **false** means the opposite.
-   * @returns { T } Current component.
+   * @param { boolean } value
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24427,7 +24426,7 @@ declare class CommonMethod<T> {
    * Sets the background brightness of the component.
    *
    * @param { BackgroundBrightnessOptions } params - Parameters for setting the background brightness.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
