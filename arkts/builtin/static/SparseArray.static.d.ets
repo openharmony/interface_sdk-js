@@ -50,7 +50,8 @@ export class SparseArray<T> {
     /**
      * Creates a new instance of SparseArray with the specified initial length.
      *
-     * @param { int } arrayLen - The initial length of the sparse array.
+     * @param { int } arrayLen - The initial length of the sparse array. If arrayLen is negative, it is clamped to 0.
+     *     The maximum value of a positive number is int_max.
      *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -105,7 +106,7 @@ export class SparseArray<T> {
     /**
      * Returns a string representing the sparse array and its elements.
      *
-     * @returns { string } return the string.
+     * @returns { string } Returns a string representing the elements of the sparse array separated by commas.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -131,8 +132,14 @@ export class SparseArray<T> {
      * adding new elements in place.
      *
      * @param { int } start - The zero-based location in the sparse array from which to start removing elements.
+     *     If start is negative, it is treated as length + start (e.g., -1 refers to the last element).
+     *     If start is less than -length, it is clamped to 0.
+     *     If start is greater than or equal to length, no elements are removed and new elements are added at the end.
      *     <br>The value should be an integer.
      * @param { int } deleteCount - The number of elements to remove.
+     *     If deleteCount is negative, it is clamped to 0 (no elements are removed).
+     *     If deleteCount is greater than the number of elements from start to the end of the array,
+     *     only the available elements are removed.
      *     <br>The value should be an integer.
      * @param { T[] } items - Elements to insert into the sparse array in place of the deleted elements.
      * @returns { SparseArray<T> } A sparse array containing the elements that were deleted.
@@ -171,6 +178,8 @@ export class SparseArray<T> {
       *
       * @param { T } searchElement - The element to search for.
       * @param { int } [fromIndex] - The position in this sparse array at which to begin searching for searchElement.
+      *     Defaults to 0 (the entire array is searched).
+      *     If fromIndex is negative, it is used as the offset from the end of the array.
       *     <br>The value should be an integer.
       * @returns { boolean } true if searchElement is found, false otherwise.
       * @syscap SystemCapability.Utils.Lang
@@ -208,7 +217,7 @@ export class SparseArray<T> {
      * Adds all the elements of a sparse array separated by the specified separator string.
      *
      * @param { string } [separator] - A string used to separate one element of the sparse array from
-     *     the next in the resulting string.
+     *     the next in the resulting string. Defaults to "," (comma).
      * @returns { string } A string with all sparse array elements joined.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -220,8 +229,12 @@ export class SparseArray<T> {
      * Returns a copy of a section of a sparse array.
      *
      * @param { int } [start] - The beginning index of the specified portion of the sparse array.
+     *     Defaults to 0 (the entire array is searched).
+     *     If fromIndex is negative, it is used as the offset from the end of the array.
      *     <br>The value should be an integer.
      * @param { int } [end] - The end index of the specified portion of the sparse array.
+     *     Defaults to 0 (the entire array is searched).
+     *     If fromIndex is negative, it is used as the offset from the end of the array.
      *     <br>The value should be an integer.
      * @returns { SparseArray<T> } A new SparseArray object containing the extracted elements.
      * @syscap SystemCapability.Utils.Lang
@@ -242,7 +255,7 @@ export class SparseArray<T> {
     static from<U>(arrayLike: ArrayLike<U> | Iterable<U>): SparseArray<U>;
 
     /**
-     * Creates a new SparseArray instance from an array-like or iterable object.
+     * Creates a new SparseArray instance from an array-like.
      *
      * @param { ArrayLike<U> } arr - An array-like or iterable object to convert to a sparse array.
      * @returns { SparseArray<U> } A new SparseArray instance.
@@ -256,6 +269,8 @@ export class SparseArray<T> {
      * Sorts the elements of a sparse array in place and returns the sparse array.
      *
      * @param { function } [compareFn] - A function used to determine the order of the elements.
+     *     If not provided, elements are sorted by converting them to strings and comparing
+     *     their UTF-16 code units in ascending order (default sort behavior).
      * @returns { this } The sorted sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -267,7 +282,8 @@ export class SparseArray<T> {
      * Returns a new sparse array consisting of this sparse array concatenated with other arrays or values.
      *
      * @param { SparseArray<T> } items - Additional arrays and/or values to concatenate to the result.
-     * @returns { SparseArray<T> }
+     * @returns { SparseArray<T> } Returns a new SparseArray containing the elements of this sparse array followed
+     *     by the elements from the input sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -278,13 +294,15 @@ export class SparseArray<T> {
      * Returns a new sparse array with all sub-array elements concatenated into it
      * recursively up to the specified depth.
      *
-     * @param { int } [depth] - <br>The value should be an integer.
-     * @returns { SparseArray<U> }
+     * @param { int } [depth] - The depth level specifying how deep the nested array structure
+     *     should be flattened. Defaults to 1.
+     *     <br>The value should be an integer.
+     * @returns { SparseArray<U> } SparseArray
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
-    flat<U = T>(depth?: int): SparseArray<U>;
+    flat<U = T>(depth?: int): SparseArray<U>
 
     /**
      * Calls a defined callback function on each element of a sparse array. 
@@ -303,11 +321,11 @@ export class SparseArray<T> {
     /**
      * Determines whether the specified callback function returns true for any element of a sparse array.
      *
-     * @param { function } predicate - A function that accepts up to three arguments. 
+     * @param { function } predicate - A function that accepts up to three arguments.
      *     The some method calls the predicate function for each element in the sparse array until
      *     the predicate returns a value is coercible to the Boolean value true,until the end of the sparse array.
-     * @returns { boolean } true if the callback function returns true for any element in the sparse array; 
-     *     otherwise, false.
+     * @returns { boolean } Returns true if the callback function returns true for any element,
+     *     otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -372,11 +390,11 @@ export class SparseArray<T> {
      * and returns the modified sparse array.
      *
      * @param { T } value - The value to fill the sparse array section with.
-     * @param { int } [start] - The index to start filling the sparse array at. If start is negative,
-     *     it is treated as length+start.
+     * @param { int } [start] - The index to start filling the sparse array at. Defaults to 0. If start is negative,
+     *     it is treated as length + start.
      *     <br>The value should be an integer.
-     * @param { int } [end] - The index to stop filling the sparse array at. If end is negative,
-     *     it is treated as length+end.
+     * @param { int } [end] - The index to stop filling the sparse array at. Defaults to 0.  If end is negative,
+     *     it is treated as length + end.
      *     <br>The value should be an integer.
      * @returns { this } The modified sparse array.
      * @syscap SystemCapability.Utils.Lang
@@ -454,7 +472,8 @@ export class SparseArray<T> {
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
-    reduce<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U, initialValue: U): U;
+    reduce<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U,
+        initialValue: U): U;
 
     /**
      * Determines whether all the members of a sparse array satisfy the specified test.
@@ -462,7 +481,8 @@ export class SparseArray<T> {
      * @param { function } predicate - A function that accepts up to three arguments. The every method calls the
      *     predicate function for each element in the sparse array until the predicate returns a value
      *     which is coercible to the Boolean value false,or until the end of the sparse array.
-     * @returns { boolean } true if the callback function returns true for all elements, false otherwise.
+     * @returns { boolean } Returns true if the callback function returns true for all elements,
+     *     otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -485,6 +505,9 @@ export class SparseArray<T> {
      *
      * @param { int } index - The zero-based index of the desired element.
      *     A negative index counts back from the end of the sparse array.
+     *     If index is negative, it is treated as length + index (e.g., -1 refers to the last element).
+     *     If index is less than -length, returns undefined.
+     *     If index is greater than or equal to length, returns undefined.
      *     <br>The value should be an integer.
      * @returns { T | undefined } The element at the specified index, or undefined if the index is out of range.
      * @syscap SystemCapability.Utils.Lang
@@ -502,7 +525,7 @@ export class SparseArray<T> {
      *     <br>The value should be an integer.
      * @param { int } [end] - The zero-based index at which to stop copying elements from.
      *     <br>The value should be an integer.
-     * @returns { this }
+     * @returns { this } Returns the modified sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -559,7 +582,8 @@ export class SparseArray<T> {
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
-    reduceRight<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U, initialValue: U): U;
+    reduceRight<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U,
+        initialValue: U): U;
 
     /**
      * Returns a new sparse array with the elements in reversed order.
@@ -575,8 +599,16 @@ export class SparseArray<T> {
      * Returns a new sparse array with some elements removed and/or replaced at a given index.
      *
      * @param { int } start - The zero-based location in the sparse array from which to start removing elements.
+     *     If start is negative, it is treated as length + start (e.g., -1 refers to the last element).
+     *     If start is less than -length, it is clamped to 0.
+     *     If start is greater than or equal to length, no elements are removed and new elements are added at the end.
+     *     If start is not an integer, it is truncated towards zero.
      *     <br>The value should be an integer.
      * @param { int } deleteCount - The number of elements to remove.
+     *     If deleteCount is negative, it is clamped to 0 (no elements are removed).
+     *     If deleteCount is greater than the number of elements from start to the end of the array,
+     *     only the available elements are removed.
+     *     If deleteCount is not an integer, it is truncated towards zero.
      *     <br>The value should be an integer.
      * @param { T[] } items - Elements to insert into the sparse array in place of the deleted elements.
      * @returns { SparseArray<T> } A new sparse array with the specified elements removed and/or replaced.
@@ -590,6 +622,8 @@ export class SparseArray<T> {
      * Returns a new sparse array with the elements sorted in ascending order.
      *
      * @param { function } [compareFn] - A function used to determine the order of the elements.
+     *     If not provided, elements are sorted by converting them to strings and comparing
+     *     their UTF-16 code units in ascending order (default sort behavior).
      * @returns { SparseArray<T> }
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
