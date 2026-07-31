@@ -29401,8 +29401,9 @@ declare interface FocusMovement {
 }
 
 /**
- * Enumerates modes in which a popup responds when the keyboard is displayed.
+ * enum keyboard avoid mode
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
