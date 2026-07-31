@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 /**
- * 滑动条滑块在滑轨上显示的样式，具体样式请参考[Slider组件滑块与滑轨是如何对齐的](docroot://ui/arkts-select-component-faq.md#slider组件滑块与滑轨是如何对齐的)。
+ * 滑动条滑块在滑轨上显示的样式，样式说明请参考[Slider组件滑块与滑轨是如何对齐的](docroot://ui/arkts-select-component-faq.md#slider组件滑块与滑轨是如何对齐的)。
  * 
  * > **说明：** 
  * >
@@ -75,7 +75,7 @@ declare enum SliderStyle {
 }
 
 /**
- * 滑块的状态值。包括按下、拖动、离开以及点击滑动条使滑块位置时。
+ * 滑块状态值，包括按下、拖动、离开、点击滑动条使滑块移动时。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -86,7 +86,7 @@ declare enum SliderStyle {
  */
 declare enum SliderChangeMode {
     /**
-     * 手势/鼠标接触或者按下滑块。
+     * 手势或鼠标接触/按下滑块。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -97,7 +97,7 @@ declare enum SliderChangeMode {
      */
     Begin,
     /**
-     * 正在拖动滑块过程中。
+     * 拖动滑块过程中。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -108,7 +108,7 @@ declare enum SliderChangeMode {
      */
     Moving,
     /**
-     * 手势/鼠标离开滑块。
+     * 手势或鼠标离开滑块。
      * 
      * **说明：** 
      * 
@@ -123,7 +123,7 @@ declare enum SliderChangeMode {
      */
     End,
     /**
-     * 点击滑动条使滑块位置移动。
+     * 点击滑动条使滑块移动。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -186,7 +186,7 @@ declare enum SliderInteraction {
 }
 
 /**
- * 定义SlideRange中使用的回调类型。
+ * 定义有效滑动区间。
  * 
  * > **说明：**
  * >
@@ -424,7 +424,7 @@ declare enum SliderBlockType {
  */
 declare interface SliderBlockStyle {
     /**
-     * 设置滑块形状。
+     * 滑块形状。
      * 
      * 默认值：SliderBlockType.DEFAULT，使用圆形滑块。
      *
@@ -463,7 +463,7 @@ declare interface SliderBlockStyle {
 /**
  * 定义SliderConfiguration中使用的回调类型。
  *
- * @param { number } value - 设置当前的进度值。<br/>取值范围：[[min]{@link SliderOptions}-[max]{@link SliderOptions}]
+ * @param { number } value - 设置当前进度值。<br/>取值范围：[[min]{@link SliderOptions}-[max]{@link SliderOptions}]
  * @param { SliderChangeMode } mode - 设置事件触发的相关状态值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -514,7 +514,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      */
     max: number;
     /**
-     * Slider滑动步长。
+     * Slider滑动步长，表示滑动条每次滑动的数值增量。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -536,8 +536,8 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
 }
 
 /**
- * 滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。
- * 
+ * 滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。支持样式定制、方向配置、交互方式和无障碍功能，能解决UI一致性问题，提升开发效率，从而改善用户体验并降低开发成本。
+ *
  * > **说明：**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -574,7 +574,7 @@ interface SliderInterface {
  */
 declare interface SliderStepItemAccessibility {
   /**
-   * 用于提供辅助功能的文本，供屏幕阅读器等工具读取，增强无障碍功能。 
+   * 无障碍文本，供屏幕阅读器等工具读取，增强无障碍功能。 
    * 
    * 默认值：""
    *
@@ -598,7 +598,7 @@ declare interface SliderStepItemAccessibility {
  */
 declare interface SliderShowStepOptions {
   /**
-   * 用于设置刻度点提供辅助功能文本，供屏幕阅读器等工具读取，增强无障碍功能。 
+   * 刻度点无障碍文本映射集，供屏幕阅读器等工具读取，增强无障碍功能。 
    * 
    * Key取值范围：[0, INT32_MAX]，当Key设定为负数和小数时，设定项不生效。 
    * 
@@ -624,7 +624,7 @@ declare interface SliderShowStepOptions {
  */
 interface SliderCustomContentOptions {
   /**
-   * 用于提供辅助功能的文本，供屏幕阅读器等工具读取，增强无障碍功能。 
+   * 无障碍文本，供屏幕阅读器等工具读取，增强无障碍功能。 
    * 
    * 默认值：""
    *
@@ -637,7 +637,7 @@ interface SliderCustomContentOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * 用于提供辅助功能的详细描述，描述滑块前缀或后缀的功能或用途，供屏幕阅读器等工具使用。 
+   * 无障碍功能详细描述，描述滑块前缀或后缀的功能或用途，供屏幕阅读器等工具使用。 
    * 
    * 默认值为“单指双击即可执行”。
    *
@@ -650,7 +650,7 @@ interface SliderCustomContentOptions {
   accessibilityDescription?: ResourceStr;
    
   /**
-   * 用于控制某个组件是否可被无障碍辅助服务所识别。
+   * 控制组件是否可被无障碍辅助服务识别。
    * 
    * 支持的值为:
    * 
@@ -673,7 +673,7 @@ interface SliderCustomContentOptions {
   accessibilityLevel?: string;
   
   /**
-   * 用于标识该元素是否属于一个无障碍的组，帮助屏幕阅读器等工具将相关元素进行分组处理。
+   * 标识元素是否属于无障碍组，帮助屏幕阅读器等工具分组相关元素。
    * 
    * true：该组件及其所有子组件为一整个可以选中的组件，无障碍服务将不再关注其子组件内容；false：不启用无障碍分组。
    * 
@@ -734,7 +734,7 @@ declare interface ColorMetricsStop {
   color: ColorMetrics;
 
   /**
-   * 线性渐变颜色断点的断点值，取值为0~1之间的比例值，如果数据值小于0则置为0，如果数据值大于1则置为1。 
+   * 线性渐变颜色断点的断点值，取值为0~1之间的比例值。小于0置为0，大于1置为1。 
    * 
    * **说明：** 
    * 
@@ -762,7 +762,7 @@ declare class ColorMetricsLinearGradient {
     /**
      * ColorMetricsLinearGradient的构造函数。
      *
-     * @param { ColorMetricsStop[] } colorStops - 线性渐变颜色断点数组。每个元素用于描述一个颜色及其在渐变中的断点值。
+     * @param { ColorMetricsStop[] } colorStops - 线性渐变颜色断点数组，每个元素描述一个颜色及其在渐变中的断点值。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -806,7 +806,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    */
   blockColor(value: ResourceColor): SliderAttribute;
   /**
-   * 设置Slider滑块的颜色，支持渐变色。
+   * 设置Slider滑块的颜色，支持渐变色。与blockColor相比，新增LinearGradient类型支持。
    * 
    * 当滑块形状设置为SliderBlockType.DEFAULT时，blockColor可设置默认圆形滑块颜色。
    * 
@@ -829,7 +829,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * 设置滑轨的背景颜色。
    * 
-   * 从API version 12开始支持利用LinearGradient设置滑轨的渐变色。
+   * 从API version 12开始，支持使用LinearGradient类型设置滑轨的渐变色。
    *
    * @param { ResourceColor } value - 滑轨的背景颜色。<br/>默认值：`$r('sys.color.ohos_id_color_component_normal')`<br/>**说明：** <br/
    *     >1. 设置渐变色时，如果颜色断点颜色值为非法值或渐变色断点为空，渐变色将不起效果。<br/>2. 该接口中的LinearGradient类型不支持在原子化服务中使用。 [since 7 - 11]
@@ -874,13 +874,13 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   selectedColor(selectedColor: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
-   * 设置最小值。
-   * 
-   * > **说明：** 
+   * 设置最小值标签的文本内容。
+   *
+   * > **说明：**
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，建议使用min替代。min是[SliderOptions]{@link SliderOptions}中的属性。
    *
-   * @param { string } value - 最小值。
+   * @param { string } value - 最小值标签文本。
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -891,13 +891,13 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   minLabel(value: string): SliderAttribute;
 
   /**
-   * 设置最大值。
-   * 
-   * > **说明：** 
+   * 设置最大值标签的文本内容。
+   *
+   * > **说明：**
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，建议使用max替代。max是[SliderOptions]{@link SliderOptions}中的属性。
    *
-   * @param { string } value - 最大值。
+   * @param { string } value - 最大值标签文本。
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -908,9 +908,9 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   maxLabel(value: string): SliderAttribute;
 
   /**
-   * 设置当前是否显示步长刻度值。
+   * 设置是否显示步长刻度值。
    *
-   * @param { boolean } value - 当前是否显示步长刻度值。<br/>true：显示刻度值；false：不显示刻度值。<br/>默认值：false
+   * @param { boolean } value - 是否显示步长刻度值。<br/>true：显示刻度值；false：不显示刻度值。<br/>默认值：false
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -928,7 +928,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * 
    * 当显示步长时，设置的刻度点无障碍文本信息生效。
    *
-   * @param { boolean } value - 当前是否显示步长刻度值。<br/>true：显示刻度值；false：不显示刻度值。<br />默认值：false
+   * @param { boolean } value - 是否显示步长刻度值。<br/>true：显示刻度值；false：不显示刻度值。<br />默认值：false
    * @param { SliderShowStepOptions } [options] - 刻度点无障碍文本的配置选项，用于设置与无障碍功能相关的属性。<br/>默认值：null
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -943,13 +943,12 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * 设置滑动时是否显示气泡提示。
    * 
-   * 当direction的值为Axis.Horizontal时，tip显示在滑块上方，如果上方空间不够，则在下方显示。当值为Axis.Vertical时，tip显示在滑块左边，如果左边空间不够，则在右边显示。当不设置周边边距或者周边边
-   * 距比较小时，tip会被截断。
-   * 
-   * tip的绘制区域为Slider自身节点的overlay。
+   * 当direction的值为Axis.Horizontal时，气泡提示显示在滑块上方；若上方空间不足以显示完整气泡提示，则在下方显示。当值为Axis.Vertical时，气泡提示显示在滑块左边；若左边空间不足以显示完整气泡提示，则在右边显示。当未设置周边边距或边距小于气泡提示所需空间时，气泡提示会被截断。
+   *
+   * 气泡提示的绘制区域为Slider自身节点的overlay。
    *
    * @param { boolean } value - 滑动时是否显示气泡提示。<br/>true：显示气泡；false：不显示气泡。<br/>默认值：false
-   * @param { ResourceStr } content - 气泡提示的文本内容，默认显示当前百分比。<br/> [since 10]
+   * @param { ResourceStr } content - 气泡提示的文本内容。传入时显示自定义文本（当需要展示特定格式或额外信息时使用），不传入时默认显示当前百分比数值。<br/> [since 10]
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -989,9 +988,9 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Slider拖动或点击时触发事件回调。
    * 
-   * Begin和End状态当手势点击时都会触发，Moving和Click状态当value值发生变化时触发。
-   * 
-   * 当连贯动作为拖动动作时，不触发Click状态。
+   * Begin和End状态在点击时触发，Moving和Click状态在value值变化时触发。
+   *
+   * 连贯拖动动作不触发Click状态。
    *
    * @param { function } callback
    * @returns { SliderAttribute }
@@ -1142,9 +1141,9 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      */
     sliderInteractionMode(value: SliderInteraction): SliderAttribute;
     /**
-     * 设置滑动响应的最小距离。
+     * 设置滑块开始滑动的最小响应距离。
      *
-     * @param { number } value - 设置滑动响应的最小距离，滑动超过此距离后滑块才开始滑动。<br/>默认值：0<br/>**说明：** <br/>单位与
+     * @param { number } value - 设置滑块开始滑动的最小响应距离。<br/>默认值：0<br/>**说明：** <br/>单位与
      *     [SliderOptions]{@link SliderOptions}中的属性min以及属性max一致。<br/>当value小于0、大于max-min或非法值时，取默认值。
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1157,8 +1156,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
     /**
      * 定制Slider内容区的方法。
      *
-     * @param { ContentModifier<SliderConfiguration> } modifier - 在Slider组件上，定制内容区的方法。<br/>ContentModifier：内容修改器，开发者需要自定
-     *     义class实现ContentModifier接口。
+     * @param { ContentModifier<SliderConfiguration> } modifier - 在Slider组件上，定制内容区的方法。<br/>ContentModifier为内容修改器，需自定义class实现该接口。
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1168,9 +1166,9 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      */
     contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
     /**
-     * 设置有效滑动区间。
+     * 设置有效滑动区间。设置后滑块滑动范围被限制在[from, to]区间内，区间外的点击和手势不会触发滑动；value初始值若超出区间会自动调整到区间边界。
      *
-     * @param { SlideRange } value - 设置有效滑动区间
+     * @param { SlideRange } value - 有效滑动区间
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1180,13 +1178,13 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      */
     slideRange(value: SlideRange): SliderAttribute;
     /**
-     * 设置旋转表冠的灵敏度。
+     * 设置旋转表冠灵敏度。
      * 
      * > **说明：**
      * >
      * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
      *
-     * @param { Optional<CrownSensitivity> } sensitivity - 旋转表冠的灵敏度。<br />默认值：CrownSensitivity.MEDIUM
+     * @param { Optional<CrownSensitivity> } sensitivity - 旋转表冠灵敏度。<br />默认值：CrownSensitivity.MEDIUM
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1201,7 +1199,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * 开启触控反馈时，需要在工程的[module.json5](docroot://quick-start/module-configuration-file.md)中配置requestPermissions字段开启振动权限，配置如
      * 下：
      *
-     * @param { boolean } enabled - 设置是否开启触控反馈。<br/>true：开启触控反馈；false：不开启触控反馈。<br/>默认值：true
+     * @param { boolean } enabled - 是否开启触控反馈。<br/>true：开启触控反馈；false：不开启触控反馈。<br/>默认值：true
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1212,7 +1210,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
     /**
      * 设置滑动条的前缀。
      *
-     * @param { ComponentContent } content - 自定义组件内容，用于定义滑块前缀的可视化内容，该内容会显示在滑块的起始位置。
+     * @param { ComponentContent } content - 滑块前缀的可视化内容，显示在滑块起始位置。
      * @param { SliderPrefixOptions } [options] - 滑块前缀的配置选项，用于设置与无障碍功能相关的属性。 <br/>默认值：null
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1225,7 +1223,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
     /**
      * 设置滑动条的后缀。
      *
-     * @param { ComponentContent } content - 自定义组件内容，用于定义滑块后缀的可视化内容，该内容会显示在滑块的结束位置。
+     * @param { ComponentContent } content - 滑块后缀的可视化内容，显示在滑块结束位置。
      * @param { SliderSuffixOptions } [options] - 滑块后缀的配置选项，用于设置与无障碍功能相关的属性。 <br/>默认值：null
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1237,7 +1235,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
     suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
 
     /**
-     * 设置滑轨轨道的线性渐变背景颜色。
+     * 设置滑轨轨道的线性渐变背景颜色。与trackColorMetrics相比，使用ColorMetricsLinearGradient类型支持指定色域的渐变。
      *
      * @param { ColorMetricsLinearGradient } color - 滑轨轨道的线性渐变背景颜色。<br/>设置渐变色时，如果color的值为undefined，渐变色设置无效，轨道背景颜色默认取值为：
      *     `$r('sys.color.ohos_id_color_component_normal')`。
@@ -1252,10 +1250,10 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 }
 
 /**
- * 滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。
- * 
+ * 滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。支持样式定制、方向配置、交互方式和无障碍功能，能解决UI一致性问题，提升开发效率，从而改善用户体验并降低开发成本。
+ *
  * > **说明：**
- * 
+ *
  * ###### 子组件
  * 
  * 无

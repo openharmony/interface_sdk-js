@@ -88,7 +88,7 @@ declare enum ButtonType {
   Normal,
 
   /**
-   * 圆角矩形按钮（默认值：controlSize为NORMAL，圆角大小20vp，controlSize为SMALL，圆角大小14vp）。
+   * 圆角矩形按钮（在不设置borderRadius时，默认值：controlSize为NORMAL，圆角大小20vp，controlSize为SMALL，圆角大小14vp）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -112,7 +112,7 @@ declare enum ButtonType {
  */
 declare enum ButtonStyleMode {
     /**
-     * 普通按钮（一般界面操作）。
+     * 普通按钮（一般界面操作），适用于取消、关闭等非关键交互。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -123,7 +123,7 @@ declare enum ButtonStyleMode {
      */
     NORMAL = 0,
     /**
-     * 强调按钮（用于强调当前操作）。
+     * 强调按钮（用于强调当前操作），适用于提交表单、确认删除等关键操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -134,7 +134,7 @@ declare enum ButtonStyleMode {
      */
     EMPHASIZED = 1,
     /**
-     * 文本按钮（纯文本，无背景颜色）。
+     * 文本按钮（纯文本，无背景颜色），适用于次要操作或不需要强调的场景。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -169,7 +169,7 @@ declare enum ButtonRole {
      */
     NORMAL = 0,
     /**
-     * 警示按钮。
+     * 警示按钮，通常用于删除、清空等危险或警示性操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -206,8 +206,8 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
 declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
     /**
-     * Button的文本标签。
-     * 
+     * Button的文本标签，用于标识按钮的功能。
+     *
      * **说明**：当文本字符的长度超过按钮本身的宽度时，文本将会被截断。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -236,7 +236,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      */
     pressed: boolean;
     /**
-     * 使用builder新构建出来组件的点击事件。
+     * 点击事件回调，用于处理使用builder新构建出来组件的点击操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -329,7 +329,7 @@ declare interface ButtonOptions {
      */
     stateEffect?: boolean;
     /**
-     * 按钮的样式和重要程度，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+     * 按钮的样式和重要程度。根据设置枚举值的不同，系统自动调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
      * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
      * [fontColor]{@link ButtonAttribute#fontColor}和[role]{@link ButtonAttribute#role}接口设置，实际显示效果以最后一次设置为准。
      * 
@@ -363,7 +363,7 @@ declare interface ButtonOptions {
      */
     controlSize?: ControlSize;
     /**
-     * 按钮的角色，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+     * 按钮的角色。根据设置枚举值的不同，系统自动调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
      * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
      * [fontColor]{@link ButtonAttribute#fontColor}和[buttonStyle]{@link ButtonAttribute#buttonStyle}接口设置，实际显示效果以最后一次设置为
      * 准。
@@ -538,7 +538,7 @@ declare interface LabelStyle {
      */
     font?: Font;
     /**
-     * 设置label文本在水平方向上的对齐方式，label文本被截断时生效。当使用子节点的Text组件设置label时，此属性不生效，实际的文本对齐方式由子节点Text组件的textAlign属性决定。
+     * 设置label文本在水平方向上的对齐方式。当label文本被截断时属性生效。当使用子节点的Text组件设置label时，此属性不生效，实际的文本对齐方式由子节点Text组件的textAlign属性决定。
      * 
      * Wearable设备默认值为TextAlign.Center，其他设备默认值为TextAlign.Start。
      *
@@ -593,7 +593,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   stateEffect(value: boolean): ButtonAttribute;
 
   /**
-   * 设置Button组件的样式和重要程度。根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+   * 设置Button组件的样式和重要程度。根据设置枚举值的不同，系统自动调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
    * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
    * [fontColor]{@link ButtonAttribute#fontColor}和[role]{@link ButtonAttribute#role}接口设置，实际显示效果以最后一次设置为准。
    * 
@@ -631,11 +631,11 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   controlSize(value: ControlSize): ButtonAttribute;
 
   /**
-   * 设置Button组件的角色。根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+   * 设置Button组件的角色。根据设置枚举值的不同，系统自动调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
    * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
-   * [fontColor]{@link ButtonAttribute#fontColor}和[buttonStyle]{@link ButtonAttribute#buttonStyle}接口设置，实际显示效果以最后一次设置为准。
+   * [fontColor]{@link ButtonAttribute#fontColor}和[buttonStyle]{@link ButtonAttribute#buttonStyle}接口设置，实际显示效果以最后一次设置为准。ERROR角色通常用于删除、清空等危险或警示性操作。
    *
-   * @param { ButtonRole } value - 设置Button组件的角色。<br/>默认值：ButtonRole.NORMAL
+   * @param { ButtonRole } value - Button组件的角色。<br/>默认值：ButtonRole.NORMAL
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -663,7 +663,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * 设置文本显示字号。
    *
-   * @param { Length } value - 文本显示字号。<br/>默认值：当controlSize为ControlSize.NORMAL时，默认值为`$r('sys.float.Body_L')`。<br/>当
+   * @param { Length } value - 设置文本显示字号。<br/>默认值：当controlSize为ControlSize.NORMAL时，默认值为`$r('sys.float.Body_L')`。<br/>当
    *     controlSize为ControlSize.SMALL时，默认值为`$r('sys.float.Body_S')`。<br/>**说明**：设置string类型时，不支持百分比。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

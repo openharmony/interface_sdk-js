@@ -963,9 +963,8 @@ export class PromptAction {
   /**
    * 显示给定设置中的操作菜单。该接口使用异步回调返回结果。
    *
-   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback -  用于返回操作的回调
-   *     菜单响应结果。
+   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。用于配置操作菜单的显示内容和样式，包括title、buttons等属性。
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback -  菜单响应结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
