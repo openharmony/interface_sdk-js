@@ -1559,7 +1559,7 @@ declare namespace bundleManager {
    * Enumerates the application installation statuses.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi [since 23 - 25]
+   * @systemapi [since 23 - 26.0.0]
    * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
@@ -1568,7 +1568,7 @@ declare namespace bundleManager {
      * The application is not installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi [since 23 - 25]
+     * @systemapi [since 23 - 26.0.0]
      * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
@@ -1578,7 +1578,7 @@ declare namespace bundleManager {
      * The application is being installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi [since 23 - 25]
+     * @systemapi [since 23 - 26.0.0]
      * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
@@ -1588,7 +1588,7 @@ declare namespace bundleManager {
      * The application has been installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi [since 23 - 25]
+     * @systemapi [since 23 - 26.0.0]
      * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
@@ -4505,9 +4505,9 @@ declare namespace bundleManager {
    * @param { string } bundleName - Bundle name.
    * @returns { BundleInstallStatus } Application installation status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API. [since 23 - 25]
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API. [since 23 - 26.0.0]
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi [since 23 - 25]
+   * @systemapi [since 23 - 26.0.0]
    * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
