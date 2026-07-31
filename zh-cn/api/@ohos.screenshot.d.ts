@@ -34,7 +34,7 @@ declare namespace screenshot {
    * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
    *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。
@@ -55,7 +55,7 @@ declare namespace screenshot {
    * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
    *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。返回一个PixelMap对象。
@@ -73,7 +73,7 @@ declare namespace screenshot {
    * 获取屏幕截图，使用Promise异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
    *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。 [since 7 - 21]
