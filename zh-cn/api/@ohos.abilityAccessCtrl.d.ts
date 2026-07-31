@@ -929,7 +929,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because
-     *     it does not belong to the application itself; 2. The type of global switch is not support.
+     *     it does not belong to the application itself; 2. The type of global switch is not supported.
      * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
      *     or obtaining user operation result.
      * @throws { BusinessError } 12100013 - The specific global switch is already open.
@@ -949,6 +949,7 @@ declare namespace abilityAccessCtrl {
      *     <br>BundleInfo获取可参考：[bundleManager.getBundleInfoSync]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoSync}。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100007 - Service exception.
      * @syscap SystemCapability.Security.AccessToken
