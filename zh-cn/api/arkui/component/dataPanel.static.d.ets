@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -282,17 +282,6 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置DataPanel选项。
-     *
-     * @param { DataPanelOptions } options - 创建DataPanel的选项。
-     * @returns { DataPanelAttribute } 返回DataPanel属性的实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setDataPanelOptions(options: DataPanelOptions): this;
 }
 /**
  * 创建数据面板组件。
@@ -307,19 +296,4 @@ export declare interface DataPanelAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function DataPanel(
     options: DataPanelOptions
-): DataPanelAttribute;
-
-/**
- * 定义DataPanel组件。
- *
- * @param { CustomBuilderT<DataPanelAttribute> } style - DataPanel属性实例。
- * @returns { DataPanelAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function DataPanel(
-    style: CustomBuilderT<DataPanelAttribute>,
 ): DataPanelAttribute;

@@ -21,7 +21,7 @@
 import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions } from './common';
 import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
 import { LinearGradient } from "./dataPanel";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -276,17 +276,6 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置Gauge选项。
-     *
-     * @param { GaugeOptions } options - 构建Gauge的选项。
-     * @returns { GaugeAttribute } 返回Gauge属性的实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setGaugeOptions(options: GaugeOptions): this;
 }
 /**
  * 创建数据量规图表组件。
@@ -303,21 +292,4 @@ export declare interface GaugeAttribute extends CommonMethod {
 export declare function Gauge(
     options: GaugeOptions, 
     content_?: CustomBuilder
-): GaugeAttribute;
-
-/**
- * 定义Gauge组件。
- *
- * @param { CustomBuilderT<GaugeAttribute> } style - Gauge属性的实例。
- * @param { CustomBuilder } [content_] - 子组件。
- * @returns { GaugeAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function Gauge(
-    style: CustomBuilderT<GaugeAttribute>,
-    content_?: CustomBuilder,
 ): GaugeAttribute;

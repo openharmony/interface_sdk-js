@@ -21,7 +21,7 @@
 import { ResourceColor, Length } from "./units";
 import { LengthMetrics } from '../Graphics';
 import { CommonMethod, Callback } from './common';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -291,17 +291,6 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置PatternLock组件选项。
-     *
-     * @param { PatternLockController } [controller] - PatternLock组件控制器。
-     * @returns { PatternLockAttribute } 返回PatternLock属性实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setPatternLockOptions(controller?: PatternLockController): this;
 }
 /**
  * 创建图案密码锁组件。
@@ -316,19 +305,4 @@ export declare interface PatternLockAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function PatternLock(
     controller?: PatternLockController
-): PatternLockAttribute;
-
-/**
- * 定义PatternLock组件。
- *
- * @param { CustomBuilderT<PatternLockAttribute> } style - PatternLock属性实例。
- * @returns { PatternLockAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function PatternLock(
-    style: CustomBuilderT<PatternLockAttribute>,
 ): PatternLockAttribute;

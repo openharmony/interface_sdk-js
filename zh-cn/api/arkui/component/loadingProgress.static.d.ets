@@ -20,7 +20,7 @@
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor } from "./units";
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -112,16 +112,6 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * 设置LoadingProgress选项。
-     *
-     * @returns { LoadingProgressAttribute } 返回LoadingProgress属性实例。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setLoadingProgressOptions(): this;
 }
 /**
  * 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
@@ -153,19 +143,4 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
  */
 @ComponentBuilder
 export declare function LoadingProgress(
-): LoadingProgressAttribute;
-
-/**
- * 定义LoadingProgress组件。
- *
- * @param { CustomBuilderT<LoadingProgressAttribute> } style - LoadingProgress属性实例。
- * @returns { LoadingProgressAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function LoadingProgress(
-    style: CustomBuilderT<LoadingProgressAttribute>,
 ): LoadingProgressAttribute;

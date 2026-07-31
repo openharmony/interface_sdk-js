@@ -607,4 +607,4 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function SymbolGlyph(
     value?: Resource
-): SymbolGlyphAttribute
+): SymbolGlyphAttribute;
