@@ -360,6 +360,116 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     checkSpecialScenarioAuthResult(context: Context): Promise<UserAuthResult>;
+
+    /**
+     * Notify progress data.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    progressInfo?: ProgressInfo;
+
+    /**
+     * Notify progress data.
+     *
+     * @param { ProgressInfo | undefined } value
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    set progressInfo(value: ProgressInfo | undefined);
+
+    /**
+     * Notify progress data.
+     *
+     * @returns { ProgressInfo | undefined } notify progress data.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get progressInfo(): ProgressInfo | undefined;
+  }
+
+  /**
+   * Notify progress data.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface ProgressInfo {  
+    /**
+     * Notification title.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    title: string;
+    /**
+     * Notification content.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    fileName: string;
+    /**
+     * Download progress. If this field does not exist, the progress ring will not be displayed.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressValue?: int;
+    /**
+     * Whether to ring when the download progress reaches 100%.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isMute?: boolean;
+  }
+
+  /**
+   * Information about continuousTask notification progress.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface DataTransferProgress {  
+    /**
+     * Continuous task ID.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    continuousTaskId: int;
+
+    /**
+     * Notification parameters, which are used to specify the target page that is redirected to when a continuous task
+     * notification is clicked.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * Notify progress data.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressInfo: ProgressInfo;
   }
 
   /**
@@ -1244,6 +1354,23 @@ declare namespace backgroundTaskManager {
    * @since 24 static
    */
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
+
+  /**
+   * Update notification. Only data transfer ContinuousTasks are supported.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - Application context.
+   * @param { DataTransferProgress } progressInfo - Notify progress data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDataTransferProgress(context: Context, progressInfo: DataTransferProgress): void;
 
   /**
    * Cancels all continuous tasks in the current UIAbility (ServiceAbility in the FA model). This API uses an 
