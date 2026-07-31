@@ -52,7 +52,61 @@ declare namespace deviceControl {
      * @stagemodelonly
      * @since 26.0.0
      */
-    DISK_ERASURE = 0
+    DISK_ERASURE = 0,
+
+    /**
+     * Restore device factory settings.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    RESET_FACTORY = 1,
+
+    /**
+     * Restart devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    REBOOT = 2,
+
+    /**
+     * Shut down devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SHUT_DOWN = 3,
+
+    /**
+     * Lock device screens.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    LOCK_SCREEN = 4,
+
+    /**
+     * Lock devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    LOCK_DEVICE = 5,
+
+    /**
+     * Unlock devices.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    UNLOCK_DEVICE = 6
   }
 
   /**
@@ -204,7 +258,7 @@ declare namespace deviceControl {
    *
    * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { string } operation - operation indicates the operation to performed.
+   * @param { Operation } operation - operation indicates the operation to performed.
    * @param { string } [addition] - addition indicates the specified additional parameters
    *     when performing the operation.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

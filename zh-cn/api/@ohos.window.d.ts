@@ -123,6 +123,7 @@ declare namespace window {
    * 窗口类型枚举。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 7 dynamic
    * @since 23 static
@@ -303,6 +304,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2319,6 +2321,7 @@ declare namespace window {
    * 创建子窗口或系统窗口时的参数。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2328,6 +2331,7 @@ declare namespace window {
      * 窗口名称。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2338,6 +2342,7 @@ declare namespace window {
      * 窗口类型。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2348,6 +2353,7 @@ declare namespace window {
      * 当前应用上下文信息。不设置，则默认为空。<br>FA模型下不需要使用该参数，即可创建子窗口，使用该参数时会报错。<br>Stage模型必须使用该参数，用于创建全局悬浮窗、模态窗或系统窗口。 <br>
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2909,6 +2915,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2943,6 +2950,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -3054,7 +3062,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function createSubWindowAndBindParent(name: string, parentId: int, ctx: BaseContext,
     parentWindowEventListener: WindowEventListener): Promise<Window>;
@@ -3099,7 +3107,8 @@ declare namespace window {
    * @returns { Window } 当前查找的窗口对象。如果查找指定名称对应的窗口不存在，会抛出1300002错误码
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3987,9 +3996,8 @@ declare namespace window {
    *     [window.getAllMainWindowInfo()]{@link window.getAllMainWindowInfo}获取到主窗口windowId。当windowId为null、undefined、小于0、存
    *     在重复值或数量超过512个时，返回错误码401；当windowId大于0但不存在对应窗口时，返回undefined。
    * @param { WindowSnapshotConfiguration } config - 获取窗口截图时的配置信息。
-   * @returns { Promise<Array<image.PixelMap | undefined>> } Promise used to return an array of PixelMap objects of the
-   *     screenshots, representing the screenshots, in the order of the provided window ID array. If a window ID is
-   *     valid but the corresponding main window cannot be found, undefined is returned.
+   * @returns { Promise<Array<image.PixelMap | undefined>> } Promise对象。截图的PixelMap列表，按传入的窗口ID数组的顺序排列。当窗口ID合法但无法找到对应的主窗口时
+   *     ，返回undefined。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
@@ -4025,17 +4033,19 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not found or has been destoryed.
+   *     Possible cause: The window is not found or has been destroyed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
-   *     1. DisplayId is a negative number or not exist.
+   *     1. DisplayId is a negative number or not exists.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
+   *     1. The userId is not exist. 
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function moveMainWindowToTargetDisplay(displayId: long, windowId: int): Promise<void>;
+  function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
    * 窗口显示方向类型枚举。<!--Del-->不同枚举值之间的区别可查询
@@ -12517,7 +12527,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -12528,7 +12538,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -12800,8 +12810,9 @@ declare namespace window {
     /**
      * 获取该WindowStage实例下的主窗口，该接口为同步调用。
      *
-     * @returns { Window }
-     返回当前WindowStage下的主窗口对象。
+     * @returns { Window } 返回当前WindowStage下的主窗口对象。
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -12875,8 +12886,9 @@ declare namespace window {
     /**
      * 获取该WindowStage实例下的所有子窗口，使用Promise异步回调。
      *
-     * @returns { Promise<Array<Window>> }
-     Promise对象。返回当前WindowStage下的所有子窗口对象。
+     * @returns { Promise<Array<Window>> } Promise对象。返回当前WindowStage下的所有子窗口对象。
+     * @throws { BusinessError } 1300002 - This window state is abnormal. [since 10]
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -12934,8 +12946,11 @@ declare namespace window {
      *
      * @param { string } path 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。
      * @param { LocalStorage } storage 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。
-     * @returns { Promise<void> }
-     无返回结果的Promise对象。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]

@@ -23,7 +23,7 @@ import { Callback } from './@ohos.base';
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * 本模块提供页面路由能力，支持通过url或命名路由进行页面跳转与替换、返回上一页面或指定页面、管理页面栈、获取页面状态与跳转参数、设置页面返回询问对话框等，适用于需要在应用内进行页面导航和流转的场景。
+ * Router提供页面跳转能力，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
  * 
  * 推荐使用[Navigation组件](docroot://ui/arkts-navigation-architecture.md)作为应用路由框架。
  * 
@@ -762,8 +762,7 @@ declare namespace router {
   function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
-   * 禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)
-   * 开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
+   * 禁用页面返回询问对话框。适用于用户已完成保存操作可以安全返回、页面状态切换后不再需要返回确认、需要动态控制返回行为等场景。与showAlertBeforeBackPage()方法成对使用：调用showAlertBeforeBackPage()开启对话框后，可在适当时机调用本方法关闭对话框。
    * 
    * > **说明：**
    * >

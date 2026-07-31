@@ -20944,8 +20944,8 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 /**
 * 定义可选类型，其值可以是undefined。
 *
- * @unionmember { T } The object can be of any custom type.
- * @unionmember { undefined } The object can be **undefined**.
+ * @unionmember { T } 表示泛型T所指定的类型。
+ * @unionmember { undefined } 表示该类型声明的对象是undefined。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31198,7 +31198,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * `mutableBuilder`是一个泛型函数，它返回一个`MutableBuilder`对象，只接受一个全局的`@Builder`函数作为其参数。

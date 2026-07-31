@@ -2292,6 +2292,22 @@ declare interface NavigationConfiguration {
    * @since 26.0.0 dynamic
    */
   stackSizeLimit?: int;
+
+  /**
+   * Whether to clear the content stack when navigation is triggered from the primary side.
+   *
+   * In Navigation split mode, when enabled, navigaiton triggered from the primary side clears old
+   * NavDestination after the Primary/Home node while preserving all NavDestinations created by
+   * the current operation.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  clearContentStackOnPrimaryNavigation?: boolean;
 }
 
 /**

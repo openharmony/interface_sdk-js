@@ -177,7 +177,10 @@ template("ohos_handle_declaration_template") {
   action_with_pydeps(target_name) {
     deps = [ ":ohos_ets_dynamic" ]
     if (sdk_build_arkts) {
-      deps += [ ":ohos_ets_static" ]
+      deps += [
+        ":copy_runtimeapi",
+        ":ohos_ets_static",
+      ]
     }
     deps += [ ":${_module_info_target}" ]
     inputs = []
@@ -231,17 +234,17 @@ ohos_handle_declaration_template("ohos_build_dynamic_sdk_kits") {
 
 # 最终打包SDK ets2/api执行脚本
 ohos_handle_declaration_template("ohos_build_static_sdk_api") {
-  input_project_dir = "${ohos_ets_static_api_path}"
+  input_project_dir = target_out_dir + "/copy_runtimeapi/api"
 }
 
 # 最终打包SDK ets2/arkts执行脚本
 ohos_handle_declaration_template("ohos_build_static_sdk_arkts") {
-  input_project_dir = "${ohos_ets_static_arkts_path}"
+  input_project_dir = target_out_dir + "/copy_runtimeapi/arkts"
 }
 
 # 最终打包SDK ets2/kits执行脚本
 ohos_handle_declaration_template("ohos_build_static_sdk_kits") {
-  input_project_dir = "${ohos_ets_static_kits_path}"
+  input_project_dir = target_out_dir + "/copy_runtimeapi/kits"
 }
 
 # ets/api执行脚本
@@ -759,6 +762,49 @@ group("ohos_ets_static") {
     ":ohos_ets_static_arkts",
     ":ohos_ets_static_kits",
   ]
+}
+
+# runtimeapi 处理：对 static SDK 执行 @unpublished 处理
+# 执行流程：
+# 1. tag-only on ohos_static/ → 仅删 @unpublished 标签，保留 API（暴露给其他部件）
+# 2. copy ohos_static/ → target_out_dir/copy_runtimeapi_runtimeapi/（tag-only 副本，供 runtimeapi）
+# 3. copy ohos_static/ → target_out_dir/copy_runtimeapi/（将做 tag-and-api 处理）
+# 4. tag-and-api on target_out_dir/copy_runtimeapi/ → 删 @unpublished 标签+API（供 ets/static/api、arkts、kits 打包）
+action("copy_runtimeapi") {
+  deps = [
+    ":build_static_sdk_interop",
+    ":ohos_ets_static",
+  ]
+  script = "//interface/sdk-js/copy_runtimeapi.py"
+  args = [
+    "--static-sdk-path",
+    rebase_path(ohos_ets_static_path, root_build_dir),
+    "--output-path",
+    rebase_path(target_out_dir + "/${target_name}", root_build_dir),
+    "--runtimeapi-path",
+    rebase_path(target_out_dir + "/${target_name}_runtimeapi", root_build_dir),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir),
+    "--unpublished-tool",
+    rebase_path("//interface/sdk-js/build-tools/delete_unpublished_plugin.js",
+                root_build_dir),
+    "--sdk-path",
+    rebase_path(build_sdk_path, root_build_dir),
+  ]
+  outputs = [
+    target_out_dir + "/${target_name}",
+    target_out_dir + "/${target_name}_runtimeapi",
+  ]
+}
+
+# SDK 打包：runtimeapi → 最终 SDK 输出
+# 从 tag-only 处理结果拷贝（仅删 @unpublished 标签，API 声明保留），供 ets-loader 运行时使用
+ohos_copy("ohos_ets_runtimeapi") {
+  deps = [ ":copy_runtimeapi" ]
+  sources = [ target_out_dir + "/copy_runtimeapi_runtimeapi" ]
+  outputs = [ target_out_dir + "/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
 }
 
 action("ohos_ets_process_interop") {

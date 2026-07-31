@@ -13605,7 +13605,7 @@ export declare interface CommonMethod {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    default bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | Array<MenuElement> | undefined,
+    default bindContextMenuWithResponseArray(content: CustomBuilderT<ResponseType> | Array<MenuElement> | undefined,
         options?: ContextMenuOptions): this;
     /**
      * Binds a context menu to the component, whose visibility is subject to the isShow settings.

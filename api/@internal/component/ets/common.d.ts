@@ -970,7 +970,7 @@ declare enum SystemProperties {
    * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
-};
+}
 
 /**
  * Defining Consume PropertyDecorator.
@@ -26754,7 +26754,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
 
@@ -26774,7 +26774,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
@@ -28537,7 +28537,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * Defining mutableBuilder function.

@@ -128,6 +128,7 @@ declare namespace window {
    * Enumerates the window types.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 7 dynamic
    * @since 23 static
@@ -298,6 +299,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -2377,6 +2379,7 @@ declare namespace window {
    * Defines the parameters for creating a child window or system window.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2386,6 +2389,7 @@ declare namespace window {
      * Indicates window id.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2396,6 +2400,7 @@ declare namespace window {
      * Indicates window type
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2406,6 +2411,7 @@ declare namespace window {
      * Indicates window context.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2987,6 +2993,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -3022,6 +3029,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -3162,7 +3170,8 @@ declare namespace window {
    *     is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. The window is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -4004,13 +4013,9 @@ declare namespace window {
 
   /**
    * Register the callback for application process focus state changes.
-   * This listener monitors the focus state changes between applications. 
-   * If the focus state changes between windows within the same application, the callback function will not be triggered.
    *
    * @param { Callback<boolean> } callback - Callback used to return the result whether application process
    *     focused or not.
-   *     The value true means that the application process becomes focused,
-   *     and false means that the application process becomes unfocused.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -4143,11 +4148,11 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not found or has been destoryed.
+   *     Possible cause: The window is not found or has been destroyed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
-   *     1. DisplayId is a negative number or not exist.
+   *     1. DisplayId is a negative number or not exists.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
    *     1. The userId is not exist. 
    * @syscap SystemCapability.Window.SessionManager
@@ -13518,7 +13523,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -13530,7 +13535,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static

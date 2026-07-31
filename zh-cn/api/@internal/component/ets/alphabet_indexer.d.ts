@@ -193,7 +193,7 @@ declare type OnAlphabetIndexerRequestPopupDataCallback  = (index: number) => Arr
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
 
   /**
-   * 索引项选中事件，回调参数为当前选中项索引。
+   * 注册索引项选中事件回调，回调参数为当前选中项索引。
    *
    * > **说明：**
    *
@@ -476,7 +476,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   selected(index: number): AlphabetIndexerAttribute;
 
   /**
-   * 设置弹出窗口相对于索引条上边框中点的位置。
+   * 设置提示弹窗相对于索引条上边框中点的位置。
    *
    * @param { Position } value - 弹出窗口相对于索引条上边框中点的位置。与[alignStyle](#alignstyle)同时设置时，
    *     水平方向由[alignStyle](#alignstyle)的offset参数控制，竖直方向上value.y生效。<br/>默认值：{x: 60.0, y: 48.0}<br/>单位：vp

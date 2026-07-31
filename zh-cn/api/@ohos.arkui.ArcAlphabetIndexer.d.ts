@@ -80,7 +80,7 @@ export interface ArcAlphabetIndexerInterface {
   /**
    * 创建并初始化弧形索引条组件。
    *
-   * @param { ArcAlphabetIndexerInitInfo } info - 定义弧形字母索引条的初始化参数。
+   * @param { ArcAlphabetIndexerInitInfo } info - 定义弧形字母索引条的初始化参数，包含字母索引字符串数组和初始选中项索引值。
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -188,7 +188,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selectedFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * 设置提示弹窗字体样式。
+   * 设置提示弹窗字体样式，用于设置提示弹窗中显示的当前选中字母的显示效果，包括文字大小、粗细、倾斜角度和字体族等。
    *
    * @param { Optional<Font> } font - 提示弹窗字体样式。<br/>默认值：<br/>{<br/>size:'19.0fp',<br/> style:FontStyle.Normal,<br/>
    *     weight:500,<br/> family:'HarmonyOS Sans'<br/>}
@@ -203,7 +203,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * 设置弧形字母索引条默认字体样式。
    *
-   * @param { Optional<Font> } font - 字母索引条默认字体样式。<br/>默认值：<br/>{<br/>size:'13.0fp',<br/> style:FontStyle.Normal,<br/>
+   * @param { Optional<Font> } font - 字母索引条默认字体样式，用于设置索引条上所有字母的显示效果，包括文字大小、粗细、倾斜角度和字体族等。<br/>默认值：<br/>{<br/>size:'13.0fp',<br/> style:FontStyle.Normal,<br/>
    *     weight:500,<br/> family:'HarmonyOS Sans'<br/>}
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -253,7 +253,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * 索引条选中回调，返回值为当前选中索引。
    *
-   * @param { Optional<OnSelectCallback> } handler - 回调函数，用于处理索引条选中事件。
+   * @param { Optional<OnSelectCallback> } handler - 回调函数，用于处理索引条选中事件。当用户点击或滑动索引条选中某项时触发，回调中返回当前选中项的索引值。
    * @returns { ArcAlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

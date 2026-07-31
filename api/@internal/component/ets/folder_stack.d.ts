@@ -51,8 +51,8 @@ interface FolderStackOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   upperItems?: Array<string>;
 }
@@ -105,8 +105,8 @@ interface OnFoldStatusChangeInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   foldStatus: FoldStatus;
 }

@@ -1114,7 +1114,8 @@ declare enum BorderStyle {
 }
 
 /**
- * Enumerates rendering strategies for drawing rounded corners.
+ * RenderStrategy 的枚举。
+ * 定义图形渲染策略。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1126,13 +1127,7 @@ declare enum BorderStyle {
  */
 declare enum RenderStrategy {
   /**
-   * Online rendering mode. The content to be rendered is clipped with rounded corners and directly rendered to the main
-   * canvas.
-   * 
-   * Note: Online rendering may cause display anomalies in certain scenarios. For example, when blur effects are applied
-   * within rounded corner components, background colors may interact and create gradient overlay effects. For detailed 
-   * behavior, see 
-   * [Example 3: Configuring Offscreen Rounded Corners](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#example-3-configuring-offscreen-rounded-corners).
+   * 当前组件及其子组件将直接绘制到画布上，并应用圆角效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1144,17 +1139,8 @@ declare enum RenderStrategy {
   FAST = 0,
 
   /**
-   * Offscreen rendering mode. The content to be rendered is first rendered to the offscreen canvas without rounded 
-   * corners, and then clipped with rounded corners and rendered to the main canvas.
-   * 
-   * **NOTE**
-   * 
-   * 1. Compared with online rendering, offscreen rendering requires additional performance overhead.
-   * 2. In offscreen rendering, the content is first rendered on an additional canvas, and then rendered on the main
-   * canvas.
-   * 3. Use offscreen rendering primarily for multi-layer components requiring rounded corners. For single components,
-   * it has effect only when the [clip]{@link CommonMethod#clip(value: boolean)} attribute, [background]{@link common},
-   * or [foreground color]{@link common} is configured.
+   * 当前组件及其子组件会先被画到一个离屏画布上，
+   * 然后进行一些图形渲染操作，最后绘制到主画布上。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2257,7 +2243,7 @@ declare enum Edge {
  * @since 10
  */
 /**
- * Set Weekend
+ * 定义星期枚举值。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4382,7 +4368,7 @@ declare enum PixelRoundCalcPolicy {
 }
 
 /**
- * Pixel Round Mode
+ * 像素取整模式
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4394,7 +4380,7 @@ declare enum PixelRoundCalcPolicy {
  */
 declare enum PixelRoundMode {
   /**
-   * Do pixel round on layout finish.
+   * 布局结束后像素取整
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4405,7 +4391,7 @@ declare enum PixelRoundMode {
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
-   * Do pixel round after measure.
+   * 计算大小后像素取整。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7435,7 +7421,7 @@ declare enum EllipsisMode {
  * @since 11
  */
 /**
- * A type which can be undefined
+ * 在使用该类型时，其值可以使泛型参数T所指定的类型，也可以是undefined。
  *
  * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
