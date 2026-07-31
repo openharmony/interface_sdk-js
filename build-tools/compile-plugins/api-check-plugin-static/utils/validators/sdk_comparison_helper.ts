@@ -30,7 +30,6 @@ import {
   comparePointVersion,
   checkMSFVersionMajor,
   checkIntegerMoreVersion,
-  isApiAvailableStatement,
   isCheckDistributionOSVersion,
   isOpenHarmonyRuntime
 } from '../api_check_base_utils';

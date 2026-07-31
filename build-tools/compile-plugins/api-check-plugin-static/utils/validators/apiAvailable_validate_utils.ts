@@ -139,8 +139,6 @@ function checkStringDistributionOS(
   };
 }
 
-export type TypeOfNodeFunc = (node: arkts.AstNode) => arkts.Type | arkts.Type[];
-
 export interface ValidateApiAvailableArgumentOptions {
   node: arkts.CallExpression;
   isOpenHarmonyRuntime: () => boolean;

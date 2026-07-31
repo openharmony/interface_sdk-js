@@ -302,17 +302,6 @@ export function checkIntegerMoreVersion(since: string): boolean {
   return true;
 }
 
-export function isApiAvailableStatement(expression: arkts.AstNode): boolean {
-  if (!arkts.isCallExpression(expression)) {
-    return false;
-  }
-  const expr = expression.callee?.property;
-  if (!expr || expr.name !== 'apiAvailable') {
-    return false;
-  }
-  return expression.arguments && expression.arguments.length === 1;
-}
-
 export function isCheckDistributionOSVersion(tag: string, version: string): DistributionOSApiAvailableVersionResult {
   const runtimeOS = globalObject.projectConfig.runtimeOS;
   let distributionOSCheck: DistributionOSApiAvailableVersionResult = {
@@ -338,43 +327,6 @@ export function isCheckDistributionOSVersion(tag: string, version: string): Dist
     }
   }
   return distributionOSCheck;
-}
-
-export function checkMSFVersionMajorError(since: string): MSFVersionCheckResult {
-  const noParenthesesReg: RegExp = /^[1-9]\d?\.(?:0|[1-9]\d?)\.(?:0|[1-9]\d?)$/;
-  const withParenthesesReg: RegExp = /^[1-9]\d?\.(?:0|[1-9]\d?)\.(?:0|[1-9]\d?)\(\d+\)$/;
-
-  const hasParentheses: boolean = withParenthesesReg.test(since);
-  const noParentheses: boolean = noParenthesesReg.test(since);
-
-  if (!hasParentheses && !noParentheses) {
-    return { valid: false, needDistCheck: false };
-  }
-
-  const parts: string[] = since.split('.');
-  const mValue: number = parseInt(parts[0], 10);
-  const sValue: number = parseInt(parts[1], 10);
-  const fValue: number = hasParentheses ? parseInt(parts[2].split('(')[0], 10) : parseInt(parts[2], 10);
-
-  if (sValue > MSF_SANDF_VERSION || fValue > MSF_SANDF_VERSION) {
-    return { valid: false, needDistCheck: false };
-  }
-
-  if (isOpenHarmonyRuntime()) {
-    if (hasParentheses || mValue < MSF_INTEGER_VERSION) {
-      return { valid: false, needDistCheck: false };
-    }
-    return { valid: true, needDistCheck: false };
-  }
-
-  if (mValue >= MSF_INTEGER_VERSION) {
-    if (hasParentheses) {
-      return { valid: false, needDistCheck: false };
-    }
-    return { valid: true, needDistCheck: false };
-  }
-
-  return { valid: false, needDistCheck: true };
 }
 
 export function isApiAvailableGetTypeOfNodeStatement(expression: arkts.AstNode): boolean {
