@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class StringBuilder {
+export class StringBuilder {
     /**
      * Construct a new builder instance with the initial buffer of 16 chars
      *
@@ -137,6 +137,7 @@ class StringBuilder {
      * Appends an int as string to the builder's internal buffer
      *
      * @param { int } i - value to be appended
+     *     <br>The value should be an integer.
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -246,6 +247,7 @@ class StringBuilder {
      * Converts the primitive to a string
      *
      * @param { int } i - value to be converted
+     *     <br>The value should be an integer.
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -285,4 +287,14 @@ class StringBuilder {
      * @since 24 staticonly
      */
     static toString(d: double): string;
+
+    /**
+     * Length of string accumulated so far
+     *
+     * @returns { int } length of string accumulated so far
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public get stringLength(): int;
 }

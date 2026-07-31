@@ -27,7 +27,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-namespace reflect {
+export namespace reflect {
 
   /**
    * Represents an instance field of a class or interface.
@@ -41,7 +41,7 @@ namespace reflect {
     /**
      * Checks if the current instance field is equal to the given instance field.
      *
-     * @param { InstanceField } other - Another InstanceField object to compare with.
+     * @param { InstanceField } other - Another StaticField object to compare with the current StaticField instance.
      * @returns { boolean } Returns true if the two instance fields are equal, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -53,7 +53,8 @@ namespace reflect {
      * Reads the value from the instance field.
      *
      * @param { Object } thisObj - The target object as the `this` context.
-     * @returns { Any } Returns the value read from the instance field.
+     * @returns { Any } Returns the value read from the instance field.When thisobj is null, it returns null;
+     *     when it is undefined, it returns undefined.
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the field.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly

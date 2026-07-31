@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class Class {
+export class Class {
     /**
      * Get the name of a class in assembly
      *
@@ -71,7 +71,8 @@ class Class {
     /**
      * Get the component type of this class if it is a fixed array.
      *
-     * @returns { Class | undefined } the component type of the fixed array, or undefined if this class is not a fixed array.
+     * @returns { Class | undefined } the component type of the fixed array, or undefined if
+     *     this class is not a fixed array.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
@@ -350,4 +351,104 @@ class Class {
      * @since 24 staticonly
      */
     isPrimitive(): boolean;
+
+    /**
+     * Stores Class of boolean primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_BOOLEAN: Class;
+
+    /**
+     * Stores Class of byte primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_BYTE: Class;
+
+    /**
+     * Stores Class of char primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_CHAR: Class;
+
+    /**
+     * Stores Class of short primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_SHORT: Class;
+
+    /**
+     * Stores Class of int primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_INT: Class;
+
+    /**
+     * Stores Class of long primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_LONG: Class;
+
+    /**
+     * Stores Class of float primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_FLOAT: Class;
+
+    /**
+     * Stores Class of double primitive type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_DOUBLE: Class;
+
+    /**
+     * Stores Class of number primitive type (same as double).
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_NUMBER: Class;
+
+    /**
+     * Stores Class of void type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static readonly PRIMITIVE_VOID: Class;
+
+    /**
+     * Checks if this class is a namespace.
+     *
+     * @returns { boolean } true if this class is a namespace.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public isNamespace(): boolean;
 }

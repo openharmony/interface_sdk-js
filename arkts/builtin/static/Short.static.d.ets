@@ -20,94 +20,49 @@
  */
 
 /**
- * Represents boxed long value and related operations.
+ * Represents boxed short value and related operations
  *
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
- * @since 24 staticonly
+ * @since 26.0.0 staticonly
  */
-export class Long extends Integral implements Comparable<Long> {
-
+export class Short extends Integral implements Comparable<Short> {
   /**
-   * Constructs a new Long instance with initial value zero
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  constructor();
-
-  /**
-   * Constructs a new Long instance with provided initial value
-   *
-   * @param { long } value - the initial value
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  constructor(value: long);
-
-  /**
-   * Returns value of this instance
-   *
-   * @returns { long } value as long
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  toLong(): long;
-
-  /**
-   * Returns the primitive as long value
-   *
-   * @param { long } value - value to cast
-   * @returns { long } casted value
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  static toLong(value: long): long;
-
-  /**
-   * Converts the primitive to a string
-   *
-   * @param { long } v - value to be converted
-   * @returns { string } result of the conversion
-   * @throws { RangeError } - - Input parameter error.
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  static toString(v: long): string;
-
-  /**
-   * Converts this object to a string
-   *
-   * @returns { string } result of the conversion
-   * @throws { RangeError } 10200011 - Input parameter error.
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 24 staticonly
-   */
-  toString(): string;
-
-  /**
-   * Minimal value that this type can have as a long.
+   * Constructs a new Short instance with initial value zero.
    *
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static MIN_VALUE: long = -9223372036854775808;
+  public constructor();
 
   /**
-   * Maximal value that this type can have as a long.
+   * Constructs a new Short instance with provided initial value.
+   *
+   * @param { short } value - the initial value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public constructor(value: short);
+
+  /**
+   * Minimal value that this type can have as a short.
    *
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static MAX_VALUE: long = 9223372036854775807;
+  public static MIN_VALUE: short = -32768;
+
+  /**
+   * Maximal value that this type can have as a short.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static MAX_VALUE: short = 32767;
 
   /**
    * Size of this type in bits.
@@ -116,7 +71,7 @@ export class Long extends Integral implements Comparable<Long> {
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static BIT_SIZE: byte = 64;
+  public static BIT_SIZE: byte = 16;
 
   /**
    * Size of this type in bytes.
@@ -125,7 +80,7 @@ export class Long extends Integral implements Comparable<Long> {
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static BYTE_SIZE: byte = 8;
+  public static BYTE_SIZE: byte = 2;
 
   /**
    * Returns value of this instance as byte.
@@ -156,6 +111,16 @@ export class Long extends Integral implements Comparable<Long> {
    * @since 26.0.0 staticonly
    */
   public toInt(): int;
+
+  /**
+   * Returns value of this instance as long.
+   *
+   * @returns { long } value as long.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toLong(): long;
 
   /**
    * Returns value of this instance as float.
@@ -190,81 +155,113 @@ export class Long extends Integral implements Comparable<Long> {
   /**
    * Returns the primitive as byte value.
    *
-   * @param { long } value - value to cast.
+   * @param { short } value - value to cast.
    * @returns { byte } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static toByte(value: long): byte;
-
-  /**
-   * Returns the primitive as short value.
-   *
-   * @param { long } value - value to cast.
-   * @returns { short } casted value.
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  public static toShort(value: long): short;
+  public static toByte(value: short): byte;
 
   /**
    * Returns the primitive as int value.
    *
-   * @param { long } value - value to cast.
+   * @param { short } value - value to cast.
    * @returns { int } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static toInt(value: long): int;
+  public static toInt(value: short): int;
+
+  /**
+   * Returns the primitive as long value.
+   *
+   * @param { short } value - value to cast.
+   * @returns { long } casted value.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toLong(value: short): long;
 
   /**
    * Returns the primitive as float value.
    *
-   * @param { long } value - value to cast.
+   * @param { short } value - value to cast.
    * @returns { float } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static toFloat(value: long): float;
+  public static toFloat(value: short): float;
 
   /**
    * Returns the primitive as double value.
    *
-   * @param { long } value - value to cast.
+   * @param { short } value - value to cast.
    * @returns { double } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static toDouble(value: long): double;
+  public static toDouble(value: short): double;
 
   /**
    * Returns the primitive as char value.
    *
-   * @param { long } value - value to cast.
+   * @param { short } value - value to cast.
    * @returns { char } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static toChar(value: long): char;
+  public static toChar(value: short): char;
 
   /**
-   * Compares this instance to other Long object. The result is less than 0 if this instance lesser than
-   * provided object, 0 if they are equal, and greater than 0 otherwise.
+   * Returns the primitive as short value.
    *
-   * @param { Long } other - Long object to compare with.
-   * @returns { int } result of the comparison, -1 if this instance is less than provided object,
-   *     0 if equal, 1 if greater.
+   * @param { short } value - value to cast.
+   * @returns { short } casted value.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public compareTo(other: Long): int;
+  public static toShort(value: short): short;
+
+  /**
+   * Compares this instance to other Short object. The result is less than 0 if this instance lesser
+   * than provided object, 0 if they are equal, and greater than 0 otherwise.
+   *
+   * @param { Short } other - Short object to compare with.
+   * @returns { int } result of the comparison, -1 if this instance is less than provided object, 0 if equal,
+   *     1 if greater.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public compareTo(other: Short): int;
+
+  /**
+   * Converts the primitive to a string.
+   *
+   * @param { short } v - value to be converted.
+   * @returns { string } result of the conversion.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public static toString(v: short): string;
+
+  /**
+   * Converts this object to a string.
+   *
+   * @returns { string } result of the conversion.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public toString(): string;
 
   /**
    * Converts this object to a string with specified radix.
@@ -290,7 +287,7 @@ export class Long extends Integral implements Comparable<Long> {
   public toString(radix: double): string;
 
   /**
-   * Checks for equality this instance with provided object, treated as a Long.
+   * Checks for equality this instance with provided object, treated as a Short.
    *
    * @param { Any } other - object to be checked against.
    * @returns { boolean } true if provided object and this instance have same value, false otherwise.
@@ -331,101 +328,101 @@ export class Long extends Integral implements Comparable<Long> {
   /**
    * Performs integral addition of this instance with provided one, returns the result as new instance.
    *
-   * @param { Long } other - Right hand side of the addition.
-   * @returns { Long } Result of the addition.
+   * @param { Short } other - Right hand side of the addition.
+   * @returns { Short } Result of the addition.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public add(other: Long): Long;
+  public add(other: Short): Short;
 
   /**
    * Performs integral subtraction of this instance with provided one, returns the result as new instance.
    *
-   * @param { Long } other - Right hand side of the subtraction.
-   * @returns { Long } Result of the subtraction.
+   * @param { Short } other - Right hand side of the subtraction.
+   * @returns { Short } Result of the subtraction.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public sub(other: Long): Long;
+  public sub(other: Short): Short;
 
   /**
    * Performs integral multiplication of this instance with provided one, returns the result as new instance.
    *
-   * @param { Long } other - Right hand side of the multiplication.
-   * @returns { Long } Result of the multiplication.
+   * @param { Short } other - Right hand side of the multiplication.
+   * @returns { Short } Result of the multiplication.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public mul(other: Long): Long;
+  public mul(other: Short): Short;
 
   /**
    * Performs integral division of this instance with provided one, returns the result as new instance.
    *
-   * @param { Long } other - Right hand side of the division.
-   * @returns { Long } Result of the division.
+   * @param { Short } other - Right hand side of the division.
+   * @returns { Short } Result of the division.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public div(other: Long): Long;
+  public div(other: Short): Short;
 
   /**
    * Checks if this instance value is less than value of provided instance.
    *
-   * @param { Long } other - Right hand side of the comparison.
+   * @param { Short } other - Right hand side of the comparison.
    * @returns { boolean } true if this value is less than provided, false otherwise.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public isLessThan(other: Long): boolean;
+  public isLessThan(other: Short): boolean;
 
   /**
    * Checks if this instance value is less than or equal to value of provided instance.
    *
-   * @param { Long } other - Right hand side of the comparison.
+   * @param { Short } other - Right hand side of the comparison.
    * @returns { boolean } true if this value is less than or equal to provided, false otherwise.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public isLessEqualThan(other: Long): boolean;
+  public isLessEqualThan(other: Short): boolean;
 
   /**
    * Checks if this instance value is greater than value of provided instance.
    *
-   * @param { Long } other - Right hand side of the comparison.
+   * @param { Short } other - Right hand side of the comparison.
    * @returns { boolean } true if this value is greater than provided, false otherwise.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public isGreaterThan(other: Long): boolean;
+  public isGreaterThan(other: Short): boolean;
 
   /**
    * Checks if this instance value is greater than or equal to value of provided instance.
    *
-   * @param { Long } other - Right hand side of the comparison.
+   * @param { Short } other - Right hand side of the comparison.
    * @returns { boolean } true if this value is greater than or equal to provided, false otherwise.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public isGreaterEqualThan(other: Long): boolean;
+  public isGreaterEqualThan(other: Short): boolean;
 
   /**
-   * Parses from String an integer of specified radix.
+   * Parses from string an integer of specified radix.
    *
    * @param { string } s - the string to convert.
    * @param { int } r - the radix of conversion; should be [2, 36]; 0 assumed to be 10.
    *     <br>The value should be an integer.
-   * @returns { long } the result of parsing.
+   * @returns { short } the result of parsing.
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  public static parseInt(s: string, r: int): long;
+  public static parseInt(s: string, r: int): short;
 }
