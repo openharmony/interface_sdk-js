@@ -19,7 +19,6 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 import { Callback } from '../../@ohos.base';
 
@@ -35,7 +34,6 @@ import { Callback } from '../../@ohos.base';
 export declare namespace Profiler {
   /**
    * 为profiler注册vsync回调。
-   * AnonyMous Object Rectification.
    *
    * @param { Callback<string> } callback - 回调信息为带有ui更新信息的json字符串。
    * @syscap SystemCapability.ArkUI.ArkUI.Full

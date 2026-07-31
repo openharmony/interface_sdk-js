@@ -66,7 +66,6 @@ export declare interface SecurityUIExtensionOptions {
    * true：转发上一级的Caller信息；false：不转发上一级的Caller信息。<br/>
    * 默认值：false
    *
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -114,7 +113,10 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
 export declare interface SecurityUIExtensionProxy {
   /**
    * 用于在双方建立连接成功后，向被拉起的Ability发送数据，提供异步发送能力。数据将被扩展Ability通过setReceiveDataCallback接收处理。
-   * AnonyMous Object Rectification
+   *
+   * > **说明：**
+   * >
+   * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
    *
    * @param { Record<string, RecordData> } data - 异步发送给被拉起的Ability的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -125,7 +127,6 @@ export declare interface SecurityUIExtensionProxy {
   send(data: Record<string, RecordData>): void;
   /**
    * 用于在双方建立连接成功后，向被拉起的Ability同步发送数据，数据将被拉起的Ability通过setReceiveDataForResultCallback处理并返回结果。
-   * AnonyMous Object Rectification
    *
    * @param { Record<string, RecordData> } data - 同步发送给被拉起的Ability的数据。
    * @returns { Record<string, RecordData> } data - 被拉起的Ability对同步发送请求处理后返回的响应数据。
@@ -139,7 +140,6 @@ export declare interface SecurityUIExtensionProxy {
   sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
   /**
    * 订阅被拉起的Ability发生异步注册的回调。使用callback异步回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<SecurityUIExtensionProxy> } callback - 回调函数。订阅扩展Ability注册setReceiveDataCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +150,6 @@ export declare interface SecurityUIExtensionProxy {
   onAsyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
   /**
    * 订阅被拉起的Ability发生同步注册的回调。使用callback异步回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<SecurityUIExtensionProxy> } callback - 回调函数。扩展Ability注册setReceiveDataForResultCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -161,7 +160,6 @@ export declare interface SecurityUIExtensionProxy {
   onSyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
   /**
    * 取消订阅被拉起的Ability发生异步注册的回调。使用callback异步回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<SecurityUIExtensionProxy> } [callback] - 回调函数。为空代表取消订阅所有扩展Ability异步注册后触发回调。非空代表取消订阅异步对应回调。
    *     ArkTS-Sta模式下，可传入undefined，表示取消所有回调。
@@ -173,7 +171,6 @@ export declare interface SecurityUIExtensionProxy {
   offAsyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
   /**
    * 取消订阅被拉起的Ability发生同步注册的回调。使用callback异步回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<SecurityUIExtensionProxy> } [callback] - 回调函数。为空代表取消订阅所有扩展Ability同步注册后触发回调。非空代表取消订阅同步对应回调。
    *     ArkTS-Sta模式下，可传入undefined，表示取消所有回调。
@@ -208,7 +205,7 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
    */
   onRemoteReady(callback: Callback<SecurityUIExtensionProxy> | undefined): this;
   /**
-   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。<br/>AnonyMous Object Rectification
+   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。
    *
    * @param { ReceiveCallback | undefined } callback - 回调函数，返回收到的来自对端Ability的数据。<br/>ArkTS-Sta模式下，可传入undefined，表示取消回调函数。
    * @returns { SecurityUIExtensionComponentAttribute }

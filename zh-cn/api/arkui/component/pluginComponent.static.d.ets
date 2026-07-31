@@ -21,7 +21,6 @@
 import { VoidCallback } from './units';
 
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { ComponentBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { RecordData } from '../../@ohos.base';
 import { Builder } from '@ohos.arkui.component';
@@ -57,7 +56,10 @@ export interface PluginComponentTemplate {
 
 /**
  * 定义用于构造插件组件的选项。
- * AnonyMous Object Rectification
+ *
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -67,7 +69,6 @@ export interface PluginComponentTemplate {
 export declare interface PluginComponentOptions {
   /**
    * 组件模板，用于跟提供方定义的组件绑定。
-   * AnonyMous Object Rectification
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -77,7 +78,6 @@ export declare interface PluginComponentOptions {
   template: PluginComponentTemplate;
   /**
    * 传给插件组件提供方使用的数据，类型不限（支持对象、字符串等）。具体数据格式由使用方与提供方协商定义。
-   * AnonyMous Object Rectification
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -88,7 +88,10 @@ export declare interface PluginComponentOptions {
 }
 /**
  * 发生错误时提供的数据。
- * AnonyMous Object Rectification
+ *
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -98,7 +101,6 @@ export declare interface PluginComponentOptions {
 export declare interface PluginErrorData {
   /**
    * 错误码。
-   * AnonyMous Object Rectification
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -108,7 +110,6 @@ export declare interface PluginErrorData {
   errcode: int;
   /**
    * 错误信息。
-   * AnonyMous Object Rectification
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -119,7 +120,10 @@ export declare interface PluginErrorData {
 }
 /**
  * 发生错误时触发事件回调。
- * AnonyMous Object Rectification
+ *
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @param { PluginErrorData } info - 发生错误时提供的数据。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -141,8 +145,8 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
 export declare interface PluginComponentAttribute extends CommonMethod {
 
   /**
+   * 设置插件组件选项。
    * 组件加载完成时触发回调。
-   * AnonyMous Object Rectification
    *
    * @param { VoidCallback | undefined } callback - 组件加载完成时触发事件回调。
    * @returns { PluginComponentAttribute }
@@ -154,7 +158,6 @@ export declare interface PluginComponentAttribute extends CommonMethod {
   onComplete(callback: VoidCallback | undefined): this;
   /**
    * 组件加载错误时触发回调。
-   * AnonyMous Object Rectification
    *
    * @param { PluginErrorCallback | undefined } callback - 组件加载错误时触发事件回调。
    * @returns { PluginComponentAttribute }

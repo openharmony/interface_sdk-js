@@ -26,6 +26,15 @@ import { Builder } from '@ohos.arkui.component';
 
 /**
  * 用于描述XComponent持有Surface的显示区域。
+ * > **说明：**
+ * >
+ * > surfaceWidth和surfaceHeight属性在未调用[setXComponentSurfaceRect]{@link XComponentController#setXComponentSurfaceRect}也未
+ * > 设置[border]{@link CommonMethod#border}和[padding]{@link CommonMethod#padding}等属性时，其取值大小为XComponent组件的大小。
+ * > 
+ * > surfaceWidth和surfaceHeight属性的取值都不可超过8192px，否则会导致渲染异常。
+ * >
+ * > 沉浸式场景下，默认布局的SurfaceRect不包括安全区，需调用[setXComponentSurfaceRect]{@link XComponentController#setxcomponentsurfacerect}接
+ * > 口主动设置Surface显示区域达到沉浸式效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
