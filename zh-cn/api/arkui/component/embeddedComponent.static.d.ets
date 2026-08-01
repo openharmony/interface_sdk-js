@@ -139,29 +139,6 @@ export declare interface EmbeddedOptions {
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
   /**
-   * 设置嵌入式组件的选项。
-   *
-   * @param { Want } loader - 表示初始化参数。
-   * @param { EmbeddedType } [type] - 表示EmbeddedComponent的类型。
-   * @param { EmbeddedOptions } [options] - 表示EmbeddedComponent选项的类型。
-   * @returns { this } EmbeddedComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType, options?: EmbeddedOptions): this;
-  /**
-   * 设置嵌入式组件的选项。
-   *
-   * @param { Want } loader - 表示初始化参数。
-   * @param { EmbeddedType } [type] - 表示EmbeddedComponent的类型。
-   * @returns { this } EmbeddedComponentAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType): this;
-  /**
    * 被拉起的EmbeddedUIExtensionAbility通过调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。
    *
    * @param { Callback<TerminationInfo> | undefined } callback - 回调函数，入参用于接收EmbeddedUIExtensionAbility的返回结果，
@@ -222,36 +199,4 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function EmbeddedComponent(
     loader: Want, type?: EmbeddedType
-): EmbeddedComponentAttribute;
-
-/**
- * 创建跨进程嵌入式组件，用于显示同包名或满足跨应用权限条件的EmbeddedUIExtensionAbility的UI。相对于API version 12的接口，新增options参数用于传递构造参数。
- *
- * @param { Want } loader - 要加载的EmbeddedUIExtensionAbility。
- * @param { EmbeddedType } [type] - 提供方的类型，当前支持值为EmbeddedType.EMBEDDED_UI_EXTENSION，
- *     表示嵌入的是EmbeddedUIExtensionAbility提供的UI。
- * @param { EmbeddedOptions } [options] - 嵌入式组件的可选配置项，用于设置占位符、DPI跟随策略、窗口模式跟随策略等。详见EmbeddedOptions。
- * @returns { EmbeddedComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@ComponentBuilder
-export declare function EmbeddedComponent(
-    loader: Want, type?: EmbeddedType, options?: EmbeddedOptions
-): EmbeddedComponentAttribute;
-
-/**
- * 定义EmbeddedComponent组件。需要在组件属性设置开始时调用setEmbeddedComponentOptions，
- * 并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<EmbeddedComponentAttribute> } style - 用于设置embeddedcomponent属性的回调。
- * @returns { EmbeddedComponentAttribute } EmbeddedComponent的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function EmbeddedComponent(
-    style: CustomBuilderT<EmbeddedComponentAttribute>
 ): EmbeddedComponentAttribute;

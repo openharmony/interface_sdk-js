@@ -164,7 +164,6 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
 export declare interface UIExtensionProxy {
   /**
    * 用于在双方建立连接成功后，组件使用方将数据发送给被拉起的Ability的场景，提供异步发送数据。
-   * AnonyMous Object Rectification
    *
    * @param { Record<string, RecordData> } data - 异步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
    * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
@@ -176,7 +175,6 @@ export declare interface UIExtensionProxy {
   send(data: Record<string, RecordData>): void;
   /**
    * 用于在双方建立连接成功后，组件使用方将数据发送给被拉起的Ability的场景，提供同步发送数据。
-   * AnonyMous Object Rectification
    *
    * @param { Record<string, RecordData> } data - 同步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
    * @returns { Record<string, RecordData> } data - 扩展Ability回复的数据。
@@ -191,7 +189,6 @@ export declare interface UIExtensionProxy {
   sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
   /**
    * 注册监听器，用于监听UIExtensionAbility注册异步数据接收回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
    * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
@@ -203,7 +200,6 @@ export declare interface UIExtensionProxy {
   onAsyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
   /**
    * 注册监听器，用于监听UIExtensionAbility注册同步数据接收回调。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
    * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
@@ -215,7 +211,6 @@ export declare interface UIExtensionProxy {
   onSyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
   /**
    * 注销监听UIExtensionAbility注册异步数据接收回调的监听器。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
    * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
@@ -227,7 +222,6 @@ export declare interface UIExtensionProxy {
   offAsyncReceiverRegister(callback?: Callback<UIExtensionProxy>): void;
   /**
    * 注销监听UIExtensionAbility注册同步数据接收回调的监听器。
-   * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
    * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
@@ -250,6 +244,7 @@ export declare interface UIExtensionProxy {
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
   /**
+   * 设置UIExtensionComponent的选项。
    * UIExtensionAbility连接完成时的回调，之后可使用proxy向被拉起的Ability发送数据。
    *
    * @param { Callback<UIExtensionProxy> | undefined } callback - 回调函数。
@@ -263,7 +258,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
    */
   onRemoteReady(callback: Callback<UIExtensionProxy> | undefined): this;
   /**
-   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。<br/>AnonyMous Object Rectification
+   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。
    *
    * @param { ReceiveCallback | undefined } callback - 回调函数，返回收到的来自被拉起的Ability的数据。
    * @returns { UIExtensionComponentAttribute }
