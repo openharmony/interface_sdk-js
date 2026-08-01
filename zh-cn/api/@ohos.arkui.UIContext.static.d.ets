@@ -627,8 +627,8 @@ export declare class Router {
 declare type CustomBuilderWithId = (id: int) => void;
 
 /**
-* 指定组件绑定的目标节点。
-*
+ * 指定组件绑定的目标节点。
+ *
  * @interface TargetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -638,13 +638,12 @@ export interface TargetInfo {
 
   /**
    * 指定popup或menu绑定的目标节点。
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
    * 1. 当id是number时，对应组件实例的UniqueID，此id由系统保证唯一性。
    * 2. 当id是string时，对应[通用属性id]{@link CommonMethod#id}所指定的组件，此id的唯一性需由开发者确保，但实际可能会有多个。
    *
-   * @type { string | int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -654,7 +653,6 @@ export interface TargetInfo {
   /**
    * 目标节点所在的自定义组件的UniqueID。当上述id指定为string类型时，可通过此属性圈定范围。方便开发者在一定范围内保证id: string的唯一性。
    *
-   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -663,16 +661,17 @@ export interface TargetInfo {
 }
 
 /**
-* 创建并显示即时反馈、对话框、操作菜单以及自定义弹窗。
-*
-* > **说明：**
-* >
-* > - 本Class首批接口从API version 10开始支持。
-* >
-* > - 以下API需先使用UIContext中的[getPromptAction()]{@link @ohos.arkui.UIContext:UIContext#getPromptAction}方法获取到PromptAction对
-* > 象，再通过该对象调用对应方法。
-*
+ * 创建并显示即时反馈、对话框、操作菜单以及自定义弹窗。
+ * 
+ * > **说明：**
+ * >
+ * > - 本Class首批接口从API version 10开始支持。
+ * >
+ * > - 以下API需先使用UIContext中的[getPromptAction()]{@link @ohos.arkui.UIContext:UIContext#getPromptAction}方法获取到PromptAction对
+ * > 象，再通过该对象调用对应方法。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class PromptAction {
@@ -687,6 +686,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showToast(options: promptAction.ShowToastOptions): void;
@@ -702,6 +702,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openToast(options: promptAction.ShowToastOptions): Promise<int>;
@@ -717,6 +718,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closeToast(toastId: int): void;
@@ -732,6 +734,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions,
@@ -748,6 +751,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
@@ -763,6 +767,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions,
@@ -779,6 +784,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
@@ -799,6 +805,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
@@ -821,6 +828,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
@@ -840,6 +848,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
@@ -857,6 +866,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
@@ -875,6 +885,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
@@ -895,6 +906,7 @@ export declare class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
@@ -910,6 +922,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closeCustomDialog(dialogId: int): void;
@@ -921,6 +934,7 @@ export declare class PromptAction {
    *
    * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getTopOrder(): LevelOrder | undefined;
@@ -930,6 +944,7 @@ export declare class PromptAction {
    *
    * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   getBottomOrder(): LevelOrder | undefined;
@@ -962,6 +977,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo,
@@ -987,6 +1003,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions,
@@ -1004,6 +1021,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
@@ -1039,6 +1057,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
@@ -1069,6 +1088,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
@@ -1086,6 +1106,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;

@@ -19,8 +19,8 @@
  */
 
 /**
- * common enum of the checkbox shape
- *
+* common enum of the checkbox shape
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,8 +29,8 @@
  * @since 11
  */
 /**
- * common enum of the checkbox shape
- *
+* common enum of the checkbox shape
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -80,7 +80,7 @@ declare enum CheckBoxShape {
    * @atomicservice
    * @since 12 dynamic
    */
-  ROUNDED_SQUARE = 1,
+  ROUNDED_SQUARE = 1
 }
 
 /**
