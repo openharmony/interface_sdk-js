@@ -22,15 +22,11 @@ import { Resource as _Resource } from './global/resource';
 import { SendableResource as _SendableResource } from './global/sendableResource';
 
 /**
- * The **sendableResourceManager** module provides the 
- * [resourceToSendableResource]{@link sendableResourceManager.resourceToSendableResource} and 
- * [sendableResourceToResource]{@link sendableResourceManager.sendableResourceToResource} APIs to implement conversion 
- * between [Resource]{@link sendableResourceManager.Resource} and 
- * [SendableResource]{@link sendableResourceManager.resourceToSendableResource} objects.
- * A **Resource** object can be held by the [Sendable](docroot://arkts-utils/arkts-sendable.md) class after being 
- * converted into a **SendableResource** object. After cross-thread transmission, the **Sendable** class converts the 
- * **SendableResource** object into a **Resource** object and uses it as an input parameter for the API used to obtain 
- * resources.
+ * This module provides the mutual conversion between [Resource]{@link sendableResourceManager.Resource} objects and 
+ * [SendableResource]{@link sendableResourceManager.SendableResource} objects. `SendableResource` implements the 
+ * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable) API and supports cross-thread transmission. After 
+ * cross-thread transmission, the `SendableResource` object can be converted back to a `Resource` object and passed as 
+ * a parameter to the [resource management]{@link @ohos.resourceManager:resourceManager} APIs to obtain resources.
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
@@ -40,11 +36,11 @@ import { SendableResource as _SendableResource } from './global/sendableResource
 declare namespace sendableResourceManager {
 
   /**
-   * Converts a **Resource** object to a **SendableResource** object.
+   * Converts a `Resource` object to a `SendableResource` object that can be used for cross-thread transmission.
    *
    * @param { Resource } resource - **Resource** object.
    * @returns { SendableResource } **SendableResource** object after conversion.
-   * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -54,11 +50,11 @@ declare namespace sendableResourceManager {
   export function resourceToSendableResource(resource: Resource): SendableResource;
 
   /**
-   * Converts a **SendableResource** object to a **Resource** object.
+   * Converts a `SendableResource` object transmitted across threads to a `Resource` object.
    *
    * @param { SendableResource } resource - **SendableResource** object.
    * @returns { Resource } **Resource** object after conversion.
-   * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -68,7 +64,8 @@ declare namespace sendableResourceManager {
   export function sendableResourceToResource(resource: SendableResource): Resource;
 
   /**
-   * Defines a Resource object.
+   * Represents resource-related information, including the application bundle name, application module name, resource 
+   * ID, resource type, and other resource parameters.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -78,7 +75,8 @@ declare namespace sendableResourceManager {
   export type Resource = _Resource;
 
   /**
-   * Defines a SendableResource object.
+   * Represents Sendable resource-related information for cross-thread transmission, including the application bundle 
+   * name, application module name, resource ID, resource type, and other resource parameters.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
