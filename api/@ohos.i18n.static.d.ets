@@ -2185,6 +2185,24 @@ declare namespace i18n {
     zoneDisplayName: string;
 
     /**
+     * Latitude of the city.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 26.1.0 static
+     */
+    latitude: double;
+
+    /**
+     * Longitude of the city.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 26.1.0 static
+     */
+    longitude: double;
+
+    /**
      * Fixed offset of the time zone ID.
      * The value should be an integer.
      *
