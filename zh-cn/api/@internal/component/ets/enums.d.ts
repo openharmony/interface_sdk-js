@@ -40,6 +40,7 @@
  * @since 12 dynamic
  */
 declare enum CheckBoxShape {
+
   /**
    * Circle.
    *
@@ -7122,7 +7123,8 @@ declare enum RenderFit {
 }
 
 /**
- * The Button Style of dialog,
+* The Button Style of dialog,
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7130,7 +7132,8 @@ declare enum RenderFit {
  * @since 10
  */
 /**
- * The Button Style of dialog,
+* The Button Style of dialog,
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7139,8 +7142,10 @@ declare enum RenderFit {
  * @since 11 dynamic
  */
 declare enum DialogButtonStyle {
+
   /**
    * Default Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7148,6 +7153,7 @@ declare enum DialogButtonStyle {
    */
   /**
    * Default Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7158,6 +7164,7 @@ declare enum DialogButtonStyle {
 
   /**
    * Highlight Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7165,6 +7172,7 @@ declare enum DialogButtonStyle {
    */
   /**
    * Highlight Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
