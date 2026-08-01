@@ -206,6 +206,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300406 - The distributed account information has already been bound to
+     *     a sub-profile of the same OS account. [since 26.0.0]
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -225,6 +227,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300406 - The distributed account information has already been bound to
+     *     a sub-profile of the same OS account. [since 26.0.0]
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -246,6 +250,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid distributedInfo.
      * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
      * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @throws { BusinessError } 12300406 - The distributed account information has already been bound to
+     *     a sub-profile of the target OS account. [since 26.0.0]
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -268,6 +274,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid distributedInfo.
      * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
      * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @throws { BusinessError } 12300406 - The distributed account information has already been bound to
+     *     a sub-profile of the target OS account. [since 26.0.0]
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
