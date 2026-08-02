@@ -31,9 +31,9 @@
  */
 declare class ContextMenu {
   /**
-   * 可以通过该方法在页面范围内关闭通过
+   * 在页面范围内关闭通过
    * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
-   * 为组件绑定的菜单。
+   * 绑定的菜单。常用于页面跳转、拖拽开始等需要主动关闭已显示菜单的交互场景。
    * 
    * > **说明：**
    * >
