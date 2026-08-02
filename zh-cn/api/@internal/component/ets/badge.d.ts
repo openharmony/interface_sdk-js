@@ -19,8 +19,8 @@
  */
 
 /**
-* 提示点显示位置。
-*
+ * 标记显示位置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -28,7 +28,6 @@
  * @since 7 dynamic
  */
 declare enum BadgePosition {
-
   /**
    * 圆点显示在右上角。
    *
@@ -38,7 +37,7 @@ declare enum BadgePosition {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  RightTop = 0,
+  RightTop,
 
   /**
    * Dots are displayed in the upper right corner.
@@ -64,13 +63,13 @@ declare enum BadgePosition {
 }
 
 /**
-* Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸等。
-*
-* > **说明：**
-* >
-* > - 当`borderWidth`大于0且`borderColor`与`badgeColor`颜色不一致时，先绘制角标，再绘制描边。由于边缘像素经过抗锯齿处理，抗锯齿产生半透明像素，四角会出现 `badgeColor` 颜色的描边
-* > 线。如需实现相关场景，建议使用[Text]{@link text}组件设置[outline]{@link CommonMethod#outline(value: OutlineOptions)}代替Badge组件。
-*
+ * Badge的样式。包括文本颜色、大小、字重、标记颜色和标记大小。
+ * 
+ * > **说明：**
+ * >
+ * > 当`borderWidth`大于0且`borderColor`与`badgeColor`颜色不一致时，先绘制角标，再绘制描边。由于边缘像素经过抗锯齿处理，抗锯齿产生半透明像素，四角会出现 `badgeColor` 颜色的描边线。如
+ * > 需实现相关场景，建议使用[Text]{@link ./text}组件设置[outline]{@link CommonMethod#outline(value: OutlineOptions)}代替Badge组件。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -78,7 +77,6 @@ declare enum BadgePosition {
  * @since 7 dynamic
  */
 declare interface BadgeStyle {
-
   /**
    * 文本颜色。
    *
@@ -95,15 +93,15 @@ declare interface BadgeStyle {
 
   /**
    * 文本大小。string类型仅支持number类型取值的字符串形式，可以附带单位，支持的单位有"px"、"vp"、"fp"、"lpx"，例如"10"、"10fp"，不附带单位时默认单位为"fp"。
-   *
+   * 
    * 默认值：10vp
-   *
+   * 
    * 默认单位：fp
-   *
+   * 
    * 取值范围：大于0；取值为0时不显示文本，取值小于0时取默认值。
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
    * 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。
    * 2. 从API version 20开始，支持ResourceStr类型。
    *
@@ -119,16 +117,16 @@ declare interface BadgeStyle {
   fontSize?: number | ResourceStr;
 
   /**
-   * Badge的大小。string类型仅支持number类型取值的字符串形式，可以附带单位，支持的单位有"px"、"vp"、"fp"、"lpx"，例如"16"、"16fp"，不附带单位时默认单位为"fp"。
-   *
+   * Badge的大小。string类型支持number类型取值的字符串形式，可以附带单位，支持的单位有"px"、"vp"、"fp"、"lpx"，例如"16"、"16fp"，不附带单位时默认单位为"fp"。
+   * 
    * 默认值：16vp
-   *
+   * 
    * 默认单位：fp
-   *
+   * 
    * 取值范围：大于0；取值为0时不显示Badge，取值小于0时取默认值。
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
    * 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。
    * 2. 从API version 20开始，支持ResourceStr类型。
    * 3. 当设置了fontSize且badgeSize小于fontSize时，badgeSize将按照fontSize生效。
@@ -195,11 +193,11 @@ declare interface BadgeStyle {
   /**
    * 设置文本的字体粗细。number类型取值范围：[100, 900]，取值间隔为100。取值越大，字体越粗。设置number类型在取值范围外时，按默认值400处理。string类型仅支持number类型取值的字符串形式，例如"400
    * "，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。
-   *
+   * 
    * 默认值：FontWeight.Normal
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
    * 不支持设置百分比，当设置为百分比时，按照默认值处理。从API version 20开始，支持ResourceStr类型。
    *
    * @type { ?(number | FontWeight | string) } [since 10 - 19]
@@ -245,14 +243,14 @@ declare interface BadgeStyle {
   outerBorderWidth?: LengthMetrics;
 
   /**
-   * 增加角标文本延伸显示时是否避让。
-   *
+   * 角标文本延伸显示时是否避让。
+   * 
    * true表示避让，false表示不避让。
-   *
+   * 
    * 默认值：false
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
    * 1. 避让效果为角标文本向组件内部延伸显示。
    * 2. 当外描边的宽度大于0时，角标的延伸起点为外描边的内侧。
    * 3. 当position设置为具体坐标值时，角标不进行避让处理。
@@ -268,8 +266,8 @@ declare interface BadgeStyle {
 }
 
 /**
-* 包含用于创建Badge组件的基础参数。
-*
+ * 包含用于创建Badge组件的基础参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -277,16 +275,15 @@ declare interface BadgeStyle {
  * @since 7 dynamic
  */
 declare interface BadgeParam {
-
   /**
-   * 设置提示点显示位置。
-   *
-   * 默认值：BadgePosition.RightTop
-   *
-   * **说明：**
-   *
-   * Position作为入参，不支持设置百分比；设置为非法值时，默认(0,0)处理。(0,0)为组件左上角位置。
-   *
+   * 设置标记显示位置。
+   * 
+   * 默认值：BadgePosition.RightTop 
+   * 
+   * **说明：** 
+   * 
+   * Position作为入参，不支持设置百分比；设置为非法值时，按(0,0)处理，(0,0)为组件左上角位置。
+   * 
    * BadgePosition作为入参时，会跟随[Direction]{@link Direction}属性控制镜像显示。
    *
    * @type { ?(BadgePosition) } [since 7 - 9]
@@ -301,7 +298,7 @@ declare interface BadgeParam {
   position?: BadgePosition | Position;
 
   /**
-   * Badge组件可设置样式，支持设置文本颜色、尺寸、圆点颜色和尺寸。
+   * Badge组件可设置样式，支持设置文本颜色、大小、标记颜色和标记大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -313,8 +310,8 @@ declare interface BadgeParam {
 }
 
 /**
-* BadgeParamWithNumber继承自[BadgeParam]{@link BadgeParam}，具有BadgeParam的全部属性。
-*
+ * BadgeParamWithNumber继承自[BadgeParam]{@link BadgeParam}，具有BadgeParam的全部属性。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -322,7 +319,6 @@ declare interface BadgeParam {
  * @since 7 dynamic
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
-
   /**
    * 设置提醒消息数。
    *
@@ -358,8 +354,8 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 }
 
 /**
-* BadgeParamWithNumber继承自[BadgeParam]{@link BadgeParam}，具有BadgeParam的全部属性。
-*
+ * BadgeParamWithNumber继承自[BadgeParam]{@link BadgeParam}，具有BadgeParam的全部属性。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -367,12 +363,13 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @since 7 dynamic
  */
 declare interface BadgeParamWithString extends BadgeParam {
-
   /**
    * 提示内容的文本字符串。
-   *
-   * **说明：**
-   *
+   * 
+   * **说明：** 
+   * 
+   * value为空字符串时不显示文本，仅显示圆点标记。
+   * 
    * 从API version 20开始，支持ResourceStr类型。
    *
    * @type { string } [since 7 - 19]
@@ -387,23 +384,9 @@ declare interface BadgeParamWithString extends BadgeParam {
 }
 
 /**
-* 信息标记组件，可以附加在单个组件上用于信息提醒的容器组件。
-*
-* ###### 子组件
-*
-* 支持单个子组件。
-*
-* > **说明：**
-* >
-* > - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
-* > [ForEach]{@link for_each}和[LazyForEach]{@link lazy_for_each}）。
-* >
-* > - 自定义组件宽高默认为0，需要给其设置宽高，否则标记组件将不显示。
-* >
-* > - 当存在多个子组件时，只有最后一个子组件会在界面上显示，但其余子组件的状态更新仍会使Badge及其子组件重新布局渲染。
-* >
-* > - 不影响子组件布局，即不会主动规避子组件内容。
-*
+ * 信息标记容器组件，可以附加在单个组件上用于信息提醒。支持数字、字符串和圆点三种标记形式，可自定义标记样式（文本颜色、大小、标记颜色和大小）和显示位置。适用于需要提示用户有新消息或未读消息的场景，例如未读消息计数、新功能提示等，帮助用户
+ * 快速识别和关注重要信息，提升用户体验。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -412,13 +395,12 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @noninterop
  */
 interface BadgeInterface {
-
   /**
    * 根据数字创建标记组件。
    *
-   * @param { BadgeParamWithNumber } value - 数字标记组件参数。
+   * @param { BadgeParamWithNumber } value - 数字标记组件参数，用于配置根据数字创建的Badge组件，包含消息数、显示位置和样式等属性。
    * @returns { BadgeAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
@@ -431,7 +413,7 @@ interface BadgeInterface {
    *
    * @param { BadgeParamWithString } value - 字符串标记组件参数。
    * @returns { BadgeAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
@@ -441,10 +423,10 @@ interface BadgeInterface {
 }
 
 /**
-* 支持[通用属性]{@link common}。
-*
-* 支持[通用事件]{@link common}。
-*
+ * 支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。
+ *
+ * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -455,23 +437,24 @@ interface BadgeInterface {
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
 /**
-* 信息标记组件，可以附加在单个组件上用于信息提醒的容器组件。
-*
-* ###### 子组件
-*
-* 支持单个子组件。
-*
-* > **说明：**
-* >
-* > - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
-* > [ForEach]{@link for_each}和[LazyForEach]{@link lazy_for_each}）。
-* >
-* > - 自定义组件宽高默认为0，需要给其设置宽高，否则标记组件将不显示。
-* >
-* > - 当存在多个子组件时，只有最后一个子组件会在界面上显示，但其余子组件的状态更新仍会使Badge及其子组件重新布局渲染。
-* >
-* > - 不影响子组件布局，即不会主动规避子组件内容。
-*
+ * 信息标记容器组件，可以附加在单个组件上用于信息提醒。支持数字、字符串和圆点三种标记形式，可自定义标记样式（文本颜色、大小、标记颜色和大小）和显示位置。适用于需要提示用户有新消息或未读消息的场景，例如未读消息计数、新功能提示等，帮助用户
+ * 快速识别和关注重要信息，提升用户体验。
+ * 
+ * ###### 子组件
+ * 
+ * 支持单个子组件。
+ * 
+ * > **说明：**
+ * >
+ * > - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)、
+ * > [ForEach]{@link ./for_each}和[LazyForEach]{@link ./lazy_for_each}）。
+ * >
+ * > - 自定义组件宽高默认为0，需要给其设置宽高，否则标记组件将不显示。
+ * >
+ * > - 当存在多个子组件时，只有最后一个子组件会在界面上显示，但其余子组件的状态更新仍会触发Badge及其包含的所有子组件重新布局渲染。
+ * >
+ * > - 不影响子组件布局，即不会主动规避子组件内容。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -482,8 +465,8 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 declare const Badge: BadgeInterface;
 
 /**
-* 定义Badge组件实例。
-*
+ * 定义Badge组件实例。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]

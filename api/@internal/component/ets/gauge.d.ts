@@ -85,8 +85,8 @@ interface GaugeOptions {
  * The **Gauge** component represents a gauge that displays data in a circular format.
  *
  * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -411,9 +411,9 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    *
    * @param { Optional<boolean> } isPrivacySensitiveMode - Whether to enable privacy mode. In privacy mode, the gauge
    *     indicator points to **0**, the maximum and minimum values are masked, and the scale range is displayed in gray
-   *     or the background color. The value **true** means to enable privacy mode, and **false** means the opposite.<br>
+   *     or the background color. The value **true** means to enable privacy mode, and **false** means the opposite.
    *     Default value: **false**.<!--Del--><br>For widgets, this property must be used with
-   *     [FormComponent]{@link form_component} and the [obscured]{@link CommonMethod#obscured} attribute to display
+   *     [FormComponent]{@link ./form_component}and the [obscured]{@link CommonMethod#obscured} attribute to display
    *     privacy masking effects.<!--DelEnd-->.
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,8 +444,8 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * The **Gauge** component represents a gauge that displays data in a circular format.
  *
  * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * ###### Child Components
  *
@@ -454,8 +454,8 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * > **NOTE**
  * >
  * > - Supported child component types: built-in and custom components, including
- * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) but excluding [ForEach]{@link for_each}
- * > and [LazyForEach]{@link lazy_for_each}.
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) but excluding
+ * > [ForEach]{@link ./for_each} and [LazyForEach]{@link ./lazy_for_each}.
  * >
  * > - You are advised to use the **Text** component to build the current value and auxiliary text.
  * >

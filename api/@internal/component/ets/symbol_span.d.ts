@@ -22,7 +22,7 @@
  * As a child component of the **Text** component, the **SymbolSpan** component is used to display small icons.
  *
  * > **NOTE**
- *
+ * >
  * > - This component can inherit attribute settings from its parent component **Text**. This means that, if an
  * > attribute is not set in this component, it takes the value of the attribute (if set) from its parent component.
  * >
@@ -54,9 +54,10 @@ interface SymbolSpanInterface {
 }
 
 /**
- * The [universal attributes]{@link common} are not supported. Only the following attributes are supported.
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are not
+ * supported. Only the following attributes are supported.
  *
- * The [universal events]{@link common} are not supported.
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

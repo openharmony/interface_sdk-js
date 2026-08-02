@@ -66,7 +66,7 @@ interface TextInterface {
    *
    * Defines the constructor of Text.
    * @param { string | Resource } content - Plain text. This parameter takes effect when the child component
-   *     [Span]{@link span} is not included and [styled string]{@link styled_string} is not set.<br>Default value:
+   *     [Span]{@link ./span} is not included and [styled string]{@link ./styled_string} is not set.<br>Default value:
    *     **' '**<br>**NOTE**<br>Priority of displayed content: Styled string > Content of the **Span** component > Text
    *     content of the **Text** component.
    * @param { TextOptions } value - Initialization options of the component. [since 11]
@@ -81,11 +81,12 @@ interface TextInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * **Layout and Alignment**
- *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -322,61 +323,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   lineSpacing(value: LengthMetrics): TextAttribute;
 
   /**
-   * Sets the minimum line height of text. If the value is less than or equal to 0, the default value **0** is used.
+   * Sets the line spacing for text. When **LineSpacingOptions** is not specified, line spacing is applied above the
+   * first line and below the last line by default.
    *
-   * @param { LengthMetrics | undefined } value - Minimum line height of text. Percentage values are not supported.<br>
-   *     Values less than or equal to 0 are treated as **0**.
+   * @param { LengthMetrics } value - Line spacing. Values less than or equal to 0 are treated as the default value
+   *     **0**.
+   * @param { LineSpacingOptions } options - Line spacing configuration options.<br>Default value:
+   *     **{ onlyBetweenLines: false }**
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
    * @atomicservice
-   * @since 22 dynamic
+   * @since 20 dynamic
    */
-  minLineHeight(value: LengthMetrics | undefined): TextAttribute;
-
-  /**
-   * Sets the maximum line height of text. If the value is less than or equal to 0, the maximum line height is
-   * unrestricted.
-   *
-   * If **maxLineHeight** is less than **minLineHeight**, **maxLineHeight** takes effect using the value of
-   * **minLineHeight**.
-   *
-   * @param { LengthMetrics | undefined } value - Maximum line height of text. Percentage values are not supported.<br>
-   *     Values less than or equal to 0 are treated as **0**. When the value is set to **0**, the maximum line height is
-   *     unrestricted.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  maxLineHeight(value: LengthMetrics | undefined): TextAttribute;
-
-  /**
-   * Sets the line height of text in multiple mode.
-   *
-   * The line height equals the input parameter **value** multiplied by **fontHeight**.
-   *
-   * > **NOTE**
-   * >
-   * > When both this API and [lineHeight]{@link TextAttribute#lineHeight} are set, only **lineHeightMultiple** takes
-   * > effect.
-   *
-   * @param { number | undefined } value - Multiplier for the line height.<br>Value range: ≥ 0<br>Values ≤ 0 are treated
-   *     as **0**. When the value is set to **0**, the default line height is used. Decimal values are supported.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  lineHeightMultiple(value: number | undefined): TextAttribute;
+  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAttribute;
 
   /**
    * Sets the horizontal alignment of the text.
@@ -476,6 +437,63 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 7 dynamic
    */
   lineHeight(value: number | string | Resource): TextAttribute;
+
+  /**
+   * Sets the minimum line height of text. If the value is less than or equal to 0, the default value **0** is used.
+   *
+   * @param { LengthMetrics | undefined } value - Minimum line height of text. Percentage values are not supported.<br>
+   *     Values less than or equal to 0 are treated as **0**.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minLineHeight(value: LengthMetrics | undefined): TextAttribute;
+
+  /**
+   * Sets the maximum line height of text. If the value is less than or equal to 0, the maximum line height is
+   * unrestricted.
+   *
+   * If **maxLineHeight** is less than **minLineHeight**, **maxLineHeight** takes effect using the value of
+   * **minLineHeight**.
+   *
+   * @param { LengthMetrics | undefined } value - Maximum line height of text. Percentage values are not supported.<br>
+   *     Values less than or equal to 0 are treated as **0**. When the value is set to **0**, the maximum line height is
+   *     unrestricted.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxLineHeight(value: LengthMetrics | undefined): TextAttribute;
+
+  /**
+   * Sets the line height of text in multiple mode.
+   *
+   * The line height equals the input parameter **value** multiplied by **fontHeight**.
+   *
+   * > **NOTE**
+   * >
+   * > When both this API and [lineHeight]{@link TextAttribute#lineHeight} are set, only **lineHeightMultiple** takes
+   * > effect.
+   *
+   * @param { number | undefined } value - Multiplier for the line height.<br>Value range: ≥ 0<br>Values ≤ 0 are treated
+   *     as **0**. When the value is set to **0**, the default line height is used. Decimal values are supported.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  lineHeightMultiple(value: number | undefined): TextAttribute;
 
   /**
    * Sets the display mode for overflowing text.
@@ -664,8 +682,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * Since API version 20, copied text from the **Text** component includes HTML-formatted content in the pasteboard.
    *
-   * - When the **Text** component contains child elements, only [Span]{@link span} and [ImageSpan]{@link image_span}
-   * support HTML-formatted pasteboard content.
+   * - When the **Text** component contains child elements, only [Span]{@link ./span} and
+   * [ImageSpan]{@link ./image_span} support HTML-formatted pasteboard content.
    * - For styled strings, refer to [toHtml]{@link StyledString#toHtml} for supported HTML conversion scope.
    *
    * When **copyOption** is set to **CopyOptions.InApp** or **CopyOptions.LocalDevice**:
@@ -1026,7 +1044,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * is 800 ms. When both are bound and their triggering methods are set to long press, **bindSelectionMenu** takes
    * precedence.
    *
-   * When the custom menu is too long, it is recommended that nest a [Scroll]{@link scroll} component inside to prevent
+   * When the custom menu is too long, it is recommended that nest a [Scroll]{@link ./scroll} component inside to prevent
    * the keyboard from being obscured.
    *
    * > **NOTE**
@@ -1087,10 +1105,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > the value is an integer. If the typesetting engine rounds up the value instead, the right side of the text may be
    * > clipped.
    * >
-   * > When multiple **Text** components are placed in the [Row]{@link row} container with no specific layout or space
+   * > When multiple **Text** components are placed in the [Row]{@link ./row} container with no specific layout or space
    * > allocation settings configured, the components are laid out based on the maximum size of the container. To make
    * > sure the sum of the components' main axis sizes does not exceed the main axis size of the container, you can set
-   * > [layoutWeight]{@link CommonMethod#layoutWeight} or use the [flex layout]{@link common}.
+   * > [layoutWeight]{@link CommonMethod#layoutWeight} or use the [flex layout]{@link ./common}.
    * >
    * > The system's default font supports the following ligatures: Th, fb, ff, fb, ffb, ffh, ffi, ffk, ffl, fh, fi, fk,
    * > fl, rf, rt, rv, rx, ry. These ligatures may cause unexpected effects of spans and styled strings. Disabling the
@@ -1240,6 +1258,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
 
   /**
+   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
+   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  enableAutoSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
    * Sets whether to optimize trailing spaces at line endings during text layout, resolving alignment display issues
    * caused by trailing spaces.
    *
@@ -1268,20 +1300,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   optimizeTrailingSpace(optimize: Optional<boolean>): TextAttribute;
 
   /**
-   * Sets whether to enable automatic spacing between Chinese and Western characters.
-   *
-   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
-   * @returns { TextAttribute } returns the instance of the TextAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  enableAutoSpacing(enabled: Optional<boolean>): TextAttribute;
-
-  /**
    * Applies a transition animation to text content. Supports numeric flip animation via
    * [NumericTextTransition]{@link NumericTextTransition}.
    *
@@ -1294,6 +1312,37 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20 dynamic
    */
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
+
+  /**
+   * Applies a transition animation to text content. Supports numeric flip animation via
+   * [NumericTextTransition]{@link NumericTextTransition}.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for selected text.<br>If this parameter
+   *     is set to **undefined**, the drag preview follows the theme: white in light mode and black in dark mode.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAttribute;
+
+  /**
+   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
+   * component layout direction.
+   *
+   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
+   *     **undefined**, the text layout direction follows the component layout direction as defined by
+   *     **TextDirection.DEFAULT**.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextAttribute;
 
   /**
    * Sets whether to add spacing to the first and last lines to avoid text truncation. If this attribute is not set, no
@@ -1347,37 +1396,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): TextAttribute;
-
-  /**
-   * Sets the drag preview style for selected text.
-   *
-   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for selected text.<br>If this parameter
-   *     is set to **undefined**, the drag preview follows the theme: white in light mode and black in dark mode.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAttribute;
-
-  /**
-   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
-   * component layout direction.
-   *
-   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
-   *     **undefined**, the text layout direction follows the component layout direction as defined by
-   *     **TextDirection.DEFAULT**.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  textDirection(direction: TextDirection | undefined): TextAttribute;
-
   /**
    * Sets whether to enable orphan character optimization during text typesetting. If this attribute is not set, orphan
    * character optimization is disabled by default.
@@ -1444,23 +1462,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 26.0.0 dynamic
    */
   punctuationOverflow(enabled: Optional<boolean>): TextAttribute;
-
-  /**
-   * Sets the line spacing for text. When **LineSpacingOptions** is not specified, line spacing is applied above the
-   * first line and below the last line by default.
-   *
-   * @param { LengthMetrics } value - Line spacing. Values less than or equal to 0 are treated as the default value
-   *     **0**.
-   * @param { LineSpacingOptions } options - Line spacing configuration options.<br>Default value:
-   *     **{ onlyBetweenLines: false }**
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAttribute;
 }
 
 /**
@@ -1479,8 +1480,8 @@ declare const TextInstance: TextAttribute;
  *
  * ###### Child Components
  *
- * This component can contain the [Span]{@link span}, [ImageSpan]{@link image_span}, [SymbolSpan]{@link symbol_span},
- * and [ContainerSpan]{@link container_span} child components.
+ * This component can contain the [Span]{@link ./span}, [ImageSpan]{@link ./image_span},
+ * [SymbolSpan]{@link ./symbol_span}, and [ContainerSpan]{@link ./container_span} child components.
  *
  * > **NOTE**
  * >
@@ -1496,7 +1497,7 @@ declare const TextInstance: TextAttribute;
 declare const Text: TextInterface;
 
 /**
- * Provides the [span]{@link span} type information.
+ * Provides the [span]{@link ./span} type information.
  *
  * > **NOTE**
  * >
@@ -1903,6 +1904,12 @@ declare interface TextMarqueeOptions {
 
 /**
  * Defines the controller of the **Text** component.
+ *
+ * ###### Objects to Import
+ *
+ * ```ts
+ * controller: TextController = new TextController()
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

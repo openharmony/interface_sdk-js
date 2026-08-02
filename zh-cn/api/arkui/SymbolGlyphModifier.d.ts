@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -30,7 +30,7 @@
  */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
   /**
-   * constructor
+   * SymbolGlyphModifier的构造函数。
    *
    * @param { Resource } src
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -42,7 +42,7 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
   constructor(src?: Resource);
 
   /**
-   * Defines the normal update attribute function.
+   * 组件在普通状态（即未被按下、未获得焦点等默认交互状态）下的样式设置。该方法为回调方法，在组件处于普通状态时由框架自动调用，开发者可在方法体内通过修改instance对象的属性来动态设置SymbolGlyph组件的样式。
    *
    * @param { SymbolGlyphAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full

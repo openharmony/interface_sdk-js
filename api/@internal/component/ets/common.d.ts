@@ -24669,7 +24669,14 @@ declare class CommonMethod<T> {
   /**
    * Called when component is focused, the return value indicates whether keyboard is needed.
    *
-   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback - Callback executed when an event is
+   *     triggered. The system determines whether a keyboard is required based on the return value of the callback. If this
+   *     parameter is set to undefined, no callback is triggered, and the input box component returns true. For other
+   *     components, false is returned. Prerequisite: The component must be able to obtain focus. Otherwise, this interface
+   *     does not take effect. When the return value is true, the self-drawn text box needs to actively invoke the
+   *     [attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig:
+   *     TextConfig, requestKeyboardReason: RequestKeyboardReason)} method to establish input method communication when the
+   *     focus is obtained. Otherwise, the keyboard does not respond.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27235,8 +27242,8 @@ declare abstract class TextContentControllerBase {
    * > of the input method application. Therefore, avoid calling this API for the preview text.
    *
    * @param { TextRange } [range] - Range of the text to be deleted, including the start and end positions.<br>If the
-   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts
-   *     from index 0. If the end position is not specified, deletion ends at the end of the text.
+   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts from
+   *     index 0. If the end position is not specified, deletion ends at the end of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27277,6 +27284,11 @@ declare abstract class TextContentControllerBase {
   /**
    * Notifies the input method to clear the current preview text.
    *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -27287,6 +27299,11 @@ declare abstract class TextContentControllerBase {
 
   /**
    * Binds or updates the styled placeholder string.
+   *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @param { StyledString } styledString - Styled string for the placeholder. This takes precedence over the plain text.
    *     **placeholder** attribute.<br>The placeholder does not support gesture events or hyperlink navigation within
@@ -27302,6 +27319,10 @@ declare abstract class TextContentControllerBase {
   /**
    * Passes the start and end indexes to the bound text box components (**TextInput**, **TextArea**, and **Search**),
    * and scrolls the text within the range to the visible area.
+   *
+   * > **NOTE**
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @param { TextRange } [range] - Text range to be scrolled to the visible area, including the start and end positions.
    *     of the text.<br>The start position must be less than or equal to the end position. Otherwise, the API call is
@@ -27322,6 +27343,11 @@ declare abstract class TextContentControllerBase {
    * selected using the mouse or keyboard before this function is called, the selected text will be deleted.
    *
    * This API is not supported in preview display scenarios.
+   *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

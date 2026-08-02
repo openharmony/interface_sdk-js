@@ -9411,154 +9411,57 @@ declare enum ShadowStyle {
 }
 
 /**
- * 定义阴影参数。
+ * 投影样式参数。
  *
- * @interface MultiShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * 定义阴影参数。
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * 定义阴影参数。
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MultiShadowOptions {
-
   /**
-   * 当前阴影半径。
+   * 投影模糊半径。
+   * API version 10及以前，5；API version 11及以后，。
+   * 单位为：vp。取值约束：(0, +∞)。默认值：20。
+   * <br>设置小于等于0的值时，按默认值显示。
    *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
+   * @default 5 [since 10 - 10]
+   * @default 20 [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前阴影半径。
-   *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前阴影半径。
-   *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radius?: number | Resource;
-
   /**
-   * 当前阴影的坐标X。
+   * X轴偏移量。
+   * 单位为：vp。默认值：5。
    *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前阴影的坐标X。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前阴影的坐标X。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetX?: number | Resource;
 
   /**
-   * 当前的阴影坐标Y。
+   * Y轴偏移量。
+   * 单位为：vp。默认值：5。
    *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前的阴影坐标Y。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前的阴影坐标Y。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetY?: number | Resource;
 }
@@ -12323,11 +12226,9 @@ declare type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer,
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
- * 定义了在onNeedSoftkeyboard中被使用的回调函数类型。
- * 组件获焦时回调函数被调用，返回值表示是否需要拉起键盘。
+ * 当绑定该方法的组件判断是否需要键盘时，将触发此回调。前提条件：组件需可获焦，否则本接口不生效。
  *
- * @typedef { function } OnNeedSoftkeyboardCallback
- * @returns { boolean } True表示键盘需要被拉起，false表示不需要被拉起。
+ * @returns { boolean } 是否需要键盘。<br>若此回调的返回值为`true`，则表明该组件需要键盘；返回值为`false`，则表明该组件不需要键盘。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -20499,23 +20400,13 @@ declare enum MenuPolicy {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
- * SymbolGlyphModifier
+ * SymbolGlyphModifier类型，用于设置自定义图标小符号。
  *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * SymbolGlyphModifier
- *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
@@ -27225,11 +27116,23 @@ declare class CommonMethod<T> {
   systemMaterial(material: SystemUiMaterial | undefined): T;
 
   /**
-   * 组件获焦时回调函数被调用，返回值表示是否需要拉起键盘。
+   * 设置组件判断是否需要键盘时触发的回调。主要用于键盘接续场景，当焦点从输入框切换到其他组件时，如果切换后的组件回调函数[OnNeedSoftkeyboardCallback]{@link OnNeedSoftkeyboardCallback}的返回值设置为`true`，则表示该组件需要键盘，此时键盘将不会收起，如果返回值设置为`false`，则表示该组件不需要键盘，此时键盘将收起。
    *
-   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * 对于不能获焦的组件，本接口不生效。
+   *
+   * 输入框组件使用该接口并将返回值设置为`false`时，点击输入框将不会拉起键盘。
+   *
+   * Web组件使用该方法时，如果返回值为`true`，Web组件会判断组件中是否有可编辑节点，如果有可编辑节点才会保留键盘，如果返回值为`false`，无论是否有可编辑节点，键盘都不会保留。
+   *
+   * XComponent组件使用该方法时，如果返回值为`true`且XComponent组件使用 [OH_ArkUI_XComponent_SetNeedSoftKeyboard()](docroot://reference/apis-arkui/capi-native-interface-xcomponent-h.md#oh_arkui_xcomponent_setneedsoftkeyboard)设置了需要键盘，才会保留键盘，如果返回值为`false`，无论组件如何设置，键盘都不会保留。
+   *
+   * 当返回值为`true`时，应用的自绘制输入框需要在获焦时主动调用 [attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason)}方法，建立输入法框架和输入法应用的通信，否则点击键盘会失去响应。说明：失焦时输入法框架和输入法应用的通信会断开，获焦时需要重新建立通信。
+   *
+   * 该接口只适用于对输入法应用接续的场景，对自定义键盘不生效。自定义键盘接续详见[setCustomKeyboardContinueFeature]{@link @ohos.arkui.UIContext:UIContext.setCustomKeyboardContinueFeature}。
+   *
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback - 事件触发时执行的回调，系统会根据回调的返回值决定是否需要键盘。设置为undefined时，不会触发回调，输入框类组件行为等同返回true。其他组件行为等同返回false。前提条件：组件需可获焦，否则本接口不生效。当返回值为true时，自绘制输入框需在获焦时主动调用[attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason)}方法建立输入法通信，否则点击键盘会失去响应。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice

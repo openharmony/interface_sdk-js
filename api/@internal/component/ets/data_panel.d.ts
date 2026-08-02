@@ -404,8 +404,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * The **DataPanel** component is used to display proportions in a chart.
  *
  * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0
  *
  * ###### Child Components
  *
