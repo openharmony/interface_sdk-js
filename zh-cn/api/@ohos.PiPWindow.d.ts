@@ -859,10 +859,10 @@ declare namespace PiPWindow {
   type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: int) => void;
 
   /**
-   * Describe picture-in-picture stage change event callback.
+   * 描述画中画生命周期状态变化事件回调。
    *
    * @param { PiPState } state - 画中画窗口状态。
-   * @param { string } reason - the reason of state change
+   * @param { string } reason - 当前生命周期的切换原因。
    * @syscap SystemCapability.Window.SessionManager
    * @since 26.0.0 static
    */
@@ -1087,9 +1087,9 @@ declare namespace PiPWindow {
     on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void;
 
     /**
-     * Register picture-in-picture control state change listener.
+     * 开启画中画生命周期状态变化的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { StateChangeCallback } callback - Used to handle {'stateChange'} command
+     * @param { StateChangeCallback } callback - 描述画中画生命周期状态变化回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1106,7 +1106,7 @@ declare namespace PiPWindow {
     off(type: 'stateChange'): void;
 
     /**
-     * Unregister picture-in-picture lifecycle state change listener.
+     * 关闭画中画生命周期状态变化的监听。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
@@ -1128,7 +1128,7 @@ declare namespace PiPWindow {
     on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void;
 
     /**
-     * Register picture-in-picture control panel action event listener.
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。推荐使用[onControlEvent](#oncontrolevent)来开启画中画控制面板控件动作事件的监听。
      *
      * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
@@ -1149,7 +1149,7 @@ declare namespace PiPWindow {
     off(type: 'controlPanelActionEvent'): void;
 
     /**
-     * Unregister picture-in-picture lifecycle event listener
+     * 关闭画中画控制面板控件动作事件的监听。推荐使用[offControlEvent](#offcontrolevent)来关闭画中画控制面板控件动作事件的监听。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
@@ -1168,9 +1168,9 @@ declare namespace PiPWindow {
     on(type: 'controlEvent', callback: Callback<ControlEventParam>): void;
 
     /**
-     * Register picture-in-picture control event listener.
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @param { Callback<ControlEventParam> } callback - 描述画中画控制面板控件动作事件回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1188,10 +1188,9 @@ declare namespace PiPWindow {
     off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
 
     /**
-     * Unregister picture-in-picture control event listener
+     * 关闭画中画控制面板控件动作事件的监听。
      *
-     * @param { Callback<ControlEventParam> } [callback] - Used to handle {'controlEvent'} command.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<ControlEventParam> } [callback] - 描述画中画控制面板控件动作事件回调。如果未传入参数，解除画中画控制面板控件动作事件的所有回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1212,9 +1211,9 @@ declare namespace PiPWindow {
     on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
 
     /**
-     * Register picture-in-picture window size change event listener
+     * 开启画中画窗口尺寸变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
@@ -1239,10 +1238,10 @@ declare namespace PiPWindow {
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Unregister picture-in-picture window size change event listener
+     * 关闭画中画窗口尺寸变化事件的监听。
      *
-     * @param { Callback<PiPWindowSize> } [callback] - Callback used to return the picture-in-picture window size.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<PiPWindowSize> } [callback] - 回调函数。返回当前画中画窗口的尺寸。
+     *     如果传入参数，则关闭该监听。如果未传入参数，解除窗口尺寸变化事件的所有回调。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -1262,10 +1261,9 @@ declare namespace PiPWindow {
     on(type: 'activeStatusChange', callback: Callback<boolean>): void;
 
     /**
-     * Register picture-in-picture active status change listener.
+     * 开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
-     *     True indicates that the pip is onscreen, and vice verse.
+     * @param { Callback<boolean> } callback - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。
      *     <br>画中画显示状态变化回调函数
      * @throws { BusinessError } 801 - Capability not supported.
      *     function onActiveStatusChange(callback) can not work correctly due to limited device capabilities.
@@ -1289,10 +1287,10 @@ declare namespace PiPWindow {
     off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
 
     /**
-     * Unregister picture-in-picture active status change listener
+     * 关闭画中画窗口隐藏状态变化事件的监听。
      *
-     * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<boolean> } [callback] - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。
+     *     如果未传入参数，解除画中画窗口隐藏状态变化事件的所有回调。
      * @throws { BusinessError } 801 - Capability not supported.
      *     function offActiveStatusChange(callback) can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1302,9 +1300,9 @@ declare namespace PiPWindow {
     offActiveStatusChange(callback?: Callback<boolean>): void;
 
     /**
-     * Returns a Boolean value that indicates whether picture-in-picture is supported
+     * 判断当前设备是否支持画中画功能。
      *
-     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
+     * @returns { boolean } - 当前设备是否支持画中画功能。true表示支持，false表示不支持。
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
