@@ -1446,7 +1446,8 @@ declare namespace huks {
    * > **说明：**
    * >
    * > 从API version 8开始支持，从API version 9开始废弃，建议使用
-   * > [huks.finishSession<sup>9+</sup>]{@link huks.finishSession( handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult> )}
+   * > [huks.finishSession<sup>9+</sup>]
+   * > {@link huks.finishSession( handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult> )}
    * > 替代。
    *
    * @param { number } handle - Finish操作的uint64类型的handle值。
