@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +20,7 @@
  */
 
 import { Builder } from './builder';
+
 import { ComponentBuilder } from './builder';
 
 import { DynamicNode } from './common';
@@ -56,6 +58,7 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
  * @noninterop
  */
 export interface ForEachAttribute extends DynamicNode {
+
   /**
    * Set the component's source code redirection information.
    *

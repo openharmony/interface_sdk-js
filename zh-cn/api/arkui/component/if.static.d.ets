@@ -71,26 +71,6 @@ export declare interface IfAttribute {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * 设置If选项
-   *
-   * @param { boolean } condition - 条件分支。
-   * @returns { this } IfAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setIfOptions(condition: boolean): this;
-
-  /**
-   * 如果已完成设置其属性，则通知。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -108,20 +88,3 @@ export declare function If(
   condition: boolean,
   content_: CustomBuilder
 ): IfAttribute;
-
-/**
- * 定义If组件。它需要在组件属性设置开始时调用setIfOptions。
- * 并且它需要在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<IfAttribute> } style - 回调来设置If的属性
- * @param { CustomBuilder } content_ - 分支的逻辑代码。
- * @returns { IfAttribute } If的属性。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function If(
-    style: CustomBuilderT<IfAttribute>,
-    content_: CustomBuilder
-): IfAttribute;

@@ -33,7 +33,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * visible area changes, the prefetching algorithm calls this API if it determines that the data item about to enter
    * the visible area needs to be prefetched.
    *
-   * @param { number } index - Index of the data item to be prefetched. The value range is [0, **totalCount()** – 1].
+   * @param { number } index - Index of the data item to be prefetched. The value range is [0, **totalCount()** - 1].
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
    *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
    *     return content.
@@ -51,7 +51,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * operation will not be performed.
    *
    * @param { number } index - Index of the data item whose prefetching is to be canceled. The value range is
-   *     [0, **totalCount()** – 1].
+   *     [0, **totalCount()** - 1].
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
    *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
    *     return content.

@@ -23,7 +23,7 @@ import { NodeController } from '../../@ohos.arkui.node';
 
 import { CommonMethod, AttributeModifier } from './common';
 
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * The NodeContainerAttribute.
@@ -46,17 +46,6 @@ export declare interface NodeContainerAttribute extends CommonMethod {
    */
   attributeModifier(
         modifier: AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-  /**
-   * 设置NodeContainer选项。
-   *
-   * @param { NodeController } controller - NodeContainer的控制器实例。
-   * @returns { this } NodeContainerAttribute实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setNodeContainerOptions(controller: NodeController): this;
 }
 
 /**
@@ -72,18 +61,4 @@ export declare interface NodeContainerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function NodeContainer(
     controller: NodeController
-): NodeContainerAttribute;
-
-/**
- * 定义NodeContainer组件。需要在组件属性设置开始时调用setNodeContainerOptions，并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<NodeContainerAttribute> } style - 用于设置NodeContainer属性的回调。
- * @returns { NodeContainerAttribute } NodeContainer属性实例。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function NodeContainer(
-    style: CustomBuilderT<NodeContainerAttribute>
 ): NodeContainerAttribute;

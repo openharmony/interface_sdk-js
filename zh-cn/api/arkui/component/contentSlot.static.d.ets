@@ -22,7 +22,7 @@
 
 import { Content } from '../../@ohos.arkui.node';
 
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 import { AttributeModifier, CommonMethod } from './common';
 
@@ -48,26 +48,6 @@ export declare interface ContentSlotAttribute {
    * @since 26.0.0 staticonly
    */
   default debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * 设置ContentSlot选项。
-   *
-   * @param { Content } content - 要显示的内容。
-   * @returns { this } ContentSlotAttribute实例
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setContentSlotOptions(content: Content): this;
-
-  /**
-     * 通知ContentSlot已经完成属性设置。
-     *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -83,18 +63,4 @@ export declare interface ContentSlotAttribute {
 @ComponentBuilder
 export declare function ContentSlot(
     content: Content
-): ContentSlotAttribute;
-
-/**
- * 定义ContentSlot组件。需要在组件属性设置开始时调用setContentSlotOptions，并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<ContentSlotAttribute> } style - 用于设置ContentSlot属性的回调。
- * @returns { ContentSlotAttribute } ContentSlot属性对象。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function ContentSlot(
-    style: CustomBuilderT<ContentSlotAttribute>
 ): ContentSlotAttribute;

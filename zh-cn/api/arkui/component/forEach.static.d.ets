@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { Builder, CustomBuilderT } from './builder';
+import { Builder } from './builder';
 
 import { ComponentBuilder } from './builder';
 
@@ -70,30 +70,6 @@ export interface ForEachAttribute extends DynamicNode {
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
-
-  /**
-   * 设置ForEach选项。
-   *
-   * @param { function } arr - 返回用于UI的数组的函数。
-   * @param { ItemGeneratorFunc<T> } itemGenerator - 项生成器函数。
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 键生成器函数。
-   * @returns { this } ForEachAttribute实例。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  setForEachOptions<T>(arr: () => Array<T>,
-        itemGenerator: ItemGeneratorFunc<T>,
-        keyGenerator?: KeyGeneratorFunc<T>): this;
-
-  /**
-     * Notify ForEach已经完成了其属性的设置。
-     *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  applyAttributesFinish(): void;
 }
 
 /**
@@ -112,18 +88,4 @@ export interface ForEachAttribute extends DynamicNode {
 export declare function ForEach<T = Any>(arr: Array<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
-): ForEachAttribute;
-
-/**
- * 定义ForEach组件。需要在组件属性设置开始时调用setForEachOptions，并在组件属性设置结束时调用applyAttributeFinish。
- *
- * @param { CustomBuilderT<ForEachAttribute> } style - 用于设置ForEach属性的回调。
- * @returns { ForEachAttribute } ForEach属性实例。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function ForEach(
-    style: CustomBuilderT<ForEachAttribute>
 ): ForEachAttribute;
