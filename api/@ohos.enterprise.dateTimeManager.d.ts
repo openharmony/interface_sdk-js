@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Time Management
  * @kit MDMKit
  */
 
@@ -26,15 +26,10 @@ import type Want from './@ohos.app.ability.Want';
  *
  * > **NOTE**
  * >
- * > The APIs of this module can be used only in the stage model.
- * >
- * > The APIs of this module can be called only by a
- * > [device administrator application](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application)
- * > that is
- * > [enabled]{@link @ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number)}
- * > .
- * >
- * > The APIs provided by this module are system APIs.
+ * > The APIs of this module are available only to
+ * > [MDM applications](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application), and can be
+ * > called only after the device administrator application is activated via
+ * > [enableAdmin]{@link @ohos.enterprise.adminManager:adminManager.enableAdmin}.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi

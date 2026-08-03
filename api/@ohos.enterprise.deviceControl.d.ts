@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Control Management
  * @kit MDMKit
  */
 
@@ -22,11 +22,11 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **deviceControl** module provides APIs for device control.
+ * This module provides device control capabilities for enterprise device management scenarios. Administrators can
+ * remotely control devices through this module, including operations such as device restart, shutdown, screen lock, and
+ * factory reset, helping enterprises achieve unified device management and security control.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -38,7 +38,7 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace deviceControl {
   /**
-   * The operation to be performed.
+   * Defines the device operation.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -46,7 +46,10 @@ declare namespace deviceControl {
    */
   enum Operation {
     /**
-     * Disk erasure.
+     * Disk erasure. After this API is called, the device immediately performs a disk erasure operation. Once completed,
+     * all data on the device will be erased and cannot be recovered. To protect against data loss caused by potential
+     * application attacks, enterprises should implement robust security measures for their applications. It is support
+     * only on PCs/2-in-1 devices.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -55,7 +58,7 @@ declare namespace deviceControl {
     DISK_ERASURE = 0,
 
     /**
-     * Restore device factory settings.
+     * Restore device factory settings..
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -223,24 +226,25 @@ declare namespace deviceControl {
   function lockScreen(admin: Want): void;
 
   /**
-   * Allows the specified device administrator application to operate devices.
+   * Allows administrators to perform operations such as factory reset, restart, shutdown, and screen lock on devices.
+   * For example, in enterprise device management scenarios, administrators can remotely control employee devices to
+   * perform factory reset, restart, shutdown, or screen lock operations.
    *
    * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } operate - Operation to be performed, which can be any of the following:<br>- **resetFactory**:
-   *     restore device factory settings. After this API is called, the device will be restored to factory settings
-   *     immediately. Once the restoration is complete, all device data will be erased and cannot be restored. To
-   *     protect against data loss caused by potential application attacks, enterprises should implement robust security
-   *     measures for their applications.<br>- **reboot**: restart devices.<br>- **shutDown**: shut down devices.<br>-
-   *     **lockScreen**: lock device screens. Once this capability is used, the device screen will become inaccessible.
-   *     It only supports lock screen text customization but does not allow for interactive function customization on
-   *     the lock screen. To implement custom behaviors on the lock screen, you are advised to use the
-   *     [setAllowedKioskApps]{@link @ohos.enterprise.applicationManager:applicationManager.setAllowedKioskApps} API to
-   *     configure apps that support the [Kiosk mode]{@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode}.
-   *     <!--RP1--><!--RP1End-->
-   * @param { string } [addition] - <!--RP2-->Additional parameter for the operation. Currently, this parameter does not
-   *     need to be passed in.<!--RP2End-->
+   * @param { string } operate - Operation to be performed, which can be any of the following: Only the following
+   *     operations are supported:
+   *     <br>- **resetFactory**: restore device factory settings. After this API is called, the device will be restored
+   *     to factory settings immediately. Once the restoration is complete, all device data will be erased and cannot be
+   *     restored. To protect against data loss caused by potential application attacks, enterprises should implement
+   *     robust security measures for their applications. If factory reset has been disabled via
+   *     [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}, enable it first.
+   *     <br>- **reboot**: restart devices.
+   *     <br>- **shutDown**: shut down devices.
+   *     <br>- **lockScreen**: lock the device screen.
+   * @param { string } [addition] - Additional parameter for the operation. This parameter is reserved and
+   *     does not need to be passed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -254,13 +258,16 @@ declare namespace deviceControl {
   function operateDevice(admin: Want, operate: string, addition?: string): void;
 
   /**
-   * Allows the administrator to operate devices.
+   * Allows the administrator to operate devices, for example, erasing disks.
    *
    * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Operation } operation - operation indicates the operation to performed.
-   * @param { string } [addition] - addition indicates the specified additional parameters
-   *     when performing the operation.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Operation } operation - Operation to be performed, which can be any of the following:
+   * @param { string } [addition] - Additional parameter for the operation. When the operation type is disk erasure, the
+   *     additional parameter is the sandbox path of the image. If a message needs to be displayed to the user after the
+   *     disk erasure is successfully completed, this parameter can be set to deliver the information. The image size
+   *     must be less than 5 KB (a QR code image is recommended). The length limit is 1024 bytes.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.

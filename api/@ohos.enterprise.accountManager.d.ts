@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Account Management
  * @kit MDMKit
  */
 
@@ -23,11 +23,9 @@ import type Want from './@ohos.app.ability.Want';
 import type osAccount from './@ohos.account.osAccount';
 
 /**
- * The **accountManager** module provides APIs for account management of enterprise devices.
+ * This module provides device account management capabilities, including forbidding the creation of local accounts.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -47,9 +45,10 @@ declare namespace accountManager {
    */
   interface DomainAccountPolicy {
     /**
-     * Validity period of the domain account authentication token, in seconds. The value range is [-1, 2147483647]. The
-     * validity period starts from the time when the domain account is authenticated for the last time, for example,
-     * login or unlocking after the screen is locked.
+     * Validity period (in seconds) of the token for domain account authentication. This parameter is used to control
+     * that a user can access system resources without repeated authentication within the validity period of the token.
+     * The value range is [-1,2147483647]. The validity period starts from the time when the domain account is
+     * authenticated for the last time, for example, login or unlocking after the screen is locked.
      *
      * The default value is **-1**, indicating that the token is permanently valid. The value **0** indicates that the
      * token becomes invalid immediately. After the token expires or becomes invalid, the domain account and password
@@ -62,8 +61,9 @@ declare namespace accountManager {
     authenticationValidityPeriod?: number;
 
     /**
-     * Validity period of the domain account password, in seconds. The value range is [-1,2147483647]. The validity
-     * period starts from the time when the password is last changed on the device.
+     * Validity period (in seconds) of the domain account password. It is used to require users to change their
+     * passwords periodically to enhance account security. The value range is [-1, 2147483647]. The validity period
+     * starts from the time of the last password change on the device side.
      *
      * The default value is **-1**, indicating that the domain account password is permanently valid.
      *
@@ -79,10 +79,10 @@ declare namespace accountManager {
      * The default value is **0**, indicating that the system does not display a message indicating that the domain
      * account password has expired.
      *
-     * Note: **passwordExpirationNotification** must be used together with **passwordValidityPeriod**. When the system
-     * time is later than or equal to (the time when the domain account password is last changed on the device + the
-     * value of **passwordValidityPeriod** �C the value of **passwordExpirationNotification**), a message is displayed,
-     * indicating that the password is about to expire.
+     * **Note:** **passwordExpirationNotification** must be used together with **passwordValidityPeriod**. When the
+     * system time is later than or equal to (the time when the domain account password is last changed on the device +
+     * the value of **passwordValidityPeriod** – the value of **passwordExpirationNotification**), a message is
+     * displayed, indicating that the password is about to expire.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -92,13 +92,13 @@ declare namespace accountManager {
   }
 
   /**
-   * Disallows a device to create local user accounts. This API uses an asynchronous callback to return the result.
+   * Forbids the creation of local accounts on the device. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
-   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @param { boolean } disallow - Whether to forbid the creation of local accounts. The value **true** indicates yes,
+   *     and the value **false** indicates no.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -118,13 +118,13 @@ declare namespace accountManager {
   function disallowAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Disallows a device to create local user accounts. This API uses a promise to return the result.
+   * Forbids the creation of local accounts on the device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
-   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @param { boolean } disallow - Whether to forbid the creation of local accounts. The value **true** indicates yes,
+   *     and the value **false** indicates no.
    * @returns { Promise<void> } Promise that returns no value. An error object will be thrown if the operation fails.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -199,8 +199,11 @@ declare namespace accountManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } name - User ID, which must be greater than or equal to 0.
-   * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
-   *     · **ADMIN**: administrator account.<br>· **NORMAL**: normal account.<br>· **GUEST**: guest account.
+   * @param { osAccount.OsAccountType } type - Type of the account to add.
+   *     <br>The value can be any of the following:
+   *     <br>· **ADMIN**: administrator account.
+   *     <br>· **NORMAL**: normal account.
+   *     <br>· **GUEST**: guest account.
    * @returns { osAccount.OsAccountInfo } Information about the account added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -220,18 +223,20 @@ declare namespace accountManager {
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
 
   /**
-   * Users are not allowed to add accounts.
+   * Users are not allowed to add accounts. After the API is successfully called, the system forbids the specified user
+   * or all users from adding new accounts. This API is applicable to enterprise device management scenarios, such as
+   * preventing employees from creating local accounts and enhancing device security management.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
-   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @param { boolean } disallow - Whether to forbid the creation of accounts. The value **true** indicates yes, and the
+   *     value **false** indicates no.
    * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, all users are
    *     not allowed to add accounts. If this parameter is specified, specified users are not allowed to add accounts.
-   *     The value must be greater than or equal to 0.<br>You can call the
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     API to obtain the user ID.
+   *     The value must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -252,9 +257,8 @@ declare namespace accountManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
    *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
-   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
-   *     can call the
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.
+   *     <br>You can call the [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     API to obtain the user ID.
    * @returns { boolean } If **true** is returned, accounts cannot be added.
    *     <br>If **false** is returned, the account can be added.
@@ -271,7 +275,8 @@ declare namespace accountManager {
   function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
 
   /**
-   * Queries whether a user is not allowed to add an account.
+   * Queries whether a user is not allowed to add an account. This API is applicable to enterprise audit and compliance
+   * check scenarios, helping administrators confirm the execution of account policies.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
@@ -280,10 +285,9 @@ declare namespace accountManager {
    *     that actually take effect on the device are returned.
    * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
    *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
-   *     whether specified users are not allowed to add accounts. You can call the
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     API to obtain the user ID.
-   *     <br>The value must be greater than or equal to 0.
+   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @returns { boolean } If **true** is returned, accounts cannot be added.
    *     <br>If **false** is returned, the account can be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -299,7 +303,9 @@ declare namespace accountManager {
   function isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean;
 
   /**
-   * Adds an account in the background. This API uses a promise to return the result.
+   * Adds an account in the background. This API uses a promise to return the result. This API is applicable to
+   * scenarios where enterprises need to create accounts in batches or remotely manage accounts. Accounts can be created
+   * without user interaction, improving management efficiency.
    *
    * > **NOTE**
    * >
@@ -309,10 +315,14 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } name - Account name, which is the name of the account to be added. An account with the same name
-   *     or an empty name cannot be created.
-   * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
-   *     **ADMIN**: administrator account.<br> **NORMAL**: normal account.<br> **GUEST**: guest account.
+   * @param { string } name - Account name, which is the name of the account to be added. An account with a duplicate
+   *     name or an empty name cannot be created. An attempt to create a duplicate-name account will result in error
+   *     code 9201003, and an attempt to create an account with an empty name will result in error code 401.
+   * @param { osAccount.OsAccountType } type - Type of the account to add.
+   *     <br>The value can be any of the following:
+   *     <br>· **ADMIN**: administrator account.
+   *     <br>· **NORMAL**: normal account.
+   *     <br>· **GUEST**: guest account.
    * @returns { Promise<osAccount.OsAccountInfo> } Promise used to return the added account information.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -333,15 +343,20 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.<br>If the internal attribute
-   *     of **domainAccountInfo** is empty, a global policy is set for all domain accounts.<br>If the internal attribute
-   *     of **domainAccountInfo** is not empty, the policy is set for the specified domain account.<br>The priority of
-   *     the specified domain account policy is higher than that of the global policy. If the specified domain account
-   *     has a domain account policy, the global policy does not take effect for the domain account.<br>Note: To set a
-   *     policy for a specified domain account, the **serverConfigId** field in **DomainAccountInfo** is mandatory.
-   * @param { DomainAccountPolicy } policy - Domain account policy.<br>Note: After setting the domain account policy,
-   *     you must change the domain account password on the device. Otherwise, the **passwordValidityPeriod** and
-   *     **passwordExpirationNotification** configurations in **DomainAccountPolicy** do not take effect.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.
+   *     <br>If the internal attribute of **domainAccountInfo** is empty, a global policy is set for all domain
+   *     accounts.
+   *     <br>If the internal attribute of **domainAccountInfo** is not empty, the policy is set for the specified domain
+   *     account.
+   *     <br>The priority of the specified domain account policy is higher than that of the global policy. If the
+   *     specified domain account has a domain account policy, the global policy does not take effect for the domain
+   *     account.
+   *     <br>**Note:** To set a policy for a specified domain account, the **serverConfigId** parameter in
+   *     **DomainAccountInfo** is mandatory.
+   * @param { DomainAccountPolicy } policy - Domain account policy.
+   *     <br>**Note:** After setting the domain account policy, you must change the domain account password on the
+   *     device. Otherwise, the **passwordValidityPeriod** and **passwordExpirationNotification** configurations in
+   *     **DomainAccountPolicy** do not take effect.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -355,15 +370,19 @@ declare namespace accountManager {
   function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
 
   /**
-   * Obtains the domain account policy.
+   * Obtains the domain account policy. This API is applicable to enterprise management scenarios, such as querying the
+   * current domain account policy configuration and auditing policy compliance.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.<br>If all the internal
-   *     attributes of **domainAccountInfo** are empty, the global domain account policy is queried.<br>If the internal
-   *     attribute of **domainAccountInfo** is not empty, the specified domain account policy is queried.<br>Note: To
-   *     query a specified domain account policy, the **serverConfigId** field in **DomainAccountInfo** is mandatory.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.
+   *     <br>If all the internal attributes of **domainAccountInfo** are empty, the global domain account policy is
+   *     queried.
+   *     <br>If the internal attribute of **domainAccountInfo** is not empty, the specified domain account policy is
+   *     queried.
+   *     <br>**Note:** To query a specified domain account policy, the **serverConfigId** parameter in
+   *     **DomainAccountInfo** is mandatory.
    * @returns { DomainAccountPolicy } Domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -378,24 +397,36 @@ declare namespace accountManager {
   function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
 
   /**
-   * Adds a normal OS account using the name.
+   * Creates a normal system account. A maximum of two normal system accounts (
+   * [osAccount.OsAccountType]{@link @ohos.account.osAccount:osAccount.OsAccountType}) can be created.
+   *
+   * > **NOTE**
+   * >
+   * > The account creation process is time-consuming. Subsequent calls to other synchronous APIs in the application
+   * > main thread must wait for the asynchronous return of this API.
+   * >
+   * > Creating a system account has a significant impact on device performance. This API is supported only on phones
+   * > and tablets with 12 GB or more of RAM.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { string } name - the OS account name. It cannot be empty.
-   * @returns { Promise<osAccount.OsAccountInfo> } Returns the information about the added OS account.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } name - System account name. The system account name must be unique and cannot be empty.
+   *     Otherwise, error code 9200012 is reported.
+   * @returns { Promise<osAccount.OsAccountInfo> } Promise used to return the information about the created system
+   *     account.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9201003 - Failed to add an OS account.
    * @throws { BusinessError } 9201040 - The number of accounts reaches the upper limit.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * The application does not have the permission required to call the API.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   * 1. The operation is restricted by the OS-account constraint.
-   * 2. The required privilege for the operation has not been granted.
+   *     1. The operation is restricted by the OS-account constraint.
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 801 - Capability not supported.
-   * Failed to call the API due to limited device capabilities.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 26.0.0
@@ -403,25 +434,30 @@ declare namespace accountManager {
   function createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInfo>;
 
   /**
-   * Removes an OS account by ID.
+   * Removes a system account. Currently, this API is supported only on phones and tablets. It can remove normal system
+   * accounts (of the normal type) created via [createNormalOsAccount]{@link accountManager.createNormalOsAccount} and
+   * system accounts (of the admin, normal, and guest types) created via
+   * [addOsAccountAsync]{@link accountManager.addOsAccountAsync}. The default system account (ID: 100) cannot be
+   * removed.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * <br>The value must be an integer greater than or equal to 101.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - ID of the system account to be removed. The default system account (ID: 100) cannot
+   *     be removed. Otherwise, error code 9201041 is reported.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails., an error object is thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9200016 - Service timeout.
    * @throws { BusinessError } 9201041 - Restricted account.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * The application does not have the permission required to call the API.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   * 1. The operation is restricted by the OS-account constraint.
-   * 2. The required privilege for the operation has not been granted.
+   *     1. The operation is restricted by the OS-account constraint.
+   *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 801 - Capability not supported.
-   * Failed to call the API due to limited device capabilities.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 26.0.0
@@ -429,13 +465,17 @@ declare namespace accountManager {
   function removeOsAccount(admin: Want, accountId: number): Promise<void>;
 
   /**
-   * Activates a specified OS account by ID.
+   * Switches the system account. Currently, this API is supported only on phones and tablets, and can only switch
+   * between normal system accounts created via [createNormalOsAccount]{@link accountManager.createNormalOsAccount} and
+   * the default system account (ID: 100).
    *
    * @permission ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * <br>The value must be an integer greater than or equal to 100.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - System account ID. If you switch to a system account that does not exist, error code
+   *     9200012 is reported. If you switch to a restricted system account, for example, a system account created via
+   *     [addOsAccountAsync]{@link accountManager.addOsAccountAsync}, error code 9201041 is reported.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails., an error object is thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -443,9 +483,9 @@ declare namespace accountManager {
    * @throws { BusinessError } 9201041 - Restricted account.
    * @throws { BusinessError } 9201046 - The number of signed-in accounts reaches the upper limit.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * The application does not have the permission required to call the API.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
-   * Failed to call the API due to limited device capabilities.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 26.0.0

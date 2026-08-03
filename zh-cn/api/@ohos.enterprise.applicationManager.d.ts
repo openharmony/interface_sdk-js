@@ -14,22 +14,20 @@
  */
 
 /**
- * @file
+ * @file 应用管理
  * @kit MDMKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import common from './@ohos.enterprise.common';
-
 import statistics from './@ohos.net.statistics';
 
 /**
- * 本模块提供应用管理能力，包括添加应用运行禁止名单、获取应用运行禁止名单、移除应用运行禁止名单等。
+ * 本模块提供应用管理能力，包括管理应用运行禁止名单、应用运行允许名单、开机自启动应用名单、保活应用名单、不可关停应用名单、后台防冻结应用名单、允许发送通知应用名单、允许跨设备应用名单等。适用于企业设备管理场景，可实现应用运行权限管控、开
+ * 机自启动管理、保活应用管理等，提升企业设备安全性和合规性。
  *
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  * > [applicationManager.isAppKioskAllowed]{@link applicationManager.isAppKioskAllowed}除外，该接口对所有应用开放。
@@ -113,7 +111,6 @@ declare namespace applicationManager {
 
     /**
      * 应用在快捷栏中的位置索引。
-     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -123,7 +120,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * 分布式能力类型。
+   * 分布式业务类型。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -131,7 +128,9 @@ declare namespace applicationManager {
    */
   enum ServiceType {
     /**
-     * 协同服务。允许使用协同服务的应用，可以向其他设备传输数据。
+     * 协同业务。允许使用协同业务的应用，可以通过使用[UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext}、
+     * [UIExtensionContext]{@link ./application/UIExtensionContext:UIExtensionContext}中的API或
+     * [跨设备连接UIAbility开发指南](docroot://distributedservice/abilityconnectmanager-guidelines.md)中的方式，跨设备拉起其他应用的页面并向其传输数据。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -159,7 +158,6 @@ declare namespace applicationManager {
 
     /**
      * 应用分身索引，取值范围：大于等于0的整数。
-     *
      * appIndex可以通过@ohos.bundle.bundleManager中的
      * [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}等接口来获取。
      *
@@ -180,7 +178,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * 窗口状态信息
+   * 应用窗口状态信息。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -188,7 +186,7 @@ declare namespace applicationManager {
    */
   interface WindowStateInfo {
     /**
-     * 窗口ID
+     * 应用窗口ID。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -197,7 +195,7 @@ declare namespace applicationManager {
     windowId: number;
 
     /**
-     * 窗口名称
+     * 应用窗口名称。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -206,7 +204,7 @@ declare namespace applicationManager {
     name: string;
 
     /**
-     * 窗口状态
+     * 应用窗口状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -215,7 +213,7 @@ declare namespace applicationManager {
     state: WindowState;
 
     /**
-     * 是否在dock栏
+     * 表示应用窗口是否在底部Dock栏上显示。PC/2in1设备和Tablet设备的PC模式的应用在底部Dock栏上返回true，其他设备返回false。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -225,7 +223,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * 窗口状态
+   * 应用窗口状态。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -233,7 +231,7 @@ declare namespace applicationManager {
    */
   enum WindowState {
     /**
-     * 断开连接状态
+     * 表示窗口已创建，但是暂不可用状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -242,7 +240,7 @@ declare namespace applicationManager {
     DISCONNECT = 0,
 
     /**
-     * 连接状态
+     * 表示窗口已创建完成，可正常使用状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -251,7 +249,7 @@ declare namespace applicationManager {
     CONNECT = 1,
 
     /**
-     * 前台状态
+     * 前台状态，表示当前窗口进入前台显示，是一个过渡状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -260,7 +258,7 @@ declare namespace applicationManager {
     FOREGROUND = 2,
 
     /**
-     * 激活状态
+     * 前台激活状态，表示当前窗口已前台显示。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -269,7 +267,7 @@ declare namespace applicationManager {
     ACTIVE = 3,
 
     /**
-     * 未激活状态
+     * 前台非激活状态，表示当前窗口即将进入后台，是一个过渡状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -278,7 +276,7 @@ declare namespace applicationManager {
     INACTIVE = 4,
 
     /**
-     * 窗口展示
+     * 后台状态，表示当前窗口退到后台，不可见状态。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -289,8 +287,8 @@ declare namespace applicationManager {
 
   /**
    * 添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前用户下运行，不在禁止名单中的应用允许运行。使用callback异步回调。从API version 21开始，如果应用运行允许名单
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}非空
-   * ，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误码。
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
+   * 码。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -319,8 +317,8 @@ declare namespace applicationManager {
 
   /**
    * 添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在指定用户（通过userId指定）下运行，不在禁止名单中的应用允许运行。使用callback异步回调。从API version 21开始，如果应用运行允许名单
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}非空
-   * ，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误码。
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
+   * 码。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -350,8 +348,8 @@ declare namespace applicationManager {
 
   /**
    * 添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前/指定用户下运行。使用Promise异步回调。从API version 21开始，如果应用运行允许名单
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}非空
-   * ，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误码。
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
+   * 码。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -360,7 +358,9 @@ declare namespace applicationManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } userId - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } userId - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当添加应用运行禁止名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -381,8 +381,12 @@ declare namespace applicationManager {
 
   /**
    * 添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前/指定用户下运行。从API version 21开始，如果应用运行允许名单
-   * [addallowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
    * 码。
+   *
+   * > **说明：**
+   * >
+   * > 若指定应用正在运行，将其加入禁止名单后，系统将立即终止该应用进程。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -391,9 +395,13 @@ declare namespace applicationManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。
+   *     <br>取值范围：
+   *     <br> 单个用户下该名单总数不能超过200。例如100用户下已经设置了50个、101用户未设置，则100用户还能再设置150个，101用户还能再设置200个。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -485,7 +493,9 @@ declare namespace applicationManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } userId - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } userId - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当移除应用运行禁止名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -496,7 +506,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.removeDisallowedRunningBundlesSync
@@ -504,7 +514,7 @@ declare namespace applicationManager {
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * 将应用从当前/指定用户下的应用运行禁止名单中移除。
+   * 将应用从当前/指定用户下的应用运行禁止名单中移除。移除后，该应用将允许在当前/指定用户下运行。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -516,9 +526,11 @@ declare namespace applicationManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -526,7 +538,7 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   function removeDisallowedRunningBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
@@ -549,7 +561,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -575,7 +587,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -587,7 +599,9 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } userId - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } userId - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<Array<string>> } Promise对象，返回当前/指定用户下的应用运行禁止名单。<br/>**说明：** API version 20及之前版本，返回值为应用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)列表。从API version 21版本开始，返回值为应用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)或
@@ -601,7 +615,7 @@ declare namespace applicationManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
    * @useinstead applicationManager.getDisallowedRunningBundlesSync
@@ -637,14 +651,14 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。
-   * @param { number } [accountId] - Account ID.
-   *     <br>The value must be greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
-   *     of @ohos.account.osAccount to obtain the ID.
-   *     <br> - If **accountId** is passed in, this API applies to the specified user.
-   *     <br> - If **accountId** is not passed in, this API applies to the current user.
-   * @returns { Array<string> } 返回当前/指定用户下的应用运行禁止名单。返回值为应用appId或appIdentifier列表。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br/>
+   *     - 调用接口时，若传入accountId，表示指定用户。<br/> - 调用接口时，若未传入accountId，表示当前用户。
+   * @returns { Array<string> } 返回当前/指定用户下的应用运行禁止名单。<br/>**说明：** 返回值为应用
+   *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)或
+   *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)列表。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -657,21 +671,31 @@ declare namespace applicationManager {
    */
   function getDisallowedRunningBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
- /**
+  /**
    * 添加应用至应用运行允许名单，添加至允许名单的应用允许在指定用户下运行，不在允许名单的应用不允许在指定用户下运行。
    *
    * > **说明：**
    * >
+   * > 1. 由于MDM Kit下大多数接口仅对MDM应用开放，本接口使用时，请将MDM应用同时添加至应用运行允许名单，否则会导致MDM应用不允许运行，阻塞接口调用。接口是否仅对MDM应用开放请查看对应的模块说明。
+   * >
+   * > 2. 如果应用运行禁止名单非空，不支持再使用本接口添加应用运行允许名单，否则会报9200010冲突错误码。应用运行禁止名单相关接口包括
+   * > [addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}、
+   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles}、
+   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles}、
+   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles}。
+   * >
+   * > 3. 本接口仅对三方应用生效，系统应用不受该名单管控，默认可以运行。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } appIdentifiers - 应用
    *     [唯一标识符](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)的数组，可以通过接口
-   *     [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList(admin: Want, accountId: number)}
-   *     获取bundleInfo.signatureInfo.appIdentifier。 <br>取值范围：<br> - 单个用户下该名单总数不能超过200。例如100用户下已经设置了50个、101用户未设置，则100用户还能再
-   *     设置150个，101用户还能再设置200个。
-   * @param { number } accountId - <br>取值范围为全体整数。
-   *     - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   *     [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList}
+   *     获取bundleInfo.signatureInfo.appIdentifier。
+   *     <br>取值范围：
+   *     <br> - 单个用户下该名单总数不能超过200。例如100用户下已经设置了50个、101用户未设置，则100用户还能再设置150个，101用户还能再设置200个。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -686,15 +710,17 @@ declare namespace applicationManager {
   function addAllowedRunningBundles(admin: Want, appIdentifiers: Array<string>, accountId: number): void;
 
   /**
-   * 将应用从指定用户下的应用运行允许名单中移除。
+   * 将应用从指定用户下的应用运行允许名单中移除。移除后，该应用将不允许在指定用户下运行。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { Array<string> } appIdentifiers - 应用唯一标识符的数组。可以通过接口bundleManager.getInstalledBundleList获取bundleInfo.signatureInfo.appIdentifier。取值范围：数组长度不能超过200。
-   *     <br>最大长度为200。
+   * @param { Array<string> } appIdentifiers - 应用
+   *     [唯一标识符](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)的数组。可以通过接口
+   *     [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList}
+   *     获取bundleInfo.signatureInfo.appIdentifier。取值范围：数组长度不能超过200。
    * @param { number } accountId - 用户ID，取值范围：大于等于0。
-   *     - <br>用户ID，取值范围：大于等于0。
-   *     accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -711,9 +737,10 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 账号ID。
+   * @param { number } accountId - 账号ID，取值范围：大于等于0。
    *     <br>取值应为≥0的整数。
-   *     <br>accountId可以通过@ohos.account.osAccount中的[getOsAccountLocalId]{@link @returns { Array<string> } 返回指定用户下的应用运行允许名单。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<string> } 返回指定用户下的应用运行允许名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -730,10 +757,10 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
-   * @param { number } accountId - 账号ID。
-   *     <br>取值应为≥0的整数。
-   *     <br>accountId可以通过@ohos.account.osAccount中的[getOsAccountLocalId]{@link @returns { Array<string> } 返回指定用户下的应用运行允许名单。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<string> } 返回指定用户下的应用运行允许名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -746,9 +773,8 @@ declare namespace applicationManager {
   function getAllowedRunningBundles(admin: Want | null, accountId: number): Array<string>;
 
   /**
-   * 为当前用户添加开机自启动应用名单。通过本接口添加至自启动名单的应用，禁止用户在设备上手动取消应用自启动<!--RP4--><!--RP4End-->，但可通过
-   * [removeAutoStartApps]{@link applicationManager.removeAutoStartApps(admin: Want, autoStartApps: Array<Want>)}接口将应用从自
-   * 启动名单中移除。
+   * 为当前用户添加开机自启动应用名单。通过本接口添加至自启动名单的应用，禁止用户在设备上手动取消应用自启动，但可通过
+   * [removeAutoStartApps]{@link applicationManager.removeAutoStartApps}接口将应用从自启动名单中移除。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -756,7 +782,7 @@ declare namespace applicationManager {
    *     abilityName。Ability支持UIAbility和ServiceExtensionAbility。当
    *     [abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中exported属性值为false时，不支持拉起Ability。从
    *     API version 24开始，新增支持通过Want的parameters属性中的isHiddenStart字段配置应用开机自启是否隐藏UI界面，true表示隐藏，false表示不隐藏。默认值是false。该参数设置为
-   *     true时，应用必须<!--RP8-->接入状态栏<!--RP8End-->，否则自启设置失败（若当前仅设置一个应用自启时隐藏UI界面，该应用未接入状态栏，则抛出401异常；若设置多个应用，有一个设置成功，返回成功）。设置
+   *     true时，应用必须接入状态栏，否则自启设置失败（若当前仅设置一个应用自启时隐藏UI界面，该应用未接入状态栏，则抛出401异常；若设置多个应用，有一个设置成功，返回成功）。设置
    *     成功后，应用自启后不显示UI界面，仅在状态栏显示，UI进程存在。隐藏UI界面能力仅在PC/2in1和Tablet的PC模式中可正常使用。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -771,21 +797,22 @@ declare namespace applicationManager {
   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
   /**
-   * 为指定用户添加开机自启动应用名单，并设置是否禁止该用户手动取消应用自启动<!--RP4--><!--RP4End-->。
+   * 为指定用户添加开机自启动应用名单，并设置是否禁止该用户手动取消应用自启动。
    *
-   * 通过本接口、[addAutoStartApps]{@link applicationManager.addAutoStartApps(admin: Want, autoStartApps: Array<Want>)}接口均可添加开
-   * 机自启动应用名单，两个接口的设置可同时生效。同一用户下，开机自启动应用名单最多支持包含10个应用。例如：若当前名单中已有3个应用，则最多还能通过本接口为当前用户添加7个应用。
+   * 通过本接口、[addAutoStartApps]{@link applicationManager.addAutoStartApps}接口均可添加开机自启动应用名单，两个接口的设置可同时生效。同一用户下，开机自启动应用名单最多支持
+   * 包含10个应用。例如：若当前名单中已有3个应用，则最多还能通过本接口为当前用户添加7个应用。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<Want> } autoStartApps - 开机自启动应用名单数组，数组总长度不超过10。Want中必须包含bundleName和abilityName。Ability支持UIAbility和
    *     ServiceExtensionAbility。当[abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中exported
    *     属性值为false时，不支持拉起Ability。从API version 24开始，新增支持通过Want的parameters属性中的isHiddenStart字段配置应用开机自启是否隐藏UI界面，true表示隐藏，
-   *     false表示不隐藏。默认值是false。该参数设置为true时，应用必须<!--RP8-->接入状态栏<!--RP8End-->，否则自启设置失败（若当前仅设置一个应用自启时隐藏UI界面，该应用未接入状态栏，则抛出401
+   *     false表示不隐藏。默认值是false。该参数设置为true时，应用必须接入状态栏，否则自启设置失败（若当前仅设置一个应用自启时隐藏UI界面，该应用未接入状态栏，则抛出401
    *     异常；若设置多个应用，有一个设置成功，返回成功）。设置成功后，应用自启后不显示UI界面，仅在状态栏显示，UI进程存在。隐藏UI界面能力仅在PC/2in1和Tablet的PC模式中可正常使用。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
-   * @param { boolean } disallowModify - 是否禁止用户手动取消应用自启动，true表示禁止，false表示允许。<!--RP1--><!--RP1End-->
+   * @param { boolean } disallowModify - 是否禁止用户手动取消应用自启动，true表示禁止，false表示允许。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -802,9 +829,10 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Want } autoStartApp - 开机自启动应用。Want中必须包含bundleName和abilityName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
-   * @returns { boolean } 是否禁止用户取消应用自启动，true表示禁止，false表示允许。<!--PR1--><!--PR1End-->
+   * @returns { boolean } 是否禁止用户取消应用自启动，true表示禁止，false表示允许。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -816,7 +844,7 @@ declare namespace applicationManager {
   function isModifyAutoStartAppsDisallowed(admin: Want, autoStartApp: Want, accountId: number): boolean;
 
   /**
-   * 为当前用户删除开机自启动应用名单。
+   * 为当前用户删除开机自启动应用名单。删除后，应用将不再开机自启动。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -841,7 +869,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<Want> } autoStartApps - 开机自启动应用名单数组。Want中必须包含bundleName和abilityName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -854,7 +883,7 @@ declare namespace applicationManager {
   function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number): void;
 
   /**
-   * 查询指定用户下的开机自启动应用名单。
+   * 查询当前用户开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -875,12 +904,9 @@ declare namespace applicationManager {
    * 查询当前用户开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned.
-   * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
-   *     the UI is hidden can be returned.
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<Want> } 应用自启动名单数组。支持返回是否隐藏UI的配置。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -894,13 +920,13 @@ declare namespace applicationManager {
   function getAutoStartApps(admin: Want | null): Array<Want>;
 
   /**
-   * 查询当前用户开机自启动应用名单。
+   * 查询指定用户下的开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<Want> } 应用自启动名单数组。从API version 24开始，支持返回是否隐藏UI的配置。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -913,18 +939,15 @@ declare namespace applicationManager {
   function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
 
   /**
-   * 查询当前用户开机自启动应用名单。
+   * 查询指定用户下的开机自启动应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.
-   * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
-   *     the UI is hidden can be returned.
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @returns { Array<Want> } 应用自启动名单数组。支持返回是否隐藏UI的配置。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -936,9 +959,9 @@ declare namespace applicationManager {
   function getAutoStartApps(admin: Want | null, accountId: number): Array<Want>;
 
   /**
-   * 添加保活应用名单，添加后将自动保活应用进程。在开机和应用被杀死后，由系统主动拉起应用进程。<!--RP7--><!--RP7End-->
+   * 添加保活应用名单，添加后将自动保活应用进程。在开机和应用被杀死后，由系统主动拉起应用进程。
    *
-   * 通过本接口添加至保活名单的应用，禁止用户在设备上手动取消保活<!--RP6--><!--RP6End-->，但可通过
+   * 通过本接口添加至保活名单的应用，禁止用户在设备上手动取消保活，但可通过
    * [removeKeepAliveApps]{@link applicationManager.removeKeepAliveApps}接口将应用从保活名单中移除。
    *
    * 如果将应用添加至应用禁止运行名单[addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}，就不能将应用添
@@ -949,8 +972,9 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { Array<string> } bundleNames - 应用包名数组，指定需要添加至保活名单的应用，最大支持5个。<!--RP5--><!--RP5End-->
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { Array<string> } bundleNames - 应用包名数组，指定需要添加至保活名单的应用，最大支持5个。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -971,9 +995,8 @@ declare namespace applicationManager {
   /**
    * 添加保活应用名单，并设置是否禁止用户手动取消保活，添加后将自动保活应用进程。在开机和应用被杀死后，由系统主动拉起应用进程。
    *
-   * 通过本接口、
-   * [addKeepAliveApps]{@link applicationManager.addKeepAliveApps(admin: Want, bundleNames: Array<string>, accountId: number)}
-   * 接口均可添加保活应用名单，两个接口的设置可同时生效。同一用户下，保活应用名单最多支持包含5个应用。例如：若当前名单中已有3个应用，则最多还能通过本接口为当前用户添加2个应用。
+   * 通过本接口、[addKeepAliveApps]{@link applicationManager.addKeepAliveApps}接口均可添加保活应用名单，两个接口的设置可同时生效。同一用户下，保活应用名单最多支持包含5个应
+   * 用。例如：若当前名单中已有3个应用，则最多还能通过本接口为当前用户添加2个应用。
    *
    * 如果通过[addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}接口将应用添加至应用禁止运行名单，就不能
    * 将应用添加至保活应用名单，否则会报9200010冲突错误码。
@@ -983,12 +1006,14 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { Array<string> } bundleNames - 应用包名数组，指定需要添加至保活名单的应用，最大支持5个。<br>应用需要满足条件：安装在1用户下（1用户是支持三方应用单例运行的用户），且应用接入
-   *     [后台服务](docroot://application-models/app-service-extension-ability.md#实现一个后台服务)<!--RP3--><!--RP3End-->。否则，会报错误码9
+   * @param { Array<string> } bundleNames - 应用包名数组，指定需要添加至保活名单的应用，最大支持5个。
+   *     <br>应用需要满足条件：安装在1用户下（1用户是支持三方应用单例运行的用户），且应用接入
+   *     [后台服务](docroot://application-models/app-service-extension-ability.md#实现一个后台服务)。否则，会报错误码9
    *     201005。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
-   * @param { boolean } disallowModify - 是否禁止用户手动取消应用保活，true表示禁止，false表示允许。<!--RP2--><!--RP2End-->
+   * @param { boolean } disallowModify - 是否禁止用户手动取消应用保活，true表示禁止，false表示允许。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
@@ -1008,10 +1033,11 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { string } bundleName - 查询的应用包名。
-   * @returns { boolean } 是否禁止用户手动取消应用保活，true表示禁止，false表示允许。<!--RP2--><!--RP2End-->
+   * @returns { boolean } 是否禁止用户手动取消应用保活，true表示禁止，false表示允许。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1028,7 +1054,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } bundleNames - 应用包名数组，指定需要移除保活的应用，最大支持5个。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1047,7 +1074,8 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<string> } 返回指定用户下保活应用的包名。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1066,9 +1094,10 @@ declare namespace applicationManager {
    * 获取保活应用包名。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - 获取保活应用包名。
-   *     <br>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
-   * @param { number } accountId - - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<string> } 返回指定用户下保活应用的包名。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1091,8 +1120,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } appIdentifiers - 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}的数组，可以通过接口
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     获取bundleInfo.signatureInfo.appIdentifier。重复设置时，新设置的数组会覆盖旧的设置，最多设置200个。
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}获取
+   *     bundleInfo.signatureInfo.appIdentifier。重复设置时，新设置的数组会覆盖旧的设置，最多设置200个。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -1123,8 +1152,7 @@ declare namespace applicationManager {
    * 获取允许在Kiosk模式下运行的应用。
    *
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
-   * @param { Want | null } admin - 获取允许在Kiosk模式下运行的应用。
-   *     <br>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @returns { Array<string> } 允许在Kiosk模式下运行的应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}清单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1141,8 +1169,8 @@ declare namespace applicationManager {
    * 查询某应用是否允许在Kiosk模式下运行。
    *
    * @param { string } appIdentifier - 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}，可以通过接口
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     获取bundleInfo.signatureInfo.appIdentifier。
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}获取
+   *     bundleInfo.signatureInfo.appIdentifier。
    * @returns { boolean } true表示允许在Kiosk模式下运行。false表示不允许在Kiosk模式下运行。
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -1159,8 +1187,8 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { Array<KioskFeature> } features - Kiosk模式的特征集合（从API version 24开始，新增允许底部上滑进入最近任务栏、左滑悬停或右滑悬停展示侧边DOCK栏）。 <br>
-   *     当传入空数组时，系统会清空之前下发过的特征，恢复到Kiosk模式的默认状态。即：禁用通知中心、控制中心、最近任务栏、侧边Dock栏等能力。
+   * @param { Array<KioskFeature> } features - Kiosk模式的特征集合（从API version 24开始，新增允许底部上滑进入最近任务栏、左滑悬停或右滑悬停展示侧边DOCK栏）。
+   *     <br> 当传入空数组时，系统会清空之前下发过的特征，恢复到Kiosk模式的默认状态。即：禁用通知中心、控制中心、最近任务栏、侧边Dock栏等能力。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1178,9 +1206,11 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用包名，指定需要清除数据的应用包名。
-   * @param { number } appIndex - 应用分身索引，取值范围：大于等于0的整数。<br> appIndex可以通过@ohos.bundle.bundleManager中的
+   * @param { number } appIndex - 应用分身索引，取值范围：大于等于0的整数。
+   *     <br> appIndex可以通过@ohos.bundle.bundleManager中的
    *     [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}等接口来获取。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1200,6 +1230,11 @@ declare namespace applicationManager {
    *
    * 不可关停应用在PC/2in1设备的效果：用户在设置-应用和元服务中点击应用名称进入详情页面后，页面中的强行停止按钮呈灰色不可用，页面中的停用按钮功能无效。
    *
+   * 从API版本26.0.0开始，调用
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用
+   * [SUPER_HUB]{@link @ohos.enterprise.restrictions:restrictions.FeatureForAccount}后，再调用该接口将中转站添加到不可关停应用名单时，会发生策略冲突，抛出9
+   * 200010错误码。
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<common.ApplicationInstance> } applicationInstances - 不可关停应用名单数组。不可关停应用名单最多支持包含10个应用，该数量限制不区分用户，即所有用户
@@ -1217,7 +1252,7 @@ declare namespace applicationManager {
   function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
   /**
-   * 为指定用户删除不可关停应用名单。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
+   * 为指定用户删除不可关停应用名单。删除后，用户可以在设备上正常关停该应用。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1267,8 +1302,8 @@ declare namespace applicationManager {
   function getUserNonStopApps(admin: Want | null): Array<common.ApplicationInstance>;
 
   /**
-   * 为指定用户添加后台防冻结应用名单，仅可对已安装应用设置该策略，该策略重启后失效。若参数列表中存在未安装应用，则返回9200012错误码。若设置策略后，名单中有应用被卸载，则卸载的应用将从名单中移除。若添加已存在于名单中的应用，返回
-   * 成功，但已设置策略名单中不会重复添加该应用。
+   * 为指定用户添加后台防冻结应用名单，仅可对已安装应用设置该策略。若参数列表中存在未安装应用，则返回9200012错误码。若设置策略后，名单中有应用被卸载，则卸载的应用将从名单中移除。若添加已存在于名单中的应用，返回成功，但已设置策略
+   * 名单中不会重复添加该应用。
    *
    * 冻结操作：对目标应用的挂起、软件资源代理、硬件资源代理和高功耗管控等操作。
    *
@@ -1288,7 +1323,7 @@ declare namespace applicationManager {
   function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
   /**
-   * 为指定用户删除后台防冻结应用名单。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
+   * 为指定用户删除后台防冻结应用名单。删除后，应用可以被系统冻结。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1325,7 +1360,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @returns { Array<common.ApplicationInstance> } 后台防冻结应用名单数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1344,8 +1379,7 @@ declare namespace applicationManager {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用包名，指定是否禁用的应用包名。
    * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
-   *     <br>取值范围为全体整数。
-   *     - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { string } abilityName - 表示要禁用/解除禁用的Ability组件名（当前仅支持UIAbility）。
    * @param { boolean } isDisabled - 是否禁用该Ability组件。true表示禁用该Ability组件，false表示解除禁用该Ability组件。
@@ -1367,7 +1401,8 @@ declare namespace applicationManager {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用包名，指定是否禁用的应用包名。
    * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
-   *     - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   *     <br>取值应为≥0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { string } abilityName - 表示要禁用/解除禁用的Ability组件名称（当前仅支持UIAbility）。
    * @returns { boolean } 该能力是否禁用。true表示该Ability组件被禁用，false表示该Ability组件未被禁用。
@@ -1387,11 +1422,11 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @param { string } bundleName - 应用包名，指定是否禁用的应用包名。
-   * @param { number } accountId - 账号ID。
-   *     <br>取值应为≥0的整数。
-   *     <br>accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { string } abilityName - 表示要禁用/解除禁用的Ability组件名称（当前仅支持UIAbility）。
    * @returns { boolean } 该能力是否禁用。true表示该Ability组件被禁用，false表示该Ability组件未被禁用。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1428,8 +1463,8 @@ declare namespace applicationManager {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用的包名。
    * @param { string } abilityName - 应用的Ability名称，仅支持应用程序入口Ability。
-   * @param { number } [index] - 应用在快捷栏中的位置索引，
-   *     <br>取值应为[0,99]内的整数，默认值为99。 默认值： 99。
+   * @param { number } [index] - 应用在快捷栏中的位置索引，默认值为99。
+   *     <br>取值范围：[0,100)。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1454,9 +1489,6 @@ declare namespace applicationManager {
    *
    * > **说明：**
    * >
-   * > 以下应用不可通过本接口从快捷栏中移除：“应用中心”、“任务中心”、“文件管理”、“回收站”，否则报错9201018错误码。
-   *
-   * > **说明**
    * > 以下应用不可通过本接口从快捷栏中移除：“应用中心”、“任务中心”、“文件管理”、“回收站”，否则报错9201018错误码。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
@@ -1496,25 +1528,28 @@ declare namespace applicationManager {
   function getDockApps(admin: Want): Array<DockInfo>;
 
   /**
-   * 为指定用户添加允许使用分布式能力的应用名单，名单中的应用在指定用户下可以使用指定的分布式能力。
+   * 为指定用户下的特定分布式业务添加允许跨设备的应用名单。即名单中的应用可以不受
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}的限制，
+   * 通过使用该特定分布式业务跨设备传输数据。
    *
-   * 当前支持的分布式类型有：[协同服务]{@link applicationManager.ServiceType}。
+   * 当前支持的分布式业务类型有：[协同业务]{@link applicationManager.ServiceType}。
    *
    * > **说明：**
    * >
-   * > 1.如果要设置允许使用协同服务的应用名单，在调用本接口前必须已经通过
-   * > [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number)}
-   * > 接口禁用了向其他设备传输数据的设备间单向传输数据的能力，否则会抛出错误码9201043。
+   * > 1.如果要设置允许使用特定分布式业务的应用名单，在调用本接口前必须已经通过
+   * > [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口
+   * > 禁用了向其他设备传输数据的设备间单向传输数据的能力，否则会抛出错误码9201043。
    *
-   * > 2.当向其他设备传输数据的设备间单向传输数据的能力被解除禁用时，通过本接口设置的允许使用协同服务的应用名单会被同步清除。
+   * > 2.当向其他设备传输数据的设备间单向传输数据的能力被解除禁用时，通过本接口设置的允许使用特定分布式业务的应用名单会被同步清除。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } appIdentifiers - 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}的数组，可以通过接口
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     获取bundleInfo.signatureInfo.appIdentifier。允许列表总数不能超过200个。
-   * @param { ServiceType } serviceType - 分布式能力类型。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}获取
+   *     bundleInfo.signatureInfo.appIdentifier。允许列表总数不能超过200个。
+   * @param { ServiceType } serviceType - 分布式业务类型。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1531,15 +1566,18 @@ declare namespace applicationManager {
   function addAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
 
   /**
-   * 为指定用户移除允许使用分布式能力的应用名单。移除后，若名单中还有剩余的应用，则仅名单中的应用在指定用户下可以使用指定类型的分布式能力；若名单中已被清空，无剩余的应用，则所有应用在指定用户下都不允许使用指定类型的分布式能力。
+   * 为指定用户下的特定分布式业务移除允许跨设备的应用名单。移除后，若名单中还有剩余的应用，则仅名单中的应用可以不受
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}的限制，
+   * 通过使用该特定分布式业务跨设备传输数据；若名单已被清空，无剩余的应用，则所有应用在指定用户下都不允许使用该特定分布式业务跨设备传输数据。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } appIdentifiers - 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}的数组，可以通过接口
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     获取bundleInfo.signatureInfo.appIdentifier。允许列表总数不能超过200个。
-   * @param { ServiceType } serviceType - 分布式能力类型。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}获取
+   *     bundleInfo.signatureInfo.appIdentifier。允许列表总数不能超过200个。
+   * @param { ServiceType } serviceType - 分布式业务类型。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1553,14 +1591,15 @@ declare namespace applicationManager {
   function removeAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
 
   /**
-   * 获取指定用户下允许使用指定类型的分布式能力的应用名单。
+   * 获取指定用户下特定分布式业务的允许跨设备应用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { ServiceType } serviceType - 分布式能力类型。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { ServiceType } serviceType - 分布式业务类型。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
-   * @returns { Array<string> } 允许使用指定类型的分布式能力的应用的[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}的数组。
+   * @returns { Array<string> } 指定用户下特定分布式业务的允许跨设备应用的[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1573,24 +1612,24 @@ declare namespace applicationManager {
   function getAllowedDistributeAbilityConnBundles(admin: Want | null, serviceType: ServiceType, accountId: number): Array<string>;
 
   /**
-   * 添加允许发送通知的应用名单。设置通知白名单后，不在此名单内的应用无法发送通知。
+   * 添加允许发送通知的应用名单。设置通知允许名单后，不在此名单内的应用无法发送通知。
    *
    * > **说明：**
    * >
-   * > 1.如果Kiosk模式与通知白名单策略同时设置，那么设置Kiosk模式的应用与通知白名单中的应用都可以发送通知。
+   * > 1.如果Kiosk模式与通知允许名单策略同时设置，那么设置Kiosk模式的应用与通知允许名单中的应用都可以发送通知。
    *
-   * > 2.当已经通过
-   * > [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * > 设置了禁用设备通知能力时，再通过本接口设置通知白名单，会抛出错误码9200010。
+   * > 2.当已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}设置了禁用设备通知能力时，再通
+   * > 过本接口设置通知允许名单，会抛出错误码9200010。
    *
-   * > 3.通知白名单对系统服务不生效，系统服务始终可以发送通知。系统应用受通知白名单管控。
+   * > 3.通知允许名单对系统服务不生效，系统服务始终可以发送通知。系统应用受通知允许名单管控。
    *
    * > 4.支持跨用户设置，设置后跨用户立即生效。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } bundleNames - 应用包名数组，指定允许发送通知的应用。最多支持200个应用。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br>accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br>accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1610,7 +1649,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } bundleNames - 应用包名数组，指定需要移除的应用。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1628,7 +1668,8 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br>accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br>accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<string> } 返回允许发送通知的应用包名数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1696,8 +1737,8 @@ declare namespace applicationManager {
    * 查询当前用户下隐藏桌面应用图标名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<br/>当设备有多个MDM应用时，传入admin
-   *     查询对应admin设置的策略。传入null时查询整机实际生效的策略。
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<br/>当设备存在多个MDM应用时，传入
+   *     admin查询对应admin设置的策略。传入null时查询整机实际生效的策略。
    * @returns { Array<string> } 返回当前用户下的隐藏桌面应用图标名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1728,13 +1769,11 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用的包名。
-   * @param { number } appIndex - 应用分身索引
-   *     <br>取值应为≥0的整数。
-   *     - 应用分身索引，取值范围：大于等于0的整数。<br> appIndex可以通过@ohos.bundle.bundleManager中的
+   * @param { number } appIndex - 应用分身索引，取值范围：大于等于0的整数。
+   *     <br> appIndex可以通过@ohos.bundle.bundleManager中的
    *     [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}等接口来获取。
-   * @param { number } accountId - 用户ID
-   *     <br>取值应为≥0的整数。
-   *     <br>accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { statistics.NetworkInfo } networkInfo - 网络信息。
    * @returns { Promise<statistics.NetStatsInfo> } Promise对象，返回获取的历史流量信息对象。
@@ -1762,13 +1801,12 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } startTime - 查询起始时间
-   *     <br>单位为： 毫秒，取值应为≥0的整数。
-   * @param { number } endTime - 查询结束时间，单位：毫秒（时间戳）
-   *     <br>单位为： 毫秒，取值应为≥0的整数。
-   * @param { number } accountId - accountId为操作系统帐户的本地ID。
-   *     <br>取值应为≥0的整数。
-   *     - 用户ID，取值范围：大于等于0的整数。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } startTime - 查询起始时间，单位：毫秒（时间戳）。
+   *     <br>取值范围：[0, +∞)。
+   * @param { number } endTime - 查询结束时间，单位：毫秒（时间戳）。
+   *     <br>取值范围：[0, +∞)。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0的整数。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<BundleStatsInfo> } 返回应用包统计信息的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1783,14 +1821,15 @@ declare namespace applicationManager {
   function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
 
   /**
-   * 查询应用窗口状态
+   * 查询指定应用的窗口状态信息列表。可以查询到应用是否在底部Dock栏，以及当前应用窗口是否在前台显示等信息。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { string } bundleName - 应用包名
-   * @param { number } appIndex - 应用分身索引
-   *     <br>取值应为≥0的整数。
-   * @returns { Array<WindowStateInfo> } 返回应用窗口状态信息
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { string } bundleName - 应用的包名。
+   * @param { number } appIndex - 应用分身索引，取值范围：大于等于0的整数。
+   *     <br> appIndex可以通过@ohos.bundle.bundleManager中的
+   *     [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}等接口来获取。
+   * @returns { Array<WindowStateInfo> } 返回应用窗口状态信息的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
