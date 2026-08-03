@@ -27,6 +27,7 @@ import {
   APIAVAILABLE_NULLORUNDEFINED_FORMAT_ERROR
 } from '../api_check_plugin_define';
 import { ApiAvailableResult, DistributionOSApiAvailableVersionResult } from '../api_check_plugin_typedef';
+import { DiagnosticCategory } from '../../api-check-wrapper';
 
 function buildApiAvailableMessage(base: string, suffix?: string): string {
   const code: string = ERROR_CODE_INFO.get(base)?.code ?? '';
@@ -41,12 +42,12 @@ function isCanonicalDecimalInteger(since: string): boolean {
   return /^[+-]?(0|[1-9][0-9]*)$/.test(since);
 }
 
-function isNumericLiteral(node: arkts.AstNode): boolean {
-  if (arkts.isNumericLiteral(node)) {
+function isNumberLiteral(node: arkts.AstNode): boolean {
+  if (arkts.isNumberLiteral(node)) {
     return true;
   }
 
-  if (arkts.isPrefixUnaryExpression(node) && arkts.isNumericLiteral(node.operand)) {
+  if (arkts.isPrefixUnaryExpression(node) && arkts.isNumberLiteral(node.operand)) {
     return node.operator === arkts.SyntaxKind.MinusToken ||
       node.operator === arkts.SyntaxKind.PlusToken;
   }
@@ -72,7 +73,7 @@ function checkStringOpenHarmony(content: string): ApiAvailableResult {
     return {
       valid: false,
       message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_STRING_OPENHARMONY_FORMAT_ERROR),
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   const msf = parseMSFVersion(content);
@@ -80,13 +81,13 @@ function checkStringOpenHarmony(content: string): ApiAvailableResult {
     return {
       valid: false,
       message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR),
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   return {
     valid: true,
     message: APIAVAILABLE_CHECK_ERROR,
-    type: arkts.DiagnosticCategory.Error
+    type: DiagnosticCategory.ERROR
   };
 }
 
@@ -98,7 +99,7 @@ function checkStringDistributionOS(
     return {
       valid: false,
       message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_STRING_DISTRIBUTIONOS_FORMAT_ERROR),
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   const msf = parseMSFVersion(content);
@@ -106,7 +107,7 @@ function checkStringDistributionOS(
     return {
       valid: false,
       message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR),
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   if (msf.major >= MSF_INTEGER_VERSION) {
@@ -114,13 +115,13 @@ function checkStringDistributionOS(
       return { 
         valid: false,
         message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR),
-        type: arkts.DiagnosticCategory.Error
+        type: DiagnosticCategory.ERROR
       };
     }
     return {
       valid: true,
       message: APIAVAILABLE_CHECK_ERROR,
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   const distributionOSCheck: DistributionOSApiAvailableVersionResult = isCheckDistributionOSVersion(SINCE_TAG_NAME, content);
@@ -129,13 +130,13 @@ function checkStringDistributionOS(
     return {
       valid: false,
       message: `${distCode}#${distributionOSCheck.message}`,
-      type: arkts.DiagnosticCategory.Error
+      type: DiagnosticCategory.ERROR
     };
   }
   return {
     valid: true,
     message: APIAVAILABLE_CHECK_ERROR,
-    type: arkts.DiagnosticCategory.Error
+    type: DiagnosticCategory.ERROR
   };
 }
 
@@ -151,11 +152,11 @@ export function validateApiAvailableArgument(options: ValidateApiAvailableArgume
   const result: ApiAvailableResult = {
     valid: true,
     message: APIAVAILABLE_CHECK_ERROR,
-    type: arkts.DiagnosticCategory.Error
+    type: DiagnosticCategory.ERROR
   };
 
   const arg: arkts.AstNode = node.arguments[0];
-  const isNumber: boolean = isNumericLiteral(arg);
+  const isNumber: boolean = isNumberLiteral(arg);
   const isStringLiteralNode: boolean = arkts.isStringLiteral(arg) || arkts.isNoSubstitutionTemplateLiteral(arg);
   const isNullish: boolean = isNullOrUndefinedScene(arg);
 
