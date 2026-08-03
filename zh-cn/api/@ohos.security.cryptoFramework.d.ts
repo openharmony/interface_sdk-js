@@ -377,7 +377,7 @@ declare namespace cryptoFramework {
    * [ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
-   * <br>适用于[ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20)。
+   * <br>适用于[ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#chacha20)。
    *
    * > **说明：**
    * >
@@ -438,10 +438,10 @@ declare namespace cryptoFramework {
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法参数，继承自
    * [ParamsSpec]{@link cryptoFramework.ParamsSpec}。
    *
-   * <br>适用于[AES算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#aes)的CCM和GCM分组模式。
-   * <br>适用于[SM4算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#sm4)的GCM分组模式。
+   * <br>适用于[AES算法](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#aes)的CCM和GCM分组模式。
+   * <br>适用于[SM4算法](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#sm4)的GCM分组模式。
    * <br>适用于
-   * [ChaCha20-Poly1305算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20)
+   * [ChaCha20-Poly1305算法](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#chacha20)
    * 分组模式。
    *
    * > **说明：**
@@ -1685,10 +1685,10 @@ declare namespace cryptoFramework {
    * 创建对应算法的非对称密钥生成器实例。
    *
    * <br>支持的规格详见
-   * [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)。
+   * [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)。
    *
    * @param { string } algName - 非对称密钥生成支持的算法名。详见
-   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
+   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     一节中的“字符串参数”。
    * @returns { AsyKeyGenerator } 返回非对称密钥生成器。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -1710,10 +1710,10 @@ declare namespace cryptoFramework {
    * 创建对应算法的对称密钥生成器实例。
    *
    * <br>支持的规格详见
-   * [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)。
+   * [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)。
    *
    * @param { string } algName - 待生成对称密钥生成器的算法名称。<br>具体取值详见
-   *     [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
+   *     [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     一节中的“字符串参数”。
    * @returns { SymKeyGenerator } 返回对称密钥生成器实例。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
@@ -2298,7 +2298,7 @@ declare namespace cryptoFramework {
    * [getCipherSpec]{@link cryptoFramework.Cipher.getCipherSpec}接口获取。
    *
    * <br>当前只支持RSA算法和SM2算法。详细规格请参考
-   * [加解密规格](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)。
+   * [加解密规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2510,7 +2510,7 @@ declare namespace cryptoFramework {
    * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}方法完成
    * 加解密操作。
    *
-   * <br>完整的加解密流程示例可参考[开发指南](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption-overview.md)。
+   * <br>完整的加解密流程示例可参考[开发指南](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)。
    *
    * <br>一次完整的加/解密流程在对称加密和非对称加密中略有不同：
    *
@@ -2696,7 +2696,7 @@ declare namespace cryptoFramework {
      * > 2. 根据数据量，可以不调用**update**（即**init**完成后直接调用**doFinal**）或多次调用**update**。
      * > <br>算法库目前没有对**update**（单次或累计）的数据量设置大小限制，建议对于大数据量的对称加解密，可以采用多次**update**的方式传入数据。
      * > <br>有关在多次**update()**调用中传递数据的示例代码的详细信息，请参见
-     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md)。
+     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md)。
      * > 3. RSA或SM2非对称加解密不支持**update()**。
      * > 4. 对于CCM模式的对称加解密算法，加密时只能调用1次**update**接口加密数据并调用**doFinal**接口获取tag，或直接调用**doFinal**
      * > 接口加密数据并获取tag，解密时只能调用1次**update**接口或调用1次**doFinal**接口解密数据并验证tag。
@@ -2739,7 +2739,7 @@ declare namespace cryptoFramework {
      * > 2. 根据数据量，可以不调用**update**（即**init**完成后直接调用**doFinal**）或多次调用**update**。
      * > <br>算法库目前没有对**update**（单次或累计）的数据量设置大小限制，建议对于大数据量的对称加解密，可以采用多次**update**的方式传入数据。
      * > <br>有关在多次**update()**调用中传递数据的示例代码的详细信息，请参见
-     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md)。
+     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md)。
      * > 3. RSA或SM2非对称加解密不支持**update()**。
      * > 4. 对于CCM模式的对称加解密算法，加密时只能调用1次**update**接口加密数据并调用**doFinal**接口获取tag，或直接调用**doFinal**
      * > 接口加密数据并获取tag，解密时只能调用1次**update**接口或调用1次**doFinal**接口解密数据并验证tag。
@@ -2785,7 +2785,7 @@ declare namespace cryptoFramework {
      * > 2. 根据数据量，可以不调用**update**（即**init**完成后直接调用**doFinal**）或多次调用**update**。
      * > <br>算法库目前没有对**update**（单次或累计）的数据量设置大小限制，建议对于大数据量的对称加解密，可以采用多次**update**的方式传入数据。
      * > <br>有关在多次**update()**调用中传递数据的示例代码的详细信息，请参见
-     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md)。
+     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md)。
      * > 3. RSA或SM2非对称加解密不支持**update()**。
      * > 4. 对于CCM模式的对称加解密算法，加密时只能调用1次**update**接口加密数据并调用**doFinal**接口获取tag，或直接调用**doFinal**
      * > 接口加密数据并获取tag，解密时只能调用1次**update**接口或调用1次**doFinal**接口解密数据并验证tag。
@@ -2827,7 +2827,7 @@ declare namespace cryptoFramework {
      * > 2. 根据数据量，可以不调用**update**（即**init**完成后直接调用**doFinal**）或多次调用**update**。
      * > <br>算法库目前没有对**update**（单次或累计）的数据量设置大小限制，建议对于大数据量的对称加解密，可以采用多次**update**的方式传入数据。
      * > <br>有关在多次**update()**调用中传递数据的示例代码的详细信息，请参见
-     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md)。
+     * > [使用AES对称密钥分段加密和解密（GCM模式）](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md)。
      * > 3. RSA或SM2非对称加解密不支持**update()**。
      * > 4. 对于CCM模式的对称加解密算法，加密时只能调用1次**update**接口加密数据并调用**doFinal**接口获取tag，或直接调用**doFinal**
      * > 接口加密数据并获取tag，解密时只能调用1次**update**接口或调用1次**doFinal**接口解密数据并验证tag。
@@ -2954,7 +2954,7 @@ declare namespace cryptoFramework {
      * > 3. 对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
      * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4. 非对称加解密时多次**doFinal**操作的示例代码请参阅
-     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
+     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md)。
      * > SM2和RSA的操作类似。
      *
      * @param { DataBlob | null } data - 要加密或解密的数据。在对称加解密中，这个参数可以是**null**，但是
@@ -2992,7 +2992,7 @@ declare namespace cryptoFramework {
      * > 3. 对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
      * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4. 非对称加解密时多次**doFinal**操作的示例代码请参阅
-     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
+     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md)。
      * > SM2和RSA的操作类似。
      *
      * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
@@ -3066,7 +3066,7 @@ declare namespace cryptoFramework {
      * > 3. 对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
      * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4. 非对称加解密时多次**doFinal**操作的示例代码请参阅
-     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
+     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md)。
      * > SM2和RSA的操作类似。
      *
      * @param { DataBlob | null } data - 要加密或解密的数据。可以为**null**，但不能为{data:Uint8Array(0)}。在API版本10之前的版本
@@ -3103,7 +3103,7 @@ declare namespace cryptoFramework {
      * > 3. 对于解密，GCM、CCM、CFB、OFB和CTR模式，如果**doFinal**传null，则返回结果为null；对于解密，其他模式，如果明文是加密块大小的
      * > 整倍数，调用**update**传入所有密文，调用**doFinal**传null，则返回结果为null。
      * > 4. 非对称加解密时多次**doFinal**操作的示例代码请参阅
-     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md)。
+     * > [使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md)。
      * > SM2和RSA的操作类似。
      *
      * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
@@ -3257,6 +3257,8 @@ declare namespace cryptoFramework {
   /**
    * 创建加解密实例。
    *
+   * <br>支持的规格详见[加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)。
+   *
    * > **说明：**
    * >
    * > 1. 在对称加解密中，PKCS #5和PKCS #7的实现方式相同，即补位长度和块大小保持一致。3DES补位为8字节，AES补位为16字节。**NoPadding**
@@ -3267,8 +3269,8 @@ declare namespace cryptoFramework {
    * > 一个**Cipher**对象进行加解密。
    *
    * @param { string } transformation - 待生成Cipher的算法名称（含密钥长度）、加密模式以及填充方法的组合。<br>支持的规格详见
-   *     [对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md)和
-   *     [非对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)。
+   *     [对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)和
+   *     [非对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)。
    * @returns { Cipher } 返回对应算法的Cipher实例。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
    *     <br>1. 必填参数未指定；
@@ -3289,7 +3291,7 @@ declare namespace cryptoFramework {
    * 签名接口，定义基于私钥对数据进行签名的方法。调用前，需通过
    * [createSign(algName: string): Sign]{@link cryptoFramework.createSign}方法创建一个Sign实例。按序调用Sign实例中的init、
    * update（可选）、sign方法完成签名操作。签名操作的示例代码详见
-   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)。
+   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)。
    *
    * <br>Sign实例不支持重复初始化，当业务方需要使用新密钥签名时，需要重新创建新Sign实例并调用init初始化。
    *
@@ -3405,7 +3407,7 @@ declare namespace cryptoFramework {
      * > 过大内存。
      * >
      * > 签名使用多次update操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)，
      * > 其余算法操作类似。
      *
      * > OnlySign模式下，不支持update操作，需要直接使用sign传入数据。
@@ -3445,7 +3447,7 @@ declare namespace cryptoFramework {
      * > 算法库不对单次或累计的update数据量设置大小限制。建议在处理大数据量的签名操作时，采用多次update方式传入数据，以避免一次性申请过大内
      * > 存。
      * > 签名使用多次update操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)，
      * > 其余算法操作类似。
      * >
      * > OnlySign模式下，不支持update操作，需要直接使用sign传入数据。
@@ -3486,7 +3488,7 @@ declare namespace cryptoFramework {
      * > 一次性申请过大内存。
      * >
      * > 签名使用多次updateSync操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)，
      * > 其余算法操作类似。
      * >
      * > OnlySign模式下，不支持updateSync操作，需要直接使用signSync传入数据。
@@ -3755,7 +3757,7 @@ declare namespace cryptoFramework {
    * 验签接口，定义基于公钥对签名数据进行验签的方法。调用前，需通过
    * [createVerify(algName: string): Verify]{@link cryptoFramework.createVerify}方法创建一个Verify实例。按序调用Verify实例中
    * 的init、update（可选）、verify方法完成验签操作。验签操作的示例代码详见
-   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)。
+   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)。
    *
    * <br>Verify实例不支持重复初始化，当业务方需要使用新密钥验签时，需要重新创建新Verify实例并调用init初始化。
    *
@@ -3867,7 +3869,7 @@ declare namespace cryptoFramework {
      * > 过大内存。
      * >
      * > 验签使用多次update操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > ，其余算法操作类似。
      * >
      * > OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。
@@ -3908,7 +3910,7 @@ declare namespace cryptoFramework {
      * > 过大内存。
      * >
      * > 验签使用多次update操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > ，其余算法操作类似。
      * >
      * > OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。
@@ -3949,7 +3951,7 @@ declare namespace cryptoFramework {
      * > 一次性申请过大内存。
      * >
      * > 验签使用多次updateSync操作的示例代码详见
-     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)，
      * > 其余算法操作类似。
      * >
      * > OnlyVerify模式下，不支持updateSync操作，需要直接使用verifySync传入数据。
@@ -4280,6 +4282,8 @@ declare namespace cryptoFramework {
   /**
    * 创建签名实例。
    *
+   * <br>支持的规格详见[签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
+   *
    * @param { string } algName - 指定签名算法。当前支持RSA、ECC、DSA、SM2<sup>10+</sup>，Ed25519<sup>11+</sup>和
    *     ML-DSA<sup>26.0.0+</sup>。
    *     <br>使用RSA PKCS1模式时需设置摘要；使用RSA PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。
@@ -4303,6 +4307,8 @@ declare namespace cryptoFramework {
 
   /**
    * 创建验签实例。
+   *
+   * <br>支持的规格详见[签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    *
    * @param { string } algName - 指定签名验证算法。当前支持RSA、ECC、DSA、SM2<sup>10+</sup>，Ed25519<sup>11+</sup>和
    *     ML-DSA<sup>26.0.0+</sup>。
@@ -4423,6 +4429,8 @@ declare namespace cryptoFramework {
 
   /**
    * 创建密钥协商实例。
+   *
+   * <br>支持的规格详见[密钥协商规格](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)。
    *
    * @param { string } algName - 指定密钥协商算法：目前仅支持ECDH，从API version 11开始，增加支持X25519和DH。<br>支持的规格详见
    *     [密钥协商规格](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)。
@@ -5494,8 +5502,8 @@ declare namespace cryptoFramework {
   class ECCKeyUtil {
     /**
      * 根据椭圆曲线相应的NID（Name Identifier）字符串名称生成相应的非对称公共密钥参数。详见
-     * [ECC密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#ecc)和
-     * [SM2密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#sm2)。
+     * [ECC密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#ecc)和
+     * [SM2密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#sm2)。
      *
      * @param { string } curveName - 椭圆曲线相应的NID（Name Identifier）字符串名称。
      * @returns { ECCCommonParamsSpec } 返回ECC公共密钥参数。
@@ -5756,7 +5764,7 @@ declare namespace cryptoFramework {
   class DHKeyUtil {
     /**
      * 根据素数P的长度和私钥长度（单位为bit）生成DH公共密钥参数。详见
-     * [DH密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#dh)。
+     * [DH密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#dh)。
      *
      * @param { int } pLen - 用于指定DH公共密钥参数中素数P的长度，单位为bits。
      * @param { int } [skLen] - 用于指定生成DH私钥的最大长度，单位为bits，默认值为0。<br>当参数值设置为0时，生成DH私钥的最大长度为：
@@ -6314,7 +6322,7 @@ declare namespace cryptoFramework {
    * 创建指定密钥规格的非对称密钥生成器实例。
    *
    * @param { AsyKeySpec } asyKeySpec - 密钥参数。非对称密钥生成器根据指定的这些参数生成公/私钥。<br>支持的规格详见
-   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)。
+   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)。
    * @returns { AsyKeyGeneratorBySpec } 返回AsyKeyGeneratorBySpec实例。
    * @throws { BusinessError } 401 - 非法入参。可能的原因：
    *     <br>1. 必填参数未指定；
@@ -6728,6 +6736,8 @@ declare namespace cryptoFramework {
 
   /**
    * 创建密钥派生函数实例。
+   * 
+   * <br>支持的规格详见[密钥派生函数规格](docroot://security/CryptoArchitectureKit/crypto-key-derivation-overview.md)。
    *
    * @param { string } algName - 指定密钥派生算法（包含HMAC配套的散列函数）：目前支持PBKDF2、HKDF、SCRYPT、X963KDF算法，
    *     如"PBKDF2|SHA256"、 "HKDF|SHA256"、 "SCRYPT"和"X963KDF|SHA256"等。<br>支持的规格详见
