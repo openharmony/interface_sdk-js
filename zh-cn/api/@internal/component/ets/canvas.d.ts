@@ -153,7 +153,6 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
 /**
  * Import the frame node type object for Canvas.
  *
- * @typedef { import('../api/arkui/FrameNode').FrameNode } FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -163,7 +162,7 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
 declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
 
 /**
- * 渐变对象。
+ * OffscreenCanvas支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -174,15 +173,14 @@ declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
  */
 declare class CanvasGradient {
   /**
-   * 设置渐变断点值，包括偏移和颜色。
+   * 设置渐变断点值，包括偏移和颜色。调用多次addColorStop可设置多个断点，断点按offset值从小到大排序，渲染时在相邻断点间进行颜色插值。
    *
    * @param { number } offset - 设置渐变点距离起点的位置占总体长度的比例，范围为[0, 1]。
-   *    <br>设置offset小于0或offset大于1无渐变效果。
-   *    <br>异常值undefined和null按无效值处理，忽略本次断点值。NaN会导致CanvasGradient异常，
-   *    Infinity会导致整个CanvasGradient不生效。
-   * @param { string } color - 设置渐变的颜色。颜色格式参考
-   *    [ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中string类型说明。
-   *    <br>未按格式设置颜色无渐变效果。
+   *     <br>设置offset<0或offset>1无渐变效果。
+   *     <br>异常值undefined和null按无效值处理，不添加该断点。NaN会导致CanvasGradient对象异常，无法正常生成渐变效果；Infinity会导致整个CanvasGradient不生效。
+   * @param { string } color - 设置渐变的颜色。string类型支持'rgb(255, 255, 255)'、'rgba(255, 255, 255, 1.0)'、'#RGB'、'#ARGB'、'#RRGGBB
+   *     '、'#AARRGGBB'格式，参考[ResourceColor]{@link ResourceColor}中string类型说明。
+   *     <br>未按格式设置颜色无渐变效果。设置null和undefined时按无效值处理，不添加该断点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -193,31 +191,18 @@ declare class CanvasGradient {
   addColorStop(offset: number, color: string): void;
 
   /**
-   * 设置渐变断点值，包括偏移和颜色。支持设置rgb或者argb格式颜色。支持通过传入
-   * [ColorMetrics](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colormetrics12)
-   * 类型设置P3色域颜色值，可在支持高色域的设备上获得更丰富的色彩表现。
-   *
-   * > **说明：**
-   * >
-   * > 仅[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
-   * > 对象的[fillStyle](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#fillstyle)
-   * > 和[strokeStyle](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#strokestyle)
-   * > 属性支持设置P3广色域的CanvasGradient对象，且需要将Canvas组件所在窗口的色域模式通过
-   * > [setWindowColorSpace](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowcolorspace9)
-   * > 方法设置为广色域模式WIDE_GAMUT。
+   * 设置渐变断点值，包括偏移和颜色。支持设置rgb或argb格式颜色。支持通过传入[ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}类型设置P3广色域颜色值，从API版
+   * 本26.0.0开始，新增支持BT2020广色域和HDR提亮。
    *
    * @param { number } offset - 设置渐变点距离起点的位置占总体长度的比例，范围为[0, 1]。
-   *    <br>设置offset小于0或offset大于1无渐变效果。
-   *    <br>异常值undefined和null按无效值处理，不设置本次断点值。NaN会导致CanvasGradient异常，
-   *    Infinity会导致整个CanvasGradient不生效。
-   * @param { string | ColorMetrics } color - 设置渐变填充的颜色。
-   *    <br>可以使用
-   *    [colorWithSpace](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colorwithspace20)
-   *    方法构造指定色域属性
-   *    [ColorSpace](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#colorspace20)
-   *    为SRGB或DISPLAY_P3的颜色。每个渐变ColorMetrics的色域属性应当统一，设置不同色域的属性时将抛出异常，
-   *    错误码：103701。
-   *    <br>设置null和undefined无效，忽略本次断点值。
+   *     <br>设置offset<0或offset>1无渐变效果。
+   *     <br>异常值undefined和null按无效值处理，不添加该断点。NaN会导致CanvasGradient对象异常，无法正常生成渐变效果；Infinity会导致整个CanvasGradient不生效。
+   * @param { string | ColorMetrics } color - 设置渐变的颜色。string类型支持'rgb(255, 255, 255)'、'rgba(255, 255, 255, 1.0)'、'#RGB'、'
+   *     #ARGB'、'#RRGGBB'、'#AARRGGBB'格式。
+   *     <br>可以使用[colorWithSpace]{@link ../../../arkui/Graphics:ColorMetrics#colorWithSpace}方法构造指定色域属性的颜色。ColorMetrics类型
+   *     可以构造指定色域属性[ColorSpace]{@link ColorSpace}为sRGB或DISPLAY_P3的颜色。从API版本26.0.0开始，新增支持构造BT2020色域的颜色，并支持HDR提亮。同一
+   *     CanvasGradient对象中的所有渐变断点必须使用相同的色域属性，设置不同色域时将抛出异常，错误码：103701，此时不会添加该断点，CanvasGradient对象保持之前的状态。
+   *     <br>未按格式设置颜色无渐变效果。设置null和undefined时按无效值处理，不添加该断点。
    * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -537,7 +522,7 @@ declare class Path2D extends CanvasPath {
   addPath(path: Path2D, transform?: Matrix2D): void;
 
   /**
-   * 构造一个空的Path2D对象。
+   * 构造二维变换矩阵对象，默认值是属性全为0的矩阵。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -549,13 +534,12 @@ declare class Path2D extends CanvasPath {
   constructor();
 
   /**
-   * 构造一个空的Path2D对象，支持配置Path2D对象的单位模式。
+   * 构造二维变换矩阵对象，默认值是属性全为0的矩阵，支持配置Matrix2D对象的单位模式。
    *
-   * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
-   *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
-   *    <br>异常值NaN和Infinity按默认值处理。
-   *    <br>默认值：DEFAULT。
+   * @param { LengthMetricsUnit } [unit] - 用来配置Matrix2D对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D]{@link ./canvas}
+   *     。
+   *     <br>默认值：DEFAULT
+   *     <br>异常值NaN和Infinity按默认值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -870,6 +854,13 @@ declare class ImageBitmap {
 
   /**
    * 释放ImageBitmap对象相关联的所有图形资源，并将ImageBitmap对象的宽高置为0。
+   * 
+   * > **说明：**
+   * >
+   * > - 必须与[constructor()](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-imagebitmap.md#constructor)方法配对
+   * > 使用，创建ImageBitmap对象后，应在使用完毕时调用close()释放资源。未调用close()可能导致图形资源泄漏，影响应用性能。
+   * >
+   * > - 建议在Canvas绘制完成后调用，如在[onReady]{@link CanvasAttribute#onReady(event: VoidCallback)}回调的最后调用close()。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1077,7 +1068,7 @@ declare class ImageData {
 }
 
 /**
- * 用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿。
+ * 用于配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1089,12 +1080,18 @@ declare class ImageData {
 declare class RenderingContextSettings {
   /**
    * 表明canvas是否开启抗锯齿。
-   * <br>异常值undefined按默认值处理。
-   * <br>false：表示不开启抗锯齿功能，true：表示开启抗锯齿。
-   * <br>默认值：false
-   * <br>**说明：**<br>
-   * 绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，
-   * 如需修改文本抗锯齿效果，请使用[antialias<sup>24+</sup>](#antialias24)接口。
+   * 
+   * 异常值undefined或null按默认值处理。
+   * 
+   * true：表示开启抗锯齿，false：表示不开启抗锯齿功能。
+   * 
+   * 默认值：false
+   * 
+   * **说明：**
+   * 
+   * 绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，如需修改文本抗锯齿效果，请使用
+   * [antialias<sup>24+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-common-property.md#antialias24)
+   * 接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1106,15 +1103,16 @@ declare class RenderingContextSettings {
   antialias?: boolean;
 
   /**
-   * 构造CanvasRenderingContext2D对象，支持配置开启抗锯齿。
+   * 构造RenderingContextSettings对象，支持配置开启抗锯齿。
    *
    * @param { boolean } antialias - 表明canvas是否开启抗锯齿。
-   *     <br>异常值undefined按默认值处理。
-   *     <br>false：表示不开启抗锯齿功能，true：表示开启抗锯齿。
+   *     <br>异常值undefined或null按默认值处理。
+   *     <br>true：表示开启抗锯齿，false：表示不开启抗锯齿功能。
    *     <br>默认值：false
-   *     <br>**说明：**<br>
-   *     绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，
-   *     如需修改文本抗锯齿效果，请使用[antialias<sup>24+</sup>](#antialias24)接口。
+   *     <br>**说明：**
+   *     <br>绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，如需修改文本抗锯齿效果，请使用
+   *     [antialias<sup>24+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-common-property.md#antialias24)
+   *     接口。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1137,9 +1135,12 @@ declare class RenderingContextSettings {
 declare interface RenderingContextOptions {
   /**
    * 表明RenderingContext是否需要开启抗锯齿。
-   * <br>取值为undefined时按默认值处理。
-   * <br>true：开启抗锯齿；false：不开启抗锯齿。
-   * <br>默认值：false
+   * 
+   * 异常值undefined或null按默认值处理。
+   * 
+   * true：开启抗锯齿；false：不开启抗锯齿。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2402,11 +2403,11 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * 生成一个包含图片展示的URL，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
    *
    * @param { string } type - 用于指定图像格式。
-   *     <br>可选参数为："image/png"，"image/jpeg"，"image/webp"。
+   *     <br>可选参数为："image/png"（无损压缩，适合需要精确像素的场景）、"image/jpeg"（有损压缩，适合照片类图像）、"image/webp"（高效压缩，适合网络传输场景）。
    *     <br>异常值undefined或null按默认值处理。
    *     <br>默认值：image/png
-   * @param { any } quality - 在指定图片格式为image/jpeg或image/webp的情况下，
-   *     可以从0到1的区间内选择图片的质量。如果超出取值范围，将会使用默认值0.92。
+   * @param { any } quality - 在指定图片格式为image/jpeg或image/webp的情况下，可以从0到1的区间内选择图片的质量，0-0.5适合快速传输或低带宽场景，0.6-0.8适合普通场景，0.9-1.
+   *     0适合高质量需求。如果超出取值范围，将会使用默认值0.92。
    *     <br>异常值undefined、null、NaN和Infinity按默认值处理。
    *     <br>默认值：0.92
    * @returns { string } 图像的URL地址。
@@ -2421,20 +2422,24 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
   /**
    * 配置并启动AI分析功能，使用Promise异步回调。使用前需先设置
-   * [enableAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md#enableanalyzer12)
-   * 为true，启用图像AI分析能力。
-   * 该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，
-   * 避免出现画面和分析内容不一致的情况。
-   * 未执行完重复调用该方法会触发错误回调。
-   *
+   * [enableAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md#enableanalyzer12)为true，启用图像
+   * AI分析能力。
+   * 
+   * 该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，避免出现画面和分析内容不一致的情况。
+   * 
+   * 未执行完重复调用该方法会触发错误回调。示例代码同stopImageAnalyzer。
+   * 
    * > **说明：**
    * >
    * > 分析类型不支持动态修改。
+   * >
    * > 当检测到画面有变化时，分析结果将自动销毁，可重新调用本接口启动分析。
+   * >
    * > 该特性依赖设备能力，不支持该能力的情况下，将返回错误码。
    *
-   * @param { ImageAnalyzerConfig } config - 执行AI分析所需要的入参，用于配置AI分析功能。
-   *    <br>异常值undefined或null按无效值处理。
+   * @param { ImageAnalyzerConfig } config - 执行AI分析所需要的入参，用于配置AI分析的类型（如主体识别、文字识别等）。详见
+   *     [ImageAnalyzerConfig]{@link ImageAnalyzerConfig}。
+   *     <br>异常值undefined或null按无效值处理。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
@@ -2448,10 +2453,11 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
   /**
    * 停止AI分析功能，AI分析展示的内容将被销毁。
-   *
+   * 
    * > **说明：**
    * >
    * > 在startImageAnalyzer方法未返回结果时调用本方法，会触发其错误回调。
+   * >
    * > 该特性依赖设备能力。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2598,23 +2604,21 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   off(type: 'onDetach', callback?: Callback<void>): void;
 
   /**
-   * 从一个DrawingRenderingContext对象中获取一个CanvasRenderingContext2D对象，
-   * 该CanvasRenderingContext2D对象与入参的DrawingRenderingContext对象绑定了相同的Canvas组件。
-   *
+   * 从一个DrawingRenderingContext对象中获取一个CanvasRenderingContext2D对象，该CanvasRenderingContext2D对象与入参的DrawingRenderingContext对
+   * 象绑定了相同的Canvas组件。
+   * 
    * > **说明：**
    * >
-   * > - 从该接口获取的CanvasRenderingContext2D对象不允许作为参数创建
-   * > [Canvas](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md)
-   * > 组件，否则会导致应用崩溃。
+   * > - 从该接口获取的CanvasRenderingContext2D对象不允许作为参数创建[Canvas]{@link ./canvas}组件，否则会导致应用崩溃。
    * >
    * > - 当入参的DrawingRenderingContext对象未绑定Canvas组件时，将返回错误码。
    *
    * @param { DrawingRenderingContext } drawingContext - 一个DrawingRenderingContext类型的对象。
    *     <br>异常值undefined或null按无效值处理。
    * @param { RenderingContextOptions } [options] - 渲染上下文的配置选项。
+   *     <br>异常值undefined或null按默认值处理。
    *     <br>默认值：{ antialias: false }
-   * @returns { CanvasRenderingContext2D } 返回一个CanvasRenderingContext2D对象，
-   *     其与入参的DrawingRenderingContext绑定了相同的Canvas组件。
+   * @returns { CanvasRenderingContext2D } 返回一个CanvasRenderingContext2D对象，其与入参的DrawingRenderingContext绑定了相同的Canvas组件。
    * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2650,18 +2654,28 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @atomicservice [since 11]
  * @since 8 dynamic
  */
+declare interface OffscreenCanvasRenderingContext2DInterface {
+  /**
+   * @since 8
+   */
+  (width: number, height: number, settings?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
+  /**
+   * @since 12
+   */
+  (width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit): OffscreenCanvasRenderingContext2D;
+}
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * 生成一个包含图片展示的URL，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
    *
    * @param { string } type - 用于指定图像格式。
-   *     <br>可选参数为："image/png"，"image/jpeg"，"image/webp"。
+   *     <br>可选参数为："image/png"（无损压缩，适合需要精确像素的场景）、"image/jpeg"（有损压缩，适合照片类图像）、"image/webp"（高效压缩，适合网络传输场景）。
    *     <br>异常值undefined或null按默认值处理。
-   *     <br>默认值：image/png。
-   * @param { any } quality - 在指定图片格式为image/jpeg或image/webp的情况下，
-   *     可以从0到1的区间内选择图片的质量。如果超出取值范围，将会使用默认值0.92。
+   *     <br>默认值：image/png
+   * @param { any } quality - 在指定图片格式为image/jpeg或image/webp的情况下，可以从0到1的区间内选择图片的质量，0-0.5适合快速传输或低带宽场景，0.6-0.8适合普通场景，0.9-1.
+   *     0适合高质量需求。如果超出取值范围，将会使用默认值0.92。
    *     <br>异常值undefined、null、NaN和Infinity按默认值处理。
-   *     <br>默认值：0.92。
+   *     <br>默认值：0.92
    * @returns { string } 图像的URL地址。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2973,11 +2987,13 @@ declare class DrawingRenderingContext {
  */
 declare interface CanvasParams {
   /**
-   * 用于描述Canvas绘制时所采用的单位模式。
-   * <br>仅可在创建Canvas时设置，后续不可修改。
-   * <br>默认值：**LengthMetricsUnit.DEFAULT**
+   * 用于描述Canvas绘制时所采用的单位模式，不同单位模式会影响绘制时的坐标和尺寸计算方式，具体说明见
+   * [LengthMetricsUnit]{@link ../../../arkui/Graphics:LengthMetricsUnit}。
+   * 
+   * 仅可在创建Canvas时设置，后续不可修改。
+   * 
+   * 默认值：LengthMetricsUnit.DEFAULT
    *
-   * @type { ?LengthMetricsUnit }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2988,6 +3004,10 @@ declare interface CanvasParams {
 
   /**
    * 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。
+   * 
+   * 异常值null和undefined按不开启AI分析功能处理。
+   * 
+   * 默认值：不开启AI分析功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2999,6 +3019,10 @@ declare interface CanvasParams {
 
 /**
  * 提供画布组件，用于自定义绘制图形。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3006,18 +3030,18 @@ declare interface CanvasParams {
  * @form [since 9]
  * @atomicservice [since 11]
  * @since 8 dynamic
- * @noninterop [since 11]
+ * @noninterop
  */
 interface CanvasInterface {
   /**
    * 创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。
+   * 
+   * 使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置[visibility]{@link CommonMethod#visibility}属性为隐藏等，不包
+   * 括组件被其他组件或是其他窗口遮挡导致不可见的场景。
    *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context -
-   *     CanvasRenderingContext2D：不支持多个Canvas共用一个CanvasRenderingContext2D对象，
-   *     具体描述见[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
-   *     对象。DrawingRenderingContext：不支持多个Canvas共用一个DrawingRenderingContext对象，
-   *     具体描述见[DrawingRenderingContext](docroot://reference/apis-arkui/arkui-ts/ts-drawingrenderingcontext.md)
-   *     对象。
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - CanvasRenderingContext2D: 不支持多个Canvas共用一个
+   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link ./canvas}对象。DrawingRenderingContext: 不支持多个
+   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link ./canvas}对象。
    *     <br>异常值null和undefined按未设置context处理。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3030,20 +3054,20 @@ interface CanvasInterface {
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
   /**
-   * 创建Canvas组件，支持设置CanvasRenderingContext2D对象或DrawingRenderingContext对象，支持设置AI分析选项。
+   * 创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。支持设置CanvasRenderingContext2D对象或DrawingRenderingContext对象，支持设置AI分析选
+   * 项。
+   * 
+   * 使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置[visibility]{@link CommonMethod#visibility}属性为隐藏等，不包
+   * 括组件被其他组件或是其他窗口遮挡导致不可见的场景。
    *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context -
-   *     CanvasRenderingContext2D：不支持多个Canvas共用一个CanvasRenderingContext2D对象，
-   *     具体描述见[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
-   *     对象。DrawingRenderingContext：不支持多个Canvas共用一个DrawingRenderingContext对象，
-   *     具体描述见[DrawingRenderingContext](docroot://reference/apis-arkui/arkui-ts/ts-drawingrenderingcontext.md)
-   *     对象。
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - CanvasRenderingContext2D: 不支持多个Canvas共用一个
+   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link ./canvas}对象。DrawingRenderingContext: 不支持多个
+   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link ./canvas}对象。
    *     <br>异常值null和undefined按未设置context处理。
    * @param { ImageAIOptions } imageAIOptions - 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。
-   *     <br>异常值null和undefined按
-   *     [ImageAIOptions](docroot://reference/apis-arkui/arkui-ts/ts-image-common.md#imageaioptions12)
-   *     的默认值处理，默认取值为{ type: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT],
-   *     aiController: new ImageAnalyzerController() }，即开启主体识别和文字识别功能。
+   *     <br>异常值null和undefined按[ImageAIOptions]{@link ImageAIOptions}的默认值处理，默认取值为{ type:
+   *     [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT], aiController: new ImageAnalyzerController() }，即开启主体识别和文字识别
+   *     功能。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3053,22 +3077,19 @@ interface CanvasInterface {
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
 
   /**
-   * 使用CanvasParams创建不缓存指令的Canvas组件。创建Canvas组件时，最大面积不超过10000px*10000px，
-   * 超过最大面积则无法正常创建。
-   *
+   * 使用CanvasParams创建不缓存指令的Canvas组件。创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。Canvas组件未设置固定尺寸时，默认扩展至其最大可用尺寸。
+   * 
    * > **说明：**
    * >
-   * > - 使用本接口创建的Canvas组件将在onReady回调的入参中返回一个
-   * > [DrawingRenderingContext](docroot://reference/apis-arkui/arkui-ts/ts-drawingrenderingcontext.md)
-   * > 对象，可用于在该Canvas组件上进行绘制。
+   * > - 使用本接口创建的Canvas组件将在
+   * > [onReady<sup>23+</sup>]{@link CanvasAttribute#onReady(event: Callback<DrawingRenderingContext | undefined> | undefined)}
+   * > 回调的入参中返回一个[DrawingRenderingContext<sup>12+</sup>]{@link ./canvas}对象，可用于在该Canvas组件上进行绘制。
    * >
-   * > - 使用这个接口创建的Canvas组件在组件不可见时将不响应绘制指令。
+   * > - 使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。
    * >
-   * > - 不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置
-   * > [visibility](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-visibility.md#visibility)
-   * > 属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
+   * > - 不可见场景主要包括组件所在的页面进入后台、组件滑到窗口外、设置[visibility]{@link CommonMethod#visibility}属性为隐藏等，不包括组件被其他组件或是其他窗口遮挡导致不可见的场景。
    *
-   * @param { CanvasParams } params - Canvas组件的构造参数。
+   * @param { CanvasParams } params - Canvas组件的构造参数，用于创建不缓存指令的Canvas组件。配置参数详见[CanvasParams]{@link CanvasParams}。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3080,9 +3101,19 @@ interface CanvasInterface {
 }
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性：
- *
- * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持如下事件：
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 
+ * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
+ * 
+ * 需要搭配[CanvasRenderingContext2D]{@link ./canvas}中的
+ * [startImageAnalyzer]{@link CanvasRenderingContext2D.startImageAnalyzer}和
+ * [stopImageAnalyzer]{@link CanvasRenderingContext2D.stopImageAnalyzer}一起使用。
+ * 
+ * 不能和[overlay]{@link CommonMethod#overlay}属性同时使用，两者同时设置时overlay中CustomBuilder属性将失效。该特性依赖设备能力，可通过
+ * [ImageAnalyzerController.getImageAnalyzerSupportTypes]{@link ImageAnalyzerController#getImageAnalyzerSupportTypes}接口查
+ * 询设备支持的分析类型。
+ * 
+ * 除支持[通用事件]{@link ./common}外，还支持如下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3090,22 +3121,17 @@ interface CanvasInterface {
  * @form [since 9]
  * @atomicservice [since 11]
  * @since 8 dynamic
- * @noninterop [since 11]
+ * @noninterop
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
-   * Canvas组件初始化完成或者发生大小变化时的事件回调，支持
-   * [attributeModifier]{@link CommonMethod#attributeModifier}
-   * 动态设置属性方法。
+   * Canvas组件初始化完成或者发生大小变化时的事件回调，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
+   * 
+   * 当该事件被触发时画布被清空，该事件之后Canvas组件宽高确定且可获取，可使用Canvas相关API进行绘制。当Canvas组件仅发生位置变化时，只触发
+   * [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)}事件，不触发onReady事件。
+   * [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)}事件在onReady事件后触发。
    *
-   * 当该事件被触发时画布被清空，该事件之后Canvas组件宽高确定且可获取，可使用Canvas相关API进行绘制。
-   * 当Canvas组件仅发生位置变化时，只触发
-   * [onAreaChange](docroot://reference/apis-arkui/arkui-ts/ts-universal-component-area-change-event.md#onareachange)
-   * 事件，不触发onReady事件。
-   * [onAreaChange](docroot://reference/apis-arkui/arkui-ts/ts-universal-component-area-change-event.md#onareachange)
-   * 事件在onReady事件后触发。
-   *
-   * @param { VoidCallback } event - Canvas组件初始化完成或者发生大小变化时的事件回调事件。
+   * @param { VoidCallback } event - Canvas组件初始化完成或者发生大小变化时的回调事件。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3117,22 +3143,16 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: VoidCallback): CanvasAttribute;
 
   /**
-   * Canvas组件初始化完成或者发生大小变化时的事件回调，支持
-   * [attributeModifier]{@link CommonMethod#attributeModifier}
-   * 动态设置属性方法。
+   * Canvas组件初始化完成或者发生大小变化时的事件回调，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
+   * 
+   * 当该事件被触发时画布被清空，该事件之后Canvas组件宽高确定且可获取，可使用Canvas相关API进行绘制。当Canvas组件仅发生位置变化时，只触发
+   * [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)}事件，不触发onReady事件。
+   * [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)}事件在onReady事件后触发。
    *
-   * 当该事件被触发时画布被清空，该事件之后Canvas组件宽高确定且可获取，可使用Canvas相关API进行绘制。
-   * 当Canvas组件仅发生位置变化时，只触发
-   * [onAreaChange]{@link CommonMethod#onAreaChange}事件，不触发onReady事件。
-   * [onAreaChange]{@link CommonMethod#onAreaChange}事件在onReady事件后触发。
-   *
-   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event -
-   *     Canvas组件初始化完成或者发生大小变化时的回调事件。
-   *     <br/>关于Callback<DrawingRenderingContext | undefined>类型的入参：
-   *     <br/>1. 只有使用[CanvasParams]{@link CanvasParams}创建的Canvas组件在该回调中返回
-   *     DrawingRenderingContext对象，否则返回undefined。
-   *     <br/>2. 该回调返回的DrawingRenderingContext对象不允许作为参数创建Canvas组件，
-   *     否则会导致应用崩溃。
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Canvas组件初始化完成或者发生大小变化时的回调事件。
+   *     <br>关于Callback<DrawingRenderingContext |undefined>类型的入参：
+   *     <br>1. 只有使用[CanvasParams]{@link CanvasParams}创建的Canvas组件在该回调中返回DrawingRenderingContext对象，否则返回undefined。
+   *     <br>2. 该回调返回的DrawingRenderingContext对象不允许作为参数创建Canvas组件，否则会导致应用崩溃。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3176,6 +3196,14 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
 
 /**
  * 提供画布组件，用于自定义绘制图形。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * 
+ * ###### 子组件
+ * 
+ * 不支持。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3183,12 +3211,20 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  * @form [since 9]
  * @atomicservice [since 11]
  * @since 8 dynamic
- * @noninterop [since 11]
+ * @noninterop
  */
 declare const Canvas: CanvasInterface;
 
 /**
  * 提供画布组件，用于自定义绘制图形。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * 
+ * ###### 子组件
+ * 
+ * 不支持。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3196,6 +3232,6 @@ declare const Canvas: CanvasInterface;
  * @form [since 9]
  * @atomicservice [since 11]
  * @since 8 dynamic
- * @noninterop [since 11]
+ * @noninterop
  */
 declare const CanvasInstance: CanvasAttribute;
