@@ -425,7 +425,8 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph color is set.
      *
-     * @param { Array<ResourceColor> | undefined } value
+     * @param { Array<ResourceColor> | undefined } value - Font color of the SymbolGlyph component. <br/>When value is
+     *     undefined, the default color of the icon is used. The default color follows the theme.
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
