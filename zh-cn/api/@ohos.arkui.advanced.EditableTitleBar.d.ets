@@ -14,22 +14,22 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare class EditableTitleBarMenuItem {
   /**
-   * Icon resource.
+   * 图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,7 +40,7 @@ export declare class EditableTitleBarMenuItem {
   value: ResourceStr;
 
   /**
-   * Icon label.
+   * 图标标签描述。不设置时不显示图标标签。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,11 +51,13 @@ export declare class EditableTitleBarMenuItem {
   label?: ResourceStr;
 
   /**
-   * Whether to enable the item. Default value: **true**.
+   * 是否启用。
    *
-   * **true**: The item is enabled.
+   * 默认值：true，表示默认启用。
    *
-   * **false**: The item is disabled.
+   * isEnabled为true时，表示为启用。
+   *
+   * isEnabled为false时，表示为禁用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -66,7 +68,7 @@ export declare class EditableTitleBarMenuItem {
   isEnabled?: boolean;
 
   /**
-   * Right-side custom button click event of the title bar.
+   * 标题栏右侧自定义按钮点击事件。不设置时点击按钮无响应。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -77,13 +79,10 @@ export declare class EditableTitleBarMenuItem {
   action?: () => void;
 
   /**
-   * Accessibility text, that is, accessible label name. If a component does not contain text information, it will not
-   * be announced by the screen reader when selected. In this case, the screen reader user cannot know which component
-   * is selected. To solve this problem, you can set accessibility text for components without text information. When
-   * such a component is selected, the screen reader announces the specified accessibility text, informing the user
-   * which component is selected.
+   * 标题栏右侧自定义按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本
+   * 的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。
    *
-   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   * 默认值：未设置label属性时为“ ”；设置label属性后默认值为当前项label属性内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -94,12 +93,10 @@ export declare class EditableTitleBarMenuItem {
   accessibilityText?: ResourceStr;
 
   /**
-   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
-   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
-   * attributes and accessibility text alone. If a component contains both text information and the accessible
-   * description, the text is announced first and then the accessible description, when the component is selected.
+   * 标题栏右侧自定义按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果
+   * 组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
    *
-   * Default value: **"Double-tap to activate"**
+   * 默认值为“单指双击即可执行”。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,20 +107,19 @@ export declare class EditableTitleBarMenuItem {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Accessibility level. It determines whether the component can be recognized by accessibility services.
+   * 标题栏右侧自定义按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。
    *
-   * The options are as follows:
+   * 支持的值为：
    *
-   * **"auto"**: This option is treated as "yes" by the system for this component.
+   * "auto"：当前组件会转换"yes"。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,16 +131,17 @@ export declare class EditableTitleBarMenuItem {
   accessibilityLevel?: string;
 
   /**
-   * Whether to set the item as the default focus.
+   * 是否设置为默认获焦。
    *
-   * **true**: Set the item as the default focus.
+   * true: 获焦
    *
-   * **false**: Do not set the item as the default focus.
+   * false: 不获焦
    *
-   * Default value: **false**
+   * 默认值：false
    *
-   * The **defaultFocus** attribute requires the **isEnabled** attribute to be set to **true** beforehand; otherwise,
-   * **defaultFocus** will be treated as **false**.
+   * 使用defaultFocus属性时，需提前将isEnabled属性设置为true，否则defaultFocus设置将不生效。
+   *
+   * **说明：** 若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。
    *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +153,7 @@ export declare class EditableTitleBarMenuItem {
   defaultFocus?: boolean;
 
   /**
-   * Symbol icon resource, which has higher priority than **value**.
+   * Symbol图标资源，优先级大于value。不设置时使用value参数显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -168,28 +165,29 @@ export declare class EditableTitleBarMenuItem {
 }
 
 /**
- * Declaration of the image item.
+ * Declaration of the image item .
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
 
 /**
- * Declaration of the left icon type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 export declare enum EditableLeftIconType {
   /**
-   * Back.
+   * 返回按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -200,7 +198,7 @@ export declare enum EditableLeftIconType {
   Back = 0,
 
   /**
-   * Cancel.
+   * 取消按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -212,19 +210,19 @@ export declare enum EditableLeftIconType {
 }
 
 /**
- * Indicates the options of the editable title bar.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export declare interface EditableTitleBarOptions {
   /**
-   * Background color of the title bar.
+   * 标题栏背景色。
    *
-   * Default value: **'#00000000'**
+   * 默认值：'#00000000'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,9 +233,9 @@ export declare interface EditableTitleBarOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the title bar.
+   * 标题栏背景模糊样式。
    *
-   * Default value: **BlurStyle.NONE**
+   * 默认值：BlurStyle.NONE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -248,9 +246,9 @@ export declare interface EditableTitleBarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Types of the expanded safe areas.
+   * 配置扩展安全区域的类型。
    *
-   * Default value: **[SafeAreaType.SYSTEM]**
+   * 默认值：[SafeAreaType.SYSTEM]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,9 +259,9 @@ export declare interface EditableTitleBarOptions {
   safeAreaTypes?: Array<SafeAreaType>;
 
   /**
-   * Edges for expanding the safe area.
+   * 配置扩展安全区域的方向。
    *
-   * Default value: **[SafeAreaEdge.TOP]**
+   * 默认值：[SafeAreaEdge.TOP]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -275,32 +273,30 @@ export declare interface EditableTitleBarOptions {
 }
 
 /**
- * The editable title bar is a title bar that comes with button icons, typically **Cancel** on the left and **Confirm**
- * on the right, on a multi-select or editing page.
+ * 编辑型标题栏组件，提供标准的编辑界面标题栏实现，支持自定义左侧按钮类型（返回/取消）、头像显示、右侧菜单项、背景模糊样式等功能。适用于需要进行内容编辑、多选操作的场景，如相册多选编辑、文本编辑器、表单编辑等界面。该组件封装了编辑场景常
+ * 用的UI交互模式（左叉右勾），开发者无需自行实现标题栏布局和交互逻辑，可快速构建符合设计规范的编辑界面，提升开发效率并保证UI一致性。同时支持无障碍属性配置，满足可访问性要求。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component can be used only in the stage model.
+ * > - 该组件仅可在Stage模型下使用。
  * >
- * > - If the **EditableTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
- * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
- * > rather than the **EditableTitleBar** component itself. As a result, the configured universal attributes and
- * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
- * > and events with the **EditableTitleBar** component.
+ * > - 如果EditableTitleBar设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}
+ * > ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到EditableTitleBar本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议
+ * > EditableTitleBar设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
  * @atomicservice [since 11]
  * @since 10 dynamic
+ * @noninterop
  */
 @Component
 export declare struct EditableTitleBar {
   /**
-   * Type of the icon on the left.
+   * 左侧按钮类型。
    *
-   * Default value: **EditableLeftIconType.Back**
+   * 默认值：EditableLeftIconType.Back，表示返回。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,13 +307,11 @@ export declare struct EditableTitleBar {
   leftIconStyle: EditableLeftIconType;
 
   /**
-   * A single menu item for the profile picture on the left. This parameter is required to display a profile picture on
-   * the left side of the title bar. If this parameter is not passed, the default value is used and no profile picture
-   * is displayed.
+   * 用于左侧头像的单个菜单项目。需要在标题栏左侧显示头像时传入此参数，不传入时取默认值，不显示头像。
    *
-   * Default value: **undefined**
+   * 默认值：undefined。
    *
-   * Note: Accessibility properties are not supported.
+   * **说明：** 左侧头像不支持配置无障碍属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -328,9 +322,9 @@ export declare struct EditableTitleBar {
   imageItem?: EditableTitleBarItem;
 
   /**
-   * Title.
+   * 标题。
    *
-   * Default value: **''**, indicating that the title is empty.
+   * 默认值：''，表示标题内容为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -341,10 +335,9 @@ export declare struct EditableTitleBar {
   title: ResourceStr;
 
   /**
-   * Subtitle. This parameter is required to display a subtitle below the title bar. If this parameter is not passed,
-   * the default value is used and no subtitle is displayed.
+   * 副标题。需要在标题下方显示补充说明信息时传入此参数，不传入时不显示。
    *
-   * Default value: **''**, indicating that the subtitle is empty.
+   * 默认值：''，表示副标题内容为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -355,13 +348,11 @@ export declare struct EditableTitleBar {
   subtitle?: ResourceStr;
 
   /**
-   * Whether the save button on the right is required.
+   * 是否需要右侧的保存按钮。true表示需要右侧的保存按钮，false表示不需要右侧的保存按钮。
    *
-   * Default value: **true**, indicating that the save button on the right is required.
+   * 默认值：true
    *
-   * **NOTE**
-   *
-   * If not decorated by @Require, this parameter is not subject to mandatory validation during construction.
+   * **说明：** 未使用@Require装饰，构造时不强制校验参数。当isSaveIconRequired为false时，不显示保存按钮，onSave回调不会触发。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -373,10 +364,9 @@ export declare struct EditableTitleBar {
   isSaveIconRequired: boolean;
 
   /**
-   * List of menu items on the right. This parameter is required to display custom buttons on the right of the title
-   * bar. If this parameter is not passed, the default value is used, and no menu item list is displayed on the right.
+   * 右侧菜单项目列表。需要在标题栏右侧显示自定义操作按钮时传入此参数，不传入时取默认值，不显示右侧菜单项目列表。
    *
-   * Default value: **undefined**
+   * 默认值：undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -387,10 +377,9 @@ export declare struct EditableTitleBar {
   menuItems?: Array<EditableTitleBarMenuItem>;
 
   /**
-   * Save button click event. This parameter is required to customize the save operation logic. If this parameter is not
-   * specified, clicking the button does not respond.
+   * 点击保存时的事件。需要自定义保存操作逻辑时传入此参数，缺省时点击按钮无响应。
    *
-   * Default value: **() => void**
+   * 默认值：() => void。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -401,13 +390,11 @@ export declare struct EditableTitleBar {
   onSave?: () => void;
 
   /**
-   * Cancel action event, which is triggered when the left button is of the Cancel type. This parameter is required to
-   * customize the return or cancel operation logic. If this parameter is not specified, clicking the button on the left
-   * does not respond.
+   * 当左侧按钮类型为 Cancel，触发取消时的事件。需要自定义返回/取消操作逻辑时传入此参数，缺省时点击左侧按钮无响应。
    *
-   * Default value: **() => void**
+   * 默认值：() => void。
    *
-   * Back action event, which is triggered when the button on the left side is of the Back type, since API version 12.
+   * 从API version 12开始，当左侧按钮类型为 Back，触发返回时的事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,9 +405,9 @@ export declare struct EditableTitleBar {
   onCancel?: () => void;
 
   /**
-   * Title style.
+   * 标题样式。
    *
-   * Default value:
+   * 默认值：
    *
    * {
    *
@@ -430,11 +417,9 @@ export declare struct EditableTitleBar {
    *
    * backgroundColor: '#00000000'
    *
-   * }
+   * }。
    *
-   * **NOTE**
-   *
-   * If not decorated by @Require, this parameter is not subject to mandatory validation during construction.
+   * **说明：** 未使用@Require装饰，构造时不强制校验参数。
    *
    * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -446,12 +431,12 @@ export declare struct EditableTitleBar {
   options: EditableTitleBarOptions;
 
   /**
-   * Content margin. Negative numbers are not supported.
+   * 标题栏外边距，不支持设置负数。
    *
-   * Default value:
+   * 默认值：
    *
-   * {start: LengthMetrics.resource(*$r('sys.float.margin_left')*), end: LengthMetrics.resource(*$r('
-   * sys.float.margin_right')*)}
+   * {start: LengthMetrics.resource(`$r('sys.float.margin_left')`), end: LengthMetrics.resource(
+   * `$r('sys.float.margin_right')`)}。
    *
    * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
    *     <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
@@ -465,9 +450,11 @@ export declare struct EditableTitleBar {
   contentMargin?: LocalizedMargin;
 
   /**
-   * Whether the left icon is the default focus.
+   * 左侧图标是否为默认焦点。true表示是默认焦点，false表示不是默认焦点。
    *
-   * Default value: **false**, indicating that the left icon is not the default focus.
+   * 默认值：false
+   *
+   * **说明：** 若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。
    *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -479,9 +466,11 @@ export declare struct EditableTitleBar {
   leftIconDefaultFocus?: boolean;
 
   /**
-   * Whether the save icon is the default focus.
+   * 保存图标是否为默认焦点。true表示是默认焦点，false表示不是默认焦点。
    *
-   * Default value: **false**, indicating that the save icon is not the default focus.
+   * 默认值：false
+   *
+   * **说明：** 需要右侧保存按钮（isSaveIconRequired为true）时此属性生效。若同时有多个可操作区域设置为默认焦点，则设置过默认焦点的可操作区域中显示顺序的第一个为默认焦点。
    *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

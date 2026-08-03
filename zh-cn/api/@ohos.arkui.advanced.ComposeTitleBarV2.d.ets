@@ -14,12 +14,12 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * Declare the type of callback function when clicking on this menu item.
+ * 点击菜单项时触发的回调函数类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,7 +30,7 @@
 declare type OnActionCallback = () => void;
 
 /**
- * Options for creating a menu item instance.
+ * 菜单项参数接口，用于创建ComposeTitleBarV2MenuItem实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -40,7 +40,7 @@ declare type OnActionCallback = () => void;
  */
 export interface ComposeTitleBarV2MenuItemParams {
   /**
-   * Icon resource for this menu item.
+   * 图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -50,7 +50,7 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   value: ResourceStr;
   /**
-   * Symbol icon resource for this menu item, which has higher priority than value.
+   * Symbol图标资源，优先级大于value，item左侧头像不支持设置该属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -60,7 +60,15 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   symbolStyle?: SymbolGlyphModifier;
   /**
-   * Whether to enable this menu item.
+   * 是否启用，默认启用。
+   * 
+   * isEnabled为true时，表示启用。
+   * 
+   * isEnabled为false时，表示禁用。
+   * 
+   * item属性不支持触发isEnabled属性。
+   * 
+   * 默认值：true。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -70,7 +78,7 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   isEnabled?: boolean;
   /**
-   * Callback function when click on this menu item.
+   * 触发时的动作闭包，item属性不支持触发action事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -80,7 +88,7 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   action?: OnActionCallback;
   /**
-   * Icon label for this menu item.
+   * 图标标签描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -90,7 +98,10 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   label?: ResourceStr;
   /**
-   * The accessibilityText of this menu item.
+   * 标题栏右侧自定义按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本
+   * 的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。
+   * 
+   * 默认值：有label默认值为当前项label属性内容，没有设置label时，默认值为" "。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -100,7 +111,19 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   accessibilityText?: ResourceStr;
   /**
-   * The accessibilityLevel of this menu item.
+   * 标题栏右侧自定义按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。
+   * 
+   * 支持的值为：
+   * 
+   * "auto"：当前组件会根据情况转换成'yes'或'no'。
+   * 
+   * "yes"：当前组件可被无障碍辅助服务所识别。
+   * 
+   * "no"：当前组件不可被无障碍辅助服务所识别。
+   * 
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值："auto"。
    *
    * @default auto .The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
@@ -116,7 +139,10 @@ export interface ComposeTitleBarV2MenuItemParams {
    */
   accessibilityLevel?: string;
   /**
-   * The accessibilityDescription of this menu item.
+   * 标题栏右侧自定义按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果
+   * 组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
+   * 
+   * 默认值："单指双击即可执行"。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -127,7 +153,7 @@ export interface ComposeTitleBarV2MenuItemParams {
   accessibilityDescription?: ResourceStr;
 }
 /**
- * Declaration of the menu item on the right side.
+ * 菜单项类，用于定义标题栏左侧头像或右侧菜单项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -138,7 +164,7 @@ export interface ComposeTitleBarV2MenuItemParams {
 @ObservedV2
 export declare class ComposeTitleBarV2MenuItem {
   /**
-   * Icon resource for this menu item.
+   * 图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,7 +175,7 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   value: ResourceStr;
   /**
-   * Symbol icon resource for this menu item, which has higher priority than value.
+   * Symbol图标资源，优先级大于value，item左侧头像不支持设置该属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -160,7 +186,15 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   symbolStyle?: SymbolGlyphModifier;
   /**
-   * Whether to enable this menu item.
+   * 是否启用，默认启用。
+   * 
+   * isEnabled为true时，表示启用。
+   * 
+   * isEnabled为false时，表示禁用。
+   * 
+   * item属性不支持触发isEnabled属性。
+   * 
+   * 默认值：true。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -171,7 +205,7 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   isEnabled?: boolean;
   /**
-   * Callback function when click on this menu item.
+   * 触发时的动作闭包，item属性不支持触发action事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -182,7 +216,7 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   action?: OnActionCallback;
   /**
-   * Icon label for this menu item.
+   * 图标标签描述。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -193,7 +227,10 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   label?: ResourceStr;
   /**
-   * The accessibilityText of this menu item.
+   * 标题栏右侧自定义按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本
+   * 的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。
+   * 
+   * 默认值：有label默认值为当前项label属性内容，没有设置label时，默认值为" "。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -204,7 +241,19 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   accessibilityText?: ResourceStr;
   /**
-   * The accessibilityLevel of this menu item.
+   * 标题栏右侧自定义按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。
+   * 
+   * 支持的值为：
+   * 
+   * "auto"：当前组件会根据情况转换成'yes'或'no'。
+   * 
+   * "yes"：当前组件可被无障碍辅助服务所识别。
+   * 
+   * "no"：当前组件不可被无障碍辅助服务所识别。
+   * 
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值："auto"。
    *
    * @default auto .The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
@@ -221,7 +270,10 @@ export declare class ComposeTitleBarV2MenuItem {
   @Trace
   accessibilityLevel?: string;
   /**
-   * The accessibilityDescription of this menu item.
+   * 标题栏右侧自定义按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果
+   * 组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
+   * 
+   * 默认值："单指双击即可执行"。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -233,9 +285,9 @@ export declare class ComposeTitleBarV2MenuItem {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Constructor of ComposeTitleBarV2MenuItem.
+   * ComposeTitleBarV2MenuItem的构造函数。
    *
-   * @param { ComposeTitleBarV2MenuItemParams } [params] - Parameters for creating a menu item instance
+   * @param { ComposeTitleBarV2MenuItemParams } [params] - 菜单项参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -245,9 +297,19 @@ export declare class ComposeTitleBarV2MenuItem {
   constructor(params?: ComposeTitleBarV2MenuItemParams);
 }
 /**
- * Declaration of the composable title bar. Composable title bar represents a common title bar that contains a title,
- * subtitle (optional), and profile picture (optional). It can come with a Back button for switching between pages of
- * different levels.
+ * ComposeTitleBarV2组件是一种标题栏，支持设置标题、头像（可选）和副标题（可选），可用于一级页面、二级及其以上界面配置返回键。
+ * 
+ * 该组件基于[状态管理（V2）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)实现，相较于
+ * [状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组
+ * 件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制普通标题栏的数据和状态，实现更高效的用户界面刷新。
+ * 
+ * > **说明：**
+ * >
+ * > - 该组件仅可在Stage模型下使用。
+ * >
+ * > - 如果ComposeTitleBarV2设置[通用属性]{@link ./@internal/component/ets/common}和
+ * > [通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到
+ * > ComposeTitleBarV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议ComposeTitleBarV2设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -258,7 +320,7 @@ export declare class ComposeTitleBarV2MenuItem {
 @ComponentV2
 export declare struct ComposeTitleBarV2 {
   /**
-   * A single menu item for the profile picture on the left.
+   * 用于左侧头像的单个菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -269,7 +331,7 @@ export declare struct ComposeTitleBarV2 {
   @Param
   item?: ComposeTitleBarV2MenuItem;
   /**
-   * Title of this title bar.
+   * 标题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -280,7 +342,7 @@ export declare struct ComposeTitleBarV2 {
   @Param
   title: ResourceStr;
   /**
-   * Sub-title of this title bar.
+   * 副标题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -291,7 +353,7 @@ export declare struct ComposeTitleBarV2 {
   @Param
   subtitle?: ResourceStr;
   /**
-   * Menu items on the right side.
+   * 右侧菜单项列表。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
