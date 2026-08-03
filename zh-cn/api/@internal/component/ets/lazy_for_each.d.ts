@@ -639,25 +639,6 @@ interface DataReloadOperation {
    * @since 12 dynamic
    */
   type: DataOperationType.RELOAD;
-
-  /**
-   * 是否允许在更新过程中复用旧的子组件。
-   * 
-   * true：允许在更新过程中复用旧的子组件。
-   * 
-   * false：不允许在更新过程中复用旧的子组件。
-   * 
-   * 默认值：false
-   * 
-   * 当值为undefined或null时，取默认值。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.1.0 dynamic
-   */
-  reuseImmediately?: boolean;
 }
 
 /**
@@ -707,26 +688,6 @@ declare interface DataChangeListener {
    * @since 7 dynamic
    */
   onDataReloaded(): void;
-
-  /**
-   * 通知组件重新加载所有数据，并配置是否允许在更新过程中复用旧的子组件。需要和@Reusable/@ReusableV2配合使用。重新加载数据完成后调用。
-   * 
-   * 配置允许在更新过程中复用旧的子组件，并和[@Reusable](docroot://ui/state-management/arkts-reusable.md)/
-   * [@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md)配合使用时，优先使用复用池中的组件，若复用池中无可复用的组件，而LazyForEach的旧子组
-   * 件中有可复用的组件，该组件将被回收，并复用为新的子组件。当LazyForEach的旧子组件中也没有可复用的组件时，将创建新的子组件。
-   * 
-   * 配置允许在更新过程中复用旧的子组件，未使用@Reusable/@ReusableV2时，键值没有变化的数据项会使用原先的子组件，键值发生变化的会重建子组件。
-   * 
-   * 配置不允许在更新过程中复用旧的子组件，键值没有变化的数据项会使用原先的子组件，键值发生变化的数据项，若使用了@Reusable/@ReusableV2且复用池中有可用的组件，将复用旧组件，否则将创建新的子组件。
-   *
-   * @param { boolean } reuseImmediately - 是否允许在更新过程中复用旧的子组件。<br/>true：允许在更新过程中复用旧的子组件。<br/>false：不允许在更新过程中复用旧的子组件。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.1.0 dynamic
-   */
-  onDataReloaded(reuseImmediately: boolean): void;
 
   /**
    * 通知组件index的位置有数据添加。添加数据完成后调用。
