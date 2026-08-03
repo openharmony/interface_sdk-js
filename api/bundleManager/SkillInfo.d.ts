@@ -213,5 +213,5 @@ export enum SkillType {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  INDEPENDENT_SKILL = 1
+  INDEPENDENT_SKILL = 1,
 }
