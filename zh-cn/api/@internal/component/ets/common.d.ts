@@ -13739,8 +13739,8 @@ declare interface BindOptions {
 }
 
 /**
-* Component content cover dismiss
-*
+ * Component content cover dismiss
+ *
  * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -14910,21 +14910,6 @@ declare interface SheetOptions extends BindOptions {
    * @since 26.0.0 dynamic
    */
   edgeLightMode?: EdgeLightMode;
-
-  /**
-   * 指定是否对半模态启用模糊优化。
-   * 启用后，将使用模糊快照渲染半模态背景。
-   * 该属性在半模态显示后不能动态切换。
-   *
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  enableBlurSnapshot?: boolean;
 }
 
 /**
@@ -21506,8 +21491,8 @@ declare class CommonMethod<T> {
    * 设置组件的前景属性。
    *
    * @param { ForegroundEffectOptions } options - 设置组件前景属性包括：模糊半径。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -21610,28 +21595,12 @@ declare class CommonMethod<T> {
    * @param { BlurStyle } value - 内容模糊样式。
    * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。默认值请参考
    *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions)。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 为当前组件提供内容模糊能力。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { BlurStyle } value - 内容模糊样式。
-   * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。默认值请参考
-   *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions)。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
@@ -21642,8 +21611,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<BlurStyle> } style
    * @param { ForegroundBlurStyleOptions } [options]
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -21665,8 +21633,7 @@ declare class CommonMethod<T> {
    * @param { Optional<BlurStyle> } style
    * @param { ForegroundBlurStyleOptions } [options]
    * @param { SystemAdaptiveOptions } [sysOptions]
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -21844,24 +21811,13 @@ declare class CommonMethod<T> {
    * 统一外描边样式设置接口。
    *
    * @param { OutlineOptions } value - 外描边样式。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 统一外描边样式设置接口。
-   *
-   * @param { OutlineOptions } value - 外描边样式。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outline(value: OutlineOptions): T;
 
@@ -21869,8 +21825,7 @@ declare class CommonMethod<T> {
    * 统一外描边样式设置接口。与[outline]{@link CommonMethod#outline(value: OutlineOptions)}相比，options参数新增了对undefined类型的支持。
    *
    * @param { Optional<OutlineOptions> } options - 外描边样式。<br/>当options的值为undefined时，恢复为无外边框效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21883,24 +21838,13 @@ declare class CommonMethod<T> {
    * 设置元素的外描边样式。不设置该接口时，默认显示为一条实线。
    *
    * @param { OutlineStyle | EdgeOutlineStyles } value - 设置元素的外描边样式。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边样式。不设置该接口时，默认显示为一条实线。
-   *
-   * @param { OutlineStyle | EdgeOutlineStyles } value - 设置元素的外描边样式。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
 
@@ -21910,8 +21854,7 @@ declare class CommonMethod<T> {
    * 持。
    *
    * @param { Optional<OutlineStyle | EdgeOutlineStyles> } style - 设置元素的外描边样式。<br/>当style的值为undefined时，恢复为无外描边样式的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21924,24 +21867,13 @@ declare class CommonMethod<T> {
    * 设置元素的外描边宽度。不设置该接口时，默认无变化。
    *
    * @param { Dimension | EdgeOutlineWidths } value - 设置元素的外描边宽度，不支持百分比。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边宽度。不设置该接口时，默认无变化。
-   *
-   * @param { Dimension | EdgeOutlineWidths } value - 设置元素的外描边宽度，不支持百分比。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineWidth(value: Dimension | EdgeOutlineWidths): T;
 
@@ -21950,8 +21882,7 @@ declare class CommonMethod<T> {
    * width参数新增了对undefined类型的支持。
    *
    * @param { Optional<Dimension | EdgeOutlineWidths> } width - 设置元素的外描边宽度，不支持百分比。<br/>当width的值为undefined时，恢复为无外描边宽度的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21964,24 +21895,14 @@ declare class CommonMethod<T> {
    * 设置元素的外描边颜色。不设置该接口时，默认显示为黑色。
    *
    * @param { ResourceColor | EdgeColors } value - 设置元素的外描边颜色。 [since 11 - 11]
-   * @returns { T }
-   返回当前组件。
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - 设置元素的外描边颜色。 [since 12]
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边颜色。不设置该接口时，默认显示为黑色。
-   *
-   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - 设置元素的外描边颜色。 [since 11 - 11]
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
@@ -21992,8 +21913,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<ResourceColor | EdgeColors | LocalizedEdgeColors> } color - 设置元素的外描边颜色。<br/>当color的值为undefined时，恢
    *     复为描边颜色为Color.Black的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22007,25 +21927,13 @@ declare class CommonMethod<T> {
    *
    * @param { Dimension | OutlineRadiuses } value - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组件height/2 +
    *     outlineWidth。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边圆角半径。不设置该接口时，默认无变化。
-   *
-   * @param { Dimension | OutlineRadiuses } value - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组件height/2 +
-   *     outlineWidth。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineRadius(value: Dimension | OutlineRadiuses): T;
 
@@ -22035,8 +21943,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<Dimension | OutlineRadiuses> } radius - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组
    *     件height/2 + outlineWidth。<br/>当radius的值为undefined时，恢复为外描边圆角半径为0的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22046,42 +21953,27 @@ declare class CommonMethod<T> {
   outlineRadius(radius: Optional<Dimension | OutlineRadiuses>): T;
 
   /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
+   * 设置组件的前景色。当组件未设置前景色，默认继承父组件。
    *
-   * @param { ResourceColor | ColoringStrategy } value - Foreground color. The value can be a specific color or a
-   *     coloring strategy. The [attribute animation]{@link common} is not supported.
-   * @returns { T }
-   Current component.
+   * @param { ResourceColor | ColoringStrategy } value - 设置组件的前景颜色或者根据智能取色策略设置前景颜色。不支持[属性动画]{@link common}。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
-   *
-   * @param { ResourceColor | ColoringStrategy } value - Foreground color. The value can be a specific color or a
-   *     coloring strategy. The [attribute animation]{@link common} is not supported.
-   * @returns { T }
-   Current component.
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   foregroundColor(value: ResourceColor | ColoringStrategy): T;
 
   /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
+   * 设置组件的前景色。当组件未设置前景色，默认继承父组件。与
+   * [foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)}相比，color参数新增了对
+   * undefined类型的支持。
    *
-   * @param { Optional<ResourceColor | ColoringStrategy> } color -Foreground color. The value can be a specific color
-   *     or a coloring strategy. Property animations are not supported.<br>If the color value is **undefined**, the
-   *     previous setting or the component's default value is retained. The specific behavior may vary across
-   *     components. It is recommended that you use explicit color values or [ColoringStrategy]{@link ColoringStrategy}.
-   * @returns { T }
-   Current component.
+   * @param { Optional<ResourceColor | ColoringStrategy> } color - 设置组件的前景颜色或者根据智能取色策略设置前景颜色。不支持属性动画。<br/>当color的值为
+   *     undefined时，维持之前取值或组件默认取值，具体行为不同组件可能会有差异，建议开发者使用确定颜色或[ColoringStrategy]{@link ColoringStrategy}。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22694,42 +22586,15 @@ declare class CommonMethod<T> {
   /**
    * 为组件添加内容模糊效果。
    *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
-   * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
-   * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
    * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
    * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale:
    *     [0,0] [since 11]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   blur(value: number, options?: BlurOptions): T;
 
@@ -22740,8 +22605,7 @@ declare class CommonMethod<T> {
    * @param { Optional<number> } blurRadius - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>当blurRadius的值为undefined时，维持之前取
    *     值。
    * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22758,8 +22622,7 @@ declare class CommonMethod<T> {
    *     值。
    * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
    * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22774,8 +22637,7 @@ declare class CommonMethod<T> {
    * @param { number } value - 为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>取值范围：[0, 1000]
    * @param { LinearGradientBlurOptions } options - 设置线性渐变模糊效果。  <br/>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向
    *     direction。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -22791,8 +22653,7 @@ declare class CommonMethod<T> {
    *     为渐变模糊为0的效果。
    * @param { Optional<LinearGradientBlurOptions> } options - 设置线性渐变模糊效果。<br/>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向
    *     direction。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
@@ -22817,8 +22678,7 @@ declare class CommonMethod<T> {
    * > - 模糊半径建议设置1以内，否则会产生非预期效果。
    *
    * @param { MotionBlurOptions } value - 定义运动模糊参数。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22843,8 +22703,7 @@ declare class CommonMethod<T> {
    * 6、模糊半径建议设置1以内，否则会产生非预期效果。
    *
    * @param { Optional<MotionBlurOptions> } motionBlur - 定义运动模糊参数。<br/>当motionBlur的值为undefined时，维持之前取值。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22857,42 +22716,12 @@ declare class CommonMethod<T> {
    *
    * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
    *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   brightness(value: number): T;
 
@@ -22903,8 +22732,7 @@ declare class CommonMethod<T> {
    * @param { Optional<number> } brightness - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2
    *     时会变为全白。<br/>取值范围：
    *     [0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当brightness的值为undefined时，恢复为亮度为1的高光效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22918,46 +22746,13 @@ declare class CommonMethod<T> {
    *
    * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
    *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   contrast(value: number): T;
 
@@ -22966,8 +22761,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } contrast - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，
    *     图像变为全灰。<br/>推荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当contrast的值为undefined时，恢复为对比度为1的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22979,68 +22773,14 @@ declare class CommonMethod<T> {
   /**
    * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
    *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
    * @param { number } value - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。<br/>取值范围：
    *     [0.0, 1.0]<br/>**说明：**<br/>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   grayscale(value: number): T;
 
@@ -23051,8 +22791,7 @@ declare class CommonMethod<T> {
    * @param { Optional<number> } grayscale - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。<
    *     br/>取值范围：[0.0, 1.0]<br/>**说明：**<br/>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。<br/>当grayscale的值为undefined时，取默认值0.
    *     0。恢复为无灰度效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23065,39 +22804,12 @@ declare class CommonMethod<T> {
    * 为组件添加颜色叠加效果。
    *
    * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   colorBlend(value: Color | string | Resource): T;
 
@@ -23107,8 +22819,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<Color | string | Resource> } color - 为当前组件添加颜色叠加效果，入参为叠加的颜色。取值可为string类型，如'0x000000'，'rgba(0,0,0,
    *     1)'。<br/>当color的值为undefined时，恢复为无颜色叠加的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23122,42 +22833,12 @@ declare class CommonMethod<T> {
    *
    * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
    *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   saturate(value: number): T;
 
@@ -23166,8 +22847,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } saturate - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越
    *     大，饱和度越小。<br/>推荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当saturate的值为undefined时。恢复为饱和度为1的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23181,42 +22861,12 @@ declare class CommonMethod<T> {
    *
    * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
    *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   sepia(value: number): T;
 
@@ -23225,8 +22875,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } sepia - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比
    *     例，图像整体会变得更亮且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>当sepia的值为undefined时，恢复为图像无变化的效果。<br/> 取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23238,43 +22887,18 @@ declare class CommonMethod<T> {
   /**
    * 反转输入的图像。
    *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 反转输入的图像。
-   *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 反转输入的图像。
-   *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 反转输入的图像。
-   *
+   * @param { number } value - 反转输入的图像。<br/>入参对象为number时。入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。<br/>取值范围：[0, 1]。<br/>设置小于0的值时，按值
+   *     为0处理。设置大于1的值时，按值为1处理。[since 7 - 10]
    * @param { number | InvertOptions } value - 反转输入的图像。<br/>入参对象为number时。入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。<br/>取值范围：[0, 1]。<br/>设置小于0的值时，按值
    *     为0处理。设置大于1的值时，按值为1处理。<br/>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜
    *     色灰度值在阈值区间内取值由high线性渐变到low。<br/>**说明：**<br/>number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效
-   *     果会同时存在，建议始终使用同一种形式的入参。 [since 7 - 10]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   *     果会同时存在，建议始终使用同一种形式的入参。[since 11]
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   invert(value: number | InvertOptions): T;
 
@@ -23285,8 +22909,7 @@ declare class CommonMethod<T> {
    *     取值范围：[0, 1]。<br/>设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。<br/>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high
    *     值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜色灰度值在阈值区间内取值由high线性渐变到low。<br/>当options的值为undefined时，恢复为图像无变化的效果。<br/>**说明：**<br/>
    *     number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效果会同时存在，建议始终使用同一种形式的入参。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23311,42 +22934,12 @@ declare class CommonMethod<T> {
    *
    * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
    *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   hueRotate(value: number | string): T;
 
@@ -23355,8 +22948,7 @@ declare class CommonMethod<T> {
    * 类型的支持。
    *
    * @param { Optional<number | string> } rotation
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23371,26 +22963,13 @@ declare class CommonMethod<T> {
    * @param { boolean } value - 控件内部子节点的阴影是否进行同层绘制。<br/>默认值：false<br/> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。<br/>
    *     false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之
    *     上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 控件内部子节点的阴影进行同层绘制，同层元素阴影重叠。
-   *
-   * @param { boolean } value - 控件内部子节点的阴影是否进行同层绘制。<br/>默认值：false<br/> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。<br/>
-   *     false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之
-   *     上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   useShadowBatching(value: boolean): T;
 
@@ -23402,8 +22981,7 @@ declare class CommonMethod<T> {
    *     br/> false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子
    *     节点阴影之上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。<br/>当use的值为
    *     undefined时，恢复为不使用元素阴影重叠的效果。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23458,6 +23036,7 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
+   * 指定当前组件是否参与祖先组件UnionEffectContainer的融合效果
    *
    * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
    *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
@@ -23544,42 +23123,13 @@ declare class CommonMethod<T> {
    *
    * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
    *     融合绘制。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
-   * 的不透明度不为1时，绘制效果可能有差异。
-   *
-   * 不设置该属性时，默认不组成节点组。
-   *
-   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
-   *     融合绘制。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
-   * 的不透明度不为1时，绘制效果可能有差异。
-   *
-   * 不设置该属性时，默认不组成节点组。
-   *
-   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
-   *     融合绘制。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   renderGroup(value: boolean): T;
 
@@ -23593,8 +23143,8 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<boolean> } isGroup - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，
    *     进行离屏渲染后再与父组件融合绘制。<br/>当isGroup的值为undefined时，按照不组成节点组处理。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23623,8 +23173,7 @@ declare class CommonMethod<T> {
    *
    * @param { boolean | undefined } exclude - 设置当前组件及其子组件是否从祖先组件的节点组中剔除。<br/>true表示当前组件及其子组件从祖先组件的节点组中剔除，不属于祖先组件的节点组；
    *     false表示当前组件及其子组件归属于祖先组件的节点组。<br/>当exclude的值为undefined时，按false处理。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @systemapi
    * @stagemodelonly
    * @since 22 dynamic
@@ -23640,8 +23189,7 @@ declare class CommonMethod<T> {
    *
    * @param { boolean } value - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。<br/>默认值：false <br/> true时
    *     离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -23658,8 +23206,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<boolean> } freeze - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。<br/>默认值：false<
    *     br/> true时离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。<br/>当freeze的值为undefined时，维持之前取值。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
@@ -27817,7 +27364,7 @@ declare interface PixelRoundPolicy {
 }
 
 /**
-*
+ *
  * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

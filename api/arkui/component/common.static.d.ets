@@ -215,6 +215,7 @@ export declare interface DividerStyle {
  * animation and identify whether the data changes, that is, the non-number data
  * is defined as the types that implement the **AnimatableArithmetic\<T\>** API.
  *
+ * @interface AnimatableArithmetic
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -424,6 +425,7 @@ export declare interface ResponseRegion {
 /**
  * Interface for ExpectedFrameRateRange.
  *
+ * @interface ExpectedFrameRateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -432,6 +434,7 @@ export declare interface ExpectedFrameRateRange {
     /**
      * The minimum animation drawing FPS.
      * The minimum value should be less than or equal to the maximum value.
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -440,6 +443,7 @@ export declare interface ExpectedFrameRateRange {
     /**
      * The maximum animation drawing FPS.
      * The maximum value should be greater than or equal to the minimum value.
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -450,6 +454,7 @@ export declare interface ExpectedFrameRateRange {
      * The value should be between the minimum and maximum value.
      * Otherwise, the actual callback rate will be dynamically
      * adjusted to better align with other animation sources.
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1529,6 +1534,7 @@ export declare enum TouchTestStrategy {
 /**
  * Defines the animate function params.
  *
+ * @interface AnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1537,6 +1543,7 @@ export declare interface AnimateParam {
     /**
      * Animation duration, in ms.
      *
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1547,6 +1554,7 @@ export declare interface AnimateParam {
      * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
      * animation playback. The value 0 means that there is no animation.
      *
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1556,6 +1564,7 @@ export declare interface AnimateParam {
     /**
      * Animation curve.
      *
+     * @type { ?(Curve | string | ICurve) }
      * @default Curve.EaseInOut
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1565,6 +1574,7 @@ export declare interface AnimateParam {
     /**
      * Animation delay time, in ms. By default, the animation has no delay.
      *
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1576,6 +1586,7 @@ export declare interface AnimateParam {
      * The value **-1** indicates that the animation is played for an unlimited number of times.
      * The value **0** indicates that there is no animation.
      *
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1585,6 +1596,7 @@ export declare interface AnimateParam {
     /**
      * Playback mode. By default, the animation is played from the beginning after the playback is complete.
      *
+     * @type { ?PlayMode }
      * @default PlayMode.Normal
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1594,6 +1606,7 @@ export declare interface AnimateParam {
     /**
      * Callback invoked when the animation playback is complete.
      *
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1603,6 +1616,7 @@ export declare interface AnimateParam {
      * Type of the **onFinish** callback.
      * Default value: FinishCallbackType.REMOVED.
      *
+     * @type { ?FinishCallbackType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1611,6 +1625,7 @@ export declare interface AnimateParam {
     /**
      * Expected frame rate range of the animation.
      *
+     * @type { ?ExpectedFrameRateRange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1620,6 +1635,7 @@ export declare interface AnimateParam {
 /**
  * Interface for curve object.
  *
+ * @typedef { curves.ICurve } ICurve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1628,6 +1644,7 @@ export type ICurve = curves.ICurve;
 /**
  * Interface for matrix object.
  *
+ * @typedef { matrix4.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1636,6 +1653,7 @@ export type Matrix4Transit = matrix4.Matrix4Transit;
 /**
  * Defines the motion path options.
  *
+ * @interface MotionPathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1648,6 +1666,7 @@ export declare interface MotionPathOptions {
      * for example, **'Mstart.x start.y L50 50 Lend.x end.y Z'**.
      * If this parameter is set to an empty string, the path animation is not set.
      *
+     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1658,6 +1677,7 @@ export declare interface MotionPathOptions {
      * Value range: [0, 1].
      * A value less than 0 or greater than 1 evaluates to the default value **0**.
      *
+     * @type { ?double }
      * @default 0.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1670,6 +1690,7 @@ export declare interface MotionPathOptions {
      * A value less than 0 or greater than 1 evaluates to the default value **1**,
      * provided that the value of **to** is greater than or equal to the value of **from**.
      *
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1679,6 +1700,7 @@ export declare interface MotionPathOptions {
     /**
      * Whether to rotate along the path.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1689,6 +1711,7 @@ export declare interface MotionPathOptions {
 /**
  * Defines the shard transition function params.
  *
+ * @interface sharedTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1700,6 +1723,7 @@ export declare interface sharedTransitionOptions {
      * <br>Unit: ms.
      * <br>Value range: [0, +∞).
      *
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1713,6 +1737,7 @@ export declare interface sharedTransitionOptions {
      * AnimateParam.
      * <br>Default value: **Curve.Linear**.
      *
+     * @type { ?(Curve | string | ICurve) }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1722,6 +1747,7 @@ export declare interface sharedTransitionOptions {
     /**
      * Animation delay time, in ms.
      *
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1731,6 +1757,7 @@ export declare interface sharedTransitionOptions {
     /**
      * The motion path info.
      *
+     * @type { ?MotionPathOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1739,6 +1766,7 @@ export declare interface sharedTransitionOptions {
     /**
      * Z index info.
      *
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1747,6 +1775,7 @@ export declare interface sharedTransitionOptions {
     /**
      * the animate type.
      *
+     * @type { ?SharedTransitionEffectType }
      * @default SharedTransitionEffectType.Exchange
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1757,6 +1786,7 @@ export declare interface sharedTransitionOptions {
 /**
  * Defines the options of geometry transition.
  *
+ * @interface GeometryTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1765,6 +1795,7 @@ export declare interface GeometryTransitionOptions {
     /**
      * whether follow target for the component still in the hierarchy, default: false, stay current.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1775,6 +1806,7 @@ export declare interface GeometryTransitionOptions {
     /**
      * Defines movement strategy of source and target in the hierarchy during geometry transition.
      * 
+     * @type { ?TransitionHierarchyStrategy }
      * @default TransitionHierarchyStrategy.ADAPTIVE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -1786,6 +1818,7 @@ export declare interface GeometryTransitionOptions {
 /**
  * Defines the options of linear gradient.
  *
+ * @interface LinearGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1795,6 +1828,7 @@ export declare interface LinearGradientOptions {
      * Defines starting angle of linear gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 180
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1805,6 +1839,7 @@ export declare interface LinearGradientOptions {
      * Defines the direction of linear gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?GradientDirection }
      * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1815,6 +1850,7 @@ export declare interface LinearGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1827,6 +1863,7 @@ export declare interface LinearGradientOptions {
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1876,6 +1913,7 @@ export declare enum TransitionHierarchyStrategy {
 /**
  * Defines the options of sweep gradient.
  *
+ * @interface SweepGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1885,6 +1923,7 @@ export declare interface SweepGradientOptions {
      * Defines center point for angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { [Length, Length] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1897,6 +1936,7 @@ export declare interface SweepGradientOptions {
      * Defines the starting point of angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1907,6 +1947,7 @@ export declare interface SweepGradientOptions {
      * Defines end point of angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1917,6 +1958,7 @@ export declare interface SweepGradientOptions {
      * Defines the rotation angle of the gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1927,6 +1969,7 @@ export declare interface SweepGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1939,6 +1982,7 @@ export declare interface SweepGradientOptions {
      * Defines color description in ColorMetrics format for gradients.
      * This parameter takes precedence over colors parameter.
      *
+     * @type { ?Array<[ColorMetrics, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1951,6 +1995,7 @@ export declare interface SweepGradientOptions {
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1961,6 +2006,7 @@ export declare interface SweepGradientOptions {
 /**
  * Defines the options of radial gradient.
  *
+ * @interface RadialGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1970,6 +2016,7 @@ export declare interface RadialGradientOptions {
      * Defines center point for radial gradient.
      *
      * Anonymous Object Rectification.
+     * @type { [Length, Length] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1982,6 +2029,7 @@ export declare interface RadialGradientOptions {
      * Defines radius of the radial gradient.
      *
      * Anonymous Object Rectification.
+     * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1991,6 +2039,7 @@ export declare interface RadialGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2003,6 +2052,7 @@ export declare interface RadialGradientOptions {
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2013,6 +2063,7 @@ export declare interface RadialGradientOptions {
 /**
  * Defines the options of translate.
  *
+ * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2023,6 +2074,7 @@ export declare interface TranslateOptions {
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2033,6 +2085,7 @@ export declare interface TranslateOptions {
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2042,6 +2095,7 @@ export declare interface TranslateOptions {
      * Distance to translate along the z-axis. The value is a floating
      * point number, the default value is 0.0, and the unit is px.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2051,6 +2105,7 @@ export declare interface TranslateOptions {
 /**
  * Defines the options of scale.
  *
+ * @interface ScaleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2062,6 +2117,7 @@ export declare interface ScaleOptions {
      * 0 < x < 1: The component is scaled down along the x-axis.
      * x < 0: The component is scaled in the reverse direction of the x-axis.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2073,6 +2129,7 @@ export declare interface ScaleOptions {
      * 0 < y < 1: The component is scaled down along the y-axis.
      * y < 0: The component is scaled in the reverse direction of the y-axis.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2083,6 +2140,7 @@ export declare interface ScaleOptions {
      * <br>0 < z < 1: The component is scaled down along the z-axis.
      * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2091,6 +2149,7 @@ export declare interface ScaleOptions {
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2099,6 +2158,7 @@ export declare interface ScaleOptions {
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2380,6 +2440,7 @@ export declare enum ChainStyle {
 /**
  * The param of rotate.
  *
+ * @interface RotateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2388,6 +2449,7 @@ export declare interface RotateOptions {
     /**
      * X coordinate of the rotation axis vector.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2396,6 +2458,7 @@ export declare interface RotateOptions {
     /**
      * Y coordinate of the rotation axis vector.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2404,6 +2467,7 @@ export declare interface RotateOptions {
     /**
      * Z coordinate of the rotation axis vector.
      *
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2412,6 +2476,7 @@ export declare interface RotateOptions {
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2420,6 +2485,7 @@ export declare interface RotateOptions {
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2428,6 +2494,7 @@ export declare interface RotateOptions {
     /**
      * Z-axis anchor, that is, the z-component of the 3D rotation center point.
      *
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2439,6 +2506,7 @@ export declare interface RotateOptions {
      * The axis and center of rotation are set based on the coordinate system,
      * which remains where it is when the component is moved.
      *
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2448,6 +2516,7 @@ export declare interface RotateOptions {
     /**
      * The param of angle.
      *
+     * @type { double | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2457,6 +2526,7 @@ export declare interface RotateOptions {
 /**
  * The rotation parameters containing multi-axis angle information.
  *
+ * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2465,6 +2535,7 @@ export declare interface RotateAngleOptions {
   /**
    * the angle of the x-axis direction.
    *
+   * @type { ?(double | string) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2475,6 +2546,7 @@ export declare interface RotateAngleOptions {
   /**
    * the angle of the y-axis direction.
    *
+   * @type { ?(double | string) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2485,6 +2557,7 @@ export declare interface RotateAngleOptions {
   /**
    * the angle of the z-axis direction.
    *
+   * @type { ?(double | string) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2495,6 +2568,7 @@ export declare interface RotateAngleOptions {
   /**
    * The param of center point of x.
    *
+   * @type { ?(double | string) }
    * @default '50%'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2505,6 +2579,7 @@ export declare interface RotateAngleOptions {
   /**
    * The param of center point of y.
    *
+   * @type { ?(double | string) }
    * @default '50%'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2515,6 +2590,7 @@ export declare interface RotateAngleOptions {
   /**
    * The param of center point of z.
    *
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2524,6 +2600,7 @@ export declare interface RotateAngleOptions {
 
   /**
    * The param of camera distance, value range (-∞, ∞).
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2578,6 +2655,7 @@ export declare enum TransitionEdge {
 /**
  * Defines the option of asymmetric transition.
  *
+ * @interface AsymmetricTransitionOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2586,6 +2664,7 @@ export declare interface AsymmetricTransitionOption {
     /**
      * TransitionEffect used for appearing
      *
+     * @type { TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2594,6 +2673,7 @@ export declare interface AsymmetricTransitionOption {
     /**
      * TransitionEffect used for disappearing
      *
+     * @type { TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2684,6 +2764,7 @@ export declare class TransitionEffect {
     /**
      * Disables the transition effect
      *
+     * @type { TransitionEffect }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2693,6 +2774,7 @@ export declare class TransitionEffect {
     /**
      * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
      *
+     * @type { TransitionEffect }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2702,6 +2784,7 @@ export declare class TransitionEffect {
     /**
      * Defines a slide transition effect
      *
+     * @type { TransitionEffect }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2714,6 +2797,7 @@ export declare class TransitionEffect {
      * It comes with default animation parameters, which can also be overridden.
      * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
      *
+     * @type { TransitionEffect }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3577,6 +3661,7 @@ export declare enum ModalTransition {
  * Defines the options of backgroundBlurStyle
  *
  * @extends BlurStyleOptions
+ * @interface BackgroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3585,6 +3670,7 @@ export declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
     /**
      * Defines the policy for activating the blur style.
      *
+     * @type { ?BlurStyleActivePolicy }
      * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3594,6 +3680,7 @@ export declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
     /**
      * Color of the background effect when the window is not focused.
      *
+     * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3605,6 +3692,7 @@ export declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
  * Defines the options of ForegroundBlurStyle
  *
  * @extends BlurStyleOptions
+ * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3614,6 +3702,7 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of blur
  *
+ * @interface BlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3621,6 +3710,7 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 export declare interface BlurOptions {
     /**
      * Fuzzy gray scale parameter. Undefined value means no grayscale.
+     * @type { [double, double] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3633,6 +3723,7 @@ export declare interface BlurOptions {
 /**
  * Defines the SystemAdaptiveOptions interface
  *
+ * @interface SystemAdaptiveOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3641,6 +3732,7 @@ export declare interface SystemAdaptiveOptions {
     /**
      * Whether to disable system adaptive.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3650,6 +3742,7 @@ export declare interface SystemAdaptiveOptions {
 /**
  * Defines the options of blurStyle
  *
+ * @interface BlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3659,6 +3752,7 @@ export declare interface BlurStyleOptions {
      * Color mode used for the foreground blur.
      * <br>Default value: **ThemeColorMode.SYSTEM**.
      *
+     * @type { ?ThemeColorMode }
      * @default ThemeColorMode.SYSTEM
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3669,6 +3763,7 @@ export declare interface BlurStyleOptions {
      * Adaptive color mode.
      * <br>Default value: **AdaptiveColor.DEFAULT**.
      *
+     * @type { ?AdaptiveColor }
      * @default AdaptiveColor.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3680,6 +3775,7 @@ export declare interface BlurStyleOptions {
      * <br>Default value: **1.0**.
      * <br>Value range: [0.0, 1.0].
      *
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3689,6 +3785,7 @@ export declare interface BlurStyleOptions {
     /**
      * Defines the options of blur
      *
+     * @type { ?BlurOptions }
      * @default { grayScale: [0,0] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3699,6 +3796,7 @@ export declare interface BlurStyleOptions {
 /**
  * Defines the options of BackgroundEffect
  *
+ * @interface BackgroundEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3709,6 +3807,7 @@ export declare interface BackgroundEffectOptions {
      * Value range: [0, +∞).
      * Default value: **0**.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3719,6 +3818,7 @@ export declare interface BackgroundEffectOptions {
      * Value range: [0, +∞).
      * Recommended value range: [0, 50].
      *
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3730,6 +3830,7 @@ export declare interface BackgroundEffectOptions {
      * <br>Value range: [0, +∞).
      * <br>Default value: **1** Recommended value range: [0, 2].
      *
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3739,6 +3840,7 @@ export declare interface BackgroundEffectOptions {
     /**
      * Color.
      *
+     * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3748,6 +3850,7 @@ export declare interface BackgroundEffectOptions {
     /**
      * Define the adaptiveColor of BackgroundEffect.
      *
+     * @type { ?AdaptiveColor }
      * @default AdaptiveColor.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3757,6 +3860,7 @@ export declare interface BackgroundEffectOptions {
     /**
     * Define the blurOptions of BackgroundEffect.
     *
+    * @type { ?BlurOptions }
     * @default { grayScale: [0,0] }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
@@ -3766,6 +3870,7 @@ export declare interface BackgroundEffectOptions {
     /**
      * Defines the policy for activating the blur style.
      *
+     * @type { ?BlurStyleActivePolicy }
      * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3775,6 +3880,7 @@ export declare interface BackgroundEffectOptions {
     /**
      * Color of the background effect when the window is not focused.
      *
+     * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3785,6 +3891,7 @@ export declare interface BackgroundEffectOptions {
 /**
  * Defines the options of ForegroundEffect
  *
+ * @interface ForegroundEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3793,6 +3900,7 @@ export declare interface ForegroundEffectOptions {
     /**
      * Define the radius size of ForegroundEffect.The range of this value is [0, ∞). Undefined means 0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3950,6 +4058,7 @@ export declare enum ShadowType {
 /**
  * Define the options of shadow
  *
+ * @interface ShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3959,6 +4068,7 @@ export declare interface ShadowOptions {
      * Blur radius of the shadow.
      * Default value: 0px.
      *
+     * @type { double | Resource | undefined }
      *     undefined means setting to default value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3969,6 +4079,7 @@ export declare interface ShadowOptions {
      * Shadow type.
      * <br>Default value: **COLOR**.
      *
+     * @type { ?ShadowType }
      * @default ShadowType.COLOR
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3978,6 +4089,7 @@ export declare interface ShadowOptions {
     /**
      * Color of the shadow. Default value: **Black**
      *
+     * @type { ?(Color | string | Resource | ColoringStrategy) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3986,6 +4098,7 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
      *
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3994,6 +4107,7 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
      *
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4006,6 +4120,7 @@ export declare interface ShadowOptions {
      * <br>The default value is **false**.
      * <br>**NOTE**<br>This attribute does not take effect in textShadow.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5509,6 +5624,7 @@ export type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, 
 /**
  * Defines the finish callback type used in transition.
  *
+ * @typedef { function } TransitionFinishCallback
  * @param { boolean } transitionIn - a boolean value indicates whether it is the callback of
  *     transitionIn or transitionOut.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6579,6 +6695,7 @@ export declare interface CrownEvent {
 /**
  * Overlay module options
  *
+ * @interface BindOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6588,6 +6705,7 @@ export declare interface BindOptions {
      * Background color of the sheet.
      * <br>Default value: **Color.White**.
      *
+     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6596,6 +6714,7 @@ export declare interface BindOptions {
     /**
      * Callback for when the sheet is displayed (after the animation ends).
      *
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6604,6 +6723,7 @@ export declare interface BindOptions {
     /**
      * Callback for when the sheet disappears (after the animation ends).
      *
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6612,6 +6732,7 @@ export declare interface BindOptions {
     /**
      * Callback for when the sheet is about to be displayed (before the animation starts).
      *
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6620,6 +6741,7 @@ export declare interface BindOptions {
     /**
      * Callback function before overlay popAnimation starts.
      *
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6629,6 +6751,7 @@ export declare interface BindOptions {
 /**
  * Component content cover dismiss
  *
+ * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6645,6 +6768,7 @@ export declare interface DismissContentCoverAction {
     /**
      * Defines content cover dismiss reason
      *
+     * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6655,6 +6779,7 @@ export declare interface DismissContentCoverAction {
  * Component content cover options
  *
  * @extends BindOptions
+ * @interface ContentCoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6663,6 +6788,7 @@ export declare interface ContentCoverOptions extends BindOptions {
     /**
      * Defines transition type
      *
+     * @type { ?ModalTransition }
      * @default ModalTransition.Default
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6672,6 +6798,7 @@ export declare interface ContentCoverOptions extends BindOptions {
     /**
      * Callback function when the content cover interactive dismiss
      *
+     * @type { ?Callback<DismissContentCoverAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6680,6 +6807,7 @@ export declare interface ContentCoverOptions extends BindOptions {
     /**
      * Defines transition effect param
      *
+     * @type { ?TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6688,6 +6816,7 @@ export declare interface ContentCoverOptions extends BindOptions {
     /**
      * Set contentCover content adapts to safeArea.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6698,6 +6827,7 @@ export declare interface ContentCoverOptions extends BindOptions {
 /**
  * Component sheet title options
  *
+ * @interface SheetTitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6706,6 +6836,7 @@ export declare interface SheetTitleOptions {
     /**
      * Defines title text
      *
+     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6714,6 +6845,7 @@ export declare interface SheetTitleOptions {
     /**
      * Defines subtitle text
      *
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6888,6 +7020,7 @@ export declare enum SheetKeyboardAvoidMode {
 /**
  * Component sheet dismiss
  *
+ * @interface SheetDismiss
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6905,6 +7038,7 @@ export declare interface SheetDismiss {
 /**
  * Component sheet dismiss
  *
+ * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6921,6 +7055,7 @@ export declare interface DismissSheetAction {
     /**
      * Dismiss reason type.
      *
+     * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6930,6 +7065,7 @@ export declare interface DismissSheetAction {
 /**
  * Defines sheet spring back action
  *
+ * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6947,6 +7083,7 @@ export declare interface SpringBackAction {
 /**
  * Defines the detent array of a single length.
  *
+ * @typedef { [SheetSize | Length] } SingleLengthDetent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6957,6 +7094,7 @@ export type SingleLengthDetent = [
 /**
  * Defines the detent array of a two-length.
  *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined] } DoubleLengthDetents
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6968,6 +7106,7 @@ export type DoubleLengthDetents = [
 /**
  * Defines the detent array of a three-length.
  *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined] }
  *     TripleLengthDetents
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7004,6 +7143,7 @@ export declare interface BlurSnapshotOptions {
  * Component sheet options
  *
  * @extends BindOptions
+ * @interface SheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -7012,6 +7152,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines sheet height
      *
+     * @type { ?(SheetSize | Length) }
      * @default Sheet.LARGE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7023,6 +7164,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>**NOTE**<br>By default, the drag bar is displayed only when the sheet's
      * **detents** attribute is set to multiple heights and the settings take effect.
      *
+     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7032,6 +7174,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines whether the sheet dragbar is floating, when it's displayed.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7041,6 +7184,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines transition type when preferType is SheetType.CONTENT_COVER.
      *
+     * @type { ?ModalTransition }
      * @default ModalTransition.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7048,31 +7192,34 @@ export declare interface SheetOptions extends BindOptions {
      */
     modalTransition?: ModalTransition;
     /**
-    * Define strategy for drawing rounded corners.
-    * NOTE
-    * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
-    * onto the canvas with rounded corners applied.
-    * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
-    * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
-    *
-    * @default RenderStrategy.FAST
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Define strategy for drawing rounded corners.
+     * NOTE
+     * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+     * onto the canvas with rounded corners applied.
+     * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+     * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+     *
+     * @type { ?RenderStrategy }
+     * @default RenderStrategy.FAST
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     radiusRenderStrategy?: RenderStrategy;
     /**
-      * Set system-styled materials for sheet. Different materials have different effects, which can influence
-      * the backgroundColor, border, shadow, and other visual attributes of sheet.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @stagemodelonly
-      * @since 26.0.0 static
-      */
+     * Set system-styled materials for sheet. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of sheet.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     systemMaterial?: SystemUiMaterial;
     /**
      * Mask color of the sheet.
      *
+     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7081,6 +7228,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines sheet detents
      *
+     * @type { ?(SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7089,6 +7237,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Background blur of the sheet. By default, there is no background blur.
      *
+     * @type { ?BlurStyle }
      * @default BlurStyle.NONE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7098,6 +7247,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines whether the close icon is displayed
      *
+     * @type { ?(boolean | Resource) }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7111,6 +7261,7 @@ export declare interface SheetOptions extends BindOptions {
     * <br>2. 600 vp <= Width: bottom, center, and popup (default).
     * <br>3. Width >= 840 vp: bottom, center, and popup (default).
     *
+    * @type { ?SheetType }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -7119,6 +7270,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Title of the sheet.
      *
+     * @type { ?(SheetTitleOptions | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7132,6 +7284,7 @@ export declare interface SheetOptions extends BindOptions {
      * sheet is dismissed immediately when the user performs the above operations, without any additional
      * behavior.<br>It is recommended that this API be used in scenarios where a secondary confirmation is required.
      *
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7151,6 +7304,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>No further interception with onWillDismiss is allowed in an onWillDismiss callback.
      * </p>
      *
+     * @type { ?Callback<DismissSheetAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7167,6 +7321,7 @@ export declare interface SheetOptions extends BindOptions {
     * default during the pull-down-to-dismiss operation.
     * </p>
     *
+    * @type { ?Callback<SpringBackAction> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -7180,6 +7335,7 @@ export declare interface SheetOptions extends BindOptions {
      * are allowed for the popup sheet, but not for bottom and center sheets. If this parameter
      * is set to **true**, the setting of **maskColor** does not take effect.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7190,6 +7346,7 @@ export declare interface SheetOptions extends BindOptions {
      * Width of the sheet.
      * Percentage parameter method: Set the width of the sheet as a percentage of the width of the parent element.
      *
+     * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7207,6 +7364,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>For bottom sheets, the bottom border width setting is ineffective.
      * </p>
      *
+     * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7219,6 +7377,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>For bottom sheets, the bottom border color setting is ineffective.
      * </p>
      *
+     * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
      * @default Color.Black
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7228,6 +7387,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines the sheet's border style.
      *
+     * @type { ?(BorderStyle | EdgeStyles) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7237,6 +7397,7 @@ export declare interface SheetOptions extends BindOptions {
      * Shadow of the sheet.
      * Default value for 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_SM**.
      *
+     * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7252,6 +7413,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>The return value is in px.
      * <p>
      *
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7260,6 +7422,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Determine the level sheet shows, whether sheet should be displayed within the page.
      *
+     * @type { ?SheetMode }
      * @default SheetMode.OVERLAY
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7269,6 +7432,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Content update mode of the sheet when it is scrolled.
      *
+     * @type { ?ScrollSizeMode }
      * @default ScrollSizeMode.FELLOW_DETEND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7281,6 +7445,7 @@ export declare interface SheetOptions extends BindOptions {
      * <br>For a bottom sheet, the final height is returned when there are changes in detents.
      * <br>The return value is in px.
      * </p>
+     * @type { ?Callback<int> }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7290,6 +7455,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Called when width of the sheet changed
      *
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7298,6 +7464,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Called when the sheet type changed
      *
+     * @type { ?Callback<SheetType> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7306,6 +7473,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * The UIContext that the sheet belongs to
      *
+     * @type { ?UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7314,6 +7482,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Determine the mode of sheet how to avoid keyboard.
      *
+     * @type { ?SheetKeyboardAvoidMode }
      * @default SheetKeyboardAvoidMode.TRANSLATE_AND_SCROLL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7323,6 +7492,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines whether to respond to the hover mode.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7332,6 +7502,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines the sheet's display area in hover mode.
      *
+     * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7339,18 +7510,20 @@ export declare interface SheetOptions extends BindOptions {
      */
     hoverModeArea?: HoverModeAreaType;
 
-     /**
-      * Sets the position offset of the bindSheet.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @systemapi
-      * @stagemodelonly
-      * @since 23 static
-      */
-    offset?: Position
+    /**
+     * Sets the position offset of the bindSheet.
+     *
+     * @type { ?Position }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offset?: Position;
     /**
      * Sets whether the sheet edge has spring effect.
      *
+     * @type { ?int }
      * @default 3
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7360,6 +7533,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Defines sheet radius
      *
+     * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -7368,6 +7542,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Select a detent from detents property
      *
+     * @type { ?(SheetSize | Length) }
      * @default detents[0]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7377,6 +7552,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * Whether to display in the sub window
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7387,6 +7563,7 @@ export declare interface SheetOptions extends BindOptions {
      * The placement of popup sheet type.
      * Supports all positions defined in Placement.
      *
+     * @type { ?Placement }
      * @default Placement.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7396,6 +7573,7 @@ export declare interface SheetOptions extends BindOptions {
     /**
      * placement On target node
      *
+     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10009,6 +10187,7 @@ export declare interface SpatialEffectParams {
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  *
+ * @interface PixelStretchEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10018,6 +10197,7 @@ export declare interface PixelStretchEffectOptions {
      * top property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10028,6 +10208,7 @@ export declare interface PixelStretchEffectOptions {
      * bottom property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10038,6 +10219,7 @@ export declare interface PixelStretchEffectOptions {
      * left property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10048,6 +10230,7 @@ export declare interface PixelStretchEffectOptions {
      * right property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10058,6 +10241,7 @@ export declare interface PixelStretchEffectOptions {
 /**
  * Defines the click effect.
  *
+ * @interface ClickEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10066,6 +10250,7 @@ export declare interface ClickEffect {
     /**
      * Set the click effect level.
      *
+     * @type { ClickEffectLevel }
      * @default ClickEffectLevel.Light
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10083,6 +10268,7 @@ export declare interface ClickEffect {
      * <br> If level is set to undefined or null (both of which evaluate to ClickEffectLevel.LIGHT), the default value is 0.90.
      * <br> If scale is set to undefined or null, the default zoom ratio for the set level will be used.
      * </p>
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10604,6 +10790,7 @@ export declare interface PreviewConfiguration {
 /**
  * Define the options of invert
  *
+ * @interface InvertOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10612,6 +10799,7 @@ export declare interface InvertOptions {
     /**
      * Defines the low value of threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10620,6 +10808,7 @@ export declare interface InvertOptions {
     /**
      * Defines the high value of threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10628,6 +10817,7 @@ export declare interface InvertOptions {
     /**
      * Defines the threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10636,6 +10826,7 @@ export declare interface InvertOptions {
     /**
      *Defines the threshold range
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -13756,6 +13947,7 @@ export declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
+ * @typedef { [ double, double ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -13970,6 +14162,7 @@ export declare interface PixelRoundPolicy {
 /**
  * Linear Gradient Blur Interface
  *
+ * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -13978,6 +14171,7 @@ export declare interface LinearGradientBlurOptions {
     /**
      * Percentage of blurring effect. Undefined value means no fractionStops.
      *
+     * @type { FractionStop[] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -13986,6 +14180,7 @@ export declare interface LinearGradientBlurOptions {
     /**
      * Direction of linear gradient blur. Undefined value means GradientDirection.Left.
      *
+     * @type { GradientDirection | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -13995,6 +14190,7 @@ export declare interface LinearGradientBlurOptions {
 /**
  * Define motion blur anchor coordinates.
  *
+ * @interface MotionBlurAnchor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14003,6 +14199,7 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate x-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14011,6 +14208,7 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate y-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14020,6 +14218,7 @@ export declare interface MotionBlurAnchor {
 /**
  * Define motion blur options.
  *
+ * @interface MotionBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14028,6 +14227,7 @@ export declare interface MotionBlurOptions {
     /**
      * Define the size of motion blur radius.The range of this value is  [0.0, ∞). Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14036,6 +14236,7 @@ export declare interface MotionBlurOptions {
     /**
      * Define motion blur anchor coordinates. Undefined value means default MotionBlurAnchor.
      *
+     * @type { MotionBlurAnchor | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14276,6 +14477,7 @@ export type DrawContext = _DrawContext;
 /**
  * VisualEffect
  *
+ * @typedef { uiEffect.VisualEffect } VisualEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14284,6 +14486,7 @@ export type VisualEffect = uiEffect.VisualEffect;
 /**
  * Filter
  *
+ * @typedef { uiEffect.Filter } Filter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14292,6 +14495,7 @@ export type Filter = uiEffect.Filter;
 /**
  * SystemUiMaterial
  *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -14300,6 +14504,7 @@ export type Filter = uiEffect.Filter;
 /**
  * SystemUiMaterial
  *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -14309,6 +14514,7 @@ export type SystemUiMaterial = uiMaterial.Material;
 /**
  * Blender
  *
+ * @typedef { uiEffect.Blender } Blender
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -15314,6 +15520,7 @@ export declare interface EditModeOptions {
 /**
  * Define BackgroundBrightness Options.
  *
+ * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15323,6 +15530,7 @@ export declare interface BackgroundBrightnessOptions {
      * Brightness change rate. A higher rate means that brightness decreases more quickly.
      * If **rate** is set to **0**, **lightUpDegree** will not take effect, meaning no brightening effect will occur.
      *
+     * @type { double } - The default value is 0.0, value range: (0.0, +∞).
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15331,6 +15539,7 @@ export declare interface BackgroundBrightnessOptions {
     /**
      * Light up degree. A greater degree indicates a greater increase in brightness.
      *
+     * @type { double } - The default value is 0.0, value range: [-1.0, 1.0].
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15341,6 +15550,7 @@ export declare interface BackgroundBrightnessOptions {
 /**
  * PointLightStyle info
  *
+ * @interface PointLightStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -15350,6 +15560,7 @@ export declare interface PointLightStyle {
   /**
    * Defines the PointLight light intensity and position.
    *
+   * @type { ?LightSource }
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15360,6 +15571,7 @@ export declare interface PointLightStyle {
   /**
    * Defines the PointLight illuminated type.
    *
+   * @type { ?IlluminatedType }
    * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15370,6 +15582,7 @@ export declare interface PointLightStyle {
   /**
    * Defines the PointLight bloom.
    *
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15382,6 +15595,7 @@ export declare interface PointLightStyle {
 /**
  * LightSource info
  *
+ * @interface LightSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -15391,6 +15605,7 @@ declare interface LightSource {
   /**
    * Defines the PointLight light positionX.
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15400,6 +15615,7 @@ declare interface LightSource {
   /**
    * Defines the PointLight light positionX.
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15409,6 +15625,7 @@ declare interface LightSource {
   /**
    * Defines the PointLight light positionX.
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15418,6 +15635,7 @@ declare interface LightSource {
   /**
    * Defines the PointLight light intensity.
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15427,6 +15645,7 @@ declare interface LightSource {
   /**
    * Defines the PointLight light color.
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15439,6 +15658,7 @@ declare interface LightSource {
 /**
  * Defines the overall animation parameters of the keyframe animation.
  *
+ * @interface KeyframeAnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15447,6 +15667,7 @@ export declare interface KeyframeAnimateParam {
     /**
      * Animation delay time, in ms.
      *
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15456,6 +15677,7 @@ export declare interface KeyframeAnimateParam {
     /**
      * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
      *
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15465,6 +15687,7 @@ export declare interface KeyframeAnimateParam {
     /**
      * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
      *
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15473,6 +15696,7 @@ export declare interface KeyframeAnimateParam {
     /**
      * Indicates expectedFrameRateRange of keyframe animation.
      *
+     * @type { ?ExpectedFrameRateRange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15482,6 +15706,7 @@ export declare interface KeyframeAnimateParam {
 /**
  * Defines a keyframe state.
  *
+ * @interface KeyframeState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15490,6 +15715,7 @@ export declare interface KeyframeState {
     /**
      * Animation duration of this keyframe, in ms.
      *
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15498,6 +15724,7 @@ export declare interface KeyframeState {
     /**
      * Animation curve of this keyframe.
      *
+     * @type { ?(Curve | string | ICurve) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15506,6 +15733,7 @@ export declare interface KeyframeState {
     /**
      * The closure function to specify the terminating state of this keyframe.
      *
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15972,80 +16200,6 @@ export declare enum HoverModeAreaType {
     BOTTOM_SCREEN = 1
 }
 /**
- * Enum for distortion animation mode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare enum DistortionMode {
-    /**
-     * Adaptive implementation of distortion animation
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    DISTORTION_AUTO = 0,
-    /**
-     * Distortion animation is enabled.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    DISTORTION_ENABLED = 1,
-    /**
-     * Distortion animation is disabled.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    DISTORTION_DISABLED = 2
-}
-/**
- * Enum for edgeLight animation mode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare enum EdgeLightMode {
-    /**
-     * Adaptive implementation of edgeLight animation
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    EDGELIGHT_AUTO = 0,
-    /**
-     * EdgeLight animation is enabled.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    EDGELIGHT_ENABLED = 1,
-    /**
-     * EdgeLight animation is disabled.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    EDGELIGHT_DISABLED = 2
-}
-/**
  * Defines a range of dates.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16352,6 +16506,82 @@ export declare abstract class RawInputEventWrapper {
 export declare type InputEventListener = (
   event: RawInputEventWrapper
 ) => InputEventInterceptResult;
+
+/**
+ * Enum for edgeLight animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum EdgeLightMode {
+    /**
+     * Adaptive implementation of edgeLight animation
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_AUTO = 0,
+    /**
+     * EdgeLight animation is enabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_ENABLED = 1,
+    /**
+     * EdgeLight animation is disabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_DISABLED = 2
+}
+
+/**
+ * Enum for distortion animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum DistortionMode {
+    /**
+     * Adaptive implementation of distortion animation
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_AUTO = 0,
+    /**
+     * Distortion animation is enabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_ENABLED = 1,
+    /**
+     * Distortion animation is disabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_DISABLED = 2
+}
 
 /**
  * Defines the parameters of the edge light effect.

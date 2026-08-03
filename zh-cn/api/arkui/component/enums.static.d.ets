@@ -3602,7 +3602,7 @@ export declare enum LineBreakStrategy {
 }
 
 /**
- * Enum of Illuminated type
+ * 被照亮的类型枚举。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5275,6 +5275,7 @@ export declare enum OperateIntention {
      */
     BACK_PRESS = 2
 }
+
 /**
  * 边缘流光位置。
  *
