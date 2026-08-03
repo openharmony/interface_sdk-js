@@ -4018,16 +4018,13 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not created or destoryed.
+   *     Possible cause: The window is not found or has been destroyed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window.
    * @throws { BusinessError } 1300008 - Invalid display. Possible cause:
    *     1. DisplayId is a negative number or not exists.
-   * @throws { BusinessError } 1300009 - Invalid window. Possible cause:
-   *     1. The window is not a main window.
-   *     2. The window is not found or has been destroyed.
-   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 
-   *     1. The userId is not exist. 
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+   *     1. The userId is not exist.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -12118,28 +12115,6 @@ declare namespace window {
      * @since 23 static
      */
     setParentWindow(windowId: int): Promise<void>;
-
-    /**
-     * Change the parent window of a subwindow, support set parent cross process in same Application.
-     *
-     * @param { int } windowId - Indicates parent window id.
-     * @param { WindowEventListener } parentWindowEventListener - Listener for parent window events.
-     * @returns { Promise<void> } - Promise that returns no value indicates complete.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     1. The window is not created or destroyed;
-     *     2. Internal task error.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only subwindow are supported.
-     * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The parent window does not exist or has been destroyed.
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setParentWindow(windowId: int, parentWindowEventListener: WindowEventListener): Promise<void>;
 
     /**
      * 获取子窗口的父窗口。
