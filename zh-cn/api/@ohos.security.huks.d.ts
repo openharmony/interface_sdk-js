@@ -759,7 +759,8 @@ declare namespace huks {
    * > **说明：**
    * >
    * > 从API version 8开始支持，从API version 9开始废弃，建议使用
-   * > [huks.getKeyItemProperties<sup>9+</sup>]{@link huks.getKeyItemProperties( keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult> )}
+   * > [huks.getKeyItemProperties<sup>9+</sup>]
+   * > {@link huks.getKeyItemProperties( keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult> )}
    * > 替代。
    *
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
