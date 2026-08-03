@@ -14,17 +14,17 @@
  */
 
 /**
- * LinkedList底层基于双向链表实现。双向链表的每个节点都有一个指向上一元素的引用和指向下一元素的引用。查询时从头或尾开始遍历。插入和删除效率高，查询效率低。LinkedList允许包含null元素。
- * LinkedList和[List]{@link @ohos.util.List}相比，List是单向链表，而LinkedList是双向链表，支持两端插入和删除。
- * LinkedList在数据插入方面比[ArrayList]{@link @ohos.util.ArrayList}更高效，但在数据访问方面效率较低。
+ * LinkedList底层通过双向链表实现，每个节点都包含对前一个元素和后一个元素的引用。查询元素时，可以从头或从尾部遍历，插入和删除效率高，查询效率低。LinkedList允许元素为null。
+ * LinkedList和[List]{@link @ohos.util.List}相比，LinkedList是双向链表，可以快速地在头尾进行增删，而List是单向链表，无法双向操作。
+ * LinkedList和[ArrayList]{@link @ohos.util.ArrayList}相比，LinkedList插入数据效率高于ArrayList，而ArrayList查询效率高于LinkedList。
  *
- * > **说明**
+ * > **注意：**
  * >
- * > 在LinkedList中使用\[index\]语法访问元素可能会导致未定义的结果。建议使用**get()**。
- * > **推荐使用场景：** 当需要频繁进行插入和删除操作，且需要双向链表来存储数据时，推荐使用LinkedList。
+ * > 在LinkedList中使用\[index\]的方式获取元素可能导致结果不可预测，推荐使用get()方法。
+ * **推荐使用场景：** 当需要频繁的插入删除元素且需要使用双向链表时，推荐使用LinkedList。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -35,8 +35,7 @@
  */
 
 /**
- * LinkedList底层基于双向链表实现。双向链表的每个节点都有一个指向上一元素的引用和指向下一元素的引用。
- * 查询元素时，从头或尾开始遍历。
+ * LinkedList底层通过双向链表实现，每个节点都包含对前一个元素和后一个元素的引用。查询元素时，可以从头或从尾部遍历，插入和删除效率高，查询效率低。LinkedList允许元素为null。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -46,7 +45,7 @@
  */
 declare class LinkedList<T> {
   /**
-   * LinkedList的构造函数。
+   * LinkedList的构造函数。调用后，创建一个空的LinkedList实例。
    *
    * @throws { BusinessError } 10200012 - The LinkedList's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -77,10 +76,10 @@ declare class LinkedList<T> {
   get length(): int;
 
   /**
-   * 在LinkedList尾部添加元素。
+   * 在LinkedList尾部插入元素。
    *
-   * @param { T } element - 添加的成员数据。
-   * @returns { boolean } 成功添加元素返回true，否则返回false。
+   * @param { T } element - 待插入的元素。
+   * @returns { boolean } 插入成功返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -90,10 +89,10 @@ declare class LinkedList<T> {
    */
   add(element: T): boolean;
   /**
-   * 在LinkedList的指定位置插入元素。
+   * 在长度范围内任意位置插入指定元素，可插入位置区间为[0, LinkedList.length]，在linkedList.length处插入时即在linkedList尾部添加元素。
    *
-   * @param { int } index - 插入数据的位置下标。需要小于等于int32_max即2147483647。
-   * @param { T } element - 插入的成员数据。
+   * @param { int } index - 插入位置索引，可插入位置区间为[0, LinkedList.length]，且需要小于等于int32_max即2147483647。
+   * @param { T } element - 待插入元素。
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -104,9 +103,9 @@ declare class LinkedList<T> {
    */
   insert(index: int, element: T): void;
   /**
-   * 获取指定下标位置的元素。
+   * 根据下标获取LinkedList中的元素。
    *
-   * @param { int } index - 查找的下标位置。需要小于等于int32_max即2147483647。
+   * @param { int } index - 指定的下标值。需要小于等于int32_max即2147483647。
    * @returns { T } 返回指定下标位置的元素，如果元素不存在返回undefined。
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
@@ -119,9 +118,9 @@ declare class LinkedList<T> {
   get(index: int): T;
 
   /**
-   * 在LinkedList头部添加元素。
+   * 在LinkedList头部插入元素。
    *
-   * @param { T } element - 添加的成员数据。
+   * @param { T } element - 待插入的元素。
    * @throws { BusinessError } 10200011 - The addFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -131,7 +130,7 @@ declare class LinkedList<T> {
    */
   addFirst(element: T): void;
   /**
-   * 删除LinkedList实例中的第一个元素。
+   * 删除并返回LinkedList的第一个元素。
    *
    * @returns { T } 返回删除的元素。
    * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
@@ -156,7 +155,7 @@ declare class LinkedList<T> {
   removeFirst(): T | undefined;
 
   /**
-   * 删除LinkedList实例中的最后一个元素。
+   * 删除并返回LinkedList的最后一个元素。
    *
    * @returns { T } 返回删除的元素。
    * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
@@ -181,9 +180,9 @@ declare class LinkedList<T> {
   removeLast(): T | undefined;
 
   /**
-   * 判断容器中是否包含指定元素。
+   * 判断LinkedList中是否包含指定元素。
    *
-   * @param { T } element - 指定的元素。
+   * @param { T } element - 指定元素。
    * @returns { boolean } 包含指定元素返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -194,7 +193,7 @@ declare class LinkedList<T> {
    */
   has(element: T): boolean;
   /**
-   * 获取指定元素第一次出现的下标值，如果未找到则返回-1。
+   * 查找指定元素第一次出现时的下标值，查找失败返回-1。
    *
    * @param { T } element - 指定元素。
    * @returns { int } 返回指定元素第一次出现时的下标值，查找失败返回-1。
@@ -207,10 +206,10 @@ declare class LinkedList<T> {
    */
   getIndexOf(element: T): int;
   /**
-   * 根据下标删除元素。
+   * 在LinkedList长度范围内，根据元素的下标值查找元素，并将其删除。
    *
-   * @param { number } index - 待删除元素的下标。需要小于等于int32_max即2147483647。
-   * @returns { T } 返回删除的元素，如果元素不存在返回undefined。
+   * @param { number } index - 指定元素的下标值，取值范围[0, LinkedList.length-1]，且需要小于等于int32_max即2147483647。
+   * @returns { T } 返回删除的元素，如果元素为undefined则返回undefined，为null则返回null。
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -236,10 +235,10 @@ declare class LinkedList<T> {
   removeByIndex(index: int): T | undefined;
 
   /**
-   * 删除指定元素第一次出现的元素。
+   * 删除查找到的第一个指定元素。
    *
-   * @param { T } element - 待删除的元素。
-   * @returns { boolean } 成功删除元素返回true，否则返回false。
+   * @param { T } element - 指定元素。
+   * @returns { boolean } 删除成功返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -249,10 +248,10 @@ declare class LinkedList<T> {
    */
   remove(element: T): boolean;
   /**
-   * 删除指定元素第一次出现的元素。
+   * 删除第一次出现的指定元素。如果LinkedList中不存在指定元素，会抛出错误。
    *
-   * @param { T } element - 待删除的元素。
-   * @returns { boolean } 成功删除元素返回true；删除失败或元素不存在返回false。
+   * @param { T } element - 指定元素。
+   * @returns { boolean } 删除成功返回true，删除失败时返回false。
    * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
@@ -264,10 +263,10 @@ declare class LinkedList<T> {
    */
   removeFirstFound(element: T): boolean;
   /**
-   * 删除指定元素最后一次出现的元素。
+   * 删除最后一次出现的指定元素。如果LinkedList中不存在指定元素，会抛出错误。
    *
-   * @param { T } element - 待删除的元素。
-   * @returns { boolean } 成功删除元素返回true；删除失败或元素不存在返回false。
+   * @param { T } element - 指定元素。
+   * @returns { boolean } 删除成功返回true，删除失败返回false。
    * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
@@ -279,7 +278,7 @@ declare class LinkedList<T> {
    */
   removeLastFound(element: T): boolean;
   /**
-   * 获取指定元素最后一次出现的下标值，如果未找到则返回-1。
+   * 查找指定元素最后一次出现时的下标值，查找失败返回-1。
    *
    * @param { T } element - 指定元素。
    * @returns { int } 返回指定元素最后一次出现时的下标值，查找失败返回-1。
@@ -294,7 +293,7 @@ declare class LinkedList<T> {
   /**
    * 获取LinkedList实例中的第一个元素。
    *
-   * @returns { T } 返回获取的元素，如果为空返回undefined。
+   * @returns { T } 返回对应元素，如果元素为undefined则返回undefined，为null则返回null。
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -308,7 +307,7 @@ declare class LinkedList<T> {
   /**
    * 获取LinkedList实例中的最后一个元素。
    *
-   * @returns { T } 返回获取的元素，如果为空返回undefined。
+   * @returns { T } 返回对应元素，若元素为空则返回undefined。
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -320,11 +319,11 @@ declare class LinkedList<T> {
   getLast(): T;
 
   /**
-   * 替换LinkedList实例中指定下标位置的元素。
+   * 替换LinkedList指定位置的元素。
    *
-   * @param { int } index - 替换元素的下标位置。需要小于等于int32_max即2147483647。
-   * @param { T } element - 替换的元素。
-   * @returns { T } 返回替换后的新元素，如果为空返回undefined。
+   * @param { int } index - 查找的下标值。取值范围[0, LinkedList.length-1]，且需要小于等于int32_max即2147483647。
+   * @param { T } element - 用来替换的元素。
+   * @returns { T } 返回替换后的元素，如果元素为undefined则返回undefined，为null则返回null。
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
@@ -337,7 +336,7 @@ declare class LinkedList<T> {
   set(index: int, element: T): T;
 
   /**
-   * 通过回调函数来遍历LinkedList实例对象上的元素以及元素对应的下标。
+   * 通过回调函数来遍历LinkedList实例对象上的元素以及其下标。
    *
    * @param { function } callbackFn - 回调函数。
    * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
@@ -373,9 +372,9 @@ declare class LinkedList<T> {
    */
   clear(): void;
   /**
-   * 克隆一个与LinkedList相同的实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。
+   * 克隆一个与LinkedList相同的实例并返回。修改克隆后的实例并不会影响原实例。
    *
-   * @returns { LinkedList<T> } 返回新的LinkedList实例。
+   * @returns { LinkedList<T> } 返回LinkedList对象的克隆实例。
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -385,9 +384,9 @@ declare class LinkedList<T> {
    */
   clone(): LinkedList<T>;
   /**
-   * 将LinkedList实例转换为数组。
+   * 将当前LinkedList实例转换成数组并返回。
    *
-   * @returns { Array<T> } 返回数组。
+   * @returns { Array<T> } 返回转换后的数组。
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -397,9 +396,9 @@ declare class LinkedList<T> {
    */
   convertToArray(): Array<T>;
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，用于遍历LinkedList中的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
