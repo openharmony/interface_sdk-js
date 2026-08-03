@@ -1138,7 +1138,6 @@ declare enum Curve {
 /**
  * Sets the status before and after execution of the animation in the current playback direction.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1204,7 +1203,6 @@ declare enum FillMode {
 /**
  * Animation playback mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -4753,7 +4751,7 @@ declare enum IlluminatedType {
    * @stagemodelonly
    * @since 11 dynamic
    */
-  BLOOM_BORDER_CONTENT = 5
+  BLOOM_BORDER_CONTENT = 5,
 }
 
 /**

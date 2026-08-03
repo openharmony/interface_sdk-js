@@ -1711,6 +1711,7 @@ export declare interface AnimateParam {
 /**
  * 曲线对象。
  *
+ * @typedef { curves.ICurve } ICurve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1719,6 +1720,7 @@ export type ICurve = curves.ICurve;
 /**
  * 矩阵对象接口。
  *
+ * @typedef { matrix4.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1882,6 +1884,7 @@ export declare interface sharedTransitionOptions {
 /**
  * Defines the options of geometry transition.
  *
+ * @interface GeometryTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1919,6 +1922,7 @@ export declare interface GeometryTransitionOptions {
 /**
  * Defines the options of linear gradient.
  *
+ * @interface LinearGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1928,6 +1932,7 @@ export declare interface LinearGradientOptions {
      * Defines starting angle of linear gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 180
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1938,6 +1943,7 @@ export declare interface LinearGradientOptions {
      * Defines the direction of linear gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?GradientDirection }
      * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1948,6 +1954,7 @@ export declare interface LinearGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1960,6 +1967,7 @@ export declare interface LinearGradientOptions {
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2014,6 +2022,7 @@ export declare enum TransitionHierarchyStrategy {
 /**
  * Defines the options of sweep gradient.
  *
+ * @interface SweepGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2023,6 +2032,7 @@ export declare interface SweepGradientOptions {
      * Defines center point for angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { [Length, Length] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2035,6 +2045,7 @@ export declare interface SweepGradientOptions {
      * Defines the starting point of angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2045,6 +2056,7 @@ export declare interface SweepGradientOptions {
      * Defines end point of angle gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2055,6 +2067,7 @@ export declare interface SweepGradientOptions {
      * Defines the rotation angle of the gradient.
      *
      * Anonymous Object Rectification.
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2065,6 +2078,7 @@ export declare interface SweepGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2077,6 +2091,7 @@ export declare interface SweepGradientOptions {
      * Defines color description in ColorMetrics format for gradients.
      * This parameter takes precedence over colors parameter.
      *
+     * @type { ?Array<[ColorMetrics, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2089,6 +2104,7 @@ export declare interface SweepGradientOptions {
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2151,6 +2167,7 @@ export declare interface RadialGradientOptions {
 /**
  * Defines the options of translate.
  *
+ * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2767,7 +2784,7 @@ export declare enum TransitionEdge {
      * @stagemodelonly
      * @since 23 static
      */
-    BOTTOM,
+    BOTTOM = 1,
     /**
      * 窗口的起始边缘，LTR时为左边缘，RTL时为右边缘。
      *
@@ -2775,7 +2792,7 @@ export declare enum TransitionEdge {
      * @stagemodelonly
      * @since 23 static
      */
-    START,
+    START = 2,
     /**
      * 窗口的终止边缘，LTR时为右边缘，RTL时为左边缘。
      *
@@ -2783,11 +2800,12 @@ export declare enum TransitionEdge {
      * @stagemodelonly
      * @since 23 static
      */
-    END
+    END = 3
 }
 /**
  * Defines the option of asymmetric transition.
  *
+ * @interface AsymmetricTransitionOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2796,6 +2814,7 @@ export declare interface AsymmetricTransitionOption {
     /**
      * TransitionEffect used for appearing
      *
+     * @type { TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2804,6 +2823,7 @@ export declare interface AsymmetricTransitionOption {
     /**
      * TransitionEffect used for disappearing
      *
+     * @type { TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3784,6 +3804,7 @@ export declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
  * Defines the options of ForegroundBlurStyle
  *
  * @extends BlurStyleOptions
+ * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3793,6 +3814,7 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of blur
  *
+ * @interface BlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3800,6 +3822,7 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 export declare interface BlurOptions {
     /**
      * Fuzzy gray scale parameter. Undefined value means no grayscale.
+     * @type { [double, double] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3832,6 +3855,7 @@ export declare interface SystemAdaptiveOptions {
 /**
  * Defines the options of blurStyle
  *
+ * @interface BlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3841,6 +3865,7 @@ export declare interface BlurStyleOptions {
      * Color mode used for the foreground blur.
      * <br>Default value: **ThemeColorMode.SYSTEM**.
      *
+     * @type { ?ThemeColorMode }
      * @default ThemeColorMode.SYSTEM
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3851,6 +3876,7 @@ export declare interface BlurStyleOptions {
      * Adaptive color mode.
      * <br>Default value: **AdaptiveColor.DEFAULT**.
      *
+     * @type { ?AdaptiveColor }
      * @default AdaptiveColor.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3862,6 +3888,7 @@ export declare interface BlurStyleOptions {
      * <br>Default value: **1.0**.
      * <br>Value range: [0.0, 1.0].
      *
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3871,6 +3898,7 @@ export declare interface BlurStyleOptions {
     /**
      * Defines the options of blur
      *
+     * @type { ?BlurOptions }
      * @default { grayScale: [0,0] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3963,6 +3991,7 @@ export declare interface BackgroundEffectOptions {
 /**
  * Defines the options of ForegroundEffect
  *
+ * @interface ForegroundEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3971,6 +4000,7 @@ export declare interface ForegroundEffectOptions {
     /**
      * Define the radius size of ForegroundEffect.The range of this value is [0, ∞). Undefined means 0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4128,6 +4158,7 @@ export declare enum ShadowType {
 /**
  * Define the options of shadow
  *
+ * @interface ShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4137,6 +4168,7 @@ export declare interface ShadowOptions {
      * Blur radius of the shadow.
      * Default value: 0px.
      *
+     * @type { double | Resource | undefined }
      *     undefined means setting to default value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4147,6 +4179,7 @@ export declare interface ShadowOptions {
      * Shadow type.
      * <br>Default value: **COLOR**.
      *
+     * @type { ?ShadowType }
      * @default ShadowType.COLOR
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4156,6 +4189,7 @@ export declare interface ShadowOptions {
     /**
      * Color of the shadow. Default value: **Black**
      *
+     * @type { ?(Color | string | Resource| ColoringStrategy) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4164,6 +4198,7 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
      *
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4172,6 +4207,7 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
      *
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4184,6 +4220,7 @@ export declare interface ShadowOptions {
      * <br>The default value is **false**.
      * <br>**NOTE**<br>This attribute does not take effect in textShadow.
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4476,7 +4513,7 @@ export declare enum SheetSize {
      * @stagemodelonly
      * @since 23 static
      */
-    LARGE,
+    LARGE = 1,
     /**
      * 指定半模态高度为适应内容的高度。
      * 
@@ -6821,6 +6858,7 @@ export declare interface BindOptions {
 /**
  * Component content cover dismiss
  *
+ * @interface DismissContentCoverAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -7242,6 +7280,64 @@ export declare interface SheetOptions extends BindOptions {
      * @since 23 static
      */
     dragBar?: boolean;
+    /**
+     * 控制条是否悬浮显示，true为悬浮显示，false为不悬浮显示。
+     * 
+     * 默认值：false 
+     * 
+     * **说明：** 
+     * 
+     * 悬浮效果只在控制条显示的场景生效，且控制条不占位。
+     * 
+     * title传入[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)时enableFloatingDragBar始
+     * 终为false。
+     *
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enableFloatingDragBar?: boolean;
+    /**
+     * bindSheet全屏模态样式的系统转场方式。
+     * 
+     * 默认值：ModalTransition.DEFAULT
+     *
+     * @default ModalTransition.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    modalTransition?: ModalTransition;
+    /**
+     * 设置组件绘制圆角的模式。
+     * 
+     * 默认值：RenderStrategy.FAST 
+     * 
+     * **说明**: 当半模态设置模糊时，可通过设置为OFFSCREEN离屏模式解决半模态顶部或顶部圆角区域内显示效果异常问题。popup样式不支持设置组件绘制圆角模式。
+     *
+     * @default RenderStrategy.FAST
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    radiusRenderStrategy?: RenderStrategy;
+    /**
+     * 设置组件的系统材质。
+     * 
+     * 默认值：undefined，会清除由该接口设置的材质效果。 
+     * 
+     * **说明**: 不同系统材质对应不同的属性影响效果，该接口影响背景色
+     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
+     * 边框颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+     * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。使用示例请参考
+     * [示例10（半模态设置系统材质）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sheet-transition_static.md#示例10半模态设置系统材质)。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    systemMaterial?: SystemUiMaterial;
     /**
      * 半模态页面的背景蒙层颜色。
      * 
@@ -7735,64 +7831,6 @@ export declare interface SheetOptions extends BindOptions {
      */
     placementOnTarget?: boolean;
     /**
-     * 控制条是否悬浮显示，true为悬浮显示，false为不悬浮显示。
-     * 
-     * 默认值：false 
-     * 
-     * **说明：** 
-     * 
-     * 悬浮效果只在控制条显示的场景生效，且控制条不占位。
-     * 
-     * title传入[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)时enableFloatingDragBar始
-     * 终为false。
-     *
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    enableFloatingDragBar?: boolean;
-    /**
-     * bindSheet全屏模态样式的系统转场方式。
-     * 
-     * 默认值：ModalTransition.DEFAULT
-     *
-     * @default ModalTransition.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    modalTransition?: ModalTransition;
-    /**
-     * 设置组件绘制圆角的模式。
-     * 
-     * 默认值：RenderStrategy.FAST 
-     * 
-     * **说明**: 当半模态设置模糊时，可通过设置为OFFSCREEN离屏模式解决半模态顶部或顶部圆角区域内显示效果异常问题。popup样式不支持设置组件绘制圆角模式。
-     *
-     * @default RenderStrategy.FAST
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    radiusRenderStrategy?: RenderStrategy;
-    /**
-     * 设置组件的系统材质。
-     * 
-     * 默认值：undefined，会清除由该接口设置的材质效果。 
-     * 
-     * **说明**: 不同系统材质对应不同的属性影响效果，该接口影响背景色
-     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-     * 边框颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
-     * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。使用示例请参考
-     * [示例10（半模态设置系统材质）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sheet-transition_static.md#示例10半模态设置系统材质)。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    systemMaterial?: SystemUiMaterial;
-    /**
      * 设置半模态弹窗边缘光效动画模式。
      * 
      * 默认值：EdgeLightMode.EDGELIGHT_DISABLED
@@ -7908,7 +7946,7 @@ export declare interface PopupMessageOptions {
     font?: Font;
 }
 /**
- * Dismiss reason type.
+ * 关闭原因类型。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7917,44 +7955,47 @@ export declare interface PopupMessageOptions {
  */
 export declare enum DismissReason {
     /**
-    * Touching the Back button, swiping left or right on the screen, or pressing the Esc key.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 点击三键back、侧滑（左滑/右滑）、键盘ESC。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PRESS_BACK = 0,
     /**
-    * Touching the mask.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 点击遮障层时。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TOUCH_OUTSIDE = 1,
     /**
-    * Touching the Close button.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 点击关闭按钮。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CLOSE_BUTTON = 2,
     /**
-    * Slide down
-    * <p><strong>NOTE</strong>:
-    * <br>This API is effective only in sheet transition.
-    * </p>
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 下拉关闭。
+     * 
+     * **说明：** 
+     * 
+     * 该接口仅支持在[半模态转场]{@link ../../@internal/component/ets/common}中使用。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SLIDE_DOWN = 3,
     /**
-     * Slide, not slide down.
-     * Default means slide right, after mirroring it means slide left.
-     * Choosing to slide left or slide right is not supported.
+     * 侧滑（左滑/右滑）关闭。默认表示向右滑动关闭，镜像场景表示向左滑动关闭，不支持选择向左或向右滑动。
+     * 
+     * **说明：** 
+     * 
+     * 该接口仅支持在[半模态转场]{@link ../../@internal/component/ets/common}中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10347,6 +10388,7 @@ export declare interface SpatialEffectParams {
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  *
+ * @interface PixelStretchEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10356,6 +10398,7 @@ export declare interface PixelStretchEffectOptions {
      * top property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10366,6 +10409,7 @@ export declare interface PixelStretchEffectOptions {
      * bottom property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10376,6 +10420,7 @@ export declare interface PixelStretchEffectOptions {
      * left property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10386,6 +10431,7 @@ export declare interface PixelStretchEffectOptions {
      * right property. value range (-∞, ∞)
      * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -10949,6 +10995,7 @@ export declare interface PreviewConfiguration {
 /**
  * Define the options of invert
  *
+ * @interface InvertOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10957,6 +11004,7 @@ export declare interface InvertOptions {
     /**
      * Defines the low value of threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10965,6 +11013,7 @@ export declare interface InvertOptions {
     /**
      * Defines the high value of threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10973,14 +11022,16 @@ export declare interface InvertOptions {
     /**
      * Defines the threshold
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     threshold: double;
     /**
-     *Defines the threshold range
+     * Defines the threshold range
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -11666,7 +11717,8 @@ export declare interface CommonMethod {
     /**
      * Sets the thickness of the outline.
      *
-     * @param { Dimension | EdgeOutlineWidths | undefined } value - Outline thickness. Percentage values are not supported.
+     * @param { Dimension | EdgeOutlineWidths | undefined } value - Outline thickness. Percentage values are not
+     *     supported.
      *     <br>Default value: **0**Outline thickness. Percentage values are not supported.
      *     <br>Default value: **0**.
      * @returns { this }
@@ -12110,7 +12162,8 @@ export declare interface CommonMethod {
      * 2.The **radius** parameter of **motionBlur** must be set to **0** for the initial state.
      * Otherwise, there may be unexpected results during a cold start.
      * 3.This API must be used together with the **onFinish** parameter of **AnimateParam**.
-     * Its **radius** parameter must be set to **0** when the animation ends; otherwise, there may be unexpected results.
+     * Its **radius** parameter must be set to **0** when the animation ends; otherwise, there may be unexpected
+     * results.
      * 4.When using this API, do not frequently change the blur radius of the same component;
      * otherwise, there may be unexpected results.
      * For example, if you frequently click the image in the example, the blur effect may not work sometimes.
@@ -12223,7 +12276,8 @@ export declare interface CommonMethod {
      * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
      * A value of 0% does not change the image. (Percentage)
      *
-     * @param { double | InvertOptions | undefined } value - value indicates the scale of the conversion or the options of invert.
+     * @param { double | InvertOptions | undefined } value - value indicates the scale of the conversion or the options
+     *     of invert.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12231,7 +12285,8 @@ export declare interface CommonMethod {
      */
     default invert(value: double | InvertOptions | undefined): this;
     /**
-     * Applies a system bar effect to the component, which means to invert colors based on the background and add a blur.
+     * Applies a system bar effect to the component, which means to invert colors based on the background and add a
+     * blur.
      *
      * @returns { this } return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12318,7 +12373,8 @@ export declare interface CommonMethod {
      */
     default useUnionEffect(value: boolean | undefined): this;
     /**
-     * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+     * Specify whether the current component participates in the fusion effect of the ancestor component
+     * UnionEffectContainer
      *
      * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
      *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
@@ -13062,7 +13118,8 @@ export declare interface CommonMethod {
     /**
      * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
      *
-     * @param { BlendMode | Blender | undefined } effect - When the effect type is BlendMode type, define Different hybrid modes.
+     * @param { BlendMode | Blender | undefined } effect - When the effect type is BlendMode type, define Different
+     *     hybrid modes.
      * @param { BlendApplyType } [type] - Different blend apply type
      *     Default value: BlendApplyType.FAST.
      * @returns { this }
@@ -13885,32 +13942,19 @@ export declare interface CommonMethod {
      */
     default onGestureCollectIntercept(callback: GestureCollectInterceptCallback): this;
     /**
-     * Set system-styled materials for the component. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of the component.
-     *
-     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-     * their computing power.
-     *
-     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
-     *     the effect of no system material.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 static
-     */
-    /**
      * Set system-styled materials for the component. The material effect behaves differently on devices with different
      * level of computing powers. On devices with lower computing power, it affects attributes such as the
      * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
      * at the system material layer, which can produce an effect similar to glass.
      *
      * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
-     *     the effect of no system material.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     *     the effect of no system material. [since 23]
+     * @returns { this } [since 23]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 26.0.0 static
+     * @since 23 static
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
     /**
@@ -14082,6 +14126,7 @@ export declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
+ * @typedef { [ double, double ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14296,6 +14341,7 @@ export declare interface PixelRoundPolicy {
 /**
  * Linear Gradient Blur Interface
  *
+ * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14304,6 +14350,7 @@ export declare interface LinearGradientBlurOptions {
     /**
      * Percentage of blurring effect. Undefined value means no fractionStops.
      *
+     * @type { FractionStop[] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14312,6 +14359,7 @@ export declare interface LinearGradientBlurOptions {
     /**
      * Direction of linear gradient blur. Undefined value means GradientDirection.Left.
      *
+     * @type { GradientDirection | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14321,6 +14369,7 @@ export declare interface LinearGradientBlurOptions {
 /**
  * Define motion blur anchor coordinates.
  *
+ * @interface MotionBlurAnchor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14329,6 +14378,7 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate x-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14337,6 +14387,7 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate y-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14346,6 +14397,7 @@ export declare interface MotionBlurAnchor {
 /**
  * Define motion blur options.
  *
+ * @interface MotionBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14354,6 +14406,7 @@ export declare interface MotionBlurOptions {
     /**
      * Define the size of motion blur radius.The range of this value is  [0.0, ∞). Undefined value means 0.0.
      *
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14362,6 +14415,7 @@ export declare interface MotionBlurOptions {
     /**
      * Define motion blur anchor coordinates. Undefined value means default MotionBlurAnchor.
      *
+     * @type { MotionBlurAnchor | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14618,23 +14672,18 @@ export type Filter = uiEffect.Filter;
 /**
  * SystemUiMaterial
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
+ * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @since 23 static
- */
-/**
- * SystemUiMaterial
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
  */
 export type SystemUiMaterial = uiMaterial.Material;
 
 /**
  * Blender
  *
+ * @typedef { uiEffect.Blender } Blender
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -15679,7 +15728,7 @@ export declare interface BackgroundBrightnessOptions {
 }
 
 /**
- * PointLightStyle info
+ * 通过设置光源和被照亮的类型实现点光源照亮周围组件的UI效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -15688,8 +15737,11 @@ export declare interface BackgroundBrightnessOptions {
  */
 export declare interface PointLightStyle {
   /**
-   * Defines the PointLight light intensity and position.
+   * 设置光源属性，光源会影响到周围标记为可以被照亮的组件，并在组件上产生光效。
    *
+   * 默认值：无光源
+   *
+   * @type { ?LightSource }
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15698,8 +15750,11 @@ export declare interface PointLightStyle {
    */
   lightSource?: LightSource;
   /**
-   * Defines the PointLight illuminated type.
+   * 设置当前组件是否可以被光源照亮，以及被照亮的类型。
    *
+   * 默认值：IlluminatedType.NONE
+   *
+   * @type { ?IlluminatedType }
    * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15708,8 +15763,11 @@ export declare interface PointLightStyle {
    */
   illuminated?: IlluminatedType;
   /**
-   * Defines the PointLight bloom.
+   * 设置组件的发光强度，取值范围为[0, 1]，超出取值范围时会转换为默认值。
    *
+   * 默认值：0
+   *
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -15720,8 +15778,9 @@ export declare interface PointLightStyle {
 }
 
 /**
- * LightSource info
+ * 一个组件支持添加1个光源。
  *
+ * @interface LightSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -15729,8 +15788,9 @@ export declare interface PointLightStyle {
  */
 declare interface LightSource {
   /**
-   * Defines the PointLight light positionX.
+   * 光源相对于当前组件的X坐标。
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15738,8 +15798,9 @@ declare interface LightSource {
    */
   positionX: Dimension;
   /**
-   * Defines the PointLight light positionX.
+   * 光源相对于当前组件的Y坐标。
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15747,8 +15808,9 @@ declare interface LightSource {
    */
   positionY: Dimension;
   /**
-   * Defines the PointLight light positionX.
+   * 光源高度。光源越高，照射范围越大。
    *
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15756,8 +15818,9 @@ declare interface LightSource {
    */
   positionZ: Dimension;
   /**
-   * Defines the PointLight light intensity.
+   * 光源强度，建议取值范围0-1。当光源强度为0时，光源不发光。
    *
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15765,8 +15828,11 @@ declare interface LightSource {
    */
   intensity: double;
   /**
-   * Defines the PointLight light color.
+   * 光源颜色。
    *
+   * 默认值：Color.White
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
