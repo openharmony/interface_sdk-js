@@ -1104,7 +1104,7 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
     if (item.code === messageInfo[0]) {
       diagnosticInfo.code = item.code;
       diagnosticInfo.description = item.description;
-      diagnosticInfo.cause = messageInfo[1] || message;
+      diagnosticInfo.cause = message.replace(`${item.code}#`, '');
       diagnosticInfo.position = fileInfo;
       diagnosticInfo.solutions = item.solutions;
       break;
