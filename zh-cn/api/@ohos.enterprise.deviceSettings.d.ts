@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 设备设置管理
  * @kit MDMKit
  */
 
@@ -22,11 +22,9 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * 本模块提供企业设备设置能力，包括设置、获取设备息屏时间等。
- *
+ * 本模块提供企业设备设置能力，支持设置和获取设备息屏时间、系统时间、电源策略、护眼模式、默认输入法、壁纸、隐藏设置项等。
+ * 
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
@@ -639,7 +637,7 @@ declare namespace deviceSettings {
     WIFI = 2,
 
     /**
-     * 近场通信
+     * NFC开关。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -805,9 +803,8 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { string } certUri - 证书uri，由安装用户证书接口
-   *     [installUserCertificate]{@link deviceSettings.installUserCertificate(admin: Want, certificate: CertBlob, callback: AsyncCallback<string>)}
-   *     设置返回。
+   * @param { string } certUri - 证书uri，由安装用户证书接口[installUserCertificate]{@link deviceSettings.installUserCertificate}设置返
+   *     回。
    * @param { AsyncCallback<void> } callback - 回调函数，当接口调用成功，err为null，否则为错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -831,8 +828,8 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { string } certUri - 证书uri，由安装用户证书接口
-   *     [installUserCertificate]{@link deviceSettings.installUserCertificate(admin: Want, certificate: CertBlob)}设置返回。
+   * @param { string } certUri - 证书uri，由安装用户证书接口[installUserCertificate]{@link deviceSettings.installUserCertificate}设置返
+   *     回。
    * @returns { Promise<void> } 无返回结果的Promise对象。当卸载用户证书失败时会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -906,10 +903,13 @@ declare namespace deviceSettings {
    *     br/>- powerPolicy：设备电源策略。该能力仅支持PC/2in1设备，策略设置之后不刷新设置—电源和电池页面，在手机平板设备设置后不生效。<br/>对于PC/2in1设备，仅支持设置电池供电下的设备电源策略。设
    *     置设备超时灭屏时睡眠延迟策略，睡眠动作需要在设置—电源和电池页面显示的睡眠时间之后等待设置的delayTime才会生效。<br/>- eyeComfort：从API version 23开始支持，设置护眼模式开关状态，仅支
    *     持全天开启和关闭护眼模式。<br/>- defaultInputMethod：从API version 23开始支持，设置默认输入法。
-   * @param { string } value - 设备设置策略类型。<br/>- screenOff：设备息屏策略。对于PC/2in1设备，支持设置电池和电源供电下的设备息屏策略。<br/>- dateTime：设置系统时间。<
-   *     br/>- powerPolicy：设备电源策略。该能力仅支持PC/2in1设备，策略设置之后不刷新设置—电源和电池页面，在手机平板设备设置后不生效。<br/>对于PC/2in1设备，仅支持设置电池供电下的设备电源策略。设
-   *     置设备超时灭屏时睡眠延迟策略，睡眠动作需要在设置—电源和电池页面显示的睡眠时间之后等待设置的delayTime才会生效。<br/>- eyeComfort：从API version 23开始支持，设置护眼模式开关状态，仅支
-   *     持全天开启和关闭护眼模式。<br/>- defaultInputMethod：从API version 23开始支持，设置默认输入法。
+   * @param { string } value - 策略类型值。<br/>当item为screenOff时，value为设备息屏时间（单位：毫秒）。建议value值和设置页面手动操作下拉框中的可选项保持一致。仅在PC/2in1设备
+   *     上支持传-1设置永不息屏，其他设备无效。<br/>当item为dateTime时，value为要设置的系统时间（单位：毫秒）。<br/>当item为powerPolicy时，value为JSON字符串，格式：{"
+   *     powerScene":xx,"powerPolicy":{"powerPolicyAction":xx,"delayTime":xx}}。<br/>powerScene为电源策略场景，可设置参数如下：<br/>- 0：超
+   *     时灭屏场景。<br/>powerPolicyAction为休眠动作策略场景，可设置参数如下：<br/>- 0：不执行动作。<br/>- 1：自动进入睡眠。<br/>- 2：强制进入睡眠。<br/>- 3：进入休眠，该策略暂
+   *     不生效。<br/>- 4：关机。<br/>delayTime为延迟时间（单位：毫秒），不支持设置为30000毫秒，其余数值均在允许范围内。<br/>当item为eyeComfort时，value为护眼模式开关状态的字符串。
+   *     <br/>- on：全天开启护眼模式。<br/>- off：关闭护眼模式。<br/>当item为defaultInputMethod时，value为输入法应用包名字符串。<br/>- 可以通过
+   *     [getCurrentInputMethod]{@link @ohos.inputMethod:inputMethod.getCurrentInputMethod}获取当前输入法应用包名。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -929,25 +929,11 @@ declare namespace deviceSettings {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } item - 设备设置策略类型。<br/>- screenOff：设备息屏策略，对于PC/2in1设备，支持查询电池供电下的设备息屏策略。<br/>- powerPolicy：设备电源策略，仅对
    *     PC/2in1设备生效，仅支持查询电池供电下的设备电源策略。<br/>- eyeComfort：从API version 23开始支持，护眼模式开关状态。
-   * @returns { string } Policy type value.
-   *     <br>If **item** is **screenOff**, the device screen-off time (in ms) is returned. For PCs/2-in-1 devices,
-   *     the device screen-off time (in ms) in battery mode is returned.
-   *     <br>If **item** is **powerPolicy**, the power policy is returned. For PCs/2-in-1 devices, the power policy in
-   *     battery mode is returned. The power policy a JSON string in {"powerScene":xx,"powerPolicy":{"powerPolicyAction"
-   *     :xx,"delayTime":xx}} format. **powerScene** indicates the power policy scenario, **delayTime** indicates the
-   *     delay time (in milliseconds), and **powerPolicyAction** indicates the sleep policy.
-   *     <br>The value of **powerScene** can be:
-   *     <br>- **0**: timeout.
-   *     <br>The value of **powerPolicyAction** can be:
-   *     <br>- **0**: No action is performed.
-   *     <br>- **1**: enter sleep mode automatically.
-   *     <br>- **2**: forcibly enter sleep mode.
-   *     <br>- **3**: enter sleep mode. This policy does not take effect currently.
-   *     <br>- **4**: power off.
-   *     <br>If **item** is **eyeComfort**, **value** is a string indicating the status of the eye comfort mode.
-   *     <br>- **on**: The eye comfort mode is enabled all day.
-   *     <br>- **off**: The eye comfort mode is disabled.
-   *     <br>- **unknown**: other modes.
+   * @returns { string } 策略类型值。<br/>当item为screenOff时，返回设备息屏时间（单位：毫秒），对于PC/2in1设备，返回设备电池供电下的息屏时间（单位：毫秒）。<br/>当item为
+   *     powerPolicy时，返回电源策略，对于PC/2in1设备，返回设备电池供电下的电源策略，格式为JSON字符串:{"powerScene":xx,"powerPolicy":{"powerPolicyAction":
+   *     xx,"delayTime":xx}}。powerScene为电源策略场景；delayTime为延迟时间（单位：毫秒）；powerPolicyAction为休眠策略。<br/>电源策略场景：<br/>- 0：超时场景。<
+   *     br/>休眠策略：<br/>- 0：不执行动作。<br/>- 1：自动进入睡眠。<br/>- 2：强制进入睡眠。<br/>- 3：进入休眠，该策略暂不生效。<br/>- 4：关机。<br/>当item为eyeComfort
+   *     时，返回的value为护眼模式开关状态的字符串。<br/>- on：全天开启护眼模式。<br/>- off：关闭护眼模式。<br/>- unknown：其他模式。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -965,9 +951,8 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_SET_WALLPAPER
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } fd - 需要设置为桌面壁纸图片的文件描述符，可以通过file.fs的
-   *     [openSync](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopensync)接口获取应用沙箱目录下的图片文件描述符。壁纸图片大小不
-   *     能超过100MB。
+   * @param { number } fd - 需要设置为桌面壁纸图片的文件描述符，可以通过file.fs的[openSync]{@link @ohos.file.fs:openSync}接口获取应用沙箱目录下的图片文件描述符。壁纸
+   *     图片大小不能超过100MB。
    * @returns { Promise<void> } 无返回结果的Promise对象。当设置桌面壁纸失败后会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -981,13 +966,12 @@ declare namespace deviceSettings {
   function setHomeWallpaper(admin: Want, fd: number):  Promise<void>;
 
   /**
-   * 设置锁屏壁纸，使用Promise异步回调。
+   * 设置锁屏壁纸，使用Promise异步回调。企业设备管理应用可通过此接口统一设置企业设备的锁屏壁纸，用于企业形象展示或安全管控等场景。
    *
    * @permission ohos.permission.ENTERPRISE_SET_WALLPAPER
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } fd - 需要设置为锁屏壁纸图片的文件描述符，可以通过file.fs的
-   *     [openSync](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopensync)接口获取应用沙箱目录下的图片文件描述符。壁纸图片大小不
-   *     能超过100MB。
+   * @param { number } fd - 需要设置为锁屏壁纸图片的文件描述符，可以通过file.fs的[openSync]{@link @ohos.file.fs:openSync}接口获取应用沙箱目录下的图片文件描述符。壁纸
+   *     图片大小不能超过100MB。
    * @returns { Promise<void> } 无返回结果的Promise对象。当设置锁屏壁纸失败后会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1023,13 +1007,18 @@ declare namespace deviceSettings {
   /**
    * 将设置项从当前用户下的隐藏设置项列表中移除。隐藏设置项列表中的设置项在当前用户的设置菜单中会被隐藏，隐藏后不可以在设置的搜索中搜索到，如果通过某种方式搜索到该设置项，点击后也无法打开。若移除后剩余的隐藏设置项列表为空，则设置项会全
    * 部显示。调用接口后即刻生效，无需重启设置应用。
+   * 
+   * 从API版本26.0.0开始，调用
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用
+   * [SUPER_HUB]{@link @ohos.enterprise.restrictions:restrictions.FeatureForAccount}后，再调用该接口将中转站从隐藏设置项列表中移除时，会发生策略冲突，抛出9
+   * 200010错误码。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { Array<SettingsMenu> } menusToHidden - 隐藏的设置项列表
-   *     <br>最大长度为43且不能为空。
+   * @param { Array<SettingsMenu> } menusToHidden - 隐藏的设置项列表。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured. [since 26.0.0]
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9200016 - Service timeout.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1067,20 +1056,15 @@ declare namespace deviceSettings {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { SettingsItem } item - 设备设置策略类型。
    * @param { number } accountId - 用户ID，取值范围：大于等于0。<br/>accountId可以通过
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback:
-   *     AsyncCallback<int>)}
-   *     等接口来获取
-   *     <br>取值范围为全体整数。
-   *     <br>
-   *     -用户ID，必须大于等于0。<br>您可以调用
-   *     [getOsAccountLocalId]{@link @Ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(回调：
-   *     AsyncCallback<int>获取用户ID。
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { string } value - 策略类型值。<br/>当item为[SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}时，value为设备名
    *     称的字符串。 字符串长度范围：大于等于1，小于等于100。只允许设置当前用户的设备名称，设置其他用户的设备名称返回9200012错误码。<br/>当item为
-   *     [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}时，value为三键导航的开关状态。<br/>- '0'：表示开启三键导航（通过接口
+   *     [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}时，在Phone和Tablet设备中可正常调用，在其他设备中返回801错误码。只允许
+   *     设置当前用户的三键导航，设置其他用户的三键导航不会生效，value为三键导航的开关状态。<br/>- '0'：表示开启三键导航（通过接口
    *     [enterKioskMode]{@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode}进入Kiosk模式下，三键导航显示依赖底部手势开启；即三键
    *     导航开关和底部手势开关同时开启时，三键导航才会显示。底部手势可通过接口
-   *     [applicationManager.setKioskFeatures]{@link
+   *     [applicationManager.setKioskFeatures]{@link @ohos.enterprise.applicationManager:applicationManager.setKioskFeatures}
+   *     设置开启或关闭）。<br/>- '1'：表示关闭三键导航。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1099,19 +1083,13 @@ declare namespace deviceSettings {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { SettingsItem } item - 设备设置策略类型。
+   * @param { SettingsItem } item - 设备设置策略类型。支持的策略类型包括：DEVICE_NAME（设备名称）、FLOATING_NAVIGATION（三键导航）。
    * @param { number } accountId - 用户ID，取值范围：大于等于0。<br/>accountId可以通过
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback:
-   *     AsyncCallback<int>)}
-   *     等接口来获取
-   *     <br>取值范围为全体整数。
-   * @returns { string } Policy type value.
-   *     <br>When **item** is set to [SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}, this API returns the
-   *     device name of the current user. If the device name of another user is queried, error code 9200012 is returned.
-   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem},
-   *     this API returns the three-key navigation switch state for the specified user.
-   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem},
-   *     this API can be called properly on phones and tablets but returns error code 801 on other devices.
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @returns { string } 策略类型值。<br/>当item为[SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}时，返回当前用户的设备名称，查询非
+   *     当前用户的设备名称返回9200012错误码。 <br/>当item为[SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}时，返回指定用户
+   *     的三键导航的开关状态。<br/>当item为[SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}时，该接口在Phone和Tablet设备
+   *     中可正常调用，在其他设备中返回801错误码。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1126,17 +1104,16 @@ declare namespace deviceSettings {
   function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
 
   /**
-   * 设置开关的状态。支持设置星闪、蓝牙、Wi-Fi的状态为开启或关闭，设置完毕后，用户可以手动开关。支持设置蓝牙的状态为强制开启，设置完毕后，用户不可以手动开关。若已经通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口禁用了某个开关，则通过本接口设置这个开关的状态会抛出错误码203，需通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口解除该开关禁用策略。当设备有多个MDM应用时，各MDM应用设置开关状态不存在冲突，最后设置的策略生效。开启(用户可手动开启、关闭)、关闭(用户可手动开启、关闭)、强制开启(用户不可手动关闭)三个状态可以随意切换，也不存在冲突。
+   * 设置开关的状态。支持设置星闪、蓝牙、Wi-Fi、NFC的状态为开启或关闭，设置完毕后，用户可以手动开关。支持设置蓝牙、NFC的状态为强制开启，设置完毕后，用户不可以手动开关。若已经通过
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} 接口禁用了某个开关，则通过本接口设置这个开关的
+   * 状态会抛出错误码203，需通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} 接口解除该开关禁
+   * 用策略。当设备有多个MDM应用时，各MDM应用设置开关状态不存在冲突，最后设置的策略生效。开启(用户可手动开启、关闭)、关闭(用户可手动开启、关闭)、强制开启(用户不可手动关闭)三个状态可以随意切换，也不存在冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { SwitchKey } key - 开关的名称，应用申请权限 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS 并通过接口
    *     [startAdminProvision]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision}激活为自带设备管理应用，可以使用此接口设
-   *     置以下开关：星闪、蓝牙、Wi-Fi。
+   *     置以下开关：星闪、蓝牙、Wi-Fi。设置NFC开关时会报错误码9200002。
    * @param { SwitchStatus } status - 开关的状态，应用申请权限 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS 并通过接口
    *     [startAdminProvision]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision}激活为自带设备管理应用，可以使用此接口设
    *     置以下状态：ON、OFF。设置为FORCE_ON状态时会报错误码9200002。

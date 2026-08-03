@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统时间管理
  * @kit MDMKit
  */
 
@@ -23,14 +23,11 @@ import type Want from './@ohos.app.ability.Want';
 
 /**
  * 本模块提供系统时间管理能力。
- * 
- * > **说明**：
+ *
+ * > **说明：**
  * >
- * > 本模块接口仅可在Stage模型下使用。
- * >
- * > 本模块接口仅对[设备管理应用](docroot://mdm/mdm-kit-term.md#mdm应用设备管理应用)开放，需将
- * > [设备管理应用激活]{@link @ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number)}
- * > 后调用。
+ * > 本模块接口仅对[MDM应用](docroot://mdm/mdm-kit-term.md#mdm应用)开放，需通过
+ * > [enableAdmin]{@link @ohos.enterprise.adminManager:adminManager.enableAdmin}接口将设备管理应用激活后调用。
  * >
  * > 本模块接口均为系统接口。
  *
@@ -68,7 +65,7 @@ declare namespace dateTimeManager {
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { number } time - 时间戳(ms)。
-   * @returns { Promise<void> } 无返回结果的Promise对象。当设置系统时间失败时，抛出错误对象。
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission

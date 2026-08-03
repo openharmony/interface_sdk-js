@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Settings Management
  * @kit MDMKit
  */
 
@@ -22,12 +22,10 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **deviceSettings** module provides APIs for setting enterprise devices, including setting and obtaining the
- * screen-off time of a device.
+ * This module provides enterprise device settings capabilities, including setting and obtaining the device screen-off
+ * time, system time, power policy, Eye Comfort mode, default input method, wallpaper, and hidden setting items.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -70,8 +68,6 @@ declare namespace deviceSettings {
 
   /**
    * Enumerates the actions that can be performed to apply the power policy.
-   *
-   * <!--no_check-->
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -679,7 +675,7 @@ declare namespace deviceSettings {
     OFF = 1,
 
     /**
-     * Force on.
+     * Forced-on.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -769,8 +765,7 @@ declare namespace deviceSettings {
    * @param { CertBlob } certificate - Certificate information. The certificate file must be stored in the path that the
    *     app has the permission to access, such as the app sandbox path. For details about the mapping between the app
    *     sandbox path and the actual physical path, see
-   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths)
-   *     .
+   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths).
    * @param { AsyncCallback<string> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -799,8 +794,7 @@ declare namespace deviceSettings {
    * @param { CertBlob } certificate - Certificate information. The certificate file must be stored in the path that the
    *     app has the permission to access, such as the app sandbox path. For details about the mapping between the app
    *     sandbox path and the actual physical path, see
-   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths)
-   *     .
+   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths).
    * @returns { Promise<string> } Promise used to return the URI of the installed certificate. This URI can be used to
    *     uninstall the certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -826,9 +820,8 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } certUri - Certificate URI, which is set and returned by the
-   *     [installUserCertificate]{@link deviceSettings.installUserCertificate(admin: Want, certificate: CertBlob, callback: AsyncCallback<string>)}
-   *     API for installing a user certificate.
+   * @param { string } certUri - Certificate URI, which is set and returned by the user certification installation API
+   *     [installUserCertificate]{@link deviceSettings.installUserCertificate}.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -854,9 +847,8 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } certUri - Certificate URI, which is set and returned by the
-   *     [installUserCertificate]{@link deviceSettings.installUserCertificate(admin: Want, certificate: CertBlob)} API
-   *     for installing a user certificate.
+   * @param { string } certUri - Certificate URI, which is set and returned by the user certification installation API
+   *     [installUserCertificate]{@link deviceSettings.installUserCertificate}.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when a user certificate fails
    *     to be uninstalled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -932,25 +924,42 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } item - Type of the policy to set.<br>- **screenOff**: device screen-off policy. For PCs/2-in-1
-   *     devices, the screen-off policies for the battery and power supply modes can be set.<br>- **dateTime**: system
-   *     time settings.<br>- **powerPolicy**: device power policy. For PCs/2-in-1 devices, only the power policy for the
-   *     battery mode can be set.<br>- **eyeComfort**: eye comfort mode. This parameter is supported since API version 2
-   *     3. This mode can only be enabled all day or disabled.<br>- **defaultInputMethod**: default input method. This
-   *     parameter is supported since API version 23.
-   * @param { string } value - Policy type value.<br>If **item** is **screenOff**, **value** is the screen-off time, in
-   *     ms.<br>If **item** is **dateTime**, **value** is the system time to set, in ms.<br>If **item** is
-   *     **powerPolicy**, **value** is a JSON string in {"powerScene":xx,"powerPolicy":{"powerPolicyAction":xx,"
-   *     delayTime":xx}} format. **powerScene** indicates the power policy scenario, **delayTime** indicates the delay
-   *     time (in milliseconds), and **powerPolicyAction** indicates the sleep policy.<br>The value of **powerScene**
-   *     can be:<br>- **0**: timeout.<br>The value of **powerPolicyAction** can be:<br>- **0**: No action is performed.<
-   *     br>- **1**: enter sleep mode automatically.<br>- **2**: forcibly enter sleep mode.<br>- **3**: enter sleep
-   *     mode. This policy does not take effect currently.<br>- **4**: power off.<br>If **item** is **eyeComfort**,
-   *     **value** is a string indicating the status of the eye comfort mode.<br>- **on**: The eye comfort mode is
-   *     enabled all day.<br>- **off**: The eye comfort mode is disabled.<br>If **item** is **defaultInputMethod**,
-   *     **value** is a string indicating the name of the input method application bundle.<br>- You can use
-   *     [getCurrentInputMethod]{@link @ohos.inputMethod:inputMethod.getCurrentInputMethod()} to obtain the current
-   *     input method application bundle name.
+   * @param { string } item - Type of the policy to set.
+   *     <br>- **screenOff**: device screen-off policy. For PCs/2-in-1 devices, the device power policy can be set for
+   *     both battery and power modes.
+   *     <br>- **dateTime**: system time settings.
+   *     <br>- **powerPolicy**: device power policy. This capability is supported only on PCs/2-in-1 devices. After the
+   *     policy is set, the **Settings** > **Power & battery** screen is not refreshed. The settings do not take effect
+   *     on phones or tablets.
+   *     <br>For PCs/2-in-1 devices, the device power policy can be set only for battery supply. When the sleep delay
+   *     policy upon device screen-off due to timeout is set, the sleep action takes effect after the sleep time shown
+   *     in the **Settings** > **Power & battery** screen, followed by an additional **delayTime**.
+   *     <br>- **eyeComfort**: eye comfort mode. This parameter is supported since API version 23. This mode can only be
+   *     enabled all day or disabled.
+   *     <br>- **defaultInputMethod**: default input method. This parameter is supported since API version 23.
+   * @param { string } value - Policy type value.
+   *     <br>If **item** is **screenOff**, **value** is the screen-off time, in ms. It is recommended that **value** be
+   *     consistent with the options in the drop-down list box on the settings page. Passing **-1** to set the screen to
+   *     never turn off is supported only on PCs/2‑in‑1 devices. This value does not take effect on other device types.
+   *     <br>If **item** is **dateTime**, **value** is the system time to set, in ms.
+   *     <br>If **item** is **powerPolicy**, **value** is a JSON string in {"powerScene":xx,"powerPolicy":{"
+   *     powerPolicyAction":xx,"delayTime":xx}} format.
+   *     <br>**powerScene** indicates the power policy scenario. The following values are supported:
+   *     <br>- **0**: screen-off due to timeout.
+   *     <br>**powerPolicyAction** indicates the sleep action policy scenario. The following values are supported:
+   *     <br>- **0**: No action is performed.
+   *     <br>- **1**: enter sleep mode automatically.
+   *     <br>- **2**: forcibly enter sleep mode.
+   *     <br>- **3**: enter sleep mode. This policy does not take effect currently.
+   *     <br>- **4**: power off.
+   *     <br>**delayTime** indicates the delay time (unit: ms). The value cannot be **30000**. Other values are allowed.
+   *     <br>If **item** is **eyeComfort**, **value** is a string indicating the status of the eye comfort mode.
+   *     <br>- **on**: The eye comfort mode is enabled all day.
+   *     <br>- **off**: The eye comfort mode is disabled.
+   *     <br>If **item** is **defaultInputMethod**, **value** is a string indicating the name of the input method
+   *     application bundle.
+   *     <br>- You can use [getCurrentInputMethod]{@link @ohos.inputMethod:inputMethod.getCurrentInputMethod} to obtain
+   *     the current input method application bundle name.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -969,13 +978,15 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } item - Type of the policy to set.<br>- **screenOff**: device screen-off policy. For PCs/2-in-1
-   *     devices, the screen-off policies for the battery and power supply modes can be obtained.<br>- **powerPolicy**:
-   *     device power policy. For PCs/2-in-1 devices, only the power policy for the battery mode can be obtained.<br>-
-   *     **eyeComfort**: eye comfort mode. This parameter is supported since API version 23.
+   * @param { string } item - Type of the policy to set.
+   *     <br>- **screenOff**: device screen-off policy. For PCs/2-in-1 devices, the screen-off policy for battery supply
+   *     can be queried.
+   *     <br>- **powerPolicy**: device power policy, which takes effect only for PCs/2-in-1 devices. Only the power
+   *     policy for battery supply can be queried.
+   *     <br>- **eyeComfort**: eye comfort mode. This parameter is supported since API version 23.
    * @returns { string } Policy type value.
-   *     <br>If **item** is **screenOff**, the device screen-off time (in ms) is returned. For PCs/2-in-1 devices,
-   *     the device screen-off time (in ms) in battery mode is returned.
+   *     <br>If **item** is **screenOff**, the device screen-off time (in ms) is returned. For PCs/2-in-1 devices, the
+   *     device screen-off time (in ms) in battery mode is returned.
    *     <br>If **item** is **powerPolicy**, the power policy is returned. For PCs/2-in-1 devices, the power policy in
    *     battery mode is returned. The power policy a JSON string in {"powerScene":xx,"powerPolicy":{"powerPolicyAction"
    *     :xx,"delayTime":xx}} format. **powerScene** indicates the power policy scenario, **delayTime** indicates the
@@ -1012,8 +1023,7 @@ declare namespace deviceSettings {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } fd - File descriptor of the image to be set as the home screen wallpaper. The file descriptor of
    *     an image in the application's sandbox directory can be obtained via the file.fs.
-   *     [openSync](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopensync) API. The size of the
-   *     wallpaper image must not exceed 100 MB.
+   *     [openSync]{@link @ohos.file.fs:openSync} API. The size of the wallpaper image must not exceed 100 MB.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the home screen wallpaper
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1028,15 +1038,16 @@ declare namespace deviceSettings {
   function setHomeWallpaper(admin: Want, fd: number):  Promise<void>;
 
   /**
-   * Sets the lock screen wallpaper. This API uses a promise to return the result.
+   * Sets the lock screen wallpaper. This API uses a promise to return the result. Enterprise device administrator
+   * applications can use this API to uniformly set the lock screen wallpaper for enterprise devices, for purposes such
+   * as corporate branding or security control.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WALLPAPER
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } fd - File descriptor of the image to be set as the lock screen wallpaper. The file descriptor of
    *     an image in the application's sandbox directory can be obtained via the file.fs.
-   *     [openSync](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopensync) API. The size of the
-   *     wallpaper image must not exceed 100 MB.
+   *     [openSync]{@link @ohos.file.fs:openSync} API. The size of the wallpaper image must not exceed 100 MB.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the lock screen wallpaper
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1081,11 +1092,15 @@ declare namespace deviceSettings {
    * empty after the removal, all setting items are displayed. The settings take effect immediately after the API is
    * called. The Settings application does not need to be restarted.
    *
+   * Since API version 26.0.0, if you call
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount} to
+   * disable [SUPER_HUB]{@link @ohos.enterprise.restrictions:restrictions.FeatureForAccount} and then call this API to
+   * remove SuperHub from the hidden setting item list, a policy conflict occurs and error code 9200010 is reported.
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<SettingsMenu> } menusToHidden - Hidden setting item list
-   *     <br>The maximum length is 43 and cannot be empty.
+   * @param { Array<SettingsMenu> } menusToHidden - Hidden setting item list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured. [since 26.0.0]
@@ -1128,24 +1143,25 @@ declare namespace deviceSettings {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { SettingsItem } item - Type of the policy to set.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
-   *     <br>You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the account ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @param { string } value - Policy type value.
-   *     <br>When **item** is set to
-   *     [SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}, **value** indicates the device name, which is a
-   *     character string. The string length ranges from 1 to 100. Only the device name of the current user can be set.
-   *     If the device name of another user is set, error code 9200012 is returned.<br>When **item** is set to
-   *     [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}, **value** indicates the state of the
-   *     three-key navigation switch. Its **0** indicates that the three-key navigation switch is enabled. (In
-   *     [Kiosk mode]{@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode}, the display of three-button
-   *     navigation also requires the bottom gesture being enabled. Specifically, three-button navigation is displayed
-   *     only when both the three-button navigation switch and the bottom gesture switch are enabled. The bottom gesture
-   *     can be enabled or disabled through the
+   *     <br>When **item** is set to [SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}, **value** indicates
+   *     the device name, which is a character string. The string length ranges from 1 to 100. Only the device name of
+   *     the current user can be set. If the device name of another user is set, error code 9200012 is returned.
+   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}, this API can
+   *     be called properly on phones and tablets but returns error code 801 on other devices. Only the three-button
+   *     navigation of the current user can be set. Setting other users' three-button navigation does not take effect.
+   *     The **value** parameter indicates the three-button navigation switch state.
+   *     <br>- **'0'**: Three-button navigation is enabled. (If the Kiosk mode has been entered via
+   *     [enterKioskMode]{@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode}, the display of three-button
+   *     navigation requires that the bottom gesture is enabled. Specifically, three-button navigation is displayed only
+   *     when both the three-button navigation switch and the bottom gesture switch are enabled. The bottom gesture can
+   *     be enabled or disabled using the
    *     [applicationManager.setKioskFeatures]{@link @ohos.enterprise.applicationManager:applicationManager.setKioskFeatures}
-   *     API.) The value **1** indicates that three-key navigation is disabled.<br>When **item** is set to
-   *     [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}, this API can be called properly on
-   *     phones and tablets but returns error code 801 on other devices.
+   *     API.)
+   *     <br>- **'1'**: Three-button navigation is disabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1166,17 +1182,18 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { SettingsItem } item - Type of the policy to set.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
-   *     <br>You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the account ID.
+   * @param { SettingsItem } item - Type of the policy to set. The following policy types are supported: **DEVICE_NAME**
+   *     (device name) and **FLOATING_NAVIGATION** (three-button navigation).
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @returns { string } Policy type value.
    *     <br>When **item** is set to [SettingsItem.DEVICE_NAME]{@link deviceSettings.SettingsItem}, this API returns the
    *     device name of the current user. If the device name of another user is queried, error code 9200012 is returned.
-   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem},
-   *     this API returns the three-key navigation switch state for the specified user.
-   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem},
-   *     this API can be called properly on phones and tablets but returns error code 801 on other devices.
+   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}, this API
+   *     returns the three-key navigation switch state for the specified user.
+   *     <br>When **item** is set to [SettingsItem.FLOATING_NAVIGATION]{@link deviceSettings.SettingsItem}, this API can
+   *     be called properly on phones and tablets but returns error code 801 on other devices.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1191,25 +1208,31 @@ declare namespace deviceSettings {
   function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
 
   /**
-   * Sets the state of a switch. This API can enable or disable NearLink, Bluetooth, and Wi-Fi. After the setting is
-   * applied, users can manually enable or disable them. If a switch has been disabled through the
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * API, error code 203 will be thrown when you attempt to set the state of the switch through this API. In this case,
-   * you need to use the
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * API to enable the switch.
+   * Sets the state of a switch. This API can enable or disable NearLink, Bluetooth, Wi-Fi, and NFC. After the setting
+   * is applied, users can manually enable or disable them. Bluetooth and NFC can be forced on. Once set, they cannot be
+   * manually turned on or off by the user. If a switch has been disabled through the
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} API, error code 203
+   * will be reported when you attempt to set the state of the switch through this API. In this case, you need to use
+   * the [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} API to enable the
+   * switch. When multiple MDM applications are present on the device, there are no conflicts among the switch states
+   * set by different MDM applications. The policy set last takes effect. The three states, on (user can manually enable
+   * /disable), off (user can manually enable/disable), and forced on (user cannot manually disable), can be switched
+   * arbitrarily, and no conflict occurs.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { SwitchKey } key - Switch name. An application that has obtained the
-   *     ohos.permission.PERSONAL_MANAGE_RESTRICTIONS permission and has been
-   *     [activated as the built-in device administrator application]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision}
-   *     can use this API to set the following switches: NearLink, Bluetooth, and Wi-Fi.
+   *     ohos.permission.PERSONAL_MANAGE_RESTRICTIONS permission and has been activated as the built-in device
+   *     administrator application via
+   *     [startAdminProvision]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision} can use this API to
+   *     set the following switches: NearLink, Bluetooth, and Wi-Fi. Attempting to set the NFC switch will result in
+   *     error code 9200002.
    * @param { SwitchStatus } status - Switch state. An application that has obtained the
-   *     ohos.permission.PERSONAL_MANAGE_RESTRICTIONS permission and has been
-   *     [activated as the built-in device administrator application]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision}
-   *     can use this API to set the switch state to ON or OFF.
+   *     ohos.permission.PERSONAL_MANAGE_RESTRICTIONS permission and has been activated as the built-in device
+   *     administrator application via
+   *     [startAdminProvision]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision} can use this API to
+   *     set the following states: ON and OFF. Attempting to set the FORCE_ON state will result in error code 9200002.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
