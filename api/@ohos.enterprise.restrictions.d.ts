@@ -57,6 +57,15 @@ declare namespace restrictions {
      */
     WIFI_P2P = 0,
 
+    /** 
+     * X key. 
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager 
+     * @stagemodelonly 
+     * @since 26.1.0 
+     */ 
+    X_KEY = 1,
+
     /**
      * Local input.
      *
@@ -65,6 +74,15 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     LOCAL_INPUT = 2,
+
+    /** 
+     * Network packet filtering. 
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager 
+     * @stagemodelonly 
+     * @since 26.1.0 
+     */ 
+    PACKET_FILTERING = 3,
 
     /**
      * Super user do.
