@@ -7133,6 +7133,7 @@ declare enum BlurStyle {
 /**
  * Enumerates the policies for activating the blur style.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12484,6 +12485,7 @@ declare enum ScrollSizeMode {
 /**
  * Define the mode of sheet how to avoid keyboard.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12574,6 +12576,7 @@ declare interface SheetDismiss {
 /**
  * Component sheet dismiss
  *
+ * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12585,6 +12588,7 @@ declare interface DismissSheetAction {
   /**
    * Defines sheet dismiss function
    *
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12596,6 +12600,7 @@ declare interface DismissSheetAction {
   /**
    * Dismiss reason type.
    *
+   * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12608,6 +12613,7 @@ declare interface DismissSheetAction {
 /**
  * Defines sheet spring back action
  *
+ * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12618,6 +12624,7 @@ declare interface SpringBackAction {
   /**
    * Defines spring back function
    *
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18496,6 +18503,7 @@ declare type TipsMessageType = ResourceStr | StyledString;
 /**
  * Import the Matrix4Transit type object for common method.
  *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21236,18 +21244,15 @@ declare class CommonMethod<T> {
    */
   useShadowBatching(use: Optional<boolean>): T;
 
-   /**
-   * Specifies whether to apply the effect defined by <!--Del-->the parent
-   * [EffectComponent](ts-container-effectcomponent-sys.md) or <!--DelEnd-->the window.
+  /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by <!--Del-->the parent
-   *     **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
-   *     or <!--DelEnd-->the window.
-   *     <br>Default value: **false**.
-   * @param { EffectType } effectType - Type of effect to apply to the component, which is defined by
-   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **EffectType.DEFAULT**.
+   * @param { boolean } useEffect - true means the component should apply the effects template defined by the parent
+   *     effectComponent or window.
+   * @param { EffectType } effectType - the effect type of the effects template, defined by the parent effectComponent
+   *     or window.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21257,22 +21262,14 @@ declare class CommonMethod<T> {
   useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
-   * Specifies whether to apply the effect defined by <!--Del-->the parent
-   * EffectComponent or
-   * 
-   * <!--DelEnd-->the window. Compared to useEffect<sup>14+</sup>,
-   * 
-   * this API supports the **undefined** type for the **useEffect** parameter.
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by
-   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent
-   *     **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **false**.
-   *     <br>If **useEffect** is set to **undefined**, the previous value is retained.
-   * @param { EffectType } [effectType] - Type of effect to apply to the component, which
-   *     is defined by <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **EffectType.DEFAULT**.
+   * @param { Optional<boolean> } useEffect - true means the component should apply the effects template defined by the
+   *     parent effectComponent or window.
+   * @param { EffectType } [effectType] - the effect type of the effects template, defined by the parent effectComponent
+   *     or window.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21282,12 +21279,11 @@ declare class CommonMethod<T> {
   useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
 
   /**
-   * Specifies whether to combine the drawing of special effects, such as background blur.
+   * Sets whether the component should apply the effects template defined by the parent effectComponent.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { boolean } value - Whether the component inherits the special effect settings of the
-   *     **EffectComponent** component.<br>The value **true** means that the component inherits the
-   *     special effect settings of the **EffectComponent** component, and **false** means the opposite.
-   *     <br>Default value: **false**.
+   * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21297,8 +21293,7 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
-   * Specify whether the current component participates in the fusion effect of the ancestor component 
-   * UnionEffectContainer
+   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
    *
    * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
    *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
@@ -21315,12 +21310,10 @@ declare class CommonMethod<T> {
   /**
    * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
    *
-   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
-   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
-   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
-   *     <br>Default value: **false**. Undefined means to default value.
-   * @param { GravityCenterOptions } [options] - Gravitational center parameter.
-   *     This parameter must be used together with UnionMode.GRAVITY_UNION.
+   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of the ancestor
+   *     component **UnionEffectContainer**. The value **true** means that the component participates in the fusion
+   *     effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+   * @param { GravityCenterOptions } [options] - Gravitational center parameter. GRAVITY_UNION.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -23085,8 +23078,6 @@ declare class CommonMethod<T> {
   /**
    * Sets whether to clip this component based on the given shape.
    * 
-   * > **NOTE** 
-   *
    * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value - Clip mode. If the
    *     value is a shape attribute, the component is clipped based on the specified shape. If the value is of the
    *     Boolean type, it specifies whether to clip the component based on the boundaries of the parent container.<br>
@@ -23191,8 +23182,6 @@ declare class CommonMethod<T> {
 
   /**
    * Adds a mask of the specified shape to the component.
-   * 
-   * > **NOTE** 
    *
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - Mask of the
    *     specified shape to add to the component.
@@ -24999,11 +24988,7 @@ declare interface OverlayOffset {
 }
 
 /**
- * Defines the segment of blur.
- * The first element in the tuple means fraction.
- * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
- * The second element means the stop position.
- * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
+ * Defines a gradient blur stop.
  *
  * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26535,6 +26520,7 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * Blender
  *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
