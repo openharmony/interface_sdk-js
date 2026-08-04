@@ -170,6 +170,36 @@ declare namespace insightIntent {
      * @since 26.1.0 dynamic&static
      */
     uiExtensionType: string;
+
+    /**
+     * URI information passed to the target UIExtension ability for data processing.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    uri: string;
+
+    /**
+     * Parameters passed to the target UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    parameters: Record<string, Object>;
+
+    /**
+     * Parameters passed to the target UIExtension ability.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    parameters: Record<string, RecordData>;
   }
 
   /**
