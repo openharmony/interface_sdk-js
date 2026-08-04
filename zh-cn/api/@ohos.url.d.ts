@@ -19,8 +19,16 @@
  */
 
 /**
- * URL代表的是统一资源定位符，本模块提供了常用的工具函数，实现了解析URL字符串和构造[URL]{@link url.URL}对象等功能。
- * 
+ * URL是统一资源定位符，本模块提供了常用的工具函数，实现了解析URL字符串、构造URL对象以及对URL查询参数的解析和操作等功能。
+ *
+ * 模块主要包含以下核心类：
+ *
+ * - [URL]{@link url.URL}：用于解析和构造完整URL。
+ *
+ * - [URLParams]{@link url.URLParams}：用于操作URL查询参数。
+ *
+ * - [URLSearchParams]{@link url.URLSearchParams}：从API version 9开始废弃，建议使用[URLParams]{@link url.URLParams}替代。
+ *
  * > **说明：**
  * >
  * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
@@ -45,8 +53,12 @@ declare namespace url {
         /**
          * URLSearchParams的构造函数。
          *
-         * @param { string[][] | Record<string, string> | string | URLSearchParams } init - 入参对象。<br/>- string[][]：字符串二维
-         *     数组。<br/>- Record<string, string>：对象列表。<br/>- string：字符串。<br/>- URLSearchParams：对象。<br/>- 默认值：undefined。
+         * @param { string[][] | Record<string, string> | string | URLSearchParams } init - 入参对象。
+         *     <br/>- string[][]：字符串二维数组。
+         *     <br/>- Record<string, string>：对象列表。
+         *     <br/>- string：字符串。
+         *     <br/>- URLSearchParams：对象。
+         *     <br/>- 默认值：undefined。
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
@@ -205,7 +217,7 @@ declare namespace url {
     }
 
     /**
-     * URLParams是一个用于解析、构造和操作URL参数的实用类。该类提供了统一的接口来处理参数维度（如查询参数、路径参数等）。
+     * URLParams是一个用于解析、构造和操作URL参数的实用类。该类提供了统一的接口来处理URL查询参数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -217,11 +229,15 @@ declare namespace url {
     class URLParams {
         /**
          * ArkTS-Sta: constructor(init?: [string, string][] | Record&lt;string, string&gt; | string | URLParams)
-         * 
-         * URLParams的构造函数。
          *
-         * @param { string[][] | Record<string, string> | string | URLParams } [init] - 入参对象。<br/>- string[][]：字符串二维数组。<
-         *     br/>- Record<string, string>：对象列表。<br/>- string：字符串。<br/>- URLParams：对象。<br/>- 默认值：null。
+         * URLParams的构造函数，用于创建URL参数对象，适用于需要解析、构造或操作URL查询参数的场景。
+         *
+         * @param { string[][] | Record<string, string> | string | URLParams } [init] - 入参对象。
+         *     <br/>- string[][]：字符串二维数组。
+         *     <br/>- Record&lt;string, string&gt;：对象列表。
+         *     <br/>- string：URL查询参数字符串。
+         *     <br/>- URLParams：URLParams实例对象。
+         *     <br/>- 默认值：null。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform [since 10]
          * @atomicservice [since 11]
@@ -246,7 +262,8 @@ declare namespace url {
         constructor(init?: [string, string][] | Record<string, string> | string | URLParams);
 
         /**
-         * 将新的键值对插入到查询字符串。
+         * 将新的键值对插入到查询字符串。与[set]{@link url.URLParams.set}方法不同，append不会替换已存在的键名对应的值，
+         * 而是追加一个新的键值对，允许同一键名存在多个值。如需替换已有键值，请使用set方法。
          *
          * @param { string } name - 需要插入搜索参数的键名。
          * @param { string } value - 需要插入搜索参数的值。
@@ -259,7 +276,7 @@ declare namespace url {
         append(name: string, value: string): void;
 
         /**
-         * 删除指定名称的键值对。
+         * 删除指定名称的所有键值对。如果指定名称不存在，则不做任何操作。
          *
          * @param { string } name - 需要删除的键值名称。
          * @syscap SystemCapability.Utils.Lang
@@ -443,7 +460,7 @@ declare namespace url {
     }
 
     /**
-     * 用于解析、构造、规范、编码对应的URL字符串。
+     * 用于解析和构造完整URL。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -456,8 +473,9 @@ declare namespace url {
         /**
          * URL的构造函数。
          *
-         * @param { string } url - 一个表示绝对URL或相对URL的字符串。 <br/>如果 url 是相对URL，则需要指定 base，用于解析最终的URL。 <br/>如果 url 是绝对URL，则给定
-         *     的 base 将不会生效。
+         * @param { string } url - 一个表示绝对URL或相对URL的字符串。
+         *     <br/>如果 url 是相对URL，则需要指定 base，用于解析最终的URL。
+         *     <br/>如果 url 是绝对URL，则给定的 base 将不会生效。
          * @param { string | URL } base - 入参字符串或者对象，默认值是undefined。<br/>- string：字符串。<br/>- URL：URL对象。
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
@@ -478,13 +496,14 @@ declare namespace url {
         constructor();
 
         /**
-         * 解析URL。
+         * 解析URL字符串，返回解析后的URL对象。该对象包含协议、主机、端口、路径和查询参数等URL组成部分。
          *
-         * @param { string } url - 一个表示绝对URL或相对URL的字符串。 <br/>如果 url 是相对URL，则需要指定 base，用于解析最终的URL。 <br/>如果 url 是绝对URL，则给定
-         *     的 base 将不会生效。
+         * @param { string } url - 一个表示绝对URL或相对URL的字符串。
+         *     <br/>如果 url 是相对URL，则需要指定 base，用于解析最终的URL。
+         *     <br/>如果 url 是绝对URL，则给定的 base 将不会生效。
          * @param { string | URL } [base] - 入参字符串或者对象，默认值是undefined。<br/>- string：字符串。当第一个参数是相对URL时，该参数需符合URL标准。<br/>-
-         *     URL：URL对象。<br/>- 在url是相对URL时使用。
-         * @returns { URL } 返回创建的URL对象。
+         *     URL：URL对象。<br/>- 在url是相对URL时使用，url为绝对URL时此参数不会生效。
+         * @returns { URL } 返回解析后的URL对象，包含URL的各组成部分（如协议、主机和路径等属性）。
          * @throws { BusinessError } 10200002 - Invalid url string.
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform [since 10]
@@ -495,9 +514,9 @@ declare namespace url {
         static parseURL(url: string, base?: string | URL): URL;
 
         /**
-         * 将解析过后的URL转化为字符串。
+         * 将解析过后的URL转化为字符串，返回值与URL的href属性值相同。
          *
-         * @returns { string } 转化后的字符串。
+         * @returns { string } 解析后的URL序列化字符串。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform [since 10]
          * @atomicservice [since 11]
@@ -509,7 +528,7 @@ declare namespace url {
         /**
          * 将解析过后的URL转化为JSON字符串。
          *
-         * @returns { string } 转化后的JSON字符串。
+         * @returns { string } URL对象的JSON序列化字符串。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform [since 10]
          * @atomicservice [since 11]
@@ -840,12 +859,11 @@ declare namespace url {
 
         /**
          * 获取URLSearchParams表示URL查询参数的对象。
-         * 
          *
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
-         * @useinstead null
+         * @useinstead ohos.url.URLParams
          */
         readonly searchParams: URLSearchParams;
 

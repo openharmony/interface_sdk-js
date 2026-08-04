@@ -14,13 +14,12 @@
  */
 
 /**
- * ArrayList是一种线性数据结构，底层基于数组实现。ArrayList会根据实际需要动态调整容量，每次扩容增加50%。
- * ArrayList和[LinkedList]{@link @ohos.util.LinkedList}相比，ArrayList的随机访问效率更高。
- * 但由于ArrayList的增删操作可能需要对数组内其他元素进行移动，LinkedList的增加和删除操作效率更高。
- * **推荐使用场景：** 当需要频繁读取集合中的元素时，推荐使用ArrayList。
- * 文档中使用了泛型，涉及以下泛型标记符：
+ * ArrayList是一种线性数据结构，底层基于数组实现，解决了固定大小数组无法动态扩容的限制。ArrayList会根据实际需要动态调整容量，每次扩容增加50%。
+ * ArrayList和[LinkedList]{@link @ohos.util.LinkedList}相比，ArrayList的随机访问效率更高。但由于ArrayList的增加和删除操作可能需要对数组内其他元素进行移动，LinkedList的增加和删除操作效率更高。
+ * **推荐使用场景：** 当需要频繁读取或按索引随机访问集合中的元素时，推荐使用ArrayList；当需要动态管理有序数据集合且增删操作频率较低时，也推荐使用ArrayList。
+ * 文档中使用了泛型，涉及以下泛型类型参数：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -31,8 +30,7 @@
  */
 
 /**
- * ArrayList是一种线性数据结构，底层基于数组实现。
- * ArrayList会根据实际需要动态调整容量，每次扩容增加50%。
+ * ArrayList是一种线性数据结构，底层基于数组实现，解决了固定大小数组无法动态扩容的限制。ArrayList会根据实际需要动态调整容量，每次扩容增加50%。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -42,7 +40,7 @@
  */
 declare class ArrayList<T> {
   /**
-   * ArrayList的构造函数。
+   * ArrayList的构造函数，用于创建一个空的ArrayList实例。该构造函数需通过new关键字调用，不可作为普通函数直接调用，否则将抛出异常。
    *
    * @throws { BusinessError } 10200012 - The ArrayList's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -71,9 +69,9 @@ declare class ArrayList<T> {
    */
   get length(): int;
   /**
-   * 在ArrayList尾部插入元素。
+   * 在ArrayList尾部插入元素。批量添加元素时，建议先调用increaseCapacityTo方法扩充容量，避免多次自动扩容带来的性能开销。
    *
-   * @param { T } element - 待插入的元素。
+   * @param { T } element - 被插入的元素。
    * @returns { boolean } 插入成功返回true，失败返回false。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -191,9 +189,9 @@ declare class ArrayList<T> {
   replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T, thisArg?: Object): void;
 
   /**
-   * 用户操作此容器中的元素，用操作后的元素替换原元素并返回操作后的元素。
+   * 用户操作ArrayList中的元素，用操作后的元素替换原元素并返回操作后的元素。
    *
-   * @param { ArrayListReplaceCb<T> } callbackFn - 用于替换的回调函数。
+   * @param { ArrayListReplaceCb<T> } callbackFn - 回调函数。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -215,9 +213,9 @@ declare class ArrayList<T> {
   forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, thisArg?: Object): void;
 
   /**
-   * 遍历泛型ArrayList中的元素，并对每个元素执行回调函数。
+   * 在遍历ArrayList实例对象的过程中，对每个元素执行回调函数。
    *
-   * @param { ArrayListForEachCb<T> } callbackFn - 对每个元素执行的回调函数。
+   * @param { ArrayListForEachCb<T> } callbackFn - 回调函数。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -352,9 +350,9 @@ declare class ArrayList<T> {
    */
   trimToCurrentLength(): void;
   /**
-   * 返回一个迭代器，每一项都是一个JavaScript对象。
+   * 返回一个迭代器，迭代器按照ArrayList中元素的顺序依次返回类型为T的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器，遍历该迭代器可依次获取ArrayList中的每个元素。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -390,11 +388,11 @@ declare class ArrayList<T> {
 export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
 /**
- * ArrayList的回调函数类型。
+ * ArrayList中forEach方法的回调函数。
  *
- * @param { T } value - 当前正在处理的元素。
- * @param { int } index - 当前元素的下标。
- * @param { ArrayList<T> } arrlist - 当前正在遍历的ArrayList实例。
+ * @param { T } value - 当前遍历到的元素。
+ * @param { int } index - 当前遍历到的下标值。
+ * @param { ArrayList<T> } arrlist - 当前调用forEach方法的实例对象。
  * @returns { void } 此回调不返回值。
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
@@ -404,11 +402,11 @@ export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double
 export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => void;
 
 /**
- * ArrayList的回调函数类型。
+ * ArrayList中replaceAllElements方法的回调函数。
  *
- * @param { T } value - 当前正在处理的元素。
- * @param { int } index - 当前元素的下标。
- * @param { ArrayList<T> } arrlist - 当前正在遍历的ArrayList实例。
+ * @param { T } value - 当前遍历到的元素。
+ * @param { int } index - 当前遍历到的下标值。
+ * @param { ArrayList<T> } arrlist - 当前调用replaceAllElements方法的实例对象。
  * @returns { T } 此回调返回替换后的元素。
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly

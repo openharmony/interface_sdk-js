@@ -246,7 +246,8 @@ declare namespace collections {
 
   /**
    * 一种线性数据结构，底层基于数组实现，可以在ArkTS上并发实例间传递。
-   * 推荐使用引用传递以提升传递性能。
+   *
+   * 当需要在ArkTS上并发实例间传递Array时，可以通过传递Array引用提升传递性能。
    *
    * > **说明**
    * >
@@ -265,7 +266,7 @@ declare namespace collections {
   @Sendable
   class Array<T> implements ConcatArray<T> {
     /**
-     * ArkTS Array的元素个数。
+     * Array的元素个数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -940,15 +941,15 @@ declare namespace collections {
     reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>): T;
  }
   /**
-   * 一种基于键值对存储的非线性数据结构。
+   * 一种基于键值对存储的非线性数据结构，能够高效地通过唯一键来存取对应的值。
    *
    * > **说明**
    * >
    * > - 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
    * > 本节使用以下标识符来表示泛型的使用：
    *
-   * - K：键。
-   * - V：值。
+   * - K：Key，键。
+   * - V：Value，值。
    * K和V类型都需为
    * [Sendable支持的数据类型](docroot://arkts-utils/arkts-sendable.md#sendable支持的数据类型)。
    * **装饰器类型**：\@Sendable
@@ -1123,7 +1124,7 @@ declare namespace collections {
 
 
   /**
-   * 一种非线性数据结构。
+   * 一种存储唯一值的非线性数据结构，能够高效地进行元素存在性检测和去重操作。
    *
    * > **说明**
    * >

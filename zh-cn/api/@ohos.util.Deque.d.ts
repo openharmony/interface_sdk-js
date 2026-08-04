@@ -14,27 +14,24 @@
  */
 
 /**
- * Deque（double ended queue）基于循环队列的数据结构实现，支持两端元素的插入和删除，同时具备先进先出以及先进后出的特点。
- * Deque会根据实际需要动态调整容量，每次扩容两倍。
+ * Deque（double-ended queue）基于循环队列的数据结构实现，支持两端元素的插入和删除。Deque同时具备先进先出以及先进后出的特点，可根据操作端的不同同时作为队列和栈使用。当现有容量不足以容纳新插入的元素时，Deque会动态调整容量，每次扩容两倍，无需手动预设容量。
  * Deque和[Queue]{@link @ohos.util.Queue}相比，Deque允许在两端执行插入和删除操作，Queue只能在头部删除元素，尾部插入元素。
- * 与[ArrayList]{@link @ohos.util.ArrayList}相比，它们都支持在两端插入和删除元素，但Deque不支持中间插入。
- * Deque在头部插入删除元素的效率高于ArrayList，而ArrayList随机访问元素的效率高于Deque。
+ * 与[ArrayList]{@link @ohos.util.ArrayList}相比，它们都支持在两端插入和删除元素，但Deque不支持中间插入。Deque在头部插入删除元素的效率高于ArrayList，而ArrayList随机访问元素的效率高于Deque。
  * **推荐使用场景：** 需要在集合两端频繁增删元素时，推荐使用Deque。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
- * > - 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+ * > - 容器类使用静态语言实现，限制了内部存储方式和所支持的属性，不支持自定义属性和方法。
  *
  * @file
  * @kit ArkTS
  */
 
 /**
- * Deque（double ended queue）是基于队列数据结构实现的序列容器，具备先进先出和先进后出的特点。
- * 支持在两端进行元素的插入和删除。
+ * Deque（double-ended queue）基于循环队列的数据结构实现，支持两端元素的插入和删除。Deque同时具备先进先出以及先进后出的特点，可根据操作端的不同同时作为队列和栈使用。当现有容量不足以容纳新插入的元素时，Deque会动态调整容量，每次扩容两倍，无需手动预设容量。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -44,7 +41,7 @@
  */
 declare class Deque<T> {
   /**
-   * Deque的构造函数。
+   * Deque的构造函数，用于创建一个基于循环队列数据结构的空Deque实例。
    *
    * @throws { BusinessError } 10200012 - The Deque's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -73,9 +70,9 @@ declare class Deque<T> {
    */
   get length(): int;
   /**
-   * 在deque头部插入元素。
+   * 在Deque头部插入元素。插入成功后Deque的元素个数增加1。Deque在头部插入元素的效率高于ArrayList。
    *
-   * @param { T } element - 插入的元素。
+   * @param { T } element - 在头部插入的元素，类型需与Deque实例化时指定的泛型类型T一致。
    * @throws { BusinessError } 10200011 - The insertFront method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -85,9 +82,9 @@ declare class Deque<T> {
    */
   insertFront(element: T): void;
   /**
-   * 在deque尾部插入元素。
+   * 在Deque尾部插入元素。插入成功后Deque的元素个数增加1。
    *
-   * @param { T } element - 插入的元素。
+   * @param { T } element - 在尾部插入的元素。
    * @throws { BusinessError } 10200011 - The insertEnd method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -110,9 +107,9 @@ declare class Deque<T> {
    */
   has(element: T): boolean;
   /**
-   * 获取Deque实例的头元素。
+   * 获取Deque实例的头元素，不删除该元素。调用后，Deque的内容和长度不变。如需删除并返回首元素，请使用popFirst。
    *
-   * @returns { T } 返回T类型的头元素。
+   * @returns { T } 返回Deque实例的头元素。
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -124,9 +121,9 @@ declare class Deque<T> {
   getFirst(): T;
 
   /**
-   * 获取Deque实例的尾元素。
+   * 获取Deque实例的尾元素，不删除该元素。调用后，Deque的内容和长度不变。如需删除并返回尾元素，请使用popLast。
    *
-   * @returns { T } 返回T类型的尾元素。
+   * @returns { T } 返回Deque实例的尾元素。
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -138,7 +135,7 @@ declare class Deque<T> {
   getLast(): T;
 
   /**
-   * 删除并返回双端队列的首元素。
+   * 删除并返回Deque的首元素。删除成功后Deque的元素个数减少1。Deque在头部删除元素的效率高于ArrayList。
    *
    * @returns { T } 返回被删除的首元素。
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
@@ -152,7 +149,7 @@ declare class Deque<T> {
   popFirst(): T;
 
   /**
-   * 删除并返回双端队列的尾元素。
+   * 删除并返回Deque的尾元素。删除成功后Deque的元素个数减少1。
    *
    * @returns { T } 返回被删除的尾元素。
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
@@ -166,10 +163,10 @@ declare class Deque<T> {
   popLast(): T;
 
   /**
-   * 在遍历Deque实例对象中每一个元素的过程中，对每个元素执行回调函数。
+   * 通过回调函数遍历Deque实例中的每个元素。
    *
-   * @param { function } callbackFn - 回调函数。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
+   * @param { function } callbackFn - 遍历每个元素时执行的回调函数，执行时的this值可通过thisArg参数指定。在回调函数执行过程中，不建议修改Deque（如插入或删除元素），否则可能导致遍历行为异常。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当需要改变回调函数中的this指向时传入此参数；不传入时默认值为当前实例对象。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -179,9 +176,9 @@ declare class Deque<T> {
   forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void, thisArg?: Object): void;
 
   /**
-   * 遍历泛型Deque（双端队列）中的元素，并对每个元素执行回调函数。
+   * 通过回调函数遍历Deque实例中的每个元素。
    *
-   * @param { DequeForEachCb<T> } callbackFn - 对每个元素执行的回调函数。
+   * @param { DequeForEachCb<T> } callbackFn - 回调函数。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -189,12 +186,11 @@ declare class Deque<T> {
    */
   forEach(callbackFn: DequeForEachCb<T>): void;
   /**
-   * 返回指定下标位置的元素。
+   * 获取指定索引值对应位置的元素。
    *
-   * @param { int } index - 期望元素从0开始的下标。
-   *     当index < 0或index >= deque.length时抛出异常。
-   *     该值为整数。
-   * @returns { T } deque中与指定下标匹配的元素。
+   * @param { int } index - 元素的位置索引。需要小于等于int32_max即2147483647。
+   *     取值限定为整数。
+   * @returns { T } 容器中对应索引值为index的元素。
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -203,9 +199,9 @@ declare class Deque<T> {
    */
   [index: int]: T;
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，按插入顺序遍历Deque中的元素，迭代器每项为T类型的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器，用于遍历Deque实例中的所有元素。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -227,11 +223,11 @@ declare class Deque<T> {
 }
 
 /**
- * Deque的forEach回调函数类型。
+ * Deque中forEach方法的回调函数。
  *
- * @param { T } value - 当前正在处理的元素。
- * @param { int } index - 当前元素的下标。
- * @param { Deque<T> } deque - 当前正在遍历的Deque实例。
+ * @param { T } value - 当前遍历到的元素。
+ * @param { int } index - 当前遍历到的下标值。
+ * @param { Deque<T> } deque - 当前调用forEach方法的实例对象。
  * @returns { void } 此回调不返回值。
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice

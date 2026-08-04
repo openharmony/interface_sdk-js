@@ -14,16 +14,16 @@
  */
 
 /**
- * List底层基于单向链表实现。每个节点都有一个引用指向下一个元素。查询时需要从头开始遍历，查询效率低；插入和删除效率高。List允许包含null元素。
- * List和[LinkedList]{@link @ohos.util.LinkedList}相比，LinkedList是双向链表，而List是单向链表，不支持两端插入和删除。
+ * List底层通过单向链表实现，每个节点有一个指向后一个元素的引用。查询元素必须从头遍历，因此查询效率低，但插入和删除效率高。List允许元素为null。
+ * List和[LinkedList]{@link @ohos.util.LinkedList}相比，LinkedList是双向链表，可以快速地在头尾进行增删，而List是单向链表，不支持双向操作。
  *
- * > **说明**
+ * > **注意：**
  * >
- * > 在List中使用\[index\]语法访问元素可能会导致未定义的结果。建议使用**get()**。
- * > **推荐使用场景：** 当需要频繁进行插入和删除操作，且需要单向链表来存储数据时，推荐使用List。
+ * > 在List中使用\[index\]的方式获取元素可能导致未定义结果，推荐使用get()方法。
+ * **推荐使用场景：** 当需要频繁的插入删除元素且需要使用单向链表时，推荐使用List。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -38,7 +38,7 @@ import { RecordData } from '@ohos.base';
 /*** endif */
 
 /**
- * List底层基于单向链表实现。每个节点都有一个引用指向下一个元素。查询时需要从头开始遍历。
+ * List底层通过单向链表实现，每个节点有一个指向后一个元素的引用。查询元素必须从头遍历，因此查询效率低，但插入和删除效率高。List允许元素为null。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -79,10 +79,10 @@ declare class List<T> {
   get length(): int;
 
   /**
-   * 在List尾部添加元素。
+   * 在List尾部插入元素。
    *
-   * @param { T } element - 添加的成员数据。
-   * @returns { boolean } 成功添加元素返回true，否则返回false。
+   * @param { T } element - 待添加的元素。
+   * @returns { boolean } 插入成功返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -92,10 +92,10 @@ declare class List<T> {
    */
   add(element: T): boolean;
   /**
-   * 在List的指定位置插入元素。
+   * 在长度范围内任意位置插入指定元素。
    *
-   * @param { T } element - 插入的成员数据。
-   * @param { int } index - 插入数据的位置下标。需要小于等于int32_max即2147483647。
+   * @param { T } element - 待插入元素。
+   * @param { int } index - 插入的位置索引，可插入位置区间为[0, List.length]，需要小于等于int32_max即2147483647。
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -106,10 +106,10 @@ declare class List<T> {
    */
   insert(element: T, index: int): void;
   /**
-   * 获取指定下标对应的元素。
+   * 根据下标获取List中的元素。
    *
-   * @param { int } index - 查找的下标位置。需要小于等于int32_max即2147483647。
-   * @returns { T } 返回指定下标对应的元素。
+   * @param { int } index - 要查找的下标。需要小于等于int32_max即2147483647。
+   * @returns { T } 根据下标查找到的元素。
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -121,9 +121,9 @@ declare class List<T> {
   get(index: int): T;
 
   /**
-   * 判断容器中是否包含指定元素。
+   * 判断List中是否包含指定元素。
    *
-   * @param { T } element - 指定的元素。
+   * @param { T } element - 指定元素。
    * @returns { boolean } 包含指定元素返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -134,10 +134,10 @@ declare class List<T> {
    */
   has(element: T): boolean;
   /**
-   * 获取指定元素第一次出现的下标值，如果未找到则返回-1。
+   * 查找指定元素第一次出现的下标，查找失败返回-1。
    *
    * @param { T } element - 指定元素。
-   * @returns { int } 返回指定元素第一次出现时的下标值，查找失败返回-1。
+   * @returns { int } 返回第一次找到指定元素的下标，没有找到返回-1。
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -147,10 +147,10 @@ declare class List<T> {
    */
   getIndexOf(element: T): int;
   /**
-   * 根据下标删除元素。
+   * 根据元素的下标值查找元素，并将其删除。
    *
-   * @param { number } index - 待删除元素的下标。需要小于等于int32_max即2147483647。
-   * @returns { T } 返回删除的元素。
+   * @param { number } index - 指定元素的下标值，取值范围[0, List.length-1]，需要小于等于int32_max即2147483647。
+   * @returns { T } 返回被删除的元素。
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -176,10 +176,10 @@ declare class List<T> {
   removeByIndex(index: int): T | undefined;
 
   /**
-   * 删除指定元素第一次出现的元素。
+   * 删除查找到的第一个指定的元素。
    *
-   * @param { T } element - 待删除的元素。
-   * @returns { boolean } 成功删除元素返回true，否则返回false。
+   * @param { T } element - 指定元素。
+   * @returns { boolean } 删除成功返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -189,10 +189,10 @@ declare class List<T> {
    */
   remove(element: T): boolean;
   /**
-   * 获取指定元素最后一次出现的下标值，如果未找到则返回-1。
+   * 查找指定元素最后一次出现的下标值，查找失败返回-1。
    *
    * @param { T } element - 指定元素。
-   * @returns { int } 返回指定元素最后一次出现时的下标值，查找失败返回-1。
+   * @returns { int } 返回指定元素最后一次出现的下标值，没有找到返回-1。
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -204,7 +204,7 @@ declare class List<T> {
   /**
    * 获取List实例中的第一个元素。
    *
-   * @returns { T } 返回List实例中的第一个元素。
+   * @returns { T } 返回实例的第一个元素。
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -217,7 +217,7 @@ declare class List<T> {
   /**
    * 获取List实例中的最后一个元素。
    *
-   * @returns { T } 返回List实例中的最后一个元素。
+   * @returns { T } 返回实例的最后一个元素。
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -229,11 +229,11 @@ declare class List<T> {
   getLast(): T;
 
   /**
-   * 替换List实例中指定下标位置的元素。
+   * 替换List指定位置的元素。
    *
-   * @param { int } index - 替换元素的下标位置。需要小于等于int32_max即2147483647。
-   * @param { T } element - 替换的元素。
-   * @returns { T } 返回替换后的新元素。
+   * @param { int } index - 查找的下标值。取值范围[0, List.length-1]，需要小于等于int32_max即2147483647。
+   * @param { T } element - 用来替换的元素。
+   * @returns { T } 返回替换后的元素。
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -245,10 +245,10 @@ declare class List<T> {
   set(index: int, element: T): T;
 
   /**
-   * 判断此容器与obj的构成元素是否相同。
+   * 比较指定对象与此List是否相等。
    *
-   * @param { Object } obj - 比较对象。
-   * @returns { boolean } 构成元素相同时返回true，否则返回false。
+   * @param { Object } obj - 用来比较的对象。
+   * @returns { boolean } 如果对象与此列表相同返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -271,9 +271,13 @@ declare class List<T> {
   equal(obj: RecordData): boolean;
 
   /**
-   * 通过回调函数来遍历List实例对象上的元素以及元素对应的下标。
+   * 在遍历List实例对象中每一个元素的过程中，对每个元素执行回调函数。
    *
    * @param { function } callbackFn - 回调函数。
+   *     callbackFn（必填）接受最多三个参数的函数。
+   *     value 当前遍历到的元素。
+   *     index 当前遍历到的下标值，默认值为0。
+   *     List 当前调用forEach方法的实例对象，默认值为当前实例对象。
    * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -298,8 +302,8 @@ declare class List<T> {
   /**
    * 对List中的元素进行排序。
    *
-   * @param { function } comparator - 回调函数。<br> 从API version 23起有兼容性变更。在API version 22及之前版本，类型为 `(firstValue: T, secondValue: T) => number`。 [since 8 - 22]
-   * @param { ListComparatorFn<T> } comparator - 回调函数。<br> 从API version 23起有兼容性变更。在API version 22及之前版本，类型为 `(firstValue: T, secondValue: T) => number`。 [since 23]
+   * @param { function } comparator - 回调函数。<br> API version 23开始发生兼容性变更，在API version 22及之前的版本其类型为：`(firstValue: T, secondValue: T) => number`。 [since 8 - 22]
+   * @param { ListComparatorFn<T> } comparator - 回调函数。<br> API version 23开始发生兼容性变更，在API version 22及之前的版本其类型为：`(firstValue: T, secondValue: T) => number`。 [since 23]
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -320,11 +324,11 @@ declare class List<T> {
    */
   clear(): void;
   /**
-   * 获取List实例中指定范围内的元素，包括起始位置但不包括结束位置的元素，作为一个新的List实例返回。
+   * 根据下标截取List中的一段元素，并返回这一段List实例，包括起始值但不包括终止值。
    *
-   * @param { int } fromIndex - 起始位置的下标。
-   * @param { int } toIndex - 结束位置的下标。
-   * @returns { List<T> } 返回新的List实例。
+   * @param { int } fromIndex - 起始下标。
+   * @param { int } toIndex - 终止下标。
+   * @returns { List<T> } 返回List对象实例。
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -335,9 +339,13 @@ declare class List<T> {
    */
   getSubList(fromIndex: int, toIndex: int): List<T>;
   /**
-   * 对List中的所有元素进行替换，并返回替换后的元素。
+   * 遍历List中的元素，并用回调函数返回的新值替换原List中的元素。
    *
    * @param { function } callbackFn - 回调函数。
+   *     callbackFn（必填）接受最多三个参数的函数。
+   *     value 当前遍历到的元素。
+   *     index 当前遍历到的下标值，默认值为0。
+   *     list 当前调用replaceAllElements方法的实例对象，默认值为当前实例对象。
    * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -360,9 +368,9 @@ declare class List<T> {
   replaceAllElements(callbackFn: ListReplaceCb<T>): void;
 
   /**
-   * 将List实例转换为数组。
+   * 把当前List实例转换成数组并返回。
    *
-   * @returns { Array<T> } 返回数组。
+   * @returns { Array<T> } 返回转换后的数组。
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -372,7 +380,7 @@ declare class List<T> {
    */
   convertToArray(): Array<T>;
   /**
-   * 判断容器是否为空。
+   * 判断List是否为空。
    *
    * @returns { boolean } 为空返回true，不为空返回false。
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
@@ -399,9 +407,9 @@ declare class List<T> {
    */
   [index: int]: T;
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，用于遍历List中的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -423,11 +431,11 @@ declare class List<T> {
 
 }
 /**
- * List排序比较器的类型。
+ * List中sort方法的回调函数。
  *
- * @param { T } firstValue - firstValue（必填）前一项元素。
- * @param { T } secondValue - secondValue（必填）后一项元素。
- * @returns { double } 数值类型。
+ * @param { T } firstValue - 需要排序的前一项元素。
+ * @param { T } secondValue - 需要排序的后一项元素。
+ * @returns { double } 通过回调函数返回的值，List能够根据自定义的比较规则维护元素的顺序。
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice

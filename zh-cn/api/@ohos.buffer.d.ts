@@ -19,8 +19,8 @@
  */
 
 /**
- * Buffer对象用于表示固定长度的字节序列，是专门存放二进制数据的缓存区。
- * **推荐使用场景**：适用于处理大量二进制数据，如图片处理和文件接收上传等。
+ * Buffer对象用于表示固定长度的字节序列，是专门存放二进制数据的缓冲区。
+ * **推荐使用场景：** 适用于处理大量二进制数据，如图片处理、文件接收上传、网络通信数据传输、二进制协议解析和编解码转换等。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -141,11 +141,11 @@ declare namespace buffer {
     | Array<Blob>;
 
   /**
-   * 创建指定字节长度的Buffer对象并初始化。
+   * 创建指定字节长度的Buffer对象，并使用指定值进行初始化填充（默认填充0）。
    *
-   * @param { int } size - 指定的Buffer对象长度，单位：字节。
-   * @param { string | Buffer | int | double | long } [fill] - 填充至新缓存区的值。默认值：0。[since 11]
-   * @param { string | Buffer | number } [fill] - 填充至新缓存区的值。默认值：0。[since 9 - 10]
+   * @param { int } size - 指定的Buffer对象长度，单位：字节。取值为正整数，最大值为2^32-1，即4294967295。
+   * @param { string | Buffer | int | double | long } [fill] - 填充至新缓冲区的值。默认值：0。[since 11]
+   * @param { string | Buffer | number } [fill] - 填充至新缓冲区的值。默认值：0。[since 9 - 10]
    * @param { BufferEncoding } [encoding] - 编码格式（当fill为string时，才有意义）。默认值：'utf8'。
    * @returns { Buffer } 返回一个Buffer对象。
    * @syscap SystemCapability.Utils.Lang
@@ -157,8 +157,8 @@ declare namespace buffer {
   function alloc(size: int, fill?: string | Buffer | int | double | long, encoding?: BufferEncoding): Buffer;
 
   /**
-   * 创建指定大小未初始化的Buffer对象。内存从缓冲池分配。
-   * 创建的Buffer内容未知，需要使用[fill()]{@link buffer.Buffer#fill}函数来初始化Buffer对象。
+   * 创建指定大小未初始化的Buffer对象。内存从缓冲池分配，缓冲池为预分配的内存区域，适用于创建较小Buffer时减少频繁内存分配的开销，提升性能。对于需要独立内存的场景，建议使用[allocUninitialized]{@link buffer.allocUninitialized}。
+   * 创建的Buffer内容未知，需要使用[fill]{@link buffer.Buffer#fill}函数来初始化Buffer对象。
    *
    * @param { int } size - 指定的Buffer对象长度，单位：字节。
    * @returns { Buffer } 未初始化的Buffer实例。
@@ -171,8 +171,8 @@ declare namespace buffer {
   function allocUninitializedFromPool(size: int): Buffer;
 
   /**
-   * 创建指定大小未初始化的Buffer对象。内存不从缓冲池分配。
-   * 创建的Buffer内容未知，需要使用[fill()]{@link buffer.Buffer#fill}函数来初始化Buffer对象。
+   * 创建指定大小未初始化的Buffer对象。内存不从缓冲池分配，适用于需要创建较大Buffer或希望精确控制内存分配的场景，如一次性分配较大内存区域（避免缓冲池可能导致的内存碎片累积和缓存性能损耗）。
+   * 创建的Buffer的内容未知，需要使用[fill]{@link buffer.Buffer#fill}函数来初始化Buffer对象。
    *
    * @param { int } size - 指定的Buffer对象长度，单位：字节。
    * @returns { Buffer } 未初始化的Buffer实例。
@@ -185,10 +185,10 @@ declare namespace buffer {
   function allocUninitialized(size: int): Buffer;
 
   /**
-   * 根据不同的编码格式，返回指定字符串的字节数。
+   * 根据不同的编码格式，返回指定数据的字节数。
    *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - 指定字符串。
-   * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。
+   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - 要计算字节长度的字符串或其他数据对象。
+   * @param { BufferEncoding } [encoding] - 编码格式（string参数为string类型时才有意义）。默认值：'utf8'。
    * @returns { number } 返回指定字符串的字节数。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -205,7 +205,7 @@ declare namespace buffer {
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - 指定字符串。
    * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。
-   * @returns { int } 字符串的字节数。
+   * @returns { int } 返回指定字符串的字节数
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -217,10 +217,10 @@ declare namespace buffer {
   ): int;
 
   /**
-   * 将数组中的内容复制指定字节长度到新的Buffer对象中并返回。
+   * 将数组中的内容复制（默认复制全部内容，或复制指定字节长度）到新的Buffer对象中并返回。
    *
-   * @param { Buffer[] | Uint8Array[] } list - 实例数组。
-   * @param { int } [totalLength] - 需要复制的总字节长度。默认值：0。
+   * @param { Buffer[] | Uint8Array[] } list - Buffer或Uint8Array实例数组，用于拼接合并创建新的Buffer对象。
+   * @param { int } [totalLength] - 需要复制的总字节长度，默认值为0。
    * @returns { Buffer } 返回新的Buffer对象。
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max.
    *     Received value is: [length]
@@ -233,9 +233,9 @@ declare namespace buffer {
   function concat(list: Buffer[] | Uint8Array[], totalLength?: int): Buffer;
 
   /**
-   * 根据指定数组创建新的Buffer对象。
+   * 根据指定数组创建新的Buffer对象，数组中的每个元素作为对应位置的字节存储。
    *
-   * @param { double[] } array - 指定数组。
+   * @param { double[] } array - 由0~255范围内的整数组成的数组，用于根据数组内容创建新的Buffer对象。
    * @returns { Buffer } 新的Buffer对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -246,12 +246,12 @@ declare namespace buffer {
   function from(array: double[]): Buffer;
 
   /**
-   * 创建与arrayBuffer共享内存的指定长度的Buffer对象。
+   * 创建与`arrayBuffer`共享内存的指定长度的Buffer对象。共享内存意味着Buffer与arrayBuffer引用同一块内存区域，对Buffer数据的修改将同步反映到arrayBuffer中，反之亦然（注意：此方式避免内存拷贝，提升性能，但需注意内存释放时机）。
    *
-   * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - 实例对象，用于共享内存。
-   * @param { number } [byteOffset] - 字节偏移量。默认值：0。
-   * @param { number } [length] - 字节长度。默认值：（arrayBuffer.byteLength - byteOffset）。在传入null时字节长度为0。
-   * @returns { Buffer } 返回一个Buffer对象，该对象与入参对象arrayBuffer共享相同的内存区域。
+   * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - 用于创建Buffer的ArrayBuffer或SharedArrayBuffer对象。
+   * @param { number } [byteOffset] - 字节偏移量。指定从arrayBuffer起始位置偏移的字节数，创建的Buffer从该偏移位置开始。默认值：0。
+   * @param { number } [length] - 字节长度， 默认值:（arrayBuffer.byteLength - byteOffset）。在传入null时字节长度为0。
+   * @returns { Buffer } 返回一个Buffer对象，该对象与入参对象`arrayBuffer`共享相同的内存区域。
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
    *     It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
    * @syscap SystemCapability.Utils.Lang
@@ -281,9 +281,9 @@ declare namespace buffer {
 
   /**
    * 当入参为Buffer对象时，创建新的Buffer对象并复制入参Buffer对象的数据，然后返回新对象。
-   * 当入参为Uint8Array对象时，基于Uint8Array对象的内存创建新的Buffer对象并返回，保持数据的内存关联。
+   * 基于Uint8Array对象的内存创建新的Buffer对象并返回，新Buffer与原Uint8Array共享同一底层ArrayBuffer内存区域。
    *
-   * @param { Buffer | Uint8Array } buffer - 对象数据。
+   * @param { Buffer | Uint8Array } buffer - 用于创建新Buffer的Buffer或Uint8Array对象。
    * @returns { Buffer } 新的Buffer对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -294,14 +294,13 @@ declare namespace buffer {
   function from(buffer: Buffer | Uint8Array): Buffer;
 
   /**
-   * 根据指定的object类型数据，创建新的Buffer对象。
+   * 根据指定的`object`类型数据，创建新的Buffer对象。当object的valueOf()返回ArrayBuffer时，按字节偏移量和长度创建Buffer；其他类型则根据编码格式将对象值转换为Buffer。
    *
-   * @param { Object } object - 支持Symbol.toPrimitive或valueOf()的对象。
-   * @param { int | string } offsetOrEncoding - 字节偏移量或编码格式。
-   * @param { int } length - 字节长度（此入参仅在object的valueOf()返回值为ArrayBuffer时生效，
-   *     取值范围：0 <= length <= ArrayBuffer.byteLength，超出范围时报错: 10200001）。
-   *     其他情况下可填任意number类型值，该参数不会对结果产生影响。
-   * @returns { Buffer } 新的Buffer对象。
+   * @param { Object } object - 支持Symbol.toPrimitive或valueOf()的对象，valueOf()或Symbol.toPrimitive的返回值支持string和ArrayBuffer等类型。
+   * @param { int | string } offsetOrEncoding - 字节偏移量或编码格式。当object的valueOf()返回值为ArrayBuffer时，作为字节偏移量；其他情况下作为编码格式。
+   * @param { int } length - 字节长度（此入参仅在object的valueOf()返回值为ArrayBuffer时生效，取值范围：0 <= length <= ArrayBuffer.byteLength，超出范
+   *     围时报错: 10200001）。其他情况下可填任意number类型值，该参数不会对结果产生影响。
+   * @returns { Buffer } 返回新的Buffer对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -311,11 +310,11 @@ declare namespace buffer {
   function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
   /**
-   * 根据指定编码格式的字符串，创建新的Buffer对象。
+   * 根据指定编码格式的字符串，创建新的Buffer对象，字符串按编码格式转换为字节序列存入Buffer。
    *
-   * @param { String } string - 字符串。
+   * @param { String } string - 要编码创建Buffer对象的字符串内容。
    * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。
-   * @returns { Buffer } 新的Buffer对象。
+   * @returns { Buffer } 返回新的Buffer对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -325,9 +324,9 @@ declare namespace buffer {
   function from(string: String, encoding?: BufferEncoding): Buffer;
 
   /**
-   * 判断obj是否为Buffer。
+   * 判断`obj`是否为Buffer。
    *
-   * @param { Object } obj - 判断对象。
+   * @param { Object } obj - 要判断是否为Buffer的对象。
    * @returns { boolean } 如果obj是Buffer，则返回true，否则返回false。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -338,9 +337,9 @@ declare namespace buffer {
   function isBuffer(obj: Object): boolean;
 
   /**
-   * 判断encoding是否为支持的编码格式。
+   * 判断`encoding`是否为支持的编码格式。
    *
-   * @param { string } encoding - 编码格式。
+   * @param { string } encoding - 编码格式，支持的格式范围为[BufferEncoding]{@link buffer.BufferEncoding}。
    * @returns { boolean } 是支持的编码格式返回true，反之则返回false。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -351,10 +350,10 @@ declare namespace buffer {
   function isEncoding(encoding: string): boolean;
 
   /**
-   * 返回两个Buffer对象的比较结果，通常用于对Buffer对象数组进行排序。
+   * 返回两个Buffer或Uint8Array对象的比较结果，通常用于对Buffer或Uint8Array对象数组进行排序。
    *
-   * @param { Buffer | Uint8Array } buf1 - 待比较数组。
-   * @param { Buffer | Uint8Array } buf2 - 待比较数组。
+   * @param { Buffer | Uint8Array } buf1 - 待比较的第一个Buffer或Uint8Array实例。
+   * @param { Buffer | Uint8Array } buf2 - 待比较的第二个Buffer或Uint8Array实例。
    * @returns { -1 | 0 | 1 } 如果buf1与buf2相同，则返回0。
    *     <br/>如果排序时buf1位于buf2之后，则返回1。
    *     <br/>如果排序时buf1位于buf2之前，则返回-1。
@@ -366,13 +365,11 @@ declare namespace buffer {
   function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): -1 | 0 | 1;
 
   /**
-   * 比较buf1与buf2。
+   * 返回两个Buffer或Uint8Array对象的比较结果，通常用于对Buffer或Uint8Array对象数组进行排序。
    *
-   * @param { Buffer | Uint8Array } buf1 - 用于比较的第一个Buffer对象。
-   * @param { Buffer | Uint8Array } buf2 - 用于比较的第二个Buffer对象。
-   * @returns { int } 如果buf1与buf2相同，则返回0；
-   *     如果排序时buf1位于buf2之前，则返回1；
-   *     如果排序时buf1位于buf2之后，则返回-1。
+   * @param { Buffer | Uint8Array } buf1 - 待比较的第一个Buffer或Uint8Array实例。
+   * @param { Buffer | Uint8Array } buf2 - 待比较的第二个Buffer或Uint8Array实例。
+   * @returns { int } 如果buf1与buf2相同，则返回0。<br/>如果排序时buf1位于buf2之后，则返回1。<br/>如果排序时buf1位于buf2之前，则返回-1。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -381,11 +378,11 @@ declare namespace buffer {
   function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): int;
 
   /**
-   * 将Buffer或Uint8Array对象从一种字符编码重新编码为另一种。
+   * 将Buffer或Uint8Array对象从一种字符编码重新编码为另一种。适用于需要在不同编码格式之间转换已有Buffer数据的场景。
    *
-   * @param { Buffer | Uint8Array } source - 实例对象。
-   * @param { string } fromEnc - 当前编码。支持的格式范围为[BufferEncoding]{@link buffer.BufferEncoding}。
-   * @param { string } toEnc - 目标编码。支持的格式范围为[BufferEncoding]{@link buffer.BufferEncoding}。
+   * @param { Buffer | Uint8Array } source - 待转码的Buffer或Uint8Array实例，提供需要重新编码的源数据。
+   * @param { string } fromEnc - 当前编码。 支持的格式范围为[BufferEncoding]{@link buffer.BufferEncoding}。
+   * @param { string } toEnc - 目标编码。 支持的格式范围为[BufferEncoding]{@link buffer.BufferEncoding}。
    * @returns { Buffer } 将当前编码转换成目标编码，并返回一个新的Buffer对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -397,7 +394,7 @@ declare namespace buffer {
 
 
   /**
-   * Buffer对象是处理二进制数据的缓存区。
+   * Buffer对象是处理二进制数据的缓冲区。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -418,7 +415,7 @@ declare namespace buffer {
     length: number;
 
     /**
-     * 获取Buffer对象的元素个数。
+     * Buffer对象的字节长度。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -439,7 +436,7 @@ declare namespace buffer {
     buffer: ArrayBuffer;
 
     /**
-     * 创建此Buffer对象所基于的底层ArrayBuffer对象。
+     * ArrayBuffer对象。
      *
      * @throws { BusinessError } 10200013 - Buffer cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
@@ -450,10 +447,9 @@ declare namespace buffer {
     get buffer(): ArrayBuffer;
 
     /**
-     * 当前Buffer所在内存池的偏移量。
-     * 当Buffer通过内存池创建时（如使用[allocUninitializedFromPool]{@link buffer.allocUninitializedFromPool}创建Buffer，
-     * 或使用buffer.from()传入字符串，且字符串长度加当前内存池偏移量小于4kb），返回相对于内存池的偏移量。
-     * 当Buffer直接分配内存时（如使用[alloc]{@link buffer.alloc}），返回值为0。
+     * 当前Buffer所在内存池的偏移量。<br>- 当Buffer通过内存池创建时（如使用[allocUninitializedFromPool]{@link buffer.allocUninitializedFromPool}创
+     * 建Buffer，或使用buffer.from()传入字符串，且字符串长度加当前内存池偏移量小于4kb），返回相对于内存池的偏移量。<br>- 当Buffer直接分配内存时（如使用
+     * [alloc]{@link buffer.alloc}），返回值为0。
      *
      * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
@@ -525,15 +521,14 @@ declare namespace buffer {
     ): -1 | 0 | 1;
 
     /**
-     * 将buf与target进行比较，返回一个数字，指示buf在排序中位于target之前、之后还是相同位置。
-     * 比较基于每个Buffer中实际的字节序列。
+     * 比较当前Buffer对象与目标Buffer对象，并返回Buffer在排序中的结果。
      *
-     * @param { Buffer | Uint8Array } target - 用于与此Buffer进行比较的Buffer对象。
-     * @param { int } [targetStart] - targetStart [targetStart = 0] target中开始比较的偏移量。
-     * @param { int } [targetEnd] - targetEnd [targetEnd = target.length] target中结束比较的偏移量（不包含结束位置）。
-     * @param { int } [sourceStart] - sourceStart [sourceStart = 0] buf中开始比较的偏移量。
-     * @param { int } [sourceEnd] - sourceEnd [sourceEnd = buf.length] buf中结束比较的偏移量（不包含结束位置）。
-     * @returns { int } 如果buf与target相同，则返回0；如果buf在排序中位于target之前或之后，则返回相应数字。
+     * @param { Buffer | Uint8Array } target - 要比较的实例对象。
+     * @param { int } [targetStart] - `target`实例中开始的偏移量。默认值：0。
+     * @param { int } [targetEnd] - `target`实例中结束的偏移量（不包含结束位置）。默认值：目标对象的字节长度。
+     * @param { int } [sourceStart] - `this`实例中开始的偏移量。默认值：0。
+     * @param { int } [sourceEnd] - `this`实例中结束的偏移量（不包含结束位置）。默认值：当前对象的字节长度。
+     * @returns { int } 返回比较结果。-1：当前排列在目标前，0：当前与目标相同，1：当前排列在目标后。
      * @throws { BusinessError } 10200001 - The value of "[targetStart/targetEnd/sourceStart/sourceEnd]" is out of
      *     range.
      *     It must be >= 0 and <= [right range]. Received value is: [targetStart/targetEnd/sourceStart/sourceEnd]
@@ -551,12 +546,12 @@ declare namespace buffer {
     ): int;
 
     /**
-     * 将this实例中指定位置的数据复制到target的指定位置上，并返回复制的字节总长度。
+     * 将`this`实例中指定位置的数据复制到`target`的指定位置上，并返回复制的字节总长度。
      *
      * @param { Buffer | Uint8Array } target - 要复制到的Buffer或Uint8Array实例。
-     * @param { int } [targetStart] - target实例中开始写入的偏移量。默认值：0。
-     * @param { int } [sourceStart] - this实例中开始复制的偏移量。默认值：0。
-     * @param { int } [sourceEnd] - this实例中结束复制的偏移量（不包含结束位置）。默认值：当前对象的字节长度。
+     * @param { int } [targetStart] - `target`实例中开始写入的偏移量。默认值：0。
+     * @param { int } [sourceStart] - `this`实例中开始复制的偏移量。默认值: 0。
+     * @param { int } [sourceEnd] - `this`实例中结束复制的偏移量（不包含结束位置）。默认值：当前对象的字节长度。
      * @returns { int } 复制的字节总长度。
      * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must
      *     be >= 0.
@@ -570,7 +565,7 @@ declare namespace buffer {
     copy(target: Buffer | Uint8Array, targetStart?: int, sourceStart?: int, sourceEnd?: int): int;
 
     /**
-     * 比较this实例和otherBuffer实例是否相等。
+     * 比较`this`实例和otherBuffer实例是否相等。
      *
      * @param { Uint8Array | Buffer } otherBuffer - 比较的目标对象。
      * @returns { boolean } 相等则返回true，否则返回false。
@@ -668,7 +663,7 @@ declare namespace buffer {
     lastIndexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
-     * 从指定的offset处读取有符号的大端序64位整数。
+     * 从指定的`offset`处读取有符号的大端序64位整数。
      *
      * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
      * @returns { bigint } 读取出的内容。
@@ -683,9 +678,9 @@ declare namespace buffer {
     readBigInt64BE(offset?: int): bigint;
 
     /**
-     * 从指定的offset处读取有符号的小端序64位整数。
+     * 从指定的`offset`处读取有符号的小端序64位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
      * @returns { bigint } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
@@ -698,9 +693,9 @@ declare namespace buffer {
     readBigInt64LE(offset?: int): bigint;
 
     /**
-     * 从指定的offset处读取无符号的大端序64位整数。
+     * 从指定的`offset`处读取无符号的大端序64位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
      * @returns { bigint } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
@@ -713,9 +708,9 @@ declare namespace buffer {
     readBigUInt64BE(offset?: int): bigint;
 
     /**
-     * 从指定的offset处读取无符号的小端序64位整数。
+     * 从指定的`offset`处读取无符号的小端序64位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
      * @returns { bigint } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
@@ -728,9 +723,9 @@ declare namespace buffer {
     readBigUInt64LE(offset?: int): bigint;
 
     /**
-     * 从指定的offset处读取64位大端序双精度值。
+     * 从指定的`offset`处读取64位大端序双精度值。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
      * @returns { double } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
@@ -743,9 +738,9 @@ declare namespace buffer {
     readDoubleBE(offset?: int): double;
 
     /**
-     * 从指定的offset处读取64位小端序双精度值。
+     * 从指定的`offset`处读取64位小端序双精度值。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
      * @returns { double } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
@@ -758,9 +753,9 @@ declare namespace buffer {
     readDoubleLE(offset?: int): double;
 
     /**
-     * 从指定的offset处读取32位大端序浮点数。
+     * 从指定的`offset`处读取32位大端序浮点数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { double } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -773,9 +768,9 @@ declare namespace buffer {
     readFloatBE(offset?: int): double;
 
     /**
-     * 从指定的offset处读取32位小端序浮点数。
+     * 从指定的`offset`处读取32位小端序浮点数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { double } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -788,9 +783,9 @@ declare namespace buffer {
     readFloatLE(offset?: int): double;
 
     /**
-     * 从指定的offset处读取有符号的8位整数。
+     * 从指定的`offset`处读取有符号的8位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 1。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 1，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1
      *     . Received value is: [offset]
@@ -803,9 +798,9 @@ declare namespace buffer {
     readInt8(offset?: int): long;
 
     /**
-     * 从指定的offset处读取有符号的大端序16位整数。
+     * 从指定的`offset`处读取有符号的大端序16位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 2。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 2，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
@@ -818,9 +813,9 @@ declare namespace buffer {
     readInt16BE(offset?: int): long;
 
     /**
-     * 从指定的offset处读取有符号的小端序16位整数。
+     * 从指定的`offset`处读取有符号的小端序16位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 2。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 2，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
@@ -833,9 +828,9 @@ declare namespace buffer {
     readInt16LE(offset?: int): long;
 
     /**
-     * 从指定的offset处读取有符号的大端序32位整数。
+     * 从指定的`offset`处读取有符号的大端序32位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -848,9 +843,9 @@ declare namespace buffer {
     readInt32BE(offset?: int): long;
 
     /**
-     * 从指定的offset处读取有符号的小端序32位整数。
+     * 从指定的`offset`处读取有符号的小端序32位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -863,9 +858,9 @@ declare namespace buffer {
     readInt32LE(offset?: int): long;
 
     /**
-     * 从指定的offset处读取byteLength个字节，并将结果解释为支持最高48位精度的大端序、二进制补码有符号值。
+     * 从指定的`offset`处读取byteLength个字节，并将结果解释为支持最高48位精度的大端序、二进制补码有符号值。
      *
-     * @param { int } offset - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - byteLength。
+     * @param { int } offset - 偏移量。取值范围：0 <= offset <= Buffer.length - byteLength，默认值：0。
      * @param { int } byteLength - 读取的字节数。取值范围：1 <= byteLength <= 6。
      * @returns { long } 读取的内容。当offset为小数时，返回undefined。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -879,9 +874,9 @@ declare namespace buffer {
     readIntBE(offset: int, byteLength: int): long;
 
     /**
-     * 从指定的offset处读取byteLength个字节，并将结果解释为支持最高48位精度的小端序、二进制补码有符号值。
+     * 从指定的`offset`处读取`byteLength`个字节，并将结果解释为支持最高48位精度的小端序、二进制补码有符号值。
      *
-     * @param { int } offset - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - byteLength。
+     * @param { int } offset - 偏移量。取值范围：0 <= offset <= Buffer.length - byteLength，默认值：0。
      * @param { int } byteLength - 读取的字节数。取值范围：1 <= byteLength <= 6。
      * @returns { long } 读取出的内容。当offset为小数时，返回undefined。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -895,9 +890,9 @@ declare namespace buffer {
     readIntLE(offset: int, byteLength: int): long;
 
     /**
-     * 从offset处读取8位无符号整型数。
+     * 从`offset`处读取8位无符号整型数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 1。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 1，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1
      *     . Received value is: [offset]
@@ -910,9 +905,9 @@ declare namespace buffer {
     readUInt8(offset?: int): long;
 
     /**
-     * 从指定的offset处读取无符号的大端序16位整数。
+     * 从指定的`offset`处读取无符号的大端序16位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 2。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 2，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
@@ -925,9 +920,9 @@ declare namespace buffer {
     readUInt16BE(offset?: int): long;
 
     /**
-     * 从指定的offset处的buf读取无符号的小端序16位整数。
+     * 从指定的`offset`处的buf读取无符号的小端序16位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 2。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 2，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
@@ -940,9 +935,9 @@ declare namespace buffer {
     readUInt16LE(offset?: int): long;
 
     /**
-     * 从指定的offset处的buf读取无符号的大端序32位整数。
+     * 从指定的`offset`处的buf读取无符号的大端序32位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -955,9 +950,9 @@ declare namespace buffer {
     readUInt32BE(offset?: int): long;
 
     /**
-     * 从指定的offset处的buf读取无符号的小端序32位整数。
+     * 从指定的`offset`处的buf读取无符号的小端序32位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
+     * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 4，默认值：0。
      * @returns { long } 读取出的内容。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
@@ -970,10 +965,10 @@ declare namespace buffer {
     readUInt32LE(offset?: int): long;
 
     /**
-     * 从指定的offset处的buf读取byteLength个字节，并将结果解释为支持最高48位精度的无符号大端序整数。
+     * 从指定的`offset`处的buf读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号大端序整数。
      *
-     * @param { int } offset - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - byteLength。
-     * @param { int } byteLength - 要读取的字节数。取值范围：1 <= byteLength <= 6。
+     * @param { int } offset - 偏移量。取值范围：0 <= offset <= Buffer.length - byteLength，默认值：0。
+     * @param { int } byteLength - 要读取的字节数。读取的字节数。取值范围：1 <= byteLength <= 6。
      * @returns { long } 读取出的内容。当offset为小数时，返回undefined。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
@@ -986,9 +981,9 @@ declare namespace buffer {
     readUIntBE(offset: int, byteLength: int): long;
 
     /**
-     * 从指定的offset处的buf读取byteLength个字节，并将结果解释为支持最高48位精度的无符号小端序整数。
+     * 从指定的`offset`处的buf读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号小端序整数。
      *
-     * @param { int } offset - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - byteLength。
+     * @param { int } offset - 偏移量。取值范围：0 <= offset <= Buffer.length - byteLength，默认值：0。
      * @param { int } byteLength - 读取的字节数。取值范围：1 <= byteLength <= 6。
      * @returns { long } 读取出的内容。当offset为小数时，返回undefined。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -1079,7 +1074,7 @@ declare namespace buffer {
     /**
      * 将当前对象中指定位置的数据转成指定编码格式的字符串并返回。
      *
-     * @param { string } [encoding] - 字符编码格式（value为string才有意义）。默认值：'utf8'。
+     * @param { string } [encoding] - 字符编码格式。默认值：'utf8'。
      * @param { number } [start] - 开始位置。默认值：0。
      * @param { number } [end] - 结束位置。默认值：Buffer.length。
      * @returns { string } 字符串。当start >= Buffer.length或start > end时返回空字符串。
@@ -1399,7 +1394,7 @@ declare namespace buffer {
      * 在Buffer对象的offset偏移处写入大端序的16位无符号整型数据。
      *
      * @param { long } value - 写入Buffer的数据。
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 2。
+     * @param { int } [offset] - 偏移量。默认值为0。取值范围：0 <= offset <= Buffer.length - 2。
      * @returns { int } 偏移量offset加上写入的字节数。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
@@ -1446,7 +1441,7 @@ declare namespace buffer {
     /**
      * 在Buffer对象的offset偏移处写入小端序的32位无符号整型数据。
      *
-     * @param { long } value - 写入Buffer的数据。
+     * @param { long } value - 写入Buffer对象的数据。
      * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 4。
      * @returns { int } 偏移量offset加上写入的字节数。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -1518,8 +1513,9 @@ declare namespace buffer {
    * @since 23 static
    */
   interface BlobOptions {
++
     /**
-     * Blob内容类型。默认值：''。
+     * Blob的内容类型。其目的是让类型传达数据的MIME媒体类型，但是不执行类型格式的验证。此参数非必填，默认参数为''。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1529,7 +1525,8 @@ declare namespace buffer {
     type?: string;
 
     /**
-     * 以'\n'结尾的字符串如何输出，值为transparent或native。默认值：transparent。
+     * 含义为结束符'\n'的字符串如何被输出，为'transparent'或'native'。native代表行结束符会跟随系统。'transparent'代表会保持Blob中保存的结束符不变。
+     * 此参数非必填，默认值为'transparent'。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1549,13 +1546,14 @@ declare namespace buffer {
    * @since 23 static
    */
   class Blob {
++
     /**
      * Blob的构造函数。
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - Blob实例的数据源。
-     * @param { Object } [options] - options：<br/>- **endings**：含义为结束符'\n'的字符串如何被输出，值为'native'或'transparent'。
-     *     'native'代表行结束符会跟随系统。'transparent'代表会保持Blob中保存的结束符不变。默认值：'transparent'。<br/>
-     *     - **type**：Blob内容类型。其目的是让类型传达数据的MIME媒体类型，但是不执行类型格式的验证。默认值：''。
+     * @param { Object } [options] - options:<br/>- endings：含义为结束符'\n'的字符串如何被输出，为'transparent'或'native'。native代表行结束符会跟随系
+     *     统。'transparent'代表会保持Blob中保存的结束符不变。此参数非必填，默认值为'transparent'。<br/>- type：Blob内容类型。其目的是让类型传达数据的MIME媒体类型，但是不执行类型格
+     *     式的验证。此参数非必填，默认参数为''。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1564,12 +1562,12 @@ declare namespace buffer {
     constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[], options?: Object);
 
     /**
-     * 创建一个新的Blob对象，包含给定sources的拼接结果。
+     * Blob的构造函数。
      *
-     * @param { ArrayUnionType } sources - 存储在Blob中的数据源。
-     * @param { BlobOptions } [options] - Blob选项 {endings: string, type: string}。
-     *     endings：值为'transparent'或'native'。
-     *     type：Blob内容类型。
+     * @param { ArrayUnionType } sources - Blob实例的数据源。
+     * @param { BlobOptions } [options] - options:<br/>- endings：含义为结束符'\n'的字符串如何被输出，为'transparent'或'native'。native代表行结束符会跟随系
+     *     统。'transparent'代表会保持Blob中保存的结束符不变。此参数非必填，默认值为'transparent'。<br/>- type：Blob内容类型。其目的是让类型传达数据的MIME媒体类型，但是不执行类型格
+     *     式的验证。此参数非必填，默认参数为''。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
