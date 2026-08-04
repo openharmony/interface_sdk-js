@@ -14,9 +14,9 @@
  */
 
 /**
- * PerfTest provides white-box performance testing capabilities. 
- * It can test performance data of specified code segments or scenarios, automatically execute test code segments, 
- * and collect performance data such as time consumption, CPU, memory, latency, and frame rate.
+ * PerfTest provides white-box performance test capabilities in test scenarios. It can automatically execute tests on
+ * specified code segments or scenarios and collect performance data such as time required, CPU usage, memory usage,
+ * latency, and frame rate.
  * 
  * > **NOTE**
  * > - The initial APIs of this module are supported since API version 20. 
@@ -38,27 +38,20 @@ import { Callback } from './@ohos.base';
  * > **NOTE**
  * >
  * > 1. The preceding metrics collect performance data for a specified application process, not for the system.
- * > 2. Description of collecting the CPU data (**CPU_LOAD** / **CPU_USAGE**) and memory (**MEMORY_RSS** / **MEMORY_PSS**):
- * > - During the test, the CPU and memory data of the specified application process is collected before and after the
- * >   code segment execution. Therefore, ensure that the application process to be tested exists during the test.
- * > 3. Description of collecting the application startup latency data (**APP_START_RESPONSE_TIME** / **APP_START_COMPLETE_TIME**):
- * > - Application startup latency data is affected by system log reporting. The start time is when the tap event is reported,
- * >   the end time of the response latency is when the first frame is displayed on the screen after the tap,
- * >   and the end time of the completion latency is when the first frame is displayed on the screen after the application is started.
- * >   The latency is different from what users perceive.
- * > - Application startup latency data can be collected in the following scenarios: tapping an application icon on the home screen,
- * >   tapping an application icon on the dock bar, and tapping an application icon in the application center.
- * > - During a test, only the first startup latency of the specified application is collected.
+ * > 2. Description of collecting the CPU data (**CPU_LOAD**/**CPU_USAGE**) and memory (**MEMORY_RSS**/**MEMORY_PSS**):
+ * >    - During the test, the CPU and memory data of the specified application process is collected before and after the code segment execution. Therefore, ensure that the application process to be tested exists during the test.
+ * > 3. Description of collecting the application startup latency data (**APP_START_RESPONSE_TIME**/**APP_START_COMPLETE_TIME**):
+ * >    - Application startup latency data is subject to the system logging and reporting and may be different from what end users perceive. The start time is when the tap event is reported, the end time of the response latency is when the first frame is displayed on the screen after the tap, and the end time of the completion latency is when the first frame is displayed on the screen after the application is started.
+ * >    - Application startup latency data can be collected in the following scenarios: tapping an application icon on the home screen, tapping an application icon on the dock bar, and tapping an application icon in the application center.
+ * >    - During a test, only the first startup latency of the specified application is collected.
  * > 4. Description of collecting the page switching latency data (**PAGE_SWITCH_COMPLETE_TIME**):
- * > - The page switching latency calculation is affected by the system log reporting. The start time is when the tap event is reported,
- * >   and the end time is when the first frame is displayed on the screen after the page switching,
- * >   which is different from what users perceive.
- * > - Page switching latency data can be collected in the **Router** and **Navigation** components.
- * > - During a test, only the first page switching latency in the specified application is collected.
+ * >    - Page switching latency calculation is subject to the system logging and reporting and may be different from what end users perceive. The start time is when the tap event is reported, and the end time is when the first frame is displayed on the screen after the page switching.
+ * >    - Page switching latency data can be collected in the **Router** and **Navigation** components.
+ * >    - During a test, only the first page switching latency in the specified application is collected.
  * > 5. Description of collecting the list scrolling frame rate (**LIST_SWIPE_FPS**):
- * > - **LIST_SWIPE_FPS**: The number of frames rendered and updated on the screen per second when the list is scrolled.
- * > - Supported scenarios: list scrolling of the **List**, **Grid**, **Scroll**, and **WaterFlow** components in the ArkUI subsystem.
- * > - During a test, only the first list scrolling frame rate in the specified application is collected.
+ * >    - **LIST_SWIPE_FPS**: The number of frames rendered and updated on the screen per second when the list is scrolled.
+ * >    - Supported scenarios: list scrolling of the **List**, **Grid**, **Scroll**, and **WaterFlow** components in the ArkUI subsystem.
+ * >    - During a test, only the first list scrolling frame rate in the specified application is collected.
  *
  * @enum { int }
  * @syscap SystemCapability.Test.PerfTest
@@ -113,7 +106,7 @@ declare enum PerfMetric {
   MEMORY_RSS = 3,
 
   /**
-   * Physical memory (excluding the shared library) occupied by the application process when a code segment is executed, in KB.
+   * Physical memory (the proportionally allocated memory occupied by shared libraries) occupied by the application process when a code segment is executed, in KB.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -205,11 +198,10 @@ declare enum PerfMetric {
  *
  * > **NOTE**
  * >
- * > The input parameter type of the **actionCode** and **resetCode** attributes is the **Callback\<boolean>**.
- *   You need to call this callback in the code segment to notify the framework that the code segment execution is complete.
- *   Otherwise, the code segment execution times out.
- * > The callback parameter is of the **Boolean** type.
- *   The value **true** indicates that the code segment execution meets the expectation, and false indicates the opposite.
+ * > The input parameter type of the **actionCode** and **resetCode** attributes is **Callback\<boolean>**. You need to call
+ * > this callback in the code segment to notify the framework that the code segment execution is complete. Otherwise, the
+ * > code segment execution times out. The callback parameter is of the **Boolean** type. The value **true** indicates that
+ * > the code segment execution meets the expectation, and **false** indicates the opposite.
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
@@ -219,7 +211,7 @@ declare enum PerfMetric {
  */
 declare interface PerfTestStrategy {
   /**
-   * List of performance metrics to be collected.
+   * Array of performance metrics to test. If the array is empty, no performance metric data is collected.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -230,13 +222,9 @@ declare interface PerfTestStrategy {
   metrics: Array<PerfMetric>;
 
   /**
-   * Code segment for performance testing.
-   * The input parameter type of actionCode is {@link Callback<boolean>}. As actionCode can be defined as asynchronous function,
-   * developers need to invoke this callback function when the execution of actionCode is complete,
-   * to help PerfTest identify the time when the execution of the actionCode is complete.
-   * For example, the input parameter callback function of actionCode is defined as "(finish: Callback<boolean>)".
-   * When actionCode is executed completely, "finish(true)" should be invoked, the value true indicates actionCode is successfully executed.
-   * When an exception occurs, "finish(false)" should be invoked, the value false indicates actionCode is unsuccessfully executed.
+   * Code segment to test. The input parameter is a callback function, which needs to be called in the code segment to
+   * notify the framework that the execution is complete. Otherwise, the execution will time out. For details, see the
+   * following description.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -247,14 +235,11 @@ declare interface PerfTestStrategy {
   actionCode: Callback<Callback<boolean>>;
 
   /**
-   * Code segment for resetting the environment after the {@link actionCode}. is complete. The default value is empty.
-   * Data collection is not performed during this execution.
-   * The input parameter type of resetCode is {@link Callback<boolean>}. As resetCode can be defined as asynchronous function,
-   * developers need to invoke this callback function when the execution of resetCode is complete,
-   * to help PerfTest identify the time when the execution of the resetCode is complete.
-   * For example, the input parameter callback function of resetCode is defined as "(finish: Callback<boolean>)".
-   * When resetCode is executed completely, "finish(true)" should be invoked, the value true indicates resetCode is successfully executed.
-   * When an exception occurs, "finish(false)" should be invoked, the value false indicates resetCode is unsuccessfully executed.
+   * Code segment for resetting the environment after the test is complete. This parameter is passed for resetting after
+   * each test when the test code segment modifies the global status (such as global variables and configurations). The
+   * default value is empty. This code segment is not executed when the framework is performing the test. The input
+   * parameter is a callback function, which needs to be called in the code segment to notify the framework that the
+   * execution is complete. Otherwise, the execution will time out. For details, see the following description.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -265,8 +250,10 @@ declare interface PerfTestStrategy {
   resetCode?: Callback<Callback<boolean>>;
 
   /**
-   * Bundle name of the application to test.
-   * The default value is "". The framework tests the performance data of the current application.
+   * Bundle name of the application to test. The format must be the same as that of **bundleName** in the application
+   * configuration file. To test the performance data of a non-current application, pass the bundle name of the target
+   * application. The default value is **""**, indicating that the framework tests the performance data of the current
+   * application.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -277,7 +264,8 @@ declare interface PerfTestStrategy {
   bundleName?: string;
 
   /**
-   * Number of test iterations. The default value is 5.
+   * Number of test iterations. The value must be an integer greater than 0. The default value is **5**. An exception
+   * is thrown if the value is out of range.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -288,8 +276,10 @@ declare interface PerfTestStrategy {
   iterations?: int;
 
   /**
-   * Timeout interval for executing a code segment ({@link actionCode} or {@link resetCode}) at a time.
-   * The default value is 10,000 ms.
+   * Timeout interval for executing a code segment (**actionCode**/**resetCode**) at a time. The value is an integer
+   * greater than 0, in milliseconds. The default value is **10000**. If the execution of a test code segment takes a
+   * long time, you can increase the value of this parameter to prevent timeout. If a timeout occurs, an exception is
+   * triggered and the test execution is terminated.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -322,7 +312,8 @@ declare interface PerfMeasureResult {
   readonly metric: PerfMetric;
 
   /**
-   * Measurement data value of each round of the tested performance metric. If data collection fails, the value **-1** is returned.
+   * Measurement data value of each round of the tested performance metric. The unit is the same as that of the
+   * corresponding {@link PerfMetric}. If data collection fails, the value **-1** is returned.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -381,7 +372,8 @@ declare class PerfTest {
    * Creates a {@link PerfTest} object and returns the object created. This API is a static API.
    *
    * @param { PerfTestStrategy } strategy - Performance test strategy.
-   * @returns { PerfTest }  {@link PerfTest} object created.
+   * @returns { PerfTest }  {@link PerfTest} object constructed, which can be used to execute test tasks, collect
+   * performance data, and obtain measurement results.
    * @throws { BusinessError } 32400001 - Initialization failed.
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
@@ -396,8 +388,11 @@ declare class PerfTest {
   static create(strategy: PerfTestStrategy): PerfTest;
 
   /**
-   * Runs a performance test, iteratively executes test code segments, and collects performance data.
-   * This API uses a promise to return the result.
+   * Runs a performance test, iteratively executes test code segments based on the configured times, and collects
+   * performance data. This API uses a promise to return the result. In each iteration, the framework executes
+   * **actionCode** and **resetCode** (if configured) in sequence and collects performance data during the execution
+   * of **actionCode**. After the execution is complete, you can call {@link getMeasureResult} to obtain the collected
+   * measurement result data.
    *
    * @returns { Promise<void> }
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
@@ -414,10 +409,12 @@ declare class PerfTest {
   run(): Promise<void>;
 
   /**
-   * Obtains the measurement data of a specified performance metric.
+   * Obtains the measurement data of a specified performance metric. This method must be called after {@link run} is
+   * executed. Otherwise, valid measurement data cannot be obtained.
    *
-   * @param { PerfMetric } metric - Performance metric.
-   * @returns { PerfMeasureResult } - Measurement result data corresponding to the performance metric.
+   * @param { PerfMetric } metric - Performance metric to query.
+   * @returns { PerfMeasureResult } - Measurement result of the specified performance metric, including the measurement
+   * data value and statistical values (maximum value, minimum value, and average value) of each round.
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
    * @throws { BusinessError } 32400006 - Failed to obtain the measurement result.
@@ -431,7 +428,9 @@ declare class PerfTest {
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
 
   /**
-   * Destroys the {@link PerfTest} object.
+   * Destroys the **PerfTest** object to release the resources occupied by the object. This method is used together
+   * with {@link create} and is called after the **PerfTest** object is used. If this method is not called, resources
+   * may fail to be released. The **PerfTest** object should not be used after this API is called.
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest

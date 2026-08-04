@@ -235,7 +235,7 @@ declare interface PerfTestStrategy {
   bundleName?: string;
 
   /**
-   * 测试迭代执行次数，默认值为5。
+   * 测试迭代执行次数，取值范围为大于0的整数，默认值为5。超出范围时抛出异常。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -246,7 +246,8 @@ declare interface PerfTestStrategy {
   iterations?: int;
 
   /**
-   * 单次代码段（actionCode/resetCode）执行的超时时间，默认值为10000ms。
+   * 单次代码段（actionCode/resetCode）执行的超时时间，取值范围为大于0的整数，单位：ms，默认值为10000ms。
+   * 当测试代码段执行耗时较长时，可适当增大此值以避免超时，超时后将触发异常，并终止测试执行。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice

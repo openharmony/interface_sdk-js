@@ -1881,7 +1881,8 @@ declare interface TouchOptions {
    */
   speed?: int;
   /**
-   * 操作持续时间（毫秒），最小值和默认值均为 1500。
+   * 操作持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，
+   * 为null或undefined时使用默认值。
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -3382,7 +3383,7 @@ declare class Driver {
    * 长按目标坐标点，支持指定长按时长。使用Promise异步回调。
    *
    * @param { Point } point - 以Point对象的形式传入目标点信息。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3458,7 +3459,7 @@ declare class Driver {
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3956,7 +3957,7 @@ declare class Driver {
    * @param { MouseButton } btnId - 按下的鼠标按钮。
    * @param { int } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
    * @param { int } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4011,7 +4012,7 @@ declare class Driver {
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4244,7 +4245,7 @@ declare class Driver {
    *
    * @param { On } on - 目标控件的属性要求。
    * @param { Point } point - 长按的坐标点。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回长按操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4267,7 +4268,7 @@ declare class Driver {
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回拖拽操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.

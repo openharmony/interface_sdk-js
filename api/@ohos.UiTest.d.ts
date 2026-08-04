@@ -14,8 +14,9 @@
  */
 
 /**
- * The **UiTest** module provides APIs that you can use to simulate UI actions during testing, such as clicks, double-
- * clicks, long-clicks, and swipes.
+ * The **UiTest** module provides UI automation test capabilities, such as component search and operation, coordinate
+ * clicking/sliding, key injections, screenshot, window management, multi-finger operations, and mouse/stylus/touchpad
+ * operations.
  * This module provides the following functions:
  * 
  * - [On<sup>9+</sup>]{@link On}: provides UI component feature description APIs for component filtering and matching.
@@ -23,7 +24,7 @@
  *   component attributes, clicking a component, scrolling to search for a component, and text injection.
  * - [Driver<sup>9+</sup>]{@link Driver}: works as the entry class and provides APIs for features such as component
  *   matching/search, key injection, coordinate clicking/sliding, and screenshot.
- * - [UiWindow<sup>9+</sup>]{@link UiWindow}: works as the entry class and provides APIs for obtaining window attributes, 
+ * - [UiWindow<sup>9+</sup>]{@link UiWindow}: represents a window object on the UI and provides APIs for obtaining window attributes, 
  *   dragging windows, and adjusting window sizes.
  * - [By<sup>(deprecated)</sup>]{@link BY}: provides UI component feature description APIs for component filtering and 
  *   matching. This API is supported since API version 8 and deprecated since API version 9. 
@@ -528,10 +529,9 @@ declare class UiDriver {
   static create(): UiDriver;
 
   /**
-   * Delays this **UiDriver** object within the specified duration. This API uses a promise to return the result.
+   * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { number } duration - Duration of time.
-   *     <br>Unit: ms
+   * @param { number } duration - Specified time, in ms. The value is an integer greater than or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -600,10 +600,9 @@ declare class UiDriver {
   pressBack(): Promise<void>;
 
   /**
-   * Triggers the key of this **UiDriver** object that matches the given key code. This API uses a promise to return the
-   * result.
+   * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { number } keyCode - Key value. The value is an integer greater than or equal to 0.
+   * @param { number } keyCode - Key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
@@ -618,12 +617,10 @@ declare class UiDriver {
    * Clicks a specific point of this **UiDriver** object based on the given coordinates. This API uses a promise to
    * return the result.
    *
-   * @param { number } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } y - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { number } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
+   * @param { number } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -637,12 +634,10 @@ declare class UiDriver {
    * Double-clicks a specific point of this **UiDriver** object based on the given coordinates. This API uses a promise
    * to return the result.
    *
-   * @param { number } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } y - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { number } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
+   * @param { number } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -656,12 +651,10 @@ declare class UiDriver {
    * Long-clicks a specific point of this **UiDriver** object based on the given coordinates. This API uses a promise to
    * return the result.
    *
-   * @param { number } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } y - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { number } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
+   * @param { number } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -675,18 +668,14 @@ declare class UiDriver {
    * Swipes on this **UiDriver** object from the start point to the end point based on the given coordinates. This API
    *  uses a promise to return the result.
    *
-   * @param { number } startx - Number, which indicates the horizontal coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } starty - Number, which indicates the vertical coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } endx - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { number } endy - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { number } startx - Horizontal coordinate of the start point, in pixels. The value is an integer greater
+   *     than or equal to 0.
+   * @param { number } starty - Vertical coordinate of the start point, in pixels. The value is an integer greater
+   *     than or equal to 0.
+   * @param { number } endx - Horizontal coordinate of the end point, in pixels. The value is an integer greater than
+   *     or equal to 0.
+   * @param { number } endy - Vertical coordinate of the end point, in pixels. The value is an integer greater than
+   *     or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -921,7 +910,7 @@ declare enum DisplayRotation {
  */
 declare interface Point {
   /**
-   * Horizontal coordinate of a coordinate point. The value is an integer greater than 0.
+   * Horizontal coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -932,7 +921,7 @@ declare interface Point {
    */
   x: int;
   /**
-   * Vertical coordinate of a coordinate point. The value is an integer greater than 0.
+   * Vertical coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -965,8 +954,7 @@ declare interface Point {
  */
 declare interface Rect {
   /**
-   * X coordinate of the upper left corner of the component border. The value is an integer greater than 0.
-   *     <br>Unit: px
+   * X coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -976,8 +964,7 @@ declare interface Rect {
    */
   left: int;
   /**
-   * Y coordinate of the upper left corner of the component border. The value is an integer greater than 0.
-   *     <br>Unit: px
+   * Y coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -987,8 +974,7 @@ declare interface Rect {
    */
   top: int;
   /**
-   * X coordinate of the lower right corner of the component border. The value is an integer greater than 0.
-   *     <br>Unit: px
+   * X coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -998,8 +984,7 @@ declare interface Rect {
    */
   right: int;
   /**
-   * Y coordinate of the lower right corner of the component border. The value is an integer greater than 0.
-   *     <br>Unit: px
+   * Y coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -1030,7 +1015,8 @@ declare interface Rect {
  */
 declare interface WindowFilter {
   /**
-   * Bundle name of the application to which the window belongs. The default value is empty.
+   * Bundle name of the application to which the window belongs, which is used to filter the target window in
+   * multi-window scenarios. This parameter is left empty by default.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1040,7 +1026,8 @@ declare interface WindowFilter {
   bundleName?: string;
 
   /**
-   * Title of the window. The default value is empty.
+   * Window title, which is used to filter the target window in multi-window scenarios. This parameter is left empty
+   * by default.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1064,7 +1051,8 @@ declare interface WindowFilter {
    * Whether the window is interacting with the user. The value **true** indicates that the window is interacting with
    * the user, and **false** indicates the opposite.
    *
-   * This API is deprecated since API version 11. You are advised to use the **active** API instead.
+   * This API is supported since API version 9 and deprecated since API version 11. You are advised to use
+   * {@link WindowFilter#active} instead.
    *
    * @syscap SystemCapability.Test.UiTest
    * @since 9 dynamiconly
@@ -1233,10 +1221,8 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * Listening timeout interval, to prevent listening failures casued by event notification delay.
-   *     <br>Value range: The value should be >= 500
-   *     <br>Default value: 10000
-   *     <br>Unit: ms
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
+   * value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1267,10 +1253,8 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * Listening timeout interval , to prevent listening failures casued by event notification delay.
-   * <br>Value range: The value should be >= 500
-   * <br>Default value: 10000
-   *     <br>Unit: ms
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
+   * value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1354,7 +1338,7 @@ declare interface UIElementInfo {
    */
   readonly componentEventType?: ComponentEventType;
   /**
-   * ID of the window where the component belongs.
+   * ID of the window to which the component belongs. If it is not a component operation event, **-1** is returned.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1372,7 +1356,8 @@ declare interface UIElementInfo {
    */
   readonly componentId?: string;
   /**
-   * The rect of the component, set all attributes of rect to 0 if it's a window.
+   * Component border information. If it is not a component operation event, a {@link Rect} object whose attribute
+   * values are all **0** is returned.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1383,7 +1368,9 @@ declare interface UIElementInfo {
  }
 
 /**
- * Observer to monitor UI events.
+ * Defines a UI event listener, which is used to listen for various events on the UI, including the display of the
+ * **Toast** and **Dialog** components, window change event, and component operation event. An instance can be
+ * created using {@link Driver#createUIEventObserver}.
  *
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice [since 11]
@@ -1733,7 +1720,7 @@ declare interface TouchOptions {
    * Speed of touch action.
    * <br>Value range:[200, 40000]
    * <br>Unit: px/s.
-   * <br>Throws error code 17000007 if negative.
+   * <br>If the value is out of range or null/undefined, the default value 600 is used.
    * <br>Default value: 600
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -1755,9 +1742,9 @@ declare interface TouchOptions {
    */
   duration?: int;
   /**
-   * The pressure of the touch.
-   * <br>Value range:[0.0, 1.0]
-   * <br>Default value: 1.0
+   * Pressure value of the touch. The value range is [0, 1]. The default value is **0**. If the value is **null** or
+   * **undefined**, the default value is used. If the value is out of the value range, the 17000007 error code is
+   * thrown.
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2221,7 +2208,7 @@ declare class On {
   inWindow(bundleName: string): On;
 
   /**
-   * Obtains the component object on the specified display.
+   * Specifies the display to which the target component belongs.
    *
    * @param { int } displayId - ID of the display to which the component belongs. The value is an integer greater than
    *     or equal to 0.
@@ -2288,12 +2275,12 @@ declare class On {
   type(tp: string, pattern: MatchPattern): On;
 
   /**
-   * Obtains the component object of the specified hint text and returns the **On** object.
+   * Specifies the hint text attribute of the target component.
    *
    * @param { string } val - The specified hint text of the component.<!--RP2--><!--RP2End-->
    * @param { MatchPattern } [pattern] - Match pattern{@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
-   * @returns { On } - The **On** object of the specified hint text component.
+   * @returns { On } - **On** object that matches the **hint** attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2567,8 +2554,8 @@ declare class Component {
   /**
    * Obtains the checkable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component object is checkable.
-   *     The value **true** indicates indicates that the component is checkable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return the result of whether the component object is checkable.
+   *     The value **true** indicates that the component is checkable, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2608,6 +2595,8 @@ declare class Component {
    *     For details, see [InputTextMode]{@link InputTextMode}.
    *     <br> **Note**: If **InputTextMode.addition** is set to **true**, the specified text is added to the end of the
    *     existing text in the component. Otherwise, the specified text overwrites the existing text of the component.
+   *     <br> If the input text contains Chinese characters or special characters or contains more than 200
+   *     characters, the text is copied and pasted regardless of the value of {@link InputTextMode}.paste.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2734,7 +2723,8 @@ declare class Component {
   getBoundsCenter(): Promise<Point>;
 
   /**
-   * Drags a component to the target component. This API uses a promise to return the result.
+   * Drags a component to the target component. This method is valid only for components that can be dragged. This API
+   * uses a promise to return the result.
    *
    * @param { Component } target - Target component.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -2751,9 +2741,11 @@ declare class Component {
   dragTo(target: Component): Promise<void>;
 
   /**
-   * Pinches out a component at the specified scale. This API uses a promise to return the result.
+   * Pinches out a component at the specified scale. This method is valid only for components that support scaling.
+   * This API uses a promise to return the result.
    *
-   * @param { double } scale - Scale factor, which is a value greater than 1.
+   * @param { double } scale - Scale factor, which is a value greater than 1. If the input value is less than or equal
+   *     to 1, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2768,9 +2760,11 @@ declare class Component {
    */
   pinchOut(scale: double): Promise<void>;
   /**
-   * Pinches in a component at the specified scale. This API uses a promise to return the result.
+   * Pinches in a component at the specified scale. This method is valid only for components that support scaling.
+   * This API uses a promise to return the result.
    *
-   * @param { double } scale - Scale factor, which is a value ranging from 0 to 1.
+   * @param { double } scale - Scale factor. The value range is (0, 1]. If the value is **0** or a negative number,
+   *     error code 401 is returned.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2819,10 +2813,9 @@ declare class Component {
    * @param { On } on - Attributes of the target component.
    * @param { boolean } [vertical] - Whether the search direction is vertical. The default value **true** indicates that the
    *     search direction is vertical. **false** indicates that the search direction is horizontal.
-   * @param { number } [offset] - Offset from the scrolling start/end point to the component border, in pixels. The default
-   *     value is **80**. The value is an integer greater than or equal to 0.
-   *     <br>Default value: 80
-   *     <br>Unit: px
+   * @param { number } [offset] - Offset from the scrolling start/end point to the component border, in pixels. The
+   *     default value is **80**. The value is an integer greater than or equal to 0. If the value is a negative
+   *     number, error code 401 is returned.
    * @returns { Promise<Component> } - Promise used to return the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2872,10 +2865,10 @@ declare class Component {
  }
 
 /**
- * The **Driver** class is the main entry to the UiTest framework. It provides APIs for features such as component
- * matching/search, key injection, coordinate clicking/sliding, and screenshot.
- * All APIs provided by this class, except **Driver.create()**, use a promise to return the result and must be invoked
- * using **await**.
+ * The **Driver** class is the main entrance of the UiTest framework. This class provides APIs for features such as
+ * component matching/search, key injection, coordinate clicking/sliding, and screenshot.
+ * All APIs provided by this class, except **Driver.create()** and **Driver.createUIEventObserver()**, use an
+ * asynchronous method (promise) to return the result and must be invoked using **await**.
  *
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform [since 12]
@@ -2900,11 +2893,10 @@ declare class Driver {
   static create(): Driver;
 
   /**
-   * Delays execution for the specified duration. This API uses a promise to return the result.
+   * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { int } duration - Specified time, in ms. The value is an integer greater than or equal to 0.
-   *     <br>Unit: ms
-   *     <br>Value range: The value should be >= 0
+   * @param { int } duration - Specified time, in ms. The value is an integer greater than or equal to 0. If the
+   *     value is a negative number, error code 401 is returned.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3039,8 +3031,8 @@ declare class Driver {
    */
   findComponents(on: On): Promise<Array<Component> | null>;
   /**
-   * Asserts whether a component matches the specified attributes exists on the current page. This API uses a promise
-   * to return the result.
+   * Asserts whether a component matches the specified attributes exists on the current page. If the assertion fails,
+   * a JS exception is thrown, causing the test case to fail. This API uses a promise to return the result.
    *
    * @param { On } on - Attributes of the target {@link Component}.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3058,7 +3050,12 @@ declare class Driver {
   assertComponentExist(on: On): Promise<void>;
 
   /**
-   * Presses the Back button. This API uses a promise to return the result.
+   * Simulates pressing the Back button. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This method only simulates pressing the Back button on the home screen. To simulate pressing the Back button
+   * > on a specified screen, use {@link pressBack}(displayId: number).
    *
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3072,7 +3069,7 @@ declare class Driver {
   pressBack(): Promise<void>;
 
   /**
-   * Presses the Back button on the specified screen. This API uses a promise to return the result.
+   * Simulates pressing the Back button on a specified screen. This API uses a promise to return the result.
    *
    * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
@@ -3088,9 +3085,9 @@ declare class Driver {
   pressBack(displayId: int): Promise<void>;
 
   /**
-   * Triggers a key event by passing the key value. This API uses a promise to return the result.
+   * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { int } keyCode - Key value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3106,10 +3103,10 @@ declare class Driver {
   triggerKey(keyCode: int): Promise<void>;
 
   /**
-   * Triggers a key event by passing the key value on the specified screen. This API uses a promise to return the
+   * Triggers a key event by passing the key code value on the specified screen. This API uses a promise to return the
    * result.
    *
-   * @param { int } keyCode - Key value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
@@ -3126,15 +3123,15 @@ declare class Driver {
   triggerKey(keyCode: int, displayId: int): Promise<void>;
 
   /**
-   * Triggers a combination key event based on the specified key values. This API uses a promise to return the result.
-   * For example, if the value of **Key** is (2072, 2019), the combination key **Ctrl+C** that matches the value is
-   * found and clicked.
+   * Triggers a combination key event based on the specified key code values. This API uses a promise to return the
+   * result. For example, if the key code value is (2072, 2019), the module finds and clicks the key combination that
+   * matches the value, for example, **Ctrl+C**.
    *
-   * @param { number } key0 - First key value. The value is an integer greater than or equal to 0.
+   * @param { number } key0 - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } key1 - Second key value. The value is an integer greater than or equal to 0.
+   * @param { number } key1 - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } [key2] - Third key value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Third key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3150,15 +3147,15 @@ declare class Driver {
   triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
 
   /**
-   * Triggers a combination key event based on the specified key values on the specified screen. This API uses a
-   * promise to return the result. For example, if the value of **Key** is (2072, 2019), the combination key **Ctrl+C**
-   *  that matches the value is found and clicked.
+   * Triggers a combination key event based on the specified key code values on the specified screen. This API uses a
+   * promise to return the result. For example, if the key code value is (2072, 2019), the module finds and clicks the
+   * key combination that matches the value, for example, **Ctrl+C**.
    *
-   * @param { int } key0 - First key value. The value is an integer greater than or equal to 0.
+   * @param { int } key0 - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } key1 - Second key value. The value is an integer greater than or equal to 0.
+   * @param { int } key1 - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } [key2] - Third key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Third key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value is the
@@ -3176,14 +3173,13 @@ declare class Driver {
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
   /**
-   * Clicks the target coordinate point. This API uses a promise to return the result.
+   * Clicks the target coordinate point. This method can be used only on the default screen of the device. To specify
+   * a screen, use {@link clickAt}. This API uses a promise to return the result.
    *
-   * @param { int } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } y - Number, which indicates the vertical coordinate of the target point. The value is an integer greater
-   *     than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3198,14 +3194,13 @@ declare class Driver {
   click(x: int, y: int): Promise<void>;
 
   /**
-   * Double-clicks the target coordinate point. This API uses a promise to return the result.
+   * Double-clicks the target coordinate point. This method can be used only on the default screen of the device. To
+   * specify a screen, use {@link doubleClickAt}. This API uses a promise to return the result.
    *
-   * @param { int } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } y - Number, which indicates the vertical coordinate of the target point. The value is an integer greater
-   *     than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3220,14 +3215,14 @@ declare class Driver {
   doubleClick(x: int, y: int): Promise<void>;
 
   /**
-   * Long-clicks the target coordinate point. This API uses a promise to return the result.
+   * Long-clicks the target coordinate point. This method can be used only on the default screen of the device, and
+   * the long-click duration cannot be customized. To specify a screen or long-click duration, use {@link longClickAt}.
+   * This API uses a promise to return the result.
    *
-   * @param { int } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } y - Number, which indicates the vertical coordinate of the target point. The value is an integer greater
-   *     than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3242,21 +3237,18 @@ declare class Driver {
   longClick(x: int, y: int): Promise<void>;
 
   /**
-   * Swipes from the start coordinate point to the target coordinate point. This API uses a promise to return the
-   * result.
+   * Swipes from the start coordinate point to the target coordinate point. This method can be used only on the
+   * default screen of the device. To specify a screen, use {@link swipeBetween}. This API uses a promise to return
+   * the result.
    *
-   * @param { int } startx - Number, which indicates the horizontal coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } starty - Number, which indicates the vertical coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } endx - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } endy - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } startx - Horizontal coordinate of the start point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } starty - Vertical coordinate of the start point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } endx - Horizontal coordinate of the end point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } endy - Vertical coordinate of the end point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
    * @param { int } [speed] - Swipe speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
    *     , the default value **600** is used.
    *     <br>Value range:[200, 40000]
@@ -3277,21 +3269,18 @@ declare class Driver {
   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
-   * Drags from the start coordinate point to the target coordinate point. This API uses a promise to return the result
-   * .
+   * Drags from the start coordinate point to the target coordinate point. This method can be used only on the
+   * default screen of the device, and the long-click duration before dragging cannot be customized. To specify a
+   * screen or long-click duration, use {@link dragBetween}. This API uses a promise to return the result.
    *
-   * @param { int } startx - Number, which indicates the horizontal coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } starty - Number, which indicates the vertical coordinate of the start point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } endx - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } endy - Number, which indicates the vertical coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } startx - Horizontal coordinate of the start point, in pixels. The value is an integer greater
+   *     than or equal to 0.
+   * @param { int } starty - Vertical coordinate of the start point, in pixels. The value is an integer greater
+   *     than or equal to 0.
+   * @param { int } endx - Horizontal coordinate of the end point, in pixels. The value is an integer greater
+   *     than or equal to 0.
+   * @param { int } endy - Vertical coordinate of the end point, in pixels. The value is an integer greater
+   *     than or equal to 0.
    * @param { int } [speed] - Drag speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
    *     , the default value **600** is used.
    *     <br>Value range:[200, 40000]
@@ -3362,10 +3351,9 @@ declare class Driver {
    * Long-clicks the target coordinate point for a specified duration. This API uses a promise to return the result.
    *
    * @param { Point } point - Point object, which is used to transfer the target point information.
-   * @param { int } [duration] - Long-click duration, in ms.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Unit: ms
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Long-click duration, in ms. The value is an integer greater than or equal to 1500.
+   *     The default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value is
+   *     **null** or **undefined**, the default value is used.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3455,10 +3443,9 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 600
-   * @param { int } [duration] - The duration of the long press before dragging.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Unit: ms
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Click duration, in ms. The value is an integer greater than or equal to 1500. The
+   *     default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value is
+   *     **null** or **undefined**, the default value is used.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3495,7 +3482,7 @@ declare class Driver {
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
    * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
-   *     The value **true** indicates that the operation is successful, and **false** indicates the opposite.
+   *     The value **true** indicates the screenshot operation is successful, and **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3516,7 +3503,8 @@ declare class Driver {
    * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<boolean> } Promise used to return whether the screenshot operation is successful. The value
-   *     **true** indicates that the screen capture operation is successful, and **false** indicates the opposite.
+   *     **true** indicates that the screen capture operation is successful, and the value **false** indicates the
+   *     opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3529,12 +3517,16 @@ declare class Driver {
   screenCap(savePath: string, displayId: int): Promise<boolean>;
 
   /**
-   * Get the current layout information and save as file with json format.
+   * Dumps the current layout information and saves it as a JSON file. This method is applicable to test scenarios
+   * where you need to analyze the hierarchy of UI controls or debug controls to locate issues. This API uses a
+   * promise to return the result.
    *
    * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
    *     The path must be the [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current
    *     application.
-   * @param { int } [displayId] - the Id of the specified display, default is the displayId of the main screen.
+   * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value
+   *     is the default screen ID of the device.
+   *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<boolean> } true if dump layout and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3546,8 +3538,9 @@ declare class Driver {
    */
   dumpLayout(savePath: string, displayId?: int): Promise<boolean>;
   /**
-   * Sets the display rotation of the current scene. This API uses a promise to return the result. It applies to
-   * rotatable scenarios.
+   * Sets the display rotation of the current scene. This API uses a promise to return the result. This API is
+   * applicable to scenarios where rotation is allowed. The rotation function can be enabled by setting
+   * **orientation=** to **auto_rotation** in the module.json5 configuration file.
    *
    * @param { DisplayRotation } rotation - Display rotation of the device.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3565,6 +3558,11 @@ declare class Driver {
 
   /**
    * Obtains the display rotation of the current device. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This method can only be used to obtain the display rotation of the home screen. To obtain the display rotation
+   * > of a specified screen, use {@link getDisplayRotation}(displayId: number).
    *
    * @returns { Promise<DisplayRotation> } - Promise used to return the display rotation of the current device.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3593,7 +3591,9 @@ declare class Driver {
   getDisplayRotation(displayId: int): Promise<DisplayRotation>;
 
   /**
-   * Enables or disables display rotation. This API uses a promise to return the result.
+   * Enables or disables display rotation. This method is applicable to scenarios where the screen orientation needs
+   * to be locked during the test to maintain a specific display state, for example, testing the layout stability in
+   * landscape or portrait mode. This API uses a promise to return the result.
    *
    * @param { boolean } enabled - Whether the screen can be rotated. The value **true** indicates that the screen can be
    *     rotated, and **false** indicates the opposite.
@@ -3611,6 +3611,11 @@ declare class Driver {
 
   /**
    * Obtains the display size of the current device. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This method can only be used to obtain the display size of the home screen. To obtain the display size of a
+   * > specified screen, use {@link getDisplaySize}(displayId: number).
    *
    * @returns { Promise<Point> } - Promise used to return the **Point** object.
    *     The size of the current device screen is **Point.x * Point.y**.
@@ -3644,6 +3649,11 @@ declare class Driver {
 
   /**
    * Obtains the display density of the current device. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This method can only be used to obtain the display density of the home screen. To obtain the display density
+   * > of a specified screen, use {@link getDisplayDensity}(displayId: number).
    *
    * @returns { Promise<Point> } Promise used to return the **Point** object. The density of the current device display
    *     is **Point.x*Point.y**.
@@ -3717,13 +3727,15 @@ declare class Driver {
   pressHome(displayId: int): Promise<void>;
 
   /**
-   * Checks whether all components on the current UI are idle. This API uses a promise to return the result.
+   * Checks whether all components on the current UI are idle. This method is applicable to scenarios such as page
+   * redirection, animation playback, and loading. After calling this method, you can perform subsequent test
+   * operations only after the UI becomes stable. This API uses a promise to return the result.
    *
    * @param { int } idleTime - Idle time threshold, in ms. If the duration for which a component remains inactive reaches
-   *     this threshold, it is considered as idle. The value must be an integer greater than or equal to 0.
-   *     <br>Unit: ms
-   * @param { int } timeout - Maximum waiting time, in milliseconds. The value is an integer greater than or equal to 0.
-   *     <br>Unit: ms
+   *     this threshold, it is considered as idle. The value must be an integer greater than or equal to 0. If the
+   *     value is a negative number, error code 401 is returned.
+   * @param { int } timeout - Maximum waiting time, in ms. The value is an integer greater than or equal to 0. If the
+   *     value is a negative number, error code 401 is returned.
    * @returns { Promise<boolean> } - Promise used to return whether all components on the current UI are idle. The value true
    *     indicates that all components on the current UI are idle, and false indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3743,7 +3755,8 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the point where the finger touches the screen.
    * @param { Point } to - Coordinates of the point where the finger leaves the screen.
-   * @param { int } stepLen - Step length, in pixels. The value is an integer greater than or equal to 0.
+   * @param { int } stepLen - Sliding step length, in pixels. The value is an integer greater than or equal to 0. If
+   *     the value is a negative number, error code 401 is returned.
    *     <br>Unit: px
    * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
    *     , the default value **600** is used.
@@ -3765,7 +3778,9 @@ declare class Driver {
   fling(from: Point, to: Point, stepLen: int, speed: int): Promise<void>;
 
   /**
-   * Injects a multi-finger operation into a device. This API uses a promise to return the result.
+   * Injects a multi-finger operation into a device. This method applies to test scenarios where multi-finger
+   * gestures need to be simulated, such as pinching or spreading two fingers to zoom in or out on the image or
+   * swiping with multiple fingers to switch between pages. This API uses a promise to return the result.
    *
    * @param { PointerMatrix } pointers - Scroll trajectory, including the number of fingers and an array of coordinates along
    *     the trajectory.
@@ -3837,15 +3852,15 @@ declare class Driver {
 
   /**
    * Injects a mouse click action at the specified coordinates, with the optional key or key combination. This API uses
-   *  a promise to return the result. For example, if the value of **key1** is **2072**, the **Ctrl** button is pressed
+   *  a promise to return the result. For example, if the key code value is **2072**, the **Ctrl** button is pressed
    *  with the mouse click.
    *
-   * @param { Point } p - Coordinates of the mouse click.
+   * @param { Point } p - Target coordinates of the mouse click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3878,20 +3893,19 @@ declare class Driver {
 
   /**
    * Injects a mouse scroll action at the specified coordinates, with the optional key or key combination. This API
-   * uses a promise to return the result. For example, if the value of **key1** is **2072**, the **Ctrl** button is
+   * uses a promise to return the result. For example, if the key code value is **2072**, the **Ctrl** button is
    * pressed with mouse scrolling.
    *
-   * @param { Point } p - Coordinates of the mouse click.
+   * @param { Point } p - Target coordinates of mouse scrolling.
    * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
    *     downward, and **false** indicates the mouse wheel scrolls upward.
-   * @param { number } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px shift to the target point.
-   *     The value is an integer greater than or equal to 0.
-   *     <br>Value range: The value should be >= 0
-   *     <br>Unit: px
-   * @param { number } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { number } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
+   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     error code 401 is returned.
+   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3909,16 +3923,16 @@ declare class Driver {
    * Injects a mouse scroll action at the specified coordinates, with the optional key or key combination and the
    * specified scroll speed. This API uses a promise to return the result.
    *
-   * @param { Point } p - Coordinates of the mouse click.
+   * @param { Point } p - Target coordinates of mouse scrolling.
    * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
    *     downward, and **false** indicates the mouse wheel scrolls upward.
-   * @param { int } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px shift to the target point. The
-   *     value is an integer greater than or equal to 0.
-   *     <br>Unit: cell
-   * @param { int } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { int } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
+   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     error code 401 is returned.
+   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @param { int } [speed] - Scroll speed of the mouse wheel.
@@ -3940,8 +3954,9 @@ declare class Driver {
 
   /**
    * Captures the specified area of the current screen and saves the captured screenshot as a PNG image to the
-   * specified path. This API uses a promise to return the result. This API can be used in scenarios where screenshots
-   * are supported.
+   * specified path. This API uses a promise to return the result. This API can be used in scenarios where
+   * screenshots are supported. Unlike {@link screenCap}, this API allows you to specify the screenshot area using
+   * the **rect** parameter instead of capturing the entire screen.
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
@@ -3963,7 +3978,7 @@ declare class Driver {
   /**
    * Creates a UI event listener {@link UIEventObserver}.
    *
-   * @returns { UIEventObserver } - UI event listener {@link UIEventObserver}.
+   * @returns { UIEventObserver } - UI event listener object created.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -3975,15 +3990,15 @@ declare class Driver {
 
   /**
    * Injects a double-click action at the specified coordinates, with the optional key or key combination. This API
-   * uses a promise to return the result. For example, if the value of **key** is **2072**, the **Ctrl** button is
+   * uses a promise to return the result. For example, if the key code value is **2072**, the **Ctrl** button is
    * pressed with the double-click.
    *
    * @param { Point } p - Coordinates of the double-click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4000,15 +4015,15 @@ declare class Driver {
 
   /**
    * Injects a mouse long-click action at the specified coordinates, with the optional key or key combination. This API
-   *  uses a promise to return the result. For example, if the value of **Key** is **2072**, the **Ctrl** button is
+   *  uses a promise to return the result. For example, if the key code value is **2072**, the **Ctrl** button is
    * long-clicked with the mouse device.
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { number } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4024,21 +4039,20 @@ declare class Driver {
 
   /**
    * Injects a mouse long-click action at the specified coordinates, with the optional key or key combination and the
-   * specified duration. This API uses a promise to return the result. For example, if the value of **Key** is **2072**
-   * , the **Ctrl** button is long-clicked with the mouse device.
+   * specified duration. This API uses a promise to return the result. For example, if the key code value is **2072**
+   * , the **Ctrl** button is pressed with the long-click.
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [duration] - Long-click duration.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Unit: ms
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Long-click duration, in ms. The value is an integer greater than or equal to 1500.
+   *     The default value is 1500. If the value is less than 1500, error code 401 is thrown. If the value is **null**
+   *     or **undefined**, the default value is used.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4052,7 +4066,9 @@ declare class Driver {
   mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int, duration?: int): Promise<void>;
 
   /**
-   * Moves the mouse pointer from the start point to the end point. This API uses a promise to return the result.
+   * Moves the mouse pointer from the start point to the end point, with a visible movement track. This method is
+   * applicable to test scenarios that depend on the mouse movement track, such as verification of the mouse hover
+   * effect and selecting an area by dragging with the mouse. This API uses a promise to return the result.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
@@ -4105,10 +4121,9 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { int } [duration] - The duration of the long press before dragging.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Unit: ms
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Click duration, in ms. The value is an integer greater than or equal to 1500. The
+   *     default value is 1500. If the value is less than 1500, error code 401 is thrown. If the value is **null**
+   *     or **undefined**, the default value is used.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4174,6 +4189,8 @@ declare class Driver {
    *
    *      If **InputTextMode.addition** is set to **true**, the cursor moves to the end of the text and the specified
    *     text is input. If the value is **false**, the specified text is input at the coordinate point.
+   *     <br> If the input text contains Chinese characters or special characters or contains more than 200
+   *     characters, the text is copied and pasted regardless of the value of {@link InputTextMode}.paste.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4191,10 +4208,14 @@ declare class Driver {
   /**
    * Simulates a multi-finger swipe gesture on the touchpad. This API uses a promise to return the result.
    *
-   * @param { int } fingers - Number of fingers. The value can be 3 or 4.
+   * @param { int } fingers - Number of fingers. The value can be 3 or 4. If the value is out of range, error code
+   *     401 is thrown.
    * @param { UiDirection } direction - Swipe direction.
    * @param { TouchPadSwipeOptions } [options] - Additional options for the multi-finger swipe gesture on the touchpad. The
-   *     default values of the attributes in **{@link TouchPadSwipeOptions }** are used by default.
+   *     default values of the attributes in **{@link TouchPadSwipeOptions }** are used by default. This parameter is
+   *     used to specify whether the multi-finger swipe gesture ends with a pause and the swipe speed. It is
+   *     applicable to scenarios where multi-finger swipe gestures are simulated on the touchpad, for example,
+   *     swiping up with three fingers to switch the task view.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4228,9 +4249,9 @@ declare class Driver {
    * Simulates a pen long-click operation. This API uses a promise to return the result.
    *
    * @param { Point } point - Coordinates of the long-clicked point.
-   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. The default value is **1.0**.
-   *     <br>Value range:[0.0, 1.0]
-   *     <br>Default value: 1.0
+   * @param { double } [pressure] - Long-click pressure of the pen. The value ranges from 0.0 to 1.0. The default value
+   *     is **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
+   *     value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4269,9 +4290,9 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Swipe pressure of the pen.
-   *     <br>Value range:[0.0, 1.0]
-   *     <br>Default value: 1.0
+   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. The default value is
+   *     **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
+   *     value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4285,7 +4306,9 @@ declare class Driver {
   penSwipe(startPoint: Point, endPoint: Point, speed?: int, pressure?: double): Promise<void>;
 
   /**
-   * Simulates a continuous multi-point pen injection operation. This API uses a promise to return the result.
+   * Simulates a continuous multi-point pen injection operation. This method is applicable to test scenarios where
+   * custom track operations, such as continuous writing and drawing with a pen, need to be simulated. This API uses
+   * a promise to return the result.
    *
    * @param { PointerMatrix } pointers - Scroll trajectory, including the number of fingers and an array of coordinates along
    *     the trajectory.
@@ -4296,9 +4319,9 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Injection pressure.
-   *     <br>Value range:[0.0, 1.0]
-   *     <br>Default value: 1.0
+   * @param { double } [pressure] - Injection pressure. The value range is [0.0, 1.0]. The default value is **1.0**.
+   *     If the value is **null** or **undefined**, the default value is used. If the value is out of the value range,
+   *     error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4321,11 +4344,16 @@ declare class Driver {
    *   HANDWRITING key with CLICK or DOUBLE_CLICK operation, SMART key with CLICK operation.
    * Other combinations will result in a BusinessError 17000007.
    *
-   * @param { PenKey } key - the pen key to operate.
-   * @param { PenMode } mode - the pen mode.
-   * @param { PenKeyOperation } operation - the operation type.
-   * @param { PenKeyOperationOptions } [options] - the operation options, including optional coordinate point.
-   *                                   Default value: Refer to the default value of PenKeyOperationOption.
+   * @param { PenKey } key - Stylus key type, which specifies the stylus key to be used for the operation, such as the
+   *     handwriting key, air mouse key, and smart key.
+   * @param { PenMode } mode - Stylus mode, which specifies the current operation mode of the stylus, such as the
+   *     handwriting mode or air mouse mode.
+   * @param { PenKeyOperation } operation - Stylus key operation mode, which specifies the operation mode of the key,
+   *     such as single-tap or double-tap.
+   * @param { PenKeyOperationOptions } [options] - Operation options, including optional coordinates. The default values
+   *     are inherited from the default values of the properties in {@link PenKeyOperationOptions}.
+   *     <br> **Note**: When **mode** is set to {@link PenMode#AIR_MOUSE} and **key** is set to {@link PenKey#AIR_MOUSE},
+   *     the **point** attribute in **options** must be set. Otherwise, error code 17000007 will be thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
@@ -4341,7 +4369,8 @@ declare class Driver {
    * Injects a crown rotation event. You can specify the rotation speed. This API uses a promise to return the result.
    *
    * @param { int } d - Number of rotation ticks. A positive value indicates rotation, and a negative value indicates
-   *     counterclockwise rotation. The value must be an integer.
+   *     counterclockwise rotation. The value must be an integer. If the value is not an integer, error code 401 is
+   *     returned.
    * @param { int } [speed] - Rotation speed.
    *     <br>Unit: ticks/s.
    *     <br>Value range: [1, 500]
@@ -4360,14 +4389,15 @@ declare class Driver {
   crownRotate(d: int, speed?: int): Promise<void>;
 
   /**
-   * Long-clicks at the specified coordinates and checks whether the target component exists. This API uses a promise
-   *  to return the result.
+   * Long-clicks at the specified coordinates and checks whether the target component exists. This method is
+   * applicable to verifying the UI elements that dynamically appear after a long-click, such as the context menu or
+   * edit button. This API uses a promise to return the result.
    *
    * @param { On } on - Attributes of the target {@link Component}.
    * @param { Point } point - Coordinates of the long-clicked point.
-   * @param { int } [duration] - Long-click duration.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Long-click duration, in ms. The value is an integer greater than or equal to 1500.
+   *     The default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value
+   *     is **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during a long-click
    *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4382,7 +4412,9 @@ declare class Driver {
   isComponentPresentWhenLongClick(on: On, point: Point, duration?: int): Promise<boolean>;
 
   /**
-   * Drags from the start point to the end point and checks whether the target component exists. This API uses a
+   * Drags from the start point to the end point and checks whether the target component exists. This method is
+   * applicable to verifying the dynamic UI elements that appear during the drag operation. For example, when dragging
+   * a file to a target folder, you can use this API to verify the highlight effect of the folder. This API uses a
    * promise to return the result.
    *
    * @param { On } on - Attributes of the target {@link Component}.
@@ -4396,9 +4428,9 @@ declare class Driver {
    *     <br>Value range:[200, 40000]
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 600
-   * @param { int } [duration] - The duration of the long press before dragging.
-   *     <br>Value range: The value should be >= 1500
-   *     <br>Default value: 1500
+   * @param { int } [duration] - Click duration, in ms. The value is an integer greater than or equal to 1500. The
+   *     default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value is
+   *     **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during the dragging
    *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4412,8 +4444,10 @@ declare class Driver {
   isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: int, duration?: int): Promise<boolean>;
 
   /**
-   * Swipes from the start point to the end point and checks whether the target component exists. This API uses a
-   * promise to return the result.
+   * Swipes from the start point to the end point and checks whether the target component exists. This method is
+   * applicable to verifying the dynamic UI elements that appear during the swipe operation, for example, verifying
+   * whether the delete button appears when swiping is used to delete a list item. This API uses a promise to return
+   * the result.
    *
    * @param { On } on - Attributes of the target component.
    * @param { Point } from - Point object, which transfers the coordinates of the start point and the ID of
@@ -4444,8 +4478,9 @@ declare class Driver {
    *
    * @param { Point } point - Point of the mouse cursor when the two-finger scrolling is performed on the touchpad.
    * @param { UiDirection } direction - Direction of two-finger scrolling on the touchpad.
-   * @param { int } d - Number of grids scrolled by two fingers on the touchpad. A grid indicates a 120 px shift to the
-   *     target point. The value is an integer greater than or equal to 0.
+   * @param { int } d - Number of grids scrolled by two fingers on the touchpad. A tick indicates a 120 px scroll at
+   *     the mouse cursor position. The value is an integer greater than or equal to 0. If the value is a negative
+   *     number, the 17000007 error code is returned.
    * @param { int } [speed] - Speed of two-finger scrolling on the touchpad.
    *     <br>Unit: ticks/s.
    *     <br>Value range: [1, 500]
@@ -4470,9 +4505,10 @@ declare class Driver {
    * >
    * > If the knuckle gesture is disabled on the device<!--RP4--><!--RP4End-->, 17000005 is returned.
    *
-   * @param { Array<Point> } pointers - Array of knuckle knock coordinates on the display. The array length can be 1 or 2.
-   * @param { int } times - Number of consecutive knocks on the display.
-   *     <br>Value range:[1,2]
+   * @param { Array<Point> } pointers - Array of knuckle knock coordinates on the display. The array length can be
+   *     1 or 2. If the value is out of range, error code 17000007 is thrown.
+   * @param { int } times - Number of consecutive knocks on the display. The value can be 1 or 2. If the value is out
+   *     of range, error code 17000007 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
@@ -4587,8 +4623,8 @@ declare class UiWindow {
   /**
    * Checks whether a window is focused. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the window is focused. The value **true** indicates that
-   *     the component is focused, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return the result of whether the window is focused. The value
+   *     **true** indicates that the component is focused, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -4633,12 +4669,10 @@ declare class UiWindow {
    * Moves a window to the target point. This API uses a promise to return the result. This API is applicable to
    * moveable windows.
    *
-   * @param { int } x - Number, which indicates the horizontal coordinate of the target point. The value is an integer
-   *     greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } y - Number, which indicates the vertical coordinate of the target point. The value is an integer greater
-   *     than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
+   * @param { int } y - Vertical coordinate of the target point, in pixels. The value is an integer greater than
+   *     or equal to 0. If the value is out of range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4657,12 +4691,10 @@ declare class UiWindow {
    * Resizes a window based on the specified width, height, and direction. This API uses a promise to return the
    * result. This API is applicable to resizable windows.
    *
-   * @param { int } wide - Width of the adjusted window, in number format.
-   *     The value is an integer greater than or equal to 0.
-   *     <br>Unit: px
-   * @param { int } height - Height of the adjusted window, in number format.
-   *     The value is an integer greater than or equal to 0.
-   *     <br>Unit: px
+   * @param { int } wide - Width of the adjusted window, in pixels. The value is an integer greater than or equal to
+   *     0. If the value is out of range, error code 401 is thrown.
+   * @param { int } height - Height of the adjusted window, in pixels. The value is an integer greater than or
+   *     equal to 0. If the value is out of range, error code 401 is thrown.
    * @param { ResizeDirection } direction - Resize direction.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -4679,8 +4711,8 @@ declare class UiWindow {
   resize(wide: int, height: int, direction: ResizeDirection): Promise<void>;
 
   /**
-   * Switches to the split-screen mode. This API uses a promise to return the result. This API is applicable to
-   * windows that support screen splitting.
+   * Switches to the split-screen mode. A window can be resumed to its previous mode using {@link resume}. This API
+   * uses a promise to return the result. This API is applicable to windows that support screen splitting.
    *
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4695,8 +4727,8 @@ declare class UiWindow {
   split(): Promise<void>;
 
   /**
-   * Maximizes a window. This API uses a promise to return the result. This API is applicable to windows that can be
-   * maximized.
+   * Maximizes a window. A window can be resumed to its previous mode using {@link resume}. This API uses a promise
+   * to return the result. This API is applicable to windows that can be maximized.
    *
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4711,8 +4743,8 @@ declare class UiWindow {
   maximize(): Promise<void>;
 
   /**
-   * Minimizes a window. This API uses a promise to return the result. This API is applicable to windows that can be
-   * minimized.
+   * Minimizes a window. A window can be resumed to its previous mode using {@link resume}. This API uses a promise
+   * to return the result. This API is applicable to windows that can be minimized.
    *
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4787,8 +4819,10 @@ declare class UiWindow {
  }
 
 /**
- * Represents a two-dimensional array of pointers on the device display, it's used to build a
- * multi-finger trace which can be injected with UiDriver.
+ * Implements a **PointerMatrix** object that stores coordinates and behaviors of each action of each finger in a
+ * multi-touch operation. After creating an object using {@link create}, use {@link setPoint} to set the coordinates
+ * of each finger at each step. Then pass the coordinates to {@link injectMultiPointerAction} to perform a
+ * multi-finger operation.
  *
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform [since 11]
@@ -4801,10 +4835,10 @@ declare class PointerMatrix {
   /**
    * Creates a **PointerMatrix** object and returns the object created. This API is a static API.
    *
-   * @param { int } fingers - Number of fingers injected during the multi-finger operation.
-   *     <br>Value range:[1, 10]
-   * @param { int } steps - Number of steps performed by a finger.
-   *     <br>Value range:[1, 1000]
+   * @param { int } fingers - Number of fingers injected during the multi-finger operation. The value is an integer
+   *     ranging from 1 to 10. If the value is out of range, error code 401 is thrown.
+   * @param { int } steps - Number of steps performed by a finger. The value is an integer ranging from 1 to 1000.
+   *     If the value is out of range, error code 401 is thrown.
    * @returns { PointerMatrix } - **PointerMatrix** object created.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
