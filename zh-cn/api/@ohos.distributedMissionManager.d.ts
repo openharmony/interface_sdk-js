@@ -246,9 +246,7 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - 当前任务流转状态，取值为'continueStateChange'。
-   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } callback - Callback used to return the continuation
-   *     state and information of the current mission. [since 10 - 10]
-   * @param { Callback<ContinueCallbackInfo> } callback - 回调函数，返回当前任务的流转状态和流转信息。[since 11]
+   * @param { Callback<ContinueCallbackInfo> } callback - 回调函数，返回当前任务的流转状态和流转信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -264,8 +262,7 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - 当前任务流转状态，取值为'continueStateChange'。
-   * @param { Callback<{ state: ContinueState, info: ContinuableInfo }> } [callback] - 需要取消的回调函数。<br>参数不填写，取消type对应的所有回调监听。[since 10 - 10]
-   * @param { Callback<ContinueCallbackInfo> } callback - 需要取消的回调函数。<br>参数不填写，取消type对应的所有回调监听。[since 11]
+   * @param { Callback<ContinueCallbackInfo> } callback - 需要取消的回调函数。参数不填写，取消type对应的所有回调监听。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -417,7 +414,7 @@ declare namespace distributedMissionManager {
   function continueMission(parameter: ContinueMissionInfo): Promise<void>;
 
   /**
-   * Continuable information corresponding to ability.
+   * 应用任务对应的可迁移信息。
    *
    * @typedef { _ContinuableInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -429,7 +426,7 @@ declare namespace distributedMissionManager {
   export type ContinuableInfo = _ContinuableInfo;
 
   /**
-   * Parameters corresponding to continue mission.
+   * 迁移任务所需的参数。
    *
    * @typedef { _ContinueMissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -441,7 +438,7 @@ declare namespace distributedMissionManager {
   export type ContinueMissionInfo = _ContinueMissionInfo;
 
   /**
-   * ContinueCallback registered for notify continue result.
+   * 注册用于通知迁移结果的回调。
    *
    * @typedef { _ContinueCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -453,7 +450,7 @@ declare namespace distributedMissionManager {
   export type ContinueCallback = _ContinueCallback;
 
   /**
-   * Parameters corresponding to continue mission.
+   * 迁移任务所需的参数。
    *
    * @typedef { _ContinueDeviceInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
