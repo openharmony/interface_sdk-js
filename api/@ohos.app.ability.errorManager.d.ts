@@ -474,7 +474,7 @@ declare namespace errorManager {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    THREAD = 6
+    THREAD = 6,
   }
 
   /**
