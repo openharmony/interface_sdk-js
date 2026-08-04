@@ -657,10 +657,6 @@ declare class NavPathStack {
   /**
    * 将info指定的NavDestination页面信息入栈，使用Promise异步回调返回接口调用结果。
    *
-   * > **说明：**
-   * >
-   * > 不建议在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-   *
    * @param { NavPathInfo } info - NavDestination页面的信息。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>true：支持转场动画；false：不支持转场动画。<br/>默认值：true
    * @returns { Promise<void> } 异步返回结果。
@@ -681,10 +677,6 @@ declare class NavPathStack {
 
   /**
    * 将info指定的NavDestination页面信息入栈，使用Promise异步回调返回接口调用结果，具体根据options中指定不同的[LaunchMode]{@link LaunchMode}，来实现不同的行为。
-   *
-   * > **说明：**
-   * >
-   * > 不建议在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { NavPathInfo } info - NavDestination页面的信息。
    * @param { NavigationOptions } [options] - 路由栈操作选项。
@@ -739,10 +731,6 @@ declare class NavPathStack {
   /**
    * 将name指定的NavDestination页面信息入栈，传递的数据为param，使用Promise异步回调返回接口调用结果。
    *
-   * > **说明：**
-   * >
-   * > 不建议在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-   *
    * @param { string } name - NavDestination页面名称。
    * @param { Object } param - 开发者设置的NavDestination页面详细参数。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>true：支持转场动画；false：不支持转场动画。<br/>默认值：true
@@ -764,10 +752,6 @@ declare class NavPathStack {
 
   /**
    * 将name指定的NavDestination页面信息入栈，传递的数据为param，并且添加用于页面出栈时处理返回结果的onPop回调，使用Promise异步回调返回接口调用结果。
-   *
-   * > **说明：**
-   * >
-   * > 不建议在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { string } name - NavDestination页面名称。
    * @param { Object } param - 开发者设置的NavDestination页面详细参数。
@@ -966,7 +950,7 @@ declare class NavPathStack {
   pop(result: Object, animated?: boolean): NavPathInfo | undefined;
 
   /**
-   * 回退路由栈到由栈底开始第一个名为name的NavDestination页面。
+   * 回退路由栈到栈底第一个名为name的NavDestination页面。
    *
    * @param { string } name - NavDestination页面名称。
    * @param { boolean } [animated] - 是否支持转场动画。<br/>true：支持转场动画；false：不支持转场动画。<br/>默认值：true [since 11]
@@ -1063,7 +1047,7 @@ declare class NavPathStack {
   /**
    * 获取栈中所有NavDestination页面的名称。
    *
-   * @returns { Array<string> } 返回栈中所有NavDestination页面的名称。
+   * @returns { Array<string> } 返回栈中所有NavDestination页面的名称，数组元素按页面在栈中的索引从0开始顺序排列。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1091,7 +1075,7 @@ declare class NavPathStack {
    * 获取所有名为name的NavDestination页面的参数信息，按页面索引从小到大排序。
    *
    * @param { string } name - NavDestination页面名称。
-   * @returns { Array<unknown> } 返回全部名为name的NavDestination页面的参数信息，unknown可以是用户自定义的类型。
+   * @returns { Array<unknown> } 返回全部名为name的NavDestination页面的参数信息数组，数组元素按页面索引从小到大排序，每个元素为对应页面的参数信息，具体内容由开发者自定义。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1156,7 +1140,7 @@ declare class NavPathStack {
   /**
    * 设置Navigation页面跳转拦截回调。
    *
-   * @param { NavigationInterception } interception - 设置Navigation跳转拦截对象。
+   * @param { NavigationInterception } interception - 设置Navigation跳转拦截对象。设置后，可在页面跳转前/后执行自定义回调，允许操作栈或拦截跳转。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1190,7 +1174,7 @@ declare class NavPathStack {
    * > [getPathStack]{@link NavPathStack#getPathStack}接口获取，不可主动赋新值）。若该id在当前路由栈中不存在，则表示新增页面，若在当前路由栈中存在，同时对应的name相同，则表示复用已
    * > 有页面。
    *
-   * @param { Array<NavPathInfo> } pathStack - 设置当前路由栈中的路由页面信息数组。<br/>**说明：**<br/>数组长度无限制。
+   * @param { Array<NavPathInfo> } pathStack - 设置当前路由栈中的路由页面信息数组。设置后，将当前路由栈更新为指定内容，并实现路由转场。开发者可在原有栈的基础上批量添加或删除页面。<br/>**说明：**<br/>数组长度无限制。
    * @param { boolean } [animated] - 是否开启转场动画。<br/>true：开启转场动画；false：不开启转场动画。<br /> 默认值：true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1455,7 +1439,7 @@ interface NavigationInterface {
   (pathInfos: NavPathStack): NavigationAttribute;
 
   /**
-   * 绑定路由栈到Navigation组件，并且指定一个NavDestination作为Navigation的导航页（主页），适用于使用[NavPathStack]{@link NavPathStack}配合
+   * 绑定路由栈到Navigation组件，指定一个NavDestination作为Navigation的导航页（主页），适用于使用[NavPathStack]{@link NavPathStack}配合
    * [navDestination]{@link NavigationAttribute#navDestination}属性或者系统路由表进行页面路由。使用示例参考
    * [示例16（Navigation使用NavDestination作为导航页）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#示例16navigation使用navdestination作为导航页)。
    *
@@ -1713,7 +1697,7 @@ declare enum ScrollEffectType {
 declare interface ScrollEffectOptions {
 
   /**
-   * 标题栏滑动模糊样式。
+   * 标题栏滚动模糊效果类型。
    * 默认值： ScrollEffectType.COMMON_BLUR。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1725,7 +1709,7 @@ declare interface ScrollEffectOptions {
   scrollEffectType?: ScrollEffectType;
 
   /**
-   * 内容区域的最小滑动距离，实现标题栏滑动模糊效果。
+   * 启用标题栏滚动模糊效果的最小滑动距离。当用户滑动距离超过该值时，开始应用模糊效果。
    * 默认值： 0vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1737,7 +1721,7 @@ declare interface ScrollEffectOptions {
   blurEffectiveStartOffset?: LengthMetrics;
 
   /**
-   * 标题栏达到最终模糊样式的内容区最大滑动距离。
+   * 达到标题栏最终模糊样式的最大滑动距离。当用户滑动距离达到该值时，模糊效果达到最终状态。
    * 默认值： 8vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1762,7 +1746,7 @@ declare interface ScrollEffectOptions {
 declare interface NavigationTitleOptions {
 
   /**
-   * 标题栏背景颜色，不设置时为系统默认颜色。
+   * 标题栏背景颜色，设置后，标题栏背景将显示为指定颜色；不设置时为系统默认颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1773,7 +1757,7 @@ declare interface NavigationTitleOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * 标题栏背景模糊样式，不设置时关闭背景模糊效果。
+   * 标题栏背景模糊样式，设置后，标题栏将应用指定的模糊样式；不设置时关闭背景模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1784,7 +1768,7 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * 标题栏背景模糊选项。
+   * 工具栏背景模糊选项。
    *
    * **说明：**
    *
@@ -1801,7 +1785,7 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * 设置标题栏背景属性包括：模糊半径，亮度，饱和度，颜色等。
+   * 设置工具栏背景属性包括：模糊半径，亮度，饱和度，颜色等。
    *
    * **说明：**
    *
@@ -2003,7 +1987,7 @@ declare enum BarStyle {
 declare interface NavigationToolbarOptions {
 
   /**
-   * 标题栏背景颜色，不设置时为系统默认颜色。
+   * 工具栏背景颜色，设置后，工具栏背景将显示为指定颜色；不设置时为系统默认颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2014,7 +1998,7 @@ declare interface NavigationToolbarOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * 标题栏背景模糊样式，不设置时关闭背景模糊效果。
+   * 工具栏背景模糊样式，设置后，工具栏将应用指定的模糊样式；不设置时关闭背景模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2025,7 +2009,7 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * 标题栏背景模糊选项。
+   * 工具栏背景模糊选项。
    *
    * **说明：**
    *
@@ -2042,7 +2026,7 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * 设置标题栏背景属性包括：模糊半径，亮度，饱和度，颜色等。
+   * 设置工具栏背景属性包括：模糊半径，亮度，饱和度，颜色等。
    *
    * **说明：**
    *
@@ -2110,7 +2094,7 @@ declare interface NavigationToolbarOptions {
 declare interface NavigationMenuOptions {
 
   /**
-   * 工具栏更多图标的菜单选项。
+   * 页面右上角菜单选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2122,7 +2106,7 @@ declare interface NavigationMenuOptions {
 }
 
 /**
-* 更多图标的菜单选项。
+* 更多图标的菜单选项。设置后，可自定义更多按钮的背景模糊样式、背景效果等。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2133,7 +2117,7 @@ declare interface NavigationMenuOptions {
 declare interface MoreButtonOptions {
 
   /**
-   * 更多图标的菜单背景模糊样式，不设置时关闭背景模糊效果。
+   * 更多图标的菜单背景模糊样式，设置后，更多图标的菜单将应用指定的模糊样式；不设置时关闭背景模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2144,7 +2128,7 @@ declare interface MoreButtonOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * 标题栏背景模糊选项。
+   * 更多图标的菜单背景模糊选项。
    *
    * **说明：**
    *
@@ -2161,7 +2145,7 @@ declare interface MoreButtonOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * 设置标题栏背景属性包括：模糊半径，亮度，饱和度，颜色等。
+   * 设置更多图标的菜单背景属性包括：模糊半径，亮度，饱和度，颜色等。
    *
    * **说明：**
    *
@@ -2447,7 +2431,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   titleMode(value: NavigationTitleMode): NavigationAttribute;
 
   /**
-   * 设置页面右上角菜单。不设置时不显示菜单项。使用Array<[NavigationMenuItem]{@link NavigationMenuItem}&gt; 写法时，竖屏最多支持显示3个图标，横屏最多支持显示5个图标，多余的图标
+   * 设置页面右上角菜单。不设置时不显示菜单项。使用Array<[NavigationMenuItem]{@link NavigationMenuItem}&gt;写法时，竖屏最多支持显示3个图标，横屏最多支持显示5个图标，多余的图标
    * 会被放入自动生成的更多图标。
    *
    * @param { Array<NavigationMenuItem> | CustomBuilder } value - 页面右上角菜单。
@@ -2650,7 +2634,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * >
    * > - 若组件扩展到非安全区域内，此时在非安全区域里触发的事件（例如：点击事件）等可能会被系统拦截，优先响应状态栏等系统组件。
    * >
-   * > - 组件想要扩展到非安全区域内，需隐藏或者设置标题栏和工具栏为[STACK]{@link BarStyle}模式。
+   * > - 组件想要扩展到非安全区域内，需隐藏或者设置标题栏和工具栏为[STACK]{@link BarStyle}模式，否则无法扩展到非安全区域。
    *
    * @param { Array<LayoutSafeAreaType> } [types] - 配置扩展安全区域的类型。<br />默认值：<br />[LayoutSafeAreaType.SYSTEM]
    * @param { Array<LayoutSafeAreaEdge> } [edges] - 配置扩展安全区域的方向。<br /> 默认值：<br />
@@ -2955,11 +2939,7 @@ declare interface NavigationTransitionProxy {
   /**
    * 更新交互转场动画进度(不可交互动画不支持动画进度设置)。
    *
-   * > **说明：**
-   * >
-   * > 不建议在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中使用栈操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
-   *
-   * @param { number } progress - 设置交互转场动画进度百分比。取值范围：[0, 1]
+   * @param { number } progress - 设置交互转场动画进度值。取值范围：[0, 1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

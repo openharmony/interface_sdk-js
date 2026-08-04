@@ -14,14 +14,6 @@
 */
 
 /**
- * ###### Child Components
- * 
- * Not supported
- * 
- * ###### Events
- * 
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
- *
  * @file
  * @kit ArkUI
  */
@@ -682,7 +674,8 @@ export declare struct ComposeListItem {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  @Prop contentItem?: ContentItem;
+  @Prop
+  contentItem?: ContentItem;
 
   /**
    * Element on the right.
@@ -693,5 +686,6 @@ export declare struct ComposeListItem {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  @Prop operateItem?: OperateItem;
+  @Prop
+  operateItem?: OperateItem;
 }

@@ -32,9 +32,8 @@ import { TextModifier as TextModifier } from '@ohos.arkui.modifier';
 declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
 
 /**
- * Defines the SubHeaderV2TitleOptions.
+ * Defines the options for initializing a **SubHeaderV2Title** object.
  *
- * @interface SubHeaderV2TitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -43,8 +42,10 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  */
 export interface SubHeaderV2TitleOptions {
   /**
-   * The first line text of content area.
-   * @type { ?ResourceStr }.
+   * Primary title.
+   *
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -53,8 +54,10 @@ export interface SubHeaderV2TitleOptions {
    */
   primaryTitle?: ResourceStr;
   /**
-   * Text modifier for primary title.
-   * @type { ?TextModifier }.
+   * Text attributes of the primary title, such as the font color, font size, and font weight.
+   *
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -63,8 +66,10 @@ export interface SubHeaderV2TitleOptions {
    */
   primaryTitleModifier?: TextModifier;
   /**
-   * The secondary line text of content area.
-   * @type { ?ResourceStr }.
+   * Secondary title.
+   *
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -73,8 +78,10 @@ export interface SubHeaderV2TitleOptions {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * Text modifier for secondary title.
-   * @type { ?TextModifier }.
+   * Text attributes of the secondary title, such as the font color, font size, and font weight.
+   *
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -83,8 +90,12 @@ export interface SubHeaderV2TitleOptions {
    */
   secondaryTitleModifier?: TextModifier;
   /**
-   * The accessibility text for broadcasting the title.
-   * @type { ?ResourceStr }
+   * Customized content to be read in the title.
+   *
+   * Default value: **undefined**
+   *
+   * If the value is **undefined**, the title content displayed by the component is read by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -103,9 +114,9 @@ export interface SubHeaderV2TitleOptions {
    */
   id?: string;
 }
-
 /**
- * Declare the SubHeaderV2Title
+ * Defines the title settings for the subheader.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -116,54 +127,67 @@ export interface SubHeaderV2TitleOptions {
 export declare class SubHeaderV2Title {
   /**
    * The first line text of content area.
-   * @type { ?ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace primaryTitle?: ResourceStr;
+  @Trace
+  primaryTitle?: ResourceStr;
   /**
    * Text modifier for primary title.
-   * @type { ?TextModifier }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace primaryTitleModifier?: TextModifier;
+  @Trace
+  primaryTitleModifier?: TextModifier;
   /**
    * The secondary line text of content area.
-   * @type { ?ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace secondaryTitle?: ResourceStr;
+  @Trace
+  secondaryTitle?: ResourceStr;
   /**
    * Text modifier for secondary title.
-   * @type { ?TextModifier }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace secondaryTitleModifier?: TextModifier;
+  @Trace
+  secondaryTitleModifier?: TextModifier;
+
   /**
-   * The accessibility text for broadcasting the title.
-   * @type { ?ResourceStr }
+   * Customized content to be read in the title.
+   *
+   * Default value: **undefined**
+   *
+   * If the value is **undefined**, the title content displayed by the component is read by default.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  @Trace titleAccessibilityText?: ResourceStr;
+  @Trace
+  titleAccessibilityText?: ResourceStr;
+
   /**
    * Set the id of the title.
    *
@@ -175,10 +199,11 @@ export declare class SubHeaderV2Title {
    */
   @Trace
   id?: string;
+
   /**
-   * The constructor of SubHeaderV2Title
+   * A constructor used to create a **SubHeaderV2Title** object.
    *
-   * @param options { SubHeaderV2TitleOptions } the options of the SubHeaderV2Title
+   * @param { SubHeaderV2TitleOptions } options - Options for initializing the title.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -189,11 +214,10 @@ export declare class SubHeaderV2Title {
 }
 
 /**
- * The callback function that will be invoked when the selectedIndex of the SubHeaderV2Select is selected.
+ * Defines the callback invoked when an item in the drop-down list box is selected.
  *
- * @typedef { function } SubHeaderV2SelectOnSelect
- * @param { number } selectedIndex - the index of selected item
- * @param { ?string } selectedContent - the content of selected item
+ * @param { number } selectedIndex - Index of the selected drop-down menu option.
+ * @param { ?string } selectedContent - Content of the selected drop-down menu option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -203,9 +227,8 @@ export declare class SubHeaderV2Title {
 export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
 
 /**
- * Defines the SubHeaderV2SelectOptions.
+ * Defines the options for initializing a **SubHeaderV2Select** object.
  *
- * @interface SubHeaderV2SelectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -214,9 +237,8 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?
  */
 export interface SubHeaderV2SelectOptions {
   /**
-   * Sets the options of the SubHeaderV2SelectOptions.
+   * Options for the drop-down list box.
    *
-   * @type { SelectOption[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -225,9 +247,12 @@ export interface SubHeaderV2SelectOptions {
    */
   options: SelectOption[];
   /**
-   * Sets the selected index of the SubHeaderV2SelectOptions.
+   * Index of the initially selected item in the drop-down list box.
    *
-   * @type { ?number }
+   * The index of the first item is 0.
+   *
+   * If this property is not set, the default value **-1** is used, indicating that no item is selected.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -236,30 +261,22 @@ export interface SubHeaderV2SelectOptions {
    */
   selectedIndex?: number;
   /**
-   * Sets the selected content of the SubHeaderV2SelectOptions.
+   * Text content of the drop-down button. Default value: **''**. The Resource type is supported since API version 20.
    *
-   * @type { ?string }
+   * @type { ?string } [since 18 - 19]
+   * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * Sets the selected content of the SubHeaderV2SelectOptions.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   selectedContent?: ResourceStr;
   /**
-   * Sets the onSelect of the SubHeaderV2SelectOptions.
+   * Callback invoked when an item in the drop-down list box is selected.
    *
-   * @type { ?SubHeaderV2SelectOnSelect }
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -268,8 +285,14 @@ export interface SubHeaderV2SelectOptions {
    */
   onSelect?: SubHeaderV2SelectOnSelect;
   /**
-   * Sets the default focus state of SubHeaderV2SelectOptions.
-   * @type { ?boolean }
+   * Whether the drop-down button is the default focus.
+   *
+   * **true**: The drop-down button is the default focus.
+   *
+   * **false**: The drop-down button is not the default focus.
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,7 +302,7 @@ export interface SubHeaderV2SelectOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the id for the SubHeaderV2SelectOptions.
+   * Set the id for the SubHeaderV2Select.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -291,7 +314,8 @@ export interface SubHeaderV2SelectOptions {
 }
 
 /**
- * Declare the SubHeaderV2Select
+ * Defines the content and events for selection.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -303,60 +327,60 @@ export declare class SubHeaderV2Select {
   /**
    * Sets the options of the SubHeaderV2SelectOptions.
    *
-   * @type { SelectOption[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace options: SelectOption[];
+  @Trace
+  options: SelectOption[];
   /**
    * Sets the selected index of the SubHeaderV2SelectOptions.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace selectedIndex?: number;
+  @Trace
+  selectedIndex?: number;
   /**
    * Sets the selected content of the SubHeaderV2SelectOptions.
    *
-   * @type { ?string }
+   * @type { ?string } [since 18 - 19]
+   * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
-  /**
-   * Sets the selected content of the SubHeaderV2SelectOptions.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  @Trace selectedContent?: ResourceStr;
+  @Trace
+  selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *
-   * @type { ?SubHeaderV2SelectOnSelect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace onSelect?: SubHeaderV2SelectOnSelect;
+  @Trace
+  onSelect?: SubHeaderV2SelectOnSelect;
   /**
-   * Sets the default focus state of SubHeaderV2SelectOptions.
-   * @type { ?boolean }
+   * Whether the drop-down button is the default focus.
+   *
+   * **true**: The drop-down button is the default focus.
+   *
+   * **false**: The drop-down button is not the default focus.
+   *
+   * Default value: **false**
+   *
+   * Decorator: @Trace
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -364,7 +388,9 @@ export declare class SubHeaderV2Select {
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace defaultFocus?: boolean;
+  @Trace
+  defaultFocus?: boolean;
+
   /**
    * Set the id for the SubHeaderV2Select.
    *
@@ -376,10 +402,11 @@ export declare class SubHeaderV2Select {
    */
   @Trace
   id?: string;
+
   /**
-   * The constructor of SubHeaderV2Select
+   * A constructor used to create a **SubHeaderV2SelectOptions** object.
    *
-   * @param options { SubHeaderV2SelectOptions } the options of the SubHeaderV2Select
+   * @param { SubHeaderV2SelectOptions } options - Options of the drop-down list box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -390,8 +417,8 @@ export declare class SubHeaderV2Select {
 }
 
 /**
- * Control style of operation element
- * @enum { number }
+ * Defines the style of elements in the operation area.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -400,7 +427,8 @@ export declare class SubHeaderV2Select {
  */
 export declare enum SubHeaderV2OperationType {
   /**
-   * The TextArrow style.
+   * Text button with a right arrow.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -409,7 +437,8 @@ export declare enum SubHeaderV2OperationType {
    */
   TEXT_ARROW = 0,
   /**
-   * The Button style.
+   * Text button without a right arrow.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -418,7 +447,8 @@ export declare enum SubHeaderV2OperationType {
    */
   BUTTON = 1,
   /**
-   * The IconGroup style.
+   * Icon-attached button (A maximum of three icons can be configured.)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -427,7 +457,8 @@ export declare enum SubHeaderV2OperationType {
    */
   ICON_GROUP = 2,
   /**
-   * The LoadingProgress style.
+   * Loading animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -438,9 +469,8 @@ export declare enum SubHeaderV2OperationType {
 }
 
 /**
- * Defines the action callback of the SubHeaderV2OperationItem.
+ * Defines the callback for items in the operation area.
  *
- * @typedef { function } OnClicked
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -452,7 +482,6 @@ export type SubHeaderV2OperationItemAction = () => void;
 /**
  * SubHeaderV2OperationItemType
  *
- * @typedef { ResourceStr | SymbolGlyphModifier } SubHeaderV2OperationItemType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -462,9 +491,8 @@ export type SubHeaderV2OperationItemAction = () => void;
 declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
 
 /**
- * Defines the SubHeaderV2OperationItemOptions.
+ * Defines the options for initializing a **SubHeaderV2OperationItem** object.
  *
- * @interface SubHeaderV2OperationItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -473,8 +501,8 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  */
 export interface SubHeaderV2OperationItemOptions {
   /**
-   * The content of text or the address of icon.
-   * @type { SubHeaderV2OperationItemType }.
+   * Content of the item in the operation area.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -483,8 +511,8 @@ export interface SubHeaderV2OperationItemOptions {
    */
   content: SubHeaderV2OperationItemType;
   /**
-   * callback function when operate the text or icon.
-   * @type { ?SubHeaderV2OperationItemAction }.
+   * Event triggered when the item is operated. Default value: **() => void**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -493,8 +521,10 @@ export interface SubHeaderV2OperationItemOptions {
    */
   action?: SubHeaderV2OperationItemAction;
   /**
-   * The accessibilityText of this text or icon.
-   * @type { ?ResourceStr }.
+   * Accessibility text of the icon on the right side of the subheader.
+   *
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -503,8 +533,10 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityText?: ResourceStr;
   /**
-   * The accessibilityDescription of this text or icon.
-   * @type { ?ResourceStr }
+   * Accessibility description.
+   *
+   * Default value: **"Double-tap to activate"**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -513,8 +545,21 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityDescription?: ResourceStr;
   /**
-   * The accessibilityLevel of this text or icon.
-   * @type { ?string }
+   * Accessibility level of the icon on the right side of the subheader.
+   *
+   * The options are as follows:
+   *
+   * **"auto"**: The icon's recognizability by accessibility services is determined by the accessibility grouping
+   * service and ArkUI.
+   *
+   * **"yes"**: The icon can be recognized by accessibility services.
+   *
+   * **"no"**: The icon cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the icon nor its child components can be recognized by accessibility services.
+   *
+   * Default value: **"yes"**
+   *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
    *     "yes": the current component is selectable for the accessibility service.
@@ -529,8 +574,14 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityLevel?: string;
   /**
-   * Sets the default focus state of the text or icon.
-   * @type { ?boolean }
+   * Whether to receive default focus.
+   *
+   * **true**: Receive default focus.
+   *
+   * **false**: Do not receive default focus.
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -540,7 +591,7 @@ export interface SubHeaderV2OperationItemOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the id for SubHeaderV2OperationItemOptions.
+   * Set the id for SubHeaderV2OperationItem.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,7 +603,8 @@ export interface SubHeaderV2OperationItemOptions {
 }
 
 /**
- * Declare the SubHeaderV2OperationItem
+ * Represents an item in the operation area.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -563,28 +615,31 @@ export interface SubHeaderV2OperationItemOptions {
 export declare class SubHeaderV2OperationItem {
   /**
    * The content of text or the address of icon.
-   * @type { SubHeaderV2OperationItemType }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace content: SubHeaderV2OperationItemType;
+  @Trace
+  content: SubHeaderV2OperationItemType;
   /**
    * callback function when operate the text or icon.
-   * @type { ?SubHeaderV2OperationItemAction }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace action?: SubHeaderV2OperationItemAction;
+  @Trace
+  action?: SubHeaderV2OperationItemAction;
   /**
-   * The constructor of SubHeaderV2OperationItem
+   * Constructor of **SubHeaderV2OperationItem**.
    *
-   * @param options { SubHeaderV2OperationItemOptions } the options of the SubHeaderV2OperationItem
+   * @param { SubHeaderV2OperationItemOptions } options - Operation item configuration information. Defines the options
+   *     for initializing a **SubHeaderV2OperationItem** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -594,27 +649,29 @@ export declare class SubHeaderV2OperationItem {
   constructor(options: SubHeaderV2OperationItemOptions);
   /**
    * The accessibilityText of this text or icon.
-   * @type { ?ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace accessibilityText?: ResourceStr;
+  @Trace
+  accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this text or icon.
-   * @type { ?ResourceStr }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace accessibilityDescription?: ResourceStr;
+  @Trace
+  accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this text or icon.
-   * @type { ?string }
+   *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
    *     "yes": the current component is selectable for the accessibility service.
@@ -627,10 +684,11 @@ export declare class SubHeaderV2OperationItem {
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace accessibilityLevel?: string;
+  @Trace
+  accessibilityLevel?: string;
   /**
    * Sets the default focus state of the text or icon.
-   * @type { ?boolean }
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -638,7 +696,9 @@ export declare class SubHeaderV2OperationItem {
    * @atomicservice
    * @since 18 dynamic
    */
-  @Trace defaultFocus?: boolean;
+  @Trace
+  defaultFocus?: boolean;
+
   /**
    * Set the id for SubHeaderV2OperationItem.
    *
@@ -653,9 +713,8 @@ export declare class SubHeaderV2OperationItem {
 }
 
 /**
- * The callback function that will be invoked when the title build.
+ * Defines the callback used to customize the content of the title area.
  *
- * @typedef { function } SubHeaderV2TitleBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -665,9 +724,26 @@ export declare class SubHeaderV2OperationItem {
 export type SubHeaderV2TitleBuilder = () => void;
 
 /**
- * Defines struct SubHeaderV2.
+ * The component is positioned at the top of list items or content sections, organizing lists or content into distinct
+ * groups. The subheader text summarizes the content within each respective section.
  *
- * @struct SubHeaderV2
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage subheader data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **SubHeaderV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **SubHeaderV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **SubHeaderV2** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -677,10 +753,12 @@ export type SubHeaderV2TitleBuilder = () => void;
 @ComponentV2
 export declare struct SubHeaderV2 {
   /**
-   * Sets the icon of the SubHeaderV2.
+   * Icon.
    *
-   * @type { ?SubHeaderV2IconType }
-   * @readonly
+   * Default value: **undefined**
+   *
+   * **icon** takes effect only when **secondaryTitle** is used for **title**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -690,10 +768,10 @@ export declare struct SubHeaderV2 {
   @Param
   readonly icon?: SubHeaderV2IconType;
   /**
-   * Sets the title of the SubHeaderV2.
+   * Title of the subheader.
    *
-   * @type { ?SubHeaderV2Title }
-   * @readonly
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -703,10 +781,10 @@ export declare struct SubHeaderV2 {
   @Param
   readonly title?: SubHeaderV2Title;
   /**
-   * Sets the select of the SubHeaderV2.
+   * Content and events for selection.
    *
-   * @type { ?SubHeaderV2Select }
-   * @readonly
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -716,10 +794,10 @@ export declare struct SubHeaderV2 {
   @Param
   readonly select?: SubHeaderV2Select;
   /**
-   * Sets the operationType of the SubHeaderV2.
+   * Style of elements in the operation area.
    *
-   * @type { ?SubHeaderV2OperationType }
-   * @readonly
+   * Default value: **SubHeaderV2OperationType.BUTTON**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -729,10 +807,10 @@ export declare struct SubHeaderV2 {
   @Param
   readonly operationType?: SubHeaderV2OperationType;
   /**
-   * Sets the operationItems of the SubHeaderV2.
+   * Items in the operation area.
    *
-   * @type { ?SubHeaderV2OperationItem[] }
-   * @readonly
+   * Default value: **undefined**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -742,8 +820,10 @@ export declare struct SubHeaderV2 {
   @Param
   readonly operationItems?: SubHeaderV2OperationItem[];
   /**
-   * Set the title content.
-   * @type { ?SubHeaderV2TitleBuilder }
+   * Custom content for the title area.
+   *
+   * Default value: **() => void**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

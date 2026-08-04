@@ -21,7 +21,6 @@
 /**
  * Callback function when click on this menu item.
  *
- * @typedef { function } OnActionCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33,7 +32,6 @@ declare type OnActionCallback = () => void;
 /**
  * Declaration of the left icon type.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -87,6 +85,7 @@ export declare interface EditableLeftIconV2Options {
 
   /**
    * Whether to get focus by default.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -182,6 +181,7 @@ export declare class EditableLeftIconV2 {
 export declare interface EditableTitleV2Options {
   /**
    * Main title content.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -192,6 +192,7 @@ export declare interface EditableTitleV2Options {
 
   /**
    * Subtitle content.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -262,6 +263,7 @@ export declare class EditableTitleV2 {
 export declare interface EditableTitleBarMenuItemV2Options {
   /**
    * Icon resource, supports Symbol or Image.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -272,6 +274,7 @@ export declare interface EditableTitleBarMenuItemV2Options {
 
   /**
    * Symbol icon style modifier.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -282,6 +285,7 @@ export declare interface EditableTitleBarMenuItemV2Options {
 
   /**
    * Whether to enable this menu item.
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -293,6 +297,7 @@ export declare interface EditableTitleBarMenuItemV2Options {
 
   /**
    * Label text for long press dialog.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -303,6 +308,7 @@ export declare interface EditableTitleBarMenuItemV2Options {
 
   /**
    * Callback function when click on this menu item.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -372,6 +378,7 @@ export declare interface EditableTitleBarMenuItemV2Options {
 export declare class EditableTitleBarMenuItemV2 {
   /**
    * Icon resource, supports Symbol or Image.
+   *
    * @default ''
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -384,6 +391,7 @@ export declare class EditableTitleBarMenuItemV2 {
 
   /**
    * Symbol icon style modifier.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -395,6 +403,7 @@ export declare class EditableTitleBarMenuItemV2 {
 
   /**
    * Whether to enable this menu item.
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -407,6 +416,7 @@ export declare class EditableTitleBarMenuItemV2 {
 
   /**
    * Label text for long press dialog.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -418,6 +428,7 @@ export declare class EditableTitleBarMenuItemV2 {
 
   /**
    * Callback function when click on this menu item.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -524,6 +535,7 @@ export type EditableTitleBarItemV2Options = EditableTitleBarMenuItemV2Options;
 export declare interface EditableSaveButtonV2Options {
   /**
    * Whether to show the save button.
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -547,6 +559,7 @@ export declare interface EditableSaveButtonV2Options {
 
   /**
    * Callback function when click on the save button.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -569,6 +582,7 @@ export declare interface EditableSaveButtonV2Options {
 export declare class EditableSaveButtonV2 {
   /**
    * Whether to show the save button.
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -581,6 +595,7 @@ export declare class EditableSaveButtonV2 {
 
   /**
    * Whether to get focus by default.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -593,6 +608,7 @@ export declare class EditableSaveButtonV2 {
 
   /**
    * Callback function when click on the save button.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -718,6 +734,7 @@ export declare class EditableTitleBarStyleV2 {
 
   /**
    * Indicates the types of the safe area.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -729,6 +746,7 @@ export declare class EditableTitleBarStyleV2 {
 
   /**
    * Indicates the edges of the safe area.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -740,6 +758,7 @@ export declare class EditableTitleBarStyleV2 {
 
   /**
    * Content margin, supports RTL layout.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -765,7 +784,6 @@ export declare class EditableTitleBarStyleV2 {
 /**
  * Declaration of the editable title bar.
  *
- * @struct { EditableTitleBarV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -776,6 +794,7 @@ export declare class EditableTitleBarStyleV2 {
 export declare struct EditableTitleBarV2 {
   /**
    * Left icon configuration.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -787,6 +806,7 @@ export declare struct EditableTitleBarV2 {
 
   /**
    * Title configuration, supports string or object form.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -822,6 +842,7 @@ export declare struct EditableTitleBarV2 {
 
   /**
    * Save button configuration.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -833,6 +854,7 @@ export declare struct EditableTitleBarV2 {
 
   /**
    * Style and layout configuration.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
