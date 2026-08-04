@@ -35,7 +35,8 @@ import AutoFillRect from './AutoFillRect';
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 11 dynamic
+ * @since 23 static
  */
 export default interface PageNodeInfo {
   /**
@@ -47,7 +48,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   id: int;
 
@@ -70,7 +72,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   autoFillType: AutoFillType;
 
@@ -93,7 +96,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   value: string;
 
@@ -105,7 +109,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   placeholder?: string;
 
@@ -139,7 +144,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   rect: AutoFillRect;
 
@@ -151,7 +157,8 @@ export default interface PageNodeInfo {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   isFocus: boolean;
 
