@@ -71,6 +71,15 @@ declare namespace restrictions {
     WIFI_P2P = 0,
 
     /**
+     * x键
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    X_KEY = 1,
+
+    /**
      * 本地输入（包含键盘、鼠标、触控板、触摸屏等）被禁用后，无法通过本地输入进行操作。重启设备可解除禁用。在息屏状态下禁用会导致屏幕无法唤醒，若禁用后屏幕自动息屏，同样会导致无法唤醒屏幕。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -78,6 +87,24 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     LOCAL_INPUT = 2,
+
+    /**
+     * 网络包过滤
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    PACKET_FILTERING = 3,
+
+    /**
+     * 超级用户执行
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SUDO = 4,
 
     /**
      * 网络流量重定向管控策略。禁用后，无法将TCP流量重定向到其它端口，取消禁用之后可恢复使用。当前仅支持PC/2in1设备使用。
@@ -180,11 +207,13 @@ declare namespace restrictions {
      *
      * 以下五种情况再禁用设备USB能力，会报策略冲突。
      *
-     * 1）通过addAllowedUsbDevices接口添加了USB设备可用名单。
+     * 1）通过[addAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addAllowedUsbDevices}接口添加了USB设备可用名单。
      *
-     * 2）通过setUsbStorageDeviceAccessPolicy接口设置了USB存储设备访问策略为只读/禁用。
+     * 2）通过[setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy}接口
+     * 设置了USB存储设备访问策略为只读/禁用。
      *
-     * 3）通过addDisallowedUsbDevices接口添加了禁止使用的USB设备类型。
+     * 3）通过[addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices}接口添加了禁止使用的USB设
+     * 备类型。
      *
      * 4）通过[setDisallowedPolicyForAccount]{@link restrictions.setDisallowedPolicyForAccount}接口禁用了某用户USB存储设备写入能力。
      *
@@ -434,7 +463,7 @@ declare namespace restrictions {
     /**
      * 设备USB转串口能力。禁用后外接的USB转串口设备无法使用。以下两种情况再禁用设备USB转串口能力，会报策略冲突。
      *
-     * 1）通过addAllowedUsbDevices接口添加了USB设备可用名单。
+     * 1）通过[addAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addAllowedUsbDevices}接口添加了USB设备可用名单。
      *
      * 2）禁用设备USB能力（[USB]{@link restrictions.FeatureForDevice}）。
      *
@@ -601,9 +630,12 @@ declare namespace restrictions {
      *
      * 1）已禁用设备USB能力（[FeatureForDevice.USB]{@link restrictions.FeatureForDevice}）。
      *
-     * 2）通过setUsbStorageDeviceAccessPolicy接口设置了USB存储设备访问策略为只读/禁用。
+     * 2）通过
+     * [setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy}接口
+     * 设置了USB存储设备访问策略为只读/禁用。
      *
-     * 3）通过addDisallowedUsbDevices接口添加了存储类型的USB设备禁用。
+     * 3）通过[addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices}接口添加了存储类型的USB设
+     * 备禁用。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
