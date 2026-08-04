@@ -4235,6 +4235,7 @@ declare namespace window {
      * landscape. This rotation is not controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -4246,6 +4247,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4257,6 +4259,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4268,6 +4271,7 @@ declare namespace window {
      * landscape. This rotation is controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4279,6 +4283,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4290,6 +4295,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4300,6 +4306,7 @@ declare namespace window {
      * Locked mode, where the window orientation is consistent with the current screen orientation.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4312,6 +4319,7 @@ declare namespace window {
      * landscape, or reverse landscape, but not reverse portrait, on a certain device.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4323,6 +4331,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4334,6 +4343,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4346,6 +4356,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4358,6 +4369,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4369,6 +4381,7 @@ declare namespace window {
      * rotate if the home screen does not.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
