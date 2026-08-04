@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Wi-Fi Management
  * @kit MDMKit
  */
 
@@ -22,12 +22,22 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **wifiManager** module provides Wi-Fi management capabilities for enterprise devices, including obtaining the Wi-
- * Fi status.
+ * This module provides Wi-Fi management capabilities for enterprise devices, including querying the Wi-Fi enabling
+ * status, configuring Wi-Fi connections, and managing the Wi-Fi list.
+ *
+ * **Use cases:**
+ *
+ * - Configuring Wi-Fi connections for enterprise devices in batches, simplifying the device initialization process
+ * - Controlling the Wi-Fi networks that devices can connect to, implementing network access compliance management
+ * - Managing the Wi-Fi switch of enterprise devices and unifying network policies
+ *
+ * **Benefits:**
+ *
+ * - Improve enterprise network management efficiency and reduces IT O&M costs.
+ * - Ensure that devices connect only to secure Wi-Fi networks, reducing security risks.
+ * - Implement unified management and control of network policies to meet enterprise compliance requirements.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -106,7 +116,8 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_EAP = 5,
 
     /**
-     * Suite B 192-bit encryption. For example, government and high-security organization networks.
+     * Suite B 192-bit encryption. After the setting, Wi-Fi will use Suite-B 192-bit high-strength encryption, providing
+     * a high level of security authentication. It is suitable for government and high-security institutions.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -192,7 +203,7 @@ declare namespace wifiManager {
   interface IpProfile {
     /**
      * IP address, represented in decimal format. For example, the standard dotted decimal notation **192.168.1.1**
-     * corresponds to the decimal value **3232235777**.
+     * corresponds to the decimal value **3232235777**. The address ranges from 0.0.0.0 to 255.255.255.255.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -201,7 +212,8 @@ declare namespace wifiManager {
     ipAddress: number;
 
     /**
-     * Default gateway, represented in decimal format, usually the IP address of the router.
+     * Default gateway, represented in decimal format, usually the IP address of the router. The address ranges from 0.0
+     * .0.0 to 255.255.255.255.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -210,7 +222,7 @@ declare namespace wifiManager {
     gateway: number;
 
     /**
-     * Subnet mask.
+     * Subnet mask. The address ranges from 0.0.0.0 to 255.255.255.255.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -220,7 +232,7 @@ declare namespace wifiManager {
 
     /**
      * DNS server. The array can contain a maximum of two addresses: the primary DNS server and the secondary DNS
-     * server.
+     * server. The address ranges from 0.0.0.0 to 255.255.255.255.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -289,8 +301,8 @@ declare namespace wifiManager {
     EAP_TTLS = 3,
 
     /**
-     * Password. When **eapMethod** is **EAP_PEAP** or **EAP_PWD**, this parameter cannot be empty. The value contains a
-     * maximum of 128 bytes.
+     * Password Authentication (PWD). It enables password-based authentication and does not require a server
+     * certificate.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -392,8 +404,7 @@ declare namespace wifiManager {
     PHASE2_GTC = 4,
 
     /**
-     * Subscriber Identity Module (SIM). It performs authentication using the keys and algorithms stored in the SIM card
-     * of a smartphone.
+     * SIM.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -402,8 +413,7 @@ declare namespace wifiManager {
     PHASE2_SIM = 5,
 
     /**
-     * Authentication and Key Agreement (AKA). It performs authentication using enhanced keys and algorithms stored in a
-     * USIM card (applicable to 3G/4G/5G SIM cards).
+     * AKA.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -467,8 +477,8 @@ declare namespace wifiManager {
     anonymousIdentity: string;
 
     /**
-     * Password. When **eapMethod** is **EAP_PEAP** or **EAP_PWD**, this parameter cannot be empty. The value contains a
-     * maximum of 128 bytes.
+     * Password Authentication (PWD). It enables password-based authentication and does not require a server
+     * certificate.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -579,7 +589,7 @@ declare namespace wifiManager {
    */
   interface WifiProfile {
     /**
-     * Name of the Wi-Fi hotspot, in UTF-8 format.
+     * Wi-Fi hotspot name. The maximum length is 32 bytes, and the encoding format is UTF-8.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -588,9 +598,10 @@ declare namespace wifiManager {
     ssid: string;
 
     /**
-     * MAC address of the Wi-Fi hotspot. To obtain the MAC address, enable **Enable Wi-Fi verbose logging** under
-     * **Settings** > **System & updates** > **Developer options** first, and then go to the WLAN list to check the MAC
-     * address. If a Wi-Fi network has multiple MAC addresses, all of them must be added here.
+     * MAC address of the Wi-Fi hotspot, with a length of 6 bytes. For example, **00:11:22:33:44:55**. To obtain the MAC
+     * address, enable **Enable Wi-Fi verbose logging** under **Settings** > **System & updates** >
+     * **Developer options** first, and then go to the WLAN list to check the MAC address. If a Wi-Fi network has
+     * multiple MAC addresses, all of them must be added here.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -599,7 +610,7 @@ declare namespace wifiManager {
     bssid?: string;
 
     /**
-     * Pre-shared key.
+     * Key of the hotspot, which is used for Wi-Fi connection authentication. The maximum length is 64 bytes.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -608,8 +619,8 @@ declare namespace wifiManager {
     preSharedKey: string;
 
     /**
-     * Whether the network is hidden. The value **true** indicates that the network is hidden; the value **false**
-     * indicates the opposite.
+     * Whether the network is hidden. The value **true** indicates yes, and the value **false** indicates no. The
+     * default value is **false**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -627,7 +638,7 @@ declare namespace wifiManager {
     securityType: WifiSecurityType;
 
     /**
-     * ID of the creator.
+     * ID of the user who creates the network. The default value is **-1**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -636,7 +647,7 @@ declare namespace wifiManager {
     creatorUid?: number;
 
     /**
-     * Reason for disabling Wi-Fi.
+     * Disabling reason. The default value is **0**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -645,7 +656,7 @@ declare namespace wifiManager {
     disableReason?: number;
 
     /**
-     * Network ID allocated.
+     * Allocated network ID. The default value is **-1**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -654,7 +665,8 @@ declare namespace wifiManager {
     netId?: number;
 
     /**
-     * Random MAC. The value **0** indicates a random MAC address, and the value **1** indicates device MAC address.
+     * Random MAC. The value **0** indicates random MAC address, and the value **1** indicates device MAC address. The
+     * default value is **0**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -672,7 +684,7 @@ declare namespace wifiManager {
     randomMacAddr?: string;
 
     /**
-     * IP address type.
+     * IP address type. The default value is **DHCP**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -868,7 +880,8 @@ declare namespace wifiManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { WifiProfile } profile - Wi-Fi configuration information.
+   * @param { WifiProfile } profile - Wi-Fi configuration information, which is used to specify the configuration
+   *     parameters of the Wi-Fi network to be connected, including the SSID, BSSID, key, and security type.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -930,12 +943,15 @@ declare namespace wifiManager {
   function isWifiDisabled(admin: Want): boolean;
 
   /**
-   * Adds disallowed Wi-Fi networks. The current device cannot connect to the disallowed Wi-Fi networks.
+   * Adds disallowed Wi-Fi networks. The current device cannot connect to the disallowed Wi-Fi networks. This API is
+   * applicable to enterprise security control and management scenarios, such as preventing devices from connecting to
+   * insecure public Wi-Fi networks (for example, those in cafes or airports), and preventing employees from connecting
+   * to competitor or malicious networks, thereby safeguarding enterprise data security.
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
-   * 1. Wi-Fi networks have been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
-   * You can resolve the conflict by enabling the Wi-Fi networks through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 1. The device Wi-Fi capability has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
+   * You can resolve the conflict by enabling Wi-Fi via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
    * 2. Allowed Wi-Fi networks have been added by calling [addAllowedWifiList]{@link wifiManager.addAllowedWifiList}.
    * You can resolve the conflict by removing the allowed Wi-Fi networks through [removeAllowedWifiList]{@link wifiManager.removeAllowedWifiList}.
    *
@@ -958,7 +974,9 @@ declare namespace wifiManager {
   /**
    * Removes disallowed Wi-Fi networks. If some Wi-Fi networks are removed from the disallowed list, the current device
    * cannot connect to the remaining ones; if all Wi-Fi networks are removed from the disallowed list, the current
-   * device can connect to any Wi-Fi network.
+   * device can connect to any Wi-Fi network. This API is applicable to enterprise Wi-Fi policy adjustment scenarios,
+   * such as lifting restrictions on a specific Wi-Fi network, allowing employees to connect to newly approved office
+   * networks, or completely removing the disabling policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1012,12 +1030,15 @@ declare namespace wifiManager {
   function getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
-   * Adds allowed Wi-Fi networks. The current device can only connect to the allowed Wi-Fi networks.
+   * Adds allowed Wi-Fi networks. The current device can only connect to the allowed Wi-Fi networks. This API is
+   * applicable to enterprise security management scenarios, for example, restricting employees' devices to connect only
+   * to Wi-Fi networks authorized by the enterprise, preventing connection to insecure external Wi-Fi networks and
+   * ensuring enterprise network and data security.
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
-   * 1. Wi-Fi networks have been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
-   * You can resolve the conflict by enabling the Wi-Fi networks through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 1. The device Wi-Fi capability has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
+   * You can resolve the conflict by enabling Wi-Fi via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
    * 2. Disallowed Wi-Fi networks have been added by calling [addDisallowedWifiList]{@link wifiManager.addDisallowedWifiList}.
    * You can resolve the conflict by removing the disallowed Wi-Fi networks through [removeDisallowedWifiList]{@link wifiManager.removeDisallowedWifiList}.
    *
@@ -1040,7 +1061,9 @@ declare namespace wifiManager {
   /**
    * Removes Wi-Fi networks from the allowed list. If some Wi-Fi networks are removed from the allowed list, the current
    * device can only connect to the remaining ones; if all Wi-Fi networks are removed from the allowed list, the current
-   * device can connect to any Wi-Fi network.
+   * device can connect to any Wi-Fi network. This API is applicable to enterprise Wi-Fi policy adjustment scenarios,
+   * such as removing restrictions on old Wi-Fi networks when the company switches to a new Wi-Fi network, or lifting
+   * some Wi-Fi restrictions to allow employees to connect to new office networks.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1094,23 +1117,24 @@ declare namespace wifiManager {
   function getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
-   * Enables Wi-Fi.
+   * Enables Wi-Fi. This API is applicable to enterprise device remote management scenarios, such as administrators
+   * remotely enabling Wi-Fi on employee devices, or ensuring that Wi-Fi is turned on when specific policies are
+   * enforced.
    *
    * In the following scenario, attempting to enable Wi-Fi using this API will fail, and a message indicating that the
    * system function is disabled will be returned:
    *
-   * ?Wi-Fi has been disabled using the
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * API. In this case, you must call
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * to enable Wi-Fi.
+   * ​Wi-Fi has been disabled via
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}. In this case, you must
+   * call [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} to enable Wi-Fi.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { boolean } isForce - Whether to forcibly enable Wi-Fi.<br>The value **true** means to forcibly enable Wi-
-   *     Fi. Once enabled, it cannot be disabled manually. You must call [turnOffWifi]{@link wifiManager.turnOffWifi}
-   *     instead. The value **false** means the opposite and the Wi-Fi can be disabled manually.
+   * @param { boolean } isForce - Whether to forcibly enable Wi-Fi.
+   *     <br>The value **true** means to forcibly enable Wi-Fi. Once enabled, it cannot be disabled manually. You must
+   *     call [turnOffWifi]{@link wifiManager.turnOffWifi} instead. The value **false** means the opposite and the Wi-Fi
+   *     can be disabled manually.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1128,11 +1152,9 @@ declare namespace wifiManager {
    * In the following scenario, attempting to disable Wi-Fi using this API will fail, and a message indicating that the
    * system function is disabled will be returned:
    *
-   * ?Wi-Fi has been disabled using the
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * API. In this case, you must call
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * to enable Wi-Fi.
+   * ​Wi-Fi has been disabled via
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}. In this case, you must
+   * call [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy} to enable Wi-Fi.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the

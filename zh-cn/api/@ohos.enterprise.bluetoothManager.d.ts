@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 蓝牙管理
  * @kit MDMKit
  */
 
@@ -23,18 +23,19 @@ import type constant from './@ohos.bluetooth.constant';
 import type access from './@ohos.bluetooth.access';
 
 /**
- * 本模块提供设备蓝牙管理的能力，包括设置和查询蓝牙信息等。
+ * 本模块提供设备蓝牙管理的能力，包括设置蓝牙开关状态、查询蓝牙信息，管理蓝牙设备可用名单、蓝牙设备禁用名单、蓝牙协议禁用名单等。通过本模块，企业可以统一管理设备蓝牙功能，实现对蓝牙设备连接的精细化管控，提升企业信息安全水平，适用于企业需
+ * 要对员工设备的蓝牙使用进行规范化管理的场景。
  *
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  * >
  * > 全局通用限制类策略由restrictions统一提供，若要全局禁用蓝牙，请参考
- * > [@ohos.enterprise.restrictions （限制类策略）]{@link @ohos.enterprise.restrictions:restrictions}。
+ * > [@ohos.enterprise.restrictions（限制类策略）]{@link @ohos.enterprise.restrictions:restrictions}。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 11 - 11]
+ * @publicapi [since 12]
  * @stagemodelonly
  * @since 11
  */
@@ -215,7 +216,7 @@ declare namespace bluetoothManager {
    *
    * 以下情况下，通过本接口添加蓝牙设备可用名单，会报策略冲突：
    *
-   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口禁用了蓝牙。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口启用蓝牙后，可解除冲突。
+   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了蓝牙。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口启用蓝牙后，可解除冲突。
    * 2. 已经通过[addDisallowedBluetoothDevices]{@link bluetoothManager.addDisallowedBluetoothDevices}接口添加了蓝牙设备禁用名单。通过[removeDisallowedBluetoothDevices]{@link bluetoothManager.removeDisallowedBluetoothDevices}移除蓝牙设备禁用名单后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
@@ -271,11 +272,11 @@ declare namespace bluetoothManager {
   function getAllowedBluetoothDevices(admin: Want): Array<string>;
 
   /**
-   * 查询设备蓝牙信息。
+   * 获取蓝牙设备可用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @returns { Array<string> } 可用名单中蓝牙设备MAC地址的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -327,7 +328,7 @@ declare namespace bluetoothManager {
    *
    * 以下情况下，通过本接口添加蓝牙设备禁用名单，会报策略冲突：
    *
-   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口禁用了蓝牙。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口启用蓝牙后，可解除冲突。
+   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了蓝牙。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口启用蓝牙后，可解除冲突。
    * 2. 已经通过[addAllowedBluetoothDevices]{@link bluetoothManager.addAllowedBluetoothDevices}接口添加了蓝牙设备可用名单。通过[removeAllowedBluetoothDevices]{@link bluetoothManager.removeAllowedBluetoothDevices}移除蓝牙设备可用名单后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
@@ -377,11 +378,11 @@ declare namespace bluetoothManager {
   function getDisallowedBluetoothDevices(admin: Want): Array<string>;
 
   /**
-   * 查询设备蓝牙信息。
+   * 获取蓝牙设备禁用名单。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @returns { Array<string> } 禁用名单中蓝牙设备MAC地址的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -398,7 +399,8 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { Array<Protocol> } protocols - 蓝牙协议的数组。数组长度上限为10000。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -417,7 +419,8 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { Array<Protocol> } protocols - 蓝牙协议的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -435,7 +438,8 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @returns { Array<Protocol> } 禁用名单中蓝牙协议的数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -453,13 +457,21 @@ declare namespace bluetoothManager {
    *
    * > **说明：**
    * >
+   * > 1. 通过该接口禁用GATT或SPP协议，对系统服务和系统应用不生效。
+   * >
+   * > 2. 当传入SPP协议时，policy参数只能传入TransferPolicy.RECEIVE_SEND，否则会返回错误码9200012。
+   * >
+   * > 3. 本接口与[addDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.addDisallowedBluetoothProtocols}接口为
+   * > 重载接口。本接口增加了policy参数用于指定传输策略，可以更精细地控制蓝牙协议的禁用行为（如仅禁止发送、仅禁止接收或同时禁止发送和接收）。如果同时使用两个接口配置了禁用策略，策略会合并生效。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { Array<Protocol> } protocols - 蓝牙协议数组，指定需要添加至禁用名单的协议。
-   * @param { TransferPolicy } policy - 传输策略。
+   * @param { TransferPolicy } policy - 传输策略,用于指定蓝牙协议的禁用方式。可选值包括:SEND_ONLY(禁止发送)、RECEIVE_ONLY(禁止接收)、RECEIVE_SEND(禁止发送和接收
+   *     )。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -476,10 +488,16 @@ declare namespace bluetoothManager {
    *
    * > **说明：**
    * >
+   * > 1. 当传入SPP协议时，policy参数只能传入TransferPolicy.RECEIVE_SEND，否则会返回错误码9200012。
+   * >
+   * > 2. 本接口与
+   * > [removeDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.removeDisallowedBluetoothProtocols}接口为重
+   * > 载接口。本接口增加了policy参数，用于按传输策略移除禁用配置。若同一协议通过两个接口分别配置了不同策略的禁用，调用本接口仅移除对应策略的禁用配置，其他策略的禁用配置仍生效。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { Array<Protocol> } protocols - 蓝牙协议数组，指定需要从禁用名单中移除的协议。
    * @param { TransferPolicy } policy - 传输策略。
@@ -499,11 +517,13 @@ declare namespace bluetoothManager {
    *
    * > **说明：**
    * >
+   * > 1. 本接口与[getDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.getDisallowedBluetoothProtocols}接口为
+   * > 重载接口。本接口增加了policy参数，用于按传输策略查询对应的禁用配置。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - <br>不合法的值区间: [0, +。
-   *     - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @param { TransferPolicy } policy - 传输策略。
    * @returns { Array<Protocol> } 返回禁用名单中的蓝牙协议数组。
