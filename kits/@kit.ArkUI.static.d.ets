@@ -31,7 +31,8 @@ import { ComponentContent,
     Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
     CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
     edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
-    NodeContent
+    NodeContent, ComponentContentBase, ReactiveComponentContent, FrameNode, LayoutConstraint, ExpandMode,
+    UIState, typeNode, NodeAdapter, CrossLanguageOptions
 } from '@ohos.arkui.node';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
@@ -45,7 +46,8 @@ export { promptAction, LevelOrder, ComponentContent,
     Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect,
     CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, NodeEdges, edgeColors,
     edgeWidths, borderStyles, borderRadiuses, LengthUnit, SizeT, PositionT, RenderNode, Content,
-    NodeContent
+    NodeContent, ComponentContentBase, ReactiveComponentContent, FrameNode, LayoutConstraint, ExpandMode,
+    UIState, typeNode, NodeAdapter, CrossLanguageOptions
 };
 
 export * from '@ohos.arkui.component';
