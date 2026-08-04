@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,13 @@
  * limitations under the License.
  */
 
-
 const path = require('path');
 
+/**
+ * Babel 插件：将 `import * as arkts from '@koalaui/libarkts'` 命名空间导入
+ * 替换为通过 getArktsPath 动态获取路径的 require 调用，
+ * 使编译后的代码能在运行时解析 arkts 原生模块路径
+ */
 module.exports = function (babel) {
     const { types: t } = babel;
 
