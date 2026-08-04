@@ -86,10 +86,10 @@ declare namespace intl {
      * 
      * "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide",
      * "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham",
-     * "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong",
-     * "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment",
-     * "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii",
-     * "wara", "wcho"。
+     * "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym",
+     * "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma",
+     * "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu",
+     * "thai", "tibt", "tirh", "vaii", "wara", "wcho"。
      *
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
@@ -327,7 +327,8 @@ declare namespace intl {
     locale?: string;
 
     /**
-     * 货币单位（需设置style为currency）， 取值符合[ISO-4217标准](https://www.iso.org/iso-4217-currency-codes.html)，如："EUR"，"CNY"，"USD"等。
+     * 货币单位（需设置style为currency）， 取值符合[ISO-4217标准](https://www.iso.org/iso-4217-currency-codes.html)，
+     * 如："EUR"，"CNY"，"USD"等。
      * 
      * 从API version 12开始支持三位数字代码，如："978"，"156"，"840"等。
      *
@@ -387,9 +388,9 @@ declare namespace intl {
     /**
      * 单位的使用场景（需设置style为unit），取值包括："default", "area-land-agricult", "area-land-commercl", "area-land-residntl",
      * "length-person", "length-person-small", "length-rainfall", "length-road", "length-road-small", "length-snowfall",
-     * "length-vehicle", "length-visiblty", "length-visiblty-small", "length-person-informal", "length-person-small-informal",
-     * "length-road-informal", "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather",
-     * "volume-vehicle-fuel", "elapsed-time-second", "size-file-byte", "size-shortfile-byte"。
+     * "length-vehicle", "length-visiblty", "length-visiblty-small", "length-person-informal",
+     * "length-person-small-informal", "length-road-informal", "speed-road-travel", "speed-wind", "temperature-person",
+     * "temperature-weather", "volume-vehicle-fuel", "elapsed-time-second", "size-file-byte", "size-shortfile-byte"。
      * 
      * 默认值：default。
      * 
