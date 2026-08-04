@@ -794,7 +794,7 @@ declare namespace cert {
     /**
      * Checks the validity period of this X.509 certificate.
      *
-     * @param { string } date - Date in UTCTime or GeneralizedTime string format.
+     * @param { string } date - Date in an ASN.1 time format, specifically UTCTime or GeneralizedTime.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -938,7 +938,8 @@ declare namespace cert {
     /**
      * Obtains the start time of this X.509 certificate.
      *
-     * @returns { string } Certificate start time obtained, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Certificate start time obtained, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -956,7 +957,8 @@ declare namespace cert {
     /**
      * Obtains the expiration time of this X.509 certificate.
      *
-     * @returns { string } Certificate expiration time obtained, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Certificate expiration time obtained, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -1620,7 +1622,8 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRLEntry.getRevocationDate()]{@link cert.X509CRLEntry.getRevocationDate} instead.
      *
-     * @returns { string } Certificate revocation date, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Certificate revocation date,  in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -2079,7 +2082,8 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRL.getLastUpdate()]{@link cert.X509CRL.getLastUpdate} instead.
      *
-     * @returns { string } Last update date of the X.509 CRL, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Last update date of the X.509 CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -2101,7 +2105,8 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRL.getNextUpdate()]{@link cert.X509CRL.getNextUpdate} instead.
      *
-     * @returns { string } Next update date of the CRL, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Next update date of the CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -2549,7 +2554,8 @@ declare namespace cert {
     /**
      * Obtains the last update date of this X.509 CRL.
      *
-     * @returns { string } Last update date of the X.509 CRL, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Last update date of the X.509 CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -2567,7 +2573,8 @@ declare namespace cert {
     /**
      * Obtains the next update date of this CRL.
      *
-     * @returns { string } Next update date of the CRL, in UTCTime or GeneralizedTime string format.
+     * @returns { string } Next update date of the CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
      * @throws { BusinessError } 19020001 - Memory malloc failed.
      * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -2972,6 +2979,7 @@ declare namespace cert {
      * >
      * > - Always verify the validity period of the OCSP response against the current system time, and allow a time
      * > tolerance of ±5 minutes.
+     * > - The validity period of the OCSP signature certificate chain is always verified using the current system time.
      * > - Allows ocsp response to be missing nonce and nextUpdate.
      *
      * @syscap SystemCapability.Security.Cert
