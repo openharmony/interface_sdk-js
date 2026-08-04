@@ -941,7 +941,7 @@ declare namespace cryptoFramework {
      *
      * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，format取值支持"X509"或"PKCS1"。
      *     <br>自API版本26.0.0起，支持EC、ML-DSA和ML-KEM密钥，format取值支持"X509"。
-     * @returns { string } PEM编码的私钥数据。
+     * @returns { string } PEM编码的公钥数据。
      * @throws { BusinessError } 401 - 非法入参。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -1467,7 +1467,7 @@ declare namespace cryptoFramework {
     convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
     /**
-     * 获取指定数据生成非对称密钥。支持加密的私钥，同步传入私钥口令解密私钥。使用同步方法。
+     * 获取指定数据生成非对称密钥。支持加密的私钥，同步传入私钥口令解密私钥。
      *
      * > **说明：**
      * > convertPemKeySync接口与convertPemKey接口注意事项相同，见
@@ -6193,7 +6193,7 @@ declare namespace cryptoFramework {
     generatePriKey(callback: AsyncCallback<PriKey>): void;
 
     /**
-     * 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
+     * 获取该非对称密钥生成器生成的私钥。使用Promise异步回调。
      *
      * <br>当使用[PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的私钥；当使用
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的私钥。
@@ -6281,7 +6281,7 @@ declare namespace cryptoFramework {
     generatePubKey(): Promise<PubKey>;
 
     /**
-     * 同步获取该非对称密钥生成器生成的密钥。
+     * 同步获取该非对称密钥生成器生成的公钥。
      *
      * <br>当使用[PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的公钥；使用
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数时，可以从生成的密钥对中获取指定的公钥。
@@ -7057,7 +7057,7 @@ declare namespace cryptoFramework {
     encapsulate(pubKey: PubKey, ikme: Uint8Array | null): Promise<KemEncapResult>;
 
     /**
-     * 密钥封装操作。使用接收方的公钥，由发送方执行，生成并封装一个共享密钥。使用同步回调。
+     * 密钥封装操作。使用接收方的公钥，由发送方执行，生成并封装一个共享密钥。
      *
      * <br><br>**说明：**
      * <br>建议优先使用异步API，{@link encapsulate}。同步API可能因系统繁忙、高负载等原因耗时较长而阻塞主线程。
@@ -7095,7 +7095,7 @@ declare namespace cryptoFramework {
     decapsulate(priKey: PriKey, wrappedKey: Uint8Array): Promise<Uint8Array>;
 
     /**
-     * 密钥解封装操作。使用接收方的私钥，由接收方执行，从密文中解封装出共享密钥。使用同步回调。
+     * 密钥解封装操作。使用接收方的私钥，由接收方执行，从密文中解封装出共享密钥。
      *
      * <br><br>**说明：**
      * <br>建议优先使用异步API，{@link decapsulate}。同步API可能因系统繁忙、高负载等原因耗时较长而阻塞主线程。
