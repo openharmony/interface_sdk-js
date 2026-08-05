@@ -486,7 +486,7 @@ export declare function $r(value: string, ...params: RecordData[]): Resource;
  */
 export declare function $rawfile(value: string): Resource;
 /**
- * Enumerates the same-page modes for cross-process embedded components and their host applications.
+ * Defines the same page mode
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -494,14 +494,15 @@ export declare function $rawfile(value: string): Resource;
  */
 export declare enum AccessibilitySamePageMode {
     /**
-     * Ignores initial page loading events and root node page events from the cross-process embedded component.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
+    * this mode is to solve skipping focus
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
     SEMI_SILENT = 0,
     /**
-     * Ignores all page events from the cross-process embedded component.
+     * the all page event is not send
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -509,7 +510,7 @@ export declare enum AccessibilitySamePageMode {
     FULL_SILENT = 1
 }
 /**
- * Enumerates the component role types used by screen readers.
+ * Enum for accessibility component type
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -517,399 +518,399 @@ export declare enum AccessibilitySamePageMode {
  */
 export declare enum AccessibilityRoleType {
     /**
-    * Action sheet.
+    * actionSheet component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ACTION_SHEET = 0,
     /**
-    * Alert dialog box.
+    * alertDialog component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ALERT_DIALOG = 1,
     /**
-    * Indexer component.
+    * alphabetIndexer component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     INDEXER_COMPONENT = 2,
     /**
-    * Badge component.
+    * badge component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     BADGE_COMPONENT = 3,
     /**
-    * Blank placeholder component.
+    * blank component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     BLANK = 4,
     /**
-    * Button.
+    * button component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     BUTTON = 5,
     /**
-    * Back button on a large image page.
+    * back button component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     BACK_BUTTON = 6,
     /**
-    * Drag bar for sheets.
+    * sheet drag bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SHEET_DRAG_BAR = 7,
     /**
-    * Calendar picker.
+    * calendar picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CALENDAR_PICKER = 8,
     /**
-    * Calendar.
+    * calendar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CALENDAR = 9,
     /**
-    * Canvas component.
+    * canvas component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CANVAS = 10,
     /**
-    * Gradient object.
+    * canvas gradient component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CANVAS_GRADIENT = 11,
     /**
-    * Pattern for image filling based on a specified source image and repetition mode.
+    * canvas pattern component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CANVAS_PATTERN = 12,
     /**
-    * Check box component.
+    * checkbox component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CHECKBOX = 13,
     /**
-    * Check box group.
+    * checkbox group component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CHECKBOX_GROUP = 14,
     /**
-    * Component for drawing circles.
+    * circle component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CIRCLE = 15,
     /**
-    * Vertical layout of child components with horizontal dividers.
+    * column split component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     COLUMN_SPLIT = 16,
     /**
-    * Container that lays out child components vertically.
+    * column component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     COLUMN = 17,
     /**
-    * 2D drawing object, which can be used to draw rectangles, images, and texts on a canvas component.
+    * canvas rendering context 2d component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CANVAS_RENDERING_CONTEXT_2D = 18,
     /**
-    * Chart component.
+    * chart component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CHART = 19,
     /**
-    * Counter component.
+    * counter component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
      * @since 23 static
     */
     COUNTER = 20,
     /**
-    * Modal container.
+    * counter modal component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     CONTAINER_MODAL = 21,
     /**
-    * Data panel component.
+    * data panel component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     DATA_PANEL = 22,
     /**
-    * Date picker.
+    * date picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     DATE_PICKER = 23,
     /**
-    * Dialog box.
+    * dialog component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     DIALOG = 24,
     /**
-    * Divider component.
+    * divider component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     DIVIDER = 25,
     /**
-    * Drag bar.
+    * drag bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     DRAG_BAR = 26,
     /**
-    * Container component for special effects.
+    * effect component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     EFFECT_COMPONENT = 27,
     /**
-    * Ellipse drawing component.
+    * ellipse component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ELLIPSE = 28,
     /**
-    * Container that allows for flexible layout of child components.
+    * flex component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     FLEX = 29,
     /**
-    * Child component of a waterfall layout container.
+    * flow item component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     FLOW_ITEM = 30,
     /**
-    * Widget component.
+    * form component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     FORM_COMPONENT = 31,
     /**
-    * Static widget interaction component.
+    * form link component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     FORM_LINK = 32,
     /**
-    * Gauge component.
+    * gauge component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GAUGE = 33,
     /**
-    * Grid container.
+    * grid component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GRID = 34,
     /**
-    * Grid column component.
+    * grid col component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GRID_COL = 35,
     /**
-    * Grid container that lays out child components vertically.
+    * grid container component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GRID_CONTAINER = 36,
     /**
-    * Single-item container within a grid container.
+    * grid item component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GRID_ITEM = 37,
     /**
-    * Grid row component.
+    * grid row component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     GRID_ROW = 38,
     /**
-    * Hyperlink component.
+    * hyperlink component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     HYPERLINK = 39,
     /**
-    * Image component.
+    * image component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     IMAGE = 40,
     /**
-    * Frame animation component.
+    * image animator component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     IMAGE_ANIMATOR = 41,
     /**
-    * Pixel data for canvas rendering.
+    * image bitmap component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     IMAGE_BITMAP = 42,
     /**
-    * Pixel data for canvas rendering.
+    * image data component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     IMAGE_DATA = 43,
     /**
-    * Component used to display inline images.
+    * image span component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     IMAGE_SPAN = 44,
     /**
-    * Label.
+    * label component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LABEL = 45,
     /**
-    * Line.
+    * line component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LINE = 46,
     /**
-    * List.
+    * list component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LIST = 47,
     /**
-    * Specific item in a list.
+    * list item component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LIST_ITEM = 48,
     /**
-    * List item group.
+    * list item group component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LIST_ITEM_GROUP = 49,
     /**
-    * Component for display loading animations.
+    * loading progress component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     LOADING_PROGRESS = 50,
     /**
-    * Marquee component.
+    * marquee component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     MARQUEE = 51,
     /**
-    * 2D matrix object.
+    * matrix2d component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     MATRIX2D = 52,
     /**
-    * Menu.
+    * menu component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     MENU = 53,
     /**
-    * Menu item.
+    * menu item component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     MENU_ITEM = 54,
     /**
-    * Menu item group.
+    * menu item group component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     MENU_ITEM_GROUP = 55,
     /**
-    * Content area of the **Navigation** component.
+    * navdestination component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -917,48 +918,49 @@ export declare enum AccessibilityRoleType {
     NAV_DESTINATION = 56,
     /**
     * navrouter component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     NAV_ROUTER = 57,
     /**
-    * Root view container for navigation routing.
+    * navigation component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     NAVIGATION = 58,
     /**
-    * Navigation bar.
+    * navigation bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     NAVIGATION_BAR = 59,
     /**
-    * Navigation menu.
+    * navigation menu component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     NAVIGATION_MENU = 60,
     /**
-    * Navigation container component.
+    * navigator component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     NAVIGATOR = 61,
     /**
-    * Canvas for custom drawing of graphics.
+    * offscreen canvas component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     OFFSCREEN_CANVAS = 62,
     /**
-    * 2D drawing object, which can be used to draw rectangles, images, and texts on a canvas component.
+    * offscreen canvas rendering context2d component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -966,13 +968,14 @@ export declare enum AccessibilityRoleType {
     OFFSCREEN_CANVAS_RENDERING_CONTEXT2D = 63,
     /**
     * option component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     OPTION = 64,
     /**
-    * Slidable panel.
+    * panel component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -980,69 +983,70 @@ export declare enum AccessibilityRoleType {
     PANEL = 65,
     /**
     * paper page component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PAPER_PAGE = 66,
     /**
-    * Path drawing component.
+    * path component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PATH = 67,
     /**
-    * Path object.
+    * path 2d component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PATH2D = 68,
     /**
-    * Pattern lock component.
+    * pattern lock component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PATTERN_LOCK = 69,
     /**
-    * Picker.
+    * picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PICKER = 70,
     /**
-    * Picker view.
+    * picker view component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PICKER_VIEW = 71,
     /**
-    * Plugin component.
+    * plugin component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PLUGIN_COMPONENT = 72,
     /**
-    * Component used to draw a polygon.
+    * polygon component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     POLYGON = 73,
     /**
-    * Component used to draw a polyline.
+    * polyline component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     POLYLINE = 74,
     /**
-    * Popup with a specific style.
+    * popup component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1050,237 +1054,239 @@ export declare enum AccessibilityRoleType {
     POPUP = 75,
     /**
     * progress component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     PROGRESS = 76,
     /**
-    * QR code.
+    * qr code component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     QRCODE = 77,
     /**
-    * Radio button.
+    * radio component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RADIO = 78,
     /**
-    * Component for selecting a rating within a given range.
+    * rating component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RATING = 79,
     /**
-    * Component used to draw a rectangle.
+    * rect component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RECT = 80,
     /**
-    * Pull-to-refresh container component.
+    * refresh component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     REFRESH = 81,
     /**
-    * Relative layout component.
+    * relative container component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RELATIVE_CONTAINER = 82,
     /**
-    * Remote control window component.
+    * remote window component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     REMOTE_WINDOW = 83,
     /**
-    * Component that supports rich text editing and interactive text editing.
+    * rich editor component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RICH_EDITOR = 84,
     /**
-    * Rich text component.
+    * rich text component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     RICH_TEXT = 85,
     /**
-    * Pagination component.
+    * role pager component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ROLE_PAGER = 86,
     /**
-    * Container that lays out child components horizontally.
+    * row component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ROW = 87,
     /**
-    * Horizontal layout of child components with vertical dividers.
+    * row split component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ROW_SPLIT = 88,
     /**
-    * Scrollable container component.
+    * scroll component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SCROLL = 89,
     /**
-    * Scrollbar.
+    * scroll bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SCROLL_BAR = 90,
     /**
-    * Search box component.
+    * search component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SEARCH = 91,
     /**
-    * Search box.
+    * search field component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SEARCH_FIELD = 92,
     /**
-    * Drop-down list component.
+    * select component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SELECT = 93,
     /**
-    * Parent component of the drawing components.
+    * shape component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SHAPE = 94,
     /**
-    * Sidebar container that can show and hide the sidebar.
+    * sidebar container component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SIDEBAR_CONTAINER = 95,
     /**
-    * slider component type
+    * sidebar container component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SLIDER = 96,
     /**
-    * Component used to display inline text.
+    * span component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SPAN = 97,
     /**
-    * Stack container.
+    * stack component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     STACK = 98,
     /**
-    * Stepper component.
+    * stepper component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     STEPPER = 99,
     /**
-    * Page child component of the stepper component.
+    * stepper item component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     STEPPER_ITEM = 100,
     /**
-    * Swiper view container.
+    * swiper component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SWIPER = 101,
     /**
-    * Navigation indicator for the **Swiper** component.
+    * swiper indicator component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SWIPER_INDICATOR = 102,
     /**
-    * Switch.
+    * switch component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SWITCH = 103,
     /**
-    * Component for displaying a symbol glyph.
+    * symbol glyph component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     SYMBOL_GLYPH = 104,
     /**
-    * Content view for a tab in the **Tabs** component.
+    * tab content component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TAB_CONTENT = 105,
     /**
-    * Tab bar.
+    * tab bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TAB_BAR = 106,
     /**
-    * Container that allows users to switch between content views through tabs.
+    * tabs component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TABS = 107,
     /**
-    * Text.
+    * text component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT = 108,
     /**
-    * Text clock component.
+    * text clock component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1288,55 +1294,56 @@ export declare enum AccessibilityRoleType {
     TEXT_CLOCK = 109,
     /**
     * text entry component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_ENTRY = 110,
     /**
-    * Text box component.
+    * text input component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_INPUT = 111,
     /**
-    * Text picker.
+    * text picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_PICKER = 112,
     /**
-    * Component that displays timing information and is controlled in text format.
+    * text timer component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_TIMER = 113,
     /**
-    * Text area component.
+    * text area component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_AREA = 114,
     /**
-    * Text box.
+    * text field component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TEXT_FIELD = 115,
     /**
-    * Time picker.
+    * time picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TIME_PICKER = 116,
     /**
-    * Title bar.
+    * title bar component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1344,48 +1351,49 @@ export declare enum AccessibilityRoleType {
     TITLE_BAR = 117,
     /**
     * toggler component type
+    *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     TOGGLER = 118,
     /**
-    * UI extension component.
+    * uiExtensionComponent component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     UI_EXTENSION_COMPONENT = 119,
     /**
-    * Component for playing video files and controlling playback.
+    * video component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     VIDEO = 120,
     /**
-    * Waterfall layout container.
+    * water flow component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     WATER_FLOW = 121,
     /**
-    * Component for loading web pages.
+    * web component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     WEB = 122,
     /**
-    * Custom rendering component.
+    * xcomponent component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     XCOMPONENT = 123,
     /**
-    * Null.
+    * none component type: screen reader will not broadcast the component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1395,6 +1403,7 @@ export declare enum AccessibilityRoleType {
 /**
  * Defines the callback type used in accessibility focus. The value of isFocus indicates whether
  * the current component is focused
+ * @typedef {function} AccessibilityFocusCallback
  * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1460,6 +1469,7 @@ export declare enum AccessibilityActionInterceptResult {
 /**
  * Defines the callback type used in accessibility action intercept.
  * The value of action indicates the accessibility action type.
+ * @typedef { function } AccessibilityActionInterceptCallback
  * @param { AccessibilityAction } action - the enum of accessibility action type.
  * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5089,6 +5099,7 @@ export declare interface MouseHistoricalPoint {
  * The accessibility hover action triggers this method invocation.
  *
  * @extends BaseEvent
+ * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -5097,6 +5108,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
     /**
      * Type of the accessibility hover event.
      *
+     * @type { AccessibilityHoverType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -13356,9 +13368,8 @@ export declare interface CommonMethod {
      */
     default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions?: AccessibilityOptions): this;
     /**
-     * Sets the next component to receive focus during screen reader navigation.
-     * @param { string | undefined } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
-     *     <br>If the ID does not correspond to any component, the setting is ignored.
+     * Sets accessibility next focus id
+     * @param { string | undefined } nextId - set component next accessibility focus id
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13366,9 +13377,8 @@ export declare interface CommonMethod {
      */
     default accessibilityNextFocusId(nextId: string | undefined): this;
     /**
-     * Sets the initial screen reader focus on the page.
-     * @param { boolean | undefined } focus - Initial screen reader focus on the page. The value **true** means the
-     *     <br>component is the default initial focus for screen readers on the current page. Other values are ignored.
+     * Sets the accessibility default foucs flag
+     * @param { boolean | undefined } focus - if the component is accessibility default focus,focus set true
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13376,9 +13386,8 @@ export declare interface CommonMethod {
      */
     default accessibilityDefaultFocus(focus: boolean | undefined): this;
     /**
-     * Sets the same-page mode for the current component and its host application.
-     * @param { AccessibilitySamePageMode | undefined } pageMode - Same-page mode for the cross-process embedded
-     *     <br>component and the host application.
+     * Sets accessibility same page mode
+     * @param { AccessibilitySamePageMode | undefined } pageMode - accessibility same page mode
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13386,14 +13395,8 @@ export declare interface CommonMethod {
      */
     default accessibilityUseSamePage(pageMode: AccessibilitySamePageMode | undefined): this;
     /**
-     * Sets whether the accessibility node triggers automatic screen scrolling. When no focusable components are visible
-     * <br>on the current page within a container, this setting determines whether automatic scrolling is initiated.
-     * @param { boolean | undefined } isTriggerable - Whether the component triggers automatic scrolling for screen
-     *     <br>readers when the current page has no focusable components.
-     *     <br>**true**: The component triggers automatic scrolling.
-     *     <br>**false**: The component does not trigger automatic scrolling.
-     *     <br>**undefined**: The default settings are restored.
-     *     <br>Default value: **true**
+     * Sets accessibilityScrollTriggerable
+     * @param { boolean | undefined } isTriggerable - set property of supporting scroll in accessibility
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13418,9 +13421,8 @@ export declare interface CommonMethod {
      */
     default accessibilityText(text: Resource | string | undefined): this;
     /**
-     * Sets the role type of the accessibility component, which affects how the component is announced by screen readers.
-     * @param { AccessibilityRoleType | undefined } role - Role of the component as announced by screen readers (for
-     *     <br>example, button or chart). You can define custom roles.
+     * Sets accessibility role,role indicates the custom type of the component
+     * @param { AccessibilityRoleType | undefined } role - set accessibility component type
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13447,9 +13449,9 @@ export declare interface CommonMethod {
      */
     default onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback | undefined): this;
     /**
-     * Sets the text hint for the component, which can be queried by accessibility services.
+     * Sets accessibilityTextHint
      *
-     * @param { string | undefined } value - Text hint for the component, which can be queried by accessibility services.
+     * @param { string | undefined } value - set accessibility text hint
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13457,9 +13459,11 @@ export declare interface CommonMethod {
      */
     default accessibilityTextHint(value: string | undefined): this;
     /**
-     * Sets the accessibility description, with support for resource references using Resource.
-     * <br>This attribute provides additional context and explanation for the component, helping users understand its
-     * <br>functionality and purpose.
+     * Sets accessibilityDescription
+     *
+     * with support for resource references using Resource.
+     * This property provides additional context or explanation for the component,
+     * helping users understand the action or function it performs.
      * <p><strong>NOTE</strong>:
      * <br>Reference resource of the accessibility description. You can specify further explanation
      * <br>of the current component, for example, possible operation consequences, especially those that
@@ -13498,9 +13502,7 @@ export declare interface CommonMethod {
      */
     default accessibilityLevel(value: string | undefined): this;
     /**
-     * Sets an accessibility virtual child node. For custom drawing components, a **CustomBuilder** is passed, which is
-     * <br>used to provide accessibility information. The components within the **CustomBuilder** are only used for layout
-     * <br>and not for display.
+     * Sets accessibilityVirtualNode
      *
      * @param { CustomBuilder | undefined } builder - set virtual node of accessibility
      * @returns { this }
@@ -13510,14 +13512,9 @@ export declare interface CommonMethod {
      */
    default accessibilityVirtualNode(builder: CustomBuilder | undefined): this;
     /**
-     * Sets the checked state for the accessibility node. This API is used in multi-select scenarios and only affects
-     * <br>component state announcements in screen reading scenarios.
+     * Sets accessibilityChecked
      *
-     * @param { boolean | undefined } isCheck - Whether the current component is selected.
-     *     <br>**true**: The component is selected.
-     *     <br>**false**: The component is not selected.
-     *     <br>**undefined**: The component determines its own selected state.
-     *     <br>Default value: **undefined**
+     * @param { boolean | undefined } isCheck - set accessibility checked status
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13525,14 +13522,9 @@ export declare interface CommonMethod {
      */
     default accessibilityChecked(isCheck: boolean | undefined): this;
     /**
-     * Sets the checked state for the accessibility node. This API is used in single-select scenarios and only affects
-     * <br>component state announcements in screen reading scenarios.
+     * Sets accessibilitySelected
      *
-     * @param { boolean | undefined } isSelect - Whether the current component is selected.
-     *     <br>**true**: The component is selected.
-     *     <br>**false**: The component is not selected.
-     *     <br>**undefined**: The component determines its own selected state.
-     *     <br>Default value: **undefined**
+     * @param { boolean | undefined } isSelect - set accessibility selected status
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13702,9 +13694,9 @@ export declare interface CommonMethod {
      */
     default onSizeChange(event: SizeChangeCallback | undefined): this;
     /**
-     * Sets the drawing level for the accessibility focus highlight (green frame).
+     * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
      *
-     * @param { FocusDrawLevel | undefined } drawLevel - Drawing level for the accessibility focus highlight frame.
+     * @param { FocusDrawLevel | undefined } drawLevel - indicates accessibility focus draw level.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13776,12 +13768,10 @@ export declare interface CommonMethod {
      */
     default onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): this;
     /**
-     * Sets the state description of a component for broadcasting, which clearly describes the real-time state of the
-     * <br>component in screen reading scenarios. Screen reader will broadcast the state description first.
+     * Sets the state anouncement text of the component under accessibility.
      *
-     * @param { string | Resource | undefined } description - Text to be broadcasted for the current state of the component.
-     *     <br>If the text contains more than 1000 characters, the first 1000 characters will be broadcasted.
-     *     <br>**undefined**: The text is empty by default.
+     * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
+     *     if incoming is undefined, it will be processed as empty string.
      * @returns { this } return component instance who call the method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13789,13 +13779,9 @@ export declare interface CommonMethod {
      */
     default accessibilityStateDescription(description: string | Resource | undefined): this;
     /**
-     * Provides optional parameters for setting accessibility operations of a component, which is used to restrict or
-     * <br>modify the operations initiated by accessibility applications such as the screen reader.
+     * Sets AccessibilityActionOptions that can affect operation under accessibility.
      *
-     * @param { AccessibilityActionOptions | undefined } option - Parameter of the accessibility operation, which is used
-     *     <br>to restrict or modify the sliding behavior in the accessibility operation.
-     *     <br>The **scrollStep** parameter in **AccessibilityActionOptions** is used to set the number of sliding steps in
-     *     <br>the accessibility operation. When the value is **undefined**, **scrollStep** is processed as **1**.
+     * @param { AccessibilityActionOptions | undefined } option - set accessibility specific operation options.
      * @returns { this } return component instance who call the method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13803,14 +13789,9 @@ export declare interface CommonMethod {
      */
     default accessibilityActionOptions(option: AccessibilityActionOptions | undefined): this;
     /**
-     * Sets the custom accessibility operations of the component, allowing developers to set an array of custom actions
-     * <br>for binding custom operation callbacks to components by operation name.
+     * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
      *
-     * @param { Array<AccessibilityCustomAction> | undefined } actions - Array of custom accessibility operations, where
-     *     <br>each operation contains an operation name and a callback, used for binding custom operation callbacks to
-     *     <br>components by operation name.
-     *     <br>**NOTE**: The array supports a maximum of 16 entries; any excess will not take effect.
-     *     <br>When the value is **undefined**, no custom operations are set.
+     * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
      * @returns { this } return component instance who call method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13838,24 +13819,22 @@ export declare interface CommonMethod {
      */
     default smartGestureShortcut(options?: SmartGestureShortcutOptions): this;
     /**
-      * Set the component's inspector label which only display on DevEco Studio.
-      * @param { string | undefined } label - the inspector label.
-      * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @stagemodelonly
-      * @since 26.0.0 static
-      */
+     * Set the component's inspector label which only display on DevEco Studio.
+     * @param { string | undefined } label - the inspector label.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     default inspectorLabel(label: string | undefined): this;
     /**
-     * Sets the next component to receive focus during screen reader navigation, with optional detailed parameters.
+     * Sets the next accessibility focus ID for the component, with optional detailed parameters.
      * The detailed parameters can provide additional behavior for the accessibility focus transition.
      *
-     * @param { string } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
-     *     <br>If the ID does not correspond to any component, the setting is ignored.
-     * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - Detailed parameters for accessibility next
-     *     <br>focus processing, used to configure whether to search for focusable nodes among descendant nodes.
-     *     <br>When the value is **undefined**, no detailed parameters are configured and no focus search is performed
-     *     <br>among descendant nodes.
+     * @param { string } nextId - set component next accessibility focus id.
+     * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
+     *     accessibility next focus processing.
+     *     Undefined indicates reverting to the default of the detailed parameters.
      * @returns { this } return component instance who call the method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15767,6 +15746,7 @@ export type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * The value of isHover indicates whether the touch is hovering over the component.
  * The value of event contains information about AccessibilityHoverEvent.
  *
+ * @typedef { function } AccessibilityCallback
  * @param { boolean } isHover
  * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15778,6 +15758,7 @@ export type AccessibilityCallback = (isHover: boolean, event: AccessibilityHover
 /**
  * Defines the callback type used in accessibility hover transparent event.
  *
+ * @typedef { function } AccessibilityTransparentCallback
  * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

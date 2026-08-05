@@ -4081,29 +4081,11 @@ declare enum ClickEffectLevel {
 /**
  * The type of XComponent
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum XComponentType {
   /**
@@ -4111,24 +4093,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SURFACE,
 
@@ -4137,15 +4104,8 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Component type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead Column
    */
@@ -4153,36 +4113,22 @@ declare enum XComponentType {
 
   /**
    * Texture type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Texture type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Texture type.
-   * Supports EGL/OpenGLES and media data rendering.
-   * Custom drawing content is composited with XComponent’s native content before display.
+   * Supports EGL/OpenGLES and media data rendering. Custom drawing content is
+   * composited with XComponent’s native content before display.
    * Key features:
+   *
    * 1. Maintains frame synchronization between GPU textures and ArkUI drawing commands.
    * 2. Supports unified animation with built-in components.
-   * 3. Utilizes GPU composition, which may have higher power consumption than the SURFACE type
-   *    using the display subsystem (DSS).
+   * 3. Utilizes GPU composition, which may have higher power consumption than
+   * the SURFACE type using the display subsystem (DSS).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  TEXTURE,
+  TEXTURE = 2,
 
   /**
    * Node type.
@@ -4194,7 +4140,7 @@ declare enum XComponentType {
    * @deprecated since 20
    * @useinstead ContentSlot
    */
-  NODE,
+  NODE = 3,
 }
 
 /**

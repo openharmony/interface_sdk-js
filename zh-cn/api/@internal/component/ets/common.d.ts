@@ -2259,7 +2259,7 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
- * 当前跨进程嵌入式显示的组件和宿主应用的同page模式。
+ * Defines the same page mode
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2271,7 +2271,8 @@ declare function $rawfile(value: string): Resource;
 declare enum AccessibilitySamePageMode {
 
   /**
-   * 跨进程嵌入式显示的组件拉起来的进程的page事件中如果是首次加载页面或者该事件页面的根节点发送的page事件会被忽略。
+   * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
+   * this mode is to solve skipping focus
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2282,7 +2283,7 @@ declare enum AccessibilitySamePageMode {
   SEMI_SILENT = 0,
 
   /**
-   * 跨进程嵌入式显示的组件将忽略所有的page事件。
+   * the all page event is not send
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2294,7 +2295,7 @@ declare enum AccessibilitySamePageMode {
 }
 
 /**
- * 定义组件的屏幕朗读功能角色类型。
+ * Enum for accessibility component type
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2306,7 +2307,7 @@ declare enum AccessibilitySamePageMode {
 declare enum AccessibilityRoleType {
 
   /**
-   * 列表弹窗。
+   * actionSheet component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2317,7 +2318,7 @@ declare enum AccessibilityRoleType {
   ACTION_SHEET = 0,
 
   /**
-   * 显示警告弹窗组件。
+   * alertDialog component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2328,7 +2329,7 @@ declare enum AccessibilityRoleType {
   ALERT_DIALOG = 1,
 
   /**
-   * 索引器组件。
+   * alphabetIndexer component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2339,7 +2340,7 @@ declare enum AccessibilityRoleType {
   INDEXER_COMPONENT = 2,
 
   /**
-   * 信息标记组件。
+   * badge component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2350,7 +2351,7 @@ declare enum AccessibilityRoleType {
   BADGE_COMPONENT = 3,
 
   /**
-   * 空白填充组件。
+   * blank component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2361,7 +2362,7 @@ declare enum AccessibilityRoleType {
   BLANK = 4,
 
   /**
-   * 按钮。
+   * button component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2372,8 +2373,7 @@ declare enum AccessibilityRoleType {
   BUTTON = 5,
 
   /**
-   * 大图页返回按钮。
-   *
+   * 返回按钮类型
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2384,7 +2384,7 @@ declare enum AccessibilityRoleType {
   BACK_BUTTON = 6,
 
   /**
-   * 滑动条。
+   * sheet drag bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2395,7 +2395,7 @@ declare enum AccessibilityRoleType {
   SHEET_DRAG_BAR = 7,
 
   /**
-   * 日历选择器组件。
+   * calendar picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2406,7 +2406,7 @@ declare enum AccessibilityRoleType {
   CALENDAR_PICKER = 8,
 
   /**
-   * 日历。
+   * calendar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2417,7 +2417,7 @@ declare enum AccessibilityRoleType {
   CALENDAR = 9,
 
   /**
-   * 提供画布组件。
+   * canvas component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2428,7 +2428,7 @@ declare enum AccessibilityRoleType {
   CANVAS = 10,
 
   /**
-   * 渐变对象。
+   * canvas gradient component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2439,7 +2439,7 @@ declare enum AccessibilityRoleType {
   CANVAS_GRADIENT = 11,
 
   /**
-   * 通过指定图像和重复方式创建图片填充的模板。
+   * canvas pattern component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2450,7 +2450,7 @@ declare enum AccessibilityRoleType {
   CANVAS_PATTERN = 12,
 
   /**
-   * 提供多选框组件。
+   * checkbox component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2461,7 +2461,7 @@ declare enum AccessibilityRoleType {
   CHECKBOX = 13,
 
   /**
-   * 多选框群组。
+   * checkbox group component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2472,7 +2472,7 @@ declare enum AccessibilityRoleType {
   CHECKBOX_GROUP = 14,
 
   /**
-   * 用于绘制圆形的组件。
+   * circle component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2483,7 +2483,7 @@ declare enum AccessibilityRoleType {
   CIRCLE = 15,
 
   /**
-   * 将子组件纵向布局，并在每个子组件之间插入一根横向的分割线。
+   * column split component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2494,7 +2494,7 @@ declare enum AccessibilityRoleType {
   COLUMN_SPLIT = 16,
 
   /**
-   * 沿垂直方向布局的容器。
+   * column component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2505,7 +2505,7 @@ declare enum AccessibilityRoleType {
   COLUMN = 17,
 
   /**
-   * 用于在画布组件上绘制矩形、文本、图片等。
+   * canvas rendering context 2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2516,7 +2516,7 @@ declare enum AccessibilityRoleType {
   CANVAS_RENDERING_CONTEXT_2D = 18,
 
   /**
-   * 图表组件。
+   * chart component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2527,7 +2527,7 @@ declare enum AccessibilityRoleType {
   CHART = 19,
 
   /**
-   * 计数器组件。
+   * counter component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2538,7 +2538,7 @@ declare enum AccessibilityRoleType {
   COUNTER = 20,
 
   /**
-   * 模态容器。
+   * counter modal component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2549,7 +2549,7 @@ declare enum AccessibilityRoleType {
   CONTAINER_MODAL = 21,
 
   /**
-   * 数据面板组件。
+   * data panel component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2560,7 +2560,7 @@ declare enum AccessibilityRoleType {
   DATA_PANEL = 22,
 
   /**
-   * 选择日期的滑动选择器组件。
+   * date picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2571,7 +2571,7 @@ declare enum AccessibilityRoleType {
   DATE_PICKER = 23,
 
   /**
-   * 弹出框。
+   * dialog component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2582,7 +2582,7 @@ declare enum AccessibilityRoleType {
   DIALOG = 24,
 
   /**
-   * 提供分隔器组件。
+   * divider component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2593,7 +2593,7 @@ declare enum AccessibilityRoleType {
   DIVIDER = 25,
 
   /**
-   * 拖拽条。
+   * drag bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2604,7 +2604,7 @@ declare enum AccessibilityRoleType {
   DRAG_BAR = 26,
 
   /**
-   * 特效合并容器组件。
+   * effect component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2615,7 +2615,7 @@ declare enum AccessibilityRoleType {
   EFFECT_COMPONENT = 27,
 
   /**
-   * 椭圆绘制组件。
+   * ellipse component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2626,7 +2626,7 @@ declare enum AccessibilityRoleType {
   ELLIPSE = 28,
 
   /**
-   * 以弹性方式布局子组件的容器组件。
+   * flex component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2637,7 +2637,7 @@ declare enum AccessibilityRoleType {
   FLEX = 29,
 
   /**
-   * 瀑布流组件的子组件。
+   * flow item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2648,7 +2648,7 @@ declare enum AccessibilityRoleType {
   FLOW_ITEM = 30,
 
   /**
-   * 提供卡片组件。
+   * form component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2659,7 +2659,7 @@ declare enum AccessibilityRoleType {
   FORM_COMPONENT = 31,
 
   /**
-   * 静态卡片交互组件。
+   * form link component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2670,7 +2670,7 @@ declare enum AccessibilityRoleType {
   FORM_LINK = 32,
 
   /**
-   * 数据量规图表组件。
+   * gauge component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2681,7 +2681,7 @@ declare enum AccessibilityRoleType {
   GAUGE = 33,
 
   /**
-   * 网格容器。
+   * grid component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2692,7 +2692,7 @@ declare enum AccessibilityRoleType {
   GRID = 34,
 
   /**
-   * 栅格子组件。
+   * grid col component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2703,7 +2703,7 @@ declare enum AccessibilityRoleType {
   GRID_COL = 35,
 
   /**
-   * 纵向排布栅格布局容器。
+   * grid container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2714,7 +2714,7 @@ declare enum AccessibilityRoleType {
   GRID_CONTAINER = 36,
 
   /**
-   * 网格容器中单项内容容器。
+   * grid item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2725,7 +2725,7 @@ declare enum AccessibilityRoleType {
   GRID_ITEM = 37,
 
   /**
-   * 栅格容器组件。
+   * grid row component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2736,7 +2736,7 @@ declare enum AccessibilityRoleType {
   GRID_ROW = 38,
 
   /**
-   * 超链接组件。
+   * hyperlink component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2747,7 +2747,7 @@ declare enum AccessibilityRoleType {
   HYPERLINK = 39,
 
   /**
-   * 图片组件。
+   * image component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2758,7 +2758,7 @@ declare enum AccessibilityRoleType {
   IMAGE = 40,
 
   /**
-   * 提供帧动画组件。
+   * image animator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2769,7 +2769,7 @@ declare enum AccessibilityRoleType {
   IMAGE_ANIMATOR = 41,
 
   /**
-   * 存储canvas渲染的像素数据。
+   * image bitmap component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2780,7 +2780,7 @@ declare enum AccessibilityRoleType {
   IMAGE_BITMAP = 42,
 
   /**
-   * 存储canvas渲染的像素数据。
+   * image data component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2791,7 +2791,7 @@ declare enum AccessibilityRoleType {
   IMAGE_DATA = 43,
 
   /**
-   * 用于显示行内图片。
+   * image span component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2802,7 +2802,7 @@ declare enum AccessibilityRoleType {
   IMAGE_SPAN = 44,
 
   /**
-   * 标签。
+   * label component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2813,7 +2813,7 @@ declare enum AccessibilityRoleType {
   LABEL = 45,
 
   /**
-   * 线型。
+   * line component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2824,7 +2824,7 @@ declare enum AccessibilityRoleType {
   LINE = 46,
 
   /**
-   * 列表。
+   * list component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2835,7 +2835,7 @@ declare enum AccessibilityRoleType {
   LIST = 47,
 
   /**
-   * 用来展示列表具体item。
+   * list item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2846,7 +2846,7 @@ declare enum AccessibilityRoleType {
   LIST_ITEM = 48,
 
   /**
-   * 用来展示列表item分组。
+   * list item group component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2857,7 +2857,7 @@ declare enum AccessibilityRoleType {
   LIST_ITEM_GROUP = 49,
 
   /**
-   * 用于显示加载动效的组件。
+   * loading progress component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2868,7 +2868,7 @@ declare enum AccessibilityRoleType {
   LOADING_PROGRESS = 50,
 
   /**
-   * 跑马灯组件。
+   * marquee component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2879,7 +2879,7 @@ declare enum AccessibilityRoleType {
   MARQUEE = 51,
 
   /**
-   * 矩阵对象。
+   * matrix2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2890,7 +2890,7 @@ declare enum AccessibilityRoleType {
   MATRIX2D = 52,
 
   /**
-   * 菜单。
+   * menu component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2901,7 +2901,7 @@ declare enum AccessibilityRoleType {
   MENU = 53,
 
   /**
-   * 菜单项。
+   * menu item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2912,7 +2912,7 @@ declare enum AccessibilityRoleType {
   MENU_ITEM = 54,
 
   /**
-   * 菜单项分组。
+   * menu item group component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2923,7 +2923,7 @@ declare enum AccessibilityRoleType {
   MENU_ITEM_GROUP = 55,
 
   /**
-   * 显示Navigation的内容区。
+   * navdestination component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2935,6 +2935,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * navrouter component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2945,7 +2946,7 @@ declare enum AccessibilityRoleType {
   NAV_ROUTER = 57,
 
   /**
-   * 路由导航的根视图容器。
+   * navigation component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2956,7 +2957,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION = 58,
 
   /**
-   * 导航栏。
+   * navigation bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2967,7 +2968,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION_BAR = 59,
 
   /**
-   * 导航菜单。
+   * navigation menu component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2978,7 +2979,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION_MENU = 60,
 
   /**
-   * 路由容器组件。
+   * navigator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2989,7 +2990,7 @@ declare enum AccessibilityRoleType {
   NAVIGATOR = 61,
 
   /**
-   * 用于自定义绘制图形。
+   * offscreen canvas component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3000,7 +3001,7 @@ declare enum AccessibilityRoleType {
   OFFSCREEN_CANVAS = 62,
 
   /**
-   * 2D绘制对象，用于在画布组件上绘制矩形、文本、图片等。
+   * offscreen canvas rendering context2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3012,6 +3013,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * option component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3022,7 +3024,7 @@ declare enum AccessibilityRoleType {
   OPTION = 64,
 
   /**
-   * 可滑动面板。
+   * panel component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3034,6 +3036,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * paper page component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3044,7 +3047,7 @@ declare enum AccessibilityRoleType {
   PAPER_PAGE = 66,
 
   /**
-   * 路径绘制组件。
+   * path component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3055,7 +3058,7 @@ declare enum AccessibilityRoleType {
   PATH = 67,
 
   /**
-   * 路径对象。
+   * path 2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3066,7 +3069,7 @@ declare enum AccessibilityRoleType {
   PATH2D = 68,
 
   /**
-   * 图案密码锁组件。
+   * pattern lock component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3077,7 +3080,7 @@ declare enum AccessibilityRoleType {
   PATTERN_LOCK = 69,
 
   /**
-   * 选择器。
+   * picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3088,7 +3091,7 @@ declare enum AccessibilityRoleType {
   PICKER = 70,
 
   /**
-   * 选择器视图。
+   * picker view component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3099,7 +3102,7 @@ declare enum AccessibilityRoleType {
   PICKER_VIEW = 71,
 
   /**
-   * 新增插件组件。
+   * plugin component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3110,7 +3113,7 @@ declare enum AccessibilityRoleType {
   PLUGIN_COMPONENT = 72,
 
   /**
-   * 多边形绘制组件。
+   * polygon component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3121,7 +3124,7 @@ declare enum AccessibilityRoleType {
   POLYGON = 73,
 
   /**
-   * 折线绘制组件。
+   * polyline component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3132,7 +3135,7 @@ declare enum AccessibilityRoleType {
   POLYLINE = 74,
 
   /**
-   * 显示特定样式气泡。
+   * popup component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3144,6 +3147,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * progress component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3154,7 +3158,7 @@ declare enum AccessibilityRoleType {
   PROGRESS = 76,
 
   /**
-   * 二维码。
+   * qr code component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3165,7 +3169,7 @@ declare enum AccessibilityRoleType {
   QRCODE = 77,
 
   /**
-   * 单选框。
+   * radio component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3176,7 +3180,7 @@ declare enum AccessibilityRoleType {
   RADIO = 78,
 
   /**
-   * 提供在给定范围内选择评分的组件。
+   * rating component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3187,7 +3191,7 @@ declare enum AccessibilityRoleType {
   RATING = 79,
 
   /**
-   * 矩形绘制组件。
+   * rect component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3198,7 +3202,7 @@ declare enum AccessibilityRoleType {
   RECT = 80,
 
   /**
-   * 下拉刷新容器组件。
+   * refresh component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3209,7 +3213,7 @@ declare enum AccessibilityRoleType {
   REFRESH = 81,
 
   /**
-   * 相对布局组件。
+   * relative container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3220,7 +3224,7 @@ declare enum AccessibilityRoleType {
   RELATIVE_CONTAINER = 82,
 
   /**
-   * 远程控制窗口组件。
+   * remote window component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3231,7 +3235,7 @@ declare enum AccessibilityRoleType {
   REMOTE_WINDOW = 83,
 
   /**
-   * 支持图文混排和文本交互式编辑的组件。
+   * rich editor component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3242,7 +3246,7 @@ declare enum AccessibilityRoleType {
   RICH_EDITOR = 84,
 
   /**
-   * 富文本组件。
+   * rich text component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3253,7 +3257,7 @@ declare enum AccessibilityRoleType {
   RICH_TEXT = 85,
 
   /**
-   * 分页。
+   * role pager component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3264,7 +3268,7 @@ declare enum AccessibilityRoleType {
   ROLE_PAGER = 86,
 
   /**
-   * 沿水平方向布局容器。
+   * row component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3275,7 +3279,7 @@ declare enum AccessibilityRoleType {
   ROW = 87,
 
   /**
-   * 将子组件横向布局，并在每个子组件之间插入一根纵向的分割线。
+   * row split component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3286,7 +3290,7 @@ declare enum AccessibilityRoleType {
   ROW_SPLIT = 88,
 
   /**
-   * 可滚动的容器组件。
+   * scroll component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3297,7 +3301,7 @@ declare enum AccessibilityRoleType {
   SCROLL = 89,
 
   /**
-   * 滚动条。
+   * scroll bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3308,7 +3312,7 @@ declare enum AccessibilityRoleType {
   SCROLL_BAR = 90,
 
   /**
-   * 搜索框组件。
+   * search component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3319,7 +3323,7 @@ declare enum AccessibilityRoleType {
   SEARCH = 91,
 
   /**
-   * 搜索框。
+   * search field component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3330,7 +3334,7 @@ declare enum AccessibilityRoleType {
   SEARCH_FIELD = 92,
 
   /**
-   * 下拉选择菜单组件。
+   * select component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3341,7 +3345,7 @@ declare enum AccessibilityRoleType {
   SELECT = 93,
 
   /**
-   * 绘制组件的父组件。
+   * shape component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3352,7 +3356,7 @@ declare enum AccessibilityRoleType {
   SHAPE = 94,
 
   /**
-   * 提供侧边栏可以显示和隐藏的侧边栏容器。
+   * sidebar container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3363,7 +3367,8 @@ declare enum AccessibilityRoleType {
   SIDEBAR_CONTAINER = 95,
 
   /**
-   * slider component type
+   * sidebar container component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3374,7 +3379,7 @@ declare enum AccessibilityRoleType {
   SLIDER = 96,
 
   /**
-   * 用于显示行内文本的组件。
+   * span component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3385,7 +3390,7 @@ declare enum AccessibilityRoleType {
   SPAN = 97,
 
   /**
-   * 堆叠容器。
+   * stack component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3396,7 +3401,7 @@ declare enum AccessibilityRoleType {
   STACK = 98,
 
   /**
-   * 步骤导航器组件。
+   * stepper component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3407,7 +3412,7 @@ declare enum AccessibilityRoleType {
   STEPPER = 99,
 
   /**
-   * 用作Stepper组件的页面子组件。
+   * stepper item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3418,7 +3423,7 @@ declare enum AccessibilityRoleType {
   STEPPER_ITEM = 100,
 
   /**
-   * 滑块视图容器。
+   * swiper component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3429,7 +3434,7 @@ declare enum AccessibilityRoleType {
   SWIPER = 101,
 
   /**
-   * 定义 Swiper 组件的导航指示器。
+   * swiper indicator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3440,7 +3445,7 @@ declare enum AccessibilityRoleType {
   SWIPER_INDICATOR = 102,
 
   /**
-   * 开关。
+   * switch component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3451,7 +3456,7 @@ declare enum AccessibilityRoleType {
   SWITCH = 103,
 
   /**
-   * 显示图标小符号的组件。
+   * symbol glyph component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3462,7 +3467,7 @@ declare enum AccessibilityRoleType {
   SYMBOL_GLYPH = 104,
 
   /**
-   * 仅在Tabs中使用，对应一个切换页签的内容视图。
+   * tab content component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3473,7 +3478,7 @@ declare enum AccessibilityRoleType {
   TAB_CONTENT = 105,
 
   /**
-   * 页签栏。
+   * tab bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3484,7 +3489,7 @@ declare enum AccessibilityRoleType {
   TAB_BAR = 106,
 
   /**
-   * 通过页签进行内容视图切换的容器组件。
+   * tabs component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3495,7 +3500,7 @@ declare enum AccessibilityRoleType {
   TABS = 107,
 
   /**
-   * 文本。
+   * text component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3506,7 +3511,7 @@ declare enum AccessibilityRoleType {
   TEXT = 108,
 
   /**
-   * 文本时钟组件。
+   * text clock component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3518,6 +3523,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * text entry component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3528,7 +3534,7 @@ declare enum AccessibilityRoleType {
   TEXT_ENTRY = 110,
 
   /**
-   * 输入框组件。
+   * text input component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3539,7 +3545,7 @@ declare enum AccessibilityRoleType {
   TEXT_INPUT = 111,
 
   /**
-   * 文本类滑动选择器组件。
+   * text picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3550,7 +3556,7 @@ declare enum AccessibilityRoleType {
   TEXT_PICKER = 112,
 
   /**
-   * 通过文本显示计时信息并控制其计时器状态的组件。
+   * text timer component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3561,7 +3567,7 @@ declare enum AccessibilityRoleType {
   TEXT_TIMER = 113,
 
   /**
-   * 输入区域组件。
+   * text area component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3572,7 +3578,7 @@ declare enum AccessibilityRoleType {
   TEXT_AREA = 114,
 
   /**
-   * 文本框。
+   * text field component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3583,7 +3589,7 @@ declare enum AccessibilityRoleType {
   TEXT_FIELD = 115,
 
   /**
-   * 时间选择组件。
+   * time picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3594,7 +3600,7 @@ declare enum AccessibilityRoleType {
   TIME_PICKER = 116,
 
   /**
-   * 标题栏。
+   * title bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3606,6 +3612,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * toggler component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3616,7 +3623,7 @@ declare enum AccessibilityRoleType {
   TOGGLER = 118,
 
   /**
-   * 用户界面扩展组件。
+   * uiExtensionComponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3627,7 +3634,7 @@ declare enum AccessibilityRoleType {
   UI_EXTENSION_COMPONENT = 119,
 
   /**
-   * 用于播放视频文件并控制其播放状态的组件。
+   * video component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3638,7 +3645,7 @@ declare enum AccessibilityRoleType {
   VIDEO = 120,
 
   /**
-   * 瀑布流容器。
+   * water flow component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3649,7 +3656,7 @@ declare enum AccessibilityRoleType {
   WATER_FLOW = 121,
 
   /**
-   * 加载网页组件。
+   * web component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3660,7 +3667,7 @@ declare enum AccessibilityRoleType {
   WEB = 122,
 
   /**
-   * 自定义渲染。
+   * xcomponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3671,7 +3678,7 @@ declare enum AccessibilityRoleType {
   XCOMPONENT = 123,
 
   /**
-   * NULL。
+   * none component type: screen reader will not broadcast the component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25504,372 +25511,395 @@ declare class CommonMethod<T> {
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
-  /**
-   * Sets whether to enable accessibility grouping.
-   *
-   * @param { boolean } value - set group with accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether to enable accessibility grouping.
-   *
-   * @param { boolean } value - set group with accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable accessibility grouping.
-   *
-   * <p><strong>NOTE</strong>
-   * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
-   * <br>the component and all its children are treated as a single selectable unit, and the accessibility
-   * <br>service will no longer focus on the individual child components.</p>
-   *
-   * @param { boolean } value - set group with accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityGroup(value: boolean): T;
+   /**
+    * Sets whether to enable accessibility grouping.
+    *
+    * @param { boolean } value - set group with accessibility, default value is false.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @since 10
+    */
+   /**
+    * Sets whether to enable accessibility grouping.
+    *
+    * @param { boolean } value - set group with accessibility, default value is false.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+   /**
+    * Sets whether to enable accessibility grouping.
+    *
+    * <p><strong>NOTE</strong>
+    * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
+    * <br>the component and all its children are treated as a single selectable unit, and the accessibility
+    * <br>service will no longer focus on the individual child components.</p>
+    *
+    * @param { boolean } value - set group with accessibility, default value is false.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityGroup(value: boolean): T;
 
-  /**
-   * Sets whether to enable accessibility grouping.
-   *
-   * <p><strong>NOTE</strong>
-   * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
-   * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
-   * <br>its child components to form a merged text for the component. If a child component lacks a universal
-   * <br>text attribute, it will be ignored in the concatenation process.
-   *
-   * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
-   * <br>text attributes of the child components to form the merged text. If a child component lacks an
-   * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
-   * <br>If a child component lacks both, it will be ignored.</p>
-   *
-   * @param { boolean } isGroup - set group with accessibility, default value is false.
-   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 14 dynamic
-   */
-  accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
+   /**
+    * Sets whether to enable accessibility grouping.
+    *
+    * <p><strong>NOTE</strong>
+    * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
+    * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
+    * <br>its child components to form a merged text for the component. If a child component lacks a universal
+    * <br>text attribute, it will be ignored in the concatenation process.
+    *
+    * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
+    * <br>text attributes of the child components to form the merged text. If a child component lacks an
+    * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
+    * <br>If a child component lacks both, it will be ignored.</p>
+    *
+    * @param { boolean } isGroup - set group with accessibility, default value is false.
+    * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 14 dynamic
+    */
+   accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
 
-  /**
-   * Sets the accessibility text.
-   *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the accessibility text.
-   *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the accessibility text.
-   * When a component does not contain a text attribute, you can use this API to set an accessibility
-   * text attribute, so that accessibility services can announce the specified content for the component.
-   *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityText(value: string): T;
+   /**
+    * Sets the accessibility text.
+    *
+    * @param { string } value - set accessibility text, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @since 10
+    */
+   /**
+    * Sets the accessibility text.
+    *
+    * @param { string } value - set accessibility text, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+   /**
+    * Sets the accessibility text.
+    * When a component does not contain a text attribute, you can use this API to set an accessibility
+    * text attribute, so that accessibility services can announce the specified content for the component.
+    *
+    * @param { string } value - set accessibility text, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityText(value: string): T;
 
-  /**
-   * 指定屏幕朗读扫动走焦过程中组件的下一个焦点。
-   * @param { string } nextId - 下一个被指定聚焦组件的[唯一标识id]{@link CommonMethod#id}。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityNextFocusId(nextId: string): T;
+   /**
+    * Sets accessibility next focus id
+    * @param { string } nextId - set component next accessibility focus id
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   accessibilityNextFocusId(nextId: string): T;
 
-  /**
-   * 为页面设置屏幕朗读初始焦点。
-   * @param { boolean } focus - 为页面设置屏幕朗读初始焦点。值为true则表示该组件为当前页默认首焦点，值为false或其他值无效。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityDefaultFocus(focus: boolean): T;
+   /**
+    * Sets the accessibility default foucs flag
+    * @param { boolean } focus - if the component is accessibility default focus,focus set true
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   accessibilityDefaultFocus(focus: boolean): T;
 
-  /**
-   * 设置当前组件和宿主应用为同page模式。
-   * @param { AccessibilitySamePageMode } pageMode - 当前跨进程嵌入式显示的组件和宿主应用的同page模式。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
+   /**
+    * Sets accessibility same page mode
+    * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
-  /**
-   * 设置无障碍节点是否支持屏幕朗读滚动操作。当屏幕朗读在扫动走焦时，若容器内当前页面无可聚焦的组件，会发起一次自动滚动操作。
-   * @param { boolean } isTriggerable - 用于表示组件是否支持该能力。
-   *     <br>**true**：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，需要自动滚动操作。
-   *     <br>**false**：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，不需要自动滚动操作。
-   *     <br>**undefined**：还原默认值。
-   *     <br>默认值：**true**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityScrollTriggerable(isTriggerable: boolean): T;
+   /**
+    * 提供通用属性accessibilityScrollingTriggerable设置控制滚动组件，走焦到边界时，是否需要被屏幕朗读自动滚动
+    * @param { boolean } isTriggerable - 是否触发滚动
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
-  /**
-   * Sets the accessibility text.
-   * <p><strong>NOTE</strong>
-   * If a component has both text content and accessibility text, only the accessibility text is announced.
-   * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
-   * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
-   * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
-   * </p>
-   * @param { Resource } text - set accessibility text
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityText(text: Resource): T;
+   /**
+    * Sets the accessibility text.
+    * <p><strong>NOTE</strong>
+    * If a component has both text content and accessibility text, only the accessibility text is announced.
+    * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
+    * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
+    * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
+    * </p>
+    * @param { Resource } text - set accessibility text
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityText(text: Resource): T;
 
-  /**
-   * 设置无障碍组件类型，特定组件类型有特定的朗读方式，可以根据应用诉求，修改组件类型，用于控制无障碍模式下对组件的朗读方式和朗读内容。
-   * @param { AccessibilityRoleType } role - 屏幕朗读播报的组件类型，如按钮、图表。具体类型可由开发者自定义。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityRole(role: AccessibilityRoleType): T;
+   /**
+    * Sets accessibility role,role indicates the custom type of the component
+    * @param { AccessibilityRoleType } role - set accessibility component type
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   accessibilityRole(role: AccessibilityRoleType): T;
 
-  /**
-   * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
-   * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
+   /**
+    * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
+    * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 18 dynamic
+    */
+   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
 
-  /**
-   * 注册可访问性操作拦截回调，
-   * 当要执行可访问性操作时，将执行回调
-   * @param { AccessibilityActionInterceptCallback } callback - 可访问性操作拦截回调函数
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
+   /**
+    * 注册可访问性操作拦截回调，
+    * 当要执行可访问性操作时，将执行回调
+    * @param { AccessibilityActionInterceptCallback } callback - 可访问性操作拦截回调函数
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 20 dynamic
+    */
+   onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
-  /**
-   * 设置组件的文本提示信息，供无障碍辅助应用查询。
-   *
-   * @param { string } value - 组件的文本提示信息，供无障碍辅助应用查询。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityTextHint(value: string): T;
+   /**
+    * Sets accessibilityTextHint
+    *
+    * @param { string } value - set accessibility text hint
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityTextHint(value: string): T;
 
-  /**
-   * 设置无障碍说明。该属性用于为用户进一步说明当前组件，开发人员可为组件设置相对较详细的解释文本，帮助用户理解将要执行的操作。
-   *
-   * @param { string } value - 无障碍说明，用于为用户进一步说明当前组件，开发人员可为组件的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从组件本身属性与无障碍文本中了解到时。若组件既拥有文本属性又拥有无障碍说明属性，则组件被选中时，先播报组件的文本属性，再播报无障碍说明属性的内容。
-   *     <br>默认值：**""**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form [since 12]
-   * @atomicservice [since 11]
-   * @since 10 dynamic
-   */
-  accessibilityDescription(value: string): T;
+   /**
+    * Sets accessibilityDescription
+    *
+    * @param { string } value - set description of accessibility, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @since 10
+    */
+   /**
+    * Sets accessibilityDescription
+    *
+    * @param { string } value - set description of accessibility, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+   /**
+    * Sets accessibilityDescription
+    *
+    * @param { string } value - set description of accessibility, default value is "".
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityDescription(value: string): T;
 
-  /**
-   * 设置无障碍说明，支持通过Resource引用资源文件。该属性用于为用户进一步说明当前组件，开发人员可为组件设置相对较详细的解释文本，帮助用户理解将要执行的操作。
-   * <p><strong>NOTE</strong>:
-   * <br>Reference resource of the accessibility description. You can specify further explanation
-   * <br>of the current component, for example, possible operation consequences, especially those that
-   * <br>cannot be learned from component attributes and accessibility text. If a component contains
-   * <br>both text information and the accessibility description, the text is read first and then the
-   * <br>accessibility description, when the component is selected.</p>
-   * @param { Resource } description - set description of accessibility
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityDescription(description: Resource): T;
+   /**
+    * Sets accessibilityDescription
+    *
+    * with support for resource references using Resource.
+    * This property provides additional context or explanation for the component,
+    * helping users understand the action or function it performs.
+    * <p><strong>NOTE</strong>:
+    * <br>Reference resource of the accessibility description. You can specify further explanation
+    * <br>of the current component, for example, possible operation consequences, especially those that
+    * <br>cannot be learned from component attributes and accessibility text. If a component contains
+    * <br>both text information and the accessibility description, the text is read first and then the
+    * <br>accessibility description, when the component is selected.</p>
+    * @param { Resource } description - set description of accessibility
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityDescription(description: Resource): T;
 
-  /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
-   *
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
-   *
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
-   * <p>
-   * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
-   * <br>The options are as follows:
-   * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
-   * <br>"yes": The component can be recognized by accessibility services.
-   * <br>"no": The component cannot be recognized by accessibility services.
-   * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
-   * <strong>NOTE</strong>
-   * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
-   * <br>1. The accessibility service internally determines whether the component can be recognized.
-   * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
-   * <br>not focus on its child components, making them unrecognizable.
-   * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
-   * <br>recognized by accessibility services.</p>
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  accessibilityLevel(value: string): T;
+   /**
+    * Sets the accessibility level.
+    * This property determines whether the component can be recognized by accessibility services.
+    *
+    * @param { string } value - set accessibility level, default value is auto.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @since 10
+    */
+   /**
+    * Sets the accessibility level.
+    * This property determines whether the component can be recognized by accessibility services.
+    *
+    * @param { string } value - set accessibility level, default value is auto.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+   /**
+    * Sets the accessibility level.
+    * This property determines whether the component can be recognized by accessibility services.
+    * <p>
+    * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
+    * <br>The options are as follows:
+    * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
+    * <br>"yes": The component can be recognized by accessibility services.
+    * <br>"no": The component cannot be recognized by accessibility services.
+    * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
+    * <strong>NOTE</strong>
+    * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
+    * <br>1. The accessibility service internally determines whether the component can be recognized.
+    * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
+    * <br>not focus on its child components, making them unrecognizable.
+    * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
+    * <br>recognized by accessibility services.</p>
+    * @param { string } value - set accessibility level, default value is auto.
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityLevel(value: string): T;
 
-  /**
-   * 设置无障碍虚拟子节点。对自绘制组件传入一个自定义的CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
-   *
-   * @param { CustomBuilder } builder - 无障碍虚拟子节点，使开发者可以对自绘制组件传入一个自定义的CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form [since 12]
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  accessibilityVirtualNode(builder: CustomBuilder): T;
+   /**
+    * Sets accessibilityVirtualNode
+    *
+    * @param { CustomBuilder } builder - set virtual node of accessibility
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 11
+    */
+   /**
+    * Sets accessibilityVirtualNode
+    *
+    * @param { CustomBuilder } builder - set virtual node of accessibility
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12 dynamic
+    */
+   accessibilityVirtualNode(builder: CustomBuilder): T;
 
-  /**
-   * 无障碍节点是否选中的状态维护，用于支持多选的情况使用，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
-   *
-   * @param { boolean } isCheck - 用于表示组件是否被选中。
-   *     <br>**true**：当前组件被选中。
-   *     <br>**false**：当前组件未被选中。
-   *     <br>**undefined**：由组件自行确定选中状态。
-   *     <br>默认值：**undefined**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 13 dynamic
-   */
-  accessibilityChecked(isCheck: boolean): T;
+   /**
+    * Sets accessibilityChecked
+    *
+    * @param { boolean } isCheck - set accessibility checked status
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 13 dynamic
+    */
+   accessibilityChecked(isCheck: boolean): T;
 
-  /**
-   * 无障碍节点是否选中的状态维护，用于支持单选的情况使用，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
-   *
-   * @param { boolean } isSelect - 用于表示组件是否被选中。
-   *     <br>**true**：当前组件被选中。
-   *     <br>**false**：当前组件未被选中。
-   *     <br>**undefined**：由组件自行确定选中状态。
-   *     <br>默认值：**undefined**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 13 dynamic
-   */
-  accessibilitySelected(isSelect: boolean): T;
+   /**
+    * Sets accessibilitySelected
+    *
+    * @param { boolean } isSelect - set accessibility selected status
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 13 dynamic
+    */
+   accessibilitySelected(isSelect: boolean): T;
 
   /**
    * Sets obscured
@@ -26298,52 +26328,49 @@ declare class CommonMethod<T> {
    */
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
 
-  /**
-   * 设置组件的状态播报文本，用于屏幕朗读场景下清晰说明组件当前的实时状态。屏幕朗读时会优先播报该状态文本。
-   *
-   * @param { string | Resource | undefined } description - 需要播报组件当前状态的语音播报文本。
-   *     <br>设置文本超过1000字符时，截取前1000字符进行播报。
-   *     <br>**undefined**：播报文本默认为空。
-   * @returns { T } 返回调用该接口的组件引用。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  accessibilityStateDescription(description: string | Resource | undefined): T;
+   /**
+    * 设置组件的状态播报文本，可用于屏幕朗读场景下指示当前组件所处于的状态。屏幕朗读场景下会优先播报状态文本。
+    *
+    * @param { string | Resource | undefined } description - 无障碍场景组件的状态播报文本。当设置成undefined的时候，会被当作空字符串处理。
+    * @returns { T } 返回调用该接口的组件引用。
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 23 dynamic
+    */
+   accessibilityStateDescription(description: string | Resource | undefined): T;
 
-  /**
-   * 设置组件的无障碍操作的可选参数，用于限制或修改屏幕朗读等辅助应用发起的操作行为。
-   *
-   * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的滑动行为。
-   *     <br>AccessibilityActionOptions中的scrollStep用于设置无障碍操作下的滑动步数。
-   *     <br>取值为**undefined**时scrollStep按1处理。
-   * @returns { T } 返回调用该接口的组件引用。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
+   /**
+    * 设置组件的无障碍操作的参数，用于限制或者修改无障碍操作下的行为。无障碍操作由屏幕朗读等辅助应用发起。
+    *
+    * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的行为。
+    * @returns { T } 返回调用该接口的组件引用。
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 23 dynamic
+    */
+   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
-  /**
-   * 指定屏幕朗读扫动走焦过程中组件的下一个焦点，并支持配置详细参数。
-   * <br>通过AccessibilityNextFocusParams参数，可以配置是否在无障碍下一个焦点处理过程中查找后代节点中的焦点。
-   * @param { string } nextId - 下一个被指定聚焦组件的[唯一标识id]{@link CommonMethod#id}。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
-   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 无障碍下一个焦点处理的详细参数，用于配置是否在后代节点中查找可聚焦节点。
-   *     <br>取值为**undefined**时，不配置下一个焦点处理的详细参数，不在后代节点中查找焦点。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
+   /**
+    * 设置组件的下一个辅助功能焦点ID，使用可选的详细参数。
+    * 详细的参数可以为可访问性焦点转换提供额外的行为。
+    *
+    * @param { string } nextId - 设置组件下一个可访问性焦点ID
+    * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 可访问性下一个焦点处理的详细参数。
+    *     Undefined表示恢复默认的详细参数。
+    * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
@@ -26363,11 +26390,9 @@ declare class CommonMethod<T> {
   smartGestureShortcut(options?: SmartGestureShortcutOptions): T;
 
   /**
-   * 设置组件的自定义无障碍操作，支持开发者设置一个自定义actions的数组，用于给组件按操作名进行自定义操作的回调绑定。
+   * 设置可在辅助功能下的自定义操作处理中可以处理的AccessibilityCustomActions。
    *
-   * @param { Array<AccessibilityCustomAction> | undefined } actions - 自定义无障碍操作数组，每个操作包含操作名称和回调，用于给组件按操作名进行自定义操作的回调绑定。
-   *     <br>**说明**：数组长度最大支持16个，超出部分将不生效。
-   *     <br>取值为**undefined**时，不设置自定义操作。
+   * @param { Array<AccessibilityCustomAction> | undefined } actions - 设置辅助功能自定义操作。
    * @returns { T } 返回调用方法的组件实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
