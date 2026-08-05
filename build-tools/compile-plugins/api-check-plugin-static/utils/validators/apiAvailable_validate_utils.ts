@@ -171,7 +171,7 @@ export function validateApiAvailableArgument(options: ValidateApiAvailableArgume
   }
 
   const content: string = (arg as arkts.StringLiteral).str;
-  if (!content) {
+  if (content === undefined) {
     return result;
   }
   return isOpenHarmonyRuntime() ?
