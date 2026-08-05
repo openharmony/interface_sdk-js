@@ -618,7 +618,7 @@ declare namespace hiAppEvent {
    *     数字字符、字母字符或下划线字符。结尾字符必须为数字字符或字母字符。长度非空且不超过32个字符。<br>- 参数值为[ParamType]{@link hiAppEvent.ParamType}类型，参数值长度需在
    *     1024个字符以内。<br>- 参数个数需在64个以内。
    * @param { string } domain - 事件领域。事件领域可支持关联应用事件和系统事件（hiAppEvent.domain.OS）。
-   * @param { string } name - 事件名称。默认为空字符串，空字符串表示关联事件领域下的所有事件名称。事件名称可支持关联应用事件和系统事件，其中系统事件仅支持关联：<br>-
+   * @param { string } [name] - 事件名称。默认为空字符串，空字符串表示关联事件领域下的所有事件名称。事件名称可支持关联应用事件和系统事件，其中系统事件仅支持关联：<br>-
    *     [崩溃事件](docroot://dfx/hiappevent-watcher-crash-events.md)（hiAppEvent.event.APP_CRASH）<br>-
    *     [应用冻屏事件](docroot://dfx/hiappevent-watcher-freeze-events.md)（hiAppEvent.event.APP_FREEZE）<br>-
    *     [资源泄漏事件](docroot://dfx/hiappevent-watcher-resourceleak-events.md)（hiAppEvent.event.RESOURCE_OVERLIMIT）。<br>
