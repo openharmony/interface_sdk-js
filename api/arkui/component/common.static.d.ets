@@ -265,6 +265,7 @@ export declare interface AnimatableArithmetic<T> {
 /**
   * ReuseId callback type. It is used to compute reuseId.
   *
+  * @typedef { function } ReuseIdCallback
   * @returns { string }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
@@ -274,6 +275,7 @@ export type ReuseIdCallback = () => string;
 /**
  * Defining the reusable configuration parameters.
  *
+ * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -282,6 +284,7 @@ export declare interface ReuseOptions {
     /**
      * Defining reuseId function. The default reuseId is the custom component name.
      *
+     * @type { ?ReuseIdCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
