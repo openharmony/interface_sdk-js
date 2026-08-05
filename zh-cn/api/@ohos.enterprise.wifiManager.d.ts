@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Wi-Fi管理
  * @kit MDMKit
  */
 
@@ -22,11 +22,21 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * 本模块提供企业设备Wi-Fi管理能力，包括查询Wi-Fi开启状态等。
+ * 本模块提供企业设备Wi-Fi管理能力，包括查询Wi-Fi开启状态、配置Wi-Fi连接、管理Wi-Fi名单等。
+ *
+ * **使用场景**：
+ *
+ * - 企业设备批量配置Wi-Fi连接，简化设备初始化流程
+ * - 控制设备可连接的Wi-Fi网络，实现网络访问合规管理
+ * - 管理企业设备的Wi-Fi开关，统一网络策略
+ *
+ * **功能收益**：
+ *
+ * - 提高企业网络管理效率，减少IT运维成本
+ * - 确保设备仅连接安全的Wi-Fi网络，降低安全风险
+ * - 实现网络策略统一管控，满足企业合规要求
  *
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  * >
@@ -103,7 +113,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_EAP = 5,
 
     /**
-     * Suite-B 192位加密类型。例如政府和高安全机构。
+     * Suite-B 192位加密类型。设置后Wi-Fi将使用Suite-B 192位高强度加密，提供高级别的安全认证，适用于政府和高安全机构。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -232,7 +242,7 @@ declare namespace wifiManager {
   /**
    * 表示EAP认证方式的枚举。
    *
-   * > **说明**：
+   * > **说明：**
    * >
    * > 当前仅支持使用EAP_PEAP、EAP_TLS两种认证方式，其他暂不支持。
    *
@@ -278,7 +288,7 @@ declare namespace wifiManager {
     EAP_TTLS = 3,
 
     /**
-     * 密码。当eapMethod为EAP_PEAP或EAP_PWD时，该字段不能为空串，最大长度为128字节。
+     * PWD类型，密码认证。无需服务器证书。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -377,7 +387,7 @@ declare namespace wifiManager {
     PHASE2_GTC = 4,
 
     /**
-     * SIM类型，使用手机SIM卡中的密钥和算法进行认证。
+     * SIM类型。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -386,7 +396,7 @@ declare namespace wifiManager {
     PHASE2_SIM = 5,
 
     /**
-     * AKA类型，使用USIM卡（3G/4G/5G SIM卡）中的增强密钥和算法进行认证。
+     * AKA类型。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -449,7 +459,7 @@ declare namespace wifiManager {
     anonymousIdentity: string;
 
     /**
-     * 密码。当eapMethod为EAP_PEAP或EAP_PWD时，该字段不能为空串，最大长度为128字节。
+     * PWD类型，密码认证。无需服务器证书。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -566,8 +576,8 @@ declare namespace wifiManager {
     ssid: string;
 
     /**
-     * Wi-Fi热点的MAC地址，长度6个字节，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址
-     * 。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。
+     * Wi-Fi热点的MAC地址，长度6个字节，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地
+     * 址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -576,7 +586,7 @@ declare namespace wifiManager {
     bssid?: string;
 
     /**
-     * 热点的密钥，最大长度为64字节。
+     * 热点的密钥，用于Wi-Fi连接认证。最大长度为64字节。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -824,7 +834,7 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { WifiProfile } profile - Wi-Fi配置信息。
+   * @param { WifiProfile } profile - Wi-Fi配置信息，用于指定要连接的Wi-Fi网络的配置参数，包括SSID、BSSID、密钥、安全类型等。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -882,11 +892,11 @@ declare namespace wifiManager {
   function isWifiDisabled(admin: Want): boolean;
 
   /**
-   * 添加Wi-Fi禁用名单。添加禁用名单后当前设备不允许连接该名单下的Wi-Fi。
+   * 添加Wi-Fi禁用名单。添加禁用名单后当前设备不允许连接该名单下的Wi-Fi。适用于企业安全管控场景，例如禁止设备连接不安全的公共Wi-Fi(如咖啡馆、机场Wi-Fi)、防止员工连接竞争对手或恶意网络，保障企业数据安全。
    *
    * 以下情况下，调用本接口会报策略冲突：
    *
-   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}解除Wi-Fi禁用后，可解除冲突。
+   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}解除Wi-Fi禁用后，可解除冲突。
    * 2. 已经通过[addAllowedWifiList]{@link wifiManager.addAllowedWifiList}接口添加了Wi-Fi允许名单。通过[removeAllowedWifiList]{@link wifiManager.removeAllowedWifiList}移除Wi-Fi允许名单后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
@@ -904,7 +914,8 @@ declare namespace wifiManager {
   function addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。
+   * 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。适用于企业Wi-Fi策略调整场景，例如解除对特定Wi-
+   * Fi的禁用限制、允许员工连接新批准的办公网络、或完全移除禁用策略。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -940,8 +951,8 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
-   * @returns { Array<WifiAccessInfo> } Array of disallowed Wi-Fi networks.
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<WifiAccessInfo> } Wi-Fi禁用名单数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -953,11 +964,11 @@ declare namespace wifiManager {
   function getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
-   * 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。
+   * 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。适用于企业安全管理场景，例如限制员工设备只能连接公司授权的Wi-Fi网络，防止连接不安全的外部Wi-Fi，保障企业网络安全和数据安全。
    *
    * 以下情况下，调用本接口会报策略冲突：
    *
-   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}解除Wi-Fi禁用后，可解除冲突。
+   * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}解除Wi-Fi禁用后，可解除冲突。
    * 2. 已经通过[addDisallowedWifiList]{@link wifiManager.addDisallowedWifiList}接口添加了Wi-Fi禁用名单。通过[removeDisallowedWifiList]{@link wifiManager.removeDisallowedWifiList}移除Wi-Fi禁用名单后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
@@ -975,7 +986,8 @@ declare namespace wifiManager {
   function addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * 移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。
+   * 移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。适用于企业Wi-Fi策略调整场景，例如公司更换Wi-Fi网络
+   * 时移除旧网络限制、或解除部分Wi-Fi限制以允许员工连接新的办公网络。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1011,7 +1023,7 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @returns { Array<WifiAccessInfo> } Wi-Fi允许名单数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1024,15 +1036,12 @@ declare namespace wifiManager {
   function getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
-   * 打开Wi-Fi开关。
+   * 打开Wi-Fi开关。适用于企业设备远程管理场景，例如管理员远程控制员工设备开启Wi-Fi或在特定策略执行时确保Wi-Fi已开启。
    *
    * 以下情况下，通过本接口打开Wi-Fi开关，会打开失败并提示"系统功能被禁用"：
    *
-   * ​已经通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口禁用了Wi-Fi。需通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口启用Wi-Fi，解决"系统功能被禁用"报错。
+   * ​已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了Wi-Fi。需通过
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口启用Wi-Fi，解决"系统功能被禁用"报错。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1054,11 +1063,8 @@ declare namespace wifiManager {
    *
    * 以下情况下，通过本接口关闭Wi-Fi开关，会提示"系统功能被禁用"：
    *
-   * ​已经通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口禁用了Wi-Fi。需通过
-   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
-   * 接口启用Wi-Fi，解决"系统功能被禁用"报错。
+   * ​已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了Wi-Fi。需通过
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口启用Wi-Fi，解决"系统功能被禁用"报错。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。

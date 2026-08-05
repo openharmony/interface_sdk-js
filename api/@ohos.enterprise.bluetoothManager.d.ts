@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Bluetooth Management
  * @kit MDMKit
  */
 
@@ -23,12 +23,13 @@ import type constant from './@ohos.bluetooth.constant';
 import type access from './@ohos.bluetooth.access';
 
 /**
- * The **bluetoothManager** module provides Bluetooth management capabilities, including setting and obtaining Bluetooth
- * information.
+ * This module provides device Bluetooth management capabilities, including setting Bluetooth switch states, querying
+ * Bluetooth information, and managing the Bluetooth device trustlist, Bluetooth device blocklist, and Bluetooth
+ * protocol blocklist. Through this module, enterprises can centrally manage Bluetooth functions on devices, enabling
+ * fine-grained control over Bluetooth device connections and enhancing enterprise information security. This is
+ * suitable for scenarios where enterprises need to regulate Bluetooth usage on employee devices.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -116,7 +117,7 @@ declare namespace bluetoothManager {
   }
 
   /**
-   * The transfer policy.
+   * Transfer policy.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -124,7 +125,7 @@ declare namespace bluetoothManager {
    */
   export enum TransferPolicy {
     /**
-     * Send only.
+     * Disable sending.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -133,7 +134,7 @@ declare namespace bluetoothManager {
     SEND_ONLY = 0,
 
     /**
-     * Receive only.
+     * Disable receiving.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -142,7 +143,7 @@ declare namespace bluetoothManager {
     RECEIVE_ONLY = 1,
 
     /**
-     * Receive and send.
+     * Disable sending and receiving.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -226,8 +227,9 @@ declare namespace bluetoothManager {
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
-   * 1. Bluetooth has been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
-   * You can resolve the conflict by enabling the Bluetooth through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 1. Bluetooth has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
+   * In this case, you can call [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}
+   * enable Bluetooth to solve the conflict.
    * 2. Disallowed Bluetooth devices have been added by calling [addDisallowedBluetoothDevices]{@link bluetoothManager.addDisallowedBluetoothDevices}.
    * You can resolve the conflict by removing disallowed Bluetooth devices through [removeDisallowedBluetoothDevices]{@link bluetoothManager.removeDisallowedBluetoothDevices}.
    *
@@ -349,8 +351,9 @@ declare namespace bluetoothManager {
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
-   * 1. Bluetooth has been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
-   * You can resolve the conflict by enabling the Bluetooth through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 1. Bluetooth has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
+   * In this case, you can call [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}
+   * enable Bluetooth to solve the conflict.
    * 2. Allowed Bluetooth devices have been added by calling [addAllowedBluetoothDevices]{@link bluetoothManager.addAllowedBluetoothDevices}.
    * You can resolve the conflict by removing allowed Bluetooth devices through [removeAllowedBluetoothDevices]{@link bluetoothManager.removeAllowedBluetoothDevices}.
    *
@@ -429,14 +432,15 @@ declare namespace bluetoothManager {
   /**
    * Adds disallowed Bluetooth protocols. Specified users cannot use the disallowed Bluetooth protocols to send files to
    * other devices. This API is used to disable the GATT or SPP protocol, which does not take effect for system services
-   * and system applications.
+   * and system applications. When the SPP protocol is passed, both the receiving and sending functions are disabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the account ID.
+   *     ohos.account.osAccount to obtain the ID.
    * @param { Array<Protocol> } protocols - Bluetooth protocol array, which has a maximum length of 10,000.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -456,9 +460,10 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the account ID.
+   *     ohos.account.osAccount to obtain the ID.
    * @param { Array<Protocol> } protocols - Bluetooth protocol array.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -476,9 +481,10 @@ declare namespace bluetoothManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the account ID.
+   *     ohos.account.osAccount to obtain the ID.
    * @returns { Array<Protocol> } Array of disallowed Bluetooth protocols.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -491,15 +497,35 @@ declare namespace bluetoothManager {
   function getDisallowedBluetoothProtocols(admin: Want, accountId: number): Array<Protocol>;
 
   /**
-   * Adds protocols to the list of bluetooth server that are disallowed to use.
+   * Adds disallowed Bluetooth protocols. After the setting, specified users cannot use the disallowed Bluetooth
+   * protocols based on the specified transfer policy.
+   *
+   * > **NOTE**
+   * >
+   * > 1. This API is used to disable the GATT or SPP protocol, which does not take effect for system services and
+   * > system applications.
+   * >
+   * > 2. When the SPP protocol is passed, the value of the **policy** parameter can only be
+   * > **TransferPolicy.RECEIVE_SEND**. Otherwise, error code 9200012 will be returned.
+   * >
+   * > 3. This API and
+   * > [addDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.addDisallowedBluetoothProtocols} are
+   * > overloaded APIs. This API adds the **policy** parameter to specify the transfer policy, enabling more fine-
+   * > grained control over Bluetooth protocol disabling behavior (for example, blocking only sending, only receiving,
+   * > or both sending and receiving). If both APIs are used to configure disabling policies, the policies will be
+   * > combined and take effect.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the local ID of the OS account
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @param { Array<Protocol> } protocols - protocols of the bluetooth to be added to the list
-   *     <br>The maximum length is 10000 and cannot be empty.
-   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @param { Array<Protocol> } protocols - Array of Bluetooth protocols to be added to the blocklist.
+   * @param { TransferPolicy } policy - Transfer policy, which specifies the mode for disabling Bluetooth protocols. The
+   *     options are **SEND_ONLY** (sending disabled), **RECEIVE_ONLY** (receiving disabled), and **RECEIVE_SEND** (
+   *     sending and receiving disabled).
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -512,15 +538,30 @@ declare namespace bluetoothManager {
   function addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>, policy: TransferPolicy): void;
 
   /**
-   * Removes protocol from the list of bluetooth server that are disallowed to use.
+   * Removes Bluetooth protocols from the blocklist. After the setting, specified users are no longer restricted by the
+   * transfer policy and can properly use these Bluetooth protocols.
+   *
+   * > **NOTE**
+   * >
+   * > 1. When the SPP protocol is passed, the value of the **policy** parameter can only be
+   * > **TransferPolicy.RECEIVE_SEND**. Otherwise, error code 9200012 will be returned.
+   * >
+   * > 2. This API and
+   * > [removeDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.removeDisallowedBluetoothProtocols} are
+   * > overloaded APIs. This API adds the **policy** parameter to remove the disallowing configuration based on the
+   * > transfer policy. If the same protocol has been blocked under different policies via the two APIs, calling this
+   * > API removes only the blocking configuration for the corresponding policy, while blocking configurations of other
+   * > policies remain effective.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the local ID of the OS account
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @param { Array<Protocol> } protocols - protocols of the bluetooth to be added to the list
-   *     <br>The maximum length is 10000.
-   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @param { Array<Protocol> } protocols - Array of Bluetooth protocols to be removed from the blocklist.
+   * @param { TransferPolicy } policy - Transfer policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -533,14 +574,26 @@ declare namespace bluetoothManager {
   function removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>, policy: TransferPolicy): void;
 
   /**
-   * Gets protocols from the list of bluetooth server that are disallowed to use.
+   * Obtains the list of disallowed Bluetooth protocols for a specified user under a specified transfer policy.
+   *
+   * > **NOTE**
+   * >
+   * > 1. This API and
+   * > [getDisallowedBluetoothProtocols<sup>20+</sup>]{@link bluetoothManager.getDisallowedBluetoothProtocols} are
+   * > overloaded APIs. This API adds the **policy** parameter to query the disallowing configuration based on the
+   * > transfer policy.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the local ID of the OS account
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
-   * @returns { Array<Protocol> } protocol of the bluetooth list.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @param { TransferPolicy } policy - Transfer policy.
+   * @returns { Array<Protocol> } Array of disallowed Bluetooth protocols.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
