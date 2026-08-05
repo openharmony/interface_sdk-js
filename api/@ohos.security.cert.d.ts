@@ -555,7 +555,7 @@ declare namespace cert {
    */
   enum ExtensionEntryType {
     /**
-     * Entire object.
+     * Entire extension entry.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -566,7 +566,7 @@ declare namespace cert {
     EXTENSION_ENTRY_TYPE_ENTRY = 0,
 
     /**
-     * Critical attribute of the object.
+     * Critical attribute (**critical** flag) of the extension entry.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -577,7 +577,7 @@ declare namespace cert {
     EXTENSION_ENTRY_TYPE_ENTRY_CRITICAL = 1,
 
     /**
-     * Data of the object.
+     * Value (extension-specific data) of the extension entry.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -589,7 +589,7 @@ declare namespace cert {
   }
 
   /**
-   * Defines a binary data array in encoding format.
+   * Represents an encoded binary data block.
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -700,11 +700,11 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -718,11 +718,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -737,15 +737,15 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 certificate data obtained.
      *     Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -758,16 +758,16 @@ declare namespace cert {
      * Obtains the serialized X.509 certificate data. This API uses a promise to return the result.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 certificate data obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -781,8 +781,8 @@ declare namespace cert {
      *
      * @returns { cryptoFramework.PubKey } Public key of the X.509 certificate obtained. This object is used only for
      *     **verify()** of **X509Cert**.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -794,15 +794,15 @@ declare namespace cert {
     /**
      * Checks the validity period of this X.509 certificate.
      *
-     * @param { string } date - Date in the ASN.1 format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @param { string } date - Date in an ASN.1 time format, specifically UTCTime or GeneralizedTime.
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -843,7 +843,7 @@ declare namespace cert {
      * Obtains the X.509 certificate serial number.
      *
      * @returns { bigint } X.509 certificate serial number obtained.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
@@ -856,19 +856,22 @@ declare namespace cert {
     getCertSerialNumber(): bigint;
 
     /**
-     * Obtains the X.509 certificate issuer.
+     * Obtains the issuer name of this X.509 certificate.
      *
      * > **NOTE**
      * >
-     * > The obtained X.509 certificate issuer name contains a string terminator.
+     * > - The obtained X.509 certificate issuer name ends with a NUL terminator (value 0). Determine whether to remove
+     * > this terminator based on your business requirements.
+     * > - The obtained certificate issuer name is ASCII-encoded. When converted to a string, it is a distinguished name
+     * > string that starts with a slash (/) and uses slashes (/) to separate relative distinguished names.
      *
      * @returns { DataBlob } X.509 certificate issuer obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -878,18 +881,18 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
-     * Obtains the issuer name of an X.509 certificate based on the encoding type.
+     * Obtains the issuer name of this X.509 certificate based on the encoding type.
      *
      * @param { EncodingType } encodingType - Encoding type.
      * @returns { string } Issuer name of an X.509 certificate, separated by commas (,).
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -899,26 +902,29 @@ declare namespace cert {
     getIssuerName(encodingType: EncodingType): string;
 
     /**
-     * Obtains the subject of this X.509 certificate.
+     * Obtains the subject name of this X.509 certificate.
      *
      * > **NOTE**
      * >
-     * > The obtained X.509 certificate subject name contains a string terminator.
+     * > - If the encodingType parameter is not set, the obtained certificate subject name ends with a
+     * > NUL terminator (value 0). Determine whether to remove this terminator based on your business requirements.
+     * > - If the encodingType parameter is not set, the obtained certificate subject name is ASCII-encoded. When
+     * > converted to a string, it is a distinguished name string that starts with a slash (/) and uses slashes (/) to
+     * > separate relative distinguished names.
+     * > - It is recommended to set the encodingType parameter to EncodingType.ENCODING_UTF8. The obtained certificate
+     * > subject name is a distinguished name string that uses commas (,) to separate relative distinguished names.
      *
      * @param { EncodingType } [encodingType] - Encoding type. If this parameter is set, the subject name in UTF-8
      *     format is to be obtained. If this parameter is not set, the subject name in ASCII encoding format is obtained
      *     by default.<br>This parameter is available since API version 12. [since 12]
-     * @returns { DataBlob } Represents the subject name of an X.509 certificate. If the encodingType parameter is not
-     *     set, relative distinguished names are separated by slashes (/) after the data is converted into a string. If
-     *     the encodingType parameter is set to EncodingType.ENCODING_UTF8, relative distinguished names are separated
-     *     by commas (,) after the data is converted into a string.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { DataBlob } Represents the subject name of an X.509 certificate.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Incorrect parameter types;
      *     <br>2. Parameter verification failed. [since 12]
      * @syscap SystemCapability.Security.Cert
@@ -932,13 +938,14 @@ declare namespace cert {
     /**
      * Obtains the start time of this X.509 certificate.
      *
-     * @returns { string } Certificate start time obtained, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Certificate start time obtained, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -950,13 +957,14 @@ declare namespace cert {
     /**
      * Obtains the expiration time of this X.509 certificate.
      *
-     * @returns { string } Certificate expiration time obtained, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Certificate expiration time obtained, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -969,12 +977,12 @@ declare namespace cert {
      * Obtains the signature data of this X.509 certificate.
      *
      * @returns { DataBlob } Signature data obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -987,12 +995,12 @@ declare namespace cert {
      * Obtains the signing algorithm of this X.509 certificate.
      *
      * @returns { string } X.509 certificate signing algorithm obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1006,12 +1014,12 @@ declare namespace cert {
      * International Organization for Standardization (ISO).
      *
      * @returns { string } OID obtained. It will be truncated if the length exceeds 127 bytes.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1024,13 +1032,13 @@ declare namespace cert {
      * Obtains the signing algorithm parameters of this X.509 certificate.
      *
      * @returns { DataBlob } X.509 certificate signing algorithm parameters obtained.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1043,8 +1051,8 @@ declare namespace cert {
      * Obtains the key usage of this X.509 certificate.
      *
      * @returns { DataBlob } Key usage of the X.509 certificate obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1057,12 +1065,12 @@ declare namespace cert {
      * Obtains the usage of the extended key of this X.509 certificate.
      *
      * @returns { DataArray } Usage of the extended key obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1091,12 +1099,12 @@ declare namespace cert {
      * > The obtained SANs contain a string terminator.
      *
      * @returns { DataArray } SANs obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1113,12 +1121,12 @@ declare namespace cert {
      * > The obtained IANs contain a string terminator.
      *
      * @returns { DataArray } IANs obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1132,16 +1140,16 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType - Certificate field to obtain.
      * @returns { DataBlob } Fields in DER format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1156,12 +1164,12 @@ declare namespace cert {
      * @param { X509CertMatchParameters } param - Parameters specified for matching the certificate.
      * @returns { boolean } Returns **true** if the certificate matches the parameters specified; returns **false**
      *     otherwise.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1174,12 +1182,12 @@ declare namespace cert {
      * Obtains the CRL distribution points of this X.509 certificate.
      *
      * @returns { DataArray } URIs of the CRL distribution points from this X.509 certificate obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1192,12 +1200,12 @@ declare namespace cert {
      * Obtains the X.500 distinguished name object of the X.509 certificate issuer.
      *
      * @returns { X500DistinguishedName } X.500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1210,12 +1218,12 @@ declare namespace cert {
      * Obtains the X.500 distinguished name object of the X.509 certificate subject.
      *
      * @returns { X500DistinguishedName } X.500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1228,12 +1236,12 @@ declare namespace cert {
      * Converts the object data into a string.
      *
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1247,14 +1255,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - Encoding type.
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1267,12 +1275,12 @@ declare namespace cert {
      * Obtains the hash value of the data in DER format.
      *
      * @returns { Uint8Array } Hash value obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1282,15 +1290,15 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the certificate extensions in DER format.
+     * Obtains the certificate extension object.
      *
      * @returns { CertExtension } Certificate extensions object obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1307,13 +1315,13 @@ declare namespace cert {
    * @param { AsyncCallback<X509Cert> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509Cert** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1327,13 +1335,13 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509 certificate serialization data.
    * @returns { Promise<X509Cert> } Promise used to return the **X509Cert** instance created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1356,12 +1364,12 @@ declare namespace cert {
      * Obtains the serialized data of the certificate extensions.
      *
      * @returns { EncodingBlob } Serialized data obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1375,16 +1383,16 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType - Type of the OIDs to obtain.
      * @returns { DataArray } OIDs obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1394,21 +1402,21 @@ declare namespace cert {
     getOidList(valueType: ExtensionOidType): DataArray;
 
     /**
-     * Obtains the certificate extension object information.
+     * Obtains the value of a specific certificate extension entry by OID.
      *
      * @param { ExtensionEntryType } valueType - Type of the information to obtain.
      * @param { DataBlob } oid - OID of the certificate extension to obtain.
      * @returns { DataBlob } Certificate extension object information obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1425,12 +1433,12 @@ declare namespace cert {
      *     certificate; returns the path length in the basic constraints otherwise. Returns **-2** if the certificate is
      *     a CA certificate but the path length is not specified in the basic constraints, which means the path length
      *     is not limited.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1443,12 +1451,12 @@ declare namespace cert {
      * Checks whether there is a critical extension that is not supported.
      *
      * @returns { boolean } Returns **true** if an unsupported critical extension is found; returns **false** otherwise.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1465,13 +1473,13 @@ declare namespace cert {
    * @param { AsyncCallback<CertExtension> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the **CertExtension** instance created. Otherwise,
    *     **err** is an error object.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1485,13 +1493,13 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized certificate extension data.
    * @returns { Promise<CertExtension> } Promise used to return the **CertExtension** instance created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1526,15 +1534,15 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized data of the revoked certificate entry
      *     obtained. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1552,15 +1560,15 @@ declare namespace cert {
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate entry
      *     obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1593,9 +1601,9 @@ declare namespace cert {
      * > [X509CRLEntry.getCertIssuer()]{@link cert.X509CRLEntry.getCertIssuer()} instead.
      *
      * @returns { DataBlob } Issuer name of the revoked certificate obtained.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
@@ -1614,13 +1622,14 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRLEntry.getRevocationDate()]{@link cert.X509CRLEntry.getRevocationDate} instead.
      *
-     * @returns { string } Certificate revocation date, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Certificate revocation date,  in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1640,21 +1649,21 @@ declare namespace cert {
    */
   interface X509CRLEntry {
     /**
-     * Obtains the serialized data of this revoked certificate entry. This API uses an asynchronous callback to return the
-     * result.
+     * Obtains the serialized data of this revoked certificate entry. This API uses an asynchronous callback to return
+     * the result.
      *
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined**, and **data** is the serialized data of the revoked certificate entry obtained.
-     *     Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     successful, **err** is **undefined**, and **data** is the serialized data of the revoked certificate entry
+     *     obtained. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1668,15 +1677,15 @@ declare namespace cert {
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate entry
      *     obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1689,12 +1698,12 @@ declare namespace cert {
      * Obtains the serial number of this revoked certificate.
      *
      * @returns { bigint } Serial number of the revoked certificate obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1711,13 +1720,13 @@ declare namespace cert {
      * > The obtained issuer name of this revoked certificate contains a string terminator.
      *
      * @returns { DataBlob } Issuer name of the revoked certificate obtained.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1731,15 +1740,15 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - Encoding type.
      * @returns { string } Issuer name of the revoked certificate, separated by commas (,).
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1752,12 +1761,12 @@ declare namespace cert {
      * Obtains the certificate's revocation date.
      *
      * @returns { string } The certificate revocation date obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1770,12 +1779,12 @@ declare namespace cert {
      * Obtains the CRL entry extensions in DER format.
      *
      * @returns { DataBlob } X.509 CRL entry extensions obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1788,12 +1797,12 @@ declare namespace cert {
      * Checks whether this CRL entry has extensions.
      *
      * @returns { boolean } Returns **true** if the CRL entry has an extension; returns **false** otherwise.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1806,12 +1815,12 @@ declare namespace cert {
      * Obtains the distinguished name (DN) of the issuer of the revoked certificate.
      *
      * @returns { X500DistinguishedName } DN object obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1824,12 +1833,12 @@ declare namespace cert {
      * Converts the object data into a string.
      *
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1842,12 +1851,12 @@ declare namespace cert {
      * Obtains the hash value of the data in DER format.
      *
      * @returns { Uint8Array } Hash value obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1857,15 +1866,15 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the CRL entry extensions.
+     * Obtains the CRL entry extension object.
      *
      * @returns { CertExtension } CRL entry extensions.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1900,7 +1909,7 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate to check.
      * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
      *     revoked, and **false** indicates the opposite.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1938,15 +1947,15 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 CRL data obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1963,15 +1972,15 @@ declare namespace cert {
      * > [X509CRL.getEncoded()]{@link cert.X509CRL.getEncoded()} instead.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1992,11 +2001,11 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2015,11 +2024,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2052,12 +2061,12 @@ declare namespace cert {
      * > [X509CRL.getIssuerName()]{@link cert.X509CRL.getIssuerName()} instead.
      *
      * @returns { DataBlob } Issuer of the X.509 CRL obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2073,13 +2082,14 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRL.getLastUpdate()]{@link cert.X509CRL.getLastUpdate} instead.
      *
-     * @returns { string } Last update date of the X.509 CRL, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Last update date of the X.509 CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2095,13 +2105,14 @@ declare namespace cert {
      * > This API is supported since API version 9 and deprecated since API version 11. Use
      * > [X509CRL.getNextUpdate()]{@link cert.X509CRL.getNextUpdate} instead.
      *
-     * @returns { string } Next update date of the CRL, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Next update date of the CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2119,12 +2130,12 @@ declare namespace cert {
      *
      * @param { number } serialNumber - Serial number of the certificate.
      * @returns { X509CrlEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2142,12 +2153,12 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
      * @returns { X509CrlEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2168,11 +2179,11 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the revoked certificate entries obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2189,11 +2200,11 @@ declare namespace cert {
      * > [X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts()} instead.
      *
      * @returns { Promise<Array<X509CrlEntry>> } Promise used to return the revoked certificate entries obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2210,12 +2221,12 @@ declare namespace cert {
      * > [X509CRL.getTBSInfo()]{@link cert.X509CRL.getTBSInfo} instead.
      *
      * @returns { DataBlob } **tbsCertList** information obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2232,12 +2243,12 @@ declare namespace cert {
      * > [X509CRL.getSignature()]{@link cert.X509CRL.getSignature} instead.
      *
      * @returns { DataBlob } Signature data of the X.509 CRL obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2254,12 +2265,12 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgName()]{@link cert.X509CRL.getSignatureAlgName} instead.
      *
      * @returns { string } Signing algorithm obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2277,12 +2288,12 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgOid()]{@link cert.X509CRL.getSignatureAlgOid} instead.
      *
      * @returns { string } OID of the X.509 CRL signing algorithm obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2299,13 +2310,13 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgParams()]{@link cert.X509CRL.getSignatureAlgParams} instead.
      *
      * @returns { DataBlob } Algorithm parameters obtained.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2326,12 +2337,12 @@ declare namespace cert {
    * @param { AsyncCallback<X509Crl> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509Crl** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
    * @deprecated since 11
@@ -2349,12 +2360,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized CRL data.
    * @returns { Promise<X509Crl> } Promise used to return the **X509Crl** instance created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
    * @deprecated since 11
@@ -2363,7 +2374,7 @@ declare namespace cert {
   function createX509Crl(inStream: EncodingBlob): Promise<X509Crl>;
 
   /**
-   * Provides APIs for managing a CRL object.
+   * Provides APIs for X.509 CRL operations.
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -2378,7 +2389,7 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate to check.
      * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
      *     revoked, and **false** indicates the opposite.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2408,15 +2419,15 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 CRL data obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2429,15 +2440,15 @@ declare namespace cert {
      * Obtains the serialized X.509 CRL data. This API uses a promise to return the result.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2453,11 +2464,11 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2472,11 +2483,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2505,12 +2516,12 @@ declare namespace cert {
      * > The obtained X.509 CRL issuer name contains a string terminator.
      *
      * @returns { DataBlob } Issuer of the X.509 CRL obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2524,14 +2535,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - Encoding type.
      * @returns { string } Issuer name of an X.509 CRL, separated by commas (,).
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2543,13 +2554,14 @@ declare namespace cert {
     /**
      * Obtains the last update date of this X.509 CRL.
      *
-     * @returns { string } Last update date of the X.509 CRL, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Last update date of the X.509 CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2561,13 +2573,14 @@ declare namespace cert {
     /**
      * Obtains the next update date of this CRL.
      *
-     * @returns { string } Next update date of the CRL, in ASN.1 format.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @returns { string } Next update date of the CRL, in an ASN.1 time format, specifically UTCTime or
+     *     GeneralizedTime.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2581,12 +2594,12 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - Serial number of the certificate.
      * @returns { X509CRLEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2600,12 +2613,12 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
      * @returns { X509CRLEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2621,11 +2634,11 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the revoked certificate entries obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2638,11 +2651,11 @@ declare namespace cert {
      * Obtains all the revoked certificate entries from the X.509 CRL. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<X509CRLEntry>> } Promise used to return the revoked certificate entries obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2655,12 +2668,12 @@ declare namespace cert {
      * Obtains the DER-encoded CRL information, that is, **tbsCertList** from this CRL.
      *
      * @returns { DataBlob } **tbsCertList** information obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2673,12 +2686,12 @@ declare namespace cert {
      * Obtains the signature data of the X.509 CRL.
      *
      * @returns { DataBlob } Signature data of the X.509 CRL obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2691,12 +2704,12 @@ declare namespace cert {
      * Obtains the signing algorithm of the X.509 CRL.
      *
      * @returns { string } Signing algorithm obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2710,12 +2723,12 @@ declare namespace cert {
      * Standardization (ISO).
      *
      * @returns { string } OID of the X.509 CRL signing algorithm obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2728,13 +2741,13 @@ declare namespace cert {
      * Obtains the parameters of the X.509 CRL signing algorithm.
      *
      * @returns { DataBlob } Algorithm parameters obtained.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2747,12 +2760,12 @@ declare namespace cert {
      * Obtains the CRL extensions data in DER format.
      *
      * @returns { DataBlob } CRL extensions data in DER format obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2767,12 +2780,12 @@ declare namespace cert {
      * @param { X509CRLMatchParameters } param - Parameters specified for matching the CRL.
      * @returns { boolean } Returns **true** if the CRL matches the parameters specified; returns **false**
      *     otherwise.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2785,12 +2798,12 @@ declare namespace cert {
      * Obtains the distinguished name (DN) of the X.509 CRL issuer.
      *
      * @returns { X500DistinguishedName } DN object obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2803,12 +2816,12 @@ declare namespace cert {
      * Converts the object data into a string.
      *
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2822,14 +2835,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - Encoding type.
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2842,12 +2855,12 @@ declare namespace cert {
      * Obtains the hash value of the data in DER format.
      *
      * @returns { Uint8Array } Hash value obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2857,15 +2870,15 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the CRL extensions in DER format.
+     * Obtains the CRL extension object.
      *
      * @returns { CertExtension } CRL extensions object obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2882,12 +2895,12 @@ declare namespace cert {
    * @param { AsyncCallback<X509CRL> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509CRL** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -2901,12 +2914,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized CRL data. The data length cannot exceed 8192 bytes.
    * @returns { Promise<X509CRL> } Promise used to return the **X509CRL** instance created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -2928,9 +2941,10 @@ declare namespace cert {
      * OCSP check is preferred. This flag is valid only when CERT_REVOCATION_CRL_CHECK and CERT_REVOCATION_OCSP_CHECK
      * are both set.
      *
-     * After the OCSP check is performed, it falls back to CRL check when no response is received or the OCSP times out.
-     * If this parameter is not set, CRL check is performed first. If no CRL is found or the timer expires, falls back
-     * to OCSP.
+     * - If this flag is set, OCSP check is performed first, and CRL check is performed if no OCSP response is found or
+     * a timeout occurs;
+     * - If this flag is not set, CRL check is performed first, and OCSP check is performed if no CRL is found or a
+     * timeout occurs.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2942,9 +2956,9 @@ declare namespace cert {
     /**
      * Enables the CRL check. Checks the certificate status using a certificate revocation list.
      *
-     * The crls parameter of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is used. If no matching CRL is found
-     * and allowDownloadCrl of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is set to true, the CDP extension
-     * of the certificate is used to download the CRL.
+     * <br>First, the **crls** parameter of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is used. If no
+     * matching CRL is found and **allowDownloadCrl** of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is
+     * set to **true**, the CDP extension of the certificate is used to download the CRL.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2956,14 +2970,16 @@ declare namespace cert {
     /**
      * Enables OCSP check. Checks the certificate status using the Online Certificate Status Protocol.
      *
-     * If no matching OCSP response is found in [X509CertRevokedParams]{@link cert.X509CertRevokedParams} and
-     * allowOcspCheckOnline of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is set to true, the system
-     * attempts to obtain the OCSP URL from the certificate AIA extension and sends a request to obtain the response.
+     * <br>First, the **ocspResponses** parameter of [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is used.
+     * If no matching OCSP response is found and **allowOcspCheckOnline** of
+     * [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is set to **true**, the system attempts to obtain the
+     * OCSP URL from the certificate AIA extension and sends a request to obtain the response.
      *
      * > **NOTE**
      * >
      * > - Always verify the validity period of the OCSP response against the current system time, and allow a time
      * > tolerance of ±5 minutes.
+     * > - The validity period of the OCSP signature certificate chain is always verified using the current system time.
      * > - Allows ocsp response to be missing nonce and nextUpdate.
      *
      * @syscap SystemCapability.Security.Cert
@@ -2976,8 +2992,9 @@ declare namespace cert {
     /**
      * Checks the revocation status of all certificates.
      *
-     * Performs revocation check on all certificates in the certificate chain (skips self-signed certificates).
-     * If this parameter is not set, only the terminal certificate (the first certificate in the certificate chain) is
+     * - If this flag is set, revocation check is performed on all certificates in the certificate chain
+     * (skips self-signed certificates);
+     * - If this flag is not set, only the end-entity certificate (the first certificate in the certificate chain) is
      * checked.
      *
      * @syscap SystemCapability.Security.Cert
@@ -3105,9 +3122,10 @@ declare namespace cert {
     ocspResponses?: Array<Uint8Array>;
 
     /**
-     * Indicates whether to allow online OCSP check. The default value is false. true: Perform online OCSP check, that
-     * is, attempt to obtain the OCSP URL from the certificate AIA extension and send a request to obtain the response.
-     * false: Do not perform online OCSP check.
+     * Indicates whether to allow online OCSP check. The default value is false.
+     * - **true**: performs online OCSP check, that is, attempts to obtain the OCSP URL from the AIA extension of the
+     * certificate and send a request to obtain a response;
+     * - **false**: does not perform online OCSP check.
      *
      * > **NOTE**
      * >
@@ -3156,7 +3174,7 @@ declare namespace cert {
     /**
      * Trust certificate list. Specifies the trusted root certificate or intermediate CA certificate as the trust anchor
      * for validation. Maximum count: 100.
-     * During verification, the certificate chain must be traced back to the trust certificate. You must set this
+     * <br>During verification, the certificate chain must trace back to a trusted certificate. You must set this
      * parameter or set trustSystemCa to true.
      *
      * @syscap SystemCapability.Security.Cert
@@ -3167,8 +3185,9 @@ declare namespace cert {
     trustedCerts?: Array<X509Cert>;
 
     /**
-     * Indicates whether to trust the system CA. The default value is false. true: Use the preconfigured CA certificate
-     * store as the trust anchor. false: The preconfigured CA certificate store is not used as the trust anchor.
+     * Whether to trust the system CA. The default value is **false**.
+     * - **true**: uses the system preset CA certificate library as a trust anchor;
+     * - **false**: does not use the system preset CA certificate library as a trust anchor.
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3179,9 +3198,10 @@ declare namespace cert {
     trustSystemCa?: boolean;
 
     /**
-     * Indicates whether to allow partial chain validation. The default value is false. true: Any certificate in the
-     * trust certificate can be used as the trust anchor instead of the root certificate. false: indicates that the root
-     *  certificate must be traced during certificate chain construction.
+     * Whether to allow partial chain validation. The default value is **false**.
+     * - **true**: any certificate in the trusted certificates can be used as the trust anchor instead of the root
+     * certificate;
+     * - **false**: the root certificate must be traced during certificate chain construction.
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3192,10 +3212,14 @@ declare namespace cert {
     partialChain?: boolean;
 
     /**
-     * Indicates whether intermediate CA certificates can be downloaded from the network. The default value is false.
-     * true: Use the issuer address in the certificate AIA extension to download the issuer certificate when the
-     * intermediate certificate is missing in the certificate chain. false: The intermediate CA certificate cannot be
-     * downloaded from the network.
+     * Whether to allow intermediate CA certificates to be downloaded from the network. The default value is **false**.
+     * - **true**: attempts to use the issuer address in the certificate AIA extension to download the issuer
+     * certificate when an intermediate certificate is missing in the certificate chain, resolving the incomplete
+     * certificate chain issue;
+     * - **false**: intermediate CA certificates cannot be downloaded from the network.
+     * <br>The download address is obtained from the certificate AIA extension. Only HTTP is supported. To use the
+     * network for download, you need to request the **ohos.permission.INTERNET** permission. For details about the
+     * permission configuration, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3208,7 +3232,7 @@ declare namespace cert {
     /**
      * Validation date, in the format of YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ. By default, the current system time is
      * used.
-     * You can customize the verification time, which is applicable to scenarios such as offline verification of
+     * <br>Custom verification time is supported, which is applicable to scenarios such as offline verification of
      * historical signatures.
      *
      * @syscap SystemCapability.Security.Cert
@@ -3232,8 +3256,9 @@ declare namespace cert {
 
     /**
      * Allows specific validation errors to be ignored. Maximum count: 8.
-     * Errors that can be ignored include: ERR_CERT_NOT_YET_VALID, ERR_CERT_HAS_EXPIRED, ERR_UNKNOWN_CRITICAL_EXTENSION,
-     * ERR_CRL_NOT_FOUND, ERR_CRL_NOT_YET_VALID, ERR_CRL_HAS_EXPIRED, ERR_OCSP_RESPONSE_NOT_FOUND, ERR_NETWORK_TIMEOUT.
+     * <br>The errors that can be ignored include: ERR_CERT_NOT_YET_VALID, ERR_CERT_HAS_EXPIRED,
+     * ERR_UNKNOWN_CRITICAL_EXTENSION, ERR_CRL_NOT_FOUND, ERR_CRL_NOT_YET_VALID, ERR_CRL_HAS_EXPIRED,
+     * ERR_OCSP_RESPONSE_NOT_FOUND, ERR_NETWORK_TIMEOUT.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3245,7 +3270,7 @@ declare namespace cert {
     /**
      * List of hostnames. Verify that the certificate's subject alternative name (SAN) or common name (CN) contains the
      * specified hostname. Maximum number: 100; maximum length of each host name: 128.
-     * If one of the host names is matched, the verification is successful.
+     * <br>Verification is successful as long as one of the hostnames is matched.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3268,7 +3293,7 @@ declare namespace cert {
     /**
      * Key usage list. Verify that the certificate's key usage extension includes the specified usage.
      * Maximum count: 9.
-     * The certificate must contain all specified key usages.
+     * <br>The certificate must contain all specified key usages for verification to be successful.
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3280,8 +3305,9 @@ declare namespace cert {
     /**
      * User ID. Used to set the user identifier required for signature verification when verifying the SM2 certificate.
      * Maximum length: 128 characters.
-     * The most commonly used value is `[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35,
-     * 0x36, 0x37, 0x38]`. (The corresponding ASCII character string is 1234567812345678, 16 bytes.)
+     * <br>The most commonly used value in the SM2 certificate scenario is
+     * [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38].
+     * (The corresponding ASCII character string is 1234567812345678, 16 bytes.)
      * Certificate revocation check is not supported after userId is set.
      *
      * @syscap SystemCapability.Security.Cert
@@ -3338,8 +3364,8 @@ declare namespace cert {
     /**
      * Validates an X.509 certificate chain. This API uses an asynchronous callback to return the result.
      *
-     * The certificate chain validator does not verify the certificate validity period because the system time on the
-     * device is untrusted. To check the validity period of a certificate, use the
+     * <br>Because the system time on the device is untrusted, the certificate chain validator does not verify the
+     * certificate validity period. To check the validity period of a certificate, use the
      * [checkValidityWithDate()]{@link cert.X509Cert.checkValidityWithDate} API of the **X509Cert** class. For details
      * about certificate specifications, see
      * [Certificate Specifications](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)
@@ -3348,22 +3374,22 @@ declare namespace cert {
      * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -3375,8 +3401,8 @@ declare namespace cert {
     /**
      * Validates an X.509 certificate chain. This API uses a promise to return the result.
      *
-     * The certificate chain validator does not verify the certificate validity period because the system time on the
-     * device is untrusted. To check the validity period of a certificate, use the
+     * <br>Because the system time on the device is untrusted, the certificate chain validator does not verify the
+     * certificate validity period. To check the validity period of a certificate, use the
      * [checkValidityWithDate()]{@link cert.X509Cert.checkValidityWithDate} API of the **X509Cert** class. For details
      * about certificate specifications, see
      * [Certificate Specifications](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)
@@ -3384,22 +3410,22 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -3412,7 +3438,7 @@ declare namespace cert {
      * Validates a certificate by building and verifying its certificate chain. This API uses a promise to return the
      * result.
      *
-     * The certificate chain construction process complies with the following rules:
+     * <br>The certificate chain construction process complies with the following rules:
      * 1. Trusted anchor source: The trusted certificate list (trustedCerts) is always used as the trust anchor source.
      * The preconfigured certificate is used as the trust anchor source only when trustSystemCa is set to true.
      * 2. Issuer search sequence: The system searches for the issuer from the trust anchor source first. If the issuer
@@ -3431,35 +3457,35 @@ declare namespace cert {
      * @param { X509Cert } cert - Certificate to verify.
      * @param { CertValidationParams } params - Certificate validation parameters.
      * @returns { Promise<CertValidationResult> } Promise used to return the result of certificate validation.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
-     * @throws { BusinessError } 19030009 - untrusted certificate.
-     * @throws { BusinessError } 19030010 - the certificate has been revoked.
-     * @throws { BusinessError } 19030011 - unsupported critical extension.
-     * @throws { BusinessError } 19030012 - hostname mismatch in the certificate.
-     * @throws { BusinessError } 19030013 - email address mismatch in the certificate.
-     * @throws { BusinessError } 19030014 - key usage mismatch in the certificate.
-     * @throws { BusinessError } 19030015 - failed to obtain the certificate revocation list.
-     * @throws { BusinessError } 19030016 - the certificate revocation list has not taken effect.
-     * @throws { BusinessError } 19030017 - the certificate revocation list has expired.
-     * @throws { BusinessError } 19030018 - failed to verify the signature of the certificate revocation list.
-     * @throws { BusinessError } 19030019 - failed to find the issuer of the certificate revocation list.
-     * @throws { BusinessError } 19030020 - failed to obtain the OCSP response.
-     * @throws { BusinessError } 19030021 - invalid OCSP response.
-     * @throws { BusinessError } 19030022 - failed to verify the OCSP signature.
-     * @throws { BusinessError } 19030023 - unknown OCSP certificate status.
-     * @throws { BusinessError } 19030024 - network connection timed out.
+     * @throws { BusinessError } 19020003 - Parameter check failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030009 - Untrusted certificate.
+     * @throws { BusinessError } 19030010 - The certificate has been revoked.
+     * @throws { BusinessError } 19030011 - Unsupported critical extension.
+     * @throws { BusinessError } 19030012 - Hostname mismatch in the certificate.
+     * @throws { BusinessError } 19030013 - Email address mismatch in the certificate.
+     * @throws { BusinessError } 19030014 - Key usage mismatch in the certificate.
+     * @throws { BusinessError } 19030015 - Failed to obtain the certificate revocation list.
+     * @throws { BusinessError } 19030016 - The certificate revocation list has not taken effect.
+     * @throws { BusinessError } 19030017 - The certificate revocation list has expired.
+     * @throws { BusinessError } 19030018 - Failed to verify the signature of the certificate revocation list.
+     * @throws { BusinessError } 19030019 - Failed to find the issuer of the certificate revocation list.
+     * @throws { BusinessError } 19030020 - Failed to obtain the OCSP response.
+     * @throws { BusinessError } 19030021 - Invalid OCSP response.
+     * @throws { BusinessError } 19030022 - Failed to verify the OCSP signature.
+     * @throws { BusinessError } 19030023 - Unknown OCSP certificate status.
+     * @throws { BusinessError } 19030024 - Network connection timed out.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
      * @atomicservice
@@ -3484,17 +3510,17 @@ declare namespace cert {
    *
    * @param { string } algorithm - Certificate chain validator algorithm. Currently, only **PKIX** is supported.
    * @returns { CertChainValidator } **CertChainValidator** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -3615,7 +3641,8 @@ declare namespace cert {
   }
 
   /**
-   * Represents the GeneralName.
+   * Represents an X.509 GeneralName as defined in RFC 5280, which can appear in Subject Alternative Name and other
+   * extensions.
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3939,12 +3966,12 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - Parameters used to match the certificates.
      * @returns { Promise<Array<X509Cert>> } Promise used to return the matched certificates.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3959,14 +3986,14 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - Parameters used to match the certificates.
      * @param { AsyncCallback<Array<X509Cert>> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined**, and **data** is the matched certificates obtained. Otherwise, **err** is
-     *     an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     successful, **err** is **undefined**, and **data** is the matched certificates obtained. Otherwise, **err**
+     *     is an error object.
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3980,12 +4007,12 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - Parameters used to match the CRLs.
      * @returns { Promise<Array<X509CRL>> } Promise used to return the matched CRLs.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4001,12 +4028,12 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRL>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the matched CRLs obtained. Otherwise, **err** is an
      *     error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4023,11 +4050,11 @@ declare namespace cert {
    * @param { Array<X509CRL> } [options] crls - Array of X509CRL. [since 11 - 11]
    * @param { Array<X509CRL> } [crls] - Array of X509CRL.
    * @returns { CertCRLCollection } **CertCRLCollection** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4050,12 +4077,12 @@ declare namespace cert {
      * Obtains the X.509 certificate list.
      *
      * @returns { Array<X509Cert> } X.509 certificate list obtained.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4069,22 +4096,22 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - Parameters for validating the X.509 certificate chain.
      * @returns { Promise<CertChainValidationResult> } Promise used to return the certificate chain validation result.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4100,22 +4127,22 @@ declare namespace cert {
      * @param { AsyncCallback<CertChainValidationResult> } callback - Callback used to return the result. If the operation
      *     is successful, **err** is **undefined**, and **data** is the certificate chain validation result obtained.
      *     Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4128,12 +4155,12 @@ declare namespace cert {
      * Converts the object data into a string.
      *
      * @returns { string } String obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4146,12 +4173,12 @@ declare namespace cert {
      * Obtains the hash value of the data in DER format.
      *
      * @returns { Uint8Array } Hash value obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4166,12 +4193,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509 certificate serialization data.
    * @returns { Promise<X509CertChain> } Promise used to return the **X509CertChain** instance created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4187,12 +4214,12 @@ declare namespace cert {
    * @param { AsyncCallback<X509CertChain> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the **X509CertChain** instance created. Otherwise,
    *     **err** is an error object.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4207,12 +4234,12 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - Array of X.509 certificates.
    * @returns { X509CertChain } **X509CertChain** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4229,22 +4256,22 @@ declare namespace cert {
    *     **maxLength** in [CertChainBuildParameters]{@link cert.CertChainBuildParameters} must be less than the number
    *     of certificates in the certificate set.
    * @returns { Promise<CertChainBuildResult> } Promise used to return the **CertChainBuildResult** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-   * @throws { BusinessError } 19030004 - the certificate has expired.
-   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-   * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4413,17 +4440,17 @@ declare namespace cert {
    * @param { Uint8Array } data - Raw data of P12 file, in DER format.
    * @param { Pkcs12ParsingConfig } config - Configuration for parsing the P12.
    * @returns { Pkcs12Data } Indicates the parsed P12 data.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4438,17 +4465,17 @@ declare namespace cert {
    * @param { Uint8Array } data - Raw data of P12 file, in DER format.
    * @param { string } password - Password.
    * @returns { Promise<Pkcs12Data> } Promise used to return the parsed P12 data. The private key in the returned
-   * **Pkcs12Data** is encoded in PEM format.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   *     **Pkcs12Data** is encoded in PEM format.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
    *     <br>1. The length of the data is zero or too large;
    *     <br>2. The length of the password is too large.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4464,22 +4491,22 @@ declare namespace cert {
    * @param { Uint8Array } keystore - Raw data of P12 file, in DER format.
    * @param { string } pwd - Password.
    * @returns { Promise<Array<X509TrustAnchor>> } Promise used to return the **X509TrustAnchor** object array created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-   * @throws { BusinessError } 19030004 - the certificate has expired.
-   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-   * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4497,22 +4524,22 @@ declare namespace cert {
    *     **OU** (organization unit), **C** (country/region), **ST** (province/state), and **L** (city/district).
    *     For example, **\/CN=example.com/O=Example/C=CN**.
    * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-   * @throws { BusinessError } 19030004 - the certificate has expired.
-   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-   * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4527,22 +4554,22 @@ declare namespace cert {
    *
    * @param { Uint8Array } nameDer - X.500 Distinguished Name in DER format.
    * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-   * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-   * @throws { BusinessError } 19030004 - the certificate has expired.
-   * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-   * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-   * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4552,7 +4579,7 @@ declare namespace cert {
   function createX500DistinguishedName(nameDer: Uint8Array): Promise<X500DistinguishedName>;
 
   /**
-   * Provides APIs for managing the **X500DistinguishedName** instance.
+   * Provides APIs for X.500 distinguished name operations.
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4565,12 +4592,12 @@ declare namespace cert {
      * Obtains the DN in the form of a string.
      *
      * @returns { string } DN obtained as a string.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4584,14 +4611,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - Encoding format.
      * @returns { string } RDN string. Multiple strings are separated by commas (,).
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4605,16 +4632,16 @@ declare namespace cert {
      *
      * @param { string } type - Type of the RDNs to obtain. For example, **CN** and **OU**.
      * @returns { Array<string> } Array of RDN strings.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4629,14 +4656,14 @@ declare namespace cert {
      * @param { string } type - Type of the RDNs to obtain. For example, **CN** and **OU**.
      * @param { EncodingType } encodingType - Encoding format.
      * @returns { Array<string> } Array of RDN strings.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of encodingType is invalid.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
      * @atomicservice
@@ -4648,12 +4675,12 @@ declare namespace cert {
      * Obtains the DER-encoded data of the X.500 Distinguished Name.
      *
      * @returns { EncodingBlob } DER-encoded X.500 Distinguished Name data obtained.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5122,9 +5149,9 @@ declare namespace cert {
     /**
      * Whether to allow the application to download the missing intermediate CA certificate from the network.
      * **true** means yes; **false** otherwise. The default value is **false**.
-     * The download address is obtained from the certificate AIA extension. Only HTTP is supported. To use the network
-     * for download, you need to request the **ohos.permission.INTERNET** permission. For details about the permission
-     * configuration, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+     * <br>The download address is obtained from the certificate AIA extension. Only HTTP is supported. To use the
+     * network for download, you need to request the **ohos.permission.INTERNET** permission. For details about the
+     * permission configuration, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -5322,7 +5349,7 @@ declare namespace cert {
     SIGNED_DATA = 0,
 
     /**
-     * Enveloped data.
+     * Enveloped data, including authenticated enveloped data.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5489,7 +5516,7 @@ declare namespace cert {
 
     /**
      * Padding mode for an RSA signature. The default value is **PKCS1_PADDING**.
-     * When this parameter is set to **PKCS1_PSS_PADDING**, **mdName** must be set to **SHA256**, **SHA384**, or
+     * <br>When **PKCS1_PSS_PADDING** is set, **mdName** must be set to **SHA256**, **SHA384**, or
      * **SHA512**.
      *
      * > **NOTE**
@@ -5791,8 +5818,8 @@ declare namespace cert {
     outFormat?: CmsFormat;
 
     /**
-     * Whether the final CMS message does not contain the raw data. The default value is **false**. **true**: raw data is
-     * not contained; **false**: raw data is contained.
+     * Whether the final CMS message does not contain the raw data. The default value is **false**. **true**: raw data
+     * is not contained; **false**: raw data is contained.
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -5826,17 +5853,17 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate.
      * @param { PrivateKeyInfo } keyInfo - Private key information.
      * @param { CmsSignerConfig } config - Signer configuration.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030008 - maybe wrong password.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030008 - Maybe wrong password.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5849,20 +5876,20 @@ declare namespace cert {
      * Adds a CMS certificate of the **SIGNED_DATA** content type, for example, the issuer certificate of a signing
      * certificate.
      *
-     * If the **addSigner** API is not called and only the certificate is added, the generated CMS signed data
+     * <br>If the **addSigner** API is not called and only the certificate is added, the generated CMS signed data
      * contains only the certificate.
      *
      * @param { X509Cert } cert - X.509 certificate to add.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5874,18 +5901,18 @@ declare namespace cert {
     /**
      * Sets the encryption algorithm for the CMS whose content type is **ENVELOPED_DATA**.
      *
-     * This method should be called immediately after the **CmsGenerator** of the **ENVELOPED_DATA** type is created. If
-     * this method is not called, AES_256_GCM is used as the encryption algorithm by default.
+     * <br>This method should be called immediately after the **CmsGenerator** of the **ENVELOPED_DATA** type is
+     * created. If this method is not called, AES_256_GCM is used as the encryption algorithm by default.
      *
      * @param { CmsRecipientEncryptionAlgorithm } algorithm - Encryption algorithm used by the CMS to encapsulate data.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The type of algorithm is invalid or not supported.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5898,20 +5925,20 @@ declare namespace cert {
      * Adds recipient information to a CMS with the content type of **ENVELOPED_DATA**. This API uses a promise to
      * return the result.
      *
-     * At least one recipient needs to be set.
+     * <br>At least one recipient needs to be set.
      *
      * @param { CmsRecipientInfo } recipientInfo - Recipient information.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The type of recipient certificate is invalid or not supported;
      *     <br>2. The digestAlgorithm of CmsKeyAgreeRecipientInfo is invalid or not supported;
      *     <br>3. The recipientInfo does not have any recipient info.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5927,16 +5954,16 @@ declare namespace cert {
      * @param { Uint8Array } data - Data to be operated.
      * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
      * @returns { Promise<Uint8Array | string> } Promise used to return the CMS message.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5952,16 +5979,16 @@ declare namespace cert {
      * @param { Uint8Array } data - Data to be operated.
      * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
      * @returns { Uint8Array | string } CMS message generated.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5974,16 +6001,16 @@ declare namespace cert {
      * Obtains the encrypted content data of the CMS whose content type is **ENVELOPED_DATA**. This API uses a promise
      * to return the result.
      *
-     * Obtains the encrypted content data if the **CmsGenerator** of the **ENVELOPED_DATA** type is created and data
-     * separation is used to generate detached CMS enveloped data.
+     * <br>Obtains the encrypted content data if the **CmsGenerator** of the **ENVELOPED_DATA** type is created and
+     * data separation is used to generate detached CMS enveloped data.
      *
      * @returns { Promise<Uint8Array> } Promise used to return the encrypted data.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5998,16 +6025,16 @@ declare namespace cert {
    *
    * @param { CmsContentType } contentType - CMS message type.
    * @returns { CmsGenerator } **CmsGenerator** object created.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6078,7 +6105,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents CMS decapsulation configuration.
+   * Configuration used for decrypting CMS enveloped data.
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6168,7 +6195,7 @@ declare namespace cert {
   }
 
   /**
-   * Verifies or decrypts a CMS message.
+   * Provides APIs for parsing, verifying, and decrypting CMS messages.
    *
    * > **NOTE**
    * >
@@ -6184,7 +6211,7 @@ declare namespace cert {
    */
   interface CmsParser {
     /**
-     * Converts data in CMS format into CMS objects. This API uses a promise to return the result.
+     * Set the CMS message data. This API uses a promise to return the result.
      *
      * > **NOTE**
      * >
@@ -6194,15 +6221,15 @@ declare namespace cert {
      * @param { Uint8Array | string } data - CMS message content.
      * @param { CmsFormat } cmsFormat - Input CMS format.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The length of the data is zero or too large;
      *     <br>2. The type of the cmsFormat is invalid or not supported.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6215,12 +6242,12 @@ declare namespace cert {
      * Obtains the CMS content type.
      *
      * @returns { CmsContentType } CMS content type.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6234,19 +6261,19 @@ declare namespace cert {
      *
      * @param { CmsVerificationConfig } config - CMS signature verification configuration.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The trustCerts of config is empty;
      *     <br>2. The length of the contentData of config is zero or too large;
      *     <br>3. The contentDataFormat of config is invalid or not supported.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6260,12 +6287,12 @@ declare namespace cert {
      * result.
      *
      * @returns { Promise<Uint8Array> } Promise used to return the content data.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6280,14 +6307,14 @@ declare namespace cert {
      *
      * @param { CmsCertType } type - Type of the certificate obtained from the CMS.
      * @returns { Promise<Array<X509Cert>> } Promise used to return a certificate set.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The value of type is invalid or not supported.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6299,17 +6326,17 @@ declare namespace cert {
     /**
      * Decrypts the CMS message of the **ENVELOPED_DATA** content type. This API uses a promise to return the result.
      *
-     * @param { CmsEnvelopedDecryptionConfig } config - CMS decapsulation configuration content.
-     * @returns { Promise<Uint8Array> } Promise used to return the decapsulation result.
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+     * @param { CmsEnvelopedDecryptionConfig } config - CMS decryption configuration.
+     * @returns { Promise<Uint8Array> } Promise used to return the decryption result.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
      *     <br>1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
-     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
      *     <br>1. The private key is invalid or not supported;
      *     <br>2. The recipient certificate is invalid or not supported.
-     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6323,12 +6350,12 @@ declare namespace cert {
    * Creates a **CmsParser** object.
    *
    * @returns { CmsParser } CmsParser object.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6340,7 +6367,7 @@ declare namespace cert {
   /**
    * Defines the CSR attribute representation.
    *
-   * CSR attribute field. Currently, only character string attribute fields are supported. The attribute value added to
+   * <br>CSR attribute field. Currently, only string-type attribute fields are supported. The attribute value added to
    * the CSR is encoded in UTF-8 format. The common type is challengePassword.
    *
    * @syscap SystemCapability.Security.Cert
@@ -6379,7 +6406,7 @@ declare namespace cert {
    *
    * > **NOTE**
    * >
-   * > - subject is an object of the Name type defined by X509.
+   * > - subject is an X500DistinguishedName object.
    * >
    * > - mdName indicates the digest algorithm name. Currently, SHA1, SHA256, SHA384, and SHA512 are supported.
    * >
@@ -6448,17 +6475,17 @@ declare namespace cert {
    * @param { PrivateKeyInfo } keyInfo - Private key information.
    * @param { CsrGenerationConfig } config - Configuration for generating the CSR.
    * @returns { string | Uint8Array } CSR generated.
-   * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
-   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6705,16 +6732,16 @@ declare namespace cert {
    * @param { Pkcs12Data } data - P12 data object to be packed.
    * @param { Pkcs12CreationConfig } config - Configuration for creating the P12 file.
    * @returns { Uint8Array } P12 file created, in DER format.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
    *     <br>1. The password is too short or too long;
    *     <br>2. The private key does not match the certificate;
    *     <br>3. Invalid encryption algorithm parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6729,16 +6756,16 @@ declare namespace cert {
    * @param { Pkcs12Data } data - P12 data object to be packed.
    * @param { Pkcs12CreationConfig } config - Configuration for creating the P12.
    * @returns { Promise<Uint8Array> } Promise used to return the P12 created, in DER format.
-   * @throws { BusinessError } 19020001 - memory malloc failed.
-   * @throws { BusinessError } 19020002 - runtime error. Possible causes:
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
    *     <br>1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system;
    *     <br>3. Failed to obtain the native object or convert parameters.
-   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
    *     <br>1. The password is too short or too long;
    *     <br>2. The private key does not match the certificate;
    *     <br>3. Invalid encryption algorithm parameters.
-   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
