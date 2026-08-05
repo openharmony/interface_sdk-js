@@ -455,8 +455,8 @@ declare namespace selectionManager {
      * Unregisters the callback used to listen for the destroy event of the word selection panel. This API uses an
      * asynchronous callback to return the result.
      *
-     * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is notspecified,
-     *     this API unregisters all callbacks for the specified type.
+     * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is not
+     *     specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 static
