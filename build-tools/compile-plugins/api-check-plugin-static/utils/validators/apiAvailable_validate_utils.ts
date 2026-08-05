@@ -23,6 +23,7 @@ import {
   ERROR_CODE_INFO,
   APIAVAILABLE_STRING_OPENHARMONY_FORMAT_ERROR,
   APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR,
+  APIAVAILABLE_DISTRIBUTIONOS_CONTENT_CHECK_ERROR,
   SINCE_TAG_NAME,
   APIAVAILABLE_NULLORUNDEFINED_FORMAT_ERROR
 } from '../api_check_plugin_define';
@@ -40,19 +41,6 @@ function isDecimalInteger(since: string): boolean {
 
 function isCanonicalDecimalInteger(since: string): boolean {
   return /^[+-]?(0|[1-9][0-9]*)$/.test(since);
-}
-
-function isNumberLiteral(node: arkts.AstNode): boolean {
-  if (arkts.isNumberLiteral(node)) {
-    return true;
-  }
-
-  if (arkts.isPrefixUnaryExpression(node) && arkts.isNumberLiteral(node.operand)) {
-    return node.operator === arkts.SyntaxKind.MinusToken ||
-      node.operator === arkts.SyntaxKind.PlusToken;
-  }
-
-  return false;
 }
 
 function isNullOrUndefinedScene(node: arkts.AstNode): boolean {
@@ -106,7 +94,7 @@ function checkStringDistributionOS(
   if (!msf) {
     return {
       valid: false,
-      message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR),
+      message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR),
       type: DiagnosticCategory.ERROR
     };
   }
@@ -114,7 +102,7 @@ function checkStringDistributionOS(
     if (msf.hasParentheses) {
       return { 
         valid: false,
-        message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR),
+        message: buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR),
         type: DiagnosticCategory.ERROR
       };
     }
@@ -126,7 +114,7 @@ function checkStringDistributionOS(
   }
   const distributionOSCheck: DistributionOSApiAvailableVersionResult = isCheckDistributionOSVersion(SINCE_TAG_NAME, content);
   if (!distributionOSCheck.valid) {
-    const distCode: string = ERROR_CODE_INFO.get(APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR)?.code ?? '';
+    const distCode: string = ERROR_CODE_INFO.get(APIAVAILABLE_DISTRIBUTIONOS_CONTENT_CHECK_ERROR)?.code ?? '';
     return {
       valid: false,
       message: `${distCode}#${distributionOSCheck.message}`,
@@ -156,8 +144,8 @@ export function validateApiAvailableArgument(options: ValidateApiAvailableArgume
   };
 
   const arg: arkts.AstNode = node.arguments[0];
-  const isNumber: boolean = isNumberLiteral(arg);
-  const isStringLiteralNode: boolean = arkts.isStringLiteral(arg) || arkts.isNoSubstitutionTemplateLiteral(arg);
+  const isNumber: boolean = arkts.isNumberLiteral(arg);
+  const isStringLiteralNode: boolean = arkts.isStringLiteral(arg);
   const isNullish: boolean = isNullOrUndefinedScene(arg);
 
   if (!(isNumber || isStringLiteralNode || isNullish)) {
@@ -171,13 +159,13 @@ export function validateApiAvailableArgument(options: ValidateApiAvailableArgume
   }
 
   if (isNumber) {
-    const numText: string = arg.getText().trim();
+    const numText: string = arg.dumpSrc().trim();
     if (!isDecimalInteger(numText)) {
       result.valid = false;
       result.message = buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_NUMBER_FORMAT_ERROR);
     } else if (!isCanonicalDecimalInteger(numText) || Number(numText) < 1 || Number(numText) >= MSF_INTEGER_VERSION) {
       result.valid = false;
-      result.message = buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, APIAVAILABLE_OPENHARMONY_CONTENT_ERROR);
+      result.message = buildApiAvailableMessage(APIAVAILABLE_CHECK_ERROR, isOpenHarmonyRuntime() ? APIAVAILABLE_OPENHARMONY_CONTENT_ERROR : APIAVAILABLE_DISTRIBUTIONOS_CONTENT_ERROR);
     }
     return result;
   }

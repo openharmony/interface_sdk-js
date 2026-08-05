@@ -166,7 +166,7 @@ export class SdkComparisonHelper {
   private compareApiAvailableVersion(expression: arkts.CallExpression, matchedApi: string): boolean {
     const runtimeType = globalObject.projectConfig.runtimeOS;
     const distributeResult: DistributionOSApiAvailableVersionResult = this.distributionVersionFormat();
-    const sinceValue: string = expression.arguments[0].getText().trim();
+    const sinceValue: string = expression.arguments[0].dumpSrc().trim();
     const sinceFormat: string = sinceValue.replace(/[\'|\"|\`]/g, '');
     const sincePointVersion: string[] = sinceFormat.split('.');
 
