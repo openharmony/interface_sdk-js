@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,6 @@ import { Param, ObservedV2, Require, Trace } from '@ohos.arkui.stateManagement';
 /**
  * Declare the type of callback function when clicking on this menu item.
  *
- * @typedef { function } OnActionCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -230,7 +229,6 @@ export declare class ComposeTitleBarV2MenuItem {
  * subtitle (optional), and profile picture (optional). It can come with a Back button for switching between pages of
  * different levels.
  *
- * @struct { ComposeTitleBarV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -276,7 +274,7 @@ export declare struct ComposeTitleBarV2 {
    */
   @Param
   menuItems?: Array<ComposeTitleBarV2MenuItem>;
-  
+
   /**
    * The method to build component.
    *

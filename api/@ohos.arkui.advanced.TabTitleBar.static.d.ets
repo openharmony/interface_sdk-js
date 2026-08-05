@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -15,6 +15,14 @@
  */
 
 /**
+ * ###### Child Components
+ * 
+ * Not supported
+ * 
+ * ###### Events
+ * 
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ *
  * @file
  * @kit ArkUI
  */
@@ -32,71 +40,89 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  */
 export declare class TabTitleBarMenuItem {
   /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }
+   * Icon resource.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public value: ResourceStr;
   /**
-   * Symbol resource for this menu item.
+   * Symbol icon resource, which has higher priority than **value**.
    *
-   * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
-   * Icon label for this menu item.
+   * Icon label.
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public label?: ResourceStr;
   /**
-   * Whether to enable this menu item.
+   * Whether to enable the item. Default value: **false**. The value **true** means to enable the item, and **false**
+   * means the opposite.
    *
-   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public isEnabled?: boolean;
   /**
-   * Callback function when click on this menu item.
+   * Action to perform.
    *
-   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public action?: () => void;
   /**
-   * The accessibilityText of this menu item.
+   * Accessibility text, that is, accessibility label name. If a component does not contain text information, it will
+   * not be announced by the screen reader when selected. In this case, the screen reader user cannot know which
+   * component is selected. To solve this problem, you can set accessibility text for components without text
+   * information. When such a component is selected, the screen reader announces the specified accessibility text,
+   * informing the user which component is selected.
    *
-   * @type { ?ResourceStr }
+   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
-   * The accessibilityDescription of this menu item.
+   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
+   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
+   * attributes and accessibility text alone. If a component contains both text information and the accessible
+   * description, the text is announced first and then the accessible description, when the component is selected.
    *
-   * @type { ?ResourceStr }
+   * Default value: **"Double-tap to activate"**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
-   * The accessibilityLevel of this menu item.
+   * Accessibility level. It determines whether the component can be recognized by accessibility services.
    *
-   * @type { ?string }
+   * The options are as follows:
+   *
+   * **"auto"**: It is treated as "yes" by the system.
+   *
+   * **"yes"**: The component can be recognized by accessibility services.
+   *
+   * **"no"**: The component cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
+   * services.
+   *
+   * Default value: **"auto"**
+   *
    * @default 'auto'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,27 +140,24 @@ export declare class TabTitleBarMenuItem {
  */
 export declare class TabTitleBarTabItem {
   /**
-   * Text description for this tab item.
+   * Text of the tab.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public title: ResourceStr;
   /**
-   * Icon resource for this tab item.
+   * Icon of the tab.
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public icon?: ResourceStr;
   /**
-   * Symbol resource for this tab item.
+   * Symbol icon of the tab, which has higher priority than **icon**.
    *
-   * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -142,8 +165,18 @@ export declare class TabTitleBarTabItem {
   public symbolStyle?: SymbolGlyphModifier;
 }
 /**
- * Declaration of the tabbed title bar.
- * @struct { TabTitleBar }
+ * The **TabTitleBar** component is a tab title bar used to switch between tabs pages. It is applicable only to level-1
+ * pages.
+ *
+ * > **NOTE**
+ * >
+ * > - If the **TabTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **TabTitleBar** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **TabTitleBar** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -152,28 +185,24 @@ export declare class TabTitleBarTabItem {
 @Component
 export declare struct TabTitleBar {
   /**
-   * Tab items on the left side.
+   * List of tab items on the left of the title bar.
    *
-   * @type { Array<TabTitleBarTabItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   tabItems: Array<TabTitleBarTabItem>;
   /**
-   * Menu items on the right side.
+   * List of menu items on the right of the title bar.
    *
-   * @type { ?Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   menuItems?: Array<TabTitleBarMenuItem>;
   /**
-   * Content builder. Each component corresponds to a tab item.
-   * The builder needs to be transferred.
+   * Constructor for page content pertaining to the tab list.
    *
-   * @type { function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -182,6 +211,7 @@ export declare struct TabTitleBar {
   swiperContent: () => void;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 staticonly

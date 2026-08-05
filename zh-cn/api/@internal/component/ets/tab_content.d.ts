@@ -19,7 +19,7 @@
  */
 
 /**
-* ×÷ÎªDrawableTabBarIndicator¶ÔÏóÖĞdrawableÊôĞÔµÄÈë²Î¶ÔÏó¡£
+* ä½œä¸ºDrawableTabBarIndicatorå¯¹è±¡ä¸­drawableå±æ€§çš„å…¥å‚å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
-* Ñ¡ÖĞ×ÓÒ³Ç©µÄÏÔÊ¾Ä£Ê½Ã¶¾Ù¡£
+* é€‰ä¸­å­é¡µç­¾çš„æ˜¾ç¤ºæ¨¡å¼æšä¸¾ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -40,7 +40,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
 declare enum SelectedMode {
 
   /**
-   * Ê¹ÓÃÏÂ»®ÏßÄ£Ê½¡£
+   * ä½¿ç”¨ä¸‹åˆ’çº¿æ¨¡å¼ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,7 +51,7 @@ declare enum SelectedMode {
   INDICATOR,
 
   /**
-   * Ê¹ÓÃ±³°åÄ£Ê½¡£
+   * ä½¿ç”¨èƒŒæ¿æ¨¡å¼ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -63,7 +63,7 @@ declare enum SelectedMode {
 }
 
 /**
-* Ò³Ç©ÄÚÈİÅÅ²¼·½Ê½Ã¶¾Ù¡£
+* é¡µç­¾å†…å®¹æ’å¸ƒæ–¹å¼æšä¸¾ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -74,7 +74,7 @@ declare enum SelectedMode {
 declare enum LayoutMode {
 
   /**
-   * ÈôÒ³Ç©¿í¶È´óÓÚ104vp£¬Ò³Ç©ÄÚÈİÎª×óÓÒÅÅ²¼£¬·ñÔòÒ³Ç©ÄÚÈİÎªÉÏÏÂÅÅ²¼¡£½öTabBarÎª´¹Ö±Ä£Ê½»òFixedË®Æ½Ä£Ê½Ê±ÓĞĞ§¡£
+   * è‹¥é¡µç­¾å®½åº¦å¤§äº104vpï¼Œé¡µç­¾å†…å®¹ä¸ºå·¦å³æ’å¸ƒï¼Œå¦åˆ™é¡µç­¾å†…å®¹ä¸ºä¸Šä¸‹æ’å¸ƒã€‚ä»…TabBarä¸ºå‚ç›´æ¨¡å¼æˆ–Fixedæ°´å¹³æ¨¡å¼æ—¶æœ‰æ•ˆã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -85,7 +85,7 @@ declare enum LayoutMode {
   AUTO = 0,
 
   /**
-   * Ò³Ç©ÄÚÈİÉÏÏÂÅÅ²¼¡£
+   * é¡µç­¾å†…å®¹ä¸Šä¸‹æ’å¸ƒã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -96,7 +96,7 @@ declare enum LayoutMode {
   VERTICAL = 1,
 
   /**
-   * Ò³Ç©ÄÚÈİ×óÓÒÅÅ²¼¡£
+   * é¡µç­¾å†…å®¹å·¦å³æ’å¸ƒã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -108,7 +108,7 @@ declare enum LayoutMode {
 }
 
 /**
-* ÏÂ»®Ïß·ç¸ñ¶ÔÏó¡£
+* ä¸‹åˆ’çº¿é£æ ¼å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -119,9 +119,9 @@ declare enum LayoutMode {
 interface IndicatorStyle {
 
   /**
-   * ÏÂ»®ÏßµÄÑÕÉ«ºÍ±³°åÑÕÉ«¡£
+   * ä¸‹åˆ’çº¿çš„é¢œè‰²å’ŒèƒŒæ¿é¢œè‰²ã€‚
    *
-   * Ä¬ÈÏÖµ£º#FF007DFF£¬Ç³À¶É«¡£
+   * é»˜è®¤å€¼ï¼š#FF007DFFï¼Œæµ…è“è‰²ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -132,13 +132,13 @@ interface IndicatorStyle {
   color?: ResourceColor;
 
   /**
-   * ÏÂ»®ÏßµÄ¸ß¶È£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„é«˜åº¦ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º2.0
+   * é»˜è®¤å€¼ï¼š2.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,17 +149,17 @@ interface IndicatorStyle {
   height?: Length;
 
   /**
-   * ÏÂ»®ÏßµÄ¿í¶È£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„å®½åº¦ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º0.0
+   * é»˜è®¤å€¼ï¼š0.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)ã€‚
    *
-   * **ËµÃ÷£º**
+   * **è¯´æ˜ï¼š**
    *
-   * ¿í¶ÈÉèÖÃÎª0Ê±£¬°´Ò³Ç©ÎÄ±¾¿í¶ÈÏÔÊ¾¡£
+   * å®½åº¦è®¾ç½®ä¸º0æ—¶ï¼ŒæŒ‰é¡µç­¾æ–‡æœ¬å®½åº¦æ˜¾ç¤ºã€‚
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -171,13 +171,13 @@ interface IndicatorStyle {
   width?: Length;
 
   /**
-   * ÏÂ»®ÏßµÄÔ²½Ç°ë¾¶£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„åœ†è§’åŠå¾„ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º0.0
+   * é»˜è®¤å€¼ï¼š0.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)ã€‚
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -189,13 +189,13 @@ interface IndicatorStyle {
   borderRadius?: Length;
 
   /**
-   * ÏÂ»®ÏßÓëÎÄ×ÖµÄ¼ä¾à£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿ä¸æ–‡å­—çš„é—´è·ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º8.0
+   * é»˜è®¤å€¼ï¼š8.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)ã€‚
    *
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -208,7 +208,7 @@ interface IndicatorStyle {
 }
 
 /**
-* Ê¹ÓÃÍ¼Æ¬×ÊÔ´×÷ÎªÏÂ»®ÏßµÄ¶ÔÏó¡£
+* ä½¿ç”¨å›¾ç‰‡èµ„æºä½œä¸ºä¸‹åˆ’çº¿çš„å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -219,12 +219,12 @@ interface IndicatorStyle {
 declare interface DrawableTabBarIndicator {
 
   /**
-   * ÏÂ»®ÏßµÄÍ¼Ô´¡£
-   * Ö§³Ö[DrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:DrawableDescriptorLoadedResult}¡¢
-   * [PixelMapDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:PixelMapDrawableDescriptor}¡¢
-   * [LayeredDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:LayeredDrawableDescriptor}ºÍ
-   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}ÀàĞÍ¡£µ±´«ÈëÎŞĞ§Í¼Ô´Ê±½«ÏÔÊ¾Ä¬ÈÏµÄÊµÏßĞÍÏÂ»®
-   * Ïß¡£
+   * ä¸‹åˆ’çº¿çš„å›¾æºã€‚
+   * æ”¯æŒ[DrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:DrawableDescriptorLoadedResult}ã€
+   * [PixelMapDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:PixelMapDrawableDescriptor}ã€
+   * [LayeredDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:LayeredDrawableDescriptor}å’Œ
+   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}ç±»å‹ã€‚å½“ä¼ å…¥æ— æ•ˆå›¾æºæ—¶å°†æ˜¾ç¤ºé»˜è®¤çš„å®çº¿å‹ä¸‹åˆ’
+   * çº¿ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,15 +235,15 @@ declare interface DrawableTabBarIndicator {
   drawable?: DrawableDescriptor;
 
   /**
-   * ÏÂ»®ÏßµÄ¿í¶È£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„å®½åº¦ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º0.0
+   * é»˜è®¤å€¼ï¼š0.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)
    *
-   * ¿í¶ÈÉèÖÃÎª0Ê±£¬°´Ò³Ç©ÎÄ±¾¿í¶ÈÏÔÊ¾¡£
+   * å®½åº¦è®¾ç½®ä¸º0æ—¶ï¼ŒæŒ‰é¡µç­¾æ–‡æœ¬å®½åº¦æ˜¾ç¤ºã€‚
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -255,13 +255,13 @@ declare interface DrawableTabBarIndicator {
   width?: Length;
 
   /**
-   * ÏÂ»®ÏßµÄ¸ß¶È£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„é«˜åº¦ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º2.0
+   * é»˜è®¤å€¼ï¼š2.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)
    *
    * @default 2vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -273,13 +273,13 @@ declare interface DrawableTabBarIndicator {
   height?: Length;
 
   /**
-   * ÏÂ»®ÏßµÄÔ²½Ç°ë¾¶£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿çš„åœ†è§’åŠå¾„ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º0.0
+   * é»˜è®¤å€¼ï¼š0.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -291,13 +291,13 @@ declare interface DrawableTabBarIndicator {
   borderRadius?: Length;
 
   /**
-   * ÏÂ»®ÏßÓëÎÄ×ÖµÄ¼ä¾à£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * ä¸‹åˆ’çº¿ä¸æ–‡å­—çš„é—´è·ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º8.0
+   * é»˜è®¤å€¼ï¼š8.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)
    *
    * @default 8vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -310,7 +310,7 @@ declare interface DrawableTabBarIndicator {
 }
 
 /**
-* ±³°å·ç¸ñ¶ÔÏó¡£
+* èƒŒæ¿é£æ ¼å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -321,13 +321,13 @@ declare interface DrawableTabBarIndicator {
 interface BoardStyle {
 
   /**
-   * ±³°åµÄÔ²½Ç°ë¾¶£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * èƒŒæ¿çš„åœ†è§’åŠå¾„ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * Ä¬ÈÏÖµ£º8.0
+   * é»˜è®¤å€¼ï¼š8.0
    *
-   * µ¥Î»£ºvp
+   * å•ä½ï¼švp
    *
-   * È¡Öµ·¶Î§£º[0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[0, +âˆ)ã€‚
    *
    * @default 8.0vp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,7 +340,7 @@ interface BoardStyle {
 }
 
 /**
-* labelÎÄ±¾ºÍ×ÖÌåµÄÑùÊ½¶ÔÏó¡£
+* labelæ–‡æœ¬å’Œå­—ä½“çš„æ ·å¼å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -351,7 +351,7 @@ interface BoardStyle {
 declare interface LabelStyle {
 
   /**
-   * ÉèÖÃlabelÎÄ±¾³¬³¤Ê±µÄÏÔÊ¾·½Ê½¡£Ä¬ÈÏÖµÊÇÊ¡ÂÔºÅ½Ø¶Ï¡£
+   * è®¾ç½®labelæ–‡æœ¬è¶…é•¿æ—¶çš„æ˜¾ç¤ºæ–¹å¼ã€‚é»˜è®¤å€¼æ˜¯çœç•¥å·æˆªæ–­ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -362,9 +362,9 @@ declare interface LabelStyle {
   overflow?: TextOverflow;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾µÄ×î´óĞĞÊı¡£Èç¹ûÖ¸¶¨´Ë²ÎÊı£¬ÔòÎÄ±¾×î¶à²»»á³¬¹ıÖ¸¶¨µÄĞĞ¡£Èç¹ûÓĞ¶àÓàµÄÎÄ±¾£¬¿ÉÒÔÍ¨¹ıtextOverflowÀ´Ö¸¶¨½Ø¶Ï·½Ê½¡£Ä¬ÈÏÖµÊÇ1¡£
+   * è®¾ç½®labelæ–‡æœ¬çš„æœ€å¤§è¡Œæ•°ã€‚å¦‚æœæŒ‡å®šæ­¤å‚æ•°ï¼Œåˆ™æ–‡æœ¬æœ€å¤šä¸ä¼šè¶…è¿‡æŒ‡å®šçš„è¡Œã€‚å¦‚æœæœ‰å¤šä½™çš„æ–‡æœ¬ï¼Œå¯ä»¥é€šè¿‡textOverflowæ¥æŒ‡å®šæˆªæ–­æ–¹å¼ã€‚é»˜è®¤å€¼æ˜¯1ã€‚
    *
-   * È¡Öµ·¶Î§£º[1, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[1, +âˆ)ã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -375,9 +375,9 @@ declare interface LabelStyle {
   maxLines?: number;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾×îĞ¡ÏÔÊ¾×ÖºÅ£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£ĞèÅäºÏmaxFontSizeÒÔ¼°maxLines»ò²¼¾Ö´óĞ¡ÏŞÖÆÊ¹ÓÃ¡£×ÔÊÊÓ¦ÎÄ±¾´óĞ¡ÉúĞ§ºó£¬font.size²»ÉúĞ§¡£Ä¬ÈÏÖµÊÇ0.0fp£¬¼´Ä¬ÈÏ×ÔÊÊÓ¦ÎÄ±¾´óĞ¡²»ÉúĞ§¡£
+   * è®¾ç½®labelæ–‡æœ¬æœ€å°æ˜¾ç¤ºå­—å·ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚éœ€é…åˆmaxFontSizeä»¥åŠmaxLinesæˆ–å¸ƒå±€å¤§å°é™åˆ¶ä½¿ç”¨ã€‚è‡ªé€‚åº”æ–‡æœ¬å¤§å°ç”Ÿæ•ˆåï¼Œfont.sizeä¸ç”Ÿæ•ˆã€‚é»˜è®¤å€¼æ˜¯0.0fpï¼Œå³é»˜è®¤è‡ªé€‚åº”æ–‡æœ¬å¤§å°ä¸ç”Ÿæ•ˆã€‚
    *
-   * È¡Öµ·¶Î§£º(0, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š(0, +âˆ)ã€‚
    *
    * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -389,9 +389,9 @@ declare interface LabelStyle {
   minFontSize?: number | ResourceStr;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾×î´óÏÔÊ¾×ÖºÅ£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£ĞèÅäºÏminFontSizeÒÔ¼°maxLines»ò²¼¾Ö´óĞ¡ÏŞÖÆÊ¹ÓÃ¡£×ÔÊÊÓ¦ÎÄ±¾´óĞ¡ÉúĞ§ºó£¬font.size²»ÉúĞ§¡£Ä¬ÈÏÖµÊÇ0.0fp£¬¼´Ä¬ÈÏ×ÔÊÊÓ¦ÎÄ±¾´óĞ¡²»ÉúĞ§¡£
+   * è®¾ç½®labelæ–‡æœ¬æœ€å¤§æ˜¾ç¤ºå­—å·ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚éœ€é…åˆminFontSizeä»¥åŠmaxLinesæˆ–å¸ƒå±€å¤§å°é™åˆ¶ä½¿ç”¨ã€‚è‡ªé€‚åº”æ–‡æœ¬å¤§å°ç”Ÿæ•ˆåï¼Œfont.sizeä¸ç”Ÿæ•ˆã€‚é»˜è®¤å€¼æ˜¯0.0fpï¼Œå³é»˜è®¤è‡ªé€‚åº”æ–‡æœ¬å¤§å°ä¸ç”Ÿæ•ˆã€‚
    *
-   * È¡Öµ·¶Î§£º[minFontSize, +¡Ş)¡£
+   * å–å€¼èŒƒå›´ï¼š[minFontSize, +âˆ)ã€‚
    *
    * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -403,7 +403,7 @@ declare interface LabelStyle {
   maxFontSize?: number | ResourceStr;
 
   /**
-   * ÉèÖÃLabelÎÄ±¾×ÔÊÊÓ¦¸ß¶ÈµÄ·½Ê½¡£Ä¬ÈÏÖµÊÇ×î´óĞĞÊıÓÅÏÈ¡£
+   * è®¾ç½®Labelæ–‡æœ¬è‡ªé€‚åº”é«˜åº¦çš„æ–¹å¼ã€‚é»˜è®¤å€¼æ˜¯æœ€å¤§è¡Œæ•°ä¼˜å…ˆã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -414,13 +414,13 @@ declare interface LabelStyle {
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾×ÖÌåÑùÊ½¡£
+   * è®¾ç½®labelæ–‡æœ¬å­—ä½“æ ·å¼ã€‚
    *
-   * µ±Ò³Ç©Îª×ÓÒ³Ç©Ê±£¬Ä¬ÈÏÖµÊÇ×ÖÌå´óĞ¡16.0fp¡¢×ÖÌåÀàĞÍ'HarmonyOS Sans'£¬×ÖÌå·ç¸ñÕı³££¬Ñ¡ÖĞÊ±×ÖÖØÖĞµÈ£¬Î´Ñ¡ÖĞÊ±×ÖÖØÕı³£¡£
+   * å½“é¡µç­¾ä¸ºå­é¡µç­¾æ—¶ï¼Œé»˜è®¤å€¼æ˜¯å­—ä½“å¤§å°16.0fpã€å­—ä½“ç±»å‹'HarmonyOS Sans'ï¼Œå­—ä½“é£æ ¼æ­£å¸¸ï¼Œé€‰ä¸­æ—¶å­—é‡ä¸­ç­‰ï¼Œæœªé€‰ä¸­æ—¶å­—é‡æ­£å¸¸ã€‚
    *
-   * µ±Ò³Ç©Îªµ×²¿Ò³Ç©Ê±£¬Ä¬ÈÏÖµÊÇ×ÖÌå´óĞ¡10.0fp¡¢×ÖÌåÀàĞÍ'HarmonyOS Sans'£¬×ÖÌå·ç¸ñÕı³££¬×ÖÖØÖĞµÈ¡£
+   * å½“é¡µç­¾ä¸ºåº•éƒ¨é¡µç­¾æ—¶ï¼Œé»˜è®¤å€¼æ˜¯å­—ä½“å¤§å°10.0fpã€å­—ä½“ç±»å‹'HarmonyOS Sans'ï¼Œå­—ä½“é£æ ¼æ­£å¸¸ï¼Œå­—é‡ä¸­ç­‰ã€‚
    *
-   * ´ÓAPI version 12¿ªÊ¼£¬µ×²¿Ò³Ç©ÄÚÈİ×óÓÒÅÅ²¼Ê±Ä¬ÈÏ×ÖÌå´óĞ¡Îª12.0fp¡£
+   * ä»API version 12å¼€å§‹ï¼Œåº•éƒ¨é¡µç­¾å†…å®¹å·¦å³æ’å¸ƒæ—¶é»˜è®¤å­—ä½“å¤§å°ä¸º12.0fpã€‚
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -431,9 +431,9 @@ declare interface LabelStyle {
   font?: Font;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾×ÖÌåÑ¡ÖĞÊ±µÄÑÕÉ«¡£
+   * è®¾ç½®labelæ–‡æœ¬å­—ä½“é€‰ä¸­æ—¶çš„é¢œè‰²ã€‚
    *
-   * Ä¬ÈÏÖµ£º#FF007DFF
+   * é»˜è®¤å€¼ï¼š#FF007DFF
    *
    * @default #FF007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -445,9 +445,9 @@ declare interface LabelStyle {
   selectedColor?: ResourceColor;
 
   /**
-   * ÉèÖÃlabelÎÄ±¾×ÖÌåÎ´Ñ¡ÖĞÊ±µÄÑÕÉ«¡£
+   * è®¾ç½®labelæ–‡æœ¬å­—ä½“æœªé€‰ä¸­æ—¶çš„é¢œè‰²ã€‚
    *
-   * Ä¬ÈÏÖµ£º#99182431
+   * é»˜è®¤å€¼ï¼š#99182431
    *
    * @default #99182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -460,7 +460,7 @@ declare interface LabelStyle {
 }
 
 /**
-* LabelÍ¼±êÑùÊ½¶ÔÏó¡£
+* Labelå›¾æ ‡æ ·å¼å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -471,13 +471,13 @@ declare interface LabelStyle {
 declare interface TabBarIconStyle {
 
   /**
-   * ÉèÖÃLabelÍ¼±êÑ¡ÖĞÊ±µÄÑÕÉ«¡£
+   * è®¾ç½®Labelå›¾æ ‡é€‰ä¸­æ—¶çš„é¢œè‰²ã€‚
    *
-   * Ä¬ÈÏÖµ£º#FF007DFF
+   * é»˜è®¤å€¼ï¼š#FF007DFF
    *
-   * **ËµÃ÷£º**
+   * **è¯´æ˜ï¼š**
    *
-   * ½ö¶ÔsvgÍ¼Ô´ÉúĞ§£¬ÉèÖÃºó»áÌæ»»svgÍ¼Æ¬µÄÌî³äÑÕÉ«¡£
+   * ä»…å¯¹svgå›¾æºç”Ÿæ•ˆï¼Œè®¾ç½®åä¼šæ›¿æ¢svgå›¾ç‰‡çš„å¡«å……é¢œè‰²ã€‚
    *
    * @default #FF007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -489,13 +489,13 @@ declare interface TabBarIconStyle {
   selectedColor?: ResourceColor;
 
   /**
-   * ÉèÖÃLabelÍ¼±êÎ´Ñ¡ÖĞÊ±µÄÑÕÉ«¡£
+   * è®¾ç½®Labelå›¾æ ‡æœªé€‰ä¸­æ—¶çš„é¢œè‰²ã€‚
    *
-   * Ä¬ÈÏÖµ£º#33182431
+   * é»˜è®¤å€¼ï¼š#33182431
    *
-   * **ËµÃ÷£º**
+   * **è¯´æ˜ï¼š**
    *
-   * ½ö¶ÔsvgÍ¼Ô´ÉúĞ§£¬ÉèÖÃºó»áÌæ»»svgÍ¼Æ¬µÄÌî³äÑÕÉ«¡£
+   * ä»…å¯¹svgå›¾æºç”Ÿæ•ˆï¼Œè®¾ç½®åä¼šæ›¿æ¢svgå›¾ç‰‡çš„å¡«å……é¢œè‰²ã€‚
    *
    * @default #33182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -508,7 +508,7 @@ declare interface TabBarIconStyle {
 }
 
 /**
-* Ò³Ç©ÄÚsymbolÍ¼±êÑùÊ½¶ÔÏó¡£
+* é¡µç­¾å†…symbolå›¾æ ‡æ ·å¼å¯¹è±¡ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -520,15 +520,15 @@ declare interface TabBarIconStyle {
 declare class TabBarSymbol {
 
   /**
-   * Ò³Ç©ÄÚsymbolÍ¼±êÆÕÍ¨Ì¬ÑùÊ½¡£
+   * é¡µç­¾å†…symbolå›¾æ ‡æ™®é€šæ€æ ·å¼ã€‚
    *
-   * Ä¬ÈÏÖµ£º
+   * é»˜è®¤å€¼ï¼š
    *
-   * fontColor£º#66182431
+   * fontColorï¼š#66182431
    *
-   * renderingStrategy£ºSymbolRenderingStrategy.MULTIPLE_OPACITY
+   * renderingStrategyï¼šSymbolRenderingStrategy.MULTIPLE_OPACITY
    *
-   * fontSize£º24vp
+   * fontSizeï¼š24vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -539,15 +539,15 @@ declare class TabBarSymbol {
   normal: SymbolGlyphModifier;
 
   /**
-   * Ò³Ç©ÄÚsymbolÍ¼±êÑ¡ÖĞÌ¬ÑùÊ½¡£
+   * é¡µç­¾å†…symbolå›¾æ ‡é€‰ä¸­æ€æ ·å¼ã€‚
    *
-   * Ä¬ÈÏÖµ£º
+   * é»˜è®¤å€¼ï¼š
    *
-   * fontColor£º#ff007dff
+   * fontColorï¼š#ff007dff
    *
-   * renderingStrategy£ºSymbolRenderingStrategy.MULTIPLE_OPACITY
+   * renderingStrategyï¼šSymbolRenderingStrategy.MULTIPLE_OPACITY
    *
-   * fontSize£º24vp
+   * fontSizeï¼š24vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -559,11 +559,11 @@ declare class TabBarSymbol {
 }
 
 /**
-* ÉèÖÃÒ³Ç©ÄÚµÄÍ¼Æ¬ºÍÎÄ×ÖÄÚÈİ¡£
+* è®¾ç½®é¡µç­¾å†…çš„å›¾ç‰‡å’Œæ–‡å­—å†…å®¹ã€‚
 *
-* > **ËµÃ÷£º**
+* > **è¯´æ˜ï¼š**
 *
-* > Îª¹æ·¶ÄäÃû¶ÔÏóµÄ¶¨Òå£¬API 18°æ±¾ĞŞ¸ÄÁË´Ë´¦µÄÔªËØ¶¨Òå¡£ÆäÖĞ£¬±£ÁôÁËÀúÊ·ÄäÃû¶ÔÏóµÄÆğÊ¼°æ±¾ĞÅÏ¢£¬»á³öÏÖÍâ²ãÔªËØ@since°æ±¾ºÅ¸ßÓÚÄÚ²ãÔªËØ°æ±¾ºÅµÄÇé¿ö£¬µ«Õâ²»Ó°Ïì½Ó¿ÚµÄÊ¹ÓÃ¡£
+* > ä¸ºè§„èŒƒåŒ¿åå¯¹è±¡çš„å®šä¹‰ï¼ŒAPI 18ç‰ˆæœ¬ä¿®æ”¹äº†æ­¤å¤„çš„å…ƒç´ å®šä¹‰ã€‚å…¶ä¸­ï¼Œä¿ç•™äº†å†å²åŒ¿åå¯¹è±¡çš„èµ·å§‹ç‰ˆæœ¬ä¿¡æ¯ï¼Œä¼šå‡ºç°å¤–å±‚å…ƒç´ @sinceç‰ˆæœ¬å·é«˜äºå†…å±‚å…ƒç´ ç‰ˆæœ¬å·çš„æƒ…å†µï¼Œä½†è¿™ä¸å½±å“æ¥å£çš„ä½¿ç”¨ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -595,7 +595,7 @@ declare interface TabBarOptions {
 }
 
 /**
-* ×ÓÒ³Ç©ÑùÊ½¡£´ò¿ªºóÔÚÇĞ»»Ò³Ç©Ê±»á²¥·ÅÌø×ª¶¯»­¡£
+* å­é¡µç­¾æ ·å¼ã€‚æ‰“å¼€ååœ¨åˆ‡æ¢é¡µç­¾æ—¶ä¼šæ’­æ”¾è·³è½¬åŠ¨ç”»ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -605,9 +605,9 @@ declare interface TabBarOptions {
 declare class SubTabBarStyle {
 
   /**
-   * SubTabBarStyleµÄ¹¹Ôìº¯Êı¡£
+   * SubTabBarStyleçš„æ„é€ å‡½æ•°ã€‚
    *
-   * @param { ResourceStr } content - Ò³Ç©ÄÚµÄÎÄ×ÖÄÚÈİ¡£
+   * @param { ResourceStr } content - é¡µç­¾å†…çš„æ–‡å­—å†…å®¹ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -616,10 +616,10 @@ declare class SubTabBarStyle {
   constructor(content: ResourceStr);
 
   /**
-   * SubTabBarStyleµÄ¹¹Ôìº¯Êı¡£Ö§³ÖComponentContentÉèÖÃ×Ô¶¨ÒåÄÚÈİ¡£
+   * SubTabBarStyleçš„æ„é€ å‡½æ•°ã€‚æ”¯æŒComponentContentè®¾ç½®è‡ªå®šä¹‰å†…å®¹ã€‚
    *
-   * @param { ResourceStr | ComponentContent } content - Ò³Ç©ÄÚµÄÄÚÈİ¡£<br />**ËµÃ÷£º**<br />1.×Ô¶¨ÒåÄÚÈİ²»Ö§³ÖlabelStyleÊôĞÔ¡£<br />2.×Ô¶¨ÒåÄÚÈİ³¬
-   *     ³öÒ³Ç©·¶Î§£¬Ôò²»ÏÔÊ¾³¬³ö²¿·Ö¡£<br />3.×Ô¶¨ÒåÄÚÈİĞ¡ÓÚÒ³Ç©·¶Î§£¬Ôò»á¾ÓÖĞ¶ÔÆë¡£<br />4.×Ô¶¨ÒåÄÚÈİÒì³£»òÎŞ¿ÉÓÃÏÔÊ¾×é¼ş£¬ÔòÏÔÊ¾¿Õ°×¡£
+   * @param { ResourceStr | ComponentContent } content - é¡µç­¾å†…çš„å†…å®¹ã€‚<br />**è¯´æ˜ï¼š**<br />1.è‡ªå®šä¹‰å†…å®¹ä¸æ”¯æŒlabelStyleå±æ€§ã€‚<br />2.è‡ªå®šä¹‰å†…å®¹è¶…
+   *     å‡ºé¡µç­¾èŒƒå›´ï¼Œåˆ™ä¸æ˜¾ç¤ºè¶…å‡ºéƒ¨åˆ†ã€‚<br />3.è‡ªå®šä¹‰å†…å®¹å°äºé¡µç­¾èŒƒå›´ï¼Œåˆ™ä¼šå±…ä¸­å¯¹é½ã€‚<br />4.è‡ªå®šä¹‰å†…å®¹å¼‚å¸¸æˆ–æ— å¯ç”¨æ˜¾ç¤ºç»„ä»¶ï¼Œåˆ™æ˜¾ç¤ºç©ºç™½ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -629,10 +629,10 @@ declare class SubTabBarStyle {
   constructor(content: ResourceStr | ComponentContent);
 
   /**
-   * SubTabBarStyleµÄ¾²Ì¬¹¹Ôìº¯Êı¡£
+   * SubTabBarStyleçš„é™æ€æ„é€ å‡½æ•°ã€‚
    *
-   * @param { ResourceStr } content - Ò³Ç©ÄÚµÄÎÄ×ÖÄÚÈİ¡£
-   * @returns { SubTabBarStyle } ·µ»Ø´´½¨µÄSubTabBarStyle¶ÔÏó¡£
+   * @param { ResourceStr } content - é¡µç­¾å†…çš„æ–‡å­—å†…å®¹ã€‚
+   * @returns { SubTabBarStyle } è¿”å›åˆ›å»ºçš„SubTabBarStyleå¯¹è±¡ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -642,11 +642,11 @@ declare class SubTabBarStyle {
   static of(content: ResourceStr): SubTabBarStyle;
 
   /**
-   * SubTabBarStyleµÄ¾²Ì¬¹¹Ôìº¯Êı¡£Ö§³ÖComponentContentÉèÖÃ×Ô¶¨ÒåÄÚÈİ¡£
+   * SubTabBarStyleçš„é™æ€æ„é€ å‡½æ•°ã€‚æ”¯æŒComponentContentè®¾ç½®è‡ªå®šä¹‰å†…å®¹ã€‚
    *
-   * @param { ResourceStr | ComponentContent } content - Ò³Ç©ÄÚµÄÄÚÈİ¡£Ö§³ÖComponentContentÉèÖÃ×Ô¶¨ÒåÄÚÈİ¡£<br />**ËµÃ÷£º**<br />1.×Ô¶¨ÒåÄÚÈİ²»Ö§³Ö
-   *     labelStyleÊôĞÔ¡£<br />2.×Ô¶¨ÒåÄÚÈİ³¬³öÒ³Ç©·¶Î§£¬Ôò²»ÏÔÊ¾³¬³ö²¿·Ö¡£<br />3.×Ô¶¨ÒåÄÚÈİĞ¡ÓÚÒ³Ç©·¶Î§£¬Ôò»á¾ÓÖĞ¶ÔÆë¡£<br />4.×Ô¶¨ÒåÄÚÈİÒì³£»òÎŞ¿ÉÓÃÏÔÊ¾×é¼ş£¬ÔòÏÔÊ¾¿Õ°×¡£
-   * @returns { SubTabBarStyle } ·µ»Ø´´½¨µÄSubTabBarStyle¶ÔÏó¡£
+   * @param { ResourceStr | ComponentContent } content - é¡µç­¾å†…çš„å†…å®¹ã€‚æ”¯æŒComponentContentè®¾ç½®è‡ªå®šä¹‰å†…å®¹ã€‚<br />**è¯´æ˜ï¼š**<br />1.è‡ªå®šä¹‰å†…å®¹ä¸æ”¯æŒ
+   *     labelStyleå±æ€§ã€‚<br />2.è‡ªå®šä¹‰å†…å®¹è¶…å‡ºé¡µç­¾èŒƒå›´ï¼Œåˆ™ä¸æ˜¾ç¤ºè¶…å‡ºéƒ¨åˆ†ã€‚<br />3.è‡ªå®šä¹‰å†…å®¹å°äºé¡µç­¾èŒƒå›´ï¼Œåˆ™ä¼šå±…ä¸­å¯¹é½ã€‚<br />4.è‡ªå®šä¹‰å†…å®¹å¼‚å¸¸æˆ–æ— å¯ç”¨æ˜¾ç¤ºç»„ä»¶ï¼Œåˆ™æ˜¾ç¤ºç©ºç™½ã€‚
+   * @returns { SubTabBarStyle } è¿”å›åˆ›å»ºçš„SubTabBarStyleå¯¹è±¡ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -656,10 +656,10 @@ declare class SubTabBarStyle {
   static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
 
   /**
-   * ÉèÖÃÑ¡ÖĞ×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ¡£×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ½öÔÚË®Æ½Ä£Ê½ÏÂÓĞĞ§¡£
+   * è®¾ç½®é€‰ä¸­å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼ã€‚å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼ä»…åœ¨æ°´å¹³æ¨¡å¼ä¸‹æœ‰æ•ˆã€‚
    *
-   * @param { IndicatorStyle } value - Ñ¡ÖĞ×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ¶ÔÏó¡£
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { IndicatorStyle } value - é€‰ä¸­å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼å¯¹è±¡ã€‚
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -669,12 +669,12 @@ declare class SubTabBarStyle {
   indicator(value: IndicatorStyle): SubTabBarStyle;
 
   /**
-   * ÉèÖÃÑ¡ÖĞ×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ¡£Óë[indicator]{@link SubTabBarStyle#indicator(value: IndicatorStyle)}Ïà±È£¬ĞÂÔöÁËÍ¼Æ¬¸ñÊ½µÄÏÂ»®Ïß·ç¸ñ£¬Í¼Æ¬µÄÏÔÊ¾Ğ§¹û²ÎÕÕ
-   * [ImageFit.Cover]{@link ImageFit}¡£×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ½öÔÚË®Æ½Ä£Ê½ÏÂÓĞĞ§¡£
+   * è®¾ç½®é€‰ä¸­å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼ã€‚ä¸[indicator]{@link SubTabBarStyle#indicator(value: IndicatorStyle)}ç›¸æ¯”ï¼Œæ–°å¢äº†å›¾ç‰‡æ ¼å¼çš„ä¸‹åˆ’çº¿é£æ ¼ï¼Œå›¾ç‰‡çš„æ˜¾ç¤ºæ•ˆæœå‚ç…§
+   * [ImageFit.Cover]{@link ImageFit}ã€‚å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼ä»…åœ¨æ°´å¹³æ¨¡å¼ä¸‹æœ‰æ•ˆã€‚
    *
-   * @param { IndicatorStyle | DrawableTabBarIndicator } value - Ñ¡ÖĞ×ÓÒ³Ç©µÄÏÂ»®Ïß·ç¸ñ¶ÔÏó¡£<br />IndicatorStyle£ºÒ»°ãĞÎÊ½µÄÏÂ»®ÏßÑùÊ½¡£<br />
-   *     DrawableTabBarIndicator£ºÍ¼Æ¬ĞÎÊ½µÄÏÂ»®ÏßÑùÊ½¡£
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { IndicatorStyle | DrawableTabBarIndicator } value - é€‰ä¸­å­é¡µç­¾çš„ä¸‹åˆ’çº¿é£æ ¼å¯¹è±¡ã€‚<br />IndicatorStyleï¼šä¸€èˆ¬å½¢å¼çš„ä¸‹åˆ’çº¿æ ·å¼ã€‚<br />
+   *     DrawableTabBarIndicatorï¼šå›¾ç‰‡å½¢å¼çš„ä¸‹åˆ’çº¿æ ·å¼ã€‚
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -683,10 +683,10 @@ declare class SubTabBarStyle {
   indicator(value: IndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle;
 
   /**
-   * ÉèÖÃÑ¡ÖĞ×ÓÒ³Ç©µÄÏÔÊ¾·½Ê½¡£×ÓÒ³Ç©µÄÏÔÊ¾·½Ê½½öÔÚË®Æ½Ä£Ê½ÏÂÓĞĞ§¡£
+   * è®¾ç½®é€‰ä¸­å­é¡µç­¾çš„æ˜¾ç¤ºæ–¹å¼ã€‚å­é¡µç­¾çš„æ˜¾ç¤ºæ–¹å¼ä»…åœ¨æ°´å¹³æ¨¡å¼ä¸‹æœ‰æ•ˆã€‚
    *
-   * @param { SelectedMode } value - Ñ¡ÖĞ×ÓÒ³Ç©µÄÏÔÊ¾·½Ê½¡£<br />Ä¬ÈÏÖµ£ºSelectedMode.INDICATOR
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { SelectedMode } value - é€‰ä¸­å­é¡µç­¾çš„æ˜¾ç¤ºæ–¹å¼ã€‚<br />é»˜è®¤å€¼ï¼šSelectedMode.INDICATOR
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -696,10 +696,10 @@ declare class SubTabBarStyle {
   selectedMode(value: SelectedMode): SubTabBarStyle;
 
   /**
-   * ÉèÖÃÑ¡ÖĞ×ÓÒ³Ç©µÄ±³°å·ç¸ñ¡£×ÓÒ³Ç©µÄ±³°å·ç¸ñ½öÔÚË®Æ½Ä£Ê½ÏÂÓĞĞ§¡£
+   * è®¾ç½®é€‰ä¸­å­é¡µç­¾çš„èƒŒæ¿é£æ ¼ã€‚å­é¡µç­¾çš„èƒŒæ¿é£æ ¼ä»…åœ¨æ°´å¹³æ¨¡å¼ä¸‹æœ‰æ•ˆã€‚
    *
-   * @param { BoardStyle } value - Ñ¡ÖĞ×ÓÒ³Ç©µÄ±³°å·ç¸ñ¶ÔÏó¡£
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { BoardStyle } value - é€‰ä¸­å­é¡µç­¾çš„èƒŒæ¿é£æ ¼å¯¹è±¡ã€‚
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -709,10 +709,10 @@ declare class SubTabBarStyle {
   board(value: BoardStyle): SubTabBarStyle;
 
   /**
-   * ÉèÖÃ×ÓÒ³Ç©µÄlabelÎÄ±¾ºÍ×ÖÌåµÄÑùÊ½¡£
+   * è®¾ç½®å­é¡µç­¾çš„labelæ–‡æœ¬å’Œå­—ä½“çš„æ ·å¼ã€‚
    *
-   * @param { LabelStyle } value - ×ÓÒ³Ç©µÄlabelÎÄ±¾ºÍ×ÖÌåµÄÑùÊ½¶ÔÏó¡£
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { LabelStyle } value - å­é¡µç­¾çš„labelæ–‡æœ¬å’Œå­—ä½“çš„æ ·å¼å¯¹è±¡ã€‚
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -722,11 +722,11 @@ declare class SubTabBarStyle {
   labelStyle(value: LabelStyle): SubTabBarStyle;
 
   /**
-   * ÉèÖÃ×ÓÒ³Ç©µÄÄÚ±ß¾àÊôĞÔ£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£Ê¹ÓÃDimensionÊ±£¬ËÄ¸ö·½ÏòÄÚ±ß¾àÍ¬Ê±ÉúĞ§¡£
+   * è®¾ç½®å­é¡µç­¾çš„å†…è¾¹è·å±æ€§ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚ä½¿ç”¨Dimensionæ—¶ï¼Œå››ä¸ªæ–¹å‘å†…è¾¹è·åŒæ—¶ç”Ÿæ•ˆã€‚
    *
-   * @param { Padding | Dimension } value - ×ÓÒ³Ç©µÄÄÚ±ß¾àÊôĞÔ¡£<br/>È¡Öµ·¶Î§£º[0, +¡Ş]<br/>Òì³£ÖµÊ±È¡Ä¬ÈÏÖµ¡£<br />Ä¬ÈÏÖµ£º{left:8.0vp,right:8.0vp,
+   * @param { Padding | Dimension } value - å­é¡µç­¾çš„å†…è¾¹è·å±æ€§ã€‚<br/>å–å€¼èŒƒå›´ï¼š[0, +âˆ]<br/>å¼‚å¸¸å€¼æ—¶å–é»˜è®¤å€¼ã€‚<br />é»˜è®¤å€¼ï¼š{left:8.0vp,right:8.0vp,
    *     top:17.0vp,bottom:18.0vp}
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -736,11 +736,11 @@ declare class SubTabBarStyle {
   padding(value: Padding | Dimension): SubTabBarStyle;
 
   /**
-   * ÉèÖÃ×ÓÒ³Ç©µÄÄÚ±ß¾àÊôĞÔ£¬Ö§³Ö¾µÏñÄÜÁ¦£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£
+   * è®¾ç½®å­é¡µç­¾çš„å†…è¾¹è·å±æ€§ï¼Œæ”¯æŒé•œåƒèƒ½åŠ›ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚
    *
-   * @param { LocalizedPadding } padding - ×ÓÒ³Ç©µÄÄÚ±ß¾àÊôĞÔ¡£<br/>Òì³£ÖµÊ±È¡Ä¬ÈÏÖµ¡£<br/>È¡Öµ·¶Î§£º[0, +¡Ş]<br/>Òì³£ÖµÊ±È¡Ä¬ÈÏÖµ¡£<br />Ä¬ÈÏÖµ£º{start:
+   * @param { LocalizedPadding } padding - å­é¡µç­¾çš„å†…è¾¹è·å±æ€§ã€‚<br/>å¼‚å¸¸å€¼æ—¶å–é»˜è®¤å€¼ã€‚<br/>å–å€¼èŒƒå›´ï¼š[0, +âˆ]<br/>å¼‚å¸¸å€¼æ—¶å–é»˜è®¤å€¼ã€‚<br />é»˜è®¤å€¼ï¼š{start:
    *     LengthMetrics.vp(8),end:LengthMetrics.vp(8),<br/>top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)}
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -750,10 +750,10 @@ declare class SubTabBarStyle {
   padding(padding: LocalizedPadding): SubTabBarStyle;
 
   /**
-   * ÉèÖÃ×ÓÒ³Ç©µÄid¡£
+   * è®¾ç½®å­é¡µç­¾çš„idã€‚
    *
-   * @param { string } value - ×ÓÒ³Ç©µÄid¡£
-   * @returns { SubTabBarStyle } ·µ»ØSubTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { string } value - å­é¡µç­¾çš„idã€‚
+   * @returns { SubTabBarStyle } è¿”å›SubTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -764,7 +764,7 @@ declare class SubTabBarStyle {
 }
 
 /**
-* µ×²¿Ò³Ç©ºÍ²à±ßÒ³Ç©ÑùÊ½¡£
+* åº•éƒ¨é¡µç­¾å’Œä¾§è¾¹é¡µç­¾æ ·å¼ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -774,11 +774,11 @@ declare class SubTabBarStyle {
 declare class BottomTabBarStyle {
 
   /**
-   * BottomTabBarStyleµÄ¹¹Ôìº¯Êı¡£
+   * BottomTabBarStyleçš„æ„é€ å‡½æ•°ã€‚
    *
    * @param { ResourceStr } icon - Image for the tab. [since 9 - 11]
-   * @param { ResourceStr | TabBarSymbol } icon - Ò³Ç©ÄÚµÄÍ¼Æ¬ÄÚÈİ¡£ [since 9 - 11]
-   * @param { ResourceStr } text - Ò³Ç©ÄÚµÄÎÄ×ÖÄÚÈİ¡£
+   * @param { ResourceStr | TabBarSymbol } icon - é¡µç­¾å†…çš„å›¾ç‰‡å†…å®¹ã€‚ [since 9 - 11]
+   * @param { ResourceStr } text - é¡µç­¾å†…çš„æ–‡å­—å†…å®¹ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -787,12 +787,12 @@ declare class BottomTabBarStyle {
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
 
   /**
-   * BottomTabBarStyleµÄ¾²Ì¬¹¹Ôìº¯Êı¡£
+   * BottomTabBarStyleçš„é™æ€æ„é€ å‡½æ•°ã€‚
    *
    * @param { ResourceStr } icon - Image for the tab. [since 10 - 11]
-   * @param { ResourceStr | TabBarSymbol } icon - Ò³Ç©ÄÚµÄÍ¼Æ¬ÄÚÈİ¡£ [since 10 - 11]
-   * @param { ResourceStr } text - Ò³Ç©ÄÚµÄÎÄ×ÖÄÚÈİ¡£
-   * @returns { BottomTabBarStyle } ·µ»Ø´´½¨µÄBottomTabBarStyle¶ÔÏó¡£
+   * @param { ResourceStr | TabBarSymbol } icon - é¡µç­¾å†…çš„å›¾ç‰‡å†…å®¹ã€‚ [since 10 - 11]
+   * @param { ResourceStr } text - é¡µç­¾å†…çš„æ–‡å­—å†…å®¹ã€‚
+   * @returns { BottomTabBarStyle } è¿”å›åˆ›å»ºçš„BottomTabBarStyleå¯¹è±¡ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -802,10 +802,10 @@ declare class BottomTabBarStyle {
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄlabelÎÄ±¾ºÍ×ÖÌåµÄÑùÊ½¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„labelæ–‡æœ¬å’Œå­—ä½“çš„æ ·å¼ã€‚
    *
-   * @param { LabelStyle } value - µ×²¿Ò³Ç©µÄlabelÎÄ±¾ºÍ×ÖÌåµÄÑùÊ½¡£
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { LabelStyle } value - åº•éƒ¨é¡µç­¾çš„labelæ–‡æœ¬å’Œå­—ä½“çš„æ ·å¼ã€‚
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -815,16 +815,16 @@ declare class BottomTabBarStyle {
   labelStyle(value: LabelStyle): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄÄÚ±ß¾àÊôĞÔ£¨²»Ö§³Ö°Ù·Ö±ÈÉèÖÃ£©¡£Ê¹ÓÃDimensionÊ±£¬ËÄ¸ö·½ÏòÄÚ±ß¾àÍ¬Ê±ÉúĞ§¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„å†…è¾¹è·å±æ€§ï¼ˆä¸æ”¯æŒç™¾åˆ†æ¯”è®¾ç½®ï¼‰ã€‚ä½¿ç”¨Dimensionæ—¶ï¼Œå››ä¸ªæ–¹å‘å†…è¾¹è·åŒæ—¶ç”Ÿæ•ˆã€‚
    *
-   * @param { Padding | Dimension } value - Padding of the bottom tab.<br>Value range: [0, +¡Ş]<br>Default value:
+   * @param { Padding | Dimension } value - Padding of the bottom tab.<br>Value range: [0, +âˆ]<br>Default value:
    *     **{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp}**<br>If of the LocalizedPadding type, this attribute supports
    *     the mirroring capability.<br>Default value: **{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),**<br>
    *     **top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)}** [since 10 - 11]
-   * @param { Padding | Dimension | LocalizedPadding } value - µ×²¿Ò³Ç©µÄÄÚ±ß¾à¡£<br/>È¡Öµ·¶Î§£º[0, +¡Ş]<br/>Ä¬ÈÏÖµ£º{left:4.0vp,right:4.0vp,top:0.0vp,bottom:
-   *     0.0vp}<br/>Ê¹ÓÃLocalizedPaddingÊ±£¬Ö§³Ö¾µÏñÄÜÁ¦¡£<br />Ä¬ÈÏÖµ£º{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),<br/>top:
+   * @param { Padding | Dimension | LocalizedPadding } value - åº•éƒ¨é¡µç­¾çš„å†…è¾¹è·ã€‚<br/>å–å€¼èŒƒå›´ï¼š[0, +âˆ]<br/>é»˜è®¤å€¼ï¼š{left:4.0vp,right:4.0vp,top:0.0vp,bottom:
+   *     0.0vp}<br/>ä½¿ç”¨LocalizedPaddingæ—¶ï¼Œæ”¯æŒé•œåƒèƒ½åŠ›ã€‚<br />é»˜è®¤å€¼ï¼š{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),<br/>top:
    *     LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)} [since 10 - 11]
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -834,10 +834,10 @@ declare class BottomTabBarStyle {
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÅÅ²¼µÄ·½Ê½¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—æ’å¸ƒçš„æ–¹å¼ã€‚
    *
-   * @param { LayoutMode } value - µ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÅÅ²¼µÄ·½Ê½£¬¾ßÌå²ÎÕÕLayoutModeÃ¶¾Ù¡£<br/>Ä¬ÈÏÖµ£ºLayoutMode.VERTICAL
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { LayoutMode } value - åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—æ’å¸ƒçš„æ–¹å¼ï¼Œå…·ä½“å‚ç…§LayoutModeæšä¸¾ã€‚<br/>é»˜è®¤å€¼ï¼šLayoutMode.VERTICAL
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -847,10 +847,10 @@ declare class BottomTabBarStyle {
   layoutMode(value: LayoutMode): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÔÚ´¹Ö±·½ÏòÉÏµÄ¶ÔÆë¸ñÊ½¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—åœ¨å‚ç›´æ–¹å‘ä¸Šçš„å¯¹é½æ ¼å¼ã€‚
    *
-   * @param { VerticalAlign } value - µ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÔÚ´¹Ö±·½ÏòÉÏµÄ¶ÔÆë¸ñÊ½¡£<br/>Ä¬ÈÏÖµ£ºVerticalAlign.Center
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { VerticalAlign } value - åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—åœ¨å‚ç›´æ–¹å‘ä¸Šçš„å¯¹é½æ ¼å¼ã€‚<br/>é»˜è®¤å€¼ï¼šVerticalAlign.Center
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -860,10 +860,10 @@ declare class BottomTabBarStyle {
   verticalAlign(value: VerticalAlign): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÊÇ·ñ¿ÉÒÔ¶Ô³Æ½èÓÃ×óÓÒµ×²¿Ò³Ç©µÄ¿ÕÓàÎ»ÖÃÖĞµÄ×îĞ¡Öµ£¬½öfixedË®Æ½Ä£Ê½ÏÂÔÚµ×²¿Ò³Ç©Ö®¼äÓĞĞ§¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—æ˜¯å¦å¯ä»¥å¯¹ç§°å€Ÿç”¨å·¦å³åº•éƒ¨é¡µç­¾çš„ç©ºä½™ä½ç½®ä¸­çš„æœ€å°å€¼ï¼Œä»…fixedæ°´å¹³æ¨¡å¼ä¸‹åœ¨åº•éƒ¨é¡µç­¾ä¹‹é—´æœ‰æ•ˆã€‚
    *
-   * @param { boolean } value - µ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×ÖÊÇ·ñ¿ÉÒÔ¶Ô³Æ½èÓÃ×óÓÒµ×²¿Ò³Ç©µÄ¿ÕÓàÎ»ÖÃÖĞµÄ×îĞ¡Öµ¡£<br/>Ä¬ÈÏÖµ£ºfalse£¬µ×²¿Ò³Ç©µÄÍ¼Æ¬¡¢ÎÄ×Ö²»¿ÉÒÔ¶Ô³Æ½èÓÃ×óÓÒµ×²¿Ò³Ç©µÄ¿ÕÓàÎ»ÖÃÖĞµÄ×îĞ¡Öµ¡£
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { boolean } value - åº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—æ˜¯å¦å¯ä»¥å¯¹ç§°å€Ÿç”¨å·¦å³åº•éƒ¨é¡µç­¾çš„ç©ºä½™ä½ç½®ä¸­çš„æœ€å°å€¼ã€‚<br/>é»˜è®¤å€¼ï¼šfalseï¼Œåº•éƒ¨é¡µç­¾çš„å›¾ç‰‡ã€æ–‡å­—ä¸å¯ä»¥å¯¹ç§°å€Ÿç”¨å·¦å³åº•éƒ¨é¡µç­¾çš„ç©ºä½™ä½ç½®ä¸­çš„æœ€å°å€¼ã€‚
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -873,10 +873,10 @@ declare class BottomTabBarStyle {
   symmetricExtensible(value: boolean): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄid¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„idã€‚
    *
-   * @param { string } value - ÉèÖÃµ×²¿Ò³Ç©µÄid¡£
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { string } value - è®¾ç½®åº•éƒ¨é¡µç­¾çš„idã€‚
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -886,10 +886,10 @@ declare class BottomTabBarStyle {
   id(value: string): BottomTabBarStyle;
 
   /**
-   * ÉèÖÃµ×²¿Ò³Ç©µÄlabelÍ¼±êµÄÑùÊ½¡£
+   * è®¾ç½®åº•éƒ¨é¡µç­¾çš„labelå›¾æ ‡çš„æ ·å¼ã€‚
    *
-   * @param { TabBarIconStyle } style - µ×²¿Ò³Ç©µÄlabelÍ¼±êµÄÑùÊ½¡£
-   * @returns { BottomTabBarStyle } ·µ»ØBottomTabBarStyle¶ÔÏó±¾Éí¡£
+   * @param { TabBarIconStyle } style - åº•éƒ¨é¡µç­¾çš„labelå›¾æ ‡çš„æ ·å¼ã€‚
+   * @returns { BottomTabBarStyle } è¿”å›BottomTabBarStyleå¯¹è±¡æœ¬èº«ã€‚
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -900,11 +900,11 @@ declare class BottomTabBarStyle {
 }
 
 /**
-* ½öÔÚ[Tabs]{@link tabs}ÖĞÊ¹ÓÃ£¬¶ÔÓ¦Ò»¸öÇĞ»»Ò³Ç©µÄÄÚÈİÊÓÍ¼¡£
+* ä»…åœ¨[Tabs]{@link tabs}ä¸­ä½¿ç”¨ï¼Œå¯¹åº”ä¸€ä¸ªåˆ‡æ¢é¡µç­¾çš„å†…å®¹è§†å›¾ã€‚
 *
-* > **ËµÃ÷£º**
+* > **è¯´æ˜ï¼š**
 *
-* > - ¸Ã×é¼şÄ¬ÈÏÉèÖÃÁË[clip]{@link CommonMethod#clip(value: boolean)}ÊôĞÔµÄÖµÎªtrue£¬ÈôĞèÒªÀ©Õ¹ÄÚÈİÇøµ½×é¼şÍâÏÔÊ¾£¬ĞèÏÈ¹Ø±ÕclipÊôĞÔ¡£
+* > - è¯¥ç»„ä»¶é»˜è®¤è®¾ç½®äº†[clip]{@link CommonMethod#clip(value: boolean)}å±æ€§çš„å€¼ä¸ºtrueï¼Œè‹¥éœ€è¦æ‰©å±•å†…å®¹åŒºåˆ°ç»„ä»¶å¤–æ˜¾ç¤ºï¼Œéœ€å…ˆå…³é—­clipå±æ€§ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -915,7 +915,7 @@ declare class BottomTabBarStyle {
 interface TabContentInterface {
 
   /**
-   * ´´½¨TabContentÒ³Ç©ºÍÄÚÈİ¡£
+   * åˆ›å»ºTabContenté¡µç­¾å’Œå†…å®¹ã€‚
    *
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -927,9 +927,9 @@ interface TabContentInterface {
 }
 
 /**
-* ³ıÖ§³Ö[Í¨ÓÃÊôĞÔ]{@link common}Íâ£¬»¹Ö§³ÖÒÔÏÂÊôĞÔ£º
+* é™¤æ”¯æŒ[é€šç”¨å±æ€§]{@link common}å¤–ï¼Œè¿˜æ”¯æŒä»¥ä¸‹å±æ€§ï¼š
 *
-* ³ıÖ§³Ö[Í¨ÓÃÊÂ¼ş]{@link common}Íâ£¬»¹Ö§³ÖÒÔÏÂÊÂ¼ş£º
+* é™¤æ”¯æŒ[é€šç”¨äº‹ä»¶]{@link common}å¤–ï¼Œè¿˜æ”¯æŒä»¥ä¸‹äº‹ä»¶ï¼š
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -940,17 +940,17 @@ interface TabContentInterface {
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
 
   /**
-   * ÉèÖÃTabBarÉÏÏÔÊ¾ÄÚÈİ¡£
+   * è®¾ç½®TabBarä¸Šæ˜¾ç¤ºå†…å®¹ã€‚
    *
-   * Èç¹ûicon²ÉÓÃsvg¸ñÊ½Í¼Ô´£¬ĞèÉ¾³ısvgÍ¼Ô´ÄÚÖÃµÄ¿í¸ßÊôĞÔÖµ¡£·ñÔò£¬icon´óĞ¡½«Ê¹ÓÃsvgÍ¼Ô´ÄÚÖÃµÄ¿í¸ßÊôĞÔÖµ¡£
+   * å¦‚æœiconé‡‡ç”¨svgæ ¼å¼å›¾æºï¼Œéœ€åˆ é™¤svgå›¾æºå†…ç½®çš„å®½é«˜å±æ€§å€¼ã€‚å¦åˆ™ï¼Œiconå¤§å°å°†ä½¿ç”¨svgå›¾æºå†…ç½®çš„å®½é«˜å±æ€§å€¼ã€‚
    *
-   * ÉèÖÃµÄÄÚÈİ³¬³ötabBarÒ³Ç©Ê±½øĞĞ²ÃÇĞ¡£
+   * è®¾ç½®çš„å†…å®¹è¶…å‡ºtabBaré¡µç­¾æ—¶è¿›è¡Œè£åˆ‡ã€‚
    *
    * @param { string | Resource | { icon?: string | Resource; text?: string | Resource } } value [since 7 - 7]
    * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } }
    *     value [since 8 - 17]
-   * @param { string | Resource | CustomBuilder | TabBarOptions } options - TabBarÉÏÏÔÊ¾ÄÚÈİ¡£<br/>CustomBuilder£º?¹¹ÔìÆ÷£¬ÄÚ²¿¿ÉÒÔ´«Èë×é¼ş
-   *     £¨API version 8°æ±¾ÒÔÉÏÊÊÓÃ£©¡£ [since 18]
+   * @param { string | Resource | CustomBuilder | TabBarOptions } options - TabBarä¸Šæ˜¾ç¤ºå†…å®¹ã€‚<br/>CustomBuilderï¼š?æ„é€ å™¨ï¼Œå†…éƒ¨å¯ä»¥ä¼ å…¥ç»„ä»¶
+   *     ï¼ˆAPI version 8ç‰ˆæœ¬ä»¥ä¸Šé€‚ç”¨ï¼‰ã€‚ [since 18]
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -960,18 +960,18 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
   /**
-   * ÉèÖÃTabBarÉÏÏÔÊ¾ÄÚÈİ¡£µ×²¿ÑùÊ½Ã»ÓĞÏÂ»®ÏßĞ§¹û¡£iconÒì³£Ê±ÏÔÊ¾»ÒÉ«Í¼¿é¡£
+   * è®¾ç½®TabBarä¸Šæ˜¾ç¤ºå†…å®¹ã€‚åº•éƒ¨æ ·å¼æ²¡æœ‰ä¸‹åˆ’çº¿æ•ˆæœã€‚iconå¼‚å¸¸æ—¶æ˜¾ç¤ºç°è‰²å›¾å—ã€‚
    *
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    *
-   * > - ×ÓÒ³Ç©£¨[SubTabBarStyle]{@link SubTabBarStyle}£©ÑùÊ½£ºÍ¨³£ÎªÎÄ×Ö+ÏÂ»®Ïß£¬ÎÄ×Ö+±³°åµÄÒ³Ç©·ç¸ñ£¬ÔÊĞíÉèÖÃÎÄ±¾ÑùÊ½£¬½¨Òé·ÅÖÃÔÚ¶¥²¿»òÕßµ×²¿Ê¹ÓÃ¡£ÇĞ»»Ò³Ç©Ê±Ä¬ÈÏÖ§³Ö¶¯»­Ìø×ªĞ§¹û¡£ÊÊÓÃÓÚ×ÊÑ¶
-   * > ÀàÓ¦ÓÃµÄ¶¥²¿·ÖÀà£¨Èç"¹Ø×¢¡¢ÊÓÆµ¡¢ÊıÂë"£©¡¢¹¦ÄÜÄ£¿éµÄ¶ş¼¶µ¼º½³¡¾°¡£
+   * > - å­é¡µç­¾ï¼ˆ[SubTabBarStyle]{@link SubTabBarStyle}ï¼‰æ ·å¼ï¼šé€šå¸¸ä¸ºæ–‡å­—+ä¸‹åˆ’çº¿ï¼Œæ–‡å­—+èƒŒæ¿çš„é¡µç­¾é£æ ¼ï¼Œå…è®¸è®¾ç½®æ–‡æœ¬æ ·å¼ï¼Œå»ºè®®æ”¾ç½®åœ¨é¡¶éƒ¨æˆ–è€…åº•éƒ¨ä½¿ç”¨ã€‚åˆ‡æ¢é¡µç­¾æ—¶é»˜è®¤æ”¯æŒåŠ¨ç”»è·³è½¬æ•ˆæœã€‚é€‚ç”¨äºèµ„è®¯
+   * > ç±»åº”ç”¨çš„é¡¶éƒ¨åˆ†ç±»ï¼ˆå¦‚"å…³æ³¨ã€è§†é¢‘ã€æ•°ç "ï¼‰ã€åŠŸèƒ½æ¨¡å—çš„äºŒçº§å¯¼èˆªåœºæ™¯ã€‚
    * >
-   * > - µ×²¿Ò³Ç©/²à±ßÒ³Ç©£¨[BottomTabBarStyle]{@link BottomTabBarStyle}£©ÑùÊ½£ºÎŞÏÂ»®ÏßºÍ±³°åĞ§¹û£¬Ò³Ç©ÑùÊ½Í¨³£ÎªÍ¼±ê+ÎÄ×ÖµÄ×éºÏ·½Ê½¡£ÇĞ»»Ò³Ç©Ê±Ä¬ÈÏÎŞ¶¯»­Ìø×ªĞ§¹û¡£µ×²¿Ò³Ç©Í¨³£ÓÃÓÚÓ¦ÓÃ
-   * > Ö÷µ¼º½£¨ÈçÊ×Ò³¡¢·¢ÏÖ¡¢ÍÆ¼ö£©¡£²à±ßÒ³Ç©ÊÊÓÃÓÚ¿íÆÁ³¡¾°£¬¿ÉÉèÖÃvertical(true)ÆôÓÃ×İÏò²¼¾Ö£¬ÈÃÒ³Ç©ÔÚ²à±ßÏÔÊ¾£¬Ä¬ÈÏ×ó²àÏÔÊ¾¡£
+   * > - åº•éƒ¨é¡µç­¾/ä¾§è¾¹é¡µç­¾ï¼ˆ[BottomTabBarStyle]{@link BottomTabBarStyle}ï¼‰æ ·å¼ï¼šæ— ä¸‹åˆ’çº¿å’ŒèƒŒæ¿æ•ˆæœï¼Œé¡µç­¾æ ·å¼é€šå¸¸ä¸ºå›¾æ ‡+æ–‡å­—çš„ç»„åˆæ–¹å¼ã€‚åˆ‡æ¢é¡µç­¾æ—¶é»˜è®¤æ— åŠ¨ç”»è·³è½¬æ•ˆæœã€‚åº•éƒ¨é¡µç­¾é€šå¸¸ç”¨äºåº”ç”¨
+   * > ä¸»å¯¼èˆªï¼ˆå¦‚é¦–é¡µã€å‘ç°ã€æ¨èï¼‰ã€‚ä¾§è¾¹é¡µç­¾é€‚ç”¨äºå®½å±åœºæ™¯ï¼Œå¯è®¾ç½®vertical(true)å¯ç”¨çºµå‘å¸ƒå±€ï¼Œè®©é¡µç­¾åœ¨ä¾§è¾¹æ˜¾ç¤ºï¼Œé»˜è®¤å·¦ä¾§æ˜¾ç¤ºã€‚
    *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value - TabBarÉÏÏÔÊ¾ÄÚÈİ¡£<br/>SubTabBarStyle£º?×ÓÒ³Ç©ÑùÊ½¡£<br/>
-   *     BottomTabBarStyle£º?µ×²¿Ò³Ç©ºÍ²à±ßÒ³Ç©ÑùÊ½¡£
+   * @param { SubTabBarStyle | BottomTabBarStyle } value - TabBarä¸Šæ˜¾ç¤ºå†…å®¹ã€‚<br/>SubTabBarStyleï¼š?å­é¡µç­¾æ ·å¼ã€‚<br/>
+   *     BottomTabBarStyleï¼š?åº•éƒ¨é¡µç­¾å’Œä¾§è¾¹é¡µç­¾æ ·å¼ã€‚
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -981,12 +981,12 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
   /**
-   * ÉèÖÃTabBarÉÏÏÔÊ¾ÄÚÈİ¡£
+   * è®¾ç½®TabBarä¸Šæ˜¾ç¤ºå†…å®¹ã€‚
    *
-   * Ê¹ÓÃBottomTabBarStyle»òTabBarOptionsÀàĞÍ×÷ÎªÈë²Î²¢ÉèÖÃicon£¬iconÒì³£Ê±ÏÔÊ¾»ÒÉ«Í¼¿é¡£Èç¹ûicon²ÉÓÃsvg¸ñÊ½Í¼Ô´£¬ĞèÉ¾³ısvgÍ¼Ô´ÄÚÖÃµÄ¿í¸ßÊôĞÔÖµ¡£·ñÔò£¬icon´óĞ¡½«Ê¹ÓÃsvgÍ¼Ô´ÄÚÖÃµÄ¿í
-   * ¸ßÊôĞÔÖµ¡£
+   * ä½¿ç”¨BottomTabBarStyleæˆ–TabBarOptionsç±»å‹ä½œä¸ºå…¥å‚å¹¶è®¾ç½®iconï¼Œiconå¼‚å¸¸æ—¶æ˜¾ç¤ºç°è‰²å›¾å—ã€‚å¦‚æœiconé‡‡ç”¨svgæ ¼å¼å›¾æºï¼Œéœ€åˆ é™¤svgå›¾æºå†…ç½®çš„å®½é«˜å±æ€§å€¼ã€‚å¦åˆ™ï¼Œiconå¤§å°å°†ä½¿ç”¨svgå›¾æºå†…ç½®çš„å®½
+   * é«˜å±æ€§å€¼ã€‚
    *
-   * ÉèÖÃµÄÄÚÈİ³¬³öTabBarÒ³Ç©Ê±½øĞĞ²ÃÇĞ¡£
+   * è®¾ç½®çš„å†…å®¹è¶…å‡ºTabBaré¡µç­¾æ—¶è¿›è¡Œè£åˆ‡ã€‚
    *
    * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions
    *     } content - Content displayed on the tab bar.<br>**ComponentContent**: encapsulation of the component content,
@@ -1006,13 +1006,13 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
     TabBarOptions): TabContentAttribute;
 
   /**
-   * Âß¼­»Øµ÷£¬TabContent½«ÒªÏÔÊ¾µÄÊ±ºò´¥·¢¸Ã»Øµ÷¡£³¡¾°°üÀ¨TabContentÊ×´ÎÏÔÊ¾£¬TabContentÇĞ»»£¬Ò³ÃæÇĞ»»£¬´°¿ÚÇ°ºóÌ¨ÇĞ»»¡£
+   * é€»è¾‘å›è°ƒï¼ŒTabContentå°†è¦æ˜¾ç¤ºçš„æ—¶å€™è§¦å‘è¯¥å›è°ƒã€‚åœºæ™¯åŒ…æ‹¬TabContenté¦–æ¬¡æ˜¾ç¤ºï¼ŒTabContentåˆ‡æ¢ï¼Œé¡µé¢åˆ‡æ¢ï¼Œçª—å£å‰åå°åˆ‡æ¢ã€‚
    *
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    *
-   * > ´ÓAPI version 20¿ªÊ¼£¬¸Ã½Ó¿ÚÖ§³ÖÔÚ[attributeModifier]{@link CommonMethod#attributeModifier}ÖĞµ÷ÓÃ¡£
+   * > ä»API version 20å¼€å§‹ï¼Œè¯¥æ¥å£æ”¯æŒåœ¨[attributeModifier]{@link CommonMethod#attributeModifier}ä¸­è°ƒç”¨ã€‚
    *
-   * @param { VoidCallback  } event - TabContent½«ÒªÏÔÊ¾µÄ»Øµ÷º¯Êı¡£
+   * @param { VoidCallback  } event - TabContentå°†è¦æ˜¾ç¤ºçš„å›è°ƒå‡½æ•°ã€‚
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1023,13 +1023,13 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   onWillShow(event: VoidCallback): TabContentAttribute;
 
   /**
-   * Âß¼­»Øµ÷£¬TabContent½«ÒªÒş²ØµÄÊ±ºò´¥·¢¸Ã»Øµ÷¡£³¡¾°°üÀ¨TabContentÇĞ»»£¬Ò³ÃæÇĞ»»£¬´°¿ÚÇ°ºóÌ¨ÇĞ»»¡£
+   * é€»è¾‘å›è°ƒï¼ŒTabContentå°†è¦éšè—çš„æ—¶å€™è§¦å‘è¯¥å›è°ƒã€‚åœºæ™¯åŒ…æ‹¬TabContentåˆ‡æ¢ï¼Œé¡µé¢åˆ‡æ¢ï¼Œçª—å£å‰åå°åˆ‡æ¢ã€‚
    *
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    *
-   * > ´ÓAPI version 20¿ªÊ¼£¬¸Ã½Ó¿ÚÖ§³ÖÔÚ[attributeModifier]{@link CommonMethod#attributeModifier}ÖĞµ÷ÓÃ¡£
+   * > ä»API version 20å¼€å§‹ï¼Œè¯¥æ¥å£æ”¯æŒåœ¨[attributeModifier]{@link CommonMethod#attributeModifier}ä¸­è°ƒç”¨ã€‚
    *
-   * @param { VoidCallback  } event - TabContent½«ÒªÒş²ØµÄ»Øµ÷º¯Êı¡£
+   * @param { VoidCallback  } event - TabContentå°†è¦éšè—çš„å›è°ƒå‡½æ•°ã€‚
    * @returns { TabContentAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1041,21 +1041,21 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
 }
 
 /**
-* ½öÔÚ[Tabs]{@link tabs}ÖĞÊ¹ÓÃ£¬¶ÔÓ¦Ò»¸öÇĞ»»Ò³Ç©µÄÄÚÈİÊÓÍ¼¡£
+* ä»…åœ¨[Tabs]{@link tabs}ä¸­ä½¿ç”¨ï¼Œå¯¹åº”ä¸€ä¸ªåˆ‡æ¢é¡µç­¾çš„å†…å®¹è§†å›¾ã€‚
 *
-* > **ËµÃ÷£º**
+* > **è¯´æ˜ï¼š**
 *
-* > - ¸Ã×é¼şÄ¬ÈÏÉèÖÃÁË[clip]{@link CommonMethod#clip(value: boolean)}ÊôĞÔµÄÖµÎªtrue£¬ÈôĞèÒªÀ©Õ¹ÄÚÈİÇøµ½×é¼şÍâÏÔÊ¾£¬ĞèÏÈ¹Ø±ÕclipÊôĞÔ¡£
+* > - è¯¥ç»„ä»¶é»˜è®¤è®¾ç½®äº†[clip]{@link CommonMethod#clip(value: boolean)}å±æ€§çš„å€¼ä¸ºtrueï¼Œè‹¥éœ€è¦æ‰©å±•å†…å®¹åŒºåˆ°ç»„ä»¶å¤–æ˜¾ç¤ºï¼Œéœ€å…ˆå…³é—­clipå±æ€§ã€‚
 *
-* ###### ×Ó×é¼ş
+* ###### å­ç»„ä»¶
 *
-* Ö§³Öµ¥¸ö×Ó×é¼ş¡£
+* æ”¯æŒå•ä¸ªå­ç»„ä»¶ã€‚
 *
-* > **ËµÃ÷£º**
+* > **è¯´æ˜ï¼š**
 * >
-* > ¿ÉÄÚÖÃÏµÍ³×é¼şºÍ×Ô¶¨Òå×é¼ş£¬Ö§³ÖäÖÈ¾¿ØÖÆÀàĞÍ£¨[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)¡¢
-* > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)ºÍ
-* > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)£©¡£
+* > å¯å†…ç½®ç³»ç»Ÿç»„ä»¶å’Œè‡ªå®šä¹‰ç»„ä»¶ï¼Œæ”¯æŒæ¸²æŸ“æ§åˆ¶ç±»å‹ï¼ˆ[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)ã€
+* > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)å’Œ
+* > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)ï¼‰ã€‚
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
