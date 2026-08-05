@@ -19,7 +19,10 @@
  */
 
 /**
- * 该模块主要提供电池状态和充放电状态的查询接口。
+ * 该模块主要提供电池状态和充放电状态的查询接口，
+ * 支持查询剩余电量、充电状态、健康状态、充电器类型、电压、电流、温度等电池信息，
+ * 适用于需要根据电池状态调整应用行为（如低电量时降低功耗、充电时启动高耗能任务）的场景，
+ * 可帮助开发者实时感知设备电池状况，优化应用功耗策略并提升用户体验。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @atomicservice [since 12]
@@ -27,13 +30,14 @@
  */
 declare namespace batteryInfo {
   /**
-   * 按场景名称设置电池配置。
+   * 按场景名称设置电池配置。调用该接口后，系统将根据传入的场景名称和场景值修改对应的电池充电配置，影响设备充电行为。
    *
-   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
-   * @param { string } sceneValue - 设置场景的值；该参数必须为字符串类型。
-   * @returns { number } 返回设置充电结果。返回0表示设置成功，返回非0表示设置失败。
+   * @param { string } sceneName - 电池充电配置的场景名称，用于标识特定的充电配置场景。支持的场景名称由系统定义。
+   * @param { string } sceneValue - 电池充电配置场景的值，用于指定场景的具体配置参数。取值由系统定义，例如'0'表示关闭该场景的充电配置。
+   * @returns { number } 返回设置电池配置的结果。返回0表示设置成功，返回非0表示设置失败。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -42,12 +46,13 @@ declare namespace batteryInfo {
   function setBatteryConfig(sceneName: string, sceneValue: string): number;
 
   /**
-   * 按场景名称查询电池配置。
+   * 按场景名称查询电池配置。调用该接口后，系统将根据传入的场景名称查找并返回对应的电池充电配置值。
    *
-   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
-   * @returns { string } 返回电池充电配置，否则返回""。
+   * @param { string } sceneName - 电池充电配置的场景名称，用于查询特定的充电配置场景。支持的场景名称由系统定义。
+   * @returns { string } 返回指定场景的电池充电配置值；如果该场景不存在或未配置，则返回空字符串。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -56,12 +61,13 @@ declare namespace batteryInfo {
   function getBatteryConfig(sceneName: string): string;
 
   /**
-   * 检查是否按场景名称启用电池配置。
+   * 检查是否按场景名称启用电池配置。调用该接口后，系统将判断当前设备是否支持指定的充电场景配置，并返回检查结果。
    *
-   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
-   * @returns { boolean } 如果设备支持充电场景，则返回true，否则返回false。
+   * @param { string } sceneName - 电池充电配置的场景名称，用于检查是否支持该充电配置场景。支持的场景名称由系统定义。
+   * @returns { boolean } 如果设备支持该场景的电池配置，则返回true，否则返回false。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -128,7 +134,7 @@ declare namespace batteryInfo {
   const batteryTemperature: number;
 
   /**
-   * 表示当前设备是否支持电池或者电池是否在位。true表示支持电池或电池在位，false表示不支持电池或电池不在位，默认为false。
+   * 表示当前设备是否支持电池以及电池是否在位。true表示设备支持电池且电池在位，false表示设备不支持电池或电池不在位，默认为false。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 7 dynamic
@@ -186,7 +192,7 @@ declare namespace batteryInfo {
    */
   export enum BatteryPluggedType {
     /**
-     * 表示未获取到连接充电器类型。
+     * 表示未连接充电器。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -232,7 +238,7 @@ declare namespace batteryInfo {
      */
     NONE,
     /**
-     * 表示电池充电状态为使能状态。
+     * 表示电池充电状态为正在充电。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -240,7 +246,7 @@ declare namespace batteryInfo {
      */
     ENABLE,
     /**
-     * 表示电池充电状态为停止状态。
+     * 表示电池充电状态为充电禁用。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -300,7 +306,7 @@ declare namespace batteryInfo {
      */
     COLD,
     /**
-     * 表示电池健康状态为僵死状态。
+     * 表示电池健康状态为失效，即电池已无法正常使用。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -309,14 +315,14 @@ declare namespace batteryInfo {
   }
 
   /**
-   * 表示电池电量等级的枚举。
+   * 表示电池电量等级的枚举。可用于根据电量等级执行差异化策略，例如在低电量（LEVEL_LOW）或极低电量（LEVEL_CRITICAL）时限制后台任务和高功耗功能，在满电量（LEVEL_FULL）时解除限制。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9 dynamic
    */
   export enum BatteryCapacityLevel {
     /**
-     * 表示电池电量等级为未知电量。
+     * 表示电池电量等级为未知电量。说明系统无法获得当前的电池电量等级。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 dynamic
@@ -375,6 +381,9 @@ declare namespace batteryInfo {
 
   /**
    * 表示COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键。
+   * 开发者需先订阅[COMMON_EVENT_BATTERY_CHANGED公共事件](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_battery_changed)，
+   * 在事件回调中通过这些查询键从事件附加数据中提取对应的电池状态信息。
+   * 详细使用方法请参见[@ohos.commonEventManager (公共事件模块)](docroot://reference/api-basic-services/js-apis-commonEventManager.md)。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9 dynamic
