@@ -170,7 +170,10 @@ export function validateApiAvailableArgument(options: ValidateApiAvailableArgume
     return result;
   }
 
-  const content: string = (arg as arkts.StringLiteral).text;
+  const content: string = (arg as arkts.StringLiteral).str;
+  if (!content) {
+    return result;
+  }
   return isOpenHarmonyRuntime() ?
     checkStringOpenHarmony(content) :
     checkStringDistributionOS(content, isCheckDistributionOSVersion);
