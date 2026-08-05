@@ -141,7 +141,7 @@ declare enum MatchPattern {
 /**
  * UiTest框架通过By类提供了丰富的控件特征描述API，用于进行控件筛选来匹配/查找出目标控件。
  * 
- * By提供的API能力具有以下几个特点:
+ * By提供的API能力具有以下几个特点：
  * 
  * 1、支持单属性匹配和多属性组合匹配，例如同时指定目标控件text和id。
  * 
@@ -676,7 +676,7 @@ declare class UiDriver {
   findComponents(by: By): Promise<Array<UiComponent>>;
 
   /**
-   * 断言API，用于断言当前界面存在满足给出的目标控件属性的控件; 如果控件不存在，该API将抛出JS异常，使当前测试用例失败。使用Promise异步回调。
+   * 断言API，用于断言当前界面存在满足给出的目标控件属性的控件；如果控件不存在，该API将抛出JS异常，使当前测试用例失败。使用Promise异步回调。
    * 
    * > **说明：**
    * >
@@ -1766,7 +1766,7 @@ declare enum MouseButton {
  */
 declare interface TouchPadSwipeOptions {
   /**
-   * 触摸板多指滑动结束是否停留1s后再抬起，默认为false（不停留1s），true：停留，false：不停留。
+   * 触摸板多指滑动结束是否停留1s后再抬起，true：停留，false：不停留，默认为false（不停留1s）。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2034,7 +2034,7 @@ declare interface PenKeyOperationOptions {
 /**
  * UiTest框架从API version 9开始，通过On类提供了丰富的控件特征描述API，用于进行控件筛选来匹配/查找出目标控件。
  * 
- * On提供的API能力具有以下几个特点:
+ * On提供的API能力具有以下几个特点：
  * 
  * 1、支持单属性匹配和多属性组合匹配，例如同时指定目标控件text和id。
  * 
@@ -2446,7 +2446,7 @@ declare class On {
  }
 
 /**
- * UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
+ * UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。该类对象可通过{@link Driver#findComponent}、{@link Driver#findComponents}、{@link Driver#waitForComponent}等接口获取。
  * 该类提供的所有方法都使用Promise方式作为异步方法，需使用await调用。
  *
  * @syscap SystemCapability.Test.UiTest
@@ -2957,7 +2957,7 @@ declare class Component {
  }
 
 /**
- * Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
+ * Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。通过{@link create}创建实例。
  * 该类提供的方法除Driver.create()和Driver.createUIEventObserver()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
  *
  * @syscap SystemCapability.Test.UiTest
@@ -3989,7 +3989,7 @@ declare class Driver {
   mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
-   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。
+   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
    *
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
@@ -4007,7 +4007,7 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
 
   /**
-   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。
+   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
    *
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
@@ -4181,7 +4181,7 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
-   *     **说明**：当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
+   *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
    * @param { double } [pressure] - 手写笔多点连续注入的压力，默认为1.0，取值范围为0.0到1.0。
    * @returns { Promise<void> } - Promise对象，返回无结果的Promise对象。
@@ -4350,7 +4350,7 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
-   *     **说明**：当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
+   *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
    * @returns { Promise<void> } - Promise对象。无返回结果。
@@ -4367,7 +4367,7 @@ declare class Driver {
  }
 
 /**
- * UiWindow代表了UI界面上的一个窗口，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
+ * UiWindow代表了UI界面上的一个窗口，提供窗口属性获取，窗口拖动、调整窗口大小等能力。该类对象可通过{@link Driver#findWindow}接口获取。
  * 该类提供的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
  *
  * @syscap SystemCapability.Test.UiTest

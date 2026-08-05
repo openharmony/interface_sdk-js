@@ -325,7 +325,7 @@ declare interface PerfMeasureResult {
  }
 
 /**
- * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
+ * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。通过{@link create}创建实例。
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
