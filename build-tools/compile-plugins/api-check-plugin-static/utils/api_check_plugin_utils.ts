@@ -751,10 +751,13 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   // projectConfig.externalApiPaths是带有static\\api的，路径多了一层api需要处理
   const externalApiPathArr = projectConfig.externalApiPaths || [''];
   const externalApiStaticStr = Array.from(externalApiPathArr).find((item) => {
-    return item.includes('hms\\ets\\static');
+    return /hms[\\\/]ets[\\\/]static/.test(item);
   })
   if (externalApiStaticStr) {
-    const lastSlashIndex = externalApiStaticStr ? externalApiStaticStr.lastIndexOf('\\') : -1;
+    const lastSlashIndex = Math.max(
+      externalApiStaticStr.lastIndexOf('\\'),
+      externalApiStaticStr.lastIndexOf('/')
+    );
     const resultPath = lastSlashIndex >= 0 ? externalApiStaticStr?.substring(0, lastSlashIndex) : '';
     const externalApiPaths = resultPath?.split(path.delimiter);
     projectConfig.externalSdkPaths = [...externalApiPaths];
