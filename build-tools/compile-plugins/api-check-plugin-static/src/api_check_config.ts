@@ -46,13 +46,13 @@ import {
 } from '../utils/api_check_plugin_define';
 import { globalObject } from '../index';
 import {
-  checkPermissionValue,
   checkSinceValue,
-  checkSyscapAbility,
+  checkSyscapTag,
   checkAvailableDecorator,
   checkSystemApiTag,
   getJsDocNodeCheckConfigItem,
   checkStageModuleValue,
+  checkPermissionTag,
   isCardFile,
   pushLog,
   collectInfo
@@ -134,7 +134,7 @@ function getSyscapCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): voi
     message: SYSCAP_TAG_CHECK_WARNING,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkJsDocSuppressorValidCallback: checkSyscapAbility
+    checkJsDocSuppressorValidCallback: checkSyscapTag
   };
   checkConfigArray.push(syscapConfig);
 }
@@ -155,7 +155,7 @@ function getPermissionCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]):
     message: PERMISSION_TAG_CHECK_ERROR,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkJsDocSuppressorValidCallback: checkPermissionValue
+    checkJsDocSuppressorValidCallback: checkPermissionTag
   };
   checkConfigArray.push(getJsDocNodeCheckConfigItem(permissionConfig));
 }
