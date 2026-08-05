@@ -5247,7 +5247,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only system windows are supported.
+     *     Possible cause: Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -5266,7 +5266,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only system windows are supported.
+     *     Possible cause: Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -5384,7 +5384,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only system windows are supported.
+     *     Possible cause: Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -5403,7 +5403,7 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only system windows are supported.
+     *     Possible cause: Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10107,7 +10107,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10128,7 +10128,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10149,7 +10149,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10170,7 +10170,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10188,7 +10188,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
@@ -10209,7 +10209,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -10234,7 +10234,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -10253,7 +10253,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows are supported.
+     *     Invalid window type. Only system windows, global floating windows, and modal windows are supported.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 12]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -10279,7 +10279,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only system windows and subwindows are supported.
+     *     Invalid window type. Only system windows, global floating windows, modal windows and subwindows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
