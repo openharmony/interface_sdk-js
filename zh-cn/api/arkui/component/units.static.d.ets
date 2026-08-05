@@ -52,8 +52,6 @@ import _drawing from '../../../api/@ohos.graphics.drawing';
  * > - 引用资源类型时，需确保资源类型对象内的数据类型与当前以资源类型作为参数的属性方法本身的类型一致。例如某个属性方法支持设置string | Resource，那么在使用Resource引用类型时，其数据类型也应当为string。
  * >
  * > - 引用资源类型时，需确保资源类型对象用法为当前支持的用法，否则当前以资源类型作为参数的属性效果将和不设置该属性相同。
- * >
- * > - $rawfile不支持通过[预览器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-arkts-js)预览。
  *
  * @typedef { _Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1004,9 +1002,9 @@ export declare interface Font {
   weight?: FontWeight | int | string;
 
   /**
-   * 字体列表。默认字体'HarmonyOS Sans'。
+   * 字体列表。
    * 
-   * 使用多个字体时，请用逗号','分隔，字体的优先级按顺序生效。例如：'Arial,HarmonyOS Sans'。
+   * 使用多个字体时，请用逗号','分隔，字体的优先级按顺序生效。
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
