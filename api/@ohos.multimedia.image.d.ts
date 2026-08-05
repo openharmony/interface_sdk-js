@@ -13128,6 +13128,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: XMP basic.
+   * Namespace uri: 'http://ns.adobe.com/xap/1.0/', prefix: 'xmp'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13137,6 +13138,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: XMP rights.
+   * Namespace uri: 'http://ns.adobe.com/xap/1.0/rights/', prefix: 'xmpRights'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13146,6 +13148,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: exif.
+   * Namespace uri: 'http://ns.adobe.com/exif/1.0/', prefix: 'exif'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13155,6 +13158,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: dublin core.
+   * Namespace uri: 'http://purl.org/dc/elements/1.1/', prefix: 'dc'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13164,6 +13168,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: tiff.
+   * Namespace uri: 'http://ns.adobe.com/tiff/1.0/', prefix: 'tiff'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
