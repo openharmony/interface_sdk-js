@@ -114,7 +114,7 @@ declare namespace abilityConnectionManager {
     needSendData?: boolean;
 
     /**
-     * Send Stream Data Configuration Options. WiFi needs to be turned on.
+     * 发送流数据的配置选项。需要开启WiFi。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -125,7 +125,7 @@ declare namespace abilityConnectionManager {
     needSendStream?: boolean;
 
     /**
-     * Receive Stream Data Configuration Options. WiFi needs to be turned on.
+     * 接收流数据的配置选项。需要开启WiFi。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -286,7 +286,7 @@ declare namespace abilityConnectionManager {
     START_IN_FOREGROUND = 0,
 
     /**
-     * Launching the peer application to the background.
+     * 将对端应用启动至后台。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -347,7 +347,7 @@ declare namespace abilityConnectionManager {
     data?: ArrayBuffer;
 
     /**
-     * Received image.
+     * 接收的图片。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -455,8 +455,8 @@ declare namespace abilityConnectionManager {
      * @since 18 dynamic
      * @since 23 static
      */
-    NETWORK_DISCONNECTED = 2,
-    }
+    NETWORK_DISCONNECTED = 2
+  }
 
   /**
    * 注册connect事件的回调监听。使用callback异步回调。
@@ -698,11 +698,11 @@ declare namespace abilityConnectionManager {
         callback?: Callback<EventCallbackInfo>): void;
 
   /**
-   * Registers receiveImage event.
+   * 注册receiveImage事件的回调监听。
    *
-   * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
+   * @param { 'receiveImage' } type - 事件注册类型，'receiveImage'。
+   * @param { number } sessionId - 协同会话ID。
+   * @param { Callback<EventCallbackInfo> } callback - 用于处理('receiveImage')事件的回调函数。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -715,11 +715,11 @@ declare namespace abilityConnectionManager {
         callback: Callback<EventCallbackInfo>): void;
 
   /**
-   * Unregisters receiveImage event.
+   * 取消receiveImage事件的回调监听。
    *
-   * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
+   * @param { 'receiveImage' } type - 事件注册类型，'receiveImage'。
+   * @param { number } sessionId - 协同会话ID。
+   * @param { Callback<EventCallbackInfo> } callback - 用于处理('receiveImage')事件的回调函数。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -764,11 +764,11 @@ declare namespace abilityConnectionManager {
         callback?: Callback<EventCallbackInfo>): void;
 
   /**
-   * Registers collaborateEvent event.
+   * 注册collaborateEvent事件的回调监听。
    *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
+   * @param { 'collaborateEvent' } type - 事件注册类型，'collaborateEvent'。
+   * @param { number } sessionId - 协同会话ID。
+   * @param { Callback<CollaborateEventInfo> } callback - 错误事件回调函数。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -781,11 +781,11 @@ declare namespace abilityConnectionManager {
         callback: Callback<CollaborateEventInfo>): void;
 
   /**
-   * Unregisters collaborateEvent event.
+   * 取消collaborateEvent事件的回调监听。
    *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
+   * @param { 'collaborateEvent' } type - 事件注册类型，'collaborateEvent'。
+   * @param { number } sessionId - 协同会话ID。
+   * @param { Callback<CollaborateEventInfo> } callback - 错误事件回调函数。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -872,21 +872,9 @@ declare namespace abilityConnectionManager {
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 18 dynamic
-   */
-  function getPeerInfoById(sessionId: int): PeerInfo | undefined;
-
-  /**
-   * Get the application information in the ability connection session
-   *
-   * @param { int } sessionId - Ability connection Session id.
-   * @returns { PeerInfo | null } Returns the collaborative application information at the sink end.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
-   *     Incorrect parameter types.
-   * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @stagemodelonly
    * @since 23 static
    */
-  function getPeerInfoById(sessionId: int): PeerInfo | null;
+  function getPeerInfoById(sessionId: int): PeerInfo | undefined;
 
   /**
    * 创建协同会话成功并获得会话ID后，设备A上可进行UIAbility的连接。使用Promise异步回调。
@@ -1117,7 +1105,7 @@ declare namespace abilityConnectionManager {
    */
   interface StreamParam {
     /**
-     * Stream name, the receive end must be consistent with the transmit end.
+     * 流名称，接收端必须与发送端保持一致。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1128,7 +1116,7 @@ declare namespace abilityConnectionManager {
     name: string;
 
     /**
-     * Stream transmission role, which can be a receive stream or a transmit stream.
+     * 流传输角色，可以是接收流或发送流。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1139,7 +1127,7 @@ declare namespace abilityConnectionManager {
     role: StreamRole;
 
     /**
-     * This value indicates video bitrate, default 80(kbps). Only valid on the sender side.
+     * 视频码率，默认80(kbps)。仅在发送端有效。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1150,9 +1138,8 @@ declare namespace abilityConnectionManager {
     bitrate?: int;
 
     /**
-     * The target color space for conversion. Currently, only BT709_LIMIT is supported.
-     * If the video format on the sender side is HDR and needs to be converted to SDR during transmission, this 
-     * parameter should be set.
+     * 转换的目标色彩空间。目前仅支持BT709_LIMIT。
+     * 如果发送端的视频格式为HDR且需要在传输时转换为SDR，则应设置此参数。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1175,7 +1162,7 @@ declare namespace abilityConnectionManager {
    */
   interface SurfaceParam {
     /**
-     * Encoding width. Must be set before stream starts and cannot update once set.
+     * 编码宽度。必须在流启动前设置，设置后不可更新。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1186,7 +1173,7 @@ declare namespace abilityConnectionManager {
     width: int;
 
     /**
-     * Encoding length. Must be set before stream starts and cannot update once set.
+     * 编码长度。必须在流启动前设置，设置后不可更新。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1197,8 +1184,8 @@ declare namespace abilityConnectionManager {
     height: int;
 
     /**
-     * Video PixelFormat, this option must be configured on the sender.
-     * Must be set before stream starts and cannot update once set.
+     * 视频像素格式，此选项必须在发送端配置。
+     * 必须在流启动前设置，设置后不可更新。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1209,8 +1196,8 @@ declare namespace abilityConnectionManager {
     format?: VideoPixelFormat;
 
     /**
-     * This value identifies the rotation angle of the video.
-     * the range of rotation angle should be {0, 90, 180, 270}, default is 0
+     * 视频旋转角度。
+     * 旋转角度范围为{0, 90, 180, 270}，默认为0。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1221,7 +1208,7 @@ declare namespace abilityConnectionManager {
     rotation?: int;
 
     /**
-     * This value indicates whether the video is reversed.
+     * 视频是否翻转。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1233,7 +1220,7 @@ declare namespace abilityConnectionManager {
     }
 
   /**
-   * Flip option.
+   * 翻转选项。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @systemapi
@@ -1243,7 +1230,7 @@ declare namespace abilityConnectionManager {
    */
   export enum FlipOptions {
     /**
-     * Horizontal Flip
+     * 水平翻转。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1254,7 +1241,7 @@ declare namespace abilityConnectionManager {
     HORIZONTAL = 0,
 
     /**
-     * Vertical Flip
+     * 垂直翻转。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1266,7 +1253,7 @@ declare namespace abilityConnectionManager {
     }
 
   /**
-   * Stream transmission role.
+   * 流传输角色。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @systemapi
@@ -1276,7 +1263,7 @@ declare namespace abilityConnectionManager {
    */
   export enum StreamRole {
     /**
-     * This status indicates the stream is a send stream.
+     * 发送流。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1287,7 +1274,7 @@ declare namespace abilityConnectionManager {
     SOURCE = 0,
 
     /**
-     * This status indicates the stream is a receive stream.
+     * 接收流。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1299,7 +1286,7 @@ declare namespace abilityConnectionManager {
     }
 
   /**
-   * Video pixelFormat Configuration Options.
+   * 视频像素格式配置选项。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @systemapi
@@ -1309,7 +1296,7 @@ declare namespace abilityConnectionManager {
    */
   export enum VideoPixelFormat {
     /**
-     * Unknown.
+     * 未知格式。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1320,7 +1307,7 @@ declare namespace abilityConnectionManager {
     UNKNOWN = -1,
 
     /**
-     * NV12. yuv 420 semiplanar.
+     * NV12。yuv 420 semiplanar。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1331,7 +1318,7 @@ declare namespace abilityConnectionManager {
     NV12 = 0,
 
     /**
-     * NV21. yvu 420 semiplanar.
+     * NV21。yvu 420 semiplanar。
      *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
@@ -1411,37 +1398,6 @@ declare namespace abilityConnectionManager {
      */
     ABILITY_COLLABORATION_TYPE_CONNECT_PROXY = 'ohos.collaboration.value.connectProxy'
     }
-
-  /**
-   * Registers collaborateEvent event.
-   *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-   * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @systemapi
-   * @since 18 dynamic
-   */
-  function on(type: 'collaborateEvent', sessionId: number,
-        callback: Callback<CollaborateEventInfo>): void;
-
-  /**
-   * Unregisters collaborateEvent event.
-   *
-   * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
-   * @param { number } sessionId - Ability connection Session id.
-   * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
-   * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @systemapi
-   * @since 18 dynamic
-   */
-  function off(type: 'collaborateEvent', sessionId: number,
-        callback?: Callback<CollaborateEventInfo>): void;
-
 
 }
 export default abilityConnectionManager;
