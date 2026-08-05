@@ -19,7 +19,8 @@
  */
 
 /**
- * Provides the descriptor of the HAP where the rawfile is located.
+ * This module provides file descriptor information of the HAP where the `rawfile` file is located, including the file 
+ * descriptor, start offset, and file length.
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform [since 12]
@@ -29,7 +30,7 @@
  */
 export interface RawFileDescriptor {
   /**
-   * Pointer to the file descriptor.
+   * File descriptor.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 12]
@@ -40,7 +41,7 @@ export interface RawFileDescriptor {
   fd: int;
 
   /**
-   * Start offset.
+   * Start offset, indicating the start position of the `rawfile` file in the HAP. The unit is bytes.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 12]
@@ -51,7 +52,7 @@ export interface RawFileDescriptor {
   offset: long;
 
   /**
-   * File length.
+   * File length, indicating the size of the `rawfile` file. The unit is bytes.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 12]

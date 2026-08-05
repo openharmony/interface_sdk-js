@@ -19,12 +19,8 @@
  */
 
 import { ConnectOptions } from './ability/connectOptions';
-
-import { ConnectOptions } from '../ability/connectOptions';
 import type ExtensionContext from './application/ExtensionContext';
-
 import Want from './@ohos.app.ability.Want';
-import Want from '../@ohos.app.ability.Want';
 
 /**
  * 用于分布式扩展功能的实现。
@@ -61,7 +57,8 @@ declare class DistributedExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 20 dynamic
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -76,7 +73,8 @@ declare class DistributedExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 20 dynamic
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 }

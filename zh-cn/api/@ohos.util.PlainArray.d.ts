@@ -21,7 +21,7 @@
  * **推荐使用场景：** 当需要存储key值为number类型的键值对时，可以使用PlainArray。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -74,9 +74,9 @@ declare class PlainArray<T> {
   get length(): int;
 
   /**
-   * 向容器中添加一组数据。
+   * 向容器中添加一组数据。若指定的key不存在，则新增键值对，且length增加；若指定的key存在，则替换该key对应的value值。
    *
-   * @param { int } key - 添加成员数据的键名。需要小于等于int32_max即2147483647。
+   * @param { int } key - 添加成员数据的键名。取值范围为[-2147483648, 2147483647]，即int32范围。
    * @param { T } value - 添加成员数据的值。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -100,7 +100,7 @@ declare class PlainArray<T> {
   /**
    * 克隆一个实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。
    *
-   * @returns { PlainArray<T> } 返回新的对象实例。
+   * @returns { PlainArray<T> } 返回新的对象的克隆实例。
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -112,7 +112,7 @@ declare class PlainArray<T> {
   /**
    * 判断容器中是否包含指定key。
    *
-   * @param { int } key - 指定key。需要小于等于int32_max即2147483647。
+   * @param { int } key - 指定key。取值范围为[-2147483648, 2147483647]，即int32范围。
    * @returns { boolean } 包含指定key返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -125,7 +125,7 @@ declare class PlainArray<T> {
   /**
    * 获取指定key所对应的value。
    *
-   * @param { number } key - 查找的指定key。需要小于等于int32_max即2147483647。
+   * @param { number } key - 查找的指定key。取值范围为[-2147483648, 2147483647]，即int32范围。
    * @returns { T } 返回key映射的value值。
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -191,7 +191,7 @@ declare class PlainArray<T> {
    * 查找指定下标元素键值对中的key值。
    *
    * @param { int } index - 指定下标。需要小于等于int32_max即2147483647。
-   * @returns { int } 返回该下标元素键值对中的key值，失败返回-1。
+   * @returns { int } 返回该下标元素键值对中的key值，失败返回undefined。
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -201,10 +201,10 @@ declare class PlainArray<T> {
    */
   getKeyAt(index: int): int;
   /**
-   * 删除指定key对应的键值对。
+   * 删除指定key对应的键值对。指定key不存在时，返回undefined。
    *
    * @param { number } key - 指定key。需要小于等于int32_max即2147483647。
-   * @returns { T } 返回所删除的键值对中的Value值。
+   * @returns { T } 返回所删除的键值对中的value值。
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -228,7 +228,7 @@ declare class PlainArray<T> {
   remove(key: int): T | undefined;
 
   /**
-   * 删除指定下标对应的元素。
+   * 删除指定下标对应的元素。指定[0, PlainArray.length-1]以外的值时会返回undefined。
    *
    * @param { number } index - 指定元素下标。需要小于等于int32_max即2147483647。
    * @returns { T } 返回删除的元素。
@@ -257,8 +257,8 @@ declare class PlainArray<T> {
   /**
    * 删除指定范围内的元素。
    *
-   * @param { int } index - 删除元素的起始下标。需要小于等于int32_max即2147483647。
-   * @param { int } size - 期望删除元素个数。需要小于等于int32_max即2147483647。
+   * @param { int } index - 删除元素的起始下标。取值范围为[0, PlainArray.length-1]，且需要小于等于int32_max即2147483647。
+   * @param { int } size - 期望删除元素个数。需要大于0，小于等于int32_max即2147483647。
    * @returns { int } 实际删除元素个数。
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -270,9 +270,9 @@ declare class PlainArray<T> {
    */
   removeRangeFrom(index: int, size: int): int;
   /**
-   * 替换容器中指定下标对应键值对中的键值。
+   * 替换容器中指定下标对应键值对中的value值。
    *
-   * @param { int } index - 指定替换数据下标。需要小于等于int32_max即2147483647。
+   * @param { int } index - 指定替换数据下标。取值范围为[0, PlainArray.length-1]，且需要小于等于int32_max即2147483647。
    * @param { T } value - 替换键值对中的值。
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -286,7 +286,7 @@ declare class PlainArray<T> {
   /**
    * 获取包含容器中所有键和值的字符串。
    *
-   * @returns { String } 返回对应字符串。
+   * @returns { String } 返回将容器中所有键和值拼接而成的字符串。
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -336,7 +336,7 @@ declare class PlainArray<T> {
   /**
    * 返回一个包含key-value键值对的迭代器对象，其中key是number类型。
    *
-   * @returns { IterableIterator<[number, T]> }
+   * @returns { IterableIterator<[number, T]> } 返回一个迭代器。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

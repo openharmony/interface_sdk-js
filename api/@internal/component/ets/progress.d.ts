@@ -547,7 +547,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * Font size (percentage values are not supported): **12fp**
    *
-   * Other text parameters are subject to the theme values of the [Text]{@link text} component.
+   * Other text parameters are subject to the theme values of the [Text]{@link ./text} component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -807,7 +807,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    *
    * Since API version 10, [LinearGradient]{@link LinearGradient} can be used to set a gradient color for the ring
    * style. Setting opacity is not recommended for the ring type. If opacity is required, use
-   * [DataPanel]{@link data_panel}.
+   * [DataPanel]{@link ./data_panel}.
    *
    * Since API version 23, [LinearGradient]{@link LinearGradient} can be used to set gradient colors for the linear and
    * capsule styles. In API version 22 and earlier versions, setting gradient colors via **LinearGradient** for the
@@ -855,7 +855,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    *     progress indicator is cleared and text content is masked. **true**: The privacy-sensitive mode is enabled.
    *     **false**: The privacy-sensitive mode is disabled.<br> Default value: **false**<br>**NOTE**<br>Setting this
    *     parameter to **null** indicates that no specific privacy sensitivity is applied.<!--Del--><br>For widgets, this
-   *     property must be used with [FormComponent]{@link form_component} and the
+   *     property must be used with [FormComponent]{@link ./form_component} and the
    *     [obscured]{@link CommonMethod#obscured} attribute to display privacy masking effects.<!--DelEnd-->
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -914,7 +914,7 @@ declare namespace calendarManager {
     /**
      * Defines a filter based on the event ID.
      *
-     * @param {number[]} An array of event IDs, where each event ID must be an integer.
+     * @param {number[]} ids - An array of event IDs, where each event ID must be an integer.
      * @returns { EventFilter } EventFilter object.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10

@@ -162,7 +162,7 @@ interface MarqueeOptions {
  * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
  * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
  * >
- * > If the text width is less than the **Marquee** component width, use the [property animation]{@link common} to
+ * > If the text width is less than the **Marquee** component width, use the [property animation]{@link ./common} to
  * > implement scrolling.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -190,7 +190,12 @@ interface MarqueeInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
+ *
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -365,7 +370,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
  * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
  * >
- * > If the text width is less than the **Marquee** component width, use the [property animation]{@link common} to
+ * > If the text width is less than the **Marquee** component width, use the [property animation]{@link ./common} to
  * > implement scrolling.
  *
  * ###### Child Components

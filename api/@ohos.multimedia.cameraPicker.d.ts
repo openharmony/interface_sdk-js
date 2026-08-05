@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Camera Picker
  * @kit CameraKit
  */
 

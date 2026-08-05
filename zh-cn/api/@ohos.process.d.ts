@@ -19,7 +19,7 @@
  */
 
 /**
- * **process** 模块提供进程管理相关接口，例如获取进程信息的接口。
+ * 获取进程相关的信息，提供进程管理的相关功能。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -195,12 +195,8 @@ declare namespace process {
     /**
      * 获取环境变量对应的值。
      *
-     * > **说明**
-     * >
-     * > 获取环境变量的值。如果环境变量不存在，返回 **undefined**。
-     *
      * @param { string } name - 环境变量名。
-     * @returns { string } 返回指定环境变量名对应的值。
+     * @returns { string } 返回指定环境变量名对应的值。如果环境变量不存在，返回undefined。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -211,7 +207,7 @@ declare namespace process {
     /**
      * 终止程序。
      *
-     * 请谨慎使用此接口，此接口调用后应用会退出，如果入参非 0 会产生数据丢失或者异常情况。
+     * 请谨慎使用此接口，此接口调用后应用会退出，如果输入参数非0，可能会导致数据丢失或出现未定义的运行异常。
      *
      * @param { number } code - 进程的退出码。
      * @syscap SystemCapability.Utils.Lang
@@ -222,7 +218,7 @@ declare namespace process {
     exit(code: number): void;
 
     /**
-     * 发送 signal 到指定的进程，结束指定进程（仅支持结束本进程）。
+     * 发送信号到指定的进程，结束指定进程（仅支持结束本进程）。
      *
      * @param { number } signal - 发送特定的信号给目标进程。取值范围：1 <= signal <= 64。
      * @param { number } pid - 进程的 id。
@@ -411,7 +407,7 @@ declare namespace process {
   function getSystemConfig(name: number): number;
 
   /**
-   * 获取环境变量名对应的值。
+   * 获取环境变量名对应的值。如果环境变量不存在，返回undefined。
    *
    * @param { string } name - 环境变量名。
    * @returns { string } 返回环境变量名对应的值。
@@ -490,7 +486,7 @@ declare namespace process {
   ): ChildProcess;
 
   /**
-   * 中止进程并生成核心文件。该方法会导致进程立即退出，请谨慎使用。
+   * 该方法会导致进程立即退出并生成一个核心文件，谨慎使用。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -526,7 +522,7 @@ declare namespace process {
   /**
    * 终止程序。
    *
-   * 请谨慎使用此接口。调用此接口后应用将退出。如果输入参数非 0，可能会导致数据丢失或出现异常。
+   * 请谨慎使用此接口。调用此接口后应用将退出。如果输入参数非0，可能会导致数据丢失或出现未定义的运行异常。
    *
    * @param { number } code - 进程的退出码。
    * @syscap SystemCapability.Utils.Lang

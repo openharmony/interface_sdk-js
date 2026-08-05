@@ -3042,15 +3042,6 @@ declare namespace avMusicTemplate {
     isSupportPlayRate: boolean;
 
     /**
-     * Support extras or not.
-     *
-     * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    isSupportExtras?: boolean;
-
-    /**
      * Supported play rate.
      *
      * @type { string[] }

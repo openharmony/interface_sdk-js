@@ -643,7 +643,7 @@ declare namespace hiAppEvent {
    *     and contains a maximum of 1024 characters.<br>- The number of parameters must be less than 64.
    * @param { string } domain - Event domain. The event domain can be associated with application events and system
    *     events (hiAppEvent.domain.OS).
-   * @param { string } name - Event name. The default value is an empty string, which indicates all event names in the
+   * @param { string } [name] - Event name. The default value is an empty string, which indicates all event names in the
    *     associated event domain. Event names can be used to associate application events and system events. System
    *     events can only be associated with the following events:<br>-
    *     [Crash event](docroot://dfx/hiappevent-watcher-crash-events.md) (**hiAppEvent.event.APP_CRASH**)<br>-

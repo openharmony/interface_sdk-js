@@ -15,11 +15,11 @@
 
 /**
  * Stack基于数组的数据结构实现，特点是先进后出，只能在一端进行数据的插入和删除。
- * Stack和[Queue]{@link @ohos.util.Queue}相比，Queue基于循环队列实现，在尾部增加元素在头部删除元素；而Stack只在一端进行操作。
- * **推荐使用场景：** 一般符合先进后出的场景可以使用Stack。
+ * Stack和[Queue]{@link @ohos.util.Queue}相比，Queue基于循环队列实现，在尾部增加元素在头部删除元素；而Stack只在一端进行插入和删除操作。
+ * **推荐使用场景：** 一般符合先进后出的场景可以使用Stack，例如撤销/重做操作的历史记录管理、函数调用栈模拟等。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -40,7 +40,7 @@
  */
 declare class Stack<T> {
   /**
-   * Stack的构造函数。
+   * Stack的构造函数。调用后创建一个空的Stack实例对象，初始length为0。
    *
    * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -83,7 +83,7 @@ declare class Stack<T> {
    */
   isEmpty(): boolean;
   /**
-   * 返回栈顶元素，栈为空时返回undefined。
+   * 返回栈顶元素，栈为空时返回undefined。调用后栈的内容不变。
    *
    * @returns { T } 返回栈顶元素，栈为空时返回undefined。
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
@@ -113,8 +113,8 @@ declare class Stack<T> {
   /**
    * 在栈顶插入元素，并返回该元素。
    *
-   * @param { T } item - 添加进去的元素。
-   * @returns { T } 返回被添加进去的元素。
+   * @param { T } item - 需要在栈顶插入的元素。
+   * @returns { T } 返回插入栈顶的元素。
    * @throws { BusinessError } 10200011 - The push method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -126,7 +126,7 @@ declare class Stack<T> {
   /**
    * 查找指定元素首次出现的下标值，查找失败则返回-1。
    *
-   * @param { T } element - 指定元素。
+   * @param { T } element - 待查找的元素。
    * @returns { int } 对应元素下标值，查找失败则返回-1。
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -137,10 +137,10 @@ declare class Stack<T> {
    */
   locate(element: T): int;
   /**
-   * 在遍历Stack实例对象中每一个元素的过程中，对每个元素执行回调函数。
+   * 按照从栈底到栈顶的顺序遍历Stack实例对象中每一个元素，对每个元素执行回调函数。
    *
-   * @param { function } callbackFn - 回调函数。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
+   * @param { function } callbackFn - 遍历每个元素时执行的回调函数。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值。不传入时默认值为当前实例对象。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -150,7 +150,7 @@ declare class Stack<T> {
   forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void, thisArg?: Object): void;
 
   /**
-   * 在遍历Stack实例对象中每一个元素的过程中，对每个元素执行回调函数。
+   * 按照从栈底到栈顶的顺序遍历Stack实例对象中每一个元素，对每个元素执行回调函数。
    *
    * @param { StackForEachCb } callbackFn - 回调函数。
    * @syscap SystemCapability.Utils.Lang
@@ -161,9 +161,9 @@ declare class Stack<T> {
   forEach(callbackfn: StackForEachCb<T>): void;
 
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，迭代器的每一项为T类型的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器，用于按栈的存储顺序依次遍历Stack中的所有元素。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

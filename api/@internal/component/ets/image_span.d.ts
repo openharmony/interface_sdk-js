@@ -19,7 +19,7 @@
  */
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **ImageSpan**
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
  * component is used to display inline images.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -54,10 +54,10 @@ interface ImageSpanInterface {
 }
 
 /**
- * The attributes inherit from [BaseSpan]{@link BaseSpan}. Among the universal attributes, [size]{@link common},
- * [background]{@link common}, and [border]{@link common} are supported.
+ * The attributes inherit from [BaseSpan]{@link BaseSpan}. Among the universal attributes, [size]{@link ./common},
+ * [background]{@link ./common}, and [border]{@link ./common} are supported.
  *
- * Among all the universal events, only the [click event]{@link common} is supported. The following events are also
+ * Among all the universal events, only the [click event]{@link ./common} is supported. The following events are also
  * supported.
  *
  * @extends CommonMethod<ImageSpanAttribute> [since 10 - 10]
@@ -182,10 +182,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
 }
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **ImageSpan**
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
  * component is used to display inline images.
- *
- * > **NOTE**
  *
  * ###### Child Components
  *

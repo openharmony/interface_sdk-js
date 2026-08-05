@@ -1089,7 +1089,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     readonly screenType?: ScreenType;
   }
@@ -1100,7 +1100,7 @@ declare namespace screen {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum ScreenType {
     /**
@@ -1109,7 +1109,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     BUILT_IN = 0,
 
@@ -1119,7 +1119,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     EXTERNAL = 1,
 
@@ -1130,7 +1130,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     VIRTUAL = 2
   }

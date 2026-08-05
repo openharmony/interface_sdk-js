@@ -166,6 +166,36 @@ declare namespace insightIntent {
      * @since 26.1.0 dynamic&static
      */
     uiExtensionType: string;
+
+    /**
+     * 传递给目标UIExtension的URI信息。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    uri: string;
+
+    /**
+     * 传递给目标UIExtension的参数。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    parameters: Record<string, Object>;
+
+    /**
+     * 传递给目标UIExtension的参数。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    parameters: Record<string, RecordData>;
   }
 
   /**

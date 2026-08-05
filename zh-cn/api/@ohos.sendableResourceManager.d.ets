@@ -22,13 +22,10 @@ import { Resource as _Resource } from './global/resource';
 import { SendableResource as _SendableResource } from './global/sendableResource';
 
 /**
- * 资源管理导入sendableResourceManager模块，通过调用
- * [resourceToSendableResource]{@link sendableResourceManager.resourceToSendableResource}和
- * [sendableResourceToResource]{@link sendableResourceManager.sendableResourceToResource}方法可以将
- * [Resource]{@link sendableResourceManager.Resource}对象和
- * [SendableResource]{@link sendableResourceManager.resourceToSendableResource}对象进行互转。
- * Resource对象通过转换为SendableResource对象后，可以被[Sendable类](docroot://arkts-utils/arkts-sendable.md)持有。Sendable类在跨线程传输后，取出持有的
- * SendableResource对象转为Resource对象，作为参数获取资源。
+ * 本模块提供[Resource]{@link sendableResourceManager.Resource}对象与
+ * [SendableResource]{@link sendableResourceManager.SendableResource}对象之间的相互转换功能。SendableResource实现了
+ * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable)接口，支持跨线程传输。跨线程传输后，SendableResource对象可以再转换为Resource对象，作为
+ * 参数传递给[资源管理]{@link @ohos.resourceManager:resourceManager}接口以获取资源。
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
@@ -38,11 +35,11 @@ import { SendableResource as _SendableResource } from './global/sendableResource
 declare namespace sendableResourceManager {
 
   /**
-   * 将Resource对象转换为SendableResource对象。
+   * 将Resource对象转换为可用于跨线程传输的SendableResource对象。
    *
    * @param { Resource } resource - Resource对象。
    * @returns { SendableResource } 转换后的SendableResource对象。
-   * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -52,11 +49,11 @@ declare namespace sendableResourceManager {
   export function resourceToSendableResource(resource: Resource): SendableResource;
 
   /**
-   * 将SendableResource对象转换为Resource对象。
+   * 将跨线程传输的SendableResource对象转换为Resource对象。
    *
    * @param { SendableResource } resource - SendableResource对象。
    * @returns { Resource } 转换后的Resource对象。
-   * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    *     2.Parameter verification failed.
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -66,7 +63,7 @@ declare namespace sendableResourceManager {
   export function sendableResourceToResource(resource: SendableResource): Resource;
 
   /**
-   * 表示Resource资源信息。
+   * 表示资源相关信息，包括应用包名、应用模块名、资源ID、资源类型和其他资源参数。
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -76,7 +73,7 @@ declare namespace sendableResourceManager {
   export type Resource = _Resource;
 
   /**
-   * 表示SendableResource资源信息。
+   * 表示跨线程传输的Sendable资源相关信息，包括应用包名、应用模块名、资源ID、资源类型和其他资源参数。
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform

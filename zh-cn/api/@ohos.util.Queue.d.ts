@@ -14,12 +14,12 @@
  */
 
 /**
- * Queue的特点是先进先出，在尾部增加元素，在头部删除元素。根据循环队列的数据结构实现。
+ * Queue遵循先进先出原则：在尾部增加元素，在头部删除元素。Queue基于循环队列的数据结构实现。
  * Queue和[Deque]{@link @ohos.util.Deque}相比，Queue在尾部增加元素，在头部删除元素；而Deque支持在两端进行增删操作。
  * **推荐使用场景：** 一般符合先进先出的场景可以使用Queue。
- * 文档中使用了泛型，涉及以下泛型标记符：<br>
+ * 文档中使用了泛型，涉及以下泛型标记符：
  *
- * - T：Type，类
+ * - T：Type，类型
  *
  * > **说明**
  * >
@@ -30,7 +30,7 @@
  */
 
 /**
- * Queue的特点是先进先出，在尾部增加元素，在头部删除元素。根据循环队列的数据结构实现。
+ * Queue遵循先进先出原则：在尾部增加元素，在头部删除元素。Queue基于循环队列的数据结构实现。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -40,7 +40,7 @@
  */
 declare class Queue<T> {
   /**
-   * Queue的构造函数。
+   * Queue的构造函数，创建一个新的Queue实例，初始长度为0。Queue容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
    *
    * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
@@ -71,7 +71,7 @@ declare class Queue<T> {
   get length(): int;
 
   /**
-   * 在队列尾部插入元素。
+   * 在队列尾部插入元素，插入成功则返回true，队列长度增加，否则返回false。
    *
    * @param { T } element - 要插入的元素。
    * @returns { boolean } 插入成功返回true，否则返回false。
@@ -84,9 +84,9 @@ declare class Queue<T> {
    */
   add(element: T): boolean;
   /**
-   * 获取队列的头元素。
+   * 获取队列的头元素（不会删除队列的头元素）。
    *
-   * @returns { T } 返回获取的元素。
+   * @returns { T } 返回队列的头元素。
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -98,9 +98,9 @@ declare class Queue<T> {
   getFirst(): T;
 
   /**
-   * 删除头元素并返回该删除元素。
+   * 删除队列头部元素，并返回被删除元素。当Queue为空时，返回undefined。
    *
-   * @returns { T } 返回删除的元素。
+   * @returns { T } 返回删除的元素。当Queue为空时，返回undefined。
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -112,10 +112,10 @@ declare class Queue<T> {
   pop(): T;
 
   /**
-   * 在遍历Queue实例对象中每一个元素的过程中，对每个元素执行回调函数。
+   * 遍历Queue实例中的每个元素，并对每个元素执行回调函数。
    *
-   * @param { function } callbackFn - 回调函数。
-   * @param { Object } [thisArg] - callbackfn被调用时用作this值，默认值为当前实例对象。
+   * @param { function } callbackFn - 对每个元素执行的回调函数。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -137,9 +137,9 @@ declare class Queue<T> {
   forEach(callbackFn: QueueForEachCb<T>): void;
 
   /**
-   * 返回一个迭代器，每一项都是一个JavaScript对象。
+   * 返回一个迭代器，每一项为T类型的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器，用于遍历Queue中的所有元素。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

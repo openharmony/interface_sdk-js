@@ -14,12 +14,17 @@
  */
 
 /**
- * @file
+ * @ohos.arkui.shape模块提供了CircleShape、EllipseShape、PathShape、RectShape等多种形状定义，用于在
+ * [clipShape]{@link CommonMethod#clipShape(value: CircleShape | EllipseShape | PathShape | RectShape)}和
+ * [maskShape]{@link CommonMethod#maskShape(value: CircleShape | EllipseShape | PathShape | RectShape)}接口中传入对应的形状，实现对组件的
+ * 裁剪和遮罩效果。适用于需要将组件裁剪为圆形、椭圆、矩形等特定形状，或通过形状遮罩实现视觉效果的场景，如头像裁剪、图标遮罩等。
+ *
+ * @file 形状
  * @kit ArkUI
  */
 
 /**
- * 形状的尺寸参数。
+ * 形状的大小参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -36,7 +41,11 @@ interface ShapeSize {
    * 
    * 单位：vp
    * 
+   * 默认值：0vp
+   * 
    * 取值为异常值时按照0vp处理。
+   * 
+   * 不设置时默认值为0vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +63,11 @@ interface ShapeSize {
    * 
    * 单位：vp
    * 
+   * 默认值：0vp
+   * 
    * 取值为异常值时按照0vp处理。
+   * 
+   * 不设置时默认值为0vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -99,7 +112,7 @@ interface RectShapeOptions extends ShapeSize {
 }
 
 /**
- * RectShape 带有半径的构造函数参数。
+ * RectShape 带有圆角半径的构造函数参数。
  * 
  * 继承自[ShapeSize]{@link ShapeSize}。
  *
@@ -118,6 +131,8 @@ interface RoundRectShapeOptions extends ShapeSize {
    * 
    * 单位：vp
    * 
+   * 默认值：0vp
+   * 
    * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,6 +150,8 @@ interface RoundRectShapeOptions extends ShapeSize {
    * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
    * 
    * 单位：vp
+   * 
+   * 默认值：0vp
    * 
    * 取值为异常值时按照0vp处理。
    *
@@ -160,7 +177,7 @@ interface RoundRectShapeOptions extends ShapeSize {
  */
 interface PathShapeOptions {
   /**
-   * 绘制路径的指令。更多说明请参考[commands]{@link PathAttribute#commands}支持的绘制命令。
+   * 绘制路径的指令。默认值为空字符串，不设置时不绘制路径。更多说明请参考[commands]{@link PathAttribute#commands}支持的绘制命令。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -173,7 +190,7 @@ interface PathShapeOptions {
 }
 
 /**
- * 常见的形状方法。
+ * 提供形状的偏移、填充和位置设置等通用方法的基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -212,7 +229,7 @@ declare class CommonShapeMethod<T> {
   fill(color: ResourceColor): T;
 
   /**
-   * 设置形状的位置。
+   * 形状的位置坐标。
    *
    * @param { Position } position - 设置形状的位置。
    * @returns { T } 返回当前对象。
@@ -309,9 +326,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   /**
    * 设置矩形形状圆角半径的宽度。
    *
-   * @param { number | string } rWidth - 矩形形状圆角半径的宽度。<br/> 类型为number时取值范围是
-   *     [0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
-   * @returns { RectShape } 返回RectShape对象。
+   * @param { number | string } rWidth - 矩形形状圆角半径的宽度。
+   *     <br> 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
+   *     <br>单位：vp
+   *     <br>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回设置圆角半径后的RectShape对象，可用于链式调用继续配置矩形形状。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -324,9 +343,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   /**
    * 设置矩形形状圆角半径的高度。
    *
-   * @param { number | string } rHeight - 矩形形状圆角半径的高度。 <br/> 类型为number时取值范围是
-   *     [0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
-   * @returns { RectShape } 返回RectShape对象。
+   * @param { number | string } rHeight - 矩形形状圆角半径的高度。 
+   *     <br> 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
+   *     <br>单位：vp
+   *     <br>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回设置圆角半径高度后的RectShape对象，可用于链式调用继续配置矩形形状。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -339,9 +360,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   /**
    * 设置矩形形状的圆角半径。
    *
-   * @param { number | string | Array<number | string> } radius - 矩形形状的圆角半径。仅接受数组的前四个元素，分别为矩形左上，右上，左下，右下的圆角半径。<br/> 类型为
-   *     number时取值范围是[0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
-   * @returns { RectShape } 返回RectShape对象。
+   * @param { number | string | Array<number | string> } radius - 矩形形状的圆角半径。仅接受数组的前四个元素，分别为矩形左上、右上、左下、右下的圆角半径。
+   *     <br> 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
+   *     <br>单位：vp
+   *     <br>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回设置圆角半径宽度后的RectShape对象，可用于链式调用继续配置矩形形状。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -368,7 +391,7 @@ export declare class CircleShape extends BaseShape<CircleShape> {
   /**
    * 创建CircleShape对象。
    *
-   * @param { ShapeSize } options - 形状的大小。
+   * @param { ShapeSize } options - 形状的大小，包含width（宽度）和height（高度）属性，用于设置形状的尺寸。不传入时使用默认尺寸，默认宽度0vp，默认高度0vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -393,9 +416,9 @@ export declare class CircleShape extends BaseShape<CircleShape> {
  */
 export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
-   * 创建CircleShape对象。
+   * 创建EllipseShape对象。
    *
-   * @param { ShapeSize } options - 形状的大小。
+   * @param { ShapeSize } options - 形状的大小，用于自定义椭圆的宽高尺寸。不传入时width和height默认值为0vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -407,7 +430,7 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
 }
 
 /**
- * 用于clipShape和maskShape接口的路径。
+ * 用于clipShape和maskShape接口的路径形状。
  * 
  * 继承自[CommonShapeMethod]{@link CommonShapeMethod}。
  *
@@ -436,7 +459,7 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
    * 设置路径的绘制指令。
    *
    * @param { string } commands - 路径的绘制指令。
-   * @returns { PathShape } 返回PathShape对象。
+   * @returns { PathShape } 返回设置路径绘制指令后的PathShape对象，可用于链式调用继续配置路径形状。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

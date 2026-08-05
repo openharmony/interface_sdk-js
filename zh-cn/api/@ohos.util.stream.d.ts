@@ -28,8 +28,8 @@ import buffer from '@ohos.buffer';
 /*** endif */
 
 /**
- * stream模块提供了处理基本流类型的API。通过流，数据可按块读取或写入，而不是一次性加载到内存中。
- * 有四种基本流类型：可写流（[Writable]{@link stream.Writable}）、可读流（[Readable]{@link stream.ReadableOptions}）、双工流（[Duplex]{@link stream.Duplex}）和转换流（[Transform]{@link stream.Transform}）。
+ * 本模块提供基本流类型的处理能力，支持数据分块读取或写入，避免一次性加载整个数据到内存。
+ * 包括可写流（[Writable]{@link stream.Writable}）、可读流（[Readable]{@link stream.Readable}）、双工流（[Duplex]{@link stream.Duplex}）和转换流（[Transform]{@link stream.Transform}）。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
@@ -65,7 +65,7 @@ declare namespace stream {
   }
 
   /**
-   * 可写入数据的流。可写流允许将数据写入目标，目标可以是文件、HTTP响应、标准输出、另一个流等。
+   * 可写入数据的流。可写流允许将数据写入到目标中，这个目标可以是文件、HTTP响应、标准输出、另一个流等。可写流采用缓冲区机制：数据通过write()写入缓冲区，缓冲区数据通过doWrite()自动写出到目标，开发者需实现doWrite以定义数据写出的具体行为。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -75,7 +75,7 @@ declare namespace stream {
    */
   class Writable {
     /**
-     * 创建**Writable**对象的构造函数。
+     * **Writable**的构造函数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -86,12 +86,12 @@ declare namespace stream {
     constructor();
 
     /**
-     * 向流的缓冲区写入数据。使用异步回调返回结果。
+     * 将数据写入流的缓冲区中。数据写入缓冲区后，当缓冲区数据被消耗时，会自动调用doWrite()将数据写出。使用callback异步回调。
      *
-     * @param { string | Uint8Array } [chunk] - 待写入的数据。不能为**null**、**undefined**或空字符串。
-     * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @param { Function } [callback] - 用于返回结果的回调函数。默认不调用。
-     * @returns { boolean } 表示可写流缓冲区中是否还有空间。**true**表示缓冲区中还有空间；**false**表示缓冲区已满，不建议继续写入数据。
+     * @param { string | Uint8Array } [chunk] - 需要写入的数据。默认值为undefined。当前版本不支持传入null、undefined和空字符串，会抛出异常。
+     * @param { string } [encoding] - 字符编码类型。默认值是**'utf8'**，当前版本支持**'utf8'**、**'gb18030'**、**'gbk'**以及**'gb2312'**。
+     * @param { Function } [callback] - 回调函数，用于在数据写入完成后执行特定逻辑。传入callback时，数据写入缓冲区后会调用该回调函数；不传入时，不调用回调函数。
+     * @returns { boolean } 可写流的缓冲区中是否还有空间。**true**表示缓冲区还有空间，**false**表示流的内部缓冲区数据量已达到设定水位线，不建议继续写入以避免内存溢出。
      * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @throws { BusinessError } 10200036 - The stream has been ended.
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
@@ -157,10 +157,14 @@ declare namespace stream {
     uncork(): boolean;
 
     /**
-     * 注册事件处理回调，以监听可写流上的不同事件。
+     * 注册事件处理函数来监听可写流上的不同事件。
      *
-     * @param { string } event - 事件类型。支持以下事件：
-     * @param { Callback<emitter.EventData> } callback - 用于返回事件数据的回调函数。
+     * @param { string } event - 事件回调类型，支持的事件包括：'close' | 'drain' | 'error' | 'finish'。
+     *     - 'close'：完成end()调用，结束写入操作，触发该事件。
+     *     - 'drain'：在可写流缓冲区中数据清空时触发该事件。
+     *     - 'error'：在可写流发生异常时触发该事件。
+     *     - 'finish'：在数据缓冲区全部写入到目标后触发该事件。
+     * @param { Callback<emitter.EventData> } callback - 回调函数，返回事件传输的数据。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -181,10 +185,14 @@ declare namespace stream {
     on(event: string, callback: Function): void;
 
     /**
-     * 取消注册用于监听可写流上不同事件的事件处理回调。
+     * 移除通过on注册的事件处理函数。
      *
-     * @param { string } event - 事件类型。支持以下事件：
-     * @param { Callback<emitter.EventData> } callback - 回调函数。
+     * @param { string } event - 事件回调类型，支持的事件包括：'close' | 'drain' | 'error' | 'finish'。
+     *     - 'close'：完成end()调用，结束写入操作，触发该事件。
+     *     - 'drain'：在可写流缓冲区中数据清空时触发该事件。
+     *     - 'error'：在可写流发生异常时触发该事件。
+     *     - 'finish'：在数据缓冲区全部写入到目标后触发该事件。
+     * @param { Callback<emitter.EventData> } [callback] - 指定事件的要注销的回调函数。不传入时注销指定事件的所有回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -459,10 +467,17 @@ declare namespace stream {
     unpipe(destination?: Writable): Readable;
 
     /**
-     * 注册事件处理回调，以监听可读流上的不同事件。
+     * 注册事件处理函数来监听可读流上的不同事件。
      *
-     * @param { string } event - 事件类型。支持以下事件：
-     * @param { Callback<emitter.EventData> } callback - 用于返回事件数据的回调函数。
+     * @param { string } event - 事件回调类型，支持的事件包括：'close' | 'data' | 'end' | 'error' | 'readable' | 'pause' | 'resume'。
+     *     - 'close'：完成push()调用，传入null值，触发该事件。
+     *     - 'data'：当流传递给消费者一个数据块时触发该事件。
+     *     - 'end'：完成push()调用，传入null值，触发该事件。
+     *     - 'error'：流发生异常时触发。
+     *     - 'readable'：当有可从流中读取的数据时触发该事件。
+     *     - 'pause'：完成pause()调用，触发该事件。
+     *     - 'resume'：完成resume()调用，触发该事件。
+     * @param { Callback<emitter.EventData> } callback - 回调函数，返回事件数据。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -483,10 +498,17 @@ declare namespace stream {
     on(event: string, callback: Function): void;
 
     /**
-     * 取消注册用于监听可读流上不同事件的事件处理回调。
+     * 移除通过on注册的事件处理函数。
      *
-     * @param { string } event - 事件类型。支持以下事件：
-     * @param { Callback<emitter.EventData> } callback - 回调函数。
+     * @param { string } event - 事件回调类型，支持的事件包括：'close' | 'data' | 'end' | 'error' | 'readable' | 'pause' | 'resume'。
+     *     - 'close'：完成push()调用，传入null值，触发该事件。
+     *     - 'data'：当流传递给消费者一个数据块时触发该事件。
+     *     - 'end'：完成push()调用，传入null值，触发该事件。
+     *     - 'error'：流发生异常时触发。
+     *     - 'readable'：当有可从流中读取的数据时触发该事件。
+     *     - 'pause'：完成pause()调用，触发该事件。
+     *     - 'resume'：完成resume()调用，触发该事件。
+     * @param { Callback<emitter.EventData> } [callback] - 指定事件的要注销的回调函数。不传入时注销指定事件的所有回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

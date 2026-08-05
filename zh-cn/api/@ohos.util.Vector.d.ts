@@ -19,9 +19,12 @@
  */
 
 /**
- * Vector是基于数组实现的线性数据结构。当Vector的内存用完时，会自动分配一块更大的连续内存区域，并将所有元素复制到新内存区域，回收当前内存区域。Vector可用于高效访问元素。
- * Vector和[ArrayList]{@link @ohos.util.ArrayList}都是基于数组实现，但Vector提供了更多的数组操作接口。两者都可以动态调整容量，Vector每次扩容为原来的两倍，ArrayList每次扩容为原来的1.5倍。
- * **推荐使用场景：** 当数据量较大时，推荐使用Vector。
+ * Vector是一种线性数据结构，底层基于数组实现，解决了需要动态扩容、高效随机访问的数据存储问题。
+ * 当Vector的内存用尽时，会自动分配更大的连续内存区，将原先的元素复制到新的内存区，并释放旧的内存区。
+ * 使用Vector能够高效快速地访问元素，其2倍扩容策略减少了频繁的内存重分配，同时丰富的操作接口提供了更灵活的数据管理能力。
+ * Vector和[ArrayList]{@link @ohos.util.ArrayList}相似，都是基于数组实现，但Vector提供了更多操作数组的接口。
+ * 它们都可以动态调整容量，但Vector每次扩容增加1倍，ArrayList只扩容0.5倍。
+ * **推荐使用场景：** 当需要频繁按索引随机访问元素且数据量较大时，推荐使用Vector来存取数据。
  * 文档中使用了泛型，涉及以下泛型标记符：
  *
  * - T：Type，类
@@ -54,9 +57,9 @@ declare class Vector<T> {
    */
   length: number;
   /**
-   * 在Vector尾部添加元素。
+   * 在Vector中尾部插入元素，插入成功后Vector的长度增加1。
    *
-   * @param { T } element - 添加的成员数据。
+   * @param { T } element - 添加的元素。
    * @returns { boolean } 成功添加元素返回true，否则返回false。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -64,10 +67,10 @@ declare class Vector<T> {
    */
   add(element: T): boolean;
   /**
-   * 在长度范围内插入元素，后续元素向后移动。
+   * 在长度范围内的指定位置插入元素，并将该位置后续元素向右移动。
    *
-   * @param { T } element - 插入的成员数据。
-   * @param { number } index - 插入数据的位置下标。
+   * @param { T } element - 被插入的元素。
+   * @param { number } index - 被插入的位置索引，取值范围为[0, length]。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -122,10 +125,10 @@ declare class Vector<T> {
    */
   getLastElement(): T;
   /**
-   * 根据下标删除元素，返回被删除的元素，后续元素前移。
+   * 根据下标值找到对应元素并删除，同时将该位置后续元素向左移动，返回被删除的元素。index取值范围为[0, length-1]。
    *
-   * @param { number } index - 待删除元素的下标。
-   * @returns { T } 返回删除的元素。如果Vector为空，返回undefined。如果下标越界，抛出异常。
+   * @param { number } index - 要删除元素的位置下标值。
+   * @returns { T } 返回被删除的元素。Vector为空时返回undefined，下标越界时抛出异常。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -142,11 +145,11 @@ declare class Vector<T> {
    */
   remove(element: T): boolean;
   /**
-   * 替换Vector实例中指定下标位置的元素。
+   * 将此Vector中指定位置的元素替换为指定元素。
    *
-   * @param { number } index - 替换元素的下标位置。
-   * @param { T } element - 替换的元素。
-   * @returns { T } 返回替换后的新元素。
+   * @param { number } index - 查找的下标值，取值范围为[0, length-1]。
+   * @param { T } element - 用来替换的元素。
+   * @returns { T } 返回被替换位置上的原元素。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -163,32 +166,32 @@ declare class Vector<T> {
    */
   getLastIndexOf(element: T): number;
   /**
-   * 从指定下标位置向后查找指定元素，并返回该元素的位置下标。
+   * 从指定索引向低索引方向搜索，返回该元素的下标索引。
    *
-   * @param { T } element - 指定元素。
-   * @param { number } index - 开始查找的下标位置。
-   * @returns { number } 返回指定元素的下标值，查找失败返回-1。
+   * @param { T } element - 要查找的元素。
+   * @param { number } index - 从指定索引开始搜索，取值范围[0, length-1]。超出范围时返回-1。
+   * @returns { number } 返回该元素的下标，如果查找失败，则返回-1。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastIndexFrom(element: T, index: number): number;
   /**
-   * 从指定下标位置向前查找指定元素，并返回该元素的位置下标。
+   * 从指定索引向高索引方向搜索，返回该元素的下标索引。
    *
-   * @param { T } element - 指定元素。
-   * @param { number } index - 开始查找的下标位置。
-   * @returns { number } 返回指定元素的下标值，查找失败返回-1。
+   * @param { T } element - 要查找的元素。
+   * @param { number } index - 从指定索引向前搜索的起始位置，取值范围为[0, length-1]。
+   * @returns { number } 返回该元素的下标，如果查找失败，则返回 -1。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getIndexFrom(element: T, index: number): number;
   /**
-   * 删除Vector实例中指定范围内的元素，包括起始位置但不包括结束位置的元素。
+   * 从一段范围内删除元素，包括起始值但不包括终止值，删除后后续元素向左移动，Vector的长度相应减少。
    *
-   * @param { number } fromIndex - 起始位置的下标。
-   * @param { number } toIndex - 结束位置的下标。
+   * @param { number } fromIndex - 起始下标，包含该下标对应的元素。
+   * @param { number } toIndex - 终止下标，不包含该下标对应的元素。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -252,9 +255,9 @@ declare class Vector<T> {
    */
   clone(): Vector<T>;
   /**
-   * 为Vector设置新的长度。
+   * 设置Vector实例的元素个数。若newSize大于当前元素个数则进行扩容，若newSize小于当前元素个数则截断删除超出部分的元素。newSize=0时清空所有元素，length置为0。
    *
-   * @param { number } newSize - 设置的新长度。
+   * @param { number } newSize - 设置的新长度，取值原则：newSize ≥ 0。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -288,9 +291,9 @@ declare class Vector<T> {
    */
   isEmpty(): boolean;
   /**
-   * 扩容Vector实例。
+   * 如果传入的新容量大于或等于当前Vector实例的元素个数，将容量变更为新容量；如果传入的新容量小于当前Vector实例的元素个数，不做变更。
    *
-   * @param { number } newCapacity - 新容量。
+   * @param { number } newCapacity - 新容量，需大于或等于当前Vector中的元素个数。传入值小于元素个数时不生效。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -306,7 +309,7 @@ declare class Vector<T> {
    */
   toString(): string;
   /**
-   * 把Vector实例的容量调整为当前的元素个数。
+   * 把容量限制为当前的length大小。适用于在完成元素添加后释放多余的内存空间，优化内存使用。
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -323,9 +326,9 @@ declare class Vector<T> {
    */
   copyToArray(array: Array<T>): void;
   /**
-   * 返回一个ES6迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，用于遍历Vector中的元素。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回一个迭代器，用于遍历Vector实例中的元素。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9

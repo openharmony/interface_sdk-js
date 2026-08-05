@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 设备信息管理
  * @kit MDMKit
  */
 
@@ -22,11 +22,16 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * 本模块提供企业设备信息管理能力，包括获取设备序列号、设备名称等。
+ * 本模块提供企业设备信息管理能力，支持获取设备序列号、设备名称、SIM卡信息等。企业管理员可通过此模块查询设备详细信息，实现设备资产的统一管理和追踪。
+ *
+ * **使用场景：**
+ *
+ * - 设备资产管理与追踪
+ * - 企业设备合规性检查
+ * - 设备信息采集与统计
+ * - 故障诊断与设备识别
  *
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
@@ -172,14 +177,13 @@ declare namespace deviceInfo {
    * 获取设备信息。
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { string } label - 支持获取的设备信息标签。<br/>- deviceName：设备名称。<br/>- deviceSerial：设备序列号。<br/>- simInfo：SIM卡信息。 <!--
-   *     RP1--><!--RP1End-->
+   * @param { Want } admin - 企业设备管理扩展组件，用于指定具有设备管理能力的目标应用。Want对象中必须包含abilityName（扩展能力名称）和bundleName（应用包名）两个必填字段。
+   * @param { string } label - 支持获取的设备信息标签。<br/>- deviceName：设备名称。<br/>- deviceSerial：设备序列号。<br/>- simInfo：SIM卡信息。
    * @returns { string } Device information obtained.
    *     <br>If **label** is **simInfo**, the return value is the SIM card information in a JSON string. For example,
    *     [{"slotId": 0, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""},
-   *      {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}]
-   *     , where **slotId:0** indicates card slot 1, and **slotId:1** indicates card slot 2. **NUMBER** indicates the
+   *     {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}],
+   *     where **slotId:0** indicates card slot 1, and **slotId:1** indicates card slot 2. **NUMBER** indicates the
    *     phone number and is supported since API version 23. The value is in the E.164 international standard format (
    *     for example, +8612345678901) that contains the country code.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

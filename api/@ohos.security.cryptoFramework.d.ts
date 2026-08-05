@@ -397,7 +397,7 @@ declare namespace cryptoFramework {
    * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
    * encryption or decryption.
    *
-   * <br>Applicable to [ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20).
+   * <br>Applicable to [ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#chacha20).
    *
    * > **NOTE**
    * >
@@ -461,10 +461,10 @@ declare namespace cryptoFramework {
    * [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
    *
    * <br>It is applicable to the CCM and GCM modes of
-   * [AES](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#aes).
+   * [AES](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#aes).
    * <br>It is applicable to the GCM mode of
-   * [SM4](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#sm4).
-   * <br>It is applicable to [ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20).
+   * [SM4](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#sm4).
+   * <br>It is applicable to [ChaCha20-Poly1305](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md#chacha20).
    *
    * > **NOTE**
    * >
@@ -1549,7 +1549,7 @@ declare namespace cryptoFramework {
 
     /**
      * Converts data into an asymmetric key pair. Encrypted private keys are supported. The private key password is
-     * synchronously passed to decrypt the private key. This API is synchronous.
+     * synchronously passed to decrypt the private key.
      *
      * > **NOTE**
      * > The precautions for using **convertPemKeySync** are the same as those for
@@ -1778,11 +1778,11 @@ declare namespace cryptoFramework {
    * Creates an **AsyKeyGenerator** instance based on the specified algorithm.
    *
    * <br>For details about the supported specifications, see
-   * [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
+   * [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    * .
    *
    * @param { string } algName - Algorithm used by the asymmetric keys. For details, see the string parameters in
-   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
+   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     .
    * @returns { AsyKeyGenerator } Returns the **AsyKeyGenerator** instance corresponding to the specified algorithm.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -1804,12 +1804,12 @@ declare namespace cryptoFramework {
    * Creates a symmetric key generator instance with the specified algorithm.
    *
    * <br>For details about the supported specifications, see
-   * [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
+   * [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    * .
    *
    * @param { string } algName - Algorithm to be used by the **symKeyGenerator** instance.<br>For details, see
    *     **String Parameter** in
-   *     [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
+   *     [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     .
    * @returns { SymKeyGenerator } Returns the **SymKeyGenerator** instance corresponding to the specified algorithm.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -2433,7 +2433,7 @@ declare namespace cryptoFramework {
    * [getCipherSpec]{@link cryptoFramework.Cipher.getCipherSpec}.
    *
    * <br>Currently, only RSA and SM2 are supported. For details, see
-   * [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)
+   * [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)
    * .
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
@@ -2650,7 +2650,7 @@ declare namespace cryptoFramework {
    * in this class as needed to complete encryption or decryption operations.
    *
    * <br>For details about the complete encryption and decryption process, see
-   * [Encryption and Decryption Overview](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption-overview.md)
+   * [Encryption and Decryption Overview](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)
    * .
    *
    * <br>A complete symmetric encryption/decryption process is slightly different from the asymmetric encryption/decryption
@@ -2862,7 +2862,7 @@ declare namespace cryptoFramework {
      * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
      * > at once.
      * > <br>For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
+     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md).
      * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
      * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
      * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
@@ -2917,7 +2917,7 @@ declare namespace cryptoFramework {
      * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
      * > at once.
      * > <br>For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
+     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md).
      * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
      * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
      * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
@@ -2973,7 +2973,7 @@ declare namespace cryptoFramework {
      * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
      * > at once.
      * > <br>For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
+     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md).
      * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
      * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
      * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
@@ -3027,7 +3027,7 @@ declare namespace cryptoFramework {
      * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
      * > at once.
      * > <br>For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
+     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt.md).
      * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
      * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
      * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
@@ -3180,7 +3180,7 @@ declare namespace cryptoFramework {
      * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
      * > result is **null**.
      * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
+     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md).
      * > The operations are similar for SM2 and RSA.
      *
      * @param { DataBlob | null } data - Data to encrypt or decrypt. In symmetric encryption and decryption, this
@@ -3230,7 +3230,7 @@ declare namespace cryptoFramework {
      * > result is **null**.
      * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
      * > decryption, see
-     * > [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
+     * > [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md).
      * > The operations are similar for SM2 and RSA.
      *
      * @param { DataBlob | null } data - Indicates the data to be finally encrypted or decrypted.
@@ -3321,7 +3321,7 @@ declare namespace cryptoFramework {
      * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
      * > result is **null**.
      * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
+     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md).
      * > The operations are similar for SM2 and RSA.
      *
      * @param { DataBlob | null } data - Data to encrypt or decrypt. It can be **null**, but cannot be {data:Uint8Array(
@@ -3368,7 +3368,7 @@ declare namespace cryptoFramework {
      * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
      * > result is **null**.
      * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
+     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt.md).
      * > The operations are similar for SM2 and RSA.
      *
      * @param { DataBlob | null } data - Indicates the data to be finally encrypted or decrypted.
@@ -3535,6 +3535,8 @@ declare namespace cryptoFramework {
   /**
    * Creates a **Cipher** instance.
    *
+   * <br>For details about the supported specifications, see[Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md).
+   *
    * > **NOTE**
    * >
    * > 1. In symmetric encryption and decryption, PKCS #5 and PKCS #7 share the same implementation, with padding
@@ -3552,9 +3554,9 @@ declare namespace cryptoFramework {
    * @param { string } transformation - Combination of the algorithm name (including the key length), encryption mode,
    *     and padding algorithm of the **Cipher** instance to create.<br>For details about the supported specifications,
    *     see
-   *     [Symmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md)
+   *     [Symmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)
    *     and
-   *     [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)
+   *     [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)
    *     .
    * @returns { Cipher } Returns the **Cipher** instance corresponding to the specified algorithm.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -3577,7 +3579,7 @@ declare namespace cryptoFramework {
    * instance by using [createSign(algName: string): Sign]{@link cryptoFramework.createSign}. Invoke **init()**,
    * **update()**, and **sign()** in this class in sequence to complete the signing operation.
    * For details about the sample code, see
-   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)
+   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
    * .
    *
    * <br>The **Sign** instance does not support repeated initialization. When a new key is used for signing, you must
@@ -3709,7 +3711,7 @@ declare namespace cryptoFramework {
      * > prevents too much memory from being requested at a time.
      * >
      * > For details about the sample code for calling **update()** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      * >
      * > **OnlySign** cannot be used with **update()**. If **OnlySign** is specified, use **sign()** to pass in data.
@@ -3754,7 +3756,7 @@ declare namespace cryptoFramework {
      * > large amount of data, you are advised to call **update()** multiple times to pass in the data by segment. This
      * > prevents too much memory from being requested at a time.
      * > For details about the sample code for calling **update()** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      * >
      * > **OnlySign** cannot be used with **update()**. If **OnlySign** is specified, use **sign()** to pass in data.
@@ -3798,7 +3800,7 @@ declare namespace cryptoFramework {
      * > This prevents too much memory from being requested at a time.
      * >
      * > For details about the sample code for calling **updateSync** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      * >
      * > **OnlySign** cannot be used with **updateSync**. If **OnlySign** is specified, use **signSync** to pass in
@@ -4077,7 +4079,7 @@ declare namespace cryptoFramework {
    * [createVerify(algName: string): Verify]{@link cryptoFramework.createVerify}. Invoke **init()**, **update()**, and
    * **verify()** in this class in sequence to complete the signature verification. For
    * details about the sample code, see
-   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)
+   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
    * .
    *
    * <br>The **Verify** class does not support repeated initialization. When a new key is used for signature verification,
@@ -4202,7 +4204,7 @@ declare namespace cryptoFramework {
      * > prevents too much memory from being requested at a time.
      * >
      * > For details about the sample code for calling **update()** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      * >
      * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verify()** to pass in
@@ -4248,7 +4250,7 @@ declare namespace cryptoFramework {
      * > prevents too much memory from being requested at a time.
      *
      * > For details about the sample code for calling **update()** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      *
      * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verify()** to pass in
@@ -4293,7 +4295,7 @@ declare namespace cryptoFramework {
      * > This prevents too much memory from being requested at a time.
      *
      * > For details about the sample code for calling **updateSync** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
+     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify.md)
      * > . The operations of other algorithms are similar.
      *
      * > **OnlyVerify** cannot be used with **updateSync()**. If **OnlyVerify** is specified, use **verifySync()** to pass
@@ -4637,6 +4639,9 @@ declare namespace cryptoFramework {
   /**
    * Creates a **Sign** instance.
    *
+   * <br>For details about the supported specifications, see
+   *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md).
+   *
    * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup>,
    *     Ed25519<sup>11+</sup> and ML-DSA<sup>26.0.0+</sup> are supported.
    *     <br>If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the digest and mask digest.
@@ -4661,6 +4666,9 @@ declare namespace cryptoFramework {
 
   /**
    * Creates a **Verify** instance.
+   *
+   * <br>For details about the supported specifications, see
+   *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md).
    *
    * @param { string } algName - Signature verification algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup>,
    *     Ed25519<sup>11+</sup> and ML-DSA<sup>26.0.0+</sup> are supported.
@@ -4787,6 +4795,8 @@ declare namespace cryptoFramework {
 
   /**
    * Creates a **KeyAgreement** instance.
+   *
+   * <br>For details about the supported specifications, see[Key Agreement Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md).
    *
    * @param { string } algName - Key agreement algorithm to use. In addition to ECDH, X25519 and DH are supported since
    *     API version 11.<br>For details about the supported specifications, see
@@ -5872,8 +5882,8 @@ declare namespace cryptoFramework {
     /**
      * Generates common parameters for an asymmetric key pair based on the specified name identifier (NID) of an
      * elliptic curve. For details, see
-     * [ECC](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#ecc) and
-     * [SM2](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#sm2).
+     * [ECC](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#ecc) and
+     * [SM2](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#sm2).
      *
      * @param { string } curveName - NID of the elliptic curve.
      * @returns { ECCCommonParamsSpec } ECC common parameters generated.
@@ -6142,7 +6152,7 @@ declare namespace cryptoFramework {
   class DHKeyUtil {
     /**
      * Generates common parameters for a DH key based on the prime **p** length and the private key length, in bits. For
-     * details, see [DH](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#dh).
+     * details, see [DH](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md#dh).
      *
      * @param { int } pLen - Length of the prime **p**, in bits.
      * @param { int } [skLen] - Maximum length of the generated DH private key, in bits. The default value is **0**.<br>
@@ -6733,7 +6743,7 @@ declare namespace cryptoFramework {
    *
    * @param { AsyKeySpec } asyKeySpec - Key parameters. The **AsyKeyGeneratorBySpec** generates the public/private key based
    *     on the specified parameters.<br>For details about the supported specifications, see
-   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
+   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     .
    * @returns { AsyKeyGeneratorBySpec } Returns the **AsyKeyGeneratorBySpec** instance created.
    * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
@@ -7160,6 +7170,9 @@ declare namespace cryptoFramework {
 
   /**
    * Creates a key derivation function instance.
+   *
+   * <br>For details about the supported specifications, see
+   *     [Key Derivation Function Specifications](docroot://security/CryptoArchitectureKit/crypto-key-derivation-overview.md).
    *
    * @param { string } algName - Key derivation algorithm (including the hash function for the HMAC). Currently, PBKDF2,
    *     HKDF, SCRYPT, and X963KDF are supported. For example, **PBKDF2|SHA256**, **HKDF|SHA256**,

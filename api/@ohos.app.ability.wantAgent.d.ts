@@ -223,8 +223,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 16000020 - The context is not ability context.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
-   * @throws { BusinessError } 16000153 - The Wantagent has been canceled.
+   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
+   * @throws { BusinessError } 16000153 - The WantAgent has been canceled.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly

@@ -650,10 +650,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * The [universal attributes]{@link common} are supported. For text attributes, only the following attributes are
- * supported.
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
+ * For text attributes, only the following attributes are supported.
  *
- * The [universal events]{@link common} are supported.
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -721,33 +721,6 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 26.0.0 dynamic
    */
   fontColor(value: Array<ResourceColor | ColorMetrics> | undefined): SymbolGlyphAttribute;
-
-  /**
-   * Applies a gradient or solid color shader effect to the **SymbolGlyph** component.
-   *
-   * This API supports [RadialGradientStyle]{@link RadialGradientStyle},
-   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. When set,
-   * **shaderStyle** takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and any AI-based styling. To
-   * apply a simple solid color, using [fontColor]{@link SymbolSpanAttribute#fontColor} is recommended.
-   *
-   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Shader effect.<br>Input types and behavior:<br>
-   *     Single **ShaderStyle** object: applies the specified effect to all layers. Array of **ShaderStyle** objects:
-   *     applies the specified effect to the corresponding layer. Array of **undefined**: applies the default
-   *     **SymbolGlyph** color to the corresponding layer. Layers unset retain their default color.<br> Based on the
-   *     input, the system applies a radial gradient ([RadialGradientStyle]{@link RadialGradientStyle}), linear gradient
-   *     ([LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle})
-   *     to the **SymbolGlyph** component.<br>**NOTE**<br>Unit: [vp]{@link common}<br>Specify the center point and
-   *     radius using percentages. If a non-percentage value (e.g., **10px**) is provided, it will be interpreted as 100
-   *     0%.<br>You are advised to specify the radius using percentages.<br>Percentages are relative to the icon's size.
-   *     The recommended value range is [0, 1).
-   * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 23]
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
    * Sets the font weight of the **SymbolGlyph** component. For the number type, the value ranges from 100 to 900, at an
@@ -906,6 +879,33 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 20 dynamic
    */
   symbolShadow(shadow: Optional<ShadowOptions>): SymbolGlyphAttribute;
+
+  /**
+   * Applies a gradient or solid color shader effect to the **SymbolGlyph** component.
+   *
+   * This API supports [RadialGradientStyle]{@link RadialGradientStyle},
+   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. When set,
+   * **shaderStyle** takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and any AI-based styling. To
+   * apply a simple solid color, using [fontColor]{@link SymbolSpanAttribute#fontColor} is recommended.
+   *
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Shader effect.<br>Input types and behavior:<br>
+   *     Single **ShaderStyle** object: applies the specified effect to all layers. Array of **ShaderStyle** objects:
+   *     applies the specified effect to the corresponding layer. Array of **undefined**: applies the default
+   *     **SymbolGlyph** color to the corresponding layer. Layers unset retain their default color.<br> Based on the
+   *     input, the system applies a radial gradient ([RadialGradientStyle]{@link RadialGradientStyle}), linear gradient
+   *     ([LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle})
+   *     to the **SymbolGlyph** component.<br>**NOTE**<br>Unit: [vp]{@link common}<br>Specify the center point and
+   *     radius using percentages. If a non-percentage value (e.g., **10px**) is provided, it will be interpreted as 100
+   *     0%.<br>You are advised to specify the radius using percentages.<br>Percentages are relative to the icon's size.
+   *     The recommended value range is [0, 1).
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 }
 
 /**

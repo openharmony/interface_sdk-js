@@ -7436,29 +7436,29 @@ export declare interface SheetOptions extends BindOptions {
      */
     modalTransition?: ModalTransition;
     /**
-    * Define strategy for drawing rounded corners.
-    * NOTE
-    * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
-    * onto the canvas with rounded corners applied.
-    * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
-    * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
-    *
-    * @type { ?RenderStrategy }
-    * @default RenderStrategy.FAST
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Define strategy for drawing rounded corners.
+     * NOTE
+     * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+     * onto the canvas with rounded corners applied.
+     * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+     * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+     *
+     * @type { ?RenderStrategy }
+     * @default RenderStrategy.FAST
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     radiusRenderStrategy?: RenderStrategy;
     /**
-      * Set system-styled materials for sheet. Different materials have different effects, which can influence
-      * the backgroundColor, border, shadow, and other visual attributes of sheet.
-      *
-      * @type { ?SystemUiMaterial }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @stagemodelonly
-      * @since 26.0.0 static
-      */
+     * Set system-styled materials for sheet. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of sheet.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     systemMaterial?: SystemUiMaterial;
     /**
      * Mask color of the sheet.
@@ -7754,20 +7754,20 @@ export declare interface SheetOptions extends BindOptions {
      */
     hoverModeArea?: HoverModeAreaType;
 
-     /**
-      * Sets the position offset of the bindSheet.
-      *
-      * @type { ?Position }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @systemapi
-      * @stagemodelonly
-      * @since 23 static
-      */
-    offset?: Position
+    /**
+     * Sets the position offset of the bindSheet.
+     *
+     * @type { ?Position }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offset?: Position;
     /**
      * Sets whether the sheet edge has spring effect.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 3
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

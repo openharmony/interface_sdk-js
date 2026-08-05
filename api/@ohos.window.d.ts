@@ -4013,13 +4013,9 @@ declare namespace window {
 
   /**
    * Register the callback for application process focus state changes.
-   * This listener monitors the focus state changes between applications. 
-   * If the focus state changes between windows within the same application, the callback function will not be triggered.
    *
    * @param { Callback<boolean> } callback - Callback used to return the result whether application process
    *     focused or not.
-   *     The value true means that the application process becomes focused,
-   *     and false means that the application process becomes unfocused.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -4239,6 +4235,7 @@ declare namespace window {
      * landscape. This rotation is not controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -4250,6 +4247,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4261,6 +4259,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4272,6 +4271,7 @@ declare namespace window {
      * landscape. This rotation is controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4283,6 +4283,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4294,6 +4295,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4304,6 +4306,7 @@ declare namespace window {
      * Locked mode, where the window orientation is consistent with the current screen orientation.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4316,6 +4319,7 @@ declare namespace window {
      * landscape, or reverse landscape, but not reverse portrait, on a certain device.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4327,6 +4331,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4338,6 +4343,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4350,6 +4356,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4362,6 +4369,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4373,6 +4381,7 @@ declare namespace window {
      * rotate if the home screen does not.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -8648,6 +8657,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]

@@ -14,13 +14,26 @@
  */
 
 /**
+ * TreeMap可用于存储具有关联关系的key-value键值对集合，存储元素中key值唯一，每个key对应一个value。
+ * TreeMap底层使用红黑树实现，可以利用二叉树特性查找键值对，查找、插入和删除操作的时间复杂度为O(log n)。key值有序存储，可以实现高效的有序遍历。
+ * TreeMap和[HashMap]{@link @ohos.util.HashMap}相比，HashMap依据键的hashCode存取数据，访问速度较快但不保证键的顺序；而TreeMap基于红黑树有序存取，访问效率较低，但支持有序遍历、范围查询和首末键及相邻键查找等有序操作。
+ * **推荐使用场景：** 需要对键值对进行有序存储和访问的场景，例如范围查询、有序遍历和键邻近查找等。
+ * 文档中使用了泛型，涉及以下泛型标记符：
+ *
+ * - K：Key，键
+ * - V：Value，值
+ *
+ * > **说明**
+ * >
+ * > - 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+ *
  * @file
  * @kit ArkTS
  */
 
 /**
  * TreeMap可用于存储具有关联关系的key-value键值对集合，存储元素中key值唯一，每个key对应一个value。
- * TreeMap底层使用红黑树实现，可以利用二叉树特性快速查找键值对。key值有序存储，可以实现快速的插入和删除。
+ * TreeMap底层使用红黑树实现，可以利用二叉树特性查找键值对，查找、插入和删除操作的时间复杂度为O(log n)。key值有序存储，可以实现高效的有序遍历。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -30,7 +43,7 @@
  */
 declare class TreeMap<K, V> {
   /**
-   * TreeMap的构造函数，支持通过比较函数使元素按照自定义规则排序。
+   * TreeMap的构造函数，支持通过比较函数使元素按照自定义规则排序。当key为自定义类型时，必须提供比较函数，否则自定义类型的key无法正常排序和比较。
    *
    * @param { function } [comparator] - 比较函数。
    *     comparator（可选）用户自定义的比较函数。
@@ -45,7 +58,7 @@ declare class TreeMap<K, V> {
   constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
 
   /**
-   * TreeMap的构造函数，支持通过比较函数使元素按照自定义规则排序。
+   * TreeMap的构造函数，支持通过比较函数使元素按照自定义规则排序。当key为自定义类型时，必须提供比较函数，否则自定义类型的key无法正常排序和比较。
    *
    * @param { TreeMapComparator<K> } [comparator] - 比较函数。
    *     comparator（可选）用户自定义的比较函数。
@@ -79,7 +92,7 @@ declare class TreeMap<K, V> {
   /**
    * 判断容器是否为空。
    *
-   * @returns { boolean } boolean类型。
+   * @returns { boolean } 为空返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -91,8 +104,8 @@ declare class TreeMap<K, V> {
   /**
    * 判断容器中是否包含指定key。
    *
-   * @param { K } key - 指定key。
-   * @returns { boolean } boolean类型。
+   * @param { K } key - 需要判断是否存在于容器中的键。
+   * @returns { boolean } 包含指定key返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -102,10 +115,10 @@ declare class TreeMap<K, V> {
    */
   hasKey(key: K): boolean;
   /**
-   * 判断容器中是否包含该指定value。
+   * 判断容器中是否包含指定value。
    *
-   * @param { V } value - 指定value。
-   * @returns { boolean } boolean类型。
+   * @param { V } value - 需要判断是否存在于容器中的值。
+   * @returns { boolean } 包含指定value返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -115,10 +128,10 @@ declare class TreeMap<K, V> {
    */
   hasValue(value: V): boolean;
   /**
-   * 获取指定key所对应的value，若为空则返回undefined。
+   * 获取指定key所对应的value，若指定key不存在则返回undefined。
    *
-   * @param { K } key - 指定key。
-   * @returns { V } 返回值或undefined。
+   * @param { K } key - 指定需要获取对应value的key。
+   * @returns { V } 返回key映射的value值，指定key不存在时返回undefined。
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -127,9 +140,9 @@ declare class TreeMap<K, V> {
    */
   get(key: K): V;
   /**
-   * 获取容器中排序第一的key，若为空则返回undefined。
+   * 获取容器中排序第一的key，若容器为空则返回undefined。
    *
-   * @returns { K } 返回值或undefined。
+   * @returns { K } 返回排序第一的key，容器为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getFirstKey method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -140,9 +153,9 @@ declare class TreeMap<K, V> {
    */
   getFirstKey(): K;
   /**
-   * 获取容器中排序最后的key，若为空则返回undefined。
+   * 获取容器中排序最后的key，若容器为空则返回undefined。
    *
-   * @returns { K } 返回值或undefined。
+   * @returns { K } 返回排序最后的key，容器为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getLastKey method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -166,9 +179,9 @@ declare class TreeMap<K, V> {
   get(key: K): V | undefined;
 
   /**
-   * 将一个TreeMap中的所有元素组添加到另一个TreeMap中。
+   * 将一个TreeMap中的所有元素添加到另一个TreeMap中。
    *
-   * @param { TreeMap<K, V> } map - 该map会添加到其调用setAll接口的map对象中。
+   * @param { TreeMap<K, V> } map - 将参数map中的所有元素添加到调用setAll方法的TreeMap对象中。
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -178,7 +191,7 @@ declare class TreeMap<K, V> {
    */
   setAll(map: TreeMap<K, V>): void;
   /**
-   * 向容器中添加或更新一组数据。
+   * 向容器中添加一组键值对数据，若key已存在则更新对应value值，若key不存在则新增键值对。
    *
    * @param { K } key - 添加成员数据的键名。
    * @param { V } value - 添加成员数据的值。
@@ -192,9 +205,9 @@ declare class TreeMap<K, V> {
    */
   set(key: K, value: V): Object;
   /**
-   * 删除指定key对应的元素。
+   * 删除指定key对应的元素并返回其value值，若指定key不存在则返回undefined。
    *
-   * @param { K } key - 指定key。
+   * @param { K } key - 指定需要删除元素对应的key。
    * @returns { V } 返回删除元素的值。
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -228,10 +241,10 @@ declare class TreeMap<K, V> {
    */
   clear(): void;
   /**
-   * 获取容器中小于对比key值的最大键，如果不存在小于对比key值的键值，则返回undefined。
+   * 获取容器中小于对比key值的最大键，如果不存在小于对比key值的键，则返回undefined。
    *
    * @param { K } key - 对比的key值。
-   * @returns { K } 返回排序中key前一位的数据，为空时返回undefined。
+   * @returns { K } 返回排序中小于对比key值的最大键，若不存在则返回undefined。
    * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -240,10 +253,10 @@ declare class TreeMap<K, V> {
    */
   getLowerKey(key: K): K;
   /**
-   * 获取容器中大于对比key值的最小键，如果不存在大于对比key值的键值，则返回undefined。
+   * 获取容器中大于对比key值的最小键，如果不存在大于对比key值的键，则返回undefined。
    *
    * @param { K } key - 对比的key值。
-   * @returns { K } 返回排序中key后一位的数据，为空时返回undefined。
+   * @returns { K } 返回排序中大于对比key值的最小键，若不存在则返回undefined。
    * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -305,11 +318,11 @@ declare class TreeMap<K, V> {
    */
   values(): IterableIterator<V>;
   /**
-   * 对容器中一组数据进行更新（替换）。
+   * 对容器中指定key对应的键值对进行更新（替换）。
    *
-   * @param { K } key - 指定key。
-   * @param { V } newValue - 替换的元素。
-   * @returns { boolean } boolean类型（key是否指向目标元素）。
+   * @param { K } key - 指定需要替换的key。
+   * @param { V } newValue - 替换的新值。
+   * @returns { boolean } 替换成功返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -361,9 +374,9 @@ declare class TreeMap<K, V> {
    */
   entries(): IterableIterator<[K, V]>;
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，迭代器的每一项是一个包含键和值的[K, V]数组。
    *
-   * @returns { IterableIterator<[K, V]> }
+   * @returns { IterableIterator<[K, V]> } 返回一个迭代器。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
