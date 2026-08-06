@@ -38,9 +38,9 @@ import { Callback } from './@ohos.base';
  * > **NOTE**
  * >
  * > 1. The preceding metrics collect performance data for a specified application process, not for the system.
- * > 2. Description of collecting the CPU data (**CPU_LOAD**/**CPU_USAGE**) and memory (**MEMORY_RSS**/**MEMORY_PSS**):
+ * > 2. Description of collecting the CPU data (**CPU_LOAD**//**CPU_USAGE**) and memory (**MEMORY_RSS**//**MEMORY_PSS**):
  * >    - During the test, the CPU and memory data of the specified application process is collected before and after the code segment execution. Therefore, ensure that the application process to be tested exists during the test.
- * > 3. Description of collecting the application startup latency data (**APP_START_RESPONSE_TIME**/**APP_START_COMPLETE_TIME**):
+ * > 3. Description of collecting the application startup latency data (**APP_START_RESPONSE_TIME**//**APP_START_COMPLETE_TIME**):
  * >    - Application startup latency data is subject to the system logging and reporting and may be different from what end users perceive. The start time is when the tap event is reported, the end time of the response latency is when the first frame is displayed on the screen after the tap, and the end time of the completion latency is when the first frame is displayed on the screen after the application is started.
  * >    - Application startup latency data can be collected in the following scenarios: tapping an application icon on the home screen, tapping an application icon on the dock bar, and tapping an application icon in the application center.
  * >    - During a test, only the first startup latency of the specified application is collected.
@@ -276,7 +276,7 @@ declare interface PerfTestStrategy {
   iterations?: int;
 
   /**
-   * Timeout interval for executing a code segment (**actionCode**/**resetCode**) at a time. The value is an integer
+   * Timeout interval for executing a code segment (**actionCode**//**resetCode**) at a time. The value is an integer
    * greater than 0, in milliseconds. The default value is **10000**. If the execution of a test code segment takes a
    * long time, you can increase the value of this parameter to prevent timeout. If a timeout occurs, an exception is
    * triggered and the test execution is terminated.
