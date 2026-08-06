@@ -794,8 +794,8 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 ): LazyForEachAttribute;
 
 /**
- * Defines LazyForEach Component. It requires call setLazyForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines LazyForEach Component. It requires calling setLazyForEachOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<LazyForEachAttribute> } style - callback to set up LazyForEach's attributes.
  * @returns { LazyForEachAttribute } The attribute of LazyForEach.
