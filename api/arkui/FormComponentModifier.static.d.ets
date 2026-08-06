@@ -31,4 +31,5 @@ import { FormComponentAttribute } from './component/formComponent';
  * @since 23 static
  * @noninterop
  */
-export declare class FormComponentModifier implements FormComponentAttribute, AttributeModifier<FormComponentAttribute> {}
+export declare class FormComponentModifier implements 
+    FormComponentAttribute, AttributeModifier<FormComponentAttribute> {}

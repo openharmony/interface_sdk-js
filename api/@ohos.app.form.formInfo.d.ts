@@ -1131,7 +1131,7 @@ declare namespace formInfo {
      * @since 9 dynamiconly
      * @deprecated since 20
      */
-    Dimension_2_1 = 5,
+    Dimension_2_1,
 
     /**
      * 1 x 1 form
@@ -1548,6 +1548,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi [since 10 - 19]
+     * @publicapi [since 20]
      * @atomicservice [since 20]
      * @since 10 dynamic
      * @since 23 static
