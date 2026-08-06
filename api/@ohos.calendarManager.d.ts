@@ -539,7 +539,7 @@ declare namespace calendarManager {
     /**
      * Queries the event instance with a specified event key in a calendar. This API uses a promise to return the result.
      *
-     * @permission ohos.permission.READ_CALENDAR [since 10-20]
+     * @permission ohos.permission.READ_CALENDAR [since 18-20]
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 21]
      * @param { number } start - Start time of an event. The value is a 13-digit timestamp.
      * @param { number } end - End time of an event. The value is a 13-digit timestamp.
