@@ -707,6 +707,10 @@ declare namespace effectKit {
   /**
    * 着色器效果平铺模式的枚举。
    *
+   * > **说明**
+   * >
+   * > CPU渲染下，着色器平铺模式仅支持DECAL。GPU渲染下，DECAL、CLAMP、REPEAT、MIRROR模式均支持。
+   *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 14 dynamic
    * @since 23 static
@@ -749,10 +753,6 @@ declare namespace effectKit {
      */
     DECAL = 3,
   }
-
-  /**
-   * CPU渲染下，着色器平铺模式仅支持DECAL。GPU渲染下，DECAL、CLAMP、REPEAT、MIRROR模式均支持。
-   */
 
   /**
    * 图片颜色深浅度的枚举。
