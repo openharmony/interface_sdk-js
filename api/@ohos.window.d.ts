@@ -10161,7 +10161,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The window is not created or destroyed.
+     *     1. The window is not created or destroyed;
+     *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 12]
@@ -10183,7 +10184,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The window is not created or destroyed.
+     *     1. The window is not created or destroyed;
+     *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 12]
