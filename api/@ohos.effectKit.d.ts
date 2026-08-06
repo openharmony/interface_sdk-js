@@ -561,7 +561,7 @@ declare namespace effectKit {
   }
 
   /**
-   * Enumerates the picture light and dark degree.
+   * Enum for the brightness of image colors.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
@@ -572,7 +572,7 @@ declare namespace effectKit {
   enum PictureLightDegree {
 
     /**
-     * Unknown light and dark degree picture.
+     * Image with unknown brightness.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -583,7 +583,7 @@ declare namespace effectKit {
     UNKNOWN_LIGHT_COLOR_DEGREE_PICTURE = 0,
 
     /**
-     * Extremely light color picture.
+     * Extremely bright image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -594,7 +594,7 @@ declare namespace effectKit {
     EXTREMELY_LIGHT_COLOR_PICTURE = 1,
 
     /**
-     * Light color picture.
+     * Bright image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -605,7 +605,7 @@ declare namespace effectKit {
     LIGHT_COLOR_PICTURE = 2,
 
     /**
-     * Dark color picture.
+     * Dark image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -616,7 +616,7 @@ declare namespace effectKit {
     DARK_COLOR_PICTURE = 3,
 
     /**
-     * Extremely dark color picture.
+     * Extremely dark image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -627,7 +627,7 @@ declare namespace effectKit {
     EXTREMELY_DARK_COLOR_PICTURE = 4,
 
     /**
-     * Flowery picture.
+     * Colorful image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -638,7 +638,7 @@ declare namespace effectKit {
     FLOWERY_PICTURE = 5,
 
     /**
-     * Extremely flowery picture.
+     * Extremely colorful image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -859,7 +859,7 @@ declare namespace effectKit {
   }
 
   /**
-   * Enumerates the shade degree of the image.
+   * Enumerates the shade degrees of image colors.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
@@ -869,7 +869,7 @@ declare namespace effectKit {
   enum PictureShadeDegree {
 
     /**
-     * Default value. The shade degree of the image is unknown.
+     * Default value. The shade degree of the image color is unknown.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -879,7 +879,7 @@ declare namespace effectKit {
     UNKNOWN_SHADE_DEGREE_PICTURE = 0,
 
     /**
-     * The shade degree of the image is extremely light.
+     * The shade degree of the image color is extremely light.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -889,7 +889,7 @@ declare namespace effectKit {
     EXTREMELY_LIGHT_PICTURE = 1,
 
     /**
-     * The shade degree of the image is very light.
+     * The shade degree of the image color is very light.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -899,7 +899,7 @@ declare namespace effectKit {
     VERY_LIGHT_PICTURE = 2,
 
     /**
-     * The shade degree of the image is light.
+     * The shade degree of the image color is light.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -909,7 +909,7 @@ declare namespace effectKit {
     LIGHT_PICTURE = 3,
 
     /**
-     * The shade degree of the image is moderate.
+     * The shade degree of the image color is moderate.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -919,7 +919,7 @@ declare namespace effectKit {
     MODERATE_SHADE_PICTURE = 4,
 
     /**
-     * The shade degree of the image is dark.
+     * The shade degree of the image color is dark.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -929,7 +929,7 @@ declare namespace effectKit {
     DARK_PICTURE = 5,
 
     /**
-     * The shade degree of the image is extremely dark.
+     * The shade degree of the image color is extremely dark.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
