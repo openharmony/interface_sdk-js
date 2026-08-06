@@ -85,7 +85,7 @@ import _AgentExtensionContext from './application/AgentExtensionContext';
  * You can use this module to reference the ability public module class.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @FaAndStageModel [since 11]
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 9 dynamic
@@ -350,6 +350,7 @@ declare namespace common {
    * Defines the container of basic data types.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FaAndStageModel [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
