@@ -40,8 +40,8 @@ import { FractionStop } from './arkui/component/common';
  *
  * This module provides the following classes:
  *
- * - [Filter]{@link effectKit.Filter}: an effect class used to add a specified effect to the effect chain, enabling combined processing
- *   of multiple image effects through chained calls.
+ * - [Filter]{@link effectKit.Filter}: an effect class used to add a specified effect to the effect chain,
+ *   enabling combined processing of multiple image effects through chained calls.
  * - [Color]{@link effectKit.Color}: a class used to store the color picked.
  * - [ColorPicker]{@link effectKit.ColorPicker}: a smart color picker.
  *
@@ -139,7 +139,8 @@ declare namespace effectKit {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter,
+      maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
      * Adds the brightness effect to the effect chain and returns the instance of the chain. This method achieves

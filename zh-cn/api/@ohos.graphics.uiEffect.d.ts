@@ -40,7 +40,8 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 declare namespace uiEffect {
 
   /**
-   * Filter效果类，用于将模糊、边缘像素扩展、水波纹等效果添加到组件上。在调用Filter的方法前，需要先通过[createFilter]{@link uiEffect.createFilter}创建一个Filter实例。
+   * Filter效果类，用于将模糊、边缘像素扩展、水波纹等效果添加到组件上。在调用Filter的方法前，
+   * 需要先通过[createFilter]{@link uiEffect.createFilter}创建一个Filter实例。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
@@ -153,7 +154,9 @@ declare namespace uiEffect {
      * 将贝塞尔曲线变形的效果添加至组件上。该效果通过在图层边界上创建封闭的贝塞尔曲线，实现对图像的精准扭曲和形状调整。
      * 贝塞尔曲线共有四段，首尾顺次相连，每段包含一个顶点和两个切点。典型应用场景包括人脸形变特效、卡片透视变形等。
      *
-     * @param { Array<common2D.Point> } controlPoints - 12个贝塞尔形变控制点，数组长度必须为12，更改控制点的位置可改变形成边缘的曲线形状，从而扭曲图像。控制点坐标使用归一化坐标系（默认范围为[0, 1]），且坐标值可大于1或小于0。数组长度不为12时效果不生效。
+     * @param { Array<common2D.Point> } controlPoints - 12个贝塞尔形变控制点，数组长度必须为12，
+     *     更改控制点的位置可改变形成边缘的曲线形状，从而扭曲图像。控制点坐标使用归一化坐标系
+     *     （默认范围为[0, 1]），且坐标值可大于1或小于0。数组长度不为12时效果不生效。
      * @returns { Filter } - 返回挂载了贝塞尔曲线变形效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -191,7 +194,10 @@ declare namespace uiEffect {
      *     数组长度等于0或大于12时无效果，colors、positions和strengths的数组长度不相等时无效果。
      * @param { Array<double> } strengths - 强度数组，颜色对应的扩散强度。数组长度取值范围为[0, 12], 每一个强度值取值范围需大于等于0。
      *     数组长度等于0或大于12时无效果，colors、positions和strengths的数组长度不相等时无效果。
-     * @param { Mask } [alphaMask] - 控制渐变效果透明度分布的遮罩。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度完全由colors参数决定。
+     * @param { Mask } [alphaMask] - 控制渐变效果透明度分布的遮罩。可通过Mask类的创建方法
+     *     （如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的
+     *     透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度
+     *     完全由colors参数决定。
      * @returns { Filter } - 返回挂载了颜色渐变效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -207,9 +213,15 @@ declare namespace uiEffect {
      *
      * @param { double } alpha - 指定描边高光透明度，越大描边越明显。取值范围为[0, 1]。
      *     设置为0时无描边；设置小于0的值时，按值为0处理；设置大于1的值时，按值为1处理。
-     * @param { Color } [color] - 指定描边高光颜色，RGB各分量取值范围为[0, +∞)。当需要自定义描边高光颜色（如强调特定颜色效果）时传入此参数。不设置时，默认使用组件内容的原始颜色。设置了color参数时，Color中的alpha不发挥作用，仅使用rgb。
-     * @param { Mask } [mask] - 指定描边高光强度遮罩。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制描边高光效果的作用区域（如局部高光而非全局高光）时传入此参数。不设置时，默认组件内容全部有描边高光效果。
-     * @param { boolean } [bloom] - 指定描边是否发光。当需要增强视觉效果时设置为true；当需要简洁描边效果时设置为false。不设置时默认为true（带发光效果）。小于16*16的图片默认只有描边效果，无发光效果，此参数失去作用。
+     * @param { Color } [color] - 指定描边高光颜色，RGB各分量取值范围为[0, +∞)。
+     *     当需要自定义描边高光颜色（如强调特定颜色效果）时传入此参数。不设置时，
+     *     默认使用组件内容的原始颜色。设置了color参数时，Color中的alpha不发挥作用，仅使用rgb。
+     * @param { Mask } [mask] - 指定描边高光强度遮罩。可通过Mask类的创建方法
+     *     （如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制描边高光效果的
+     *     作用区域（如局部高光而非全局高光）时传入此参数。不设置时，默认组件内容全部有描边高光效果。
+     * @param { boolean } [bloom] - 指定描边是否发光。当需要增强视觉效果时设置为true；
+     *     当需要简洁描边效果时设置为false。不设置时默认为true（带发光效果）。
+     *     小于16*16的图片默认只有描边效果，无发光效果，此参数失去作用。
      * @returns { Filter } - 返回挂载了描边高光效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -222,8 +234,13 @@ declare namespace uiEffect {
     /**
      * 为组件内容添加扭曲效果。
      *
-     * @param { Mask } displacementMap - 置换贴图，用于控制扭曲的方向和强度。可通过Mask类的创建方法（如createRippleMask、createPixelMapMask等）创建Mask实例。与factor相乘后共同决定扭曲程度。
-     * @param { [double, double] } [factor] - 指定水平、竖直方向扭曲程度系数。当需要控制扭曲的方向和强度（如单向扭曲或差异扭曲）时传入此参数。系数的绝对值越大，扭曲程度越明显，建议取值范围为[-10.0, 10.0]。不设置时默认值为[1.0, 1.0]，表示水平和竖直方向均应用默认扭曲强度。设置为[0.0, 0.0]时，无扭曲效果。Mask的灰度值控制扭曲的方向和强度，factor与Mask灰度值相乘后共同决定最终的扭曲程度，即实际扭曲值 = Mask灰度值 × factor值。
+     * @param { Mask } displacementMap - 置换贴图，用于控制扭曲的方向和强度。可通过Mask类的创建方法
+     *     （如createRippleMask、createPixelMapMask等）创建Mask实例。与factor相乘后共同决定扭曲程度。
+     * @param { [double, double] } [factor] - 指定水平、竖直方向扭曲程度系数。当需要控制扭曲的方向和强度
+     *     （如单向扭曲或差异扭曲）时传入此参数。系数的绝对值越大，扭曲程度越明显，建议取值范围为
+     *     [-10.0, 10.0]。不设置时默认值为[1.0, 1.0]，表示水平和竖直方向均应用默认扭曲强度。
+     *     设置为[0.0, 0.0]时，无扭曲效果。Mask的灰度值控制扭曲的方向和强度，factor与Mask灰度值
+     *     相乘后共同决定最终的扭曲程度，即实际扭曲值 = Mask灰度值 × factor值。
      * @returns { Filter } - 返回挂载了扭曲效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -236,12 +253,20 @@ declare namespace uiEffect {
     /**
      * 为组件内容添加由置换贴图控制的色散效果，模拟光线通过棱镜时的色散现象。典型应用场景包括炫彩特效、棱镜折射模拟等。
      *
-     * @param { Mask } dispersionMap - 置换贴图，用于控制色散的强度、方向和透明度。建议使用PixelMapMask类型的置换贴图，可通过自定义图片纹理实现对色散区域和强度的精细控制。可通过createPixelMapMask方法创建Mask实例。
+     * @param { Mask } dispersionMap - 置换贴图，用于控制色散的强度、方向和透明度。建议使用
+     *     PixelMapMask类型的置换贴图，可通过自定义图片纹理实现对色散区域和强度的精细控制。
+     *     可通过createPixelMapMask方法创建Mask实例。
      * @param { double } alpha - 色散整体透明度，透明度越小效果越透明。取值范围为[0, 1.0]。
      *     透明度设置为0时色散效果不生效；透明度设置小于0的值时，按值为0处理；设置大于1.0的值时，按值为1.0处理。
-     * @param { [double, double] } [rFactor] - X/Y方向上R通道的色散基础偏移。当需要自定义红色通道的色散强度和方向时传入此参数，偏移越大红色色散效果越明显。不传入时默认值为[0.0, 0.0]，无R通道色散偏移。每个方向上的取值范围为[-1.0, 1.0]，超出范围自动截断。
-     * @param { [double, double] } [gFactor] - X/Y方向上G通道的色散基础偏移。当需要自定义绿色通道的色散强度和方向时传入此参数。不传入时默认值为[0.0, 0.0]，无G通道色散偏移。取值范围同rFactor，为[-1.0, 1.0]，超出范围自动截断。
-     * @param { [double, double] } [bFactor] - X/Y方向上B通道的色散基础偏移。当需要自定义蓝色通道的色散强度和方向时传入此参数。不传入时默认值为[0.0, 0.0]，无B通道色散偏移。取值范围同rFactor，为[-1.0, 1.0]，超出范围自动截断。
+     * @param { [double, double] } [rFactor] - X/Y方向上R通道的色散基础偏移。当需要自定义红色通道的
+     *     色散强度和方向时传入此参数，偏移越大红色色散效果越明显。不传入时默认值为[0.0, 0.0]，
+     *     无R通道色散偏移。每个方向上的取值范围为[-1.0, 1.0]，超出范围自动截断。
+     * @param { [double, double] } [gFactor] - X/Y方向上G通道的色散基础偏移。当需要自定义绿色通道的
+     *     色散强度和方向时传入此参数。不传入时默认值为[0.0, 0.0]，无G通道色散偏移。
+     *     取值范围同rFactor，为[-1.0, 1.0]，超出范围自动截断。
+     * @param { [double, double] } [bFactor] - X/Y方向上B通道的色散基础偏移。当需要自定义蓝色通道的
+     *     色散强度和方向时传入此参数。不传入时默认值为[0.0, 0.0]，无B通道色散偏移。
+     *     取值范围同rFactor，为[-1.0, 1.0]，超出范围自动截断。
      * @returns { Filter } - 返回挂载了由置换贴图控制的色散效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -264,7 +289,9 @@ declare namespace uiEffect {
      * > 使用HDR提亮效果会带来一定的性能功耗开销，建议在已有HDR图片或视频的场景使用。
      *
      * @permission ohos.permission.HDR_BRIGHTNESS [since 24]
-     * @param { double } ratio - 提亮倍数，取值范围为[1.0, 设备当前支持的最大提亮倍数]。小于1.0按1.0处理；等于1.0不做处理；大于1.0尝试触发HDR渲染管线；超过最大倍数按最大倍数处理。
+     * @param { double } ratio - 提亮倍数，取值范围为[1.0, 设备当前支持的最大提亮倍数]。
+     *     小于1.0按1.0处理；等于1.0不做处理；大于1.0尝试触发HDR渲染管线；
+     *     超过最大倍数按最大倍数处理。
      * @returns { Filter } - 返回挂载了HDR提亮效果的Filter，支持链式调用继续添加其他效果。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      *     [since 20 - 23]
@@ -294,12 +321,16 @@ declare namespace uiEffect {
     variableRadiusBlur(radius: double, radiusMap: Mask): Filter;
 
     /**
-     * 为组件内容提供基于Mask和平行光的光照效果。平行光从统一方向照射组件平面，所有光线方向一致，不因距离衰减，光照强度在组件各处均匀分布，适合模拟太阳光等远距离光源场景。与contentLight的点光源不同，平行光无需指定光源具体位置。通过Mask可控制光照细节，通过factor可结合高度图增强浮雕效果。
+     * 为组件内容提供基于Mask和平行光的光照效果。平行光从统一方向照射组件平面，所有光线方向一致，
+     *     不因距离衰减，光照强度在组件各处均匀分布，适合模拟太阳光等远距离光源场景。
+     *     与contentLight的点光源不同，平行光无需指定光源具体位置。通过Mask可控制光照细节，
+     *     通过factor可结合高度图增强浮雕效果。
      *
      * @param { common2D.Point3d } direction - 入射光的方向，通过三维坐标表示光线的入射方向。
      * @param { Color } color - 光照颜色。
      * @param { double } intensity - 光照强度，取值范围为[0, +∞)，数值越大光源亮度越大。
-     * @param { Mask } [mask] - 置换贴图，用于描述二维图像表面的三维细节。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。
+     * @param { Mask } [mask] - 置换贴图，用于描述二维图像表面的三维细节。可通过Mask类的创建方法
+     *     （如createRippleMask、createRadialGradientMask等）创建Mask实例。
      *     当需要增强局部细节和光照反射效果（如浮雕、凹凸纹理）时传入此参数。通过法线或高度图实现，若输入为高度图需与factor参数配合使用。
      *     不设置时默认为空，表现为全局无细节的平面光照效果。
      * @param { double } [factor] - 采样缩放系数。当使用高度图作为mask且需要控制高度缩放时传入此参数。不设置时mask作为法线图采样直接使用；
@@ -318,9 +349,15 @@ declare namespace uiEffect {
      *
      * 不建议在屏幕尺寸发生改变的过程中使用此效果，如：旋转屏幕，折叠屏开合屏幕等。
      *
-     * @param { Mask } alphaMask - 通过遮罩指定转场效果的作用区域。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。Mask的灰度值决定转场效果的作用程度，灰度值越大的区域转场效果越明显。
-     * @param { double } [factor] - 转场过渡系数。当需要控制转场进度（如动画中途或动态调整）时传入此参数，值越大画面越接近转场后页面。不设置时默认值为1.0（转场完成状态）。取值范围为[0.0, 1.0]，超出范围自动截断到[0.0, 1.0]。
-     * @param { boolean } [inverse] - 是否启用反向转场。当需要反向转场效果（如从后页面向前页面过渡）时设置为true；当需要正向转场效果（从前页面向后页面过渡）时设置为false。默认值为false（正向转场）。
+     * @param { Mask } alphaMask - 通过遮罩指定转场效果的作用区域。可通过Mask类的创建方法
+     *     （如createRippleMask、createRadialGradientMask等）创建Mask实例。Mask的灰度值
+     *     决定转场效果的作用程度，灰度值越大的区域转场效果越明显。
+     * @param { double } [factor] - 转场过渡系数。当需要控制转场进度（如动画中途或动态调整）时
+     *     传入此参数，值越大画面越接近转场后页面。不设置时默认值为1.0（转场完成状态）。
+     *     取值范围为[0.0, 1.0]，超出范围自动截断到[0.0, 1.0]。
+     * @param { boolean } [inverse] - 是否启用反向转场。当需要反向转场效果（如从后页面向前页面过渡）
+     *     时设置为true；当需要正向转场效果（从前页面向后页面过渡）时设置为false。
+     *     默认值为false（正向转场）。
      * @returns { Filter } - 返回挂载了转场效果的Filter。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -534,12 +571,16 @@ declare namespace uiEffect {
      * 此方法为组件添加颜色渐变效果。
      *
      * @param { Array<Color> } colors - 颜色数组，用于实现多颜色渐变。
-     *     数组长度范围0到12，每个颜色值取值范围需大于等于0。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
+     *     数组长度范围0到12，每个颜色值取值范围需大于等于0。数组长度为0或大于12，
+     *     或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
      * @param { Array<common2D.Point> } positions - 位置数组，颜色对应的位置。
      *     数组长度范围为0到12。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
      * @param { Array<double> } strengths - 强度数组，表示颜色对应的强度。
      *     数组长度范围为0到12，每一个强度值需大于等于0。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致时，则无颜色渐变效果。
-     * @param { Mask } [alphaMask] - 遮罩alpha，颜色对应的alpha遮罩。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度完全由colors参数决定。
+     * @param { Mask } [alphaMask] - 遮罩alpha，颜色对应的alpha遮罩。可通过Mask类的创建方法
+     *     （如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的
+     *     透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度
+     *     完全由colors参数决定。
      * @returns { VisualEffect } - 返回具有颜色渐变效果的VisualEffect。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
@@ -551,11 +592,14 @@ declare namespace uiEffect {
       alphaMask?: Mask): VisualEffect;
 
     /**
-     * 此方法为组件添加材质效果。材质效果通过模拟物理材质的光学特性（折射、反射）和动态扰动效果，实现玻璃、金属等材质的视觉呈现。可用于模拟玻璃质感UI、流体材质动画、磨砂玻璃效果等场景。
+     * 此方法为组件添加材质效果。材质效果通过模拟物理材质的光学特性（折射、反射）和动态扰动效果，
+     *     实现玻璃、金属等材质的视觉呈现。可用于模拟玻璃质感UI、流体材质动画、磨砂玻璃效果等场景。
      *
      * @param { LiquidMaterialEffectParam } param - 材质所需相关变量，用于控制材质显示，包含材质开关、折射系数、反射系数和扰动系数。
-     * @param { Mask } useEffectMask - 声明是否使用模糊缓存。使用createUseEffectMask(true)创建的Mask实例使用模糊缓存，适用于需要复用模糊结果的场景以提升性能；
-     *     使用createUseEffectMask(false)创建的Mask实例不使用模糊缓存，适用于模糊效果频繁变化的场景。
+     * @param { Mask } useEffectMask - 声明是否使用模糊缓存。使用createUseEffectMask(true)创建的
+     *     Mask实例使用模糊缓存，适用于需要复用模糊结果的场景以提升性能；
+     *     使用createUseEffectMask(false)创建的Mask实例不使用模糊缓存，
+     *     适用于模糊效果频繁变化的场景。
      * @param { Mask } [distortMask] - 材质扰动效果需要的扰动纹理，由pixelMap创建的Mask实例的图片纹理决定扰动效果的图案和方向。
      *     可通过createPixelMapMask方法创建Mask实例。当材质的扰动系数（distortFactor）不为0时，需要设置此参数否则无扰动效果；
      *     当材质的扰动系数为0或此参数不设置时，无扰动效果。默认不设置。
@@ -577,8 +621,10 @@ declare namespace uiEffect {
      * 1. 该视效支持控件范围外的绘制，但仍会受到父控件Clip的影响。
      * 2. 因包含前景Filter，未与EffectComponent组合使用时不兼容组件自身及子组件的部分视效（如BrightnessBlender或systemMaterial）。
      * 3. 支持对系统材质进行扭曲，但是与EffectComponent组合使用时，会导致系统材质的背景扭曲。
-     * 4. 调用distortionCollapse时，会创建与形变后区域等大的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再对画布上的已有内容进行形变绘制。
-     * 5. 使用该实现方式时，如果不与EffectComponent组合使用，将导致systemMaterial、backgroundEffect、brightness、blur等需要截屏的接口无法截取到正确的画面。
+     * 4. 调用distortionCollapse时，会创建与形变后区域等大的离屏画布，再将当前组件（含子组件）
+     *     的内容绘制到离屏画布上，再对画布上的已有内容进行形变绘制。
+     * 5. 使用该实现方式时，如果不与EffectComponent组合使用，将导致systemMaterial、
+     *     backgroundEffect、brightness、blur等需要截屏的接口无法截取到正确的画面。
      *
      * @param { DistortionParam } distortionParam - 非线性形变效果的参数。
      * @returns { VisualEffect } - 返回添加了非线性形变效果的VisualEffect。
@@ -842,7 +888,9 @@ declare namespace uiEffect {
     rippleProgress : double;
 
     /**
-     * 水波效果作用的位置。当需要在多个指定位置同时触发水波效果时传入此参数。不传入时默认无水波位置，水波效果不生效。数组中每个位置包含x和y两个维度，坐标为归一化坐标，[0, 0]表示左上角，[1, 1]表示右下角。最多支持10个位置坐标，超出则整体无效。
+     * 水波效果作用的位置。当需要在多个指定位置同时触发水波效果时传入此参数。不传入时默认无水波位置，
+     *     水波效果不生效。数组中每个位置包含x和y两个维度，坐标为归一化坐标，[0, 0]表示左上角，
+     *     [1, 1]表示右下角。最多支持10个位置坐标，超出则整体无效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1234,7 +1282,9 @@ declare namespace uiEffect {
       blurRadius: double, turbulenceStrength?: double): Mask;
 
     /**
-     * 创建并设置Mask实例是否使用模糊缓存。此Mask实例专为liquidMaterial方法的useEffectMask参数设计，用于声明材质效果是否使用模糊缓存以提升性能。将此Mask实例用于其他Filter或VisualEffect方法时，useEffect属性可能不生效。
+     * 创建并设置Mask实例是否使用模糊缓存。此Mask实例专为liquidMaterial方法的useEffectMask参数设计，
+     *     用于声明材质效果是否使用模糊缓存以提升性能。将此Mask实例用于其他Filter或VisualEffect方法时，
+     *     useEffect属性可能不生效。
      *
      * @param { boolean } useEffect - 标记是否使用模糊缓存。值为true，表示使用，会正常显示模糊效果；值为false，表示不使用，不显示模糊效果。
      * @returns { Mask } - 返回标记是否使用模糊缓存的Mask实例。
@@ -1303,8 +1353,10 @@ declare namespace uiEffect {
      *     支持最大提亮倍数 = 设备最大亮度 / 设备默认亮度。
      *     设备最大亮度通过hdc命令获取：hdc shell param get const.display.brightness.max
      *     设备默认亮度通过hdc命令获取：hdc shell param get const.display.brightness.default
-     * @param { [double, double, double] } [grayscaleFactor] - 将RGB颜色转换为灰度值。灰度转换公式的权重可随当前色域自动调整，不同色域下使用不同的权重计算方式；
-     *     适用于sRGB等标准色域场景。当需要根据特定色域或视觉效果自定义灰度转换权重时传入此参数。三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
+     * @param { [double, double, double] } [grayscaleFactor] - 将RGB颜色转换为灰度值。灰度转换公式的权重
+     *     可随当前色域自动调整，不同色域下使用不同的权重计算方式；
+     *     适用于sRGB等标准色域场景。当需要根据特定色域或视觉效果自定义灰度转换权重时传入此参数。
+     *     三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
     * @returns { HdrDarkenBlender } 返回HDR压暗混合器，用于将压暗效果添加到指定的组件上。
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi

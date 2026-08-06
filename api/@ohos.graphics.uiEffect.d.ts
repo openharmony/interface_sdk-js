@@ -29,8 +29,10 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
  * This module provides basic capabilities for component effects, including blur, brightening, and more.
  * Effects are categorized into the Filter and VisualEffect classes, and effects of the same class can be cascaded
  * under an instance of that effect class. Using this module, you can quickly implement complex visual effects without
- * needing to master underlying image processing algorithms, reducing development complexity and improving user experience.
- * In actual development, blur can be used for background blurring, and brightening can be used for bright screen display, etc.
+ * needing to master underlying image processing algorithms, reducing development complexity and improving
+ * user experience.
+ * In actual development, blur can be used for background blurring, and brightening can be used for
+ * bright screen display, etc.
  *
  * - [Filter]{@link uiEffect.Filter}: Used to add specified Filter effects to a component.
  * - [VisualEffect]{@link uiEffect.VisualEffect}: Used to add specified VisualEffect effects to a component.
@@ -75,7 +77,8 @@ declare namespace uiEffect {
      * @param { double } blurRadius - Blur radius, in px. The value must be greater than or equal to 0.
      *     A larger blur radius results in a stronger blur effect. When the blur radius is 0, there is no blur effect.
      *     If a negative number is passed in, it is automatically corrected to 0.
-     * @returns { Filter } - Returns the Filter with the blur effect attached, supporting chained calls to add other effects.
+     * @returns { Filter } - Returns the Filter with the blur effect attached, supporting chained calls
+     *     to add other effects.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      * @since 23 static
@@ -150,7 +153,8 @@ declare namespace uiEffect {
      * @param { double } radius - Blur radius, in px. A larger blur radius results in a stronger blur effect.
      *     The value range is [0, 128]. When the blur radius is 0, there is no blur effect;
      *     values less than 0 are treated as 0; values greater than 128 are treated as 128.
-     * @param { LinearGradientBlurOptions } gradientParam - The linear gradient parameters, including fractionStops and direction.
+     * @param { LinearGradientBlurOptions } gradientParam - The linear gradient parameters, including
+     *     fractionStops and direction.
      * @returns { Filter } - Returns the Filter with the radius linear gradient blur effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
@@ -167,7 +171,8 @@ declare namespace uiEffect {
      * one vertex and two tangent points. Typical application scenarios include face deformation effects,
      * card perspective distortion, etc.
      *
-     * @param { Array<common2D.Point> } controlPoints - 12 Bezier deformation control points. The array length must be 12.
+     * @param { Array<common2D.Point> } controlPoints - 12 Bezier deformation control points.
+     *     The array length must be 12.
      *     Changing the positions of the control points changes the shape of the curves forming the edges,
      *     thereby distorting the image. The control point coordinates use a normalized coordinate system
      *     (default range [0, 1]), and coordinate values can be greater than 1 or less than 0.
@@ -212,7 +217,8 @@ declare namespace uiEffect {
      *     and each color value must be greater than or equal to 0.
      *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
      *     are not equal, the effect will not take effect.
-     * @param { Array<common2D.Point> } positions - The position array, corresponding to the distribution positions of colors.
+     * @param { Array<common2D.Point> } positions - The position array, corresponding to the
+     *     distribution positions of colors.
      *     The array length range is [0, 12]. If the array length is 0 or greater than 12, or if the array lengths of
      *     colors, positions, and strengths are not equal, the effect will not take effect.
      * @param { Array<double> } strengths - The strength array, corresponding to the diffusion strength of colors.
@@ -238,19 +244,24 @@ declare namespace uiEffect {
      * Detects edges of the component content and adds an edge highlight effect.
      * This effect automatically detects the edge contours of the component content and overlays a highlight stroke.
      *
-     * @param { double } alpha - Specifies the stroke highlight transparency. A larger value makes the stroke more obvious.
+     * @param { double } alpha - Specifies the stroke highlight transparency. A larger value makes
+     *     the stroke more obvious.
      *     The value range is [0, 1]. Setting it to 0 results in no stroke; values less than 0 are treated as 0;
      *     values greater than 1 are treated as 1.
      * @param { Color } [color] - Specifies the stroke highlight color. The RGB components range from [0, +∞).
-     *     Pass this parameter when you need to customize the stroke highlight color (such as emphasizing a specific color effect).
+     *     Pass this parameter when you need to customize the stroke highlight color (such as emphasizing
+     *     a specific color effect).
      *     If not set, the original color of the component content is used by default. When the color parameter is set,
      *     the alpha in Color does not take effect; only RGB is used.
      * @param { Mask } [mask] - Specifies the stroke highlight intensity mask. A Mask instance can be created through
      *     Mask creation methods (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when
-     *     you need to control the area of the stroke highlight effect (such as local highlight instead of global highlight).
+     *     you need to control the area of the stroke highlight effect (such as local highlight instead
+     *     of global highlight).
      *     If not set, the entire component content has the stroke highlight effect by default.
-     * @param { boolean } [bloom] - Specifies whether the stroke has a bloom effect. Set to true when you need to enhance
-     *     the visual effect; set to false when you need a simple stroke effect. The default value is true (with bloom effect).
+     * @param { boolean } [bloom] - Specifies whether the stroke has a bloom effect. Set to true
+     *     when you need to enhance
+     *     the visual effect; set to false when you need a simple stroke effect. The default value
+     *     is true (with bloom effect).
      *     For images smaller than 16x16, there is only a stroke effect by default, no bloom effect, and this parameter
      *     has no effect.
      * @returns { Filter } - Returns the Filter with the edge highlight effect attached.
@@ -265,7 +276,8 @@ declare namespace uiEffect {
     /**
      * Adds a distortion effect to the component content.
      *
-     * @param { Mask } displacementMap - The displacement map, used to control the direction and intensity of distortion.
+     * @param { Mask } displacementMap - The displacement map, used to control the direction and
+     *     intensity of distortion.
      *     A Mask instance can be created through Mask creation methods (such as createRippleMask,
      *     createPixelMapMask, etc.). It works together with the factor to determine the degree of distortion.
      * @param { [double, double] } [factor] - Specifies the horizontal and vertical distortion intensity coefficients.
@@ -300,17 +312,20 @@ declare namespace uiEffect {
      *     values less than 0 are treated as 0; values greater than 1.0 are treated as 1.0.
      * @param { [double, double] } [rFactor] - The basic offset of the R channel in the X/Y direction.
      *     Pass this parameter when you need to customize the dispersion intensity and direction of the red channel.
-     *     A larger offset results in a more obvious red dispersion effect. If not passed, the default value is [0.0, 0.0],
+     *     A larger offset results in a more obvious red dispersion effect. If not passed, the default
+     *     value is [0.0, 0.0],
      *     meaning no R channel dispersion offset. The value range for each direction is [-1.0, 1.0],
      *     and values outside the range will be automatically clamped.
      * @param { [double, double] } [gFactor] - The basic offset of the G channel in the X/Y direction.
      *     Pass this parameter when you need to customize the dispersion intensity and direction of the green channel.
      *     If not passed, the default value is [0.0, 0.0], meaning no G channel dispersion offset.
-     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will be automatically clamped.
+     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will
+     *     be automatically clamped.
      * @param { [double, double] } [bFactor] - The basic offset of the B channel in the X/Y direction.
      *     Pass this parameter when you need to customize the dispersion intensity and direction of the blue channel.
      *     If not passed, the default value is [0.0, 0.0], meaning no B channel dispersion offset.
-     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will be automatically clamped.
+     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will
+     *     be automatically clamped.
      * @returns { Filter } - Returns the Filter with the dispersion effect controlled by the displacement map attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
@@ -386,12 +401,14 @@ declare namespace uiEffect {
      * @param { common2D.Point3d } direction - The direction of the incident light, represented by three-dimensional
      *     coordinates indicating the direction of the light rays.
      * @param { Color } color - The light color.
-     * @param { double } intensity - The light intensity. The value range is [0, +∞). A larger value indicates a brighter
+     * @param { double } intensity - The light intensity. The value range is [0, +∞).
+     *     A larger value indicates a brighter
      *     light source.
      * @param { Mask } [mask] - The displacement map, used to describe the three-dimensional details of the
      *     two-dimensional image surface. A Mask instance can be created through Mask creation methods
      *     (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when you need to enhance
-     *     local details and lighting reflection effects (such as relief, bump textures). Implemented through normal maps
+     *     local details and lighting reflection effects (such as relief, bump textures).
+     *     Implemented through normal maps
      *     or height maps; if a height map is input, it needs to be used with the factor parameter.
      *     If not set, the default is empty, resulting in a global flat lighting effect without details.
      * @param { double } [factor] - The sampling scale coefficient. Pass this parameter when using a height map as the
@@ -605,7 +622,8 @@ declare namespace uiEffect {
   interface VisualEffect {
 
     /**
-     * A blender for changing the background color of the component. Currently, only the brightness blender is supported.
+     * A blender for changing the background color of the component. Currently, only the brightness
+     * blender is supported.
      *
      * @param { BrightnessBlender } blender - The blender for blending the background color.
      * @returns { VisualEffect } - Returns the VisualEffect with the background color change effect attached.
@@ -1356,8 +1374,10 @@ declare namespace uiEffect {
      * @param { image.PixelMap } pixelMap - The PixelMap instance created by the image module.
      *     It can be obtained through image decoding or direct creation.
      * @param { common2D.Rect } srcRect - The area of the pixelMap to be drawn.
-     *     The leftmost and topmost positions correspond to 0, and the rightmost and bottommost positions correspond to 1.
-     *     right must be greater than left, and bottom must be greater than top; otherwise the effect will not take effect.
+     *     The leftmost and topmost positions correspond to 0, and the rightmost and bottommost
+     *     positions correspond to 1.
+     *     right must be greater than left, and bottom must be greater than top; otherwise the
+     *     effect will not take effect.
      * @param { common2D.Rect } dstRect - The drawing area of the pixelMap on the node where the mask is mounted.
      *     The leftmost and topmost positions of the node correspond to 0, and the rightmost and bottommost positions
      *     correspond to 1. right must be greater than left, and bottom must be greater than top;
@@ -1510,7 +1530,8 @@ declare namespace uiEffect {
    * Creates an HdrBrightnessBlender instance for adding an HDR-enabled brightness effect to a component.
    *
    * @param { BrightnessBlenderParam } param - The brightness blender parameters, including grayscale adjustment
-   *     coefficients, saturation, blending ratio, and other configuration items, used to configure the brightness effect.
+     *     coefficients, saturation, blending ratio, and other configuration items, used to configure
+     *     the brightness effect.
    * @returns { HdrBrightnessBlender } Returns the HDR-enabled brightness blender.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Graphics.Drawing
@@ -1529,7 +1550,8 @@ declare namespace uiEffect {
    *     are treated as the maximum ratio.
    *     The maximum supported brightness ratio = device maximum brightness / device default brightness.
     *     Device maximum brightness can be obtained via hdc command: hdc shell param get const.display.brightness.max
-    *     Device default brightness can be obtained via hdc command: hdc shell param get const.display.brightness.default
+     *     Device default brightness can be obtained via hdc command:
+     *     hdc shell param get const.display.brightness.default
    * @param { [double, double, double] } [grayscaleFactor] - Converts RGB colors to grayscale values.
    *     The weights of the grayscale conversion formula can be automatically adjusted according to the current
    *     color gamut, using different weight calculation methods under different color gamuts;

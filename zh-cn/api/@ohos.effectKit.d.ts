@@ -117,7 +117,8 @@ declare namespace effectKit {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter,
+      maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
      * 将高亮效果添加到效果链表中，返回链表的实例。该方法通过调整图像亮度实现高亮效果，
@@ -290,7 +291,8 @@ declare namespace effectKit {
      * 读取图像占比靠前的颜色值，个数由`colorCount`指定，结果写入[Color]{@link effectKit.Color}的数组里，使用同步方式返回。
      * 常用于提取图片中占比最高的多个颜色，如多色调配色方案生成、图片色彩分布分析等场景。
      *
-     * @param { int } colorCount - 需要获取的颜色个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @param { int } colorCount - 需要获取的颜色个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，
+     *     取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
      * @returns { Array<Color | null> } Color数组，即图像占比前`colorCount`的颜色值数组，按占比排序。
      *     - 当实际读取的特征色个数小于`colorCount`时，数组大小为实际特征色个数。
      *     - 取色失败或取色个数小于1返回`[null]`。
@@ -306,7 +308,8 @@ declare namespace effectKit {
     /**
      * 同步返回图像占比靠前的颜色值及其对应比例，个数由`colorCount`指定。
      *
-     * @param { int } colorCount - 颜色值及对应比例的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @param { int } colorCount - 颜色值及对应比例的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，
+     *     取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
      * @returns { Map<Color | null, double | null> } 图像占比前`colorCount`的颜色值与对应比例的字典，比例的取值范围为[0,1]。
      *     - 当实际读取的特征色个数小于`colorCount`时，字典大小为实际特征色个数。
      *     - 取色失败或取色个数小于1返回`Map()`。
@@ -645,7 +648,8 @@ declare namespace effectKit {
   /**
    * 通过传入的PixelMap创建ColorPicker实例，使用Promise异步回调。
    *
-   * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
+   * @param { image.PixelMap } source - image模块创建的PixelMap实例。可通过图片解码或直接创建获得，
+   *     具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @returns { Promise<ColorPicker> } - Promise对象。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -660,7 +664,8 @@ declare namespace effectKit {
   /**
    * 通过传入的PixelMap创建选定取色区域的ColorPicker实例，使用Promise异步回调。
    *
-   * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
+   * @param { image.PixelMap } source - image模块创建的PixelMap实例。可通过图片解码或直接创建获得，
+   *     具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { Array<double> } region - 指定图片的取色区域。 数组第三个元素需大于第一个元素，第四个元素需大于第二个元素。
    * @returns { Promise<ColorPicker> } - Promise对象。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
@@ -676,7 +681,8 @@ declare namespace effectKit {
   /**
    * 通过传入的PixelMap创建ColorPicker实例，使用callback异步回调。
    *
-   * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
+   * @param { image.PixelMap } source - image模块创建的PixelMap实例。可通过图片解码或直接创建获得，
+   *     具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
      * @param { AsyncCallback<ColorPicker> } callback - 回调函数。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -691,7 +697,8 @@ declare namespace effectKit {
   /**
    * 通过传入的PixelMap创建选定取色区域的ColorPicker实例，使用callback异步回调。
    *
-   * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
+   * @param { image.PixelMap } source - image模块创建的PixelMap实例。可通过图片解码或直接创建获得，
+   *     具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { Array<double> } region - 指定图片的取色区域。 数组第三个元素需大于第一个元素，第四个元素需大于第二个元素。
      * @param { AsyncCallback<ColorPicker> } callback - 回调函数。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
