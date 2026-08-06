@@ -24,6 +24,7 @@ import { PERF } from './utils/perf_constants';
 
 export let externalApiCheckPlugin = new Map();
 export let fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
+export let fileApiAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
 export let suppressWarningsCheckPlugin = new Map();
 
 /**
@@ -112,5 +113,6 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
 function resetPlugins(): void {
   externalApiCheckPlugin = new Map();
   fileAvailableCheckCache = new Map();
+  fileApiAvailableCheckCache = new Map();
   suppressWarningsCheckPlugin = new Map();
 }
