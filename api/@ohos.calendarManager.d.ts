@@ -629,14 +629,15 @@ declare namespace calendarManager {
 
   interface Event {
     /**
-     * Event ID. When you call 
+     * Event ID. This parameter does not need to be set in 
      * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)} or 
-     * [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)} to create
-     * an event, this parameter is not required. When you call 
-     * [deleteEvent()]{@link calendarManager.Calendar.deleteEvent(id: number, callback: AsyncCallback<void>)} or 
-     * [deleteEvents()]{@link calendarManager.Calendar.deleteEvents(ids: number[], callback: AsyncCallback<void>)} to 
-     * delete an event, this parameter is required and must be set to an array of integers. If this parameter is set to 
-     * an invalid value, an error will be reported.
+     * [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)}.
+     * This is an auto-increment field of the database, which has no default value.
+     * When [deleteEvent()]{@link calendarManager.Calendar.deleteEvent(id: number, callback: AsyncCallback<void>)} or 
+     * [deleteEvents()]{@link calendarManager.Calendar.deleteEvents(ids: number[], callback: AsyncCallback<void>)} 
+     * is called to delete an event, the value must be an integer. If an invalid value is passed, an error will be reported. 
+     * When [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>} 
+     * is called to query events, this field is queried by default.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -645,7 +646,8 @@ declare namespace calendarManager {
     id?: number;
 
     /**
-     * Event type.
+     * Event type.When [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>} 
+     * is called to query events, this field is queried by default.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -673,8 +675,10 @@ declare namespace calendarManager {
     location?: Location;
 
     /**
-     * Start time of an event. The value is a 13-digit timestamp. For an all-day event, this field is converted to the 
-     * timestamp corresponding to 00:00 of the specified date.
+     * Start time of an event. The value is a 13-digit timestamp. For an all-day event, this field is converted to 
+     * timestamp corresponding to 00:00 of the specified date. 
+     * When [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>} 
+     * is called to query events, this field is queried by default.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -683,8 +687,10 @@ declare namespace calendarManager {
     startTime: number;
 
     /**
-     * End time of an event. The value is a 13-digit timestamp. For an all-day event, this field is converted to the 
-     * timestamp corresponding to 24:00 of the specified date.
+     * End time of an event. The value is a 13-digit timestamp. For an all-day event, this field is converted to 
+     * timestamp corresponding to 00:00 of the specified date. 
+     * When [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>} 
+     * is called to query events, this field is queried by default.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -784,9 +790,11 @@ declare namespace calendarManager {
     isLunar?: boolean;
 
     /**
-     * Start time of an event. The value is a 13-digit timestamp. This parameter does not need to be set in
+     * Start time of an event instance, which must be a 13-digit timestamp. The default value is undefined. This parameter is not required when
      * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)}
-     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)}.
+     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)} is called to create an event or
+     * [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>}
+     * is called to query an event.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -795,9 +803,11 @@ declare namespace calendarManager {
     instanceStartTime?: number;
 
     /**
-     * End time of an event. The value is a 13-digit timestamp. This parameter does not need to be set in 
-	 * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)}
-     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)}.
+     * End time of an event instance, which must be a 13-digit timestamp. The default value is undefined. This parameter is not required when
+     * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)}
+     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)} is called to create an event or
+     * [getEvents()]{@link calendarManager.Calendar.getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>}
+     * is called to query an event.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
