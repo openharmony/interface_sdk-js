@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Telephony Status Observer
+ * @file 电话服务状态监听
  * @kit TelephonyKit
  */
 
@@ -25,9 +25,7 @@ import type call from './@ohos.telephony.call';
 import type sim from './@ohos.telephony.sim';
 
 /**
- * The **observer** module provides event subscription management functions. You can register or unregister an observer
- * that listens for the following events: network status change, signal status change, call status change, cellular data
- * connection status, uplink and downlink data flow status of cellular data services, and SIM status change.
+ * 本模块提供订阅管理功能，可以订阅/取消订阅的事件包括：网络状态变化、信号状态变化、通话状态变化、蜂窝数据链路连接状态、蜂窝数据业务的上下行数据流状态、SIM状态变化。
  *
  * @syscap SystemCapability.Telephony.StateRegistry
  * @since 6 dynamic
@@ -35,7 +33,7 @@ import type sim from './@ohos.telephony.sim';
  */
 declare namespace observer {
   /**
-   * Defines the network status.
+   * 网络注册状态。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -44,7 +42,7 @@ declare namespace observer {
   type NetworkState = radio.NetworkState;
 
   /**
-   * Defines the signal strength.
+   * 网络信号强度信息对象。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -63,7 +61,7 @@ declare namespace observer {
   type CellInformation = radio.CellInformation;
 
   /**
-   * Describes the connection status of a cellular data link.
+   * 描述蜂窝数据链路连接状态。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -72,7 +70,7 @@ declare namespace observer {
   type DataConnectState = data.DataConnectState;
 
   /**
-   * Enumerates the radio access technologies.
+   * 无线接入技术。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -81,7 +79,7 @@ declare namespace observer {
   type RatType = radio.RadioTechnology;
 
   /**
-   * Defines the cellular data flow type.
+   * 描述蜂窝数据流类型。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -90,7 +88,7 @@ declare namespace observer {
   type DataFlowType = data.DataFlowType;
 
   /**
-   * Enumerates call states.
+   * 通话状态码。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -99,7 +97,7 @@ declare namespace observer {
   type CallState = call.CallState;
 
   /**
-   * Enumerates SIM card types.
+   * 卡类型。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -108,7 +106,7 @@ declare namespace observer {
   type CardType = sim.CardType;
 
   /**
-   * SIM card state.
+   * SIM卡状态。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
@@ -117,7 +115,7 @@ declare namespace observer {
   type SimState = sim.SimState;
 
   /**
-   * Enumerates call states.
+   * 通话状态码。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 21 dynamic
@@ -126,7 +124,7 @@ declare namespace observer {
   type TelCallState = call.TelCallState;
 
   /**
-   * Enumerates carrier call states.
+   * 运营商通话状态码。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 23 dynamic&static
@@ -134,7 +132,7 @@ declare namespace observer {
   type CCallState = call.CCallState;
 
   /**
-   * Indicates the result of network search.
+   * Callback when the network state corresponding to the default sim card is updated.
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
@@ -144,16 +142,12 @@ declare namespace observer {
   type NetworkSearchRealTimeResult = radio.NetworkSearchRealTimeResult;
 
   /**
-   * Registers an observer for network status change events. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 订阅网络状态变化事件，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
-   *     **networkStateChange**.
-   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. For details, see
-   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}.
+   * @param { 'networkStateChange' } type - 网络状态变化事件，参数固定为'networkStateChange'。
+   * @param { Callback<NetworkState> } callback - 回调函数，返回网络状态对象。参考radio的
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -185,17 +179,13 @@ declare namespace observer {
   function onNetworkStateChange(callback: Callback<NetworkState>): void;
 
   /**
-   * Registers an observer for network status change events of the SIM card in the specified slot. This API uses an
-   * asynchronous callback to return the execution result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 订阅指定卡槽位的网络状态变化事件，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
-   *     **networkStateChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. For details, see
-   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}.
+   * @param { 'networkStateChange' } type - 网络状态变化事件，参数固定为'networkStateChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<NetworkState> } callback - 回调函数，返回网络状态对象。参考radio的
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -228,18 +218,15 @@ declare namespace observer {
   function onNetworkStateChange(options: ObserverOptions, callback: Callback<NetworkState>): void;
 
   /**
-   * Unregisters the observer for network status change events. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * > **NOTE**
+   * 取消订阅网络状态变化事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
-   *     **networkStateChange**.
-   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. which is the
-   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState} object.
+   * @param { 'networkStateChange' } type - 网络状态变化事件，参数固定为'networkStateChange'。
+   * @param { Callback<NetworkState> } callback - 回调函数，返回网络状态对象。参考radio的
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -268,13 +255,11 @@ declare namespace observer {
   function offNetworkStateChange(callback?: Callback<NetworkState>): void;
 
   /**
-   * Registers an observer for signal status change events. This API uses an asynchronous callback to return the
-   * execution result.
+   * 订阅信号状态变化事件，使用callback方式作为异步方法。
    *
-   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
-   *     **signalInfoChange**.
-   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
-   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
+   * @param { 'signalInfoChange' } type - 信号状态变化事件，参数固定为'signalInfoChange'。
+   * @param { Callback<Array<SignalInformation>> } callback - 回调函数，返回信号强度对象。参考radio的
+   *     [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -303,14 +288,12 @@ declare namespace observer {
   function onSignalInfoChange(callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Registers an observer for signal status change events of the SIM card in the specified slot. This API uses an
-   * asynchronous callback to return the execution result.
+   * 订阅指定卡槽位的信号状态变化事件，使用callback方式作为异步方法。
    *
-   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
-   *     **signalInfoChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
-   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
+   * @param { 'signalInfoChange' } type - 信号状态变化事件，参数固定为'signalInfoChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<Array<SignalInformation>> } callback - 回调函数，返回信号强度对象。参考radio的
+   *     [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -340,18 +323,15 @@ declare namespace observer {
   function onSignalInfoChange(options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Unregisters the observer for signal status change events. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * > **NOTE**
+   * 取消订阅信号状态变化事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
-   *     **signalInfoChange**.
-   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
-   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
+   * @param { 'signalInfoChange' } type - 信号状态变化事件，参数固定为'signalInfoChange'。
+   * @param { Callback<Array<SignalInformation>> } callback - 回调函数，返回信号强度对象。参考radio的
+   *     [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -380,13 +360,11 @@ declare namespace observer {
   function offSignalInfoChange(callback?: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Registers an observer for cell information change events. This API uses an asynchronous callback to return the
-   * result.
+   * 订阅小区信息变化事件，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
-   *     **cellInfoChange**.
-   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
+   * @param { 'cellInfoChange' } type - 小区信息变化事件，固定为'cellInfoChange'。
+   * @param { Callback<Array<CellInformation>> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -422,14 +400,12 @@ declare namespace observer {
   function onCellInfoChange(callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Registers an observer for signal status change events of the SIM card in the specified slot. This API uses an
-   * asynchronous callback to return the execution result.
+   * 订阅指定卡槽位的小区信息变化事件，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
-   *     **cellInfoChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
+   * @param { 'cellInfoChange' } type - 小区信息变化事件，固定为'cellInfoChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<Array<CellInformation>> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -466,17 +442,14 @@ declare namespace observer {
   function onCellInfoChange(options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Unregisters the observer for cell information change events. This API uses an asynchronous callback to return the
-   * result.
-   *
-   * > **NOTE**
+   * 取消订阅小区信息变化事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
-   *     **cellInfoChange**.
-   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
+   * @param { 'cellInfoChange' } type - 小区信息变化事件，固定为'cellInfoChange'。
+   * @param { Callback<Array<CellInformation>> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -509,15 +482,12 @@ declare namespace observer {
   function offCellInfoChange(callback?: Callback<Array<CellInformation>>): void;
 
   /**
-   * Registers an observer for connection status change events of the cellular data link. This API uses an asynchronous
-   * callback to return the result.
+   * 订阅蜂窝数据链路连接状态，使用callback方式作为异步方法。
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
-   *     value of **cellularDataConnectionStateChange**.
-   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
-   *     connection status information object. For details, see
-   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
-   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
+   * @param { 'cellularDataConnectionStateChange' } type - 蜂窝数据链路连接状态事件，参数固定为'cellularDataConnectionStateChange'。
+   * @param { Callback<DataConnectionStateInfo> } callback - 回调函数，返回蜂窝数据链路连接状态信息对象。参考data的
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState}，radio的
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -547,16 +517,13 @@ declare namespace observer {
   function onCellularDataConnectionStateChange(callback: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Registers an observer for connection status change events of the cellular data link over the SIM card in the
-   * specified slot. This API uses an asynchronous callback to return the result.
+   * 订阅指定卡槽位的蜂窝数据链路连接状态，使用callback方式作为异步方法。
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
-   *     value of **cellularDataConnectionStateChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
-   *     connection status information object. For details, see
-   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
-   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
+   * @param { 'cellularDataConnectionStateChange' } type - 蜂窝数据链路连接状态事件，参数固定为'cellularDataConnectionStateChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<DataConnectionStateInfo> } callback - 回调函数，返回蜂窝数据链路连接状态信息对象。参考data的
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState}，radio的
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -589,20 +556,16 @@ declare namespace observer {
               callback: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Unregisters the observer for connection status change events of the cellular data link. This API uses an
-   * asynchronous callback to return the result.
-   *
-   * > **NOTE**
+   * 移除订阅蜂窝数据链路连接状态，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
-   *     value of **cellularDataConnectionStateChange**.
-   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
-   *     connection status information object. For details, see
-   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
-   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
+   * @param { 'cellularDataConnectionStateChange' } type - 蜂窝数据链路连接状态事件，参数固定为'cellularDataConnectionStateChange'。
+   * @param { Callback<DataConnectionStateInfo> } callback - 回调函数，返回蜂窝数据链路连接状态信息对象。参考data的
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState}，radio的
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -631,13 +594,11 @@ declare namespace observer {
   function offCellularDataConnectionStateChange(callback?: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Registers an observer for the uplink and downlink data flow status change events of the cellular data service. This
-   * API uses an asynchronous callback to return the result.
+   * 订阅蜂窝数据业务的上下行数据流状态，使用callback方式作为异步方法。
    *
-   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
-   *     **cellularDataFlowChange**.
-   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
-   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
+   * @param { 'cellularDataFlowChange' } type - 蜂窝数据业务的上下行数据流状态事件，参数固定为'cellularDataFlowChange'。
+   * @param { Callback<DataFlowType> } callback - 回调函数，返回数据流状态对象。参考data的
+   *     [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -666,14 +627,12 @@ declare namespace observer {
   function onCellularDataFlowChange(callback: Callback<DataFlowType>): void;
 
   /**
-   * Registers an observer for the uplink and downlink data flow status change events of the cellular data service on
-   * the SIM card in the specified slot. This API uses an asynchronous callback to return the result.
+   * 订阅指定卡槽位的蜂窝数据业务的上下行数据流状态，使用callback方式作为异步方法。
    *
-   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
-   *     **cellularDataFlowChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
-   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
+   * @param { 'cellularDataFlowChange' } type - 蜂窝数据业务的上下行数据流状态事件，参数固定为'cellularDataFlowChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<DataFlowType> } callback - 回调函数，返回数据流状态对象。参考data的
+   *     [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -703,18 +662,15 @@ declare namespace observer {
   function onCellularDataFlowChange(options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
   /**
-   * Unregisters the observer for the uplink and downlink data flow status change events of the cellular data service.
-   * This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
+   * 移除订阅蜂窝数据业务的上下行数据流状态，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
-   *     **cellularDataFlowChange**.
-   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
-   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
+   * @param { 'cellularDataFlowChange' } type - 蜂窝数据业务的上下行数据流状态事件，参数固定为'cellularDataFlowChange'。
+   * @param { Callback<DataFlowType> } callback - 回调函数，返回数据流状态对象。参考data的
+   *     [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -743,14 +699,11 @@ declare namespace observer {
   function offCellularDataFlowChange(callback?: Callback<DataFlowType>): void;
 
   /**
-   * Registers an observer for call status change events. This API uses an asynchronous callback to return the execution
-   * result.
+   * 订阅通话状态变化事件，使用callback方式作为异步方法。
    *
-   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
-   * @param { Callback<CallStateInfo> } callback - Callback function used to return the result,
-   *     <br>which is the **CallStateInfo** object. In this object:
-   *     <br>- Only **state** is accessible to third-party applications. - **number** is only accessible to system
-   *     applications.
+   * @param { 'callStateChange' } type - 通话状态变化事件，参数固定为'callStateChange'。
+   * @param { Callback<CallStateInfo> } callback - 回调函数，返回通话状态信息对象。<br/>应用可获取到CallStateInfo。<br/>其中，三方应用仅能获取state通话状态。
+   *     number受系统权限管控，仅面向系统应用开放。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -779,15 +732,12 @@ declare namespace observer {
   function onCallStateChange(callback: Callback<CallStateInfo>): void;
 
   /**
-   * Registers an observer for call status change events. This API uses an asynchronous callback to return the execution
-   * result.
+   * 订阅通话状态变化事件，使用callback方式作为异步方法。
    *
-   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<CallStateInfo> } callback - Callback function used to return the call status information object.
-   *     <br>The application can obtain the **CallStateInfo** object. In this object:
-   *     <br>- Only **state** is accessible to third-party applications. - **number** is only accessible to system
-   *     applications.
+   * @param { 'callStateChange' } type - 通话状态变化事件，参数固定为'callStateChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<CallStateInfo> } callback - 回调函数，返回通话状态信息对象。<br/>应用可获取到CallStateInfo。<br/>其中，三方应用仅能获取state通话状态。
+   *     number受系统权限管控，仅面向系统应用开放。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -817,18 +767,15 @@ declare namespace observer {
   function onCallStateChange(options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
   /**
-   * Unregisters the observer for call status change events. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * > **NOTE**
+   * 取消订阅通话状态变化事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
-   * @param { Callback<CallStateInfo> } callback - Callback function used to return the call status information object.
-   *     For details, see [CallState]{@link @ohos.telephony.call:call.CallState}.
-   *     <br>**number**: phone number.
+   * @param { 'callStateChange' } type - 通话状态变化事件，参数固定为'callStateChange'。
+   * @param { Callback<CallStateInfo> } callback - 回调函数，返回通话状态信息对象。参考call的
+   *     [CallState]{@link @ohos.telephony.call:call.CallState}。<br />number：电话号码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -857,15 +804,11 @@ declare namespace observer {
   function offCallStateChange(callback?: Callback<CallStateInfo>): void;
 
   /**
-   * Registers an observer for extended call status change events. This API uses an asynchronous callback to return the
-   * execution result.
+   * 订阅通话状态变化拓展事件，使用callback方式作为异步方法。
    *
-   * @param { 'callStateChangeEx' } type - Extended call status change event. This field has a fixed value of
-   *     **callStateChangeEx**.
-   * @param { Callback<TelCallState> } callback - Callback function used to return the call status information object.
-   *     <br>The application can obtain **TelCallState**.
-   *     <br>
-   * @param { ObserverOptions } [options] - Event subscription parameters.
+   * @param { 'callStateChangeEx' } type - 通话状态变化事件，参数固定为'callStateChangeEx'。
+   * @param { Callback<TelCallState> } callback - 回调函数，返回通话状态对象。<br/>应用可获取到TelCallState。<br/>
+   * @param { ObserverOptions } [options] - 电话相关事件订阅参数可选项。
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
    * @throws { BusinessError } 8800003 - System internal error.
@@ -891,19 +834,15 @@ declare namespace observer {
   function onCallStateChangeEx(callback: Callback<TelCallState>, options?: ObserverOptions): void;
 
   /**
-   * Unregisters the observer for extended call status change events. This API uses an asynchronous callback to return
-   * the execution result.
-   *
-   * > **NOTE**
+   * 取消订阅通话状态变化拓展事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'callStateChangeEx' } type - Call status change event. This field has a fixed value of
-   *     **callStateChange**.
-   * @param { Callback<TelCallState> } [callback] - Callback function used to return the call status information object.
-   *     For details, see [TelCallState]{@link @ohos.telephony.call:call.TelCallState} in **call**.
-   *     <br>
+   * @param { 'callStateChangeEx' } type - 通话状态变化事件，参数固定为'callStateChange'。
+   * @param { Callback<TelCallState> } [callback] - 回调函数，返回通话状态对象。参考call的
+   *     [TelCallState]{@link @ohos.telephony.call:call.TelCallState}。<br />
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
    * @throws { BusinessError } 8800003 - System internal error.
@@ -928,14 +867,11 @@ declare namespace observer {
   function offCallStateChangeEx(callback?: Callback<TelCallState>): void;
 
   /**
-   * Subscribes to the carrier call state changes and obtains the call number. This method uses an asynchronous callback
-   * to return the execution result.
+   * 三方应用监听运营商通话状态并获取通话号码，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { Callback<CCallStateInfo> } callback - Callback function used to return the call status information object.
-   *     <br>The application can obtain CCallState.
-   *     <br>
-   * @param { ObserverOptions } [options] - Event subscription parameters.
+   * @param { Callback<CCallStateInfo> } callback - 回调函数，返回通话状态信息对象。<br/>应用可获取到CCallState。<br/>
+   * @param { ObserverOptions } [options] - 电话相关事件订阅参数可选项。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
@@ -948,14 +884,10 @@ declare namespace observer {
   function onCCallStateChange(callback: Callback<CCallStateInfo>, options?: ObserverOptions): void;
 
   /**
-   * Cancels the listening on the carrier call status and obtaining of the call number by a third-party application.
-   * This method uses an asynchronous callback to return the result.
+   * 取消三方应用监听运营商通话状态并获取通话号码，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { Callback<CCallStateInfo> } [callback] - Callback function used to return the call status information
-   *     object.
-   *     <br>The application can obtain CCallState.
-   *     <br>
+   * @param { Callback<CCallStateInfo> } [callback] - 回调函数，返回通话状态信息对象。<br/>应用可获取到CCallState。<br/>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
@@ -968,16 +900,14 @@ declare namespace observer {
   function offCCallStateChange(callback?: Callback<CCallStateInfo>): void;
 
   /**
-   * Registers an observer for SIM card status change events. This API uses an asynchronous callback to return the
-   * result.
-   *
-   * > **NOTE**
+   * 订阅sim状态更改事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > The return result of this API does not contain the activation status of the SIM card. For details, see
-   * > [sim.isSimActive]{@link @ohos.telephony.sim:sim.isSimActive}.
+   * > 此接口不包含sim卡的激活状态，具体请参见[sim.isSimActive]{@link @ohos.telephony.sim:sim.isSimActive}接口。
    *
-   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
-   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
+   * @param { 'simStateChange' } type - sim状态更改事件，参数固定为'simStateChange'。
+   * @param { Callback<SimStateData> } callback - 回调函数，返回卡状态数据对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1006,12 +936,11 @@ declare namespace observer {
   function onSimStateChange(callback: Callback<SimStateData>): void;
 
   /**
-   * Registers an observer for status change events of the SIM card in the specified slot. This API uses an asynchronous
-   * callback to return the result.
+   * 订阅指定卡槽位的sim状态更改事件，使用callback方式作为异步方法。
    *
-   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
-   * @param { ObserverOptions } options - Event subscription parameters.
-   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
+   * @param { 'simStateChange' } type - sim状态更改事件，参数固定为'simStateChange'。
+   * @param { ObserverOptions } options - 电话相关事件订阅参数可选项。
+   * @param { Callback<SimStateData> } callback - 回调函数，返回卡状态数据对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1040,12 +969,11 @@ declare namespace observer {
   function onSimStateChange(options: ObserverOptions, callback: Callback<SimStateData>): void;
 
   /**
-   * This API uses an asynchronous callback to return the result.
-   *
+     * 订阅5A网络状态变化事件，使用callback异步回调。
+     *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { Callback<boolean> } callback - Callback used to return the result.
-   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
-   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @param { Callback<boolean> } callback - 回调函数。返回true表示5A状态为使能态；返回false表示5A状态为非使能态。
+   * @param { ObserverOptions } [options] - 电话相关事件订阅参数可选项，指定事件订阅的卡槽ID，默认为当前默认数据卡槽ID。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @stagemodelonly
@@ -1054,12 +982,11 @@ declare namespace observer {
   function onCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
 
   /**
-   * Unsubscribes from the callback for listening to the 5A state.
-   *
+     * 取消订阅5A网络状态变化事件，使用callback异步回调。
+     *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { Callback<boolean> } callback - Callback used to return the result.
-   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
-   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @param { Callback<boolean> } callback - 回调函数。返回true表示5A状态为使能态；返回false表示5A状态为非使能态。
+   * @param { ObserverOptions } [options] - 电话相关事件订阅参数可选项，指定事件订阅的卡槽ID，默认为当前默认数据卡槽ID。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @stagemodelonly
@@ -1068,16 +995,14 @@ declare namespace observer {
   function offCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
 
   /**
-   * Unregisters the observer for SIM card status change events. This API uses an asynchronous callback to return the
-   * result.
-   *
-   * > **NOTE**
+   * 移除订阅sim状态更改事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
-   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
+   * @param { 'simStateChange' } type - sim状态更改事件，参数固定为'simStateChange'。
+   * @param { Callback<SimStateData> } callback - 回调函数，返回卡状态数据对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1105,13 +1030,10 @@ declare namespace observer {
   function offSimStateChange(callback?: Callback<SimStateData>): void;
 
   /**
-   * Registers an observer for account information change events of the SIM card. This API uses an asynchronous callback
-   * to return the result.
+   * 订阅卡帐户变化事件，使用callback方式作为异步方法。
    *
-   * @param { 'iccAccountInfoChange' } type - Account information change event. This field has a fixed value of
-   *     **iccAccountInfoChange**.
-   * @param { Callback<void> } callback - Callback used to return the result. If the account is successfully changed,
-   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @param { 'iccAccountInfoChange' } type - 卡帐户变化事件，参数固定为'iccAccountInfoChange'。
+   * @param { Callback<void> } callback - 回调函数。当卡账户改变成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1141,18 +1063,14 @@ declare namespace observer {
   function onIccAccountInfoChange(callback: Callback<void>): void;
 
   /**
-   * Unregisters the observer for account information change events of the SIM card. This API uses an asynchronous
-   * callback to return the result.
-   *
-   * > **NOTE**
+   * 移除订阅卡帐户变化事件，使用callback方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
-   * > you do not pass the callback, you will cancel listening for all events.
+   * > 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
    *
-   * @param { 'iccAccountInfoChange' } type - Account information change event. This field has a fixed value of
-   *     **iccAccountInfoChange**.
-   * @param { Callback<void> } callback - Callback used to return the result. If the account is successfully changed,
-   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @param { 'iccAccountInfoChange' } type - 卡帐户变化事件，参数固定为'iccAccountInfoChange'。
+   * @param { Callback<void> } callback - 回调函数。当卡账户改变成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1181,7 +1099,7 @@ declare namespace observer {
   function offIccAccountInfoChange(callback?: Callback<void>): void;
 
   /**
-   * Enumerates SIM card types and states.
+   * SIM卡类型和状态。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
@@ -1189,7 +1107,7 @@ declare namespace observer {
    */
   export interface SimStateData {
     /**
-     * SIM card type.
+     * SIM卡类型。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 7 dynamic
@@ -1198,7 +1116,7 @@ declare namespace observer {
     type: CardType;
 
     /**
-     * SIM card state.
+     * SIM卡状态。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 7 dynamic
@@ -1207,7 +1125,7 @@ declare namespace observer {
     state: SimState;
 
     /**
-     * SIM card lock type.
+     * SIM卡锁类型。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1217,7 +1135,7 @@ declare namespace observer {
   }
 
   /**
-   * Defines information about the call status.
+   * 通话状态相关信息。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
@@ -1225,7 +1143,7 @@ declare namespace observer {
    */
   export interface CallStateInfo {
     /**
-     * Call type.
+     * 通话类型。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
@@ -1234,7 +1152,7 @@ declare namespace observer {
     state: CallState;
 
     /**
-     * Phone number.
+     * 电话号码。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
@@ -1251,14 +1169,14 @@ declare namespace observer {
   }
 
   /**
-   * Defines information about the call status.
+   * 通话状态相关信息。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 23 dynamic&static
    */
   export interface CCallStateInfo {
     /**
-     * Call type.
+     * 通话类型。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 dynamic&static
@@ -1266,7 +1184,7 @@ declare namespace observer {
     state: CCallState;
 
     /**
-     * Phone number.
+     * 电话号码。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 dynamic&static
@@ -1275,7 +1193,7 @@ declare namespace observer {
   }
 
   /**
-   * Defines information about the data connection status.
+   * 数据连接状态相关信息。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
@@ -1283,7 +1201,7 @@ declare namespace observer {
    */
   export interface DataConnectionStateInfo {
     /**
-     * Data connection status.
+     * 数据连接状态。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
@@ -1292,7 +1210,7 @@ declare namespace observer {
     state: DataConnectState;
 
     /**
-     * Network type.
+     * 网络类型。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
@@ -1302,7 +1220,7 @@ declare namespace observer {
   }
 
   /**
-   * Defines event subscription parameters.
+   * 电话相关事件订阅参数可选项。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
@@ -1310,10 +1228,10 @@ declare namespace observer {
    */
   export interface ObserverOptions {
     /**
-     * Card slot ID.
-     *
-     * - **0**: card slot 1.
-     * - **1**: card slot 2.
+     * 卡槽ID。
+     * 
+     * - 0：卡槽1。
+     * - 1：卡槽2。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
@@ -1323,7 +1241,7 @@ declare namespace observer {
   }
 
   /**
-   * Enumerates SIM card lock types.
+   * SIM卡锁类型。
    *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 8 dynamic
@@ -1331,7 +1249,7 @@ declare namespace observer {
    */
   export enum LockReason {
     /**
-     * No lock.
+     * 无锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1340,7 +1258,7 @@ declare namespace observer {
     SIM_NONE = 0,
 
     /**
-     * PIN lock.
+     * PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1349,7 +1267,7 @@ declare namespace observer {
     SIM_PIN = 1,
 
     /**
-     * PUK lock.
+     * PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1358,7 +1276,7 @@ declare namespace observer {
     SIM_PUK = 2,
 
     /**
-     * Network PIN lock.
+     * 网络PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1367,7 +1285,7 @@ declare namespace observer {
     SIM_PN_PIN = 3,
 
     /**
-     * Network PUK lock.
+     * 网络PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1376,7 +1294,7 @@ declare namespace observer {
     SIM_PN_PUK = 4,
 
     /**
-     * Subnet PIN lock.
+     * 子网PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1385,7 +1303,7 @@ declare namespace observer {
     SIM_PU_PIN = 5,
 
     /**
-     * Subnet PUK lock.
+     * 子网PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1394,7 +1312,7 @@ declare namespace observer {
     SIM_PU_PUK = 6,
 
     /**
-     * Service provider PIN lock.
+     * 服务提供商PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1403,7 +1321,7 @@ declare namespace observer {
     SIM_PP_PIN = 7,
 
     /**
-     * Service provider PUK lock.
+     * 服务提供商PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1412,7 +1330,7 @@ declare namespace observer {
     SIM_PP_PUK = 8,
 
     /**
-     * Organization PIN lock.
+     * 组织PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1421,7 +1339,7 @@ declare namespace observer {
     SIM_PC_PIN = 9,
 
     /**
-     * Organization PUK lock.
+     * 组织PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1430,7 +1348,7 @@ declare namespace observer {
     SIM_PC_PUK = 10,
 
     /**
-     * SIM PIN lock.
+     * SIM PIN锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1439,7 +1357,7 @@ declare namespace observer {
     SIM_SIM_PIN = 11,
 
     /**
-     * SIM PUK lock.
+     * SIM PUK锁。
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1449,18 +1367,11 @@ declare namespace observer {
   }
 
   /**
-   * Registers an observer for SIM card activation state changes. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   * SIM卡激活状态变化的监听，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { Callback< boolean> } callback - Callback function used to return whether the SIM card is activated.
-   *     <br>- **true**: activated.
-   *     <br>- **false**: not activated.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { Callback< boolean> } callback - 回调函数，返回SIM卡是否激活。<br/>- true：激活。<br/>- false：未激活。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
@@ -1473,15 +1384,10 @@ declare namespace observer {
   function onGetSimActiveState(slotId: int, callback: Callback<boolean>): void;
 
   /**
-   * Unregisters an observer for SIM card activation state changes. This API uses an asynchronous callback to return the
-   * execution result.
-   *
-   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   * 取消SIM卡激活状态变化的监听，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { Callback<boolean> } [callback] - Callback function used to return whether the SIM card is activated.
-   *     <br>- **true**: activated.
-   *     <br>- **false**: not activated.
+   * @param { Callback<boolean> } [callback] - 回调函数，返回SIM卡是否激活。<br/>- true：激活。<br/>- false：未激活。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.

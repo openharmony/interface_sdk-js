@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Call
+ * @file 拨打电话
  * @kit TelephonyKit
  */
 
@@ -23,11 +23,11 @@ import type Context from './application/BaseContext';
 import type image from './@ohos.multimedia.image';
 
 /**
- * The **call** module provides call management functions, including making calls, redirecting to the dial screen,
- * obtaining the call status, and formatting phone numbers.
- *
- * To subscribe to call status changes, use
- * [`observer.on('callStateChange')`]{@link @ohos.telephony.observer:observer.on(type: 'callStateChange', callback: Callback<CallStateInfo>)}.
+ * 该模块提供呼叫管理功能，包括拨打电话、跳转到拨号界面、获取通话状态、格式化电话号码等。
+ * 
+ * 如需订阅通话状态请使用
+ * [`observer.on('callStateChange')`]{@link @ohos.telephony.observer:observer.on(type: 'callStateChange', callback: Callback<CallStateInfo>)}
+ * 。
  *
  * @syscap SystemCapability.Telephony.CallManager
  * @atomicservice [since 11]
@@ -36,18 +36,16 @@ import type image from './@ohos.multimedia.image';
  */
 declare namespace call {
   /**
-   * Initiates a call. You can set call options as needed. This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
+   * 拨打电话，可设置通话参数。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 6 and deprecated since API version 9. The substitute API is available
-   * > only for system applications.
+   * > 从API version 6 开始支持，从API version 9 开始废弃。替代接口能力仅对系统应用开放。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { DialOptions } options - Call option, which indicates whether the call is a voice call or video call.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the operation is successful, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { DialOptions } options - 通话参数，选择为语音通话还是视频通话。
+   * @param { AsyncCallback<boolean> } callback - 回调函数，返回true为成功，false为失败。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -56,18 +54,16 @@ declare namespace call {
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Initiates a call. You can set call options as needed. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 拨打电话，可设置通话参数。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 6 and deprecated since API version 9. The substitute API is available
-   * > only for system applications.
+   * > 从API version 6 开始支持，从API version 9 开始废弃。替代接口能力仅对系统应用开放。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { DialOptions } options - Call option, which indicates whether the call is a voice call or video call.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
-   *     successful, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { DialOptions } options - 通话参数，选择为语音通话还是视频通话。
+   * @returns { Promise<boolean> } 以Promise形式返回拨打电话的结果，返回true为成功，false为失败。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -76,17 +72,15 @@ declare namespace call {
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
 
   /**
-   * Initiates a call. This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
+   * 拨打电话。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 6 and deprecated since API version 9. The substitute API is available
-   * > only for system applications.
+   * > 从API version 6 开始支持，从API version 9 开始废弃。替代接口能力仅对系统应用开放。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the operation is successful, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { AsyncCallback<boolean> } callback - 回调函数，返回true为成功，false为失败。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -95,12 +89,12 @@ declare namespace call {
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Initiates a call. You can set call options as needed. This API uses an asynchronous callback to return the result.
+   * 拨打电话，可设置通话参数。使用callback异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { DialCallOptions } options - Call options, which carry other configuration information of the call.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { DialCallOptions } options - 通话参数，携带呼叫的其他配置信息。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回拨打电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -119,18 +113,14 @@ declare namespace call {
   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Initiates a call. You can set call options as needed. This API uses a promise to return the result.
+   * 拨打电话，可设置通话参数。使用Promise异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { DialCallOptions } options - Call options, which carry other configuration information of the call.
-   *     <br>If this field is not set, the following configuration is used by default. For details, see
-   *     [DialCallOptions]{@link call.DialCallOptions}.
-   *     <br>- **accountId**: 0 (card slot 1)
-   *     <br>- **videoState**: voice call
-   *     <br>- **dialScene**: common call
-   *     <br>- **dialType**: carrier call
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { DialCallOptions } options - 通话参数，携带呼叫的其他配置信息。<br/>不填该参数则默认使用如下配置，参考
+   *     [DialCallOptions]{@link call.DialCallOptions}。<br/>- 帐户Id：卡槽1。 <br/>- 音视频类型：语音通话。 <br/>- 拨号场景：普通呼叫。 <br/>- 拨号类
+   *     型：运营商通话。
+   * @returns { Promise<void> } 以Promise形式异步返回拨号结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -149,11 +139,11 @@ declare namespace call {
   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
   /**
-   * Initiates a call. This API uses an asynchronous callback to return the result.
+   * 拨打电话。使用callback异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Phone number.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回拨打电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -172,11 +162,10 @@ declare namespace call {
   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Launches the call screen and displays the dialed number. This API uses an asynchronous callback to return the
-   * result. This API can be called only in a UIAbility.
+   * 跳转到拨号界面，并显示待拨出的号码。使用callback异步回调。只支持在UIAbility中调用。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回跳转拨号界面的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -191,11 +180,10 @@ declare namespace call {
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Launches the call screen and displays the dialed number. This API uses a promise to return the result. This API can
-   * be called only in a UIAbility.
+   * 跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。只支持在UIAbility中调用。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @returns { Promise<void> } 以Promise形式异步返回拨号的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -210,12 +198,11 @@ declare namespace call {
   function makeCall(phoneNumber: string): Promise<void>;
 
   /**
-   * Launches the call screen and displays the dialed number. This API uses a promise to return the result. This API can
-   * be called only in a UIAbility.
+   * 跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。只支持在UIAbility中调用。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @param { MakeCallOptions } [options] - Call options.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { MakeCallOptions } [options] - 通话参数。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -228,13 +215,11 @@ declare namespace call {
   function makeCall(phoneNumber: string, options?: MakeCallOptions): Promise<void>;
 
   /**
-   * Launches the call screen and displays the dialed number. This API uses a promise to return the result. You need to
-   * declare the **ohos.permission.START_ABILITIES_FROM_BACKGROUND** permission if you want to call the API in the
-   * background.
+   * 跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。后台调用需要申请ohos.permission.START_ABILITIES_FROM_BACKGROUND权限。
    *
-   * @param { Context } context - Application context.
-   * @param { string } phoneNumber - Phone number.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 电话号码。
+   * @returns { Promise<void> } 以Promise形式异步返回拨号的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -247,11 +232,15 @@ declare namespace call {
   function makeCall(context: Context, phoneNumber: string): Promise<void>;
 
   /**
-   * Go to the dial screen and the called number is displayed.The authentication challenge value is returned.
+   * 跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。
+   * 
+   * > **说明**:
+   * >
+   * > 该接口返回校验token，应用可以利用phoneNumber和token实现特定能力，比如蜂窝下行流的录制。
    *
-   * @param { string } phoneNumber - Indicates the called number.
-   * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
-   * @returns { Promise<string> } Promise used to return access token by the makeCall.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { MakeCallOptions } [options] - 通话参数。
+   * @returns { Promise<string> } Promise对象，返回鉴权校验token。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -264,10 +253,9 @@ declare namespace call {
   function makeCallWithToken(phoneNumber: string, options?: MakeCallOptions): Promise<string>;
 
   /**
-   * Checks whether a call is in progress. This API uses an asynchronous callback to return the result.
+   * 判断是否存在通话。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     a call is in progress, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前存在通话，false表示当前不存在通话。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
    * @since 23 static
@@ -275,10 +263,9 @@ declare namespace call {
   function hasCall(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a call is in progress. This API uses a promise to return the result.
+   * 判断是否存在通话。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that a call is in
-   *     progress, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } 以Promise形式异步返回判断是否存在通话。返回true表示当前存在通话，false表示当前不存在通话。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
    * @since 23 static
@@ -286,10 +273,9 @@ declare namespace call {
   function hasCall(): Promise<boolean>;
 
   /**
-   * Checks whether a call is in progress.
+   * 判断是否存在通话。
    *
-   * @returns { boolean } Promise used to return the result. The value **true** indicates that a call is in progress,
-   *     and the value **false** indicates the opposite.
+   * @returns { boolean } 返回判断是否存在通话。返回true表示当前存在通话，false表示当前不存在通话。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 10 dynamic
    * @since 23 static
@@ -297,9 +283,9 @@ declare namespace call {
   function hasCallSync(): boolean;
 
   /**
-   * Obtains the call status. This API uses an asynchronous callback to return the result.
+   * 获取当前通话状态。使用callback异步回调。
    *
-   * @param { AsyncCallback<CallState> } callback - Callback used to return the result.
+   * @param { AsyncCallback<CallState> } callback - 回调函数，异步返回获取到的通话状态。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
    * @since 23 static
@@ -307,9 +293,9 @@ declare namespace call {
   function getCallState(callback: AsyncCallback<CallState>): void;
 
   /**
-   * Obtains the call status. This API uses a promise to return the result.
+   * 获取当前通话状态。使用Promise异步回调。
    *
-   * @returns { Promise<CallState> } Promise used to return the result.
+   * @returns { Promise<CallState> } 以Promise形式异步返回获取到的通话状态。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
    * @since 23 static
@@ -317,9 +303,9 @@ declare namespace call {
   function getCallState(): Promise<CallState>;
 
   /**
-   * Obtains the call status.
+   * 获取当前通话状态。
    *
-   * @returns { CallState } Promise used to return the result.
+   * @returns { CallState } 返回获取到的通话状态。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 10 dynamic
    * @since 23 static
@@ -327,11 +313,10 @@ declare namespace call {
   function getCallStateSync(): CallState;
 
   /**
-   * Mutes the ringtone while it is playing. It does not work if the ringtone has been muted. This API uses an
-   * asynchronous callback to return the result.
+   * 如果来电铃声响起，设备将停止铃声。否则，此方法不起作用。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回停止铃声的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -348,11 +333,10 @@ declare namespace call {
   function muteRinger(callback: AsyncCallback<void>): void;
 
   /**
-   * Mutes the ringtone while it is playing. It does not work if the ringtone has been muted. This API uses a promise to
-   * return the result.
+   * 如果来电铃声响起，设备将停止铃声。否则，此方法不起作用。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -366,10 +350,9 @@ declare namespace call {
   function muteRinger(): Promise<void>;
 
   /**
-   * Checks whether a device supports voice calls.
+   * 检查当前设备是否具备语音通话能力。
    *
-   * @returns { boolean } Result indicating whether the device supports voice calls. The value **true** indicates yes,
-   *     and the value **false** indicates no.
+   * @returns { boolean } 返回true表示设备具备语音通话能力，返回false表示设备不具备语音通话能力。
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
    * @since 23 static
@@ -377,13 +360,11 @@ declare namespace call {
   function hasVoiceCapability(): boolean;
 
   /**
-   * Checks whether the called number is an emergency number based on the phone number. This API uses an asynchronous
-   * callback to return the result.
+   * 根据电话号码参数，判断是否是紧急电话号码。使用callback异步回调。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @param { EmergencyNumberOptions } options - Emergency number options.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the called number is an emergency number, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { EmergencyNumberOptions } options - 电话号码参数。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示是紧急电话号码，返回false表示不是紧急电话号码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -397,13 +378,11 @@ declare namespace call {
   function isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the called number is an emergency number based on the phone number. This API uses a promise to
-   * return the result.
+   * 根据电话号码参数，判断是否是紧急电话号码。使用Promise异步回调。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @param { EmergencyNumberOptions } options - Emergency number options.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the called
-   *     number is an emergency number, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { EmergencyNumberOptions } options - 电话号码参数。
+   * @returns { Promise<boolean> } 以Promise形式异步返回判断是否是紧急电话号码的结果。返回true表示是紧急电话号码，返回false表示不是紧急电话号码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -417,12 +396,10 @@ declare namespace call {
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
   /**
-   * Checks whether the called number is an emergency number. This API uses an asynchronous callback to return the
-   * result.
+   * 判断是否是紧急电话号码。使用callback异步回调。
    *
-   * @param { string } phoneNumber - Phone number.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the called number is an emergency number, and the value **false** indicates the opposite.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示是紧急电话号码，返回false表示不是紧急电话号码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -436,14 +413,13 @@ declare namespace call {
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Formats a phone number based on specified formatting options. This API uses an asynchronous callback to return the
-   * result.
+   * 格式化电话号码，可设置格式化参数。使用callback异步回调。
+   * 
+   * 电话号码格式化后为标准数字字符串，例如：“138 xxxx xxxx”、“0755 xxxx xxxx”。
    *
-   * A formatted phone number is a standard numeric string, for example, 555 0100.
-   *
-   * @param { string } phoneNumber - Phone number.
-   * @param { NumberFormatOptions } options - Number formatting options, for example, country code.
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { NumberFormatOptions } options - 格式化参数，如国家码。
+   * @param { AsyncCallback<string> } callback - 回调函数，返回格式化电话号码的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -457,13 +433,13 @@ declare namespace call {
   function formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback<string>): void;
 
   /**
-   * Formats a phone number based on specified formatting options. This API uses a promise to return the result.
+   * 格式化电话号码，可设置格式化参数。使用Promise异步回调。
+   * 
+   * 电话号码格式化后为标准数字字符串，例如：“138 xxxx xxxx”、“0755 xxxx xxxx”。
    *
-   * A formatted phone number is a standard numeric string, for example, 555 0100.
-   *
-   * @param { string } phoneNumber - Phone number.
-   * @param { NumberFormatOptions } options - Number formatting options, for example, country code.
-   * @returns { Promise<string> } Promise used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { NumberFormatOptions } options - 格式化参数，如国家码。
+   * @returns { Promise<string> } 以Promise形式异步返回格式化电话号码的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -477,12 +453,12 @@ declare namespace call {
   function formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
 
   /**
-   * Formats a phone number. This API uses an asynchronous callback to return the result.
+   * 格式化电话号码。使用callback异步回调。
+   * 
+   * 电话号码格式化后为标准数字字符串，例如：“138 xxxx xxxx”、“0755 xxxx xxxx”。
    *
-   * A formatted phone number is a standard numeric string, for example, 555 0100.
-   *
-   * @param { string } phoneNumber - Phone number.
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { AsyncCallback<string> } callback - 回调函数，返回格式化电话号码的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -496,14 +472,13 @@ declare namespace call {
   function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Converts a phone number into the E.164 format. This API uses an asynchronous callback to return the result.
+   * 将电话号码格式化为E.164表示形式，使用callback异步回调。
+   * 
+   * 待格式化的电话号码需要与传入的国家码相匹配，如中国电话号码需要传入国家码CN，否则格式化后的电话号码为null。
    *
-   * The phone number must match the specified country code. For example, for a China phone number, the country code
-   * must be **CN**. Otherwise, **null** will be returned.
-   *
-   * @param { string } phoneNumber - Phone number.
-   * @param { string } countryCode - Country code, for example, **CN** (China). All country codes are supported.
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { string } countryCode - 国家码，支持所有国家码，如：中国（CN）。
+   * @param { AsyncCallback<string> } callback - 回调函数，返回将电话号码格式化为E.164表示形式的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -517,16 +492,15 @@ declare namespace call {
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Converts a phone number into the E.164 format. This API uses a promise to return the result.
+   * 将电话号码格式化为E.164表示形式，使用Promise异步回调。
+   * 
+   * 待格式化的电话号码需要与传入的国家码相匹配，如中国电话号码需要传入国家码CN，否则格式化后的电话号码为null。
+   * 
+   * 支持所有国家码。
    *
-   * The phone number must match the specified country code. For example, for a China phone number, the country code
-   * must be **CN**. Otherwise, **null** will be returned.
-   *
-   * All country codes are supported.
-   *
-   * @param { string } phoneNumber - Phone number.
-   * @param { string } countryCode - Country code, for example, **CN** (China). All country codes are supported.
-   * @returns { Promise<string> } Promise used to return the result.
+   * @param { string } phoneNumber - 电话号码。
+   * @param { string } countryCode - 国家码，支持所有国家码，如：中国（CN）。
+   * @returns { Promise<string> } 以Promise形式异步返回将电话号码格式化为E.164表示形式的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -540,11 +514,11 @@ declare namespace call {
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
   /**
-   * Answers a call. This API uses an asynchronous callback to return the result.
+   * 接听来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回接听电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -561,13 +535,11 @@ declare namespace call {
   function answerCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Answers a call. This API uses a promise to return the result.
+   * 接听来电。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events. This
-   *     field is optional from API version 9.
-   *     <br>If this field is not set, the latest ringing call will be connected.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。从API version 9开始为可选参数。<br/>不填该参数则接通最近一通正在响铃的来电。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -584,11 +556,10 @@ declare namespace call {
   function answerCall(callId?: int): Promise<void>;
 
   /**
-   * Answers a call. This API uses an asynchronous callback to return the result.
+   * 接听来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the call is answered successfully,
-   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。返回接听电话成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -606,12 +577,12 @@ declare namespace call {
   function answerCall(callback: AsyncCallback<void>): void;
 
   /**
-   * Answers a call. This API uses a promise to return the result.
+   * 接听来电。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { VideoStateType } videoState - Video state.
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { VideoStateType } videoState - 接听通话类型。
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @returns { Promise<void> } 以Promise形式异步返回接听电话结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -628,7 +599,7 @@ declare namespace call {
   function answerCall(videoState: VideoStateType, callId: int): Promise<void>;
 
   /**
-   * Answers the incoming rtt
+   * 接听rtt来电
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param { VideoStateType } videoState - Indicates the answer the call with video or voice.
@@ -650,11 +621,11 @@ declare namespace call {
   function answerCall(videoState: VideoStateType, callId: int, isRtt: boolean): Promise<void>;
 
   /**
-   * Ends a call. This API uses an asynchronous callback to return the result.
+   * 挂断电话。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回挂断电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -671,13 +642,11 @@ declare namespace call {
   function hangUpCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Ends a call. This API uses a promise to return the result.
+   * 挂断电话。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events. This
-   *     field is optional from API version 9.
-   *     <br>If this field is not set, the latest ongoing, dialed, or connected call will be ended.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。从API version 9开始为可选参数。</br>不填该参数则挂断最近一通正在进行/拨号/连接的通话。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -694,12 +663,11 @@ declare namespace call {
   function hangUpCall(callId?: int): Promise<void>;
 
   /**
-   * Ends a call. This API uses an asynchronous callback to return the result.
+   * 挂断电话。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE or
    *     ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the call is hung up successfully,
-   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当挂断电话成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -717,12 +685,12 @@ declare namespace call {
   function hangUpCall(callback: AsyncCallback<void>): void;
 
   /**
-   * Rejects a call. This API uses an asynchronous callback to return the result.
+   * 拒绝来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { RejectMessageOptions } options - Options for the call rejection message.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { RejectMessageOptions } options - 拒绝消息选项。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回拒接电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -739,15 +707,12 @@ declare namespace call {
   function rejectCall(callId: int, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Rejects a call. This API uses a promise to return the result.
+   * 拒绝来电。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events. This
-   *     field is optional from API version 9.
-   *     <br>If this field is not set, the latest ringing call will be rejected.
-   * @param { RejectMessageOptions } options - Options for the call rejection message. If this field is not set, no call
-   *     rejection message will be sent.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。从API version 9开始为可选参数。<br/>不填该参数则拒接最近一通正在响铃的来电。
+   * @param { RejectMessageOptions } options - 拒绝消息选项。不填该参数则不会发送拒接短信。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -764,11 +729,11 @@ declare namespace call {
   function rejectCall(callId?: int, options?: RejectMessageOptions): Promise<void>;
 
   /**
-   * Rejects a call. This API uses an asynchronous callback to return the result.
+   * 拒绝来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回拒接电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -785,11 +750,10 @@ declare namespace call {
   function rejectCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Rejects a call. This API uses an asynchronous callback to return the result.
+   * 拒绝来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL or ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the call is rejected successfully,
-   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当拒接来电成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 9 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -807,11 +771,11 @@ declare namespace call {
   function rejectCall(callback: AsyncCallback<void>): void;
 
   /**
-   * Rejects a call. This API uses an asynchronous callback to return the result.
+   * 拒绝来电。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { RejectMessageOptions } options - Options for the call rejection message.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { RejectMessageOptions } options - 拒绝消息选项。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回拒接电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -828,11 +792,11 @@ declare namespace call {
   function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Holds a call based on the specified call ID. This API uses an asynchronous callback to return the result.
+   * 保持通话。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回保持电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -849,11 +813,11 @@ declare namespace call {
   function holdCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Holds a call based on the specified call ID. This API uses a promise to return the result.
+   * 保持通话。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -870,11 +834,11 @@ declare namespace call {
   function holdCall(callId: int): Promise<void>;
 
   /**
-   * Unholds a call based on the specified call ID. This API uses an asynchronous callback to return the result.
+   * 取消保持通话。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回取消保持电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -891,11 +855,11 @@ declare namespace call {
   function unHoldCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Unholds a call based on the specified call ID. This API uses a promise to return the result.
+   * 取消保持通话。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -912,11 +876,11 @@ declare namespace call {
   function unHoldCall(callId: int): Promise<void>;
 
   /**
-   * Switches a call. This API uses an asynchronous callback to return the result.
+   * 切换呼叫。使用callback异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回交换电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -933,11 +897,11 @@ declare namespace call {
   function switchCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a call. This API uses a promise to return the result.
+   * 切换呼叫。使用Promise异步回调。
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -954,10 +918,10 @@ declare namespace call {
   function switchCall(callId: int): Promise<void>;
 
   /**
-   * Combines two calls into a conference call. This API uses an asynchronous callback to return the result.
+   * 合并通话，将两通电话合并成会议电话。使用callback异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回合并会议的结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -974,10 +938,10 @@ declare namespace call {
   function combineConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Combines two calls into a conference call. This API uses a promise to return the result.
+   * 合并通话，将两通电话合并成会议电话。使用Promise异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -994,10 +958,10 @@ declare namespace call {
   function combineConference(callId: int): Promise<void>;
 
   /**
-   * Obtains the main call ID. This API uses an asynchronous callback to return the result.
+   * 获取主呼叫Id。使用callback异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<int> } callback - 回调函数。返回主呼叫Id。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1013,10 +977,10 @@ declare namespace call {
   function getMainCallId(callId: int, callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the main call ID. This API uses a promise to return the result.
+   * 获取主呼叫Id。使用Promise异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @returns { Promise<int> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<int> } 以Promise形式异步返回主呼叫Id。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1032,10 +996,10 @@ declare namespace call {
   function getMainCallId(callId: int): Promise<int>;
 
   /**
-   * Obtains the list of subcall IDs. This API uses an asynchronous callback to return the result.
+   * 获取子呼叫Id列表。使用callback异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。返回子呼叫Id列表。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1051,10 +1015,10 @@ declare namespace call {
   function getSubCallIdList(callId: int, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the list of subcall IDs. This API uses a promise to return the result.
+   * 获取子呼叫Id列表。使用Promise异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @returns { Promise<Array<string>> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<Array<string>> } 以Promise形式异步返回子呼叫Id列表。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1070,10 +1034,10 @@ declare namespace call {
   function getSubCallIdList(callId: int): Promise<Array<string>>;
 
   /**
-   * Obtains the list of call IDs in a conference. This API uses an asynchronous callback to return the result.
+   * 获取会议的呼叫Id列表。使用callback异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<Array<string>> } callback - 回调函数。返回会议的呼叫Id列表。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1089,10 +1053,10 @@ declare namespace call {
   function getCallIdListForConference(callId: int, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the list of call IDs in a conference. This API uses a promise to return the result.
+   * 获取会议的呼叫Id列表。使用Promise异步回调。
    *
-   * @param { int } callId - Call ID.
-   * @returns { Promise<Array<string>> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<Array<string>> } 以Promise形式异步返回会议的呼叫Id列表。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -1108,16 +1072,11 @@ declare namespace call {
   function getCallIdListForConference(callId: int): Promise<Array<string>>;
 
   /**
-   * Obtains the call waiting status. This API uses an asynchronous callback to return the result.
+   * 获取呼叫等待状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<CallWaitingStatus> } callback - Callback used to return the result.
-   *     <br>The value can be:
-   *     <br>- **0**: Call waiting is disabled.
-   *     <br>- **1**: Call waiting is enabled.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<CallWaitingStatus> } callback - 回调函数。<br/>返回呼叫等待状态。<br/>- 0：禁用呼叫等待。 <br/>- 1：启用呼叫等待。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1134,15 +1093,11 @@ declare namespace call {
   function getCallWaitingStatus(slotId: int, callback: AsyncCallback<CallWaitingStatus>): void;
 
   /**
-   * Obtains the call waiting status. This API uses a promise to return the result.
+   * 获取呼叫等待状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<CallWaitingStatus> } Promise used to return the result.
-   *     <br>- **0**: Call waiting is disabled.
-   *     <br>- **1**: Call waiting is enabled.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<CallWaitingStatus> } 以Promise形式异步返回呼叫等待状态。<br/>- 0：禁用呼叫等待。 <br/>- 1：启用呼叫等待。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1159,16 +1114,12 @@ declare namespace call {
   function getCallWaitingStatus(slotId: int): Promise<CallWaitingStatus>;
 
   /**
-   * Specifies whether to enable the call waiting service. This API uses an asynchronous callback to return the result.
+   * 设置呼叫等待。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { boolean } activate - Whether to enable call waiting.
-   *     <br>- **false**: Disable call waiting.
-   *     <br>- **true**: Enable call waiting.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { boolean } activate - 呼叫等待是否处于启用状态。<br/>- false：禁用呼叫等待。<br/>- true：启用呼叫等待。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置呼叫等待的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1185,16 +1136,12 @@ declare namespace call {
   function setCallWaiting(slotId: int, activate: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Specifies whether to enable the call waiting service. This API uses a promise to return the result.
+   * 设置呼叫等待。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { boolean } activate - Whether to enable call waiting.
-   *     <br>- **false**: Disable call waiting.
-   *     <br>- **true**: Enable call waiting.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { boolean } activate - 呼叫等待是否处于启用状态。<br/>- false：禁用呼叫等待。<br/>- true：启用呼叫等待。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1211,12 +1158,12 @@ declare namespace call {
   function setCallWaiting(slotId: int, activate: boolean): Promise<void>;
 
   /**
-   * Obtains call transfer information with the phone number. This API uses a promise to return the result.
+   * 获取电话号码的呼叫转移状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_CALL_TRANSFER_INFO
-   * @param { CallTransferType } type - Type of call forwarding to be obtained.
-   * @param { string } number - Number used to obtain the call forwarding status.
-   * @returns { Promise<CallTransferResult> } Promise used to return the call forwarding result.
+   * @param { CallTransferType } type - 指示要获取哪种类型的呼叫转移。
+   * @param { string } number - 指示用于获取呼叫转移状态的号码。
+   * @returns { Promise<CallTransferResult> } Promise对象，返回呼叫转移结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1231,12 +1178,12 @@ declare namespace call {
   function getCallTransferInfo(type: CallTransferType, number: string): Promise<CallTransferResult>;
 
   /**
-   * Starts playing DTMF tones. This API uses an asynchronous callback to return the result.
+   * 启动双音多频。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { string } character - DTMF string.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { string } character - DTMF码。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回启动双音多频的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1253,12 +1200,12 @@ declare namespace call {
   function startDTMF(callId: int, character: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts playing DTMF tones. This API uses a promise to return the result.
+   * 启动双音多频。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { string } character - DTMF string.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { string } character - DTMF码。
+   * @returns { Promise<void> } 以Promise形式异步返回。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1275,11 +1222,11 @@ declare namespace call {
   function startDTMF(callId: int, character: string): Promise<void>;
 
   /**
-   * Stops playing DTMF tones. This API uses an asynchronous callback to return the result.
+   * 停止双音多频。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回停止双音多频的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1296,11 +1243,11 @@ declare namespace call {
   function stopDTMF(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops playing DTMF tones. This API uses a promise to return the result.
+   * 停止双音多频。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1317,18 +1264,14 @@ declare namespace call {
   function stopDTMF(callId: int): Promise<void>;
 
   /**
-   * Continues a call by playing a post-dial DTMF string. This API uses an asynchronous callback to return the result.
-   *
-   * If the called number is in the format of "common phone number + semicolon (;) + DTMF string", for example,
-   * **400xxxxxxx;123**, and the listening for **postDialDelay** events is enabled, the system reports a
-   * **postDialDelay** event when the call is connected. The application can then call this API to send DTMF tones.
+   * 继续进行通话。使用callback异步回调。
+   * 
+   * 当用户呼叫号码为：“普通电话号码”+“;”+"DTMF字符"(例如：“400xxxxxxx;123”)，并且已经订阅了通话后延迟事件，电话接通后，系统将上报通话后延迟事件，应用可以调用此接口选择是否发送DTMF音。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { boolean } proceed - Whether to send DTMF tones. The default value is **false**.
-   *     <br>- **true**: yes
-   *     <br>- **false**: no
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { boolean } proceed - 用户选择是否发送DTMF(Dual Tone Multi Frequency，双音多频)音，默认为false。<br/>-true：是<br/>-false：否
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回继续进行通话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1345,18 +1288,14 @@ declare namespace call {
   function postDialProceed(callId: int, proceed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Continues a call by playing a post-dial DTMF string. This API uses a promise to return the result.
-   *
-   * If the called number is in the format of "common phone number + semicolon (;) + DTMF string", for example,
-   * **400xxxxxxx;123**, and the listening for **postDialDelay** events is enabled, the system reports a
-   * **postDialDelay** event when the call is connected. The application can then call this API to send DTMF tones.
+   * 继续进行通话。使用Promise异步回调。
+   * 
+   * 当用户呼叫号码为：“普通电话号码”+“;”+"DTMF字符"(例如：“400xxxxxxx;123”)，并且已经订阅了通话后延迟事件，电话接通后，系统将上报通话后延迟事件，应用可以调用此接口选择是否发送DTMF音。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { boolean } proceed - Whether to send DTMF tones. The default value is **false**.
-   *     <br>- **true**: yes
-   *     <br>- **false**: no
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { boolean } proceed - 用户选择是否发送DTMF音，默认为false。<br/>-true：是<br/>-false：否
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1373,11 +1312,10 @@ declare namespace call {
   function postDialProceed(callId: int, proceed: boolean): Promise<void>;
 
   /**
-   * Checks whether a call is an emergency call. This API uses an asynchronous callback to return the result.
+   * 判断是否正在处于紧急呼叫。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<boolean> } callback - Callback function used to return the result. The value **true**
-   *     indicates an emergency call, and the value **false** indicates a non-emergency call.
+   * @param { AsyncCallback<boolean> } callback - 以回调函数的方式返回结果。true表示紧急号码，false表示非紧急号码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1394,11 +1332,10 @@ declare namespace call {
   function isInEmergencyCall(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a call is an emergency call. This API uses a promise to return the result.
+   * 判断是否正在处于紧急呼叫。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates an emergency call,
-   *     and the value false indicates a non-emergency call.
+   * @returns { Promise<boolean> } 以Promise形式异步返回结果。true表示正在处于紧急呼叫，false表示不处于紧急呼叫。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -1412,11 +1349,11 @@ declare namespace call {
   function isInEmergencyCall(): Promise<boolean>;
 
   /**
-   * Subscribes to **callDetailsChange** events. This API uses an asynchronous callback to return the result.
+   * 订阅callDetailsChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callDetailsChange' } type - Call event change. This field has a fixed value of **callDetailsChange**.
-   * @param { Callback<CallAttributeOptions> } callback - Callback used to return the result.
+   * @param { 'callDetailsChange' } type - 通话时监听通话详情的变化，参数固定为'callDetailsChange'。
+   * @param { Callback<CallAttributeOptions> } callback - 以回调函数的方式返回订阅callDetailsChange事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1436,6 +1373,7 @@ declare namespace call {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<CallAttributeOptions> } callback - Indicates the callback for getting the result of call details.
+   *     <br>获取通话信息的回调
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1451,12 +1389,11 @@ declare namespace call {
   function onCallDetailsChange(callback: Callback<CallAttributeOptions>): void;
 
   /**
-   * Unsubscribes from **callDetailsChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅callDetailsChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callDetailsChange' } type - Call details change. This field has a fixed value of **callDetailsChange**.
-   * @param { Callback<CallAttributeOptions> } callback - Callback used to return the result. If this field is not set,
-   *     no subscription cancellation result will be received.
+   * @param { 'callDetailsChange' } type - 通话结束时取消监听通话详情的变化，参数固定为'callDetailsChange'。
+   * @param { Callback<CallAttributeOptions> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1492,11 +1429,11 @@ declare namespace call {
   function offCallDetailsChange(callback?: Callback<CallAttributeOptions>): void;
 
   /**
-   * Subscribes to **callEventChange** events. This API uses an asynchronous callback to return the result.
+   * 订阅callEventChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callEventChange' } type - Call event change. This field has a fixed value of **callEventChange**.
-   * @param { Callback<CallEventOptions> } callback - Callback used to return the result.
+   * @param { 'callEventChange' } type - 通话时监听通话事件的变化，参数固定为'callEventChange'。
+   * @param { Callback<CallEventOptions> } callback - 以回调函数的方式返回订阅callEventChange事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1531,12 +1468,11 @@ declare namespace call {
   function onCallEventChange(callback: Callback<CallEventOptions>): void;
 
   /**
-   * Unsubscribes from **callEventChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅callEventChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callEventChange' } type - Call event change. This field has a fixed value of **callEventChange**.
-   * @param { Callback<CallEventOptions> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'callEventChange' } type - 通话结束时取消监听通话事件的变化，参数固定为'callEventChange'。
+   * @param { Callback<CallEventOptions> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1572,12 +1508,11 @@ declare namespace call {
   function offCallEventChange(callback?: Callback<CallEventOptions>): void;
 
   /**
-   * Subscribes to **callDisconnectedCause** events. This API uses an asynchronous callback to return the result.
+   * 订阅callDisconnectedCause事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callDisconnectedCause' } type - Call disconnection cause. This field has a fixed value of
-   *     **callDisconnectedCause**.
-   * @param { Callback<DisconnectedDetails> } callback - Callback used to return the result.
+   * @param { 'callDisconnectedCause' } type - 通话时监听断开连接的原因，参数固定为'callDisconnectedCause'。
+   * @param { Callback<DisconnectedDetails> } callback - 以回调函数的方式返回订阅callDisconnectedCause事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1613,13 +1548,11 @@ declare namespace call {
   function onCallDisconnectedCause(callback: Callback<DisconnectedDetails>): void;
 
   /**
-   * Unsubscribes from **callDisconnectedCause** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅callDisconnectedCause事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callDisconnectedCause' } type - Call disconnection cause. This field has a fixed value of
-   *     **callDisconnectedCause**.
-   * @param { Callback<DisconnectedDetails> } callback - Callback used to return the result. If this field is not set,
-   *     no subscription cancellation result will be received.
+   * @param { 'callDisconnectedCause' } type - 调用断开连接的原因，参数固定为'callDisconnectedCause'。
+   * @param { Callback<DisconnectedDetails> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1655,11 +1588,11 @@ declare namespace call {
   function offCallDisconnectedCause(callback?: Callback<DisconnectedDetails>): void;
 
   /**
-   * Subscribes to **mmiCodeResult** events. This API uses an asynchronous callback to return the result.
+   * 订阅mmiCodeResult事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'mmiCodeResult' } type - MMI code result. This field has a fixed value of **mmiCodeResult**.
-   * @param { Callback<MmiCodeResults> } callback - Callback used to return the result.
+   * @param { 'mmiCodeResult' } type - 通话时监听MMI码结果，参数固定为'mmiCodeResult'。
+   * @param { Callback<MmiCodeResults> } callback - 以回调函数的方式返回订阅mmiCodeResult事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1694,12 +1627,11 @@ declare namespace call {
   function onMmiCodeResult(callback: Callback<MmiCodeResults>): void;
 
   /**
-   * Unsubscribes from **mmiCodeResult** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅mmiCodeResult事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'mmiCodeResult' } type - MMI code result. This field has a fixed value of **mmiCodeResult**.
-   * @param { Callback<MmiCodeResults> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'mmiCodeResult' } type - MMI码结果，参数固定为'mmiCodeResult'。
+   * @param { Callback<MmiCodeResults> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1735,11 +1667,11 @@ declare namespace call {
   function offMmiCodeResult(callback?: Callback<MmiCodeResults>): void;
 
   /**
-   * Subscribes to audio device change events. This API uses an asynchronous callback to return the result.
+   * 订阅通话音频设备切换事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'audioDeviceChange' } type - Audio device change. This field has a fixed value of **audioDeviceChange**.
-   * @param { Callback<AudioDeviceCallbackInfo> } callback - Callback used to return the result.
+   * @param { 'audioDeviceChange' } type - 通话音频设备发生变化，参数固定为'audioDeviceChange'。
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - 以回调函数的方式返回订阅通话音频设备切换事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1775,12 +1707,11 @@ declare namespace call {
   function onAudioDeviceChange(callback: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
-   * Unsubscribes from **audioDeviceChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅audioDeviceChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'audioDeviceChange' } type - Audio device change. This field has a fixed value of **audioDeviceChange**.
-   * @param { Callback<AudioDeviceCallbackInfo> } callback - Callback used to return the result. If this field is not
-   *     set, no subscription cancellation result will be received.
+   * @param { 'audioDeviceChange' } type - 通话音频设备发生变化，参数固定为'audioDeviceChange'。
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1816,11 +1747,11 @@ declare namespace call {
   function offAudioDeviceChange(callback?: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
-   * Subscribes to **postDialDelay** events. This API uses an asynchronous callback to return the result.
+   * 订阅拨号后延迟事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'postDialDelay' } type - Post-dial delay. This field has a fixed value of **postDialDelay**.
-   * @param { Callback<string> } callback - Callback used to return the result.
+   * @param { 'postDialDelay' } type - 拨号后延迟，参数固定为'postDialDelay'。
+   * @param { Callback<string> } callback - 以回调函数的方式返回订阅拨号后延迟事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1855,12 +1786,11 @@ declare namespace call {
   function onPostDialDelay(callback: Callback<string>): void;
 
   /**
-   * Unsubscribes from **postDialDelay** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅拨号后延迟事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'postDialDelay' } type - Post-dial delay. This field has a fixed value of **postDialDelay**.
-   * @param { Callback<string> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'postDialDelay' } type - 拨号后延迟，参数固定为'postDialDelay'。
+   * @param { Callback<string> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1895,7 +1825,7 @@ declare namespace call {
   function offPostDialDelay(callback?: Callback<string>): void;
 
   /**
-   * Subscribe to the rtt message event.
+   * 订阅RTT消息事件
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttMessageInfo> } callback - Indicates the callback for getting the rtt message.
@@ -1914,7 +1844,7 @@ declare namespace call {
   function onReceiveRttMessage(callback: Callback<RttMessageInfo>): void;
 
   /**
-   * Unsubscribe from the  rtt message event.
+   * 去订阅rtt消息事件
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttMessageInfo> } [callback] - Indicates the callback for getting the rtt message.
@@ -1933,7 +1863,7 @@ declare namespace call {
   function offReceiveRttMessage(callback?: Callback<RttMessageInfo>): void;
 
   /**
-   * Subscribe to the rtt modify indication.
+   * 订阅rtt通话变化
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttEventInfo> } callback - Indicates the callback for getting the rtt event.
@@ -1952,7 +1882,7 @@ declare namespace call {
   function onRttModifyInd(callback: Callback<RttEventInfo>): void;
 
   /**
-   * Unsubscribe from the rtt modify indication.
+   * 去订阅rtt通话变化事件
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttEventInfo> } [callback] - Indicates the callback for getting the rtt event.
@@ -1971,7 +1901,7 @@ declare namespace call {
   function offRttModifyInd(callback?: Callback<RttEventInfo>): void;
 
   /**
-   * Subscribe to the rtt error event.
+   * 订阅rtt通话错误事件
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttErrorInfo> } callback - Indicates the callback for getting the rtt error report.
@@ -1990,7 +1920,7 @@ declare namespace call {
   function onRttErrCause(callback: Callback<RttErrorInfo>): void;
 
   /**
-   * Unsubscribe from the rtt error report event.
+   * 去订阅rtt通话错误事件
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { Callback<RttErrorInfo> } [callback] - Indicates the callback for getting the rtt error report.
@@ -2009,10 +1939,9 @@ declare namespace call {
   function offRttErrCause(callback?: Callback<RttErrorInfo>): void;
 
   /**
-   * Checks whether a new call is allowed. This API uses an asynchronous callback to return the result.
+   * 判断是否允许再拨打一通新电话。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback function used to return the result. The value **true**
-   *     indicates that the call is allowed, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 以回调函数的方式返回结果。true表示允许拨打，false表示不可拨打。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -2028,10 +1957,9 @@ declare namespace call {
   function isNewCallAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a new call is allowed. This API uses a promise to return the result.
+   * 判断是否允许再拨打一通新电话。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the call is
-   *     allowed, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } 以Promise形式异步返回结果。true表示允许拨打，false表示不可拨打。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2044,11 +1972,11 @@ declare namespace call {
   function isNewCallAllowed(): Promise<boolean>;
 
   /**
-   * Separates calls from a conference call. This API uses an asynchronous callback to return the result.
+   * 分离会议电话。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回分离会议电话的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2066,11 +1994,11 @@ declare namespace call {
   function separateConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Separates calls from a conference call. This API uses a promise to return the result.
+   * 分离会议电话。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2088,14 +2016,12 @@ declare namespace call {
   function separateConference(callId: int): Promise<void>;
 
   /**
-   * Obtains the call restriction status. This API uses an asynchronous callback to return the result.
+   * 获取呼叫限制状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallRestrictionType } type - Call restriction type.
-   * @param { AsyncCallback<RestrictionStatus> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallRestrictionType } type - 呼叫限制类型。
+   * @param { AsyncCallback<RestrictionStatus> } callback - 回调函数。返回限制状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2112,14 +2038,12 @@ declare namespace call {
   function getCallRestrictionStatus(slotId: int, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
 
   /**
-   * Obtains the call restriction status. This API uses a promise to return the result.
+   * 获取呼叫限制状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallRestrictionType } type - Call restriction type.
-   * @returns { Promise<RestrictionStatus> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallRestrictionType } type - 呼叫限制类型。
+   * @returns { Promise<RestrictionStatus> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2136,14 +2060,12 @@ declare namespace call {
   function getCallRestrictionStatus(slotId: int, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
-   * Sets the call restriction status. This API uses an asynchronous callback to return the result.
+   * 设置呼叫限制状态。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallRestrictionInfo } info - Call restriction information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallRestrictionInfo } info - 呼叫限制信息。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置呼叫限制状态的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2160,14 +2082,12 @@ declare namespace call {
   function setCallRestriction(slotId: int, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the call restriction status. This API uses a promise to return the result.
+   * 设置呼叫限制状态。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallRestrictionInfo } info - Call restriction information.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallRestrictionInfo } info - 呼叫限制信息。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2184,15 +2104,13 @@ declare namespace call {
   function setCallRestriction(slotId: int, info: CallRestrictionInfo): Promise<void>;
 
   /**
-   * Changes the call barring password. This API uses an asynchronous callback to return the result.
+   * 修改呼叫限制密码。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { string } oldPassword - Old password for call barring.
-   * @param { string } newPassword - New password for call barring.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } oldPassword - 呼叫限制旧密码。
+   * @param { string } newPassword - 呼叫限制新密码。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回修改呼叫限制密码的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2209,15 +2127,13 @@ declare namespace call {
   function setCallRestrictionPassword(slotId: int, oldPassword: string, newPassword: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Changes the call barring password. This API uses a promise to return the result.
+   * 修改呼叫限制密码。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { string } oldPassword - Old password for call barring.
-   * @param { string } newPassword - New password for call barring.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } oldPassword - 呼叫限制旧密码。
+   * @param { string } newPassword - 呼叫限制新密码。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2234,14 +2150,12 @@ declare namespace call {
   function setCallRestrictionPassword(slotId: int, oldPassword: string, newPassword: string): Promise<void>;
 
   /**
-   * Obtains call transfer information. This API uses an asynchronous callback to return the result.
+   * 获取呼叫转移信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallTransferType } type - Call transfer type.
-   * @param { AsyncCallback<CallTransferResult> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallTransferType } type - 呼叫转移类型。
+   * @param { AsyncCallback<CallTransferResult> } callback - 回调函数。返回呼叫转移信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2258,14 +2172,12 @@ declare namespace call {
   function getCallTransferInfo(slotId: int, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
 
   /**
-   * Obtains call transfer information. This API uses a promise to return the result.
+   * 获取呼叫转移信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallTransferType } type - Call transfer type.
-   * @returns { Promise<CallTransferResult> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallTransferType } type - 呼叫转移类型。
+   * @returns { Promise<CallTransferResult> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2282,14 +2194,12 @@ declare namespace call {
   function getCallTransferInfo(slotId: int, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
-   * Sets call transfer information. This API uses an asynchronous callback to return the result.
+   * 设置呼叫转移信息。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallTransferInfo } info - Call transfer information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallTransferInfo } info - 呼叫转移信息。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置呼叫转移信息的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2306,14 +2216,12 @@ declare namespace call {
   function setCallTransfer(slotId: int, info: CallTransferInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets call transfer information. This API uses a promise to return the result.
+   * 设置呼叫转移信息。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { CallTransferInfo } info - Call transfer information.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { CallTransferInfo } info - 呼叫转移信息。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2330,11 +2238,10 @@ declare namespace call {
   function setCallTransfer(slotId: int, info: CallTransferInfo): Promise<void>;
 
   /**
-   * Checks whether the ringtone is playing. This API uses an asynchronous callback to return the result.
+   * 判断是否正在响铃。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true indicates that the
-   *     **ringtone** is playing, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 以回调函数的方式返回是否正在响铃的结果。true表示正在响铃，false表示没有在响铃。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2351,11 +2258,10 @@ declare namespace call {
   function isRinging(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the ringtone is playing. This API uses a promise to return the result.
+   * 判断是否正在响铃。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<boolean> } Promise used to return the result. The value true indicates that the **ringtone** is
-   *     playing, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } 以Promise形式异步返回结果。true表示正在响铃，false表示没有响铃。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -2369,9 +2275,9 @@ declare namespace call {
   function isRinging(): Promise<boolean>;
 
   /**
-   * Sets call muting. This API uses an asynchronous callback to return the result.
+   * 设置通话中的静音。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置通话中的静音的结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -2387,9 +2293,9 @@ declare namespace call {
   function setMuted(callback: AsyncCallback<void>): void;
 
   /**
-   * Sets call muting. This API uses a promise to return the result.
+   * 设置通话中的静音。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2402,9 +2308,9 @@ declare namespace call {
   function setMuted(): Promise<void>;
 
   /**
-   * Cancels call muting. This API uses an asynchronous callback to return the result.
+   * 取消通话中的静音。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回取消通话中的静音的结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -2420,9 +2326,9 @@ declare namespace call {
   function cancelMuted(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels call muting. This API uses a promise to return the result.
+   * 取消通话中的静音。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2435,11 +2341,11 @@ declare namespace call {
   function cancelMuted(): Promise<void>;
 
   /**
-   * Sets the audio device for a call. This API uses an asynchronous callback to return the result.
+   * 设置通话音频设备。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AudioDevice } device - Audio device.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AudioDevice } device - 音频设备。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置通话音频设备的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2456,11 +2362,11 @@ declare namespace call {
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the audio device for a call. This API uses a promise to return the result.
+   * 设置通话音频设备。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AudioDevice } device - Audio device.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { AudioDevice } device - 音频设备。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2477,11 +2383,11 @@ declare namespace call {
   function setAudioDevice(device: AudioDevice): Promise<void>;
 
   /**
-   * Joins a conference call. This API uses an asynchronous callback to return the result.
+   * 加入会议。使用callback异步回调。
    *
-   * @param { int } mainCallId - Main call ID.
-   * @param { Array<string> } callNumberList - List of call numbers.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } mainCallId - 主通话Id。
+   * @param { Array<string> } callNumberList - 呼叫号码列表。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回加入会议的结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -2497,11 +2403,11 @@ declare namespace call {
   function joinConference(mainCallId: int, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Joins a conference call. This API uses a promise to return the result.
+   * 加入会议。使用Promise异步回调。
    *
-   * @param { int } mainCallId - Main call ID.
-   * @param { Array<string> } callNumberList - List of call numbers.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } mainCallId - 主通话Id。
+   * @param { Array<string> } callNumberList - 呼叫号码列表。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -2517,11 +2423,11 @@ declare namespace call {
   function joinConference(mainCallId: int, callNumberList: Array<string>): Promise<void>;
 
   /**
-   * Removes a specified call from a conference call. This API uses an asynchronous callback to return the result.
+   * 移出电话会议，将指定通话从会议电话中挂断。使用callback异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { int } callId - Call ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回移出会议的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2538,11 +2444,11 @@ declare namespace call {
   function kickOutFromConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a specified call from a conference call. This API uses a promise to return the result.
+   * 移出电话会议，将指定通话从会议电话中挂断。使用Promise异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { int } callId - Call ID.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2559,12 +2465,12 @@ declare namespace call {
   function kickOutFromConference(callId: int): Promise<void>;
 
   /**
-   * Updates the IMS call mode. This API uses an asynchronous callback to return the result.
+   * 更新Ims呼叫模式。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { ImsCallMode } mode - IMS call mode.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { ImsCallMode } mode - Ims呼叫模式。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回更新Ims呼叫模式的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2581,12 +2487,12 @@ declare namespace call {
   function updateImsCallMode(callId: int, mode: ImsCallMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the IMS call mode. This API uses a promise to return the result.
+   * 更新Ims呼叫模式。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { ImsCallMode } mode - IMS call mode.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { ImsCallMode } mode - Ims呼叫模式。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2603,11 +2509,11 @@ declare namespace call {
   function updateImsCallMode(callId: int, mode: ImsCallMode): Promise<void>;
 
   /**
-   * Cancels the upgrade of a video call. This API uses a promise to return the result.
+   * 视频通话升级过程中取消升级。使用Promise异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @returns { Promise<void> } 以Promise形式异步返回升级过程中取消视频升级结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2624,15 +2530,13 @@ declare namespace call {
   function cancelCallUpgrade(callId: int): Promise<void>;
 
   /**
-   * Uses the specified camera to make a video call. If **cameraId** is left empty, the camera is disabled. This API
-   * uses a promise to return the result.
+   * 设置使用指定的相机进行视频通话，cameraId为空表示关闭相机。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { string } cameraId - Camera ID. For details about how to obtain the camera ID, see the
-   *     [getSupportedCameras]{@link @ohos.multimedia.camera:camera.CameraManager.getSupportedCameras} API in camera
-   *     management.
-   * @returns { Promise<void> } Promise used to return the result of starting, closing, or switching a camera.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { string } cameraId - 相机ID。cameraId获取方式可参考相机管理
+   *     [getSupportedCameras]{@link @ohos.multimedia.camera:camera.CameraManager.getSupportedCameras}接口。
+   * @returns { Promise<void> } 以Promise形式异步返回设置开启，关闭，切换相机结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2649,13 +2553,13 @@ declare namespace call {
   function controlCamera(callId: int, cameraId: string): Promise<void>;
 
   /**
-   * Sets the local preview window. This API uses a promise to return the result.
+   * 设置本端预览画面窗口。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { string } surfaceId - Preview window ID. For details about how to obtain **surfaceId**, see
-   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { string } surfaceId - 预览窗口Id。surfaceId获取方式可参考
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}。
+   * @returns { Promise<void> } 以Promise形式异步返回设置本端预览画面窗口结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2672,13 +2576,13 @@ declare namespace call {
   function setPreviewSurface(callId: int, surfaceId: string): Promise<void>;
 
   /**
-   * Sets the remote display window. This API uses a promise to return the result.
+   * 设置远端画面窗口。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { string } surfaceId - Display window ID. For details about how to obtain **surfaceId**, see
-   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { string } surfaceId - 画面窗口Id。surfaceId获取方式可参考
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}。
+   * @returns { Promise<void> } 以Promise形式异步返回设置远端画面窗口结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2695,13 +2599,12 @@ declare namespace call {
   function setDisplaySurface(callId: int, surfaceId: string): Promise<void>;
 
   /**
-   * Sets the video call screen to follow the device direction. This API uses a promise to return the result.
+   * 设置视频通话画面显示方向为设备方向。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID. You can obtain the value by subscribing to **callDetailsChange** events.
-   * @param { DeviceDirection } deviceDirection - Device direction. It determines the direction of the video call
-   *     screen.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。可以通过订阅callDetailsChange事件获得。
+   * @param { DeviceDirection } deviceDirection - 画面方向。该参数根据设备方向获取。
+   * @returns { Promise<void> } 以Promise形式异步返回设置视频通话画面方向结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2718,11 +2621,11 @@ declare namespace call {
   function setDeviceDirection(callId: int, deviceDirection: DeviceDirection): Promise<void>;
 
   /**
-   * Subscribes to **imsCallModeChange** events. This API uses an asynchronous callback to return the result.
+   * 订阅imsCallModeChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'imsCallModeChange' } type - Call mode change. This field has a fixed value of **imsCallModeChange**.
-   * @param { Callback<ImsCallModeInfo> } callback - Callback used to return the result.
+   * @param { 'imsCallModeChange' } type - 视频通话时监听通话模式的变化，参数固定为'imsCallModeChange'。
+   * @param { Callback<ImsCallModeInfo> } callback - 以回调函数的方式返回订阅imsCallModeChange事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2758,12 +2661,11 @@ declare namespace call {
   function onImsCallModeChange(callback: Callback<ImsCallModeInfo>): void;
 
   /**
-   * Unsubscribes from **imsCallModeChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅imsCallModeChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'imsCallModeChange' } type - Call mode change. This field has a fixed value of **imsCallModeChange**.
-   * @param { Callback<ImsCallModeInfo> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'imsCallModeChange' } type - 视频通话时取消监听通话模式的变化，参数固定为'imsCallModeChange'。
+   * @param { Callback<ImsCallModeInfo> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2799,11 +2701,11 @@ declare namespace call {
   function offImsCallModeChange(callback?: Callback<ImsCallModeInfo>): void;
 
   /**
-   * Subscribes to **callSessionEvent** events. This API uses an asynchronous callback to return the result.
+   * 订阅callSessionEvent事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callSessionEvent' } type - Call session event. This field has a fixed value of **callSessionEvent**.
-   * @param { Callback<CallSessionEvent> } callback - Callback used to return the result.
+   * @param { 'callSessionEvent' } type - 视频通话时监听通话事件，参数固定为'callSessionEvent'。
+   * @param { Callback<CallSessionEvent> } callback - 以回调函数的方式返回订阅callSessionEvent事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2839,12 +2741,11 @@ declare namespace call {
   function onCallSessionEvent(callback: Callback<CallSessionEvent>): void;
 
   /**
-   * Unsubscribes from **callSessionEvent** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅callSessionEvent事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callSessionEvent' } type - Call session event. This field has a fixed value of **callSessionEvent**.
-   * @param { Callback<CallSessionEvent> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'callSessionEvent' } type - 视频通话时取消监听通话事件，参数固定为'callSessionEvent'。
+   * @param { Callback<CallSessionEvent> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2880,12 +2781,11 @@ declare namespace call {
   function offCallSessionEvent(callback?: Callback<CallSessionEvent>): void;
 
   /**
-   * Subscribes to **peerDimensionsChange** events. This API uses an asynchronous callback to return the result.
+   * 订阅peerDimensionsChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'peerDimensionsChange' } type - Screen resolution change. This field has a fixed value of
-   *     **peerDimensionsChange**.
-   * @param { Callback<PeerDimensionsDetail> } callback - Callback used to return the result.
+   * @param { 'peerDimensionsChange' } type - 视频通话时监听对端画面分辨率的变化，参数固定为'peerDimensionsChange'。
+   * @param { Callback<PeerDimensionsDetail> } callback - 以回调函数的方式返回订阅peerDimensionsChange事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2921,13 +2821,11 @@ declare namespace call {
   function onPeerDimensionsChange(callback: Callback<PeerDimensionsDetail>): void;
 
   /**
-   * Unsubscribes from **peerDimensionsChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅peerDimensionsChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'peerDimensionsChange' } type - Screen resolution change. This field has a fixed value of
-   *     **peerDimensionsChange**.
-   * @param { Callback<PeerDimensionsDetail> } callback - Callback used to return the result. If this field is not set,
-   *     no subscription cancellation result will be received.
+   * @param { 'peerDimensionsChange' } type - 视频通话时监听对端画面分辨率的变化，参数固定为'peerDimensionsChange'。
+   * @param { Callback<PeerDimensionsDetail> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -2963,12 +2861,11 @@ declare namespace call {
   function offPeerDimensionsChange(callback?: Callback<PeerDimensionsDetail>): void;
 
   /**
-   * Subscribes to **cameraCapabilitiesChange** events. This API uses an asynchronous callback to return the result.
+   * 订阅cameraCapabilitiesChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'cameraCapabilitiesChange' } type - Camera capability change. This field has a fixed value of
-   *     **cameraCapabilitiesChange**.
-   * @param { Callback<CameraCapabilities> } callback - Callback used to return the result.
+   * @param { 'cameraCapabilitiesChange' } type - 视频通话时监听本端相机画面分辨率的变化，参数固定为'cameraCapabilitiesChange'。
+   * @param { Callback<CameraCapabilities> } callback - 以回调函数的方式返回订阅cameraCapabilitiesChange事件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3004,13 +2901,11 @@ declare namespace call {
   function onCameraCapabilitiesChange(callback: Callback<CameraCapabilities>): void;
 
   /**
-   * Unsubscribes from **cameraCapabilitiesChange** events. This API uses an asynchronous callback to return the result.
+   * 取消订阅cameraCapabilitiesChange事件。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'cameraCapabilitiesChange' } type - Camera capability change. This field has a fixed value of
-   *     **cameraCapabilitiesChange**.
-   * @param { Callback<CameraCapabilities> } callback - Callback used to return the result. If this field is not set, no
-   *     subscription cancellation result will be received.
+   * @param { 'cameraCapabilitiesChange' } type - 视频通话时取消监听本端相机画面分辨率的变化，参数固定为'cameraCapabilitiesChange'。
+   * @param { Callback<CameraCapabilities> } callback - 回调函数。不填该参数将不会收到取消订阅的处理结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3046,13 +2941,11 @@ declare namespace call {
   function offCameraCapabilitiesChange(callback?: Callback<CameraCapabilities>): void;
 
   /**
-   * Enables the IMS service. This API uses an asynchronous callback to return the result.
+   * 启用Ims开关。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回启用Ims开关的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3069,13 +2962,11 @@ declare namespace call {
   function enableImsSwitch(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables the IMS service. This API uses a promise to return the result.
+   * 启用Ims开关。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3092,13 +2983,11 @@ declare namespace call {
   function enableImsSwitch(slotId: int): Promise<void>;
 
   /**
-   * Disables the IMS service. This API uses an asynchronous callback to return the result.
+   * 禁用Ims开关。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回禁用Ims开关的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3115,13 +3004,11 @@ declare namespace call {
   function disableImsSwitch(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables the IMS service. This API uses a promise to return the result.
+   * 禁用Ims开关。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3138,14 +3025,10 @@ declare namespace call {
   function disableImsSwitch(slotId: int): Promise<void>;
 
   /**
-   * Checks whether the IMS service is enabled. This API uses an asynchronous callback to return the result.
+   * 判断Ims开关是否启用。使用callback异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the IMS service is enabled, and the value **false** indicates the opposite. The value **true** indicates that
-   *     the IMS service is enabled, and the value **false** indicates the opposite.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 以回调函数的方式返回判断Ims开关是否启用的结果。true表示Ims开关启用，false表示未启用。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -3161,13 +3044,10 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the IMS service is enabled. This API uses a promise to return the result.
+   * 判断Ims开关是否启用。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the IMS service
-   *     is enabled, and the value **false** indicates the opposite.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式异步返回结果。true表示Ims开关启用，false表示未启用。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -3183,13 +3063,10 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether the IMS service is enabled. This API returns the result synchronously.
+   * 判断Ims开关是否启用。调用此API返回结果。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { boolean } Boolean value indicating whether the IMS service is enabled. The value **true** indicates that
-   *     the IMS service is enabled, and the value **false** indicates the opposite.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } 用来返回结果。true表示Ims开关启用，false表示未启用。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
@@ -3205,13 +3082,11 @@ declare namespace call {
   function isImsSwitchEnabledSync(slotId: int): boolean;
 
   /**
-   * Cancels the unfinished USSD services. This API uses an asynchronous callback to return the result.
+   * 取消未激活完成的非结构化补充数据业务。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回取消未激活完成的非结构化补充数据业务的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3228,13 +3103,11 @@ declare namespace call {
   function closeUnfinishedUssd(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels the unfinished USSD services. This API uses a promise to return the result.
+   * 取消未激活完成的非结构化补充数据业务。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3251,14 +3124,12 @@ declare namespace call {
   function closeUnfinishedUssd(slotId: int): Promise<void>;
 
   /**
-   * Sets the status of the VoNR switch. This API uses an asynchronous callback to return the result.
+   * 设置NR语音的开关状态。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { VoNRState } state - Status of the VoNR switch.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { VoNRState } state - 开关状态。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回设置NR语音的开关状态的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3275,14 +3146,12 @@ declare namespace call {
   function setVoNRState(slotId: int, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the status of the VoNR switch. This API uses a promise to return the result.
+   * 设置NR语音的开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { VoNRState } state - Status of the VoNR switch.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { VoNRState } state - 开关状态。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3299,13 +3168,11 @@ declare namespace call {
   function setVoNRState(slotId: int, state: VoNRState): Promise<void>;
 
   /**
-   * Obtains the status of the VoNR switch. This API uses an asynchronous callback to return the result.
+   * 查询NR语音的开关状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<VoNRState> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<VoNRState> } callback - 回调函数。返回NR语音开关的状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3322,13 +3189,11 @@ declare namespace call {
   function getVoNRState(slotId: int, callback: AsyncCallback<VoNRState>): void;
 
   /**
-   * Obtains the status of the VoNR switch. This API uses a promise to return the result.
+   * 查询NR语音的开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<VoNRState> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<VoNRState> } 以Promise形式异步返回开关状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3345,14 +3210,11 @@ declare namespace call {
   function getVoNRState(slotId: int): Promise<VoNRState>;
 
   /**
-   * Checks whether the call forwarding time can be set. This API uses an asynchronous callback to return the result.
+   * 检查是否可以设置呼叫转移时间。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the call forwarding time can be set, and the value **false** indicates the opposite.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示可以设置，返回false表示不可以设置。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3369,14 +3231,11 @@ declare namespace call {
   function canSetCallTransferTime(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the call forwarding time can be set. This API uses a promise to return the result.
+   * 检查是否可以设置呼叫转移时间。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the call
-   *     forwarding time can be set, and the value **false** indicates the opposite.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式异步返回是否可以设置呼叫转移时间。返回true表示可以设置，返回false表示不可以设置。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3393,11 +3252,11 @@ declare namespace call {
   function canSetCallTransferTime(slotId: int): Promise<boolean>;
 
   /**
-   * Performs a secret code broadcast. This API uses an asynchronous callback to return the result.
+   * 暗码广播。使用callback异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Secret code, for example, *#*#2846579#*#* (project menu).
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } inputCode - 暗码。支持暗码字段, 如：*#*#2846579#*#*(工程菜单)。
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回暗码广播的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3413,11 +3272,11 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Performs a secret code broadcast. This API uses a promise to return the result.
+   * 暗码广播。使用Promise异步回调。
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Secret code, for example, *#*#2846579#*#* (project menu).
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { string } inputCode - 暗码。支持暗码字段, 如：*#*#2846579#*#*(工程菜单)。
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3433,11 +3292,11 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string): Promise<void>;
 
   /**
-   * Removes missed call notifications. This API uses an asynchronous callback to return the result.
+   * 删除未接来电通知。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE and ohos.permission.READ_CALL_LOG and
    *     ohos.permission.WRITE_CALL_LOG
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以回调函数的方式返回删除未接来电通知的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3453,11 +3312,11 @@ declare namespace call {
   function removeMissedIncomingCallNotification(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes missed call notifications. This API uses a promise to return the result.
+   * 删除未接来电通知。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE and ohos.permission.READ_CALL_LOG and
    *     ohos.permission.WRITE_CALL_LOG
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -3471,12 +3330,12 @@ declare namespace call {
   function removeMissedIncomingCallNotification(): Promise<void>;
 
   /**
-   * Sends a call UI event. This API uses a promise to return the result.
+   * 发布通话界面事件。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } callId - Call ID.
-   * @param { string } eventName - Event name.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } callId - 呼叫Id。
+   * @param { string } eventName - 事件名称。
+   * @returns { Promise<void> } 以Promise形式异步返回。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -3493,7 +3352,7 @@ declare namespace call {
   function sendCallUiEvent(callId: int, eventName: string): Promise<void>;
 
   /**
-   * Set rtt capability.
+   * 设置rtt功能
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { int } accountId - Indicates the identifier of the account to set rtt capability.
@@ -3514,7 +3373,7 @@ declare namespace call {
   function setRttCapability(accountId: int, isEnable: boolean): Promise<void>;
 
   /**
-   * Send rtt message.
+   * 发送rtt消息
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { int } callId - Indicates the identifier of the call.
@@ -3535,7 +3394,7 @@ declare namespace call {
   function sendRttMessage(callId: int, rttMessage: string): Promise<void>;
 
   /**
-   * Start rtt.
+   * 启动rtt
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { int } callId - Indicates the identifier of the call.
@@ -3556,7 +3415,7 @@ declare namespace call {
   function startRtt(callId: int, type: ImsRttMode): Promise<void>;
 
   /**
-   * Stop rtt.
+   * 停止rtt
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { int } callId - Indicates the identifier of the call.
@@ -3577,10 +3436,10 @@ declare namespace call {
   function stopRtt(callId: int, type: ImsRttMode): Promise<void>;
 
   /**
-   * Preload callUI.
+   * 预加载通话应用
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<boolean> } The promise returned by the preloadCallUI.
+   * @returns { Promise<boolean> } 201 - 无权限
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8400001 - Invalid parameter value.
@@ -3595,10 +3454,10 @@ declare namespace call {
   function preloadCallUI(): Promise<boolean>;
 
   /**
-   * Unload callUI.
+   * 卸载通话应用
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<boolean> } The promise returned by the unloadCallUI.
+   * @returns { Promise<boolean> } 201 - 无权限
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8400001 - Invalid parameter value.
@@ -3613,11 +3472,11 @@ declare namespace call {
   function unloadCallUI(): Promise<boolean>;
 
   /**
-   * Sends a response to the Unstructured Supplementary Service Data (USSD) service to the carrier.
+   * 用于向运营商发送USSD业务（Unstructured Supplementary Service Data，非结构化补充数据业务）的响应消息。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - ID of the card slot that sends the response.
-   * @param { string } content - Response content.
+   * @param { int } slotId - 表示发送响应的卡槽ID。
+   * @param { string } content - 表示响应内容。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8400001 - Invalid parameter value.
@@ -3631,7 +3490,7 @@ declare namespace call {
   function sendUssdResponse(slotId: int, content: string): void;
 
   /**
-   * Enumerates IMS call modes.
+   * IP多媒体系统调用模式。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3640,7 +3499,7 @@ declare namespace call {
    */
   export enum ImsCallMode {
     /**
-     * Audio call only.
+     * 仅限音频呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3650,7 +3509,7 @@ declare namespace call {
     CALL_MODE_AUDIO_ONLY = 0,
 
     /**
-     * Sending calls only.
+     * 仅发送呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3660,7 +3519,7 @@ declare namespace call {
     CALL_MODE_SEND_ONLY = 1,
 
     /**
-     * Receiving calls only.
+     * 仅接收呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3670,7 +3529,7 @@ declare namespace call {
     CALL_MODE_RECEIVE_ONLY = 2,
 
     /**
-     * Sending and receiving calls.
+     * 允许发送和接收呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3680,7 +3539,7 @@ declare namespace call {
     CALL_MODE_SEND_RECEIVE = 3,
 
     /**
-     * Pausing video calls.
+     * 暂停视频呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3691,7 +3550,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates VoNR switch states.
+   * 5G语音开关状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3700,7 +3559,7 @@ declare namespace call {
    */
   export enum VoNRState {
     /**
-     * Disabled.
+     * 关闭状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3710,7 +3569,7 @@ declare namespace call {
     VONR_STATE_OFF = 0,
 
     /**
-     * Enabled.
+     * 打开状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3721,7 +3580,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates audio device types.
+   * 音频设备类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3730,7 +3589,7 @@ declare namespace call {
    */
   export enum AudioDeviceType {
     /**
-     * Headset device.
+     * 耳机设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3740,7 +3599,7 @@ declare namespace call {
     DEVICE_EARPIECE = 0,
 
     /**
-     * Speaker device.
+     * 扬声器设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3750,7 +3609,7 @@ declare namespace call {
     DEVICE_SPEAKER = 1,
 
     /**
-     * Wired headset device.
+     * 有线耳机设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3760,7 +3619,7 @@ declare namespace call {
     DEVICE_WIRED_HEADSET = 2,
 
     /**
-     * Bluetooth SCO device.
+     * 蓝牙SCO设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3770,7 +3629,7 @@ declare namespace call {
     DEVICE_BLUETOOTH_SCO = 3,
 
     /**
-     * Distributed head unit.
+     * 分布式车机设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3781,7 +3640,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates audio devices.
+   * 音频设备。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3790,7 +3649,7 @@ declare namespace call {
    */
   export interface AudioDevice {
     /**
-     * Audio device type.
+     * 音频设备类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3800,7 +3659,7 @@ declare namespace call {
     deviceType: AudioDeviceType;
 
     /**
-     * Audio device address.
+     * 音频设备地址。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3810,7 +3669,7 @@ declare namespace call {
     address?: string;
 
     /**
-     * Audio device name.
+     * 音频设备名称。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3821,7 +3680,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the audio device information.
+   * 音频设备信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3830,7 +3689,7 @@ declare namespace call {
    */
   export interface AudioDeviceCallbackInfo {
     /**
-     * Audio device list.
+     * 音频设备列表。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3840,7 +3699,7 @@ declare namespace call {
     audioDeviceList: Array<AudioDevice>;
 
     /**
-     * Current audio device.
+     * 当前音频设备。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3850,7 +3709,7 @@ declare namespace call {
     currentAudioDevice: AudioDevice;
 
     /**
-     * Whether the audio device is muted.
+     * 是否静音。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3860,10 +3719,10 @@ declare namespace call {
     isMuted: boolean;
 
     /**
-     * Whether to disable the microphone.
-     *
-     * - **true**: yes.
-     * - **false**: no.
+     * 是否禁用麦克风。
+     * 
+     * - true：禁用麦克风 
+     * - false：启用麦克风
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3874,7 +3733,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call restriction types.
+   * 呼叫限制类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3883,7 +3742,7 @@ declare namespace call {
    */
   export enum CallRestrictionType {
     /**
-     * Barring of all incoming calls.
+     * 限制所有呼入。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3893,7 +3752,7 @@ declare namespace call {
     RESTRICTION_TYPE_ALL_INCOMING = 0,
 
     /**
-     * Barring of all outgoing calls.
+     * 限制所有呼出。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3903,7 +3762,7 @@ declare namespace call {
     RESTRICTION_TYPE_ALL_OUTGOING = 1,
 
     /**
-     * Barring of international calls.
+     * 限制国际通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3913,7 +3772,7 @@ declare namespace call {
     RESTRICTION_TYPE_INTERNATIONAL = 2,
 
     /**
-     * Barring of international calls except those in the home country.
+     * 限制除归属国以外的国际通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3923,7 +3782,7 @@ declare namespace call {
     RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME = 3,
 
     /**
-     * Barring of incoming roaming calls.
+     * 限制漫游呼入。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3933,7 +3792,7 @@ declare namespace call {
     RESTRICTION_TYPE_ROAMING_INCOMING = 4,
 
     /**
-     * Barring of all calls.
+     * 限制所有通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3943,7 +3802,7 @@ declare namespace call {
     RESTRICTION_TYPE_ALL_CALLS = 5,
 
     /**
-     * Barring of outgoing services.
+     * 限制传出业务。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3953,7 +3812,7 @@ declare namespace call {
     RESTRICTION_TYPE_OUTGOING_SERVICES = 6,
 
     /**
-     * Barring of incoming services.
+     * 限制呼入业务。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3964,7 +3823,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call transfer information.
+   * 呼叫转移信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -3973,7 +3832,7 @@ declare namespace call {
    */
   export interface CallTransferInfo {
     /**
-     * Call transfer number.
+     * 转移编号。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3983,7 +3842,7 @@ declare namespace call {
     transferNum: string;
 
     /**
-     * Call transfer type.
+     * 呼叫转移类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3993,7 +3852,7 @@ declare namespace call {
     type: CallTransferType;
 
     /**
-     * Enumerates call transfer setting types.
+     * 设置呼叫转移类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4003,7 +3862,7 @@ declare namespace call {
     settingType: CallTransferSettingType;
 
     /**
-     * Hour in the start time.
+     * 开始时间的小时数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4013,7 +3872,7 @@ declare namespace call {
     startHour?: int;
 
     /**
-     * Minute in the start time.
+     * 开始时间的分钟数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4023,7 +3882,7 @@ declare namespace call {
     startMinute?: int;
 
     /**
-     * Hour in the end time.
+     * 结束时间的小时数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4033,7 +3892,7 @@ declare namespace call {
     endHour?: int;
 
     /**
-     * Minute in the end time.
+     * 结束时间的分钟数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4044,7 +3903,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call transfer types.
+   * 呼叫转移类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi [since 8 - 24]
@@ -4054,7 +3913,7 @@ declare namespace call {
    */
   export enum CallTransferType {
     /**
-     * Call forwarding unconditional.
+     * 无条件转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -4065,7 +3924,7 @@ declare namespace call {
     TRANSFER_TYPE_UNCONDITIONAL = 0,
 
     /**
-     * Call forwarding busy.
+     * 忙线转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -4076,7 +3935,7 @@ declare namespace call {
     TRANSFER_TYPE_BUSY = 1,
 
     /**
-     * Call forwarding on no reply.
+     * 无回复转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -4087,7 +3946,7 @@ declare namespace call {
     TRANSFER_TYPE_NO_REPLY = 2,
 
     /**
-     * Call forwarding on no user not reachable.
+     * 无法访问转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -4099,7 +3958,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call transfer setting types.
+   * 设置呼叫转移类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4108,7 +3967,7 @@ declare namespace call {
    */
   export enum CallTransferSettingType {
     /**
-     * Disabling of call transfer.
+     * 禁用呼叫转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4118,7 +3977,7 @@ declare namespace call {
     CALL_TRANSFER_DISABLE = 0,
 
     /**
-     * Enabling of call transfer.
+     * 启用呼叫转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4128,7 +3987,7 @@ declare namespace call {
     CALL_TRANSFER_ENABLE = 1,
 
     /**
-     * Registration of call transfer.
+     * 登记呼叫转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4138,7 +3997,7 @@ declare namespace call {
     CALL_TRANSFER_REGISTRATION = 3,
 
     /**
-     * Erasing of call transfer.
+     * 消除呼叫转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4149,7 +4008,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call attribute options.
+   * 调用属性选项。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4158,7 +4017,7 @@ declare namespace call {
    */
   export interface CallAttributeOptions {
     /**
-     * Account number.
+     * 账号号码。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4168,10 +4027,11 @@ declare namespace call {
     accountNumber: string;
 
     /**
-     * Whether the speakerphone is used to answer a call. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
+     * 判断是否是扬声器接通电话，默认false。
+     * 
+     * -true：是
+     * 
+     * -false：否
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4181,7 +4041,7 @@ declare namespace call {
     speakerphoneOn: boolean;
 
     /**
-     * Account ID.
+     * 帐户Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4191,7 +4051,7 @@ declare namespace call {
     accountId: int;
 
     /**
-     * Video state type.
+     * 视频状态类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4201,7 +4061,7 @@ declare namespace call {
     videoState: VideoStateType;
 
     /**
-     * Start time.
+     * 开始时间。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4211,10 +4071,11 @@ declare namespace call {
     startTime: int;
 
     /**
-     * Whether the call is an ECC. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
+     * 判断是否是Ecc，默认false。
+     * 
+     * -true：是
+     * 
+     * -false：否
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4224,7 +4085,7 @@ declare namespace call {
     isEcc: boolean;
 
     /**
-     * Enumerates call types.
+     * 通话类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4234,7 +4095,7 @@ declare namespace call {
     callType: CallType;
 
     /**
-     * Call ID.
+     * 呼叫Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4244,7 +4105,7 @@ declare namespace call {
     callId: int;
 
     /**
-     * Detailed call state.
+     * 详细呼叫状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4254,7 +4115,7 @@ declare namespace call {
     callState: DetailedCallState;
 
     /**
-     * Enumerates conference states.
+     * 会议状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4264,7 +4125,7 @@ declare namespace call {
     conferenceState: ConferenceState;
 
     /**
-     * Defines the VoIP call information.
+     * VoIP通话信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4274,7 +4135,7 @@ declare namespace call {
     voipCallAttribute?: VoipCallAttribute;
 
     /**
-     * Video RBT type.
+     * 视频彩振类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4284,7 +4145,7 @@ declare namespace call {
     crsType: int;
 
     /**
-     * Original call type of the Video RBT service.
+     * 视频彩振原始呼叫类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4294,7 +4155,7 @@ declare namespace call {
     originalCallType: int;
 
     /**
-     * Home location area of the number.
+     * 号码归属地信息
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4304,7 +4165,7 @@ declare namespace call {
     numberLocation?: string;
 
     /**
-     * Number mark.
+     * 号码标记信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4324,7 +4185,9 @@ declare namespace call {
     extraParams?: Record<string, Object>;
 
     /**
-     * Indicates the rtt state.
+     * rtt通话状态
+     *
+     *
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4335,7 +4198,9 @@ declare namespace call {
     rttState?: RttState;
 
     /**
-     * X-Call type.
+     * XCALL类型。 
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4345,7 +4210,13 @@ declare namespace call {
     xCallType?: XCallType;
 
     /**
-     * Indicates is custom accessibility enabled.
+     * 应用是否支持自定义无障碍能力，默认为false。
+     * 
+     * -true:支持
+     * 
+     * -false:不支持  
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4356,7 +4227,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the VoIP call information.
+   * VoIP通话信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4365,7 +4236,7 @@ declare namespace call {
    */
   export interface VoipCallAttribute {
     /**
-     * Unique ID of a VoIP call.
+     * VoIP通话唯一Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4375,7 +4246,7 @@ declare namespace call {
     voipCallId: string;
 
     /**
-     * User nickname.
+     * 用户昵称。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4385,7 +4256,7 @@ declare namespace call {
     userName: string;
 
     /**
-     * User profile picture.
+     * 用户头像图片。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4395,7 +4266,7 @@ declare namespace call {
     userProfile: image.PixelMap;
 
     /**
-     * Process ID of the third-party application.
+     * 三方应用进程Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4405,7 +4276,7 @@ declare namespace call {
     extensionId: string;
 
     /**
-     * Ability name of the third-party application.
+     * 需加载的三方应用的界面ability。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4415,7 +4286,7 @@ declare namespace call {
     abilityName: string;
 
     /**
-     * Bundle name of the third-party application.
+     * 三方应用包名。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4425,7 +4296,7 @@ declare namespace call {
     voipBundleName: string;
 
     /**
-     * Whether to display the incoming call banner.
+     * 上报来电时是否显示来电横幅。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4435,7 +4306,7 @@ declare namespace call {
     showBannerForIncomingCall?: boolean;
 
     /**
-     * Whether the call is a conference call.
+     * 上报是否是电话会议。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4445,7 +4316,7 @@ declare namespace call {
     isConferenceCall?: boolean;
 
     /**
-     * Whether call answering with voice commands is supported.
+     * 上报来电时是否支持语音接听。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4456,7 +4327,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates conference states.
+   * 会议状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4465,7 +4336,7 @@ declare namespace call {
    */
   export enum ConferenceState {
     /**
-     * Idle state.
+     * 电话会议空闲。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4475,7 +4346,7 @@ declare namespace call {
     TEL_CONFERENCE_IDLE = 0,
 
     /**
-     * Active state.
+     * 电话会议激活。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4485,7 +4356,7 @@ declare namespace call {
     TEL_CONFERENCE_ACTIVE = 1,
 
     /**
-     * Disconnecting state.
+     * 电话会议断开。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4495,7 +4366,7 @@ declare namespace call {
     TEL_CONFERENCE_DISCONNECTING = 2,
 
     /**
-     * Disconnected state.
+     * 电话会议已断开。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4506,7 +4377,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call types.
+   * 通话类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4515,7 +4386,7 @@ declare namespace call {
    */
   export enum CallType {
     /**
-     * CS call.
+     * CS通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4525,7 +4396,7 @@ declare namespace call {
     TYPE_CS = 0,
 
     /**
-     * IMS call.
+     * IMS通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4535,7 +4406,7 @@ declare namespace call {
     TYPE_IMS = 1,
 
     /**
-     * OTT call.
+     * OTT通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4545,7 +4416,7 @@ declare namespace call {
     TYPE_OTT = 2,
 
     /**
-     * Error call type.
+     * 其他类型通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4555,7 +4426,7 @@ declare namespace call {
     TYPE_ERR_CALL = 3,
 
     /**
-     * VoIP call.
+     * VoIP通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4565,7 +4436,9 @@ declare namespace call {
     TYPE_VOIP = 4,
 
     /**
-     * X-Call.
+     * XCALL通话。 
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4576,7 +4449,7 @@ declare namespace call {
   }
 
   /**
-   * Video state type.
+   * 视频状态类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4585,7 +4458,7 @@ declare namespace call {
    */
   export enum VideoStateType {
     /**
-     * Voice state.
+     * 语音状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4604,7 +4477,7 @@ declare namespace call {
      */
     TYPE_VIDEO = 1,
     /**
-     * Data sending only during a video call.
+     * 视频通话只发送数据状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4613,7 +4486,7 @@ declare namespace call {
      */
     TYPE_VIDEO_SEND_ONLY = 1,
     /**
-     * Data receiving only during a video call.
+     * 视频通话只接收数据状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4622,7 +4495,7 @@ declare namespace call {
      */
     TYPE_VIDEO_RECEIVE_ONLY = 2,
     /**
-     * Data receiving/sending status during a video call.
+     * 视频通话接收发送数据状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4633,7 +4506,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates video call upgrade or downgrade request types.
+   * 视频通话升降级请求结果类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4642,7 +4515,7 @@ declare namespace call {
    */
   export enum VideoRequestResultType {
     /**
-     * Success.
+     * 请求成功。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4651,7 +4524,7 @@ declare namespace call {
      */
     TYPE_REQUEST_SUCCESS = 0,
     /**
-     * Failed.
+     * 请求失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4660,7 +4533,7 @@ declare namespace call {
      */
     TYPE_REQUEST_FAILURE = 1,
     /**
-     * Invalid request.
+     * 请求无效。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4669,7 +4542,7 @@ declare namespace call {
      */
     TYPE_REQUEST_INVALID = 2,
     /**
-     * Request timeout.
+     * 请求超时。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4678,7 +4551,7 @@ declare namespace call {
      */
     TYPE_REQUEST_TIMED_OUT = 3,
     /**
-     * Request denied.
+     * 请求被拒绝。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4687,7 +4560,7 @@ declare namespace call {
      */
     TYPE_REQUEST_REJECTED_BY_REMOTE = 4,
     /**
-     * Upgrade request canceled.
+     * 请求升级取消。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4696,7 +4569,7 @@ declare namespace call {
      */
     TYPE_REQUEST_UPGRADE_CANCELED = 5,
     /**
-     * RTP or RTCP downgrade timeout.
+     * 视频通话降级RTP或RTCP超时。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4705,7 +4578,7 @@ declare namespace call {
      */
     TYPE_DOWNGRADE_RTP_OR_RTCP_TIMEOUT = 100,
     /**
-     * RTP and RTCP downgrade timeout.
+     * 视频通话降级RTP和RTCP超时。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4716,7 +4589,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates device directions in a video call.
+   * 视频通话画面方向类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4725,7 +4598,7 @@ declare namespace call {
    */
   export enum DeviceDirection {
     /**
-     * 0-degree direction.
+     * 视频画面0度方向。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4734,7 +4607,7 @@ declare namespace call {
      */
     DEVICE_DIRECTION_0 = 0,
     /**
-     * 90-degree direction.
+     * 视频画面90度方向。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4743,7 +4616,7 @@ declare namespace call {
      */
     DEVICE_DIRECTION_90 = 90,
     /**
-     * 180-degree direction.
+     * 视频画面180度方向。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4752,7 +4625,7 @@ declare namespace call {
      */
     DEVICE_DIRECTION_180 = 180,
     /**
-     * 270-degree direction.
+     * 视频画面270度方向。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4763,7 +4636,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates video call event types.
+   * 视频通话事件类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4772,7 +4645,7 @@ declare namespace call {
    */
   export enum CallSessionEventId {
     /**
-     * Camera setting failed.
+     * 相机设置失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4781,7 +4654,7 @@ declare namespace call {
      */
     EVENT_CONTROL_CAMERA_FAILURE = 0,
     /**
-     * Camera setting succeeded.
+     * 相机设置成功。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4790,7 +4663,7 @@ declare namespace call {
      */
     EVENT_CONTROL_CAMERA_READY = 1,
     /**
-     * Remote display window released.
+     * 远端画面窗口释放。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4799,7 +4672,7 @@ declare namespace call {
      */
     EVENT_DISPLAY_SURFACE_RELEASED = 100,
     /**
-     * Local preview window released.
+     * 本端画面窗口释放。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4810,7 +4683,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates detailed call states.
+   * 详细的呼叫状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4819,7 +4692,7 @@ declare namespace call {
    */
   export enum DetailedCallState {
     /**
-     * Active state.
+     * 电话会议激活。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4829,7 +4702,7 @@ declare namespace call {
     CALL_STATUS_ACTIVE = 0,
 
     /**
-     * Hold state.
+     * 保持呼叫状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4839,7 +4712,7 @@ declare namespace call {
     CALL_STATUS_HOLDING = 1,
 
     /**
-     * Dialing state.
+     * 呼叫状态拨号。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4849,7 +4722,7 @@ declare namespace call {
     CALL_STATUS_DIALING = 2,
 
     /**
-     * Alerting state.
+     * 电话报警状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4859,7 +4732,7 @@ declare namespace call {
     CALL_STATUS_ALERTING = 3,
 
     /**
-     * Incoming state.
+     * 呼叫传入状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4869,7 +4742,7 @@ declare namespace call {
     CALL_STATUS_INCOMING = 4,
 
     /**
-     * Enumerates call waiting states.
+     * 呼叫等待状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4879,7 +4752,7 @@ declare namespace call {
     CALL_STATUS_WAITING = 5,
 
     /**
-     * Disconnected state.
+     * 电话会议已断开。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4889,7 +4762,7 @@ declare namespace call {
     CALL_STATUS_DISCONNECTED = 6,
 
     /**
-     * Disconnecting state.
+     * 电话会议断开。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4899,7 +4772,7 @@ declare namespace call {
     CALL_STATUS_DISCONNECTING = 7,
 
     /**
-     * Idle state.
+     * 电话会议空闲。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4910,7 +4783,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call restriction information.
+   * 呼叫限制信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4919,7 +4792,7 @@ declare namespace call {
    */
   export interface CallRestrictionInfo {
     /**
-     * Call restriction type.
+     * 呼叫限制类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4929,7 +4802,7 @@ declare namespace call {
     type: CallRestrictionType;
 
     /**
-     * Password.
+     * 密码。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4939,7 +4812,7 @@ declare namespace call {
     password: string;
 
     /**
-     * Enumerates call restriction modes.
+     * 呼叫限制模式。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4950,7 +4823,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call restriction modes.
+   * 呼叫限制模式。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4959,7 +4832,7 @@ declare namespace call {
    */
   export enum CallRestrictionMode {
     /**
-     * Call restriction deactivated.
+     * 限制模式停用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4969,7 +4842,7 @@ declare namespace call {
     RESTRICTION_MODE_DEACTIVATION = 0,
 
     /**
-     * Call restriction activated.
+     * 限制模式激活。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -4980,7 +4853,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call event options.
+   * 呼叫事件的可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -4989,7 +4862,7 @@ declare namespace call {
    */
   export interface CallEventOptions {
     /**
-     * Enumerates call ability event IDs.
+     * 呼叫能力事件Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5000,7 +4873,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call ability event IDs.
+   * 呼叫能力事件Id。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5009,7 +4882,7 @@ declare namespace call {
    */
   export enum CallAbilityEventId {
     /**
-     * No available carrier during dialing.
+     * 拨号无载波事件。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5019,7 +4892,7 @@ declare namespace call {
     EVENT_DIAL_NO_CARRIER = 1,
 
     /**
-     * Invalid FDN.
+     * 无效的FDN号事件。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5029,7 +4902,7 @@ declare namespace call {
     EVENT_INVALID_FDN_NUMBER = 2,
 
     /**
-     * Failed to place the call on hold.
+     * 保持通话失败事件。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5039,7 +4912,7 @@ declare namespace call {
     EVENT_HOLD_CALL_FAILED = 3,
 
     /**
-     * Failed to place the current call on hold and answer the waiting call.
+     * 保持当前通话并接听等待中电话失败事件。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5049,7 +4922,7 @@ declare namespace call {
     EVENT_SWAP_CALL_FAILED = 4,
 
     /**
-     * Failed to combine calls.
+     * 合并通话失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5059,7 +4932,7 @@ declare namespace call {
     EVENT_COMBINE_CALL_FAILED = 5,
 
     /**
-     * Failed to split the call.
+     * 分离通话失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5069,7 +4942,7 @@ declare namespace call {
     EVENT_SPLIT_CALL_FAILED = 6,
 
     /**
-     * Displaying the call UI in full screen.
+     * 全屏显示通话界面。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5079,7 +4952,7 @@ declare namespace call {
     EVENT_SHOW_FULL_SCREEN = 7,
 
     /**
-     * Displaying the call UI in a floating widow.
+     * 悬浮窗显示通话界面。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5090,7 +4963,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call states.
+   * 通话状态码。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
@@ -5098,7 +4971,7 @@ declare namespace call {
    */
   export enum CallState {
     /**
-     * The call status fails to be obtained and is unknown.
+     * 无效状态，当获取呼叫状态失败时返回。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
@@ -5107,7 +4980,7 @@ declare namespace call {
     CALL_STATE_UNKNOWN = -1,
 
     /**
-     * No call is in progress.
+     * 表示没有正在进行的呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
@@ -5116,7 +4989,7 @@ declare namespace call {
     CALL_STATE_IDLE = 0,
 
     /**
-     * The call is in the ringing or waiting state.
+     * 表示来电正在振铃或等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
@@ -5125,7 +4998,7 @@ declare namespace call {
     CALL_STATE_RINGING = 1,
 
     /**
-     * At least one call is in dialing, active, or on hold, and no new incoming call is ringing or waiting.
+     * 表示至少有一个呼叫处于拨号、通话中或呼叫保持状态，并且没有新的来电振铃或等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
@@ -5134,7 +5007,7 @@ declare namespace call {
     CALL_STATE_OFFHOOK = 2,
 
     /**
-     * The incoming call is answered.
+     * 表示来电已经接听。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 11 dynamic
@@ -5144,7 +5017,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call states.
+   * 通话状态码。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 21 dynamic
@@ -5152,7 +5025,7 @@ declare namespace call {
    */
   export enum TelCallState {
     /**
-     * The call status fails to be obtained and is unknown.
+     * 无效状态，当获取呼叫状态失败时返回。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5161,7 +5034,7 @@ declare namespace call {
     TEL_CALL_STATE_UNKNOWN = -1,
 
     /**
-     * No call is in progress.
+     * 表示没有正在进行的呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5170,7 +5043,7 @@ declare namespace call {
     TEL_CALL_STATE_IDLE = 0,
 
     /**
-     * The call is in the ringing or waiting state.
+     * 表示来电正在振铃或等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5179,7 +5052,7 @@ declare namespace call {
     TEL_CALL_STATE_RINGING = 1,
 
     /**
-     * At least one call is being dialed, and no new incoming call is in the ringing or waiting state.
+     * 表示至少有一个呼叫处于拨号，并且没有新的来电振铃或等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5188,7 +5061,7 @@ declare namespace call {
     TEL_CALL_STATE_OFFHOOK = 2,
 
     /**
-     * The incoming call is answered.
+     * 表示来电已经接听。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5197,7 +5070,7 @@ declare namespace call {
     TEL_CALL_STATE_ANSWERED = 3,
 
     /**
-     * The call is being connected or placed on hold.
+     * 表示电话已经接通中或呼叫保持。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 21 dynamic
@@ -5207,14 +5080,14 @@ declare namespace call {
   }
 
   /**
-   * Carrier call state code.
+   * 运营商通话状态码。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 23 dynamic&static
    */
   export enum CCallState {
     /**
-     * The call status fails to be obtained and is unknown.
+     * 无效状态，当获取呼叫状态失败时返回。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5222,7 +5095,7 @@ declare namespace call {
     CCALL_STATE_UNKNOWN = -1,
 
     /**
-     * The call is connected.
+     * 表示当前通话已经接通成功。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5230,7 +5103,7 @@ declare namespace call {
     CCALL_STATE_ACTIVE = 0,
 
     /**
-     * The call is on hold.
+     * 表示当前通话处于保持状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5238,7 +5111,7 @@ declare namespace call {
     CCALL_STATE_HOLDING = 1,
 
     /**
-     * The outgoing call is in the dialing process, and the peer end has not received the ringing.
+     * 表示去电处于拨号过程中，对端还没有收到振铃期间。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5246,7 +5119,7 @@ declare namespace call {
     CCALL_STATE_DIALING = 2,
 
     /**
-     * The outgoing call is in the ringing process, and the peer end is ringing.
+     * 表示去电处于振铃过程中，对端处于响铃阶段。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5254,7 +5127,7 @@ declare namespace call {
     CCALL_STATE_ALERTING = 3,
 
     /**
-     * Indicates that an incoming call is received.
+     * 表示收到来电。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5262,7 +5135,7 @@ declare namespace call {
     CCALL_STATE_INCOMING = 4,
 
     /**
-     * Indicates that another incoming call is received when there is an ongoing call in the same card slot.
+     * 同一个卡槽上已经存在一路通话的情况下，又收到一路来电。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5270,7 +5143,7 @@ declare namespace call {
     CCALL_STATE_WAITING = 5,
 
     /**
-     * Indicates that the call has been released.
+     * 表示通话已经释放完成。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5278,7 +5151,7 @@ declare namespace call {
     CCALL_STATE_DISCONNECTED = 6,
 
     /**
-     * Indicates that the call is being released.
+     * 表示通话正在释放中，还没有释放完成。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5286,7 +5159,7 @@ declare namespace call {
     CCALL_STATE_DISCONNECTING = 7,
 
     /**
-     * No call is in progress.
+     * 表示没有正在进行的呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5294,7 +5167,7 @@ declare namespace call {
     CCALL_STATE_IDLE = 8,
 
     /**
-     * The incoming call is answered.
+     * 表示来电已经接听。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 23 dynamic&static
@@ -5303,7 +5176,7 @@ declare namespace call {
   }
 
   /**
-   * Provides an option for determining whether a call is a video call.
+   * 拨打电话的可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
@@ -5311,10 +5184,10 @@ declare namespace call {
    */
   export interface DialOptions {
     /**
-     * Whether the call is a video call.
-     *
-     * - **true**: video call
-     * - **false** (default): voice call
+     * 根据extras的值判断是否为视频通话，默认为语音通话。
+     * 
+     * - true：视频通话。
+     * - false：语音通话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
@@ -5323,10 +5196,12 @@ declare namespace call {
     extras?: boolean;
 
     /**
-     * Account ID.
-     *
-     * - **0**: card slot 1.
-     * - **1**: card slot 2.<br
+     * 帐户Id。
+     * 
+     * - 0：卡槽1。
+     * - 1：卡槽2。
+     * 
+     * 。此接口为系统接口。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5336,7 +5211,7 @@ declare namespace call {
     accountId?: int;
 
     /**
-     * Video state type. This is a system API.
+     * 视频状态类型。此接口为系统接口。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5346,7 +5221,7 @@ declare namespace call {
     videoState?: VideoStateType;
 
     /**
-     * Dialup scenario. This is a system API.
+     * 拨号场景。此接口为系统接口。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5356,7 +5231,7 @@ declare namespace call {
     dialScene?: DialScene;
 
     /**
-     * Dialup type. This is a system API.
+     * 拨号类型。此接口为系统接口。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5367,7 +5242,7 @@ declare namespace call {
   }
 
   /**
-   * Provides an option for determining whether a call is a video call.
+   * 拨打电话的可选参数。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @FaAndStageModel
@@ -5377,7 +5252,7 @@ declare namespace call {
    */
   export interface MakeCallOptions {
     /**
-     * Whether to hide the dial screen. **true**: yes; **false**: no.
+     * 是否隐藏拨号界面，true表示隐藏，false表示不隐藏。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @FaAndStageModel
@@ -5388,8 +5263,9 @@ declare namespace call {
     isHideDialScreen?: boolean;
 
     /**
-     * Whether the third-party app supports custom accessibility features.
-     * Default value: false.
+     * 应用是否支持自定义无障碍能力，默认为false。true表示支持，false表示不支持。  
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Applications.Contacts
      * @FaAndStageModel
@@ -5400,7 +5276,7 @@ declare namespace call {
   }
 
   /**
-   * Provides an option for determining whether a call is a video call.
+   * 拨打电话的可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5409,10 +5285,10 @@ declare namespace call {
    */
   export interface DialCallOptions {
     /**
-     * Account ID.
-     *
-     * - **0**: card slot 1.
-     * - **1**: card slot 2.
+     * 帐户Id。
+     * 
+     * - 0：卡槽1。
+     * - 1：卡槽2。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5421,7 +5297,7 @@ declare namespace call {
      */
     accountId?: int;
     /**
-     * Video state type.
+     * 视频状态类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5430,7 +5306,7 @@ declare namespace call {
      */
     videoState?: VideoStateType;
     /**
-     * Dialup scenario.
+     * 拨号场景。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5439,7 +5315,7 @@ declare namespace call {
      */
     dialScene?: DialScene;
     /**
-     * Dialup type.
+     * 拨号类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5457,7 +5333,9 @@ declare namespace call {
      */
     extraParams?: Record<string, Object>;
     /**
-     * XCALL type.
+     * XCALL类型。 
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5468,7 +5346,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates dialup scenarios.
+   * 拨号场景。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5477,7 +5355,7 @@ declare namespace call {
    */
   export enum DialScene {
     /**
-     * Common call.
+     * 呼叫正常。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5487,7 +5365,7 @@ declare namespace call {
     CALL_NORMAL = 0,
 
     /**
-     * Privileged call.
+     * 呼叫特权。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5497,7 +5375,7 @@ declare namespace call {
     CALL_PRIVILEGED = 1,
 
     /**
-     * Emergency call.
+     * 拨打紧急电话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5508,7 +5386,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates dialup types.
+   * 拨号类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5517,7 +5395,7 @@ declare namespace call {
    */
   export enum DialType {
     /**
-     * Carrier.
+     * 载波拨号类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5527,7 +5405,7 @@ declare namespace call {
     DIAL_CARRIER_TYPE = 0,
 
     /**
-     * Voice mail.
+     * 语音邮件拨号类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5537,7 +5415,7 @@ declare namespace call {
     DIAL_VOICE_MAIL_TYPE = 1,
 
     /**
-     * OTT.
+     * OTT拨号类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5547,7 +5425,9 @@ declare namespace call {
     DIAL_OTT_TYPE = 2,
 
     /**
-     * X-Call.
+     * XCALL通话。 
+     * 
+     * **起始版本:** 26.0.0
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5558,7 +5438,7 @@ declare namespace call {
   }
 
   /**
-   * Defines options for the call rejection message.
+   * 拒绝消息可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5567,7 +5447,7 @@ declare namespace call {
    */
   export interface RejectMessageOptions {
     /**
-     * Message content.
+     * 消息内容。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5578,7 +5458,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call transfer result.
+   * 呼叫转移结果。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi [since 8 - 24]
@@ -5588,7 +5468,7 @@ declare namespace call {
    */
   export interface CallTransferResult {
     /**
-     * Enumerates call transfer states.
+     * 转移状态。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -5599,7 +5479,7 @@ declare namespace call {
     status: TransferStatus;
 
     /**
-     * Call transfer number.
+     * 号码。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5617,7 +5497,7 @@ declare namespace call {
     teleNumber: string;
 
     /**
-     * Hour in the start time.
+     * 开始时间的小时数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 9 - 24]
@@ -5628,7 +5508,7 @@ declare namespace call {
     startHour: int;
 
     /**
-     * Minute in the start time.
+     * 开始时间的分钟数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 9 - 24]
@@ -5639,7 +5519,7 @@ declare namespace call {
     startMinute: int;
 
     /**
-     * Hour in the end time.
+     * 结束时间的小时数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 9 - 24]
@@ -5650,7 +5530,7 @@ declare namespace call {
     endHour: int;
 
     /**
-     * Minute in the end time.
+     * 结束时间的分钟数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 9 - 24]
@@ -5662,7 +5542,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call waiting states.
+   * 呼叫等待状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5671,7 +5551,7 @@ declare namespace call {
    */
   export enum CallWaitingStatus {
     /**
-     * Call waiting disabled.
+     * 禁用呼叫等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5681,7 +5561,7 @@ declare namespace call {
     CALL_WAITING_DISABLE = 0,
 
     /**
-     * Call waiting enabled.
+     * 启用呼叫等待。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5692,7 +5572,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call restriction states.
+   * 限制状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5701,7 +5581,7 @@ declare namespace call {
    */
   export enum RestrictionStatus {
     /**
-     * Call restriction disabled.
+     * 禁用限制。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5711,7 +5591,7 @@ declare namespace call {
     RESTRICTION_DISABLE = 0,
 
     /**
-     * Call restriction enabled.
+     * 启用限制。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5722,7 +5602,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call transfer states.
+   * 转移状态。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi [since 8 - 24]
@@ -5732,7 +5612,7 @@ declare namespace call {
    */
   export enum TransferStatus {
     /**
-     * Call transfer disabled.
+     * 禁用转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -5743,7 +5623,7 @@ declare namespace call {
     TRANSFER_DISABLE = 0,
 
     /**
-     * Call transfer enabled.
+     * 启用转移。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi [since 8 - 24]
@@ -5755,7 +5635,7 @@ declare namespace call {
   }
 
   /**
-   * Provides an option for determining whether a number is an emergency number for the SIM card in the specified slot.
+   * 判断是否是紧急电话号码的可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
@@ -5763,10 +5643,10 @@ declare namespace call {
    */
   export interface EmergencyNumberOptions {
     /**
-     * Card slot ID.
-     *
-     * - **0**: card slot 1
-     * - **1**: card slot 2
+     * 卡槽ID：
+     * 
+     * - 卡槽1：`0`。
+     * - 卡槽2：`1`。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 7 dynamic
@@ -5776,7 +5656,7 @@ declare namespace call {
   }
 
   /**
-   * Provides an option for number formatting.
+   * 格式化号码的可选参数。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
@@ -5784,7 +5664,7 @@ declare namespace call {
    */
   export interface NumberFormatOptions {
     /**
-     * Country code, for example, **CN** (China). All country codes are supported. The default value is **CN**.
+     * 国家码，支持所有国家的国家码，如：CN（中国）。默认为：CN。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 7 dynamic
@@ -5794,7 +5674,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the MMI code result.
+   * MMI码结果。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5803,7 +5683,7 @@ declare namespace call {
    */
   export interface MmiCodeResults {
     /**
-     * Defines the MMI code result.
+     * MMI码结果。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5813,7 +5693,7 @@ declare namespace call {
     result: MmiCodeResult;
 
     /**
-     * MMI code message.
+     * MMI码消息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5824,7 +5704,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the MMI code result.
+   * MMI码结果。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5833,7 +5713,7 @@ declare namespace call {
    */
   export enum MmiCodeResult {
     /**
-     * Success.
+     * 表示MMI码成功。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5843,7 +5723,7 @@ declare namespace call {
     MMI_CODE_SUCCESS = 0,
 
     /**
-     * Failure.
+     * 表示MMI码失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5854,7 +5734,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates call disconnection causes.
+   * 断开连接的详细信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -5863,7 +5743,7 @@ declare namespace call {
    */
   export enum DisconnectedReason {
     /**
-     * Unallocated (unassigned) number.
+     * 未分配的号码(空号)。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5873,7 +5753,7 @@ declare namespace call {
     UNASSIGNED_NUMBER = 1,
 
     /**
-     * No route to destination.
+     * 无至目的地的路由。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5883,7 +5763,7 @@ declare namespace call {
     NO_ROUTE_TO_DESTINATION = 3,
 
     /**
-     * Channel unacceptable.
+     * 不可接受的通路。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5893,7 +5773,7 @@ declare namespace call {
     CHANNEL_UNACCEPTABLE = 6,
 
     /**
-     * Operator determined barring (ODB).
+     * 运营商闭锁。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5903,7 +5783,7 @@ declare namespace call {
     OPERATOR_DETERMINED_BARRING = 8,
 
     /**
-     * Call completed elsewhere.
+     * 呼叫在其他地方完成。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5913,7 +5793,7 @@ declare namespace call {
     CALL_COMPLETED_ELSEWHERE = 13,
 
     /**
-     * Normal call clearing.
+     * 清除正常呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5923,7 +5803,7 @@ declare namespace call {
     NORMAL_CALL_CLEARING = 16,
 
     /**
-     * User busy.
+     * 用户忙。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5933,7 +5813,7 @@ declare namespace call {
     USER_BUSY = 17,
 
     /**
-     * No user responding.
+     * 无用户响应。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5943,7 +5823,7 @@ declare namespace call {
     NO_USER_RESPONDING = 18,
 
     /**
-     * User alerting, no answer.
+     * 已有用户提醒，但无应答。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5953,7 +5833,7 @@ declare namespace call {
     USER_ALERTING_NO_ANSWER = 19,
 
     /**
-     * Call rejected.
+     * 呼叫拒绝。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5963,7 +5843,7 @@ declare namespace call {
     CALL_REJECTED = 21,
 
     /**
-     * Number changed.
+     * 号码改变。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5973,7 +5853,7 @@ declare namespace call {
     NUMBER_CHANGED = 22,
 
     /**
-     * Call rejected due to reasons of the destination, for example, activation of Anonymous Call Rejection.
+     * 当由于目标地址(例如匿名)导致呼叫被拒绝。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5983,7 +5863,7 @@ declare namespace call {
     CALL_REJECTED_DUE_TO_FEATURE_AT_THE_DESTINATION = 24,
 
     /**
-     * Failed preemption.
+     * 抢占失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -5993,7 +5873,7 @@ declare namespace call {
     FAILED_PRE_EMPTION = 25,
 
     /**
-     * Non-selected user clearing.
+     * 非选定用户清除。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6003,7 +5883,7 @@ declare namespace call {
     NON_SELECTED_USER_CLEARING = 26,
 
     /**
-     * Destination out of order.
+     * 终点故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6013,7 +5893,7 @@ declare namespace call {
     DESTINATION_OUT_OF_ORDER = 27,
 
     /**
-     * Invalid number format (incomplete number).
+     * 无效号码格式。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6023,7 +5903,7 @@ declare namespace call {
     INVALID_NUMBER_FORMAT = 28,
 
     /**
-     * Facility rejected.
+     * 增补业务拒绝。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6033,7 +5913,7 @@ declare namespace call {
     FACILITY_REJECTED = 29,
 
     /**
-     * Response to status enquiry.
+     * 对状态查询的响应。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6043,7 +5923,7 @@ declare namespace call {
     RESPONSE_TO_STATUS_ENQUIRY = 30,
 
     /**
-     * Normal, unspecified.
+     * 正常，未指定。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6053,7 +5933,7 @@ declare namespace call {
     NORMAL_UNSPECIFIED = 31,
 
     /**
-     * No circuit/channel available.
+     * 无电路/通道可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6063,7 +5943,7 @@ declare namespace call {
     NO_CIRCUIT_CHANNEL_AVAILABLE = 34,
 
     /**
-     * Network fault.
+     * 网络故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6073,7 +5953,7 @@ declare namespace call {
     NETWORK_OUT_OF_ORDER = 38,
 
     /**
-     * Temporary failure.
+     * 临时故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6083,7 +5963,7 @@ declare namespace call {
     TEMPORARY_FAILURE = 41,
 
     /**
-     * Switching equipment congestion.
+     * 交换设备拥塞。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6093,7 +5973,7 @@ declare namespace call {
     SWITCHING_EQUIPMENT_CONGESTION = 42,
 
     /**
-     * Access information discarded.
+     * 已丢弃访问信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6103,7 +5983,7 @@ declare namespace call {
     ACCESS_INFORMATION_DISCARDED = 43,
 
     /**
-     * Requested circuit/channel unavailable.
+     * 请求的电路/通道不可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6113,7 +5993,7 @@ declare namespace call {
     REQUEST_CIRCUIT_CHANNEL_NOT_AVAILABLE = 44,
 
     /**
-     * Resources unavailable, unspecified.
+     * 未指定资源不可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6123,7 +6003,7 @@ declare namespace call {
     RESOURCES_UNAVAILABLE_UNSPECIFIED = 47,
 
     /**
-     * QoS unavailable.
+     * 服务质量不可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6133,7 +6013,7 @@ declare namespace call {
     QUALITY_OF_SERVICE_UNAVAILABLE = 49,
 
     /**
-     * Requested facility not subscribed.
+     * 请求的设施未订阅。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6143,7 +6023,7 @@ declare namespace call {
     REQUESTED_FACILITY_NOT_SUBSCRIBED = 50,
 
     /**
-     * Incoming calls barred within the CUG.
+     * CUG内禁止来电。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6153,7 +6033,7 @@ declare namespace call {
     INCOMING_CALLS_BARRED_WITHIN_THE_CUG = 55,
 
     /**
-     * Bearer capability not authorized.
+     * 未授权承载能力。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6163,7 +6043,7 @@ declare namespace call {
     BEARER_CAPABILITY_NOT_AUTHORIZED = 57,
 
     /**
-     * Bearer capability presently available.
+     * 承载能力目前不可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6173,7 +6053,7 @@ declare namespace call {
     BEARER_CAPABILITY_NOT_PRESENTLY_AVAILABLE = 58,
 
     /**
-     * Service or option not available, unspecified.
+     * 服务或选项不可用，未指定。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6183,7 +6063,7 @@ declare namespace call {
     SERVICE_OR_OPTION_NOT_AVAILABLE_UNSPECIFIED = 63,
 
     /**
-     * Bearer service not implemented.
+     * 未实现承载服务。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6193,7 +6073,7 @@ declare namespace call {
     BEARER_SERVICE_NOT_IMPLEMENTED = 65,
 
     /**
-     * ACM greater than or equal to the maximum value.
+     * ACM大于或等于最大值。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6203,7 +6083,7 @@ declare namespace call {
     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
     /**
-     * Requested facility not implemented.
+     * 请求的设施未实施。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6213,7 +6093,7 @@ declare namespace call {
     REQUESTED_FACILITY_NOT_IMPLEMENTED = 69,
 
     /**
-     * Only restricted digital information bearer capability available.
+     * 仅限BC有限数字信息可用。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6223,7 +6103,7 @@ declare namespace call {
     ONLY_RESTRICTED_DIGITAL_INFO_BEARER_CAPABILITY_IS_AVAILABLE = 70,
 
     /**
-     * Service or option not implemented, unspecified.
+     * 服务或选项未实施，未指定。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6233,7 +6113,7 @@ declare namespace call {
     SERVICE_OR_OPTION_NOT_IMPLEMENTED_UNSPECIFIED = 79,
 
     /**
-     * Invalid transaction identifier value.
+     * 无效的业务标识符值。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6243,7 +6123,7 @@ declare namespace call {
     INVALID_TRANSACTION_IDENTIFIER_VALUE = 81,
 
     /**
-     * User not member of CUG.
+     * 用户不是CUG成员。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6253,7 +6133,7 @@ declare namespace call {
     USER_NOT_MEMBER_OF_CUG = 87,
 
     /**
-     * Incompatible destination.
+     * 目标不兼容。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6263,7 +6143,7 @@ declare namespace call {
     INCOMPATIBLE_DESTINATION = 88,
 
     /**
-     * Invalid transit network selection.
+     * 选择的传输网络无效。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6273,7 +6153,7 @@ declare namespace call {
     INVALID_TRANSIT_NETWORK_SELECTION = 91,
 
     /**
-     * Semantically incorrect message.
+     * 语义错误的消息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6283,7 +6163,7 @@ declare namespace call {
     SEMANTICALLY_INCORRECT_MESSAGE = 95,
 
     /**
-     * Invalid mandatory information.
+     * 无效的强制信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6293,7 +6173,7 @@ declare namespace call {
     INVALID_MANDATORY_INFORMATION = 96,
 
     /**
-     * Message type non-existent or not implemented.
+     * 消息类型不存在或未实现。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6303,7 +6183,7 @@ declare namespace call {
     MESSAGE_TYPE_NON_EXISTENT_OR_NOT_IMPLEMENTED = 97,
 
     /**
-     * Message type not compatible with protocol state.
+     * 消息类型与协议状态不兼容。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6313,7 +6193,7 @@ declare namespace call {
     MESSAGE_TYPE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 98,
 
     /**
-     * IE non-existent or not implemented.
+     * IE不存在或未实现。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6323,7 +6203,7 @@ declare namespace call {
     INFORMATION_ELEMENT_NON_EXISTENT_OR_NOT_IMPLEMENTED = 99,
 
     /**
-     * Conditional IE error.
+     * 条件IE错误。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6333,7 +6213,7 @@ declare namespace call {
     CONDITIONAL_IE_ERROR = 100,
 
     /**
-     * Message not compatible with protocol state.
+     * 消息与协议状态不兼容。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6343,7 +6223,7 @@ declare namespace call {
     MESSAGE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 101,
 
     /**
-     * Recovery on timer expiry.
+     * 计时器过期时恢复计时器编号。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6353,7 +6233,7 @@ declare namespace call {
     RECOVERY_ON_TIMER_EXPIRED = 102,
 
     /**
-     * Protocol error, unspecified.
+     * 协议错误，未指定。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6363,7 +6243,7 @@ declare namespace call {
     PROTOCOL_ERROR_UNSPECIFIED = 111,
 
     /**
-     * Interworking, unspecified.
+     * 互通，未指定。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6373,7 +6253,7 @@ declare namespace call {
     INTERWORKING_UNSPECIFIED = 127,
 
     /**
-     * Call barred.
+     * 呼叫被禁止。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6383,7 +6263,7 @@ declare namespace call {
     CALL_BARRED = 240,
 
     /**
-     * FDN blocked.
+     * FDN受阻。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6393,7 +6273,7 @@ declare namespace call {
     FDN_BLOCKED = 241,
 
     /**
-     * IMSI unknown in VLR.
+     * VLR中的IMSI未知。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6403,7 +6283,7 @@ declare namespace call {
     IMSI_UNKNOWN_IN_VLR = 242,
 
     /**
-     * IMEI not accepted.
+     * IMEI未被接受。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6413,7 +6293,7 @@ declare namespace call {
     IMEI_NOT_ACCEPTED = 243,
 
     /**
-     * Dial request modified to USSD request.
+     * 拨号修改为USSD。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6423,7 +6303,7 @@ declare namespace call {
     DIAL_MODIFIED_TO_USSD = 244,
 
     /**
-     * Dial request modified to SS request.
+     * 拨号修改为USSD号。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6433,7 +6313,7 @@ declare namespace call {
     DIAL_MODIFIED_TO_SS = 245,
 
     /**
-     * Dial request modified to dial with different number.
+     * 拨号已修改为正常。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6443,7 +6323,7 @@ declare namespace call {
     DIAL_MODIFIED_TO_DIAL = 246,
 
     /**
-     * Radio off.
+     * 无线电通讯已关闭。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6453,7 +6333,7 @@ declare namespace call {
     RADIO_OFF = 247,
 
     /**
-     * Stops the service.
+     * 停止服务。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6463,7 +6343,7 @@ declare namespace call {
     OUT_OF_SERVICE = 248,
 
     /**
-     * No valid SIM.
+     * SIM卡无效。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6473,7 +6353,7 @@ declare namespace call {
     NO_VALID_SIM = 249,
 
     /**
-     * Radio internal error.
+     * 无线电通讯内部错误。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6483,7 +6363,7 @@ declare namespace call {
     RADIO_INTERNAL_ERROR = 250,
 
     /**
-     * Network response timeout.
+     * 网络响应超时。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6493,7 +6373,7 @@ declare namespace call {
     NETWORK_RESP_TIMEOUT = 251,
 
     /**
-     * Request rejected by network.
+     * 网络拒绝。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6503,7 +6383,7 @@ declare namespace call {
     NETWORK_REJECT = 252,
 
     /**
-     * Radio access failure.
+     * 无线电接入故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6513,7 +6393,7 @@ declare namespace call {
     RADIO_ACCESS_FAILURE = 253,
 
     /**
-     * Radio link failure.
+     * 无线电链路故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6523,7 +6403,7 @@ declare namespace call {
     RADIO_LINK_FAILURE = 254,
 
     /**
-     * Radio link lost.
+     * 无线电链路丢失。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6533,7 +6413,7 @@ declare namespace call {
     RADIO_LINK_LOST = 255,
 
     /**
-     * Radio uplink failure.
+     * 无线电上行链路故障。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6543,7 +6423,7 @@ declare namespace call {
     RADIO_UPLINK_FAILURE = 256,
 
     /**
-     * Radio setup failure.
+     * 无线电通讯设置失败。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6553,7 +6433,7 @@ declare namespace call {
     RADIO_SETUP_FAILURE = 257,
 
     /**
-     * Radio release normal.
+     * 无线电释放正常。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6563,7 +6443,7 @@ declare namespace call {
     RADIO_RELEASE_NORMAL = 258,
 
     /**
-     * Radio release abnormal.
+     * 无线电释放异常。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6573,7 +6453,7 @@ declare namespace call {
     RADIO_RELEASE_ABNORMAL = 259,
 
     /**
-     * Access class blocked.
+     * 访问类被阻止。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6583,7 +6463,7 @@ declare namespace call {
     ACCESS_CLASS_BLOCKED = 260,
 
     /**
-     * Network detached.
+     * 网络分离。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6593,7 +6473,7 @@ declare namespace call {
     NETWORK_DETACH = 261,
 
     /**
-     * Invalid parameter.
+     * 无效参数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6603,7 +6483,7 @@ declare namespace call {
     INVALID_PARAMETER = 1025,
 
     /**
-     * SIM not exit.
+     * SIM卡未退出。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6613,7 +6493,7 @@ declare namespace call {
     SIM_NOT_EXIT = 1026,
 
     /**
-     * SIM PIN needed.
+     * 需要SIM卡PIN码。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6623,7 +6503,7 @@ declare namespace call {
     SIM_PIN_NEED = 1027,
 
     /**
-     * Call not allowed.
+     * 不允许呼叫。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6633,7 +6513,7 @@ declare namespace call {
     CALL_NOT_ALLOW = 1029,
 
     /**
-     * No valid SIM.
+     * SIM卡无效。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6643,7 +6523,7 @@ declare namespace call {
     SIM_INVALID = 1045,
 
     /**
-     * Unknown reason.
+     * 未知原因。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6654,7 +6534,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the call disconnection cause.
+   * 通话结束原因。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6663,7 +6543,7 @@ declare namespace call {
    */
   export interface DisconnectedDetails {
     /**
-     * Defines the call disconnection cause.
+     * 通话结束原因。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6672,7 +6552,7 @@ declare namespace call {
      */
     reason: DisconnectedReason;
     /**
-     * Call ending message.
+     * 通话结束提示信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6683,7 +6563,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the video call mode information.
+   * 视频通话模式信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6692,7 +6572,7 @@ declare namespace call {
    */
   export interface ImsCallModeInfo {
     /**
-     * Call ID.
+     * 呼叫Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6701,7 +6581,7 @@ declare namespace call {
      */
     callId: int;
     /**
-     * Call ending message.
+     * 通话结束提示信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6710,7 +6590,7 @@ declare namespace call {
      */
     result: VideoRequestResultType;
     /**
-     * Whether the information is request information.
+     * 该信息是否为请求信息。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6719,7 +6599,7 @@ declare namespace call {
      */
     isRequestInfo: boolean;
     /**
-     * Video call mode.
+     * 视频通话模式。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6730,7 +6610,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the video call event information.
+   * 视频通话事件信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6739,7 +6619,7 @@ declare namespace call {
    */
   export interface CallSessionEvent {
     /**
-     * Call ID.
+     * 呼叫Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6748,7 +6628,7 @@ declare namespace call {
      */
     callId: int;
     /**
-     * Video call event.
+     * 视频通话事件。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6759,7 +6639,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the peer image resolution in a video call.
+   * 视频通话对端画面分辨率信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6768,7 +6648,7 @@ declare namespace call {
    */
   export interface PeerDimensionsDetail {
     /**
-     * Call ID.
+     * 呼叫Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6777,7 +6657,7 @@ declare namespace call {
      */
     callId: int;
     /**
-     * Width of the peer image, in pixels.
+     * 对端画面图像尺寸宽(像素)。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6786,7 +6666,7 @@ declare namespace call {
      */
     width: int;
     /**
-     * Height of the peer image, in pixels.
+     * 对端画面图像尺寸高(像素)。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6797,7 +6677,7 @@ declare namespace call {
   }
 
   /**
-   * Defines the local image resolution in a video call.
+   * 视频通话本端相机画面分辨率信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6806,7 +6686,7 @@ declare namespace call {
    */
   export interface CameraCapabilities {
     /**
-     * Call ID.
+     * 呼叫Id。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6815,7 +6695,7 @@ declare namespace call {
      */
     callId: int;
     /**
-     * Width of the local image, in pixels.
+     * 本端画面图像尺寸宽(像素)。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6824,7 +6704,7 @@ declare namespace call {
      */
     width: int;
     /**
-     * Height of the local image, in pixels.
+     * 本端画面图像尺寸高(像素)。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6835,7 +6715,7 @@ declare namespace call {
   }
 
   /**
-   * Defines a number mark.
+   * 电话号码的标记信息。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6844,7 +6724,7 @@ declare namespace call {
    */
   export interface NumberMarkInfo {
     /**
-     * Mark type.
+     * 号码的标记类型。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6854,8 +6734,7 @@ declare namespace call {
     markType: MarkType;
 
     /**
-     * Mark content. When **markType** is set to **MARK_TYPE_ENTERPRISE**, the returned information consists of the
-     * employee name and ID.
+     * 号码的标记内容，markType为MARK_TYPE_ENTERPRISE时，该字段返回信息为“姓名 工号”。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6865,7 +6744,7 @@ declare namespace call {
     markContent?: string;
 
     /**
-     * Mark count.
+     * 号码的标记次数。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6875,7 +6754,7 @@ declare namespace call {
     markCount?: int;
 
     /**
-     * Mark source.
+     * 号码的标记来源供应商。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6885,10 +6764,11 @@ declare namespace call {
     markSource?: string;
 
     /**
-     * Whether the number mark is from the cloud. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
+     * 号码的标记是否来自云端，默认为false。
+     * 
+     * -true：是
+     * 
+     * -false：否
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6898,8 +6778,7 @@ declare namespace call {
     isCloud?: boolean;
 
     /**
-     * Mark details. When **markType** is set to **MARK_TYPE_ENTERPRISE**, the value of this parameter is the department
-     * position.
+     * 号码标记的详细信息，markType为MARK_TYPE_ENTERPRISE时，该字段返回信息为“部门 职位”。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6910,7 +6789,7 @@ declare namespace call {
   }
 
   /**
-   * Indicates the info of the rtt error.
+   * rtt通话错误报告
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6920,7 +6799,7 @@ declare namespace call {
    */
   export interface RttErrorInfo {
     /**
-     * Indicates the id of rtt.
+     * rtt通话id
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6931,7 +6810,7 @@ declare namespace call {
     callId: int;
 
     /**
-     * Indicates the type of rtt operation.
+     * rtt操作类型
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6942,7 +6821,7 @@ declare namespace call {
     operationType: int;
 
     /**
-     * Indicates the code of rtt cause.
+     * rtt失败原因值
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6953,7 +6832,7 @@ declare namespace call {
     causeCode: int;
 
     /**
-     * Indicates the text of rtt fail reason.
+     * rtt失败原因
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6965,7 +6844,7 @@ declare namespace call {
   }
 
   /**
-   * Indicates the info of the rtt event.
+   * rtt通话事件
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -6975,7 +6854,7 @@ declare namespace call {
    */
   export interface RttEventInfo {
     /**
-     * Indicates the id of rtt.
+     * rtt通话id
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6986,7 +6865,7 @@ declare namespace call {
     callId: int;
 
     /**
-     * Indicates the type of rtt event.
+     * rtt通话事件类型
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -6997,7 +6876,7 @@ declare namespace call {
     eventType: int;
 
     /**
-     * Indicates the reason of rtt event.
+     * rtt事件原因
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7009,7 +6888,7 @@ declare namespace call {
   }
 
   /**
-   * Indicates the info of the rtt message.
+   * rtt通话消息
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -7019,7 +6898,7 @@ declare namespace call {
    */
   export interface RttMessageInfo {
     /**
-     * Indicates the id of rtt.
+     * rtt通话id
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7030,7 +6909,7 @@ declare namespace call {
     callId: int;
 
     /**
-     * Indicates the rtt messgae.
+     * rtt消息
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7042,7 +6921,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates number mark types.
+   * 号码标记的类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -7051,7 +6930,7 @@ declare namespace call {
    */
   export enum MarkType {
     /**
-     * No mark.
+     * 没有标记。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7061,7 +6940,7 @@ declare namespace call {
     MARK_TYPE_NONE = 0,
 
     /**
-     * Spam call.
+     * 骚扰电话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7071,7 +6950,7 @@ declare namespace call {
     MARK_TYPE_CRANK = 1,
 
     /**
-     * Fraud call.
+     * 诈骗电话。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7081,7 +6960,7 @@ declare namespace call {
     MARK_TYPE_FRAUD = 2,
 
     /**
-     * Express & delivery.
+     * 快递送餐。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7091,7 +6970,7 @@ declare namespace call {
     MARK_TYPE_EXPRESS = 3,
 
     /**
-     * Advertising.
+     * 广告推销。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7101,7 +6980,7 @@ declare namespace call {
     MARK_TYPE_PROMOTE_SALES = 4,
 
     /**
-     * Estate agent.
+     * 房产中介。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7111,7 +6990,7 @@ declare namespace call {
     MARK_TYPE_HOUSE_AGENT = 5,
 
     /**
-     * Insurance & loans.
+     * 保险理财。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7121,7 +7000,7 @@ declare namespace call {
     MARK_TYPE_INSURANCE = 6,
 
     /**
-     * Taxi.
+     * 出租车。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7131,7 +7010,7 @@ declare namespace call {
     MARK_TYPE_TAXI = 7,
 
     /**
-     * User-defined.
+     * 用户自定义。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7141,7 +7020,7 @@ declare namespace call {
     MARK_TYPE_CUSTOM = 8,
 
     /**
-     * Other.
+     * 其他。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7151,7 +7030,7 @@ declare namespace call {
     MARK_TYPE_OTHERS = 9,
 
     /**
-     * Yellow page.
+     * 黄页。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7161,7 +7040,7 @@ declare namespace call {
     MARK_TYPE_YELLOW_PAGE = 10,
 
     /**
-     * Enterprise contact.
+     * 企业联系人。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7172,7 +7051,7 @@ declare namespace call {
   }
 
   /**
-   * Indicates the state of the rtt.
+   * rtt通话状态
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -7182,7 +7061,7 @@ declare namespace call {
    */
   export enum RttState {
     /**
-     * Indicates the rtt is disable.
+     * rtt关闭
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7192,7 +7071,7 @@ declare namespace call {
      */
     RTT_STATE_NO = 0,
     /**
-     * Indicates the rtt is enable.
+     * rtt打开
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7202,7 +7081,7 @@ declare namespace call {
      */
     RTT_STATE_YES = 1,
     /**
-     * Indicates the rtt is tty state.
+     * tty模式
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7212,7 +7091,7 @@ declare namespace call {
      */
     RTT_STATE_REMOTE_TTY = 2,
     /**
-     * Indicates the rtt is not support.
+     * 对端不支持rtt
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7223,7 +7102,7 @@ declare namespace call {
     RTT_STATE_REMOTE_NOT_SUPPORT = 3
   }
   /**
-   * Indicates the mode of the ims rtt.
+   * rtt通话模式
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -7233,7 +7112,7 @@ declare namespace call {
    */
   export enum ImsRttMode {
     /**
-     * Indicates the rtt is local request update.
+     * 本端请求升级
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7243,7 +7122,7 @@ declare namespace call {
      */
     LOCAL_REQUEST_UPGRADE = 0,
     /**
-     * Indicates the rtt is local request downgrade.
+     * 本端请求降级
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7253,7 +7132,7 @@ declare namespace call {
      */
     LOCAL_REQUEST_DOWNGRADE = 1,
     /**
-     * Indicates the rtt is remote request local accept.
+     * 对端请求本端接受
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7263,7 +7142,7 @@ declare namespace call {
      */
     REMOTE_REQUEST_UPGRADE_LOCAL_ACCEPT = 2,
     /**
-     * Indicates the rtt is remote request update local reject.
+     * 对端请求本端拒绝
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7275,7 +7154,7 @@ declare namespace call {
   }
 
   /**
-   * Enumerates X-Call types.
+   * 表示XCall的类型。
    *
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -7284,7 +7163,7 @@ declare namespace call {
    */
   export enum XCallType {
     /**
-     * E-Call.
+     * 表示XCall是ECall。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7293,7 +7172,7 @@ declare namespace call {
      */
     XCALL_ECALL_TYPE = 0,
     /**
-     * B-Call.
+     * 表示XCall是BCall。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -7302,7 +7181,7 @@ declare namespace call {
      */
     XCALL_BCALL_TYPE = 1,
     /**
-     * I-Call.
+     * 表示XCall是ICall。
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
