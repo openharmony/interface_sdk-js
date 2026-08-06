@@ -34,6 +34,7 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  *
  * @namespace cardEmulation
  * @syscap SystemCapability.Communication.NFC.CardEmulation
+ * @FaAndStageModel
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
@@ -44,6 +45,7 @@ declare namespace cardEmulation {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @stagemodelonly
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
@@ -53,6 +55,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether HCE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
@@ -63,6 +66,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether SIM card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
@@ -73,6 +77,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether eSE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
@@ -92,6 +97,7 @@ declare namespace cardEmulation {
    *
    * @enum { string }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -107,6 +113,7 @@ declare namespace cardEmulation {
      * Payment type of card emulation
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -123,6 +130,7 @@ declare namespace cardEmulation {
      * Other type of card emulation
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -137,6 +145,7 @@ declare namespace cardEmulation {
    * @param { number } feature Indicates the card emulation type, {@code HCE}, {@code UICC}, or {@code ESE}.
    * @returns { boolean } Returns true if the specified type of card emulation is supported; returns false otherwise.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @stagemodelonly
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
@@ -161,6 +170,7 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -197,6 +207,7 @@ declare namespace cardEmulation {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -213,6 +224,7 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
@@ -232,6 +244,7 @@ declare namespace cardEmulation {
    * installation information and connect to services of the application.
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -244,6 +257,7 @@ declare namespace cardEmulation {
      * @param { string[] } aidList - The aid list to be registered by this service
      * @returns { boolean } Returns true if HCE is enabled or has been enabled; returns false otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#start
@@ -280,6 +294,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -292,6 +307,7 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @returns { boolean } Returns true if HCE is disabled or has been disabled; returns false otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#stop
@@ -326,6 +342,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -351,6 +368,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 401 - Invalid parameter.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      */
@@ -368,6 +386,7 @@ declare namespace cardEmulation {
      *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 23 static
      */
     onHceCmd(callback: AsyncCallback<int[]>): void;
@@ -381,6 +400,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 18 dynamic
      */
@@ -394,6 +414,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 23 static
      */
     offHceCmd(callback?: AsyncCallback<int[]>): void;
@@ -405,6 +426,7 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { number[] } responseApdu Indicates the response, which is a byte array.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#transmit
@@ -441,6 +463,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -477,6 +500,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
