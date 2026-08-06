@@ -809,8 +809,10 @@ declare namespace effectKit {
   /**
    * Enumerates the tile modes of the shader effect.
    *
-   * Under CPU rendering, the shader tile mode supports only DECAL.
-   * Under GPU rendering, DECAL, CLAMP, REPEAT, and MIRROR modes are all supported.
+   * > **NOTE**
+   * >
+   * > Under CPU rendering, the shader tile mode supports only DECAL.
+   * > Under GPU rendering, DECAL, CLAMP, REPEAT, and MIRROR modes are all supported.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 14 dynamic
