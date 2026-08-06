@@ -6287,16 +6287,16 @@ declare enum ClickEffectLevel {
 }
 
 /**
- * The type of XComponent
- *
+* The type of XComponent
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * The type of XComponent
- *
+* The type of XComponent
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6304,8 +6304,8 @@ declare enum ClickEffectLevel {
  * @since 11
  */
 /**
- * The type of XComponent
- *
+* The type of XComponent
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7265,8 +7265,8 @@ declare enum AppRotation {
 }
 
 /**
- * Enum of EmbeddedType
- *
+* Enum of EmbeddedType
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7274,6 +7274,7 @@ declare enum AppRotation {
  * @since 12 dynamic
  */
 declare enum EmbeddedType {
+
   /**
    * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
    *
@@ -7282,7 +7283,7 @@ declare enum EmbeddedType {
    * @atomicservice
    * @since 12 dynamic
    */
-  EMBEDDED_UI_EXTENSION = 0,
+  EMBEDDED_UI_EXTENSION = 0
 }
 
 /**
@@ -7432,8 +7433,8 @@ declare enum TextSelectableMode {
 }
 
 /**
- * Type of accessibility hover event.
- *
+* Type of accessibility hover event.
+*
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7442,6 +7443,7 @@ declare enum TextSelectableMode {
  * @since 12 dynamic
  */
 declare enum AccessibilityHoverType {
+
   /**
    * Hover enter type.
    *
@@ -8206,7 +8208,7 @@ declare enum DividerMode {
    * @atomicservice
    * @since 19 dynamic
    */
-  EMBEDDED_IN_MENU = 1,
+  EMBEDDED_IN_MENU = 1
 }
 
 /**

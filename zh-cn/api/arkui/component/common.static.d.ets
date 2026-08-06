@@ -39,7 +39,7 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin, Coordinate2D, AccessibilityCustomAction, AccessibilityNextFocusParams } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin, Coordinate2D, AccessibilityCustomAction } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction, GestureShortcut, EdgeLightPosition } from "./enums";
@@ -484,7 +484,6 @@ export declare function $r(value: string, ...params: RecordData[]): Resource;
 export declare function $rawfile(value: string): Resource;
 /**
  * Defines the same page mode
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -508,891 +507,1017 @@ export declare enum AccessibilitySamePageMode {
 }
 /**
  * Enum for accessibility component type
- * @enum { int }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AccessibilityRoleType {
     /**
-    * ActionSheet component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * ActionSheet component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ACTION_SHEET = 0,
     /**
-    * AlertDialog component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * AlertDialog component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ALERT_DIALOG = 1,
     /**
-    * AlphabetIndexer component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * AlphabetIndexer component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     INDEXER_COMPONENT = 2,
     /**
-    * badge component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * badge component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     BADGE_COMPONENT = 3,
     /**
-    * blank component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * blank component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     BLANK = 4,
     /**
-    * button component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * button component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     BUTTON = 5,
     /**
-    * button component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * button component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     BACK_BUTTON = 6,
     /**
-    * sheet drag bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * sheet drag bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SHEET_DRAG_BAR = 7,
     /**
-    * calendar picker component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * calendar picker component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CALENDAR_PICKER = 8,
     /**
-    * calendar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * calendar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CALENDAR = 9,
     /**
-    * canvas component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * canvas component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CANVAS = 10,
     /**
-    * canvas gradient component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * canvas gradient component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CANVAS_GRADIENT = 11,
     /**
-    * canvas pattern component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * canvas pattern component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CANVAS_PATTERN = 12,
     /**
-    * checkbox component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * checkbox component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CHECKBOX = 13,
     /**
-    * checkbox group component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * checkbox group component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CHECKBOX_GROUP = 14,
     /**
-    * circle component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * circle component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CIRCLE = 15,
     /**
-    * column split component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * column split component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     COLUMN_SPLIT = 16,
     /**
-    * column component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * column component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     COLUMN = 17,
     /**
-    * canvas rendering context 2d component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * canvas rendering context 2d component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CANVAS_RENDERING_CONTEXT_2D = 18,
     /**
-    * chart component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * chart component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CHART = 19,
     /**
-    * counter component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
+     * counter component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
-    */
+     */
     COUNTER = 20,
     /**
-    * counter modal component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * counter modal component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     CONTAINER_MODAL = 21,
     /**
-    * data panel component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * data panel component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     DATA_PANEL = 22,
     /**
-    * data picker component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * data picker component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     DATE_PICKER = 23,
     /**
-    * dialog component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * dialog component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     DIALOG = 24,
     /**
-    * divider component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * divider component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     DIVIDER = 25,
     /**
-    * drag bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * drag bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     DRAG_BAR = 26,
     /**
-    * effect component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * effect component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     EFFECT_COMPONENT = 27,
     /**
-    * ellipse component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * ellipse component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ELLIPSE = 28,
     /**
-    * flex component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * flex component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     FLEX = 29,
     /**
-    * flow item component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * flow item component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     FLOW_ITEM = 30,
     /**
-    * form component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * form component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     FORM_COMPONENT = 31,
     /**
-    * form link component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * form link component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     FORM_LINK = 32,
     /**
-    * gauge component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * gauge component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GAUGE = 33,
     /**
-    * grid component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * grid component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GRID = 34,
     /**
-    * grid col component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * grid col component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GRID_COL = 35,
     /**
-    * grid container component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * grid container component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GRID_CONTAINER = 36,
     /**
-    * grid item component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * grid item component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GRID_ITEM = 37,
     /**
-    * grid row component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * grid row component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     GRID_ROW = 38,
     /**
-    * hyperlink component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * hyperlink component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     HYPERLINK = 39,
     /**
-    * image component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * image component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     IMAGE = 40,
     /**
-    * image animator component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * image animator component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     IMAGE_ANIMATOR = 41,
     /**
-    * image bitmap component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * image bitmap component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     IMAGE_BITMAP = 42,
     /**
-    * image data component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * image data component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     IMAGE_DATA = 43,
     /**
-    * image span component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * image span component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     IMAGE_SPAN = 44,
     /**
-    * label component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * label component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LABEL = 45,
     /**
-    * line component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * line component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LINE = 46,
     /**
-    * list component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * list component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LIST = 47,
     /**
-    * list item component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * list item component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LIST_ITEM = 48,
     /**
-    * list item group component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * list item group component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LIST_ITEM_GROUP = 49,
     /**
-    * loading progress component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * loading progress component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     LOADING_PROGRESS = 50,
     /**
-    * marquee component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * marquee component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     MARQUEE = 51,
     /**
-    * matrix2d component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * matrix2d component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     MATRIX2D = 52,
     /**
-    * menu component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * menu component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     MENU = 53,
     /**
-    * menu item component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * menu item component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     MENU_ITEM = 54,
     /**
-    * menu item group component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * menu item group component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     MENU_ITEM_GROUP = 55,
     /**
-    * navdestination component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navdestination component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAV_DESTINATION = 56,
     /**
-    * navrouter component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navrouter component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAV_ROUTER = 57,
     /**
-    * navigation component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navigation component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAVIGATION = 58,
     /**
-    * navigation bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navigation bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAVIGATION_BAR = 59,
     /**
-    * navigation menu component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navigation menu component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAVIGATION_MENU = 60,
     /**
-    * navigator component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * navigator component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     NAVIGATOR = 61,
     /**
-    * offscreen canvas component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * offscreen canvas component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     OFFSCREEN_CANVAS = 62,
     /**
-    * offscreen canvas rendering context2d component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * offscreen canvas rendering context2d component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     OFFSCREEN_CANVAS_RENDERING_CONTEXT2D = 63,
     /**
-    * option component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * option component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     OPTION = 64,
     /**
-    * panel component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * panel component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PANEL = 65,
     /**
-    * paper page component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * paper page component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PAPER_PAGE = 66,
     /**
-    * path component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * path component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PATH = 67,
     /**
-    * path 2d component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * path 2d component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PATH2D = 68,
     /**
-    * pattern lock component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * pattern lock component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PATTERN_LOCK = 69,
     /**
-    * picker component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * picker component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PICKER = 70,
     /**
-    * picker view component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * picker view component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PICKER_VIEW = 71,
     /**
-    * plugin component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * plugin component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PLUGIN_COMPONENT = 72,
     /**
-    * polygon component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * polygon component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     POLYGON = 73,
     /**
-    * polyline component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * polyline component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     POLYLINE = 74,
     /**
-    * pop up component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * pop up component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     POPUP = 75,
     /**
-    * progress component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * progress component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     PROGRESS = 76,
     /**
-    * qr code component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * qr code component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     QRCODE = 77,
     /**
-    * radio component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * radio component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RADIO = 78,
     /**
-    * rating component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * rating component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RATING = 79,
     /**
-    * rect component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * rect component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RECT = 80,
     /**
-    * refresh component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * refresh component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     REFRESH = 81,
     /**
-    * relative container component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * relative container component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RELATIVE_CONTAINER = 82,
     /**
-    * remote window component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * remote window component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     REMOTE_WINDOW = 83,
     /**
-    * rich editor component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * rich editor component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RICH_EDITOR = 84,
     /**
-    * rich text component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * rich text component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     RICH_TEXT = 85,
     /**
-    * rolepager component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * rolepager component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ROLE_PAGER = 86,
     /**
-    * row component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * row component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ROW = 87,
     /**
-    * row split component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * row split component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ROW_SPLIT = 88,
     /**
-    * scroll component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * scroll component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SCROLL = 89,
     /**
-    * scroll bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * scroll bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SCROLL_BAR = 90,
     /**
-    * search component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * search component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SEARCH = 91,
     /**
-    * search field component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * search field component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SEARCH_FIELD = 92,
     /**
-    * select component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * select component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SELECT = 93,
     /**
-    * shape component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * shape component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SHAPE = 94,
     /**
-    * sidebar container component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * sidebar container component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SIDEBAR_CONTAINER = 95,
     /**
-    * slider component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * slider component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SLIDER = 96,
     /**
-    * span component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * span component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SPAN = 97,
     /**
-    * stack component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * stack component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     STACK = 98,
     /**
-    * stepper component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * stepper component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     STEPPER = 99,
     /**
-    * stepper item component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * stepper item component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     STEPPER_ITEM = 100,
     /**
-    * swiper component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * swiper component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SWIPER = 101,
     /**
-    * swiper indicator component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * swiper indicator component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SWIPER_INDICATOR = 102,
     /**
-    * switch component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * switch component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SWITCH = 103,
     /**
-    * symbol glyph component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * symbol glyph component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SYMBOL_GLYPH = 104,
     /**
-    * tab content component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * tab content component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TAB_CONTENT = 105,
     /**
-    * tab bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * tab bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TAB_BAR = 106,
     /**
-    * tabs component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * tabs component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TABS = 107,
     /**
-    * text component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT = 108,
     /**
-    * text clock component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text clock component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_CLOCK = 109,
     /**
-    * text entry component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text entry component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_ENTRY = 110,
     /**
-    * text input component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text input component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_INPUT = 111,
     /**
-    * text picker component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text picker component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_PICKER = 112,
     /**
-    * text timer component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text timer component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_TIMER = 113,
     /**
-    * text area component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text area component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_AREA = 114,
     /**
-    * text field component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * text field component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TEXT_FIELD = 115,
     /**
-    * time picker component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * time picker component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TIME_PICKER = 116,
     /**
-    * title bar component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * title bar component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TITLE_BAR = 117,
     /**
-    * toggler component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * toggler component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     TOGGLER = 118,
     /**
-    * uiextensioncomponent component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * uiextensioncomponent component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     UI_EXTENSION_COMPONENT = 119,
     /**
-    * video component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * video component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     VIDEO = 120,
     /**
-    * water flow component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * water flow component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     WATER_FLOW = 121,
     /**
-    * web component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * web component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     WEB = 122,
     /**
-    * xcomponent component type
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * xcomponent component type
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     XCOMPONENT = 123,
     /**
-    * none component type: screen reader will not broadcast the component type.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * none component type: screen reader will not broadcast the component type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     ROLE_NONE = 124
 }
 /**
  * Defines the callback type used in accessibility focus. The value of isFocus indicates whether
  * the current component is focused
+ *
  * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1402,64 +1527,71 @@ export type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
 /**
  * Enum for accessibility action type
- * @enum { int }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AccessibilityAction {
   /**
-  * undefined action type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+   * undefined action type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   UNDEFINED_ACTION = 0,
   /**
-  * accessibility click action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+   * accessibility click action
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   ACCESSIBILITY_CLICK = 1,
 }
 
 /**
  * Enum for the result of accessibility action intercept function
- * @enum { int }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AccessibilityActionInterceptResult {
   /**
-  * intercept the accessibility action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+   * intercept the accessibility action
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   ACTION_INTERCEPT = 0,
   /**
-  * the accessibility action can be continued
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+   * the accessibility action can be continued
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   ACTION_CONTINUE = 1,
   /**
-  * the accessibility action need to bubble up for execution
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+   * the accessibility action need to bubble up for execution
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
   ACTION_RISE = 2,
 }
 
 /**
  * Defines the callback type used in accessibility action intercept.
  * The value of action indicates the accessibility action type.
+ *
  * @param { AccessibilityAction } action - the enum of accessibility action type.
- * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or
+ *     bubbling up
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -11824,7 +11956,8 @@ export declare interface CommonMethod {
     /**
      * Trigger a accessibility hover event.
      *
-     * @param { AccessibilityCallback | undefined } callback - A callback instance used when the component is touched after accessibility mode is enabled.
+     * @param { AccessibilityCallback | undefined } callback - A callback instance used when the component is touched
+     *     after accessibility mode is enabled.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11835,8 +11968,9 @@ export declare interface CommonMethod {
     /**
      * prompt for current component and descendants unable to handle accessibility hover event
      *
-     * @param { AccessibilityTransparentCallback | undefined } callback - A callback instance used when current component and 
-     * descendants not handled accessibility hover event
+     * @param { AccessibilityTransparentCallback | undefined } callback - A callback instance used when current
+     *     component and
+     *     descendants not handled accessibility hover event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13657,7 +13791,9 @@ export declare interface CommonMethod {
     /**
      * Register accessibility action intercept callback,
      * when accessibility action is to be executed,the callback will be executed
-     * @param { AccessibilityActionInterceptCallback | undefined } callback - accessibility action intercept callback function
+     *
+     * @param { AccessibilityActionInterceptCallback | undefined } callback - accessibility action intercept callback
+     *     function
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -13718,14 +13854,14 @@ export declare interface CommonMethod {
      */
     default accessibilityLevel(value: string | undefined): this;
     /**
-     * Sets accessibilityVirtualNode
-     *
-     * @param { CustomBuilder | undefined } builder - set virtual node of accessibility
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * Sets accessibilityVirtualNode
+    *
+    * @param { CustomBuilder | undefined } builder - set virtual node of accessibility
+    * @returns { this }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
    default accessibilityVirtualNode(builder: CustomBuilder | undefined): this;
     /**
      * Sets accessibilityChecked
@@ -13768,14 +13904,15 @@ export declare interface CommonMethod {
      */
     default reuseId(id: string | undefined): this;
     /**
-    * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
-    *
-    * @param { ReuseOptions | undefined } options - The configuration parameter for reusable custom component.
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control
+     * of sub-component recycle and reuse.
+     *
+     * @param { ReuseOptions | undefined } options - The configuration parameter for reusable custom component.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default reuse(options: ReuseOptions | undefined): this;
     /**
      * 设置宽高动画过程中的组件内容填充方式。
@@ -13973,7 +14110,8 @@ export declare interface CommonMethod {
     /**
      * Sets the state anouncement text of the component under accessibility.
      *
-     * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
+     * @param { string | Resource | undefined } description the state anouncement text of the component under
+     *     accessibility.
      *     if incoming is undefined, it will be processed as empty string.
      * @returns { this } return component instance who call the method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14030,20 +14168,6 @@ export declare interface CommonMethod {
      * @since 26.0.0 static
      */
     default inspectorLabel(label: string | undefined): this;
-    /**
-     * Sets the next accessibility focus ID for the component, with optional detailed parameters.
-     * The detailed parameters can provide additional behavior for the accessibility focus transition.
-     *
-     * @param { string } nextId - set component next accessibility focus id.
-     * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
-     *     accessibility next focus processing.
-     *     Undefined indicates reverting to the default of the detailed parameters.
-     * @returns { this } return component instance who call the method.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default accessibilityNextFocusId(nextId: string, nextFocusParams: AccessibilityNextFocusParams | undefined): this;
     /**
      * Sets whether to component is double-sided.
      *

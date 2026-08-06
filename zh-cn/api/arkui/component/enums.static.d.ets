@@ -520,7 +520,7 @@ export declare enum TouchType {
   Cancel = 3,
 
   /**
-   * Triggers when the touch event turns to hover enter in accessibility processing.
+   * 无障碍模式下，手指按下时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -529,7 +529,7 @@ export declare enum TouchType {
   HOVER_ENTER = 9,
 
   /**
-   * Triggers when the touch event turns to hover move in accessibility processing.
+   * 无障碍模式下，触摸移动时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -538,7 +538,7 @@ export declare enum TouchType {
   HOVER_MOVE = 10,
 
   /**
-   * Triggers when the touch event turns to hover exit in accessibility processing.
+   * 无障碍模式下，抬手时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -547,7 +547,7 @@ export declare enum TouchType {
   HOVER_EXIT = 11,
 
   /**
-   * Triggers when the touch event turns to hover cancel in accessibility processing.
+   * 无障碍模式下，取消当前触发的事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

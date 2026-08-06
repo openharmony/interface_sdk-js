@@ -2051,7 +2051,7 @@ declare function $r(value: string, ...params: any[]): Resource;
  */
 declare function $rawfile(value: string): Resource;
 /**
- * Enumerates the same-page modes for cross-process embedded components and their host applications.
+ * Defines the same page mode
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2062,28 +2062,29 @@ declare function $rawfile(value: string): Resource;
  */
 declare enum AccessibilitySamePageMode {
   /**
-   * Ignores initial page loading events and root node page events from the cross-process embedded component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
+  * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
+  * this mode is to solve skipping focus
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 18 dynamic
+  */
   SEMI_SILENT = 0,
  /**
-   * Ignores all page events from the cross-process embedded component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
+  * the all page event is not send
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 18 dynamic
+  */
   FULL_SILENT = 1,
 }
 /**
- * Enumerates the component role types used by screen readers.
+ * Enum for accessibility component type
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2094,7 +2095,7 @@ declare enum AccessibilitySamePageMode {
  */
 declare enum AccessibilityRoleType {
   /**
-  * Action sheet.
+  * actionSheet component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2104,7 +2105,7 @@ declare enum AccessibilityRoleType {
   */
   ACTION_SHEET = 0,
   /**
-  * Alert dialog box.
+  * alertDialog component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2114,7 +2115,7 @@ declare enum AccessibilityRoleType {
   */
   ALERT_DIALOG = 1,
   /**
-  * Indexer component.
+  * alphabetIndexer component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2124,7 +2125,7 @@ declare enum AccessibilityRoleType {
   */
   INDEXER_COMPONENT = 2,
   /**
-  * Badge component.
+  * badge component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2134,7 +2135,7 @@ declare enum AccessibilityRoleType {
   */
   BADGE_COMPONENT = 3,
   /**
-  * Blank placeholder component.
+  * blank component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2144,7 +2145,7 @@ declare enum AccessibilityRoleType {
   */
   BLANK = 4,
   /**
-  * Button.
+  * button component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2154,7 +2155,7 @@ declare enum AccessibilityRoleType {
   */
   BUTTON = 5,
   /**
-  * Back button on a large image page.
+  * back button component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2164,7 +2165,7 @@ declare enum AccessibilityRoleType {
   */
   BACK_BUTTON = 6,
   /**
-  * Drag bar for sheets.
+  * sheet drag bar component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2174,7 +2175,7 @@ declare enum AccessibilityRoleType {
   */
   SHEET_DRAG_BAR = 7,
   /**
-  * Calendar picker.
+  * calendar picker component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2184,7 +2185,7 @@ declare enum AccessibilityRoleType {
   */
   CALENDAR_PICKER = 8,
   /**
-  * Calendar.
+  * calendar component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2194,7 +2195,7 @@ declare enum AccessibilityRoleType {
   */
   CALENDAR = 9,
   /**
-  * Canvas component.
+  * canvas component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2204,7 +2205,7 @@ declare enum AccessibilityRoleType {
   */
   CANVAS = 10,
   /**
-  * Gradient object.
+  * canvas gradient component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2214,7 +2215,7 @@ declare enum AccessibilityRoleType {
   */
   CANVAS_GRADIENT = 11,
   /**
-  * Pattern for image filling based on a specified source image and repetition mode.
+  * canvas pattern component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2224,7 +2225,7 @@ declare enum AccessibilityRoleType {
   */
   CANVAS_PATTERN = 12,
   /**
-  * Check box component.
+  * checkbox component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2234,7 +2235,7 @@ declare enum AccessibilityRoleType {
   */
   CHECKBOX = 13,
   /**
-  * Check box group.
+  * checkbox group component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2244,7 +2245,7 @@ declare enum AccessibilityRoleType {
   */
   CHECKBOX_GROUP = 14,
   /**
-  * Component for drawing circles.
+  * circle component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2254,7 +2255,7 @@ declare enum AccessibilityRoleType {
   */
   CIRCLE = 15,
   /**
-  * Vertical layout of child components with horizontal dividers.
+   * column split component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2264,7 +2265,7 @@ declare enum AccessibilityRoleType {
   */
   COLUMN_SPLIT = 16,
   /**
-   * Container that lays out child components vertically.
+   * column component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2274,7 +2275,7 @@ declare enum AccessibilityRoleType {
    */
   COLUMN = 17,
   /**
-   * 2D drawing object, which can be used to draw rectangles, images, and texts on a canvas component.
+   * canvas rendering context 2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2284,7 +2285,7 @@ declare enum AccessibilityRoleType {
    */
   CANVAS_RENDERING_CONTEXT_2D = 18,
   /**
-   * Chart component.
+   * chart component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2294,7 +2295,7 @@ declare enum AccessibilityRoleType {
    */
   CHART = 19,
   /**
-   * Counter component.
+   * counter component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2304,7 +2305,7 @@ declare enum AccessibilityRoleType {
    */
   COUNTER = 20,
   /**
-   * Modal container.
+   * counter modal component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2314,7 +2315,7 @@ declare enum AccessibilityRoleType {
    */
   CONTAINER_MODAL = 21,
   /**
-   * Data panel component.
+   * data panel component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2324,7 +2325,7 @@ declare enum AccessibilityRoleType {
    */
   DATA_PANEL = 22,
   /**
-   * Date picker.
+   * date picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2334,7 +2335,7 @@ declare enum AccessibilityRoleType {
    */
   DATE_PICKER = 23,
   /**
-   * Dialog box.
+   * dialog component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2344,7 +2345,7 @@ declare enum AccessibilityRoleType {
    */
   DIALOG = 24,
   /**
-   * Divider component.
+   * divider component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2354,7 +2355,7 @@ declare enum AccessibilityRoleType {
    */
   DIVIDER = 25,
   /**
-   * Drag bar.
+   * drag bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2364,7 +2365,7 @@ declare enum AccessibilityRoleType {
    */
   DRAG_BAR = 26,
   /**
-   * Container component for special effects.
+   * effect component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2374,7 +2375,7 @@ declare enum AccessibilityRoleType {
    */
   EFFECT_COMPONENT = 27,
   /**
-   * Ellipse drawing component.
+   * ellipse component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2384,7 +2385,7 @@ declare enum AccessibilityRoleType {
    */
   ELLIPSE = 28,
   /**
-   * Container that allows for flexible layout of child components.
+   * flex component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2394,7 +2395,7 @@ declare enum AccessibilityRoleType {
    */
   FLEX = 29,
   /**
-   * Child component of a waterfall layout container.
+   * flow item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2404,7 +2405,7 @@ declare enum AccessibilityRoleType {
    */
   FLOW_ITEM = 30,
   /**
-   * Widget component.
+   * form component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2414,7 +2415,7 @@ declare enum AccessibilityRoleType {
    */
   FORM_COMPONENT = 31,
   /**
-   * Static widget interaction component.
+   * form link component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2424,7 +2425,7 @@ declare enum AccessibilityRoleType {
    */
   FORM_LINK = 32,
   /**
-   * Gauge component.
+   * gauge component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2434,7 +2435,7 @@ declare enum AccessibilityRoleType {
    */
   GAUGE = 33,
   /**
-   * Grid container.
+   * grid component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2444,7 +2445,7 @@ declare enum AccessibilityRoleType {
    */
   GRID = 34,
   /**
-   * Grid column component.
+   * grid col component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2454,7 +2455,7 @@ declare enum AccessibilityRoleType {
    */
   GRID_COL = 35,
   /**
-   * Grid container that lays out child components vertically.
+   * grid container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2464,7 +2465,7 @@ declare enum AccessibilityRoleType {
    */
   GRID_CONTAINER = 36,
   /**
-   * Single-item container within a grid container.
+   * grid item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2474,7 +2475,7 @@ declare enum AccessibilityRoleType {
    */
   GRID_ITEM = 37,
   /**
-   * Grid row component.
+   * grid row component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2484,7 +2485,7 @@ declare enum AccessibilityRoleType {
    */
   GRID_ROW = 38,
   /**
-   * Hyperlink component.
+   * hyperlink component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2494,7 +2495,7 @@ declare enum AccessibilityRoleType {
    */
   HYPERLINK = 39,
   /**
-   * Image component.
+   * image component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2504,7 +2505,7 @@ declare enum AccessibilityRoleType {
    */
   IMAGE = 40,
   /**
-   * Frame animation component.
+   * image animator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2514,7 +2515,7 @@ declare enum AccessibilityRoleType {
    */
   IMAGE_ANIMATOR = 41,
   /**
-   * Pixel data for canvas rendering.
+   * image bitmap component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2524,7 +2525,7 @@ declare enum AccessibilityRoleType {
    */
   IMAGE_BITMAP = 42,
   /**
-   * Pixel data for canvas rendering.
+   * image data component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2534,7 +2535,7 @@ declare enum AccessibilityRoleType {
    */
   IMAGE_DATA = 43,
   /**
-   * Component used to display inline images.
+   * image span component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2544,7 +2545,7 @@ declare enum AccessibilityRoleType {
    */
   IMAGE_SPAN = 44,
   /**
-   * Label.
+   * label component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2554,7 +2555,7 @@ declare enum AccessibilityRoleType {
    */
   LABEL = 45,
   /**
-   * Line.
+   * line component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2564,7 +2565,7 @@ declare enum AccessibilityRoleType {
    */
   LINE = 46,
   /**
-   * List.
+   * list component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2574,7 +2575,7 @@ declare enum AccessibilityRoleType {
    */
   LIST = 47,
   /**
-   * Specific item in a list.
+   * list item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2584,7 +2585,7 @@ declare enum AccessibilityRoleType {
    */
   LIST_ITEM = 48,
   /**
-   * List item group.
+   * list item group component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2594,7 +2595,7 @@ declare enum AccessibilityRoleType {
    */
   LIST_ITEM_GROUP = 49,
   /**
-   * Component for display loading animations.
+   * loading progress component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2604,7 +2605,7 @@ declare enum AccessibilityRoleType {
    */
   LOADING_PROGRESS = 50,
   /**
-   * Marquee component.
+   * marquee component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2614,7 +2615,7 @@ declare enum AccessibilityRoleType {
    */
   MARQUEE = 51,
   /**
-   * 2D matrix object.
+   * matrix2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2624,7 +2625,7 @@ declare enum AccessibilityRoleType {
    */
   MATRIX2D = 52,
   /**
-   * Menu.
+   * menu component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2634,7 +2635,7 @@ declare enum AccessibilityRoleType {
    */
   MENU = 53,
   /**
-   * Menu item.
+   * menu item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2644,7 +2645,7 @@ declare enum AccessibilityRoleType {
    */
   MENU_ITEM = 54,
   /**
-   * Menu item group.
+   * menu item group component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2654,7 +2655,7 @@ declare enum AccessibilityRoleType {
    */
   MENU_ITEM_GROUP = 55,
   /**
-   * Content area of the **Navigation** component.
+   * navdestination component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2675,7 +2676,7 @@ declare enum AccessibilityRoleType {
    */
   NAV_ROUTER = 57,
   /**
-   * Root view container for navigation routing.
+   * navigation component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2685,7 +2686,7 @@ declare enum AccessibilityRoleType {
    */
   NAVIGATION = 58,
   /**
-   * Navigation bar.
+   * navigation bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2695,7 +2696,7 @@ declare enum AccessibilityRoleType {
    */
   NAVIGATION_BAR = 59,
   /**
-   * Navigation menu.
+   * navigation menu component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2705,7 +2706,7 @@ declare enum AccessibilityRoleType {
    */
   NAVIGATION_MENU = 60,
   /**
-   * Navigation container component.
+   * navigator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2715,7 +2716,7 @@ declare enum AccessibilityRoleType {
    */
   NAVIGATOR = 61,
   /**
-   * Canvas for custom drawing of graphics.
+   * offscreen canvas component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2725,7 +2726,7 @@ declare enum AccessibilityRoleType {
    */
   OFFSCREEN_CANVAS = 62,
   /**
-   * 2D drawing object, which can be used to draw rectangles, images, and texts on a canvas component.
+   * offscreen canvas rendering context2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2746,7 +2747,7 @@ declare enum AccessibilityRoleType {
    */
   OPTION = 64,
   /**
-   * Slidable panel.
+   * panel component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2767,7 +2768,7 @@ declare enum AccessibilityRoleType {
    */
   PAPER_PAGE = 66,
   /**
-   * Path drawing component.
+   * path component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2777,7 +2778,7 @@ declare enum AccessibilityRoleType {
    */
   PATH = 67,
   /**
-   * Path object.
+   * path 2d component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2787,7 +2788,7 @@ declare enum AccessibilityRoleType {
    */
   PATH2D = 68,
   /**
-   * Pattern lock component.
+   * pattern lock component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2797,7 +2798,7 @@ declare enum AccessibilityRoleType {
    */
   PATTERN_LOCK = 69,
   /**
-   * Picker.
+   * picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2807,7 +2808,7 @@ declare enum AccessibilityRoleType {
    */
   PICKER = 70,
   /**
-   * Picker view.
+   * picker view component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2817,7 +2818,7 @@ declare enum AccessibilityRoleType {
    */
   PICKER_VIEW = 71,
   /**
-   * Plugin component.
+   * plugin component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2827,7 +2828,7 @@ declare enum AccessibilityRoleType {
    */
   PLUGIN_COMPONENT = 72,
   /**
-   * Component used to draw a polygon.
+   * polygon component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2837,7 +2838,7 @@ declare enum AccessibilityRoleType {
    */
   POLYGON = 73,
   /**
-   * Component used to draw a polyline.
+   * polyline component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2847,7 +2848,7 @@ declare enum AccessibilityRoleType {
    */
   POLYLINE = 74,
   /**
-   * Popup with a specific style.
+   * popup component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2868,7 +2869,7 @@ declare enum AccessibilityRoleType {
    */
   PROGRESS = 76,
   /**
-   * QR code.
+   * qr code component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2878,7 +2879,7 @@ declare enum AccessibilityRoleType {
    */
   QRCODE = 77,
   /**
-   * Radio button.
+   * radio component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2888,7 +2889,7 @@ declare enum AccessibilityRoleType {
    */
   RADIO = 78,
   /**
-   * Component for selecting a rating within a given range.
+   * rating component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2898,7 +2899,7 @@ declare enum AccessibilityRoleType {
    */
   RATING = 79,
   /**
-   * Component used to draw a rectangle.
+   * rect component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2908,7 +2909,7 @@ declare enum AccessibilityRoleType {
    */
   RECT = 80,
   /**
-   * Pull-to-refresh container component.
+   * refresh component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2918,7 +2919,7 @@ declare enum AccessibilityRoleType {
    */
   REFRESH = 81,
   /**
-   * Relative layout component.
+   * relative container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2928,7 +2929,7 @@ declare enum AccessibilityRoleType {
    */
   RELATIVE_CONTAINER = 82,
   /**
-   * Remote control window component.
+   * remote window component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2938,7 +2939,7 @@ declare enum AccessibilityRoleType {
    */
   REMOTE_WINDOW = 83,
   /**
-   * Component that supports rich text editing and interactive text editing.
+   * rich editor component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2948,7 +2949,7 @@ declare enum AccessibilityRoleType {
    */
   RICH_EDITOR = 84,
   /**
-   * Rich text component.
+   * rich text component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2958,7 +2959,7 @@ declare enum AccessibilityRoleType {
    */
   RICH_TEXT = 85,
   /**
-   * Pagination component.
+   * role pager component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2968,7 +2969,7 @@ declare enum AccessibilityRoleType {
    */
   ROLE_PAGER = 86,
   /**
-   * Container that lays out child components horizontally.
+   * row component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2978,7 +2979,7 @@ declare enum AccessibilityRoleType {
    */
   ROW = 87,
   /**
-   * Horizontal layout of child components with vertical dividers.
+   * row split component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2988,7 +2989,7 @@ declare enum AccessibilityRoleType {
    */
   ROW_SPLIT = 88,
   /**
-   * Scrollable container component.
+   * scroll component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2998,7 +2999,7 @@ declare enum AccessibilityRoleType {
    */
   SCROLL = 89,
   /**
-   * Scrollbar.
+   * scroll bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3008,7 +3009,7 @@ declare enum AccessibilityRoleType {
    */
   SCROLL_BAR = 90,
   /**
-   * Search box component.
+   * search component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3018,7 +3019,7 @@ declare enum AccessibilityRoleType {
    */
   SEARCH = 91,
   /**
-   * Search box.
+   * search field component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3028,7 +3029,7 @@ declare enum AccessibilityRoleType {
    */
   SEARCH_FIELD = 92,
   /**
-   * Drop-down list component.
+   * select component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3038,7 +3039,7 @@ declare enum AccessibilityRoleType {
    */
   SELECT = 93,
   /**
-   * Parent component of the drawing components.
+   * shape component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3048,7 +3049,7 @@ declare enum AccessibilityRoleType {
    */
   SHAPE = 94,
   /**
-   * Sidebar container that can show and hide the sidebar.
+   * sidebar container component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3058,7 +3059,7 @@ declare enum AccessibilityRoleType {
    */
   SIDEBAR_CONTAINER = 95,
   /**
-   * slider component type
+   * sidebar container component type
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3069,7 +3070,7 @@ declare enum AccessibilityRoleType {
    */
   SLIDER = 96,
   /**
-   * Component used to display inline text.
+   * span component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3079,7 +3080,7 @@ declare enum AccessibilityRoleType {
    */
   SPAN = 97,
   /**
-   * Stack container.
+   * stack component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3089,7 +3090,7 @@ declare enum AccessibilityRoleType {
    */
   STACK = 98,
   /**
-   * Stepper component.
+   * stepper component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3099,7 +3100,7 @@ declare enum AccessibilityRoleType {
    */
   STEPPER = 99,
   /**
-   * Page child component of the stepper component.
+   * stepper item component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3109,7 +3110,7 @@ declare enum AccessibilityRoleType {
    */
   STEPPER_ITEM = 100,
   /**
-   * Swiper view container.
+   * swiper component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3119,7 +3120,7 @@ declare enum AccessibilityRoleType {
    */
   SWIPER = 101,
   /**
-   * Navigation indicator for the **Swiper** component.
+   * swiper indicator component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3129,7 +3130,7 @@ declare enum AccessibilityRoleType {
    */
   SWIPER_INDICATOR = 102,
   /**
-   * Switch.
+   * switch component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3139,7 +3140,7 @@ declare enum AccessibilityRoleType {
    */
   SWITCH = 103,
   /**
-   * Component for displaying a symbol glyph.
+   * symbol glyph component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3149,7 +3150,7 @@ declare enum AccessibilityRoleType {
    */
   SYMBOL_GLYPH = 104,
   /**
-   * Content view for a tab in the **Tabs** component.
+   * tab content component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3159,7 +3160,7 @@ declare enum AccessibilityRoleType {
    */
   TAB_CONTENT = 105,
   /**
-   * Tab bar.
+   * tab bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3169,7 +3170,7 @@ declare enum AccessibilityRoleType {
    */
   TAB_BAR = 106,
   /**
-   * Container that allows users to switch between content views through tabs.
+   * tabs component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3179,7 +3180,7 @@ declare enum AccessibilityRoleType {
    */
   TABS = 107,
   /**
-   * Text.
+   * text component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3189,7 +3190,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT = 108,
   /**
-   * Text clock component.
+   * text clock component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3210,7 +3211,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_ENTRY = 110,
   /**
-   * Text box component.
+   * text input component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3220,7 +3221,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_INPUT = 111,
   /**
-   * Text picker.
+   * text picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3230,7 +3231,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_PICKER = 112,
   /**
-   * Component that displays timing information and is controlled in text format.
+   * text timer component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3240,7 +3241,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_TIMER = 113,
   /**
-   * Text area component.
+   * text area component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3250,7 +3251,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_AREA = 114,
   /**
-   * Text box.
+   * text field component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3260,7 +3261,7 @@ declare enum AccessibilityRoleType {
    */
   TEXT_FIELD = 115,
   /**
-   * Time picker.
+   * time picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3270,7 +3271,7 @@ declare enum AccessibilityRoleType {
    */
   TIME_PICKER = 116,
   /**
-   * Title bar.
+   * title bar component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3291,7 +3292,7 @@ declare enum AccessibilityRoleType {
    */
   TOGGLER = 118,
   /**
-   * UI extension component.
+   * uiExtensionComponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3301,7 +3302,7 @@ declare enum AccessibilityRoleType {
    */
   UI_EXTENSION_COMPONENT = 119,
   /**
-   * Component for playing video files and controlling playback.
+   * video component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3311,7 +3312,7 @@ declare enum AccessibilityRoleType {
    */
   VIDEO = 120,
   /**
-   * Waterfall layout container.
+   * water flow component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3321,7 +3322,7 @@ declare enum AccessibilityRoleType {
    */
   WATER_FLOW = 121,
   /**
-   * Component for loading web pages.
+   * web component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3331,7 +3332,7 @@ declare enum AccessibilityRoleType {
    */
   WEB = 122,
   /**
-   * Custom rendering component.
+   * xcomponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3341,7 +3342,7 @@ declare enum AccessibilityRoleType {
    */
   XCOMPONENT = 123,
   /**
-   * Null.
+   * none component type: screen reader will not broadcast the component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3353,9 +3354,8 @@ declare enum AccessibilityRoleType {
 }
 
 /**
- * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component 
- * is focused
- *
+ * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component is focused
+ * @typedef {function} AccessibilityFocusCallback
  * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3368,7 +3368,7 @@ declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
 /**
  * Enum for accessibility action type
- *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3378,32 +3378,30 @@ declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
  */
 declare enum AccessibilityAction {
   /**
-   * undefined action type
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
+  * undefined action type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20 dynamic
+  */
   UNDEFINED_ACTION = 0,
   /**
-   * accessibility click action
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
+  * accessibility click action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20 dynamic
+  */
   ACCESSIBILITY_CLICK = 1,
 }
 
 /**
  * Enum for the result of accessibility action intercept function
- *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3413,47 +3411,43 @@ declare enum AccessibilityAction {
  */
 declare enum AccessibilityActionInterceptResult {
   /**
-   * intercept the accessibility action
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
+  * intercept the accessibility action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20 dynamic
+  */
   ACTION_INTERCEPT = 0,
   /**
-   * the accessibility action can be continued
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
+  * the accessibility action can be continued
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20 dynamic
+  */
   ACTION_CONTINUE = 1,
   /**
-   * the accessibility action need to bubble up for execution
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
+  * the accessibility action need to bubble up for execution
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20 dynamic
+  */
   ACTION_RISE = 2,
 }
 
 /**
  * Defines the callback type used in accessibility action intercept.
  * The value of action indicates the accessibility action type.
- *
+ * @typedef { function } AccessibilityActionInterceptCallback
  * @param { AccessibilityAction } action - the enum of accessibility action type.
- * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or
- *     bubbling up
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -9738,6 +9732,8 @@ declare interface MouseHistoricalPoint {
 /**
  * The accessibility hover action triggers this method invocation.
  *
+ * @extends BaseEvent
+ * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -9748,6 +9744,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Type of the accessibility hover event.
    *
+   * @type { AccessibilityHoverType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -20252,8 +20249,7 @@ declare class CommonMethod<T> {
   /**
    * Trigger a accessibility hover event.
    *
-   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after
-   *     accessibility mode is enabled.
+   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23939,8 +23935,7 @@ declare class CommonMethod<T> {
    * <br>If a child component lacks both, it will be ignored.</p>
    *
    * @param { boolean } isGroup - set group with accessibility, default value is false.
-   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is
-   *     false.
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23989,9 +23984,8 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
-   * Sets the next component to receive focus during screen reader navigation.
-   * @param { string } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
-   *     <br>If the ID does not correspond to any component, the setting is ignored.
+   * Sets accessibility next focus id
+   * @param { string } nextId - set component next accessibility focus id
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24003,9 +23997,8 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string): T;
 
   /**
-   * Sets the initial screen reader focus on the page.
-   * @param { boolean } focus - Initial screen reader focus on the page. The value **true** means the component is the
-   *     <br>default initial focus for screen readers on the current page. Other values are ignored.
+   * Sets the accessibility default foucs flag
+   * @param { boolean } focus - if the component is accessibility default focus,focus set true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24017,9 +24010,8 @@ declare class CommonMethod<T> {
   accessibilityDefaultFocus(focus: boolean): T;
 
   /**
-   * Sets the same-page mode for the current component and its host application.
-   * @param { AccessibilitySamePageMode } pageMode - Same-page mode for the cross-process embedded component
-   *     <br>and the host application.
+   * Sets accessibility same page mode
+   * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24031,14 +24023,8 @@ declare class CommonMethod<T> {
   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
   /**
-   * Sets whether the accessibility node triggers automatic screen scrolling. When no focusable components are visible
-   * <br>on the current page within a container, this setting determines whether automatic scrolling is initiated.
-   * @param { boolean } isTriggerable - Whether the component triggers automatic scrolling for screen readers when the
-   *     <br>current page has no focusable components.
-   *     <br>**true**: The component triggers automatic scrolling.
-   *     <br>**false**: The component does not trigger automatic scrolling.
-   *     <br>**undefined**: The default settings are restored.
-   *     <br>Default value: **true**
+   * Sets accessibilityScrollTriggerable
+   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24071,9 +24057,8 @@ declare class CommonMethod<T> {
   accessibilityText(text: Resource): T;
 
   /**
-   * Sets the role type of the accessibility component, which affects how the component is announced by screen readers.
-   * @param { AccessibilityRoleType } role - Role of the component as announced by screen readers (for example, button or
-   *     <br>chart). You can define custom roles.
+   * Sets accessibility role,role indicates the custom type of the component
+   * @param { AccessibilityRoleType } role - set accessibility component type
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24114,9 +24099,9 @@ declare class CommonMethod<T> {
   onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
   /**
-   * Sets the text hint for the component, which can be queried by accessibility services.
+   * Sets accessibilityTextHint
    *
-   * @param { string } value - Text hint for the component, which can be queried by accessibility services.
+   * @param { string } value - set accessibility text hint
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24148,16 +24133,17 @@ declare class CommonMethod<T> {
   accessibilityDescription(value: string): T;
 
   /**
-   * Sets the accessibility description, with support for resource references using Resource.
-   * <br>This attribute provides additional context and explanation for the component, helping users understand its
-   * <br>functionality and purpose.
+   * Sets accessibilityDescription
+   *
+   * with support for resource references using Resource.
+   * This property provides additional context or explanation for the component,
+   * helping users understand the action or function it performs.
    * <p><strong>NOTE</strong>:
    * <br>Reference resource of the accessibility description. You can specify further explanation
    * <br>of the current component, for example, possible operation consequences, especially those that
    * <br>cannot be learned from component attributes and accessibility text. If a component contains
    * <br>both text information and the accessibility description, the text is read first and then the
    * <br>accessibility description, when the component is selected.</p>
-   *
    * @param { Resource } description - set description of accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24239,14 +24225,9 @@ declare class CommonMethod<T> {
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
-   * Sets the checked state for the accessibility node. This API is used in multi-select scenarios and only affects
-   * <br>component state announcements in screen reading scenarios.
+   * Sets accessibilityChecked
    *
-   * @param { boolean } isCheck - Whether the current component is selected.
-   *     <br>**true**: The component is selected.
-   *     <br>**false**: The component is not selected.
-   *     <br>**undefined**: The component determines its own selected state.
-   *     <br>Default value: **undefined**
+   * @param { boolean } isCheck - set accessibility checked status
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24258,14 +24239,9 @@ declare class CommonMethod<T> {
   accessibilityChecked(isCheck: boolean): T;
 
   /**
-   * Sets the checked state for the accessibility node. This API is used in single-select scenarios and only affects
-   * <br>component state announcements in screen reading scenarios.
+   * Sets accessibilitySelected
    *
-   * @param { boolean } isSelect - Whether the current component is selected.
-   *     <br>**true**: The component is selected.
-   *     <br>**false**: The component is not selected.
-   *     <br>**undefined**: The component determines its own selected state.
-   *     <br>Default value: **undefined**
+   * @param { boolean } isSelect - set accessibility selected status
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24583,10 +24559,10 @@ declare class CommonMethod<T> {
    */
   onSizeChange(event: SizeChangeCallback): T;
 
-   /**
-   * Sets the drawing level for the accessibility focus highlight (green frame).
+  /**
+   * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
    *
-   * @param { FocusDrawLevel } drawLevel - Drawing level for the accessibility focus highlight frame.
+   * @param { FocusDrawLevel } drawLevel - indicates accessibility focus draw level.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24705,13 +24681,12 @@ declare class CommonMethod<T> {
    * @since 24 dynamic
    */
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
+
   /**
-   * Sets the state description of a component for broadcasting, which clearly describes the real-time state of the
-   * <br>component in screen reading scenarios. Screen reader will broadcast the state description first.
+   * Sets the state anouncement text of the component under accessibility.
    *
-   * @param { string | Resource | undefined } description - Text to be broadcasted for the current state of the component.
-   *     <br>If the text contains more than 1000 characters, the first 1000 characters will be broadcasted.
-   *     <br>**undefined**: The text is empty by default.
+   * @param { string | Resource | undefined } description - the state anouncement text of
+   *     the component under accessibility. if incoming is undefined, it will be processed as empty string.
    * @returns { T } return component instance who call the method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24721,14 +24696,11 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   accessibilityStateDescription(description: string | Resource | undefined): T;
+
   /**
-   * Provides optional parameters for setting accessibility operations of a component, which is used to restrict or
-   * <br>modify the operations initiated by accessibility applications such as the screen reader.
+   * Sets AccessibilityActionOptions that can affect operation under accessibility.
    *
-   * @param { AccessibilityActionOptions | undefined } option - Parameter of the accessibility operation, which is used
-   *     <br>to restrict or modify the sliding behavior in the accessibility operation.
-   *     <br>The **scrollStep** parameter in **AccessibilityActionOptions** is used to set the number of sliding steps in
-   *     <br>the accessibility operation. When the value is **undefined**, **scrollStep** is processed as **1**.
+   * @param { AccessibilityActionOptions | undefined } option - set accessibility specific operation options.
    * @returns { T } return component instance who call the method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24740,29 +24712,13 @@ declare class CommonMethod<T> {
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
   /**
-       * Sets the next component to receive focus during screen reader navigation, with optional detailed parameters.
-       * The detailed parameters can provide additional behavior for the accessibility focus transition.
-       * @param { string } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
-       *     <br>If the ID does not correspond to any component, the setting is ignored.
-       * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - Detailed parameters for accessibility next
-       *     <br>focus processing, used to configure whether to search for focusable nodes among descendant nodes.
-       *     <br>When the value is **undefined**, no detailed parameters are configured and no focus search is performed
-       *     <br>among descendant nodes.
-       * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-       * @stagemodelonly
-       * @crossplatform
-       * @form
-       * @atomicservice
-       * @since 26.0.0 dynamic
-       */
-  accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
-
-  /**
-   * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
-   *
-   * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
-   * @returns { T } return component instance who call the method.
+   * Sets the next accessibility focus ID for the component, with optional detailed parameters.
+   * The detailed parameters can provide additional behavior for the accessibility focus transition.
+   * @param { string } nextId - set component next accessibility focus id
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
+   *     accessibility next focus processing.
+   *     Undefined indicates reverting to the default of the detailed parameters.
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24773,14 +24729,9 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
-   * Sets the custom accessibility operations of the component, allowing developers to set an array of custom actions
-   * <br>for binding custom operation callbacks to components by operation name.
+   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
    *
-   * @param { Array<AccessibilityCustomAction> | undefined } actions - Array of custom accessibility operations, where
-   *     <br>each operation contains an operation name and a callback, used for binding custom operation callbacks to
-   *     <br>components by operation name.
-   *     <br>**NOTE**: The array supports a maximum of 16 entries; any excess will not take effect.
-   *     <br>When the value is **undefined**, no custom operations are set.
+   * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
    * @returns { T } return component instance who call method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28842,6 +28793,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * The value of isHover indicates whether the touch is hovering over the component.
  * The value of event contains information about AccessibilityHoverEvent.
  *
+ * @typedef { function } AccessibilityCallback
  * @param { boolean } isHover
  * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28855,6 +28807,7 @@ declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHove
 /**
  * Defines the callback type used in accessibility hover transparent event.
  *
+ * @typedef { function } AccessibilityTransparentCallback
  * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
