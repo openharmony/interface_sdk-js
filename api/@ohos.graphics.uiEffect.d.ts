@@ -26,14 +26,14 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
 
 /**
- * The uiEffect module provides basic capabilities to apply an effect, for example, blur, pixel stretch, and brightness,
- * to a component. Effects are classified into filters and visual effects. Effects of the same category can be cascaded
- * in an effect instance of the corresponding category. In actual development, the blur effect can be used for
- * background blurring, and the brightness effect can be used for screen-on display.
+ * This module provides basic capabilities for component effects, including blur, brightening, and more.
+ * Effects are categorized into the Filter and VisualEffect classes, and effects of the same class can be cascaded
+ * under an instance of that effect class. Using this module, you can quickly implement complex visual effects without
+ * needing to master underlying image processing algorithms, reducing development complexity and improving user experience.
+ * In actual development, blur can be used for background blurring, and brightening can be used for bright screen display, etc.
  *
- * - [Filter](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#filter): applies a filter to a component.
- * - [VisualEffect](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#visualeffect): applies a visual effect to
- * a component.
+ * - [Filter](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#filter): Used to add specified Filter effects to a component.
+ * - [VisualEffect](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#visualeffect): Used to add specified VisualEffect effects to a component.
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @form [since 22]
@@ -43,7 +43,8 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 declare namespace uiEffect {
 
   /**
-   * The Filter for Component.
+   * Filter effect class, used to apply corresponding effects to specified components.
+   * Before calling Filter methods, you need to first create a Filter instance through createFilter.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
@@ -51,11 +52,16 @@ declare namespace uiEffect {
    */
   interface Filter {
     /**
-     * Set the edge pixel stretch effect of the Component.
+     * Adds a pixel stretch effect to the component.
      *
-     * @param { Array<double> } stretchSizes
-     * @param { TileMode } tileMode
-     * @returns { Filter }
+     * @param { Array<double> } stretchSizes - The percentage ratios of edge pixel stretching in the top, bottom,
+     *     left, and right directions. The value range is [-1, 1]. A positive value indicates outward stretching,
+     *     and the edge pixels of the specified original image ratio are used to fill in the top, bottom, left, and
+     *     right directions. A negative value indicates inward shrinking, but the final image size remains unchanged.
+     *     Note that the parameters for all four directions must be uniformly non-positive or non-negative,
+     *     otherwise the effect will not take effect.
+     * @param { TileMode } tileMode - The pixel fill mode for edge pixel stretching.
+     * @returns { Filter } - Returns the Filter with the pixel stretch effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
@@ -64,10 +70,12 @@ declare namespace uiEffect {
     pixelStretch(stretchSizes: Array<double>, tileMode: TileMode): Filter;
 
     /**
-     * Set blur effect of the Component.
+     * Adds a blur effect to the component.
      *
-     * @param { double } blurRadius
-     * @returns { Filter }
+     * @param { double } blurRadius - Blur radius, in px. The value must be greater than or equal to 0.
+     *     A larger blur radius results in a stronger blur effect. When the blur radius is 0, there is no blur effect.
+     *     If a negative number is passed in, it is automatically corrected to 0.
+     * @returns { Filter } - Returns the Filter with the blur effect attached, supporting chained calls to add other effects.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      * @since 23 static
@@ -75,20 +83,22 @@ declare namespace uiEffect {
     blur(blurRadius: double): Filter;
 
     /**
-     * Set waterRipple effect of the Component.
+     * Adds a water ripple effect to the component.
      *
-     * @param { double } progress - Indicates the ripple progress. The value 1 indicates that ripples are displayed on
-     *     all screens.
-     * @param { int } waveCount - The number of waves when the water ripples. The maximum count of waves is 3, the
-     *     minimum value is 1,  default is 2.
-     * @param { double } x - Represents the X-axis position of center point  where the water ripple first appears on the
-     *     screen.
-     * @param { double } y - Represents the Y-axis position of center point  where the water ripple first appears on the
-     *     screen.
-     * @param { WaterRippleMode } rippleMode - Set the mode of water ripple,
-     *     0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile, 3 for cross
-     *     platform.
-     * @returns { Filter } - Returns  water ripple Filter.
+     * @param { double } progress - Indicates the ripple progress. The value range is [0, 1].
+     *     The closer the progress is to 1, the more fully the ripples are displayed.
+     *     Values outside the range will not produce a ripple effect.
+     * @param { int } waveCount - The number of waves when the water ripples. The value range is [1, 3].
+     *     The wave count must be an integer. If a floating-point number or a value outside the range is provided,
+     *     the ripple effect will not appear.
+     * @param { double } x - The X-axis position of the center point where the water ripple first appears on the screen.
+     *     The screen is normalized, with the top-left corner at (0, 0) and the top-right corner at (1, 0).
+     *     A negative value indicates a position to the left of the screen.
+     * @param { double } y - The Y-axis position of the center point where the water ripple first appears on the screen.
+     *     The screen is normalized, with the top-left corner at (0, 0) and the bottom-left corner at (0, 1).
+     *     A negative value indicates a position above the screen.
+     * @param { WaterRippleMode } rippleMode - The scene mode of the water ripple.
+     * @returns { Filter } - Returns the Filter with the water ripple effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -98,12 +108,17 @@ declare namespace uiEffect {
     waterRipple(progress: double, waveCount: int, x: double, y: double, rippleMode: WaterRippleMode): Filter;
 
     /**
-     * Set the fly in or fly out effect of the component.
+     * Adds a fly-in or fly-out deformation effect to the component.
+     * Typical application scenarios include page transition animations, window entry/exit animations,
+     * dialog pop-up animations, list item entry/exit animations, etc.
      *
-     * @param { double } degree - set the degree of fly in or fly out effect, value range [0, 1].
-     * @param { FlyMode } flyMode - set the location of stretching when fly in or out
-     *     If the value is 0, the component keep same, else the value is 1, component are fully fly out or fly in.
-     * @returns { Filter } - Returns  fly in fly out Filter.
+     * @param { double } degree - Indicates the degree of fly-in or fly-out deformation. The value range is [0, 1].
+     *     The closer the value is to 1, the more obvious the deformation.
+     *     Values outside the range will not produce a deformation effect.
+     * @param { FlyMode } flyMode - The scene mode of the fly-in or fly-out effect.
+     *     BOTTOM indicates the fly-in or fly-out deformation scene from the bottom of the device.
+     *     TOP indicates the fly-in or fly-out deformation scene from the top of the device.
+     * @returns { Filter } - Returns the Filter with the fly-in or fly-out deformation effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -113,13 +128,14 @@ declare namespace uiEffect {
     flyInFlyOutEffect(degree: double, flyMode: FlyMode): Filter;
 
     /**
-     * Set distort effect of the component.
+     * Adds a lens distortion effect to the component.
      *
-     * @param { double } distortionK - set the degree of distort effect, value range [-1, 1].
-     *     If the value is 0, the component keep same,
-     *     if the value is less than 0, the component is barrel distortion,
-     *     if the value is more than 0, the component is pincushion distortion.
-     * @returns { Filter } - Returns distort Filter.
+     * @param { double } distortionK - The distortion coefficient, indicating the degree of lens distortion.
+     *     The value range is [-1, 1]. Values less than -1 are treated as -1; values greater than 1 are treated as 1.
+     *     When the distortion coefficient is less than 0, the effect is barrel distortion; when greater than 0,
+     *     the effect is pincushion distortion. The closer the value is to 0, the smaller the distortion;
+     *     when the value is 0, there is no distortion effect.
+     * @returns { Filter } - Returns the Filter with the lens distortion effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -129,14 +145,13 @@ declare namespace uiEffect {
     distort(distortionK: double): Filter;
 
     /**
-     * Adds the content radius gradient blurring effect for the current component.
-     * The input parameter is the blurring radius.
+     * Adds a radius linear gradient blur effect to the component content.
      *
-     * @param { double } radius - the blurring radius.
-     *     The larger the blurring radius, the more blurring the content, and if the value is 0,
-     *     the content blurring effect is not blurring.
-     * @param { LinearGradientBlurOptions } gradientParam - the radius gradient blur options.
-     * @returns { Filter } - Returns radius gradient blur Filter.
+     * @param { double } radius - Blur radius, in px. A larger blur radius results in a stronger blur effect.
+     *     The value range is [0, 128]. When the blur radius is 0, there is no blur effect;
+     *     values less than 0 are treated as 0; values greater than 128 are treated as 128.
+     * @param { LinearGradientBlurOptions } gradientParam - The linear gradient parameters, including fractionStops and direction.
+     * @returns { Filter } - Returns the Filter with the radius linear gradient blur effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -146,10 +161,18 @@ declare namespace uiEffect {
     radiusGradientBlur(radius: double, gradientParam: LinearGradientBlurOptions): Filter;
 
     /**
-     * Sets the deformation effect controlled by bezier curves of the component.
+     * Adds a Bezier curve deformation effect to the component. This effect achieves precise distortion and
+     * shape adjustment of the image by creating closed Bezier curves at the layer boundary.
+     * There are four Bezier curve segments, connected head to tail in sequence, with each segment containing
+     * one vertex and two tangent points. Typical application scenarios include face deformation effects,
+     * card perspective distortion, etc.
      *
-     * @param { Array<common2D.Point> } controlPoints - The bezier control points, 12 points needed.
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { Array<common2D.Point> } controlPoints - 12 Bezier deformation control points. The array length must be 12.
+     *     Changing the positions of the control points changes the shape of the curves forming the edges,
+     *     thereby distorting the image. The control point coordinates use a normalized coordinate system
+     *     (default range [0, 1]), and coordinate values can be greater than 1 or less than 0.
+     *     If the array length is not 12, the effect will not take effect.
+     * @returns { Filter } - Returns the Filter with the Bezier curve deformation effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -159,13 +182,20 @@ declare namespace uiEffect {
     bezierWarp(controlPoints: Array<common2D.Point>): Filter;
 
     /**
-     * Sets the content light filter.
+     * Adds a 3D lighting effect to the component content.
      *
-     * @param { common2D.Point3d } lightPosition
-     * @param { common2D.Color } lightColor
-     * @param { double } lightIntensity
-     * @param { Mask } [displacementMap]
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { common2D.Point3d } lightPosition - The position of the light source in the component space.
+     *     [-1, -1, 0] is the top-left corner of the component, [1, 1, 0] is the bottom-right corner of the component.
+     *     The larger the z-axis component, the farther the light source is from the component plane,
+     *     and the larger the illuminated area. The x component range is [-10, 10], the y component range is [-10, 10],
+     *     and the z component range is [0, 10]. Values outside the range will be automatically clamped.
+     * @param { common2D.Color } lightColor - The color of the light source. The RGBA components range from [0, 1].
+     *     Values outside the range will be automatically clamped.
+     * @param { double } lightIntensity - The intensity of the light source. The value range is [0, 1].
+     *     A larger value indicates a brighter light source. Values outside the range will be automatically clamped.
+     * @param { Mask } [displacementMap] - The displacement map parameter. This parameter is not currently effective
+     *     and is not recommended to be passed in. Not setting it has no effect on the functionality.
+     * @returns { Filter } - Returns the Filter with the content lighting effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -176,13 +206,25 @@ declare namespace uiEffect {
       displacementMap?: Mask): Filter;
 
     /**
-     * Sets the color gradient filter, may blend with alpha mask.
+     * Adds a color gradient effect to the component content.
      *
-     * @param { Array<Color> } colors
-     * @param { Array<common2D.Point> } positions
-     * @param { Array<double> } strengths
-     * @param { Mask } [alphaMask]
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { Array<Color> } colors - The color array for multi-color gradient. The array length range is [0, 12],
+     *     and each color value must be greater than or equal to 0 with no upper limit.
+     *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
+     *     are not equal, the effect will not take effect.
+     * @param { Array<common2D.Point> } positions - The position array, corresponding to the distribution positions of colors.
+     *     The array length range is [0, 12]. If the array length is 0 or greater than 12, or if the array lengths of
+     *     colors, positions, and strengths are not equal, the effect will not take effect.
+     * @param { Array<double> } strengths - The strength array, corresponding to the diffusion strength of colors.
+     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0 with no upper limit.
+     *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
+     *     are not equal, the effect will not take effect.
+     * @param { Mask } [alphaMask] - The mask that controls the transparency distribution of the gradient effect.
+     *     A Mask instance can be created through Mask creation methods (such as createRippleMask,
+     *     createRadialGradientMask, etc.). Pass this parameter when you need to control the transparency distribution
+     *     of the color gradient effect (such as local transparency or dynamic transparency effects).
+     *     If not set, the transparency of the color gradient effect is entirely determined by the colors parameter.
+     * @returns { Filter } - Returns the Filter with the color gradient effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -193,13 +235,25 @@ declare namespace uiEffect {
         alphaMask?: Mask): Filter;
 
     /**
-     * Detects and glows edges of contents.
+     * Detects edges of the component content and adds an edge highlight effect.
+     * This effect automatically detects the edge contours of the component content and overlays a highlight stroke.
      *
-     * @param { double } alpha
-     * @param { Color } [color]
-     * @param { Mask } [mask]
-     * @param { boolean } [bloom]
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { double } alpha - Specifies the stroke highlight transparency. A larger value makes the stroke more obvious.
+     *     The value range is [0, 1]. Setting it to 0 results in no stroke; values less than 0 are treated as 0;
+     *     values greater than 1 are treated as 1.
+     * @param { Color } [color] - Specifies the stroke highlight color. The RGB components range from [0, +∞).
+     *     Pass this parameter when you need to customize the stroke highlight color (such as emphasizing a specific color effect).
+     *     If not set, the original color of the component content is used by default. When the color parameter is set,
+     *     the alpha in Color does not take effect; only RGB is used.
+     * @param { Mask } [mask] - Specifies the stroke highlight intensity mask. A Mask instance can be created through
+     *     Mask creation methods (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when
+     *     you need to control the area of the stroke highlight effect (such as local highlight instead of global highlight).
+     *     If not set, the entire component content has the stroke highlight effect by default.
+     * @param { boolean } [bloom] - Specifies whether the stroke has a bloom effect. Set to true when you need to enhance
+     *     the visual effect; set to false when you need a simple stroke effect. The default value is true (with bloom effect).
+     *     For images smaller than 16x16, there is only a stroke effect by default, no bloom effect, and this parameter
+     *     has no effect.
+     * @returns { Filter } - Returns the Filter with the edge highlight effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -209,11 +263,21 @@ declare namespace uiEffect {
     edgeLight(alpha: double, color?: Color, mask?: Mask, bloom?: boolean): Filter;
 
     /**
-     * Sets distort effect with displacement map.
+     * Adds a distortion effect to the component content.
      *
-     * @param { Mask } displacementMap
-     * @param { [double, double] } [factor]
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { Mask } displacementMap - The displacement map, used to control the direction and intensity of distortion.
+     *     A Mask instance can be created through Mask creation methods (such as createRippleMask,
+     *     createPixelMapMask, etc.). It works together with the factor to determine the degree of distortion.
+     * @param { [double, double] } [factor] - Specifies the horizontal and vertical distortion intensity coefficients.
+     *     Pass this parameter when you need to control the direction and intensity of distortion
+     *     (such as one-way distortion or differential distortion). The larger the absolute value of the coefficient,
+     *     the more obvious the distortion. The recommended value range is [-10.0, 10.0].
+     *     If not set, the default value is [1.0, 1.0], indicating that both horizontal and vertical directions
+     *     apply the default distortion intensity. Setting it to [0.0, 0.0] results in no distortion effect.
+     *     The grayscale value of the Mask controls the direction and intensity of distortion, and the factor
+     *     multiplied by the Mask grayscale value jointly determines the final distortion degree,
+     *     i.e., actual distortion value = Mask grayscale value × factor value.
+     * @returns { Filter } - Returns the Filter with the distortion effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -223,14 +287,31 @@ declare namespace uiEffect {
     displacementDistort(displacementMap: Mask, factor?: [double, double]): Filter;
 
     /**
-     * Sets dispersion effect with mask map.
+     * Adds a dispersion effect controlled by a displacement map to the component content, simulating the
+     * dispersion phenomenon when light passes through a prism. Typical application scenarios include
+     * colorful effects, prism refraction simulation, etc.
      *
-     * @param { Mask } dispersionMap
-     * @param { double } alpha
-     * @param { [double, double] } [rFactor]
-     * @param { [double, double] } [gFactor]
-     * @param { [double, double] } [bFactor]
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { Mask } dispersionMap - The displacement map, used to control the intensity, direction, and transparency
+     *     of dispersion. It is recommended to use a PixelMapMask-type displacement map, which allows fine-grained
+     *     control over the dispersion area and intensity through custom image textures.
+     *     A Mask instance can be created through the createPixelMapMask method.
+     * @param { double } alpha - The overall transparency of the dispersion effect. A smaller transparency value results
+     *     in a more transparent effect. The value range is [0, 1.0]. Setting it to 0 results in no dispersion effect;
+     *     values less than 0 are treated as 0; values greater than 1.0 are treated as 1.0.
+     * @param { [double, double] } [rFactor] - The basic offset of the R channel in the X/Y direction.
+     *     Pass this parameter when you need to customize the dispersion intensity and direction of the red channel.
+     *     A larger offset results in a more obvious red dispersion effect. If not passed, the default value is [0.0, 0.0],
+     *     meaning no R channel dispersion offset. The value range for each direction is [-1.0, 1.0],
+     *     and values outside the range will be automatically clamped.
+     * @param { [double, double] } [gFactor] - The basic offset of the G channel in the X/Y direction.
+     *     Pass this parameter when you need to customize the dispersion intensity and direction of the green channel.
+     *     If not passed, the default value is [0.0, 0.0], meaning no G channel dispersion offset.
+     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will be automatically clamped.
+     * @param { [double, double] } [bFactor] - The basic offset of the B channel in the X/Y direction.
+     *     Pass this parameter when you need to customize the dispersion intensity and direction of the blue channel.
+     *     If not passed, the default value is [0.0, 0.0], meaning no B channel dispersion offset.
+     *     The value range is the same as rFactor, [-1.0, 1.0], and values outside the range will be automatically clamped.
+     * @returns { Filter } - Returns the Filter with the dispersion effect controlled by the displacement map attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -241,11 +322,28 @@ declare namespace uiEffect {
       bFactor?: [double, double]): Filter;
 
     /**
-     * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+     * Adds an HDR (High Dynamic Range) brightening effect to the component content.
+     * Nesting is not recommended, as forced nesting may cause overexposure.
+     *
+     * The brightening effect requires the HDR rendering pipeline to be enabled to take effect.
+     * In some scenarios, HDR cannot be enabled even if an attempt is made to trigger the HDR rendering pipeline,
+     * for example, when the device hardware specifications do not support HDR.
+     *
+     * The maximum supported brightness boost multiple is calculated as the device's current maximum brightness
+     * divided by its SDR reference white luminance.
+     *
+     * > **NOTE**
+     * >
+     * > Using the HDR brightening effect incurs certain performance and power consumption overhead.
+     * > It is recommended to use it in scenarios where HDR images or videos already exist.
      *
      * @permission ohos.permission.HDR_BRIGHTNESS [since 24]
-     * @param { double } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
-     * @returns { Filter } - Returns hdr brightness Filter.
+     * @param { double } ratio - Brightening ratio. The value range is [1.0, the maximum brightening ratio supported by
+     *     the current device]. Values less than 1.0 are treated as 1.0; a value equal to 1.0 means no processing;
+     *     values greater than 1.0 attempt to trigger the HDR rendering pipeline;
+     *     values exceeding the maximum ratio are treated as the maximum ratio.
+     * @returns { Filter } - Returns the Filter with the HDR brightening effect attached,
+     *     supporting chained calls to add other effects.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 20 - 23]
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -259,12 +357,15 @@ declare namespace uiEffect {
     hdrBrightnessRatio(ratio: double): Filter;
 
     /**
-     * Sets variable radius blur effect with radius map.
+     * Provides a Mask-based gradient blur effect for the component content.
      *
-     * @param { double } radius - the blurring radius. The larger the blurring radius, the more blurring the content,
-     *     and if the value is 0, the content blurring effect is not blurring.
-     * @param { Mask } radiusMap - the alpha of the mask determines the degree of blurring.
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { double } radius - Maximum blur radius, in px. A larger value results in a stronger blur effect.
+     *     The value range is [0, 128]. When the blur radius is 0, there is no blur effect;
+     *     values less than 0 are treated as 0; values greater than 128 are treated as 128.
+     * @param { Mask } radiusMap - The Mask object representing the degree of blurring.
+     *     The grayscale value of the Mask represents the degree of blurring at the corresponding position;
+     *     a larger grayscale value indicates more blurring.
+     * @returns { Filter } - Returns the Filter with the current effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -274,14 +375,30 @@ declare namespace uiEffect {
     variableRadiusBlur(radius: double, radiusMap: Mask): Filter;
 
     /**
-     * Generates lighting effects from mask and directional light.
+     * Provides a Mask-based and directional light lighting effect for the component content.
+     * Directional light illuminates the component plane from a uniform direction, with all light rays in the same
+     * direction, not attenuating with distance, and the light intensity is evenly distributed across the component,
+     * suitable for simulating distant light sources such as sunlight. Unlike the point light source of contentLight,
+     * directional light does not need to specify the specific position of the light source.
+     * Through the Mask, you can control lighting details, and through the factor, you can combine height maps
+     * to enhance the relief effect.
      *
-     * @param { common2D.Point3d } direction - Direction of light
-     * @param { Color } color - Color of light
-     * @param { double } intensity - Intensity of light
-     * @param { Mask } [mask] - Mask, as a displacement map that affects lighting effects
-     * @param { double } [factor] - Mask scale factor, used to scale the mask channel values
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @param { common2D.Point3d } direction - The direction of the incident light, represented by three-dimensional
+     *     coordinates indicating the direction of the light rays.
+     * @param { Color } color - The light color.
+     * @param { double } intensity - The light intensity. The value range is [0, +∞). A larger value indicates a brighter
+     *     light source.
+     * @param { Mask } [mask] - The displacement map, used to describe the three-dimensional details of the
+     *     two-dimensional image surface. A Mask instance can be created through Mask creation methods
+     *     (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when you need to enhance
+     *     local details and lighting reflection effects (such as relief, bump textures). Implemented through normal maps
+     *     or height maps; if a height map is input, it needs to be used with the factor parameter.
+     *     If not set, the default is empty, resulting in a global flat lighting effect without details.
+     * @param { double } [factor] - The sampling scale coefficient. Pass this parameter when using a height map as the
+     *     mask and needing to control the height scaling. If not set, the mask is sampled directly as a normal map;
+     *     if a value is set, the mask is sampled as a height map, and the actual height value is the product of
+     *     the mask sampling value and the factor.
+     * @returns { Filter } - Returns the Filter with the lighting effect controlled by the displacement map attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -291,12 +408,25 @@ declare namespace uiEffect {
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
     /**
-     * Applies Transition with alpha mask
+     * Provides a Mask-based transition effect for the component content, which can be used for
+     * page transition animations, scene transition effects, etc.
      *
-     * @param { Mask } alphaMask - Animatable mask object
-     * @param { double } [factor] - The coefficient of the mask, defaulting to 1.0f [0~1]
-     * @param { boolean } [inverse] - Transition mode, default is fasle (true, false)
-     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * It is not recommended to use this effect during screen size changes, such as screen rotation,
+     * foldable screen opening/closing, etc.
+     *
+     * @param { Mask } alphaMask - Specifies the area of the transition effect through a mask.
+     *     A Mask instance can be created through Mask creation methods (such as createRippleMask,
+     *     createRadialGradientMask, etc.). The grayscale value of the Mask determines the degree of the
+     *     transition effect; a larger grayscale value results in a more obvious transition effect in that area.
+     * @param { double } [factor] - The transition coefficient. Pass this parameter when you need to control the
+     *     transition progress (such as during animation or dynamic adjustment). A larger value makes the image
+     *     closer to the post-transition page. If not set, the default value is 1.0 (transition completed state).
+     *     The value range is [0.0, 1.0], and values outside the range will be automatically clamped to [0.0, 1.0].
+     * @param { boolean } [inverse] - Whether to enable reverse transition. Set to true when you need a reverse
+     *     transition effect (such as transitioning from the back page to the front page); set to false when you
+     *     need a forward transition effect (such as transitioning from the front page to the back page).
+     *     The default value is false (forward transition).
+     * @returns { Filter } - Returns the Filter with the transition effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -306,11 +436,10 @@ declare namespace uiEffect {
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
 
     /**
-     * Applies heat distortion effect to simulate hot air distortion.
-     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     * Applies a heat distortion effect to the image, simulating the visual distortion caused by hot air flow.
      *
-     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
-     * @returns { Filter } - Returns the heat distortion Filter.
+     * @param { HeatDistortionEffectParam } param - The heat distortion effect parameters.
+     * @returns { Filter } - Returns the Filter with the heat distortion effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -319,11 +448,11 @@ declare namespace uiEffect {
     heatDistortion(param: HeatDistortionEffectParam): Filter;
 
     /**
-     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
-     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     * Applies a blur bubbles rise effect to the image, simulating a dreamy, bubbly distortion
+     * similar to rising bubbles in liquid.
      *
-     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
-     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @param { BlurBubblesRiseEffectParam } param - The blur bubbles rise effect parameters.
+     * @returns { Filter } - Returns the Filter with the blur bubbles rise effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -333,7 +462,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * TileMode enumeration description
+   * Pixel fill mode enumeration.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -383,7 +512,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * WaterRippleMode enumeration description
+   * Water ripple scene mode enumeration.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -392,7 +521,7 @@ declare namespace uiEffect {
    */
   enum WaterRippleMode {
     /**
-     * SMALL2MEDIUM_RECV mode.
+     * Phone tapping 2in1 device (receiving end).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -402,7 +531,7 @@ declare namespace uiEffect {
     SMALL2MEDIUM_RECV = 0,
 
     /**
-     * SMALL2MEDIUM_SEND mode.
+     * Phone tapping 2in1 device (sending end).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -412,7 +541,7 @@ declare namespace uiEffect {
     SMALL2MEDIUM_SEND = 1,
 
     /**
-     * SMALL2SMALL mode.
+     * Phone tapping phone.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -422,7 +551,7 @@ declare namespace uiEffect {
     SMALL2SMALL = 2,
 
     /**
-     * MINI_RECV mode.
+     * 2in1 device sharing with other devices (keyboard and mouse sharing scenario).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -433,7 +562,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * FlyMode enumeration description
+   * Fly-in or fly-out deformation scene mode enumeration.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -443,7 +572,7 @@ declare namespace uiEffect {
   enum FlyMode {
 
     /**
-     * BOTTOM fly mode.
+     * Fly-in or fly-out deformation from the bottom.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -453,7 +582,7 @@ declare namespace uiEffect {
     BOTTOM = 0,
 
     /**
-     * TOP fly mode.
+     * Fly-in or fly-out deformation from the top.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -464,7 +593,9 @@ declare namespace uiEffect {
   }
 
   /**
-   * The VisualEffect of Component.
+   * VisualEffect class, used to apply background color blending, border lighting, color gradient, and other
+   * effects to a component. Before calling VisualEffect methods, you need to first create a VisualEffect instance
+   * through createEffect.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @form [since 22]
@@ -474,10 +605,10 @@ declare namespace uiEffect {
   interface VisualEffect {
 
     /**
-     * A backgroundColorEffect effect is added to the Component.
+     * A blender for changing the background color of the component. Currently, only the brightness blender is supported.
      *
-     * @param { BrightnessBlender } blender - The blender to blend backgroundColor.
-     * @returns { VisualEffect } VisualEffects for the current effect have been added.
+     * @param { BrightnessBlender } blender - The blender for blending the background color.
+     * @returns { VisualEffect } - Returns the VisualEffect with the background color change effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @form [since 22]
@@ -487,13 +618,21 @@ declare namespace uiEffect {
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
 
     /**
-     * Sets the border light effect.
+     * Adds a 3D lighting effect to the border of a rounded rectangle component.
      *
-     * @param { common2D.Point3d } lightPosition
-     * @param { common2D.Color } lightColor
-     * @param { double } lightIntensity
-     * @param { double } borderWidth
-     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @param { common2D.Point3d } lightPosition - The 3D position of the light source in the component space.
+     *     [-1, -1, 0] is the top-left corner of the component, [1, 1, 0] is the bottom-right corner of the component.
+     *     The larger the z-axis component, the farther the light source is from the component plane,
+     *     and the larger the illuminated area. The x component range is [-10, 10], the y component range is [-10, 10],
+     *     and the z component range is [0, 10]. Values outside the range will be automatically clamped.
+     * @param { common2D.Color } lightColor - The color of the light source. Each component range is [0, 1].
+     *     Values outside the range will be automatically clamped.
+     * @param { double } lightIntensity - The intensity of the light source. The value range is [0, 1].
+     *     A larger value indicates a brighter light source. Values outside the range will be automatically clamped.
+     * @param { double } borderWidth - The illuminated width of the component border. The value range is [0.0, 30.0].
+     *     Values outside the range will be automatically clamped. Setting it to 0.0 results in no lighting effect
+     *     on the component border; a larger value results in a wider illuminated area.
+     * @returns { VisualEffect } - Returns the VisualEffect with the border lighting effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -504,13 +643,25 @@ declare namespace uiEffect {
       borderWidth: double): VisualEffect;
 
     /**
-     * Sets the color gradient effect, may blend with alpha mask.
+     * Adds a color gradient effect to the component.
      *
-     * @param { Array<Color> } colors - array of colors.
-     * @param { Array<common2D.Point> } positions - the centers of colors.
-     * @param { Array<double> } strengths - the weights of color Mixing.
-     * @param { Mask } [alphaMask] - the mask determines the alpha of the effect.
-     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @param { Array<Color> } colors - The color array for multi-color gradient. The array length range is [0, 12],
+     *     and each color value must be greater than or equal to 0 with no upper limit.
+     *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
+     *     are not equal, there will be no color gradient effect.
+     * @param { Array<common2D.Point> } positions - The position array, corresponding to the positions of colors.
+     *     The array length range is [0, 12]. If the array length is 0 or greater than 12, or if the array lengths of
+     *     colors, positions, and strengths are not equal, there will be no color gradient effect.
+     * @param { Array<double> } strengths - The strength array, corresponding to the intensity of colors.
+     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0 with no upper
+     *     limit. If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and
+     *     strengths are not equal, there will be no color gradient effect.
+     * @param { Mask } [alphaMask] - The alpha mask corresponding to the colors. A Mask instance can be created through
+     *     Mask creation methods (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when
+     *     you need to control the transparency distribution of the color gradient effect (such as local transparency
+     *     or dynamic transparency effects). If not set, the transparency of the color gradient effect is entirely
+     *     determined by the colors parameter.
+     * @returns { VisualEffect } - Returns the VisualEffect with the color gradient effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -521,13 +672,28 @@ declare namespace uiEffect {
       alphaMask?: Mask): VisualEffect;
 
     /**
-     * Sets the liquid material effect.
+     * Adds a material effect to the component. The material effect simulates the optical properties
+     * (refraction, reflection) and dynamic perturbation effects of physical materials to achieve visual
+     * representations of glass, metal, and other materials. It can be used for scenarios such as glass-textured UI,
+     * fluid material animation, frosted glass effects, etc.
      *
-     * @param { LiquidMaterialEffectParam } param - the liquid material effect parameters.
-     * @param { Mask } useEffectMask - the mask determines the use effect flag.
-     * @param { Mask } [distortMask] - the mask determines the distort of the effect.
-     * @param { BrightnessParam } [brightnessParam] - the background brightness params of material effect.
-     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @param { LiquidMaterialEffectParam } param - The material-related variables used to control the material display,
+     *     including the material switch, refraction coefficient, reflection coefficient, and perturbation coefficient.
+     * @param { Mask } useEffectMask - Declares whether to use blur caching. A Mask instance created with
+     *     createUseEffectMask(true) uses blur caching, suitable for scenarios that need to reuse blur results
+     *     to improve performance; a Mask instance created with createUseEffectMask(false) does not use blur caching,
+     *     suitable for scenarios where blur effects change frequently.
+     * @param { Mask } [distortMask] - The perturbation texture required for the material perturbation effect.
+     *     The image texture of the Mask instance created from a pixelMap determines the pattern and direction
+     *     of the perturbation effect. A Mask instance can be created through the createPixelMapMask method.
+     *     When the material's perturbation coefficient (distortFactor) is not 0, this parameter must be set;
+     *     otherwise, there will be no perturbation effect. When the perturbation coefficient is 0 or this parameter
+     *     is not set, there is no perturbation effect. The default is not set.
+     * @param { BrightnessParam } [brightnessParam] - Adds a brightening effect to the material.
+     *     Pass this parameter when you need to enhance the visual brightness of the material
+     *     (such as highlight display, glow effects). If not set, no brightening effect is added by default,
+     *     and the material maintains its original brightness.
+     * @returns { VisualEffect } - Returns the VisualEffect with the material effect attached.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -538,7 +704,8 @@ declare namespace uiEffect {
       brightnessParam?: BrightnessParam): VisualEffect;
 
     /**
-     * Sets distortion collapse effect.
+     * Adds a nonlinear deformation effect to the component. Typical application scenarios include
+     * page collapse animations, window close effects, card flip animations, scene transition effects, etc.
      *
      * NOTE
      * 1. This visual effect supports drawing outside the bounds of the control,
@@ -550,12 +717,13 @@ declare namespace uiEffect {
      *    it will cause the background of the system material to be distorted.
      * 4. When calling distortionCollapse, an offscreen canvas equal in size to the deformed area will be created.
      *    The content of the current component (including child components) is then drawn onto this offscreen canvas,
-     *    and the existing content on the canvas is drawn with deformation. When using this implementation in
-     *    combination without the EffectComponent, interfaces that require screen capture, such as systemMaterial,
-     *    backgroundEffect, brightness, and blur, will not be able to capture the correct screen.
+     *    and the existing content on the canvas is drawn with deformation.
+     * 5. When using this implementation without combining with the EffectComponent, interfaces that require screen
+     *    capture, such as systemMaterial, backgroundEffect, brightness, and blur, will not be able to capture
+     *    the correct screen.
      *
-     * @param { DistortionParam } distortionParam - the distortion params of distortion effect.
-     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @param { DistortionParam } distortionParam - The parameters of the nonlinear deformation effect.
+     * @returns { VisualEffect } - Returns the VisualEffect with the nonlinear deformation effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -565,7 +733,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of brightness.
+   * Detailed description of the material brightness parameters.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -575,7 +743,8 @@ declare namespace uiEffect {
   interface BrightnessParam {
 
     /**
-     * Defines rate of brightness.
+     * Linear coefficient for grayscale adjustment. The value range is [-1, 1]. Values less than -1 are treated as -1;
+     * values greater than 1 are treated as 1. A larger value results in a stronger grayscale adjustment effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -585,7 +754,8 @@ declare namespace uiEffect {
     rate : double;
 
     /**
-     * Defines lightUpDegree of brightness.
+     * Grayscale adjustment ratio. The value range is [-1, 1]. Values less than -1 are treated as -1;
+     * values greater than 1 are treated as 1. A larger value results in a stronger grayscale adjustment effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -595,7 +765,8 @@ declare namespace uiEffect {
     lightUpDegree : double;
 
     /**
-     * Defines cubicCoeff of brightness.
+     * Third-order coefficient for grayscale adjustment. The value range is [-1, 1]. Values less than -1 are treated
+     * as -1; values greater than 1 are treated as 1. A larger value results in a stronger grayscale adjustment effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -605,7 +776,8 @@ declare namespace uiEffect {
     cubicCoeff : double;
 
     /**
-     * Defines quadCoeff of brightness.
+     * Second-order coefficient for grayscale adjustment. The value range is [-1, 1]. Values less than -1 are treated
+     * as -1; values greater than 1 are treated as 1. A larger value results in a stronger grayscale adjustment effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -615,7 +787,8 @@ declare namespace uiEffect {
     quadCoeff : double;
 
     /**
-     * Defines saturation of brightness.
+     * Base saturation for brightness. The value range is [0, 1]. Values less than 0 are treated as 0;
+     * values greater than 1 are treated as 1. A larger value indicates a higher base saturation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -625,7 +798,9 @@ declare namespace uiEffect {
     saturation : double;
 
     /**
-     * Defines positive RGB of brightness.
+     * Positive adjustment coefficients based on the base saturation. The value range for each number is [-1, 1].
+     * Values less than -1 are treated as -1; values greater than 1 are treated as 1.
+     * A larger value indicates higher saturation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -635,7 +810,9 @@ declare namespace uiEffect {
     posRgb : [double, double, double];
 
     /**
-     * Defines negative RGB of brightness.
+     * Negative adjustment coefficients based on the base saturation. The value range for each number is [-1, 1].
+     * Values less than -1 are treated as -1; values greater than 1 are treated as 1.
+     * A larger value indicates lower saturation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -645,7 +822,8 @@ declare namespace uiEffect {
     negRgb : [double, double, double];
 
     /**
-     * Defines fraction of brightness.
+     * Blending ratio for the brightness effect. The value range is [0, 1]. Values less than 0 are treated as 0;
+     * values greater than 1 are treated as 1. A larger value indicates a weaker brightness effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -666,8 +844,8 @@ declare namespace uiEffect {
   interface HeatDistortionEffectParam {
 
     /**
-     * Defines distortion intensity for heat distortion effect.
-     * Value range [0, 1], and values outside the range will be clamped.
+     * The intensity of the heat distortion.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
      * 0 means no distortion, and 1 represents the maximum distortion level.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -678,9 +856,9 @@ declare namespace uiEffect {
     intensity: double;
 
     /**
-     * Defines noise scale for heat distortion effect, controls the fineness of the noise texture.
-     * Value range [0.1, 5.0], and values outside the range will be clamped.
-     * The larger the value, the finer the noise texture.
+     * The noise scale of the heat distortion, controlling the fineness of the noise texture.
+     * The value range is [0.1, 5.0], and values outside the range will be clamped during implementation.
+     * A larger value results in a finer noise texture.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -690,9 +868,9 @@ declare namespace uiEffect {
     noiseScale: double;
 
     /**
-     * Defines rise weight for heat distortion effect, controls the rising speed of bubbles.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * The larger the value, the more obvious the upward movement.
+     * The rise weight of the heat distortion, controlling the rising speed of bubbles.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
+     * A larger value results in more obvious upward movement.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -702,8 +880,8 @@ declare namespace uiEffect {
     riseWeight: double;
 
     /**
-     * Defines animation progress for heat distortion effect.
-     * Value range [0, 1], and values outside the range will be clamped.
+     * The animation progress of the heat distortion.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
      * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -725,8 +903,8 @@ declare namespace uiEffect {
   interface BlurBubblesRiseEffectParam {
 
     /**
-     * Defines gaussian blur intensity for blur bubbles rise effect.
-     * Value range [0, 1], and values outside the range will be clamped.
+     * The Gaussian blur intensity of the blur bubbles rise effect.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
      * 0 means no blur, and 1 represents the maximum blur level.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -737,8 +915,8 @@ declare namespace uiEffect {
     blurIntensity: double;
 
     /**
-     * Defines mix strength between original and blurred images.
-     * Value range [0, 1], and values outside the range will be clamped.
+     * The mixing strength between the original and blurred images.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
      * 0 corresponds to the original image, and 1 corresponds to the blurred image.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -749,8 +927,8 @@ declare namespace uiEffect {
     mixStrength: double;
 
     /**
-     * Defines animation progress for blur bubbles rise effect.
-     * Value range [0, 1], and values outside the range will be clamped.
+     * The animation progress of the blur bubbles rise effect.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
      * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -761,7 +939,7 @@ declare namespace uiEffect {
     progress: double;
 
     /**
-     * Defines mask image for blur bubbles rise effect, controls the blur bubbles area.
+     * The mask image for the blur bubbles rise effect, controlling the blur bubbles area.
      * The masked area has a blur effect, while the unmasked area has no blur effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
@@ -773,7 +951,8 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of liquid material effect.
+   * Material effect parameters, used to control the display properties of the material such as
+   * refraction, reflection, perturbation, and overlay color.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -783,7 +962,7 @@ declare namespace uiEffect {
   interface LiquidMaterialEffectParam {
 
     /**
-     * Defines enable switch for material effect.
+     * Whether to enable the material effect. true means enabled, false means disabled.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -793,7 +972,8 @@ declare namespace uiEffect {
     enable : boolean;
 
     /**
-     * Defines distort progress for material effect.
+     * The perturbation effect progress. The value range is [0, 1]. Values less than 0 are treated as 0;
+     * values greater than 1 are treated as 1. 0 indicates the start of perturbation, and 1 indicates the end.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -803,7 +983,8 @@ declare namespace uiEffect {
     distortProgress : double;
 
     /**
-     * Defines distort factor for material effect.
+     * The perturbation effect coefficient. The value must be greater than or equal to 0.
+     * Values less than 0 indicate no perturbation effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -813,7 +994,8 @@ declare namespace uiEffect {
     distortFactor : double;
 
     /**
-     * Defines ripple animation progress for material effect.
+     * The ripple effect progress. The value must be greater than or equal to 0.
+     * Values less than 0 indicate no ripple effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -823,7 +1005,12 @@ declare namespace uiEffect {
     rippleProgress : double;
 
     /**
-     * Defines ripple animation position for material effect.
+     * The positions where the ripple effect is applied. Pass this parameter when you need to trigger ripple effects
+     * at multiple specified positions simultaneously. If not passed, there are no ripple positions by default,
+     * and the ripple effect will not take effect. Each position in the array contains x and y dimensions,
+     * using normalized coordinates where [0, 0] represents the top-left corner and [1, 1] represents
+     * the bottom-right corner. A maximum of 10 position coordinates are supported; exceeding this will
+     * make the entire parameter invalid.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -833,7 +1020,9 @@ declare namespace uiEffect {
     ripplePosition?: Array<[double, double]>;
 
     /**
-     * Defines refraction factor for material effect.
+     * The refraction coefficient. The value range is [0, 10]. Values less than 0 are treated as 0;
+     * values greater than 10 are treated as 10. A value of 0 means no refraction effect;
+     * a larger value indicates stronger refraction.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -843,7 +1032,9 @@ declare namespace uiEffect {
     refractionFactor : double;
 
     /**
-     * Defines reflection factor for material effect.
+     * The reflection coefficient. The value range is [0, 10]. Values less than 0 are treated as 0;
+     * values greater than 10 are treated as 10. A value of 0 means no reflection effect;
+     * a larger value indicates stronger reflection.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -853,7 +1044,9 @@ declare namespace uiEffect {
     reflectionFactor : double;
 
     /**
-     * Defines material factor for material effect.
+     * The material coefficient. The value range is [0, 1]. Values less than 0 are treated as 0;
+     * values greater than 1 are treated as 1. A value of 0 means no material effect and the overlay color
+     * is used for filling; a larger value indicates a more obvious material effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -863,7 +1056,8 @@ declare namespace uiEffect {
     materialFactor : double;
 
     /**
-     * Defines tint color for material effect.
+     * The overlay color of the material, where the four variables correspond to RGBA respectively.
+     * The value range for each is [0, 1]. Values less than 0 are treated as 0; values greater than 1 are treated as 1.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -874,10 +1068,10 @@ declare namespace uiEffect {
   }
 
   /**
-   * Defines the blending effect.
+   * Blender type, used to describe the blending effect.
    *
-   * @unionmember { BrightnessBlender } Base brightness blender
-   * @unionmember { HdrBrightnessBlender } HDR brightness blender
+   * @unionmember { BrightnessBlender } Brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR-enabled brightness blender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -886,10 +1080,10 @@ declare namespace uiEffect {
   type Blender = BrightnessBlender | HdrBrightnessBlender;
 
   /**
-   * Defines the blending effect.
+   * Blender type, used to describe the blending effect.
    *
-   * @unionmember { BrightnessBlender } Base brightness blender
-   * @unionmember { HdrBrightnessBlender } HDR brightness blender [since 20]
+   * @unionmember { BrightnessBlender } Brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR-enabled brightness blender [since 20]
    * @unionmember { HdrDarkenBlender } HDR-adaptive darken blender [since 26.0.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -899,7 +1093,9 @@ declare namespace uiEffect {
   type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
 
   /**
-   * The Blender of backgroundColorEffect.
+   * Brightness blender, used to add a brightness effect to a specified component.
+   * Before calling BrightnessBlender, you need to first create a BrightnessBlender instance
+   * through createBrightnessBlender.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -910,7 +1106,8 @@ declare namespace uiEffect {
   interface BrightnessBlender {
 
     /**
-     * Defines third-order rate for grayscale adjustment.
+     * Third-order coefficient for grayscale adjustment. The value range is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -921,7 +1118,8 @@ declare namespace uiEffect {
     cubicRate: double;
 
     /**
-     * Defines second-order rate for grayscale adjustment.
+     * Second-order coefficient for grayscale adjustment. The value range is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -932,7 +1130,8 @@ declare namespace uiEffect {
     quadraticRate: double;
 
     /**
-     * Defines linear rate for grayscale adjustment.
+     * Linear coefficient for grayscale adjustment. The value range is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -943,7 +1142,8 @@ declare namespace uiEffect {
     linearRate: double;
 
     /**
-     * Defines grayscale adjustment degree.
+     * Grayscale adjustment ratio. The value range is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -954,7 +1154,8 @@ declare namespace uiEffect {
     degree: double;
 
     /**
-     * Defines the reference saturation for brightness.
+     * Base saturation for brightness. The value range is [0, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -965,7 +1166,8 @@ declare namespace uiEffect {
     saturation: double;
 
     /**
-     * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+     * Positive RGB adjustment coefficients based on the base saturation. The value range for each number is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -976,7 +1178,8 @@ declare namespace uiEffect {
     positiveCoefficient: [double, double, double];
 
     /**
-     * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+     * Negative RGB adjustment coefficients based on the base saturation. The value range for each number is [-20, 20].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -987,7 +1190,8 @@ declare namespace uiEffect {
     negativeCoefficient: [double, double, double];
 
     /**
-     * Defines the blending fraction for brightness effect.
+     * Blending ratio for the brightness effect. The value range is [0, 1].
+     * Values outside the range will be clamped during implementation.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -999,7 +1203,10 @@ declare namespace uiEffect {
   }
 
   /**
-   * The HDR enabled Blender of backgroundColorEffect.
+   * HDR-enabled brightness blender (inherited from BrightnessBlender), used to add a brightness effect
+   * to a specified component. Before calling HdrBrightnessBlender, you need to first create an
+   * HdrBrightnessBlender instance through createHdrBrightnessBlender.
+   * The parameters of this blender can be referenced from BrightnessBlender.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1009,7 +1216,10 @@ declare namespace uiEffect {
   interface HdrBrightnessBlender extends BrightnessBlender {  }
 
   /**
-   * The HDR-adaptive darken blender.
+   * HDR-adaptive darken blender, used to add a darken effect to a specified component.
+   * Before calling HdrDarkenBlender, you need to first create an HdrDarkenBlender instance
+   * through createHdrDarkenBlender.
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1018,7 +1228,12 @@ declare namespace uiEffect {
   interface HdrDarkenBlender {
 
     /**
-     * Defines the HDR brightness ratio of src.
+     * HDR brightness ratio. The value range is [1.0, the maximum brightness ratio supported by the current device].
+     * Values less than 1.0 are treated as 1.0; when the value is equal to 1.0, it represents the original brightness
+     * of the component; values exceeding the maximum supported brightness ratio are treated as the maximum ratio.
+     * The maximum supported brightness ratio = device maximum brightness / device default brightness.
+     * Device maximum brightness can be obtained via hdc command: param get const.display.brightness.max
+     * Device default brightness can be obtained via hdc command: param get const.display.brightness.default
      *
      * @property { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -1029,8 +1244,12 @@ declare namespace uiEffect {
     hdrBrightnessRatio: double;
 
     /**
-     * Defines the grayscale factor for converting dst's RGB channels to grayscale.
-     * Formula: grayscale = dot(grayscaleFactor, dst).
+     * Converts RGB colors to grayscale values. The weights of the grayscale conversion formula can be
+     * automatically adjusted according to the current color gamut, using different weight calculation methods
+     * under different color gamuts; suitable for sRGB and other standard color gamut scenarios.
+     * Pass this parameter when you need to customize grayscale conversion weights based on a specific color gamut
+     * or visual effect. All three components have no boundary limits.
+     * The default value is the standard grayscale weights [0.299, 0.587, 0.114].
      *
      * @property { ?[double, double, double] }
      * @default [0.299, 0.587, 0.114]
@@ -1043,7 +1262,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The Color of Light.
+   * RGBA color description.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1053,7 +1272,7 @@ declare namespace uiEffect {
   interface Color {
 
     /**
-     * Red component of color.
+     * Red component of the color.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1063,7 +1282,7 @@ declare namespace uiEffect {
     red: double;
 
     /**
-     * Green component of color.
+     * Green component of the color.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1073,7 +1292,7 @@ declare namespace uiEffect {
     green: double;
 
     /**
-     * Blue component of color
+     * Blue component of the color.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1083,7 +1302,7 @@ declare namespace uiEffect {
     blue: double;
 
     /**
-     * Alpha component of color.
+     * Alpha component of the color (transparency).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1094,7 +1313,8 @@ declare namespace uiEffect {
   }
 
   /**
-   * Defines the mask for Filter or VisualEffect.
+   * Mask effect class, used as input for Filter and VisualEffect. Different types of Mask provide different
+   * grayscale distribution patterns, such as wave ring masks, radial gradients, pixel map masks, etc.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1104,13 +1324,23 @@ declare namespace uiEffect {
   class Mask {
 
     /**
-     * Create a Mask of ripple.
+     * Creates a wave ring mask Mask instance by inputting the center position, radius, and width of the wave ring.
      *
-     * @param { common2D.Point } center
-     * @param { double } radius
-     * @param { double } width
-     * @param { double } [offset]
-     * @returns { Mask }
+     * @param { common2D.Point } center - Sets the position of the wave ring center on the component.
+     *     [0, 0] is the top-left corner of the component, [1, 1] is the bottom-right corner of the component.
+     *     The value range is [-10, 10], and values outside the range will be clamped during implementation.
+     * @param { double } radius - Sets the radius of the wave ring, using normalized values.
+     *     When the radius is 1, the wave ring radius equals the component height.
+     *     The value range is [0, 10], and values outside the range will be clamped during implementation.
+     * @param { double } width - Sets the width of the wave ring, using normalized values.
+     *     When the width is 1, the wave ring width equals the component height.
+     *     The value range is [0, 10], and values outside the range will be clamped during implementation.
+     * @param { double } [offset] - Sets the offset of the wave peak position.
+     *     The default value is 0, meaning the wave peak is at the exact center of the wave ring;
+     *     -1.0 means the wave peak is at the innermost edge of the wave ring;
+     *     1.0 means the wave peak is at the outermost edge of the wave ring.
+     *     The value range is [-1, 1], and values outside the range will be clamped during implementation.
+     * @returns { Mask } - Returns a Mask with the wave ring mask effect.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1120,13 +1350,22 @@ declare namespace uiEffect {
     static createRippleMask(center: common2D.Point, radius: double, width: double, offset?: double): Mask;
 
     /**
-     * Create a Mask of pixelmap.
+     * Creates a Mask instance with scaling effect by inputting a pixelMap, the area of the pixelMap to be drawn,
+     * the drawing area of the mounted node, and the color to fill outside the drawing area.
      *
-     * @param { image.PixelMap } pixelMap
-     * @param { common2D.Rect } srcRect
-     * @param { common2D.Rect } dstRect
-     * @param { Color } [fillColor]
-     * @returns { Mask }
+     * @param { image.PixelMap } pixelMap - The PixelMap instance created by the image module.
+     *     It can be obtained through image decoding or direct creation.
+     * @param { common2D.Rect } srcRect - The area of the pixelMap to be drawn.
+     *     The leftmost and topmost positions correspond to 0, and the rightmost and bottommost positions correspond to 1.
+     *     right must be greater than left, and bottom must be greater than top; otherwise the effect will not take effect.
+     * @param { common2D.Rect } dstRect - The drawing area of the pixelMap on the node where the mask is mounted.
+     *     The leftmost and topmost positions of the node correspond to 0, and the rightmost and bottommost positions
+     *     correspond to 1. right must be greater than left, and bottom must be greater than top;
+     *     otherwise the effect will not take effect.
+     * @param { Color } [fillColor] - The color to fill the area outside the pixelMap drawing area on the node.
+     *     Each component range is [0, 1], default is transparent color. Values less than 0 are treated as 0,
+     *     and values greater than 1 are treated as 1.
+     * @returns { Mask } - Returns a Mask instance created based on the pixelMap.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1137,10 +1376,11 @@ declare namespace uiEffect {
       fillColor?: Color): Mask;
 
     /**
-     * Create a Mask of pixelMap to use directly.
+     * Creates a Mask instance by inputting a pixelMap. This interface does not perform scaling on the input pixelMap.
      *
-     * @param { image.PixelMap } pixelMap - The pixelMap of PixelMapMask.
-     * @returns { Mask } - Returns pixelMap mask.
+     * @param { image.PixelMap } pixelMap - The PixelMap instance created by the image module.
+     *     It can be obtained through image decoding or direct creation.
+     * @returns { Mask } - Returns a Mask with the pixelMap.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1150,13 +1390,28 @@ declare namespace uiEffect {
     static createPixelMapMask(pixelMap: image.PixelMap): Mask;
 
     /**
-     * Create a Mask of radial gradient.
+     * Creates an elliptical mask Mask instance by inputting the center position of the ellipse,
+     * the semi-major and semi-minor axes, and shape parameters.
      *
-     * @param { common2D.Point } center
-     * @param { double } radiusX
-     * @param { double } radiusY
-     * @param { Array<[double, double]> } gradients
-     * @returns { Mask }
+     * @param { common2D.Point } center - Sets the center point of the ellipse. [0, 0] is the top-left corner
+     *     of the component, [1, 1] is the bottom-right corner of the component.
+     *     The value range is [-10, 10], floating-point values are supported, and values outside the range will be
+     *     clamped during implementation.
+     * @param { double } radiusX - Sets the semi-major axis of the ellipse. When the radius is 1, it equals
+     *     the component height. The value range is [0, 10], floating-point values are supported,
+     *     and values outside the range will be clamped during implementation.
+     * @param { double } radiusY - Sets the semi-minor axis of the ellipse. When the radius is 1, it equals
+     *     the component height. The value range is [0, 10], floating-point values are supported,
+     *     and values outside the range will be clamped during implementation.
+     * @param { Array<[double, double]> } gradients - The binary arrays in the array represent gradients:
+     *     [RGBA color, position]. The RGBA color uses the same value for all four channels, which can be regarded
+     *     as a grayscale value; position represents the distribution position of the RGBA color along the radial
+     *     direction outward. Both RGBA color and position have a value range of [0, 1], floating-point values are
+     *     supported, values less than 0 are treated as 0, and values greater than 1 are treated as 1.
+     *     The position parameter values must be strictly increasing, the number of binary arrays in the Array must be
+     *     greater than or equal to 2, and the elements in the binary arrays must not be empty;
+     *     otherwise the elliptical distribution effect will not take effect.
+     * @returns { Mask } - Returns a grayscale Mask with the elliptical radial distribution effect.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1167,14 +1422,27 @@ declare namespace uiEffect {
       gradients: Array<[double, double]>): Mask;
 
     /**
-     * Create a Mask of single wave gradient.
+     * Creates a single-wave mask Mask instance by inputting the wave source center position and single-wave parameters.
      *
-     * @param { common2D.Point } center - The wave source center of the single-wave mask.
-     * @param { double } width - The circular ring width of the single-wave mask.
-     * @param { double } propagationRadius - The outer diffusion radius of the single-wave mask.
-     * @param { double } blurRadius - The blur radius of the single-wave mask.
-     * @param { double } [turbulenceStrength] - The turbulent displacement intensity of the single-wave mask.
-     * @returns { Mask } - Returns wave gradient mask.
+     * @param { common2D.Point } center - Sets the center point of the single-wave source. [0, 0] is the top-left
+     *     corner of the component, [1, 1] is the bottom-right corner of the component.
+     *     The value range is [-10, 10], floating-point values are supported, and values outside the range will be
+     *     clamped during implementation.
+     * @param { double } width - Sets the width of the single-wave ring.
+     *     The value range is [0, 5], floating-point values are supported, and values outside the range will be
+     *     clamped during implementation.
+     * @param { double } propagationRadius - Sets the outer diffusion radius of the single-wave ring.
+     *     The value range is [0, 10], floating-point values are supported, and values outside the range will be
+     *     clamped during implementation.
+     * @param { double } blurRadius - Sets the blur outer radius of the single-wave ring. A blur radius of 0 results
+     *     in a solid-edge ring; otherwise, it is a soft-edge ring.
+     *     The value range is [0, 5], floating-point values are supported, and values outside the range will be
+     *     clamped during implementation.
+     * @param { double } [turbulenceStrength] - Sets the turbulence intensity of the single-wave ring.
+     *     The default value is 0; an intensity of 0 results in a regular ring, otherwise the ring edges will be
+     *     turbulently distorted. The value range is [-1, 1], floating-point values are supported,
+     *     and values outside the range will be clamped during implementation.
+     * @returns { Mask } - Returns a grayscale Mask with a single wave shape.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1185,10 +1453,15 @@ declare namespace uiEffect {
       blurRadius: double, turbulenceStrength?: double): Mask;
 
     /**
-     * Create a Mask of use effect.
+     * Creates and sets a Mask instance indicating whether to use blur caching. This Mask instance is specifically
+     * designed for the useEffectMask parameter of the liquidMaterial method, used to declare whether the material
+     * effect uses blur caching to improve performance. When this Mask instance is used with other Filter or
+     * VisualEffect methods, the useEffect property may not take effect.
      *
-     * @param { boolean } useEffect - The use effect flag of UseEffectMask.
-     * @returns { Mask } - Returns use effect mask.
+     * @param { boolean } useEffect - Flag indicating whether to use blur caching. A value of true means use,
+     *     and the blur effect will be displayed normally; a value of false means not use,
+     *     and the blur effect will not be displayed.
+     * @returns { Mask } - Returns a Mask instance that indicates whether to use blur caching.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1199,9 +1472,9 @@ declare namespace uiEffect {
   }
 
   /**
-   * Create a Filter to add multiple effects to the component.
+   * Creates a Filter instance for adding multiple filter effects to a component.
    *
-   * @returns { Filter } Returns the head node of Filter.
+   * @returns { Filter } Returns a Filter instance, which supports adding multiple filter effects.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
    * @since 23 static
@@ -1209,9 +1482,9 @@ declare namespace uiEffect {
   function createFilter(): Filter;
 
   /**
-   * Create a VisualEffect to add multiple effects to the component.
+   * Creates a VisualEffect instance for adding multiple VisualEffect effects to a component.
    *
-   * @returns { VisualEffect } Returns the head node of visualEffect.
+   * @returns { VisualEffect } Returns a VisualEffect instance, which supports adding multiple VisualEffect effects.
    * @syscap SystemCapability.Graphics.Drawing
    * @form [since 24]
    * @since 12 dynamic
@@ -1220,10 +1493,11 @@ declare namespace uiEffect {
   function createEffect(): VisualEffect;
 
   /**
-   * Create a BrightnessBlender, which is used to adjust the brightness of UI components.
+   * Creates a BrightnessBlender instance for adding a brightness effect to a component.
    *
-   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
-   * @returns { BrightnessBlender } Returns the blender.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters, including grayscale adjustment
+   *     coefficients, saturation, blending ratio, and other configuration items.
+   * @returns { BrightnessBlender } Returns the brightness blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @form [since 22]
@@ -1233,10 +1507,11 @@ declare namespace uiEffect {
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 
   /**
-   * Create an HdrBrightnessBlender, which is used to adjust the HDR brightness of UI components.
+   * Creates an HdrBrightnessBlender instance for adding an HDR-enabled brightness effect to a component.
    *
-   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
-   * @returns { HdrBrightnessBlender } Returns the blender.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters, including grayscale adjustment
+   *     coefficients, saturation, blending ratio, and other configuration items, used to configure the brightness effect.
+   * @returns { HdrBrightnessBlender } Returns the HDR-enabled brightness blender.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1246,11 +1521,23 @@ declare namespace uiEffect {
   function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
 
   /**
-   * Create an HdrDarkenBlender, which is used to apply HDR-adaptive darken blender on UI components.
-   * @param { double } hdrBrightnessRatio - The HDR brightness ratio of the src.
-   * @param { [double, double, double] } [grayscaleFactor] - The grayscale factor for converting dst's RGB channels to
-   *     grayscale. Formula: grayscale = dot(grayscaleFactor, dst).
-   * @returns { HdrDarkenBlender } Returns the blender.
+   * Creates an HdrDarkenBlender instance for HDR layer darken blending effect.
+   *
+   * @param { double } hdrBrightnessRatio - HDR brightness ratio. The value range is [1.0, the maximum brightness ratio
+   *     supported by the current device]. Values less than 1.0 are treated as 1.0; when the value is equal to 1.0,
+   *     it represents the original brightness of the component; values exceeding the maximum supported brightness ratio
+   *     are treated as the maximum ratio.
+   *     The maximum supported brightness ratio = device maximum brightness / device default brightness.
+   *     Device maximum brightness can be obtained via hdc command: param get const.display.brightness.max
+   *     Device default brightness can be obtained via hdc command: param get const.display.brightness.default
+   * @param { [double, double, double] } [grayscaleFactor] - Converts RGB colors to grayscale values.
+   *     The weights of the grayscale conversion formula can be automatically adjusted according to the current
+   *     color gamut, using different weight calculation methods under different color gamuts;
+   *     suitable for sRGB and other standard color gamut scenarios. Pass this parameter when you need to customize
+   *     grayscale conversion weights based on a specific color gamut or visual effect.
+   *     All three components have no boundary limits. The default value is the standard grayscale weights
+   *     [0.299, 0.587, 0.114].
+   * @returns { HdrDarkenBlender } Returns the HDR darken blender, used to add a darken effect to a specified component.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1261,7 +1548,8 @@ declare namespace uiEffect {
 }
 
 /**
- * The parameters of brightness blender.
+ * Parameter list of BrightnessBlender, used to configure various properties of the brightness effect,
+ * including grayscale adjustment coefficients, saturation, and blending ratio parameters.
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
@@ -1272,7 +1560,8 @@ declare namespace uiEffect {
 export declare interface BrightnessBlenderParam {
 
   /**
-   * Defines third-order rate for grayscale adjustment.
+   * Third-order coefficient for grayscale adjustment. The value range is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1283,7 +1572,8 @@ export declare interface BrightnessBlenderParam {
   cubicRate: double;
 
   /**
-   * Defines second-order rate for grayscale adjustment.
+   * Second-order coefficient for grayscale adjustment. The value range is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1294,7 +1584,8 @@ export declare interface BrightnessBlenderParam {
   quadraticRate: double;
 
   /**
-   * Defines linear rate for grayscale adjustment.
+   * Linear coefficient for grayscale adjustment. The value range is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1305,7 +1596,8 @@ export declare interface BrightnessBlenderParam {
   linearRate: double;
 
   /**
-   * Defines grayscale adjustment degree.
+   * Grayscale adjustment ratio. The value range is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1316,7 +1608,8 @@ export declare interface BrightnessBlenderParam {
   degree: double;
 
   /**
-   * Defines the reference saturation for brightness.
+   * Base saturation for brightness. The value range is [0, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1327,7 +1620,8 @@ export declare interface BrightnessBlenderParam {
   saturation: double;
 
   /**
-   * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+   * Positive RGB adjustment coefficients based on the base saturation. The value range for each number is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1338,7 +1632,8 @@ export declare interface BrightnessBlenderParam {
   positiveCoefficient: [double, double, double];
 
   /**
-   * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+   * Negative RGB adjustment coefficients based on the base saturation. The value range for each number is [-20, 20].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1349,7 +1644,8 @@ export declare interface BrightnessBlenderParam {
   negativeCoefficient: [double, double, double];
 
   /**
-   * Defines the blending fraction for brightness effect.
+   * Blending ratio for the brightness effect. The value range is [0, 1].
+   * Values outside the range will be clamped during implementation.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
