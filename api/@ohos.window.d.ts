@@ -10978,7 +10978,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow is not shown.
+     *     1. The window is not created or destroyed; 2. The window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -11002,7 +11002,7 @@ declare namespace window {
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow is not shown.
+     *     1. The window is not created or destroyed; 2. The window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -11242,7 +11242,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow or target window is not shown.
+     *     1. The window is not created or destroyed; 2. The window or target window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -11271,7 +11271,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow or target window is not shown.
+     *     1. The window is not created or destroyed; 2. The window or target window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -11341,7 +11341,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow is not shown.
+     *     1. The window is not created or destroyed; 2. The window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -11372,7 +11372,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
-     *     1. The subwindow is not created or destroyed; 2. The subwindow is not shown.
+     *     1. The window is not created or destroyed; 2. The window is not shown.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -12002,7 +12002,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The subwindow is not created or destroyed.
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -12037,7 +12037,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The subwindow is not created or destroyed.
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
@@ -13052,7 +13052,7 @@ declare namespace window {
      * @returns { int } Z-level of the child window.
      * @throws { BusinessError } 801 - Capability not supported. Function getSubWindowZLevel can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The subwindow is not created or destroyed.
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
