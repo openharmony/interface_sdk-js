@@ -3926,7 +3926,7 @@ declare namespace window {
    *     在[module.json5配置文件abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)的name字段指定。
    * @param { ColorMetrics } color - 设置的启动页背景色。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not work
    *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    *     Possible cause: Internal task error.
@@ -3964,7 +3964,7 @@ declare namespace window {
    *     。
    * @returns {  Promise<void>  } 无返回结果的Promise对象。
    * @throws {  BusinessError  } 801 - Capability not supported.
-   *     Function setWatermarkImageForAppWindows can not to work correctly due to limited device capabilities.
+   *     Function setWatermarkImageForAppWindows can not work correctly due to limited device capabilities.
    * @throws {  BusinessError  } 1300003 - This window manager service works abnormally.
    * @throws {  BusinessError  } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -6882,8 +6882,8 @@ declare namespace window {
      * 获取设备形态，仅测试使用
      *
      * @returns { Promise<string> } Promise used to return the window state snapshot.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the api due to limited device
-     *     capabilities. Possible cause: The device does not support the api itself.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities. Possible cause: The device does not support the API itself.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed;
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
