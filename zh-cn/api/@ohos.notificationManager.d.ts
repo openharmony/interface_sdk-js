@@ -89,10 +89,6 @@ import type UIAbilityContext from './application/UIAbilityContext';
  *
  * 6. **存量通知查询流程**：通过getActiveNotificationCount获取通知中心本应用存量通知数量，通过getActiveNotifications获取通知中心本应用存量通知详情。
  *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- *
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform [since 12]
  * @atomicservice [since 12]
@@ -1952,12 +1948,6 @@ declare namespace notificationManager {
 
   /**
    * 当前应用请求通知使能。使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的
-   * > [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>)}
-   * > 替代。
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当应用请求通知使能成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2007,11 +1997,6 @@ declare namespace notificationManager {
 
   /**
    * 当前应用请求通知使能。使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的
-   * > [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext)}替代。
    *
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 1600001 - Internal error.
