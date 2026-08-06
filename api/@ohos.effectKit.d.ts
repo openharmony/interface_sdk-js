@@ -40,10 +40,10 @@ import { FractionStop } from './arkui/component/common';
  *
  * This module provides the following classes:
  *
- * - Filter: an effect class used to add a specified effect to the effect chain, enabling combined processing
+ * - [Filter]{@link effectKit.Filter}: an effect class used to add a specified effect to the effect chain, enabling combined processing
  *   of multiple image effects through chained calls.
- * - Color: a class used to store the color picked.
- * - ColorPicker: a smart color picker.
+ * - [Color]{@link effectKit.Color}: a class used to store the color picked.
+ * - [ColorPicker]{@link effectKit.ColorPicker}: a smart color picker.
  *
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform [since 14]
