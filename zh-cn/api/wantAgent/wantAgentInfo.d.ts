@@ -51,8 +51,8 @@ export interface WantAgentInfo {
   wants: Array<Want>;
 
   /**
-   * 动作类型。
-   *
+   * 动作类型。 
+   * 
    * 从API version 7 开始支持，从API version 11 开始废弃，建议使用actionType<sup>11+</sup>替代。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -116,8 +116,8 @@ export interface WantAgentInfo {
   extraInfo?: { [key: string]: any };
 
   /**
-   * 启动应用的额外信息。
-   * 如果没有需要设置的额外信息，此常量可以留空。
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 23 static
@@ -134,7 +134,9 @@ export interface WantAgentInfo {
   extraInfos?: Record<string, Object>;
 
   /**
-   * 额外数据。推荐使用该属性替代extraInfo，设置该属性后，extraInfo不再生效。
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 23 static
@@ -147,6 +149,8 @@ export interface WantAgentInfo {
    * 取值范围：大于等于0。
    * 
    * 默认值为调用方所在用户ID。
+   * 
+   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
