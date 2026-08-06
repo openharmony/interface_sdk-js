@@ -4944,7 +4944,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Top alignment in the vertical direction.
    *
-   * @type { ?LocalizedHorizontalAlignParam }
+   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4956,7 +4956,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Bottom alignment in the vertical direction.
    *
-   * @type { ?LocalizedHorizontalAlignParam }
+   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4968,6 +4968,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Center alignment in the vertical direction.
    *
+   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8194,7 +8195,7 @@ declare interface MultiShadowOptions {
  */
 declare enum SafeAreaType {
   /**
-   * Default non-safe area of the system, including the status bar and navigation bar.
+   * Default safe area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8238,7 +8239,7 @@ declare enum SafeAreaType {
  */
 declare enum SafeAreaEdge {
   /**
-   * Top edge.
+   * Top edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8249,7 +8250,7 @@ declare enum SafeAreaEdge {
   TOP = 0,
 
   /**
-   * Bottom edge.
+   * Bottom edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8260,7 +8261,7 @@ declare enum SafeAreaEdge {
   BOTTOM = 1,
 
   /**
-   * Start edge.
+   * Start edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8271,7 +8272,7 @@ declare enum SafeAreaEdge {
   START = 2,
 
   /**
-   * End edge.
+   * End edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9773,6 +9774,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the event hit element.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9784,6 +9786,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the event hit element.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9795,6 +9798,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the device screen.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9806,6 +9810,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the device screen.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9817,6 +9822,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the current window.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9828,6 +9834,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the current window.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10678,6 +10685,7 @@ declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap
 /**
  * pixelmap object with release function.
  *
+ * @interface PixelMapMock
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
@@ -12478,6 +12486,7 @@ declare enum SheetMode {
 /**
  * Define the scroll size mode of the sheet.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -15950,6 +15959,8 @@ declare class ContentTransitionEffect {
   /**
    * When the content changes, there is no animation effect.
    *
+   * @type { ContentTransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15961,6 +15972,8 @@ declare class ContentTransitionEffect {
   /**
    * When the content changes, there is a smooth fade-in and fade-out effect.
    *
+   * @type { ContentTransitionEffect }
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16778,7 +16791,6 @@ declare interface ContextMenuOptions {
    * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
    * at the system material layer, which can produce an effect similar to glass.
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi [since 23 - 24]
    * @publicapi [since 26.0.0]
@@ -17515,6 +17527,7 @@ declare interface ClickEffect {
 /**
  * Defines the fadingEdge options.
  *
+ * @typedef FadingEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17525,6 +17538,7 @@ declare interface FadingEdgeOptions {
   /**
    * The length of FadingEdge.
    *
+   * @type { LengthMetrics }
    * @default 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18120,7 +18134,7 @@ declare enum MenuPolicy {
 }
 
 /**
- * ImageModifier
+ * Defines the image component modifier.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -18586,6 +18600,7 @@ interface BackgroundImageOptions {
    * Sets the synchronous or asynchronous mode for background image loading.
    * The default parameter type is bool, and the default value is false.
    *
+   * @type { ?boolean }
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18598,6 +18613,7 @@ interface BackgroundImageOptions {
   /**
    * Set the repeat style of the background image.
    *
+   * @type { ?ImageRepeat }
    * @param { ImageRepeat } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18612,6 +18628,7 @@ interface BackgroundImageOptions {
 /**
  * Defines background options.
  *
+ * @interface BackgroundOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18652,11 +18669,10 @@ declare interface BackgroundOptions {
    */
   align?: Alignment;
   /**
-   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass 
-   * empty edge set.
+   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass empty edge set.
    *
-   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty
-   *     array [].
+   * @type { ?Array<LayoutSafeAreaEdge> }
+   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty array [].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24074,8 +24090,10 @@ declare class CommonMethod<T> {
   accessibilityText(text: Resource): T;
 
   /**
-   * Sets accessibility role,role indicates the custom type of the component
-   * @param { AccessibilityRoleType } role - set accessibility component type
+   * Sets the role type of the accessibility component, which affects how the component is announced by screen readers.
+   * @param { AccessibilityRoleType } role - Role of the component as announced by screen readers (for example, button
+   *     or
+   *     <br>chart). You can define custom roles.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24242,7 +24260,9 @@ declare class CommonMethod<T> {
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
-   * Sets accessibilityChecked
+   * Sets the checked state for the accessibility node. This API is used in multi-select scenarios and only affects
+   * <br>
+   * component state announcements in screen reading scenarios.
    *
    * @param { boolean } isCheck - set accessibility checked status
    * @returns { T }
@@ -24256,7 +24276,9 @@ declare class CommonMethod<T> {
   accessibilityChecked(isCheck: boolean): T;
 
   /**
-   * Sets accessibilitySelected
+   * Sets the checked state for the accessibility node. This API is used in single-select scenarios and only affects
+   * <br>
+   * component state announcements in screen reading scenarios.
    *
    * @param { boolean } isSelect - set accessibility selected status
    * @returns { T }
@@ -24700,7 +24722,9 @@ declare class CommonMethod<T> {
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
 
   /**
-   * Sets the state anouncement text of the component under accessibility.
+   * Sets the state description of a component for broadcasting, which clearly describes the real-time state of the
+   * <br>
+   * component in screen reading scenarios. Screen reader will broadcast the state description first.
    *
    * @param { string | Resource | undefined } description - the state anouncement text of
    *     the component under accessibility. if incoming is undefined, it will be processed as empty string.
@@ -24729,12 +24753,15 @@ declare class CommonMethod<T> {
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
   /**
-   * Sets the next accessibility focus ID for the component, with optional detailed parameters.
+   * Sets the next component to receive focus during screen reader navigation, with optional detailed parameters.
    * The detailed parameters can provide additional behavior for the accessibility focus transition.
-   * @param { string } nextId - set component next accessibility focus id
-   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
-   *     accessibility next focus processing.
-   *     Undefined indicates reverting to the default of the detailed parameters.
+   * 
+   * @param { string } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
+   *     <br>If the ID does not correspond to any component, the setting is ignored.
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - Detailed parameters for accessibility next
+   *     <br>focus processing, used to configure whether to search for focusable nodes among descendant nodes.
+   *     <br>When the value is **undefined**, no detailed parameters are configured and no focus search is performed
+   *     <br>among descendant nodes.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24746,7 +24773,9 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
-   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
+   * Sets the custom accessibility operations of the component, allowing developers to set an array of custom actions
+   * <br>
+   * for binding custom operation callbacks to components by operation name.
    *
    * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
    * @returns { T } return component instance who call method.
@@ -24778,10 +24807,12 @@ declare class CommonMethod<T> {
 
   /**
    * Set the component's inspector label which only display on DevEco Studio.
+   * 
    * @param { string | undefined } label - the inspector label.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -26440,7 +26471,9 @@ declare interface SizeResult {
  * @atomicservice [since 11]
  * @since 10 dynamic
  */
-declare interface MeasureResult extends SizeResult {}
+declare interface MeasureResult extends SizeResult {
+
+}
 
 /**
  * The navigation destination information.
@@ -26489,6 +26522,7 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 /**
  * DrawContext
  *
+ * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -27353,6 +27387,7 @@ declare abstract class TextContentControllerBase {
 /**
  * Enum of scrollable containers' content clip mode.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -27900,7 +27935,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 declare class ScrollResult {
   /**
    * Actual offset by which the scrollable scrolls in vp.
-   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27913,6 +27948,7 @@ declare class ScrollResult {
 /**
  * Called before scroll to allow developer to control real offset the Scrollable can scroll.
  *
+ * @typedef { function } OnWillScrollCallback
  * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
  * @param { ScrollState } scrollState - current scroll state.
  * @param { ScrollSource } scrollSource - source of current scroll.
@@ -27930,6 +27966,7 @@ declare type OnWillScrollCallback =
 /**
  * On scroll callback using in scrollable onDidScroll.
  *
+ * @typedef { function } OnScrollCallback
  * @param { number } scrollOffset - offset this frame did scroll.
  * @param { ScrollState } scrollState - current scroll state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27944,6 +27981,7 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 /**
  * Defines the callback type used in onItemDragStart.
  *
+ * @typedef { function } OnItemDragStartCallback
  * @param { ItemDragInfo } event - Information about the dragged item.
  * @param { number } itemIndex - The index number of the dragged item.
  * @returns { CustomBuilder }
@@ -27958,6 +27996,7 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
 /**
  * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
  *
+ * @typedef { function } OnGetPreviewBadgeCallback
  * @returns { boolean | number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27970,6 +28009,7 @@ declare type OnGetPreviewBadgeCallback = () => boolean | number;
 /**
  * On scroll callback using in scrollable onWillStopDragging.
  *
+ * @typedef { function } OnWillStopDraggingCallback
  * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27983,6 +28023,7 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 /**
  * On scroll callback using in scrollable onDidStopDragging.
  *
+ * @typedef { function } OnDidStopDraggingCallback
  * @param { boolean } willFling - whether start fling animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27996,6 +28037,7 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
  * Defines the callback type used in OnVisibleIndexesChange.
  *
+ * @typedef { function } OnVisibleIndexesChangeCallback
  * @param { int } start - the first index in visible content.
  * @param { int } end - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28009,6 +28051,7 @@ declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 /**
  * Defines the onMove callback.
  *
+ * @typedef { function } OnMoveHandler
  * @param { number } from - Index number for moving elements.
  * @param { number } to - Target index number for moving elements.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28022,6 +28065,7 @@ declare type OnMoveHandler = (from: number, to: number) => void;
 /**
  * Define item drag event handler.
  *
+ * @interface ItemDragEventHandler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28032,6 +28076,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is long pressed.
    *
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28043,6 +28088,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is dragged.
    *
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28054,6 +28100,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when an item is moved through other items.
    *
+   * @type { ?OnMoveHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28065,6 +28112,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is dropped.
    *
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28158,6 +28206,7 @@ declare interface EdgeEffectOptions {
   /**
    * Set the effective edge of the edge effect.
    *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28170,6 +28219,7 @@ declare interface EdgeEffectOptions {
 /**
  * Enumerates the effective edge of the edge effect.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28300,6 +28350,7 @@ declare class ChildrenMainSize {
 /**
  * Define edit mode options.
  *
+ * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28310,6 +28361,7 @@ declare interface EditModeOptions {
   /**
    * Define whether to gather selected items in grid or list when item is long pressed for context menu.
    *
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28326,6 +28378,7 @@ declare interface EditModeOptions {
    * Returning true means using the number of selected items within the display range.
    * Returning a number to include selected items outside the display range.
    *
+   * @type { ?OnGetPreviewBadgeCallback } onGetPreviewBadge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28340,6 +28393,7 @@ declare interface EditModeOptions {
    * multi-select state.
    * {@code false} indicates that there is no default style after entering the multi-select state.
    *
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28354,6 +28408,7 @@ declare interface EditModeOptions {
    * {@code true} indicates that two-finger swiping can enter edit mode and perform multi-selection.
    * {@code false} indicates that two-finger swiping cannot perform multi-selection.
    *
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28548,7 +28603,6 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
 /**
  * Defines the callback type used in mutableBuilder.
  *
- * @typedef { function } BuilderCallback
  * @param { Args } args - The parameter of MutableBuilder.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28556,7 +28610,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * Defining mutableBuilder function.
@@ -28777,6 +28831,7 @@ declare interface KeyframeState {
 /**
  * Defines the basic callback.
  *
+ * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29077,6 +29132,8 @@ declare interface UICommonEvent {
 /**
  * Defines a UIScrollableCommonEvent which is used to set event to target component.
  *
+ * @extends UICommonEvent
+ * @interface UIScrollableCommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29398,6 +29455,7 @@ declare enum KeyboardAvoidMode {
 /**
  * Enumerates the type of area in hover mode.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
