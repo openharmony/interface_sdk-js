@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +14,8 @@
  */
 
 /**
- * @file
- * @kit ArkWeb
+  * @file
+  * @kit ArkWeb
  */
 
 import ExtensionContext from './application/ExtensionContext';
@@ -25,21 +24,31 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 import { AbilityResult } from './ability/abilityResult';
 
 /**
- * WebNativeMessagingExtensionContext is the context of web native message extension and is inherited from
- * ExtensionContext. It provides the capability of exchanging messages with WebNativeMessagingExtension.
- * The APIs of this module can be used only in the stage model.
+ * WebNativeMessagingExtensionContext是Web原生消息扩展（
+ * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}）的运行上下文，继承自ExtensionContext，为
+ * 扩展Ability提供生命周期管理、Ability启动以及原生消息连接控制能力。开发者可在继承WebNativeMessagingExtensionAbility的扩展中通过`this.context`获取该上下文，进而调用
+ * [startAbility]{@link WebNativeMessagingExtensionContext#startAbility}启动其他Ability、调用
+ * [startAbilityForResult]{@link WebNativeMessagingExtensionContext#startAbilityForResult}启动UIAbility并接收返回结果、调用
+ * [terminateSelf]{@link WebNativeMessagingExtensionContext#terminateSelf}结束当前扩展，或调用
+ * [stopNativeConnection]{@link WebNativeMessagingExtensionContext#stopNativeConnection}停止指定的Web原生消息连接。
  * 
+ * > **说明:**
+ * >
+ * > 本模块接口仅可在Stage模型下使用。
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability using a promise.
+   * 使用Promise异步回调启动Ability。如需获取启动的UIAbility退出时的返回结果，可以使用
+   * [startAbilityForResult]{@link WebNativeMessagingExtensionContext#startAbilityForResult}。
    *
-   * @param { Want } want - Information about the ability to start.
-   * @param { StartOptions } [options] - Startup options.
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @param { Want } want - 表示需要启动的Ability的信息，包含bundleName、abilityName等属性，用于指定要启动的目标Ability。
+   * @param { StartOptions } [options] - 启动选项，用于指定目标UIAbility启动时的选项，包括但不局限于窗口模式、目标UIAbility启动时所在的屏幕等。当需要自定义启动配置时传入，不传入时使
+   *     用系统默认启动配置。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -70,11 +79,19 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * 启动一个UIAbility，使用Promise异步回调接收被拉起的UIAbility退出时的返回结果。
+   * UIAbility被启动后，有如下情况:
+   * 
+   * - 正常情况下可通过调用
+   * [terminateSelfWithResult]{@link UIAbilityContext:UIAbilityContext.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * 接口使之终止并且返回结果给调用方。
+   * - 异常情况下比如销毁UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
+   * - 只支持拉起自己应用的UIAbility。
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<AbilityResult> } Returns the result of startAbility.
+   * @param { Want } want - 表示需要启动的UIAbility的信息，包含bundleName、abilityName等属性，用于指定要启动的目标UIAbility。
+   * @param { StartOptions } [options] - 启动选项，用于配置UIAbility的窗口模式等。当需要自定义启动配置时传入，不传入时使用系统默认启动配置。各字段默认值参考
+   *     [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}说明。
+   * @returns { Promise<AbilityResult> } Promise对象，返回被启动方退出时的结果码和数据。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -106,11 +123,11 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @since 26.0.0 dynamic
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
- 
+
   /**
-   * Destroys the current native web message extension.
+   * 销毁当前Web原生消息扩展。该方法返回一个Promise对象用于异步处理，调用此方法会自动停止所有Web原生消息连接，无需再调用stopNativeConnection。
    *
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
@@ -122,10 +139,10 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   terminateSelf(): Promise<void>;
 
   /**
-   * Stops a native connection. This API uses a promise to return the result.
+   * 停止指定的本地连接。使用Promise异步回调。
    *
-   * @param { number } connectionId - ID of the connection to stop.
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @param { number } connectionId - 要停止的连接ID。取值范围为正整数，必须是有效的连接ID。当connectionId值无效时，会对应返回错误码。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;

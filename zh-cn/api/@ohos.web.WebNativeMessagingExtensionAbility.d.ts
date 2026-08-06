@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,23 +14,22 @@
  */
 
 /**
- * @file
- * @kit ArkWeb
+  * @file
+  * @kit ArkWeb
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessagingExtensionContext';
 
 /**
- * Represents the information object of the web native messaging connection.
+ * Web原生消息连接的信息对象。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
  */
-
 export interface ConnectionInfo {
   /**
-   * Connection ID.
+   * 连接的唯一标识符，用于区分和管理不同的Web原生消息连接，可用于在日志、状态跟踪或资源清理时定位特定连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -39,7 +37,7 @@ export interface ConnectionInfo {
   connectionId: number;
 
   /**
-   * Application bundle name of the caller.
+   * 调用方的应用包名，用于身份识别和权限校验，可据此判断是否允许该应用建立连接或进行消息交互。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -47,7 +45,7 @@ export interface ConnectionInfo {
   bundleName: string;
 
   /**
-   * Original URL of the caller extension.
+   * 调用方扩展的原始URL，用于安全控制和来源识别，可据此判断扩展的合法性或实施基于域名的访问策略。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -55,7 +53,7 @@ export interface ConnectionInfo {
   extensionOrigin: string;
 
   /**
-   * Pipe file descriptor used to read data.
+   * 用于读取数据的管道文件描述符，可通过此文件描述符从Web端读取消息数据。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -63,7 +61,7 @@ export interface ConnectionInfo {
   fdRead: number;
 
   /**
-   * Pipe file descriptor used to write data.
+   * 用于写入数据的管道文件描述符，可通过此文件描述符向Web端发送消息数据。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -72,7 +70,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * class of web native messaging extension ability.
+ * 为开发者提供Web原生消息通信能力，继承自ExtensionAbility。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -80,7 +78,7 @@ export interface ConnectionInfo {
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
-* Context of web native messaging.
+   * 当前Web原生消息扩展Ability的上下文。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -89,9 +87,9 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   context: WebNativeMessagingExtensionContext;
 
   /**
-   * Called when a web native messaging connection is established.
+   * Web原生消息连接建立时回调此方法。在此回调中，可以获取连接信息，用于后续的消息通信处理。
    *
-   * @param { ConnectionInfo } info - Indicates connection information about new native connection.
+   * @param { ConnectionInfo } info - 连接信息对象。
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
@@ -99,9 +97,9 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onConnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called when a web native messaging connection is disconnected.
+   * Web原生消息连接断开时回调此方法。在此回调中，可以释放与该连接相关的资源，并完成必要的清理工作。
    *
-   * @param { ConnectionInfo } info - Indicates connection information about new native connection.
+   * @param { ConnectionInfo } info - 连接信息对象。
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
@@ -109,7 +107,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onDisconnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called when the WebNativeMessagingExtensionAbility is destroyed.
+   * WebNativeMessagingExtensionAbility销毁时回调。在此回调中，可以释放所有占用的资源，并完成最终的清理操作。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
