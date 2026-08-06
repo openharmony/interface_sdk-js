@@ -155,10 +155,10 @@ export declare enum PanDirection {
    * @stagemodelonly
    * @since 23 static
    */
-  All = 15,
+  All = 15
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 定义滑动手势的触发方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -166,29 +166,29 @@ export declare enum PanDirection {
  */
 export declare enum SwipeDirection {
   /**
-     * 任何方向都不可触发滑动手势事件。
+   * 任何方向均不可触发。
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  None = 0,
+  None,
   /**
-     * 水平方向。
+   * 水平方向，手指滑动方向与x轴夹角小于45度时触发。
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  Horizontal = 1,
+  Horizontal,
   /**
-   * 垂直滑动
+   * 竖直方向，手指滑动方向与y轴夹角小于45度时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  Vertical = 2,
+  Vertical,
   /**
      * 所有方向。
      *
@@ -196,10 +196,10 @@ export declare enum SwipeDirection {
    * @stagemodelonly
    * @since 23 static
    */
-  All = 3
+  All
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 定义手势组的识别模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -207,7 +207,9 @@ export declare enum SwipeDirection {
  */
 export declare enum GestureMode {
   /**
-   * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
+   * 顺序识别，根据注册顺序依次进行手势识别，直到所有手势识别成功。如果任一手势识别失败，则后续手势识别均无法完成。
+   *
+   * 在顺序识别手势组中，仅最后一个手势能响应onActionEnd事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -215,7 +217,7 @@ export declare enum GestureMode {
    */
   Sequence,
   /**
-   * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
+   * 并发识别，注册的手势同时识别，直到所有手势识别结束，手势识别互相不影响。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -223,7 +225,7 @@ export declare enum GestureMode {
    */
   Parallel,
   /**
-   * Mutually exclusive recognition. Only one gesture is successfully recognized.
+   * 互斥识别，注册的手势同时识别，若有一个手势识别成功，则结束手势识别，其他手势识别均失败。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -232,7 +234,7 @@ export declare enum GestureMode {
   Exclusive
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 定义是否屏蔽子组件手势。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -240,9 +242,7 @@ export declare enum GestureMode {
  */
 export declare enum GestureMask {
   /**
-   * High-priority response to the current gesture.When the current gesture fails to be recognized,
-   * other gesture responses are triggered.For gestures with the same priority,
-   * responses are performed based on the recognition sequence.
+   * 不屏蔽子组件的手势，按照默认手势识别顺序进行识别。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -250,7 +250,7 @@ export declare enum GestureMask {
    */
   Normal,
   /**
-   * Ignore internal gestures and recognize the current gesture first.
+   * 屏蔽子组件的手势，包括子组件上系统内置的手势，如子组件为List组件时，内置的滑动手势同样会被屏蔽。 若父子组件区域存在部分重叠，则只会屏蔽父子组件重叠的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -259,7 +259,7 @@ export declare enum GestureMask {
   IgnoreInternal
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 定义手势竞争结果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -550,7 +550,7 @@ export declare interface EventLocationInfo {
   /**
      * 获取点击位置相对于当前组件实时位置的左上角坐标。
      *
-   * @returns { Coordinate2D } - 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 获取点击位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -669,9 +669,9 @@ export declare interface FingerInfo {
    */
   hand?: InteractionHand;
   /**
-     * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取手指位置相对于当前组件实时位置的左上角坐标。
      *
-   * @returns { Coordinate2D } - 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 获取手指位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -867,15 +867,11 @@ export interface RotationGestureEvent extends BaseGestureEvent {
  */
 export interface SwipeGestureEvent extends BaseGestureEvent {
   /**
-     * 表示旋转角度，单位为deg。
+   * 表示快滑手势的角度，即手指滑动的瞬时方向与水平正方向的夹角，单位为deg。
      * 
      * **说明：**
      * 
-     * 角度计算方式：当滑动手势被识别后，连接两根手指之间的线被识别为起始线条。随着手指的滑动，手指之间的线条会发生旋转。根据起始线条和当前线条两端点的坐标，使用反正切函数分别计算其相对于水平方向的夹角。
-     * 
-     * 最终的旋转角度为：arctan2(cy2-cy1, cx2-cx1) - arctan2(y2-y1, x2-x1) 
-     * 
-     * 在起始线条为坐标系的情况下，顺时针旋转为0到180度，逆时针旋转为0到-180度。
+   * 以水平正方向为基准，滑动方向位于水平正方向顺时针侧时，角度范围为0到180度；位于水平正方向逆时针侧时，角度范围为0到-180度。
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -921,7 +917,10 @@ export interface GestureEvent extends BaseEvent {
    */
   fingerList: FingerInfo[];
   /**
-     * 参与触发事件的所有有效触点信息。默认值为空数组[]，返回空数组时，表示当前无有效触点信息。
+   * 由触屏产生的手势，fingerInfos中会包含触发事件的所有触点信息；由鼠标发起的手势，fingerInfos中只会有一条记录；触摸板的事件大类与鼠标一致，所以由触摸板发起的手势，fingerInfos只会携带一条记录。
+   *
+   * **说明：**
+   * fingerInfos只会记录参与触摸的有效手指信息，先按下但未参与当前手势触发的手指在fingerInfos中不会显示。默认值为空数组[]，返回空数组时，表示当前无有效触点信息。
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1006,7 +1005,9 @@ export interface GestureEvent extends BaseEvent {
    */
   pinchCenterY: double;
   /**
-     * 获取当前手势的x轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从左往右为正，反之为负。单位为vp/s。
+   * 用于[PanGesture]{@link ./common}手势中，获取当前手势的x轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从左往右为正，反之为负。单位为vp/s。
+   *
+   * 取值范围：(-∞,  +∞)
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1014,7 +1015,9 @@ export interface GestureEvent extends BaseEvent {
    */
   velocityX: double;
   /**
-     * 获取当前手势的y轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从上往下为正，反之为负。单位为vp/s。
+   * 用于[PanGesture]{@link ./common}手势中，获取当前手势的y轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从上往下为正，反之为负。单位为vp/s。
+   *
+   * 取值范围：(-∞,  +∞)
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1022,7 +1025,9 @@ export interface GestureEvent extends BaseEvent {
    */
   velocityY: double;
   /**
-     * 获取当前的主方向速度。为xy轴方向速度的平方和的算术平方根。单位为vp/s。
+   * 用于[PanGesture]{@link ./common}手势中，获取当前手势的主方向速度。为xy轴方向速度的平方和的算术平方根。单位为vp/s。
+   *
+   * 取值范围：[0,  +∞)
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1068,9 +1073,9 @@ export declare class Gesture {
   /**
      * 设置手势的标志。
      *
-   * @param { string } tag
-   * @returns { this }
-   返回当前组件。
+   * @param { string } tag - 手势的标志。
+   * @returns { this } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1079,8 +1084,8 @@ export declare class Gesture {
      * 设置手势响应的输入类型。
      *
    * @param { Array<SourceTool> } types - 手势响应的输入类型。
-   * @returns { this }
-   返回当前组件。
+   * @returns { this } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1163,7 +1168,7 @@ export declare class TapGesture extends Gesture {
      * 触发点击手势事件的设备类型为键盘或手柄时，事件的[SourceTool]{@link SourceTool}值为Unknown，事件的[SourceType]{@link SourceType}值为KEY或JOYSTICK。
      *
    * @param { function } factory
-   * @param { TapGestureParameters } [value]
+   * @param { TapGestureParameters } [value] - 点击手势的相关参数。
    * @returns { TapGesture }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1174,7 +1179,7 @@ export declare class TapGesture extends Gesture {
   /**
      * 点击手势识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1215,7 +1220,7 @@ export declare class LongPressGesture extends Gesture {
   /**
      * 设置长按手势识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 长按手势识别成功回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1225,7 +1230,7 @@ export declare class LongPressGesture extends Gesture {
   /**
      * 设置长按手势结束回调。长按手势识别成功后，最后一根手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 长按手势结束回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1235,7 +1240,7 @@ export declare class LongPressGesture extends Gesture {
   /**
      * 设置长按手势取消回调。长按手势识别成功后，接收到触摸取消事件时触发回调。不返回手势事件信息。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 长按手势取消回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1254,7 +1259,11 @@ export declare class PanGestureOptions {
   /**
      * 创建滑动手势配置参数对象。通过PanGestureOptions对象接口可以动态修改滑动手势的属性，从而避免通过状态变量修改属性（状态变量修改会导致UI刷新）。
      *
-   * @param { PanGestureHandlerOptions } [value]
+   * @param { PanGestureHandlerOptions } [value] - 滑动手势配置参数对象。<br/>fingers用于指定触发滑动的最少手指数，最小为1指， 最大取值为10指。<br/>默认值：1
+   *     <br/>direction用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑或（|）运算。<br/>默认值：PanDirection.All<br/>distance用于指定触发滑动手势事件的最小滑动距离，单位
+   *     为vp。<br/>手写笔默认值：8，其余输入源默认值：5<br/>**说明：**<br/>[Tabs]{@link ./common}组件滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免
+   *     造成事件错乱。<br/>当设定的值小于0时，按默认值处理。<br/>建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手（响应时延慢）的问题。<br/>当组件应用了
+   *     [scale]{@link CommonMethod.scale}缩放变换时，distance的实际识别距离会按照scale比例进行缩放。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1263,7 +1272,7 @@ export declare class PanGestureOptions {
   /**
      * 设置滑动方向。
      *
-   * @param { PanDirection } value
+   * @param { PanDirection } value - 用于指定触发滑动的手势方向，此枚举值支持逻辑与(&)和逻辑（|）运算。<br/>默认值：PanDirection.All
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1273,7 +1282,9 @@ export declare class PanGestureOptions {
      * 设置触发滑动手势事件的最小滑动距离，单位为vp。距离值不宜设置过大，避免因滑动脱手、响应时延过大等问题导致性能劣化，最佳实践请参考：
      * [减小拖动识别距离](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases#section1116134115286)。
      *
-   * @param { double } value
+   * @param { double } value - 触发滑动手势事件的最小滑动距离，单位为vp。<br/>手写笔默认值：8，其余输入源默认值：5<br/>**说明：**<br/>[Tabs组件]{@link ./common}
+   *     滑动与该滑动手势事件同时存在时，可将distance值设为1，使滑动更灵敏，避免造成事件错乱。<br/>当设定的值小于0时，按默认值处理。<br/>建议设置合理的滑动距离，滑动距离设置过大时会导致滑动不跟手
+   *     （响应时延慢）的问题。<br/>当组件应用了[scale]{@link CommonMethod.scale}缩放变换时，distance的实际识别距离会按照scale比例进行缩放。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1282,7 +1293,7 @@ export declare class PanGestureOptions {
   /**
      * 设置触发滑动的最少手指数。
      *
-   * @param { int } value
+   * @param { int } value - 触发滑动的最少手指数，最小为1指， 最大取值为10指。<br/>默认值：1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1291,7 +1302,7 @@ export declare class PanGestureOptions {
   /**
      * 获取滑动方向。
      *
-   * @returns { PanDirection } - 滑动方向。
+   * @returns { PanDirection } 滑动方向。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1300,7 +1311,7 @@ export declare class PanGestureOptions {
   /**
      * 获取触发滑动手势事件的最小滑动距离，单位为vp。
      *
-   * @returns { double } - 滑动手势事件的最小滑动距离。
+   * @returns { double } 滑动手势事件的最小滑动距离。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1319,7 +1330,7 @@ export declare class PanGesture extends Gesture {
      * 创建滑动手势对象。继承自[Gesture]{@link Gesture}。
      *
    * @param { function } factory
-   * @param { PanGestureHandlerOptions | PanGestureOptions } [value]
+   * @param { PanGestureHandlerOptions | PanGestureOptions } [value] - 滑动手势处理器配置参数。
    * @returns { PanGesture }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1330,7 +1341,7 @@ export declare class PanGesture extends Gesture {
   /**
      * 设置滑动手势识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 滑动手势识别成功回调。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1340,7 +1351,7 @@ export declare class PanGesture extends Gesture {
   /**
      * 设置滑动手势更新回调。fingerList为多根手指时，该回调监听每次只会更新一根手指的位置信息。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 滑动手势更新回调。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1350,7 +1361,7 @@ export declare class PanGesture extends Gesture {
   /**
      * 设置滑动手势结束回调。滑动手势识别成功后，手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 滑动手势结束回调。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1360,7 +1371,7 @@ export declare class PanGesture extends Gesture {
   /**
      * 设置滑动手势取消回调。滑动手势识别成功后，接收到触摸取消事件时触发回调。返回手势事件信息。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 滑动手势取消回调。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1380,7 +1391,7 @@ export declare class SwipeGesture extends Gesture {
      * 设置快滑手势事件。继承自[Gesture]{@link Gesture}。
      *
    * @param { function } factory
-   * @param { SwipeGestureHandlerOptions } [value]
+   * @param { SwipeGestureHandlerOptions } [value] - 快滑事件处理器配置参数。
    * @returns { SwipeGesture }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1391,7 +1402,7 @@ export declare class SwipeGesture extends Gesture {
   /**
      * Swipe手势识别成功时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1415,7 +1426,7 @@ export declare class PinchGesture extends Gesture {
      * 设置捏合手势事件。继承自[Gesture]{@link Gesture}。
      *
    * @param { function } factory
-   * @param { PinchGestureHandlerOptions } [value]
+   * @param { PinchGestureHandlerOptions } [value] - 捏合手势处理器配置参数。
    * @returns { PinchGesture }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1426,7 +1437,7 @@ export declare class PinchGesture extends Gesture {
   /**
      * Pinch手势识别成功后触发回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1436,7 +1447,7 @@ export declare class PinchGesture extends Gesture {
   /**
      * Pinch手势移动过程中回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1446,7 +1457,7 @@ export declare class PinchGesture extends Gesture {
   /**
      * Pinch手势识别成功，当抬起最后一根满足手势触发条件的手指后，触发回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1456,7 +1467,7 @@ export declare class PinchGesture extends Gesture {
   /**
      * Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCancel]{@link PinchGesture#onActionCancel}相比，该回调返回手势事件信息。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1480,7 +1491,7 @@ export declare class RotationGesture extends Gesture {
      * 设置旋转手势事件。继承自[Gesture]{@link Gesture}。
      *
    * @param { function } factory
-   * @param { RotationGestureHandlerOptions } [value]
+   * @param { RotationGestureHandlerOptions } [value] - 旋转手势处理器配置参数。
    * @returns { RotationGesture }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1491,7 +1502,7 @@ export declare class RotationGesture extends Gesture {
   /**
      * Rotation手势识别成功后触发的回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1501,7 +1512,7 @@ export declare class RotationGesture extends Gesture {
   /**
      * Rotation手势移动过程中触发的回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1511,7 +1522,7 @@ export declare class RotationGesture extends Gesture {
   /**
      * Rotation手势识别成功，当抬起最后一根满足手势触发条件的手指后触发的回调。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1521,7 +1532,7 @@ export declare class RotationGesture extends Gesture {
   /**
      * Rotation手势识别成功，接收到触摸取消事件触发的回调。与[onActionCancel]{@link RotationGesture#onActionCancel}相比，该回调返回手势事件信息。
      *
-   * @param { Callback<GestureEvent> } event
+   * @param { Callback<GestureEvent> } event - 手势事件回调函数。
    * @returns { this }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1541,8 +1552,10 @@ export declare class GestureGroup {
      * 设置组合手势事件。
      *
    * @param { function } factory
-   * @param { GestureMode } mode
-   * @param { GestureType[] } gesture
+   * @param { GestureMode } mode - 设置组合手势识别模式。<br/>默认值：GestureMode.Sequence
+   *     若此参数不填则组合手势识别功能不生效。<br/>**说明：**<br/>当需要为一个组件同时添加单击和双击手势时，可在组合手势中添加两个[TapGesture]{@link TapGesture}，
+   *     需要双击手势在前，单击手势在后，否则不生效。
+   * @param { GestureType[] } gesture - 设置一个或者多个基础手势类型时，这些手势会被识别为组合手势。
    * @returns { GestureGroup }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1553,7 +1566,7 @@ export declare class GestureGroup {
   /**
      * 手势识别成功，接收到触摸取消事件，触发回调。
      *
-   * @param { VoidCallback } event
+   * @param { VoidCallback } event - 手势事件回调函数。
    * @returns { GestureGroup }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1572,19 +1585,19 @@ export declare class GestureHandler {
   /**
      * 设置手势处理器的标志。
      *
-   * @param { string } tag
-   * @returns { this }
-   返回当前组件。
+   * @param { string } tag - 手势处理器的标志。
+   * @returns { this } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   tag(tag: string): this;
   /**
-     * 设置手势响应的输入类型。
+   * 设置手势处理器所支持的事件输入源。
      *
-   * @param { Array<SourceTool> } types - 手势响应的输入类型。
-   * @returns { this }
-   返回当前组件。
+   * @param { Array<SourceTool> } types - 手势处理器所支持的事件输入源。
+   * @returns { this } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1659,17 +1672,17 @@ export declare class TapGestureHandler extends GestureHandler {
   /**
      * 点击手势处理器的构造函数。
      *
-   * @param { TapGestureHandlerOptions } [options]
+   * @param { TapGestureHandlerOptions } [options] - 点击手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   constructor(options?: TapGestureHandlerOptions);
   /**
-     * 点击手势识别成功回调。
+   * 设置点击手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 点击手势处理器识别成功回调。
+   * @returns { this } 返回当前点击手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1748,37 +1761,37 @@ export declare class LongPressGestureHandler extends GestureHandler {
   /**
      * 长按手势处理器的构造函数。
      *
-   * @param { LongPressGestureHandlerOptions } [options]
+   * @param { LongPressGestureHandlerOptions } [options] - 长按手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   constructor(options?: LongPressGestureHandlerOptions);
   /**
-     * 设置长按手势识别成功回调。
+   * 设置长按手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 长按手势处理器识别成功回调。
+   * @returns { this } 返回当前长按手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onAction(event: Callback<GestureEvent>): this;
   /**
-     * 设置长按手势结束回调。长按手势识别成功后，最后一根手指抬起时触发回调。
+   * 设置长按手势处理器结束回调。长按手势处理器识别成功后，最后一根手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 长按手势处理器结束回调。
+   * @returns { this } 返回当前长按手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionEnd(event: Callback<GestureEvent>): this;
   /**
-     * 设置长按手势取消回调。长按手势识别成功后，接收到触摸取消事件时触发回调。不返回手势事件信息。
+   * 设置长按手势处理器取消回调。长按手势处理器识别成功后，接收到触摸取消事件时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 长按手势处理器取消回调。该回调会返回手势事件信息。
+   * @returns { this } 返回当前长按手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1861,47 +1874,47 @@ export declare class PanGestureHandler extends GestureHandler {
   /**
      * 滑动手势处理器的构造函数。
      *
-   * @param { PanGestureHandlerOptions } [options]
+   * @param { PanGestureHandlerOptions } [options] - 滑动手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   constructor(options?: PanGestureHandlerOptions);
   /**
-     * 设置滑动手势识别成功回调。
+   * 设置滑动手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 滑动手势处理器识别成功回调。
+   * @returns { this } 返回当前滑动手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionStart(event: Callback<GestureEvent>): this;
   /**
-     * 设置滑动手势更新回调。fingerList为多根手指时，该回调监听每次只会更新一根手指的位置信息。
+   * 设置滑动手势处理器更新回调。滑动手势处理器移动过程中触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 滑动手势处理器更新回调。<br/>fingerList为多根手指时，该回调监听每次只会更新一根手指的位置信息。
+   * @returns { this } 返回当前滑动手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionUpdate(event: Callback<GestureEvent>): this;
   /**
-     * 设置滑动手势结束回调。滑动手势识别成功后，手指抬起时触发回调。
+   * 设置滑动手势处理器结束回调。滑动手势处理器识别成功后，手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 滑动手势处理器结束回调。
+   * @returns { this } 返回当前滑动手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionEnd(event: Callback<GestureEvent>): this;
   /**
-     * 设置滑动手势取消回调。滑动手势识别成功后，接收到触摸取消事件时触发回调。返回手势事件信息。
+   * 设置滑动手势处理器取消回调。滑动手势处理器识别成功后，接收到触摸取消事件时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 滑动手势处理器取消回调。返回手势事件信息。
+   * @returns { this } 返回当前滑动手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1964,7 +1977,7 @@ export declare class SwipeGestureHandler extends GestureHandler {
   /**
      * 快滑手势处理器的构造函数。
      *
-   * @param { SwipeGestureHandlerOptions } [options]
+   * @param { SwipeGestureHandlerOptions } [options] - 快滑手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1973,9 +1986,9 @@ export declare class SwipeGestureHandler extends GestureHandler {
   /**
      * 设置快滑手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
-   返回当前快滑手势处理器对象。
+   * @param { Callback<GestureEvent> } event - 快滑手势处理器识别成功回调。
+   * @returns { this } 返回当前快滑手势处理器对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -2029,47 +2042,47 @@ export declare class PinchGestureHandler extends GestureHandler {
   /**
      * 捏合手势处理器的构造函数。
      *
-   * @param { PinchGestureHandlerOptions } [options]
+   * @param { PinchGestureHandlerOptions } [options] - 捏合手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   constructor(options?: PinchGestureHandlerOptions);
   /**
-     * Pinch手势识别成功后触发回调。
+   * 设置捏合手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 捏合手势处理器识别成功回调。
+   * @returns { this } 返回当前捏合手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionStart(event: Callback<GestureEvent>): this;
   /**
-     * Pinch手势移动过程中回调。
+   * 设置捏合手势处理器更新回调。捏合手势处理器移动过程中触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 捏合手势处理器更新回调。
+   * @returns { this } 返回当前捏合手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionUpdate(event: Callback<GestureEvent>): this;
   /**
-     * Pinch手势识别成功，当抬起最后一根满足手势触发条件的手指后，触发回调。
+   * 设置捏合手势处理器结束回调。捏合手势处理器识别成功后，手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 捏合手势处理器结束回调。
+   * @returns { this } 返回当前捏合手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionEnd(event: Callback<GestureEvent>): this;
   /**
-     * Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCancel]{@link PinchGesture#onActionCancel}相比，该回调返回手势事件信息。
+   * 设置捏合手势处理器取消回调。捏合手势处理器识别成功后，接收到触摸取消事件时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 捏合手势处理器取消回调。返回手势事件信息。
+   * @returns { this } 返回当前捏合手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2124,47 +2137,47 @@ export declare class RotationGestureHandler extends GestureHandler {
   /**
      * 旋转手势处理器的构造函数。
      *
-   * @param { RotationGestureHandlerOptions } [options]
+   * @param { RotationGestureHandlerOptions } [options] - 旋转手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   constructor(options?: RotationGestureHandlerOptions);
   /**
-     * Rotation手势识别成功后触发的回调。
+   * 设置旋转手势处理器识别成功回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 旋转手势处理器识别成功回调。
+   * @returns { this } 返回当前旋转手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionStart(event: Callback<GestureEvent>): this;
   /**
-     * Rotation手势移动过程中触发的回调。
+   * 设置旋转手势处理器更新回调。旋转手势处理器移动过程中触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 旋转手势处理器更新回调。
+   * @returns { this } 返回当前旋转手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionUpdate(event: Callback<GestureEvent>): this;
   /**
-     * Rotation手势识别成功，当抬起最后一根满足手势触发条件的手指后触发的回调。
+   * 设置旋转手势处理器结束回调。旋转手势处理器识别成功后，手指抬起时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 旋转手势处理器结束回调。
+   * @returns { this } 返回当前旋转手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onActionEnd(event: Callback<GestureEvent>): this;
   /**
-     * Rotation手势识别成功，接收到触摸取消事件触发的回调。与[onActionCancel]{@link RotationGesture#onActionCancel}相比，该回调返回手势事件信息。
+   * 设置旋转手势处理器取消回调。旋转手势处理器识别成功后，接收到触摸取消事件时触发回调。
      *
-   * @param { Callback<GestureEvent> } event
-   * @returns { this }
+   * @param { Callback<GestureEvent> } event - 旋转手势处理器取消回调。返回手势事件信息。
+   * @returns { this } 返回当前旋转手势处理器对象。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2213,7 +2226,7 @@ export declare class GestureGroupHandler extends GestureHandler {
   /**
      * 手势组处理器的构造函数。
      *
-   * @param { GestureGroupGestureHandlerOptions } [options]
+   * @param { GestureGroupGestureHandlerOptions } [options] - 手势组处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2222,16 +2235,16 @@ export declare class GestureGroupHandler extends GestureHandler {
   /**
      * 设置手势组处理器取消回调。顺序组合手势（[GestureMode]{@link GestureMode}.Sequence）取消后触发回调。
      *
-   * @param { VoidCallback } event
-   * @returns { this }
-   返回当前手势组处理器对象。
+   * @param { VoidCallback } event - 手势组处理器取消回调。
+   * @returns { this } 返回当前手势组处理器对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onCancel(event: VoidCallback): this;
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 绑定手势的优先级。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2256,7 +2269,7 @@ export declare enum GesturePriority {
   PRIORITY = 1
 }
 /**
- * 与SwipeDirection不同，PanDirection没有角度限制。
+ * 定义手势识别器状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2323,7 +2336,7 @@ export declare class ScrollableTargetInfo extends EventTargetInfo {
   /**
      * 返回当前滚动类容器组件是否在顶部，如果为Swiper组件且在循环模式下返回false。
      *
-   * @returns { boolean } - 当前滚动类容器组件是否在顶部。true表示组件在顶部，false表示组件不在顶部。
+   * @returns { boolean } 当前滚动类容器组件是否在顶部。true表示组件在顶部，false表示组件不在顶部。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2332,7 +2345,7 @@ export declare class ScrollableTargetInfo extends EventTargetInfo {
   /**
      * 返回当前滚动类容器组件是否在底部，如果为Swiper组件且在循环模式下返回false。
      *
-   * @returns { boolean } - 当前滚动类容器组件是否在底部。true表示组件在底部，false表示组件不在底部。
+   * @returns { boolean } 当前滚动类容器组件是否在底部。true表示组件在底部，false表示组件不在底部。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2350,7 +2363,7 @@ export declare class EventTargetInfo {
   /**
      * 返回当前组件的组件标识。
      *
-   * @returns { string } - 当前组件的[组件标识]{@link ./common}。
+   * @returns { string } 当前组件的[组件标识]{@link ./common}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2359,7 +2372,7 @@ export declare class EventTargetInfo {
   /**
      * 返回当前组件的唯一id。
      *
-   * @returns { int } - 当前组件的唯一id。
+   * @returns { int } 当前组件的唯一id。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2377,7 +2390,7 @@ export declare class TouchRecognizer {
   /**
      * 返回当前触摸识别器对应组件的信息。
      *
-   * @returns { EventTargetInfo } - 当前触摸识别器对应组件的信息。
+   * @returns { EventTargetInfo } 当前触摸识别器对应组件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2395,7 +2408,7 @@ export declare class TouchRecognizer {
      * 返回当前触摸识别器绑定节点是否为传入组件的后代节点。
      *
    * @param { int } uniqueId - 组件的唯一ID。可以通过[getUniqueId]{@link EventTargetInfo#getUniqueId}接口获取该ID。
-   * @returns { boolean } - 当前触摸识别器绑定节点是否为传入组件的后代节点。true表示当前绑定节点为传入组件的后代节点，false表示当前绑定节点非传入组件的后代节点。
+   * @returns { boolean } 当前触摸识别器绑定节点是否为传入组件的后代节点。true表示当前绑定节点为传入组件的后代节点，false表示当前绑定节点非传入组件的后代节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2413,7 +2426,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器的tag。
      *
-   * @returns { string } - 当前手势识别器的标志。
+   * @returns { string } 当前手势识别器的标志。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2422,7 +2435,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器的类型。
      *
-   * @returns { GestureControl.GestureType } - 当前手势识别器的类型。
+   * @returns { GestureControl.GestureType } 当前手势识别器的类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2431,7 +2444,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器是否为系统内置手势。
      *
-   * @returns { boolean } - 当前手势识别器是否为系统内置手势。true表示手势识别器为系统内置手势，false表示非系统内置手势。
+   * @returns { boolean } 当前手势识别器是否为系统内置手势。true表示手势识别器为系统内置手势，false表示非系统内置手势。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2449,7 +2462,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器的使能状态。
      *
-   * @returns { boolean } - 当前手势识别器的使能状态。true表示当前手势识别器能够回调应用事件，false表示当前手势识别器不回调应用事件。
+   * @returns { boolean } 当前手势识别器的使能状态。true表示当前手势识别器能够回调应用事件，false表示当前手势识别器不回调应用事件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2458,7 +2471,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器的状态。
      *
-   * @returns { GestureRecognizerState } - 当前手势识别器的状态。
+   * @returns { GestureRecognizerState } 当前手势识别器的状态。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2467,7 +2480,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器对应组件的信息。
      *
-   * @returns { EventTargetInfo } - 当前手势识别器对应组件的信息。
+   * @returns { EventTargetInfo } 当前手势识别器对应组件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2476,7 +2489,7 @@ export declare class GestureRecognizer {
   /**
      * 返回当前手势识别器是否有效。
      *
-   * @returns { boolean } - 当前手势识别器是否有效。<br/>当该识别器绑定的组件被析构或该识别器不在响应链上时返回false。<br/>当该识别器绑定的组件未被析构且该识别器在响应链上时返回true。
+   * @returns { boolean } 当前手势识别器是否有效。<br/>当该识别器绑定的组件被析构或该识别器不在响应链上时返回false。<br/>当该识别器绑定的组件未被析构且该识别器在响应链上时返回true。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2485,7 +2498,7 @@ export declare class GestureRecognizer {
   /**
      * 返回预设手指识别数阈值。
      *
-   * @returns { int } - 预设手指识别数阈值。<br/>取值范围：[1, 10], 整数。
+   * @returns { int } 预设手指识别数阈值。<br/>取值范围：[1, 10], 整数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2494,7 +2507,7 @@ export declare class GestureRecognizer {
   /**
      * 返回预设手势是否会检测触摸屏幕上手指识别数量。
      *
-   * @returns { boolean } - 预设手势是否会检测触摸屏幕上手指识别数量。当绑定手势事件且会检测触摸屏幕上手指的数量时，返回true。当绑定手势事件且不会检测触摸屏幕上手指的数量时，返回false。
+   * @returns { boolean } 预设手势是否会检测触摸屏幕上手指识别数量。当绑定手势事件且会检测触摸屏幕上手指的数量时，返回true。当绑定手势事件且不会检测触摸屏幕上手指的数量时，返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2511,10 +2524,10 @@ export declare class GestureRecognizer {
    */
   preventBegin(): void;
   /**
-     * 返回当前触摸识别器绑定节点是否为传入组件的后代节点。
+   * 返回当前手势识别器绑定节点是否为传入组件的后代节点。
      *
    * @param { int } uniqueId - 组件的唯一ID。可以通过[getUniqueId]{@link EventTargetInfo#getUniqueId}接口获取该ID。
-   * @returns { boolean } - 当前触摸识别器绑定节点是否为传入组件的后代节点。true表示当前绑定节点为传入组件的后代节点，false表示当前绑定节点非传入组件的后代节点。
+   * @returns { boolean } 当前手势识别器绑定节点是否为传入组件的后代节点。true表示当前绑定节点为传入组件的后代节点，false表示当前绑定节点非传入组件的后代节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2532,7 +2545,7 @@ export declare class TapRecognizer extends GestureRecognizer {
   /**
      * 返回预设点击手势识别器连续点击次数阈值。
      *
-   * @returns { int } - 预设点击手势识别器连续点击次数阈值。<br/>取值范围：[0, +∞)
+   * @returns { int } 预设点击手势识别器连续点击次数阈值。<br/>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2550,7 +2563,7 @@ export declare class LongPressRecognizer extends GestureRecognizer {
   /**
      * 返回预设长按手势识别器是否连续触发事件回调。
      *
-   * @returns { boolean } - 预设长按手势识别器是否连续触发事件回调。当绑定长按手势且不会连续触发回调时，返回false。当绑定长按手势且会连续触发回调时，返回true。
+   * @returns { boolean } 预设长按手势识别器是否连续触发事件回调。当绑定长按手势且不会连续触发回调时，返回false。当绑定长按手势且会连续触发回调时，返回true。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2559,7 +2572,7 @@ export declare class LongPressRecognizer extends GestureRecognizer {
   /**
      * 返回预设长按手势识别器触发长按最短时间阈值。
      *
-   * @returns { int } - 返回预设长按手势识别器触发长按最短时间阈值，单位为ms。<br/>取值范围：[0, +∞)
+   * @returns { int } 返回预设长按手势识别器触发长按最短时间阈值，单位为ms。<br/>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2568,7 +2581,7 @@ export declare class LongPressRecognizer extends GestureRecognizer {
   /**
      * 获取长按手势识别器识别的手势的最大移动距离。
      *
-   * @returns { double } - 长按手势识别器识别的手势的最大移动距离，单位为px。<br/>取值范围：(0, +∞)
+   * @returns { double } 长按手势识别器识别的手势的最大移动距离，单位为px。<br/>取值范围：(0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2586,7 +2599,7 @@ export declare class SwipeRecognizer extends GestureRecognizer {
   /**
      * 返回预设快滑手势识别器识别滑动最小速度阈值。
      *
-   * @returns { double } - 预设快滑手势识别器识别滑动最小速度阈值，单位为vp/s。<br/>取值范围：[0, +∞)
+   * @returns { double } 预设快滑手势识别器识别滑动最小速度阈值，单位为vp/s。<br/>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2595,7 +2608,7 @@ export declare class SwipeRecognizer extends GestureRecognizer {
   /**
      * 返回预设快滑手势识别器触发快滑手势滑动方向。
      *
-   * @returns { SwipeDirection } - 预设快滑手势识别器触发快滑手势滑动方向。
+   * @returns { SwipeDirection } 预设快滑手势识别器触发快滑手势滑动方向。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2613,7 +2626,7 @@ export declare class PinchRecognizer extends GestureRecognizer {
   /**
      * 返回预设捏合手势识别器最小识别距离阈值。
      *
-   * @returns { double } - 预设捏合手势识别器最小识别距离阈值，单位为vp。<br/>取值范围：[0, +∞)
+   * @returns { double } 预设捏合手势识别器最小识别距离阈值，单位为vp。<br/>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2631,7 +2644,7 @@ export declare class RotationRecognizer extends GestureRecognizer {
   /**
      * 返回预设旋转手势识别器触发旋转手势最小改变度数阈值。
      *
-   * @returns { double } - 预设旋转手势识别器触发旋转手势最小改变度数阈值，单位为deg。<br/>取值范围：
+   * @returns { double } 预设旋转手势识别器触发旋转手势最小改变度数阈值，单位为deg。<br/>取值范围：
      *     [0, +∞)<br/>**说明：** <br/>当输入的改变度数的值小于等于0或大于360时，会被转化为默认值，默认值为1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2650,7 +2663,7 @@ export declare class PanRecognizer extends GestureRecognizer {
   /**
      * 返回当前滑动手势识别器的属性。
      *
-   * @returns { PanGestureOptions } - 当前滑动手势识别器的属性。
+   * @returns { PanGestureOptions } 当前滑动手势识别器的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2659,7 +2672,7 @@ export declare class PanRecognizer extends GestureRecognizer {
   /**
      * 返回当前滑动手势识别器的识别方向。
      *
-   * @returns { PanDirection } - 当前滑动手势识别器的识别方向。
+   * @returns { PanDirection } 当前滑动手势识别器的识别方向。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2668,7 +2681,7 @@ export declare class PanRecognizer extends GestureRecognizer {
   /**
      * 返回当前滑动手势识别器触发的最小滑动距离。
      *
-   * @returns { double } - 当前滑动手势识别器触发的最小滑动距离。单位：vp
+   * @returns { double } 当前滑动手势识别器触发的最小滑动距离。单位：vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -2682,7 +2695,7 @@ export declare class PanRecognizer extends GestureRecognizer {
      * > 仅支持对通过Pan手势初始化配置修改的设备类型进行阈值查询。对于默认滑动阈值，可通过查询
      * > [SourceTool]{@link SourceTool}.Unknown类型获取。其他未主动设置的类型则无法获取。
      *
-   * @returns { Map<SourceTool, double> } - 不同输入源的滑动手势识别器触发的最小滑动距离。滑动距离的单位：vp
+   * @returns { Map<SourceTool, double> } 不同输入源的滑动手势识别器触发的最小滑动距离。滑动距离的单位：vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
