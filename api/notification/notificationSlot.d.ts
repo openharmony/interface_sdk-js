@@ -37,9 +37,6 @@ export interface NotificationSlot {
   /**
    * Channel type.
    * 
-   * This parameter is supported since API version 7 and deprecated since API version 11. It is recommended to use
-   * **notificationType** instead.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
    * @deprecated since 11
@@ -58,9 +55,6 @@ export interface NotificationSlot {
 
   /**
    * Notification level.
-   * 
-   * This parameter is supported since API version 7 and deprecated since API version 20. It is recommended to use
-   * **notificationLevel** instead.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
