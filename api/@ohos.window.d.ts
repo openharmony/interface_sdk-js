@@ -3240,7 +3240,7 @@ declare namespace window {
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
    *     1.Top window or main window is not created or destroyed;
    *     2. Stage mode without context.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
@@ -3263,7 +3263,7 @@ declare namespace window {
    * @returns { Promise<Window> } Promise used to return the topmost layer window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
    *     1.Top window or main window is not created or destroyed;
    *     2. Stage mode without context.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
@@ -10160,7 +10160,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
      *     1. The window is not created or destroyed;
      *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -10183,7 +10183,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
      *     1. The window is not created or destroyed;
      *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
