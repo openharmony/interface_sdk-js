@@ -414,8 +414,8 @@ declare namespace formProvider {
    *
    * @param { string } abilityName - Ability name on the editing page.
    * @param { string } formId - Widget ID.
-   * @param { boolean } isMainPage - Whether the page is the main editing page.<br>- **true**: The page is the main editing 
-   *     page.<br>- **false**: The page is not the main editing page.<br>Default value: **true**.
+   * @param { boolean } [isMainPage] - Whether the page is the main editing page.<br>- **true**: The page is the main
+   *     editing page.<br>- **false**: The page is not the main editing page.<br>Default value: **true**.
    * @throws { BusinessError } 801 - Capability not supported.function openFormEditAbility cannot work correctly due to
    *     limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
