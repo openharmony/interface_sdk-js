@@ -77,7 +77,7 @@ declare enum FormDimension {
    * @since 9 dynamiconly
    * @deprecated since 20
    */
-  Dimension_2_1 = 4,
+  Dimension_2_1,
 
   /**
    * 1 x 1 widget.
