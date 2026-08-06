@@ -4007,7 +4007,9 @@ declare class Driver {
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
 
   /**
-   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
+   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。
+   * 对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；
+   * 从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
    *
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
