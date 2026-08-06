@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 /**
-  * @file
-  * @kit ArkUI
+ * @file
+ * @kit ArkUI
  */
 
 import type image from './@ohos.multimedia.image';
@@ -407,8 +407,8 @@ declare namespace componentUtils {
     ];
 
   /**
-   * Describe a rotate in 2D, which can be defined by rotation angle and rotation center.
-   *
+   * Describes a rotation in 2D, which can be defined by rotation angle and rotation center.
+   * @typedef Rotation2D
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -418,6 +418,7 @@ declare namespace componentUtils {
     /**
      * Rotation angle Information.
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -427,6 +428,7 @@ declare namespace componentUtils {
     /**
      * Rotation centerX Information.
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -436,6 +438,7 @@ declare namespace componentUtils {
     /**
      * Rotation centerY Information.
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -457,6 +460,7 @@ declare namespace componentUtils {
     /**
      * Image Decoding Information.
      *
+     * @type { image.PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -466,6 +470,7 @@ declare namespace componentUtils {
     /**
      * Information about the position and size of the box which displays the image.
      *
+     * @type { common2D.Rect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -475,6 +480,7 @@ declare namespace componentUtils {
     /**
      * Information about the rotation of the box which displays the image.
      *
+     * @type { Rotation2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -482,8 +488,9 @@ declare namespace componentUtils {
      */
     rotation?: Rotation2D;
     /**
-         * Information about image rendering hierarchy.
-         *
+     * Information about image rendering hierarchy.
+     *
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -505,6 +512,7 @@ declare namespace componentUtils {
     /**
      * image information.
      *
+     * @type { Array<ImageItem> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -515,6 +523,7 @@ declare namespace componentUtils {
     /**
      * Indicates the path points information.
      *
+     * @type { Array<common2D.Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -523,9 +532,10 @@ declare namespace componentUtils {
     shapePath: Array<common2D.Point>;
 
     /**
-         * The proportion of non-transparent blank pixels in the selected area
-         * relative to the total pixels of the image. Default value is 0.15.
-         *
+     * The proportion of non-transparent blank pixels in the selected area
+     * relative to the total pixels of the image. Default value is 0.15.
+     *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly

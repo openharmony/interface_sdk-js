@@ -221,7 +221,7 @@ declare namespace dragController {
     autoHideComponentUniqueIds?: int | int[];
 
     /**
-     * 设置拖起方延迟提供数据。调用此方法向系统提供数据加载参数，而非直接传入完整的数据对象。当用户将数据拖拽至目标应用程序并释放时，系统将使用此参数从起拖方请求实际数据。与data时设置时，dataLoadParams生
+     * 设置拖起方延迟提供数据。调用此方法向系统提供数据加载参数，而非直接传入完整的数据对象。当用户将数据拖拽至目标应用程序并释放时，系统将使用此参数从起拖方请求实际数据。与data同时设置时，dataLoadParams生
      * 效。
      * 
      * 默认值：空
