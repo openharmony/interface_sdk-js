@@ -10983,7 +10983,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -11007,7 +11007,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 14 dynamic
      * @since 23 static
@@ -11247,7 +11247,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -11276,7 +11276,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -11308,7 +11308,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     The target window is not created or destroyed.
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only main windows are supported, and target must not be modal or topmost.
@@ -11346,7 +11346,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -11377,7 +11377,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 14 dynamic
      * @since 23 static
@@ -13486,7 +13486,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Invalid window type. Only non-modal subwindows are supported.
      * @throws { BusinessError } 1300009 - The parent window is invalid. Possible cause:
-     *     The subwindow has no parent window.
+     *     The parent window does not exist or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
