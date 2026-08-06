@@ -2446,7 +2446,8 @@ declare class On {
  }
 
 /**
- * UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。该类对象可通过{@link Driver#findComponent}、{@link Driver#findComponents}、{@link Driver#waitForComponent}等接口获取。
+ * UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
+ * 该类对象可通过{@link Driver#findComponent}、{@link Driver#findComponents}、{@link Driver#waitForComponent}等接口获取。
  * 该类提供的所有方法都使用Promise方式作为异步方法，需使用await调用。
  *
  * @syscap SystemCapability.Test.UiTest
