@@ -349,8 +349,8 @@ export enum RepeatMemOptStrategy {
 }
 
 /**
- * Defines Repeat Component. It requires call setRepeatOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines Repeat Component. It requires calling setRepeatOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<RepeatAttribute<T>> } style - callback to set up Repeat's attributes.
  * @returns { RepeatAttribute<T> } The attribute of Repeat.
