@@ -166,6 +166,7 @@ export declare interface TextDecorationOptions {
  * Provides an interface for the style of an divider including stroke width, color, start margin
  * and end margin
  *
+ * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -174,6 +175,7 @@ export declare interface DividerStyle {
     /**
      * Define the stroke width of the divider
      *
+     * @type { Length | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -182,6 +184,7 @@ export declare interface DividerStyle {
     /**
      * Define the color of the divider
      *
+     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -190,6 +193,7 @@ export declare interface DividerStyle {
     /**
      * Define the start margin of the divider
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -199,6 +203,7 @@ export declare interface DividerStyle {
     /**
      * Define the end margin of the divider
      *
+     * @type { ?Length }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2181,6 +2186,7 @@ export declare interface ScaleOptions {
 /**
  * Defines the align rule options of relative container.
  *
+ * @interface VerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2190,6 +2196,7 @@ export declare interface VerticalAlignParam {
      * Specifies the anchor component
      *
      * Anonymous Object Rectification
+     * @type { string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2199,6 +2206,7 @@ export declare interface VerticalAlignParam {
      * Sets the vertical alignment relative to the anchor component.
      *
      * Anonymous Object Rectification
+     * @type { VerticalAlign } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2208,6 +2216,7 @@ export declare interface VerticalAlignParam {
 /**
  * Defines the horizontal align rule options of relative container.
  *
+ * @interface HorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2218,6 +2227,7 @@ export declare interface HorizontalAlignParam {
      * Specifies the anchor component
      *
      * Anonymous Object Rectification
+     * @type { string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2227,6 +2237,7 @@ export declare interface HorizontalAlignParam {
      * Sets the horizontal alignment relative to the anchor component.
      *
      * Anonymous Object Rectification
+     * @type { HorizontalAlign } align
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2236,6 +2247,7 @@ export declare interface HorizontalAlignParam {
 /**
  * Defines the align rule options of relative container.
  *
+ * @interface AlignRuleOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2244,6 +2256,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of left align.
      *
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2252,6 +2265,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of right align.
      *
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2260,6 +2274,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of middle align.
      *
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2268,6 +2283,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of top align.
      *
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2276,6 +2292,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of bottom align.
      *
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2284,6 +2301,7 @@ export declare interface AlignRuleOption {
     /**
      * The param of center align.
      *
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2292,6 +2310,7 @@ export declare interface AlignRuleOption {
     /**
      * Defines the bias ratio in horizontal and vertical direction.
      *
+     * @type { ?Bias }
      * @default {horizontal:0.5,vertical:0.5}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2302,6 +2321,7 @@ export declare interface AlignRuleOption {
 /**
  * Defines the localized horizontal align param of relative container.
  *
+ * @interface LocalizedHorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2310,6 +2330,7 @@ export declare interface LocalizedHorizontalAlignParam {
     /**
      * ID of the component that serves as the anchor.
      *
+     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2318,6 +2339,7 @@ export declare interface LocalizedHorizontalAlignParam {
     /**
      * Horizontal alignment mode relative to the anchor component.
      *
+     * @type { HorizontalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2327,6 +2349,7 @@ export declare interface LocalizedHorizontalAlignParam {
 /**
  * Defines the localized vertical align param of relative container.
  *
+ * @interface LocalizedVerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2335,6 +2358,7 @@ export declare interface LocalizedVerticalAlignParam {
     /**
      * ID of the component that serves as the anchor.
      *
+     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2343,6 +2367,7 @@ export declare interface LocalizedVerticalAlignParam {
     /**
      * Vertical alignment mode relative to the anchor component.
      *
+     * @type { VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2352,6 +2377,7 @@ export declare interface LocalizedVerticalAlignParam {
 /**
  * Defines the Localized align rule options of relative container.
  *
+ * @interface LocalizedAlignRuleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2360,6 +2386,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal direction.
      *
+     * @type { ?LocalizedHorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2368,6 +2395,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal direction.
      *
+     * @type { ?LocalizedHorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2376,6 +2404,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Center alignment in the horizontal direction.
      *
+     * @type { ?LocalizedHorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2384,6 +2413,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Top alignment in the vertical direction.
      *
+     * @type { ?LocalizedVerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2392,6 +2422,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Bottom alignment in the vertical direction.
      *
+     * @type { ?LocalizedVerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2400,6 +2431,7 @@ export declare interface LocalizedAlignRuleOptions {
     /**
      * Center alignment in the vertical direction.
      *
+     * @type { ?LocalizedVerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2409,6 +2441,7 @@ export declare interface LocalizedAlignRuleOptions {
      * Offset of the component under the anchor constraints.
      * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
      *
+     * @type { ?Bias }
      * @default {horizontal:0.5,vertical:0.5}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4642,6 +4675,7 @@ export declare class LayoutPolicy {
     /**
      * The component fills its parent which means its size is as large as its parent.
      *
+     * @type { LayoutPolicy }
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4654,6 +4688,7 @@ export declare class LayoutPolicy {
      * The component fills its content which means its size is as large as its children but it is constained by its
      *     parent.
      *
+     * @type { LayoutPolicy }
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4665,6 +4700,7 @@ export declare class LayoutPolicy {
     /**
      * The component fills its content which means its size is as large as its children.
      *
+     * @type { LayoutPolicy }
      * @readonly
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14099,6 +14135,7 @@ export declare interface CommonShapeMethod extends CommonMethod {
 /**
  * Defines the direction of pixel rounding at the component level.
  *
+ * @interface PixelRoundPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14107,6 +14144,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the start edge.
      *
+     * @type { PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14116,6 +14154,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the top edge.
      *
+     * @type { PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14125,6 +14164,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the end edge.
      *
+     * @type { PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14134,6 +14174,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the bottom edge.
      *
+     * @type { PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14229,6 +14270,7 @@ export declare interface MotionBlurOptions {
  * Sub component layout info.
  *
  * @extends SizeResult
+ * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14237,6 +14279,7 @@ export declare interface GeometryInfo extends SizeResult {
     /**
      * Sub component borderWidth info.
      *
+     * @type { EdgeWidth }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14245,6 +14288,7 @@ export declare interface GeometryInfo extends SizeResult {
     /**
      * Sub component margin info.
      *
+     * @type { Margin }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14253,6 +14297,7 @@ export declare interface GeometryInfo extends SizeResult {
     /**
      * Sub component padding info.
      *
+     * @type { Padding }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14262,6 +14307,7 @@ export declare interface GeometryInfo extends SizeResult {
 /**
  * Provides the child component layout information.
  *
+ * @interface Layoutable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14270,6 +14316,7 @@ export declare interface Layoutable {
     /**
      * Measurement result of the child component.
      *
+     * @type { MeasureResult }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14278,6 +14325,7 @@ export declare interface Layoutable {
     /**
      * Unique ID of the child component.
      *
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14326,6 +14374,7 @@ export declare interface Layoutable {
 /**
  * Sub component info passed from framework when measure happens.
  *
+ * @interface Measurable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14334,6 +14383,7 @@ export declare interface Measurable {
     /**
      * Unique ID that the system assigns to the child component.
      *
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14384,6 +14434,7 @@ export declare interface Measurable {
 /**
  * Provides the component size information.
  *
+ * @interface SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14392,6 +14443,7 @@ export declare interface SizeResult {
     /**
      * Width obtained from the measurement result. Unit: vp.
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14400,6 +14452,7 @@ export declare interface SizeResult {
     /**
      * Height obtained from the measurement result. Unit: vp.
      *
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -14410,6 +14463,7 @@ export declare interface SizeResult {
  * Provides the measurement result of the component.
  *
  * @extends SizeResult
+ * @interface MeasureResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
