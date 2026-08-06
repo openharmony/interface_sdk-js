@@ -32,8 +32,8 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
  * needing to master underlying image processing algorithms, reducing development complexity and improving user experience.
  * In actual development, blur can be used for background blurring, and brightening can be used for bright screen display, etc.
  *
- * - [Filter](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#filter): Used to add specified Filter effects to a component.
- * - [VisualEffect](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#visualeffect): Used to add specified VisualEffect effects to a component.
+ * - [Filter]{@link uiEffect.Filter}: Used to add specified Filter effects to a component.
+ * - [VisualEffect]{@link uiEffect.VisualEffect}: Used to add specified VisualEffect effects to a component.
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @form [since 22]
