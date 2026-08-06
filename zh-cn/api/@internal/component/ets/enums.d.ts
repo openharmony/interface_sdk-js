@@ -1862,7 +1862,7 @@ declare enum Edge {
  * @since 10
  */
 /**
- * Set Weekend
+ * 定义星期枚举值。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7047,7 +7047,7 @@ declare enum EllipsisMode {
  * @since 11
  */
 /**
- * A type which can be undefined
+ * 在使用该类型时，其值可以使泛型参数T所指定的类型，也可以是undefined。
  *
  * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full

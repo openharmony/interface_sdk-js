@@ -20424,8 +20424,8 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 /**
 * 定义可选类型，其值可以是undefined。
 *
- * @unionmember { T } The object can be of any custom type.
- * @unionmember { undefined } The object can be **undefined**.
+ * @unionmember { T } 表示泛型T所指定的类型。
+ * @unionmember { undefined } 表示该类型声明的对象是undefined。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
