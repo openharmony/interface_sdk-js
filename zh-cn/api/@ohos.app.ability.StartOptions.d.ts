@@ -47,15 +47,6 @@ declare class StartOptions {
   windowMode?: int;
 
   /**
-   * 分屏比首选项的类型。
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  splitRatio?: window.SplitRatioPreference;
-
-  /**
    * 屏幕ID，取值为大于等于-1的整数。
    * 
    * - 取值为-1，表示当前屏幕。
