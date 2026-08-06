@@ -14,8 +14,8 @@
  */
 
 /**
-  * @file
-  * @kit DistributedServiceKit
+ * @file 跨设备唤醒与消息传输
+ * @kit DistributedServiceKit
  */
 
 /**
@@ -64,7 +64,7 @@ declare namespace conversation {
     deviceName: string;
 
     /**
-     * 设备类型标识符，表示设备的类别，取值为整数，例如：0x0E-手机，0x11-平板，0x9C-电视，0x0C-PC等（具体数值以系统定义为准）。
+     * 设备类型标识符，表示设备的类别，取值为整数，例如：0x0E-手机、0x11-平板、0x9C-电视、0x0C-PC等（具体数值以系统定义为准）。
      *
      * @syscap SystemCapability.Communication.SoftBus.Core
      * @systemapi
@@ -141,7 +141,7 @@ declare namespace conversation {
    *     Ability名一致。不满足此要求时，数据将无法送达目标应用。传入无效或空值时返回错误码401。
    * @param { ArrayBuffer } msg - 要发送的数据内容，一次调用最大支持发送10240字节。数据结构由应用层协议定义。传入空数据或
    *     无效数据时返回错误码401。
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回值的Promise对象。
    * @throws { BusinessError } 201 - Permission denied. The application does not have the required permission to
    *     access distributed data.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -149,10 +149,10 @@ declare namespace conversation {
    *     or empty.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2000001 - Internal error.
-   * @throws { BusinessError } 2004001 - Remote not support.
-   * @throws { BusinessError } 2004002 - Duplicate calls, previous call still in progress.
-   * @throws { BusinessError } 2004003 - Send data failed.
-   * @throws { BusinessError } 2004004 - Wait remote ack timeout.
+   * @throws { BusinessError } 2004001 - Remote system version is too low.
+   * @throws { BusinessError } 2004002 - Failed to start ability on the remote side.
+   * @throws { BusinessError } 2004003 - Failed to send data.
+   * @throws { BusinessError } 2004004 - Timeout while waiting for acknowledgement from the remote side.
    * @syscap SystemCapability.Communication.SoftBus.Core
    * @systemapi
    * @stagemodelonly
@@ -163,7 +163,7 @@ declare namespace conversation {
     bundleName: string,
     abilityName: string,
     msg: ArrayBuffer
-): Promise<void>;
+  ): Promise<void>;
 
   /**
    * 注册会话监听，接收来自同一账号下可信设备的数据。当远端设备通过
@@ -195,7 +195,7 @@ declare namespace conversation {
   function registerConversationListener(
     bundleName: string,
     abilityName: string,
-    dataCallback: DataCallback,
+    dataCallback: DataCallback
   ): void;
 
   /**
