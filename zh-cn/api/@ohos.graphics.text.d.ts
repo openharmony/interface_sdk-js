@@ -14,7 +14,9 @@
  */
 
 /**
+ 文本模块
  * @file
+ 文本模块
  * @kit ArkGraphics2D
  */
 import type drawing from './@ohos.graphics.drawing';
@@ -37,7 +39,7 @@ import { Resource } from './global/resource';
  * - [LineTypeset]{@link text.LineTypeset}：行排版器，由ParagraphBuilder类调用
  * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset}接口构建而成。
  * - [TextLine]{@link text.TextLine}：以行为单位的段落文本的载体，由Paragraph类调用[getTextLines()]{@link text.Paragraph.getTextLines}接口获取。
- * - [Run]{@link text.RunMetrics}：文本排版单元，由TextLine类调用[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接口获取。
+ * - [Run]{@link text.Run}：文本排版单元，由TextLine类调用[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接口获取。
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform [since 24]
@@ -287,7 +289,7 @@ declare namespace text {
     BREAK_ALL = 1,
 
     /**
-     * 对于Non-CJK的文本可在任意2个字符间断行，一行文本中有断行破发点（如空白符）时，优先按破发点换行，保障单词优先完整显示。若整一行文本均无断行破发点时，则在任意2个字符间断行。对于CJK与NORMAL效果一致。
+     * 对于Non-CJK的文本可在任意2个字符间断行，一行文本中有断行点（如空白符）时，优先按断行点换行，保障单词优先完整显示。若整一行文本均无断行点时，则在任意2个字符间断行。对于CJK文本，此策略与NORMAL效果一致。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -904,7 +906,7 @@ declare namespace text {
   }
 
   /**
-   * 字体阴影。
+   * 文本阴影。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -914,7 +916,7 @@ declare namespace text {
    */
   interface TextShadow {
     /**
-     * 字体阴影的颜色，默认为黑色Color(255, 0, 0, 0)。
+     * 文本阴影的颜色，默认为黑色Color(255, 0, 0, 0)。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -924,7 +926,7 @@ declare namespace text {
      */
     color?: common2D.Color;
     /**
-     * 字体阴影基于当前文本的偏移位置，横、纵坐标要大于等于零，单位为物理像素px。
+     * 文本阴影基于当前文本的偏移位置，横、纵坐标要大于等于零，单位为物理像素px，默认为common2D.Point(0, 0)。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1052,7 +1054,7 @@ declare namespace text {
    */
   interface FontFeature {
     /**
-     * 字体特征键值对中的关键字标识的字符串。
+     * 字体特征键值对中的关键字标识，如'liga'（标准连字）、'kern'（字距调整）等。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1084,7 +1086,7 @@ declare namespace text {
    */
   interface FontVariation {
     /**
-     * 可变字体属性键值对中的关键字标识的字符串。
+     * 可变字体属性键值对中的关键字标识，如'wght'（字重）、'wdth'（字宽）和'ital'（斜体）等。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1158,7 +1160,9 @@ declare namespace text {
   }
 
   /**
-   * 文本样式。
+   * 文本样式，用于控制文本的视觉表现属性，包括字体、颜色、字号、间距、装饰线和阴影等。TextStyle通过[ParagraphBuilder]{@link text.ParagraphBuilder}的
+   * [pushStyle]{@link text.ParagraphBuilder.pushStyle}方法应用到后续添加的文本内容，与[ParagraphStyle]{@link text.ParagraphStyle}（控制段落级
+   * 别属性）配合使用。同一段落中可通过多次pushStyle实现对不同文本片段应用不同样式。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1191,7 +1195,8 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * 字重，默认为W400。 目前只有系统默认字体支持字重的调节，其他字体设置字重值小于semi-bold（即W600）时字体粗细无变化，当设置字重值大于等于semi-bold（即W600）时可能会触发伪加粗效果。
+     * 字重，默认为W400。 在<!--RP1-->OpenHarmony 6.1<!--RP1End-->之前，仅系统字体中的可变字体支持字重调节；从<!--RP1-->OpenHarmony 6.1<!--RP1End-->开
+     * 始，系统字体与三方注册字体中的可变字体均支持字重调节。非可变字体设置字重值小于semi-bold（即W600）时字体粗细无变化，设置字重值大于等于semi-bold（即W600）时可能会触发伪加粗效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1224,7 +1229,7 @@ declare namespace text {
     baseline?: TextBaseline;
 
     /**
-     * 字体家族名称列表，默认为空，匹配系统字体。
+     * 字体家族名称列表，默认为空，匹配系统字体。使用自定义字体时，需将加载字体时指定的名称填入此列表中。当与fontTypefaces同时设置时，fontTypefaces优先级更高，fontFamilies不生效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1320,7 +1325,7 @@ declare namespace text {
     halfLeading?: boolean;
 
     /**
-     * true表示根据字体大小和heightScale设置文本框的高度，false表示根据行高和行距，默认为false。
+     * true表示根据字体大小和heightScale设置文本框的高度，false表示根据行高和行距设置文本框高度，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1331,7 +1336,7 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * 省略号文本，表示省略号生效后使用该字段值替换省略号部分。
+     * 省略号文本，表示省略号生效后使用该字段值替换省略号部分，默认为空字符串，即使用系统默认省略号…（U+2026）。与ParagraphStyle的tab属性共同配置时，tab属性无效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1365,7 +1370,7 @@ declare namespace text {
     locale?: string;
 
     /**
-     * 文本下划线的偏移距离，浮点数，单位为物理像素px，默认为0.0。
+     * 文本基线的垂直偏移距离，浮点数，单位为物理像素px，默认为0.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1376,7 +1381,7 @@ declare namespace text {
     baselineShift?: double;
 
     /**
-     * 文本字体特征数组。
+     * 文本字体特征数组。当需要启用或禁用特定字体特性（如连字、字距调整等）时传入。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1387,7 +1392,7 @@ declare namespace text {
     fontFeatures?: Array<FontFeature>;
 
     /**
-     * 文本阴影数组。
+     * 文本阴影数组。当需要为文本添加阴影效果时传入。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1398,7 +1403,7 @@ declare namespace text {
     textShadows?: Array<TextShadow>;
 
     /**
-     * 文本矩形框样式。
+     * 文本矩形框样式。当需要为文本添加背景矩形框（如设置背景色、圆角等）时传入。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1409,7 +1414,7 @@ declare namespace text {
     backgroundRect?: RectStyle;
 
     /**
-     * 可变字体属性数组。
+     * 可变字体属性数组。当需要调整可变字体的可变轴参数（如字重轴、字宽轴等）时传入。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1451,7 +1456,9 @@ declare namespace text {
     fontEdging?: drawing.FontEdging;
 
     /**
-     * 字体对象数组
+     * 指定排版字体对象数组，用于优先使用指定的字体对象进行文本塑形，跳过字体匹配流程。当数组中某个字体对象无法塑形部分文字时，未能塑形的文字将使用系统字体进行塑形。默认为空数组，表示不指定字体对象，使用默认字体匹配流程。
+     * 
+     * 当fontTypefaces与[TextStyle]{@link text.TextStyle}.fontFamilies同时设置时，fontTypefaces优先级更高。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -1462,7 +1469,11 @@ declare namespace text {
   }
 
   /**
-   * 字体集。
+   * 字体集，用于管理文本排版所需的字体资源。FontCollection为[ParagraphBuilder]{@link text.ParagraphBuilder}提供字体匹配和字形查找能力，是文本排版管线的基础组件。提供全局实例
+   * （[getGlobalInstance]{@link text.FontCollection.getGlobalInstance}）和本地实例（
+   * [getLocalInstance]{@link text.FontCollection.getLocalInstance}），全局实例加载的字体在应用内共享，适用于普通应用场景；本地实例各实例独立，加载的字体仅对当前实例生效、实
+   * 例间互不影响，推荐卡片场景使用。支持通过[loadFontSync]{@link text.FontCollection.loadFontSync}或
+   * [loadFont]{@link text.FontCollection.loadFont}加载自定义字体。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1475,7 +1486,7 @@ declare namespace text {
     /**
      * 获取应用全局FontCollection实例。
      *
-     * @returns { FontCollection } FontCollection对象。
+     * @returns { FontCollection } 应用全局FontCollection实例对象，可用于管理字体加载、卸载和排版等操作。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -1487,7 +1498,7 @@ declare namespace text {
     /**
      * 获取本地FontCollection实例，推荐卡片场景使用。
      *
-     * @returns { FontCollection } FontCollection对象。
+     * @returns { FontCollection } 本地FontCollection实例对象，推荐卡片场景使用，可用于管理字体加载、卸载和排版等操作。
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
@@ -1517,7 +1528,7 @@ declare namespace text {
      *
      * @param { string } name - 加载字体后，调用该字体所使用的别名，可填写任意字符串，可使用该别名指定并使用该字体。
      * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 "rawfile/目录or文件名"。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1534,8 +1545,9 @@ declare namespace text {
      * ttc。
      *
      * @param { string } name - 加载字体成功后，该字体对应的名称，可填写任意字符串，可使用该名称指定并使用该字体。
-     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile("字体文件路径")。
-     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。<br>非ttc格式文件索引值无意义，若指定索引，只能为0。
+     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile('字体文件路径')。
+     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。
+     *     <br>非ttc格式文件索引值无意义，若指定索引，只能为0。
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
      * @throws { BusinessError } 25900003 - Failed to open the file.
@@ -1556,8 +1568,9 @@ declare namespace text {
      * ttf、otf、ttc。
      *
      * @param { string } name - 加载字体成功后，该字体对应的名称，可填写任意字符串，可使用该名称指定并使用该字体。
-     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile("字体文件路径")。
-     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。<br>非ttc格式文件索引值无意义，若指定索引，只能为0。
+     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile('字体文件路径')。
+     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。
+     *     <br>非ttc格式文件索引值无意义，若指定索引，只能为0。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
@@ -1607,7 +1620,7 @@ declare namespace text {
      * - 卸载正在使用的字体可能导致文本渲染异常（如乱码或字形缺失）。
      *
      * @param { string } name - 需要卸载的字体的别名，与加载字体时使用的别名相同。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @form [since 22]
@@ -1618,7 +1631,7 @@ declare namespace text {
     unloadFont(name: string): Promise<void>;
 
     /**
-     * 清理字体排版缓存（字体排版缓存本身设有内存上限和清理机制，所占内存有限，如无内存要求，不建议清理）。
+     * 清理字体排版缓存。字体排版缓存本身设有内存上限和自动清理机制，所占内存有限。如无特殊内存要求，不建议清理。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1685,7 +1698,8 @@ declare namespace text {
     fontWidth?: FontWidth;
 
     /**
-     * 字重，默认为W400。系统默认字体支持字重调节，其他字体设置字重值小于W600时无变化，大于等于W600时可能触发伪加粗效果。
+     * 字重，默认为W400。在<!--RP1-->OpenHarmony 6.1<!--RP1End-->之前，仅系统字体中的可变字体支持字重调节；从<!--RP1-->OpenHarmony 6.1<!--RP1End-->开始，
+     * 系统字体与三方注册字体中的可变字体均支持字重调节。非可变字体设置字重值小于W600时字体粗细无变化，设置字重值大于等于W600时可能会触发伪加粗效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1774,7 +1788,8 @@ declare namespace text {
   }
 
   /**
-   * 段落样式。
+   * 段落样式，用于控制段落的整体布局行为，包括对齐方式、断行策略和最大行数等属性。ParagraphStyle作为[ParagraphBuilder]{@link text.ParagraphBuilder}构造函数的必要参数，与
+   * [TextStyle]{@link text.TextStyle}（控制文本级别样式）分工协作，共同决定段落的最终排版效果。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1907,8 +1922,9 @@ declare namespace text {
     autoSpace?: boolean;
 
     /**
-     * 文本垂直对齐方式，开启行高缩放（即设置[TextStyle]{@link text.TextStyle}的heightScale）或行内不同字号（即设置[TextStyle]{@link text.TextStyle}的
-     * fontSize）文本混排时生效。若行内有上下标文本（即设置[TextStyle]{@link text.TextStyle}的badgeType属性文本），上下标文本将与普通文本一样参与垂直对齐。
+     * 文本垂直对齐方式，默认为BASELINE，即文本基线对齐。开启行高缩放（即设置[TextStyle]{@link text.TextStyle}的heightScale）或行内不同字号（即设置
+     * [TextStyle]{@link text.TextStyle}的fontSize）文本混排时生效。若行内有上下标文本（即设置[TextStyle]{@link text.TextStyle}的badgeType属性文本），
+     * 上下标文本将与普通文本一样参与垂直对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1920,7 +1936,7 @@ declare namespace text {
 
     /**
      * 行间距，单位为物理像素px，默认值为0。lineSpacing不受[TextStyle]{@link text.TextStyle}中lineHeightMaximum和lineHeightMinimum限制。尾行默认保留行间
-     * 距，可通过设置[TextStyle]{@link text.TextStyle}.textHeightBehavior为DISABLE_ALL或DISABLE_LAST_ASCENT禁用尾行行间距。
+     * 距，可通过设置[ParagraphStyle]{@link text.ParagraphStyle}的textHeightBehavior为DISABLE_ALL或DISABLE_LAST_ASCENT禁用尾行行间距。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1977,7 +1993,7 @@ declare namespace text {
     fallbackLineSpacing?: boolean;
 
     /**
-     * 设置段落首行缩进，缩进值需大于等于0，默认值为0。
+     * 设置段落首行缩进，缩进值需大于等于0，单位为物理像素px，默认值为0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -1987,7 +2003,7 @@ declare namespace text {
     firstLineHeadIndent?: double;
 
     /**
-     * 设置行尾缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，默认为空数组。
+     * 设置行尾缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，单位为物理像素px，默认为空数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -1997,7 +2013,7 @@ declare namespace text {
     tailIndents?: Array<double>;
 
     /**
-     * 设置行首缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，默认为空数组。
+     * 设置行首缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，单位为物理像素px，默认为空数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2008,8 +2024,8 @@ declare namespace text {
 
     /**
      * 设置文本排版时是否使能孤字优化。孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[wordBreak]{@link text.WordBreak}为
-     * 非BREAK_ALL并且待排版文本首个[TextStyle]{@link text.TextStyle}的[locale]{@link text.TextStyle}为“zh-Hans”或“zh-Hant”时生效。true表示
-     * 使能孤字优化，false表示不使能孤字优化，默认值为false。
+     * 非BREAK_ALL并且待排版文本首个[TextStyle]{@link text.TextStyle}的locale为“zh-Hans”或“zh-Hant”时生效。true表示使能孤字优化，false表示不使能孤字优化，默认
+     * 值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2019,7 +2035,7 @@ declare namespace text {
     orphanCharOptimization?: boolean;
 
     /**
-     * 尾行标点悬挂
+     * 设置文本排版时是否使能行尾标点悬挂。true表示使能行尾标点悬挂，允许行尾单个标点超出排版宽度而不换行，false表示不使能行尾标点悬挂，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2032,14 +2048,13 @@ declare namespace text {
   /**
    * 占位符相对于周围文本的纵向对齐方式。
    * 
-   * !
-   * [zh-ch_image_PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_PlaceholderAlignment.png)
+   * ![PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/PlaceholderAlignment.png)
    * 
    * > **说明：**
    * >
    * > 示意图展示了后三种对齐方式，前三种对齐方式在文本基线对齐方式上类似，比较位置是文本基线，即绿色线条部分。
    * >
-   * > ![zh-ch_image_Baseline.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_Baseline.png)
+   * > ![Baseline.png](docroot://reference/apis-arkgraphics2d/figures/Baseline.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2115,7 +2130,8 @@ declare namespace text {
     CENTER_OF_ROW_BOX = 5,
 
     /**
-     * Follow Paragraph setting,
+     * 跟随文本排版对齐。
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2626,7 +2642,7 @@ declare namespace text {
     index?: int;
 
     /**
-     * 字体支持的language列表
+     * 字体支持的语言列表，默认为空数组。数组中每个元素为BCP 47格式的语言标签字符串（如'en'、'zh-Hans'），表示该字体支持的书写语言。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2636,7 +2652,7 @@ declare namespace text {
     languages?: Array<string>;
 
     /**
-     * 字体支持的font feature列表
+     * 字体支持的OpenType特性标签数组，默认为空数组。数组中每个元素为特性标签字符串（如'liga'表示标准连字、'kern'表示字距调整），表示该字体支持的字体特性。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2687,7 +2703,7 @@ declare namespace text {
      * 进行排版并计算所有字形位置，使用Promise异步回调。
      *
      * @param { double } width - 单行的最大宽度，浮点数，单位为物理像素px。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2699,7 +2715,7 @@ declare namespace text {
     layout(width: double): Promise<void>;
 
     /**
-     * 在画布上以 (x, y) 为左上角绘制文本。
+     * 在画布上以 (x, y) 为左上角绘制文本。调用前必须先调用[layout()]{@link text.Paragraph.layout}接口进行排版，否则无法正确显示文本内容。
      *
      * @param { drawing.Canvas } canvas - 绘制的目标画布。
      * @param { double } x - 绘制的左上角位置的横坐标，浮点数，单位为物理像素px。
@@ -2713,7 +2729,7 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
-     * 在画布上沿路径绘制文本。
+     * 在画布上沿路径绘制文本。调用前必须先调用[layout()]{@link text.Paragraph.layout}接口进行排版，否则无法正确显示文本内容。
      *
      * @param { drawing.Canvas } canvas - 绘制的目标画布。
      * @param { drawing.Path } path - 确认文字位置的路径。
@@ -2814,7 +2830,7 @@ declare namespace text {
     /**
      * 获取表意字（如CJK（中文，日文，韩文））下的基线位置。
      *
-     * @returns { double } 获取表意字下的基线位置，浮点数，单位为物理像素px。
+     * @returns { double } 表意字下的基线位置，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2892,7 +2908,7 @@ declare namespace text {
     /**
      * 返回指定行的行高。
      *
-     * @param { int } line - 文本行索引，整数，范围为0~getLineCount()-1。
+     * @param { int } line - 文本行索引，整数，范围为0~[getLineCount]{@link text.Paragraph.getLineCount}-1。
      * @returns { double } 行高，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2905,7 +2921,7 @@ declare namespace text {
     /**
      * 返回指定行的行宽。
      *
-     * @param { int } line - 文本行索引，整数，范围为0~getLineCount()-1。
+     * @param { int } line - 文本行索引，整数，范围为0~[getLineCount]{@link text.Paragraph.getLineCount}-1。
      * @returns { double } 行宽，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2969,10 +2985,9 @@ declare namespace text {
     /**
      * 获取特定行号的行度量信息。
      *
-     * @param { int } lineNumber - 要查询度量信息的行的编号，行号从0开始。
-     * @returns { LineMetrics | undefined } **LineMetrics** object containing the measurement information if the
-     *     specified line number is valid and the measurement information exists. If the line number is invalid or the
-     *     measurement information cannot be obtained, **undefined** is returned.
+     * @param { int } lineNumber - 要查询度量信息的行的编号，行号从0开始，最大行索引为文本行数量-1，文本行数量可通过
+     *     [getLineCount]{@link text.Paragraph.getLineCount}接口获取。
+     * @returns { LineMetrics | undefined } 如果指定的行号有效且度量信息存在，则返回一个包含该行度量数据的LineMetrics对象；如果行号无效或无法获取度量信息，则返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3079,6 +3094,10 @@ declare namespace text {
      * 获取段落的样式配置。
      *
      * @returns { ParagraphStyle } 段落的样式配置。
+     *     <br>其中`textStyle.color`、`textStyle.textShadows.color`、`textStyle.backgroundRect.color`、
+     *     `textStyle.decoration.color`属性：返回32位无符号整型颜色数值。示例：返回值`4278190080`，对应纯黑色十六进制颜色值`0xFF000000`，等价于
+     *     [common2D.Color]{@link @ohos.graphics.common2D:common2D.Color}对象参数：alpha=255、red=0、green=0、blue=0，示例中提供
+     *     numberToRGBA转换方法作为参考。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3090,6 +3109,19 @@ declare namespace text {
      * 获取段落中在屏幕上可见的文本范围。不包含因最大行数（[ParagraphStyle]{@link text.ParagraphStyle}的maxLines属性）截断或省略号模式（
      * [EllipsisMode]{@link text.EllipsisMode}）替换而未显示的文本。
      *
+     * **说明：**
+     * 
+     * 返回的范围取决于段落的具体截断情况（如是否设置最大行数或省略号等）：
+     * | 场景 | 说明 |
+     * |---|---|
+     * | 文本未被截断 | 范围包含全部已排版文本 |
+     * | 仅设置maxLines截断（未设置省略号） | 范围为实际显示的文本，即第一行至第maxLines行末尾的文本。 |
+     * | 尾部省略（EllipsisMode.END） | 范围为省略号之前的文本。 |
+     * | 头部省略（EllipsisMode.START） | 范围为省略号之后的文本。 |
+     * | 中部省略（EllipsisMode.MIDDLE） | 第一个范围为省略号之前的文本，第二个范围为省略号之后的文本。 |
+     * | 多行头部省略（EllipsisMode.MULTILINE_START） | 同中部省略，返回省略号前后的文本范围。 |
+     * | 多行中部省略（EllipsisMode.MULTILINE_MIDDLE） | 同中部省略，返回省略号前后的文本范围。 |
+     *
      * @returns { Array<Range> } 段落可见文本范围数组，范围为UTF-16编码单元索引。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -3099,11 +3131,12 @@ declare namespace text {
     getVisibleTextRanges(): Array<Range>;
 
     /**
-     * 是否强制复用栅格化结果。
+     * 设置是否强制复用光栅化结果。不调用此接口时，系统默认允许更新光栅化结果。
+     * 
+     * 适用于文本内容未发生变化但需要多次调用[paint]{@link text.Paragraph.paint}绘制的场景，通过复用光栅化结果可避免重复光栅化计算以提升绘制性能。设置后，在下次调用
+     * [paint]{@link text.Paragraph.paint}绘制时生效。
      *
-     * @param { boolean } isForce - 是否强制复用栅格化结果。
-     *     True表示强制复用光栅化结果。False表示允许更新光栅化结果。
-     *     默认值为false。
+     * @param { boolean } isForce - 是否强制复用光栅化结果。true表示强制复用光栅化结果，false表示允许更新光栅化结果。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3113,7 +3146,7 @@ declare namespace text {
   }
 
   /**
-   * 保存着文本内容以及样式的载体，可以用于计算单行排版信息。
+   * 保存文本内容及样式的载体，可用于计算单行排版信息。
    * 
    * 下列API示例中都需先使用[ParagraphBuilder]{@link text.ParagraphBuilder}类的
    * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset}接口获取到LineTypeset对象实例，再通过此实例调用对应方法。
@@ -3369,7 +3402,10 @@ declare namespace text {
   }
 
   /**
-   * 段落生成器。
+   * 段落生成器，采用建造者模式构建段落对象。开发者通过构造函数传入[ParagraphStyle]{@link text.ParagraphStyle}和
+   * [FontCollection]{@link text.FontCollection}初始化ParagraphBuilder，然后通过
+   * [pushStyle]{@link text.ParagraphBuilder.pushStyle}设置文本样式、[addText]{@link text.ParagraphBuilder.addText}添加文本内容，最终调用
+   * [build()]{@link text.ParagraphBuilder.build}接口生成[Paragraph]{@link text.Paragraph}对象进行排版和绘制。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3382,7 +3418,7 @@ declare namespace text {
      * ParagraphBuilder对象的构造函数。
      *
      * @param { ParagraphStyle } paragraphStyle - 段落样式。
-     * @param { FontCollection } fontCollection - 字体集。
+     * @param { FontCollection } fontCollection - 字体集对象，提供文本排版所需的字体资源，用于在段落构建过程中进行字形匹配和文本渲染。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3410,6 +3446,11 @@ declare namespace text {
     /**
      * 弹出当前文本样式。
      *
+     * > **说明：**
+     * >
+     * > 必须在调用[pushStyle()]{@link text.ParagraphBuilder.pushStyle}之后才能调用此方法。调用后，后续添加的文本将使用弹出前的文本样式。如果样式栈为空，将使用
+     * > [ParagraphStyle]{@link text.ParagraphStyle}中的textStyle作为默认样式。
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3421,7 +3462,7 @@ declare namespace text {
     /**
      * 向正在构建的文本段落中插入具体的文本字符串。
      *
-     * @param { string } text - 段落中插入的具体文本字符串，传入非法Unicode时会显示?。
+     * @param { string } text - 段落中插入的具体文本字符串，传入非法Unicode时会显示�。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3431,7 +3472,7 @@ declare namespace text {
     addText(text: string): void;
 
     /**
-     * 用于构建文本段落时插入占位符。
+     * 用于构建文本段落时插入占位符。插入后，占位符将在段落排版中按照指定的宽度、高度和对齐方式占据相应空间，并影响文本的换行和布局。
      *
      * @param { PlaceholderSpan } placeholderSpan - 定义了占位符的尺寸、对齐方式、基线类型以及基线偏移量。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3443,7 +3484,7 @@ declare namespace text {
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
     /**
-     * 用于构建段落，生成可用于后续排版渲染的段落对象。
+     * 用于构建段落，生成可用于后续排版渲染的段落对象。调用build()后，如需再次构建文本，必须创建新的ParagraphBuilder实例。
      *
      * @returns { Paragraph } 可用于后续渲染的 Paragraph 对象。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3455,7 +3496,7 @@ declare namespace text {
     build(): Paragraph;
 
     /**
-     * 构建行排版器。
+     * 构建行排版器，生成可用于逐行排版计算的LineTypeset对象。
      *
      * @returns { LineTypeset } 可用于后续渲染的LineTypeset对象。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3481,25 +3522,24 @@ declare namespace text {
   }
 
   /**
-   * 文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版边界相同
-   * ，即与字符本身无关。
+   * 文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版边界相
+   * 同，即与字符本身无关。
    * 
    * > **说明：**
    * >
    * > 示意图展示文本行排版参数：width（包含左右空格的文本行宽度）、ascent（上升高度最高点）、descent（下降高度最低点）、leading（行间距）、top（当前行最高点）、baseline（字符基线）、bottom（
    * > 当前行最低点）、next line top（下一行最高点）。
    * >
-   * > ![zh-ch_image_Typographic.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_Typographic.png)
+   * > ![Typographic.png](docroot://reference/apis-arkgraphics2d/figures/Typographic.png)
    * >
    * > 示意图展示了字符串为" a b "的排版边界。
    * >
-   * > !
-   * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+   * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
    * >
    * > 示意图展示了字符串为"j"或"E"的排版边界。
    * >
    * > !
-   * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
+   * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3574,7 +3614,7 @@ declare namespace text {
   /**
    * 描述段落基础文本行结构的载体。
    * 
-   * 下列API示例中都需先使用[Paragraph]{@link text.ParagraphStyle}类的[getTextLines()]{@link text.Paragraph.getTextLines}接口或者
+   * 下列API示例中都需先使用[Paragraph]{@link text.Paragraph}类的[getTextLines()]{@link text.Paragraph.getTextLines}接口或者
    * [LineTypeset]{@link text.LineTypeset}类的[createLine()]{@link text.LineTypeset.createLine}接口获取到TextLine对象实例，再通过此实例调用对
    * 应方法。
    *
@@ -3650,11 +3690,12 @@ declare namespace text {
     createTruncatedLine(width: double, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
     /**
-     * 创建一个截断的文本行对象
-     * @param { double } width - 截断后的行宽度
-     * @param { EllipsisMode } ellipsisMode - 省略的类型，当前不支持中部省略
-     * @param { string } ellipsis - 用于省略的文字
-     * @returns { TextLine | undefined } Truncated text line object.
+     * 创建一个截断的文本行对象。
+     *
+     * @param { double } width - 截断后的行宽度，浮点数，单位为物理像素px。
+     * @param { EllipsisMode } ellipsisMode - 截断的类型，当前仅支持头部截断START和尾部截断END。
+     * @param { string } ellipsis - 截断的标记字符串。
+     * @returns { TextLine | undefined } 截断的文本行对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3668,13 +3709,12 @@ declare namespace text {
      * >
      * > 示意图展示了字符串为" a b "的排版边界。
      * >
-     * > !
-     * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+     * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
      * >
      * > 示意图展示了字符串为"j"或"E"的排版边界。
      * >
      * > !
-     * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
+     * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
      *
      * @returns { TypographicBounds } 文本行的排版边界。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3693,14 +3733,13 @@ declare namespace text {
      * >
      * > 示意图展示了字符串为" a b "的图像边界。
      * >
-     * > ![zh-ch_image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds.png)
+     * > ![ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds.png)
      * >
      * > 示意图展示了字符串为"j"或"E"的图像边界。
      * >
-     * > !
-     * > [zh-ch_image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds_Character.png)
+     * > ![ImageBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds-Character.png)
      *
-     * @returns { common2D.Rect } Image boundary of a text line, in physical pixels (px).
+     * @returns { common2D.Rect } 文本行的图像边界，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3724,7 +3763,7 @@ declare namespace text {
     /**
      * 获取给定位置在原始字符串中的字符索引。
      *
-     * @param { common2D.Point } point - 要查找索引的位置。
+     * @param { common2D.Point } point - 要查找字符索引的坐标位置，坐标相对于文本行的左上角原点，单位为物理像素px。其中x为水平坐标，y为垂直坐标。
      * @returns { int } 给定位置在文本行中对应的字符串索引，整数。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3776,7 +3815,8 @@ declare namespace text {
   }
 
   /**
-   * 文本排版单元。
+   * 文本排版单元，表示一段具有相同样式属性的连续文本片段。Run由[TextLine]{@link text.TextLine}类的[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接
+   * 口获取。
    * 
    * 下列API示例中都需先使用[TextLine]{@link text.TextLine}类的[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接口获取Run对象实例，再通过此实例调
    * 用对应方法。
@@ -3826,9 +3866,11 @@ declare namespace text {
     getGlyphs(range: Range): Array<int>;
 
     /**
-     * 获取范围内每个字符的字形标识符
-     * @param { Range } range range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
-     * @returns { Array<int> | undefined } Glyph identifier or undefined.
+     * 获取该排版单元指定范围内每个字符的字形序号。
+     *
+     * @param { Range } range 要获取的字形序号范围，range.start表示范围开始的位置，range.end表示范围的长度，当range.end为0时表示从range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
+     * @returns { Array<int> | undefined } 该排版单元中每个字符对应的字形序号。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3837,8 +3879,7 @@ declare namespace text {
     /**
      * 获取该排版单元中每个字形相对于每行的字形位置。
      *
-     * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
-     *     the run.
+     * @returns { Array<common2D.Point> } 该排版单元中每个字形相对于每行的字形位置。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3852,8 +3893,7 @@ declare namespace text {
      *
      * @param { Range } range - 要获取的字形位置范围，range.start表示范围开始的位置，range.end表示范围的长度，如果长度是0表示从范围range.start开始获取到渲染块结束。当
      *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
-     * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
-     *     the run.
+     * @returns { Array<common2D.Point> } 该排版单元中每个字形相对于每行的字形位置。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3862,9 +3902,11 @@ declare namespace text {
     getPositions(range: Range): Array<common2D.Point>;
 
     /**
-     * 获取指定范围内字体位置信息
-     * @param { Range } range range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
-     * @returns { Array<common2D.Point> | undefined } The position of the font in the layout or undefined.
+     * 获取该排版单元指定范围内每个字形相对于每行的字形位置数组。
+     *
+     * @param { Range } range 要获取的字形位置范围，range.start表示范围开始的位置，range.end表示范围的长度，如果长度是0表示从范围range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
+     * @returns { Array<common2D.Point> | undefined } 该排版单元中每个字形相对于每行的字形位置。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3873,7 +3915,7 @@ declare namespace text {
     /**
      * 获取该排版单元中每个字形的索引偏移量。
      *
-     * @returns { Array<common2D.Point> } Array holding the offset of each glyph in the run relative to its index.
+     * @returns { Array<common2D.Point> } 该排版单元中每个字形相对于其索引的偏移量。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3885,7 +3927,7 @@ declare namespace text {
     /**
      * 获取排版单元的字体属性对象。
      *
-     * @returns { drawing.Font } **Font** object of this run.
+     * @returns { drawing.Font } 该排版单元的字体属性对象实例。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3922,9 +3964,11 @@ declare namespace text {
     getStringIndices(range?: Range): Array<int>;
 
     /**
-     * 获取run对象中字形索引的范围，索引为相对于段落起始的偏移
-     * @param { Range } [range] range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
-     * @returns { Array<int> | undefined } The glyph indices or undefined.
+     * 获取排版单元指定范围内字形的字符索引，该索引是相对于整个段落的偏移。
+     *
+     * @param { Range } [range] 要获取的字符索引范围，range.start表示范围开始的位置，range.end表示范围的长度，如果长度是0表示从范围range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。不传该参数时，默认获取整个渲染块。
+     * @returns { Array<int> | undefined } 返回每个字符的索引。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3949,13 +3993,12 @@ declare namespace text {
      * >
      * > 示意图展示了字符串为" a b "的排版边界。
      * >
-     * > !
-     * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+     * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
      * >
      * > 示意图展示了字符串为"j"或"E"的排版边界。
      * >
      * > !
-     * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
+     * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
      *
      * @returns { TypographicBounds } 该排版单元的排版边界。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3974,14 +4017,13 @@ declare namespace text {
      * >
      * > 示意图展示了字符串为" a b "的图像边界。
      * >
-     * > ![zh-ch_image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds.png)
+     * > ![ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds.png)
      * >
      * > 示意图展示了字符串为"j"或"E"的图像边界。
      * >
-     * > !
-     * > [zh-ch_image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds_Character.png)
+     * > ![ImageBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds-Character.png)
      *
-     * @returns { common2D.Rect } Image boundary of the layout unit, in physical pixels (px).
+     * @returns { common2D.Rect } 该排版单元的图像边界，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4007,10 +4049,8 @@ declare namespace text {
      *
      * @param { Range } range - 要获取的字形位置范围。range.start表示范围开始的位置，range.end表示范围的长度。如果长度是0表示从range.start开始获取到渲染块结束。当
      *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
-     * @returns { Array<common2D.Point> } Returns the glyph width array of each glyph in the run unit relative to the
-     *     horizontal direction. In [common2D.Point]{@link @ohos.graphics.common2D:common2D.Point}, the x value
-     *     represents the glyph width of each glyph relative to the horizontal direction, in physical pixels (px). The y
-     *     value is a reserved field and returns **0** by default.
+     * @returns { Array<common2D.Point> } 返回该排版单元中每个字形相对于水平方向的字形宽度数组。其中，
+     *     [common2D.Point]{@link @ohos.graphics.common2D:common2D.Point}中的x值代表每个字形相对于水平方向的字形宽度，单位为物理像素px，y值为保留字段，默认返回0。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4019,18 +4059,28 @@ declare namespace text {
     getAdvances(range: Range): Array<common2D.Point>;
 
     /**
-     * 获取指定范围内的字形宽度数组
-     * @param { Range } range - range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
-     * @returns { Array<common2D.Point> | undefined } Array holding the advance width and height of each glyph.
+     * 获取该排版单元指定范围内每个字形的字形宽度数组。
+     *
+     * @param { Range } range - 要获取的字形位置范围。range.start表示范围开始的位置，range.end表示范围的长度。如果长度是0表示从range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
+     * @returns { Array<common2D.Point> | undefined } 返回该排版单元中每个字形相对于水平方向的字形宽度数组。其中，
+     *     [common2D.Point]{@link @ohos.graphics.common2D:common2D.Point}中的x值代表每个字形相对于水平方向的字形宽度，单位为物理像素px，y值为保留字段，默认返回0。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
     getAdvances(range: Range): Array<common2D.Point> | undefined;
 
     /**
-     * 获取当前绘制单元的样式属性信息
+     * 获取该排版单元的文本样式。
      *
-     * @returns { TextStyle } 当前绘制单元的样式属性对象
+     * @returns { TextStyle } 该排版单元的文本样式。
+     *     <br>**说明：**
+     *     <br>1.`textStyle.color`、`textStyle.textShadows.color`、`textStyle.backgroundRect.color`、
+     *     `textStyle.decoration.color`属性：返回32位无符号整型颜色数值。示例：返回值`4278190080`，对应纯黑色十六进制颜色值`0xFF000000`，等价于
+     *     [common2D.Color]{@link @ohos.graphics.common2D:common2D.Color}对象参数：alpha=255、red=0、green=0、blue=0，示例中提供
+     *     numberToRGBA转换方法作为参考。
+     *     <br>2.`textStyle.ellipsis`和`textStyle.ellipsisMode`为段落属性，不支持通过本接口获取，应使用
+     *     [getParagraphStyle()]{@link text.Paragraph.getParagraphStyle}。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -4347,7 +4397,7 @@ declare namespace text {
    * 
    * 可调用此接口设置，也可通过系统设置界面中**高对比度文字配置开关**进行开启/关闭。使用此接口设置开启/关闭文字渲染高对比度配置的优先级高于系统开关设置。
    * 
-   * 该接口针对应用的文字自绘制场景不生效。
+   * 该接口针对应用通过Canvas等接口自行绘制文字的场景不生效，仅对使用系统文本组件渲染的场景生效。
    *
    * @param { TextHighContrast } action - 文字渲染高对比度模式。
    * @syscap SystemCapability.Graphics.Drawing
@@ -4574,12 +4624,12 @@ declare namespace text {
   /**
    * 设置字符映射到.notdef（未定义）字形时要使用的字形类型。
    * 
-   * 影响此调用后呈现的所有文本。
+   * 调用此接口后，后续渲染的文本若包含未定义字形，均按此设置显示。
    * 
    * 此配置会影响显示字体中未定义字符的方式：
    * 
-   * - 默认行为遵循字体的内部.notdef字形设计。
-   * - 开启后将强制使缺失字形的字符以豆腐块形式显示。
+   * - 默认使用字体的.notdef字形设计。
+   * - 开启后，缺失字形的字符将以豆腐块形式显示。
    *
    * @param { TextUndefinedGlyphDisplay } noGlyphShow - 无法塑形字符的显示方式。
    * @syscap SystemCapability.Graphics.Drawing
@@ -4600,8 +4650,8 @@ declare namespace text {
    * > - [FontDescriptor]{@link text.FontDescriptor}中的weight字段并不精准对应字体文件内部的字重数值，而是将字体文件中的实际字重四舍五入映射到
    * > [FontWeight]{@link text.FontWeight}枚举值后的结果。例如，字体文件字重350会映射为400，对应枚举为W400。
    *
-   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
-   *     。
+   * @param { string | Resource } path - 需要查询的字体文件的路径。支持两种格式：<br/>1. 以"file://"开头的字体文件绝对路径，如"file:///system/fonts/
+   *     test.ttf"。<br/>2. 工程resources/rawfile目录下的文件，格式为$rawfile('文件名称')，如$rawfile('test.ttf')。
    * @returns { Promise<Array<FontDescriptor>> } Promise对象，返回所有的字体描述符。如果找不到字体文件、路径无效、无权限或非字体文件，则返回空数组。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
@@ -4611,7 +4661,7 @@ declare namespace text {
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
 
   /**
-   * 检查系统是否支持指定的字体文件。
+   * 检查系统是否支持指定的字体文件。可在加载自定义字体前预先验证字体文件的可用性，避免因字体不支持导致文本渲染异常。
    *
    * @param { string | Resource } fontURL - 需要检查的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 "rawfile/目录or文件名"。
    * @returns { boolean } 系统是否支持指定的字体文件。返回true表示支持，返回false表示不支持。
@@ -4626,9 +4676,10 @@ declare namespace text {
    * 
    * 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回空数组。
    *
-   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
-   *     。
-   * @param { int } index - 字体文件格式为ttc/otc时，指定加载的字体索引。非ttc/otc格式文件索引值只能指定为0。如果该参数为负数或超出字体文件实际索引范围，将返回空数组。
+   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或
+   *     $rawfile('工程中resources/rawfile目录下的文件名称')。
+   * @param { int } index - 字体文件格式为ttc/otc时，指定加载的字体索引，取值范围为[0, count-1]，其中count为字体文件包含的字体数量。非ttc/otc格式文件索引值只能指定为0。
+   *     如果该参数为负数或超出字体文件实际索引范围，将返回空数组。
    * @returns { Promise<Array<int>> } Promise对象，返回字体文件对应的unicode码数组。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
@@ -4641,8 +4692,8 @@ declare namespace text {
    * 
    * 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回0。
    *
-   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
-   *     。
+   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或
+   *     $rawfile('工程中resources/rawfile目录下的文件名称')。
    * @returns { int } 包含字体数量。
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly

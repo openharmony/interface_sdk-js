@@ -43,7 +43,7 @@ import { Resource } from './global/resource';
  * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset} of the **ParagraphBuilder** class.
  * - [TextLine]{@link text.TextLine}: paragraph text on a line-by-line basis, obtained by calling
  * [getTextLines()]{@link text.Paragraph.getTextLines} of the **Paragraph** class.
- * - [Run]{@link text.RunMetrics}: text typesetting unit, obtained by calling
+ * - [Run]{@link text.Run}: text typesetting unit, obtained by calling
  * [getGlyphRuns()]{@link text.TextLine.getGlyphRuns} of the **TextLine** class.
  *
  * @syscap SystemCapability.Graphics.Drawing
@@ -297,9 +297,9 @@ declare namespace text {
     BREAK_ALL = 1,
 
     /**
-     * Allows breaks between any two characters in non-CJK text. It prioritizes breaking at whitespace or other natural
-     * breakpoints to keep words intact. If no breakpoints are found, it breaks between any two characters. For CJK text
-     * , this behaves like **NORMAL**.
+     * For non-CJK text, breaks lines between any two characters. If a line contains break points (such as whitespace
+     * characters), the line breaks at the break points first to keep words intact. If the entire line has no break
+     * points, the line breaks between any two characters. For CJK text, this strategy behaves the same as NORMAL.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -924,7 +924,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the text shadow.
+   * Represents a text shadow.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -934,7 +934,7 @@ declare namespace text {
    */
   interface TextShadow {
     /**
-     * Color of the text shadow. The default value is black (255, 0, 0, 0).
+     * Color of the text shadow. The default value is black Color(255, 0, 0, 0).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -944,8 +944,8 @@ declare namespace text {
      */
     color?: common2D.Color;
     /**
-     * Shadow offset position of the font based on the current text, in which the horizontal and vertical coordinates
-     * are greater than or equal to 0, with the unit being physical pixels (px).
+     * Offset position of the text shadow relative to the current text. The horizontal and vertical coordinates must be
+     * greater than or equal to 0, in physical pixels (px). The default value is common2D.Point(0, 0).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1075,7 +1075,8 @@ declare namespace text {
    */
   interface FontFeature {
     /**
-     * String identified by the keyword in the font feature key-value pair.
+     * Keyword identifier in the font feature key-value pair, such as 'liga' (standard ligature), 'kern' (kerning
+     * adjustment), etc.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1107,7 +1108,8 @@ declare namespace text {
    */
   interface FontVariation {
     /**
-     * String identified by the keyword in the font variation key-value pair.
+     * Keyword identifier in the variable font property key-value pair, such as 'wght' (weight), 'wdth' (width), and '
+     * ital' (italic).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1184,7 +1186,11 @@ declare namespace text {
   }
 
   /**
-   * Describes a text style.
+   * Represents a text style, which controls the visual appearance attributes of text, including font, color, font size,
+   * spacing, decoration lines, and shadows. TextStyle is applied to subsequently added text content through the
+   * [pushStyle]{@link text.ParagraphBuilder.pushStyle} method of [ParagraphBuilder]{@link text.ParagraphBuilder}, and
+   * works together with [ParagraphStyle]{@link text.ParagraphStyle} (which controls paragraph-level attributes). Within
+   * the same paragraph, you can call pushStyle multiple times to apply different styles to different text segments.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1217,9 +1223,11 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Font weight. The default value is **W400**. Currently, only the default system font supports font weight
-     * adjustment. For other fonts, if the weight is less than semi-bold (W600), there is no variation in stroke
-     * thickness. If the weight is greater than or equal to semi-bold, it might result in a fake bold effect.
+     * Font weight. The default value is W400. Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, only variable fonts in
+     * system fonts support font weight adjustment. Since <!--RP1-->OpenHarmony 6.1<!--RP1End-->, variable fonts in both
+     * system fonts and third-party registered fonts support font weight adjustment. For non-variable fonts, setting a
+     * font weight value less than semi-bold (W600) results in no change in font thickness, while setting a font weight
+     * value greater than or equal to semi-bold (W600) may trigger a pseudo-bold effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1252,7 +1260,9 @@ declare namespace text {
     baseline?: TextBaseline;
 
     /**
-     * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
+     * List of font family names. The default value is empty, which matches the system font. When using a custom font,
+     * specify the name used when loading the font in this list. When set together with fontTypefaces, fontTypefaces
+     * takes precedence and fontFamilies does not take effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1332,7 +1342,7 @@ declare namespace text {
 
     /**
      * Scale factor of the line height. The value is a floating point number. The default value is **1.0**. This
-     * parameter is valid only when **heightOnly** is set to **true**.
+     * parameter is valid only when **heightOnly** is set to** true**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1356,9 +1366,8 @@ declare namespace text {
     halfLeading?: boolean;
 
     /**
-     * How the height of the text box is set. The value **true** means that the height of the text box is set based on
-     * the font size and the value of **heightScale**, and **false** means that the height is set based on the line
-     * height and line spacing. The default value is **false**.
+     * The value **true** means the text box height is set based on the font size and heightScale, and **false** means
+     * the text box height is set based on the line height and line spacing. The default value is **false**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1369,7 +1378,9 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * Ellipsis content, which will be used to replace the extra content.
+     * Ellipsis text. When the ellipsis takes effect, this field value replaces the ellipsis portion. The default value
+     * is an empty string, which uses the system default ellipsis … (U+2026). When configured together with the tab
+     * attribute of ParagraphStyle, the tab attribute does not take effect.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1406,7 +1417,7 @@ declare namespace text {
     locale?: string;
 
     /**
-     * Underline offset of text, a floating-point value in physical pixels (px), with a default value of **0.0**.
+     * Vertical offset distance of the text baseline, in physical pixels (px). The default value is **0.0**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1417,7 +1428,8 @@ declare namespace text {
     baselineShift?: double;
 
     /**
-     * Array of font features.
+     * Array of text font features. Pass this parameter when you need to enable or disable specific font features (such
+     * as ligatures, kerning adjustment, etc.).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1428,7 +1440,7 @@ declare namespace text {
     fontFeatures?: Array<FontFeature>;
 
     /**
-     * Array of shadows.
+     * Array of text shadows. Pass this parameter when you need to add shadow effects to text.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1439,7 +1451,8 @@ declare namespace text {
     textShadows?: Array<TextShadow>;
 
     /**
-     * Rectangle style.
+     * Text rectangle style. Pass this parameter when you need to add a background rectangle to text (such as setting
+     * the background color, rounded corners, etc.).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1450,7 +1463,8 @@ declare namespace text {
     backgroundRect?: RectStyle;
 
     /**
-     * Array of font variations.
+     * Array of variable font properties. Pass this parameter when you need to adjust the variable axis parameters of a
+     * variable font (such as the font weight axis, font width axis, etc.).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1494,7 +1508,13 @@ declare namespace text {
     fontEdging?: drawing.FontEdging;
 
     /**
-     * Array of font typefaces
+     * Array of specified typesetting font objects, used to prioritize the specified font objects for text shaping and
+     * skip the font matching process. When a font object in the array cannot shape some characters, the unshaped
+     * characters will be shaped using the system font. The default value is an empty array, indicating that no font
+     * object is specified and the default font matching process is used.
+     *
+     * When fontTypefaces is set together with [TextStyle]{@link text.TextStyle}.fontFamilies, fontTypefaces takes
+     * precedence.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -1505,7 +1525,15 @@ declare namespace text {
   }
 
   /**
-   * Implements a collection of fonts.
+   * Represents a font collection, which manages the font resources required for text typesetting. FontCollection
+   * provides font matching and glyph lookup capabilities for [ParagraphBuilder]{@link text.ParagraphBuilder}, and
+   * serves as a fundamental component of the text typesetting pipeline. It provides a global instance (
+   * [getGlobalInstance]{@link text.FontCollection.getGlobalInstance}) and local instances (
+   * [getLocalInstance]{@link text.FontCollection.getLocalInstance}). Fonts loaded by the global instance are shared
+   * within the app, making it suitable for common app scenarios. Local instances are independent of each other, and
+   * fonts loaded by a local instance take effect only for that instance without affecting others, making them
+   * recommended for widget scenarios. Custom fonts can be loaded through
+   * [loadFontSync]{@link text.FontCollection.loadFontSync} or [loadFont]{@link text.FontCollection.loadFont}.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1518,7 +1546,8 @@ declare namespace text {
     /**
      * Obtains a global **FontCollection** instance.
      *
-     * @returns { FontCollection } **FontCollection** instance.
+     * @returns { FontCollection } Global FontCollection instance object of the app, which can be used to manage font
+     *     loading, unloading, typesetting, and other operations.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -1530,7 +1559,8 @@ declare namespace text {
     /**
      * Obtains the local **FontCollection** instance. This API is recommended for widgets.
      *
-     * @returns { FontCollection } **FontCollection** instance.
+     * @returns { FontCollection } Local FontCollection instance object, recommended for widget scenarios. It can be
+     *     used to manage font loading, unloading, and typesetting operations.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
@@ -1585,12 +1615,11 @@ declare namespace text {
      * **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF, OTF, and TTC.
      *
      * @param { string } name - Name of the font. Any string is acceptable.
-     * @param { string | Resource } path - Path of the font file to be loaded. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
+     * @param { string | Resource } path - Path of the font file to load. Two formats are supported: "file:// + absolute
+     *     path of the font file" or $rawfile('font file path').
      * @param { int } [index] - Font index to be loaded when the font file format is TTC. The default value is **0**,
-     *     indicating that the first font of the TTC file is loaded.<br>The index value of a non-TTC file is
-     *     meaningless. If an index is specified, the value can only be **0**.
+     *     indicating that the first font of the TTC file is loaded.
+     *     <br>The index value of a non-TTC file is meaningless. If an index is specified, the value can only be **0**.
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
      * @throws { BusinessError } 25900003 - Failed to open the file.
@@ -1612,12 +1641,11 @@ declare namespace text {
      * in **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF, OTF, and TTC.
      *
      * @param { string } name - Name of the font. Any string is acceptable.
-     * @param { string | Resource } path - Path of the font file to be loaded. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
+     * @param { string | Resource } path - Path of the font file to load. Two formats are supported: "file:// + absolute
+     *     path of the font file" or $rawfile('font file path').
      * @param { int } [index] - Font index to be loaded when the font file format is TTC. The default value is **0**,
-     *     indicating that the first font of the TTC file is loaded.<br>The index value of a non-TTC file is
-     *     meaningless. If an index is specified, the value can only be **0**.
+     *     indicating that the first font of the TTC file is loaded.
+     *     <br>The index value of a non-TTC file is meaningless. If an index is specified, the value can only be **0**.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
@@ -1683,8 +1711,9 @@ declare namespace text {
     unloadFont(name: string): Promise<void>;
 
     /**
-     * Clears the font cache. (The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
-     * You are not advised to clear it unless otherwise required.)
+     * Clears the font typesetting cache. The font typesetting cache has a memory limit and an automatic clearing
+     * mechanism. It occupies limited memory. You are not advised to clear it unless there are special memory
+     * requirements.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1755,9 +1784,11 @@ declare namespace text {
     fontWidth?: FontWidth;
 
     /**
-     * Font weight. The default value is **W400**. The default system font supports font weight adjustment. For other
-     * fonts, if the weight is less than W600, there is no variation in stroke thickness. If the weight is greater than
-     * or equal to W600, it might result in a fake bold effect.
+     * Font weight. The default value is **W400**. Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, only variable fonts in
+     * system fonts support font weight adjustment. Since <!--RP1-->OpenHarmony 6.1<!--RP1End-->, both system fonts and
+     * variable fonts in third-party registered fonts support font weight adjustment. For non-variable fonts, the font
+     * thickness does not change when the font weight value is set to less than **W600**, and a faux bold effect may be
+     * triggered when the font weight value is set to **W600** or greater.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1852,7 +1883,11 @@ declare namespace text {
   }
 
   /**
-   * Describes a paragraph style.
+   * Represents a paragraph style, which controls the overall layout behavior of a paragraph, including attributes such
+   * as alignment, line break strategy, and maximum number of lines. ParagraphStyle serves as a required parameter of
+   * the [ParagraphBuilder]{@link text.ParagraphBuilder} constructor, and works together with
+   * [TextStyle]{@link text.TextStyle} (which controls text-level styles) to determine the final typesetting result of
+   * the paragraph.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1992,11 +2027,12 @@ declare namespace text {
     autoSpace?: boolean;
 
     /**
-     * Vertical alignment of text. This parameter takes effect when line height scaling (that is, **heightScale** of
-     * [TextStyle]{@link text.TextStyle}) is enabled or different font sizes (that is, **fontSize** of
-     * [TextStyle]{@link text.TextStyle}) are set for text in a line. If superscript and subscript text (that is,
-     * **badgeType** of [TextStyle]{@link text.TextStyle}) is set in a line, the superscript and subscript text will
-     * participate in vertical alignment as common text.
+     * Text vertical alignment mode. The default value is BASELINE, which means text baseline alignment. This attribute
+     * takes effect when line height scaling is enabled (that is, when [TextStyle]{@link text.TextStyle}'s heightScale
+     * is set) or when text in different font sizes is mixed in a line (that is, when
+     * [TextStyle]{@link text.TextStyle}'s fontSize is set). If there is superscript or subscript text in the line
+     * (that is, text with [TextStyle]{@link text.TextStyle}'s badgeType attribute set), the superscript or subscript
+     * text participates in vertical alignment in the same way as normal text.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2007,10 +2043,10 @@ declare namespace text {
     verticalAlign?: TextVerticalAlign;
 
     /**
-     * Line spacing, in physical pixels (px). The default value is **0**. **lineSpacing** is not restricted by
-     * **lineHeightMaximum** and **lineHeightMinimum** in [TextStyle]{@link text.TextStyle}. By default, the line
-     * spacing is reserved for the last line. You can set [TextStyle]{@link text.TextStyle}.textHeightBehavior to
-     * **DISABLE_ALL** or **DISABLE_LAST_ASCENT** to disable the line spacing for the last line.
+     * Line spacing, in physical pixels (px). The default value is **0**. lineSpacing is not restricted by
+     * lineHeightMaximum and lineHeightMinimum in [TextStyle]{@link text.TextStyle}. The last line retains line spacing
+     * by default. You can disable line spacing for the last line by setting
+     * [ParagraphStyle]{@link text.ParagraphStyle}'s textHeightBehavior to DISABLE_ALL or DISABLE_LAST_ASCENT.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -2074,8 +2110,8 @@ declare namespace text {
     fallbackLineSpacing?: boolean;
 
     /**
-     * Sets the first-line indent of a paragraph. The indent value must be greater than or equal to 0. The default value
-     * is **0**.
+     * First line indent of the paragraph. The indent value must be greater than or equal to 0, in physical pixels (px).
+     * The default value is **0**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2085,9 +2121,10 @@ declare namespace text {
     firstLineHeadIndent?: double;
 
     /**
-     * Sets the end-of-line indent array. Each element in the array represents the indent value of a single line. If the
-     * actual number of text lines exceeds the length of the indent array, the last value of the array is applied to the
-     * extra lines. All indent values must be greater than or equal to 0. By default, the array is empty.
+     * Array of tail indents. Each element in the array represents the indent value of one line. When the actual number
+     * of text lines exceeds the number of elements in the indent array, the indent of the excess lines is the last
+     * value in the array. All indent values must be greater than or equal to 0, in physical pixels (px). The default
+     * value is an empty array.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2097,9 +2134,10 @@ declare namespace text {
     tailIndents?: Array<double>;
 
     /**
-     * Sets the line-start indent array. Each element in the array represents the indent value of a single line. If the
-     * actual number of text lines exceeds the length of the indent array, the last value of the array is applied to the
-     * extra lines. All indent values must be greater than or equal to 0. By default, the array is empty.
+     * Array of head indents. Each element in the array represents the indent value of one line. When the actual number
+     * of text lines exceeds the number of elements in the indent array, the indent of the excess lines is the last
+     * value in the array. All indent values must be greater than or equal to 0, in physical pixels (px). The default
+     * value is an empty array.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2109,12 +2147,13 @@ declare namespace text {
     headIndents?: Array<double>;
 
     /**
-     * Sets whether to enable orphan optimization during text typesetting. Orphan optimization improves text layout by
-     * more efficiently handling orphan characters (the first character in the last line of a paragraph). When enabled,
-     * it adjusts line break positions to avoid orphan characters as much as possible. Orphan optimization takes effect
-     * only when [wordBreak]{@link text.WordBreak} is not BREAK_ALL and the [locale]{@link text.TextStyle} of the first
-     * [TextStyle]{@link text.TextStyle} of the text to be typeset is "zh-Hans" or "zh-Hant". **true** means that orphan
-     * optimization is enabled, and **false** means the opposite. The default value is **false**.
+     * Whether to enable orphan character optimization during text typesetting. Orphan character optimization improves
+     * text layout by handling isolated characters (the first character of the last line of a paragraph) more
+     * efficiently. When enabled, it adjusts line break points to avoid isolated characters as much as possible. The
+     * orphan character optimization feature takes effect only when [wordBreak]{@link text.WordBreak} is not BREAK_ALL
+     * and the locale of the first [TextStyle]{@link text.TextStyle} of the text to be typeset is "zh-Hans" or "zh-Hant"
+     * . The value **true** enables orphan character optimization, and **false** disables it. The default value is
+     * **false**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2124,7 +2163,9 @@ declare namespace text {
     orphanCharOptimization?: boolean;
 
     /**
-     * Whether to enable punctuation overflow.
+     * Whether to enable end-of-line punctuation hanging during text typesetting. The value **true** enables end-of-line
+     * punctuation hanging, allowing a single punctuation mark at the end of a line to exceed the typesetting width
+     * without wrapping. The value **false** disables end-of-line punctuation hanging. The default value is **false**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2137,14 +2178,14 @@ declare namespace text {
   /**
    * Enumerates the vertical alignment modes of a placeholder relative to the surrounding text.
    *
-   * ![image_PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/image_PlaceholderAlignment.png)
+   * ![PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/PlaceholderAlignment.png)
    *
    * > **NOTE**
    * >
    * > The figure shows the last three alignment modes. The first three alignment modes are similar in text baseline
    * > alignment, with the comparison reference being the text baseline, indicated by the green line.
    * >
-   * > ![image_Baseline.png](docroot://reference/apis-arkgraphics2d/figures/image_Baseline.png)
+   * > ![Baseline.png](docroot://reference/apis-arkgraphics2d/figures/Baseline.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2745,7 +2786,9 @@ declare namespace text {
     index?: int;
 
     /**
-     * Font languages.
+     * List of languages supported by the font. The default value is an empty array. Each element in the array is a
+     * language tag string in BCP 47 format (such as 'en' and 'zh-Hans'), indicating the writing languages supported by
+     * the font.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2755,7 +2798,9 @@ declare namespace text {
     languages?: Array<string>;
 
     /**
-     * Font features.
+     * Array of OpenType feature tags supported by the font. The default value is an empty array. Each element in the
+     * array is a feature tag string (such as 'liga' for standard ligatures and 'kern' for kerning adjustment),
+     * indicating the font features supported by the font.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2818,7 +2863,9 @@ declare namespace text {
     layout(width: double): Promise<void>;
 
     /**
-     * Paints the text on the canvas with the coordinate point (x, y) as the upper left corner.
+     * Draws text on the canvas with (x, y) as the upper-left corner. You must call
+     * [layout()]{@link text.Paragraph.layout} for typesetting before calling this API; otherwise, the text content
+     * cannot be displayed correctly.
      *
      * @param { drawing.Canvas } canvas - Target canvas.
      * @param { double } x - Horizontal coordinate of the upper left corner, which is a floating-point value, in
@@ -2834,7 +2881,8 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
-     * Draws text along a path on the canvas.
+     * Draws text along a path on the canvas. You must call [layout()]{@link text.Paragraph.layout} for typesetting
+     * before calling this API; otherwise, the text content cannot be displayed correctly.
      *
      * @param { drawing.Canvas } canvas - Target canvas.
      * @param { drawing.Path } path - Path along which the text is drawn.
@@ -2939,7 +2987,8 @@ declare namespace text {
     /**
      * Obtains the ideographic baseline.
      *
-     * @returns { double } Ideographic baseline, in units of px. The value is a floating point number.
+     * @returns { double } Baseline position under ideographic characters, a floating point number in physical pixels (
+     *     px).
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3018,7 +3067,8 @@ declare namespace text {
     /**
      * Obtains the height of a given line.
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
+     * @param { int } line - Index of the text line, which is an integer ranging from 0 to
+     *     [getLineCount]{@link text.Paragraph.getLineCount}-1.
      * @returns { double } Line height, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3031,7 +3081,8 @@ declare namespace text {
     /**
      * Obtains the width of a given line.
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
+     * @param { int } line - Text line index, which is an integer ranging from 0 to
+     *     [getLineCount]{@link text.Paragraph.getLineCount}-1.
      * @returns { double } Line width, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3099,7 +3150,9 @@ declare namespace text {
     /**
      * Obtains the line measurement information of a line.
      *
-     * @param { int } lineNumber - Line number, starting from 0.
+     * @param { int } lineNumber - Number of the line for which metric information is to be queried. Line numbers start
+     *     from 0, and the maximum line index is the number of text lines minus 1. The number of text lines can be
+     *     obtained through the [getLineCount]{@link text.Paragraph.getLineCount} API.
      * @returns { LineMetrics | undefined } **LineMetrics** object containing the measurement information if the
      *     specified line number is valid and the measurement information exists. If the line number is invalid or the
      *     measurement information cannot be obtained, **undefined** is returned.
@@ -3141,8 +3194,8 @@ declare namespace text {
      *
      * @param { Range } glyphRange - Glyph range.
      * @param { drawing.TextEncoding } encoding - Text encoding type. Currently, only UTF-8 and UTF-16 encoding types
-     *     are supported. For UTF-8 encoding, the returned character range indicates the byte range. For UTF-16 encoding
-     *     , the returned character range indicates the UTF-16 encoding unit range.
+     *     are supported. For UTF-8 encoding, the returned character range indicates the byte range. For UTF-16
+     *     encoding, the returned character range indicates the UTF-16 encoding unit range.
      * @returns { Array<Range> } Character range. If the array contains one element, it indicates the character range.
      *     If the array contains two elements, the first element indicates the character range, and the second element
      *     indicates the actual glyph range.
@@ -3221,7 +3274,12 @@ declare namespace text {
     /**
      * Obtains the style configuration of a paragraph.
      *
-     * @returns { ParagraphStyle } Paragraph style configuration.
+     * @returns { ParagraphStyle } Style configuration of the paragraph.
+     *     <br>The `textStyle.color`, `textStyle.textShadows.color`, `textStyle.backgroundRect.color`, and
+     *     `textStyle.decoration.color` properties return a 32-bit unsigned integer color value. Example: The return
+     *     value `4278190080` corresponds to the pure black hexadecimal color value `0xFF000000`, which is equivalent to
+     *     the [common2D.Color]{@link @ohos.graphics.common2D:common2D.Color} object parameters: alpha=255, red=0, green
+     *     =0, blue=0. The example provides the numberToRGBA conversion method as a reference.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3234,6 +3292,21 @@ declare namespace text {
      * to truncation by the maximum line count (the maxLines attribute of [ParagraphStyle]{@link text.ParagraphStyle})
      * or replacement in ellipsis mode ([EllipsisMode]{@link text.EllipsisMode}).
      *
+     * **NOTE**
+     *
+     * The returned range depends on the specific truncation of the paragraph
+     * (for example, whether the maximum number of lines or ellipsis is set):
+     *
+     * | Scenario| Description|
+     * |---|---|
+     * | Text is not truncated.| The range includes all typeset text.|
+     * | Only maxLines truncation is set (no ellipsis).| the text from the first line to the end of the maxLines line.|
+     * | EllipsisMode.END| The range is the text before the ellipsis.|
+     * | EllipsisMode.START| The value is the text after the ellipsis.|
+     * | EllipsisMode.MIDDLE| the text range before and after the ellipsis is returned.|
+     * | EllipsisMode.MULTILINE_START| the text range before and after the ellipsis is returned.|
+     * | EllipsisMode.MULTILINE_MIDDLE| the text range before and after the ellipsis is returned.|
+     *
      * @returns { Array<Range> } Array of the visible text range of a paragraph. The range is the index of the UTF-16
      *     encoding unit.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3244,12 +3317,16 @@ declare namespace text {
     getVisibleTextRanges(): Array<Range>;
 
     /**
-     * Whether to force reuse the rasterization result.
+     * Sets whether to force reuse of the rasterization result. If this API is not called, the system allows updating
+     * the rasterization result by default.
      *
-     * @param { boolean } isForce - Whether to force reuse the rasterization result.
-     *     True means to force reuse of the rasterization result.
-     *     False means to allow updates to the rasterization result.
-     *     The default value is false.
+     * This API is suitable for scenarios where the text content remains unchanged but
+     * [paint]{@link text.Paragraph.paint} needs to be called multiple times for drawing. By reusing the rasterization
+     * result, repeated rasterization calculations can be avoided to improve drawing performance. After this setting is
+     * applied, it takes effect the next time [paint]{@link text.Paragraph.paint} is called for drawing.
+     *
+     * @param { boolean } isForce - Whether to force reuse of the rasterization result. The value **true** means to
+     *     force reuse of the rasterization result, and **false** means to allow updating the rasterization result.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3523,7 +3600,12 @@ declare namespace text {
   }
 
   /**
-   * Implements a paragraph builder.
+   * Implements a paragraph builder that uses the builder pattern to construct paragraph objects. Developers initialize
+   * ParagraphBuilder by passing [ParagraphStyle]{@link text.ParagraphStyle} and
+   * [FontCollection]{@link text.FontCollection} to the constructor, then set the text style through
+   * [pushStyle]{@link text.ParagraphBuilder.pushStyle}, add text content through
+   * [addText]{@link text.ParagraphBuilder.addText}, and finally call [build()]{@link text.ParagraphBuilder.build} to
+   * generate a [Paragraph]{@link text.Paragraph} object for typesetting and drawing.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3536,7 +3618,8 @@ declare namespace text {
      * A constructor used to create a **ParagraphBuilder** object.
      *
      * @param { ParagraphStyle } paragraphStyle - Paragraph style.
-     * @param { FontCollection } fontCollection - Font collection.
+     * @param { FontCollection } fontCollection - Font collection object that provides font resources required for text
+     *     typesetting, used for glyph matching and text rendering during paragraph construction.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3566,6 +3649,12 @@ declare namespace text {
     /**
      * Restores the previous text style.
      *
+     * > **NOTE**
+     * >
+     * > This method must be called after [pushStyle()]{@link text.ParagraphBuilder.pushStyle}. After it is called,
+     * > subsequently added text will use the text style before the pop operation. If the style stack is empty, the
+     * > textStyle in [ParagraphStyle]{@link text.ParagraphStyle} will be used as the default style.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3578,7 +3667,7 @@ declare namespace text {
      * Inserts a text string into the paragraph being built.
      *
      * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
-     *     provided, it is displayed as ?.
+     *     provided, it is displayed as �.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3588,10 +3677,12 @@ declare namespace text {
     addText(text: string): void;
 
     /**
-     * Inserts a placeholder into the paragraph being built.
+     * Inserts a placeholder when building a text paragraph. After insertion, the placeholder occupies the corresponding
+     * space in paragraph typesetting according to the specified width, height, and alignment, and affects text line
+     * breaking and layout.
      *
-     * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment, baseline type
-     *     , and baseline offset of the placeholder.
+     * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment, baseline
+     *     type, and baseline offset of the placeholder.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3601,7 +3692,8 @@ declare namespace text {
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
     /**
-     * Creates a paragraph object that can be used for subsequent layout and rendering.
+     * Builds a paragraph and generates a paragraph object that can be used for subsequent typesetting and rendering.
+     * After build() is called, a new ParagraphBuilder instance must be created to build text again.
      *
      * @returns { Paragraph } **Paragraph** object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3613,7 +3705,8 @@ declare namespace text {
     build(): Paragraph;
 
     /**
-     * Builds a line typesetter.
+     * Builds a line typesetter and generates a LineTypeset object that can be used for line-by-line typesetting
+     * calculation.
      *
      * @returns { LineTypeset } **LineTypeset** object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3647,21 +3740,21 @@ declare namespace text {
    *
    * > **NOTE**
    * >
-   * > The following figure shows the layout parameters of a text line: width (width of the text line including the left
-   * > and right spaces), ascent (highest point of the rising height), descent (lowest point of the falling height),
-   * > leading (line spacing), top (highest point of the current line), baseline (character baseline), bottom (lowest
-   * > point of the current line), and next line top (highest point of the next line).
+   * > The figure shows the text line typesetting parameters: width (the width of the text line including left and right
+   * > spaces), ascent (the highest point of the ascent), descent (the lowest point of the descent), leading (line
+   * > spacing), top (the highest point of the current line), baseline (the character baseline), bottom (the lowest
+   * > point of the current line), and next line top (the highest point of the next line).
    * >
-   * > ![image_Typographic.png](docroot://reference/apis-arkgraphics2d/figures/image_Typographic.png)
+   * > ![Typographic.png](docroot://reference/apis-arkgraphics2d/figures/Typographic.png)
    * >
-   * > The following figure shows the typographic boundaries of the string " a b ".
+   * > The figure shows the typesetting boundaries for the string " a b ".
    * >
-   * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
+   * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
    * >
-   * > The following figure shows the typographic boundaries of the strings "j" and "E".
+   * > The figure shows the typesetting boundaries for the string "j" or "E".
    * >
    * > !
-   * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+   * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3719,12 +3812,13 @@ declare namespace text {
    * Defines the callback used to receive the offset and index of each character in a text line object as its
    * parameters.
    *
-   * @param { double } offset - Offset of each character in a text line. The value is a floating point number.
+   * @param { double } offset - Offset of each character in the text line, which is a floating-point value, in physical
+   *     pixels (px).
    * @param { int } index - Index of each character in a text line. The value is an integer.
-   * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value true means
-   *     that the cursor is located at the front of the character, that is, the offset does not contain the character
-   *     width. The value false means that the cursor is located at the rear of the character, that is, the offset
-   *     contains the character width.
+   * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value **true**
+   *     means that the cursor is located at the front of the character, that is, the offset does not contain the
+   *     character width. The value **false** means that the cursor is located at the rear of the character, that is,
+   *     the offset contains the character width.
    * @returns { boolean } Whether to stop calling the callback. The value **true** means to stop calling the callback,
    *     and **false** means to continue calling the callback.
    * @syscap SystemCapability.Graphics.Drawing
@@ -3739,7 +3833,7 @@ declare namespace text {
    * Implements a carrier that describes the basic text line structure of a paragraph.
    *
    * Before calling any of the following APIs, you must use [getTextLines()]{@link text.Paragraph.getTextLines} of the
-   * [Paragraph]{@link text.ParagraphStyle} class or [createLine()]{@link text.LineTypeset.createLine} of the
+   * [Paragraph]{@link text.Paragraph} class or [createLine()]{@link text.LineTypeset.createLine} of the
    * [LineTypeset]{@link text.LineTypeset} class to create a **TextLine** object.
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -3830,19 +3924,20 @@ declare namespace text {
     /**
      * Obtains the typographic boundaries of the text line. These boundaries depend on the typographic font and font
      * size, but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
-     * a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line. Similarly
-     * , the strings "j" and "E" have identical typographic boundaries, independent of the characters themselves.
+     * a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
+     * Similarly, the strings "j" and "E" have identical typographic boundaries, independent of the characters
+     * themselves.
      *
      * > **NOTE**
      * >
-     * > The following figure shows the typographic boundaries of the string " a b ".
+     * > The figure shows the typesetting boundaries for the string " a b ".
      * >
-     * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
+     * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
      * >
-     * > The following figure shows the typographic boundaries of the strings "j" and "E".
+     * > The figure shows the typesetting boundaries for the string "j" or "E".
      * >
      * > !
-     * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+     * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
      *
      * @returns { TypographicBounds } Describes the typographic boundaries of a text line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3863,14 +3958,13 @@ declare namespace text {
      *
      * > **NOTE**
      * >
-     * > The following figure shows the image boundaries of the string " a b ".
+     * > The figure shows the image boundaries for the string " a b ".
      * >
-     * > ![image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds.png)
+     * > ![ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds.png)
      * >
-     * > The following figure shows the image boundaries of the strings "j" and "E".
+     * > The figure shows the image boundaries for the string "j" or "E".
      * >
-     * > !
-     * > [image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds_Character.png)
+     * > ![ImageBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds-Character.png)
      *
      * @returns { common2D.Rect } Image boundary of a text line, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
@@ -3897,7 +3991,9 @@ declare namespace text {
     /**
      * Obtains the index of a character at the specified position in the original string.
      *
-     * @param { common2D.Point } point - Position of the character.
+     * @param { common2D.Point } point - Coordinate position for finding the character index. The coordinates are
+     *     relative to the top-left origin of the text line, in physical pixels (px). x indicates the horizontal
+     *     coordinate, and y indicates the vertical coordinate.
      * @returns { int } Index of the character in the text line. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3956,7 +4052,9 @@ declare namespace text {
   }
 
   /**
-   * Implements a unit for text layout.
+   * Represents a text typesetting unit, which is a continuous text segment with the same style attributes. Run is
+   * obtained through the [getGlyphRuns()]{@link text.TextLine.getGlyphRuns} API of the [TextLine]{@link text.TextLine}
+   * class.
    *
    * Before calling any of the following APIs, you must use [getGlyphRuns()]{@link text.TextLine.getGlyphRuns} of the
    * [TextLine]{@link text.TextLine} class to create a **Run** object.
@@ -4146,14 +4244,14 @@ declare namespace text {
      *
      * > **NOTE**
      * >
-     * > The following figure shows the typographic boundaries of the string " a b ".
+     * > The figure shows the typesetting boundaries for the string " a b ".
      * >
-     * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
+     * > ![TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds.png)
      * >
-     * > The following figure shows the typographic boundaries of the strings "j" and "E".
+     * > The figure shows the typesetting boundaries for the string "j" or "E".
      * >
      * > !
-     * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+     * > [TypographicBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/TypographicBounds-Character.png)
      *
      * @returns { TypographicBounds } Typographic boundaries of the run.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4172,14 +4270,13 @@ declare namespace text {
      *
      * > **NOTE**
      * >
-     * > The following figure shows the image boundaries of the string " a b ".
+     * > The figure shows the image boundaries for the string " a b ".
      * >
-     * > ![image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds.png)
+     * > ![ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds.png)
      * >
-     * > The following figure shows the image boundaries of the strings "j" and "E".
+     * > The figure shows the image boundaries for the string "j" or "E".
      * >
-     * > !
-     * > [image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds_Character.png)
+     * > ![ImageBounds-Character.png](docroot://reference/apis-arkgraphics2d/figures/ImageBounds-Character.png)
      *
      * @returns { common2D.Rect } Image boundary of the layout unit, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
@@ -4233,9 +4330,17 @@ declare namespace text {
     getAdvances(range: Range): Array<common2D.Point> | undefined;
 
     /**
-     * Obtains the text style of this run.
+     * Obtains the text style of this typesetting unit.
      *
-     * @returns { TextStyle } Text style of this run.
+     * @returns { TextStyle } Text style of this typesetting unit.
+     *     <br>**Note:**
+     *     <br>1. The `textStyle.color`, `textStyle.textShadows.color`, `textStyle.backgroundRect.color`, and
+     *     `textStyle.decoration.color` attributes: return a 32-bit unsigned integer color value. Example: The return
+     *     value `4278190080` corresponds to the solid black hexadecimal color value `0xFF000000`, which is equivalent
+     *     to the [common2D.Color]{@link @ohos.graphics.common2D:common2D.Color} object parameters: alpha=255, red=0,
+     *     green=0, blue=0. The example provides a numberToRGBA conversion method for reference.
+     *     <br>2. `textStyle.ellipsis` and `textStyle.ellipsisMode` are paragraph attributes and cannot be obtained
+     *     through this API. Use [getParagraphStyle()]{@link text.Paragraph.getParagraphStyle} instead.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -4567,7 +4672,8 @@ declare namespace text {
    * switch on the system settings screen. This API is used to set the high contrast mode for text rendering. The
    * setting of this API takes precedence over the one based on system settings.
    *
-   * This API does not take effect for the text drawing scenario.
+   * This API does not take effect for text drawn by the app through APIs such as Canvas. It only takes effect for text
+   * rendered using system text components.
    *
    * @param { TextHighContrast } action - High contrast mode for text rendering.
    * @syscap SystemCapability.Graphics.Drawing
@@ -4799,12 +4905,13 @@ declare namespace text {
   /**
    * Sets the glyph type to be used when characters are mapped to the .notdef (undefined) glyph.
    *
-   * This setting affects all text rendered subsequently.
+   * After this API is called, any subsequently rendered text containing undefined glyphs will be displayed according to
+   * this setting.
    *
    * This setting affects how to display undefined characters in the font:
    *
    * - The default behavior follows the .notdef glyph design of the font.
-   * - After this feature is enabled, characters without glyphs are displayed as a tofu block of text.
+   * - After this feature is enabled, characters without glyphs are displayed as a tofu block.
    *
    * @param { TextUndefinedGlyphDisplay } noGlyphShow - Display mode of characters that cannot be shaped.
    * @syscap SystemCapability.Graphics.Drawing
@@ -4828,12 +4935,13 @@ declare namespace text {
    * > [FontWeight]{@link text.FontWeight} enum value. For example, the weight value 350 in the font file is mapped to 4
    * > 00, and the corresponding enum value is W400.
    *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
+   * @param { string | Resource } path - Path of the font file to query. Two formats are supported:<br/>1. Absolute path
+   *     of the font file starting with "file://", for example, "file:///system/fonts/test.ttf".<br/>2. File in the
+   *     project's resources/rawfile directory, in the format of $rawfile('file name'), for example, $rawfile('test.ttf'
+   *     ).
    * @returns { Promise<Array<FontDescriptor>> } Promise used to return all font descriptors. If the font file cannot be
-   *     found, the path is invalid, the font file does not have the required permission, or the file is not a font file
-   *     , an empty array is returned.
+   *     found, the path is invalid, the font file does not have the required permission, or the file is not a font
+   *     file, an empty array is returned.
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 22 dynamic
@@ -4842,7 +4950,8 @@ declare namespace text {
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
 
   /**
-   * Checks whether the system supports the specified font file.
+   * Checks whether the system supports the specified font file. You can use this API to verify the availability of a
+   * font file before loading a custom font, preventing text rendering exceptions caused by unsupported fonts.
    *
    * @param { string | Resource } fontURL - Path of the font file to be checked. The path must be in the format of "
    *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
@@ -4860,12 +4969,12 @@ declare namespace text {
    * An empty array is returned if the font file is not found, the font file path is invalid, the font file does not
    * have the required permission, or the file is not in the font format.
    *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
-   * @param { int } index - Font index to be loaded when the font file format is TTC or OTC. The index value of a non-
-   *     TTC/OTC file can only be **0**. If this parameter is set to a negative value or exceeds the actual index range
-   *     of the font file, an empty array is returned.
+   * @param { string | Resource } path - Path of the font file to query, which must be "file:// + absolute path of the
+   *     font file" or $rawfile('file name in the resources/rawfile directory of the project').
+   * @param { int } index - Index of the font to load when the font file format is ttc/otc. The value ranges from 0 to
+   *     count-1, where count is the number of fonts contained in the font file. For non-ttc/otc files, the index can
+   *     only be 0. If this parameter is negative or exceeds the actual index range of the font file, an empty array is
+   *     returned.
    * @returns { Promise<Array<int>> } Promise used to return the Unicode array corresponding to the font file.
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
@@ -4879,9 +4988,8 @@ declare namespace text {
    * Returns **0** if the font file is not found, the font file path is invalid, the font file does not have the
    * required permission, or the file is not in the font format.
    *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
+   * @param { string | Resource } path - Path of the font file to query, which must be "file:// + absolute path of the
+   *     font file" or $rawfile('file name in the resources/rawfile directory of the project').
    * @returns { int } Number of fonts.
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
