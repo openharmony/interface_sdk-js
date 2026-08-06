@@ -279,7 +279,7 @@ export interface Node extends SceneResource {
   /**
    * 通过路径获取节点.
    *
-   * @param { string } path - 要查询的节点路径
+   * @param { string } path - 场景节点层次中的路径。每层之间使用'/'符号进行分割。
    * @returns { Node | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -288,7 +288,10 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点.
+   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，
+   * 但可以通过容器方法操作子节点（如append()、insertAfter()、remove()或clear()）。
+   * 如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；
+   * 添加新节点才会真正增加子节点数量。
    *
    * @type { Container<Node> }
    * @readonly
@@ -392,7 +395,7 @@ export interface Light extends Node {
   color: Color;
 
   /**
-   * 光源强度, 单位为坎德拉.
+   * 光照强度，单位为坎德拉（cd），取值范围是大于0的实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
