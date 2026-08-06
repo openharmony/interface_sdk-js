@@ -209,14 +209,14 @@ declare namespace uiEffect {
      * Adds a color gradient effect to the component content.
      *
      * @param { Array<Color> } colors - The color array for multi-color gradient. The array length range is [0, 12],
-     *     and each color value must be greater than or equal to 0 with no upper limit.
+     *     and each color value must be greater than or equal to 0.
      *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
      *     are not equal, the effect will not take effect.
      * @param { Array<common2D.Point> } positions - The position array, corresponding to the distribution positions of colors.
      *     The array length range is [0, 12]. If the array length is 0 or greater than 12, or if the array lengths of
      *     colors, positions, and strengths are not equal, the effect will not take effect.
      * @param { Array<double> } strengths - The strength array, corresponding to the diffusion strength of colors.
-     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0 with no upper limit.
+     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0.
      *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
      *     are not equal, the effect will not take effect.
      * @param { Mask } [alphaMask] - The mask that controls the transparency distribution of the gradient effect.
@@ -646,15 +646,15 @@ declare namespace uiEffect {
      * Adds a color gradient effect to the component.
      *
      * @param { Array<Color> } colors - The color array for multi-color gradient. The array length range is [0, 12],
-     *     and each color value must be greater than or equal to 0 with no upper limit.
+     *     and each color value must be greater than or equal to 0.
      *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and strengths
      *     are not equal, there will be no color gradient effect.
      * @param { Array<common2D.Point> } positions - The position array, corresponding to the positions of colors.
      *     The array length range is [0, 12]. If the array length is 0 or greater than 12, or if the array lengths of
      *     colors, positions, and strengths are not equal, there will be no color gradient effect.
      * @param { Array<double> } strengths - The strength array, corresponding to the intensity of colors.
-     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0 with no upper
-     *     limit. If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and
+     *     The array length range is [0, 12], and each strength value must be greater than or equal to 0.
+     *     If the array length is 0 or greater than 12, or if the array lengths of colors, positions, and
      *     strengths are not equal, there will be no color gradient effect.
      * @param { Mask } [alphaMask] - The alpha mask corresponding to the colors. A Mask instance can be created through
      *     Mask creation methods (such as createRippleMask, createRadialGradientMask, etc.). Pass this parameter when
@@ -1232,8 +1232,8 @@ declare namespace uiEffect {
      * Values less than 1.0 are treated as 1.0; when the value is equal to 1.0, it represents the original brightness
      * of the component; values exceeding the maximum supported brightness ratio are treated as the maximum ratio.
      * The maximum supported brightness ratio = device maximum brightness / device default brightness.
-     * Device maximum brightness can be obtained via hdc command: param get const.display.brightness.max
-     * Device default brightness can be obtained via hdc command: param get const.display.brightness.default
+     * Device maximum brightness can be obtained via hdc command: hdc shell param get const.display.brightness.max
+     * Device default brightness can be obtained via hdc command: hdc shell param get const.display.brightness.default
      *
      * @property { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -1528,8 +1528,8 @@ declare namespace uiEffect {
    *     it represents the original brightness of the component; values exceeding the maximum supported brightness ratio
    *     are treated as the maximum ratio.
    *     The maximum supported brightness ratio = device maximum brightness / device default brightness.
-   *     Device maximum brightness can be obtained via hdc command: param get const.display.brightness.max
-   *     Device default brightness can be obtained via hdc command: param get const.display.brightness.default
+    *     Device maximum brightness can be obtained via hdc command: hdc shell param get const.display.brightness.max
+    *     Device default brightness can be obtained via hdc command: hdc shell param get const.display.brightness.default
    * @param { [double, double, double] } [grayscaleFactor] - Converts RGB colors to grayscale values.
    *     The weights of the grayscale conversion formula can be automatically adjusted according to the current
    *     color gamut, using different weight calculation methods under different color gamuts;

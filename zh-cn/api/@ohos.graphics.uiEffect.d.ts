@@ -185,11 +185,11 @@ declare namespace uiEffect {
     /**
      * 为组件内容添加颜色渐变效果。
      *
-     * @param { Array<Color> } colors - 颜色数组，多个颜色的渐变。数组长度取值范围为[0, 12], 每一个颜色值取值范围需大于等于0，无上限限制。
+     * @param { Array<Color> } colors - 颜色数组，多个颜色的渐变。数组长度取值范围为[0, 12], 每一个颜色值取值范围需大于等于0。
      *     数组长度等于0或大于12时无效果，colors、positions和strengths的数组长度不相等时无效果。
      * @param { Array<common2D.Point> } positions - 位置数组，颜色对应的分布位置。数组长度取值范围为[0, 12]。
      *     数组长度等于0或大于12时无效果，colors、positions和strengths的数组长度不相等时无效果。
-     * @param { Array<double> } strengths - 强度数组，颜色对应的扩散强度。数组长度取值范围为[0, 12], 每一个强度值取值范围需大于等于0，无上限限制。
+     * @param { Array<double> } strengths - 强度数组，颜色对应的扩散强度。数组长度取值范围为[0, 12], 每一个强度值取值范围需大于等于0。
      *     数组长度等于0或大于12时无效果，colors、positions和strengths的数组长度不相等时无效果。
      * @param { Mask } [alphaMask] - 控制渐变效果透明度分布的遮罩。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度完全由colors参数决定。
      * @returns { Filter } - 返回挂载了颜色渐变效果的Filter。
@@ -534,11 +534,11 @@ declare namespace uiEffect {
      * 此方法为组件添加颜色渐变效果。
      *
      * @param { Array<Color> } colors - 颜色数组，用于实现多颜色渐变。
-     *     数组长度范围0到12，每个颜色值取值范围需大于等于0，无上限限制。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
+     *     数组长度范围0到12，每个颜色值取值范围需大于等于0。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
      * @param { Array<common2D.Point> } positions - 位置数组，颜色对应的位置。
      *     数组长度范围为0到12。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致，则无颜色渐变效果。
      * @param { Array<double> } strengths - 强度数组，表示颜色对应的强度。
-     *     数组长度范围为0到12，每一个强度值需大于等于0，无上限限制。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致时，则无颜色渐变效果。
+     *     数组长度范围为0到12，每一个强度值需大于等于0。数组长度为0或大于12，或colors、positions和strengths的数组长度不一致时，则无颜色渐变效果。
      * @param { Mask } [alphaMask] - 遮罩alpha，颜色对应的alpha遮罩。可通过Mask类的创建方法（如createRippleMask、createRadialGradientMask等）创建Mask实例。当需要控制颜色渐变效果的透明度分布（如局部透明或动态透明效果）时传入此参数。不设置时，颜色渐变效果的透明度完全由colors参数决定。
      * @returns { VisualEffect } - 返回具有颜色渐变效果的VisualEffect。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
@@ -1047,8 +1047,8 @@ declare namespace uiEffect {
      * 设置小于1.0的值时，按值为1.0处理；当值等于1.0时，为组件原本亮度；
      * 设置大于设备当前支持最大提亮倍数的值时，按值为设备当前支持最大提亮倍数处理，
      * 支持最大提亮倍数 = 设备最大亮度 / 设备默认亮度。
-     * 设备最大亮度通过hdc命令获取：param get const.display.brightness.max
-     * 设备默认亮度通过hdc命令获取：param get const.display.brightness.default
+     * 设备最大亮度通过hdc命令获取：hdc shell param get const.display.brightness.max
+     * 设备默认亮度通过hdc命令获取：hdc shell param get const.display.brightness.default
      *
      * @property { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -1301,8 +1301,8 @@ declare namespace uiEffect {
     *     设置小于1.0的值时，按值为1.0处理；当值等于1.0时，为组件原本亮度；
     *     设置大于设备当前支持最大提亮倍数的值时，按值为设备当前支持最大提亮倍数处理，
      *     支持最大提亮倍数 = 设备最大亮度 / 设备默认亮度。
-     *     设备最大亮度通过hdc命令获取：param get const.display.brightness.max
-     *     设备默认亮度通过hdc命令获取：param get const.display.brightness.default
+     *     设备最大亮度通过hdc命令获取：hdc shell param get const.display.brightness.max
+     *     设备默认亮度通过hdc命令获取：hdc shell param get const.display.brightness.default
      * @param { [double, double, double] } [grayscaleFactor] - 将RGB颜色转换为灰度值。灰度转换公式的权重可随当前色域自动调整，不同色域下使用不同的权重计算方式；
      *     适用于sRGB等标准色域场景。当需要根据特定色域或视觉效果自定义灰度转换权重时传入此参数。三个分量均无边界限制。默认值为标准灰度权重[0.299, 0.587, 0.114]。
     * @returns { HdrDarkenBlender } 返回HDR压暗混合器，用于将压暗效果添加到指定的组件上。
