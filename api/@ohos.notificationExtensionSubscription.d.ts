@@ -106,7 +106,8 @@ declare namespace notificationExtensionSubscription {
    * @since 22 dynamic
    * @since 23 static
    * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe(): Promise<void>} Unsubscribes from the notification extension.
-   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} Obtains all applications that have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} Obtains all 
+   * applications that have requested the ohos.permission.
    */
   function unsubscribe(): Promise<void>;
 
