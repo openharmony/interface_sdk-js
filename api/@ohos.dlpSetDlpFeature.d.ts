@@ -125,6 +125,7 @@ declare namespace dlpSetDlpFeature {
      *     If the value is out of range, error code 401 is thrown.
      * @returns { Promise<StatusInfoResult> } Promise used to return the DLP status that is set.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
