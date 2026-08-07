@@ -14,8 +14,8 @@
 */
 
 /**
- * @file
- * @kit ArkGraphics2D 
+ * @file Sendable Color Space Management
+ * @kit ArkGraphics2D
  */
 
 import lang from '../arkts/@arkts.lang';
@@ -23,8 +23,10 @@ import collections from '../arkts/@arkts.collections';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
 
 /**
- * The **sendableColorSpaceManager** module provides APIs for creating and managing sendable color space objects and
- * obtaining basic attributes of sendable color spaces.
+ * This module provides APIs for creating and managing sendable color space objects and obtaining basic attributes of 
+ * sendable color spaces. It is applicable to scenarios where color space information needs to be transferred between 
+ * multiple threads. It solves the problem that color management objects cannot be shared across threads, improving the 
+ * efficiency and consistency of color processing.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform
@@ -32,7 +34,7 @@ import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
  */
 declare namespace sendableColorSpaceManager {
   /**
-   * The ISendable type is redefined to align with the API specifications of the current module.
+   * The ISendable type alias is defined to align with the API specifications of the current module.
    *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
@@ -40,10 +42,12 @@ declare namespace sendableColorSpaceManager {
    */
   type ISendable = lang.ISendable;
   /**
-   * Implements management of color space objects.
-   * Before calling any of the following APIs, you must use
-   * [create()]{@link sendableColorSpaceManager.create(colorSpaceName: colorSpaceManager.ColorSpace)} to create a color
-   * space manager.
+   * Implements management of color space objects. ColorSpaceManager is a core class used to manage and operate color 
+   * space objects. It provides functions such as obtaining the color space type, white point value, and gamma value, 
+   * and supports transfer between concurrent ArkTS instances.
+   * 
+   * Before calling any of the following APIs, you must use [create()]{@link sendableColorSpaceManager.create} to create
+   * a color space manager.
    *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
@@ -62,7 +66,8 @@ declare namespace sendableColorSpaceManager {
     getColorSpaceName(): colorSpaceManager.ColorSpace;
 
     /**
-     * Obtains the coordinates of the white point in the color space.
+     * Obtains the white point value of the color space. The chromaticity coordinates [x, y] are returned, indicating 
+     * the coordinates of the white point in the color space.
      *
      * @returns { collections.Array<number> } Coordinates [x, y] of the white point.
      * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 12 - 22]
@@ -85,10 +90,10 @@ declare namespace sendableColorSpaceManager {
   }
 
   /**
-   * Creates a standard color space object that is sendable.
+   * Creates a criterion color space management instance that is sendable.
    *
-   * @param { colorSpaceManager.ColorSpace } colorSpaceName - Type of the color space.<br>**UNKNOWN** and **CUSTOM**
-   *     cannot be used when creating standard color space objects.
+   * @param { colorSpaceManager.ColorSpace } colorSpaceName - Type of the color space.
+   *     <br>**UNKNOWN** and **CUSTOM** cannot be used when creating standard color space objects.
    * @returns { ColorSpaceManager } Sendable color space object created.
    *     <br>This instance inherits from **ISendable** and can be passed by reference between concurrent ArkTS instances
    *     (including the main thread and the worker threads of TaskPool or Worker). For details, see
