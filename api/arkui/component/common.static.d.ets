@@ -114,7 +114,7 @@ export declare interface InputCounterOptions {
      * @stagemodelonly
      * @since 24 static
      */
-    counterTextColor?: ColorMetrics;
+    counterTextColor?: ColorMetrics
 
     /**
      * It is the color of counter when textField wants to exceed the maximum character count.
@@ -124,7 +124,7 @@ export declare interface InputCounterOptions {
      * @stagemodelonly
      * @since 24 static
      */
-    counterTextOverflowColor?: ColorMetrics;
+    counterTextOverflowColor?: ColorMetrics
 }
 /**
  * Defines the options of decoration.
@@ -551,21 +551,21 @@ export declare enum AccessibilitySamePageMode {
  */
 export declare enum AccessibilityRoleType {
     /**
-    * actionSheet component type
+    * ActionSheet component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ACTION_SHEET = 0,
     /**
-    * alertDialog component type
+    * AlertDialog component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
     */
     ALERT_DIALOG = 1,
     /**
-    * alphabetIndexer component type
+    * AlphabetIndexer component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1157,7 +1157,7 @@ export declare enum AccessibilityRoleType {
     */
     RICH_TEXT = 85,
     /**
-    * role pager component type
+    * rolepager component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1227,7 +1227,7 @@ export declare enum AccessibilityRoleType {
     */
     SIDEBAR_CONTAINER = 95,
     /**
-    * sidebar container component type
+    * slider component type
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
@@ -1391,7 +1391,7 @@ export declare enum AccessibilityRoleType {
     */
     TOGGLER = 118,
     /**
-    * uiExtensionComponent component type
+    * uiextensioncomponent component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1426,7 +1426,7 @@ export declare enum AccessibilityRoleType {
     */
     XCOMPONENT = 123,
     /**
-    * none component type: screen reader will not broadcast the component type
+    * none component type: screen reader will not broadcast the component type.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -3108,7 +3108,7 @@ export declare enum EffectType {
  */
 export declare enum PreDragStatus {
     /**
-     * Define the status for user prepare to statrt long press gesture.
+     * Define the status for user prepare to start long press gesture.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3175,7 +3175,7 @@ export declare enum PreDragStatus {
 /**
  * DragItemInfo object description
  *
- * @interface DragItemInifo
+ * @interface DragItemInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4100,7 +4100,7 @@ export declare interface PickerDialogButtonStyle {
     /**
      * Describes the button border radius.
      *
-     * @type { ?{Length | BorderRadiuses} }
+     * @type { ?(Length | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -6003,7 +6003,7 @@ export type UniformDataType = uniformTypeDescriptor.UniformDataType;
 /**
  * Import the GetDataParams type object for ui component.
  *
- * @typedef { unifiedDataChannel.GetDataParams } DataSyncOptions
+ * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -6718,7 +6718,7 @@ export declare interface DropOptions {
      * field to true if using startDataLoading in onDrop to avoid the data is fetched before
      * onDrop executing unexpectedly.
      *
-     * type { boolean }
+     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -10154,7 +10154,7 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
-        /**
+    /**
      * Defines the max height of menu.
      *
      * @type { ?LengthMetrics }
@@ -10935,7 +10935,7 @@ export declare interface AttributeModifier<T> {
 /**
  * Defines the content modifier.
  *
- * @interface ContentModifier<T>
+ * @interface ContentModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -14624,7 +14624,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the top edge.
      *
-     * @type { PixelRoundCalcPolicy }
+     * @type { ?PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14634,7 +14634,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the end edge.
      *
-     * @type { PixelRoundCalcPolicy }
+     * @type { ?PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14644,7 +14644,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the bottom edge.
      *
-     * @type { PixelRoundCalcPolicy }
+     * @type { ?PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15881,6 +15881,7 @@ export declare interface EdgeEffectOptions {
     /**
      * Enable Sliding effect when component does not full screen.
      *
+     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15889,6 +15890,7 @@ export declare interface EdgeEffectOptions {
     /**
      * Set the effective edge of the edge effect.
      *
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static

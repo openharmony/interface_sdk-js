@@ -2307,7 +2307,7 @@ declare enum AccessibilitySamePageMode {
 declare enum AccessibilityRoleType {
 
   /**
-   * actionSheet component type
+   * ActionSheet component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2318,7 +2318,7 @@ declare enum AccessibilityRoleType {
   ACTION_SHEET = 0,
 
   /**
-   * alertDialog component type
+   * AlertDialog component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2329,7 +2329,7 @@ declare enum AccessibilityRoleType {
   ALERT_DIALOG = 1,
 
   /**
-   * alphabetIndexer component type
+   * AlphabetIndexer component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3623,7 +3623,7 @@ declare enum AccessibilityRoleType {
   TOGGLER = 118,
 
   /**
-   * uiExtensionComponent component type
+   * uiextensioncomponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3678,7 +3678,7 @@ declare enum AccessibilityRoleType {
   XCOMPONENT = 123,
 
   /**
-   * none component type: screen reader will not broadcast the component type
+   * none component type: screen reader will not broadcast the component type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

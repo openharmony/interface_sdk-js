@@ -3524,7 +3524,7 @@ declare enum CopyOptions {
    * @since 11 dynamiconly
    * @deprecated since 12
    */
-  CROSS_DEVICE = 3
+  CROSS_DEVICE = 3,
 }
 
 /**
@@ -3990,7 +3990,7 @@ declare enum ObscuredReasons {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  PLACEHOLDER = 0
+  PLACEHOLDER = 0,
 }
 
 /**
@@ -4097,7 +4097,7 @@ declare enum XComponentType {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  SURFACE,
+  SURFACE = 0,
 
   /**
    * Component type.
