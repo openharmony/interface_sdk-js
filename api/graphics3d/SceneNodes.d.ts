@@ -33,10 +33,10 @@ import { PostProcessSettings } from './ScenePostProcessSettings';
  */
 export interface LayerMask {
   /**
-   * Get whether layer mask is enabled.
+   * Checks whether the mask is enabled for a layer of a given index.
    *
-   * @param { int } index - the layer mask
-   * @returns { boolean } whether layer mask is enabled 
+   * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
+   * @returns { boolean } Check result for whether the layer mask is enabled. true if enabled, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -44,10 +44,10 @@ export interface LayerMask {
   getEnabled(index: int): boolean;
 
   /**
-   * Set whether the layer mask is enabled.
+   * Enables the mask of a layer of a given index.
    *
-   * @param { int } index - the layer mask
-   * @param { boolean } enabled - whether layer mask is enabled
+   * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
+   * @param { boolean } enabled - Whether to enable the layer mask. true to enable, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -152,10 +152,10 @@ export interface Container<T> {
   remove(item: T): void;
 
   /**
-   * Returns a child at given index from this Container's child list.
+   * Obtains a node of a given index. If no node is obtained, null is returned.
    *
-   * @param { int } index - the index of the child to return
-   * @returns { T | null } return the item specified by the index
+   * @param { int } index - Index of the node. The value is an integer greater than or equal to 0.
+   * @returns { T | null } Object obtained. If no object is obtained, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -172,9 +172,9 @@ export interface Container<T> {
   clear(): void;
 
   /**
-   * Returns the number of items in the container.
+   * Obtains the number of nodes in the container.
    *
-   * @returns { int } the number of the container
+   * @returns { int } Number of nodes in the container. The value is a non-negative integer.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -277,10 +277,10 @@ export interface Node extends SceneResource {
   readonly parent: Node | null;
 
   /**
-   * Get node by path.
+   * Obtains a node by path. If no node is obtained, null is returned.
    *
-   * @param { string } path - the path of the node queried
-   * @returns { Node | null }
+   * @param { string } path - Path in the scene node tree. Each layer is separated by a slash (/).
+   * @returns { Node | null } Returns the node object.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
