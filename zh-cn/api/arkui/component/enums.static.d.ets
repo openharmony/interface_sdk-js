@@ -477,7 +477,6 @@ export declare enum LineJoinStyle {
 /**
  * 定义触摸操作的触发状态类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -559,7 +558,6 @@ export declare enum TouchType {
 /**
  * 定义事件是由左手点击触发还是右手点击触发。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -596,7 +594,6 @@ export declare enum InteractionHand {
 /**
  * 定义鼠标按键的类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -660,7 +657,6 @@ export declare enum MouseButton {
 /**
  * 定义鼠标操作的动作类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -722,7 +718,7 @@ export declare enum MouseAction {
 
   /**
    * 鼠标按键取消。通常在以下场景触发：
-   *
+   * 
    * 1. 组件失去焦点：当前持有焦点的组件因系统事件（如弹窗打断、应用切换）失去焦点时，会触发该动作。
    * 2. 事件中断：鼠标操作过程中发生更高优先级事件（如系统级手势或强制回收事件流），导致当前鼠标操作被强制终止。
    * 3. 异常状态退出：如组件销毁、渲染环境异常等场景下，未完成的鼠标事件会被标记为取消。
@@ -887,7 +883,6 @@ export declare enum PlayMode {
 /**
  * 定义按键操作的状态类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -924,7 +919,6 @@ export declare enum KeyType {
 /**
  * 定义触发按键事件的设备类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1431,7 +1425,6 @@ export declare enum RelateType {
 /**
  * 定义组件的可见性及布局占位状态。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2467,7 +2460,6 @@ export declare enum ResponseType {
 /**
  * 定义组件悬浮效果的类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2704,8 +2696,7 @@ export declare enum CopyOptions {
 
 /**
  * 触摸热区适用的输入工具类型。
- * 
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2713,16 +2704,15 @@ export declare enum CopyOptions {
 export declare enum ResponseRegionSupportedTool {
   /**
    * 所有输入工具类型。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   ALL = 0,
-
   /**
    * 手指。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2731,7 +2721,7 @@ export declare enum ResponseRegionSupportedTool {
 
   /**
    * 手写笔。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2740,7 +2730,7 @@ export declare enum ResponseRegionSupportedTool {
 
   /**
    * 鼠标。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2750,13 +2740,12 @@ export declare enum ResponseRegionSupportedTool {
 
 /**
  * 定义触摸测试的响应逻辑及节点阻塞规则。
- *
+ * 
  * > **说明：**
  * >
  * > 当Stack组件中有多个节点触摸区域重叠时，如果最上层节点的子组件命中，则默认只会对显示在最上层的节点做触摸测试。此时只有给显示在最上层的节点设置
  * > [hitTestBehavior]{@link CommonMethod#hitTestBehavior}为HitTestMode.Transparent时，才能使显示在下层的节点触发触摸测试。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2846,7 +2835,6 @@ export declare enum TitleHeight {
 /**
  * 输入法修饰键类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2883,7 +2871,6 @@ export declare enum ModifierKey {
 /**
  * 输入法功能键类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3707,14 +3694,14 @@ export declare enum EllipsisMode {
    */
   END = 2,
 
-  /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  MULTILINE_START = 3,
+   /**
+    * The ellipsis is in the head. It is valid for multiline and single line.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 24 static
+    */
+   MULTILINE_START = 3,
 
   /**
    * The ellipsis is in the middle. It is valid for multiline and single line.
@@ -4134,7 +4121,6 @@ export declare enum HeightBreakpoint {
 /**
  * 定义焦点轴事件的轴类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4343,7 +4329,6 @@ export declare enum PageFlipMode {
 /**
  * 旋转表冠动作。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4371,7 +4356,6 @@ export declare enum CrownAction {
 /**
  * 旋转表冠灵敏度。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4408,7 +4392,6 @@ export declare enum CrownSensitivity {
 /**
  * 定义轴事件的轴动作类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4519,7 +4502,6 @@ export declare enum DividerMode {
 /**
  * 要查询的交互事件类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -4593,7 +4575,6 @@ export declare enum DialogDisplayMode {
 /**
  * 交叉轴方向键走焦模式枚举。
  *
- * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -4610,7 +4591,7 @@ export declare enum FocusWrapMode {
 
   /**
    * 交叉轴方向键允许换行。
-   *
+   * 
    * 不规则单元格场景下，交叉轴方向键走焦时优先走到同一行的可获焦item。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4709,7 +4690,6 @@ export declare enum ColorSpace {
 /**
  * 定义轴事件的轴类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4746,7 +4726,6 @@ export declare enum AxisType {
 /**
  * 定义分发的事件是否为竞争手势，竞争场景手势原始节点和目标节点只有一个节点会响应手势，非竞争场景可以同时响应。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
@@ -4927,7 +4906,6 @@ export enum SystemProperties {
 /**
  * 定义手势和事件收集的干预操作类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -4935,43 +4913,43 @@ export enum SystemProperties {
 export declare enum GestureCollectIntervention {
   /**
    * 继续正常的手势和事件收集流程。不进行任何干预。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   CONTINUE = 0,
- 
+
   /**
    * 丢弃所有待收集的低优先级手势和事件。丢弃的部分包括左侧兄弟节点以及祖先节点（父节点及以上）的手势。仅保留当前节点和更高优先级节点中已收集的手势。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_LOWER = 1,
- 
+
   /**
    * 丢弃已经收集到的高优先级手势和事件。会丢弃已收集的右侧兄弟节点和当前节点上的手势。将继续处理低优先级手势的收集流程（左侧兄弟节点和祖先节点）。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_HIGHER = 2,
- 
+
   /**
    * 丢弃当前节点自身的手势和事件。当前节点的手势和事件将从手势树中排除。兄弟节点（左侧和右侧）以及祖先节点的手势仍会继续收集。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_SELF = 3,
- 
+
   /**
    * 丢弃左侧兄弟节点中待收集的手势和事件。当前节点以及已收集的右侧兄弟节点的手势和事件将被保留。将继续处理父节点以及祖先节点的收集流程。
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -4982,7 +4960,6 @@ export declare enum GestureCollectIntervention {
 /**
  * 输入事件子类型掩码枚举，用于标识不同类型的输入事件子类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -5109,7 +5086,6 @@ export declare enum InputEventSubTypeMask {
 /**
  * 输入事件拦截动作枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -5150,7 +5126,6 @@ export declare enum RawInputEventType {
    * @since 26.0.0 static
    */
   TOUCH = 0,
-
   /**
    * 鼠标事件。
    *
@@ -5164,7 +5139,6 @@ export declare enum RawInputEventType {
 /**
  * 组件的智慧手势响应优先级枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -5183,7 +5157,6 @@ export declare enum GestureShortcut {
 /**
  * 智慧手势操作类型枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -5242,7 +5215,6 @@ export declare enum SmartGestureAction {
 /**
  * 智慧手势原始操作意图枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
