@@ -18,7 +18,7 @@
  * @kit ArkGraphics2D
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base'; 
 
 /**
  * The hdrCapability module provides enums related to the High Dynamic Range (HDR) capability.

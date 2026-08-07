@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics2D
+ * @kit ArkGraphics2D 
  */
 
 import lang from '../arkts/@arkts.lang';

@@ -18,7 +18,7 @@
  * @kit ArkGraphics2D
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base'; 
 
 /**
  * 本模块提供HDR（高动态显示范围）能力涉及到的相关枚举类型。

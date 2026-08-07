@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkGraphics2D
+ * @kit ArkGraphics2D 
  */
 
 /**
