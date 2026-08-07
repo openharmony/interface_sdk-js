@@ -20,12 +20,10 @@
  */
 
 import { Resource as _Resource } from '../../global/resource';
-
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
 import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType} from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
-
 /**
  * Defines the data type of the interface restriction.
  *
@@ -935,7 +933,7 @@ export declare interface Font {
  */
 export declare interface Area {
   /**
-   * 目前元素的宽度。
+   * 目标元素的宽度。
    *
    * 单位：vp
    *
@@ -946,7 +944,7 @@ export declare interface Area {
   width: Length;
 
   /**
-   * 目前元素的高度。
+   * 目标元素的高度。
    *
    * 单位：vp
    *
@@ -1429,7 +1427,7 @@ export declare class ColorFilter {
 }
 
 /**
- * 配置跟手点坐标。不配置时，默认居中。
+ * 配置跟手点坐标，不配置时，默认居中。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
