@@ -3592,6 +3592,18 @@ declare namespace wifiManager {
      * @since 23 static
      */
     isSecureWifi?: boolean;
+
+    /**
+     * Whether to show a dialog when the first network probe detects no internet.
+     * If false, the default network is bound to cellular with no dialog shown.
+     * If true, will show a no-internet dialog prompts the user to select the default network binding.
+     * Default value: true.
+     * 
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    showNoInternetDialog?: boolean;
   }
 
   /**
