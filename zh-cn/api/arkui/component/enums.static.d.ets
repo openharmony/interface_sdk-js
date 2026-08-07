@@ -475,16 +475,15 @@ export declare enum LineJoinStyle {
 }
 
 /**
- * Function Called by Touch
+ * 定义触摸操作的触发状态类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum TouchType {
   /**
-   * Triggered when the finger is pressed.
+   * 手指按下时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -493,7 +492,7 @@ export declare enum TouchType {
   Down = 0,
 
   /**
-   * Triggered when the finger is raised.
+   * 手指抬起时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -502,7 +501,7 @@ export declare enum TouchType {
   Up = 1,
 
   /**
-   * Triggered when the finger presses on the screen.
+   * 手指按压并在屏幕上移动时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,7 +510,7 @@ export declare enum TouchType {
   Move = 2,
 
   /**
-   * Triggers when the touch event cancels.
+   * 触摸事件取消时触发。例如：1.手指按住屏幕同时点击Home键返回桌面，此时会触发Cancel；2.<!--RP2--><!--RP2End-->手指触摸过程中存在手写笔操作，手指的触摸操作会收到Cancel事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -520,7 +519,7 @@ export declare enum TouchType {
   Cancel = 3,
 
   /**
-   * Triggers when the touch event turns to hover enter in accessibility processing.
+   * 无障碍模式下，手指按下时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -529,7 +528,7 @@ export declare enum TouchType {
   HOVER_ENTER = 9,
 
   /**
-   * Triggers when the touch event turns to hover move in accessibility processing.
+   * 无障碍模式下，触摸移动时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -538,7 +537,7 @@ export declare enum TouchType {
   HOVER_MOVE = 10,
 
   /**
-   * Triggers when the touch event turns to hover exit in accessibility processing.
+   * 无障碍模式下，抬手时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -547,7 +546,7 @@ export declare enum TouchType {
   HOVER_EXIT = 11,
 
   /**
-   * Triggers when the touch event turns to hover cancel in accessibility processing.
+   * 无障碍模式下，取消当前触发的事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -557,16 +556,15 @@ export declare enum TouchType {
 }
 
 /**
- * Function Called by Touch or Gesture.
+ * 定义事件是由左手点击触发还是右手点击触发。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum InteractionHand {
   /**
-   * Unknown hand.
+   * 未定义。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -575,7 +573,7 @@ export declare enum InteractionHand {
   NONE = 0,
 
   /**
-   * Left hand.
+   * 左手触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -584,7 +582,7 @@ export declare enum InteractionHand {
   LEFT = 1,
 
   /**
-   * Right hand.
+   * 右手触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -594,16 +592,15 @@ export declare enum InteractionHand {
 }
 
 /**
- * Define the button types of the mouse device.
+ * 定义鼠标按键的类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum MouseButton {
   /**
-   * Mouse Left Button.
+   * 鼠标左键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -612,7 +609,7 @@ export declare enum MouseButton {
   Left = 1,
 
   /**
-   * Mouse Right Button.
+   * 鼠标右键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -621,7 +618,7 @@ export declare enum MouseButton {
   Right = 2,
 
   /**
-   * Mouse Middle Button.
+   * 鼠标中键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -630,7 +627,7 @@ export declare enum MouseButton {
   Middle = 4,
 
   /**
-   * Mouse Back Button.
+   * 鼠标左侧后退键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -639,16 +636,16 @@ export declare enum MouseButton {
   Back = 8,
 
   /**
-   * Mouse Forward Button.
+   * 鼠标左侧前进键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  Forward = 16,
+  Forward =16,
 
   /**
-   * Mouse None Button.
+   * 无按键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -658,16 +655,15 @@ export declare enum MouseButton {
 }
 
 /**
- * Function Called by Mouse
+ * 定义鼠标操作的动作类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum MouseAction {
   /**
-   * Triggered when the mouse is pressed.
+   * 鼠标按键按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -676,7 +672,7 @@ export declare enum MouseAction {
   Press = 1,
 
   /**
-   * Triggered when the mouse is released.
+   * 鼠标按键释放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -685,7 +681,7 @@ export declare enum MouseAction {
   Release = 2,
 
   /**
-   * Triggered when the mouse is Moved.
+   * 鼠标移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -694,7 +690,7 @@ export declare enum MouseAction {
   Move = 3,
 
   /**
-   * Triggered when the mouse is Hovered.
+   * 鼠标悬浮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -703,7 +699,7 @@ export declare enum MouseAction {
   Hover = 4,
 
   /**
-   * Triggered when mouse enters the window.
+   * 鼠标进入窗口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -712,7 +708,7 @@ export declare enum MouseAction {
   ENTER_WINDOW = 4,
 
   /**
-   * Triggered when mouse leaves the window.
+   * 鼠标离开窗口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -721,7 +717,11 @@ export declare enum MouseAction {
   LEAVE_WINDOW = 5,
 
   /**
-   * Triggered when the mouse event is canceled.
+   * 鼠标按键取消。通常在以下场景触发：
+   * 
+   * 1. 组件失去焦点：当前持有焦点的组件因系统事件（如弹窗打断、应用切换）失去焦点时，会触发该动作。
+   * 2. 事件中断：鼠标操作过程中发生更高优先级事件（如系统级手势或强制回收事件流），导致当前鼠标操作被强制终止。
+   * 3. 异常状态退出：如组件销毁、渲染环境异常等场景下，未完成的鼠标事件会被标记为取消。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -881,16 +881,15 @@ export declare enum PlayMode {
 }
 
 /**
- * Type of a key.
+ * 定义按键操作的状态类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum KeyType {
   /**
-   * Press the key.
+   * 按键按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -899,7 +898,7 @@ export declare enum KeyType {
   Down = 0,
 
   /**
-   * The key is released.
+   * 按键松开。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -908,7 +907,7 @@ export declare enum KeyType {
   Up = 1,
 
   /**
-   * The key event is canceled.
+   * 取消按键事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -918,16 +917,15 @@ export declare enum KeyType {
 }
 
 /**
- * Type of the input device that triggers the current key.
+ * 定义触发按键事件的设备类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum KeySource {
   /**
-   * The input device type is unknown.
+   * 输入设备类型未知。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -936,7 +934,7 @@ export declare enum KeySource {
   Unknown = 0,
 
   /**
-   * Set Device Type to Keyboard.
+   * 输入设备类型为键盘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -945,7 +943,7 @@ export declare enum KeySource {
   Keyboard = 4,
 
   /**
-   * Set Device Type to Joystic.
+   * 输入设备类型为游戏手柄。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1425,16 +1423,15 @@ export declare enum RelateType {
 }
 
 /**
- * Controls the display or hide of the current component
+ * 定义组件的可见性及布局占位状态。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum Visibility {
   /**
-   * Show
+   * 显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1443,7 +1440,7 @@ export declare enum Visibility {
   Visible = 0,
 
   /**
-   * Hide, but participate in layout for placeholder.
+   * 隐藏，但参与布局进行占位。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1452,7 +1449,7 @@ export declare enum Visibility {
   Hidden = 1,
 
   /**
-   * Hides but does not participate in layout and does not take place.
+   * 隐藏，但不参与布局，不进行占位。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2461,16 +2458,15 @@ export declare enum ResponseType {
 }
 
 /**
- * HoverEffect enumeration description
+ * 定义组件悬浮效果的类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum HoverEffect {
   /**
-   * None effect
+   * 不设置效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2479,7 +2475,7 @@ export declare enum HoverEffect {
   None = 0,
 
   /**
-   * Zoom in and out effect
+   * 放大缩小的效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2488,7 +2484,7 @@ export declare enum HoverEffect {
   Scale = 2,
 
   /**
-   * Highlight effect
+   * 背景淡入淡出的强调效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2497,7 +2493,7 @@ export declare enum HoverEffect {
   Highlight = 3,
 
   /**
-   * Default effect
+   * 使用组件的系统默认悬浮效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2699,26 +2695,24 @@ export declare enum CopyOptions {
 }
 
 /**
- * Defines the event tool type that support response region settings.
- * 
- * @enum { number }
+ * 触摸热区适用的输入工具类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum ResponseRegionSupportedTool {
   /**
-   * All source tool type.
-   * 
+   * 所有输入工具类型。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   ALL = 0,
-
   /**
-   * The finger type.
-   * 
+   * 手指。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2726,8 +2720,8 @@ export declare enum ResponseRegionSupportedTool {
   FINGER = 1,
 
   /**
-   * The pen type.
-   * 
+   * 手写笔。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2735,8 +2729,8 @@ export declare enum ResponseRegionSupportedTool {
   PEN = 2,
 
   /**
-   * The mouse type.
-   * 
+   * 鼠标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -2745,17 +2739,20 @@ export declare enum ResponseRegionSupportedTool {
 }
 
 /**
- * Defines the hit test mode.
+ * 定义触摸测试的响应逻辑及节点阻塞规则。
+ * 
+ * > **说明：**
+ * >
+ * > 当Stack组件中有多个节点触摸区域重叠时，如果最上层节点的子组件命中，则默认只会对显示在最上层的节点做触摸测试。此时只有给显示在最上层的节点设置
+ * > [hitTestBehavior]{@link CommonMethod#hitTestBehavior}为HitTestMode.Transparent时，才能使显示在下层的节点触发触摸测试。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum HitTestMode {
   /**
-   * Both self and children nodes respond to the hit test for touch events,
-   * but block hit test of the other nodes which is masked by this node.
+   * 默认触摸测试效果。自身及子节点响应触摸测试，但阻塞兄弟节点的触摸测试，不影响祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2764,8 +2761,7 @@ export declare enum HitTestMode {
   Default = 0,
 
   /**
-   * Self respond to the hit test for touch events,
-   * but block hit test of children and other nodes which is masked by this node.
+   * 自身响应触摸测试，阻塞子节点、兄弟节点和祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2774,8 +2770,7 @@ export declare enum HitTestMode {
   Block = 1,
 
   /**
-   * Self and children respond to the hit test for touch events,
-   * and allow hit test of other nodes which is masked by this node.
+   * 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2784,8 +2779,7 @@ export declare enum HitTestMode {
   Transparent = 2,
 
   /**
-   * Self not respond to the hit test for touch events,
-   * but children respond to the hit test for touch events.
+   * 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2793,7 +2787,7 @@ export declare enum HitTestMode {
    */
   None = 3,
   /**
-   * Blocks all lower-priority siblings and parent nodes from receiving the event.
+   * 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2801,8 +2795,7 @@ export declare enum HitTestMode {
    */
   BLOCK_HIERARCHY = 4,
   /**
-   * Self not respond to the hit test for touch events,
-   * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   * 自身不响应触摸测试，并且所有的后代（孩子，孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2840,16 +2833,15 @@ export declare enum TitleHeight {
 }
 
 /**
- * Modifier key for hot key.
+ * 输入法修饰键类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum ModifierKey {
   /**
-   * ctrl.
+   * 表示键盘上Ctrl键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2858,7 +2850,7 @@ export declare enum ModifierKey {
   CTRL = 0,
 
   /**
-   * shift.
+   * 表示键盘上Shift键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2867,7 +2859,7 @@ export declare enum ModifierKey {
   SHIFT = 1,
 
   /**
-   * alt.
+   * 表示键盘上Alt键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2877,16 +2869,15 @@ export declare enum ModifierKey {
 }
 
 /**
- * Function key for hot key.
+ * 输入法功能键类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum FunctionKey {
   /**
-   * Escape key.
+   * 表示键盘上ESC功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2895,7 +2886,7 @@ export declare enum FunctionKey {
   ESC = 0,
 
   /**
-   * F1 key.
+   * 表示键盘上F1功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2904,7 +2895,7 @@ export declare enum FunctionKey {
   F1 = 1,
 
   /**
-   * F2 key.
+   * 表示键盘上F2功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2913,7 +2904,7 @@ export declare enum FunctionKey {
   F2 = 2,
 
   /**
-   * F3 key.
+   * 表示键盘上F3功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2922,7 +2913,7 @@ export declare enum FunctionKey {
   F3 = 3,
 
   /**
-   * F4 key.
+   * 表示键盘上F4功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2931,7 +2922,7 @@ export declare enum FunctionKey {
   F4 = 4,
 
   /**
-   * F5 key.
+   * 表示键盘上F5功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2940,7 +2931,7 @@ export declare enum FunctionKey {
   F5 = 5,
 
   /**
-   * F6 key.
+   * 表示键盘上F6功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2949,7 +2940,7 @@ export declare enum FunctionKey {
   F6 = 6,
 
   /**
-   * F7 key.
+   * 表示键盘上F7功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2958,7 +2949,7 @@ export declare enum FunctionKey {
   F7 = 7,
 
   /**
-   * F8 key.
+   * 表示键盘上F8功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2967,7 +2958,7 @@ export declare enum FunctionKey {
   F8 = 8,
 
   /**
-   * F9 key.
+   * 表示键盘上F9功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2976,7 +2967,7 @@ export declare enum FunctionKey {
   F9 = 9,
 
   /**
-   * F10 key.
+   * 表示键盘上F10功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2985,7 +2976,7 @@ export declare enum FunctionKey {
   F10 = 10,
 
   /**
-   * F11 key.
+   * 表示键盘上F11功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2994,7 +2985,7 @@ export declare enum FunctionKey {
   F11 = 11,
 
   /**
-   * F12 key.
+   * 表示键盘上F12功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3003,7 +2994,7 @@ export declare enum FunctionKey {
   F12 = 12,
 
   /**
-   * Tab key.
+   * 表示键盘上TAB功能键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3012,7 +3003,7 @@ export declare enum FunctionKey {
   TAB = 13,
 
   /**
-   * Up arrow key.
+   * 表示键盘上UP方向键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3021,7 +3012,7 @@ export declare enum FunctionKey {
   DPAD_UP = 14,
 
   /**
-   * Down arrow key.
+   * 表示键盘上DOWN方向键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3030,7 +3021,7 @@ export declare enum FunctionKey {
   DPAD_DOWN = 15,
 
   /**
-   * Left arrow key.
+   * 表示键盘上LEFT方向键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3039,7 +3030,7 @@ export declare enum FunctionKey {
   DPAD_LEFT = 16,
 
   /**
-   * Right arrow key.
+   * 表示键盘上RIGHT方向键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3703,14 +3694,14 @@ export declare enum EllipsisMode {
    */
   END = 2,
 
-  /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  MULTILINE_START = 3,
+   /**
+    * The ellipsis is in the head. It is valid for multiline and single line.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 24 static
+    */
+   MULTILINE_START = 3,
 
   /**
    * The ellipsis is in the middle. It is valid for multiline and single line.
@@ -4128,16 +4119,15 @@ export declare enum HeightBreakpoint {
 }
 
 /**
- * Type of axis.
+ * 定义焦点轴事件的轴类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AxisModel {
   /**
-   * ABS_X axis type.
+   * 游戏手柄X轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4146,7 +4136,7 @@ export declare enum AxisModel {
   ABS_X = 0,
 
   /**
-   * ABS_Y axis type.
+   * 游戏手柄Y轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4155,7 +4145,7 @@ export declare enum AxisModel {
   ABS_Y = 1,
 
   /**
-   * ABS_Z axis type.
+   * 游戏手柄Z轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4164,7 +4154,7 @@ export declare enum AxisModel {
   ABS_Z = 2,
 
   /**
-   * ABS_RZ axis type.
+   * 游戏手柄RZ轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4173,7 +4163,7 @@ export declare enum AxisModel {
   ABS_RZ = 3,
 
   /**
-   * ABS_GAS axis type.
+   * 游戏手柄GAS轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4182,7 +4172,7 @@ export declare enum AxisModel {
   ABS_GAS = 4,
 
   /**
-   * ABS_BRAKE axis type.
+   * 游戏手柄BRAKE轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4191,7 +4181,7 @@ export declare enum AxisModel {
   ABS_BRAKE = 5,
 
   /**
-   * ABS_HAT0X axis type.
+   * 游戏手柄HAT0X轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4200,7 +4190,7 @@ export declare enum AxisModel {
   ABS_HAT0X = 6,
 
   /**
-   * ABS_HAT0Y axis type.
+   * 游戏手柄HAT0Y轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4209,7 +4199,7 @@ export declare enum AxisModel {
   ABS_HAT0Y = 7,
 
   /**
-   * ABS_RX axis type.
+   * 游戏手柄RX轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4218,7 +4208,7 @@ export declare enum AxisModel {
   ABS_RX = 8,
 
   /**
-   * ABS_RY axis type.
+   * 游戏手柄RY轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4227,7 +4217,7 @@ export declare enum AxisModel {
   ABS_RY = 9,
 
   /**
-   * ABS_THROTTLE axis type.
+   * 游戏手柄THROTTLE轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4236,7 +4226,7 @@ export declare enum AxisModel {
   ABS_THROTTLE = 10,
 
   /**
-   * ABS_RUDDER axis type.
+   * 游戏手柄RUDDER轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4245,7 +4235,7 @@ export declare enum AxisModel {
   ABS_RUDDER = 11,
 
   /**
-   * ABS_WHEEL axis type.
+   * 游戏手柄WHEEL轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4254,7 +4244,7 @@ export declare enum AxisModel {
   ABS_WHEEL = 12,
 
   /**
-   * ABS_HAT1X axis type.
+   * 游戏手柄HAT1X轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4263,7 +4253,7 @@ export declare enum AxisModel {
   ABS_HAT1X = 13,
 
   /**
-   * ABS_HAT1Y axis type.
+   * 游戏手柄HAT1Y轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4272,7 +4262,7 @@ export declare enum AxisModel {
   ABS_HAT1Y = 14,
 
   /**
-   * ABS_HAT2X axis type.
+   * 游戏手柄HAT2X轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4281,7 +4271,7 @@ export declare enum AxisModel {
   ABS_HAT2X = 15,
 
   /**
-   * ABS_HAT2Y axis type.
+   * 游戏手柄HAT2Y轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4290,7 +4280,7 @@ export declare enum AxisModel {
   ABS_HAT2Y = 16,
 
   /**
-   * ABS_HAT3X axis type.
+   * 游戏手柄HAT3X轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4299,7 +4289,7 @@ export declare enum AxisModel {
   ABS_HAT3X = 17,
 
   /**
-   * ABS_HAT3Y axis type.
+   * 游戏手柄HAT3Y轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4337,16 +4327,15 @@ export declare enum PageFlipMode {
 }
 
 /**
- * Rotating crown event behavior.
+ * 旋转表冠动作。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum CrownAction {
   /**
-   * Rotation crown behavior update.
+   * 表冠转动中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4355,7 +4344,7 @@ export declare enum CrownAction {
   UPDATE = 1,
 
   /**
-   * The rotation crown behavior ends.
+   * 表冠停止转动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4365,16 +4354,15 @@ export declare enum CrownAction {
 }
 
 /**
- * Sensitivity of rotating crown.
+ * 旋转表冠灵敏度。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum CrownSensitivity {
   /**
-   * Low sensitivity.
+   * 低灵敏度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4383,7 +4371,7 @@ export declare enum CrownSensitivity {
   LOW = 0,
 
   /**
-   * Medium sensitivity.
+   * 中灵敏度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4392,7 +4380,7 @@ export declare enum CrownSensitivity {
   MEDIUM = 1,
 
   /**
-   * High sensitivity.
+   * 高灵敏度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4402,16 +4390,15 @@ export declare enum CrownSensitivity {
 }
 
 /**
- * Type of axis action.
+ * 定义轴事件的轴动作类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AxisAction {
   /**
-   * None action.
+   * 无轴事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4420,7 +4407,7 @@ export declare enum AxisAction {
   NONE = 0,
 
   /**
-   * Triggered when an axis event starts.
+   * 轴事件开始。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4429,7 +4416,7 @@ export declare enum AxisAction {
   BEGIN = 1,
 
   /**
-   * Triggered when the axis event is updated.
+   * 轴事件触发中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4438,7 +4425,7 @@ export declare enum AxisAction {
   UPDATE = 2,
 
   /**
-   * Triggered when the axis event ends.
+   * 轴事件结束。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4447,7 +4434,7 @@ export declare enum AxisAction {
   END = 3,
 
   /**
-   * Triggered when the axis event is cancelled.
+   * 轴事件取消。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4513,16 +4500,15 @@ export declare enum DividerMode {
 }
 
 /**
- * Event query type.
+ * 要查询的交互事件类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum EventQueryType {
   /**
-   * Type of onClick event.
+   * 点击事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4587,16 +4573,15 @@ export declare enum DialogDisplayMode {
 }
 
 /**
- * Focus wrap mode of a list or grid when moving focus using the arrow keys.
+ * 交叉轴方向键走焦模式枚举。
  *
- * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum FocusWrapMode {
   /**
-   * No wrap when moving focus using the arrow keys.
+   * 交叉轴方向键不允许换行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4605,7 +4590,9 @@ export declare enum FocusWrapMode {
   DEFAULT = 0,
 
   /**
-   * Auto wrap when moving focus using the arrow keys.
+   * 交叉轴方向键允许换行。
+   * 
+   * 不规则单元格场景下，交叉轴方向键走焦时优先走到同一行的可获焦item。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4701,17 +4688,15 @@ export declare enum ColorSpace {
 }
 
 /**
- * Define the axis type of axis event.
+ * 定义轴事件的轴类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AxisType {
   /**
-   * Indicates the vertical scoll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
-   * the status of the vertical scoll axis changes.
+   * 垂直滚动轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4720,8 +4705,7 @@ export declare enum AxisType {
   VERTICAL_AXIS = 0,
 
   /**
-   * Indicates the horizontal scoll axis. When you make certain gestures on the touchpad,
-   * the status of the horizontal scroll axis changes.
+   * 水平滚动轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4730,31 +4714,25 @@ export declare enum AxisType {
   HORIZONTAL_AXIS = 1,
 
   /**
-   * Indicates the pinch axis, which is used to describe a pinch gesture on the touchpad.
+   * 捏合轴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  PINCH_AXIS = 2,
+  PINCH_AXIS = 2
 }
 
 /**
- * Defines whether a competition for gesture recognition results should occur between the event injector and the
- * gesture recognizers of the target component.
- * This strategy determines how the injected input event interacts with the target component's own gesture
- * handling logic.
+ * 定义分发的事件是否为竞争手势，竞争场景手势原始节点和目标节点只有一个节点会响应手势，非竞争场景可以同时响应。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export enum CompetitionStrategy {
   /**
-   * No competition strategy.
-   * The injected event does not compete with any existing gestures.
-   * Both the injected event and existing gestures can be processed independently and in parallel.
+   * 表示分发的事件为非竞争手势。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4763,9 +4741,7 @@ export enum CompetitionStrategy {
   DEFAULT = 0,
 
   /**
-   * Competition strategy.
-   * The gesture recognition result from the event injector will compete with those from the target component's own
-   * recognizers.
+   * 表示分发的事件为竞争手势。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4779,7 +4755,7 @@ export enum CompetitionStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 23 staticonly
  */
 export enum AttributeModifierState {
@@ -4788,7 +4764,7 @@ export enum AttributeModifierState {
    * Normal state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   NORMAL = 0,
@@ -4797,7 +4773,7 @@ export enum AttributeModifierState {
    * Pressed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   PRESSED = 1,
@@ -4806,7 +4782,7 @@ export enum AttributeModifierState {
    * Focused state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   FOCUSED = 1 << 1,
@@ -4815,7 +4791,7 @@ export enum AttributeModifierState {
    * Disabled state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   DISABLED = 1 << 2,
@@ -4824,10 +4800,19 @@ export enum AttributeModifierState {
    * Selected state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3
+  SELECTED = 1 << 3,
+
+  /**
+   * Hovered state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  HOVERED = 1 << 4
 }
 
 /**
@@ -4919,79 +4904,69 @@ export enum SystemProperties {
 }
 
 /**
- * Define the gesture and events collection intervention operations.
+ * 定义手势和事件收集的干预操作类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum GestureCollectIntervention {
   /**
-   * Continue the normal collection process. No intervention will be applied.
-   * 
+   * 继续正常的手势和事件收集流程。不进行任何干预。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   CONTINUE = 0,
- 
+
   /**
-   * Discard all pending lower-priority gestures and events.
-   * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
-   * Only the already collected gestures from the current node and higher-priority nodes will be retained.
-   * 
+   * 丢弃所有待收集的低优先级手势和事件。丢弃的部分包括左侧兄弟节点以及祖先节点（父节点及以上）的手势。仅保留当前节点和更高优先级节点中已收集的手势。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_LOWER = 1,
- 
+
   /**
-   * Discard already collected higher-priority gestures and events.
-   * This removes gestures from right sibling nodes that have been collected.
-   * The collection will continue with lower-priority gestures (left siblings and ancestors).
-   * 
+   * 丢弃已经收集到的高优先级手势和事件。会丢弃已收集的右侧兄弟节点和当前节点上的手势。将继续处理低优先级手势的收集流程（左侧兄弟节点和祖先节点）。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_HIGHER = 2,
- 
+
   /**
-   * Discard gestures and events from the current node itself.
-   * The current node's gestures and events will be excluded from the gesture tree.
-   * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
-   * 
+   * 丢弃当前节点自身的手势和事件。当前节点的手势和事件将从手势树中排除。兄弟节点（左侧和右侧）以及祖先节点的手势仍会继续收集。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   DISCARD_SELF = 3,
- 
+
   /**
-   * Discard gestures and events from left sibling nodes that are pending collection.
-   * Gestures and events from the current node and already collected right sibling nodes will be retained.
-   * The collection will continue with ancestor nodes.
-   * 
+   * 丢弃左侧兄弟节点中待收集的手势和事件。当前节点以及已收集的右侧兄弟节点的手势和事件将被保留。将继续处理父节点以及祖先节点的收集流程。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4
 }
 
 /**
- * Defines the input event subtype mask for monitoring.
+ * 输入事件子类型掩码枚举，用于标识不同类型的输入事件子类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum InputEventSubTypeMask {
   /**
-   * Mouse left button down.
+   * 鼠标左键按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5000,7 +4975,7 @@ export declare enum InputEventSubTypeMask {
   LEFT_MOUSE_DOWN = 1 << 0,
 
   /**
-   * Mouse left button up.
+   * 鼠标左键抬起。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5009,7 +4984,7 @@ export declare enum InputEventSubTypeMask {
   LEFT_MOUSE_UP = 1 << 1,
 
   /**
-   * Mouse right button down.
+   * 鼠标右键按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5018,7 +4993,7 @@ export declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_DOWN = 1 << 2,
 
   /**
-   * Mouse right button up.
+   * 鼠标右键抬起。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5027,7 +5002,7 @@ export declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_UP = 1 << 3,
 
   /**
-   * Mouse middle button down.
+   * 鼠标中键按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5036,7 +5011,7 @@ export declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_DOWN = 1 << 4,
 
   /**
-   * Mouse middle button up.
+   * 鼠标中键抬起。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5045,7 +5020,7 @@ export declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_UP = 1 << 5,
 
   /**
-   * Mouse left button dragging.
+   * 鼠标左键按下并移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5054,7 +5029,7 @@ export declare enum InputEventSubTypeMask {
   LEFT_MOUSE_DRAGGING = 1 << 6,
 
   /**
-   * Mouse right button dragging.
+   * 鼠标右键按下并移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5063,7 +5038,7 @@ export declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_DRAGGING = 1 << 7,
 
   /**
-   * Mouse middle button dragging.
+   * 鼠标中键按下并移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5072,7 +5047,7 @@ export declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_DRAGGING = 1 << 8,
 
   /**
-   * Touch down.
+   * 触控按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5081,7 +5056,7 @@ export declare enum InputEventSubTypeMask {
   TOUCH_DOWN = 1 << 9,
 
   /**
-   * Touch up.
+   * 触控抬起。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5090,7 +5065,7 @@ export declare enum InputEventSubTypeMask {
   TOUCH_UP = 1 << 10,
 
   /**
-   * Physical keyboard key down.
+   * 物理键盘按下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5099,7 +5074,7 @@ export declare enum InputEventSubTypeMask {
   KEY_DOWN = 1 << 11,
 
   /**
-   * Physical keyboard key up.
+   * 物理键盘抬起。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5109,16 +5084,15 @@ export declare enum InputEventSubTypeMask {
 }
 
 /**
- * Defines the input event intercept action.
+ * 输入事件拦截动作枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum InputEventInterceptAction {
   /**
-   * Continue to deliver the event to the UI framework.
+   * 允许事件继续传递到UI框架。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5127,7 +5101,7 @@ export declare enum InputEventInterceptAction {
   CONTINUE = 0,
 
   /**
-   * Block the event from being delivered to the UI framework.
+   * 阻止事件传递到UI框架。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5137,7 +5111,7 @@ export declare enum InputEventInterceptAction {
 }
 
 /**
- * Define the type of raw input event.
+ * 原始输入事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5145,16 +5119,15 @@ export declare enum InputEventInterceptAction {
  */
 export declare enum RawInputEventType {
   /**
-   * Touch events.
+   * 触摸事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   TOUCH = 0,
-
   /**
-   * Mouse events.
+   * 鼠标事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5164,16 +5137,15 @@ export declare enum RawInputEventType {
 }
 
 /**
- * Define the smart gesture shortcut priority enumeration.
+ * 组件的智慧手势响应优先级枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum GestureShortcut {
     /**
-     * Primary priority.
+     * 智慧手势响应优先级。当前智慧手势响应配置仅支持该取值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5183,16 +5155,15 @@ export declare enum GestureShortcut {
 }
 
 /**
- * Define the actions for smart gesture shortcut.
+ * 智慧手势操作类型枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum SmartGestureAction {
     /**
-     * No action.
+     * 无动作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5200,7 +5171,7 @@ export declare enum SmartGestureAction {
      */
     NONE = 0,
     /**
-     * Page forward action.
+     * 向前翻页。包括向下和向右。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5208,7 +5179,7 @@ export declare enum SmartGestureAction {
      */
     PAGE_FORWARD = 1,
     /**
-     * Scroll forward action.
+     * 向前滚动。包括向下和向右。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5216,7 +5187,7 @@ export declare enum SmartGestureAction {
      */
     SCROLL_FORWARD = 2,
     /**
-     * Select action.
+     * 选中组件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5224,7 +5195,7 @@ export declare enum SmartGestureAction {
      */
     SELECT = 3,
     /**
-     * Click action.
+     * 点击组件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5232,7 +5203,7 @@ export declare enum SmartGestureAction {
      */
     CLICK = 4,
     /**
-     * Back press action.
+     * 返回。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5242,16 +5213,15 @@ export declare enum SmartGestureAction {
 }
 
 /**
- * Define the smart gesture's operation intention.
+ * 智慧手势原始操作意图枚举。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum OperateIntention {
     /**
-     * Tap intention.
+     * 敲一敲。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5259,7 +5229,7 @@ export declare enum OperateIntention {
      */
     TAP = 0,
     /**
-     * Slide forward intention.
+     * 划一划。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5267,7 +5237,7 @@ export declare enum OperateIntention {
      */
     SLIDE_FORWARD = 1,
     /**
-     * Back press intention.
+     * 翻腕。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
