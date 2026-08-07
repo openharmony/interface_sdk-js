@@ -14,14 +14,17 @@
 */
 
 /**
- * @file
+ * @file HDR Capability
  * @kit ArkGraphics2D
  */
 
-import { AsyncCallback } from './@ohos.base'; 
+import { AsyncCallback } from './@ohos.base';
 
 /**
- * The hdrCapability module provides enums related to the High Dynamic Range (HDR) capability.
+ * The hdrCapability module provides enums related to the High Dynamic Range (HDR) capability. The HDR technology 
+ * significantly expands the dynamic range and color expressiveness of images. It is applicable to scenarios such as 
+ * video playback and image display. It addresses the issues of overexposure in bright areas and loss of details in dark
+ * areas in traditional SDR in high-contrast scenarios, delivering a more authentic and richer visual experience.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @atomicservice [since 12]
@@ -41,8 +44,6 @@ declare namespace hdrCapability {
     /**
      * Unsupported HDR type.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -51,8 +52,6 @@ declare namespace hdrCapability {
     NONE = 0,
     /**
      * Videos in Hybrid Log-Gamma (HLG) format.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -63,8 +62,6 @@ declare namespace hdrCapability {
     /**
      * Videos in HDR10 format.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -73,8 +70,6 @@ declare namespace hdrCapability {
     VIDEO_HDR10 = 2,
     /**
      * Videos in HDR_VIVID format.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -85,8 +80,6 @@ declare namespace hdrCapability {
     /**
      * Images in HDR_VIVID format, stored in dual JPEG format.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -95,8 +88,6 @@ declare namespace hdrCapability {
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
      * Images in HDR_VIVID format, stored in single HEIF format.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -107,8 +98,6 @@ declare namespace hdrCapability {
     /**
      * Images in HDR_ISO format, stored in dual JPEG format.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -118,8 +107,6 @@ declare namespace hdrCapability {
     /**
      * Images in HDR_ISO format, stored in single HEIF format.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -128,8 +115,6 @@ declare namespace hdrCapability {
     IMAGE_HDR_ISO_SINGLE = 7,
     /**
      * Videos in AIHDR format.
-     *
-     * This API can be used in atomic services since API version 24.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @stagemodelonly
