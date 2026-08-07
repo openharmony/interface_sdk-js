@@ -17140,6 +17140,46 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates the Picker color modes.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  export declare enum PickerColorMode {
+    /**
+     * Same with the system.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    AUTO = 0,
+
+    /**
+     * Light mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    LIGHT = 1,
+
+    /**
+     * Dark mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    Dark = 2
+  }
+
+
+  /**
    * Configuration for invoking an analysis tool.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
