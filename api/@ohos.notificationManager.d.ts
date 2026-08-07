@@ -183,7 +183,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
-   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} Checks whether notification is enabled for the specified application.
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} Checks whether notification is enabled 
+   * for the specified application.
    * @see [cancel]{@link notificationManager.cancel(id: int,label:string,callback:AsyncCallback<void>): void} Cancels a published notification based on the notification ID and label. 
    * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} Cancels all notifications of this application.
    */
