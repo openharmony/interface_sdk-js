@@ -179,7 +179,7 @@ declare class ArrayList<T> {
    * 用户操作ArrayList中的元素，用操作后的元素替换原元素并返回操作后的元素。
    *
    * @param { function } callbackFn - 回调函数。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为undefined。
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -203,7 +203,7 @@ declare class ArrayList<T> {
    * 在遍历ArrayList实例对象的过程中，对每个元素执行回调函数。
    *
    * @param { function } callbackFn - 回调函数。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为当前实例对象。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值，默认值为undefined。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
