@@ -469,10 +469,10 @@ export interface RenderContext {
   getRenderResourceFactory() : RenderResourceFactory;
 
   /**
-   * Load external plugin
+   * Loads a plugin by name. The API locates and loads the corresponding plugin resource using the provided plugin name. It uses a promise to return the result.
    * 
-   * @param {string} name - Name of the plugin
-   * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
+   * @param {string} name - Name of the plugin to load, which must be a system predefined or registered and available plugin name, and follow the naming conventions.
+   * @returns { Promise<boolean> } - Promise used to return a Boolean value, indicating whether the plugin is loaded. The value true means that the plugin is loaded, and false means the opposite.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -480,11 +480,17 @@ export interface RenderContext {
   loadPlugin(name: string): Promise<boolean>;
 
   /**
-   * Register resource path
+   * Registers the directory path and retrieval name for asset files, such as shaders.
+   * It allows the system to find and replace the path descriptions of related files within the shaders using the retrieval name.
+   * This ensures that the correct paths for assets and their associated files are located and loaded properly.
    *
-   * @param { string } protocol - Protocol of the uri
-   * @param { string } uri - Path to register
-   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @param { string } protocol - Path retrieval name to be registered, used as the prefix identifier for file paths associated internally in the shader.
+   *     Must be a non-empty retrieval name that is not predefined or registered by the system.
+   * @param { string } uri - Directory path of the assets to be registered, which corresponds to the retrieval name.
+   *     When the shader is loaded, the retrieval name prefix in the path is replaced with this directory.
+   *     It must be the path to the folder containing the asset files.
+   * @returns { boolean } - Result indicating whether the registration is successful. true if successful, and false otherwise.
+   *     The possible cause of a registration failure is that the retrieval name has been registered or an input parameter is invalid.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -636,11 +642,11 @@ export declare class Scene {
   static getDefaultRenderContext(): RenderContext | null;
 
   /**
-   * Create a new scene from a ResourceStr.
-   * If uri is not provided, will return an empty scene.
+   * Loads a resource by path.
+   * This API uses a promise to return the result.
    *
-   * @param { ResourceStr } [uri] - the resource of creating a scene
-   * @returns { Promise<Scene> } promise a scene
+   * @param { ResourceStr } [uri] - Path of the model file resource to load. The default value is undefined.
+   * @returns { Promise<Scene> } Promise used to return the Scene object created.
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -704,11 +710,11 @@ export declare class Scene {
   get root(): Node | null;
 
   /**
-   * Get a node by path.
+   * Obtains a node by path.
    *
-   * @param { string } path - the path of the node
-   * @param { NodeType } type - verify the type of node, if it does not match, return null
-   * @returns { Node | null } if the node is found by it's path
+   * @param { string } path - Path in the scene node tree. Each layer is separated by a slash (/).
+   * @param { NodeType } type - Expected type of the node to be returned. The default value is null.
+   * @returns { Node | null } Returns the instance of the requested node. Returns null if not found or if the type of the found node does not match the passed parameter.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -726,7 +732,7 @@ export declare class Scene {
   getResourceFactory(): SceneResourceFactory;
 
   /**
-   * Release all native scene resources. All TS references will be undefined.
+   * Destroys this scene and releases all scene resources.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
