@@ -13086,7 +13086,8 @@ declare namespace window {
      *     to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @throws { BusinessError } 1300029 - This window type is invalid. 
+     *     Possible cause: A non-system window calls this API.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 22 dynamic
@@ -13101,11 +13102,11 @@ declare namespace window {
      * @returns { boolean } Check result for whether rotation is currently locked for this system window. **true** if
      *     locked, **false** otherwise.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Function setRotationLocked can not work correctly due
+     * @throws { BusinessError } 801 - Capability not supported. Function getRotationLocked can not work correctly due
      *     to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @throws { BusinessError } 1300029 - This window type is invalid. Possible cause: A non-system window calls this API.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 22 dynamic
