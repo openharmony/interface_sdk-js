@@ -17141,6 +17141,7 @@ declare namespace photoAccessHelper {
 
   /**
    * Enumerates the Picker color modes.
+   * 
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
@@ -17175,7 +17176,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 26.1.0 dynamic&static
      */
-    Dark = 2
+    DARK = 2
   }
 
 
