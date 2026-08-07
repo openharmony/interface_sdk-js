@@ -2975,10 +2975,10 @@ declare namespace window {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device
+   * @throws { BusinessError } 801 - Capability not supported.createWindow cannot work correctly due to limited device
    *     capabilities. [since 12]
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow. [since 12]
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is
@@ -3010,10 +3010,10 @@ declare namespace window {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device
+   * @throws { BusinessError } 801 - Capability not supported.createWindow cannot work correctly due to limited device
    *     capabilities. [since 12]
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow. [since 12]
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is
@@ -3107,9 +3107,9 @@ declare namespace window {
    * @returns { Promise<Window> } The interface for creating a window returns a promise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     This can not work correctly due to limited device capabilities.
+   *     This cannot work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: 1. Internal task error.
    *                     2. The number of windows has reached the limit.
@@ -3622,7 +3622,7 @@ declare namespace window {
    *     300016 is returned.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Function shiftAppWindowTouchEvent can not work correctly due to limited device capabilities.
+   *     Function shiftAppWindowTouchEvent cannot work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: 1. SourceWindow cannot find: not created or not belong to current process;
    *     2. TargetWindow cannot find: not created or not belong to current process;
@@ -5560,12 +5560,12 @@ declare namespace window {
      *
      * @param { ShowWindowOptions } options - options of window shown
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Function showWindow can not work correctly due to
+     * @throws { BusinessError } 801 - Capability not supported. Function showWindow cannot work correctly due to
      *     limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Modal subwindow and dialog window can not set focusOnShow.
+     *     Possible cause: Invalid window type. Modal subwindow and dialog window cannot set focusOnShow.
      * @throws { BusinessError } 1300016 - Parameter validation error. Possible cause: 1. The value of the parameter is
      *     out of the allowed range;
      *     2. The length of the parameter exceeds the allowed length;
@@ -7404,7 +7404,7 @@ declare namespace window {
      *     least one UIExtensionAbility within the window has enabled the hiding of unsafe windows, and **false** means
      *     that all UIExtensionAbility components within the window have disabled the hiding of unsafe windows.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function on('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -7420,7 +7420,7 @@ declare namespace window {
      * @param { Callback<boolean> } callback
      *     Callback used to return the result whether the APP has uiextension secure limit.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function on('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7439,7 +7439,7 @@ declare namespace window {
      *     corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified event
      *     are canceled.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function off('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -7455,7 +7455,7 @@ declare namespace window {
      * @param { Callback<boolean> } [callback] Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function off('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -12834,7 +12834,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error;
-     *     3. The subWindow has been created and can not be created again.
+     *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
@@ -13106,7 +13106,7 @@ declare namespace window {
      * @param { boolean } enabled - Whether the window supports the event separation state. **true** if supported;
      *     **false** otherwise.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -13123,7 +13123,7 @@ declare namespace window {
      *
      * @returns { boolean } Whether the current window supports the event separation state.
      *     <br>**true** if support; **false** otherwise.
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -13145,7 +13145,7 @@ declare namespace window {
      * @param { boolean } enabled - Whether the window can receive drag events. **true** if the window can receive drag
      *     events; **false** otherwise.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -13162,7 +13162,7 @@ declare namespace window {
      *
      * @returns { boolean } Whether the current window can receive drag events.
      *     <br>**true** if the current window can receive drag events; **false** otherwise.
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -13830,7 +13830,7 @@ declare namespace window {
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and can not be created again.
+     *     Possible cause: The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -13847,7 +13847,7 @@ declare namespace window {
      * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and can not be created again.
+     *     Possible cause: The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -13868,7 +13868,7 @@ declare namespace window {
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
-     *     2. The subWindow has been created and can not be created again.
+     *     2. The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
