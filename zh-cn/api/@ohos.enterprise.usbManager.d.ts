@@ -130,7 +130,7 @@ declare namespace usbManager {
   /**
    * USB设备类型信息。
    *
-   * 可通过getDevices接口获取已接入主设备的USB设备列表，并从返回值列表中查找当前设备的类型信息。
+   * 可通过[getDevices]{@link @ohos.usbManager:usbManager.getDevices}接口获取已接入主设备的USB设备列表，并从返回值列表中查找当前设备的类型信息。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -214,10 +214,10 @@ declare namespace usbManager {
   /**
    * USB设备类型信息，支持部分字段匹配。
    *
-   * - 与[UsbDeviceType]{@link UsbDeviceType}相比，本接口的subClass、protocol、descriptor字段为可选字段，实现更灵活的USB设备禁用策略。
+   * - 与[UsbDeviceType]{@link usbManager.UsbDeviceType}相比，本接口的subClass、protocol、descriptor字段为可选字段，实现更灵活的USB设备禁用策略。
    * - 支持仅根据baseClass字段进行匹配。
    * - 支持配置多个字段，多个字段同时满足才匹配。
-   * - 可通过getDevices接口获取已接入主设备的USB设备列表，并从返回值列表中查找当前设备的类型信息。
+   * - 可通过[getDevices]{@link @ohos.usbManager:usbManager.getDevices}接口获取已接入主设备的USB设备列表，并从返回值列表中查找当前设备的类型信息。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -369,14 +369,14 @@ declare namespace usbManager {
    *
    * - 企业安全管理场景，需要限制只有特定的USB设备可以接入设备
    * - 设备管理员需要精确控制哪些USB设备能够被识别和使用
-   * - 配合[removeAllowedUsbDevices]{@link removeAllowedUsbDevices}接口实现USB设备的动态管理
+   * - 配合[removeAllowedUsbDevices]{@link usbManager.removeAllowedUsbDevices}接口实现USB设备的动态管理
    *
    * 以下情况下，调用本接口会报策略冲突：
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备USB或者USB转串口能力。
-   * 2. 已经通过[setUsbStorageDeviceAccessPolicy]{@link setUsbStorageDeviceAccessPolicy}接口设置了USB存储设备访问策略为禁用。
-   * 3. 已经通过[addDisallowedUsbDevices]{@link addDisallowedUsbDevices}接口添加了禁止使用的USB设备类型。
-   * 4. 已经通过[addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}接口添加了禁止使用的USB设备类型。
+   * 2. 已经通过[setUsbStorageDeviceAccessPolicy]{@link usbManager.setUsbStorageDeviceAccessPolicy}接口设置了USB存储设备访问策略为禁用。
+   * 3. 已经通过[addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}接口添加了禁止使用的USB设备类型。
+   * 4. 已经通过[addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}接口添加了禁止使用的USB设备类型。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -468,13 +468,13 @@ declare namespace usbManager {
    * > 以下情况下，通过本接口设置USB存储设备访问策略为可读可写/只读，会报策略冲突：
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备USB能力。
-   * 2. 已经通过[addDisallowedUsbDevices]{@link addDisallowedUsbDevices}接口将存储类型的USB设备添加为禁止使用的USB设备类型。
+   * 2. 已经通过[addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}接口将存储类型的USB设备添加为禁止使用的USB设备类型。
    * 3. 已经通过[setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用了某用户USB存储设备写入能力。
    *
    * 以下情况下，通过本接口设置USB存储设备访问策略为禁用，会报策略冲突：
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备USB能力。
-   * 2. 已经通过[addAllowedUsbDevices]{@link addAllowedUsbDevices}接口添加了USB设备可用名单。
+   * 2. 已经通过[addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}接口添加了USB设备可用名单。
    * 3. 已经通过[setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用了某用户USB存储设备写入能力。
    *
    * 通过本接口设置，或者通过[addDisallowedUsbDevices]{@link addDisallowedUsbDevices}接口添加存储类型的USB设备，均可禁用USB存储设备。推荐使用后者。
@@ -500,7 +500,8 @@ declare namespace usbManager {
   /**
    * 获取USB存储设备（baseClass = 0x08）访问策略。
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @returns { UsbPolicy } USB存储设备访问策略。设置为READ_WRITE表示允许读写USB存储设备；设置为READ_ONLY表示仅允许读取USB存储设备，禁止写入；设置为DISABLED表示完全禁止访问USB存储设备。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -543,17 +544,17 @@ declare namespace usbManager {
    * - 企业安全管理场景，需要禁用特定类型的USB设备
    * - 防止数据泄露：禁用USB存储设备类型
    * - 设备管理员需要根据安全策略，禁止使用某些类型的USB设备
-   * - 配合[removeDisallowedUsbDevices]{@link removeDisallowedUsbDevices}接口实现USB设备类型的动态管理
+   * - 配合[removeDisallowedUsbDevices]{@link usbManager.removeDisallowedUsbDevices}接口实现USB设备类型的动态管理
    *
    * > **说明：**
    * >
-   * > 推荐使用[addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}接口。
+   * > 推荐使用[addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}接口。
    * > 以下情况下，调用本接口会报策略冲突：
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备USB能力。
-   * 2. 已经通过[addAllowedUsbDevices]{@link addAllowedUsbDevices}接口添加了USB设备可用名单。
+   * 2. 已经通过[addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}接口添加了USB设备可用名单。
    * 3. 已经通过[setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用了某用户USB存储设备写入能力。
-   * 4. 已经通过[addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}接口添加了禁止使用的USB设备类型。
+   * 4. 已经通过[addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}接口添加了禁止使用的USB设备类型。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -648,15 +649,15 @@ declare namespace usbManager {
   function getDisallowedUsbDevices(admin: Want | null): Array<UsbDeviceType>;
 
   /**
-   * 添加禁止使用的USB设备类型。与[addDisallowedUsbDevices]{@link addDisallowedUsbDevices}接口不同的是，本接口可以不按照
+   * 添加禁止使用的USB设备类型。与[addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}接口不同的是，本接口可以不按照
    * [defined-class-codes](https://www.usb.org/defined-class-codes)标准进行匹配。对已连接的USB设备热生效，无需重新插拔，例如USB线控耳机正常使用时，调用本接口禁用该耳
    * 机，会导致耳机不可用。
    *
    * 以下情况下，调用本接口会报策略冲突：
    *
-   * 1. 已经通过[addDisallowedUsbDevices]{@link addDisallowedUsbDevices}接口添加了禁止使用的USB设备类型。
+   * 1. 已经通过[addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}接口添加了禁止使用的USB设备类型。
    * 2. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备USB能力。
-   * 3. 已经通过[addAllowedUsbDevices]{@link addAllowedUsbDevices}接口添加了USB设备可用名单。
+   * 3. 已经通过[addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}接口添加了USB设备可用名单。
    * 4. 已经通过[setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}接口禁用了某用户USB存储设备写入能力。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
@@ -676,7 +677,7 @@ declare namespace usbManager {
   function addDisallowedPermissiveUsbDevices(admin: Want, usbDevices: Array<PermissiveUsbDeviceType>): void;
 
   /**
-   * 移除通过[addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}接口禁用的USB设备类型。被移除的USB设备类型
+   * 移除通过[addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}接口禁用的USB设备类型。被移除的USB设备类型
    * 可恢复正常使用。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
@@ -694,7 +695,7 @@ declare namespace usbManager {
   function removeDisallowedPermissiveUsbDevices(admin: Want, usbDevices: Array<PermissiveUsbDeviceType>): void;
 
   /**
-   * 获取通过[addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}接口禁用的USB设备类型。
+   * 获取通过[addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}接口禁用的USB设备类型。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。当取值为null时，表示获取当前设备禁止使用的

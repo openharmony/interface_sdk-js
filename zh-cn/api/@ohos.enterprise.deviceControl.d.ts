@@ -53,7 +53,7 @@ declare namespace deviceControl {
 
     /**
      * 设备恢复出厂设置。接口调用后，设备将立即恢复出厂设置。恢复完成后，整机设备数据将全部被擦除且无法恢复。企业需要做好应用的安全设计，防止应用被攻击导致企业数据丢失。
-   	 * 已经通过restrictions.setDisallowedPolicy接口禁用了恢复出厂，需要先解除禁用。
+   	 * 已经通过[restrictions.setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)}接口禁用了恢复出厂，需要先解除禁用。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -90,8 +90,10 @@ declare namespace deviceControl {
 
     /**
      * 设备锁定。该能力使用后设备屏幕无法使用，按键无响应，仅支持锁屏文案定制，不支持在锁屏界面定制交互功能。在开发过程中，下发设备锁定策略前一定要预留逃生通道，并且确保逃生通道正常。
-   	 * 建议开发时保留hdc能力与远程通信能力，通过hdc命令或者远程push能力能触发设备解锁定功能。<br>如果需要实现在屏幕锁定的情况下支持自定义行为的能力，
-   	 * 使用[applicationManager.enterKioskMode](@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode(context: UIAbilityContext))接口进入Kiosk模式。
+     * 建议开发时保留hdc能力与远程通信能力，通过hdc命令或者远程push能力能触发设备解锁定功能。<br>如果需要实现在屏幕锁定的情况下支持自定义行为的能力，
+     * 建议使用[applicationManager.setAllowedKioskApps]{@link @ohos.enterprise.applicationManager:applicationManager.setAllowedKioskApps(admin: Want, appIdentifiers: Array<string>)}
+     * 接口配置支持Kiosk模式，
+     * 使用[applicationManager.enterKioskMode](@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode(context: UIAbilityContext))接口进入Kiosk模式。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly

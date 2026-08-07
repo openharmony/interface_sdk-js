@@ -101,8 +101,8 @@ declare namespace telephonyManager {
    * 以下情况下，通过本接口添加通话呼出的允许或禁用名单，会报策略冲突：
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备通话能力，再通过本接口添加通话呼出的禁用或允许名单，返回203错误码。通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口解除禁用设备通话能力后，可解除冲突。
-   * 2. 已经通过本接口设置了通话呼出的禁用名单，再通过本接口添加通话呼出允许名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers]{@link removeOutgoingCallPolicyNumbers}接口将之前设置的通话呼出禁用名单移除后，可解除冲突。
-   * 3. 已经通过本接口设置了通话呼出的允许名单，再通过本接口添加通话呼出禁用名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers]{@link removeOutgoingCallPolicyNumbers}接口将之前设置的通话呼出允许名单移除后，可解除冲突。
+   * 2. 已经通过本接口设置了通话呼出的禁用名单，再通过本接口添加通话呼出允许名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers]{@link telephonyManager.removeOutgoingCallPolicyNumbers}接口将之前设置的通话呼出禁用名单移除后，可解除冲突。
+   * 3. 已经通过本接口设置了通话呼出的允许名单，再通过本接口添加通话呼出禁用名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers]{@link telephonyManager.removeOutgoingCallPolicyNumbers}接口将之前设置的通话呼出允许名单移除后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -196,8 +196,8 @@ declare namespace telephonyManager {
    *
    * 1. 已经通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口禁用了设备通话能力，再通过本接口添加通话呼入的禁用或允许名单，返回203错误码。
    * 通过[setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}接口解除禁用设备通话能力后，可解除冲突。
-   * 2. 已经通过本接口设置了通话呼入的禁用名单，再通过本接口添加通话呼入允许名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers]{@link removeIncomingCallPolicyNumbers}接口将之前设置的通话呼入禁用名单移除后，可解除冲突。
-   * 3. 已经通过本接口设置了通话呼入的允许名单，再通过本接口添加通话呼入禁用名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers]{@link removeIncomingCallPolicyNumbers}接口将之前设置的通话呼入允许名单移除后，可解除冲突。
+   * 2. 已经通过本接口设置了通话呼入的禁用名单，再通过本接口添加通话呼入允许名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers]{@link telephonyManager.removeIncomingCallPolicyNumbers}接口将之前设置的通话呼入禁用名单移除后，可解除冲突。
+   * 3. 已经通过本接口设置了通话呼入的允许名单，再通过本接口添加通话呼入禁用名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers]{@link telephonyManager.removeIncomingCallPolicyNumbers}接口将之前设置的通话呼入允许名单移除后，可解除冲突。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。

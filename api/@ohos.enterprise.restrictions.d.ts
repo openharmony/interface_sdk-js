@@ -229,9 +229,12 @@ declare namespace restrictions {
      *
      * If the device USB capability is disabled in any of the following scenarios, a policy conflict will be reported:
      *
-     * 1. A list of allowed USB devices has been configured via the addAllowedUsbDevices API.
-     * 2. USB storage device access policy has been set to read-only or disabled via the setUsbStorageDeviceAccessPolicy API.
-     * 3. Specific USB device types have been blocked via the addDisallowedUsbDevices API.
+     * 1. A list of allowed USB devices has been configured via the
+     * [addAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addAllowedUsbDevices} API.
+     * 2. USB storage device access policy has been set to read-only or disabled via the
+     * [setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy} API.
+     * 3. Specific USB device types have been blocked via the
+     * [addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices} API.
      * 4. USB storage write has been disabled for specific users via the [setDisallowedPolicyForAccount]{@link restrictions.setDisallowedPolicyForAccount} API.
      * 5. USB-to-serial conversion ([USB_SERIAL]{@link restrictions.FeatureForDevice}) is disabled.
      *
@@ -509,7 +512,8 @@ declare namespace restrictions {
      * be unavailable. Disabling the USB-to-Serial capability in any of the following scenario will trigger a policy
      * conflict:
      *
-     * 1. A list of allowed USB devices has been configured via the addAllowedUsbDevices API.
+     * 1. A list of allowed USB devices has been configured via the
+     * [addAllowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addAllowedUsbDevices} API.
      * 2. The device ([USB]{@link restrictions.FeatureForDevice}) capability has been disabled.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -689,8 +693,9 @@ declare namespace restrictions {
      * result in a policy conflict:
      *
      * 1. The device USB capability ([FeatureForDevice.USB]{@link restrictions.FeatureForDevice}) has been disabled.
-     * 2. USB storage device access policy has been set to read-only or disabled via the setUsbStorageDeviceAccessPolicy API.
-     * 3. Storage USB devices have been disabled via the addDisallowedUsbDevices API.
+     * 2. USB storage device access policy has been set to read-only or disabled via the
+     * [setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy} API.
+     * 3. Storage USB devices have been disabled via the [addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices} API.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -1222,7 +1227,8 @@ declare namespace restrictions {
    *     <br>  2. USB storage device access policy has been set to read-only or disabled via the
    *     [setUsbStorageDeviceAccessPolicy]{@link @ohos.enterprise.usbManager:usbManager.setUsbStorageDeviceAccessPolicy}
    *     API.
-   *     <br>  3. Storage USB devices have been disabled via the addDisallowedUsbDevices API.
+   *     <br>  3. Storage USB devices have been disabled via the
+   *     [addDisallowedUsbDevices]{@link @ohos.enterprise.usbManager:usbManager.addDisallowedUsbDevices} API.
    *     <br>- **diskRecoveryKey**<sup>20+</sup>: recovery
    *     [key export](docroot://security/UniversalKeystoreKit/huks-export-key-arkts.md) capability. Currently, this
    *     feature is supported only on PCs/2-in-1 devices.
