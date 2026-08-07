@@ -5271,7 +5271,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { ImageFormat } format - 图像格式，如YCBCR_422_SP，JPEG。
    * @param { int } capacity - 同时访问的最大图像数。该参数仅作为期望值，实际capacity由设备硬件决定。
    * @returns { ImageCreator } 如果操作成功，则返回ImageCreator实例。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11 dynamic
@@ -7194,7 +7194,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { rpc.MessageSequence } sequence - 新创建的MessageSequence。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     *     2.Incorrect parameter types; 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
      *     exception.
      *     3. Decode process exception. 4. Insufficient memory.
@@ -15281,7 +15281,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOptionsForSequence } options - 动图编码参数。
      * @returns { Promise<ArrayBuffer> } Promise对象，返回编码后的数据。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     *     2.Incorrect parameter types;3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
