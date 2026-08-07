@@ -877,8 +877,10 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} Adds an array of notification slots.
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} Removes a notification slot of a specified type for this application.
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} Removes all notification slots for this application.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} Removes a notification 
+   * slot of a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} Removes all 
+   * notification slots for this application.
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1703,7 +1705,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  Sets the notification badge number.
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  Sets the notification 
+   * badge number.
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1720,7 +1723,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  Sets the notification badge number.
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  Sets the notification 
+   * badge number.
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
