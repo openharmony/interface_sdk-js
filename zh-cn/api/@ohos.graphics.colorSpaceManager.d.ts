@@ -14,12 +14,13 @@
 */
 
 /**
- * @file
+ * @file 色彩管理
  * @kit ArkGraphics2D
  */
 
 /**
- * 本模块提供管理抽象化色域对象的一些基础能力，包括色域对象的创建与色域基础属性的获取等。
+ * 本模块提供管理抽象化色域对象的基础能力，包括创建标准色域对象（如SRGB、DCI-P3、BT2020等）和自定义色域对象，获取色域类型、白点值、gamma值等属性。适用于需要保证色彩一致性的场景，如图像处理、视频渲染、跨设备色彩显示
+ * 等，帮助开发者实现准确的色彩管理和转换，提升应用在色彩显示方面的用户体验。
  *
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform [since 11]
@@ -41,8 +42,6 @@ declare namespace colorSpaceManager {
     /**
      * 未知的色域类型。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -53,12 +52,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Adobe RGB(1998)类型。
-     *
+     * 
      * 转换函数为Adobe RGB(1998)类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -70,12 +67,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为DCI-P3类型。
-     *
+     * 
      * 转换函数为Gamma 2.6类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -86,13 +81,11 @@ declare namespace colorSpaceManager {
     DCI_P3 = 2,
 
     /**
-     * RGB色域为DCI-P3类型。
-     *
-     * 转换函数为Gamma 2.6类型。
-     *
+     * RGB色域为Display P3类型。
+     * 
+     * 转换函数为SRGB类型。
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -104,14 +97,12 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为SRGB类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
+     * 
      * 系统默认色域类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -123,12 +114,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT709类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -140,12 +129,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT601_P类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -157,12 +144,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT601_N类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -174,12 +159,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为HLG类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -191,12 +174,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为PQ类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -208,12 +189,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为HLG类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -225,12 +204,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为PQ类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -242,12 +219,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Adobe RGB(1998)类型。
-     *
+     * 
      * 转换函数为Adobe RGB(1998)类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -259,12 +234,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -276,12 +249,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为SRGB类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -293,12 +264,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT709类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -310,12 +279,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT601_P类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -327,12 +294,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT601_N类型。
-     *
+     * 
      * 转换函数为BT709类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -344,12 +309,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为HLG类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -361,12 +324,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为PQ类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -378,12 +339,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为HLG类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -395,12 +354,10 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为PQ类型。
-     *
+     * 
      * 编码范围为Limit类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -412,10 +369,8 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为Linear类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -427,10 +382,8 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为SRGB类型。
-     *
+     * 
      * 转换函数为Linear类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -442,12 +395,10 @@ declare namespace colorSpaceManager {
 
     /**
      * 与LINEAR_SRGB相同。
-     *
+     * 
      * RGB色域为BT709类型。
-     *
+     * 
      * 转换函数为Linear类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -459,10 +410,8 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为Linear类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -474,14 +423,12 @@ declare namespace colorSpaceManager {
 
     /**
      * 与SRGB相同。
-     *
+     * 
      * RGB色域为SRGB类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -493,14 +440,12 @@ declare namespace colorSpaceManager {
 
     /**
      * 与DISPLAY_P3相同。
-     *
+     * 
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -511,13 +456,13 @@ declare namespace colorSpaceManager {
     DISPLAY_P3_SRGB = DISPLAY_P3,
 
     /**
+     * 与P3_HLG相同。
+     * 
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为HLG类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -529,14 +474,12 @@ declare namespace colorSpaceManager {
 
     /**
      * 与P3_PQ相同。
-     *
+     * 
      * RGB色域为Display P3类型。
-     *
+     * 
      * 转换函数为PQ类型。
-     *
+     * 
      * 编码范围为Full类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -548,7 +491,7 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为BT2020类型。
-     *
+     * 
      * 转换函数为LOG类型。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -559,9 +502,9 @@ declare namespace colorSpaceManager {
 
     /**
      * RGB色域为DISPLAY BT2020类型。
-     *
+     * 
      * 转换函数为SRGB类型。
-     *
+     * 
      * 编码范围为Full类型。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -573,15 +516,13 @@ declare namespace colorSpaceManager {
     /**
      * 用户自定义色域类型。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
      */
-    CUSTOM = 5
+    CUSTOM = 5,
   }
 
   /**
@@ -676,8 +617,8 @@ declare namespace colorSpaceManager {
 
   /**
    * 当前色域对象实例。
-   * 下列API示例中都需先使用[create()]{@link colorSpaceManager.create(colorSpaceName: ColorSpace)}获取到ColorSpaceManager实例，再通过此实例调用对
-   * 应方法。
+   * 
+   * 下列API示例中都需先使用[create()]{@link colorSpaceManager.create}获取到ColorSpaceManager实例，再通过此实例调用对应方法。
    *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform [since 11]
@@ -725,7 +666,8 @@ declare namespace colorSpaceManager {
   /**
    * 创建标准色域对象。
    *
-   * @param { ColorSpace } colorSpaceName - 标准色域类型枚举值。<br>UNKNOWN与CUSTOM不可用于直接创建色域对象。
+   * @param { ColorSpace } colorSpaceName - 标准色域类型枚举值。
+   *     <br>UNKNOWN与CUSTOM不可用于直接创建色域对象。
    * @returns { ColorSpaceManager } 返回当前创建的色域对象实例。
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *     2.Parameter verification failed.
