@@ -121,9 +121,9 @@ declare namespace telephonyManager {
    * using this API to add an outgoing call trustlist or blocklist will return error code 203. To resolve the conflict,
    * enable the call capability via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
    * 2. If an outgoing call blocklist has been set via this API, using this API again to add an outgoing call trustlist
-   * will return error code 9200010. To resolve the conflict, remove the previously set blocklist via the [removeOutgoingCallPolicyNumbers]{@link removeOutgoingCallPolicyNumbers} API.
+   * will return error code 9200010. To resolve the conflict, remove the previously set blocklist via the [removeOutgoingCallPolicyNumbers]{@link telephonyManager.removeOutgoingCallPolicyNumbers} API.
    * 3. If an outgoing call trustlist has been set via this API, using this API again to add an outgoing call blocklist
-   * will return error code 9200010. To resolve the conflict, remove the previously set trustlist via the [removeOutgoingCallPolicyNumbers]{@link removeOutgoingCallPolicyNumbers} API.
+   * will return error code 9200010. To resolve the conflict, remove the previously set trustlist via the [removeOutgoingCallPolicyNumbers]{@link telephonyManager.removeOutgoingCallPolicyNumbers} API.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -236,9 +236,9 @@ declare namespace telephonyManager {
    * using this API to add an incoming call trustlist or blocklist will return error code 203. To resolve the conflict,
    * enable the call capability via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
    * 2. If an incoming call blocklist has been set via this API, using this API again to add an incoming call trustlist
-   * will return error code 9200010. To resolve the conflict, remove the previously set blocklist via the [removeIncomingCallPolicyNumbers]{@link removeIncomingCallPolicyNumbers} API.
+   * will return error code 9200010. To resolve the conflict, remove the previously set blocklist via the [removeIncomingCallPolicyNumbers]{@link telephonyManager.removeIncomingCallPolicyNumbers} API.
    * 3. If an incoming call trustlist has been set via this API, using this API again to add an incoming call blocklist
-   * will return error code 9200010. To resolve the conflict, remove the previously set trustlist via the [removeIncomingCallPolicyNumbers]{@link removeIncomingCallPolicyNumbers} API.
+   * will return error code 9200010. To resolve the conflict, remove the previously set trustlist via the [removeIncomingCallPolicyNumbers]{@link telephonyManager.removeIncomingCallPolicyNumbers} API.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the

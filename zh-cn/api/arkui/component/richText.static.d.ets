@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,59 +14,59 @@
  * limitations under the License.
  */
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 import { CommonMethod } from './common';
 import { Resource } from '../../global/resource';
 import { ComponentBuilder, CustomBuilder } from "./builder";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
- * Defines the RichText attribute functions.
+ * 定义RichText属性函数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface RichTextAttribute extends CommonMethod {
-    /**
-     * Triggered when the RichText loading starts.
+  /**
+     * 当富文本加载开始时触发。
      *
-     * @param { function | undefined } callback
-     * @returns { RichTextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default onStart(callback: (() => void) | undefined): this;
-    /**
-     * Triggered when the RichText loading ends.
+   * @param { function | undefined } callback
+   * @returns { RichTextAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default onStart(callback: (() => void) | undefined): this;
+  /**
+     * 当富文本加载结束时触发。
      *
-     * @param { function | undefined } callback
-     * @returns { RichTextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default onComplete(callback: (() => void) | undefined): this;
-    /**
-     * Set the attribute modifier
+   * @param { function | undefined } callback
+   * @returns { RichTextAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default onComplete(callback: (() => void) | undefined): this;
+  /**
+     * 设置属性修饰符。
      *
-     * @param { AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { RichTextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default attributeModifier(modifier: AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+   * @param { AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { RichTextAttribute }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default attributeModifier(modifier: AttributeModifier<RichTextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
- * Defines RichText Component.
+ * 定义RichText组件。
  *
  * @param { string | Resource } content.
  * @param { CustomBuilder } [content_] - container
  * @returns { RichTextAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
@@ -74,4 +74,4 @@ export declare interface RichTextAttribute extends CommonMethod {
 export declare function RichText(
     content: string | Resource,
     content_?: CustomBuilder,
-): RichTextAttribute
+): RichTextAttribute;

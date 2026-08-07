@@ -428,7 +428,7 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The axis event in progress.
+     * @throws { BusinessError } 4300001 - The axis event is in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly

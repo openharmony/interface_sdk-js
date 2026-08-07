@@ -21,12 +21,10 @@
 /**
  * Provides an interface for RichText component.
  *
- * @interface RichTextInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 11]
  * @atomicservice [since 11 - 11]
  * @since 8 dynamic
- * @noninterop [since 12]
  */
 interface RichTextInterface {
   /**
@@ -39,7 +37,6 @@ interface RichTextInterface {
    * @crossplatform [since 11]
    * @atomicservice [since 11 - 11]
    * @since 8 dynamic
-   * @noninterop [since 12]
    */
   (content: string | Resource): RichTextAttribute;
 }
@@ -47,12 +44,10 @@ interface RichTextInterface {
 /**
  * Defines the RichText attribute functions.
  *
- * @extends CommonMethod<RichTextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 11]
  * @atomicservice [since 11 - 11]
  * @since 8 dynamic
- * @noninterop [since 12]
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**

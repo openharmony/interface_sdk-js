@@ -132,7 +132,7 @@ declare namespace usbManager {
    * Represents the USB device type information.
    *
    * You can obtain the list of USB devices connected to the host device through the
-   * getDevices API, and then find the type of the current device in the
+   * [getDevices]{@link @ohos.usbManager:usbManager.getDevices} API, and then find the type of the current device in the
    * returned list.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -235,12 +235,12 @@ declare namespace usbManager {
   /**
    * USB device type information. Partial field matching is supported.
    *
-   * - Compared with [UsbDeviceType]{@link UsbDeviceType}, the **subClass**, **protocol**, and **descriptor**
+   * - Compared with [UsbDeviceType]{@link usbManager.UsbDeviceType}, the **subClass**, **protocol**, and **descriptor**
    * parameters in this API are optional, allowing for more flexible USB device disabling policies.
    * - Only the matching based on the **baseClass** parameter is supported.
    * - Multiple parameters can be configured. All parameters must be satisfied simultaneously for a match.
    * - You can obtain the list of USB devices connected to the host device through the
-   * getDevices API, and then find the type of the current device in the
+   * [getDevices]{@link @ohos.usbManager:usbManager.getDevices} API, and then find the type of the current device in the
    * returned list.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -408,15 +408,15 @@ declare namespace usbManager {
    *
    * - Restrict access to only specific USB devices in enterprise security management scenarios.
    * - Enable device administrators to precisely control which USB devices can be recognized and used.
-   * - Work with the [removeAllowedUsbDevices]{@link removeAllowedUsbDevices} API to implement dynamic
+   * - Work with the [removeAllowedUsbDevices]{@link usbManager.removeAllowedUsbDevices} API to implement dynamic
    * management of USB devices.
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
    * 1. The USB capability or the USB-to-serial capability of the device has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
-   * 2. The USB storage device access policy has been disabled using the [setUsbStorageDeviceAccessPolicy]{@link setUsbStorageDeviceAccessPolicy} API.
-   * 3. Disallowed USB device types have been added using the [addDisallowedUsbDevices]{@link addDisallowedUsbDevices} API.
-   * 4. Disallowed USB device types have been added via [addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}.
+   * 2. The USB storage device access policy has been disabled using the [setUsbStorageDeviceAccessPolicy]{@link usbManager.setUsbStorageDeviceAccessPolicy} API.
+   * 3. Disallowed USB device types have been added using the [addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices} API.
+   * 4. Disallowed USB device types have been added via [addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -520,14 +520,14 @@ declare namespace usbManager {
    * > following scenarios:
    *
    * 1. The USB capability of the device has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
-   * 2. The USB storage device has been disallowed to use through [addDisallowedUsbDevices]{@link addDisallowedUsbDevices}.
+   * 2. The USB storage device has been disallowed to use through [addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}.
    * 3. The USB storage write capability has been disabled for specific users via [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
    *
    * A policy conflict is reported if the USB storage device access policy is disabled by calling this API in the
    * following scenarios:
    *
    * 1. The USB capability of the device has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
-   * 2. The available USB devices have been added through [addAllowedUsbDevices]{@link addAllowedUsbDevices}.
+   * 2. The available USB devices have been added through [addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}.
    * 3. The USB storage write capability has been disabled for specific users via [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
    *
    * You can disable a USB storage device by calling this API or
@@ -555,7 +555,8 @@ declare namespace usbManager {
   /**
    * Obtains the access policy of the USB storage device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { UsbPolicy } Access policy of the USB storage device.
@@ -602,18 +603,18 @@ declare namespace usbManager {
    * - Disable specific types of USB devices in enterprise security management scenarios.
    * - Prevent data leaks by disabling USB storage device types.
    * - Enable device administrators to prohibit the use of certain USB device types based on security policies.
-   * - Work with the [removeDisallowedUsbDevices]{@link removeDisallowedUsbDevices} API to implement dynamic
+   * - Work with the [removeDisallowedUsbDevices]{@link usbManager.removeDisallowedUsbDevices} API to implement dynamic
    * management of USB device types.
    *
    * > **NOTE**
    * >
-   * > The [addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices} API is recommended.
+   * > The [addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices} API is recommended.
    * > A policy conflict is reported when this API is called in the following scenarios:
    *
    * 1. The USB capability of the device has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
-   * 2. The available USB devices have been added through [addAllowedUsbDevices]{@link addAllowedUsbDevices}.
+   * 2. The available USB devices have been added through [addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}.
    * 3. The USB storage write capability has been disabled for specific users via [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
-   * 4. Disallowed USB device types have been added via [addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}.
+   * 4. Disallowed USB device types have been added via [addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -707,7 +708,7 @@ declare namespace usbManager {
   function getDisallowedUsbDevices(admin: Want | null): Array<UsbDeviceType>;
 
   /**
-   * Adds disallowed USB device types. Unlike the [addDisallowedUsbDevices]{@link addDisallowedUsbDevices}
+   * Adds disallowed USB device types. Unlike the [addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices}
    * API, this API does not require matching based on the [defined-class-codes](https://www.usb.org/defined-class-codes)
    * standard. This API takes effect immediately on connected USB devices without requiring re-plugging. For example, if
    * a USB wired headset is in normal use and this API is called to disable it, the headset will become unavailable
@@ -715,9 +716,9 @@ declare namespace usbManager {
    *
    * A policy conflict is reported when this API is called in the following scenarios:
    *
-   * 1. Disallowed USB device types have been added using the [addDisallowedUsbDevices]{@link addDisallowedUsbDevices} API.
+   * 1. Disallowed USB device types have been added using the [addDisallowedUsbDevices]{@link usbManager.addDisallowedUsbDevices} API.
    * 2. The USB capability of the device has been disabled via [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}.
-   * 3. The available USB devices have been added through [addAllowedUsbDevices]{@link addAllowedUsbDevices}.
+   * 3. The available USB devices have been added through [addAllowedUsbDevices]{@link usbManager.addAllowedUsbDevices}.
    * 4. The USB storage write capability has been disabled for specific users via [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
@@ -740,7 +741,7 @@ declare namespace usbManager {
 
   /**
    * Removes the USB device types that have been disallowed via
-   * [addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}. The removed USB device
+   * [addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}. The removed USB device
    * types can be used normally.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
@@ -760,7 +761,7 @@ declare namespace usbManager {
 
   /**
    * Obtains the USB device types that have been disallowed via
-   * [addDisallowedPermissiveUsbDevices]{@link addDisallowedPermissiveUsbDevices}.
+   * [addDisallowedPermissiveUsbDevices]{@link usbManager.addDisallowedPermissiveUsbDevices}.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.

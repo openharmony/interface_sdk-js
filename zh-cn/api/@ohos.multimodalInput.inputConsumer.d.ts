@@ -37,7 +37,6 @@ declare namespace inputConsumer {
 
   /**
    * 按键命令触发类型枚举，用于指定组合按键的触发时机。
-   * 
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
