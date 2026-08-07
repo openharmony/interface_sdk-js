@@ -790,7 +790,7 @@ declare namespace inputDevice {
    * @param { FunctionKey } functionKey - 需要设置的功能键类型。
    * @param { boolean } enabled - 功能键使能状态。取值为true表示使能功能键，取值为false表示不使能功能键。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
