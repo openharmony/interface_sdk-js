@@ -888,6 +888,23 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
+   * 根据指定编码类型，获取距离指定坐标最近的字符位置信息。
+   *
+   * @param { number } x - 相对于组件的横坐标。<br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } y - 相对于组件的纵坐标。<br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { TextEncoding } [encoding] - 字符位置使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
+   *     undefined。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCharacterPositionAtCoordinate(
+    x: number, y: number, encoding?: TextEncoding): PositionWithAffinity | undefined;
+
+  /**
    * 获取指定行的行信息、文本样式信息、以及字体属性信息。
    * 
    * > **说明：**
@@ -952,6 +969,22 @@ declare interface LayoutManager {
   getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
 
   /**
+   * 根据指定编码类型和文本字符范围，获取字形范围以及实际的字符范围。
+   *
+   * @param { TextRange } charRange - 文本的字符范围。
+   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字形范围，第二个元素是实际的字符范围。
+   *     <br>当返回的范围是异常值时，范围内元素为-1。
+   *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getGlyphRangeForCharacterRange(charRange: TextRange, encoding?: TextEncoding): Array<TextRange> | undefined;
+
+  /**
    * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。
    * 
    * > **说明：**
@@ -977,6 +1010,55 @@ declare interface LayoutManager {
    * @since 24 dynamic
    */
   getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
+
+  /**
+   * 根据指定编码类型和文本字形范围，获取字符范围以及实际的字形范围。
+   *
+   * @param { TextRange } glyphRange - 文本的字形范围。
+   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字符范围，第二个元素是实际的字形范围。
+   *     <br>当返回的范围是异常值时，范围内元素为-1。
+   *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCharacterRangeForGlyphRange(glyphRange: TextRange, encoding?: TextEncoding): Array<TextRange> | undefined;
+}
+
+/**
+ * 枚举文本布局查询接口支持的文本编码类型。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum TextEncoding {
+  /**
+   * UTF-8编码。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TEXT_ENCODING_UTF8 = 0,
+
+  /**
+   * UTF-16编码。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TEXT_ENCODING_UTF16 = 1
 }
 
 /**
