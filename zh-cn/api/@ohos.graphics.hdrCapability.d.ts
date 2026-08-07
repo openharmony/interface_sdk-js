@@ -14,14 +14,15 @@
 */
 
 /**
- * @file
+ * @file HDR能力
  * @kit ArkGraphics2D
  */
 
-import { AsyncCallback } from './@ohos.base'; 
+import { AsyncCallback } from './@ohos.base';
 
 /**
- * 本模块提供HDR（高动态显示范围）能力涉及到的相关枚举类型。
+ * 本模块提供HDR（High Dynamic Range，高动态范围）能力涉及到的相关枚举类型。HDR技术能够显著扩展图像的动态范围和色彩表现力，适用于视频播放、图像显示等场景，可解决传统SDR在高对比度场景下亮部过曝、暗部细节丢失的问
+ * 题，带来更真实、更丰富的视觉体验。
  *
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @atomicservice [since 12]
@@ -41,8 +42,6 @@ declare namespace hdrCapability {
     /**
      * 不支持HDR类型。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -51,8 +50,6 @@ declare namespace hdrCapability {
     NONE = 0,
     /**
      * 支持视频的HLG格式。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -63,8 +60,6 @@ declare namespace hdrCapability {
     /**
      * 支持视频的HDR10格式。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -73,8 +68,6 @@ declare namespace hdrCapability {
     VIDEO_HDR10 = 2,
     /**
      * 支持视频的HDR_VIVID格式。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -85,8 +78,6 @@ declare namespace hdrCapability {
     /**
      * 支持图片的HDR_VIVID格式，以dual JPEG格式存储。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -95,8 +86,6 @@ declare namespace hdrCapability {
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
      * 支持图片的HDR_VIVID格式，以single HEIF格式存储。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
@@ -107,8 +96,6 @@ declare namespace hdrCapability {
     /**
      * 支持图片的HDR_ISO格式，以dual JPEG格式存储。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -118,8 +105,6 @@ declare namespace hdrCapability {
     /**
      * 支持图片的HDR_ISO格式，以single HEIF格式存储。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -128,8 +113,6 @@ declare namespace hdrCapability {
     IMAGE_HDR_ISO_SINGLE = 7,
     /**
      * 支持视频的AIHDR格式。
-     *
-     * 从API version 24开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @stagemodelonly
