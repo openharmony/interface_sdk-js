@@ -45,7 +45,7 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'locationChange' } type - 设置事件类型。type为“locationChange”，表示位置变化。
-   * @param { LocationRequest } request - 设置位置请求参数。ContinuousLocationRequest为API12新增参数。 [since 9 - 11]
+   * @param { LocationRequest } request - 设置位置请求参数。 [since 9 - 11]
    * @param { LocationRequest | ContinuousLocationRequest } request - 设置位置请求参数。ContinuousLocationRequest为API12新增参
    *     数。 [since 12]
    * @param { Callback<Location> } callback - 回调函数，返回位置信息。
