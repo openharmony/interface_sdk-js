@@ -555,7 +555,8 @@ declare namespace usbManager {
   /**
    * Obtains the access policy of the USB storage device.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { UsbPolicy } Access policy of the USB storage device.

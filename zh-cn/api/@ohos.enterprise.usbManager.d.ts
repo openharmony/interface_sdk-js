@@ -500,7 +500,8 @@ declare namespace usbManager {
   /**
    * 获取USB存储设备（baseClass = 0x08）访问策略。
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @returns { UsbPolicy } USB存储设备访问策略。设置为READ_WRITE表示允许读写USB存储设备；设置为READ_ONLY表示仅允许读取USB存储设备，禁止写入；设置为DISABLED表示完全禁止访问USB存储设备。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
