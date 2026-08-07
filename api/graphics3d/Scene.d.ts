@@ -469,10 +469,13 @@ export interface RenderContext {
   getRenderResourceFactory() : RenderResourceFactory;
 
   /**
-   * Loads a plugin by name. The API locates and loads the corresponding plugin resource using the provided plugin name. It uses a promise to return the result.
+   * Loads a plugin by name. The API locates and loads the corresponding plugin resource using the provided plugin name.
+   * It uses a promise to return the result.
    * 
-   * @param {string} name - Name of the plugin to load, which must be a system predefined or registered and available plugin name, and follow the naming conventions.
-   * @returns { Promise<boolean> } - Promise used to return a Boolean value, indicating whether the plugin is loaded. The value true means that the plugin is loaded, and false means the opposite.
+   * @param {string} name - Name of the plugin to load, which must be a system predefined or registered and available plugin name,
+   *     and follow the naming conventions.
+   * @returns { Promise<boolean> } - Promise used to return a Boolean value, indicating whether the plugin is loaded.
+   *     The value true means that the plugin is loaded, and false means the opposite.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -714,7 +717,8 @@ export declare class Scene {
    *
    * @param { string } path - Path in the scene node tree. Each layer is separated by a slash (/).
    * @param { NodeType } type - Expected type of the node to be returned. The default value is null.
-   * @returns { Node | null } Returns the instance of the requested node. Returns null if not found or if the type of the found node does not match the passed parameter.
+   * @returns { Node | null } Returns the instance of the requested node.
+   *     Returns null if not found or if the type of the found node does not match the passed parameter.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
