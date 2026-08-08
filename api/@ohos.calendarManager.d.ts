@@ -413,7 +413,8 @@ declare namespace calendarManager {
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
     /**
-     * Updates an event. This API uses a promise to return the result.
+     * Updates an event, with the ID of the updated event specified in Event. 
+     * This API uses a promise to return the result.
      *
      * @param { Event } event - Event object.
      * @returns { Promise<void> } Promise that returns no value.
@@ -423,7 +424,9 @@ declare namespace calendarManager {
     updateEvent(event: Event): Promise<void>;
 
     /**
-     * Updates an event. This API uses an asynchronous callback to return the result.
+     * Updates an event. The ID of the updated event must be specified in Event. 
+     * If not, the event cannot be updated. 
+     * This API uses an asynchronous callback to return the result.
      *
      * @param { Event } event - Event object.
      * @param { AsyncCallback<void> } callback - The callback of updateEvent.
@@ -560,7 +563,10 @@ declare namespace calendarManager {
     queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
 	
 	/**
-     * Opens the event edit page.
+     * Obtains the event instance that meets the viewing or editing condition in a calendar based on the event ID. 
+     * This API uses a promise to return the result.
+     * 
+     * This API can be used to view and edit calendar events in the system calendar.
      * @param { number } id - The ID of the event to be edited.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 23900001 - Parameter value error.
@@ -620,7 +626,9 @@ declare namespace calendarManager {
 
   interface CalendarConfig {
     /**
-     * Whether the calendar provides a reminder
+     * Whether to enable the reminder for events in the calendar. 
+     * The value **true** means to enable the reminder for events in the calendar, and **false** means the opposite. 
+     * The default value is **true**.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -628,7 +636,9 @@ declare namespace calendarManager {
     enableReminder?: boolean;
 
     /**
-     * Color of the calendar
+     * Calendar color. If the value is a number, the value ranges from 0x000001 to 0xFFFFFF or from 0x00000001 to 0xFFFFFFFF.
+     * If the value is a string, the value contains 7 or 9 characters, for example, **#FFFFFF** or **#FFFFFFFF**. 
+     * If this parameter is not set, the default value **0xFF0A59F7** is used.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
