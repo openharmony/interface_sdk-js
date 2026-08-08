@@ -53,7 +53,8 @@ type ContentBuilder = () => void;
  * > To implement an embeddable atomic service within this component, it must inherit from
  * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. Otherwise, the system
  * > cannot guarantee that the atomic service will function properly.
- *
+ * 
+ * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
