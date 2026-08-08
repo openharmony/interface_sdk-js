@@ -16,7 +16,8 @@
 /**
  * ###### 需要权限
  * 
- * 访问在线网页时需添加网络权限：ohos.permission.INTERNET，具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
+ * 访问在线网页时需添加网络权限：ohos.permission.INTERNET，
+ * 具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
  * 
  * ###### 子组件
  * 
@@ -24,11 +25,11 @@
  * 
  * ###### 属性
  * 
- * 不支持[通用属性]{@link ./@internal/component/ets/common}
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  * 
  * ###### 事件
  * 
- * 不支持[通用事件]{@link ./@internal/component/ets/common}
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}。
  *
  * @file Defines the atomicService web component
  * @kit ArkUI
@@ -41,6 +42,8 @@ import { Callback } from '@ohos.base';
  * 
  * > **说明：**
  * >
+ * > - 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -50,7 +53,8 @@ import { Callback } from '@ohos.base';
 @Component
 export declare struct AtomicServiceWeb {
   /**
-   * The address of the web page to be displayed.
+   * 网页资源地址，访问网络资源需要在AGC（AppGallery Connect）配置业务域名，访问本地资源仅支持包内文件（$rawfile）。
+   * 不支持通过状态变量（例如@State）动态更新地址。加载的网页中支持通过JS SDK提供的接口调用系统能力，具体以JS SDK为准。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -58,7 +62,7 @@ export declare struct AtomicServiceWeb {
    */
   src: ResourceStr;
   /**
-   * Sets the controller of the AtomicServiceWeb.
+   * 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -67,7 +71,7 @@ export declare struct AtomicServiceWeb {
   @ObjectLink
   controller: AtomicServiceWebController;
   /**
-   * Sets how to load HTTP and HTTPS content.
+   * 设置是否允许加载超文本传输协议（HTTP）和超文本传输安全协议（HTTPS）混合内容，默认不允许加载HTTP和HTTPS混合内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -76,7 +80,7 @@ export declare struct AtomicServiceWeb {
   @Prop
   mixedMode?: MixedMode;
   /**
-   * Sets the dark mode of Web.
+   * 设置Web深色模式，默认关闭。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -85,7 +89,8 @@ export declare struct AtomicServiceWeb {
   @Prop
   darkMode?: WebDarkMode;
   /**
-   * Sets whether to enable forced dark algorithm when the web is in dark mode.
+   * 设置网页是否开启强制深色模式。true表示设置网页开启强制深色模式，false表示设置网页不开启强制深色模式。默认值：false。
+   * 该属性仅在darkMode开启深色模式时生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -94,7 +99,10 @@ export declare struct AtomicServiceWeb {
   @Prop
   forceDarkAccess?: boolean;
   /**
-   * 设置嵌套滚动选项。
+   * 设置嵌套滚动选项。nestedScroll为NestedScrollOptions（向前、向后两个方向）类型时，
+   * scrollForward、scrollBackward默认滚动选项为NestedScrollMode.SELF_FIRST。
+   * nestedScroll为NestedScrollOptionsExt（上下左右四个方向）类型时，
+   * scrollUp、scrollDown、scrollLeft、scrollRight默认滚动选项为NestedScrollMode.SELF_FIRST。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -103,7 +111,7 @@ export declare struct AtomicServiceWeb {
   @Prop
   nestedScroll?: NestedScrollOptions | NestedScrollOptionsExt;
   /**
-   * The navPathStack to control page route in Navigation and NavDestination.
+   * 路由栈信息。当使用NavDestination作为页面的根容器时，需传入NavDestination容器对应的NavPathStack处理页面路由。默认值为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -111,7 +119,7 @@ export declare struct AtomicServiceWeb {
    */
   navPathStack?: NavPathStack;
   /**
-   * The callback method to invoke after page is back or destroyed if postMessage() is called in H5 page.
+   * H5页面通过JS SDK的postMessage()发送消息后，Web组件对应的页面返回或销毁时，触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -119,7 +127,7 @@ export declare struct AtomicServiceWeb {
    */
   onMessage?: Callback<OnMessageEvent>;
   /**
-   * Triggered when the web page receives a web resource loading error.
+   * 网页加载遇到错误时触发该回调。出于性能考虑，建议此回调中尽量执行简单逻辑。在无网络的情况下，触发此回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -127,7 +135,7 @@ export declare struct AtomicServiceWeb {
    */
   onErrorReceive?: Callback<OnErrorReceiveEvent>;
   /**
-   * Triggered when the web page receives a web resource loading HTTP error.
+   * 网页加载资源时遇到HTTP错误（响应码>=400）触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -135,7 +143,7 @@ export declare struct AtomicServiceWeb {
    */
   onHttpErrorReceive?: Callback<OnHttpErrorReceiveEvent>;
   /**
-   * Triggered at the begin of web page loading.
+   * 网页开始加载时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -143,7 +151,7 @@ export declare struct AtomicServiceWeb {
    */
   onPageBegin?: Callback<OnPageBeginEvent>;
   /**
-   * Triggered at the end of web page loading.
+   * 网页加载完成时触发该回调，且只在主frame触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -151,8 +159,7 @@ export declare struct AtomicServiceWeb {
    */
   onPageEnd?: Callback<OnPageEndEvent>;
   /**
-   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
-   * This callback can not use the interface about manipulating web pages.
+   * 当Controller成功绑定到Web组件时触发该回调，此回调中不能使用操作网页的相关接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -160,7 +167,7 @@ export declare struct AtomicServiceWeb {
    */
   onControllerAttached?: Callback<void>;
   /**
-   * Triggered when the resources loading is intercepted.
+   * 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。默认允许加载。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -168,7 +175,7 @@ export declare struct AtomicServiceWeb {
    */
   onLoadIntercept?: OnLoadInterceptCallback;
   /**
-   * Triggered when the page loading progress changes.
+   * 网页加载进度变化时触发该回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -178,7 +185,7 @@ export declare struct AtomicServiceWeb {
 }
 
 /**
- * 定义页面回退或销毁时触发该回调。
+ * 定义页面返回或销毁时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -186,7 +193,7 @@ export declare struct AtomicServiceWeb {
  */
 export declare interface OnMessageEvent {
   /**
-   * The message data list.
+   * 消息列表。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -204,7 +211,7 @@ export declare interface OnMessageEvent {
  */
 export declare interface OnErrorReceiveEvent {
   /**
-   * Web resource request of event.
+   * 网页请求的封装信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -213,7 +220,7 @@ export declare interface OnErrorReceiveEvent {
   request: WebResourceRequest;
 
   /**
-   * Web resource error of event.
+   * 网页加载资源错误的封装信息 。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -223,7 +230,7 @@ export declare interface OnErrorReceiveEvent {
 }
 
 /**
- * 定义网页收到加载资源加载HTTP错误时触发。
+ * 定义网页加载资源遇到HTTP错误时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -231,7 +238,7 @@ export declare interface OnErrorReceiveEvent {
  */
 export declare interface OnHttpErrorReceiveEvent {
   /**
-   * Web resource request of event.
+   * 网页请求的封装信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -240,7 +247,7 @@ export declare interface OnHttpErrorReceiveEvent {
   request: WebResourceRequest;
 
   /**
-   * Web resource response of event.
+   * 资源响应的封装信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -250,7 +257,7 @@ export declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * 定义网页加载开始时触发的函数。
+ * 定义网页加载开始时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -258,7 +265,7 @@ export declare interface OnHttpErrorReceiveEvent {
  */
 export declare interface OnPageBeginEvent {
   /**
-   * The url of page.
+   * 页面的URL地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -268,7 +275,7 @@ export declare interface OnPageBeginEvent {
 }
 
 /**
- * 定义网页加载结束时触发的函数。
+ * 定义网页加载结束时触发该回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -276,7 +283,7 @@ export declare interface OnPageBeginEvent {
  */
 export declare interface OnPageEndEvent {
   /**
-   * The url of page.
+   * 页面的URL地址。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -286,7 +293,7 @@ export declare interface OnPageEndEvent {
 }
 
 /**
- * 当资源加载被拦截时，加载拦截事件。
+ * 定义Web组件加载url之前触发的加载拦截事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -294,7 +301,7 @@ export declare interface OnPageEndEvent {
  */
 export declare interface OnLoadInterceptEvent {
   /**
-   * Web resource request of event.
+   * 网页请求的封装信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -312,7 +319,7 @@ export declare interface OnLoadInterceptEvent {
  */
 export declare interface OnProgressChangeEvent {
   /**
-   * The new progress of the page.
+   * 新的加载进度，取值范围为0到100的整数。单位：%。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -346,7 +353,7 @@ export declare class AtomicServiceWebController {
   /**
    * 获取自定义用户代理。
    *
-   * @returns { string } 用户自定义代理信息。默认User-Agent定义与使用场景请参考[User-Agent开发指导](docroot://web/web-default-userAgent.md)。
+   * @returns { string } 自定义用户代理。默认User-Agent定义与使用场景请参考[User-Agent开发指导](docroot://web/web-default-userAgent.md)。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -358,11 +365,11 @@ export declare class AtomicServiceWebController {
   /**
    * 设置自定义用户代理，会覆盖系统的用户代理。
    * 
-   * 建议在onControllerAttached回调事件中设置User-Agent，设置方式请参考示例。不建议将User-Agent设置在onLoadIntercept回调事件中，会概率性出现设置失败。
+   * 建议在onControllerAttached回调事件中设置User-Agent，设置方式请参考示例。不建议将User-Agent设置在onLoadIntercept回调事件中，在部分场景下可能出现设置失败。
    * 
    * > **说明：**
    * >
-   * > 当Web组件src设置了url，且未在onControllerAttached回调事件中设置User-Agent。再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现
+   * > 当Web组件src设置了url，且未在onControllerAttached回调事件中设置User-Agent，再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现
    * > 象。
    *
    * @param { string } userAgent - 用户自定义代理信息。建议先使用[getUserAgent]{@link AtomicServiceWebController#getUserAgent}获取当前默认用户代
@@ -378,7 +385,7 @@ export declare class AtomicServiceWebController {
   setCustomUserAgent(userAgent: string): void;
 
   /**
-   * 调用此接口通知AtomicServiceWeb组件刷新网页。
+   * 通知AtomicServiceWeb组件刷新网页。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -389,7 +396,7 @@ export declare class AtomicServiceWebController {
   refresh(): void;
 
   /**
-   * 按照历史栈，前进一个页面。一般结合[accessForward]{@link AtomicServiceWebController#accessForward}一起使用。
+   * 按照历史栈，前进一个页面。可结合[accessForward]{@link AtomicServiceWebController#accessForward}一起使用。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -400,7 +407,7 @@ export declare class AtomicServiceWebController {
   forward(): void;
 
   /**
-   * 按照历史栈，后退一个页面。一般结合[accessBackward]{@link AtomicServiceWebController#accessBackward}一起使用。
+   * 按照历史栈，后退一个页面。可结合[accessBackward]{@link AtomicServiceWebController#accessBackward}一起使用。
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *     AtomicServiceWeb component.
@@ -411,7 +418,7 @@ export declare class AtomicServiceWebController {
   backward(): void;
 
   /**
-   * 当前页面是否可前进，即当前页面是否有前进历史记录。
+   * 当前页面是否可前进，即当前页面是否有前进历史记录。可结合[forward]{@link AtomicServiceWebController#forward}一起使用，先通过此方法判断是否可前进，再调用forward执行前进操作。
    *
    * @returns { boolean } 可以前进返回true，否则返回false。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -423,7 +430,8 @@ export declare class AtomicServiceWebController {
   accessForward(): boolean;
 
   /**
-   * 当前页面是否可后退，即当前页面是否有返回历史记录。
+   * 当前页面是否可后退，即当前页面是否有返回历史记录。可结合[backward]{@link AtomicServiceWebController#backward}一起使用，先通过此方法判断是否可后退，再调用backward执行后退
+   * 操作。
    *
    * @returns { boolean } 可以后退返回true，否则返回false。
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -452,8 +460,8 @@ export declare class AtomicServiceWebController {
   /**
    * 加载指定的URL。
    *
-   * @param { string | Resource } url - 需要加载的 URL。
-   * @param { Array<WebHeader> } [headers] - URL的附加HTTP请求头。
+   * @param { string | Resource } url - 需要加载的 URL，需为合法的URL格式。
+   * @param { Array<WebHeader> } [headers] - URL的附加HTTP请求头。默认值为空数组，即不添加附加请求头。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
@@ -495,10 +503,10 @@ export declare interface WebHeader {
 }
 
 /**
- * 资源加载被拦截时触发该回调。
+ * 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。
  *
- * @param { OnLoadInterceptEvent } event - 当资源加载被拦截时，加载拦截事件。
- * @returns { boolean } 返回资源是否被拦截，true表示被拦截。
+ * @param { OnLoadInterceptEvent } event - 当Web组件加载url之前触发的加载拦截事件。
+ * @returns { boolean } 返回资源是否被拦截，true表示被拦截，false表示不被拦截。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
