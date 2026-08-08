@@ -15,8 +15,8 @@
 
 /**
  * ###### 子组件
- *
- * 无
+ * 
+ * 无。
  *
  * ###### 属性
  *
@@ -27,7 +27,11 @@
  */
 
 /**
- * 依赖当前元服务的上下文，创建AtomicServiceMenuBar对象，用于操控右上角菜单功能胶囊的显示与隐藏。
+ * 依赖当前原子化服务的UI上下文，创建AtomicServiceMenuBar对象，用于操控右上角菜单功能胶囊的显隐状态。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -36,27 +40,27 @@
  * @since 23 dynamiconly
  */
 export declare class AtomicServiceMenuBar {
-    /**
-     * AtomicServiceMenuBar的构造函数。
-     *
-     * @param { UIContext } uiContext - 当前元服务的上下文信息。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamiconly
-     */
-    constructor(uiContext: UIContext);
-  
-    /**
-     * 设置当前元服务菜单功能胶囊的显隐状态。
-     *
-     * @param { boolean } visible - 菜单功能胶囊预期的状态。true表示显示菜单功能胶囊，false表示隐藏菜单功能胶囊。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamiconly
-     */
-    public setVisible(visible: boolean): void;
-  }
+  /**
+   * AtomicServiceMenuBar的构造函数。
+   *
+   * @param { UIContext } uiContext - 当前原子化服务的UI上下文信息。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamiconly
+   */
+  constructor(uiContext: UIContext);
+
+  /**
+   * 设置当前原子化服务菜单功能胶囊的显隐状态。
+   *
+   * @param { boolean } visible - 菜单功能胶囊预期的状态。true表示显示菜单功能胶囊，false表示隐藏菜单功能胶囊。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamiconly
+   */
+  public setVisible(visible: boolean): void;
+}
