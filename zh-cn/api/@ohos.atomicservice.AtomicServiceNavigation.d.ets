@@ -282,7 +282,8 @@ export declare struct AtomicServiceNavigation {
   menus?: CustomBuilder | Array<NavigationMenuItem>;
   /**
    * 侧边栏的功能选项。
-   * 默认值为{ sideBarBackground: $r('sys.color.ohos_id_color_sub_background'), sideBarIcon: $r('sys.symbol.open_sidebar') }。
+   * 默认值为
+   * { sideBarBackground: $r('sys.color.ohos_id_color_sub_background'), sideBarIcon: $r('sys.symbol.open_sidebar') }。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
