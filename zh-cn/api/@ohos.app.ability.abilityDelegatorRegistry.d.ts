@@ -23,7 +23,6 @@ import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abi
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
 import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
-import { InteropAbilityMonitor as _InteropAbilityMonitor } from './application/InteropAbilityMonitor';
 
 /**
  * AbilityDelegatorRegistry是自动化测试框架使用指南模块，该模块用于获取[AbilityDelegator]{@link application/AbilityDelegator:AbilityDelegator}
@@ -167,17 +166,6 @@ declare namespace abilityDelegatorRegistry {
    * @since 23 static
    */
   export type AbilityMonitor = _AbilityMonitor;
-
-  /**
-   * 提供匹配满足指定条件的监控对象的方法。
-   * 最近匹配的Ability对象将保存在InteropAbilityMonitor对象中。
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic&static
-   */
-  export type InteropAbilityMonitor = _InteropAbilityMonitor;
 
   /**
    * ShellCmdResult模块。
