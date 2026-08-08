@@ -16,7 +16,7 @@
 /**
  * ###### 子组件
  *
- * 无
+ * 无。
  *
  * ###### 属性
  *
@@ -34,11 +34,13 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * 非显式全屏启动原子化服务组件，拉起方可以选择拉起原子化服务的时机。当被拉起方授权使用方可以嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
+ * 非显式全屏拉起原子化服务组件，拉起方可以选择拉起原子化服务的时机。当被拉起方授权使用方嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
  * 
  * > **说明：**
  * >
- * > 如果需要在该组件中实现一个可嵌入式运行的原子化服务时，必须继承自
+ * > 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > 当需要在该组件中实现一个可嵌入式运行的原子化服务时，必须继承自
  * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。若不继承自EmbeddableUIAbility，系统无
  * > 法保证原子化服务功能正常。
  *
@@ -58,7 +60,7 @@ export declare struct InnerFullScreenLaunchComponent {
   @BuilderParam
   content: Callback<void>;
   /**
-   * 拉起原子化服务控制器。
+   * 拉起原子化服务的控制器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -66,7 +68,7 @@ export declare struct InnerFullScreenLaunchComponent {
    */
   controller: LaunchController;
   /**
-   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用API时，触发本回调。
+   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用相关API时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -83,12 +85,10 @@ export declare struct InnerFullScreenLaunchComponent {
   onError?: ErrorCallback;
   /**
    * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
-   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
-   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
    * 或者
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
-   * (callback: AsyncCallback<void>)}
-   * 正常退出时，触发本回调函数。
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
+   * 正常退出时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -98,7 +98,7 @@ export declare struct InnerFullScreenLaunchComponent {
 }
 
 /**
- * 拉起原子化服务控制器。
+ * 拉起原子化服务的控制器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -106,7 +106,7 @@ export declare struct InnerFullScreenLaunchComponent {
  */
 export declare class LaunchController {
   /**
-   * Function to launch atomicservice.
+   * 拉起原子化服务。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -119,7 +119,7 @@ export declare class LaunchController {
  * 拉起原子化服务触发的回调。
  *
  * @param { string } appId - 原子化服务的appId。
- * @param { AtomicServiceOptions } [options] - 拉起原子化服务参数。
+ * @param { AtomicServiceOptions } [options] - 拉起原子化服务的参数。不填时使用默认参数拉起原子化服务。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamiconly
