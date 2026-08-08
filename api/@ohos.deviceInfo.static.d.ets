@@ -409,6 +409,26 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get sdkApiVersion(): int;
+
+    /**
+    * Obtains the SDK Minor API version.
+    *
+    * @returns { int }
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @stagemodelonly
+    * @since 26.1.0 static
+    */
+    get sdkMinorApiVersion(): int;
+
+    /**
+    * Obtains the SDK Patch API version.
+    *
+    * @returns { int }
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @stagemodelonly
+    * @since 26.1.0 static
+    */
+    get sdkPatchApiVersion(): int;
     
     /**
      * First API version.
