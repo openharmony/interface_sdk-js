@@ -290,15 +290,15 @@ declare namespace bundle {
     FLAG_MODULE_NOT_USED_BY_SHORTCUT = 2,
     /**
      * Used by a shortcut.
-     *
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 10
      */
     FLAG_MODULE_USED_BY_SHORTCUT = 3
- 	}
-
+  }
+ 
   /**
    * Signature verification result.
    *
@@ -328,15 +328,15 @@ declare namespace bundle {
     SIGNATURE_NOT_MATCHED = 1,
     /**
      * The bundle corresponding to the signature is unknown.
-     *
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 10
      */
     SIGNATURE_UNKNOWN_BUNDLE = 2
- 	}
-
+  }
+ 
   /**
    * Result returned when querying whether a shortcut exists.
    *
@@ -366,15 +366,15 @@ declare namespace bundle {
     SHORTCUT_EXISTENCE_NOT_EXISTS = 1,
     /**
      * Unknown.
-     *
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 10
      */
     SHORTCUT_EXISTENCE_UNKNOW = 2
- 	}
-
+  }
+ 
   /**
    * Flag used to specify the query scope for shortcuts.
    *
@@ -1022,7 +1022,7 @@ declare namespace bundle {
    * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
   function getBundleInfos(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
-
+ 
   /**
    * Obtains all BundleInfo for the current user. This API uses an asynchronous callback to return the result.
    *
@@ -1040,7 +1040,7 @@ declare namespace bundle {
    * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
   function getBundleInfos(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
-
+ 
   /**
    * Obtains all BundleInfo for a specified user. This API uses a promise to return the result.
    *
@@ -1061,7 +1061,7 @@ declare namespace bundle {
 
   /**
    * Obtains the information of all bundles of the specified user. This API uses an asynchronous callback to return the
-   * result.
+   * result
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BundleFlag } bundleFlag - Type of information that will be returned. For details about the available
@@ -1090,7 +1090,8 @@ declare namespace bundle {
   function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
-   * Obtains the information of all bundles of the specified user. This API uses a promise to return the result.
+   * Obtains the information of all bundles of the specified user. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BundleFlag } bundleFlag - Type of information that will be returned. For details about the available
@@ -1122,8 +1123,9 @@ declare namespace bundle {
    * @deprecated since 8
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-  function getApplicationInfos(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
-
+  function getApplicationInfos(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+ 
   /**
    * Obtains information about installed apps for the user to which the caller belongs.
    * This API uses an asynchronous callback to return the result.
@@ -1142,7 +1144,7 @@ declare namespace bundle {
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
   function getApplicationInfos(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
-
+ 
   /**
    * Obtains information about all installed apps for a specified user. This API uses a promise to return the result.
    *
