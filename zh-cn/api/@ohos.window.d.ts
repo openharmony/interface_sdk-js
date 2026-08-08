@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -7273,6 +7273,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -9559,6 +9560,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -9578,6 +9580,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -11954,6 +11957,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The window is not created or destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -12597,6 +12601,7 @@ declare namespace window {
    * 子窗口模态类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -12606,6 +12611,7 @@ declare namespace window {
      * 当仅需要其父级窗口不响应用户操作时，可选此参数。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12651,6 +12657,7 @@ declare namespace window {
    * 子窗口创建参数。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 11 dynamic
    * @since 23 static
@@ -12660,6 +12667,7 @@ declare namespace window {
      * 子窗口标题。标题显示区域最右端不超过系统三键区域最左端，超过部分以省略号表示。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12669,6 +12677,7 @@ declare namespace window {
      * 子窗口是否显示装饰。true表示子窗口显示装饰，false表示子窗口不显示装饰。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12678,6 +12687,7 @@ declare namespace window {
      * 子窗口是否启用模态属性。true表示子窗口启用模态属性，false表示子窗口禁用模态属性。不设置，则默认为false。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -12696,6 +12706,7 @@ declare namespace window {
      * 子窗口模态类型，仅当子窗口启用模态属性时生效。不设置，则默认为WINDOW_MODALITY。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12708,6 +12719,7 @@ declare namespace window {
      * top: 0, width: 0, height: 0}。具体参考[设置应用子窗口](docroot://windowmanager/application-window-stage.md#设置应用子窗口)开发指南。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -12878,6 +12890,7 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
