@@ -85,7 +85,8 @@ export declare struct InnerFullScreenLaunchComponent {
   onError?: ErrorCallback;
   /**
    * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
-   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
+   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
    * 或者
    * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
    * 正常退出时，触发本回调。
