@@ -15,8 +15,8 @@
 
 /**
  * ###### 子组件
- *
- * 无
+ * 
+ * 无。
  *
  * ###### 属性
  *
@@ -34,7 +34,9 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * 
  * > **说明：**
  * >
- * > 如果需要在该组件中实现一个可嵌入式运行的原子化服务时，原子化服务必须继承自
+ * > 该组件从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > 当需要在该组件中实现一个可嵌入式运行的原子化服务时，原子化服务必须继承自
  * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。若不继承自EmbeddableUIAbility，系统无
  * > 法确保原子化服务正常运行。
  *
@@ -62,7 +64,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   appId: string;
   /**
-   * 拉起原子化服务参数，默认为空。
+   * 拉起原子化服务参数。不填时使用默认参数拉起原子化服务。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -70,7 +72,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   options?: AtomicServiceOptions;
   /**
-   * 被拉起的原子化服务扩展在运行过程中发生异常时触发本回调。
+   * 被拉起的原子化服务在运行过程中发生异常时触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -79,12 +81,10 @@ export declare struct HalfScreenLaunchComponent {
   onError?: ErrorCallback;
   /**
    * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
-   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
-   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
    * 或者
-   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf
-   * (callback: AsyncCallback<void>)}
-   * 正常退出时，触发本回调函数。
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
+   * 正常退出时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -92,7 +92,7 @@ export declare struct HalfScreenLaunchComponent {
    */
   onTerminated?: Callback<TerminationInfo>;
   /**
-   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用API时，触发本回调。
+   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用相关API时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
