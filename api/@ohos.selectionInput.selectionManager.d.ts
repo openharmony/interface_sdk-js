@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Word Selection Management
  * @kit BasicServicesKit
  */
 
@@ -23,12 +23,26 @@ import type Context from './application/Context';
 import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
 
 /**
- * This module provides word selection management capabilities, including creating, displaying, moving, hiding, and 
- * destroying windows, listening for word selection events, and retrieving the selected text.
- * 
+ * This module provides word selection management capabilities, including creating, displaying, moving, hiding, and
+ * destroying panels, listening for word selection events using a mouse or touchpad, and retrieving the selected text.
+ * The typical usage process is as follows:
+ * 1. Call on('selectionCompleted') to subscribe to the selection completion event.
+ * 2. In the callback, call getSelectionContent to obtain the selected text.
+ * 3. Call createPanel to create a word selection panel.
+ * 4. Call setUiContent to load the page content.
+ * 5. Call moveToGlobalDisplay to move the panel to the specified position.
+ * 6. Call show to display the panel.
+ * 7. Call destroyPanel to destroy the panel.
+ * 8. Call off('selectionCompleted') to unsubscribe from the selection completion event.
+ *
  * > **NOTE**
- * > - This module is supported only on PCs/2-in-1 devices.
- * > - APIs of this module can be called only by applications that integrate the ExtensionAbility for word selection.
+ * >
+ * > - This module is supported only on PCs/2-in-1 devices. You can use
+ * > **canIUse('SystemCapability.SelectionInput.Selection')** to check whether the current device supports this
+ * > function.
+ * > - APIs of this module can be called only by apps that integrate the extension ability for word selection. For
+ * > details about how to implement the extension ability for word selection, see
+ * > [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility}.
  *
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi [since 20 - 23]
@@ -40,13 +54,17 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
 
 declare namespace selectionManager {
   /**
-   * Registers a callback to listen for the word selection completion event. This API uses an asynchronous callback to 
-   * return the result.
+   * Subscribes to the word selection completion event. This API is used together with 
+   * [off('selectionCompleted')]{@link selectionManager.off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>)}.
+   * 
+   * [off('selectionCompleted')]{@link selectionManager.off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>)}
+   * is used to unsubscribe from the event.
    *
    * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information.
-   *     This callback is triggered only when the user selects text using the mouse or touchpad(by double-clicking,
-   *     triple-clicking, or pressing and sliding the left mouse button) and then presses **Ctrl**.
+   * @param { Callback<SelectionInfo> } callback - Callback used to return
+   *     [SelectionInfo]{@link selectionManager.SelectionInfo}. This callback is triggered only when the user selects
+   *     text using the mouse or touchpad (by double-clicking, triple-clicking, or sliding the left mouse button) and
+   *     then presses **Ctrl**.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -57,12 +75,14 @@ declare namespace selectionManager {
   function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void;
 
   /**
-   * Registers a callback to listen for the word selection completion event. This API uses an asynchronous callback to 
+   * Registers a callback to listen for the word selection completion event. This API uses an asynchronous callback to
    * return the result.
    *
-   * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information.
-   *     This callback is triggered only when the user selects text using the mouse or touchpad(by double-clicking,
-   *     triple-clicking, or pressing and sliding the left mouse button) and then presses **Ctrl**.
+   * **ArkTS mode:** This API applies only to ArkTS-Sta.
+   *
+   * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information. This callback
+   *     is triggered only when the user selects text using the mouse or touchpad (by double-clicking, triple-clicking,
+   *     or pressing and sliding the left mouse button) and then presses **Ctrl**.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -72,12 +92,14 @@ declare namespace selectionManager {
   function onSelectionComplete(callback: Callback<SelectionInfo>): void;
 
   /**
-   * Unregisters the callback used to listen for the word selection completion event. This API uses an asynchronous 
-   * callback to return the result.
+   * Unsubscribes from the word selection completion event. This API is used together with 
+   * [on('selectionCompleted')]{@link selectionManager.on(type: 'selectionCompleted', callback: Callback<SelectionInfo>)}.
    *
-   * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
-   *     API unregisters all callbacks for the specified type.
+   * @param { 'selectionCompleted' } type - Type of the event to unsubscribe from. The value is fixed to
+   *     **'selectionCompleted'**.
+   * @param { Callback<SelectionInfo> } [callback] - Callback to be unregistered (that is, the callback instance
+   *     registered using on). If this parameter is not specified, this API unregisters all callbacks for the specified
+   *     type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]
@@ -89,8 +111,11 @@ declare namespace selectionManager {
    * Unregisters the callback used to listen for the word selection completion event. This API uses an asynchronous
    * callback to return the result.
    *
-   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
-   *     API unregisters all callbacks for the specified type.
+   * **ArkTS mode:** This API applies only to ArkTS-Sta.
+   *
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return
+   *     [SelectionInfo]{@link selectionManager.SelectionInfo}. If this parameter is not specified, this API unregisters
+   *     all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 static
@@ -98,7 +123,10 @@ declare namespace selectionManager {
   function offSelectionComplete(callback?: Callback<SelectionInfo>): void;
 
   /**
-   * Obtains this selected text content. This API uses a promise to return the result.
+   * Obtains the content of the selected text. This API uses a promise to return the result. This API must be called in 
+   * the 
+   * [on('selectionCompleted')]{@link selectionManager.on(type: 'selectionCompleted', callback: Callback<SelectionInfo>)}
+   * callback and is valid only after the word selection completion event is triggered.
    *
    * @returns { Promise<string> } Promise used to return the content of the selected text.
    * @throws { BusinessError } 33600001 - Selection service exception.
@@ -116,13 +144,21 @@ declare namespace selectionManager {
   function getSelectionContent(): Promise<string>;
 
   /**
-   * Creates a word selection panel. This API uses a promise to return the result.
-   * Only one [MENU_PANEL]{@link @ohos.selectionInput.SelectionPanel} and one 
-   * [MAIN_PANEL]{@link @ohos.selectionInput.SelectionPanel} can be created for one word selection application.
+   * Creates a word selection panel, which is used to display the service-related operation UI or text processing 
+   * result. After the panel is used, call [destroyPanel]{@link selectionManager.destroyPanel} to destroy the panel and 
+   * release resources. This API uses a promise to return the result.
+   * 
+   * Only one [MENU_PANEL]{@link @ohos.selectionInput.SelectionPanel:PanelType} and one 
+   * [MAIN_PANEL]{@link @ohos.selectionInput.SelectionPanel:PanelType} can be created for one word selection 
+   * application.
    *
-   * @param { Context } ctx - Context that the current word selection panel depends on.
-   * @param { PanelInfo } info - Information about the word selection panel.
-   * @returns { Promise<Panel> } Promise used to return the word selection panel created.
+   * @param { Context } ctx - Context that the current word selection panel depends on, which is provided by
+   *     **SelectionExtensionAbility**.
+   * @param { PanelInfo } info - Configuration information of the word selection panel, which is used to specify the
+   *     panel type, position, width, and height. Only one **MENU_PANEL** and one **MAIN_PANEL** can be created for one
+   *     word selection app.
+   * @returns { Promise<Panel> } Promise used to return the **Panel** object created, which can be used to set, display,
+   *     hide, and move the panel, and subscribe to events.
    * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
@@ -136,7 +172,8 @@ declare namespace selectionManager {
   function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>;
 
   /**
-   * Destroys the word selection panel. This API uses a promise to return the result.
+   * Destroys the word selection panel. This API is used together with [createPanel]{@link selectionManager.createPanel}
+   * to destroy the panel object created by **createPanel()**. This API uses a promise to return the result.
    *
    * @param { Panel } panel - Word selection panel to destroy.
    * @returns { Promise<void> } Promise that returns no value.
@@ -162,7 +199,7 @@ declare namespace selectionManager {
    */
   interface SelectionInfo {
     /**
-     * Operation for selecting words.
+     * Word selection types.
      *
      * @default MOUSE_MOVE
      * @syscap SystemCapability.SelectionInput.Selection
@@ -308,7 +345,9 @@ declare namespace selectionManager {
   }
 
   /**
-   * Represents the word selection panel.
+   * Describes a Panel object, which is created using [createPanel]{@link selectionManager.createPanel}. This method can
+   * be used to set, display, hide, and move the panel, as well as subscribe to events. It is applicable to scenarios 
+   * where a custom operation UI needs to be displayed to users after word selection is complete.
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -319,7 +358,9 @@ declare namespace selectionManager {
    */
   interface Panel {
     /**
-     * Sets the page content for the word selection panel. This API uses a promise to return the result.
+     * Sets the UI content for the current word selection panel, for example, to display translation results, search 
+     * suggestions, or custom action buttons. This API can be called only after a **Panel** instance is obtained by 
+     * calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @param { string } path - Path of the page content to be set. This path is configured in the
      *     **resources/base/profile/main_pages.json** file of the project in the stage model. The FA model is not
@@ -337,7 +378,9 @@ declare namespace selectionManager {
     setUiContent(path: string): Promise<void>;
 
     /**
-     * Shows the word selection panel. This API uses a promise to return the result.
+     * Shows the word selection panel. This API is used together with [hide]{@link selectionManager.Panel.hide}. This 
+     * API can be called only after a Panel instance is obtained by calling 
+     * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 - Selection service exception.
@@ -352,7 +395,10 @@ declare namespace selectionManager {
     show(): Promise<void>;
 
     /**
-     * Hides the word selection panel. This API uses a promise to return the result.
+     * Hides the word selection panel. This API is used together with [show]{@link selectionManager.Panel.show}. This 
+     * API can be called only after a Panel instance is obtained by calling 
+     * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result. If this API is 
+     * not called proactively, the panel is automatically hidden when it loses focus.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 - Selection service exception.
@@ -366,8 +412,10 @@ declare namespace selectionManager {
     hide(): Promise<void>;
 
     /**
-     * Moves the word selection panel by dragging. This API uses a promise to return the result. This API must be 
-     * written in the **onTouch** callback and the event type must be **TouchType.Down**.
+     * Sets whether the word selection panel can be dragged along with the mouse, touchpad, or touchscreen. The panel 
+     * automatically stops moving after the pointer is released. This API can be called only after a **Panel** instance 
+     * is obtained by calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the 
+     * result. This API must be called in the **onTouch** callback, and the event type must be **TouchType.Down**.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 - Selection service exception.
@@ -382,11 +430,18 @@ declare namespace selectionManager {
     startMoving(): Promise<void>;
 
     /**
-     * Moves the word selection panel to the specified coordinates on the screen. This API uses a promise to return the
-     * result.
+     * Moves the word selection panel to the specified coordinates in the global coordinate system of the screen. The 
+     * panel can be moved to an extended screen. This API can be called only after a **Panel** instance is obtained by 
+     * calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
-     * @param { int } x - Value of the movement along the X axis, in px.
-     * @param { int } y - Value of the movement along the Y axis, in px.
+     * @param { int } x - X-coordinate of the target position in the global coordinate system of the screen, in px. The
+     *     upper left corner of the main screen is the origin of the global coordinate system, and the positive
+     *     direction of the X axis is rightward. The x-coordinate of an extended screen may be negative, depending on
+     *     the screen layout.
+     * @param { int } y - Y-coordinate of the target position in the global coordinate system of the screen, in px. The
+     *     upper left corner of the main screen is the origin of the global coordinate system, and the positive
+     *     direction of the Y axis is downward. The y-coordinate of an extended screen may be negative, depending on the
+     *     screen layout.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 - Selection service exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
@@ -399,11 +454,18 @@ declare namespace selectionManager {
     moveTo(x: int, y: int): Promise<void>;
 
     /**
-     * Moves the word selection panel to the specified coordinates on the screen. This API uses a promise to return the
-     * result.
+     * Moves the word selection panel to the specified coordinates in the global coordinates system of the screen. The 
+     * panel can be moved to an extended screen. This API can be called only after a Panel instance is obtained by 
+     * calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
-     * @param { int } x - Value of the movement along the X axis, in px.
-     * @param { int } y - Value of the movement along the Y axis, in px.
+     * @param { int } x - X-coordinate of the target position in the global coordinate system of the screen, in px. The
+     *     upper left corner of the main screen is the origin of the global coordinate system, and the positive
+     *     direction of the X axis is rightward. The x-coordinate of an extended screen may be negative, depending on
+     *     the screen layout.
+     * @param { int } y - Y-coordinate of the target position in the global coordinate system of the screen, in px. The
+     *     upper left corner of the main screen is the origin of the global coordinate system, and the positive
+     *     direction of the Y axis is downward. The y-coordinate of an extended screen may be negative, depending on the
+     *     screen layout.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 - Selection service exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
@@ -414,11 +476,14 @@ declare namespace selectionManager {
     moveToGlobalDisplay(x: int, y: int): Promise<void>;
 
     /**
-     * Registers a callback to listen for the destroy event of the word selection panel. This API uses an asynchronous 
-     * callback to return the result.
+     * Subscribes to the word selection panel destruction event. This API is used together with 
+     * [off('destroyed')]{@link selectionManager.Panel.off(type: 'destroyed', callback?: Callback<void>)}. This API can 
+     * be called only after a **Panel** instance is obtained by calling 
+     * [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'destroyed' } type - Event type, which is **'destroyed'**.
-     * @param { Callback<void> } callback - Callback function that returns no value.
+     * @param { Callback<void> } callback - Callback used to return the result, which is triggered when
+     *     [destroyPanel]{@link selectionManager.destroyPanel} is called to destroy the panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -427,10 +492,12 @@ declare namespace selectionManager {
     on(type: 'destroyed', callback: Callback<void>): void;
 
     /**
-     * Registers a callback to listen for the destroy event of the word selection panel. This API uses an asynchronous 
+     * Registers a callback to listen for the destroy event of the word selection panel. This API uses an asynchronous
      * callback to return the result.
      *
-     * @param { Callback<void> } callback - Callback function that returns no value.
+     * **ArkTS mode:** This API applies only to ArkTS-Sta.
+     *
+     * @param { Callback<void> } callback - Callback that returns no value.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
      * @since 24 static
@@ -438,12 +505,13 @@ declare namespace selectionManager {
     onDestroy(callback: Callback<void>): void;
 
     /**
-     * Unregisters the callback used to listen for the destroy event of the word selection panel. This API uses an 
-     * asynchronous callback to return the result.
+     * Unsubscribes from the word selection panel destruction event. This API is used together with 
+     * [on('destroyed')]{@link selectionManager.Panel.on(type: 'destroyed', callback: Callback<void>)}. This API can be 
+     * called only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
-     * @param { 'destroyed' } type - Event type, which is **'destroyed'**.
-     * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is not
-     *     specified, this API unregisters all callbacks for the specified type.
+     * @param { 'destroyed' } type - Type of the event to unsubscribe from. The value is fixed to **'destroyed'**.
+     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
+     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -455,6 +523,8 @@ declare namespace selectionManager {
      * Unregisters the callback used to listen for the destroy event of the word selection panel. This API uses an
      * asynchronous callback to return the result.
      *
+     * **ArkTS mode:** This API applies only to ArkTS-Sta.
+     *
      * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is not
      *     specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
@@ -464,11 +534,16 @@ declare namespace selectionManager {
     offDestroy(callback?: Callback<void>): void;
 
     /**
-     * Registers a callback to listen for the hide event of the word selection panel. This API uses an asynchronous 
-     * callback to return the result.
+     * Subscribes to the word selection panel hiding event. This API is used together with 
+     * [off('hidden')]{@link selectionManager.Panel.off(type: 'hidden', callback?: Callback<void>)}. This event is 
+     * triggered when the panel is hidden by calling [hide]{@link selectionManager.Panel.hide} or automatically hidden 
+     * when it loses focus. This API can be called only after a **Panel** instance is obtained by calling 
+     * [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'hidden' } type - Event type, which is **'hidden'**.
-     * @param { Callback<void> } callback - Callback function that returns no value.
+     * @param { Callback<void> } callback - Callback used to return the result, which is triggered when the panel is
+     *     hidden. The panel can be hidden by calling [hide]{@link selectionManager.Panel.hide} or automatically hidden
+     *     when it loses focus.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -477,8 +552,10 @@ declare namespace selectionManager {
     on(type: 'hidden', callback: Callback<void>): void;
 
     /**
-     * Registers a callback to listen for the hide event of the word selection panel. This API uses an asynchronous 
+     * Registers a callback to listen for the hide event of the word selection panel. This API uses an asynchronous
      * callback to return the result.
+     *
+     * **ArkTS mode:** This API applies only to ArkTS-Sta.
      *
      * @param { Callback<void> } callback - Callback function that returns no value.
      * @syscap SystemCapability.SelectionInput.Selection
@@ -488,12 +565,13 @@ declare namespace selectionManager {
     onHide(callback: Callback<void>): void;
 
     /**
-     * Unregisters the callback used to listen for the hide event of the word selection panel. This API uses an 
-     * asynchronous callback to return the result.
+     * Unsubscribes from the word selection panel hiding event. This API is used together with 
+     * [on('hidden')]{@link selectionManager.Panel.on(type: 'hidden', callback: Callback<void>)}. This API can be called
+     * only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
-     * @param { 'hidden' } type - Event type, which is **'hidden'**.
-     * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is not
-     *     specified, this API unregisters all callbacks for the specified type.
+     * @param { 'hidden' } type - Type of the event to unsubscribe from. The value is fixed to **'hidden'**.
+     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
+     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -502,8 +580,10 @@ declare namespace selectionManager {
     off(type: 'hidden', callback?: Callback<void>): void;
 
     /**
-     * Unregisters the callback used to listen for the hide event of the word selection panel. This API uses an 
+     * Unregisters the callback used to listen for the hide event of the word selection panel. This API uses an
      * asynchronous callback to return the result.
+     *
+     * **ArkTS mode:** This API applies only to ArkTS-Sta.
      *
      * @param { Callback<void> } [callback] - Callback function that returns no value. If this parameter is not
      *     specified, this API unregisters all callbacks for the specified type.
@@ -515,7 +595,13 @@ declare namespace selectionManager {
   }
 
   /**
-   * Enumerates the operations for selecting words.
+   * Enumerates the word selection types.
+   * 
+   * | Name        | Value| Description              |
+   * | ------------ | -- | ------------------ |
+   * | MOUSE_MOVE | 1 | Word selection by sliding the mouse or touchpad. |
+   * | DOUBLE_CLICK   | 2 | Word selection by double-clicking the mouse or touchpad. |
+   * | TRIPLE_CLICK   | 3 | Word selection by triple-clicking the mouse or touchpad. |
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
