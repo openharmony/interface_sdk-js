@@ -1379,7 +1379,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23
+     * @since 26.1.0 dynamic&static
      */
     NOT_SUPPORT = 4
   }
