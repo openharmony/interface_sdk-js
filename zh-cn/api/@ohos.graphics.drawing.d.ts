@@ -27,9 +27,8 @@ import { ResourceColor } from '@ohos.arkui.component';
 /*** endif */
 
 /**
- * 应用在开发中，经常需要针对不同的元素内容进行绘制，开发者通常可以选择直接使用ArkUI组件来绘制想要的元素或效果，但有些自定义图形或
- * 效果无法满足，此时可以选择使用Drawing来实现灵活的自定义绘制效果。Drawing模块提供基本的绘
- * 制能力，如绘制矩形、圆形、点、直线、自定义Path和字体等。
+ * 开发者在绘制界面元素时，若ArkUI组件无法满足自定义图形需求，可使用Drawing模块实现灵活的自定义绘制效果。
+ * Drawing模块提供基础的图形绘制能力，包括绘制矩形、圆形、点、直线、自定义Path和字体等。
  * 
  * > **说明：**
  * >
@@ -45,14 +44,13 @@ import { ResourceColor } from '@ohos.arkui.component';
  */
 declare namespace drawing {
   /**
-   * 混合模式枚举。混合模式会将两种颜色（源色、目标色）以特定的方式混合生成一种新的颜色，通常用于叠加、滤镜和遮罩等图形操作场景。混
-   * 合操作会分别作用于红、绿、蓝三个颜色通道，采用相同的混合逻辑，而透明度（Alpha通道）则根据各模式的定
-   * 义另行处理。
+   * 混合模式枚举。混合模式会将两种颜色（源色、目标色）以特定的方式混合生成一种新的颜色，通常用于叠加、滤镜和遮罩等图形操作场景。
+   * 混合操作会分别作用于红、绿、蓝三个颜色通道，采用相同的混合逻辑，而透明度（Alpha通道）则根据各模式的定义另行处理。
    * 为简洁起见，我们使用以下缩写：
    * 
-   * s : source 源的缩写。
-   * d : destination 目标的缩写。
-   * sa : source alpha 源透明度的缩写。
+   * s : source 源的缩写；
+   * d : destination 目标的缩写；
+   * sa : source alpha 源透明度的缩写；
    * da : destination alpha 目标透明度的缩写。
    * 
    * 计算结果用如下缩写表示：
@@ -79,7 +77,7 @@ declare namespace drawing {
      */
     CLEAR = 0,
     /**
-     * r = s（result的4个通道，都等于source的4个通道，即结果等于源。），使用源像素替换目标像素。
+     * r = s，result的4个通道都等于source的4个通道，即结果等于源。使用源像素替换目标像素。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -88,7 +86,7 @@ declare namespace drawing {
      */
     SRC = 1,
     /**
-     * r = d（result的4个通道，都等于destination的4个通道，即结果等于目标。），保持目标像素不变。
+     * r = d，result的4个通道都等于destination的4个通道，即结果等于目标。保持目标像素不变。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -341,7 +339,7 @@ declare namespace drawing {
    */
   enum VertexMode {
     /**
-     * 每三个顶点来自不同的三角形。
+     * 顶点按顺序每三个一组，分别构成独立的三角形。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -349,7 +347,7 @@ declare namespace drawing {
      */
     TRIANGLES_VERTEXMODE = 0,
     /**
-     * 连续的三角形共享一条边。对于连续表面效率高。
+     * 连续的三角形共享一条边，对于连续表面效率高。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -357,7 +355,7 @@ declare namespace drawing {
      */
     TRIANGLESSTRIP_VERTEXMODE = 1,
     /**
-     * 所有三角形共享一个顶点。非常适合圆形/扇形。
+     * 所有三角形共享一个顶点。适用于绘制圆形/扇形的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -401,7 +399,7 @@ declare namespace drawing {
    * 
    * > **说明：**
    * 
-   * > ![image_PathFillType_Winding_Even_Odd.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_PathFillType_Winding_Even_Odd.png)
+   * > ![WINDING&EVEN_ODD](docroot://reference/apis-arkgraphics2d/figures/PathFillType-Winding-Even-Odd.png)
    * 
    * > 如图所示圆环为路径，箭头指示路径的方向，p为区域内任意一点，蓝色线条为点p出发的射线，黑色箭头所指为对应填充规则下使用蓝色填
    * 充路径的结果。WINDING填充规则下，射线与路径的交点计数为2，不为0，点p被涂色；EVEN_ODD
@@ -437,7 +435,7 @@ declare namespace drawing {
     EVEN_ODD = 1,
 
     /**
-     * WINDING涂色规则取反。
+     * WINDING涂色规则取反。若最终的计数结果不为0，则认为这个点在路径内部，不涂色；若计数为0则涂色。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -447,7 +445,7 @@ declare namespace drawing {
     INVERSE_WINDING = 2,
 
     /**
-     * EVEN_ODD涂色规则取反。
+     * EVEN_ODD涂色规则取反。若这条射线和路径相交的次数是奇数，则这个点被认为在路径内部，不涂色；若是偶数则需要被涂色。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -458,7 +456,8 @@ declare namespace drawing {
   }
 
   /**
-   * 路径测量中的矩阵信息维度枚举，常用于控制物体沿路径移动的动画场景。
+   * 路径测量中的矩阵信息维度枚举，常用于控制物体沿路径移动的动画场景。位置矩阵包含路径上某点的坐标平移信息；
+   * 切线矩阵包含路径上某点切线方向的旋转变换信息；位置和切线矩阵同时包含位置和切线信息，提供完整的路径几何信息。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -496,7 +495,7 @@ declare namespace drawing {
   }
 
   /**
-   * 圆角矩形对象。
+   * 圆角矩形对象。支持设置和获取指定圆角位置的圆角半径，以及对圆角矩形进行平移操作。
    * 
    * > **说明：**
    * >
@@ -527,8 +526,10 @@ declare namespace drawing {
      * 构造一个圆角矩形对象，当且仅当xRadii和yRadii均大于0时，圆角生效，否则只会构造一个矩形。
      *
      * @param { common2D.Rect } rect - 需要创建的圆角矩形区域。
-     * @param { double } xRadii - X轴上的圆角半径，该参数为浮点数，小于等于0时无效。
-     * @param { double } yRadii - Y轴上的圆角半径，该参数为浮点数，小于等于0时无效。
+     * @param { double } xRadii - x轴方向的圆角半径，该参数为浮点数，取值大于0时圆角生效，小于等于0时圆角不生效。
+     * 单位为物理像素px。
+     * @param { double } yRadii - y轴方向的圆角半径，该参数为浮点数，取值大于0时圆角生效，小于等于0时圆角不生效。
+     * 单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -542,8 +543,10 @@ declare namespace drawing {
      * 设置圆角矩形中指定圆角位置的圆角半径。
      *
      * @param { CornerPos } pos - 圆角位置。
-     * @param { double } x - x轴方向的圆角半径，该参数为浮点数，小于等于0时无效。
-     * @param { double } y - y轴方向的圆角半径，该参数为浮点数，小于等于0时无效。
+     * @param { double } x - x轴方向的圆角半径，该参数为浮点数，取值大于0时该圆角半径设置生效，小于等于0时该圆角半径设置不生效。
+     * 单位为物理像素px。
+     * @param { double } y - y轴方向的圆角半径，该参数为浮点数，取值大于0时该圆角半径设置生效，小于等于0时该圆角半径设置不生效。
+     * 单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -557,8 +560,7 @@ declare namespace drawing {
      * 获取圆角矩形中指定圆角位置的圆角半径。
      *
      * @param { CornerPos } pos - 圆角位置。
-     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of the rounded corner on the X
-     *     axis, and the vertical coordinate indicates the radius on the Y axis.
+     * @returns { common2D.Point } 返回一个点，其横坐标表示圆角x轴方向上的半径，纵坐标表示y轴方向上的半径。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -568,11 +570,11 @@ declare namespace drawing {
     getCorner(pos: CornerPos): common2D.Point;
 
     /**
-     * Obtains the radii of the specified rounded corner in this rounded rectangle.
+     * 获取圆角矩形中指定圆角位置的圆角半径。
      *
-     * @param { CornerPos } pos - Position of the rounded corner.
-     * @returns { common2D.Point | undefined } Point. The horizontal coordinate indicates the radius of
-     *     the rounded corner on the X axis, and the vertical coordinate indicates the radius on the Y axis.
+     * @param { CornerPos } pos - 圆角位置。
+     * @returns { common2D.Point | undefined } 返回一个点，其横坐标表示圆角x轴方向上的半径，纵坐标表示y轴方向上的半径。
+     *     获取失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -581,10 +583,10 @@ declare namespace drawing {
     getCorner(pos: CornerPos): common2D.Point | undefined;
 
     /**
-     * 将圆角矩形分别沿x轴方向和y轴方向平移dx,dy。
+     * 将圆角矩形沿x轴方向平移dx、沿y轴方向平移dy。
      *
-     * @param { double } dx - 表示x轴方向上的偏移量。正数表示向x轴正方向平移，负数表示向x轴负方向平移，该参数为浮点数。
-     * @param { double } dy - 表示y轴方向上的偏移量。正数表示向y轴正方向平移，负数表示向y轴负方向平移，该参数为浮点数。
+     * @param { double } dx - 表示x轴方向上的偏移量。正数表示向x轴正方向平移，负数表示向x轴负方向平移，该参数为浮点数。单位为物理像素px。
+     * @param { double } dy - 表示y轴方向上的偏移量。正数表示向y轴正方向平移，负数表示向y轴负方向平移，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -605,7 +607,7 @@ declare namespace drawing {
    */
   enum PathOp {
     /**
-     * 差集操作。
+     * 差集操作，保留第一条路径中不与第二条路径重叠的区域。适用于需要从路径中减去某些区域的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -615,7 +617,7 @@ declare namespace drawing {
     DIFFERENCE = 0,
 
     /**
-     * 交集操作。
+     * 交集操作，保留两条路径重叠的区域。适用于需要获取路径交集部分的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -625,7 +627,7 @@ declare namespace drawing {
     INTERSECT = 1,
 
     /**
-     * 并集操作。
+     * 并集操作，合并两条路径的所有区域。适用于需要合并多个路径的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -635,7 +637,7 @@ declare namespace drawing {
     UNION = 2,
 
     /**
-     * 异或操作。
+     * 异或操作，保留两条路径不重叠的区域。适用于需要获取路径非重叠部分的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -645,7 +647,7 @@ declare namespace drawing {
     XOR = 3,
 
     /**
-     * 反向差集操作。
+     * 反向差集操作，保留第二条路径中不与第一条路径重叠的区域。适用于需要反向减去路径的场景。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -656,7 +658,7 @@ declare namespace drawing {
   }
 
   /**
-   * 迭代器包含的路径操作类型枚举，可用于读取path的操作指令。
+   * 迭代器包含的路径操作类型枚举，可用于读取path的操作指令。常用于路径分析、路径转换、路径动画等需要解析路径构成的场景。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -736,7 +738,8 @@ declare namespace drawing {
   }
 
   /**
-   * 表示路径操作迭代器，可通过遍历迭代器读取path的操作指令。
+   * 表示路径操作迭代器，可通过遍历迭代器逐段读取路径的操作指令。
+   * 迭代器按顺序遍历路径中的操作指令，便于实现对路径的细粒度分析与自定义处理。
    * 
    * > **说明：**
    * >
@@ -755,7 +758,8 @@ declare namespace drawing {
     /**
      * 构造迭代器并绑定路径。
      *
-     * @param { Path } path - 迭代器绑定的路径对象。
+     * @param { Path } path - 迭代器绑定的路径对象，绑定后迭代器将遍历该路径中的操作指令，
+     * 可通过next、peek、hasNext等方法读取路径的操作类型和坐标数据。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 18 dynamic
@@ -764,12 +768,14 @@ declare namespace drawing {
     constructor(path: Path);
 
     /**
-     * 返回当前路径的下一个操作，并将迭代器置于该操作。
+     * 返回当前路径的下一个操作，并将迭代器推进至该操作，同时将路径坐标点数据按操作类型写入传入的points数组。
+     * 若仅需预览下一个操作而不改变迭代器状态，请使用[peek]{@link drawing.PathIterator#peek()}。
+     * 通常与[hasNext]{@link drawing.PathIterator#hasNext}方法配合使用实现路径遍历。
      *
      * @param { Array<common2D.Point> } points - 坐标点数组，长度必须至少为偏移量加4，以确保能容纳所有类型的路径数据。操作执行后，该数组会被覆盖。填入的坐标点数量取决于操作类型，其中，
      *     MOVE填入1个坐标点，LINE填入2个坐标点，QUAD填入3个坐标点，CONIC填入3个坐标点 + 1个权重值（共3.5组），CUBIC填入4个坐标点，CLOSE和DONE不填入任何点。
      * @param { number } [offset] - 数组中写入位置相对起始点的偏移量，默认为0，取值范围为[0, size-4]，size是指坐标点数组长度。
-     * @returns { PathIteratorVerb } 迭代器包含的路径操作类型。
+     * @returns { PathIteratorVerb } 当前路径段的操作类型。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -779,12 +785,14 @@ declare namespace drawing {
     next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb;
 
     /**
-     * Retrieves the next operation in this path and moves the iterator to that operation.
+     * 返回当前路径的下一个操作，并将迭代器推进至该操作，同时将路径坐标点数据按操作类型写入传入的points数组。
+     * 若仅需预览下一个操作而不改变迭代器状态，请使用[peek]{@link drawing.PathIterator#peek()}。
+     * 通常与[hasNext]{@link drawing.PathIterator#hasNext}方法配合使用实现路径遍历。
      *
-     * @param { Array<common2D.Point> } points - Indicates the point array.
-     * @param { int } [offset] - Indicates the offset into the array where entries should be placed.
-     *     The default value is 0.
-     * @returns { PathIteratorVerb | undefined } Returns the next verb in this iterator's path.
+     * @param { Array<common2D.Point> } points - 坐标点数组，长度必须至少为偏移量加4，以确保能容纳所有类型的路径数据。操作执行后，该数组会被覆盖。填入的坐标点数量取决于操作类型，其中，
+     *     MOVE填入1个坐标点，LINE填入2个坐标点，QUAD填入3个坐标点，CONIC填入3个坐标点 + 1个权重值（共3.5组），CUBIC填入4个坐标点，CLOSE和DONE不填入任何点。
+     * @param { int } [offset] - 数组中写入位置相对起始点的偏移量，默认为0，取值范围为[0, size-4]，size是指坐标点数组长度。
+     * @returns { PathIteratorVerb | undefined } 当前路径段的操作类型。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -793,9 +801,9 @@ declare namespace drawing {
     next(points: Array<common2D.Point>, offset?: int): PathIteratorVerb | undefined;
 
     /**
-     * 返回当前路径的下一个操作，迭代器保持在原操作。
+     * 返回当前路径的下一个操作，迭代器保持在原操作。与next不同，peek不会推进迭代器位置。
      *
-     * @returns { PathIteratorVerb } 迭代器包含的路径操作类型。
+     * @returns { PathIteratorVerb } 当前路径段的操作类型。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 18 dynamic
@@ -803,18 +811,18 @@ declare namespace drawing {
     peek(): PathIteratorVerb;
 
     /**
-     * Retrieves the next operation in this path, without moving the iterator.
+     * 返回当前路径的下一个操作，迭代器保持在原操作。与next不同，peek不会推进迭代器位置。
      *
-     * @returns { PathIteratorVerb | undefined } Returns the next verb in the iteration.
+     * @returns { PathIteratorVerb | undefined } 当前路径段的操作类型。创建失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
     peek(): PathIteratorVerb | undefined;
 
     /**
-     * 判断路径操作迭代器中是否还有下一个操作。
+     * 判断迭代器中是否还有下一个操作。通常与next()或peek()方法配合使用实现路径遍历。
      *
-     * @returns { boolean } 判断路径操作迭代器中是否还有下一个操作。true表示有，false表示没有。
+     * @returns { boolean } 迭代器是否还有下一个操作可遍历。true表示还有后续路径操作可读取，false表示已遍历至路径末尾，无更多操作。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 18 dynamic
@@ -824,7 +832,9 @@ declare namespace drawing {
   }
 
   /**
-   * 由直线、圆弧、二阶贝塞尔、三阶贝塞尔组成的复合几何路径。
+   * Path是Drawing模块提供的复合几何路径类，由直线、圆弧、圆锥曲线、二阶贝塞尔、三阶贝塞尔等基本图元组成，
+   * 支持路径的构造、变换、布尔运算、SVG路径解析与转换、测量与片段截取等能力。
+   * 未设置填充类型时，默认填充类型为WINDING，可通过[setFillType]{@link drawing.Path#setFillType}修改。
    * 
    * > **说明：**
    * >
@@ -863,9 +873,9 @@ declare namespace drawing {
     constructor(path: Path);
 
     /**
-     * 使用另一个路径对当前路径进行更新。
+     * 使用指定路径替换当前路径的内容，使当前路径与指定路径完全一致。
      *
-     * @param { Path } src - 用于更新的路径。
+     * @param { Path } src - 用于替换当前路径内容的源路径对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice [since 22]
@@ -875,10 +885,11 @@ declare namespace drawing {
     set(src: Path): void;
 
     /**
-     * 设置自定义路径的起始点位置。
+     * 设置自定义路径的起始点位置。与[rMoveTo]{@link drawing.Path#rMoveTo}使用相对坐标不同，moveTo使用绝对坐标设置起始点。
+     * 当路径起点固定时，推荐使用moveTo；当路径需要基于当前位置动态构建时，推荐使用[rMoveTo]{@link drawing.Path#rMoveTo}。
      *
-     * @param { double } x - 起始点的x轴坐标，该参数为浮点数。
-     * @param { double } y - 起始点的y轴坐标，该参数为浮点数。
+     * @param { double } x - 起始点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 起始点的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -890,10 +901,10 @@ declare namespace drawing {
     moveTo(x: double, y: double): void;
 
     /**
-     * 添加一条从路径的最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
+     * 添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
      *
-     * @param { double } x - 目标点的x轴坐标，该参数为浮点数。
-     * @param { double } y - 目标点的y轴坐标，该参数为浮点数。
+     * @param { double } x - 目标点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 目标点的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -905,15 +916,17 @@ declare namespace drawing {
     lineTo(x: double, y: double): void;
 
     /**
-     * 给路径添加一段弧线，绘制弧线的方式为角度弧，该方式首先会指定一个矩形边框，取其内切椭圆，然后会指定一个起始角度和扫描度数，从起始角度扫描截取的椭圆周长一部分即为绘制的弧线。另外会默认添加一条从路径的最后点位置到弧线起始点位置的
-     * 线段。
+     * 给路径添加一段弧线。绘制弧线的方式为角度弧：首先指定一个矩形边界，取其内切椭圆；然后指定起始角度和扫描度数；最后从起始角度
+     * 扫描截取椭圆周长的一部分，即为绘制的弧线。另外会默认添加一条从路径最后点位置（若路径没有内容则默认值为 (0, 0)）到
+     * 弧线起始点位置的线段。若不需要自动添加连接线段，请使用[addArc]{@link drawing.Path#addArc}。
      *
-     * @param { double } x1 - 矩形左上角的x坐标，该参数为浮点数。
-     * @param { double } y1 - 矩形左上角的y坐标，该参数为浮点数。
-     * @param { double } x2 - 矩形右下角的x坐标，该参数为浮点数。
-     * @param { double } y2 - 矩形右下角的y坐标，该参数为浮点数。
-     * @param { double } startDeg - 起始的角度。角度的起始方向（0°）为x轴正方向。
+     * @param { double } x1 - 矩形左上角的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y1 - 矩形左上角的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } x2 - 矩形右下角的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y2 - 矩形右下角的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } startDeg - 起始的角度。角度的起始方向（0°）为x轴正方向。单位为度。
      * @param { double } sweepDeg - 扫描的度数，为正数时顺时针扫描，为负数时逆时针扫描。实际扫描的度数为该入参对360取模的结果。
+     * 单位为度。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -925,12 +938,12 @@ declare namespace drawing {
     arcTo(x1: double, y1: double, x2: double, y2: double, startDeg: double, sweepDeg: double): void;
 
     /**
-     * 添加从路径最后点位置（若路径没有内容则为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
+     * 添加从路径最后点位置（若路径没有内容则默认值为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
      *
-     * @param { double } ctrlX - 控制点的x坐标，该参数为浮点数。
-     * @param { double } ctrlY - 控制点的y坐标，该参数为浮点数。
-     * @param { double } endX - 目标点的x坐标，该参数为浮点数。
-     * @param { double } endY - 目标点的y坐标，该参数为浮点数。
+     * @param { double } ctrlX - 控制点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY - 控制点的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endX - 目标点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endY - 目标点的y坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -942,14 +955,18 @@ declare namespace drawing {
     quadTo(ctrlX: double, ctrlY: double, endX: double, endY: double): void;
 
     /**
-     * 在当前路径上添加一条路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线，其控制点为 (ctrlX, ctrlY)，结束点为 (endX, endY)。
+     * 在当前路径上添加一条路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线，其控制点为 (ctrlX, ctrlY)，
+     * 目标点为 (endX, endY)。与[quadTo]{@link drawing.Path#quadTo}相比，conicTo通过权重参数可更灵活地控制曲线形状：
+     * 权重为1时效果与quadTo相同，权重不为1时可精确表示圆弧、椭圆弧等圆锥曲线段。仅需标准二次贝塞尔
+     * 曲线时推荐使用quadTo，需要精确表示圆弧或灵活控制曲线形状时推荐使用conicTo。
      *
-     * @param { double } ctrlX - 控制点的x坐标，该参数为浮点数。
-     * @param { double } ctrlY - 控制点的y坐标，该参数为浮点数。
-     * @param { double } endX - 目标点的x坐标，该参数为浮点数。
-     * @param { double } endY - 目标点的y坐标，该参数为浮点数。
-     * @param { double } weight - 表示曲线权重，决定了曲线的形状。值越大，曲线越接近控制点。小于等于0时，效果与[lineTo]{@link drawing.Path.lineTo}相同；值为1时，效果与
-     *     [quadTo]{@link drawing.Path.quadTo}相同。该参数为浮点数。
+     * @param { double } ctrlX - 控制点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY - 控制点的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endX - 目标点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endY - 目标点的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } weight - 表示曲线权重，决定了曲线的形状。值越大，曲线越接近控制点。
+     * 小于等于0时，效果与[lineTo]{@link drawing.Path#lineTo}相同；
+     * 值为1时，效果与[quadTo]{@link drawing.Path#quadTo}相同。该参数为浮点数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -961,14 +978,14 @@ declare namespace drawing {
     conicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
     /**
-     * 添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。
+     * 添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔曲线。
      *
-     * @param { double } ctrlX1 - 第一个控制点的x坐标，该参数为浮点数。
-     * @param { double } ctrlY1 - 第一个控制点的y坐标，该参数为浮点数。
-     * @param { double } ctrlX2 - 第二个控制点的x坐标，该参数为浮点数。
-     * @param { double } ctrlY2 - 第二个控制点的y坐标，该参数为浮点数。
-     * @param { double } endX - 目标点的x坐标，该参数为浮点数。
-     * @param { double } endY - 目标点的y坐标，该参数为浮点数。
+     * @param { double } ctrlX1 - 第一个控制点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY1 - 第一个控制点的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlX2 - 第二个控制点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY2 - 第二个控制点的y坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endX - 目标点的x坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } endY - 目标点的y坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -980,10 +997,14 @@ declare namespace drawing {
     cubicTo(ctrlX1: double, ctrlY1: double, ctrlX2: double, ctrlY2: double, endX: double, endY: double): void;
 
     /**
-     * 设置一个相对于当前路径终点（若路径没有内容则默认为 (0, 0)）的路径起始点位置。
+     * 设置一个相对于当前路径最后点位置（若路径没有内容则默认为 (0, 0)）的路径起始点位置。
+     * 与[moveTo]{@link drawing.Path#moveTo}使用绝对坐标不同，rMoveTo使用相对于当前路径最后点位置的偏移量。
+     * 当路径需要基于当前位置动态构建时，推荐使用相对坐标方法（如rMoveTo、rLineTo等）；当路径起点固定时，推荐使用绝对坐标方法。
      *
-     * @param { double } dx - 路径新起始点相对于当前路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } dy - 路径新起始点相对于当前路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * @param { double } dx - 路径新起始点相对于当前路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } dy - 路径新起始点相对于当前路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -995,10 +1016,14 @@ declare namespace drawing {
     rMoveTo(dx: double, dy: double): void;
 
     /**
-     * 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
+     * 使用相对位置添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
+     * 与[lineTo]{@link drawing.Path#lineTo}使用绝对坐标不同，rLineTo使用相对于当前路径最后点位置的偏移量来指定目标点。
+     * 当路径需要基于当前位置动态构建时，推荐使用相对坐标方法；当目标点位置固定时，推荐使用绝对坐标方法。
      *
-     * @param { double } dx - 目标点相对于当前路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } dy - 目标点相对于当前路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * @param { double } dx - 目标点相对于当前路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } dy - 目标点相对于当前路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1010,12 +1035,18 @@ declare namespace drawing {
     rLineTo(dx: double, dy: double): void;
 
     /**
-     * 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
+     * 使用相对位置添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
+     * 与[quadTo]{@link drawing.Path#quadTo}使用绝对坐标不同，rQuadTo使用相对于当前路径最后点位置的偏移量在当前路径上
+     * 添加二阶贝塞尔曲线。当路径需要基于当前位置动态构建时，推荐使用相对坐标方法；当路径目标点固定时，推荐使用绝对坐标方法。
      *
-     * @param { double } dx1 - 控制点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } dy1 - 控制点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
-     * @param { double } dx2 - 目标点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } dy2 - 目标点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * @param { double } dx1 - 控制点相对于路径最后点位置的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
+     * 单位为物理像素px。
+     * @param { double } dy1 - 控制点相对于路径最后点位置的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * 单位为物理像素px。
+     * @param { double } dx2 - 目标点相对于路径最后点位置的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
+     * 单位为物理像素px。
+     * @param { double } dy2 - 目标点相对于路径最后点位置的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * 单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1027,14 +1058,21 @@ declare namespace drawing {
     rQuadTo(dx1: double, dy1: double, dx2: double, dy2: double): void;
 
     /**
-     * 使用相对位置在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线。
+     * 使用相对位置添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线。
+     * 与[conicTo]{@link drawing.Path#conicTo}使用绝对坐标不同，rConicTo使用相对于当前路径最后点位置的偏移量在当前路径上添加
+     * 圆锥曲线。当路径需要基于当前位置动态构建时，推荐使用相对坐标方法；当路径目标点固定时，推荐使用绝对坐标方法。
      *
-     * @param { double } ctrlX - 控制点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } ctrlY - 控制点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
-     * @param { double } endX - 目标点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } endY - 目标点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
-     * @param { double } weight - 表示曲线的权重，决定了曲线的形状，越大越接近控制点。若小于等于0则等同于使用[rLineTo]{@link drawing.Path.rLineTo}添加一条到结束点的线段
-     *     ，若为1则等同于[rQuadTo]{@link drawing.Path.rQuadTo}，该参数为浮点数。
+     * @param { double } ctrlX - 控制点相对于路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY - 控制点相对于路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } endX - 目标点相对于路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } endY - 目标点相对于路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } weight - 表示曲线权重，决定了曲线的形状，越大越接近控制点。
+     * 若小于等于0则等同于使用[rLineTo]{@link drawing.Path#rLineTo}添加一条到结束点的线段，
+     * 若为1则等同于[rQuadTo]{@link drawing.Path#rQuadTo}，该参数为浮点数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1046,14 +1084,22 @@ declare namespace drawing {
     rConicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
     /**
-     * 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔曲线。
+     * 使用相对位置添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔曲线。
+     * 与[cubicTo]{@link drawing.Path#cubicTo}使用绝对坐标不同，rCubicTo使用相对于当前路径最后点位置的偏移量在当前路径上
+     * 添加三阶贝塞尔曲线。当路径需要基于当前位置动态构建时，推荐使用相对坐标方法；当路径目标点固定时，推荐使用绝对坐标方法。
      *
-     * @param { double } ctrlX1 - 第一个控制点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } ctrlY1 - 第一个控制点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
-     * @param { double } ctrlX2 - 第二个控制点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } ctrlY2 - 第二个控制点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
-     * @param { double } endX - 目标点相对于路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { double } endY - 目标点相对于路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * @param { double } ctrlX1 - 第一个控制点相对于路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY1 - 第一个控制点相对于路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlX2 - 第二个控制点相对于路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } ctrlY2 - 第二个控制点相对于路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } endX - 目标点相对于路径最后点位置的x轴偏移量，
+     * 正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { double } endY - 目标点相对于路径最后点位置的y轴偏移量，
+     * 正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1067,7 +1113,7 @@ declare namespace drawing {
     /**
      * 通过坐标点列表添加多条连续的线段。
      *
-     * @param { Array<common2D.Point> } points - 坐标点数组。
+     * @param { Array<common2D.Point> } points - 多边形各顶点的坐标点数组，按数组顺序依次连接各点形成连续线段。
      * @param { boolean } close - 表示是否将路径闭合，即是否添加路径起始点到终点的连线。true表示将路径闭合，false表示不将路径闭合。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -1079,10 +1125,10 @@ declare namespace drawing {
     addPolygon(points: Array<common2D.Point>, close: boolean): void;
 
     /**
-     * 将当前路径置为和path按照指定的路径操作类型合并后的结果。
+     * 将当前路径与path按照指定的路径操作类型进行合并，并将合并结果保存在当前路径中。
      *
      * @param { Path } path - 路径对象，用于与当前路径合并。
-     * @param { PathOp } pathOp - 路径操作类型枚举。
+     * @param { PathOp } pathOp - 路径操作类型枚举，用于指定两条路径的布尔运算方式。
      * @returns { boolean } 返回路径合并是否成功的结果。true表示合并成功，false表示合并失败。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1094,15 +1140,13 @@ declare namespace drawing {
     op(path: Path, pathOp: PathOp): boolean;
 
     /**
-     * 向路径添加一段圆弧。
-     * 当startAngle和sweepAngle同时满足以下两种情况时，添加整个椭圆而不是圆弧：
-     * 1.startAngle对90取余接近于0；
-     * 2.sweepAngle不在(-360, 360)区间内。
-     * 其余情况sweepAngle会对360取余后添加圆弧。
+     * 向路径添加一段圆弧。与[arcTo]{@link drawing.Path#arcTo}相比，addArc不会自动添加从路径最后点到弧线起点的连接线段，且通过common2D.Rect对象指定矩形边界。若需要自动连接弧线起点，
+     * 请使用arcTo；若仅需添加独立弧线，可使用addArc。
      *
      * @param { common2D.Rect } rect - 包含弧的椭圆的矩形边界。
-     * @param { double } startAngle - 弧的起始角度，单位为度，0度为x轴正方向，该参数为浮点数。
-     * @param { double } sweepAngle - 扫描角度，单位为度。正数表示顺时针方向，负数表示逆时针方向，该参数为浮点数。
+     * @param { double } startAngle - 弧的起始角度，单位为度，0°为x轴正方向，该参数为浮点数。当对90取余接近于0且sweepAngle不在(-360, 360)区间内时，将添加整个椭圆而非圆弧。
+     * @param { double } sweepAngle - 扫描角度，单位为度。正数表示顺时针方向，负数表示逆时针方向。当参数不在(-360, 360)区间内且startAngle对90取余接近于0时，将添加整个椭圆而非圆
+     *     弧；其余情况下实际扫描角度为该入参对360取余的结果。该参数为浮点数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1115,10 +1159,10 @@ declare namespace drawing {
     /**
      * 按指定方向，向路径添加圆形，圆的起点位于(x + radius, y)。
      *
-     * @param { double } x - 表示圆心的x轴坐标，该参数为浮点数。
-     * @param { double } y - 表示圆心的y轴坐标，该参数为浮点数。
-     * @param { double } radius - 表示圆形的半径，该参数为浮点数，小于等于0时不会有任何效果。
-     * @param { PathDirection } pathDirection - 表示路径方向，默认为顺时针方向。
+     * @param { double } x - 表示圆心的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 表示圆心的y轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } radius - 表示圆形的半径，取值范围>0，该参数为浮点数，小于等于0时不会有任何效果。单位为物理像素px。
+     * @param { PathDirection } pathDirection - 表示路径方向。不传入时默认为顺时针方向。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1132,8 +1176,8 @@ declare namespace drawing {
      * 按指定方向，将矩形的内切椭圆添加到路径中。
      *
      * @param { common2D.Rect } rect - 椭圆的矩形边界。
-     * @param { int } start - 表示椭圆初始点的索引，0，1，2，3分别对应椭圆的上端点，右端点，下端点，左端点，该参数为不小于0的整数，大于等于4时会对4取余。
-     * @param { PathDirection } pathDirection - 表示路径方向，默认为顺时针方向。
+     * @param { int } start - 表示椭圆初始点的索引，取值范围为不小于0的整数，0、1、2、3分别对应椭圆的上端点、右端点、下端点、左端点，大于等于4时会对4取余。
+     * @param { PathDirection } pathDirection - 表示路径方向。不传入时默认为顺时针方向。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1146,8 +1190,8 @@ declare namespace drawing {
     /**
      * 按指定方向，将矩形添加到路径中，添加的路径的起始点为矩形左上角。
      *
-     * @param { common2D.Rect } rect - 向路径中添加的矩形轮廓。
-     * @param { PathDirection } pathDirection - 表示路径方向，默认为顺时针方向。
+     * @param { common2D.Rect } rect - 向路径中添加的矩形轮廓，rect参数需为有效的common2D.Rect对象，left需小于right、top需小于bottom。
+     * @param { PathDirection } pathDirection - 表示路径方向。不传入时默认为顺时针方向。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1160,8 +1204,8 @@ declare namespace drawing {
     /**
      * 按指定方向，向路径添加圆角矩形轮廓。路径添加方向为顺时针时，起始点位于圆角矩形左下方圆角与左边界的交点；路径添加方向为逆时针时，起始点位于圆角矩形左上方圆角与左边界的交点。
      *
-     * @param { RoundRect } roundRect - 圆角矩形对象。
-     * @param { PathDirection } pathDirection - 表示路径方向，默认为顺时针方向。
+     * @param { RoundRect } roundRect - 向路径中添加的圆角矩形对象，需为有效的RoundRect对象。
+     * @param { PathDirection } pathDirection - 表示路径方向。不传入时默认为顺时针方向。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1174,8 +1218,9 @@ declare namespace drawing {
     /**
      * 对源路径进行矩阵变换后，将其添加到当前路径中。
      *
-     * @param { Path } path - 表示源路径对象。
-     * @param { Matrix | null } matrix - 表示矩阵对象，默认为单位矩阵。
+     * @param { Path } path - 要添加到当前路径的源路径对象，经过矩阵变换后将被追加到当前路径中。
+     * @param { Matrix | null } matrix - 表示矩阵对象，用于对源路径进行变换（如旋转、缩放、平移等）。当需要对源路径进行
+     * 几何变换后再添加到当前路径时传入此参数；当仅需原样添加源路径时可不传入，不传入时默认为单位矩阵（即不进行任何变换）。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1188,7 +1233,8 @@ declare namespace drawing {
     /**
      * 对路径进行矩阵变换。
      *
-     * @param { Matrix } matrix - 表示矩阵对象。
+     * @param { Matrix } matrix - 表示对路径进行矩阵变换所使用的矩阵对象，该矩阵定义了变换的具体参数
+     * （如缩放比例、旋转角度、平移距离等），路径中的所有点将按照该矩阵进行变换。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1199,10 +1245,10 @@ declare namespace drawing {
     transform(matrix: Matrix): void;
 
     /**
-     * 判断指定坐标点是否被路径包含，判定是否被路径包含的规则参考[PathFillType]{@link @ohos.graphics.drawing:drawing.PathFillType}。
+     * 判断指定坐标点是否被路径包含，判定规则参考[PathFillType]{@link drawing.PathFillType}。
      *
-     * @param { double } x - x轴上坐标点，该参数必须为浮点数。
-     * @param { double } y - y轴上坐标点，该参数必须为浮点数。
+     * @param { double } x - x轴上坐标点，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - y轴上坐标点，该参数为浮点数。单位为物理像素px。
      * @returns { boolean } 返回指定坐标点是否在路径内。true表示点在路径内，false表示点不在路径内。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -1214,10 +1260,12 @@ declare namespace drawing {
     contains(x: double, y: double): boolean;
 
     /**
-     * 修改路径的最后一个点。
+     * 修改路径最后点位置。
      *
-     * @param { double } x - 指定点的x轴坐标，该参数为浮点数。0表示坐标原点，负数表示位于坐标原点左侧，正数表示位于坐标原点右侧。
-     * @param { double } y - 指定点的y轴坐标，该参数为浮点数。0表示坐标原点，负数表示位于坐标原点上侧，正数表示位于坐标原点下侧。
+     * @param { double } x - 指定点的x轴坐标，该参数为浮点数。
+     * 0表示坐标原点，负数表示位于坐标原点左侧，正数表示位于坐标原点右侧。单位为物理像素px。
+     * @param { double } y - 指定点的y轴坐标，该参数为浮点数。
+     * 0表示坐标原点，负数表示位于坐标原点上侧，正数表示位于坐标原点下侧。单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
@@ -1226,9 +1274,9 @@ declare namespace drawing {
     setLastPoint(x: double, y: double): void;
 
     /**
-     * 设置路径的填充类型，决定路径内部区域的定义方式。例如，使用Winding填充类型时，路径内部区域由路径环绕的次数决定，而使用EvenOdd填充类型时，路径内部区域由路径环绕的次数是否为奇数决定。
+     * 设置路径的填充类型，决定路径内部区域的定义方式。
      *
-     * @param { PathFillType } pathFillType - 表示路径填充规则。
+     * @param { PathFillType } pathFillType - 表示路径填充类型，决定路径内部区域的定义方式。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1241,7 +1289,7 @@ declare namespace drawing {
     /**
      * 获取路径的填充类型。
      *
-     * @returns { PathFillType } 路径填充类型。
+     * @returns { PathFillType } 路径的填充类型，决定路径内部区域的定义方式。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
@@ -1249,9 +1297,9 @@ declare namespace drawing {
     getFillType(): PathFillType;
 
     /**
-     * Gets fill type, the rule used to fill path.
+     * 获取路径的填充类型。
      *
-     * @returns { PathFillType | undefined } Returns the pathFillType.
+     * @returns { PathFillType | undefined } 路径的填充类型，决定路径内部区域的定义方式。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
      */
@@ -1260,7 +1308,7 @@ declare namespace drawing {
     /**
      * 获取包含路径的最小矩形边界。
      *
-     * @returns { common2D.Rect } Minimum bounding rectangle.
+     * @returns { common2D.Rect } 包含路径的最小矩形区域。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -1268,16 +1316,16 @@ declare namespace drawing {
     getBounds(): common2D.Rect;
 
     /**
-     * Obtains the minimum bounding rectangle that encloses this path.
+     * 获取包含路径的最小矩形边界。
      *
-     * @returns { common2D.Rect | undefined } Rect object.
+     * @returns { common2D.Rect | undefined } 包含路径的最小矩形区域。创建失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
     getBounds(): common2D.Rect | undefined;
 
     /**
-     * 闭合路径，会添加一条从路径起点位置到最后点位置的线段。
+     * 闭合路径，会添加一条从路径最后点位置到起始点位置的线段。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -1287,10 +1335,10 @@ declare namespace drawing {
     close(): void;
 
     /**
-     * 将路径沿着x轴和y轴方向偏移一定距离并保存在返回的路径对象中。
+     * 将路径沿x轴方向偏移dx距离、沿y轴方向偏移dy距离，并保存在返回的路径对象中。
      *
-     * @param { number } dx - x轴方向偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。
-     * @param { number } dy - y轴方向偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。
+     * @param { number } dx - x轴方向偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移，该参数为浮点数。单位为物理像素px。
+     * @param { number } dy - y轴方向偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移，该参数为浮点数。单位为物理像素px。
      * @returns { Path } 返回当前路径偏移(dx,dy)后生成的新路径对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -1367,7 +1415,7 @@ declare namespace drawing {
      * 获取路径长度。
      *
      * @param { boolean } forceClosed - 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
-     * @returns { double } 路径长度。
+     * @returns { double } 路径长度。单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -1379,10 +1427,12 @@ declare namespace drawing {
      * 获取路径起始点指定距离处的坐标点和切线值。
      *
      * @param { boolean } forceClosed - 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
-     * @param { double } distance - 表示与路径起始点的距离，小于0时会被视作0，大于路径长度时会被视作路径长度。该参数为浮点数。
+     * @param { double } distance - 表示与路径起始点的距离，小于0时会被视作0，大于路径长度时会被视作路径长度。
+     * 该参数为浮点数。单位为物理像素px。
      * @param { common2D.Point } position - 存储获取到的距离路径起始点distance处的点的坐标。
      * @param { common2D.Point } tangent - 存储获取到的距离路径起始点distance处的点的切线值，tangent.x表示该点切线的余弦值，tangent.y表示该点切线的正弦值。
-     * @returns { boolean } 表示是否成功获取距离路径起始点distance处的点的坐标和正切值的结果。true表示获取成功，false表示获取失败，position和tangent不会被改变。
+     * @returns { boolean } 表示是否成功获取距离路径起始点distance处的点的坐标和切线值的结果。
+     * true表示获取成功，false表示获取失败，position和tangent不会被改变。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1396,10 +1446,12 @@ declare namespace drawing {
      * 截取路径的片段并追加到目标路径上。
      *
      * @param { boolean } forceClosed - 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
-     * @param { double } start - 表示与路径起始点的距离，距离路径起始点start距离的位置即为截取路径片段的起始点，小于0时会被视作0，大于等于stop时会截取失败。该参数为浮点数。
-     * @param { double } stop - 表示与路径起始点的距离，距离路径起始点stop距离的位置即为截取路径片段的终点，小于等于start时会截取失败，大于路径长度时会被视作路径长度。该参数为浮点数。
-     * @param { boolean } startWithMoveTo - 表示是否在目标路径执行[moveTo]{@link drawing.Path.moveTo}移动到截取路径片段的起始点位置。true表示执行，false
-     *     表示不执行。
+     * @param { double } start - 表示与路径起始点的距离，距离路径起始点start距离的位置即为截取路径片段的起始点，
+     * 小于0时会被视作0，大于等于stop时会截取失败。该参数为浮点数。单位为物理像素px。
+     * @param { double } stop - 表示与路径起始点的距离，距离路径起始点stop距离的位置即为截取路径片段的终点，
+     * 小于等于start时会截取失败，大于路径长度时会被视作路径长度。该参数为浮点数。单位为物理像素px。
+     * @param { boolean } startWithMoveTo - 表示是否在目标路径执行[moveTo]{@link drawing.Path#moveTo}
+     * 移动到截取路径片段的起始点位置。true表示执行moveTo；false表示不执行moveTo。
      * @param { Path } dst - 目标路径，截取成功时会将得到的路径片段追加到目标路径上，截取失败时不做改变。
      * @returns { boolean } 表示是否成功截取路径片段。true表示截取成功，false表示截取失败。
      * @syscap SystemCapability.Graphics.Drawing
@@ -1421,12 +1473,13 @@ declare namespace drawing {
     isClosed(): boolean;
 
     /**
-     * 在路径上的某个位置，获取一个变换矩阵，用于表示该点的坐标和朝向。
+     * 在路径上距离起始点distance处，获取一个变换矩阵，用于表示该点的坐标和朝向。
      *
      * @param { boolean } forceClosed - 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
      * @param { double } distance - 表示与路径起始点的距离，小于0时会被视作0，大于路径长度时会被视作路径长度。该参数为浮点数。
-     * @param { Matrix } matrix - 矩阵对象，用于存储得到的矩阵。
-     * @param { PathMeasureMatrixFlags } flags - 矩阵信息维度枚举。
+     * 单位为物理像素px。
+     * @param { Matrix } matrix - 用于存储获取到的变换矩阵的矩阵对象，该矩阵表示路径上指定距离处的坐标位置和朝向信息。
+     * @param { PathMeasureMatrixFlags } flags - 矩阵信息维度枚举，用于指定获取的矩阵包含哪些维度信息。
      * @returns { boolean } 返回是否成功获取变换矩阵的结果。true表示成功，false表示失败。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1437,9 +1490,10 @@ declare namespace drawing {
     getMatrix(forceClosed: boolean, distance: double, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
 
     /**
-     * 解析SVG字符串表示的路径。
+     * 解析SVG字符串表示的路径。支持标准SVG路径数据命令（如M、L、C、Q、A、Z及其相对坐标形式等），解析失败时返回false。
      *
-     * @param { string } str - SVG格式的字符串，用于描述绘制路径。
+     * @param { string } str - SVG路径数据格式的字符串，用于描述绘制路径。支持M/m、L/l、H/h、V/v、C/c、S/s、Q/q、T/t、A/a、Z/z
+     * 等SVG路径命令，具体语法请参考SVG路径数据规范。传入不符合SVG路径格式的字符串时，解析失败，接口返回false。
      * @returns { boolean } 返回是否成功解析SVG字符串的结果。true表示解析成功，false表示解析失败。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1450,9 +1504,9 @@ declare namespace drawing {
     buildFromSvgString(str: string): boolean;
 
     /**
-     * 将路径转换为SVG字符串。
+     * 将路径转换为SVG字符串。输出的字符串遵循SVG路径数据规范映射。
      *
-     * @returns { string } 转换后的SVG字符串结果。
+     * @returns { string } 转换后的SVG字符串，以SVG路径格式描述当前路径的几何形状。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1461,13 +1515,19 @@ declare namespace drawing {
 
     /**
      * 获取路径的点数据。
-     * 在路径（path）图元中，点数据以数值序列的形式存在，与动词verb指令一一对应，用来精确指定绘图操作的几何坐标位置。
+     * 
+     * 在路径（path）图元中，点数据以数值序列的形式存在，与verb指令一一对应，用来精确指定绘图操作的几何坐标位置。
+     * 
      * 点数据的主要类型包括：
-     * 终点坐标：与[moveTo]{@link drawing.Path.moveTo}、[lineTo]{@link drawing.Path.lineTo}等指令配合，定义线段或移动的目标位置。
+     * 
+     * 终点坐标：与[moveTo]{@link drawing.Path#moveTo}、[lineTo]{@link drawing.Path#lineTo}等指令配合，定义线段或移动的目标位置。
+     * 
      * 控制点坐标：与曲线指令配合，用于定义贝塞尔曲线的形状（如三次曲线需要两个控制点和一个终点）。
-     * 闭合点：通常不单独提供坐标，由[close]{@link drawing.Path.close}指令隐式使用路径起点。
+     * 
+     * 闭合点：通常不单独提供坐标，由[close]{@link drawing.Path#close}指令隐式使用路径起点。
      *
-     * @returns { Array<common2D.Point> } path points array.
+     * @returns { Array<common2D.Point> } 返回路径的点数据数组，每个元素为common2D.Point对象，其x、y坐标为浮点数。
+     * 理论取值范围为全体实数，但实际受限于渲染坐标系的有效范围（如-2^31到2^31-1或屏幕可见区域）；超出范围可能导致图形不可见或裁剪。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1476,13 +1536,18 @@ declare namespace drawing {
 
     /**
      * 获取路径的指令数据。
+     * 
      * 在路径（path）图元中，指令数据verb用于描述路径构造过程中的基本绘图动作。
+     * 
      * 指令数据以枚举的形式存在，每个取值对应一种几何操作类型，例如：
-     * [moveTo]{@link drawing.Path.moveTo}：将当前绘图点移至指定坐标，不产生线段。
-     * [lineTo]{@link drawing.Path.lineTo}：从当前点向指定点绘制直线段。
-     * [close]{@link drawing.Path.close}：将当前点与路径起点相连，形成封闭区域。
+     * 
+     * [moveTo]{@link drawing.Path#moveTo}：将当前绘图点移至指定坐标，不产生线段。
+     * 
+     * [lineTo]{@link drawing.Path#lineTo}：从当前点向指定点绘制直线段。
+     * 
+     * [close]{@link drawing.Path#close}：将当前点与路径起点相连，形成封闭区域。
      *
-     * @returns { Array<PathIteratorVerb> } 类型为浮点数。理论上取值范围为全体实数，但实际受限于渲染坐标系的有效范围（如-2^31到2^31-1或屏幕可见区域）；超出范围可能导致图形不可见或裁剪。
+     * @returns { Array<PathIteratorVerb> } 返回路径的指令数据数组，每个数组元素对应为路径中的基本绘图动作类型，与点数据一一对应。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1491,14 +1556,19 @@ declare namespace drawing {
 
     /**
      * 获取路径的圆锥曲线权重数据。
+     * 
      * 在路径（path）图元中，圆锥曲线数据采用有理贝塞尔曲线（Rational Bézier Curve）形式表示，其中每个控制点附带一个权重值（weight）。权重属于曲线定义的几何参数。
+     * 
      * 主要作用如下：
+     * 
      * 形状调控：权重值越大，曲线越靠近对应控制点；权重为1时退化为标准贝塞尔曲线；权重为0时该控制点不起作用。
+     * 
      * 精确表示圆锥曲线：通过组合权重与二次贝塞尔曲线，可以精确表示圆弧、椭圆弧、抛物线等圆锥曲线段，无需使用分段逼近或专用椭圆弧指令。
-     * 数据组织：权重通常以数组形式与点数据并列，按顺序对应每个控制点，与相应的指令verb（如[conicTo]{@link drawing.Path.conicTo}）配合使用。
+     * 
+     * 数据组织：权重通常以数组形式与点数据并列，按顺序对应每个控制点，与相应的指令verb（如[conicTo]{@link drawing.Path#conicTo}）配合使用。
      *
-     * @returns { Array<double> } 类型为浮点数（取值范围为非负数）。取值为0.0时，该控制点完全无效，曲线不经过此点，曲线实际由其余控制点定义。取值为1.0时，该控制点对应的曲线变为标准贝塞尔曲线，此时权重
-     *     不产生额外形变效果。取值大于1时，权重值越大，曲线越靠近该控制点；小于1.0但大于0.0时，曲线则相对远离该控制点。
+     * @returns { Array<double> } 类型为浮点数，取值范围≥0。取值为0.0时，该控制点完全无效，曲线不经过此点，曲线实际由其余控制点定义。取值为1.0时，该控制点对应的曲线变为标准贝塞尔曲线，此时权重不产生
+     *     额外形变效果。取值大于1时，权重值越大，曲线越靠近该控制点；小于1.0但大于0.0时，曲线则相对远离该控制点。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1508,7 +1578,7 @@ declare namespace drawing {
     /**
      * 返回该路径的操作迭代器。
      *
-     * @returns { PathIterator } 该路径的迭代器对象。
+     * @returns { PathIterator } 路径的迭代器对象，用于遍历路径中的绘图指令和点数据，可通过迭代器逐条获取路径的verb指令及对应的坐标点。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 18 dynamic
@@ -1516,9 +1586,9 @@ declare namespace drawing {
     getPathIterator(): PathIterator;
 
     /**
-     * Obtains the operation iterator of this path.
+     * 返回该路径的操作迭代器。
      *
-     * @returns { PathIterator | undefined } Indicates the pointer to an pathIterator object.
+     * @returns { PathIterator | undefined } 路径的迭代器对象，用于遍历路径中的绘图指令和点数据，可通过迭代器逐条获取路径的verb指令及对应的坐标点。创建失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -1531,11 +1601,11 @@ declare namespace drawing {
      * >
      * > - 当acceptableError为0时，曲线路径被极度细分，会严重影响性能和内存消耗，不建议设置误差值为0。
      * >
-     * > - 当acceptableError特别大时，路径会极度简化，保留少量关键点，可能会丢失原有形状。
+     * > - 当acceptableError远大于路径尺寸时，路径会极度简化，仅保留路径的起止点等少量关键点，可能会丢失原有形状。
      * >
      * > - 对于椭圆等曲线，当acceptableError过大时，拟合结果通常只包含椭圆的分段贝塞尔曲线的起止点，椭圆形会被极度简化为多边形。
      *
-     * @param { number } acceptableError - 表示路径上每条线段的可接受误差。该参数为浮点数，不应小于0，当参数小于0时报错。
+     * @param { number } acceptableError - 表示路径上每条线段的可接受误差，取值范围≥0，该参数为浮点数，小于0时报错。单位为物理像素px。
      * @returns { Array<number> } 返回包含近似路径的点的数组，至少包含两个点。每个点由三个值组成：
      *     <br>1. 该点所在的位置距离路径起点的长度比例值，范围为[0.0, 1.0]。
      *     <br>2. 点的x坐标。
@@ -1548,15 +1618,21 @@ declare namespace drawing {
     approximate(acceptableError: number): Array<number>;
 
     /**
-     * Approximates the path with a series of line segments.
+     * 将当前路径转化为由连续直线段构成的近似路径。
+     * 
+     * > **说明：**
+     * >
+     * > - 当acceptableError为0时，曲线路径被极度细分，会严重影响性能和内存消耗，不建议设置误差值为0。
+     * >
+     * > - 当acceptableError远大于路径尺寸时，路径会极度简化，仅保留路径的起止点等少量关键点，可能会丢失原有形状。
+     * >
+     * > - 对于椭圆等曲线，当acceptableError过大时，拟合结果通常只包含椭圆的分段贝塞尔曲线的起止点，椭圆形会被极度简化为多边形。
      *
-     * @param { double } acceptableError - Indicates the acceptable error for a line on the path. Should be no less than
-     *     0.
-     * @returns { Array<double> | undefined } - Returns with the array containing point components.
-     *     <br>There are three components for each point:
-     *     <br>1. Fraction along the length of the path that the point resides [0.0, 1.0].
-     *     <br>2. The x coordinate of the point.
-     *     <br>3. The y coordinate of the point.
+     * @param { double } acceptableError - 表示路径上每条线段的可接受误差，取值范围≥0，该参数为浮点数，小于0时报错。单位为物理像素px。
+     * @returns { Array<double> | undefined } - 返回包含近似路径的点的数组，至少包含两个点。每个点由三个值组成：
+     *     <br>1. 该点所在的位置距离路径起点的长度比例值，范围为[0.0, 1.0]。
+     *     <br>2. 点的x坐标。
+     *     <br>3. 点的y坐标。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
@@ -1564,10 +1640,10 @@ declare namespace drawing {
     approximate(acceptableError: double): Array<double> | undefined;
 
     /**
-     * 根据给定的权重，在当前路径和另一条路径之间进行插值，并将结果存储在目标路径对象中。两条路径点数相同即可插值成功，目标路径按照当前路径的结构进行创建。
+     * 根据给定的权重，在当前路径和另一条路径之间进行插值，并将结果存储在目标路径对象中。两条路径点数相同即可插值成功，目标路径按照当前路径的指令结构进行创建。
      *
      * @param { Path } other - 表示另一条路径对象。
-     * @param { double } weight - 表示插值权重，必须在[0.0, 1.0]范围内。该参数为浮点数。
+     * @param { double } weight - 表示插值权重，取值范围为[0.0, 1.0]。该参数为浮点数。
      * @param { Path } interpolatedPath - 表示用于存储插值结果的目标路径对象。
      * @returns { boolean } 返回插值操作是否成功的结果。true表示插值成功，false表示插值失败。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
@@ -1591,7 +1667,7 @@ declare namespace drawing {
     isInterpolate(other: Path): boolean;
 
     /**
-     * 检查当前路径填充类型是否是反向填充类型。例如填充类型Winding、EvenOdd不是反向类型，InverseWinding、InverseEvenOdd是反向类型。
+     * 检查当前路径填充类型是否是反向填充类型。例如填充类型WINDING、EVEN_ODD不是反向类型，INVERSE_WINDING、INVERSE_EVEN_ODD是反向类型。
      *
      * @returns { boolean } 检查当前路径填充类型是否是反向填充类型。true表示是反向填充类型，false表示不是反向填充类型。
      * @syscap SystemCapability.Graphics.Drawing
@@ -1600,7 +1676,7 @@ declare namespace drawing {
     isInverseFillType(): boolean;
 
     /**
-     * 切换路径的填充类型为反向类型。例如，使用Winding填充类型时，经过取反后填充类型为InverseWinding，而使用EvenOdd填充类型时，经过取反后填充类型为InverseEvenOdd，反之亦然。
+     * 切换路径的填充类型为反向类型。例如，使用WINDING填充类型时，经过取反后填充类型为INVERSE_WINDING，而使用EVEN_ODD填充类型时，经过取反后填充类型为INVERSE_EVEN_ODD，反之亦然。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 dynamic&static
@@ -1608,11 +1684,9 @@ declare namespace drawing {
     toggleInverseFillType(): void;
 
     /**
-     * 获取路径的最后一个点坐标。
+     * 获取路径最后点位置的坐标。
      *
-     *
-     *
-     * @returns { common2D.Point } Returns the last point of the path.
+     * @returns { common2D.Point } 路径最后点位置坐标。如果路径为空，则返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic
@@ -1620,9 +1694,9 @@ declare namespace drawing {
     getLastPoint(): common2D.Point;
 
     /**
-     * 获取路径的最后一个点坐标。
+     * 获取路径最后点位置的坐标。
      *
-     * @returns { common2D.Point | undefined } Returns the last point of the path, or undefined if the path is empty.
+     * @returns { common2D.Point | undefined } 路径最后点位置坐标。如果路径为空，则返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 static
@@ -1630,10 +1704,10 @@ declare namespace drawing {
     getLastPoint(): common2D.Point | undefined;
 
     /**
-     * Checks if two paths are equal.
+     * 判断当前路径与另一条路径是否相等。
      *
-     * @param { Path } path - Another Path object to compare.
-     * @returns { boolean } Returns true if the two paths are equal, otherwise returns false.
+     * @param { Path } path - 另一条路径对象。
+     * @returns { boolean } 返回当前路径与另一条路径是否相等的结果。true表示路径相等，false表示路径不相等。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -1642,7 +1716,7 @@ declare namespace drawing {
   }
 
   /**
-   * 绘制数组点的方式的枚举。
+   * 绘制点数组的方式的枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -1691,7 +1765,7 @@ declare namespace drawing {
    */
   enum FilterMode {
     /**
-     * 邻近过滤模式。
+     * 邻近过滤模式，使用最近的像素点进行采样。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -1701,7 +1775,7 @@ declare namespace drawing {
     FILTER_MODE_NEAREST = 0,
 
     /**
-     * 线性过滤模式。
+     * 线性过滤模式，使用周围像素点的加权平均值进行采样。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -1762,7 +1836,7 @@ declare namespace drawing {
   }
 
   /**
-   * 采样选项对象。
+   * 采样选项对象，用于配置图像采样时的过滤模式，控制图像缩放或变换过程中的像素采样方式。典型使用场景为在Canvas上绘制图像（如drawImage）时，以不同过滤模式决定图像的采样质量与渲染效果。
    * 
    * > **说明：**
    * >
@@ -1779,7 +1853,7 @@ declare namespace drawing {
    */
   class SamplingOptions {
     /**
-     * 构造一个新的采样选项对象，[FilterMode]{@link @ohos.graphics.drawing:drawing.FilterMode}的默认值为FILTER_MODE_NEAREST。
+     * 构造一个新的采样选项对象，[FilterMode]{@link drawing.FilterMode}的默认值为FILTER_MODE_NEAREST。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -1788,9 +1862,9 @@ declare namespace drawing {
      */
     constructor();
     /**
-     * 构造一个新的采样选项对象。
+     * 构造一个新的采样选项对象，可通过指定filterMode参数适配不同的图像采样场景。
      *
-     * @param { FilterMode } filterMode - 过滤模式。
+     * @param { FilterMode } filterMode - 过滤模式，用于指定图像采样时的过滤算法。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1812,7 +1886,7 @@ declare namespace drawing {
    */
   interface FontFeature {
     /**
-     * 字体特征的名称。常见的字体特征名称包含liga、frac、case等，需要对应的ttf文件支持才能生效。
+     * 字体特征的名称。通常为4个ASCII字符组成的标签（如liga、frac、case等），需对应的ttf文件支持才能生效。建议通过字体查看工具或查阅字体文档，确定有效名称。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -1822,7 +1896,7 @@ declare namespace drawing {
      */
     name: string;
     /**
-     * 字体特征的数值，浮点数。建议通过字体查看工具或查阅字体文档，确定具体的有效取值范围。
+     * 字体特征的数值，浮点数。需要对应的ttf文件支持才能生效。建议通过字体查看工具或查阅字体文档，确定具体的有效取值范围。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -1834,7 +1908,7 @@ declare namespace drawing {
   }
 
   /**
-   * 承载绘制内容与绘制状态的载体。
+   * 承载绘制内容与绘制状态的载体。Canvas提供矩形、圆形、椭圆、弧线、路径、文字、图片等多种图形的绘制能力，支持通过画笔和画刷设置绘制样式，支持画布裁剪、矩阵变换、画布状态保存与恢复等功能。
    * 
    * > **说明：**
    * >
@@ -1843,7 +1917,7 @@ declare namespace drawing {
    * > - 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
    * > > **说明：**
    * >
-   * > 画布自带一个默认画刷，该画刷为黑色，开启反走样，不具备其他任何样式效果。当画布中没有主动设置画刷和画笔时，该默认画刷生效。
+   * > 画布自带一个默认画刷，该画刷为黑色，具备抗锯齿，不具备其他任何样式效果。当画布中没有主动设置画刷和画笔时，该默认画刷生效。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -1855,7 +1929,7 @@ declare namespace drawing {
     /**
      * 创建一个以PixelMap作为绘制目标的Canvas对象。
      *
-     * @param { image.PixelMap } pixelmap - 构造函数入参。
+     * @param { image.PixelMap } pixelmap - 作为Canvas绘制目标的PixelMap对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1882,10 +1956,10 @@ declare namespace drawing {
     /**
      * 绘制一个矩形，默认使用黑色填充。性能优于[drawRect]{@link drawing.Canvas#drawRect(rect: common2D.Rect)}接口，推荐使用本接口。
      *
-     * @param { double } left - 矩形的左上角x轴坐标，该参数为浮点数。
-     * @param { double } top - 矩形的左上角y轴坐标，该参数为浮点数。
-     * @param { double } right - 矩形的右下角x轴坐标，该参数为浮点数。
-     * @param { double } bottom - 矩形的右下角y轴坐标，该参数为浮点数。
+     * @param { double } left - 矩形的左上角x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } top - 矩形的左上角y轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } right - 矩形的右下角x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } bottom - 矩形的右下角y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1896,7 +1970,7 @@ declare namespace drawing {
     drawRect(left: double, top: double, right: double, bottom: double): void;
 
     /**
-     * 画一个圆角矩形。
+     * 绘制一个圆角矩形，默认使用黑色填充内容。
      *
      * @param { RoundRect } roundRect - 圆角矩形对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1909,7 +1983,7 @@ declare namespace drawing {
     drawRoundRect(roundRect: RoundRect): void;
 
     /**
-     * 绘制两个嵌套的圆角矩形，外部矩形边界必须包含内部矩形边界，否则无绘制效果。
+     * 绘制两个嵌套的圆角矩形，外部矩形边界必须完全包围内部矩形边界（即内部矩形必须完全位于外部矩形之内），否则无绘制效果。
      *
      * @param { RoundRect } outer - 圆角矩形对象，表示外部圆角矩形边界。
      * @param { RoundRect } inner - 圆角矩形对象，表示内部圆角矩形边界。
@@ -1923,7 +1997,7 @@ declare namespace drawing {
     drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void;
 
     /**
-     * 使用画刷填充画布的可绘制区域。
+     * 使用画刷填充画布的裁剪区域。
      *
      * @param { Brush } brush - 画刷对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1939,12 +2013,12 @@ declare namespace drawing {
      * 绘制射灯类型阴影，使用路径描述环境光阴影的轮廓。
      *
      * @param { Path } path - 路径对象，可生成阴影。
-     * @param { common2D.Point3d } planeParams - 表示一个三维向量，用于计算遮挡物相对于画布在z轴上的偏移量，其值取决于x与y坐标。
+     * @param { common2D.Point3d } planeParams - 表示一个三维向量，用于计算遮挡物相对于画布在z轴上的偏移量，偏移量的值由该向量的x坐标与y坐标计算得出。
      * @param { common2D.Point3d } devLightPos - 光线相对于画布的位置。
-     * @param { double } lightRadius - 圆形灯半径，该参数为浮点数。
+     * @param { double } lightRadius - 圆形灯半径，取值范围>0，该参数为浮点数。单位为物理像素px。
      * @param { common2D.Color } ambientColor - 环境阴影颜色。
      * @param { common2D.Color } spotColor - 点阴影颜色。
-     * @param { ShadowFlag } flag - 阴影标志枚举。
+     * @param { ShadowFlag } flag - 阴影标志，用于控制阴影的绘制方式。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1959,12 +2033,12 @@ declare namespace drawing {
      * 绘制射灯类型阴影，使用路径描述环境光阴影的轮廓。
      *
      * @param { Path } path - 路径对象，可生成阴影。
-     * @param { common2D.Point3d } planeParams - 表示一个三维向量，用于计算z轴方向的偏移量。
+     * @param { common2D.Point3d } planeParams - 表示一个三维向量，用于计算遮挡物相对于画布在z轴上的偏移量，偏移量的值由该向量的x坐标与y坐标计算得出。
      * @param { common2D.Point3d } devLightPos - 光线相对于画布的位置。
-     * @param { double } lightRadius - 圆形灯半径，该参数为浮点数。
+     * @param { double } lightRadius - 圆形灯半径，该参数为浮点数。单位为物理像素px。
      * @param { common2D.Color | int } ambientColor - 环境阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。
      * @param { common2D.Color | int } spotColor - 点阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。
-     * @param { ShadowFlag } flag - 阴影标志枚举。
+     * @param { ShadowFlag } flag - 阴影标志，用于控制阴影的绘制方式。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1976,11 +2050,11 @@ declare namespace drawing {
       ambientColor: common2D.Color | int, spotColor: common2D.Color | int, flag: ShadowFlag) : void;
 
     /**
-     * 绘制一个圆形。如果半径小于等于零，则不绘制。默认使用黑色填充。
+     * 绘制一个圆形。如果半径小于等于零，则不绘制。默认使用黑色填充内容。
      *
-     * @param { double } x - 圆心的x坐标，该参数为浮点数。
-     * @param { double } y - 圆心的y坐标，该参数为浮点数。
-     * @param { double } radius - 圆的半径，大于0的浮点数。
+     * @param { double } x - 圆心的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 圆心的y轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } radius - 圆的半径，大于0的浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1991,11 +2065,11 @@ declare namespace drawing {
     drawCircle(x: double, y: double, radius: double): void;
 
     /**
-     * 画一张图片，图片的左上角坐标为(left, top)。
+     * 绘制一张图片，图片的左上角坐标为(left, top)。
      *
      * @param { image.PixelMap } pixelmap - 图片的PixelMap。
-     * @param { double } left - 图片位置的左上角x轴坐标，该参数为浮点数。
-     * @param { double } top - 图片位置的左上角y轴坐标，该参数为浮点数。
+     * @param { double } left - 图片位置的左上角x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } top - 图片位置的左上角y轴坐标，该参数为浮点数。单位为物理像素px。
      * @param { SamplingOptions } samplingOptions - 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -2007,10 +2081,11 @@ declare namespace drawing {
     drawImage(pixelmap: image.PixelMap, left: double, top: double, samplingOptions?: SamplingOptions): void;
 
     /**
-     * 将图像按照矩形网格对象的设置划分为多个网格，并把图像的每个部分按照网格对象的设置绘制到画布上的目标矩形区域。使用此接口时，设置开启抗锯齿无效。
+     * 将图像按照矩形网格对象的设置划分为多个网格，并把图像的每个部分按照网格对象的设置绘制到画布上的目标矩形区域。与[drawImageNine]{@link drawing.Canvas#drawImageNine}固定将图像分割
+     * 为9个部分不同，本接口通过Lattice对象支持自定义网格分割。使用此接口时，设置开启抗锯齿无效。
      * 
-     * 偶数行和列（起始计数为0）的每个交叉点都是固定的，若固定网格区域的尺寸不超过目标矩形，则会在不缩放的情况下被绘制在目标矩形，反之则会按比例缩放绘制在目标矩形；如果还有剩余空间，剩下的区域会通过拉伸或压缩来绘制，以便能够完全覆盖
-     * 目标矩形。
+     * 偶数行和列（起始计数为0）的每个交叉点对应的网格区域保持原始尺寸不缩放，若固定网格区域的尺寸不超过目标矩形，则会在不缩放的情况下被绘制在目标矩形，反之则会按比例缩放绘制在目标矩形；在角落区域绘制后，若目标矩形中仍有未被覆盖的区
+     * 域，则剩下的区域会通过拉伸或压缩来绘制，以便完全覆盖目标矩形。
      *
      * @param { image.PixelMap } pixelmap - 用于绘制网格的像素图。
      * @param { Lattice } lattice - 矩形网格对象。
@@ -2027,9 +2102,9 @@ declare namespace drawing {
       filterMode: FilterMode): void;
 
     /**
-     * 通过绘制两条水平线和两条垂直线将图像分割成9个部分：四个边，四个角和中心。使用此接口时，设置开启抗锯齿无效。
+     * 通过绘制两条水平线和两条垂直线将图像分割成9个部分：四个边、四个角和中心。使用此接口时，设置开启抗锯齿无效。
      * 
-     * 若角落的4个区域尺寸不超过目标矩形，则会在不缩放的情况下被绘制在目标矩形，反之则会按比例缩放绘制在目标矩形；如果还有剩余空间，剩下的5个区域会通过拉伸或压缩来绘制，以便能够完全覆盖目标矩形。
+     * 若角落的4个区域尺寸不超过目标矩形，则会在不缩放的情况下被绘制在目标矩形，反之则会按比例缩放绘制在目标矩形；在角落区域绘制后，若目标矩形中仍有未被覆盖的区域，则剩下的5个区域会通过拉伸或压缩来绘制，以便完全覆盖目标矩形。
      *
      * @param { image.PixelMap } pixelmap - 用于绘制网格的像素图。
      * @param { common2D.Rect } center - 分割图像的中心矩形。矩形四条边所在的直线将图像分成了9个部分。
@@ -2079,10 +2154,10 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * 使用指定颜色并按照指定的[BlendMode]{@link @ohos.graphics.drawing:drawing.BlendMode}对画布当前可绘制区域进行填充。
+     * 使用指定颜色并按照指定的[BlendMode]{@link drawing.BlendMode}对画布当前裁剪区域进行填充。
      *
-     * @param { common2D.Color } color - ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。
-     * @param { BlendMode } [blendMode] - 颜色混合模式，默认模式为SRC_OVER。
+     * @param { common2D.Color } color - ARGB格式的颜色，每个颜色通道的取值范围为[0, 255]的整数。
+     * @param { BlendMode } [blendMode] - 颜色混合模式，用于指定绘制颜色与画布已有内容的混合方式。当需要自定义颜色叠加效果时传入此参数，不传入时默认模式为SRC_OVER。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2093,14 +2168,14 @@ declare namespace drawing {
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
-     * 使用指定颜色并按照指定的[BlendMode]{@link @ohos.graphics.drawing:drawing.BlendMode}对画布当前可绘制区域进行填充。性能优于
+     * 使用指定颜色并按照指定的[BlendMode]{@link drawing.BlendMode}对画布当前裁剪区域进行填充。性能优于
      * [drawColor]{@link drawing.Canvas#drawColor(color: common2D.Color, blendMode?: BlendMode)}接口，推荐使用本接口。
      *
-     * @param { int } alpha - ARGB格式颜色的透明度通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。
-     * @param { int } red - ARGB格式颜色的红色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。
-     * @param { int } green - ARGB格式颜色的绿色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。
-     * @param { int } blue - ARGB格式颜色的蓝色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。
-     * @param { BlendMode } [blendMode] - 颜色混合模式，默认模式为SRC_OVER。
+     * @param { int } alpha - ARGB格式颜色的透明度通道值，取值范围为[0, 255]的整数，传入范围内的浮点数会向下取整。
+     * @param { int } red - ARGB格式颜色的红色通道值，取值范围为[0, 255]的整数，传入范围内的浮点数会向下取整。
+     * @param { int } green - ARGB格式颜色的绿色通道值，取值范围为[0, 255]的整数，传入范围内的浮点数会向下取整。
+     * @param { int } blue - ARGB格式颜色的蓝色通道值，取值范围为[0, 255]的整数，传入范围内的浮点数会向下取整。
+     * @param { BlendMode } [blendMode] - 颜色混合模式，用于指定绘制颜色与画布已有内容的混合方式。当需要自定义颜色叠加效果时传入此参数，不传入时默认模式为SRC_OVER。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2111,10 +2186,10 @@ declare namespace drawing {
     drawColor(alpha: int, red: int, green: int, blue: int, blendMode?: BlendMode): void;
 
     /**
-     * 使用指定颜色并按照指定的[BlendMode]{@link @ohos.graphics.drawing:drawing.BlendMode}对画布当前可绘制区域进行填充。
+     * 使用指定颜色并按照指定的[BlendMode]{@link drawing.BlendMode}对画布当前裁剪区域进行填充。
      *
-     * @param { int } color - 16进制ARGB格式的颜色。
-     * @param { BlendMode } [blendMode] - 颜色混合模式，默认模式为SRC_OVER。
+     * @param { int } color - 16进制ARGB格式的颜色，用32位无符号整数表示，例如：0xAARRGGBB。
+     * @param { BlendMode } [blendMode] - 颜色混合模式，用于指定绘制颜色与画布已有内容的混合方式。当需要自定义颜色叠加效果时传入此参数，不传入时默认模式为SRC_OVER。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2125,7 +2200,7 @@ declare namespace drawing {
     drawColor(color: int, blendMode?: BlendMode): void;
 
     /**
-     * 在画布上绘制一个椭圆，椭圆的形状和位置由椭圆的外切矩形给出。
+     * 在画布上绘制一个椭圆，椭圆的形状和位置由椭圆的外切矩形给出。默认使用黑色填充内容。
      *
      * @param { common2D.Rect } oval - 矩形区域，该矩形的内切椭圆即为待绘制椭圆。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2138,7 +2213,7 @@ declare namespace drawing {
     drawOval(oval: common2D.Rect): void;
 
     /**
-     * 在画布上绘制圆弧。该方法允许指定起始角度、扫描角度。当扫描角度的绝对值大于360度时，则绘制椭圆。
+     * 在画布上绘制圆弧，默认使用黑色填充内容。该方法允许指定起始角度、扫描角度。当扫描角度的绝对值大于360度时，则绘制椭圆。
      *
      * @param { common2D.Rect } arc - 包含要绘制的圆弧的椭圆的矩形边界。
      * @param { double } startAngle - 弧的起始角度，单位为度，该参数为浮点数。0度时起始点位于椭圆的右端点，正数时以顺时针方向放置起始点，负数时以逆时针方向放置起始点。
@@ -2154,11 +2229,11 @@ declare namespace drawing {
     drawArc(arc: common2D.Rect, startAngle: double, sweepAngle: double): void;
 
     /**
-     * 在画布上绘制圆弧。该方法允许指定圆弧的起始角度、扫描角度以及圆弧的起点和终点是否连接圆弧的中心点。
+     * 在画布上绘制圆弧。与[drawArc]{@link drawing.Canvas#drawArc}相比，本接口增加了useCenter参数，用于控制圆弧的起点和终点是否连接圆弧的中心点。该方法允许指定圆弧的起始角度和扫描角度。
      *
      * @param { common2D.Rect } arc - 包含要绘制的圆弧的椭圆的矩形边界。
      * @param { double } startAngle - 弧的起始角度，单位为度，该参数为浮点数。0度时起始点位于椭圆的右端点，为正数时以顺时针方向放置起始点，为负数时以逆时针方向放置起始点。
-     * @param { double } sweepAngle - 弧的扫描角度，单位为度，该参数为浮点数。为正数时顺时针扫描，为负数时逆时针扫描。扫描角度可以超过360度，将绘制一个完整的椭圆。
+     * @param { double } sweepAngle - 弧的扫描角度，单位为度，该参数为浮点数。为正数时顺时针扫描，为负数时逆时针扫描。扫描角度可以超过360度，超过360度时将绘制一个完整的椭圆。
      * @param { boolean } useCenter - 绘制时弧形的起点和终点是否连接弧形的中心点。true表示连接，false表示不连接。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2170,8 +2245,8 @@ declare namespace drawing {
     /**
      * 绘制一个点。
      *
-     * @param { double } x - 点的x轴坐标，该参数为浮点数。
-     * @param { double } y - 点的y轴坐标，该参数为浮点数。
+     * @param { double } x - 点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 点的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2185,7 +2260,7 @@ declare namespace drawing {
      * 在画布上绘制一组点、线段或多边形。通过指定点的数组和绘制模式来决定绘制方式。
      *
      * @param { Array<common2D.Point> } points - 要绘制的点的数组。长度不能为0。
-     * @param { PointMode } mode - 绘制数组中的点的方式，默认为drawing.PointMode.POINTS。
+     * @param { PointMode } mode - 绘制数组中的点的方式。默认值为drawing.PointMode.POINTS。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2196,7 +2271,7 @@ declare namespace drawing {
     drawPoints(points: Array<common2D.Point>, mode?: PointMode): void;
 
     /**
-     * 绘制一个自定义路径，该路径包含了一组路径轮廓，每个路径轮廓可以是开放的或封闭的。
+     * 绘制一个自定义路径，默认使用黑色填充内容。该路径包含了一组路径轮廓，每个路径轮廓可以是开放的或封闭的。
      *
      * @param { Path } path - 要绘制的路径对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2209,12 +2284,12 @@ declare namespace drawing {
     drawPath(path: Path): void;
 
     /**
-     * 画一条直线段，从指定的起点到终点。如果直线段的起点和终点是同一个点，无法绘制。
+     * 绘制一条直线段，从指定的起点到终点。如果直线段的起点和终点是同一个点，无法绘制。
      *
-     * @param { double } x0 - 线段起点的X坐标，该参数为浮点数。
-     * @param { double } y0 - 线段起点的Y坐标，该参数为浮点数。
-     * @param { double } x1 - 线段终点的X坐标，该参数为浮点数。
-     * @param { double } y1 - 线段终点的Y坐标，该参数为浮点数。
+     * @param { double } x0 - 线段起点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y0 - 线段起点的y轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } x1 - 线段终点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y1 - 线段终点的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2225,12 +2300,12 @@ declare namespace drawing {
     drawLine(x0: double, y0: double, x1: double, y1: double): void;
 
     /**
-     * 绘制单个字符。当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。
+     * 绘制单个字符。当前字体不支持待绘制字符时，退化到使用系统字体绘制字符。
      *
-     * @param { string } text - 待绘制的单个字符，字符串的长度必须为1。
+     * @param { string } text - 待绘制的单个字符，字符串长度必须为1。
      * @param { Font } font - 字型对象。
-     * @param { double } x - 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的横坐标，该参数为浮点数。
-     * @param { double } y - 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的纵坐标，该参数为浮点数。
+     * @param { double } x - 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2241,13 +2316,13 @@ declare namespace drawing {
     drawSingleCharacter(text: string, font: Font, x: double, y: double): void;
 
     /**
-     * 绘制单个字符，字符带有字体特征。当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。
+     * 绘制单个字符，字符带有字体特征。当前字体不支持待绘制字符时，退化到使用系统字体绘制字符。
      *
      * @param { string } text - 待绘制的单个字符，字符串长度必须为1。
      * @param { Font } font - 字型对象。
-     * @param { double } x - 所绘制字符基线左端点的横坐标，该参数为浮点数。
-     * @param { double } y - 所绘制字符基线左端点的纵坐标，该参数为浮点数。
-     * @param { Array<FontFeature> } features - 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。
+     * @param { double } x - 所绘制字符基线左端点的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 所绘制字符基线左端点的y轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { Array<FontFeature> } features - 字体特征对象数组。参数为空数组时使用TTF（TrueType Font）文件中预设的字体特征。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -2260,8 +2335,8 @@ declare namespace drawing {
      * 绘制一段文字。若构造blob的字体不支持待绘制字符，则该部分字符无法绘制。
      *
      * @param { TextBlob } blob - TextBlob对象。
-     * @param { double } x - 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的横坐标，该参数为浮点数。
-     * @param { double } y - 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的纵坐标，该参数为浮点数。
+     * @param { double } x - 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的横坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } y - 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的纵坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2274,15 +2349,20 @@ declare namespace drawing {
     /**
      * 绘制具有指定字体的字形数组。如果字形计数小于或等于0，则不绘制任何内容。
      *
-     * @param { Array<int> } glyphIds - 指示字形ID的数组。
-     * @param { int } glyphIdOffset - 指示在绘制字形Ids数组之前要跳过的元素的数量。
-     *     取值限定为整数。
-     * @param { Array<common2D.Point> } positions - 表示位置数组。
-     * @param { int } positionOffset - 指示在绘制位置数组之前要跳过的元素的数量。
-     *     取值限定为整数。
-     * @param { int } glyphCount - 指示要绘制的字形的数目。
-     *     取值限定为整数。
-     * @param { Font } font - 指示用于绘图的字体。
+     * @param { Array<int> } glyphIds - 字形ID的数组。数组成员取值限定为整数，输入浮点数则仅保留整数部分。
+     * @param { int } glyphIdOffset - 在绘制字形ID数组之前要跳过的元素的数量。 取值限定为整数，输入浮点数则仅保留整数部分。
+     *     <br>如果glyphCount为n，跳过长度为m，则有效glyphIds数组的范围为[glyphIds[m], glyphIds[m+n])。
+     *     <br>如果glyphIds数组长度小于“glyphIdOffset + glyphCount”则抛出错误码25900001。
+     *     <br>如果glyphIdOffset小于0则抛出错误码25900001。
+     * @param { Array<common2D.Point> } positions - 每个字形对应的绘制位置坐标数组。如果glyphCount为n，跳过长度为m，则有效positions数组范围为
+     *     [positions[m], positions[m+n])。
+     * @param { int } positionOffset - 在绘制位置数组之前要跳过的元素的数量。取值限定为整数，输入浮点数则仅保留整数部分。
+     *     <br>如果glyphCount为n，跳过长度为m，则有效positions数组的范围为[positions[m], positions[m+n])。
+     *     <br>如果positions数组长度小于“positionOffset + glyphCount”则抛出错误码25900001。
+     *     <br>如果positionOffset小于0则抛出错误码25900001。
+     * @param { int } glyphCount - 要绘制的字形的数目。数目小于或等于0，则不绘制任何内容，并抛出错误码25900001。
+     *     <br>如果glyphCount与glyphIdOffset的和，或者glyphCount与positionOffset的和大于0x7FFFFFFF，则该计算结果按0x7FFFFFFF处理。
+     * @param { Font } font - 用于绘图的字体。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2292,15 +2372,16 @@ declare namespace drawing {
       positionOffset: int, glyphCount: int, font: Font): void;
 
     /**
-     * 在网格上绘制像素图，网格均匀分布在像素图上。（只支持brush，使用pen没有绘制效果。）
+     * 在网格上绘制像素图，网格均匀分布在像素图上。（只支持画刷，使用画笔没有绘制效果。）
      *
      * @param { image.PixelMap } pixelmap - 用于绘制网格的像素图。
      * @param { int } meshWidth - 网格中的列数，大于0的整数。
      * @param { int } meshHeight - 网格中的行数，大于0的整数。
-     * @param { Array<double> } vertices - 顶点数组，指定网格的绘制位置，浮点数组，大小必须为((meshWidth+1) * (meshHeight+1) + vertOffset) * 2。
+     * @param { Array<double> } vertices - 顶点数组，指定网格的绘制位置，该参数为浮点数组，单位为物理像素px。大小必须为((meshWidth+1) * (meshHeight+1) +
+     *     vertOffset) * 2。
      * @param { int } vertOffset - 绘图前要跳过的vert元素数，大于等于0的整数。
-     * @param { Array<int> | null } colors - 颜色数组，在每个顶点指定一种颜色，整数数组，可为null，大小必须为(meshWidth+1) * (meshHeight+1) +
-     *     colorOffset。 [since 20]
+     * @param { Array<int> | null } colors - 颜色数组，在每个顶点指定一种颜色，每个颜色值用16进制ARGB格式的32位无符号整数表示，例如：0xAARRGGBB，可为null，大小必须为(
+     *     meshWidth+1) * (meshHeight+1) + colorOffset。 [since 20]
      * @param { int } colorOffset - 绘制前要跳过的颜色元素数，大于等于0的整数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -2316,13 +2397,14 @@ declare namespace drawing {
      * 绘制顶点数组描述的三角网格。
      *
      * @param { VertexMode } vertexMode - 绘制顶点的连接方式。
-     * @param { int } vertexCount - 顶点数组元素的数量，值为大于等于3的整数。
+     * @param { int } vertexCount - 顶点数组元素的数量，值为大于等于3的整数，输入浮点数则仅保留整数部分。
      * @param { Array<common2D.Point> } positions - 描述顶点位置的数组，不能为空，其长度必须等于vertexCount。
      * @param { Array<common2D.Point> | null } texs - 描述顶点对应纹理空间坐标的数组。其可以为空，表明纹理空间失效；若不为空，其长度必须等于vertexCount。
-     * @param { Array<int> | null } colors - 描述顶点对应颜色的数组，用于在三角形中进行插值。其可以为空，表明颜色效果为用户所设置的默认色；若不为空其长度必须等于vertexCount。
-     * @param { int } indexCount - 索引的数量。其值可以为0，且indices数组长度为0时可以画图；若不为0，则值必须为大于等于3的整数。
-     * @param { Array<int> | null } indices - 描述顶点对应索引的数组。其可以为空，此时将忽略indexCount的合理传值（大于等于3的整数或等于0）；若不为空其长度必须等于indexCount
-     *     。
+     * @param { Array<int> | null } colors - 描述顶点对应颜色的数组，用于在三角形中进行插值，每个颜色值用16进制ARGB格式的32位无符号整数表示，例如：0xAARRGGBB。其可以为空，表明不
+     *     使用顶点颜色插值，颜色效果取决于当前画布绑定的画刷或画笔所设置的颜色；若不为空其长度必须等于vertexCount。
+     * @param { int } indexCount - 索引的数量。其值可以为0，且indices数组长度为0时可以画图；若不为0，则值必须为大于等于3的整数，输入浮点数则仅保留整数部分。
+     * @param { Array<int> | null } indices - 描述顶点对应索引的数组。其可以为空，此时将忽略indexCount的合理传值（大于等于3的整数或等于0）；若不为空其长度必须等于
+     *     indexCount。
      * @param { BlendMode } mode - 颜色混合模式。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2334,7 +2416,7 @@ declare namespace drawing {
       indices: Array<int> | null, mode: BlendMode): void;
 
     /**
-     * 绘制一个区域。
+     * 绘制一个区域，默认使用黑色填充内容。
      *
      * @param { Region } region - 绘制的区域。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2347,11 +2429,12 @@ declare namespace drawing {
     drawRegion(region: Region): void;
 
     /**
-     * 绑定画笔到画布上，在画布上进行绘制时，将使用画笔的样式去绘制图形形状的轮廓。
+     * 绑定画笔到画布上，在画布上进行绘制时，将使用画笔的样式去绘制图形形状的轮廓。调用本方法后，画笔将持续生效于后续所有绘制操作，
+     * 直至调用[detachPen]{@link drawing.Canvas#detachPen}解除绑定。
      * 
      * > **说明：**
      * >
-     * > 执行该方法后，若pen的效果发生改变并且开发者希望该变化生效于接下来的绘制动作，需要再次执行该方法以确保变化生效。
+     * > 执行该方法后，若pen的效果发生改变并且开发者希望该变化在接下来的绘制动作中生效，需要再次调用本方法。
      *
      * @param { Pen } pen - 画笔对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2364,11 +2447,12 @@ declare namespace drawing {
     attachPen(pen: Pen): void;
 
     /**
-     * 绑定画刷到画布上，在画布上进行绘制时，将使用画刷的样式对绘制图形形状的内部进行填充。
+     * 绑定画刷到画布上，在画布上进行绘制时，将使用画刷的样式对绘制图形形状的内部进行填充。调用本方法后，画刷将持续生效于后续所有绘制操作，直至调用
+     * [detachBrush]{@link drawing.Canvas#detachBrush}解除绑定。
      * 
      * > **说明：**
      * >
-     * > 执行该方法后，若brush的效果发生改变并且开发者希望该变化生效于接下来的绘制动作，需要再次执行该方法以确保变化生效。
+     * > 执行该方法后，若brush的效果发生改变并且开发者希望该变化在接下来的绘制动作中生效，需要再次调用本方法。
      *
      * @param { Brush } brush - 画刷对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2381,7 +2465,7 @@ declare namespace drawing {
     attachBrush(brush: Brush): void;
 
     /**
-     * 将画笔与画布解绑，在画布上进行绘制时，不会再使用画笔去绘制图形形状的轮廓。
+     * 将画笔与画布解绑，在画布上进行绘制时，不会再使用画笔去绘制图形形状的轮廓。本方法与[attachPen]{@link drawing.Canvas#attachPen}配合使用，用于在完成绘制后解除画笔绑定。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2391,7 +2475,7 @@ declare namespace drawing {
     detachPen(): void;
 
     /**
-     * 将画刷与画布解绑，在画布上进行绘制时，不会再使用画刷对绘制图形形状的内部进行填充。
+     * 将画刷与画布解绑，在画布上进行绘制时，不会再使用画刷对绘制图形形状的内部进行填充。本方法与[attachBrush]{@link drawing.Canvas#attachBrush}配合使用，用于在完成绘制后解除画刷绑定。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2401,7 +2485,7 @@ declare namespace drawing {
     detachBrush(): void;
 
     /**
-     * 保存当前画布状态（画布矩阵和可绘制区域）到栈顶。需要与恢复接口[restore]{@link drawing.Canvas.restore}配合使用。
+     * 保存当前画布状态（画布矩阵和裁剪区域）到栈顶。需要与恢复接口[restore]{@link drawing.Canvas#restore}配合使用。
      *
      * @returns { int } 画布状态个数，该参数为正整数。
      * @syscap SystemCapability.Graphics.Drawing
@@ -2412,10 +2496,10 @@ declare namespace drawing {
     save(): int;
 
     /**
-     * 保存当前画布的矩阵和裁剪区域，并为后续绘制分配位图。调用恢复接口[restore]{@link drawing.Canvas.restore}将会舍弃对矩阵和裁剪区域做的更改，并绘制位图。
+     * 保存当前画布的矩阵和裁剪区域，并为后续绘制分配位图。需要与恢复接口[restore]{@link drawing.Canvas#restore}配合使用，调用restore将会舍弃对矩阵和裁剪区域做的更改，并绘制位图。
      *
      * @param { common2D.Rect | null } rect - 矩形对象，用于限制图层大小，默认为当前画布大小。
-     * @param { Brush | null } brush - 画刷对象，绘制位图时会应用画刷对象的透明度，颜色滤波器效果和混合模式，默认不设置额外效果。
+     * @param { Brush | null } brush - 画刷对象，绘制位图时会应用画刷对象的透明度、颜色滤波器效果和混合模式，默认不设置额外效果。
      * @returns { long } 返回调用前保存的画布状态数，该参数为正整数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2428,7 +2512,7 @@ declare namespace drawing {
     /**
      * 使用指定颜色填充画布上的裁剪区域。效果等同于[drawColor]{@link drawing.Canvas#drawColor(color: common2D.Color, blendMode?: BlendMode)}。
      *
-     * @param { common2D.Color } color - ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。
+     * @param { common2D.Color } color - ARGB格式的颜色，每个颜色通道的取值范围为[0, 255]的整数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2439,9 +2523,9 @@ declare namespace drawing {
     clear(color: common2D.Color): void;
 
     /**
-     * 使用指定颜色填充画布上的裁剪区域。
+     * 使用指定颜色填充画布上的裁剪区域。效果等同于[drawColor]{@link drawing.Canvas#drawColor(color: common2D.Color, blendMode?: BlendMode)}。
      *
-     * @param { common2D.Color | int } color - 颜色，可以用16进制ARGB格式的无符号整数表示。
+     * @param { common2D.Color | int } color - 颜色，可以用16进制ARGB格式的32位无符号整数表示，例如：0xAARRGGBB。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 18 dynamic
@@ -2450,7 +2534,8 @@ declare namespace drawing {
     clear(color: common2D.Color | int): void;
 
     /**
-     * 恢复保存在栈顶的画布状态（画布矩阵和裁剪区域）。
+     * 恢复保存在栈顶的画布状态（画布矩阵和裁剪区域）。需要与保存接口[save]{@link drawing.Canvas#save}或[saveLayer]{@link drawing.Canvas#saveLayer}配合使用。
+     * 若栈顶状态由saveLayer保存，恢复时还会将saveLayer分配的位图绘制到画布上；若栈为空（无已保存状态），则不执行恢复操作。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2460,9 +2545,10 @@ declare namespace drawing {
     restore(): void;
 
     /**
-     * 恢复到指定数量的画布状态（画布矩阵和裁剪区域）。
+     * 恢复到指定深度的画布状态（画布矩阵和裁剪区域）。需要先调用[save]{@link drawing.Canvas#save}或[saveLayer]{@link drawing.Canvas#saveLayer}保存画布状态后
+     * 才能使用本接口恢复。
      *
-     * @param { int } count - 要恢复的画布状态深度，该参数为整数。小于等于1时，恢复为初始状态；大于已保存的画布状态数量时，不执行任何操作。
+     * @param { int } count - 要恢复到的画布状态深度，该参数为整数。小于等于1时，恢复为初始状态；大于已保存的画布状态数量时，不执行任何操作。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2486,7 +2572,7 @@ declare namespace drawing {
     /**
      * 获取画布的宽度。
      *
-     * @returns { int } 返回画布的宽度，该参数为浮点数。
+     * @returns { int } 返回画布的宽度，该参数为浮点数。单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -2497,7 +2583,7 @@ declare namespace drawing {
     /**
      * 获取画布的高度。
      *
-     * @returns { int } 返回画布的高度，该参数为浮点数。
+     * @returns { int } 返回画布的高度，该参数为浮点数。单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -2508,7 +2594,7 @@ declare namespace drawing {
     /**
      * 获取画布裁剪区域的边界。
      *
-     * @returns { common2D.Rect } Bounds of the cropping region.
+     * @returns { common2D.Rect } 返回画布裁剪区域的矩形边界。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -2516,9 +2602,9 @@ declare namespace drawing {
     getLocalClipBounds(): common2D.Rect;
 
     /**
-     * Obtains the bounds of the cropping region of the canvas.
+     * 获取画布裁剪区域的边界。
      *
-     * @returns { common2D.Rect | undefined } Rect object.
+     * @returns { common2D.Rect | undefined } 返回画布裁剪区域的矩形边界。获取失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -2527,7 +2613,7 @@ declare namespace drawing {
     /**
      * 获取画布矩阵。
      *
-     * @returns { Matrix } 返回画布矩阵。
+     * @returns { Matrix } 返回当前画布的变换矩阵，该矩阵累积了已应用的平移、缩放、旋转和倾斜等变换效果。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -2535,9 +2621,9 @@ declare namespace drawing {
     getTotalMatrix(): Matrix;
 
     /**
-     * Obtains the canvas matrix.
+     * 获取画布矩阵。
      *
-     * @returns { Matrix | undefined } Canvas matrix.
+     * @returns { Matrix | undefined } 返回当前画布的变换矩阵，该矩阵累积了已应用的平移、缩放、旋转和倾斜等变换效果。获取失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -2546,8 +2632,8 @@ declare namespace drawing {
     /**
      * 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个缩放矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个缩放效果。
      *
-     * @param { double } sx - x轴方向的缩放比例，该参数为浮点数。
-     * @param { double } sy - y轴方向的缩放比例，该参数为浮点数。
+     * @param { double } sx - x轴方向的缩放比例，该参数为浮点数。正值表示正常缩放，负值表示镜像缩放。
+     * @param { double } sy - y轴方向的缩放比例，该参数为浮点数。正值表示正常缩放，负值表示镜像缩放。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2575,8 +2661,8 @@ declare namespace drawing {
      * 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个旋转矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个旋转效果。
      *
      * @param { double } degrees - 旋转角度，单位为度，该参数为浮点数，正数为顺时针旋转，负数为逆时针旋转。
-     * @param { double } sx - 旋转中心的横坐标，该参数为浮点数。
-     * @param { double } sy - 旋转中心的纵坐标，该参数为浮点数。
+     * @param { double } sx - 旋转中心的x轴坐标，该参数为浮点数。单位为物理像素px。
+     * @param { double } sy - 旋转中心的y轴坐标，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2589,8 +2675,8 @@ declare namespace drawing {
     /**
      * 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个平移矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个平移效果。
      *
-     * @param { double } dx - x轴方向的移动距离，该参数为浮点数。
-     * @param { double } dy - y轴方向的移动距离，该参数为浮点数。
+     * @param { double } dx - x轴方向的移动距离，该参数为浮点数。单位为物理像素px。
+     * @param { double } dy - y轴方向的移动距离，该参数为浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2601,11 +2687,11 @@ declare namespace drawing {
     translate(dx: double, dy: double): void;
 
     /**
-     * 使用自定义路径对画布的可绘制区域进行裁剪。
+     * 使用自定义路径对画布进行裁剪。
      *
      * @param { Path } path - 路径对象。
      * @param { ClipOp } clipOp - 裁剪方式。默认为INTERSECT。
-     * @param { boolean } doAntiAlias - 表示是否使能抗锯齿绘制。true表示使能，false表示不使能。默认为false。
+     * @param { boolean } doAntiAlias - 表示是否使用抗锯齿绘制。true表示使用，false表示不使用。默认为false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2616,11 +2702,11 @@ declare namespace drawing {
     clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * 使用矩形对画布的可绘制区域进行裁剪。
+     * 使用矩形对画布进行裁剪。
      *
      * @param { common2D.Rect } rect - 需要裁剪的矩形区域。
-     * @param { ClipOp } clipOp - 裁剪方式。默认为INTERSECT。
-     * @param { boolean } doAntiAlias - 表示是否使能抗锯齿绘制。true表示使能，false表示不使能。默认为false。
+     * @param { ClipOp } clipOp - 裁剪方式。默认值为INTERSECT。
+     * @param { boolean } doAntiAlias - 表示是否使用抗锯齿绘制。true表示使用，false表示不使用。默认值为false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2647,7 +2733,7 @@ declare namespace drawing {
      * 在画布上裁剪一个区域。
      *
      * @param { Region } region - 区域对象，表示裁剪范围。
-     * @param { ClipOp } clipOp - 裁剪方式，默认为INTERSECT。
+     * @param { ClipOp } clipOp - 裁剪方式。默认值为INTERSECT。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2661,8 +2747,8 @@ declare namespace drawing {
      * 在画布上裁剪一个圆角矩形。
      *
      * @param { RoundRect } roundRect - 圆角矩形对象，表示裁剪范围。
-     * @param { ClipOp } clipOp - 裁剪方式，默认为INTERSECT。
-     * @param { boolean } doAntiAlias - 表示是否使能抗锯齿。true表示使能，false表示不使能。默认为false。
+     * @param { ClipOp } clipOp - 裁剪方式。默认值为INTERSECT。
+     * @param { boolean } doAntiAlias - 表示是否使用抗锯齿。true表示使用，false表示不使用。默认值为false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2673,9 +2759,9 @@ declare namespace drawing {
     clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * 判断裁剪后的可绘制区域是否为空。
+     * 判断画布的裁剪区域是否为空。
      *
-     * @returns { boolean } 返回画布的可绘制区域是否为空的结果，true表示为空，false表示不为空。
+     * @returns { boolean } 返回画布的裁剪区域是否为空的结果，true表示为空，false表示不为空。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 12 dynamic
@@ -2684,9 +2770,9 @@ declare namespace drawing {
     isClipEmpty(): boolean;
 
     /**
-     * 检查绘制到设备中的当前图层是否不透明。
+     * 检查当前Canvas绘制目标的图层是否不透明。
      *
-     * @returns { boolean } 如果绘制到设备中的当前层是不透明的，则返回true。
+     * @returns { boolean } 返回当前Canvas绘制目标的图层是否不透明的结果，true表示不透明，false表示透明。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -2802,7 +2888,7 @@ declare namespace drawing {
      */
     glyph: int;
     /**
-     * 文本的起点x轴坐标，该参数为浮点数。
+     * 文本的起点x轴坐标，该参数为浮点数。单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2811,7 +2897,7 @@ declare namespace drawing {
      */
     positionX: double;
     /**
-     * 文本的起点y轴坐标，该参数为浮点数。
+     * 文本的起点y轴坐标，该参数为浮点数。单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2832,7 +2918,7 @@ declare namespace drawing {
    */
   enum TextEncoding {
     /**
-     * 使用1个字节表示UTF-8或ASCII。
+     * UTF-8或ASCII编码，UTF-8使用1-4个字节表示字符，ASCII使用1个字节表示字符。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2842,7 +2928,7 @@ declare namespace drawing {
      */
     TEXT_ENCODING_UTF8 = 0,
     /**
-     * 使用2个字节表示大部分unicode。
+     * 使用2个字节表示大部分Unicode。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2852,7 +2938,7 @@ declare namespace drawing {
      */
     TEXT_ENCODING_UTF16 = 1,
     /**
-     * 使用4个字节表示全部unicode。
+     * 使用4个字节表示全部Unicode。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -2874,7 +2960,7 @@ declare namespace drawing {
   }
 
   /**
-   * 由一个或多个具有相同字体的字符组成的字块。
+   * TextBlob是由一个或多个具有相同字型的字符组成的字块。支持通过文本、字符串、RunBuffer等多种方式创建字形集合，适用于需要批量渲染文本或获取文字边界框的场景。
    * 
    * > **说明：**
    * >
@@ -2889,13 +2975,13 @@ declare namespace drawing {
    */
   class TextBlob {
     /**
-     * 将string类型的值转化成TextBlob对象。
+     * 根据指定的编码类型和字型，使用string类型的值创建TextBlob对象。
      *
      * @param { string } text - 绘制字形的文本内容。
      * @param { Font } font - 字型对象。
      * @param { TextEncoding } [encoding] - 编码类型，默认值为TEXT_ENCODING_UTF8。当前只有TEXT_ENCODING_UTF8生效，其余编码类型也会被视为
      *     TEXT_ENCODING_UTF8。
-     * @returns { TextBlob } TextBlob对象。
+     * @returns { TextBlob } TextBlob对象，用于后续绘制字形。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2905,13 +2991,13 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
 
     /**
-     * Converts a value of the string type into a TextBlob object.
+     * 根据指定的编码类型和字型，使用string类型的值创建TextBlob对象
      *
-     * @param { string } text - Content to be used for drawing the text blob.
-     * @param { Font } font - Specify text size, font, text scale, etc.
-     * @param { TextEncoding } [encoding] - Encoding type. The default value is TEXT_ENCODING_UTF8.
-     *     Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
-     * @returns { TextBlob | undefined } TextBlob object.
+     * @param { string } text - 绘制字形的文本内容。
+     * @param { Font } font - 字型对象。
+     * @param { TextEncoding } [encoding] - 编码类型，默认值为TEXT_ENCODING_UTF8。当前只有TEXT_ENCODING_UTF8生效，其余编码类型也会被视为
+     *     TEXT_ENCODING_UTF8。
+     * @returns { TextBlob | undefined } TextBlob对象，用于后续绘制字形。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2920,13 +3006,13 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob | undefined;
 
     /**
-     * 使用文本创建TextBlob对象，TextBlob对象中每个字形的坐标由points中对应的坐标信息决定。
+     * 使用文本创建TextBlob对象，其中每个字形的坐标由points中对应的坐标信息决定。
      *
      * @param { string } text - 绘制字形的文本内容。
-     * @param { number } len - 字形个数，由[countText]{@link @ohos.graphics.drawing:drawing.Font.countText}获取，该参数为整数。
+     * @param { number } len - 字形个数，由[countText]{@link drawing.Font#countText}获取，该参数为整数。
      * @param { common2D.Point[] } points - 点数组，用于指定每个字形的坐标，长度必须为len。
      * @param { Font } font - 字型对象。
-     * @returns { TextBlob } TextBlob对象。
+     * @returns { TextBlob } 由文本和坐标信息创建的TextBlob对象，用于后续绘制字形。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2936,16 +3022,13 @@ declare namespace drawing {
     static makeFromPosText(text: string, len: number, points: common2D.Point[], font: Font): TextBlob;
 
     /**
-     * Creates a TextBlob object from the text.
-     * The coordinates of each font in the TextBlob object are determined by
-     * the coordinate information in the points array.
+     * 使用文本创建TextBlob对象，其中每个字形的坐标由points中对应的坐标信息决定。
      *
-     * @param { string } text - Content to be used for drawing the text blob.
-     * @param { int } len - Number of fonts. The value is an integer and is obtained from countText.
-     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
-     *     The array length must be the same as the value of len.
-     * @param { Font } font - Specify text size, font, text scale, etc.
-     * @returns { TextBlob | undefined } TextBlob object.
+     * @param { string } text - 绘制字形的文本内容。
+     * @param { int } len - 字形个数，由[countText]{@link drawing.Font#countText}获取，该参数为整数。
+     * @param { common2D.Point[] } points - 点数组，用于指定每个字形的坐标，长度必须为len。
+     * @param { Font } font - 字型对象。
+     * @returns { TextBlob | undefined } 由文本和坐标信息创建的TextBlob对象，用于后续绘制字形。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2956,10 +3039,10 @@ declare namespace drawing {
     /**
      * 基于RunBuffer信息创建TextBlob对象。
      *
-     * @param { Array<TextBlobRunBuffer> } pos - TextBlobRunBuffer数组。
+     * @param { Array<TextBlobRunBuffer> } pos - TextBlobRunBuffer数组，每个元素包含字形ID及位置坐标信息。
      * @param { Font } font - 字型对象。
-     * @param { common2D.Rect } [bounds] - 可选，如果不设置，则无边界框。
-     * @returns { TextBlob } TextBlob对象。
+     * @param { common2D.Rect } [bounds] - 文字边界框的矩形区域；如果不设置，则不预设边界框。
+     * @returns { TextBlob } 基于RunBuffer创建的TextBlob对象，用于后续绘制字形。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2969,12 +3052,12 @@ declare namespace drawing {
     static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob;
 
     /**
-     * Creates a Textblob object based on the RunBuffer information.
+     * 基于RunBuffer信息创建TextBlob对象。
      *
-     * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
-     * @param { Font } font - Font used for this run.
-     * @param { common2D.Rect } [bounds] - Optional run bounding box. The default value is null;
-     * @returns { TextBlob | undefined } TextBlob object.
+     * @param { Array<TextBlobRunBuffer> } pos - TTextBlobRunBuffer数组，每个元素包含字形ID及位置坐标信息。
+     * @param { Font } font - 字型对象。
+     * @param { common2D.Rect } [bounds] - 文字边界框的矩形区域；如果不设置，则不预设边界框。
+     * @returns { TextBlob | undefined } 基于RunBuffer创建的TextBlob对象，用于后续绘制字形。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2985,7 +3068,7 @@ declare namespace drawing {
     /**
      * 获取文字边界框的矩形区域。
      *
-     * @returns { common2D.Rect } Rectangular bounding box.
+     * @returns { common2D.Rect } 文字边界框的矩形区域。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 11 dynamic
@@ -2993,16 +3076,16 @@ declare namespace drawing {
     bounds(): common2D.Rect;
 
     /**
-     * Obtains the rectangular bounding box of the text blob.
+     * 获取文字边界框的矩形区域。
      *
-     * @returns { common2D.Rect | undefined } Rect object.
+     * @returns { common2D.Rect | undefined } 文字边界框的矩形区域。创建失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
     bounds(): common2D.Rect | undefined;
 
     /**
-     * 获取该TextBlob对象的唯一的非零标识符。
+     * 获取该TextBlob对象的唯一非零标识符。
      *
      * @returns { long } 返回TextBlob对象的唯一的非零标识符。
      * @syscap SystemCapability.Graphics.Drawing
@@ -3014,7 +3097,7 @@ declare namespace drawing {
   }
 
   /**
-   * 提供字体属性配置的结构体。
+   * 提供字体属性配置的类，用于配置可变字体的属性参数（如字重维度等轴标签及对应属性值）。
    * 
    * > **说明：**
    * >
@@ -3042,7 +3125,7 @@ declare namespace drawing {
      */
     constructor();
     /**
-     * 给字体属性设置字重值。
+     * 给字体属性添加可变维度轴标签及对应的属性值。
      *
      * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
      * @param { number } value  - Indicates the value of the axis field.
@@ -3070,7 +3153,7 @@ declare namespace drawing {
   }
 
   /**
-   * 字体，如宋体、楷体等。
+   * Typeface类用于表示和管理字体对象。支持的字体操作包括：获取字体族名、从字体文件或rawfile资源构造字体、结合字体属性构造新字体，以及检查字体的加粗、斜体状态等。
    * 
    * > **说明：**
    * >
@@ -3088,7 +3171,7 @@ declare namespace drawing {
     /**
      * 获取字体的族名，即一套字体设计的名称。
      *
-     * @returns { string } 返回字体的族名。
+     * @returns { string } 返回字体的族名，表示当前Typeface对象对应的字体设计名称。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @since 11 dynamic
@@ -3096,9 +3179,9 @@ declare namespace drawing {
     getFamilyName(): string;
 
     /**
-     * Get the family name for this typeface.
+     * 获取字体的族名，即一套字体设计的名称。
      *
-     * @returns { string | undefined } Family name.
+     * @returns { string | undefined } 返回字体的族名，表示当前Typeface对象对应的字体设计名称。创建失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3107,8 +3190,8 @@ declare namespace drawing {
     /**
      * 基于当前字体结合字体属性构造新的字体对象。
      *
-     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
-     * @returns { Typeface } 返回字体对象（异常情况下会返回空指针）。
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface } 返回基于当前字体结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
@@ -3116,10 +3199,10 @@ declare namespace drawing {
     makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
 
     /**
-     * Generate typeface from current typeface and TypefaceArguments.
+     * 基于当前字体结合字体属性构造新的字体对象。
      *
-     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
-     * @returns { Typeface | undefined } Typeface.
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface | undefined } 返回基于当前字体结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
      */
@@ -3130,7 +3213,7 @@ declare namespace drawing {
      *
      * @param { string } filePath - 表示字体资源存放的路径。应用沙箱路径和真实物理路径的对应关系请参考
      *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)。
-     * @returns { Typeface } 返回Typeface对象。
+     * @returns { Typeface } 返回从指定字体文件加载的字体对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3141,10 +3224,11 @@ declare namespace drawing {
     static makeFromFile(filePath: string): Typeface;
 
     /**
-     * Constructs a typeface from a file.
+     * 从指定字体文件构造字体。
      *
-     * @param { string } filePath - file path for typeface.
-     * @returns { Typeface | undefined } Typeface.
+     * @param { string } filePath - 表示字体资源存放的路径。应用沙箱路径和真实物理路径的对应关系请参考
+     *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)。
+     * @returns { Typeface | undefined } 返回从指定字体文件加载的字体对象。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3153,13 +3237,13 @@ declare namespace drawing {
     static makeFromFile(filePath: string): Typeface | undefined;
 
     /**
-     * 使用指定的字体文件构造字体，其中要求指定的字体文件需保存在应用资源文件夹的rawfile路径下。
+     * 使用指定的字体文件构造字体，该字体文件需保存在应用资源文件夹的rawfile路径下。
      *
      * @param { Resource } rawfile - 指定字体文件对应的资源对象。当前只支持``$rawfile``格式引用的资源对象，对应格式写为``$rawfile('filePath')``，其中filePath为
      *     指定字体文件相对于工程中resources/rawfile目录的相对路径。如将字体文件直接存放在resources/rawfile目录下，则引用格式应写为：``$rawfile('
      *     HarmonyOS_Sans_Bold.ttf')``；也可以创建子目录，将字体文件存放在resources/rawfile/ttf下，则引用格式应写为：``$rawfile('ttf/
      *     HarmonyOS_Sans_Bold.ttf')``。
-     * @returns { Typeface } 返回Typeface对象（异常情况下会返回空指针）。
+     * @returns { Typeface } 返回从rawfile资源加载的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3168,17 +3252,13 @@ declare namespace drawing {
     static makeFromRawFile(rawfile: Resource): Typeface;
 
     /**
-     * Constructs a typeface from a file, which must be stored in the
-     * resources/rawfile directory of the application project.
+     * 使用指定的字体文件构造字体，该字体文件需保存在应用资源文件夹的rawfile路径下。
      *
-     * @param { Resource } rawfile - Resource object corresponding to the file.
-     *     Currently, only resource objects referenced in rawfile format are supported.
-     *     The corresponding format is rawfile('filePath'),
-     *     where filePath is the relative path of the file to the resources/rawfile directory in the project.
-     *     If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
-     *     If the file is stored in a subdirectory, for example, in resources/rawfile/ttf,
-     *     the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
-     * @returns { Typeface | undefined } Typeface.
+     * @param { Resource } rawfile - 指定字体文件对应的资源对象。当前只支持``$rawfile``格式引用的资源对象，对应格式写为``$rawfile('filePath')``，其中filePath为
+     *     指定字体文件相对于工程中resources/rawfile目录的相对路径。如将字体文件直接存放在resources/rawfile目录下，则引用格式应写为：``$rawfile('
+     *     HarmonyOS_Sans_Bold.ttf')``；也可以创建子目录，将字体文件存放在resources/rawfile/ttf下，则引用格式应写为：``$rawfile('ttf/
+     *     HarmonyOS_Sans_Bold.ttf')``。
+     * @returns { Typeface | undefined } 返回从rawfile资源加载的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3189,8 +3269,8 @@ declare namespace drawing {
      *
      * @param { string } filePath - 表示字体资源存放的路径。应用沙箱路径和真实物理路径的对应关系请参考
      *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)。
-     * @param { TypefaceArguments } typefaceArguments - 表示字体属性。
-     * @returns { Typeface } 返回字体对象（异常情况下会返回空指针）。
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface } 返回从指定字体文件加载并结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice [since 22]
@@ -3199,23 +3279,24 @@ declare namespace drawing {
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
 
     /**
-     * Generate typeface from file and TypefaceArguments.
+     * 根据字体文件路径和字体属性构造新的字体。
      *
-     * @param { string } filePath - file path for typeface.
-     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
-     * @returns { Typeface | undefined } Typeface.
+     * @param { string } filePath - 表示字体资源存放的路径。应用沙箱路径和真实物理路径的对应关系请参考
+     *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)。
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface | undefined } 返回从指定字体文件加载并结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
      */
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface | undefined;
 
     /**
-     * 使用指定的字体文件和字体属性构造字体，其中要求指定的字体文件需保存在应用资源文件夹的rawfile路径下。
+     * 使用指定的字体文件和字体属性构造新的字体，该字体文件需保存在应用资源文件夹的rawfile路径下。
      *
-     * @param { Resource } rawfile - 指定字体文件对应的资源对象。当前只支持``$rawfile``格式引用的资源对象，对应格式写为``$rawfile('filePath')``，其中filePath为
-     *     指定字体文件相对于工程中resources/rawfile目录的相对路径。
-     * @param { TypefaceArguments } typefaceArguments - 表示字体属性。
-     * @returns { Typeface } 返回字体对象（异常情况下会返回空指针）。
+     * @param { Resource } rawfile - 指定字体文件对应的资源对象。当前只支持``$rawfile``格式引用的资源对象，传入非``$rawfile``格式的资源对象时返回空指针。对应格式写为``$
+     *     rawfile('filePath')``，其中filePath为指定字体文件相对于工程中resources/rawfile目录的相对路径。
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface } 返回从rawfile资源加载并结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @atomicservice [since 22]
@@ -3224,11 +3305,12 @@ declare namespace drawing {
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
 
     /**
-     * Generate typeface from Rawfile and TypefaceArguments.
+     * 使用指定的字体文件和字体属性构造新的字体，该字体文件需保存在应用资源文件夹的rawfile路径下。
      *
-     * @param { Resource } rawfile - RawFile for typeface.
-     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
-     * @returns { Typeface | undefined } Typeface.
+     * @param { Resource } rawfile - 指定字体文件对应的资源对象。当前只支持``$rawfile``格式引用的资源对象，传入非``$rawfile``格式的资源对象时返回空指针。对应格式写为``$
+     *     rawfile('filePath')``，其中filePath为指定字体文件相对于工程中resources/rawfile目录的相对路径。
+     * @param { TypefaceArguments } typefaceArguments - 字体属性参数。
+     * @returns { Typeface | undefined } 返回从rawfile资源加载并结合字体属性构造的字体对象（异常情况下会返回空指针）。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
      */
@@ -3244,9 +3326,9 @@ declare namespace drawing {
     isBold(): boolean;
 
     /**
-     * 检查字体是否是斜体。
+     * 检查字体是否为斜体。
      *
-     * @returns { boolean } 返回当前字体是否是斜体。true表示字体是斜体，false表示字体不是斜体。
+     * @returns { boolean } 返回当前字体是否为斜体。true表示字体为斜体，false表示字体非斜体。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 dynamic&static
      */
@@ -3357,7 +3439,7 @@ declare namespace drawing {
   }
 
   /**
-   * 描述字型绘制时所使用的属性，如大小、字体等。
+   * Font类用于描述字型绘制时所使用的属性（如大小、字体、粗细、倾斜、缩放等），并支持文本测量、字形转换、路径轮廓获取、主题字体跟随等能力。
    * 
    * > **说明：**
    * >
@@ -3417,7 +3499,7 @@ declare namespace drawing {
     /**
      * 设置字型大小。
      *
-     * @param { double } textSize - 字型大小，该参数为浮点数，为负数时字型大小会被置为0。字型大小为0时，绘制的文字不会显示。
+     * @param { double } textSize - 字型大小。该参数为浮点数，为负数时会被置为0，为0时绘制的文字不会显示。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3431,7 +3513,7 @@ declare namespace drawing {
     /**
      * 获取字型大小。
      *
-     * @returns { double } 字型大小，浮点数。
+     * @returns { double } 返回字型大小，浮点数。单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3466,9 +3548,9 @@ declare namespace drawing {
     getTypeface(): Typeface;
 
     /**
-     * Obtains the typeface.
+     * 获取字体。
      *
-     * @returns { Typeface | undefined } Typeface object.
+     * @returns { Typeface | undefined } 字体。获取失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3477,7 +3559,7 @@ declare namespace drawing {
     /**
      * 获取与字体关联的FontMetrics属性。
      *
-     * @returns { FontMetrics } FontMetrics属性。
+     * @returns { FontMetrics } 与字体关联的度量属性对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3486,9 +3568,9 @@ declare namespace drawing {
     getMetrics(): FontMetrics;
 
     /**
-     * Obtains the font metrics of the typeface.
+     * 获取与字体关联的FontMetrics属性。
      *
-     * @returns { FontMetrics | undefined } The fontMetrics value returned to the caller.
+     * @returns { FontMetrics | undefined } 与字体关联的度量属性对象。获取失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
@@ -3498,7 +3580,7 @@ declare namespace drawing {
      * 测量单个字符的宽度。当前字型中的字体不支持待测量字符时，退化到使用系统字体测量字符宽度。
      *
      * @param { string } text - 待测量的单个字符，字符串的长度必须为1。
-     * @returns { double } 字符的宽度，浮点数。
+     * @returns { double } 字符的宽度，浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3513,8 +3595,8 @@ declare namespace drawing {
      * 测量单个字符的宽度，字符带有字体特征。当前字型中的字体不支持待测量字符时，退化到使用系统字体测量字符宽度。
      *
      * @param { string } text - 待测量的单个字符。字符串长度必须为1。
-     * @param { Array<FontFeature> } features - 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。
-     * @returns { double } 字符的宽度，浮点数，单位为px。
+     * @param { Array<FontFeature> } features - 字体特征对象数组。参数为空数组时使用TTF（TrueType Font）文件中预设的字体特征。
+     * @returns { double } 字符的宽度，浮点数。单位为物理像素px。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -3532,9 +3614,9 @@ declare namespace drawing {
      * > 此接口用于测量原始字符串的文本宽度，若想测量排版后的文本宽度，建议使用
      * > [measure.measureText](docroot://reference/apis-arkui/arkts-apis-uicontext-measureutils.md#measuretext12)替代。
      *
-     * @param { string } text - 文本内容。
-     * @param { TextEncoding } encoding - 编码格式。
-     * @returns { double } 文本的宽度，浮点数。
+     * @param { string } text - 待测量的文本内容，将按encoding指定的编码方式进行解析。
+     * @param { TextEncoding } encoding - 指定文本的编码格式。
+     * @returns { double } 文本的宽度，浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3546,9 +3628,9 @@ declare namespace drawing {
     measureText(text: string, encoding: TextEncoding): double;
 
     /**
-     * 设置字型对象在x轴上的缩放比例。
+     * 设置字型在x轴方向上的缩放比例。
      *
-     * @param { double } scaleX - 文本在x轴上的缩放比例，该参数为浮点数。
+     * @param { double } scaleX - 字型在x轴上的缩放比例，该参数为浮点数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3560,9 +3642,9 @@ declare namespace drawing {
     setScaleX(scaleX: double): void;
 
     /**
-     * 设置字型对象在x轴上的倾斜比例。
+     * 设置字型在x轴方向上的倾斜比例。
      *
-     * @param { double } skewX - 文本在x轴上的倾斜比例，正数表示往左边倾斜，负数表示往右边倾斜，该参数为浮点数。
+     * @param { double } skewX - 字型在x轴方向上的倾斜比例，正数表示向左倾斜，负数表示向右倾斜，该参数为浮点数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3604,7 +3686,7 @@ declare namespace drawing {
     /**
      * 获取文本所表示的字符数量。
      *
-     * @param { string } text - 文本内容。
+     * @param { string } text - 待计数的文本内容。
      * @returns { int } 返回文本所表示的字符数量，整数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -3619,7 +3701,7 @@ declare namespace drawing {
     /**
      * 当前画布矩阵轴对齐时，设置字型基线是否与像素对齐。
      *
-     * @param { boolean } isBaselineSnap - 指示字型基线是否和像素对齐，true表示对齐，false表示不对齐。
+     * @param { boolean } isBaselineSnap - 表示字型基线是否与像素对齐，true表示对齐，false表示不对齐。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3633,7 +3715,7 @@ declare namespace drawing {
     /**
      * 当前画布矩阵轴对齐时，获取字型基线是否与像素对齐的结果。
      *
-     * @returns { boolean } 返回字型基线是否与像素对齐，true为对齐，false为没有对齐。
+     * @returns { boolean } 返回字型基线是否与像素对齐，true表示对齐，false表示不对齐。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3643,9 +3725,9 @@ declare namespace drawing {
     isBaselineSnap(): boolean;
 
     /**
-     * 设置字型是否转换成位图处理。
+     * 设置字型是否使用字体文件中内嵌的位图字形进行渲染。
      *
-     * @param { boolean } isEmbeddedBitmaps - 设置字型是否转换成位图处理，true表示转换成位图处理，false表示不转换成位图处理。
+     * @param { boolean } isEmbeddedBitmaps - 设置字型是否使用字体文件中内嵌的位图字形进行渲染，true表示使用内嵌位图字形，false表示不转换成位图处理。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3657,9 +3739,9 @@ declare namespace drawing {
     setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void;
 
     /**
-     * 获取字型是否转换成位图处理的结果。
+     * 获取字型是否使用内嵌位图渲染的结果。
      *
-     * @returns { boolean } 返回字型是否转换成位图处理结果，true表示转换成位图处理，false表示不转换成位图处理。
+     * @returns { boolean } 返回字型是否使用内嵌位图渲染的结果，true表示使用内嵌位图字形，false表示不转换成位图处理。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3669,9 +3751,9 @@ declare namespace drawing {
     isEmbeddedBitmaps(): boolean;
 
     /**
-     * 设置是否自动调整字型轮廓。
+     * 设置是否自动调整字型轮廓以优化渲染效果。
      *
-     * @param { boolean } isForceAutoHinting - 是否自动调整字型轮廓，true为自动调整，false为不自动调整。
+     * @param { boolean } isForceAutoHinting - 是否自动调整字型轮廓以优化渲染效果，true为自动调整，false为不自动调整。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3683,9 +3765,9 @@ declare namespace drawing {
     setForceAutoHinting(isForceAutoHinting: boolean): void;
 
     /**
-     * 获取字型轮廓是否自动调整的结果。
+     * 获取字型是否自动调整轮廓以优化渲染效果的结果。
      *
-     * @returns { boolean } 返回字型轮廓是否自动调整，true为自动调整，false为不自动调整。
+     * @returns { boolean } 返回字型是否自动调整轮廓以优化渲染效果的结果，true为自动调整，false为不自动调整。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3699,7 +3781,7 @@ declare namespace drawing {
      *
      * @param { Array<number> } glyphs - 字形索引数组，可由
      *     [textToGlyphs]{@link drawing.Font#textToGlyphs(text: string, glyphCount?: number)}生成。
-     * @returns { Array<number> } 返回字形宽度数组。
+     * @returns { Array<number> } 返回字形宽度数组，浮点数。单位为物理像素px。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3710,10 +3792,11 @@ declare namespace drawing {
     getWidths(glyphs: Array<number>): Array<number>;
 
     /**
-     * Obtains the width of each glyph in an array.
+     * 获取字形数组中每个字形对应的宽度。
      *
-     * @param { Array<int> } glyphs - Glyph array, which can be generated by textToGlyphs.
-     * @returns { Array<double> | undefined } Glyph array, which can be generated by textToGlyphs.
+     * @param { Array<int> } glyphs - 字形索引数组，可由
+     *     [textToGlyphs]{@link drawing.Font#textToGlyphs(text: string, glyphCount?: number)}生成。
+     * @returns { Array<double> | undefined } 返回字形宽度数组，浮点数。单位为物理像素px。获取失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3724,10 +3807,10 @@ declare namespace drawing {
     /**
      * 将文本转换为字形索引。
      *
-     * @param { string } text - 文本字符串。
-     * @param { number } [glyphCount] - 文本表示的字符数量，必须与[countText]{@link drawing.Font.countText}获取的值相等，默认为text的字符数量，该参数为整数
-     *     。
-     * @returns { Array<number> } Array that holds the glyph indexes.
+     * @param { string } text - 待转换为字形索引的文本字符串。
+     * @param { number } [glyphCount] - 文本表示的字符数量，该参数为整数。传入时必须与[countText]{@link drawing.Font#countText}获取的值相等，不传入时默认为
+     *     text表示的字符数量。
+     * @returns { Array<number> } 返回转换得到的字形索引数组。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3738,13 +3821,12 @@ declare namespace drawing {
     textToGlyphs(text: string, glyphCount?: number): Array<number>;
 
     /**
-     * Converts text into glyph indexes.
+     * 将文本转换为字形索引。
      *
-     * @param { string } text - Text string.
-     * @param { int } [glyphCount] - Number of glyphs represented by the text.
-     *     The value must be the same as the value obtained from countText.
-     *     The default value is the number of characters in the text string. The value is an integer.
-     * @returns { Array<int> | undefined } Returns the storage for glyph indices.
+     * @param { string } text - 待转换为字形索引的文本字符串。
+     * @param { int } [glyphCount] - 文本表示的字符数量，必须与[countText]{@link drawing.Font#countText}获取的值相等。
+     * 当不传该参数，或者glyphCount传入undefined时，默认为text的字符数量，该参数为整数。
+     * @returns { Array<int> | undefined } 返回转换得到的字形索引数组。创建失败时返回undefined。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3753,9 +3835,9 @@ declare namespace drawing {
     textToGlyphs(text: string, glyphCount?: int): Array<int> | undefined;
 
     /**
-     * 获取字型是否使用次像素渲染。
+     * 获取字型是否使用亚像素渲染。
      *
-     * @returns { boolean } 返回字型是否使用次像素渲染的结果，true表示使用，false表示不使用。
+     * @returns { boolean } 返回字型是否使用亚像素渲染的结果，true表示使用，false表示不使用。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
@@ -3777,9 +3859,9 @@ declare namespace drawing {
     isLinearMetrics(): boolean;
 
     /**
-     * 获取字型在x轴方向上的倾斜度。
+     * 获取字型在x轴方向上的倾斜比例。
      *
-     * @returns { double } 返回字型在x轴方向上的倾斜度。
+     * @returns { double } 返回字型在x轴方向上的倾斜比例。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
      * @atomicservice [since 22]
