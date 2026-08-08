@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Word Selection Extension Context
  * @kit BasicServicesKit
  */
 
@@ -23,14 +23,20 @@ import Want from './@ohos.app.ability.Want';
 
 /**
  * **SelectionExtensionContext** is the context of 
- * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}, which is
- * inherited from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}, which 
+ * inherits from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ * 
  * When a **SelectionExtensionAbility** component is instantiated, the system automatically creates the corresponding 
- * **SelectionExtensionContext**. You can use **SelectionExtensionContext** to start other abilities in the same 
- * application.
+ * **SelectionExtensionContext**. You can call the [startAbility] (#startability) API in SelectionExtensionContext to 
+ * start other abilities in the same app. This is applicable when you need to redirect to another ability in the same 
+ * app in word selection extension, helping users quickly obtain the functions or information associated with the 
+ * selected word.
  * 
  * > **NOTE**
- * > - This module is supported only on PCs/2-in-1 devices.
+ * >
+ * > - This module is supported only on PCs/2-in-1 devices. You can use 
+ * > **canIUse('SystemCapability.SelectionInput.Selection')** to check whether the current device supports this 
+ * > function.
  *
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi [since 20 - 23]
@@ -41,9 +47,16 @@ import Want from './@ohos.app.ability.Want';
  */
 declare class SelectionExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability. This API uses a promise to return the result.
+   * Starts the target ability in the same app. This method is applicable when you need to redirect to another ability 
+   * in the app in word selection extension. The system matches and starts the target ability based on the values of 
+   * **bundleName** and **abilityName** specified in the **Want** object. This API uses a promise to return the result. 
+   * For details about the ability startup mechanism, see 
+   * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
    *
-   * @param { Want } want - Want information of the ability to start, including the ability name and bundle name.
+   * @param { Want } want - Information about the target app to start. The main fields include **bundleName** (bundle
+   *     name of the target app) and **abilityName** (name of the target ability). After this parameter is set, the
+   *     system searches for and starts the corresponding ability based on the specified bundle name and ability name.
+   *     Only abilities within the same app can be started.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.

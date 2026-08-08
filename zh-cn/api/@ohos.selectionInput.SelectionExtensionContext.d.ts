@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 划词扩展上下文
  * @kit BasicServicesKit
  */
 
@@ -25,11 +25,14 @@ import Want from './@ohos.app.ability.Want';
  * SelectionExtensionContext是
  * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}的上下文，继承自
  * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
- * 每个SelectionExtensionAbility组件实例化时，系统都会自动创建对应的SelectionExtensionContext。开发者可以通过SelectionExtensionContext拉起同应用内其他
- * Ability。
+ * 
+ * 每个SelectionExtensionAbility组件实例化时，系统都会自动创建对应的SelectionExtensionContext。开发者可以通过SelectionExtensionContext调用
+ * [startAbility]{@link SelectionExtensionContext#startAbility}接口拉起同应用内其他Ability。适用于在划词扩展场景中需要跳转至应用内其他Ability的情况，帮助用户在划词
+ * 操作后快速获取与划词内容关联的功能或信息。
  * 
  * > **说明：**
- * > - 本模块仅支持PC/2in1设备。
+ * >
+ * > - 本模块仅支持PC/2in1设备。开发者可通过canIUse('SystemCapability.SelectionInput.Selection')判断当前设备是否支持该功能。
  *
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi [since 20 - 23]
@@ -40,9 +43,11 @@ import Want from './@ohos.app.ability.Want';
  */
 declare class SelectionExtensionContext extends ExtensionContext {
   /**
-   * 拉起目标应用。使用Promise异步回调。
+   * 拉起同应用内的目标Ability，适用于在划词扩展场景中需要跳转至应用内其他Ability的情况。系统根据Want对象中指定的bundleName和abilityName匹配并调度启动目标Ability。使用Promise异步回
+   * 调。关于Ability启动机制，请参见[ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
    *
-   * @param { Want } want - 想要被拉起的应用信息，包括Ability名称、Bundle名称等。
+   * @param { Want } want - 需要拉起的目标应用信息。主要字段包括bundleName（目标应用的Bundle名称）和abilityName（目标Ability名称）。设置后系统将根据其中指定的bundleName
+   *     和abilityName查找并拉起对应的Ability。仅支持拉起同应用内的Ability。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.

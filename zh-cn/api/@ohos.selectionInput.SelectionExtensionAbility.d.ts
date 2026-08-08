@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 划词扩展能力
  * @kit BasicServicesKit
  */
 
@@ -23,10 +23,19 @@ import type Want from './@ohos.app.ability.Want';
 import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExtensionContext';
 
 /**
- * 本模块提供划词扩展功能，用于用户通过鼠标、触控板等方式选择文本后的搜索、翻译等场景。
+ * 本模块提供划词扩展能力，支持开发者通过继承SelectionExtensionAbility实现自定义的划词扩展服务，适用于在用户通过鼠标、触控板选中文本后提供搜索、翻译等扩展交互的场景。开发者需在工程配置中声明该
+ * ExtensionAbility。具体的配置请参见
+ * [实现一个划词扩展能力](docroot://basic-services/selectionInput/selection-services-application-guide.md)。本模块提供的具体能力包括：
+ * 
+ * - 生命周期管理：通过[onConnect]{@link SelectionExtensionAbility#onConnect}和
+ * [onDisconnect]{@link SelectionExtensionAbility#onDisconnect}回调处理连接与断开逻辑。
+ * - 提供context属性：开发者可通过context调用
+ * [startAbility]{@link @ohos.selectionInput.SelectionExtensionContext:SelectionExtensionContext#startAbility}拉起同应用内的目标
+ * Ability，或将context作为[createPanel]{@link @ohos.selectionInput.selectionManager:selectionManager.createPanel}的入参创建划词面板。
  * 
  * > **说明：**
- * > - 本模块仅支持PC/2in1设备。
+ * >
+ * > - 本模块仅支持PC/2in1设备。开发者可通过canIUse('SystemCapability.SelectionInput.Selection')判断当前设备是否支持该能力。
  *
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi [since 20 - 23]
@@ -37,7 +46,11 @@ import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExte
  */
 declare class SelectionExtensionAbility {
   /**
-   * SelectionExtensionAbility的上下文环境，继承自[ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
+   * SelectionExtensionAbility的上下文环境，继承自[ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。开发者可通过
+   * context调用
+   * [startAbility]{@link @ohos.selectionInput.SelectionExtensionContext:SelectionExtensionContext#startAbility}拉起同应用内的目
+   * 标Ability，或将context作为[createPanel]{@link @ohos.selectionInput.selectionManager:selectionManager.createPanel}的入参创建划词面
+   * 板。
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -49,10 +62,12 @@ declare class SelectionExtensionAbility {
   context: SelectionExtensionContext;
 
   /**
-   * 当SelectionExtensionAbility实例完成创建时，系统会触发该回调，开发者可在该回调中执行初始化逻辑（如定义变量、加载资源、监听划词事件等）。
+   * 当客户端连接到SelectionExtensionAbility时，系统会触发该回调，开发者可在该回调中返回RPC通信对象，用于客户端与服务端建立IPC通信连接。开发者需返回一个继承了rpc.RemoteObject的通信桩对象，
+   * 系统将该桩对象传递给客户端，客户端通过该桩对象与SelectionExtensionAbility进行IPC通信。
    *
-   * @param { Want } want - 当前SelectionExtensionAbility的Want类型信息，包括Ability名称、Bundle名称等。
-   * @returns { rpc.RemoteObject } RemoteObject对象，用于客户端和服务端通信。
+   * @param { Want } want - 连接SelectionExtensionAbility时系统传入的Want对象，包含当前Ability的名称、Bundle名称等描述信息，用于在onConnect回调中获取
+   *     Ability连接配置，以便据此执行相应的初始化逻辑。
+   * @returns { rpc.RemoteObject } RemoteObject通信桩对象，开发者需实现该对象的远程消息处理方法（如onRemoteMessageRequest），系统将此对象传递给客户端用于IPC通信。
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]
@@ -63,10 +78,12 @@ declare class SelectionExtensionAbility {
   onConnect(want: Want): rpc.RemoteObject;
 
   /**
-   * 当SelectionExtensionAbility实例被销毁（例如用户关闭划词开关或切换划词应用）时，系统触发该回调。开发者可以在该生命周期中执行资源清理、数据保存等相关操作。使用同步回调或Promise异步回调。
-   * 在执行完onDisconnect生命周期回调后，应用可能会退出，从而可能导致onDisconnect中的异步函数未能正确执行，比如异步写入数据库。推荐使用Promise异步回调，避免因应用退出导致onDisconnect中的异步
-   * 函数（比如异步写入数据库）未能正确执行。
-   * 仅当SelectionExtensionAbility正常退出时会触发该回调，异常退出场景（例如低内存终止进程）不会触发该回调。
+   * 当客户端断开与SelectionExtensionAbility的连接（例如用户关闭划词开关或切换划词应用）时，系统会触发该回调。开发者可在该回调中执行与onConnect对应的清理操作，如调用
+   * [destroyPanel]{@link @ohos.selectionInput.selectionManager:selectionManager.destroyPanel}销毁已创建的面板、调用
+   * [off('selectionCompleted')]{@link @ohos.selectionInput.selectionManager:selectionManager.off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>)}
+   * 取消订阅的划词完成事件等。
+   * 
+   * 仅当SelectionExtensionAbility正常断开连接时会触发该回调，异常断开场景（例如低内存终止进程）不会触发该回调。
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
