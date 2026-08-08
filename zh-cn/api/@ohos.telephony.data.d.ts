@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Cellular Data
+ * @file 蜂窝数据
  * @kit TelephonyKit
  */
 
@@ -22,9 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 import Context from './application/Context';
 
 /**
- * The **data** module provides basic mobile data management functions. With the APIs provided by this module, you can 
- * obtain the default slot of the SIM card used for mobile data, obtain the cellular data flow type and connection 
- * status, and check whether cellular data and roaming are enabled.
+ * 蜂窝数据提供了移动数据管理能力，包括获取默认移动数据的SIM卡、获取蜂窝数据业务的上下行数据流状态、蜂窝数据业务链路连接状态，以及检查蜂窝数据业务和漫游是否启用等。
  *
  * @syscap SystemCapability.Telephony.CellularData
  * @since 7 dynamic
@@ -32,13 +30,10 @@ import Context from './application/Context';
  */
 declare namespace data {
   /**
-   * Obtains the default slot of the SIM card used for mobile data. This API uses an asynchronous callback to return the
-   * result.
+   * 获取默认移动数据的SIM卡，使用callback方式作为异步方法。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   *     <br>- **2**: slot ID of the mobile data in the eSIM and SkyTone scenarios.
+   * @param { AsyncCallback<int> } callback - 以callback形式异步返回结果。<br />- 0：卡槽1。 <br />- 1：卡槽2。<br />- 2：esim和天际通场景下，默认移动数
+   *     据的slotId为2。
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    * @since 23 static
@@ -46,12 +41,10 @@ declare namespace data {
   function getDefaultCellularDataSlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default slot of the SIM card used for mobile data. This API uses a promise to return the result.
+   * 获取默认移动数据的SIM卡，使用Promise方式作为异步方法。
    *
-   * @returns { Promise<int> } Promise used to return the result.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   *     <br>- **2**: slot ID of the mobile data in the eSIM and SkyTone scenarios.
+   * @returns { Promise<int> } 以Promise形式返回获取默认移动数据的SIM卡。<br />- 0：卡槽1。 <br />- 1：卡槽2。<br />- 2：esim和天际通场景下，默认移动数据的
+   *     slotId为2。
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    * @since 23 static
@@ -59,12 +52,9 @@ declare namespace data {
   function getDefaultCellularDataSlotId(): Promise<int>;
 
   /**
-   * Obtains the default SIM card used for mobile data synchronously.
+   * 获取默认移动数据的SIM卡。
    *
-   * @returns { int } Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   *     <br>- **2**: slot ID of the mobile data in the eSIM and SkyTone scenarios.
+   * @returns { int } 获取默认移动数据的SIM卡。<br />- 0：卡槽1。 <br />- 1：卡槽2。<br />- 2：esim和天际通场景下，默认移动数据的slotId为2。
    * @syscap SystemCapability.Telephony.CellularData
    * @since 9 dynamic
    * @since 23 static
@@ -72,14 +62,11 @@ declare namespace data {
   function getDefaultCellularDataSlotIdSync(): int;
 
   /**
-   * Sets the default slot of the SIM card used for mobile data. This API uses an asynchronous callback to return the 
-   * result.
+   * 设置默认移动数据的SIM卡，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID. 
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -98,13 +85,11 @@ declare namespace data {
   function setDefaultCellularDataSlotId(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the default slot of the SIM card used for mobile data. This API uses a promise to return the result.
+   * 设置默认移动数据的SIM卡，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID. 
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式异步返回设置结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -123,13 +108,10 @@ declare namespace data {
   function setDefaultCellularDataSlotId(slotId: int): Promise<void>;
 
   /**
-   * Obtains the data flow type of the cellular network (corresponding to the uplink and downlink arrows next to the 
-   * signal bar). This API uses an asynchronous callback to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO [since 22]
-   * @param { AsyncCallback<DataFlowType> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DataFlowType> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied. [since 22]
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -138,14 +120,10 @@ declare namespace data {
   function getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void;
 
   /**
-   * Obtains the data flow type of the cellular network (corresponding to the uplink and downlink arrows next to the 
-   * signal bar). This API uses a promise to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO [since 22]
-   * @returns { Promise<DataFlowType> } Promise used to return the data flow type of the cellular network (corresponding
-   *     to the uplink and downlink arrows next to the signal bar).
+   * @returns { Promise<DataFlowType> } 以Promise形式返回蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头）。
    * @throws { BusinessError } 201 - Permission denied. [since 22]
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -154,12 +132,10 @@ declare namespace data {
   function getCellularDataFlowType(): Promise<DataFlowType>;
 
   /**
-   * Obtains the cellular data connection status. This API uses an asynchronous callback to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取蜂窝数据业务的连接状态，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO [since 22]
-   * @param { AsyncCallback<DataConnectState> } callback - Callback used to return the result.
+   * @param { AsyncCallback<DataConnectState> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied. [since 22]
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -168,12 +144,10 @@ declare namespace data {
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
   /**
-   * Obtains the cellular data connection status. This API uses a promise to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取蜂窝数据业务的连接状态，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO [since 22]
-   * @returns { Promise<DataConnectState> } Promise used to return the result.
+   * @returns { Promise<DataConnectState> } 以Promise形式返回获取PS域的连接状态。
    * @throws { BusinessError } 201 - Permission denied. [since 22]
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -182,14 +156,10 @@ declare namespace data {
   function getCellularDataState(): Promise<DataConnectState>;
 
   /**
-   * Checks whether the cellular data service is enabled. This API uses an asynchronous callback to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   *     <br>**true**: The cellular data service is enabled.
-   *     <br>**false**: The cellular data service is disabled.
+   * @param { AsyncCallback<boolean> } callback - 以callback形式异步返回结果。<br />true：蜂窝数据业务已启用。<br />false：蜂窝数据业务已禁用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -204,14 +174,10 @@ declare namespace data {
   function isCellularDataEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the cellular data service is enabled. This API uses a promise to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<boolean> } Promise used to return the result.
-   *     <br>**true**: The cellular data service is enabled.
-   *     <br>**false**: The cellular data service is disabled.
+   * @returns { Promise<boolean> } 以Promise形式返回检查蜂窝数据业务是否启用。<br />true：蜂窝数据业务已启用。<br />false：蜂窝数据业务已禁用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -223,14 +189,10 @@ declare namespace data {
   function isCellularDataEnabled(): Promise<boolean>;
 
   /**
-   * Checks whether the cellular data service is enabled. This API returns the result synchronously.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用，调用此API返回结果。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { boolean } Whether the cellular data service is enabled.
-   *     <br>**true**: The cellular data service is enabled.
-   *     <br>**false**: The cellular data service is disabled.
+   * @returns { boolean } 用来返回检查蜂窝数据业务是否启用。<br />true：蜂窝数据业务已启用。<br />false：蜂窝数据业务已禁用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -242,10 +204,10 @@ declare namespace data {
   function isCellularDataEnabledSync(): boolean;
 
   /**
-   * Enables the cellular data service. This API uses an asynchronous callback to return the result.
+   * 启用蜂窝数据服务，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -262,10 +224,10 @@ declare namespace data {
   function enableCellularData(callback: AsyncCallback<void>): void;
 
   /**
-   * Enables the cellular data service. This API uses a promise to return the result.
+   * 启用蜂窝数据服务，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Service connection failed.
@@ -279,10 +241,10 @@ declare namespace data {
   function enableCellularData(): Promise<void>;
 
   /**
-   * Disables the cellular data service. This API uses an asynchronous callback to return the result.
+   * 禁用蜂窝数据服务，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -299,10 +261,10 @@ declare namespace data {
   function disableCellularData(callback: AsyncCallback<void>): void;
 
   /**
-   * Disables the cellular data service. This API uses a promise to return the result.
+   * 禁用蜂窝数据服务，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } 以Promise形式返回禁用结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Service connection failed.
@@ -316,18 +278,11 @@ declare namespace data {
   function disableCellularData(): Promise<void>;
 
   /**
-   * Checks whether roaming is enabled for the cellular data service. This API uses an asynchronous callback to return 
-   * the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用漫游，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   *     <br>**true**: Roaming is enabled for the cellular data service.
-   *     <br>**false**: Roaming is disabled for the cellular data service.
+   * @param { int } slotId - 卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 以callback形式异步返回结果。<br />true：蜂窝数据业务已启用漫游。<br />false：蜂窝数据业务已禁用漫游。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -342,17 +297,11 @@ declare namespace data {
   function isCellularDataRoamingEnabled(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether roaming is enabled for the cellular data service. This API uses a promise to return the result.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用漫游，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<boolean> } Promise used to return the result.
-   *     <br>**true**: Roaming is enabled for the cellular data service.
-   *     <br>**false**: Roaming is disabled for the cellular data service.
+   * @param { int } slotId - 卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式返回检查蜂窝数据业务是否启用漫游。<br />true：蜂窝数据业务已启用漫游。<br />false：蜂窝数据业务已禁用漫游。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -367,17 +316,11 @@ declare namespace data {
   function isCellularDataRoamingEnabled(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether roaming is enabled for the cellular data service. This API returns the result synchronously.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查蜂窝数据业务是否启用漫游，调用此API返回结果。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { boolean } Whether roaming is enabled for the cellular data service.
-   *     <br>**true**: Roaming is enabled for the cellular data service.
-   *     <br>**false**: Roaming is disabled for the cellular data service.
+   * @param { int } slotId - 卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。
+   * @returns { boolean } 用来返回检查蜂窝数据业务是否启用漫游。<br />true：蜂窝数据业务已启用漫游。<br />false：蜂窝数据业务已禁用漫游。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -392,13 +335,11 @@ declare namespace data {
   function isCellularDataRoamingEnabledSync(slotId: int): boolean;
 
   /**
-   * Enables the cellular data roaming service. This API uses an asynchronous callback to return the result.
+   * 启用蜂窝数据漫游，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -415,13 +356,11 @@ declare namespace data {
   function enableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables the cellular data roaming service. This API uses a promise to return the result.
+   * 启用蜂窝数据漫游，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式返回启用结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -438,13 +377,11 @@ declare namespace data {
   function enableCellularDataRoaming(slotId: int): Promise<void>;
 
   /**
-   * Disables the cellular data roaming service. This API uses an asynchronous callback to return the result.
+   * 禁用蜂窝数据漫游，使用callback方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @param { AsyncCallback<void> } callback - 以callback形式异步返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -461,13 +398,11 @@ declare namespace data {
   function disableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables the cellular data roaming service. This API uses a promise to return the result.
+   * 禁用蜂窝数据漫游，使用Promise方式作为异步方法。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。 <br/>- 1：卡槽2。
+   * @returns { Promise<void> } 以Promise形式返回禁用结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -484,14 +419,10 @@ declare namespace data {
   function disableCellularDataRoaming(slotId: int): Promise<void>;
 
   /**
-   * Obtains the default ID of the SIM card used for mobile data.
+   * 获取默认移动数据的SIM卡ID。
    *
-   * @returns { int } Obtains the default ID of the SIM card used for mobile data.
-   *     <br>The return value is bound to the SIM card and increases from 1.
-   *     <br>- **0**: no SIM card.
-   *     <br>- **9999**: ID of the SIM card used for mobile data in the eSIM scenario.
-   *     <br>- **99999**: ID of the SIM card used for mobile data in the SkyTone scenario. The default value is
-   *     **99999**.
+   * @returns { int } 获取默认移动数据的SIM卡ID。<br/>与SIM卡绑定，从1开始递增。<br/>- 0：无SIM卡。<br/>- 9999：esim场景下，默认移动数据的SIM卡ID为9999。<br/>- 9
+   *     9999：天际通场景下，默认移动数据的SIM卡ID为99999。
    * @syscap SystemCapability.Telephony.CellularData
    * @since 10 dynamic
    * @since 23 static
@@ -499,11 +430,10 @@ declare namespace data {
   function getDefaultCellularDataSimId(): int;
 
   /**
-   * Obtains the access point name (APN) of the default SIM card used for mobile data. This API returns the result 
-   * asynchronously.
+   * 异步获取默认移动数据的SIM卡的APN（access point name，接入点名称）信息。
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
-   * @returns { Promise<Array<ApnInfo>> } Promise used to return the result.
+   * @returns { Promise<Array<ApnInfo>> } Promise对象，返回默认移动数据的SIM卡的APN信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
@@ -512,14 +442,10 @@ declare namespace data {
   function queryAllApns(): Promise<Array<ApnInfo>>;
 
   /**
-   * Obtains the access point name (APN) of the default SIM card used for mobile data. This API returns the result 
-   * asynchronously.
-   * 
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 异步获取默认移动数据SIM卡对应的处于激活状态的数据业务APN（access point name，接入点名称）name信息，若不处于激活状态，返回为空字符串。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<string> } Promise used to return the result. If mobile data is not activated, an empty string is
-   *     returned.
+   * @returns { Promise<string> } Promise对象，返回默认移动数据SIM卡对应的处于激活状态的数据业务APN name信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 20 dynamic
@@ -528,11 +454,11 @@ declare namespace data {
   function getActiveApnName(): Promise<string>;
 
   /**
-   * Obtains the APN ID corresponding to the specified **ApnInfo**. This API returns the result asynchronously.
+   * 异步获取传入的ApnInfo对应的ApnId信息。
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
-   * @param { ApnInfo } apnInfo - APN to query.
-   * @returns { Promise<Array<int>> } Promise used to return the result.
+   * @param { ApnInfo } apnInfo - 要查询的APN参数。
+   * @returns { Promise<Array<int>> } Promise对象，返回传入的ApnInfo对应的ApnId信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
@@ -541,17 +467,15 @@ declare namespace data {
   function queryApnIds(apnInfo: ApnInfo): Promise<Array<int>>;
 
   /**
-   * Sets the APN corresponding to the specified **apnId** as the preferred APN. This API returns the result 
-   * asynchronously.
+   * 异步设置apnId对应的APN为首选APN。
    * 
-   * > **NOTE**
+   * > 注意:
    * >
-   * > If the input APN ID is invalid, the default preferred APN configured by the carrier is used.
+   * > 如果传入的apnId为无效的apnId，切回运营商默认配置的优选Apn。
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
-   * @param { int } apnId - APN ID, which can be obtained by calling [queryApnIds]{@link data.queryApnIds}.
-   * @returns { Promise<boolean> } Promise used to return the result. If no SIM card is installed, the value **false**
-   *     is returned.
+   * @param { int } apnId - 要设置的apnId，可以通过[queryApnIds]{@link data.queryApnIds}查询。
+   * @returns { Promise<boolean> } Promise对象，返回设置的结果，在未插卡时会返回false。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
@@ -560,12 +484,16 @@ declare namespace data {
   function setPreferredApn(apnId: int): Promise<boolean>;
 
   /**
-   * Open the system APN selection menu, which is presented in a semi-modal form and can
-   * be used to select a specific APN. This API uses a promise to return the result.
-   * If there is no SIM card or the device does not support the APN menu, the menu cannot be displayed.
+   * 打开当前默认移动数据卡对应的APN配置界面。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > - 该接口仅支持查看和选择当前已添加的通用APN，不支持新建或修改。
+   * >
+   * > - 若未插入SIM卡或设备不支持APN配置，将无法打开该配置界面。
    *
-   * @param { Context } context - Indicates Context instance.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context - Stage模型的应用上下文（仅支持UIAbilityContext和ExtensionContext）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Telephony.CellularData
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -573,7 +501,7 @@ declare namespace data {
   function showSystemApnSettings(context: Context): Promise<void>;
 
   /**
-   * Defines the APN information.
+   * APN信息。
    *
    * @syscap SystemCapability.Telephony.CellularData
    * @since 16 dynamic
@@ -581,7 +509,7 @@ declare namespace data {
    */
   interface ApnInfo {
     /**
-     * APN name.
+     * APN名称。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -589,7 +517,7 @@ declare namespace data {
      */
     apnName: string;
     /**
-     * APN.
+     * APN。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -597,7 +525,7 @@ declare namespace data {
      */
     apn: string;
     /**
-     * Mobile country code (MCC) of the SIM card.
+     * Sim卡的mcc。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -605,7 +533,7 @@ declare namespace data {
      */
     mcc: string;
     /**
-     * Mobile network code (MNC) of the SIM card.
+     * Sim卡的mnc。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -613,7 +541,7 @@ declare namespace data {
      */
     mnc: string;
     /**
-     * User name.
+     * 用户名。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -621,7 +549,7 @@ declare namespace data {
      */
     user?: string;
     /**
-     * APN type.
+     * APN类型。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -629,7 +557,7 @@ declare namespace data {
      */
     type?: string;
     /**
-     * Proxy address.
+     * 代理地址。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -637,7 +565,7 @@ declare namespace data {
      */
     proxy?: string;
     /**
-     * Multimedia messaging service (MMS) proxy.
+     * 彩信代理。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 16 dynamic
@@ -647,7 +575,7 @@ declare namespace data {
   }
 
   /**
-   * Defines the cellular data flow type.
+   * 描述蜂窝数据流类型。
    *
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -655,7 +583,7 @@ declare namespace data {
    */
   export enum DataFlowType {
     /**
-     * No uplink or downlink data is available.
+     * 表示没有上行或下行数据。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -664,7 +592,7 @@ declare namespace data {
     DATA_FLOW_TYPE_NONE = 0,
 
     /**
-     * Only the downlink data is available.
+     * 表示只有下行数据。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -673,7 +601,7 @@ declare namespace data {
     DATA_FLOW_TYPE_DOWN = 1,
 
     /**
-     * Only the uplink data is available.
+     * 表示只有上行数据。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -682,7 +610,7 @@ declare namespace data {
     DATA_FLOW_TYPE_UP = 2,
 
     /**
-     * Both the uplink data and downlink data are available.
+     * 表示有上下行数据。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -691,7 +619,7 @@ declare namespace data {
     DATA_FLOW_TYPE_UP_DOWN = 3,
 
     /**
-     * No uplink or downlink data is available because the lower-layer link is in the dormant state.
+     * 表示没有上下行数据，底层链路处于休眠状态。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -701,7 +629,7 @@ declare namespace data {
   }
 
   /**
-   * Describes the connection status of a cellular data link.
+   * 描述蜂窝数据链路连接状态。
    *
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
@@ -709,7 +637,7 @@ declare namespace data {
    */
   export enum DataConnectState {
     /**
-     * The status of the cellular data link is unknown.
+     * 表示蜂窝数据链路未知。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -718,7 +646,7 @@ declare namespace data {
     DATA_STATE_UNKNOWN = -1,
 
     /**
-     * The cellular data link is disconnected.
+     * 表示蜂窝数据链路断开。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -727,7 +655,7 @@ declare namespace data {
     DATA_STATE_DISCONNECTED = 0,
 
     /**
-     * The cellular data link is being connected.
+     * 表示正在连接蜂窝数据链路。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -736,7 +664,7 @@ declare namespace data {
     DATA_STATE_CONNECTING = 1,
 
     /**
-     * The cellular data link is connected.
+     * 表示蜂窝数据链路已连接。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
@@ -745,7 +673,7 @@ declare namespace data {
     DATA_STATE_CONNECTED = 2,
 
     /**
-     * The cellular data link is suspended.
+     * 表示蜂窝数据链路被挂起。
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
