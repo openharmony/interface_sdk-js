@@ -27,7 +27,7 @@
 import { Callback } from '@ohos.base';
 
 /**
- * 背景色颜色混合模式的可选项。
+ * 背景色混合模式的可选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -61,7 +61,7 @@ export declare enum MixMode {
 }
 
 /**
- * 导航栏背景底色不透明度的可选项。
+ * 渐变色显示区域不透明度的可选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -103,7 +103,7 @@ export declare enum GradientAlpha {
 }
 
 /**
- * 导航栏背景色底色的可选项。
+ * 导航栏背景底色的可选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -137,8 +137,12 @@ export declare enum BackgroundTheme {
 }
 
 /**
- * 作为Page页面的根容器使用，其内部默认包含了标题栏、内容区，其中内容区默认首页显示导航内容或非首页显示（
- * [NavDestination]{@link ./@internal/component/ets/nav_destination}的子组件），首页和非首页通过路由进行切换。
+ * 作为Page页面的根容器使用，其内部默认包含了标题栏、内容区。其中，内容区在首页默认显示导航内容，在非首页显示
+ * [NavDestination]{@link ./@internal/component/ets/nav_destination}的子组件，首页和非首页通过路由进行切换。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -147,9 +151,8 @@ export declare enum BackgroundTheme {
 @Component
 export declare struct AtomicServiceNavigation {
   /**
-   * the information of route page.Providers methods for controlling destination page in the stack.
+   * 路由栈信息。默认值为new NavPathStack()。
    *
-   * @type { ?NavPathStack }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -157,9 +160,8 @@ export declare struct AtomicServiceNavigation {
   @State
   navPathStack?: NavPathStack;
   /**
-   * the content of Navigation.
+   * Navigation容器内容。默认值为空，无内容展示。
    *
-   * @type { ?Callback<void> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -167,9 +169,9 @@ export declare struct AtomicServiceNavigation {
   @BuilderParam
   navigationContent?: Callback<void>;
   /**
-   * Sets the Navigation title.
+   * 设置页面标题。默认值为空字符串。当titleOptions的titleBarType字段设置为TitleBarType.ROUND_ICON或者TitleBarType.SQUARED_ICON，
+   * 且设置了titleIcon时，title标题内容将不会显示。
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -177,9 +179,9 @@ export declare struct AtomicServiceNavigation {
   @Prop
   title?: ResourceStr;
   /**
-   * The color of Navigation's TitleBar.
+   * 标题栏选项。默认值为{ isBlurEnabled: true }。当titleBarType字段设置为TitleBarType.ROUND_ICON或者TitleBarType.SQUARED_ICON，
+   * 且设置了titleIcon时，title标题内容将不会显示。
    *
-   * @type { ?TitleOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -187,18 +189,17 @@ export declare struct AtomicServiceNavigation {
   @Prop
   titleOptions?: TitleOptions;
   /**
-   * 设置导航栏渐变色背景，作用区域包含标题栏和内容栏。
-   * @type { ?GradientBackground }.
+   * 渐变背景色选项。设置时各字段的默认值见GradientBackground。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   gradientBackground?: GradientBackground;
   /**
-   * Hide navigation title bar.
+   * 设置是否隐藏标题栏。默认为false。false表示显示标题栏，true表示隐藏标题栏。
    *
-   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -206,9 +207,8 @@ export declare struct AtomicServiceNavigation {
   @Prop
   hideTitleBar?: boolean;
   /**
-   * Sets the width of navigation bar.
+   * 设置导航栏宽度。默认值为240vp。仅在Navigation组件分栏时生效。
    *
-   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -216,9 +216,8 @@ export declare struct AtomicServiceNavigation {
   @Prop
   navBarWidth?: Length;
   /**
-   * Sets the mode of navigation.
+   * 设置导航栏的显示模式。默认值为Auto。支持Stack、Split与Auto模式。
    *
-   * @type { ?NavigationMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -226,9 +225,8 @@ export declare struct AtomicServiceNavigation {
   @Prop
   mode?: NavigationMode;
   /**
-   * The builder of navDestination.
+   * 创建NavDestination组件所需要的Builder数据。默认值为空，即无内容展示。
    *
-   * @type { ?NavDestinationBuilder }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -236,9 +234,9 @@ export declare struct AtomicServiceNavigation {
   @BuilderParam
   navDestinationBuilder?: NavDestinationBuilder;
   /**
-   * Sets the minimum width and the maximum width of navigation bar.
+   * 设置导航栏最小和最大宽度（双栏模式下生效）。
+   * 默认值：最小为240vp，最大为组件宽度的40%，且不大于432vp，如果只设置一个值，则未设置的值按照默认值计算。单位：vp。
    *
-   * @type { ?[Dimension, Dimension] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -249,9 +247,8 @@ export declare struct AtomicServiceNavigation {
     Dimension
   ];
   /**
-   * Sets the minimum width of content.
+   * 设置导航栏内容区最小宽度（双栏模式下生效）。默认值为360vp。
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -259,27 +256,24 @@ export declare struct AtomicServiceNavigation {
   @Prop
   minContentWidth?: Dimension;
   /**
-   * Trigger callback when the visibility of navigation bar change.
+   * 导航栏显示状态切换时触发该回调。true表示导航栏显示，false表示导航栏隐藏。默认值为空。
    *
-   * @type { ?Callback<boolean> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   stateChangeCallback?: Callback<boolean>;
   /**
-   * Trigger callback when navigation mode changes.
+   * 当Navigation首次显示或者单双栏状态发生变化时触发该回调。默认值为空。
    *
-   * @type { ?Callback<NavigationMode> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   modeChangeCallback?: Callback<NavigationMode>;
   /**
-   * The layout style users defined and inserted.
+   * 宽屏场景下用户自定义插入的布局样式。默认值为空，不显示任何样式。屏幕宽度低于600vp为非宽屏场景，大于等于600vp为宽屏场景。
    *
-   * @type { ?(CustomBuilder | Array<NavigationMenuItem>) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -287,22 +281,21 @@ export declare struct AtomicServiceNavigation {
   @BuilderParam
   menus?: CustomBuilder | Array<NavigationMenuItem>;
   /**
-   * Set side bar options.
+   * 侧边栏的功能选项。
+   * 默认值为{ sideBarBackground: $r('sys.color.ohos_id_color_sub_background'), sideBarIcon: $r('sys.symbol.open_sidebar') }。
    *
-   * @type { ?SideBarOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   sideBarOptions?: SideBarOptions;
   /**
-   * Set side bar content.
+   * 侧边栏的内容。默认值为空。
    *
-   * @type { ?Callback<void> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @BuilderParam
   sideBarContent?: Callback<void>;
@@ -317,9 +310,8 @@ export declare struct AtomicServiceNavigation {
  */
 export interface TitleOptions {
   /**
-   * Background color.
+   * 标题栏背景颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -327,9 +319,8 @@ export interface TitleOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Whether to enable the blur effect.
+   * 标题栏是否模糊。
    *
-   * @type { ?boolean }.
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -338,9 +329,8 @@ export interface TitleOptions {
   isBlurEnabled?: boolean;
 
   /**
-   * Set title bar style.
+   * 设置标题栏样式。
    *
-   * @type { ?BarStyle }
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -349,30 +339,28 @@ export interface TitleOptions {
   barStyle?: BarStyle;
 
   /**
-   * Set title bar type.
+   * 设置标题栏类型。
    *
-   * @type { ?TitleBarType }
    * @default TitleBarType.ROUND_ICON
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   titleBarType?: TitleBarType;
 
   /**
-   * Set title bar icon.
+   * 设置标题栏的图标。
    *
-   * @type { ?(Resource | SymbolGlyphModifier) }
    * @default atomicservice icon
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   titleIcon?: Resource | SymbolGlyphModifier;
 }
 
 /**
- * 供开发者设置品牌渐变色。
+ * 品牌渐变色选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -380,52 +368,47 @@ export interface TitleOptions {
  */
 export interface GradientBackground {
   /**
-   * the primaryColor of Background.
+   * 单色渐变色彩值和双色渐变第一色彩值。
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   primaryColor: ResourceColor;
 
   /**
-   * the secondaryColor of Background.
+   * 双色渐变色第二色彩值。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   secondaryColor?: ResourceColor;
 
   /**
-   * the theme color of Background.
+   * 导航栏背景底色。
    *
-   * @type { ?BackgroundTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   backgroundTheme?: BackgroundTheme;
 
   /**
-   * the blend mode of background color.
+   * 同时设置primaryColor和secondaryColor时此参数生效。表示双色渐变下两种颜色的融合方式。
    *
-   * @type { ?MixMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   mixMode?: MixMode;
 
   /**
-   * the opacity of background colors.
+   * 设置渐变色显示区域的不透明度。
    *
-   * @type { ?GradientAlpha }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   alpha?: GradientAlpha;
 }
@@ -439,33 +422,30 @@ export interface GradientBackground {
  */
 export interface SideBarOptions {
   /**
-   * Side bar Background.
+   * 设置侧边栏的背景颜色。
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   sideBarBackground?: ResourceColor;
 
   /**
-   * Side bar status change callback.
+   * 侧边栏显示隐藏回调。
    *
-   * @type { ?Callback<boolean> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onChange?: Callback<boolean>;
 
   /**
-   * Side bar icon.
+   * 侧边栏的展开图标。
    *
-   * @type { ?(Resource | SymbolGlyphModifier) }.
    * @default $r('sys.symbol.open_sidebar')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   sideBarIcon?: Resource | SymbolGlyphModifier;
 }
@@ -507,7 +487,7 @@ export declare enum TitleBarType {
 }
 
 /**
- * NavDestination组件内容。
+ * 用于创建NavDestination组件内容的构建器类型。
  *
  * @param { string } name - [NavDestination]{@link ./@internal/component/ets/nav_destination}页面名称。
  * @param { Object } [param] - [NavDestination]{@link ./@internal/component/ets/nav_destination}页面详细参数。默认值为空。
