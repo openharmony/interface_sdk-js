@@ -16,18 +16,22 @@
 /**
  * ###### 子组件
  * 
- * 无
+ * 无。
  * 
  * ###### 属性
  * 
- * 不支持[通用属性]{@link ./@internal/component/ets/common}
+ * 不支持[通用属性]{@link ./@internal/component/ets/common}。
  *
  * @file Provides an advanced struct of tabs for atomic services
  * @kit ArkUI
  */
 
 /**
- * AtomicServiceTabs高级组件，对Tabs组件一些不需提供给用户自定义设计的属性进行简化，限制最多显示5个页签，固定页签样式，位置和大小。
+ * AtomicServiceTabs高级组件，对Tabs组件中不需要暴露给用户进行自定义的属性进行简化，限制最多显示5个页签，固定页签的样式、位置和大小。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -36,7 +40,7 @@
 @Component
 export declare struct AtomicServiceTabs {
   /**
-   * The TabContent array of tabs.
+   * 内容视图容器数组，最多支持5个页签，默认值为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -51,9 +55,8 @@ export declare struct AtomicServiceTabs {
     TabContentBuilder?
   ];
   /**
-   * The tabBar array of tabs.
+   * 页签选项数组，最多支持5个页签。
    *
-   * @type { [TabBarOptions, TabBarOptions, TabBarOptions?, TabBarOptions?, TabBarOptions?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -67,9 +70,8 @@ export declare struct AtomicServiceTabs {
     TabBarOptions?
   ];
   /**
-   * set the positions of tabbar.
+   * 设置页签栏位置，默认值为TabBarPosition.BOTTOM。
    *
-   * @type { ?TabBarPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -77,19 +79,17 @@ export declare struct AtomicServiceTabs {
   @Prop
   tabBarPosition?: TabBarPosition;
   /**
-   * Sets the layout mode of the bottom tab bar
+   * 设置底部页签的图片、文字排布的方式，默认值为LayoutMode.VERTICAL。
    *
-   * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   layoutMode?: LayoutMode;
   /**
-   * Sets the barBackgroundColor of tabs.
+   * 设置TabBar的背景颜色，默认值为透明。
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -97,9 +97,8 @@ export declare struct AtomicServiceTabs {
   @Prop
   barBackgroundColor?: ResourceColor;
   /**
-   * Sets the index of tabs.
+   * 设置当前显示页签的索引，索引值从0开始，取值范围为[0, 页签数-1]，最大不超过4。默认值为0。
    *
-   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -107,9 +106,9 @@ export declare struct AtomicServiceTabs {
   @Prop
   index?: number;
   /**
-   * set if need overlap, default value is true.
+   * 设置TabBar是否背景变模糊并叠加在TabContent之上。
+   * true表示TabBar背景变模糊并叠加在TabContent之上，false表示TabBar背景不变模糊且不叠加在TabContent之上。默认值为true。
    *
-   * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -117,36 +116,33 @@ export declare struct AtomicServiceTabs {
   @Prop
   barOverlap?: boolean;
   /**
-   * Provide methods for switching tabs.
+   * Tabs组件的控制器，用于控制页签切换。默认值为new TabsController()。
    *
-   * @type { ?TabsController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   controller?: TabsController;
   /**
-   * onChange callback of tabs when tabs changed.
+   * Tabs页签切换后触发的事件，回调参数为切换后的页签索引，索引值从0开始。
+   * 当onContentWillChange回调返回false拦截页面切换时，该事件不会被触发。默认值为空。
    *
-   * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   onChange?: Callback<number>;
   /**
-   * onTabBarClick callback of tabs when tabbar is clicked.
+   * Tabs页签点击后触发的事件，回调参数为被点击页签的索引值，索引值从0开始。默认值为空。
    *
-   * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
   onTabBarClick?: Callback<number>;
   /**
-   * onContentWillChange callback of tabs when tabbar is clicked.
+   * Tabs页面切换拦截事件，新页面即将显示时触发该回调。当回调返回false拦截页面切换时，onChange事件不会被触发。默认值为空。
    *
-   * @type { ?OnContentWillChangeCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -155,7 +151,7 @@ export declare struct AtomicServiceTabs {
 }
 
 /**
- * 页签容器数组。
+ * 页签选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -165,10 +161,10 @@ export declare class TabBarOptions {
   /**
    * TabBarOptions的构造函数。
    *
-   * @param { (ResourceStr | TabBarSymbol) } icon - 页签内的图片内容。
+   * @param { (ResourceStr | TabBarSymbol) } icon - 页签内的图标内容。
    * @param { ResourceStr } text - 页签内的文字内容。
-   * @param { ResourceColor } [unselectedColor] - 未选择时的页签颜色，默认值：#99182431。
-   * @param { ResourceColor } [selectedColor] - 被选择时的页签颜色，默认值：#FF007DFF。
+   * @param { ResourceColor } [unselectedColor] - 未选择时的页签颜色，默认值为#99182431。
+   * @param { ResourceColor } [selectedColor] - 已选择时的页签颜色，默认值为#FF007DFF。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -206,7 +202,7 @@ export declare enum TabBarPosition {
 }
 
 /**
- * 内容视图容器。
+ * 内容视图构建器，用于构建TabContent页签内容的函数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -215,12 +211,12 @@ export declare enum TabBarPosition {
 export type TabContentBuilder = () => void;
 
 /**
- * 页面内容发生变化时触发的回调函数。
+ * 页面内容即将发生变化时触发的回调函数，用于拦截页面切换，开发者可通过返回值控制是否允许切换。
  *
  * @param { number } currentIndex - 当前页签索引。
  * @param { number } comingIndex - 即将切换的页签索引。
  * @returns { boolean }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
  */
