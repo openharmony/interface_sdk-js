@@ -43,13 +43,6 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
 /**
  * The **notificationSubscribe** module provides APIs for notification subscription, notification unsubscription, 
  * subscription removal, and more. In general cases, only system applications can call these APIs.
- * 
- * > **NOTE**
- * >
- * > The initial APIs of this module are supported since API version 9. Newly added APIs will be marked with a superscript
- * > to indicate their earliest API version.
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi

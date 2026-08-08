@@ -32,10 +32,6 @@ import { RecordData } from '../@ohos.base';
  * 交互式操作按钮，让用户通过点击按钮触发WantAgent动作。当开发者需要在通知中提供交互式操作
  * 按钮（如"回复"、"标记已读"等）时使用此模块。
  *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
  * @since 23 static
