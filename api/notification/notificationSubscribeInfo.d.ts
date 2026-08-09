@@ -23,13 +23,6 @@ import type notificationManager from '../@ohos.notificationManager';
 /**
  * The **NotificationSubscribeInfo** module provides APIs for defining the information about the publisher for 
  * notification subscription.
- * 
- * > **NOTE**
- * >
- * > The initial APIs of this module are supported since API version 7. Newly added APIs will be marked with a
- * > superscript to indicate their earliest API version.
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi

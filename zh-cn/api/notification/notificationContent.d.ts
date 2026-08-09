@@ -14,16 +14,6 @@
  */
 
 /**
- * NotificationContent中定义通知的内容结构，提供多种通知类型的内容描述接口。
- * 当应用需要发布通知时，可根据通知的展示需求（如普通文本、长文本、多行文本、
- * 图片、实况窗），选择对应的内容类型接口构造通知内容。
- *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- */
-
-/**
  * @file Some notification types and content
  * @kit NotificationKit
  */
@@ -835,8 +825,6 @@ export interface NotificationProgress {
 export interface NotificationContent {
   /**
    * 通知内容类型。
-   * 
-   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationContentType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly

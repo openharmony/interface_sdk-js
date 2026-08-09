@@ -2134,12 +2134,6 @@ declare namespace notificationManager {
   /**
    * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the 
    * result.
-   * 
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>)}
-   * with context instead.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
@@ -2194,12 +2188,6 @@ declare namespace notificationManager {
 
   /**
    * Requests notification to be enabled for this application. This API uses a promise to return the result.
-   * 
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext)}
-   * with context instead.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2317,7 +2305,6 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @deprecated since 26.0.0
-   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -2335,7 +2322,6 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @deprecated since 26.0.0
-   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -2791,28 +2777,6 @@ declare namespace notificationManager {
    * @since 23 static
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
-
-  /**
-   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
-   * promise to return the result.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
-   *     <br>The maximum length is 1000 and cannot be empty.
-   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
-   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
-   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
-   *     opposite. Bundles whose slot has not been created will not appear in the result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 26.0.0 dynamic&static
-   */
-  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
 
   /**
    * Sets whether to enable the notification sync feature for devices where the application is not installed. This API
@@ -4117,6 +4081,29 @@ declare namespace notificationManager {
   function getBadgeNumber(): Promise<long>;
 
   /**
+   * Snoozes a notification. The notification will be reminded again after the specified time. Each
+   * setting will trigger only one reminder, and the reminder mode will be the same as that of the
+   * notification.<br>The notification will be deleted after the setting.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - Unique ID of the notification to be snoozed.
+   * @param { long } delayTime - Interval for the snoozed notification.
+   *     <br>Unit: second.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600028 - This notification is not supported.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
+
+  /**
    * Sets the enabling state of geofencing. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4169,26 +4156,26 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
-   * Snoozes a notification. The notification will be reminded again after the specified time. Each
-   * setting will trigger only one reminder, and the reminder mode will be the same as that of the
-   * notification.<br>The notification will be deleted after the setting.
+   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique ID of the notification to be snoozed.
-   * @param { long } delayTime - Interval for the snoozed notification.<br>Unit: second.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
+   *     <br>The maximum length is 1000 and cannot be empty.
+   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
+   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
+   *     opposite. Bundles whose slot has not been created will not appear in the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600007 - The notification does not exist.
-   * @throws { BusinessError } 1600028 - This notification is not supported.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
+  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
 
   /**
    * Describes the switch state of notifications.
@@ -4875,6 +4862,7 @@ declare namespace notificationManager {
 
   /**
    * Do Not Disturb profile.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic

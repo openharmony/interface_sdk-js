@@ -28,10 +28,6 @@ import type notificationManager from '../@ohos.notificationManager';
 /**
  * 描述通知渠道，不同通知渠道对应的通知提醒方式不同。
  *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
  * @since 23 static
@@ -39,8 +35,6 @@ import type notificationManager from '../@ohos.notificationManager';
 export interface NotificationSlot {
   /**
    * 渠道类型。
-   * 
-   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -60,8 +54,6 @@ export interface NotificationSlot {
 
   /**
    * 通知级别。
-   * 
-   * 从API version 7开始支持，从API version 20开始废弃，建议使用notificationLevel替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
