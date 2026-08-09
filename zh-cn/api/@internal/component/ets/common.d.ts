@@ -2307,7 +2307,7 @@ declare enum AccessibilitySamePageMode {
 declare enum AccessibilityRoleType {
 
   /**
-   * actionSheet component type
+   * ActionSheet component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2318,7 +2318,7 @@ declare enum AccessibilityRoleType {
   ACTION_SHEET = 0,
 
   /**
-   * alertDialog component type
+   * AlertDialog component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2329,7 +2329,7 @@ declare enum AccessibilityRoleType {
   ALERT_DIALOG = 1,
 
   /**
-   * alphabetIndexer component type
+   * AlphabetIndexer component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3135,7 +3135,7 @@ declare enum AccessibilityRoleType {
   POLYLINE = 74,
 
   /**
-   * popup component type
+   * pop up component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3257,7 +3257,7 @@ declare enum AccessibilityRoleType {
   RICH_TEXT = 85,
 
   /**
-   * role pager component type
+   * rolepager component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3367,8 +3367,7 @@ declare enum AccessibilityRoleType {
   SIDEBAR_CONTAINER = 95,
 
   /**
-   * sidebar container component type
-   *
+   * slider component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3623,7 +3622,7 @@ declare enum AccessibilityRoleType {
   TOGGLER = 118,
 
   /**
-   * uiExtensionComponent component type
+   * uiextensioncomponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3678,7 +3677,7 @@ declare enum AccessibilityRoleType {
   XCOMPONENT = 123,
 
   /**
-   * none component type: screen reader will not broadcast the component type
+   * none component type: screen reader will not broadcast the component type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7650,7 +7649,7 @@ declare enum SourceTool {
 }
 
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7658,7 +7657,7 @@ declare enum SourceTool {
  * @since 9
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7667,7 +7666,7 @@ declare enum SourceTool {
  * @since 10
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7679,14 +7678,14 @@ declare enum SourceTool {
 declare enum RepeatMode {
 
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7694,7 +7693,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled. Tiles beyond the border box will be clipped.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7705,14 +7704,14 @@ declare enum RepeatMode {
   Repeat = 0,
 
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7720,7 +7719,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are stretched to fill the border box.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7731,14 +7730,14 @@ declare enum RepeatMode {
   Stretch = 1,
 
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7746,7 +7745,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Tiles may be compressed when needed.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7757,14 +7756,14 @@ declare enum RepeatMode {
   Round = 2,
 
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7772,7 +7771,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Extra space will be distributed in between tiles.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10003,7 +10002,39 @@ declare interface BaseEvent {
 declare interface BorderImageOption {
 
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   * 
+   * 默认值：0
+   * 
+   * **说明：**
+   * 
+   * 设置负数时取默认值。
+   * 
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   * 
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Left：设置图片左侧被切割的宽。
+   * 
+   * - Right：设置图片右侧被切割的宽。
+   * 
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Start：设置图片左侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   * 
+   * - End：设置图片右侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10012,7 +10043,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   * 
+   * 默认值：0
+   * 
+   * **说明：**
+   * 
+   * 设置负数时取默认值。
+   * 
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   * 
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Left：设置图片左侧被切割的宽。
+   * 
+   * - Right：设置图片右侧被切割的宽。
+   * 
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Start：设置图片左侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   * 
+   * - End：设置图片右侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10022,7 +10085,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   * 
+   * 默认值：0
+   * 
+   * **说明：**
+   * 
+   * 设置负数时取默认值。
+   * 
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   * 
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Left：设置图片左侧被切割的宽。
+   * 
+   * - Right：设置图片右侧被切割的宽。
+   * 
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Start：设置图片左侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   * 
+   * - End：设置图片右侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10033,8 +10128,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Slice width of the upper left corner, upper right corner, lower left corner,
-   * and lower right corner of the border image.
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   * 
+   * 默认值：0
+   * 
+   * **说明：**
+   * 
+   * 设置负数时取默认值。
+   * 
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   * 
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Left：设置图片左侧被切割的宽。
+   * 
+   * - Right：设置图片右侧被切割的宽。
+   * 
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   * 
+   * - Top：设置图片上侧被切割的高。
+   * 
+   * - Bottom：设置图片下侧被切割的高。
+   * 
+   * - Start：设置图片左侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   * 
+   * - End：设置图片右侧被切割的宽。
+   * 
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10048,7 +10174,9 @@ declare interface BorderImageOption {
   slice?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   * 
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10057,7 +10185,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   * 
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10067,7 +10197,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Repeat mode of the source image's slices on the border.
+   * 设置被切割的图片在边框上的重复方式。
+   * 
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @default RepeatMode.Stretch
@@ -10081,7 +10213,13 @@ declare interface BorderImageOption {
   repeat?: RepeatMode;
 
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   * 
+   * 默认值：undefined（不设置边框图源）
+   * 
+   * **说明：**
+   * 
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10090,7 +10228,13 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   * 
+   * 默认值：undefined（不设置边框图源）
+   * 
+   * **说明：**
+   * 
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10100,13 +10244,13 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Source or gradient color of the border image.
-   * When the type is string, this parameter sets the border image source.
-   * For details about how to reference image resources, see Loading Image Resources.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The border image source applies only to container components, such as Row, Column, and Flex.
-   * </p>
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   * 
+   * 默认值：undefined（不设置边框图源）
+   * 
+   * **说明：**
+   * 
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10119,7 +10263,39 @@ declare interface BorderImageOption {
   source?: string | Resource | LinearGradient;
 
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10128,7 +10304,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10138,7 +10346,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10149,7 +10389,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Width of the border image.
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10163,7 +10435,39 @@ declare interface BorderImageOption {
   width?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10172,7 +10476,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10182,7 +10518,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10193,7 +10561,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Amount by which the border image is extended beyond the border box.
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10207,7 +10607,9 @@ declare interface BorderImageOption {
   outset?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   * 
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10216,7 +10618,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   * 
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10226,9 +10630,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Whether to fill the center of the border image.
-   * true: Fill the center of the border image.
-   * false: Do not fill the center of the border image.
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   * 
+   * 默认值：false
    *
    * @type { ?boolean }
    * @default false
@@ -10622,7 +11026,6 @@ declare interface HoverEvent extends BaseEvent {
    * 
    * 取值范围：[0, +∞)
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10838,7 +11241,7 @@ declare interface MouseEvent extends BaseEvent {
   /**
    * 获取鼠标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 鼠标位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 鼠标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11359,7 +11762,7 @@ declare interface TouchObject {
   /**
    * 获取触摸位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 触摸位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 触摸位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11744,7 +12147,7 @@ declare interface AxisEvent extends BaseEvent {
   /**
    * 获取鼠标光标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 鼠标光标位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 鼠标光标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16660,7 +17063,6 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22262,14 +22664,14 @@ declare class CommonMethod<T> {
   /**
    * 设置当前容器组件的tabStop，可决定焦点在走焦时是否会停留在当前容器。
    *
-   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器，true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。<br/>**说明：**<br/>1.配
+   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器。true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。<br/>**说明：**<br/>1.配
    *     置tabStop需要确保是容器组件且有可获焦的孩子组件，默认容器组件不能直接获焦。<br/>2.通过[requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}请求焦
    *     点，如果是容器组件且配置tabStop，焦点能够停留在容器组件，如果未配置tabStop，即使整条焦点链上有配置了tabStop的组件，该组件依然能获取到焦点。<br/>3.配置tabStop的容器不允许嵌
    *     套超过2层。<br/>tabStop走焦规则：<br/>1.通过tab键和方向键走焦，焦点会停留在配置了tabStop的组件上，如果焦点停留在配置了tabStop的容器内部时，可以走焦到容器内部的下一个可获焦
-   *     组件，如果焦点停留在配置了tabStop的容器外部是，可以走焦到容器外的下一个可获焦组件。<br/>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按Esc能够将焦点
+   *     组件，如果焦点停留在配置了tabStop的容器外部时，可以走焦到容器外的下一个可获焦组件。<br/>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按Esc能够将焦点
    *     退回到不超过当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)根容器的上一个配置了tabStop的组件，按空格键可以响应该容器的onClick事件。<br/>3.不建
    *     议根容器配置tabStop。如果根容器配置了tabStop，通过[clearFocus]{@link @ohos.arkui.UIContext:FocusController#clearFocus}将焦点清理到根容器，再按Enter键会重新走回内部上
-   *     一次获焦组件，通过Esc键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
+   *     一次获焦组件，通过ESC键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22421,8 +22823,8 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件在指定容器内获焦的优先级。需要配合[focusScopeId]{@link CommonMethod#focusScopeId(id: string, isGroup?: boolean)}一起使用。
    *
-   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。<br/>**说明：**<br/>1.当前组件必须在scopedId所标识的容器内，或其所属容器在scopeId所标识的容器
-   *     内。<br/>2.组件不可重复设置多个优先级。<br/>3.设置了focusScopeId的容器租金按不可设置优先级。
+   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。<br/>**说明：**<br/>1.当前组件必须在scopeId所标识的容器内，或其所属容器在scopeId所标识的容器
+   *     内。<br/>2.组件不可重复设置多个优先级。<br/>3.设置了focusScopeId的容器组件不可设置优先级。
    * @param { FocusPriority } [priority] - 获焦优先级。<br/>**说明：** <br/>未设置priority时，默认为AUTO优先级。<br/>优先级对走焦以及获焦组件的影响：<br/>1.容
    *     器整体获焦（[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)切换/焦点切换到焦点组/容器组件使用requestFocus申请焦点）时，若容器内存在优先
    *     级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由容器内上次获焦的组件获焦。<br/>2.容器非整体获焦（非焦点组场景下使用tab键/方向键走焦）时，若容器为首次获焦，则容器内优先级最高的组件获焦，
@@ -26197,9 +26599,9 @@ declare class CommonMethod<T> {
   onSizeChange(event: SizeChangeCallback): T;
 
   /**
-   * 无障碍焦点绿框的绘制层级设置功能。默认层级是跟随组件。
+   * 无障碍焦点框绘制层级。默认层级是跟随组件。
    *
-   * @param { FocusDrawLevel } drawLevel - 无障碍绘制能力，默认情况下绘制聚焦节点本身。
+   * @param { FocusDrawLevel } drawLevel - 无障碍焦点绘制层级定义。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29538,29 +29940,6 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 15 dynamic
    */
   backToTop(backToTop: boolean): T;
-
-  /**
-   * 设置滚动条滑轨高度。
-   *
-   * 未设置该接口时，滚动条滑轨高度默认自适应滚动组件高度，儿童智能表的默认高度为37vp。
-   *
-   * > **说明：**
-   * >
-   * > 应确保scrollBarHeight与
-   * > [scrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarmargin20)的设定
-   * > 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
-   *
-   * @param { LengthMetrics | undefined } height - 滚动条滑轨高度。<br/>值必须大于等于0。设置为undefined或小于0时，自适应滚动组件高度，儿童智能表则恢复至默认值37vp。设置
-   *     为0时，不显示滚动条。
-   * @returns { T }
-   *    返回当前滚动组件。
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  scrollBarHeight(height: LengthMetrics | undefined): T;
 }
 
 /**
@@ -30284,7 +30663,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
  * `mutableBuilder`是一个泛型函数，它返回一个`MutableBuilder`对象，只接受一个全局的`@Builder`函数作为其参数。
@@ -31317,7 +31696,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取按键事件。
    *
-   * @returns { KeyEvent | null } 获取按键事件，如果是触摸事件则返回事件对象，否则返回null。
+   * @returns { KeyEvent | null } 获取按键事件，如果是按键事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
