@@ -259,7 +259,6 @@ export declare interface AnimatableArithmetic<T> {
 /**
   * ReuseId callback type. It is used to compute reuseId.
   *
-  * @typedef { function } ReuseIdCallback
   * @returns { string }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
@@ -269,7 +268,6 @@ export type ReuseIdCallback = () => string;
 /**
  * Defining the reusable configuration parameters.
  *
- * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -278,7 +276,6 @@ export declare interface ReuseOptions {
     /**
      * Defining reuseId function. The default reuseId is the custom component name.
      *
-     * @type { ?ReuseIdCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -304,7 +301,6 @@ export declare interface Configuration {
     /**
      * Set colorMode.
      *
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -313,7 +309,6 @@ export declare interface Configuration {
     /**
      * Set fontScale.
      *
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -321,7 +316,21 @@ export declare interface Configuration {
     readonly fontScale: double;
 }
 /**
- * The data type used to describe a rectangular area.
+ * 矩形区域类型。
+ *
+ * > **说明：**
+ * >
+ * > - x和y可以设置正负值百分比。当x设置为'100%'时表示热区往右偏移组件本身宽度大小，当x设置为'-100%'时表示热区往左偏移组件本身宽度大小。当y设置为'100%'时表示热区往下偏移组件本身高度大小，当y设置为'-100%
+ * > '时表示热区往上偏移组件本身高度大小。
+ * >
+ * > - width和height设置百分比时，只能设置正值百分比。width：'100%'表示热区宽度设置为该组件本身的宽度。比如组件本身宽度是100vp，那么'100%'表示热区宽度也为100vp。height：'100%'表示热区
+ * > 高度设置为该组件本身的高度。
+ * >
+ * > - 百分比相对于组件自身宽高进行计算。
+ * >
+ * > - 当父组件设置[clip]{@link CommonMethod.clip}(true)时，子组件的响应会受到父组件触摸热区的影响，不在父组件触摸热区内的子组件无法响应手势和事件。
+ * >
+ * > - width和height不支持calc()的动态计算。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -329,7 +338,9 @@ export declare interface Configuration {
  */
 export declare interface Rectangle {
     /**
-     * x:Horizontal coordinate
+     * 触摸点相对于组件左上角的x轴坐标。
+     *
+     * 默认值：0vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -337,7 +348,9 @@ export declare interface Rectangle {
      */
     x?: Length;
     /**
-     * y:Vertical axis coordinate.
+     * 触摸点相对于组件左上角的y轴坐标。
+     *
+     * 默认值：0vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -345,7 +358,9 @@ export declare interface Rectangle {
      */
     y?: Length;
     /**
-     * Sets the width of the current touchRect.
+     * 触摸热区的宽度。
+     * 
+     * 默认值：'100%'
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -353,7 +368,9 @@ export declare interface Rectangle {
      */
     width?: Length;
     /**
-     * Sets the height of the current touchRect.
+     * 触摸热区的高度。
+     * 
+     * 默认值：'100%'
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -362,7 +379,19 @@ export declare interface Rectangle {
     height?: Length;
 }
 /**
- * Defines the response region interface.
+ * 由输入工具类型、触摸位置和大小组成的触摸热区。
+ * 
+ * > **说明：**
+ * >
+ * > - 当父组件设置[clip]{@link CommonMethod.clip}为true时，子组件的响应会受到父组件触摸热区的影响，不在父组件触摸热区内的子组件无法响应手势和事件。
+ * >
+ * > - 如果触摸热区未配置输入工具类型，触摸位置和大小均采用默认值。
+ * >
+ * > - x和y的计算结果为正值时，分别代表向右偏移和向下偏移；当计算结果为负值时，分别代表向左偏移和向上偏移。
+ * >
+ * > - width和height采用string类型时，string需采用小写字符否则不生效，支持calc()的动态计算。指定calc()的入参字符串格式为'宽高缩放比例 ± 宽高增量'，宽高缩放比例为百分比，宽高增量单位为px或
+ * > vp。例如'calc(80% + 10vp)'中，80%为宽高缩放比例、10vp为宽高增量。width和height采用LengthMetrics类型且单位为percent时，相对于组件自身宽高进行计算，percent(1)代表1
+ * > 00%。当计算结果为负值时，采用默认值。
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -370,7 +399,9 @@ export declare interface Rectangle {
  */
 export declare interface ResponseRegion {
   /**
-   *  The event tool type applicable to this response region.
+   * 触摸热区适用的输入工具类型。
+   *
+   * 默认值：ResponseRegionSupportedTool.ALL
    * 
    * @default ResponseRegionSupportedTool.ALL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -380,7 +411,9 @@ export declare interface ResponseRegion {
   tool?: ResponseRegionSupportedTool;
 
   /**
-   * Horizontal axis coordinate
+   * 触摸点相对于组件左上角的x轴坐标。
+   *
+   * 默认值：LengthMetrics.vp(0)
    * 
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -390,7 +423,9 @@ export declare interface ResponseRegion {
   x?: LengthMetrics;
 
   /**
-   * Vertical axis coordinate.
+   * 触摸点相对于组件左上角的y轴坐标。
+   *
+   * 默认值：LengthMetrics.vp(0)
    * 
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -400,7 +435,9 @@ export declare interface ResponseRegion {
   y?: LengthMetrics;
 
   /**
-   * Sets the width of the current touchRect.
+   * 触摸热区的宽度。
+   *
+   * 默认值：LengthMetrics.percent(1)
    * 
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -410,7 +447,9 @@ export declare interface ResponseRegion {
   width?: LengthMetrics | string;
 
   /**
-   * Sets the height of the current touchRect.
+   * 触摸热区的高度。
+   *
+   * 默认值：LengthMetrics.percent(1)
    * 
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -490,7 +529,8 @@ export declare function $rawfile(value: string): Resource;
  */
 export declare enum AccessibilitySamePageMode {
     /**
-    * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
+    * the first page and root page event is not send.but if application load new page whith navigation,the page event
+    * will be sent.
     * this mode is to solve skipping focus
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
@@ -1624,7 +1664,7 @@ export declare enum FinishCallbackType {
     LOGICALLY = 1
 }
 /**
- * Defines the touch test strategy object.
+ * 事件派发策略。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1633,7 +1673,7 @@ export declare enum FinishCallbackType {
  */
 export declare enum TouchTestStrategy {
     /**
-     * Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
+     * 自定义分发不产生影响，系统按当前节点命中状态分发事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1641,8 +1681,7 @@ export declare enum TouchTestStrategy {
      */
     DEFAULT = 0,
     /**
-     * The specified event is forwarded to a particular child node, and the system determines whether to
-     * distribute the event to other sibling nodes.
+     * 应用指定分发事件到某个子节点，其他兄弟节点是否分发事件交由系统决定。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1650,8 +1689,7 @@ export declare enum TouchTestStrategy {
      */
     FORWARD_COMPETITION = 1,
     /**
-     * The specified event is forwarded to a particular child node, and the system no longer distributes
-     * the event to other sibling nodes.
+     * 应用指定分发事件到某个子节点，系统不再分发事件到其他兄弟节点。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2591,7 +2629,8 @@ export declare interface LocalizedVerticalAlignParam {
  */
 export declare interface LocalizedAlignRuleOptions {
     /**
-     * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal direction.
+     * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal
+     * direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2599,7 +2638,8 @@ export declare interface LocalizedAlignRuleOptions {
      */
     start?: LocalizedHorizontalAlignParam;
     /**
-     * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal direction.
+     * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal
+     * direction.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2652,7 +2692,6 @@ export declare interface LocalizedAlignRuleOptions {
 /**
  * Enumerates the chain styles in relative container.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3005,18 +3044,6 @@ export declare class DrawModifier {
     drawFront(drawContext: DrawContext): void;
 
     /**
-     * drawForeground Method. This method is executed after drawing the associated Node and its children.
-     * It allows you to perform additional drawing operations on top of the already rendered content.
-     * This can be useful for adding visual elements that should appear above the main content.
-     *
-     * @param { DrawContext } drawContext - The drawContext used to draw.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    drawForeground(drawContext: DrawContext): void;
-
-    /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
      *
      * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
@@ -3290,7 +3317,7 @@ export declare enum EffectType {
     WINDOW_EFFECT = 1
 }
 /**
- * Defines the drag status before drag action.
+ * 定义拖拽手势触发前的各阶段状态。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3299,7 +3326,7 @@ export declare enum EffectType {
  */
 export declare enum PreDragStatus {
     /**
-     * Define the status for user prepare to start long press gesture.
+     * 拖拽手势启动阶段。（按下50ms时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3307,7 +3334,7 @@ export declare enum PreDragStatus {
      */
     ACTION_DETECTING_STATUS = 0,
     /**
-     * Define the status for user can start drag action.
+     * 拖拽准备完成，可发起拖拽阶段。（按下500ms时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3315,7 +3342,7 @@ export declare enum PreDragStatus {
      */
     READY_TO_TRIGGER_DRAG_ACTION = 1,
     /**
-     * Define the status for dragItem lift animation started.
+     * 拖拽浮起动效发起阶段。（按下800ms时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3323,7 +3350,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LIFT_STARTED = 2,
     /**
-     * Define the status for dragItem lift animation finished.
+     * 拖拽浮起动效结束阶段。（浮起动效完全结束时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3331,7 +3358,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LIFT_FINISHED = 3,
     /**
-     * Define the status for dragItem landing animation started.
+     * 拖拽落回动效发起阶段。（落回动效发起时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3339,7 +3366,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LANDING_STARTED = 4,
     /**
-     * Define the status for dragItem landing animation finished.
+     * 拖拽落回动效结束阶段。（落回动效结束时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3347,7 +3374,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LANDING_FINISHED = 5,
     /**
-     * Define the status for user cancel drag action.
+     * 拖拽浮起落位动效中断。（已满足READY_TO_TRIGGER_DRAG_ACTION状态后，未达到动效阶段，手指抬手时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3355,7 +3382,7 @@ export declare enum PreDragStatus {
      */
     ACTION_CANCELED_BEFORE_DRAG = 6,
     /**
-     * Define the status for user to sense the availability of drag in advance.
+     * 拖拽准备完成，可发起拖拽阶段。（按下350ms时触发）
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3364,7 +3391,7 @@ export declare enum PreDragStatus {
     PREPARING_FOR_DRAG_DETECTION = 7
 }
 /**
- * DragItemInfo object description
+ * 定义拖拽过程中拖拽项的相关信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3372,7 +3399,7 @@ export declare enum PreDragStatus {
  */
 export declare interface DragItemInfo {
     /**
-     * Uses the pixelMap object for drawing.
+     * 设置拖拽过程中显示的图片。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3380,7 +3407,16 @@ export declare interface DragItemInfo {
      */
     pixelMap?: PixelMap;
     /**
-     * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+     * 拖拽过程中显示自定义组件，如果设置了pixelMap，则忽略此值。
+     * 
+     * **说明：** 
+     * 
+     * 不支持全局builder。如果builder中使用了[Image]{@link ./common}组件，应尽量开启同步加载，即配置Image的
+     * [syncLoad]{@link ImageAttribute#syncLoad}为true。该builder只用于生成当次拖拽
+     * 中显示的图片，builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。
+     * 
+     * builder传参时，建议传参格式为builder: ()=>{this.customBuilder()}，用以保证this指向的正确性。具体请参考
+     * [将@Builder装饰的函数当作CustomBuilder类型使用](docroot://ui/state-management/arkts-builder.md#将builder装饰的函数当作custombuilder类型使用)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3388,7 +3424,7 @@ export declare interface DragItemInfo {
      */
     builder?: CustomBuilder;
     /**
-     * Sets the extra info for drag event.
+     * 拖拽项的附近信息，用于描述拖拽项。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3412,7 +3448,7 @@ export declare interface DragItemInfo {
 export declare function animateToImmediately(value: AnimateParam, processor: VoidCallback): void;
 
 /**
- * Defines the namespace of focus controller.
+ * 焦点控制模块。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3420,10 +3456,13 @@ export declare function animateToImmediately(value: AnimateParam, processor: Voi
  */
 export declare namespace focusControl {
     /**
-     * Request focus to the specific component by param: 'id/key'.
+     * 方法语句中可使用的全局接口，调用此接口可以主动让焦点在下一帧渲染时转移至参数指定的组件上。
+     * 
+     * 如果需要指定组件立刻获焦，推荐使用FocusController中的焦点同步转移接口
+     * [requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}。
      *
-     * @param { string } value
-     * @returns { boolean }
+     * @param { string } value - 目标组件使用接口key(value: string)或id(value: string)绑定的字符串。
+     * @returns { boolean } 返回值表示是否成功给目标组件申请到焦点。若参数指向的目标组件存在且已挂载组件树，并具备获焦能力，则返回true，否则返回false。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3431,7 +3470,13 @@ export declare namespace focusControl {
     function requestFocus(value: string): boolean;
 }
 /**
- * Import the PointerStyle type object for setCursor.
+ * 光标样式。
+ * 
+ * > **说明：**
+ * >
+ * > 直接使用cursorControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
+ * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
+ * > [getCursorController]{@link @ohos.arkui.UIContext:UIContext.getCursorController}获取绑定实例的cursorControl。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3439,7 +3484,7 @@ export declare namespace focusControl {
  */
 export type PointerStyle = pointer.PointerStyle;
 /**
- * CursorControl
+ * 控制鼠标光标的显示样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3447,16 +3492,16 @@ export type PointerStyle = pointer.PointerStyle;
  */
 export declare namespace cursorControl {
     /**
-     * Change the mouse cursor style by param: 'PointerStyle'.
+     * 方法语句中可使用的全局接口，调用该接口可更改当前的鼠标光标样式。
      *
-     * @param { PointerStyle } value - Cursor style.
+     * @param { PointerStyle } value - 设置的鼠标样式。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     function setCursor(value: PointerStyle): void;
     /**
-     * Restore the default mouse cursor style.
+     * 方法语句中可使用的全局接口，调用该接口可将鼠标光标恢复成默认箭头样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3465,7 +3510,9 @@ export declare namespace cursorControl {
     function restoreDefault(): void;
 }
 /**
- * Defines the event target.
+ * [BaseEvent]{@link BaseEvent}中参数target的类型。
+ *
+ * 触发事件的元素对象的显示区域。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3473,7 +3520,7 @@ export declare namespace cursorControl {
  */
 export declare interface EventTarget {
     /**
-     * Area information of the target element.
+     * 目标元素的区域信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3481,7 +3528,7 @@ export declare interface EventTarget {
      */
     area: Area;
     /**
-     * Node id of current target.
+     * 开发者设置的节点[id]{@link CommonMethod.id}。默认值：undefined
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3490,7 +3537,7 @@ export declare interface EventTarget {
     id?: string;
 }
 /**
- * Defines the event source type.
+ * 定义输入源对应的设备类型。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3499,7 +3546,7 @@ export declare interface EventTarget {
  */
 export declare enum SourceType {
     /**
-     * Unknown device type.
+     * 未知输入源。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3507,7 +3554,7 @@ export declare enum SourceType {
      */
     Unknown = 0,
     /**
-     * The mouse type.
+     * 鼠标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3515,7 +3562,7 @@ export declare enum SourceType {
      */
     Mouse = 1,
     /**
-     * The touch screen type.
+     * 触摸屏。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3523,7 +3570,7 @@ export declare enum SourceType {
      */
     TouchScreen = 2,
     /**
-     * The key type.
+     * 按键。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3531,7 +3578,7 @@ export declare enum SourceType {
      */
     KEY = 4,
     /**
-     * The joystick type.
+     * 手柄。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3540,7 +3587,7 @@ export declare enum SourceType {
     JOYSTICK = 5
 }
 /**
- * Defines the event tool type.
+ * 定义输入源对应的工具类型。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3549,7 +3596,7 @@ export declare enum SourceType {
  */
 export declare enum SourceTool {
     /**
-     * Unknown input source.
+     * 未知输入源。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3557,7 +3604,7 @@ export declare enum SourceTool {
      */
     Unknown = 0,
     /**
-     * The finger type.
+     * 手指输入。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3565,7 +3612,7 @@ export declare enum SourceTool {
      */
     Finger = 1,
     /**
-     * The pen type.
+     * 手写笔输入。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3573,7 +3620,7 @@ export declare enum SourceTool {
      */
     Pen = 2,
     /**
-     * The mouse type.
+     * 鼠标输入。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3581,7 +3628,7 @@ export declare enum SourceTool {
      */
     MOUSE = 7,
     /**
-     * The touchpad type.
+     * 触控板输入。触控板单指输入被视为鼠标输入操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3589,7 +3636,7 @@ export declare enum SourceTool {
      */
     TOUCHPAD = 9,
     /**
-     * The joystick type.
+     * 手柄输入。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3600,7 +3647,6 @@ export declare enum SourceTool {
 /**
  * Defines the Border Image Repeat Mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4500,7 +4546,6 @@ export declare enum SafeAreaType {
 /**
  * Enumerates the safe area edges.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4542,7 +4587,6 @@ export declare enum SafeAreaEdge {
 /**
  * Describe the types for expanding the safe area in layout.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4560,7 +4604,6 @@ export declare enum LayoutSafeAreaType {
 /**
  *  Define the edges for expanding the safe area in layout.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4678,7 +4721,7 @@ export declare enum SheetSize {
  */
 export type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
 /**
- * Defines the base event.
+ * 基础事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4686,7 +4729,7 @@ export type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
  */
 export declare interface BaseEvent {
      /**
-     * Display area of the element that triggers the gesture event.
+     * 触发手势事件的元素对象。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4694,7 +4737,9 @@ export declare interface BaseEvent {
      */
     target: EventTarget;
     /**
-     * Timestamp of the event.
+     * 事件时间戳，触发事件时距离系统启动的时间间隔。
+     *
+     * 单位：ns
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4702,7 +4747,7 @@ export declare interface BaseEvent {
      */
     timestamp: long;
     /**
-     * Event input device.
+     * 事件输入设备的类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4710,7 +4755,15 @@ export declare interface BaseEvent {
      */
     source: SourceType;
     /**
-     * the Horizontal axis coordinate.
+     * 水平轴值。
+     * 
+     * 默认值：0
+     * 
+     * **说明：**
+     * 
+     * 当前仅在鼠标滚轮或触控板双指滑动触发的Pan手势，或使用Ctrl+鼠标滚轮触发的Pinch手势中可以获取。
+     * 
+     * 对于Shift+鼠标滚轮触发的横向滚动场景，axisHorizontal为0，滚动值体现在axisVertical中。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4718,7 +4771,15 @@ export declare interface BaseEvent {
      */
     axisHorizontal?: double;
     /**
-     * the Vertical axis coordinate.
+     * 垂直轴值。
+     * 
+     * 默认值：0
+     * 
+     * **说明：**
+     * 
+     * 当前仅在鼠标滚轮或触控板双指滑动触发的Pan手势，或使用Ctrl+鼠标滚轮触发的Pinch手势中可以获取。
+     * 
+     * 对于Shift+鼠标滚轮触发的横向滚动场景，滚动值体现在axisVertical中。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4726,7 +4787,11 @@ export declare interface BaseEvent {
      */
     axisVertical?: double;
     /**
-     * Press pressure.
+     * 按压的压力大小。
+     * 
+     * 默认值：0
+     * 
+     * 取值范围：[0,1]，典型值0.913168，压感大小与数值正相关。在部分设备中，由于设备的硬件参数配置不同，可能会返回大于1的值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4734,7 +4799,11 @@ export declare interface BaseEvent {
      */
     pressure: double;
     /**
-     * Angle between the projection of the stylus on the device plane and the x-axis.
+     * 手写笔在设备平面上的投影与设备平面X轴的夹角。
+     * 
+     * 单位：deg 
+     * 
+     * 默认值：0
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4742,7 +4811,11 @@ export declare interface BaseEvent {
      */
     tiltX: double;
     /**
-     * Angle between the projection of the stylus on the device plane and the y-axis.
+     * 手写笔在设备平面上的投影与设备平面Y轴的夹角。
+     * 
+     * 单位：deg 
+     * 
+     * 默认值：0
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4750,7 +4823,9 @@ export declare interface BaseEvent {
      */
     tiltY: double;
     /**
-     * Indicates the angle at which the stylus rotates around the Z-axis.
+     * 手写笔在设备平面上的投影与设备平面X轴的夹角。
+     *
+     * 单位：deg 
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4758,7 +4833,7 @@ export declare interface BaseEvent {
      */
     rollAngle?: double;
     /**
-     * Event input source.
+     * 事件输入源的类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4766,7 +4841,11 @@ export declare interface BaseEvent {
      */
     sourceTool: SourceTool;
     /**
-     * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
+     * 获取功能键按压状态。支持功能键'Ctrl'\|'Alt'\|'Shift'。
+     *
+     * **说明：**
+     *
+     * 此接口不支持在手写笔场景下使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4774,7 +4853,11 @@ export declare interface BaseEvent {
      */
     getModifierKeyState?: ModifierKeyStateGetter;
     /**
-     * Indicates the ID of the input device that triggers the current event.
+     * 触发当前事件的输入设备ID。
+     *
+     * 默认值：0
+     *
+     * 取值范围：[0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4782,7 +4865,11 @@ export declare interface BaseEvent {
      */
     deviceId?: int;
     /**
-     * Indicates the screen ID on which the event occurred.
+     * 事件发生的屏幕ID。
+     *
+     * 默认值：0
+     *
+     * 取值范围：[0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4790,7 +4877,17 @@ export declare interface BaseEvent {
      */
     targetDisplayId?: int;
     /**
-     * Indicates the Pinch axis coordinate.
+     * 双指缩放比例。
+     * 
+     * 默认值：0
+     * 
+     * **说明：**
+     * 
+     * 仅在触控板上通过双指缩放操作触发的Pinch手势，或在轴事件中，可以获取该值；在其他场景下，获取到的将是默认值。
+     * 
+     * 缩放比例是指在双指缩放事件触发过程中，双指当前距离与最初按下时距离的比值。
+     * 
+     * 取值范围：[0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4874,8 +4971,6 @@ export declare class LayoutPolicy {
     /**
      * The component fills its parent which means its size is as large as its parent.
      *
-     * @readonly
-     * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4886,8 +4981,6 @@ export declare class LayoutPolicy {
      * The component fills its content which means its size is as large as its children but it is constained by its
      *     parent.
      *
-     * @readonly
-     * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4897,8 +4990,6 @@ export declare class LayoutPolicy {
     /**
      * The component fills its content which means its size is as large as its children.
      *
-     * @readonly
-     * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -4906,16 +4997,17 @@ export declare class LayoutPolicy {
     static readonly fixAtIdealSize: LayoutPolicy;
 }
 /**
- * The tap action triggers this method invocation.
+ * 继承于[BaseEvent]{@link BaseEvent}。
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ClickEvent extends BaseEvent {
     /**
-     * X coordinate of the click relative to the upper left corner of the application screen.
+     * 点击位置在当前应用屏幕坐标系中的X坐标。
+     *
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4923,7 +5015,9 @@ export declare interface ClickEvent extends BaseEvent {
      */
     displayX: double;
     /**
-     * Y coordinate of the click relative to the upper left corner of the application screen.
+     * 点击位置在当前应用屏幕坐标系中的Y坐标。
+     *
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4931,7 +5025,9 @@ export declare interface ClickEvent extends BaseEvent {
      */
     displayY: double;
     /**
-     * X coordinate of the click relative to the upper left corner of the application window.
+     * 点击位置在当前应用窗口坐标系中的X坐标。onClick的distanceThreshold设置后，点击位置为抬手点。
+     *
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4939,7 +5035,9 @@ export declare interface ClickEvent extends BaseEvent {
      */
     windowX: double;
     /**
-     * Y coordinate of the click relative to the upper left corner of the application window.
+     * 点击位置在当前应用窗口坐标系中的Y坐标。onClick的distanceThreshold设置后，点击位置为抬手点。
+     *
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4947,7 +5045,11 @@ export declare interface ClickEvent extends BaseEvent {
      */
     windowY: double;
     /**
-     * X coordinate of the click point relative to the left edge of the clicked element.
+     * 点击位置在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。onClick的
+     * [distanceThreshold]{@link CommonMethod.default onClick(event: Callback<ClickEvent> | undefined, distanceThreshold: double | undefined)}
+     * 设置后，点击位置为抬手点。触发事件的是键盘或手柄时，点击位置为被点击元素的中心点。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4955,7 +5057,10 @@ export declare interface ClickEvent extends BaseEvent {
      */
     x: double;
     /**
-     * Y coordinate of the click point relative to the left edge of the clicked element.
+     * 点击位置在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。onClick的distanceThreshold设置后，点击位置为抬手点。触发事件的是键盘或手
+     * 柄时，点击位置为被点击元素的中心点。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4963,7 +5068,7 @@ export declare interface ClickEvent extends BaseEvent {
      */
     y: double;
     /**
-     * Whether the event is triggered by a left-hand or right-hand tap.
+     * 表示事件是由左手点击还是右手点击触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4971,7 +5076,12 @@ export declare interface ClickEvent extends BaseEvent {
      */
     hand?: InteractionHand;
     /**
-     * Prevent the default function.
+     * 阻止默认事件。
+     * 
+     * > **说明：**
+     * >
+     * > 该接口仅支持部分组件使用，当前支持组件：[RichEditor]{@link ./common}、[Hyperlink]{@link ./common}，不支持的组件在使用时会抛出异常。暂不支持异步调用和提供
+     * > Modifier接口。
      *
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4980,7 +5090,11 @@ export declare interface ClickEvent extends BaseEvent {
      */
     preventDefault(): void;
     /**
-     * X coordinate of the point relative to the global display.
+     * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4988,7 +5102,11 @@ export declare interface ClickEvent extends BaseEvent {
      */
     globalDisplayX?: double;
     /**
-     * Y coordinate of the point relative to the global display.
+     * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5008,9 +5126,8 @@ export declare interface ClickEvent extends BaseEvent {
  	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
- * The hover action triggers this method invocation.
+ * 继承于[BaseEvent]{@link BaseEvent}。
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -5822,10 +5939,10 @@ export declare interface AxisEvent extends BaseEvent {
  	default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
- * Defines the callback type used in onSizeChange.
+ * 组件区域变化时的回调类型。
  *
- * @param { SizeOptions } oldValue - the width and height of the component before the change.
- * @param { SizeOptions } newValue - the width and height of the component after the change.
+ * @param { SizeOptions } oldValue - 目标元素变化之前的宽高。
+ * @param { SizeOptions } newValue - 目标元素变化之后的宽高。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -8056,7 +8173,7 @@ export declare interface StateStyles {
     hovered?: CustomStyles;
 }
 /**
- * Defines the options of popup message.
+ * 气泡文本的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8064,7 +8181,7 @@ export declare interface StateStyles {
  */
 export declare interface PopupMessageOptions {
     /**
-     * Sets the color of popup text.
+     * 设置气泡信息文本颜色。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8072,7 +8189,12 @@ export declare interface PopupMessageOptions {
      */
     textColor?: ResourceColor;
     /**
-     * Sets the font of popup text.
+     * 设置气泡信息字体属性。
+     *
+     * **说明：**
+     *
+     * 1. 不支持设置family。
+     * 2. Font中的weight属性不支持传入number类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8139,7 +8261,7 @@ export declare enum DismissReason {
     SLIDE = 4
 }
 /**
- * Component popup dismiss
+ * 气泡关闭的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8147,7 +8269,7 @@ export declare enum DismissReason {
  */
 export declare interface DismissPopupAction {
     /**
-     * Defines popup dismiss function
+     * Popup关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8155,7 +8277,7 @@ export declare interface DismissPopupAction {
      */
     dismiss(): void;
     /**
-     * Defines popup dismiss reason
+     * 关闭原因，返回本次拦截Popup消失的事件原因。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8164,7 +8286,7 @@ export declare interface DismissPopupAction {
     reason: DismissReason;
 }
 /**
- * Popup state change param
+ * 气泡的显示状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8172,8 +8294,7 @@ export declare interface DismissPopupAction {
  */
 export declare interface PopupStateChangeParam {
     /**
-     * is Visible.
-     * Anonymous Object Rectification.
+     * 气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8182,16 +8303,16 @@ export declare interface PopupStateChangeParam {
     isVisible: boolean;
 }
 /**
- * Popup state change callback
+ * 气泡状态变化事件回调。
  *
- * @param { PopupStateChangeParam } event - The parameter of state change callback.
+ * @param { PopupStateChangeParam } event - 气泡当前的显示状态。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 /**
- * Popup mask type
+ * 设置遮罩层颜色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8199,8 +8320,7 @@ export type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
  */
 export declare interface PopupMaskType {
     /**
-     * Color.
-     * Anonymous Object Rectification.
+     * 设置遮罩层颜色。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8209,7 +8329,7 @@ export declare interface PopupMaskType {
     color: ResourceColor;
 }
 /**
- * Popup border LinearGradient
+ * 设置描边线性渐变的颜色和方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8217,7 +8337,13 @@ export declare interface PopupMaskType {
  */
 export declare interface PopupBorderLinearGradient {
     /**
-     * direction: Direction of Linear Gradient.
+     * 线性渐变的方向。
+     *
+     * 默认值：GradientDirection.Bottom
+     *
+     * **说明：**
+     *
+     * 当线性渐变的方向设置为GradientDirection.None时，显示默认值。
      *
      * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8226,7 +8352,18 @@ export declare interface PopupBorderLinearGradient {
      */
     direction?: GradientDirection;
     /**
-     * Sets the colors and positions of the gradient.
+     * 指定渐变色颜色和其对应的百分比位置的数组，设置非法颜色直接跳过。
+     * 
+     * **说明：** 
+     * 
+     * 颜色设置方式可参考：[ResourceColor]{@link ResourceColor}，非[ResourceColor]{@link ResourceColor}范围内的颜色值即为非法颜色。
+     * 
+     * 数组内颜色设置为undefined或者null时，默认为黑色。
+     * 
+     * colors参数的约束：
+     * 
+     * [ResourceColor]{@link ResourceColor}表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，0表示需要设置渐变色的容器的起始位置，1.0表示容器的结束位置。为实现多个颜
+     * 色渐变效果，建议多个数组中number参数递增设置，如后一个数组number参数比前一个数组number小时，按照等于前一个数组number的值处理。
      *
      * When the color setting is undefined, use the default value Color.Black.
      * The position setting ranges from 0 to 1.
@@ -8238,7 +8375,10 @@ export declare interface PopupBorderLinearGradient {
     colors: Array<[ResourceColor | undefined, double]>;
 }
 /**
- * Popup common options
+ * 配置弹出气泡的参数。使用[UIContext]{@link @ohos.arkui.UIContext}中的
+ * [getPromptAction()]{@link @ohos.arkui.UIContext:UIContext#getPromptAction}方法获取到
+ * [PromptAction]{@link @ohos.arkui.UIContext}对象，再通过该对象调用[openPopup]{@link @ohos.arkui.UIContext:PromptAction.openPopup}
+ * 和[updatePopup]{@link @ohos.arkui.UIContext:PromptAction.updatePopup}时options的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8246,7 +8386,11 @@ export declare interface PopupBorderLinearGradient {
  */
 export declare interface PopupCommonOptions {
     /**
-     * placement of popup.
+     * 气泡组件优先显示的位置，当前位置显示不下时，会自动调整位置。
+     *
+     * 默认值：Placement.Bottom
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @default Placement.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8255,7 +8399,11 @@ export declare interface PopupCommonOptions {
      */
     placement?: Placement;
     /**
-     * Set the background color of the popup.
+     * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。
+     *
+     * 默认值：透明色[Transparent]{@link Color}加模糊背景填充效果[COMPONENT_ULTRA_THICK]{@link BlurStyle}。
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8263,7 +8411,17 @@ export declare interface PopupCommonOptions {
      */
     popupColor?: ResourceColor;
     /**
-     * whether show arrow
+     * 设置是否显示箭头。
+     * 
+     * true：显示箭头；false：不显示箭头。
+     * 
+     * 默认值：true
+     * 
+     * **说明：** 
+     * 
+     * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8272,7 +8430,13 @@ export declare interface PopupCommonOptions {
      */
     enableArrow?: boolean;
     /**
-     * Whether hide popup when click mask
+     * 页面有操作时，气泡是否自动关闭。
+     * 
+     * true：自动关闭气泡；false：气泡不会自动关闭。
+     * 
+     * 默认值：true 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8281,7 +8445,9 @@ export declare interface PopupCommonOptions {
      */
     autoCancel?: boolean;
     /**
-     * on State Change
+     * 气泡状态变化事件回调，参数isVisible为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8289,7 +8455,24 @@ export declare interface PopupCommonOptions {
      */
     onStateChange?: PopupStateChangeCallback;
     /**
-     * The offset of the sharp corner of popup.
+     * Popup箭头在气泡处的偏移。
+     * 
+     * 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。
+     * 
+     * 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。
+     * 
+     * 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。
+     * 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。
+     * 3. 不支持设置百分比。
+     * 4. 负值按照0值处理。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8297,7 +8480,13 @@ export declare interface PopupCommonOptions {
      */
     arrowOffset?: Length;
     /**
-     * Whether to display in the sub window.
+     * 气泡是否显示在创建的子窗里。
+     * 
+     * true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。
+     * 
+     * 默认值：false
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8305,9 +8494,15 @@ export declare interface PopupCommonOptions {
      */
     showInSubWindow?: boolean;
     /**
-     * The mask to block gesture events of popup.
-     * When mask is set false, gesture events are not blocked.
-     * When mask is set true, gesture events are blocked and mask color is transparent.
+     * 设置气泡是否有遮罩层及遮罩颜色。
+     * 
+     * true：显示透明色遮罩层；false：不显示遮罩层。
+     * 
+     * Color：显示指定颜色的遮罩层。
+     * 
+     * 默认值：true
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8315,7 +8510,13 @@ export declare interface PopupCommonOptions {
      */
     mask?: boolean | PopupMaskType;
     /**
-     * Sets the space of between the popup and target.
+     * 设置Popup与宿主节点的间距。不支持设置百分比。
+     * 
+     * 默认值：8
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8323,7 +8524,17 @@ export declare interface PopupCommonOptions {
      */
     targetSpace?: Length;
     /**
-     * Sets the position offset of the popup.
+     * 设置Popup组件相对于placement设置的显示位置的偏移。
+     * 
+     * 默认值：{ x: 0, y: 0 }
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8331,7 +8542,11 @@ export declare interface PopupCommonOptions {
      */
     offset?: Position;
     /**
-     * Set the width of the popup.
+     * 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8339,7 +8554,11 @@ export declare interface PopupCommonOptions {
      */
     width?: Dimension;
     /**
-     * The position of the sharp corner of popup.
+     * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start，Center，End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。
+     * 
+     * 默认值：ArrowPointPosition.CENTER
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8347,7 +8566,17 @@ export declare interface PopupCommonOptions {
      */
     arrowPointPosition?: ArrowPointPosition;
     /**
-     * The width of the arrow.
+     * 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+     * 
+     * 默认值：16
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 16.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8356,7 +8585,17 @@ export declare interface PopupCommonOptions {
      */
     arrowWidth?: Dimension;
     /**
-     * The height of the arrow.
+     * 设置箭头高度。
+     * 
+     * 默认值：8
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 8.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8365,7 +8604,13 @@ export declare interface PopupCommonOptions {
      */
     arrowHeight?: Dimension;
     /**
-     * The round corners of the popup.
+     * 设置气泡圆角半径。
+     * 
+     * 默认值：20
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 20.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8374,7 +8619,11 @@ export declare interface PopupCommonOptions {
      */
     radius?: Dimension;
     /**
-     * The style of popup Shadow.
+     * 设置气泡阴影。
+     * 
+     * 默认值：ShadowStyle.OUTER_DEFAULT_MD 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default ShadowStyle.OUTER_DEFAULT_MD.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8383,7 +8632,11 @@ export declare interface PopupCommonOptions {
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
-     * Defines popup background blur Style
+     * 设置气泡模糊背景参数。
+     * 
+     * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8392,7 +8645,13 @@ export declare interface PopupCommonOptions {
      */
     backgroundBlurStyle?: BlurStyle;
     /**
-     * Set popup focusable
+     * 设置气泡弹出后是否获焦。
+     * 
+     * true：气泡可以获焦；false：气泡不会获焦。
+     * 
+     * 默认值：false 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8401,7 +8660,15 @@ export declare interface PopupCommonOptions {
      */
     focusable?: boolean;
     /**
-     * Defines the transition effect of popup opening and closing
+     * 自定义设置Popup气泡显示和退出的动画效果。
+     * 
+     * **说明：**
+     * 
+     * 1. 不设置时使用默认的显示/退出动效。
+     * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+     * 3. 退出动效中按back键，不会打断退出动效，back键不被响应。 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8409,8 +8676,17 @@ export declare interface PopupCommonOptions {
      */
     transition?: TransitionEffect;
     /**
-     * Callback function when the popup interactive dismiss.
-     * Use boolean to respond all interactive dismiss event. Use Callback to customize which event should be responded.
+     * 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。
+     * 
+     * 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置"气泡显示状态"参数show值为false时才退出；如果设置为true，则正常响应退出事件；
+     * 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。
+     * 
+     * **说明：**
+     * 
+     * 1. 在onWillDismiss回调中，不能再做onWillDismiss拦截。
+     * 2. 不支持通过[updatePopup]{@link @ohos.arkui.UIContext:PromptAction.updatePopup}进行更新。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8418,7 +8694,17 @@ export declare interface PopupCommonOptions {
      */
     onWillDismiss?: boolean | Callback<DismissPopupAction>;
     /**
-     * Determine if it is compatible popup's half folded.
+     * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+     * 
+     * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+     * 
+     * **说明：** 
+     * 
+     * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+     * 2. 2in1设备从API version 20开始生效。
+     * 3. 2in1设备仅在窗口瀑布模式下生效。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8427,7 +8713,13 @@ export declare interface PopupCommonOptions {
      */
     enableHoverMode?: boolean;
     /**
-     * Determine if popup can follow the target node when it has rotation or scale.
+     * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
+     * 
+     * true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。
+     * 
+     * 默认值：false 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 13开始，该接口支持在原子化服务中使用。
      *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8436,7 +8728,11 @@ export declare interface PopupCommonOptions {
      */
     followTransformOfTarget?: boolean;
     /**
-     * Determine if popup can avoid the target when the display space is insufficient.
+     * 设置Popup避让时是否覆盖指向组件。
+     * 
+     * 默认值：AvoidanceMode.COVER_TARGET 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @default AvoidanceMode.COVER_TARGET
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8445,7 +8741,19 @@ export declare interface PopupCommonOptions {
      */
     avoidTarget?: AvoidanceMode;
     /**
-     * The width of popup's outline.
+     * 设置Popup组件外描边的宽度。
+     * 
+     * 默认值：1 
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 不支持设置百分比，设置百分比时按0处理。
+     * 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。
+     * 3. 当设置双描边时，建议外描边宽度不超过10vp。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8453,7 +8761,19 @@ export declare interface PopupCommonOptions {
      */
     outlineWidth?: Dimension;
     /**
-     * The width of popup's border.
+     * 设置Popup组件内描边的宽度。
+     * 
+     * 默认值：1 
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 不支持设置百分比，设置百分比时按0处理。
+     * 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。
+     * 3. 当设置双描边时，建议内描边宽度不超过10vp。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8461,7 +8781,14 @@ export declare interface PopupCommonOptions {
      */
     borderWidth?: Dimension;
     /**
-     * The LinearGradient of popup's outline.
+     * 设置Popup组件外描边线性渐变的颜色。
+     * 
+     * **说明：** 
+     * 
+     * 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。
+     * 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8469,7 +8796,14 @@ export declare interface PopupCommonOptions {
      */
     outlineLinearGradient?: PopupBorderLinearGradient;
     /**
-     * The LinearGradient of popup's innerline.
+     * 设置Popup组件内描边线性渐变的颜色。
+     * 
+     * **说明：** 
+     * 
+     * 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。
+     * 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8494,25 +8828,13 @@ export declare interface PopupCommonOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
-    /**
-     * Defines the popup's background blur style with options
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-    /**
-     * Defines the popup's background effect with options
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundEffect?: BackgroundEffectOptions;
 
     /**
-     * Defines the display level of the popup.
+     * 设置气泡的显示层级模式。
+     *
+     * 默认值：LevelMode.OVERLAY
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8521,7 +8843,11 @@ export declare interface PopupCommonOptions {
     levelMode?: LevelMode;
 
   /**
-   * Callback function when the popup disappears.
+   * 弹出气泡关闭时的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8530,7 +8856,11 @@ export declare interface PopupCommonOptions {
   onDidDisappear?: VoidCallback;
 
   /**
-   * Callback function before the popup closeAnimation starts.
+   * 弹出气泡关闭动画开始前的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8539,7 +8869,11 @@ export declare interface PopupCommonOptions {
   onWillDisappear?: VoidCallback;
 
   /**
-   * Callback function before the popup openAnimation starts.
+   * 弹出气泡显示动画开始前的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8548,7 +8882,11 @@ export declare interface PopupCommonOptions {
   onWillAppear?: VoidCallback;
 
   /**
-   * Callback function when the popup appears.
+   * 弹出气泡显示时的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8557,7 +8895,7 @@ export declare interface PopupCommonOptions {
   onDidAppear?: VoidCallback;
 }
 /**
- * Defines the Tips options.
+ * 悬浮气泡自定义参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8565,7 +8903,13 @@ export declare interface PopupCommonOptions {
  */
 export declare interface TipsOptions {
     /**
-     * Defines the delay time for appearing.
+     * 设置悬浮气泡的显示时延。显示时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。
+     * 
+     * 默认值：700
+     * 
+     * 单位：ms
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8573,7 +8917,13 @@ export declare interface TipsOptions {
      */
     appearingTime?: int;
     /**
-     * Defines the delay time for disappearing.
+     * 设置悬浮气泡的隐藏时延。隐藏时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。
+     * 
+     * 默认值：300
+     * 
+     * 单位：ms
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8581,7 +8931,13 @@ export declare interface TipsOptions {
      */
     disappearingTime?: int;
     /**
-     * Define the delay time for the appearance of continuous operations.
+     * 多个组件连续弹出悬浮气泡时，悬浮气泡的显示时延。显示时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。 
+     * 
+     * 默认值：300
+     * 
+     * 单位：ms
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8589,7 +8945,13 @@ export declare interface TipsOptions {
      */
     appearingTimeWithContinuousOperation?: int;
     /**
-     * Define the delay time for the disappearance of continuous operations.
+     * 多个组件连续弹出悬浮气泡时，悬浮气泡的隐藏时延。隐藏时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。 
+     * 
+     * 默认值：0
+     * 
+     * 单位：ms
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8597,7 +8959,17 @@ export declare interface TipsOptions {
      */
     disappearingTimeWithContinuousOperation?: int;
     /**
-     * whether show arrow
+     * 设置是否显示气泡箭头。
+     * 
+     * 默认值：true
+     * 
+     * true：显示箭头；false：不显示箭头。
+     * 
+     * **说明：** 
+     * 
+     * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示气泡箭头。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8606,7 +8978,11 @@ export declare interface TipsOptions {
      */
     enableArrow?: boolean;
     /**
-     * The position of the sharp corner of Tips.
+     * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有 "Start"、"Center"、"End"三个位置点可选。所有位置点均位于父组件区域范围内，不会超出父组件的边界范围，也不会覆盖圆角范围。
+     * 
+     * 默认值：ArrowPointPosition.CENTER
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8614,7 +8990,17 @@ export declare interface TipsOptions {
      */
     arrowPointPosition?: ArrowPointPosition;
     /**
-     * The width of the arrow.
+     * 设置气泡箭头宽度。若所设置的宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+     * 
+     * 默认值：16
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @default 16.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8623,7 +9009,17 @@ export declare interface TipsOptions {
      */
     arrowWidth?: Dimension;
     /**
-     * The height of the arrow.
+     * 设置气泡箭头高度。
+     * 
+     * 默认值：8
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @default 8.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8632,7 +9028,15 @@ export declare interface TipsOptions {
      */
     arrowHeight?: Dimension;
     /**
-     * Set the display location mode for tips. Tips can be shown around the component or follow the mouse cursor.
+     * 设置Tips跟随类型。
+     * 
+     * 默认值：TipsAnchorType.TARGET
+     * 
+     * **说明：**
+     * 
+     * Tips的跟随类型为TipsAnchorType.CURSOR时，Tips不显示箭头。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @default TipsAnchorType.TARGET
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8676,7 +9080,7 @@ export declare interface PopupButton {
     action: VoidCallback;
 }
 /**
- * Defines the popup options.
+ * 基础气泡的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8684,7 +9088,9 @@ export declare interface PopupButton {
  */
 export declare interface PopupOptions {
     /**
-     * Content of the popup message.
+     * 气泡信息内容。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8692,8 +9098,11 @@ export declare interface PopupOptions {
      */
     message: string;
     /**
-     * The placement of popup.
-     * Supports all positions defined in Placement.
+     * 设置Popup组件相对于宿主节点的显示位置，默认值为Placement.Bottom。
+     * 
+     * 如果同时设置了`placementOnTop`和`placement`，则以`placement`的设置为准。如果开发者设置的位置上无法完整显示气泡，气泡会自动避让至可以完整显示的位置。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default Placement.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8702,7 +9111,13 @@ export declare interface PopupOptions {
      */
     placement?: Placement;
     /**
-     * The first button.
+     * 第一个按钮。默认无此按钮。取值为undefined时，按默认值处理。
+     * 
+     * value：气泡里主按钮的文本。
+     * 
+     * action：点击主按钮的回调函数。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8710,7 +9125,13 @@ export declare interface PopupOptions {
      */
     primaryButton?: PopupButton;
     /**
-     * The second button.
+     * 第二个按钮。默认无此按钮。取值为undefined时，按默认值处理。
+     * 
+     * value：气泡里辅助按钮的文本。
+     * 
+     * action：点击辅助按钮的回调函数。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8718,7 +9139,9 @@ export declare interface PopupOptions {
      */
     secondaryButton?: PopupButton;
     /**
-     * on State Change
+     * 气泡状态变化事件回调，参数isVisible为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8726,7 +9149,24 @@ export declare interface PopupOptions {
      */
     onStateChange?: PopupStateChangeCallback;
     /**
-     * The offset of the sharp corner of popup.
+     * Popup箭头在气泡处的偏移。
+     * 
+     * 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。
+     * 
+     * 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。
+     * 
+     * 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。
+     * 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。
+     * 3. 不支持设置百分比。
+     * 4. 负值按照0值处理。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8734,7 +9174,13 @@ export declare interface PopupOptions {
      */
     arrowOffset?: Length;
     /**
-     * Whether to display in the sub window.
+     * 气泡是否显示在创建的子窗里。
+     * 
+     * true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。
+     * 
+     * 默认值：false
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8742,9 +9188,15 @@ export declare interface PopupOptions {
      */
     showInSubWindow?: boolean;
     /**
-     * The mask to block gesture events of popup.
-     * When mask is set false, gesture events are not blocked.
-     * When mask is set true, gesture events are blocked and mask color is transparent.
+     * 设置气泡是否有遮罩层及遮罩颜色。
+     * 
+     * true：显示透明色遮罩层；false：不显示遮罩层。
+     * 
+     * Color：显示指定颜色的遮罩层。
+     * 
+     * 默认值：true
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8752,7 +9204,9 @@ export declare interface PopupOptions {
      */
     mask?: boolean | PopupMaskType;
     /**
-     * Parameters of the popup message.
+     * 设置气泡信息文本参数。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8760,7 +9214,13 @@ export declare interface PopupOptions {
      */
     messageOptions?: PopupMessageOptions;
     /**
-     * Sets the space of between the popup and target.
+     * 设置Popup与宿主节点的间距。不支持设置百分比。
+     * 
+     * 默认值：8
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8768,7 +9228,17 @@ export declare interface PopupOptions {
      */
     targetSpace?: Length;
     /**
-     * whether show arrow
+     * 设置是否显示箭头。
+     * 
+     * true：显示箭头；false：不显示箭头。
+     * 
+     * 默认值：true
+     * 
+     * **说明：** 
+     * 
+     * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8777,7 +9247,17 @@ export declare interface PopupOptions {
      */
     enableArrow?: boolean;
     /**
-     * Sets the position offset of the popup.
+     * 设置Popup组件相对于placement设置的显示位置的偏移。
+     * 
+     * 默认值：{ x: 0, y: 0 }
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8785,7 +9265,11 @@ export declare interface PopupOptions {
      */
     offset?: Position;
     /**
-     * Set the background color of the popup.
+     * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。
+     * 
+     * 默认值：透明色[Transparent]{@link Color}加模糊背景填充效果[COMPONENT_ULTRA_THICK]{@link BlurStyle}。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8793,7 +9277,13 @@ export declare interface PopupOptions {
      */
     popupColor?: Color | string | Resource | long;
     /**
-     * Whether hide popup when click mask
+     * 页面有操作时，气泡是否自动关闭。
+     * 
+     * true：自动关闭气泡；false：气泡不会自动关闭。
+     * 
+     * 默认值：true 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8802,7 +9292,11 @@ export declare interface PopupOptions {
      */
     autoCancel?: boolean;
     /**
-     * Set the width of the popup.
+     * 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8810,7 +9304,11 @@ export declare interface PopupOptions {
      */
     width?: Dimension;
     /**
-     * The position of the sharp corner of popup.
+     * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start，Center，End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。
+     * 
+     * 默认值：ArrowPointPosition.CENTER
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8818,7 +9316,17 @@ export declare interface PopupOptions {
      */
     arrowPointPosition?: ArrowPointPosition;
     /**
-     * The width of the arrow.
+     * 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+     * 
+     * 默认值：16
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 16.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8827,7 +9335,17 @@ export declare interface PopupOptions {
      */
     arrowWidth?: Dimension;
     /**
-     * The height of the arrow.
+     * 设置箭头高度。
+     * 
+     * 默认值：8
+     * 
+     * 单位：vp
+     * 
+     * **说明：**
+     * 
+     * 不支持设置百分比。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 8.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8836,7 +9354,13 @@ export declare interface PopupOptions {
      */
     arrowHeight?: Dimension;
     /**
-     * The round corners of the popup.
+     * 设置气泡圆角半径。
+     * 
+     * 默认值：20
+     * 
+     * 单位：vp
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default 20.0_vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8845,7 +9369,11 @@ export declare interface PopupOptions {
      */
     radius?: Dimension;
     /**
-     * The style of popup Shadow.
+     * 设置气泡阴影。
+     * 
+     * 默认值：ShadowStyle.OUTER_DEFAULT_MD 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default ShadowStyle.OUTER_DEFAULT_MD.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8854,7 +9382,11 @@ export declare interface PopupOptions {
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
-     * Defines popup background blur Style
+     * 设置气泡模糊背景参数。
+     * 
+     * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8863,7 +9395,15 @@ export declare interface PopupOptions {
      */
     backgroundBlurStyle?: BlurStyle;
     /**
-     * Defines the transition effect of popup opening and closing
+     * 自定义设置Popup气泡显示和退出的动画效果。
+     * 
+     * **说明：**
+     * 
+     * 1. 不设置时使用默认的显示/退出动效。
+     * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+     * 3. 退出动效中按back键，不会打断退出动效，back键不被响应。 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8871,7 +9411,16 @@ export declare interface PopupOptions {
      */
     transition?: TransitionEffect;
     /**
-     * Callback function when the popup interactive dismiss
+     * 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。
+     * 
+     * 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置"气泡显示状态"参数show值为false时才退出；如果设置为true，则正常响应退出事件；
+     * 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。
+     * 
+     * **说明：**
+     * 
+     * 在onWillDismiss回调中，不能再做onWillDismiss拦截。 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8879,7 +9428,17 @@ export declare interface PopupOptions {
      */
     onWillDismiss?: boolean | Callback<DismissPopupAction>;
     /**
-     * Determine if it is compatible popup's half folded.
+     * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+     * 
+     * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+     * 
+     * **说明：** 
+     * 
+     * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+     * 2. 2in1设备从API version 20开始生效。
+     * 3. 2in1设备仅在窗口瀑布模式下生效。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8888,7 +9447,13 @@ export declare interface PopupOptions {
      */
     enableHoverMode?: boolean;
     /**
-     * Determine if popup can follow the target node when it has rotation or scale.
+     * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
+     * 
+     * true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。
+     * 
+     * 默认值：false 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 13开始，该接口支持在原子化服务中使用。
      *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8897,7 +9462,11 @@ export declare interface PopupOptions {
      */
     followTransformOfTarget?: boolean;
     /**
-     * Define the popup avoid keyboard mode.
+     * 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。
+     * 
+     * 默认值：KeyboardAvoidMode.NONE 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @default KeyboardAvoidMode.NONE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8906,7 +9475,11 @@ export declare interface PopupOptions {
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
     /**
-     * Determine if popup can avoid the target when the display space is insufficient.
+     * 设置Popup避让时是否覆盖指向组件。
+     * 
+     * 默认值：AvoidanceMode.COVER_TARGET 
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @default AvoidanceMode.COVER_TARGET
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8915,7 +9488,19 @@ export declare interface PopupOptions {
      */
     avoidTarget?: AvoidanceMode;
     /**
-     * The width of popup's outline.
+     * 设置Popup组件外描边的宽度。
+     * 
+     * 默认值：1 
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 不支持设置百分比，设置百分比时按0处理。
+     * 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。
+     * 3. 当设置双描边时，建议外描边宽度不超过10vp。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8923,7 +9508,19 @@ export declare interface PopupOptions {
      */
     outlineWidth?: Dimension;
     /**
-     * The width of popup's border.
+     * 设置Popup组件内描边的宽度。
+     * 
+     * 默认值：1 
+     * 
+     * 单位：vp
+     * 
+     * **说明：** 
+     * 
+     * 1. 不支持设置百分比，设置百分比时按0处理。
+     * 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。
+     * 3. 当设置双描边时，建议内描边宽度不超过10vp。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8931,7 +9528,14 @@ export declare interface PopupOptions {
      */
     borderWidth?: Dimension;
     /**
-     * The LinearGradient of popup's outline.
+     * 设置Popup组件外描边线性渐变的颜色。
+     * 
+     * **说明：** 
+     * 
+     * 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。
+     * 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8939,7 +9543,14 @@ export declare interface PopupOptions {
      */
     outlineLinearGradient?: PopupBorderLinearGradient;
     /**
-     * The LinearGradient of popup's innerline.
+     * 设置Popup组件内描边线性渐变的颜色。
+     * 
+     * **说明：** 
+     * 
+     * 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。
+     * 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 20开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8964,25 +9575,13 @@ export declare interface PopupOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
-    /**
-     * Defines the popup's background blur style with options
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-    /**
-     * Defines the popup's background effect with options
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    backgroundEffect?: BackgroundEffectOptions;
 
     /**
-     * Defines the display level of the popup.
+     * 设置气泡的显示层级模式。
+     * 
+     * 默认值：LevelMode.OVERLAY
+     * 
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8991,7 +9590,11 @@ export declare interface PopupOptions {
     levelMode?: LevelMode;
 
   /**
-   * Callback function before the popup closeAnimation starts.
+   * 弹出气泡关闭动画开始前的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9000,7 +9603,11 @@ export declare interface PopupOptions {
   onWillDisappear?: VoidCallback;
 
   /**
-   * Callback function when the popup appears.
+   * 弹出气泡显示时的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9009,7 +9616,11 @@ export declare interface PopupOptions {
   onDidAppear?: VoidCallback;
 
   /**
-   * Callback function before the popup openAnimation starts.
+   * 弹出气泡显示动画开始前的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9018,7 +9629,11 @@ export declare interface PopupOptions {
   onWillAppear?: VoidCallback;
 
   /**
-   * Callback function when the popup disappears.
+   * 弹出气泡关闭时的回调函数。
+   * 
+   * **ArkTS模式：** 该接口仅适用于ArkTS-Sta。
+   * 
+   * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
