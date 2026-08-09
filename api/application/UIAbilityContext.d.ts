@@ -2929,7 +2929,7 @@ declare class UIAbilityContext extends Context {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported, because starting self to foreground
-   *     from background is not supported in current devive or current UIAbility is a non-native UIAbility.
+   *     from background is not supported in current device or current UIAbility is a non-native UIAbility.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
    * @throws { BusinessError } 16000082 - The UIAbility is being started.
