@@ -38,7 +38,7 @@ declare enum SideBarContainerType {
    *
    * 设置了showSideBar属性时，以showSideBar属性设置的值为准。
    * 
-   * 未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。
+   * 未设置minSideBarWidth或minContentWidth时，采用对应接口的默认值进行计算。
    *
    * 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。
    *
@@ -429,7 +429,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * 设置侧边栏控制按钮的属性。控制按钮用于切换侧边栏的显示和隐藏状态。
    *
-   * @param { ButtonStyle } value - 侧边栏控制按钮的样式，用于配置控制按钮的位置、大小和图标。
+   * @param { ButtonStyle } value - 侧边栏控制按钮的属性，用于配置控制按钮的位置、大小和图标。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -503,8 +503,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { number } value - 侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：[0, +∞)
-   *     异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
+   * @param { number } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -553,8 +553,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    *
    * maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时默认值优先级高于侧边栏子组件maxWidth。
    *
-   * @param { Length } value - 侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：[0, +∞)<br/>
-   *     异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
+   * @param { Length } value - 设置侧边栏最大宽度。<br/>默认值：280vp<br/>单位：vp<br/>取值范围：
+   *     [0, +∞)<br/>异常值时取默认值。<br/>值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
    * @returns { SideBarContainerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
