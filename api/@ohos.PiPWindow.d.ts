@@ -439,7 +439,7 @@ declare namespace PiPWindow {
     * @atomicservice
     * @since 26.1.0 dynamic&static
     */
-      VIDEO_NAVIGATION = 5,
+    VIDEO_NAVIGATION = 5,
   }
 
   /**
