@@ -636,8 +636,8 @@ declare namespace workScheduler {
   }
 
   /**
-   * Execution frequency infomation.
-   * 
+   * Execution frequency information.
+   *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
@@ -647,8 +647,8 @@ declare namespace workScheduler {
     /**
      * App uid.
      * The value should be an integer.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler 
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @systemapi
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
@@ -657,8 +657,8 @@ declare namespace workScheduler {
     /**
      * ID of the deferred task.
      * The value should be an integer.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler 
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @systemapi
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
@@ -666,9 +666,9 @@ declare namespace workScheduler {
     workId: number;
     /**
      * Set app exec interval, in milliseconds.
-     * Unit: ms.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler 
+     * Unit:ms.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @systemapi
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
@@ -681,7 +681,7 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { FrequencyInfo } info - Execution frequency information.
-   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700006 - Failed to check the frequency information.
@@ -697,7 +697,7 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { number } uid - App uid.
-   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700006 - Failed to check the uid.
