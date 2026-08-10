@@ -3279,7 +3279,7 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } phoneNumber - 联系人的电话号码。
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
-   * @returns { Promise<boolean> }Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
+   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3298,7 +3298,7 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码。
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
    * @param { int } withinTime - 表示从当前时间开始计算，通话的起始时间和结束时间应在此时间范围内，单位为秒。最多可设置6小时，超过6小时的默认以6小时查询。
-   * @returns { Promise<boolean> }Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
+   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3442,8 +3442,8 @@ declare namespace contact {
     currentBatch: int;
 
     /**
-    * 表示要同步的联系人批次总数。
-    *
+     * 表示要同步的联系人批次总数。
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @stagemodelonly
      * @atomicservice
@@ -3494,8 +3494,8 @@ declare namespace contact {
     completedBatches: Array<int>;
 
     /**
-    * 表示要同步的联系人批次总数。
-    *
+     * 表示要同步的联系人批次总数。
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @stagemodelonly
      * @atomicservice
