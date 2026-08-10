@@ -634,5 +634,78 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_LOW_OR_OKAY = 2
   }
+
+  /**
+   * Execution frequency information.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  export interface FrequencyInfo {
+    /**
+     * App uid.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    uid: number;
+    /**
+     * ID of the deferred task.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    workId: number;
+    /**
+     * Set app exec interval, in milliseconds.
+     * Unit:ms.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    interval: number;
+  }
+
+  /**
+   * Set the execution frequency.
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { FrequencyInfo } info - Execution frequency information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9700003 - System service operation failed.
+   * @throws { BusinessError } 9700006 - Failed to check the frequency information.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function setExecFrequency(info: FrequencyInfo): void;
+
+  /**
+   * Reset the execution frequency.
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { number } uid - App uid.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9700003 - System service operation failed.
+   * @throws { BusinessError } 9700006 - Failed to check the uid.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function resetExecFrequency(uid: number): void;
 }
 export default workScheduler;
