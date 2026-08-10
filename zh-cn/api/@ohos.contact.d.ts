@@ -546,15 +546,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * ����email��holder��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��Emails���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
+   * 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Ӧ��������Context��
-   * @param { string } email - ��ϵ�˵������ַ��
-   * @param { Holder } holder - ������ϵ�˵�Ӧ����Ϣ�࣬����������Ϊ����ʹ��ϵͳ��ϵ��Ӧ�á�
-   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -580,15 +580,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * ����email��attrs��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��Emails���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
+   * 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Ӧ��������Context��
-   * @param { string } email - ��ϵ�˵������ַ��
-   * @param { ContactAttributes } attrs - ��ϵ�˵������б������Ϊ�գ����ѯ��ϵ�˵����������ֶΣ������������绰������ȣ���
-   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -788,16 +788,16 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * ���ݵ绰���롢holder��attrs��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��phoneNumbers���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
+   * 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��Ӧ���ں�̨���ô˽ӿڻ�ȡ��ϵ����Ϣ����Ҫ�����Ӧ�ĳ�ʱ����
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Ӧ��������Context��
-   * @param { string } phoneNumber - ��ϵ�˵ĵ绰���룬��֧��ȫƥ�䣬��֧��ͨ���ƥ�䡣
-   * @param { Holder } holder - ������ϵ�˵�Ӧ����Ϣ�࣬����ò���Ϊ�գ���Ĭ��ʹ��ϵͳ��ϵ��Ӧ�ò�ѯ��
-   * @param { ContactAttributes } attrs - ��ϵ�˵������б������Ϊ�գ����ѯ��ϵ�˵����������ֶΣ������������绰������ȣ���
-   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
