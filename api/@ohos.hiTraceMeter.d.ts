@@ -168,8 +168,9 @@ declare namespace hiTraceMeter {
   /**
    * Traces the value changes of an integer variable.
    *
-   * Since API version 19, you are advised to use the [traceByValue<sup>19+</sup>()]{@link hiTraceMeter.traceByValue}
-   * API to specify the trace output level
+   * Since API version 19, you are advised to use the
+   * [traceByValue]{@link hiTraceMeter.traceByValue(level: HiTraceOutputLevel, name: string, count: long)} API to
+   * specify the trace output level.
    *
    * @param { string } name - Name of the integer variable to trace.
    *     The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is recommended
