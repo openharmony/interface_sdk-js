@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 账号管理
  * @kit MDMKit
  */
 
@@ -24,10 +24,8 @@ import type osAccount from './@ohos.account.osAccount';
 
 /**
  * 本模块提供设备账号管理能力，包括禁止创建本地账号等。
- *
+ * 
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
@@ -46,8 +44,8 @@ declare namespace accountManager {
    */
   interface DomainAccountPolicy {
     /**
-     * 表示域账号认证Token的有效期（单位：s），取值范围是[-1,2147483647]。有效期起始时间为最后一次域账号的认证时间点，如登录、锁屏后解锁等。
-     *
+     * 表示域账号认证Token的有效期（单位：s），用于控制用户在Token有效期内无需重复认证即可访问系统资源。取值范围是[-1,2147483647]。有效期起始时间为最后一次域账号的认证时间点，如登录、锁屏后解锁等。
+     * 
      * 默认值为-1，表示Token永久有效。取值为0，表示Token立即失效。Token过期/失效后，用户进入系统时必须进行域账号认证，验证域账号和密码。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -57,8 +55,8 @@ declare namespace accountManager {
     authenticationValidityPeriod?: number;
 
     /**
-     * 表示域账号密码有效期（单位：s），取值范围是[-1,2147483647]，有效期起始时间为设备侧最后一次修改密码的时间点。
-     *
+     * 表示域账号密码有效期（单位：s），用于用户定期修改密码以提升账号安全性。取值范围是[-1,2147483647]，有效期起始时间为设备侧最后一次修改密码的时间点。
+     * 
      * 默认值为-1，表示域账号密码永久有效。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -69,10 +67,10 @@ declare namespace accountManager {
 
     /**
      * 表示域账号密码过期前提示时间（单位：s），取值范围是[0,2147483647]。
-     *
+     * 
      * 默认值为0，表示域账号密码过期不提示。
-     *
-     * **说明**：passwordExpirationNotification需与passwordValidityPeriod配合使用，当系统时间大于或等于（设备侧最后一次修改域账号密码时间 +
+     * 
+     * **说明：**passwordExpirationNotification需与passwordValidityPeriod配合使用，当系统时间大于或等于（设备侧最后一次修改域账号密码时间 + 
      * passwordValidityPeriod - passwordExpirationNotification）时，会发页面通知提示密码即将过期。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -201,15 +199,13 @@ declare namespace accountManager {
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
 
   /**
-   * 禁止用户添加账号。
+   * 禁止用户添加账号。调用成功后，系统将禁止指定用户或所有用户添加新账号。适用于企业设备管理场景，如防止员工随意创建本地账号、加强设备安全管理等。
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { boolean } disallow - 是否禁止创建本地账号，true表示禁止创建，false表示允许创建。
+   * @param { boolean } disallow - 是否禁止创建账号，true表示禁止创建，false表示允许创建。
    * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示禁止所有用户添加账号；当传入此参数时，表示禁止指定用户添加账号。取值范围：大于等于0。<br/>accountId可以通
-   *     过
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     等接口来获取。
+   *     过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -223,13 +219,12 @@ declare namespace accountManager {
   function disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void;
 
   /**
-   * 查询是否禁止用户添加账号。
+   * 查询是否禁止用户添加账号。适用于企业审计和合规检查场景，帮助管理员确认账号策略执行情况。
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。<br/>
-   *     accountId可以通过
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。
+   *     <br/>accountId可以通过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     等接口来获取。
    * @returns { boolean } 返回true表示禁止添加账号。<br/>返回false表示允许添加账号。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -249,16 +244,11 @@ declare namespace accountManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，API版本26.0.0之前，传入Want时查询对应企业设备管理应用设置的策略。从API版本26.0.0开始，新增支持传入null时查询实际生效的策略。
+   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
    * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。
-   *     accountId可以通过getOsAccountLocalId等接口来获取。
-   *     <br>取值应≥0。
-   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
-   *     can call the
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     API to obtain the user ID.
-   * @returns { boolean } 返回true表示禁止添加账号。
-   *     返回false表示允许添加账号。
+   *     <br/>accountId可以通过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     等接口来获取。
+   * @returns { boolean } 返回true表示禁止添加账号。<br/>返回false表示允许添加账号。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -272,11 +262,11 @@ declare namespace accountManager {
   function isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean;
 
   /**
-   * 后台添加账号。使用Promise异步回调。
-   *
+   * 后台添加账号。使用Promise异步回调。适用于企业批量创建账号或远程管理场景，无需用户交互即可完成账号创建，提升管理效率。
+   * 
    * > **说明：**
    * >
-   * > 该接口比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+   * > 创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -304,8 +294,8 @@ declare namespace accountManager {
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { osAccount.DomainAccountInfo } domainAccountInfo - 域账号信息。<br />若传入的domainAccountInfo内部属性均为空，则会设置为全局域账号策略。全局
    *     策略对所有的域账号生效。<br />若传入的domainAccountInfo内部属性不为空，则为指定域账号设置策略。<br />指定域账号策略的优先级高于全局策略，若指定域账号已有域账号策略，则全局策略对其不生效。<br
-   *     />**说明**：若为指定域账号设置策略，DomainAccountInfo的serverConfigId字段必填。
-   * @param { DomainAccountPolicy } policy - 域账号策略。<br />**说明**：设置域账号策略后须在设备侧修改域账号密码，若未修改密码，则DomainAccountPolicy中的
+   *     />**说明：**若为指定域账号设置策略，DomainAccountInfo的serverConfigId字段必填。
+   * @param { DomainAccountPolicy } policy - 域账号策略。<br />**说明：**设置域账号策略后须在设备侧修改域账号密码，若未修改密码，则DomainAccountPolicy中的
    *     passwordValidityPeriod、passwordExpirationNotification配置不生效。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -320,12 +310,12 @@ declare namespace accountManager {
   function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
 
   /**
-   * 获取域账号策略。
+   * 获取域账号策略。适用于企业管理场景，如查询当前域账号策略配置、策略合规性审计等。
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { osAccount.DomainAccountInfo } domainAccountInfo - 域账号信息。<br />若传入的domainAccountInfo内部属性均为空，则查询全局域账号策略。<br
-   *     />若传入的domainAccountInfo内部属性不为空，则查询指定域账号策略。<br />**说明**：若查询指定域账号策略，DomainAccountInfo的serverConfigId字段必填。
+   *     />若传入的domainAccountInfo内部属性不为空，则查询指定域账号策略。<br />**说明：**若查询指定域账号策略，DomainAccountInfo的serverConfigId字段必填。
    * @returns { DomainAccountPolicy } 域账号策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -340,11 +330,18 @@ declare namespace accountManager {
   function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
 
   /**
-   * 添加普通系统账号
+   * 创建普通系统账号。最多可以创建2个normal类型的系统账号 ([osAccount.OsAccountType]{@link @ohos.account.osAccount:osAccount.OsAccountType}) 。
+   * 
+   * 
+   * > **说明：**
+   * >
+   * > 创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+   * >
+   * > 创建系统账号对设备的性能影响较大，此接口仅支持12GB及以上运行内存的手机、平板设备使用。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
-   * @param { Want } admin - 企业设备管理扩展组件。
-   * @param { string } name - 系统账号名称。
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { string } name - 系统账号名称。系统账号名称不能重复且不能为空，会报错误码9200012。
    * @returns { Promise<osAccount.OsAccountInfo> } Promise对象，返回创建的系统账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -365,13 +362,13 @@ declare namespace accountManager {
   function createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInfo>;
 
   /**
-   * 移除系统账号
+   * 移除系统账号。当前仅支持手机、平板设备使用，可以移除使用[createNormalOsAccount]{@link accountManager.createNormalOsAccount}创建的普通系统账号（normal类型）和
+   * [addOsAccountAsync]{@link accountManager.addOsAccountAsync}创建的系统账号（admin、normal、guest类型），不可移除默认系统账号（ID为100）。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
-   * @param { Want } admin - 企业设备管理扩展组件。
-   * @param { number } accountId - 系统账号ID。
-   *     <br>取值应为≥101的整数。
-   * @returns { Promise<void> } promise回调
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { number } accountId - 系统账号ID，指将被移除系统账号的ID。不可移除默认系统账号 (ID为100) ，会报错误码9201041。
+   * @returns { Promise<void> } 无返回结果的Promise对象。当移除系统账号失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -391,13 +388,14 @@ declare namespace accountManager {
   function removeOsAccount(admin: Want, accountId: number): Promise<void>;
 
   /**
-   * 激活系统账号
+   * 切换系统账号。当前仅支持手机、平板设备使用，只能在[createNormalOsAccount]{@link accountManager.createNormalOsAccount}创建的普通系统账号和默认系统账号 (ID为10
+   * 0) 之间切换。
    *
    * @permission ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { Want } admin - 企业设备管理扩展组件。
-   * @param { number } accountId - 系统账号ID。
-   *     <br>取值应为≥100的整数。
-   * @returns { Promise<void> } promise回调
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { number } accountId - 系统账号ID。切换不存在的系统账号，会报错误码9200012。切换受限制的系统账号，例如使用
+   *     [addOsAccountAsync]{@link accountManager.addOsAccountAsync}创建的系统账号，会报错误码9201041。
+   * @returns { Promise<void> } 无返回结果的Promise对象。当切换系统账号失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.

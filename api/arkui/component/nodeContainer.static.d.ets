@@ -77,8 +77,8 @@ export declare function NodeContainer(
 ): NodeContainerAttribute;
 
 /**
- * Defines NodeContainer Component. It requires call setNodeContainerOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines NodeContainer Component. It requires calling setNodeContainerOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<NodeContainerAttribute> } style - callback to set up NodeContainer's attributes.
  * @returns { NodeContainerAttribute } The attribute of NodeContainer.

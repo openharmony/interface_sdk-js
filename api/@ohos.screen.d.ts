@@ -51,8 +51,8 @@ declare namespace screen {
    * @param { AsyncCallback<Array<Screen>> } callback - Callback used to return the result. If obtaining all screens is
    *     successful is successful, **err** is **undefined**, and the returned object is screen object set obtained.
    *     Otherwise, **err** is an error object.
-   * @param { boolean } [isNeedUnused] - Indicates whether unused screen information is required.
-   *     This parameter is optional. If not provided, the unused screen information will not be returned
+   * @param { boolean } [isNeedUnused] - Indicates whether unused screen information is required. **true** means they
+   *     should be provided, **false** means they should not.
    *     <br>Default value: false.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -264,10 +264,10 @@ declare namespace screen {
   /**
    * Sets the screen to mirror mode. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } mainScreen - ID of the primary screen. The ID must be an integer.
-   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer.
+   * @param { long } mainScreen - ID of the primary screen. The ID must be a non-negative integer.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be a positive integer.
    * @param { AsyncCallback<long> } callback - Callback used to return the group ID of the secondary screens, where the
-   *     ID is an integer.
+   *     ID is a positive integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
@@ -282,9 +282,9 @@ declare namespace screen {
   /**
    * Sets the screen to mirror mode. This API uses a promise to return the result.
    *
-   * @param { long } mainScreen - ID of the primary screen. The ID must be an integer.
-   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer.
-   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens, where the ID is an
+   * @param { long } mainScreen - ID of the primary screen. The ID must be a non-negative integer.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be a positive integer.
+   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens, where the ID is a positive
    *     integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -301,7 +301,7 @@ declare namespace screen {
    * Sets a rectangle on the screen to mirror mode. This API uses a promise to return the result. After this API is
    * called, you are advised not to rotate or fold the screen further. Otherwise, the mirrored content may be abnormal.
    *
-   * @param { long } mainScreen - ID of the primary screen. The ID must be a positive integer.
+   * @param { long } mainScreen - ID of the primary screen. The ID must be a non-negative integer.
    * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be a positive integer.
    * @param { Rect } mainScreenRegion - Rectangle on the primary screen to be mirrored.
    * @returns { Promise<long> } Promise used to return the group ID of the secondary screens, where the ID is a positive
@@ -391,7 +391,7 @@ declare namespace screen {
   /**
    * Destroys a virtual screen. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { long } screenId - ID of the virtual screen. The value must be an integer.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the virtual screen is destroyed,
    *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -409,7 +409,7 @@ declare namespace screen {
   /**
    * Destroys a virtual screen. This API uses a promise to return the result.
    *
-   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { long } screenId - ID of the virtual screen. The value must be an integer.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -424,11 +424,10 @@ declare namespace screen {
   function destroyVirtualScreen(screenId:long): Promise<void>;
 
   /**
-   * Sets a surface for a virtual screen. This API uses an
-   * asynchronous callback to return the result.
+   * Sets a surface for a virtual screen. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { long } screenId - ID of the virtual screen. The value must be an integer.
    * @param { string } surfaceId - Surface ID of the virtual screen. The value can be customized. You can specify the
    *     surface ID of an existing surface.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the virtual screen surface is
@@ -447,11 +446,10 @@ declare namespace screen {
   function setVirtualScreenSurface(screenId:long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets a surface for a virtual screen. This API uses a
-   * promise to return the result.
+   * Sets a surface for a virtual screen. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { long } screenId - ID of the virtual screen. The value must be an integer.
    * @param { string } surfaceId - Surface ID of the virtual screen. The value can be customized. You can specify the
    *     surface ID of an existing surface.
    * @returns { Promise<void> } Promise that returns no value.
@@ -579,8 +577,8 @@ declare namespace screen {
    *     of [1, 65536]. If the value is not within the valid range, error code 1400004 is returned.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
-   *     not support this ability.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -643,8 +641,8 @@ declare namespace screen {
 
     /**
      * Start X coordinate of the screen. The top-left vertex of the bounding rectangle formed by the two screens is used
-     * as the origin, with the positive direction being rightwards. The value must be a positive integer. Any non-
-     * positive integer values will be considered invalid and result in an error.
+     * as the origin, with the positive direction being rightwards. in px. The value must be a non-negative
+     * integer. Any other values will be considered invalid and result in an error.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -655,8 +653,8 @@ declare namespace screen {
 
     /**
      * Start Y coordinate of the screen. The top-left vertex of the bounding rectangle formed by the two screens is used
-     * as the origin, with the positive direction being downwards. The value must be a positive integer. Any non-
-     * positive integer values will be considered invalid and result in an error.
+     * as the origin, with the positive direction being downwards. in px. The value must be a non-negative
+     * integer. Any other values will be considered invalid and result in an error.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -686,7 +684,7 @@ declare namespace screen {
     screenId: long;
 
     /**
-     * Start X coordinate of the screen. The value must be an integer.
+     * Start X coordinate of the screen. in px. The value must be an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -696,7 +694,7 @@ declare namespace screen {
     startX: long;
 
     /**
-     * Start Y coordinate of the screen. The value must be an integer.
+     * Start Y coordinate of the screen. in px. The value must be an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -1089,7 +1087,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     readonly screenType?: ScreenType;
   }
@@ -1100,7 +1098,7 @@ declare namespace screen {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum ScreenType {
     /**
@@ -1109,7 +1107,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     BUILT_IN = 0,
 
@@ -1119,7 +1117,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     EXTERNAL = 1,
 
@@ -1130,7 +1128,7 @@ declare namespace screen {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     VIRTUAL = 2
   }

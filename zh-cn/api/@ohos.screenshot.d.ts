@@ -34,9 +34,9 @@ declare namespace screenshot {
    * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。
    * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。返回一个PixelMap对象，其大小为指定的imageSize大小，若未指定默认为displayId所在逻辑屏的大小。
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -55,9 +55,9 @@ declare namespace screenshot {
    * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。返回一个PixelMap对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -73,9 +73,9 @@ declare namespace screenshot {
    * 获取屏幕截图，使用Promise异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。 [since 7 - 21]
    * @param { ScreenshotOptions } [options] - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。 [since 22]
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.

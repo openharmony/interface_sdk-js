@@ -2966,6 +2966,17 @@ declare namespace osAccount {
     index: int;
 
     /**
+     * Time when the sub-profile was created.
+     * Unit: milliseconds.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createTime: long;
+  
+    /**
      * Distributed account information bound to the OS account sub-profile.
      *
      * @syscap SystemCapability.Account.OsAccount

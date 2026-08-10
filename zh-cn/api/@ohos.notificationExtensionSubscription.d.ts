@@ -30,10 +30,6 @@ import { NotificationInfo as _NotificationInfo } from './notification/Notificati
 /**
  * 本模块提供管理通知扩展的能力，具体包括：打开通知扩展订阅设置界面、订阅和取消订阅通知扩展、获取和设置通知授权状态。
  *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 22开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- *
  * @syscap SystemCapability.Notification.Notification
  * @since 22 dynamic
  * @since 23 static
@@ -101,6 +97,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe(): Promise<void>} 取消通知扩展订阅。
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} 获取应用通知扩展订阅信息。
    */
   function unsubscribe(): Promise<void>;
 
@@ -117,6 +115,7 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>} 订阅通知扩展。
    */
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 

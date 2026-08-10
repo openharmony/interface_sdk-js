@@ -104,30 +104,40 @@ export function extractMinApiFromDecorator(annotation: arkts.AnnotationUsage | u
 export function getValidAnnotationFromNode(
   node: arkts.AstNode,
   predicate: (annotation: arkts.AnnotationUsage) => boolean,
-  maxDepth: number = 50
+  maxDepth: number = 50,
+  excludedAnnotation?: arkts.AnnotationUsage
 ): arkts.AnnotationUsage | null {
   if (!node || maxDepth <= 0) {
     return null;
   }
 
   const annotationArray: arkts.AnnotationUsage[] = [];
+
   if (isAnnotationAllowed(node)) {
     annotationArray.push(...node.annotations);
   }
 
-  if (arkts.isMethodDefinition(node) && node.parent?.ident?.name === DISTINGUISH_FUNCTION_NAME) {
+  if (arkts.isMethodDefinition(node)) {
     if (node.function && node.function.annotations && Array.isArray(node.function.annotations)) {
       annotationArray.push(...node.function.annotations);
     }
   }
 
-  const validAnnotation = annotationArray.find(annotation => predicate(annotation));
+  const validAnnotation = annotationArray.find(annotation =>
+    annotation.peer !== excludedAnnotation?.peer &&
+    predicate(annotation)
+  );
+
   if (validAnnotation) {
     return validAnnotation;
   }
 
-  const parentNode = node.parent;
-  return parentNode ? getValidAnnotationFromNode(parentNode, predicate, maxDepth - 1) : null;
+  return node.parent ? getValidAnnotationFromNode(
+    node.parent,
+    predicate,
+    maxDepth - 1,
+    excludedAnnotation
+  ) : null;
 }
 
 export function checkFileHasAvailableByFileName(sourceFileName: string): boolean {
@@ -249,14 +259,14 @@ export function isSourceRetentionAnnotationContentValid(annotation: arkts.Annota
     }
 
     // Check parent version hierarchy
-    return checkParentVersionHierarchy(annotation.parent, parseVersion, result);
+    return checkParentVersionHierarchy(annotation, parseVersion, result);
   } catch (e) {
     return result;
   }
 }
 
 function checkParentVersionHierarchy(
-  annotation: arkts.AstNode,
+  annotation: arkts.AnnotationUsage,
   currentVersion: ParsedVersion,
   result: ConditionCheckResult
 ): ConditionCheckResult {
@@ -273,22 +283,27 @@ function checkParentVersionHierarchy(
   };
 }
 
-function hasLargerVersionInParentNode(node: arkts.AstNode, curAvailableVersion: ParsedVersion): ParsedVersion | null {
-  if (!node || !node.parent) {
+function hasLargerVersionInParentNode(
+  annotation: arkts.AnnotationUsage,
+  curAvailableVersion: ParsedVersion
+): ParsedVersion | null {
+  if (!annotation.parent) {
     return null;
   }
 
-  const decorator = getValidAnnotationFromNode(node.parent, isAvailableDecorator);
-  if (decorator === null) {
+  const decorator = getValidAnnotationFromNode(
+    annotation.parent,
+    isAvailableDecorator,
+    50,
+    annotation
+  );
+
+  if (!decorator) {
     return null;
   }
 
   const availableVersion = extractMinApiFromDecorator(decorator);
-  if (!availableVersion) {
-    return null;
-  }
-
-  if (!compareVersions(availableVersion, curAvailableVersion)) {
+  if (availableVersion && !compareVersions(availableVersion, curAvailableVersion)) {
     return availableVersion;
   }
 

@@ -20,7 +20,7 @@
 
 
 /**
- * Defines the console info.
+ * 提供一个简单的调试控制台，类似于浏览器提供的JavaScript控制台机制。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -30,10 +30,10 @@
  */
 export declare class console {
   /**
-   * Prints "debug" logs.
+   * 以格式化输出方式打印调试信息。
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments - 
+   * @param { string } message - 要打印的文本信息。
+   * @param { any[] } arguments - 其余要打印的信息或message的替换值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -43,10 +43,10 @@ export declare class console {
   static debug(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints "log" logs.
+   * 以格式化输出方式打印日志信息。
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments - 
+   * @param { string } message - 要打印的文本信息。
+   * @param { any[] } arguments - 其余要打印的信息或message的替换值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -56,10 +56,10 @@ export declare class console {
   static log(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints "info" logs.
+   * 以格式化输出方式打印日志信息（console.log()的别名）。
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments - 
+   * @param { string } message - 要打印的文本信息。
+   * @param { any[] } arguments - 其余要打印的信息或message的替换值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -69,10 +69,10 @@ export declare class console {
   static info(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints "warn" logs.
+   * 以格式化输出方式打印警告信息。
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments - 
+   * @param { string } message - 要打印的警告信息。
+   * @param { any[] } arguments - 其余要打印的信息或message的替换值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -82,10 +82,10 @@ export declare class console {
   static warn(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints "error" logs.
+   * 以格式化输出方式打印错误信息。
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments - 
+   * @param { string } message - 要打印的错误信息。
+   * @param { any[] } arguments - 其余要打印的信息或message的替换值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -95,10 +95,11 @@ export declare class console {
   static error(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints a message if value is false or omitted.
+   * 断言打印。
    *
-   * @param { Object } [value] - The value tested for being truthy.
-   * @param { Object[] } arguments - Used as error message to print.
+   * @param { Object } [value] - 语句结果值。若value为假（false）或者省略，则输出以"Assertion failed"开头。
+   *     如果value为真值（true），则无打印。
+   * @param { Object[] } arguments - value为假（false）的后续错误消息打印。省略则不打印。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -111,10 +112,9 @@ export declare class console {
   static assert(value?: Object, ...arguments: Object[]): void;
 
   /**
-   * Maintains an internal counter specific to label and print the number of times
-   * console.count() has been called with the given label.
+   * 维护一个内部计数器，调用时，打印此标签名以及对应的计数次数。
    *
-   * @param { string } [label] - Counter name. Default: "default".
+   * @param { string } [label] - 计数器标签名。默认值为'default'。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -127,9 +127,9 @@ export declare class console {
   static count(label?: string): void;
 
   /**
-   * Reset the internal counter specific to label.
+   * 清除指定标签名的计数。
    *
-   * @param { string } [label] - Counter name. Default: "default".
+   * @param { string } [label] - 计数器标签名。默认值为'default'。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -142,9 +142,9 @@ export declare class console {
   static countReset(label?: string): void;
 
   /**
-   * Prints properties of the specified JavaScript object.
+   * 打印对象内容。
    *
-   * @param { Object } [dir] - A JavaScript object whose properties should be output.
+   * @param { Object } [dir] - 需要打印内容的对象。省略则无任何打印。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -153,10 +153,9 @@ export declare class console {
   static dir(dir?: Object): void;
 
   /**
-   * This method calls console.log() passing it the arguments received.
-   * This method does not produce any XML formatting.
+   * 此方法通过内部调用console.log()实现。此方法不会产生任何XML格式。使用方法与console.log()一致。
    *
-   * @param { Object[] } arguments - Text to print.
+   * @param { Object[] } arguments - 要打印的信息。省略则无任何打印。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -165,9 +164,10 @@ export declare class console {
   static dirxml(...arguments: Object[]): void;
 
   /**
-   * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
+   * 默认将后续行的缩进增加两个空格。
+   * 如果提供需要打印的信息，则首先打印信息，没有额外的缩进。
    *
-   * @param { Object[] } arguments - messages to print first.
+   * @param { Object[] } arguments - 要打印的信息。省略则仅打印两个空格。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -176,9 +176,9 @@ export declare class console {
   static group(...arguments: Object[]): void;
 
   /**
-   * Same as console.group()
+   * 使用与功能同console.group()一致。
    *
-   * @param { Object[] } arguments - messages to print first.
+   * @param { Object[] } arguments - 要打印的信息。省略则仅打印两个空格。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -187,7 +187,7 @@ export declare class console {
   static groupCollapsed(...arguments: Object[]): void;
 
   /**
-   * Exit current inline group.
+   * 将后续行的缩进减少两个空格。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -197,9 +197,9 @@ export declare class console {
   static groupEnd(): void;
 
   /**
-   * Prints tabular data as a table.
+   * 以表格形式打印数据。
    *
-   * @param { Object } [tableData] - tabular data.
+   * @param { Object } [tableData] - 要打印为表格形式的对象。省略则无任何打印。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -208,9 +208,9 @@ export declare class console {
   static table(tableData?: Object): void;
 
   /**
-   * Start a timer.
+   * 启动可用于计算操作持续时间的计时器。可使用console.timeEnd()关闭计时器并打印经过的时间（单位：ms）。
    *
-   * @param { string } [label] - Timer name. Default: "default".
+   * @param { string } [label] - 计时器标识。默认值为'default'。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -223,9 +223,9 @@ export declare class console {
   static time(label?: string): void;
 
   /**
-   * End a timer and print time duration.
+   * 停止之前通过调用console.time()启动的计时器并打印经过的时间（单位：ms）。
    *
-   * @param { string } [label] - Timer name. Default: "default".
+   * @param { string } [label] - 计时器标识。默认值为'default'。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -238,10 +238,10 @@ export declare class console {
   static timeEnd(label?: string): void;
 
   /**
-   * Print the elapsed time and other data arguments.
+   * 对于先前通过调用console.time()启动的计时器，打印经过时间和其他data参数。
    *
-   * @param { string } [label] - Timer name. Default: "default".
-   * @param { Object[] } arguments - Text to print.
+   * @param { string } [label] - 计时器标识。默认值为'default'。
+   * @param { Object[] } arguments - 需要打印的其他日志。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -254,9 +254,9 @@ export declare class console {
   static timeLog(label?: string, ...arguments: Object[]): void;
 
   /**
-   * Prints stack information for the current code location.
+   * 打印当前堆栈。
    *
-   * @param { Object[] } arguments - message to print.
+   * @param { Object[] } arguments - 需要打印的其他日志。省略则仅打印堆栈信息。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice [since 12]
@@ -265,7 +265,7 @@ export declare class console {
   static trace(...arguments: Object[]): void;
 
   /**
-   * Prints information about the current hybrid stack of the calling thread in the main thread or worker thread.
+   * 在主线程或worker线程中打印当前线程混合堆栈信息。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -276,24 +276,19 @@ export declare class console {
 }
 
 /**
- * Sets a repeating timer for the system to repeatedly call a function at a fixed interval.
- * The timer can only be manually deleted when the **clearInterval** API is called.
+ * 重复调用一个函数，在每次调用之间具有固定的时间延迟。
+ * 删除该定时器需手动调用clearInterval()接口。
  *
- * @param { Function | string } handler - When the type is function, this parameter specifies the callback function to
- *     be invoked upon the timer's expiration. <br>When the type is string, error information is printed with no
- *     additional processing.
- * @param { number } delay - Number of milliseconds delayed before the execution. It is recommended that an integer be
- *     passed in; a decimal will be rounded down.<br>If this parameter is omitted, the default value of **0** is used.<
- *     br>**NOTE**<br>1. This timer is not a precise timer, and there may be a discrepancy between the actual delay and
- *     the expected delay.<br>2. If the value is less than 1, it will be defaulted to **0**.<br>3. The value is subject
- *     to system limitations. If it exceeds 2^31 – 1, the value will be **0**.
- * @param { any[] } arguments - Additional parameters that are passed to **handler** only when **handler** is of the
- *     function type.<br>If the number of arguments is less than that of the **handler** function parameters, the
- *     parameters that are not overwritten by arguments are set to **undefined**.<br>If the number of arguments exceeds
- *     that of the **handler** function parameters, the excess arguments will be ignored. However, they can still be
- *     accessed via the built-in arguments object within the **handler** function.
- * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in
- *     ascending order.
+ * @param { Function | string } handler - 类型为Function表示定时器到期后执行函数；<br>类型为string则通过Error方式
+ *     打印string中内容，不进行其他处理。
+ * @param { number } delay - 延迟的毫秒数，函数的调用会在该延迟之后发生。建议传入整数，若传入小数，会被向下取整。
+ *     <br>**注意**<br>1. 该计时器非精准计时器，实际延迟可能会与预期延迟存在误差。<br>2. 如果值小于1，
+ *     将被默认设置为0。<br>3. delay值受系统限制，超出2^31 - 1时会溢出，delay值为0。
+ * @param { any[] } arguments - 附加参数，仅当handler类型为Function时生效，作为参数传递给handler。
+ *     <br>arguments参数数量少于handler函数参数数量时，未被arguments覆盖的参数会被设为undefined。
+ *     <br>arguments参数数量多于handler函数参数数量时，多余的arguments参数会被忽略，但可通过handler函数内部的
+ *     arguments对象访问。
+ * @returns { number } 该定时器的ID，定时器ID为进程共享，是从0开始顺序增加的整数，无重复值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -302,30 +297,23 @@ export declare class console {
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
 /**
- * Sets a timer for the system to call a function after the timer goes off.
- * The timer is automatically deleted after callback execution, or you may manually delete it via the **clearTimeout()**
- * API.
+ * 设置一个定时器，该定时器在定时器到期后执行一个函数。
+ * 该定时器在回调被执行后自动删除，或使用clearTimeout()接口手动删除。
  *
- * @param { Function | string } handler - When the type is function, this parameter specifies the callback function to
- *     be invoked upon the timer's expiration. <br>When the type is string, error information is printed with no
- *     additional processing.
- * @param { number } [delay] - Number of milliseconds delayed before the execution. It is recommended that an integer be
- *     passed in; a decimal will be rounded down.<br>If this parameter is omitted, the default value of **0** is used.<
- *     br>**NOTE**<br>1. This timer is not a precise timer, and there may be a discrepancy between the actual delay and
- *     the expected delay.<br>2. If the value is less than 1, it will be defaulted to **0**.<br>3. The value is subject
- *     to system limitations. If it exceeds 2^31 – 1, the value will be **0**.
- * @param { any[] } arguments - Additional parameters that are passed to **handler** only when **handler** is of the
- *     function type.<br>If the number of arguments is less than that of the **handler** function parameters, the
- *     parameters that are not overwritten by arguments are set to **undefined**.<br>If the number of arguments exceeds
- *     that of the **handler** function parameters, the excess arguments will be ignored. However, they can still be
- *     accessed via the built-in arguments object within the **handler** function. [since 7 - 10]
- * @param { any[] } [arguments] - Additional parameters that are passed to **handler** only when **handler** is of the
- *     function type.<br>If the number of arguments is less than that of the **handler** function parameters, the
- *     parameters that are not overwritten by arguments are set to **undefined**.<br>If the number of arguments exceeds
- *     that of the **handler** function parameters, the excess arguments will be ignored. However, they can still be
- *     accessed via the built-in arguments object within the **handler** function. [since 10]
- * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in
- *     ascending order.
+ * @param { Function | string } handler - 类型为Function表示定时器到期后执行函数；<br>类型为string则通过Error方式
+ *     打印string中内容，不进行其他处理。
+ * @param { number } [delay] - 延迟的毫秒数，函数的调用会在该延迟之后发生。建议传入整数，若传入小数，会被向下取整。
+ *     <br>如果省略该参数，delay取默认值0。<br>**注意**<br>1. 该计时器非精准计时器，实际延迟可能会与预期延迟存在误差。
+ *     <br>2. 如果值小于1，会被默认取0。<br>3. delay值受系统限制，超出2^31 - 1时会溢出，delay值为0。
+ * @param { any[] } arguments - 附加参数，仅当handler类型为Function时生效，作为参数传递给handler。
+ *     <br>arguments参数数量少于handler函数参数数量时，未被arguments覆盖的参数会被设为undefined。
+ *     <br>arguments参数数量多于handler函数参数数量时，多余的arguments参数会被忽略，但可通过handler函数内部的
+ *     arguments对象访问。[since 7 - 10]
+ * @param { any[] } [arguments] - 附加参数，仅当handler类型为Function时生效，作为参数传递给handler。
+ *     <br>arguments参数数量少于handler函数参数数量时，未被arguments覆盖的参数会被设为undefined。
+ *     <br>arguments参数数量多于handler函数参数数量时，多余的arguments参数会被忽略，但可通过handler函数内部的
+ *     arguments对象访问。[since 10]
+ * @returns { number } 该定时器的ID，定时器ID为进程共享，是从0开始顺序增加的整数，无重复值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -334,9 +322,11 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
- * Cancel the interval set by " setInterval()".
+ * 取消通过setInterval()设置的重复定时任务。
+ * 定时器对象保存在创建它的线程内，删除定时器时需要在该线程中进行。
  *
- * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
+ * @param { number } [intervalID] - 要取消的重复定时器的ID，需要与调用setInterval()设置重复定时器的返回值一致。
+ *     如果省略该参数或指定的重复定时器ID不存在时，不会取消任何定时任务。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -345,9 +335,11 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 export declare function clearInterval(intervalID?: number): void;
 
 /**
- * Cancel the timer set by "setTimeout()".
+ * 取消通过调用setTimeout()建立的定时器。
+ * 定时器对象保存在创建它的线程内，删除定时器时需要在该线程中进行。
  *
- * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
+ * @param { number } [timeoutID] - 要取消定时器的ID，需要与调用setTimeout()设置定时器的返回值一致。
+ *     如果省略该参数或指定的定时器ID不存在时，不会取消任何定时任务。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -356,27 +348,27 @@ export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
- * Defining syscap function.
+ * 查询系统是否具备某个系统能力。
  *
- * @param { string } syscap
- * @returns { boolean }
+ * @param { string } syscap - 待查询的系统能力名称。不支持输入null、undefined。
+ * @returns { boolean } 系统能力查询结果，true表示系统具备该能力，false表示系统不具备。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Defining syscap function.
+ * 查询系统是否具备某个系统能力。
  *
- * @param { string } syscap
- * @returns { boolean }
+ * @param { string } syscap - 待查询的系统能力名称。不支持输入null、undefined。
+ * @returns { boolean } 系统能力查询结果，true表示系统具备该能力，false表示系统不具备。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
- * Defining syscap function.
+ * 查询系统是否具备某个系统能力。
  *
- * @param { string } syscap
- * @returns { boolean }
+ * @param { string } syscap - 待查询的系统能力名称。不支持输入null、undefined。
+ * @returns { boolean } 系统能力查询结果，true表示系统具备该能力，false表示系统不具备。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -592,9 +584,19 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
 export declare function markModuleCollectable(namespace: Object): void;
 
 /**
+ * 同步动态加载native模块，目的是按需加载所需要的模块。
+ * 使用该接口会增加so文件的加载时间，使用前需评估其对应用性能和功能的影响。
  *
- * @param { string } moduleName - Indicates the native module name.
- * @returns { Object } Returns the default export from the native module.
+ * > **说明：**
+ * >
+ * > loadNativeModule加载的模块名称为依赖方oh-package.json5文件的dependencies字段中声明的依赖名称。
+ * >
+ * > loadNativeModule仅支持在Stage模型的UI主线程中加载native模块。
+ * >
+ * > 无论moduleName参数使用常量字符串还是变量表达式，都需要配置接口调用的依赖。
+ *
+ * @param { string } moduleName - 加载的模块名。
+ * @returns { Object } native模块的默认导出，需使用ArkTS的ESObject类型去接收。
  * @throws { BusinessError } 401 - The parameter check failed.
  * @throws { BusinessError } 10200301 - Loading native module failed.
  * @syscap SystemCapability.Utils.Lang

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Common Module
  * @kit MDMKit
  */
 
@@ -24,9 +24,15 @@ import * as _EnterpriseAdminExtensionContext from './application/EnterpriseAdmin
  * The module provides pure type definitions for common capabilities within MDM Kit, including enum types and data
  * structs. It exports type declarations only and does not include any implementation logic or executable code.
  *
- * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
+ * **Use cases:**
+ * In enterprise device administrator application development, the types defined in this module are used in scenarios
+ * such as configuring device management and control policies, managing application instances, handling application
+ * installation results, and listening for policy changes. These types provide unified parameter and return value
+ * standards for the APIs of various sub-modules within MDM Kit.
+ *
+ * **Benefits:**
+ * Standardized type definitions simplify the development process of enterprise device administrator applications,
+ * improve code maintainability and type safety, and reduce type-related runtime errors.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
@@ -50,8 +56,8 @@ declare namespace common {
   export interface ApplicationInstance {
     /**
      * [Unique identifier]{@link ./bundleManager/BundleInfo:SignatureInfo} of an application. You can call the
-     * [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-     * API to obtain **bundleInfo.signatureInfo.appIdentifier**.
+     * [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} API to obtain
+     * **bundleInfo.signatureInfo.appIdentifier**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -63,7 +69,6 @@ declare namespace common {
      * Account ID. The value is an integer greater than or equal to 0.
      * You can obtain the account ID by calling the
      * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} API.
-     * The value must be an integer greater than or equal to 0.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -73,9 +78,9 @@ declare namespace common {
 
     /**
      * Index of the application clone. The value is an integer greater than or equal to 0.
+     *
      * You can obtain the index by calling the
      * [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity} API.
-     * The value range is all integers.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -151,8 +156,7 @@ declare namespace common {
    * An object that holds the application installation result.
    *
    * This object is used as a callback parameter in
-   * [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onMarketAppInstallResult}
-   * .
+   * [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onMarketAppInstallResult}.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -160,7 +164,8 @@ declare namespace common {
    */
   export interface InstallationResult {
     /**
-     * Application installation result.
+     * Application installation result. **SUCCESS** indicates that the application is successfully installed and can be
+     * properly used. **FAIL** indicates that the application fails to be installed and is unavailable.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -181,7 +186,7 @@ declare namespace common {
   /**
    * Startup wizard completion scenario. When the initial switch to a sub-user (only on PCs), OTA upgrade, and first-
    * time startup wizard are complete, the device system calls the
-   * [onStartupGuideCompleted]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onStartupGuideCompleted}
+   * [onStartupGuideCompleted]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onStartupGuideCompleted}
    * API to notify the device administrator application.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -219,7 +224,10 @@ declare namespace common {
   }
 
   /**
-   * The policy event.
+   * Defines the policy change event.
+   *
+   * This API is used as a callback input parameter of
+   * [onAdminPolicyChanged]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onAdminPolicyChanged}.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -227,25 +235,31 @@ declare namespace common {
    */
   export interface PolicyChangedEvent {
     /**
-     * The bundle name of the application that sets the policy.
+     * App bundle name.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    bundleName : string;
+    bundleName: string;
 
     /**
-     * The function name for setting policy.
+     * API name. For example, if the
+     * [setPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.setPasswordPolicy} API is called, the
+     * value of this parameter is **setPasswordPolicy**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    functionName : string;
+    functionName: string;
 
     /**
-     * The JSON string containing policy parameters.
+     * Input parameter value (excluding the **admin** parameter) when an API is called. The value is a JSON string. For
+     * example, if the [setPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.setPasswordPolicy} API
+     * is called, the return value of this parameter is
+     * **{"policy":{"complexityRegex":"^(?=.*[a-zA-Z])(?=.*\\d).{8},$","validityPeriod":1808309786000,
+     * "additionalDescription":"It must contain at least eight characters, including digits and letters."}}**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -254,8 +268,7 @@ declare namespace common {
     parameters: string;
 
     /**
-     * The timestamp when the policy was set.
-     * Unit: milliseconds, The value must be an integer greater than or equal to 0.
+     * Timestamp when an API is called, in milliseconds.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -265,7 +278,7 @@ declare namespace common {
   }
 
   /**
-   * EnterpriseAdminExtensionContext is the context of
+   * **EnterpriseAdminExtensionContext** is the context of
    * [EnterpriseAdminExtensionAbility]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
    * and inherits from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
    *

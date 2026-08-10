@@ -18,189 +18,129 @@
  * @kit ArkUI
  */
 
-
-
-
-
 /**
  * Declaration of the menu item on the right side.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declaration of the menu item on the right side.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declaration of the menu item on the right side.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class ComposeTitleBarMenuItem {
   /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
+   * Icon resource.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   value: ResourceStr;
 
   /**
-   * Symbol resource for this menu item.
-   * @type { ?SymbolGlyphModifier }.
+   * Symbol icon resource, which has higher priority than **value**. This parameter is not available for the **item**
+   * attribute.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * Symbol resource for this menu item.
-   * @type { ?SymbolGlyphModifier }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Icon label for this menu item.
-   * @type { ?ResourceStr }.
+   * Icon label.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 13
-   */
-  /**
-   * Icon label for this menu item.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 13 dynamic
    */
   label?: ResourceStr;
 
   /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
+   * Whether to enable the item.
+   *
+   * Default value: **false**
+   *
+   * **true**: The item is enabled.
+   *
+   * **false**: The item is disabled.
+   *
+   * This property cannot be triggered by the **item** property.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   isEnabled?: boolean;
 
   /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
+   * Action to perform. This parameter is not available for the **item** attribute.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action?: () => void;
 
   /**
-   * The accessibilityText of this menu item.
-   * @type { ?ResourceStr }
+   * Accessibility text, that is, accessible label name. If a component does not contain text information, it will not
+   * be announced by the screen reader when selected. In this case, the screen reader user cannot know which component
+   * is selected. To solve this problem, you can set accessibility text for components without text information. When
+   * such a component is selected, the screen reader announces the specified accessibility text, informing the user
+   * which component is selected.
+   *
+   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * The accessibilityText of this menu item.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of this menu item.
-   * @type { ?ResourceStr }
+   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
+   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
+   * attributes and accessibility text alone. If a component contains both text information and the accessible
+   * description, the text is announced first and then the accessible description, when the component is selected.
+   *
+   * Default value: **"Double-tap to activate"**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * The accessibilityDescription of this menu item.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
   /**
-   * The accessibilityLevel of this menu item.
-   * @type { ?string }
+   * Accessibility level. It determines whether the component can be recognized by accessibility services.
+   *
+   * The options are as follows:
+   *
+   * **"auto"**: It is treated as "yes" by the system.
+   *
+   * **"yes"**: The component can be recognized by accessibility services.
+   *
+   * **"no"**: The component cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
+   * services.
+   *
+   * Default value: **"auto"**
+   *
    * @default "auto".The options are as follows:<br/>
    *     "auto":The value is converted to "yes" or "no" based on the component.
    *     "yes": the current component is selectable for the accessibility service.
@@ -209,151 +149,77 @@ export declare class ComposeTitleBarMenuItem {
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * The accessibilityLevel of this menu item.
-   * @type { ?string }
-   * @default "auto".The options are as follows:<br/>
-   *     "auto":The value is converted to "yes" or "no" based on the component.
-   *     "yes": the current component is selectable for the accessibility service.
-   *     "no": The current component is not selectable for the accessibility service.
-   *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
-   *     for the accessibility service.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   accessibilityLevel?: string;
 }
 
 /**
- * Declaration of the composable title bar.
+ * **ComposeTitleBar** represents a common title bar that contains a title, subtitle (optional), and profile picture (
+ * optional). It can come with a Back button for switching between pages of different levels.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **ComposeTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **ComposeTitleBar** component itself. As a result, the configured universal attributes and
+ * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
+ * > and events with the **ComposeTitleBar** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declaration of the composable title bar.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declaration of the composable title bar.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @Component
 export declare struct ComposeTitleBar {
   /**
-   * Avatar resource and event callback of this title bar.
-   * @type { ?ComposeTitleBarMenuItem }.
+   * A single menu item for the profile picture on the left.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Avatar resource and event callback of this title bar.
-   * @type { ?ComposeTitleBarMenuItem }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Avatar resource and event callback of this title bar.
-   * @type { ?ComposeTitleBarMenuItem }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   item?: ComposeTitleBarMenuItem;
 
   /**
-   * Title of this title bar.
-   * @type { ResourceStr }.
+   * Title.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Title of this title bar.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Title of this title bar.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title: ResourceStr;
 
   /**
-   * Sub-title of this title bar.
-   * @type { ?ResourceStr }.
+   * Subtitle.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sub-title of this title bar.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sub-title of this title bar.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   subtitle?: ResourceStr;
 
   /**
-   * Menu items on the right side.
-   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * List of menu items on the right.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Menu items on the right side.
-   * @type { ?Array<ComposeTitleBarMenuItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Menu items on the right side.
-   * @type { ?Array<ComposeTitleBarMenuItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
 }

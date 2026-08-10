@@ -4527,6 +4527,7 @@ declare interface ScaleOptions {
    */
   centerY?: number | string;
 }
+
 /**
  * Defines the vertical align rule of relative container.
  *
@@ -4609,9 +4610,9 @@ declare interface VerticalAlignParam {
    */
   /**
    * Sets the vertical alignment relative to the anchor component.
-   * 
+   *
    * Anonymous Object Rectification
-   * 
+   *
    * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4625,6 +4626,7 @@ declare interface VerticalAlignParam {
 /**
  * Defines the horizontal align rule of relative container.
  *
+ * @interface HorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4827,6 +4829,7 @@ declare interface AlignRuleOption {
 /**
  * Defines the localized horizontal align param of relative container.
  *
+ * @interface LocalizedHorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4837,6 +4840,7 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4848,6 +4852,7 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * Horizontal alignment mode relative to the anchor component.
    *
+   * @type { HorizontalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4860,6 +4865,7 @@ declare interface LocalizedHorizontalAlignParam {
 /**
  * Defines the localized vertical align param of relative container.
  *
+ * @interface LocalizedVerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4870,6 +4876,7 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4881,6 +4888,7 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * Vertical alignment mode relative to the anchor component.
    *
+   * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4893,6 +4901,7 @@ declare interface LocalizedVerticalAlignParam {
 /**
  * Defines the Localized align rule options of relative container.
  *
+ * @interface LocalizedAlignRuleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4904,6 +4913,7 @@ declare interface LocalizedAlignRuleOptions {
    * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal 
    * direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4916,6 +4926,7 @@ declare interface LocalizedAlignRuleOptions {
    * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal 
    * direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4927,6 +4938,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Center alignment in the horizontal direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4938,6 +4950,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Top alignment in the vertical direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4949,6 +4962,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Bottom alignment in the vertical direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4972,6 +4986,7 @@ declare interface LocalizedAlignRuleOptions {
    * Offset of the component under the anchor constraints.
    * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
+   * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4985,6 +5000,7 @@ declare interface LocalizedAlignRuleOptions {
 /**
  * Enumerates the chain styles in relative container.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7133,6 +7149,7 @@ declare enum BlurStyle {
 /**
  * Enumerates the policies for activating the blur style.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8287,6 +8304,7 @@ declare enum LayoutSafeAreaType {
 /**
  * Define the edges for expanding the safe area in layout.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12484,6 +12502,7 @@ declare enum ScrollSizeMode {
 /**
  * Define the mode of sheet how to avoid keyboard.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12574,6 +12593,7 @@ declare interface SheetDismiss {
 /**
  * Component sheet dismiss
  *
+ * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12585,6 +12605,7 @@ declare interface DismissSheetAction {
   /**
    * Defines sheet dismiss function
    *
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12596,6 +12617,7 @@ declare interface DismissSheetAction {
   /**
    * Dismiss reason type.
    *
+   * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12608,6 +12630,7 @@ declare interface DismissSheetAction {
 /**
  * Defines sheet spring back action
  *
+ * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12618,6 +12641,7 @@ declare interface SpringBackAction {
   /**
    * Defines spring back function
    *
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18496,6 +18520,7 @@ declare type TipsMessageType = ResourceStr | StyledString;
 /**
  * Import the Matrix4Transit type object for common method.
  *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21236,18 +21261,15 @@ declare class CommonMethod<T> {
    */
   useShadowBatching(use: Optional<boolean>): T;
 
-   /**
-   * Specifies whether to apply the effect defined by <!--Del-->the parent
-   * [EffectComponent](ts-container-effectcomponent-sys.md) or <!--DelEnd-->the window.
+  /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by <!--Del-->the parent
-   *     **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
-   *     or <!--DelEnd-->the window.
-   *     <br>Default value: **false**.
-   * @param { EffectType } effectType - Type of effect to apply to the component, which is defined by
-   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **EffectType.DEFAULT**.
+   * @param { boolean } useEffect - true means the component should apply the effects template defined by the parent
+   *     effectComponent or window.
+   * @param { EffectType } effectType - the effect type of the effects template, defined by the parent effectComponent
+   *     or window.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21257,22 +21279,14 @@ declare class CommonMethod<T> {
   useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
-   * Specifies whether to apply the effect defined by <!--Del-->the parent
-   * EffectComponent or
-   * 
-   * <!--DelEnd-->the window. Compared to useEffect<sup>14+</sup>,
-   * 
-   * this API supports the **undefined** type for the **useEffect** parameter.
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by
-   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent
-   *     **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **false**.
-   *     <br>If **useEffect** is set to **undefined**, the previous value is retained.
-   * @param { EffectType } [effectType] - Type of effect to apply to the component, which
-   *     is defined by <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   *     <br>Default value: **EffectType.DEFAULT**.
+   * @param { Optional<boolean> } useEffect - true means the component should apply the effects template defined by the
+   *     parent effectComponent or window.
+   * @param { EffectType } [effectType] - the effect type of the effects template, defined by the parent effectComponent
+   *     or window.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21282,12 +21296,11 @@ declare class CommonMethod<T> {
   useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
 
   /**
-   * Specifies whether to combine the drawing of special effects, such as background blur.
+   * Sets whether the component should apply the effects template defined by the parent effectComponent.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
    *
-   * @param { boolean } value - Whether the component inherits the special effect settings of the
-   *     **EffectComponent** component.<br>The value **true** means that the component inherits the
-   *     special effect settings of the **EffectComponent** component, and **false** means the opposite.
-   *     <br>Default value: **false**.
+   * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21297,8 +21310,7 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
-   * Specify whether the current component participates in the fusion effect of the ancestor component 
-   * UnionEffectContainer
+   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
    *
    * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
    *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
@@ -21315,12 +21327,10 @@ declare class CommonMethod<T> {
   /**
    * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
    *
-   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
-   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
-   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
-   *     <br>Default value: **false**. Undefined means to default value.
-   * @param { GravityCenterOptions } [options] - Gravitational center parameter.
-   *     This parameter must be used together with UnionMode.GRAVITY_UNION.
+   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of the ancestor
+   *     component **UnionEffectContainer**. The value **true** means that the component participates in the fusion
+   *     effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+   * @param { GravityCenterOptions } [options] - Gravitational center parameter. GRAVITY_UNION.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -23085,8 +23095,6 @@ declare class CommonMethod<T> {
   /**
    * Sets whether to clip this component based on the given shape.
    * 
-   * > **NOTE** 
-   *
    * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value - Clip mode. If the
    *     value is a shape attribute, the component is clipped based on the specified shape. If the value is of the
    *     Boolean type, it specifies whether to clip the component based on the boundaries of the parent container.<br>
@@ -23191,8 +23199,6 @@ declare class CommonMethod<T> {
 
   /**
    * Adds a mask of the specified shape to the component.
-   * 
-   * > **NOTE** 
    *
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - Mask of the
    *     specified shape to add to the component.
@@ -24669,7 +24675,14 @@ declare class CommonMethod<T> {
   /**
    * Called when component is focused, the return value indicates whether keyboard is needed.
    *
-   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback - Callback executed when an event is
+   *     triggered. The system determines whether a keyboard is required based on the return value of the callback. If this
+   *     parameter is set to undefined, no callback is triggered, and the input box component returns true. For other
+   *     components, false is returned. Prerequisite: The component must be able to obtain focus. Otherwise, this interface
+   *     does not take effect. When the return value is true, the self-drawn text box needs to actively invoke the
+   *     [attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig:
+   *     TextConfig, requestKeyboardReason: RequestKeyboardReason)} method to establish input method communication when the
+   *     focus is obtained. Otherwise, the keyboard does not respond.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24992,11 +25005,7 @@ declare interface OverlayOffset {
 }
 
 /**
- * Defines the segment of blur.
- * The first element in the tuple means fraction.
- * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
- * The second element means the stop position.
- * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
+ * Defines a gradient blur stop.
  *
  * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26098,6 +26107,7 @@ declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * Sub component info passed from framework when layout and measure happens.
  *
+ * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9 dynamiconly
@@ -26108,6 +26118,7 @@ declare interface LayoutChild {
   /**
    * Sub component name.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26119,6 +26130,7 @@ declare interface LayoutChild {
   /**
    * Sub component id.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26130,6 +26142,7 @@ declare interface LayoutChild {
   /**
    * Sub component constraint.
    *
+   * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26141,6 +26154,7 @@ declare interface LayoutChild {
   /**
    * Sub component border info.
    *
+   * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26152,6 +26166,7 @@ declare interface LayoutChild {
   /**
    * Sub component position.
    *
+   * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26528,6 +26543,7 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * Blender
  *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -27235,8 +27251,8 @@ declare abstract class TextContentControllerBase {
    * > of the input method application. Therefore, avoid calling this API for the preview text.
    *
    * @param { TextRange } [range] - Range of the text to be deleted, including the start and end positions.<br>If the
-   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts
-   *     from index 0. If the end position is not specified, deletion ends at the end of the text.
+   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts from
+   *     index 0. If the end position is not specified, deletion ends at the end of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27277,6 +27293,11 @@ declare abstract class TextContentControllerBase {
   /**
    * Notifies the input method to clear the current preview text.
    *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -27287,6 +27308,11 @@ declare abstract class TextContentControllerBase {
 
   /**
    * Binds or updates the styled placeholder string.
+   *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @param { StyledString } styledString - Styled string for the placeholder. This takes precedence over the plain text.
    *     **placeholder** attribute.<br>The placeholder does not support gesture events or hyperlink navigation within
@@ -27302,6 +27328,10 @@ declare abstract class TextContentControllerBase {
   /**
    * Passes the start and end indexes to the bound text box components (**TextInput**, **TextArea**, and **Search**),
    * and scrolls the text within the range to the visible area.
+   *
+   * > **NOTE**
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @param { TextRange } [range] - Text range to be scrolled to the visible area, including the start and end positions.
    *     of the text.<br>The start position must be less than or equal to the end position. Otherwise, the API call is
@@ -27322,6 +27352,11 @@ declare abstract class TextContentControllerBase {
    * selected using the mouse or keyboard before this function is called, the selected text will be deleted.
    *
    * This API is not supported in preview display scenarios.
+   *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to any component or the component bound to the controller is released, this
+   * interface does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

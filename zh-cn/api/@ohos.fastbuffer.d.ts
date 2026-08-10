@@ -17,7 +17,11 @@
  * @kit ArkTS
  */
 /**
- * FastBuffer对象是更高效的Buffer容器，用于表示固定长度的字节序列，是专门存放二进制数据的缓存区。
+ * FastBuffer对象是比Buffer性能更优的Buffer容器，用于表示固定长度的字节序列，是专门存放二进制数据的缓冲区。
+ *
+ * FastBuffer通过from构造时，仅支持FastBuffer、Uint8Array、string、Array、ArrayBuffer和SharedArrayBuffer类型的参数。
+ *
+ * 需要高效处理二进制数据（如图片、文件传输、网络通信等）时，推荐使用FastBuffer以获得更好的性能。
  *
  * @namespace fastbuffer
  * @syscap SystemCapability.Utils.Lang
@@ -49,10 +53,10 @@ declare namespace fastbuffer {
     interface TypedArray extends Int8Array {
     }
     /**
-     * 创建指定字节长度的FastBuffer对象并初始化。
+     * 创建指定字节长度的FastBuffer对象并初始化。调用后，FastBuffer对象的每个字节将被填充为指定的fill值，未指定fill时默认填充为0。
      *
      * @param { number } size - 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。
-     * @param { string | FastBuffer | number } [fill] - 填充至新缓存区的值，默认值：0。
+     * @param { string | FastBuffer | number } [fill] - 填充至新缓冲区的值，默认值：0。
      * @param { BufferEncoding } [encoding] - 编码格式（当`fill`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
      * @returns { FastBuffer } 返回一个FastBuffer对象。
      * @syscap SystemCapability.Utils.Lang
@@ -62,10 +66,10 @@ declare namespace fastbuffer {
      */
     function alloc(size: number, fill?: string | FastBuffer | number, encoding?: BufferEncoding): FastBuffer;
     /**
-     * 从缓冲池中创建指定大小未初始化的FastBuffer对象，需要使用fill函数来初始化FastBuffer对象。
+     * 从缓冲池中创建指定大小未初始化的FastBuffer对象。调用[fill]{@link fastbuffer.FastBuffer#fill}函数初始化该对象。
      *
      * @param { number } size - 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。
-     * @returns { FastBuffer } 未初始化的Buffer实例。
+     * @returns { FastBuffer } 未初始化的FastBuffer实例。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -73,7 +77,7 @@ declare namespace fastbuffer {
      */
     function allocUninitializedFromPool(size: number): FastBuffer;
     /**
-     * 创建指定大小未初始化的FastBuffer对象，需要使用fill函数来初始化FastBuffer对象。
+     * 创建指定大小未初始化的FastBuffer对象。调用[fill]{@link fastbuffer.FastBuffer#fill}函数初始化该对象。
      *
      * @param { number } size - 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。
      * @returns { FastBuffer } 未初始化的FastBuffer实例。
@@ -84,11 +88,11 @@ declare namespace fastbuffer {
      */
     function allocUninitialized(size: number): FastBuffer;
     /**
-     * 根据不同的编码格式，返回指定字符串的字节数。
+     * 根据不同的编码格式，返回指定内容的字节数。
      *
-     * @param { string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } value - 指定字符串。
-     * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
-     * @returns { number } 返回指定字符串的字节数。
+     * @param { string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } value - 指定用于计算字节长度的内容。
+     * @param { BufferEncoding } [encoding] - 编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+     * @returns { number } 返回指定内容的字节数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -96,10 +100,14 @@ declare namespace fastbuffer {
      */
     function byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number;
     /**
-     * 将数组中指定字节长度的内容复制到新的FastBuffer对象中并返回拼接后的FastBuffer对象。
+     * 将数组中指定字节长度的内容复制并拼接后，返回新的FastBuffer对象。
      *
-     * @param { FastBuffer[] | Uint8Array[] } list - 实例数组。
-     * @param { number } [totalLength] - 需要复制的总字节长度，默认值为0。
+     * 当数组中所有对象的长度总和大于totalLength时，返回结果的长度将被截断为totalLength。
+     *
+     * 当数组中所有对象的长度总和小于totalLength时，返回结果的多余部分将会被填充为0。
+     *
+     * @param { FastBuffer[] | Uint8Array[] } list - 待拼接的FastBuffer或Uint8Array实例数组，数组中所有对象的内容将被依次复制到新的FastBuffer对象中。
+     * @param { number } [totalLength] - 需要复制的总字节长度，默认值为数组中所有对象的长度总和。取值范围：0 <= totalLength <= UINT32_MAX。
      * @returns { FastBuffer } 返回新的FastBuffer对象。
      * @throws { BusinessError } 10200001 - Range error. Possible causes:
      * The value of the parameter is not within the specified range.
@@ -123,10 +131,10 @@ declare namespace fastbuffer {
     /**
      * 创建与`arrayBuffer`共享内存的指定长度的FastBuffer对象。
      *
-     * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - 实例对象。
+     * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - 用于创建FastBuffer对象的底层ArrayBuffer或SharedArrayBuffer，创建的FastBuffer将与该对象共享相同的内存区域。
      * @param { number } [byteOffset] - 字节偏移量，默认值：0。
-     * @param { number } [length] - 字节长度，默认值：（arrayBuffer.byteLength - byteOffset）。取值范围：0 <= length <= arrayBuffer.byteLength - byteOffset。传入null时返回空FastBuffer。
-     * @returns { FastBuffer } 返回一个FastBuffer对象，该对象与入参对象`arrayBuffer`共享相同的内存区域。
+     * @param { number } [length] - 字节长度，默认值：（arrayBuffer.byteLength - byteOffset）。取值范围：0 <= length <= arrayBuffer.byteLength - byteOffset。传入null时返回长度为0的FastBuffer对象。
+     * @returns { FastBuffer } 返回一个FastBuffer对象，该对象与入参对象`arrayBuffer`共享相同的内存区域。修改FastBuffer对象的数据将同步修改原ArrayBuffer中对应位置的数据，修改原ArrayBuffer的数据也会同步修改FastBuffer中对应位置的数据。
      * @throws { BusinessError } 10200001 - Range error. Possible causes:
      * The value of the parameter is not within the specified range.
      * @throws { BusinessError } 10200068 - The underlying ArrayBuffer is null or detach.
@@ -137,11 +145,11 @@ declare namespace fastbuffer {
      */
     function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): FastBuffer;
     /**
-     * 当入参为FastBuffer对象时，创建新的FastBuffer对象并复制入参FastBuffer对象的数据，然后返回新对象。
+     * 当入参为FastBuffer对象时，创建新的FastBuffer对象并复制入参数据。新旧对象数据独立，互不影响。
      *
-     * 当入参为Uint8Array对象时，基于Uint8Array对象的内存创建新的FastBuffer对象并返回，保持数据的内存关联。
+     * 当入参为Uint8Array对象时，基于其内存创建新的FastBuffer对象。两个对象保持内存关联，修改任一对象的数据会同步影响另一对象。
      *
-     * @param { FastBuffer | Uint8Array } buffer - 对象数据。
+     * @param { FastBuffer | Uint8Array } buffer - 用于创建新FastBuffer对象的源数据。当入参为FastBuffer时，将复制其数据创建新对象；当入参为Uint8Array时，基于其内存创建新对象并保持内存关联。
      * @returns { FastBuffer } 返回新的FastBuffer对象。
      * @throws { BusinessError } 10200068 - The underlying ArrayBuffer is null or detach.
      * @syscap SystemCapability.Utils.Lang
@@ -165,7 +173,7 @@ declare namespace fastbuffer {
     /**
      * 判断`obj`是否为FastBuffer。
      *
-     * @param { Object } obj - 判断对象。
+     * @param { Object } obj - 要判断是否为FastBuffer的对象。
      * @returns { boolean } 如果obj是FastBuffer，则返回true，否则返回false。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -176,7 +184,7 @@ declare namespace fastbuffer {
     /**
      * 判断`encoding`是否为支持的编码格式。
      *
-     * @param { string } encoding - 编码格式。
+     * @param { string } encoding - 编码格式，支持的格式范围为[BufferEncoding]{@link fastbuffer.BufferEncoding}。
      *
      * @returns { boolean } 是支持的编码格式返回true，反之则返回false。
      * @syscap SystemCapability.Utils.Lang
@@ -201,7 +209,7 @@ declare namespace fastbuffer {
     /**
      * 将FastBuffer或Uint8Array对象从fromEnc编码转换为toEnc编码。
      *
-     * @param { FastBuffer | Uint8Array } source - 实例对象。
+     * @param { FastBuffer | Uint8Array } source - 待转码的FastBuffer或Uint8Array实例，提供需要重新编码的源数据。
      * @param { string } fromEnc - 当前编码格式。支持的格式范围为BufferEncoding。传入空字符串时，表示使用编码格式'utf8'。
      * @param { string } toEnc - 目标编码。支持的格式范围为BufferEncoding。
      * @returns { FastBuffer } 将当前编码转换成目标编码，并返回一个新的FastBuffer对象。
@@ -212,7 +220,7 @@ declare namespace fastbuffer {
      */
     function transcode(source: FastBuffer | Uint8Array, fromEnc: string, toEnc: string): FastBuffer;
     /**
-     * FastBuffer对象是更高效的Buffer容器，用于表示固定长度的字节序列，是专门存放二进制数据的缓存区。
+     * FastBuffer对象是比Buffer性能更优的Buffer容器，用于表示固定长度的字节序列，是专门存放二进制数据的缓冲区。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -343,7 +351,7 @@ declare namespace fastbuffer {
          */
         indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
         /**
-         * 返回一个包含key值的迭代器。
+         * 返回一个包含key值的迭代器，其中key为字节索引位置，范围为0到length-1。
          *
          * @returns { IterableIterator<number> }
          * @syscap SystemCapability.Utils.Lang
@@ -353,7 +361,7 @@ declare namespace fastbuffer {
          */
         keys(): IterableIterator<number>;
         /**
-         * 返回一个包含value的迭代器。
+         * 返回一个包含FastBuffer字节值的迭代器。
          *
          * @returns { IterableIterator<number> }
          * @syscap SystemCapability.Utils.Lang
@@ -363,7 +371,7 @@ declare namespace fastbuffer {
          */
         values(): IterableIterator<number>;
         /**
-         * 返回一个包含key值和value值的迭代器。
+         * 返回一个包含key值和value值的迭代器，其中key为字节索引位置，value为该位置的字节值。
          *
          * @returns { IterableIterator<[number, number]> }
          * @syscap SystemCapability.Utils.Lang

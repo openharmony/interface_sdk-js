@@ -790,7 +790,7 @@ declare namespace cert {
     /**
      * 表示校验X.509证书有效期。
      *
-     * @param { string } date - 表示日期，UTC时间或通用时间字符串格式。
+     * @param { string } date - 表示日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：
      *     <br>1. 必填参数未指定；
      *     <br>2. 参数类型不正确；
@@ -928,7 +928,7 @@ declare namespace cert {
     /**
      * 表示获取X.509证书生效时间。
      *
-     * @returns { string } 表示X.509证书生效时间，采用UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书生效时间，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -946,7 +946,7 @@ declare namespace cert {
     /**
      * 表示获取X.509证书过期时间。
      *
-     * @returns { string } 表示X.509证书过期时间，采用UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书过期时间，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -1599,7 +1599,7 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRLEntry.getRevocationDate()]{@link cert.X509CRLEntry.getRevocationDate}替代。
      *
-     * @returns { string } 表示证书被吊销的日期，日期为UTC时间或通用时间字符串格式。
+     * @returns { string } 表示证书被吊销的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2036,13 +2036,13 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
-     * 表示获取X.509证书吊销列表最后一次更新日期，日期为UTC时间或通用时间字符串格式。
+     * 表示获取X.509证书吊销列表最后一次更新日期。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getLastUpdate()]{@link cert.X509CRL.getLastUpdate}替代。
      *
-     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期为UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2057,13 +2057,13 @@ declare namespace cert {
     getLastUpdate(): string;
 
     /**
-     * 表示获取证书吊销列表下一次更新的日期，日期为UTC时间或通用时间字符串格式。
+     * 表示获取证书吊销列表下一次更新的日期。
      *
      * > **说明：**
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getNextUpdate()]{@link cert.X509CRL.getNextUpdate}替代。
      *
-     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期为UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2496,9 +2496,9 @@ declare namespace cert {
     getIssuerName(encodingType: EncodingType): string;
 
     /**
-     * 表示获取X.509证书吊销列表最后一次更新日期，日期为UTC时间或通用时间字符串格式。
+     * 表示获取X.509证书吊销列表最后一次更新日期。
      *
-     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期为UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2514,9 +2514,9 @@ declare namespace cert {
     getLastUpdate(): string;
 
     /**
-     * 表示获取证书吊销列表下一次更新的日期，日期为UTC时间或通用时间字符串格式。
+     * 表示获取证书吊销列表下一次更新的日期。
      *
-     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期为UTC时间或通用时间字符串格式。
+     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
      * @throws { BusinessError } 19020001 - 内存错误。
      * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
      *     <br>1. 内存拷贝失败；
@@ -2910,7 +2910,8 @@ declare namespace cert {
      *
      * > **说明：**
      * >
-     * > - 始终使系统当前时间校验ocsp响应的有效期，并允许前后5分钟的时间容差。
+     * > - 始终使用系统当前时间校验ocsp响应的有效期，并允许前后5分钟的时间容差。
+     * > - 始终使用系统当前时间校验ocsp签名者证书链的有效期。
      * > - 允许ocsp响应缺少nonce和nextUpdate。
      *
      * @syscap SystemCapability.Security.Cert
@@ -3138,7 +3139,7 @@ declare namespace cert {
      * - true：当构建证书链缺失中间证书时，尝试使用证书AIA扩展中颁发者地址下载颁发者证书，解决证书链不完整的问题；
      * - false：不允许从网络下载中间的CA证书。
      * <br>下载地址从证书的AIA扩展中获取，仅支持HTTP。若要使用网络进行下载，需要申请ohos.permission.INTERNET权限。关于权限配置的详细信息
-     * ，请参见声明权限[Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).。
+     * ，请参见声明权限[Declaring Permissions](docroot://security/AccessToken/declare-permissions.md)。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3576,7 +3577,7 @@ declare namespace cert {
    */
   interface X509CertMatchParameters {
     /**
-     * 指定证书主体名称。
+     * 指定证书主体备用名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3587,7 +3588,7 @@ declare namespace cert {
     subjectAlternativeNames?: Array<GeneralName>;
 
     /**
-     * 指定是否需要匹配证书主体名称。true为需要，false为不需要。
+     * 指定是否需要匹配证书主体备用名称。true为需要，false为不需要。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform

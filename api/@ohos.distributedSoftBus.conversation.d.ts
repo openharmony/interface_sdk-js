@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Cross-Device Wakeup and Message Transfer
  * @kit DistributedServiceKit
  */
 
@@ -164,10 +164,10 @@ declare namespace conversation {
    *     or empty.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2000001 - Internal error.
-   * @throws { BusinessError } 2004001 - Remote not support.
-   * @throws { BusinessError } 2004002 - Duplicate calls, previous call still in progress.
-   * @throws { BusinessError } 2004003 - Send data failed.
-   * @throws { BusinessError } 2004004 - Wait remote ack timeout.
+   * @throws { BusinessError } 2004001 - Remote system version is too low.
+   * @throws { BusinessError } 2004002 - Failed to start ability on the remote side.
+   * @throws { BusinessError } 2004003 - Failed to send data.
+   * @throws { BusinessError } 2004004 - Timeout while waiting for acknowledgement from the remote side.
    * @syscap SystemCapability.Communication.SoftBus.Core
    * @systemapi
    * @stagemodelonly
@@ -178,7 +178,7 @@ declare namespace conversation {
     bundleName: string,
     abilityName: string,
     msg: ArrayBuffer
-): Promise<void>;
+  ): Promise<void>;
 
   /**
    * Registers a listener to receive data from trusted devices under the same account. When the remote device sends data
@@ -215,7 +215,7 @@ declare namespace conversation {
   function registerConversationListener(
     bundleName: string,
     abilityName: string,
-    dataCallback: DataCallback,
+    dataCallback: DataCallback
   ): void;
 
   /**

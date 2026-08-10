@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1720,6 +1720,7 @@ declare namespace window {
    * 窗口所在显示设备和窗口自定义的显示密度信息，是与像素单位无关的缩放系数，即显示大小缩放系数。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
@@ -1729,6 +1730,7 @@ declare namespace window {
      * 窗口所在屏幕的系统显示大小缩放系数，跟随用户设置变化，该参数变化范围为0.5-4.0。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1739,6 +1741,7 @@ declare namespace window {
      * 窗口所在屏幕的系统默认显示大小缩放系数，跟随窗口所在屏幕变化，该参数变化范围为0.5-4.0。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1749,6 +1752,7 @@ declare namespace window {
      * 窗口自定义设置的显示大小缩放系数，该参数取值范围为0.5-4.0。未设置该参数时，将跟随系统显示大小缩放系数变化。该参数仅主窗口生效，在子窗或系统窗口上等于系统显示大小缩放系数(systemDensity)。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -2903,10 +2907,10 @@ declare namespace window {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device
+   * @throws { BusinessError } 801 - Capability not supported.createWindow cannot work correctly due to limited device
    *     capabilities. [since 12]
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow. [since 12]
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is
@@ -2938,10 +2942,10 @@ declare namespace window {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.createWindow can not work correctly due to limited device
+   * @throws { BusinessError } 801 - Capability not supported.createWindow cannot work correctly due to limited device
    *     capabilities. [since 12]
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow. [since 12]
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is
@@ -3049,9 +3053,9 @@ declare namespace window {
    * @returns { Promise<Window> } Promise对象。返回当前创建的子窗口对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     This can not work correctly due to limited device capabilities.
+   *     This cannot work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
-   *     Possible cause: The window has been created and can not be created again.
+   *     Possible cause: The window has been created and cannot be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: 1. Internal task error.
    *                     2. The number of windows has reached the limit.
@@ -3554,7 +3558,7 @@ declare namespace window {
    *     id。该参数应为大于等于0的整数，小于0时会返回错误码1300016。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Function shiftAppWindowTouchEvent can not work correctly due to limited device capabilities.
+   *     Function shiftAppWindowTouchEvent cannot work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: 1. SourceWindow cannot find: not created or not belong to current process;
    *     2. TargetWindow cannot find: not created or not belong to current process;
@@ -3926,7 +3930,7 @@ declare namespace window {
    *     在[module.json5配置文件abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)的name字段指定。
    * @param { ColorMetrics } color - 设置的启动页背景色。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not work
    *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    *     Possible cause: Internal task error.
@@ -3964,7 +3968,7 @@ declare namespace window {
    *     。
    * @returns {  Promise<void>  } 无返回结果的Promise对象。
    * @throws {  BusinessError  } 801 - Capability not supported.
-   *     Function setWatermarkImageForAppWindows can not to work correctly due to limited device capabilities.
+   *     Function setWatermarkImageForAppWindows can not work correctly due to limited device capabilities.
    * @throws {  BusinessError  } 1300003 - This window manager service works abnormally.
    * @throws {  BusinessError  } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -5356,12 +5360,12 @@ declare namespace window {
      *
      * @param { ShowWindowOptions } options - 显示子窗口或系统窗口时的参数。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 801 - Capability not supported. Function showWindow can not work correctly due to
+     * @throws { BusinessError } 801 - Capability not supported. Function showWindow cannot work correctly due to
      *     limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Modal subwindow and dialog window can not set focusOnShow.
+     *     Possible cause: Invalid window type. Modal subwindow and dialog window cannot set focusOnShow.
      * @throws { BusinessError } 1300016 - Parameter validation error. Possible cause: 1. The value of the parameter is
      *     out of the allowed range;
      *     2. The length of the parameter exceeds the allowed length;
@@ -6240,6 +6244,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -6882,8 +6887,8 @@ declare namespace window {
      * 获取设备形态，仅测试使用
      *
      * @returns { Promise<string> } Promise used to return the window state snapshot.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the api due to limited device
-     *     capabilities. Possible cause: The device does not support the api itself.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities. Possible cause: The device does not support the API itself.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed;
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -7032,7 +7037,7 @@ declare namespace window {
      *     数为false表示窗口内uiExtension关闭了隐藏不安全窗口。若窗口内存在多个uiExtension，当返回参数为true表示窗口内至少一个uiExtension开启了隐藏不安全窗口；当返回参数为false表示窗
      *     口内所有uiExtension关闭了隐藏不安全窗口。
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function on('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7047,7 +7052,7 @@ declare namespace window {
      * @param { Callback<boolean> } callback
           *     Callback used to return the result whether the APP has uiextension secure limit.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function on('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7062,7 +7067,7 @@ declare namespace window {
      *     化事件。
      * @param { Callback<boolean> } callback - 回调函数。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口安全限制变化的监听。
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function off('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7077,7 +7082,7 @@ declare namespace window {
      * @param { Callback<boolean> } [callback] Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     *     Function off('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7273,6 +7278,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -9559,6 +9565,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -9578,6 +9585,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -11954,6 +11962,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The window is not created or destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -11973,7 +11982,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error;
-     *     3. The subWindow has been created and can not be created again.
+     *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
@@ -12209,7 +12218,7 @@ declare namespace window {
      *
      * @param { boolean } enabled - 窗口是否支持事件分离状态。true表示支持；false表示不支持。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -12225,7 +12234,7 @@ declare namespace window {
      * 获取当前窗口是否支持事件分离的状态。
      *
      * @returns { boolean } 当前窗口是否支持事件分离。</br>true表示支持窗口事件分离，false表示不支持窗口事件分离。
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -12245,7 +12254,7 @@ declare namespace window {
      *
      * @param { boolean } enabled - 窗口是否能接收拖拽事件。true表示能够接收拖拽事件；false表示不能接收拖拽事件。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -12261,7 +12270,7 @@ declare namespace window {
      * 获取当前窗口是否能接收[拖拽事件]{@link ./@internal/component/ets/common:DragEvent}的状态。
      *
      * @returns { boolean } 当前窗口是否能接收拖拽事件的状态。</br>true表示能接收拖拽事件的状态，false表示不能接收拖拽事件的状态。
-     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     * @throws { BusinessError } 801 - Capability not supported. Function cannot work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -12597,6 +12606,7 @@ declare namespace window {
    * 子窗口模态类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -12606,6 +12616,7 @@ declare namespace window {
      * 当仅需要其父级窗口不响应用户操作时，可选此参数。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12651,6 +12662,7 @@ declare namespace window {
    * 子窗口创建参数。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 11 dynamic
    * @since 23 static
@@ -12660,6 +12672,7 @@ declare namespace window {
      * 子窗口标题。标题显示区域最右端不超过系统三键区域最左端，超过部分以省略号表示。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12669,6 +12682,7 @@ declare namespace window {
      * 子窗口是否显示装饰。true表示子窗口显示装饰，false表示子窗口不显示装饰。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12678,6 +12692,7 @@ declare namespace window {
      * 子窗口是否启用模态属性。true表示子窗口启用模态属性，false表示子窗口禁用模态属性。不设置，则默认为false。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -12696,6 +12711,7 @@ declare namespace window {
      * 子窗口模态类型，仅当子窗口启用模态属性时生效。不设置，则默认为WINDOW_MODALITY。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12708,6 +12724,7 @@ declare namespace window {
      * top: 0, width: 0, height: 0}。具体参考[设置应用子窗口](docroot://windowmanager/application-window-stage.md#设置应用子窗口)开发指南。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -12831,7 +12848,7 @@ declare namespace window {
      * @returns { Promise<Window> } Promise对象。返回当前WindowStage下的子窗口对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and can not be created again.
+     *     Possible cause: The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -12850,7 +12867,7 @@ declare namespace window {
      * @param { AsyncCallback<Window> } callback 回调函数。返回当前WindowStage下的子窗口对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and can not be created again.
+     *     Possible cause: The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -12874,10 +12891,11 @@ declare namespace window {
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed;
-     *     2. The subWindow has been created and can not be created again.
+     *     2. The subWindow has been created and cannot be created again.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static

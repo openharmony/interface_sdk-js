@@ -859,9 +859,6 @@ export interface NotificationProgress {
 export interface NotificationContent {
   /**
    * Notification content type.
-   * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
-   * **notificationContentType** instead.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly

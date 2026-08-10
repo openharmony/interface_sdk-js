@@ -48,7 +48,6 @@ declare namespace continueManager {
 
   /**
    * 在应用快速拉起时，注销回调函数，不再获取快速拉起结果。使用callback异步回调。
-
    *
    * @param { 'prepareContinue' } type - 固定值：prepareContinue。
    * @param { Context } context - Ability的Context。

@@ -1008,6 +1008,7 @@ declare namespace abilityAccessCtrl {
      *     <br>BundleInfo获取可参考：[bundleManager.getBundleInfoSync]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoSync}。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100007 - Service exception.
      * @syscap SystemCapability.Security.AccessToken

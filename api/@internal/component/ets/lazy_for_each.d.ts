@@ -39,7 +39,7 @@ declare enum LazyForEachMemOptStrategy {
    */
   DEFAULT = 0,
   /**
-   * LazyForEach handle the memory optimization.
+   * LazyForEach handles the memory optimization.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

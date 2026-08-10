@@ -917,7 +917,7 @@ declare namespace camera {
     /**
      * Creates a **PhotoOutput** instance. This API returns the result synchronously.
      *
-     * @param { Profile } profile - Supported photo profile, which is obtained through
+     * @param { Profile } [profile] - Supported photo profile, which is obtained through
      *     [getSupportedOutputCapability]{@link camera.CameraManager.getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode)}.
      *     <br>In API version 11, this parameter is mandatory. Starting from API version 12, it will overwrite the
      *     preconfigured parameters passed in through [preconfig]{@link camera.PhotoSession.preconfig}.
@@ -1071,7 +1071,7 @@ declare namespace camera {
      *
      * @param { 'cameraStatus' } type - Event type. The value is fixed at **'cameraStatus'**. The event can be listened
      *     for when a **CameraManager** instance is obtained.
-     * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<CameraStatusInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -1122,7 +1122,7 @@ declare namespace camera {
      *
      * @param { 'foldStatusChange' } type - Event type. The value is fixed at **'foldStatusChange'**. The event is
      *     triggered when the fold state of the foldable device changes.
-     * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to return the fold state information about the
+     * @param { AsyncCallback<FoldStatusInfo> } [callback] - Callback used to return the fold state information about the
      *     foldable device. If this parameter is specified, the subscription to the specified event with the specified
      *     callback is canceled. (The callback object cannot be an anonymous function.) Otherwise, the subscriptions to
      *     the specified event with all the callbacks are canceled.
@@ -1467,7 +1467,7 @@ declare namespace camera {
      *
      * @param { 'torchStatusChange' } type - Event type. The value is fixed at **'torchStatusChange'**. The event can be
      *     listened for when a **CameraManager** instance is obtained.
-     * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<TorchStatusInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -2283,7 +2283,7 @@ declare namespace camera {
      *     the camera device. For example, if the camera device is unavailable or a conflict occurs, the error
      *     information is returned.
      * @param { CameraDevice } camera - Camera device.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, only the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, only the
      *     corresponding callback will be unregistered (the callback object cannot be an anonymous function); otherwise,
      *     all registered callbacks will be unregistered.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2337,7 +2337,7 @@ declare namespace camera {
      * @param { 'cameraOcclusionDetection' } type - Event type. The value is fixed at **'cameraOcclusionDetection'**.
      *     The event can be listened for when a **CameraInput** instance is created. It is triggered when the occlusion
      *     status of the camera lens changes, and the occlusion status is returned.
-     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to return the result. If this
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } [callback] - Callback used to return the result. If this
      *     parameter is specified, the subscription to the specified event with the specified callback is canceled. (The
      *     callback object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with
      *     all the callbacks are canceled.
@@ -4595,7 +4595,7 @@ declare namespace camera {
      * @param { double } targetRatio - Target zoom ratio. The supported zoom ratio range can be obtained by calling
      *     [getZoomRatioRange]{@link camera.ZoomQuery.getZoomRatioRange}. If the value passed in is not within the
      *     supported range, the value within the precision range is retained.
-     * @param { SmoothZoomMode } mode - Smooth zoom mode. The default value is **0**.
+     * @param { SmoothZoomMode } [mode] - Smooth zoom mode. The default value is **0**.
      * @throws { BusinessError } 7400103 - Session not config. [since 11 - 17]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice [since 19]
@@ -6598,7 +6598,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -7216,7 +7216,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -7867,7 +7867,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -9018,7 +9018,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9253,7 +9253,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -9544,7 +9544,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9845,7 +9845,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -10210,7 +10210,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -10633,7 +10633,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -10889,7 +10889,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -11013,7 +11013,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -11186,7 +11186,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -11382,7 +11382,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -11499,7 +11499,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -11711,7 +11711,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -11928,7 +11928,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -12037,7 +12037,7 @@ declare namespace camera {
      * Unsubscribes from error events.
      *
      * @param { 'error' } type - Event type.
-     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -12336,7 +12336,7 @@ declare namespace camera {
      *
      * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
      *     when a previewOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -12387,7 +12387,7 @@ declare namespace camera {
      *
      * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
      *     a previewOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -12439,7 +12439,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     previewOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -13521,7 +13521,7 @@ declare namespace camera {
      *
      * @param { 'photoAvailable' } type - Event type. The value is fixed at **'photoAvailable'**. The event can be
      *     listened for when a **photoOutput** instance is created.
-     * @param { AsyncCallback<Photo> } callback - Callback used to return the result. If this parameter is specified,
+     * @param { AsyncCallback<Photo> } [callback] - Callback used to return the result. If this parameter is specified,
      *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
      *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -13663,7 +13663,7 @@ declare namespace camera {
      *
      * @param { 'photoAssetAvailable' } type - Event type. The value is fixed at **'photoAssetAvailable'**. The event
      *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used for unsubscription. If this
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } [callback] - Callback used for unsubscription. If this
      *     parameter is specified, the subscription to the specified event with the specified callback is canceled. (The
      *     callback object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with
      *     all the callbacks are canceled.
@@ -13739,7 +13739,7 @@ declare namespace camera {
      *
      * @param { 'captureStart' } type - Event type. The value is fixed at **'captureStart'**. The event can be listened
      *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If this parameter is specified,
+     * @param { AsyncCallback<number> } [callback] - Callback used to return the result. If this parameter is specified,
      *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
      *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -13781,7 +13781,7 @@ declare namespace camera {
      *
      * @param { 'captureStartWithInfo' } type - Event type. The value is fixed at **'captureStartWithInfo'**. The event
      *     can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<CaptureStartInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -13827,7 +13827,7 @@ declare namespace camera {
      *
      * @param { 'frameShutter' } type - Event type. The value is fixed at **'frameShutter'**. The event can be listened
      *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<FrameShutterInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -13877,7 +13877,7 @@ declare namespace camera {
      *
      * @param { 'frameShutterEnd' } type - Event type. The value is fixed at **'frameShutterEnd'**. The event can be
      *     listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<FrameShutterEndInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -13928,7 +13928,7 @@ declare namespace camera {
      *
      * @param { 'captureEnd' } type - Event type. The value is fixed at **'captureEnd'**. The event can be listened for
      *     when a photoOutput instance is created.
-     * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to return the result. If this parameter is
+     * @param { AsyncCallback<CaptureEndInfo> } [callback] - Callback used to return the result. If this parameter is
      *     specified, the subscription to the specified event with the specified callback is canceled. (The callback
      *     object cannot be an anonymous function.) Otherwise, the subscriptions to the specified event with all the
      *     callbacks are canceled.
@@ -13978,7 +13978,7 @@ declare namespace camera {
      *
      * @param { 'captureReady' } type - Event type. The value is fixed at **'captureReady'**. The event can be listened
      *     for when a photoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -14031,7 +14031,7 @@ declare namespace camera {
      *
      * @param { 'estimatedCaptureDuration' } type - Event type. The value is fixed at **'estimatedCaptureDuration'**.
      *     The event can be listened for when a photoOutput instance is created.
-     * @param { AsyncCallback<double> } callback - Callback used to return the result. If this parameter is specified,
+     * @param { AsyncCallback<double> } [callback] - Callback used to return the result. If this parameter is specified,
      *     the subscription to the specified event with the specified callback is canceled. (The callback object cannot
      *     be an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -14083,7 +14083,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -14989,7 +14989,7 @@ declare namespace camera {
      *
      * @param { 'frameStart' } type - Event type. The value is fixed at **'frameStart'**. The event can be listened for
      *     when a videoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -15036,7 +15036,7 @@ declare namespace camera {
      *
      * @param { 'frameEnd' } type - Event type. The value is fixed at **'frameEnd'**. The event can be listened for when
      *     a videoOutput instance is created.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -15088,7 +15088,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -16077,7 +16077,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     photoOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.
@@ -16302,7 +16302,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     session is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. This parameter is optional. If this
+     * @param { ErrorCallback } [callback] - Callback used to return the result. This parameter is optional. If this
      *     parameter is specified, the subscription to the specified event **on('error')** with the specified callback
      *     is canceled. (The callback object cannot be an anonymous function.)
      * @throws { BusinessError } 202 - Not System Application.
@@ -17102,7 +17102,7 @@ declare namespace camera {
      *
      * @param { 'error' } type - Event type. The value is fixed at **'error'**. The event can be listened for when a
      *     depthDataOutput instance is created.
-     * @param { ErrorCallback } callback - Callback used to return the result. If this parameter is specified, the
+     * @param { ErrorCallback } [callback] - Callback used to return the result. If this parameter is specified, the
      *     subscription to the specified event with the specified callback is canceled. (The callback object cannot be
      *     an anonymous function.) Otherwise, the subscriptions to the specified event with all the callbacks are
      *     canceled.

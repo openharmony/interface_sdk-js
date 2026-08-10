@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Information Management
  * @kit MDMKit
  */
 
@@ -22,12 +22,18 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **deviceInfo** module provides APIs for enterprise device information management, including obtaining device
- * serial numbers and device names.
+ * This module provides APIs for enterprise device information management, including obtaining device serial numbers,
+ * device names, and SIM card information. Enterprise administrators can use this module to query device details,
+ * enabling unified management and tracking of device assets.
+ *
+ * **Use cases:**
+ *
+ * - Device asset management and tracking
+ * - Enterprise device compliance check
+ * - Device information collection and statistics
+ * - Fault diagnosis and device identification
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -186,15 +192,18 @@ declare namespace deviceInfo {
    * Obtains device information.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } label - Device information label that can be obtained.<br>- **deviceName**: device name.<br>-
-   *     **deviceSerial**: device serial number.<br>- **simInfo**: SIM card information.<!--RP1--><!--RP1End-->
+   * @param { Want } admin - Enterprise device management extension component, which is used to specify the target
+   *     application that has the device management capability. The **Want** object must contain **abilityName** (
+   *     extended ability name) and **bundleName** (application bundle name) parameters.
+   * @param { string } label - Device information label that can be obtained.
+   *     <br>- **deviceName**: device name.
+   *     <br>- **deviceSerial**: device serial number.
+   *     <br>- **simInfo**: SIM card information.
    * @returns { string } Device information obtained.
    *     <br>If **label** is **simInfo**, the return value is the SIM card information in a JSON string. For example,
    *     [{"slotId": 0, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""},
-   *      {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}]
-   *     , where **slotId:0** indicates card slot 1, and **slotId:1** indicates card slot 2. **NUMBER** indicates the
+   *     {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}],
+   *     where **slotId:0** indicates card slot 1, and **slotId:1** indicates card slot 2. **NUMBER** indicates the
    *     phone number and is supported since API version 23. The value is in the E.164 international standard format (
    *     for example, +8612345678901) that contains the country code.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

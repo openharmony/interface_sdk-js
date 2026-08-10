@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 浏览器管理
  * @kit MDMKit
  */
 
@@ -22,13 +22,11 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * 本模块提供浏览器管理能力，包括设置/取消浏览器策略、获取浏览器策略等。
+ * 本模块提供浏览器管理能力，包括设置/取消浏览器策略、获取浏览器策略等。适用于企业设备管理、员工上网行为管控、安全合规审计等场景。
  *
  * 浏览器策略指通过配置或管理浏览器行为的一系列规则和设置，以确保安全性、合规性、性能优化和用户体验的一致性。
  *
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
@@ -125,7 +123,7 @@ declare namespace browser {
   function getPolicies(admin: Want, appId: string): Promise<string>;
 
   /**
-   * 为指定的浏览器设置浏览器子策略。
+   * 为指定的浏览器设置浏览器子策略，适用于企业统一管理员工浏览器行为的场景。
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -146,10 +144,11 @@ declare namespace browser {
   function setPolicySync(admin: Want, appId: string, policyName: string, policyValue: string): void;
 
   /**
-   * 通过appid获取指定浏览器设置的策略。
+   * 通过appid获取指定浏览器设置的策略，适用于查询当前浏览器策略配置的场景，例如在企业设备管理应用中展示策略详情、验证策略是否生效等。
    *
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { string } appId - 应用ID，用于指定浏览器。
+   * @param { string } appId - 应用ID，用于指定浏览器。详情信息可参考
+   *     [什么是appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
    * @returns { string } 浏览器策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -164,8 +163,9 @@ declare namespace browser {
    * 通过appid获取指定浏览器设置的策略，适用于查询当前浏览器策略配置的场景，例如在企业设备管理应用中展示策略详情、验证策略是否生效等。
    *
    * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   *     <br>当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
-   * @param { string } appId - 应用ID，用于指定浏览器。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { string } appId - 应用ID，用于指定浏览器。详情信息可参考
+   *     [什么是appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
    * @returns { string } 浏览器策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -177,14 +177,18 @@ declare namespace browser {
   function getPoliciesSync(admin: Want | null, appId: string): string;
 
   /**
-   * 为指定的浏览器设置浏览器策略，成功后会发布系统公共事件
-   * [COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_managed_browser_policy_changed)
-   * 。
+   * 为指定的浏览器设置浏览器策略，适用于企业统一管理员工浏览器行为的场景，例如配置浏览器安全策略等。成功后会发布系统公共事件
+   * [COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_managed_browser_policy_changed)。
+   * 
+   * 
+   * > **说明：**
+   * >
+   * > 在多MDM应用场景下，针对同一浏览器的同一策略，一旦被首个Admin配置并生效，其他Admin将无法配置。
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { string } bundleName - 应用包名，用于指定浏览器。
-   * @param { string } policyName - 浏览器策略名。
+   * @param { string } bundleName - 应用包名，用于指定浏览器，表示应用的唯一标识。
+   * @param { string } policyName - 浏览器策略名，由接口调用方和指定浏览器约定。
    * @param { string } policyValue - 浏览器策略值。当此值为空字符串时，表示取消浏览器策略名对应浏览器子策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -199,7 +203,7 @@ declare namespace browser {
   function setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, policyValue: string): void;
 
   /**
-   * 通过应用包名获取指定浏览器的浏览器策略。
+   * 通过应用包名获取指定浏览器的浏览器策略，适用于查询当前浏览器策略配置的场景，例如在企业设备管理应用中展示策略详情、验证策略是否生效等。
    *
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用包名，用于指定浏览器。
@@ -214,7 +218,7 @@ declare namespace browser {
   function getManagedBrowserPolicy(admin: Want, bundleName: string): ArrayBuffer;
 
   /**
-   * 获取指定浏览器的浏览器策略版本。
+   * 获取当前设备浏览器策略版本。
    *
    * @returns { string } 浏览器策略版本。
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

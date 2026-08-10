@@ -78,7 +78,7 @@ declare namespace geoLocationManager {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed. [since 23]
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationChange')} due to limited device capabilities. [since 23]
+   *     Failed to call ${geoLocationManager.onLocationChange} due to limited device capabilities. [since 23]
    * @throws { BusinessError } 3301000 - The location service is unavailable. [since 23]
    * @throws { BusinessError } 3301100 - The location switch is off. [since 23]
    * @syscap SystemCapability.Location.Location.Core [since 23]
@@ -121,7 +121,7 @@ declare namespace geoLocationManager {
    *     The application does not have the permission required to call the API. Introduced in API 9 and
    *     will not be threw above API 24. [since 23 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities. [since 23]
+   *     Failed to call ${geoLocationManager.offLocationChange} due to limited device capabilities. [since 23]
    * @throws { BusinessError } 3301000 - The location service is unavailable. [since 23]
    * @syscap SystemCapability.Location.Location.Core [since 23]
    * @since 23 static
@@ -160,7 +160,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationError')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onLocationError} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 23 static
@@ -198,7 +198,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locationError')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offLocationError} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 23 static
@@ -228,7 +228,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onLocationEnabledChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 23 static
@@ -258,7 +258,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offLocationEnabledChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 23 static
@@ -299,7 +299,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('cachedGnssLocationsChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onCachedGnssLocationsChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -338,7 +338,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('cachedGnssLocationsChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offCachedGnssLocationsChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -376,7 +376,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('satelliteStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onSatelliteStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -414,7 +414,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('satelliteStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offSatelliteStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -452,7 +452,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('nmeaMessage')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onNmeaMessage} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -490,7 +490,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('nmeaMessage')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offNmeaMessage} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
@@ -530,7 +530,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('gnssFenceStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onGnssFenceStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
@@ -568,7 +568,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offGnssFenceStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
@@ -601,7 +601,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('countryCodeChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onCountryCodeChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
@@ -633,7 +633,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('countryCodeChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offCountryCodeChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
@@ -680,7 +680,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onLocatingRequiredDataChange} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -721,7 +721,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offLocatingRequiredDataChange} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 23 static
@@ -753,7 +753,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('locationIconStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onLocationIconStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -787,7 +787,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('locationIconStatusChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offLocationIconStatusChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
@@ -825,7 +825,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.onBluetoothScanResultChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
@@ -862,7 +862,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
+   *     Failed to call ${geoLocationManager.offBluetoothScanResultChange} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 23 static
@@ -1099,7 +1099,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.enableLocation} due
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setLocationSwitchIgnored} due
    *     to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
@@ -1863,7 +1863,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } [callback] - Callback used to return ${BluetoothScanResult}.
    *     It should be the same as the callback passed to ${geoLocationManager.startBluetoothSearch}.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   *     ${geoLocationManager.startBluetoothSearch} due to limited device capabilities.
+   *     ${geoLocationManager.stopBluetoothSearch} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
@@ -1889,8 +1889,8 @@ declare namespace geoLocationManager {
    * @returns { Promise<Array<Location>> } Promise used to return `Array<Location>`.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device
-   *     capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   *     ${geoLocationManager.getPostProcessingTrack} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301200 - Failed to obtain the post processing track because sports type is not
@@ -1913,7 +1913,8 @@ declare namespace geoLocationManager {
    *     does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system
    *     application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addFusionFence}
+   *     due to limited device.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3501603 - Duplicate fusion fence identifier.
@@ -1934,7 +1935,8 @@ declare namespace geoLocationManager {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system
    *     application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeFusionFence}
+   *     due to limited device.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301602 - Failed to delete a fusion fence due to an incorrect identifier.
    * @syscap SystemCapability.Location.Location.Geofence

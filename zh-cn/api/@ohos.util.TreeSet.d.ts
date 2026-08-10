@@ -14,13 +14,28 @@
  */
 
 /**
+ * TreeSet基于[TreeMap]{@link @ohos.util.TreeMap}实现，在TreeSet中，仅处理元素的值（value），不单独处理键（key）。
+ * TreeSet的每个元素在底层TreeMap中同时作为key和value存储，因此元素中value唯一且有序。
+ * 关于TreeMap的详细实现机制，请参见[TreeMap]{@link @ohos.util.TreeMap}。
+ * TreeSet和[HashSet]{@link @ohos.util.HashSet}中的元素都不允许重复。HashSet中的数据无序存放，而TreeSet是有序存放。
+ * HashSet允许插入null值，但TreeSet不建议插入null值，可能会影响排序结果。
+ * **推荐使用场景：** TreeSet适用于需要有序存储和遍历集合的场景，如：有序数据展示、排名与排序系统、
+ * 需要获取排序相邻元素的场景或自动排序插入等。
+ * 文档中使用了泛型，涉及以下泛型标记符：
+ *
+ * - T：Type，表示TreeSet中元素的类型。
+ *
+ * > **说明**
+ * >
+ * > - 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+ *
  * @file
  * @kit ArkTS
  */
 
 /**
- * TreeSet基于[TreeMap]{@link @ohos.util.TreeMap}实现。在TreeSet中，仅处理value对象。
- * TreeSet可用于存储一系列值的集合，元素中value唯一且有序。
+ * TreeSet基于[TreeMap]{@link @ohos.util.TreeMap}实现，在TreeSet中，仅处理元素的值（value），不单独处理键（key）。
+ * TreeSet的每个元素在底层TreeMap中同时作为key和value存储，因此元素中value唯一且有序。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -30,7 +45,7 @@
  */
 declare class TreeSet<T> {
   /**
-   * TreeSet的构造函数，支持通过比较函数对元素进行升序或降序排序。
+   * TreeSet的构造函数，支持通过比较函数对元素进行升序或降序排序。当插入自定义类型时，必须提供比较函数。
    *
    * @param { function } [comparator] - 比较函数。
    *     comparator（可选）用户自定义的比较函数。
@@ -45,7 +60,7 @@ declare class TreeSet<T> {
   constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
 
   /**
-   * TreeSet的构造函数，支持通过比较函数对元素进行升序或降序排序。
+   * TreeSet的构造函数，支持通过比较函数对元素进行升序或降序排序。当插入自定义类型时，必须提供比较函数。
    *
    * @param { TreeSetComparator<T> } [comparator] - 比较函数。
    *     comparator（可选）用户自定义的比较函数。
@@ -79,7 +94,7 @@ declare class TreeSet<T> {
   /**
    * 判断容器是否为空。
    *
-   * @returns { boolean } boolean类型。
+   * @returns { boolean } 为空返回true，不为空返回false。
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -91,8 +106,8 @@ declare class TreeSet<T> {
   /**
    * 判断容器中是否包含指定元素。
    *
-   * @param { T } value - 指定的元素。
-   * @returns { boolean } boolean类型。
+   * @param { T } value - 要判断是否存在于容器中的目标元素。
+   * @returns { boolean } 包含指定元素返回true，不包含指定元素返回false。
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -102,10 +117,10 @@ declare class TreeSet<T> {
    */
   has(value: T): boolean;
   /**
-   * 向容器中添加一组数据。
+   * 向容器中添加指定元素。不建议插入null值，可能会影响排序结果；添加自定义类型元素时，需确保TreeSet在构造时已提供比较函数。
    *
-   * @param { T } value - 添加的成员数据。
-   * @returns { boolean } 该元素是否已存在。
+   * @param { T } value - 向TreeSet中添加的值元素。
+   * @returns { boolean } 成功添加新元素至容器返回true，当元素已存在时返回false。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -117,8 +132,8 @@ declare class TreeSet<T> {
   /**
    * 删除指定的元素。
    *
-   * @param { T } value - 指定的元素。
-   * @returns { boolean } boolean类型（是否包含该元素）。
+   * @param { T } value - 要从容器中删除的目标元素。
+   * @returns { boolean } 成功删除元素返回true，指定元素不存在返回false。
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -139,9 +154,9 @@ declare class TreeSet<T> {
    */
   clear(): void;
   /**
-   * 获取容器中排序第一的数据，为空时返回undefined。
+   * 获取容器中排序第一的元素，为空时返回undefined。
    *
-   * @returns { T } 返回值或undefined。
+   * @returns { T } 返回排序第一的数据，为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getFirstValue method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -154,7 +169,7 @@ declare class TreeSet<T> {
   /**
    * 获取容器中排序最后的数据，为空时返回undefined。
    *
-   * @returns { T } 返回值或undefined。
+   * @returns { T } 返回排序最后的数据，为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getLastValue method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -167,8 +182,8 @@ declare class TreeSet<T> {
   /**
    * 获取容器中比传入元素排序靠前一位的元素，为空时返回undefined。
    *
-   * @param { T } key - 对比的元素值。
-   * @returns { T } 返回排序中对比元素前一位的数据，为空时返回undefined。
+   * @param { T } key - 作为查找基准的元素值，用于定位排序中比该元素靠前一位的数据。
+   * @returns { T } 返回排序中传入元素前一位的数据，为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -179,7 +194,7 @@ declare class TreeSet<T> {
   /**
    * 获取容器中比传入元素排序靠后一位的元素，为空时返回undefined。
    *
-   * @param { T } key - 对比的元素。
+   * @param { T } key - 作为查找基准的元素，用于定位排序中比该元素靠后一位的数据。
    * @returns { T } 返回排序中传入元素后一位的数据。为空时返回undefined。
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -191,7 +206,7 @@ declare class TreeSet<T> {
   /**
    * 删除容器中排序最前的数据，为空时返回undefined。
    *
-   * @returns { T } 排序最前的数据，为空时返回undefined。
+   * @returns { T } 返回删除的数据，为空时返回undefined。
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -204,7 +219,7 @@ declare class TreeSet<T> {
   /**
    * 删除容器中排序最后的数据，为空时返回undefined。
    *
-   * @returns { T } 排序最后的数据，为空时返回undefined。
+   * @returns { T } 返回删除的数据，为空时返回undefined。
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -242,14 +257,11 @@ declare class TreeSet<T> {
   getHigherValue(key: T): T | undefined;
 
   /**
-   * 通过回调函数来遍历实例对象上的元素及其下标。
+   * 通过回调函数来遍历实例对象上的元素。
    *
-   * @param { function } callbackFn - 回调函数。
-   *     callbackFn（必填）接受最多三个参数的函数。
-   *     对每个元素调用的函数。
-   * @param { Object } [thisArg] - this值。
-   *     thisArg（可选）当callbackFn被调用时作为this值使用的对象。
-   *     如果省略thisArg，则使用undefined作为this值。
+   * @param { function } callbackFn - 遍历实例对象中每个元素时调用的回调函数，开发者可在回调中对元素及其下标进行自定义处理。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当需要在回调函数中使用特定的this上下文（如访问外部对象属性）时传入此参数。
+   *     不传入时默认值为当前实例对象，回调函数中的this指向TreeSet实例本身。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -270,9 +282,9 @@ declare class TreeSet<T> {
   forEach(callbackFn: TreeSetForEachCb<T>): void;
 
   /**
-   * 返回包含此映射中键值的新迭代器对象。
+   * 返回包含此容器中元素值的新迭代器对象。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回包含TreeSet中所有元素的迭代器。
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -282,9 +294,9 @@ declare class TreeSet<T> {
    */
   values(): IterableIterator<T>;
   /**
-   * 返回包含此映射中键值对的新迭代器对象。
+   * 返回包含此容器中元素的新迭代器对象，每个元素以[value, value]的形式返回。
    *
-   * @returns { IterableIterator<[T, T]> }
+   * @returns { IterableIterator<[T, T]> } 返回包含TreeSet中所有元素键值对的迭代器对象，每个键值对中键与值相同，均为元素本身。
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -294,9 +306,9 @@ declare class TreeSet<T> {
    */
   entries(): IterableIterator<[T, T]>;
   /**
-   * 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
+   * 返回一个迭代器，迭代器的每一项为容器中的元素值。
    *
-   * @returns { IterableIterator<T> }
+   * @returns { IterableIterator<T> } 返回包含TreeSet中所有元素的迭代器。
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

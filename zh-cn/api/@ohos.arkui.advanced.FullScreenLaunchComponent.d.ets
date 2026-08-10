@@ -16,7 +16,7 @@
 /**
  * ###### 子组件
  *
- * 无
+ * 无。
  *
  * ###### 属性
  *
@@ -31,25 +31,25 @@
  */
 
 /**
- * Declares the FullScreenLaunchComponent, a component provided by ArkUI that allows
- * you to define and use it in your application through the ArkTS-based declarative
- * development paradigm.
+ * 声明 FullScreenLaunchComponent，这是 ArkUI 提供的组件，你可以通过基于 ArkTS 的声明式开发范式在应用中定义和使用它。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
  */
-}
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * 全屏启动原子化服务组件，当被拉起方授权使用方可以嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
+ * 全屏启动原子化服务组件，当提供方授权使用方嵌入式运行原子化服务时，使用方全屏嵌入式运行原子化服务；未授权时，使用方跳出式拉起原子化服务。
  * 
  * > **说明：**
  * >
- * > 如果需要在该组件中实现可嵌入式运行的原子化服务，必须继承自[EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}
- * > 。否则，系统无法保证原子化服务功能正常。
+ * > 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > 当需要在该组件中实现可嵌入式运行的原子化服务，必须继承自[EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。
+ * > 否则，系统无法保证原子化服务功能正常。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -57,15 +57,6 @@ import { Callback, ErrorCallback } from '@ohos.base';
  */
 @Component
 export declare struct FullScreenLaunchComponent {
-  /**
-   * 可以使用组件组合来自定义拉起原子化服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起原子化服务。
-   *
-   * @type { Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  @BuilderParam content: Callback<void>;
   /**
    * 可以使用组件组合来自定义拉起原子化服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起原子化服务。
    *
@@ -84,7 +75,7 @@ export declare struct FullScreenLaunchComponent {
    */
   appId: string;
   /**
-   * 拉起原子化服务参数。
+   * 拉起原子化服务的参数。不填时使用默认参数拉起原子化服务。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -101,8 +92,8 @@ export declare struct FullScreenLaunchComponent {
   onError?: ErrorCallback;
   /**
    * 被拉起的嵌入式运行原子化服务通过点击原子化服务退出按钮、手势侧滑、调用
-   * [terminateSelfWithResult]
-   * {@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * [terminateSelfWithResult]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult
+   * (parameter: AbilityResult, callback: AsyncCallback<void>)}
    * 或者
    * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
    * 正常退出时，触发本回调函数。
@@ -113,7 +104,7 @@ export declare struct FullScreenLaunchComponent {
    */
   onTerminated?: Callback<TerminationInfo>;
   /**
-   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用API时，触发本回调。
+   * 被拉起的嵌入式运行原子化服务通过[@ohos.window (窗口)]{@link @ohos.window}调用相关API时，触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

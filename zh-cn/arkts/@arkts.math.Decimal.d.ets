@@ -1054,7 +1054,7 @@ declare class Decimal {
    * @param { double } decimalPlaces 转换时保留的小数点后有效位数。取值范围为[0, 1e9]的整数。
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang [since 18]
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
    * @since 12 dynamic
@@ -1978,7 +1978,7 @@ declare class Decimal {
   static set(config: DecimalConfig): void;
 
   /**
-   * 向远离零的方向舍入
+   * 向远离零的方向舍入。模运算下，如果被除数为负，则余数为正，否则为负。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -1988,7 +1988,7 @@ declare class Decimal {
   static readonly ROUND_UP : 0;
 
   /**
-   * 向远离零的方向舍入
+   * 向远离零的方向舍入。模运算下，如果被除数为负，则余数为正，否则为负。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -1999,7 +1999,7 @@ declare class Decimal {
   static readonly ROUND_UP: int;
 
   /**
-   * 向靠近零的方向舍入
+   * 向靠近零的方向舍入。模运算下，余数与被除数的符号相同，使用截断除法。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2009,7 +2009,7 @@ declare class Decimal {
   static readonly ROUND_DOWN : 1;
 
   /**
-   * 向靠近零的方向舍入
+   * 向靠近零的方向舍入。模运算下，余数与被除数的符号相同，使用截断除法。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2020,7 +2020,7 @@ declare class Decimal {
   static readonly ROUND_DOWN: int;
 
   /**
-   * 向正无穷方向舍入
+   * 向正无穷方向舍入。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2030,7 +2030,7 @@ declare class Decimal {
   static readonly ROUND_CEILING : 2;
 
   /**
-   * 向正无穷方向舍入
+   * 向正无穷方向舍入。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2041,7 +2041,7 @@ declare class Decimal {
   static readonly ROUND_CEILING: int;
 
   /**
-   * 向负无穷方向舍入
+   * 向负无穷方向舍入。模运算下，余数与除数的符号相同。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2051,7 +2051,7 @@ declare class Decimal {
   static readonly ROUND_FLOOR : 3;
 
   /**
-   * 向负无穷方向舍入
+   * 向负无穷方向舍入。模运算下，余数与除数的符号相同。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2062,7 +2062,7 @@ declare class Decimal {
   static readonly ROUND_FLOOR: int;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向远离零的方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向远离零的方向舍入。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2072,7 +2072,7 @@ declare class Decimal {
   static readonly ROUND_HALF_UP : 4;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向远离零的方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向远离零的方向舍入。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2083,7 +2083,7 @@ declare class Decimal {
   static readonly ROUND_HALF_UP: int;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向靠近零的方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向靠近零方向舍入。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2093,7 +2093,7 @@ declare class Decimal {
   static readonly ROUND_HALF_DOWN : 5;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向靠近零的方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向靠近零方向舍入。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2104,7 +2104,7 @@ declare class Decimal {
   static readonly ROUND_HALF_DOWN: int;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入
+   * 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入。模运算下，IEEE 754 求余函数。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2114,7 +2114,7 @@ declare class Decimal {
   static readonly ROUND_HALF_EVEN : 6;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入
+   * 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入。模运算下，IEEE 754 求余函数。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2125,7 +2125,7 @@ declare class Decimal {
   static readonly ROUND_HALF_EVEN: int;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2135,7 +2135,7 @@ declare class Decimal {
   static readonly ROUND_HALF_CEILING : 7;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2146,7 +2146,7 @@ declare class Decimal {
   static readonly ROUND_HALF_CEILING: int;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2156,7 +2156,7 @@ declare class Decimal {
   static readonly ROUND_HALF_FLOOR : 8;
 
   /**
-   * 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入
+   * 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -2167,7 +2167,7 @@ declare class Decimal {
   static readonly ROUND_HALF_FLOOR: int;
 
   /**
-   * 非舍入模式，参见modulo
+   * 模运算下，余数始终为正。使用欧几里得除法：q = sign(x) * floor(a / abs(x))。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -2177,7 +2177,7 @@ declare class Decimal {
   static readonly EUCLIDEAN : 9;
 
   /**
-   * 非舍入模式，参见modulo
+   * 模运算下，余数始终为正。使用欧几里得除法：q = sign(x) * floor(a / abs(x))。
    * 取值为整数。
    *
    * @syscap SystemCapability.Utils.Lang

@@ -5394,7 +5394,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { int } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
    *     only as an expected value. The actual capacity is determined by the device hardware.
    * @returns { ImageCreator } ImageCreator instance.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11 dynamic
@@ -7326,7 +7326,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { rpc.MessageSequence } sequence - MessageSequence object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     *     2.Incorrect parameter types; 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
      *     exception.
      *     3. Decode process exception. 4. Insufficient memory.
@@ -13128,6 +13128,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: XMP basic.
+   * Namespace uri: 'http://ns.adobe.com/xap/1.0/', prefix: 'xmp'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13137,6 +13138,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: XMP rights.
+   * Namespace uri: 'http://ns.adobe.com/xap/1.0/rights/', prefix: 'xmpRights'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13146,6 +13148,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: exif.
+   * Namespace uri: 'http://ns.adobe.com/exif/1.0/', prefix: 'exif'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13155,6 +13158,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: dublin core.
+   * Namespace uri: 'http://purl.org/dc/elements/1.1/', prefix: 'dc'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13164,6 +13168,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * XMP namespace: tiff.
+   * Namespace uri: 'http://ns.adobe.com/tiff/1.0/', prefix: 'tiff'
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -15257,7 +15262,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOptionsForSequence } options - Options for encoding animated images.
      * @returns { Promise<ArrayBuffer> } Promise used to return the encoded data.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     *     2.Incorrect parameter types;3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic

@@ -141,7 +141,7 @@ declare enum MatchPattern {
 /**
  * UiTest框架通过By类提供了丰富的控件特征描述API，用于进行控件筛选来匹配/查找出目标控件。
  * 
- * By提供的API能力具有以下几个特点:
+ * By提供的API能力具有以下几个特点：
  * 
  * 1、支持单属性匹配和多属性组合匹配，例如同时指定目标控件text和id。
  * 
@@ -676,7 +676,7 @@ declare class UiDriver {
   findComponents(by: By): Promise<Array<UiComponent>>;
 
   /**
-   * 断言API，用于断言当前界面存在满足给出的目标控件属性的控件; 如果控件不存在，该API将抛出JS异常，使当前测试用例失败。使用Promise异步回调。
+   * 断言API，用于断言当前界面存在满足给出的目标控件属性的控件；如果控件不存在，该API将抛出JS异常，使当前测试用例失败。使用Promise异步回调。
    * 
    * > **说明：**
    * >
@@ -1030,7 +1030,7 @@ declare enum DisplayRotation {
  */
 declare interface Point {
   /**
-   * 坐标点的横坐标，取值大于0的整数。
+   * 坐标点的横坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1045,7 +1045,7 @@ declare interface Point {
    */
   x: int;
   /**
-   * 坐标点的纵坐标，取值大于0的整数。
+   * 坐标点的纵坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1083,7 +1083,7 @@ declare interface Point {
  */
 declare interface Rect {
   /**
-   * 控件边框的左上角的X坐标，取值大于0的整数。
+   * 控件边框的左上角的X坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1098,7 +1098,7 @@ declare interface Rect {
    */
   left: int;
   /**
-   * 控件边框的左上角的Y坐标，取值大于0的整数。
+   * 控件边框的左上角的Y坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1113,7 +1113,7 @@ declare interface Rect {
    */
   top: int;
   /**
-   * 控件边框的右下角的X坐标，取值大于0的整数。
+   * 控件边框的右下角的X坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1128,7 +1128,7 @@ declare interface Rect {
    */
   right: int;
   /**
-   * 控件边框的右下角的Y坐标，取值大于0的整数。
+   * 控件边框的右下角的Y坐标，取值大于等于0的整数，单位：px。
    * 
    * **说明：** 从API version 20开始，该属性不再为只读属性。
    * 
@@ -1165,7 +1165,7 @@ declare interface Rect {
  */
 declare interface WindowFilter {
   /**
-   * 窗口归属应用的包名，默认值为空。
+   * 窗口归属应用的包名，默认值为空，用于在多窗口场景下根据应用包名筛选目标窗口。
    * 
    * 从API version 11开始，该接口支持在原子化服务中使用。
    *
@@ -1177,7 +1177,7 @@ declare interface WindowFilter {
   bundleName?: string;
 
   /**
-      * 窗口的标题信息，默认值为空。 从API version 11开始，该接口支持在原子化服务中使用。
+      * 窗口的标题信息，默认值为空，用于在多窗口场景下根据窗口标题筛选目标窗口。 从API version 11开始，该接口支持在原子化服务中使用。
       *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1298,7 +1298,7 @@ declare enum WindowChangeType {
  */
 declare enum ComponentEventType {
   /**
-   * 非窗口变化事件。
+   * 非控件操作事件。
    * 
    * **说明：** 该枚举值仅支持作为返回值，如果作为接口入参会抛出异常。
    *
@@ -1372,7 +1372,7 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * 监听超时时间，默认值为10000，单位：ms。
+   * 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1404,7 +1404,7 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * 监听超时时间，默认值为10000，单位：ms。
+   * 监听超时时间，取值范围：大于等于500的整数，默认值为10000，单位：ms。传入不在范围内的值抛出错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1766,7 +1766,7 @@ declare enum MouseButton {
  */
 declare interface TouchPadSwipeOptions {
   /**
-   * 触摸板多指滑动结束是否停留1s后再抬起，默认为false（不停留1s），true：停留，false：不停留。
+   * 触摸板多指滑动结束是否停留1s后再抬起，true：停留，false：不停留，默认为false（不停留1s）。
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1846,7 +1846,7 @@ declare interface KeyOptions {
    */
   key1?: int;
   /**
-   * 操作期间要按下的第一个键码。  
+   * 操作期间要按下的第二个键码。  
    * 如果未设置，将不会注入任何按键事件。  
    * 如果仅设置 key2 而未设置 key1，将会导致业务错误 17000007。
    *
@@ -1881,7 +1881,8 @@ declare interface TouchOptions {
    */
   speed?: int;
   /**
-   * 操作持续时间（毫秒），最小值和默认值均为 1500。
+   * 操作持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，
+   * 为null或undefined时使用默认值。
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -1891,7 +1892,7 @@ declare interface TouchOptions {
    */
   duration?: int;
   /**
-   * 触摸的压力值，取值范围为 0 到 1， 默认值为 1。
+   * 触摸的压力值，取值范围为[0, 1]，包含0和1，默认值为0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出17000007错误码。
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2033,7 +2034,7 @@ declare interface PenKeyOperationOptions {
 /**
  * UiTest框架从API version 9开始，通过On类提供了丰富的控件特征描述API，用于进行控件筛选来匹配/查找出目标控件。
  * 
- * On提供的API能力具有以下几个特点:
+ * On提供的API能力具有以下几个特点：
  * 
  * 1、支持单属性匹配和多属性组合匹配，例如同时指定目标控件text和id。
  * 
@@ -2446,6 +2447,7 @@ declare class On {
 
 /**
  * UiTest框架在API9中，Component类代表了UI界面上的一个控件，提供控件属性获取，控件点击，滑动查找，文本注入等API。
+ * 该类对象可通过{@link Driver#findComponent}、{@link Driver#findComponents}、{@link Driver#waitForComponent}等接口获取。
  * 该类提供的所有方法都使用Promise方式作为异步方法，需使用await调用。
  *
  * @syscap SystemCapability.Test.UiTest
@@ -2956,7 +2958,7 @@ declare class Component {
  }
 
 /**
- * Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
+ * Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。通过{@link create}创建实例。
  * 该类提供的方法除Driver.create()和Driver.createUIEventObserver()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
  *
  * @syscap SystemCapability.Test.UiTest
@@ -3382,7 +3384,7 @@ declare class Driver {
    * 长按目标坐标点，支持指定长按时长。使用Promise异步回调。
    *
    * @param { Point } point - 以Point对象的形式传入目标点信息。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3458,7 +3460,7 @@ declare class Driver {
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3956,7 +3958,7 @@ declare class Driver {
    * @param { MouseButton } btnId - 按下的鼠标按钮。
    * @param { int } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
    * @param { int } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3988,7 +3990,7 @@ declare class Driver {
   mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
-   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。
+   * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点。使用Promise异步回调。对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
    *
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
@@ -4007,11 +4009,13 @@ declare class Driver {
 
   /**
    * 鼠标按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定拖拽速度和拖拽前长按时间。使用Promise异步回调。
+   * 对于 API version 26.0.0 之前的版本，该接口不支持鼠标跨屏拖拽操作，起始点与终点需属于同一屏幕，否则将抛出401错误码；
+   * 从 API version 26.0.0 开始，该接口支持鼠标跨屏拖拽操作。
    *
    * @param { Point } from - 起始点坐标。
    * @param { Point } to - 终点坐标。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出401错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4180,7 +4184,7 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
-   *     **说明**：当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
+   *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
    * @param { double } [pressure] - 手写笔多点连续注入的压力，默认为1.0，取值范围为0.0到1.0。
    * @returns { Promise<void> } - Promise对象，返回无结果的Promise对象。
@@ -4244,7 +4248,7 @@ declare class Driver {
    *
    * @param { On } on - 目标控件的属性要求。
    * @param { Point } point - 长按的坐标点。
-   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回长按操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4267,7 +4271,7 @@ declare class Driver {
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
-   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。
+   * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回拖拽操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4349,7 +4353,7 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
-   *     **说明**：当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
+   *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
    *     误码。
    * @returns { Promise<void> } - Promise对象。无返回结果。
@@ -4366,7 +4370,7 @@ declare class Driver {
  }
 
 /**
- * UiWindow代表了UI界面上的一个窗口，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
+ * UiWindow代表了UI界面上的一个窗口，提供窗口属性获取，窗口拖动、调整窗口大小等能力。该类对象可通过{@link Driver#findWindow}接口获取。
  * 该类提供的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
  *
  * @syscap SystemCapability.Test.UiTest
@@ -4669,7 +4673,7 @@ declare class PointerMatrix {
  }
 
 /**
- * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).
+ * 用于便捷构造{@link By}对象的静态构造器，使用示例：BY.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @since 8 dynamiconly
@@ -4680,7 +4684,7 @@ declare class PointerMatrix {
 declare const BY: By;
 
 /**
- * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ * 用于便捷构造{@link On}对象的静态构造器，使用示例：ON.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform [since 11]
@@ -4691,7 +4695,7 @@ declare const BY: By;
 declare const ON: On;
 
 /**
- * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ * 用于便捷构造{@link On}对象的静态构造器，使用示例：ON.text('txt').enabled(true)。
  *
  * @syscap SystemCapability.Test.UiTest
  * @since 23 static

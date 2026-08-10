@@ -25,15 +25,14 @@ import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessag
 /**
  * Represents the information object of the web native messaging connection.
  *
- * @typedef ConnectionInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
  */
+
 export interface ConnectionInfo {
   /**
    * Connection ID.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -42,7 +41,6 @@ export interface ConnectionInfo {
   /**
    * Application bundle name of the caller.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -51,7 +49,6 @@ export interface ConnectionInfo {
   /**
    * Original URL of the caller extension.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -60,7 +57,6 @@ export interface ConnectionInfo {
   /**
    * Pipe file descriptor used to read data.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -69,7 +65,6 @@ export interface ConnectionInfo {
   /**
    * Pipe file descriptor used to write data.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
@@ -79,16 +74,14 @@ export interface ConnectionInfo {
 /**
  * class of web native messaging extension ability.
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates the context of this web native messaging extension ability.
+   * Context of web native messaging.
    *
-   * @type { WebNativeMessagingExtensionContext }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic

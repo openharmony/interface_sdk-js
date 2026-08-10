@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -3150,6 +3150,10 @@ export class Magnifier {
   /**
    * Binds the magnifier to the component with the specified ID.
    *
+   * > **NOTE**
+   * >
+   * > Obtain the Magnifier instance by using the getMagnifier() method in UIContext.
+   *
    * @param { string } id - Component ID, which can be set through the universal attribute [id]{@link CommonMethod#id}
    *     or [key]{@link CommonMethod#key}. If the component ID is an empty string or no component is found based on the
    *     specified ID, the magnifier is not displayed.
@@ -3436,7 +3440,6 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 /**
  * Represents a dynamic synchronization scene of Marquee.
  *
- * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -3446,8 +3449,7 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
 
   /**
    * Type of the MarqueeDynamicSyncSceneType.
-   * @type { MarqueeDynamicSyncSceneType }
-   * @readonly
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -3699,6 +3701,13 @@ export class MeasureUtils {
 
   /**
    * Measures the width and height of the given single-line text.
+   *
+   * > **NOTE**
+   * >
+   * > When calling this MPI, do not use [ApplicationContext.setFontSizeScale]{@link
+   * > ./application/ApplicationContext:ApplicationContext.setFontSizeScale} to set the font size scaling ratio. To
+   * > ensure the correctness of the time sequence, you are advised to monitor the font scaling changes by yourself to
+   * > ensure the accuracy of the calculation result.
    *
    * @param { MeasureOptions } options - Options of the target text.
    * @returns { SizeOptions } Width and height of the text.
@@ -3986,8 +3995,10 @@ export abstract class FrameCallback {
 }
 
 /**
- * Defines the context of the current ability.
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
  *
+ * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -4870,10 +4881,9 @@ export const enum ResolveStrategy {
  * @since 22 dynamic
  */
 export class ResolvedUIContext extends UIContext {
-
   /**
    * Resolving strategy of the UIContext.
-   *
+   * @type { ResolveStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6301,8 +6311,8 @@ export class UIContext {
    *     [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
    * @returns { UIContext | undefined } Context of the created UI instance, or **undefined** if creation fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. The number of parameters is incorrect.
-   *     <br> 2. Invalid parameter type of context.
+   * <br> 1. The number of parameters is incorrect.
+   * <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6357,7 +6367,7 @@ export class UIContext {
    * Set the switch for memory recycling of invisible image nodes
    *
    * @param { boolean } enabled - The switch for memory recycling.
-   *     <br>Default value: false, Passing `undefined` restores the default value.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -6607,7 +6617,7 @@ export const enum MarqueeDynamicSyncSceneType {
 export class TextMenuController {
 
   /**
-   * Set menu options.
+   * Sets menu options.
    *
    * @param { TextMenuOptions } options - Menu options.
    *     <br>Default value: {showMode: TextMenuShowMode.DEFAULT}.
@@ -6656,7 +6666,6 @@ export class TextMenuController {
    *
    * @param { boolean } disable - Whether to disable system service menu items. The value **true** means to disable
    *     system service menu items, and **false** means the opposite.
-   *     <br>Default value: false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6708,8 +6717,6 @@ export class TextMenuController {
    * > the latter to an empty array to restore.
    *
    * @param { Array<TextMenuItemId> } items - List of menu items to disable.
-   *     <br>Default value: [].
-   *     <br>By default, no  menu item is disabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

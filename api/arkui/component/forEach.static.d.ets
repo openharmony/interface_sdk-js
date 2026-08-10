@@ -117,8 +117,8 @@ export declare function ForEach<T = Any>(arr: Array<T>,
 ): ForEachAttribute;
 
 /**
- * Defines ForEachEach Component. It requires call setForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines ForEach Component. It requires calling setForEachOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<ForEachAttribute> } style - callback to set up ForEach's attributes.
  * @returns { ForEachAttribute } The attribute of ForEach.

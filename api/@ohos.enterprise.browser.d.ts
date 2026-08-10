@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Browser Management
  * @kit MDMKit
  */
 
@@ -22,14 +22,14 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **browser** module provides browser management, including setting, canceling, and obtaining browser policies.
+ * The **browser** module provides browser management, including setting, canceling, and obtaining browser policies. It
+ * is applicable to scenarios such as enterprise device management, employee online behavior management, and security
+ * compliance audit.
  *
  * Browser policies are a collection of rules and settings that govern how a browser behaves, ensuring security,
  * compliance, performance optimization, and a consistent user experience.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -136,16 +136,19 @@ declare namespace browser {
   function getPolicies(admin: Want, appId: string): Promise<string>;
 
   /**
-   * Sets the sub-policy for a specified browser.
+   * Sets a browser sub-policy for a specified browser. This API is applicable to scenarios where an enterprise needs to
+   * manage employees' browser behavior in a unified manner.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } appId - Application ID, which is used to specify the browser.
-   * @param { string } policyName - Name of the browser policy to set. If the value is an empty string, the browser
-   *     policy corresponding to the application ID is set.
-   * @param { string } policyValue - Browser policy to set. If the value is an empty string, the policy corresponding to
-   *     the policy name is removed.
+   * @param { string } appId - Application ID, which uniquely identifies an application. This ID is used to specify the
+   *     browser. For details, see
+   *     [What Is appid](docroot://quick-start/common-problem-of-application.md#what-is-appid).
+   * @param { string } policyName - Browser sub-policy name, which is agreed upon by the API caller and the specified
+   *     browser. If the value is an empty string, the browser policy corresponding to **appId** is to be set.
+   * @param { string } policyValue - Browser sub-policy value, which is agreed upon by the API caller and the specified
+   *     browser. If the value is an empty string, the policy corresponding to the policy name is removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -175,13 +178,16 @@ declare namespace browser {
   function getPoliciesSync(admin: Want, appId: string): string;
 
   /**
-   * Obtains the browser policy by app ID.
+   * Obtains the policy set for a specified browser based on **appid**. This API is applicable to scenarios where the
+   * current browser policy configuration needs to be queried, for example, displaying policy details in an enterprise
+   * device administrator application and verifying whether a policy has taken effect.
    *
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
    *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
    *     that actually take effect on the device are returned.
-   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @param { string } appId - Application ID, which is used to specify the browser. For details, see
+   *     [What is appId?](docroot://quick-start/common-problem-of-application.md#what-is-appid).
    * @returns { string } Browser policy obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -193,15 +199,24 @@ declare namespace browser {
   function getPoliciesSync(admin: Want | null, appId: string): string;
 
   /**
-   * Sets the browser policy. After the setting is successful, the system common event
+   * Sets a browser policy for a specified browser. This API is applicable to scenarios where an enterprise needs to
+   * manage employees' browser behavior in a unified manner, such as configuring browser security policies. After the
+   * setting is successful, the system common event
    * [COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_managed_browser_policy_changed)
    * is released.
+   *
+   * > **NOTE**
+   * >
+   * > In multi-MDM application scenarios, once a policy for a specific browser is configured and takes effect by the
+   * > first admin, it can no longer be configured by other admins.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { string } bundleName - Application bundle name, which is used to specify the browser.
-   * @param { string } policyName - Browser policy name.
+   * @param { string } bundleName - Application bundle name, which is used to specify the browser. It uniquely
+   *     identifies an application.
+   * @param { string } policyName - Browser policy name, which is agreed upon by the API caller and the specified
+   *     browser.
    * @param { string } policyValue - Browser policy value. If the value is an empty string, the policy corresponding to
    *     the policy name is removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -217,7 +232,9 @@ declare namespace browser {
   function setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, policyValue: string): void;
 
   /**
-   * Obtains the browser policy by application bundle name.
+   * Obtains the policy of a specified browser based on the application bundle name. This API is applicable to scenarios
+   * where the current browser policy configuration needs to be queried, for example, displaying policy details in an
+   * enterprise device administrator application and verifying whether a policy has taken effect.
    *
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
@@ -233,7 +250,7 @@ declare namespace browser {
   function getManagedBrowserPolicy(admin: Want, bundleName: string): ArrayBuffer;
 
   /**
-   * Obtains the policy version of a specified browser.
+   * Obtains the browser policy version of the current device.
    *
    * @returns { string } Browser policy version.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
