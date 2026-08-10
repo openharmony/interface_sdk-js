@@ -127,6 +127,9 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 获取指定应用的通知使能状态。
+   * @see [cancel]{@link notificationManager.cancel(id: int,label: string,callback: AsyncCallback<void>): void} 根据通知ID和标签label取消已发布的通知。
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} 取消当前应用所有已发布的通知。
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -161,9 +164,9 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
-   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
-   * @see [cancel]{@link notificationManager.cancel(id: int,label:string,callback:AsyncCallback<void>): void} 取消已发布的通知。
-   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} 取消当前应用所有已发布的通知。
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} 查询当前应用通知授权状态。
+   * @see [cancel]{@link notificationManager.cancel(id: int,label?: string): Promise<void>} 根据通知ID和标签label取消已发布的通知。
+   * @see [cancelAll]{@link notificationManager.cancelAll(): Promise<void>} 取消当前应用所有已发布的通知。
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -398,6 +401,9 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest,callback: AsyncCallback<void>): void} 发布通知。
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} 取消当前应用所有已发布的通知。
+   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string,callback: AsyncCallback<void,void>): void} 取消当前应用指定组下的通知。
    */
   function cancel(id: int, callback: AsyncCallback<void>): void;
 
@@ -424,7 +430,7 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @see [publish]{@link notificationManager.publish(request: NotificationRequest,callback: AsyncCallback<void>): void} 发布通知。
-   * @see [cancelAll]{@link notificationManager.cancelAll(callback:AsyncCallback<void>): void} 取消当前应用所有已发布的通知。
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} 取消当前应用所有已发布的通知。
    * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string,callback: AsyncCallback<void,void>): void} 取消当前应用指定组下的通知。
    */
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
@@ -448,9 +454,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [publish]{@link notificationManager.publish(request: NotificationRequest,callback: AsyncCallback<void>):void} 发布通知。
-   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>):void} 取消当前应用所有已发布的通知。
-   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string,callback: AsyncCallback<void,void>): void} 取消当前应用指定组下的通知。
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest, callback: AsyncCallback<void>): void} 发布通知。
+   * @see [cancelAll]{@link notificationManager.cancelAll(): Promise<void>} 取消当前应用所有已发布的通知。
+   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string): Promise<void>} 取消当前应用指定组下的通知。
    */
   function cancel(id: int, label?: string): Promise<void>;
 
@@ -574,6 +580,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest, callback: AsyncCallback<void>):void} 发布通知。
+   * @see [cancel]{@link notificationManager.cancel(id: int, label: string, callback: AsyncCallback<void>): void} 取消已发布的通知。
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -591,8 +599,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
-   * @see [publish]{@link notificationManager.publish(request: NotificationRequest, callback: AsyncCallback<void>):void} 发布通知。
-   * @see [cancel]{@link notificationManager.cancel(id:int, callback:AsyncCallback<void, void>): void} 取消已发布的通知。
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest):Promise<void>} 发布通知。
+   * @see [cancel]{@link notificationManager.cancel(id:int, label?: string): Promise<void>} 根据指定的通知ID取消已发布的通知。
    */
   function cancelAll(): Promise<void>;
 
@@ -659,7 +667,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot|null>): void} 获取指定类型的通知渠道。
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} 获取指定类型的通知渠道。
    * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 删除当前应用指定类型的通知渠道。
    * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback<void>): void} 删除所有渠道通知。
    */
@@ -686,9 +694,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot|null>): void} 获取指定类型的通知渠道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 删除当前应用指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback<void>): void} 删除所有渠道通知。
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotTyp): Promise<NotificationSlot>} 获取指定类型的通知渠道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} 删除当前应用指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} 删除当前应用的所有渠道通知。
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -750,6 +758,9 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, AsyncCallback<void>): void} 删除指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -770,7 +781,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
    * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} 删除指定类型的通知渠道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, AsyncCallback<void>): void} 删除指定类型的通知渠道。
    * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
@@ -790,9 +801,9 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} 删除指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} 创建通知频道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} 删除指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} 删除所有通知渠道。
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -811,9 +822,9 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
-   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} 删除指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} 创建通知频道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} 删除指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} 删除所有通知渠道。
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -834,7 +845,7 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} 删除指定类型的通知渠道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 删除指定类型的通知渠道。
    * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
@@ -852,9 +863,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback<void>): void} 删除指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} 创建通知频道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} 删除指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} 删除所有通知渠道。
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -911,6 +922,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} 获取指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -932,9 +946,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} 获取指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} 创建通知频道。
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType): Promise<NotificationSlot>} 获取指定类型的通知渠道。
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} 删除所有通知渠道。
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -956,7 +970,7 @@ declare namespace notificationManager {
    * @since 23 static
    * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
    * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} 获取指定类型的通知渠道。
-   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} 删除所有通知渠道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 删除所有通知渠道。
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -974,9 +988,9 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} 创建通知频道。
-   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} 获取指定类型的通知渠道。
-   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} 删除指定类型的通知渠道。
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} 创建通知频道。
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType): Promise<NotificationSlot>} 获取指定类型的通知渠道。
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} 删除指定类型的通知渠道。
    */
   function removeAllSlots(): Promise<void>;
 
@@ -1127,7 +1141,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
    * @since 23 static
-   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext):Promise<void>} 请求通知使能。
+   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext): Promise<void>} 请求通知使能。
    */
   function isNotificationEnabledSync(): boolean;
 
@@ -1501,6 +1515,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void} 设置角标个数。
    */
   function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
@@ -1516,7 +1531,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void} 设置角标个数。
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int): Promise<void>} 设置角标个数。
    */
   function getActiveNotificationCount(): Promise<long>;
 
@@ -1551,7 +1566,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
-   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void} 设置角标个数。
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int): Promise<void>} 设置角标个数。
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -2039,6 +2054,8 @@ declare namespace notificationManager {
    * @since 23 static
    * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
    * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起当前应用的通知设置界面。
+   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): Promise<notificationsetting>} 拉起
+   *     应用的通知设置界面。
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
@@ -2056,8 +2073,6 @@ declare namespace notificationManager {
    * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead requestEnableNotification
-   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
-   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起当前应用的通知设置界面。
    */
   function requestEnableNotification(): Promise<void>;
 
@@ -2090,6 +2105,8 @@ declare namespace notificationManager {
    * @since 23 static
    * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
    * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起当前应用的通知设置界面。
+   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): Promise<notificationsetting>} 拉起
+   *     应用的通知设置界面。
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2711,6 +2728,7 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
+   * @see [getActiveNotificationCount]{@link notificationManager.getActiveNotificationCount(callback: AsyncCallback<long>): void} 获取当前应用的通知数量。
    */
   function setBadgeNumber(badgeNumber: int, callback: AsyncCallback<void>): void;
 
@@ -2981,6 +2999,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
    * @since 23 static
+   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起应用的通知设置界面。
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} 获取指定应用的通知使能状态。
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -3265,6 +3285,9 @@ declare namespace notificationManager {
    * @stagemodelonly
    * @since 13 dynamic
    * @since 23 static
+   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(callback: AsyncCallback<void, void>): void} 请求通知使能。
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
+   * @see [getNotificationSetting]{@link notificationManager.getNotificationSetting(): Promise<NotificationSetting>} 获取应用的通知设置状态。
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -3286,8 +3309,7 @@ declare namespace notificationManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(callback: AsyncCallback<void, void>): void} 请求通知使能。
-   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
-   * @see [getNotificationSetting]{@link notificationManager.getNotificationSetting(): Promise<NotificationSetting>} 获取应用的通知设置状态。
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} 查询当前应用通知授权状态。
    */
   function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
 
@@ -3804,6 +3826,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int): Promise<void>} 设定角标个数。
    */
   function getBadgeNumber(): Promise<long>;
 
