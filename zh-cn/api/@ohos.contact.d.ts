@@ -14,13 +14,12 @@
  */
 
 /**
- * @file
- * @kit ContactsKit
+  * @file
+  * @kit ContactsKit
  */
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
-
 import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
@@ -53,7 +52,10 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。
    * @param { AsyncCallback<number> } callback - 回调函数。成功返回添加的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Failed to open contact portrait file.
+   *     3.Internal error. Invalid contact id. Failed to generate contact profile.
+   *     4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 12]
    * @since 10
@@ -81,7 +83,10 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。
    * @returns { Promise<number> } Promise对象，返回添加的联系人id。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Failed to open contact portrait file.
+   *     3.Internal error. Invalid contact id. Failed to generate contact profile.
+   *     4.Internal error. Failed to save contact portrait.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 12]
    * @since 10
@@ -330,8 +335,8 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - 联系人的唯一查询键key，是新建联系人时自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传默认查询所有联系人属性。
    * @returns { Promise<Contact> } Promise对象。返回查询到的联系人对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -346,8 +351,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传该参数，则默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传该参数，则默认查询所有联系人属性。
    * @returns { Promise<Contact> } Promise对象。返回查询到的联系人对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -468,8 +473,8 @@ declare namespace contact {
    * 根据holder和attrs查询所有联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传默认查询所有联系人属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -483,8 +488,8 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
-   * @param { Holder } holder - 创建联系人的应用信息类，如果为空，默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传该参数默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，如果为空，默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传该参数默认查询所有联系人属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -541,15 +546,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
+   * ����email��holder��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��Emails���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * 接口，根据该接口返回的属性key查询。
+   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - 应用上下文Context。
-   * @param { string } email - 联系人的邮箱地址。
-   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用。
-   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
+   * @param { Context } context - Ӧ��������Context��
+   * @param { string } email - ��ϵ�˵������ַ��
+   * @param { Holder } holder - ������ϵ�˵�Ӧ����Ϣ�࣬����������Ϊ����ʹ��ϵͳ��ϵ��Ӧ�á�
+   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -565,7 +570,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - 联系人的邮箱地址。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -575,15 +580,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
+   * ����email��attrs��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��Emails���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * 接口，根据该接口返回的属性key查询。
+   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - 应用上下文Context。
-   * @param { string } email - 联系人的邮箱地址。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
-   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
+   * @param { Context } context - Ӧ��������Context��
+   * @param { string } email - ��ϵ�˵������ַ��
+   * @param { ContactAttributes } attrs - ��ϵ�˵������б������Ϊ�գ����ѯ��ϵ�˵����������ֶΣ������������绰������ȣ���
+   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -600,7 +605,7 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - 联系人的邮箱地址。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -618,7 +623,7 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } email - 联系人的邮箱地址。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -634,8 +639,8 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - 联系人的邮箱地址。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -652,8 +657,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { string } email - 联系人的邮箱地址。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -687,7 +692,9 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Internal error. The query resultSet is nullptr.
+   *     3.Internal error. The query resultSet is empty.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -720,7 +727,9 @@ declare namespace contact {
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Internal error. The query resultSet is nullptr.
+   *     3.Internal error. The query resultSet is empty.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -733,7 +742,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -750,10 +759,12 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Internal error. The query resultSet is nullptr.
+   *     3.Internal error. The query resultSet is empty.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -767,7 +778,7 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
    * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果该参数为空，则查询联系人的所有属性字段。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -777,18 +788,20 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
+   * ���ݵ绰���롢holder��attrs��ѯ��ϵ�ˡ�ʹ��callback�첽�ص����ýӿڷ��ص��б���������ϵ����Ϣ�е�id��key��phoneNumbers���ԡ����Ҫ��ѯ��ϵ�˵�������Ϣ������ʹ��
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
+   * �ӿڣ����ݸýӿڷ��ص�����key��ѯ��Ӧ���ں�̨���ô˽ӿڻ�ȡ��ϵ����Ϣ����Ҫ�����Ӧ�ĳ�ʱ����
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - 应用上下文Context。
-   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
-   * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
-   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
+   * @param { Context } context - Ӧ��������Context��
+   * @param { string } phoneNumber - ��ϵ�˵ĵ绰���룬��֧��ȫƥ�䣬��֧��ͨ���ƥ�䡣
+   * @param { Holder } holder - ������ϵ�˵�Ӧ����Ϣ�࣬����ò���Ϊ�գ���Ĭ��ʹ��ϵͳ��ϵ��Ӧ�ò�ѯ��
+   * @param { ContactAttributes } attrs - ��ϵ�˵������б������Ϊ�գ����ѯ��ϵ�˵����������ֶΣ������������绰������ȣ���
+   * @param { AsyncCallback<Array<Contact>> } callback - �ص��������ɹ����ز�ѯ������ϵ�˶������飻ʧ�ܷ��ؾ���Ĵ�������Ϣ��
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Internal error. The query resultSet is nullptr.
+   *     3.Internal error. The query resultSet is empty.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -802,8 +815,8 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -820,11 +833,13 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Internal error. The query resultSet is nullptr.
+   *     3.Internal error. The query resultSet is empty.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -886,7 +901,7 @@ declare namespace contact {
    * 根据holder查询联系人的所有群组。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<Array<Group>> } Promise对象。返回查询到的群组对象数组。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -900,7 +915,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<Array<Group>> } Promise对象。返回查询到的群组对象数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -1022,7 +1037,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - 联系人对象的id属性。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<string> } Promise对象。返回查询到的联系人对应的key。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -1037,7 +1052,7 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 联系人对象的id属性。
-   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<string> } Promise对象。返回查询到的联系人对应的key。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1103,8 +1118,8 @@ declare namespace contact {
    * 查询“我的名片”（支持传入联系人的属性列表）。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
-   * @returns { Promise<Contact> } Promise对象。返回“我的名片”联系人对象。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<Contact> } Promise对象。返回"我的名片"联系人对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1113,12 +1128,12 @@ declare namespace contact {
   function queryMyCard(attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * 查询“我的名片”（支持传入联系人的属性列表）。使用Promise异步回调。
+   * 查询"我的名片"（支持传入联系人的属性列表）。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
-   * @returns { Promise<Contact> } Promise对象。返回“我的名片”联系人对象。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<Contact> } Promise对象。返回"我的名片"联系人对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1147,7 +1162,11 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Failed to open contact portrait file.
+   *     3.Internal error. Invalid contact id. Failed to generate contact profile.
+   *     4.Internal error. Failed to save contact portrait.
+   *     5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1158,7 +1177,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -1173,10 +1192,14 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes:Mandatory parameters are left unspecified.
+   *     2.Failed to open contact portrait file.
+   *     3.Internal error. Invalid contact id. Failed to generate contact profile.
+   *     4.Internal error. Failed to save contact portrait.
+   *     5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1187,7 +1210,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -1202,10 +1225,14 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
-   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   *     2.Failed to open contact portrait file.
+   *     3.Internal error. Invalid contact id. Failed to generate contact profile.
+   *     4.Internal error. Failed to save contact portrait.
+   *     5.Internal error. Invalid contact rawId.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
    */
@@ -1372,8 +1399,7 @@ declare namespace contact {
     isDisplayedByName?: boolean;
 
     /**
-     * 联系人picker发生页面路由时是否自动关闭，比如应用退后台场景
-     *     默认值为false
+     * 拉起picker的页面发生路由切换时是否允许自动关闭picker，true:允许自动关闭picker，false:不允许自动关闭picker，默认值为false。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @stagemodelonly
@@ -1446,7 +1472,7 @@ declare namespace contact {
     events?: Event[];
 
     /**
-     * 联系人的群组列表。
+     * 联系人的群组列表。添加或更新联系人时，仅支持关联到已有群组，不支持创建新群组。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1808,7 +1834,7 @@ declare namespace contact {
    */
   class Event {
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 自定义事件类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1817,7 +1843,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 周年纪念事件类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1826,7 +1852,7 @@ declare namespace contact {
     static readonly EVENT_ANNIVERSARY: 1;
 
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 其它事件类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1844,7 +1870,7 @@ declare namespace contact {
     static readonly EVENT_BIRTHDAY: 3;
 
     /**
-     * 无效邮箱类型，默认值为-1。
+     * 无效事件类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1862,7 +1888,7 @@ declare namespace contact {
     eventDate: string;
 
     /**
-     * 邮箱的类型名称。
+     * 事件的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1871,7 +1897,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * 邮箱的类型。
+     * 事件的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1948,7 +1974,7 @@ declare namespace contact {
    */
   class ImAddress {
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 自定义即时消息类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2020,7 +2046,7 @@ declare namespace contact {
     static readonly IM_JABBER: 7;
 
     /**
-     * 无效邮箱类型，默认值为-1。
+     * 无效的即时消息类型，默认值为-2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2038,7 +2064,7 @@ declare namespace contact {
     imAddress: string;
 
     /**
-     * 邮箱的类型名称。
+     * 即时消息类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2047,7 +2073,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * 邮箱的类型。
+     * 即时消息类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2227,7 +2253,7 @@ declare namespace contact {
    */
   class PhoneNumber {
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 自定义电话类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2416,7 +2442,7 @@ declare namespace contact {
     static readonly NUM_MMS: 20;
 
     /**
-     * 无效邮箱类型，默认值为-1。
+     * 无效电话类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2425,7 +2451,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * 邮箱的类型名称。
+     * 电话号码的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2443,7 +2469,7 @@ declare namespace contact {
     phoneNumber: string;
 
     /**
-     * 邮箱的类型。
+     * 电话号码的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2502,7 +2528,7 @@ declare namespace contact {
    */
   class PostalAddress {
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 自定义邮政地址类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2538,7 +2564,7 @@ declare namespace contact {
     static readonly ADDR_OTHER: 3;
 
     /**
-     * 无效邮箱类型，默认值为-1。
+     * 无效地址类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2565,7 +2591,7 @@ declare namespace contact {
     country?: string;
 
     /**
-     * 邮箱的类型名称。
+     * 邮政地址类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2628,7 +2654,7 @@ declare namespace contact {
     street?: string;
 
     /**
-     * 邮箱的类型。
+     * 邮政地址的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2736,7 +2762,7 @@ declare namespace contact {
     static readonly RELATION_PARENT: 9;
 
     /**
-     * 父母关系类型，默认值为9。
+     * 合作伙伴关系类型，默认值为10。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2763,7 +2789,7 @@ declare namespace contact {
     static readonly RELATION_RELATIVE: 12;
 
     /**
-     * 亲属关系类型，默认值为12。
+     * 姐妹关系类型，默认值为13。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2790,7 +2816,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * 邮箱的类型名称。
+     * 关系类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2808,7 +2834,7 @@ declare namespace contact {
     relationName: string;
 
     /**
-     * 邮箱的类型。
+     * 关系类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2826,7 +2852,7 @@ declare namespace contact {
    */
   class SipAddress {
     /**
-     * 自定义邮箱类型，默认值为0。
+     * 自定义会话发起协议(SIP)地址类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2862,7 +2888,7 @@ declare namespace contact {
     static readonly SIP_OTHER: 3;
 
     /**
-     * 无效邮箱类型，默认值为-1。
+     * 无效会话发起协议(SIP)地址类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2871,7 +2897,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * 邮箱的类型名称。
+     * 会话发起协议(SIP)地址类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2889,7 +2915,7 @@ declare namespace contact {
     sipAddress: string;
 
     /**
-     * 邮箱的类型。
+     * 会话发起协议(SIP)地址类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3200,7 +3226,7 @@ declare namespace contact {
   }
 
   /**
-   * 通过UI交互创建联系人。使用Promise异步回调。
+   * 调用新建联系人接口，打开新建联系人UI界面。使用Promise异步回调。
    *
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。
@@ -3253,7 +3279,7 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } phoneNumber - 联系人的电话号码。
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
-   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
+   * @returns { Promise<boolean> }Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3272,7 +3298,7 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码。
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
    * @param { int } withinTime - 表示从当前时间开始计算，通话的起始时间和结束时间应在此时间范围内，单位为秒。最多可设置6小时，超过6小时的默认以6小时查询。
-   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
+   * @returns { Promise<boolean> }Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3286,7 +3312,7 @@ declare namespace contact {
   /**
    * 批量同步多个联系人至联系人数据库。
    *
-   *  最多可批量同步400个联系人。调用方必须处于前台。
+   *  每次最多可批量同步400个联系人。调用方必须处于前台。
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - 应用上下文Context。
@@ -3329,7 +3355,7 @@ declare namespace contact {
   /**
    * 通过UI交互批量导入多个联系人。
    *
-   *  每次最多可导入100个联系人。
+   *  每次最多可导入100个联系人。不支持导入联系人的头像。
    *
    * @param { Context } context - 应用上下文Context。
    * @param { Array<Contact> } contacts - 表示待导入数据库的联系人信息数组。
@@ -3349,7 +3375,7 @@ declare namespace contact {
 
   /**
    * 同步模式的类型。
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @stagemodelonly
    * @atomicservice
@@ -3418,11 +3444,11 @@ declare namespace contact {
     /**
     * 表示要同步的联系人批次总数。
     *
-    * @syscap SystemCapability.Applications.ContactsData
-    * @stagemodelonly
-    * @atomicservice
-    * @since 26.0.0
-    */
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
     totalBatches: int;
   }
 
@@ -3435,7 +3461,6 @@ declare namespace contact {
    * @since 26.0.0
    */
   interface ContactSyncInfo {
-
     /**
      * 联系人同步模式。
      *
@@ -3443,8 +3468,9 @@ declare namespace contact {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0
-    */
+     */
     mode: ContactSyncMode;
+
     /**
      * 表示用于同步所有联系人的同步标识符。
      *
@@ -3452,7 +3478,7 @@ declare namespace contact {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0
-    */
+     */
     syncId: int;
 
     /**
@@ -3464,21 +3490,21 @@ declare namespace contact {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0
-    */
+     */
     completedBatches: Array<int>;
 
     /**
-     * 指示要同步的联系人批次总数。
-     *
+    * 表示要同步的联系人批次总数。
+    *
      * @syscap SystemCapability.Applications.ContactsData
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0
-    */
+     */
     totalBatches: int;
 
     /**
-     * 指示联系人同步的最新时间戳（毫秒）。
+     * 表示联系人同步的最新时间戳（毫秒）。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @stagemodelonly
