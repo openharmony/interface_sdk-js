@@ -223,6 +223,42 @@ declare namespace securityManager {
   }
 
   /**
+   * The device security level policy
+   * 
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export enum DeviceSecurityLevelPolicy {
+    /**
+     * Disallowed switch device security level.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    DEFAULT_ENFORCED = 0,
+
+    /**
+     * Allowed switch to device security level 1.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    ALLOW_BALANCED = 1,
+
+    /**
+     * Allowed switch to device security level2, disallowed switch to device security level1.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    ALLOW_FLEXIBLE = 2,
+  }
+
+  /**
    * Queries the security patch tag of a device.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
@@ -1360,6 +1396,39 @@ declare namespace securityManager {
    * @since 26.0.0
    */
   function isScreenLockDisabledForAccount(admin: Want): boolean;
+
+  /**
+   * Sets the device security level policy.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { DeviceSecurityLevelPolicy } level -level indicates the security level.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function setDeviceSecurityLevelPolicy(level: DeviceSecurityLevelPolicy): void;
+
+  /**
+   * Gets the device security level policy.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @returns { DeviceSecurityLevelPolicy } Returns the security level policy of device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getDeviceSecurityLevelPolicy(): DeviceSecurityLevelPolicy;
 }
 
 /*** if arkts dynamic */
