@@ -6993,8 +6993,8 @@ declare namespace media {
      *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7012,8 +7012,8 @@ declare namespace media {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7033,8 +7033,8 @@ declare namespace media {
      * @param { AsyncCallback<AVRecorderConfig> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined** and **data** is the real-time configuration obtained; otherwise, **err**
      *     is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7050,8 +7050,8 @@ declare namespace media {
      *     If the operation is successful, **err** is **undefined** and **data** is the real-time configuration obtained
      *     ;
      *     otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7065,8 +7065,8 @@ declare namespace media {
      * called.
      *
      * @returns { Promise<AVRecorderConfig> } Promise used to return the real-time configuration.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7078,8 +7078,8 @@ declare namespace media {
      * This API can be called only after prepare() is called.
      *
      * @returns { Promise<AVRecorderConfig | undefined> } Promise used to return the real-time configuration.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7100,8 +7100,8 @@ declare namespace media {
      *
      * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined** and **data** is the surface ID obtained; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9 dynamic
@@ -7120,8 +7120,8 @@ declare namespace media {
      * @param { AsyncCallback<string | undefined> } callback - Callback used to return the result.
      *     If the operation is successful, **err** is **undefined** and **data** is the surface ID obtained;
      *     otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7140,8 +7140,8 @@ declare namespace media {
      * is called.
      *
      * @returns { Promise<string> } Promise used to return the surface buffer obtained from the surface.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9 dynamic
@@ -7158,8 +7158,8 @@ declare namespace media {
      * This API can be called only after the prepare() API is called.
      *
      * @returns { Promise<string | undefined> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7173,9 +7173,9 @@ declare namespace media {
      * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
      * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
@@ -7190,9 +7190,9 @@ declare namespace media {
      * @returns { Promise<string | undefined> } A Promise instance used to return the input surface id in string.
      * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
@@ -7240,7 +7240,7 @@ declare namespace media {
      * @param { WatermarkConfiguration } config - : Configuration of the watermark.
      * @returns { Promise<int> } Promise that returns the watermark id.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7281,9 +7281,9 @@ declare namespace media {
      * @param { int } rotation - Rotation angle, which can only be 0, 90, 180, or 270 degrees.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
@@ -7316,8 +7316,8 @@ declare namespace media {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7335,8 +7335,8 @@ declare namespace media {
      * called.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7355,8 +7355,8 @@ declare namespace media {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7372,8 +7372,8 @@ declare namespace media {
      * [resume()]{@link media.AVRecorder.resume()} to resume recording.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7391,8 +7391,8 @@ declare namespace media {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7407,8 +7407,8 @@ declare namespace media {
      * This API can be called only after the [pause()]{@link media.AVRecorder.pause()} API is called.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7433,8 +7433,8 @@ declare namespace media {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7455,8 +7455,8 @@ declare namespace media {
      * [getInputSurface()]{@link media.AVRecorder.getInputSurface()} again for re-recording.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7478,7 +7478,7 @@ declare namespace media {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7496,7 +7496,7 @@ declare namespace media {
      * [getInputSurface()]{@link media.AVRecorder.getInputSurface()} again for re-recording.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7526,7 +7526,7 @@ declare namespace media {
      * After the resources are released, you can no longer perform any operation on the AVRecorder instance.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -7547,8 +7547,8 @@ declare namespace media {
      * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined** and **data** is the audio.AudioCapturerChangeInfo object
      *     obtained; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7566,8 +7566,8 @@ declare namespace media {
      *     result.
      *     If the operation is successful, **err** is **undefined** and **data** is the
      *     **audio.AudioCapturerChangeInfo** object obtained; otherwise, **err** is an error object.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7583,8 +7583,8 @@ declare namespace media {
      * successfully called, an error is reported.
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo> } Promise used to return the audio capturer information.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7599,8 +7599,8 @@ declare namespace media {
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo | undefined> } Promise used to return the audio capturer
      *     information.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7623,7 +7623,7 @@ declare namespace media {
      * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined** and **data** is the maximum amplitude obtained; otherwise, **err** is an error
      *     object.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7644,7 +7644,7 @@ declare namespace media {
      * API again at 2s, then the return value is the maximum amplitude within the duration from 1s to 2s.
      *
      * @returns { Promise<int> } Promise used to return the maximum amplitude obtained.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7658,7 +7658,7 @@ declare namespace media {
      * @param { AsyncCallback<Array<EncoderInfo>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined** and **data** is the available encoders obtained; otherwise, **err** is
      *     an error object.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7670,7 +7670,7 @@ declare namespace media {
      * Obtains available encoders. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<EncoderInfo>> } Promise used to return the information about the available encoders.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
@@ -7699,7 +7699,7 @@ declare namespace media {
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the changed audio capturer
      *     configuration.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
      */
@@ -7718,7 +7718,7 @@ declare namespace media {
      *     triggered when a photo asset is available.
      * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the PhotoAsset object
      *     corresponding to the resource file created by the system.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
@@ -7733,7 +7733,7 @@ declare namespace media {
      *     by both user operations and the system.
      * @param { function } callback - Callback used to return the state change event. [since 9 - 11]
      * @param { OnAVRecorderStateChangeHandler } callback - Callback used to return the state change event. [since 12]
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -7757,12 +7757,12 @@ declare namespace media {
      * @param { ErrorCallback } callback - Callback used to return the recording error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
-     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400104 - Operation timeout.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5400107 - Audio interrupted. [since 11]
@@ -7842,7 +7842,7 @@ declare namespace media {
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the entire configuration
      *     information about the audio capturer.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
@@ -7857,7 +7857,7 @@ declare namespace media {
      *
      * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the
      *     **PhotoAsset** object corresponding to the resource file created by the system.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7870,7 +7870,7 @@ declare namespace media {
      * This event can be triggered by both user operations and the system.
      *
      * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
-     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7889,12 +7889,12 @@ declare namespace media {
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
-     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400104 - Operation timeout.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5400107 - Audio interrupted.
@@ -8433,7 +8433,7 @@ declare namespace media {
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @throws { BusinessError } 202 - Not System App. [since 12]
@@ -8451,7 +8451,7 @@ declare namespace media {
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 202 - Not System App. [since 12]
