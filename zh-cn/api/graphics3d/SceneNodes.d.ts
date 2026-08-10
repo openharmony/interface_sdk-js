@@ -112,7 +112,7 @@ export enum NodeType {
 }
 
 /**
- * 定义场景对象容器.
+ * 定义场景对象的容器。容器提供了一种将场景对象分组到层次结构中的方法。
  *
  * @interface Container
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -121,9 +121,9 @@ export enum NodeType {
  */
 export interface Container<T> {
   /**
-   * 将项目追加到容器.
+   * 追加一个对象到容器。如果追加的对象已存在于容器中，容器会先移除该对象再插入，因此数量不会增加。
    *
-   * @param { T } item - 要追加到容器末尾的项目
+   * @param { T } item - T类型对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -131,10 +131,10 @@ export interface Container<T> {
   append(item: T): void;
 
   /**
-   * 插入项目.
+   * 在兄弟节点后面插入对象。如果插入的对象已存在于容器中，容器会先移除该对象再插入，因此数量不会增加。
    *
-   * @param { T } item - 要插入到容器的项目
-   * @param { T | null } sibling - 在此项目后插入，如果sibling为null则插入到头部
+   * @param { T } item - 要插入节点。
+   * @param { T | null } sibling - 兄弟节点。当为null时，表示插入到容器的开头位置。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -142,9 +142,9 @@ export interface Container<T> {
   insertAfter(item: T, sibling: T | null): void;
 
   /**
-   * 从容器的子节点中移除项目.
+   * 移除指定对象。
    *
-   * @param { T } item - 要移除的项目
+   * @param { T } item - 要移除的对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -152,10 +152,10 @@ export interface Container<T> {
   remove(item: T): void;
 
   /**
-   * 从容器的子节点列表中返回给定索引的子节点.
+   * 获取特定下标对象，获取不到则返回空。
    *
-   * @param { int } index - 要返回的子节点的索引
-   * @returns { T | null } 返回由索引指定的项目
+   * @param { int } index - 要获取对象的下标，取值范围是大于等于0的整数。
+   * @returns { T | null } 返回获取到的对象，获取不到则返回空值。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -163,7 +163,7 @@ export interface Container<T> {
   get(index: int): T | null;
 
   /**
-   * 清空所有子节点.
+   * 清空容器内的所有对象。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -172,7 +172,7 @@ export interface Container<T> {
   clear(): void;
 
   /**
-   * 返回容器中的项目数量.
+   * 获取容器中对象的数量。
    *
    * @returns { int } 容器的数量
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -288,8 +288,9 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，
-   * 但可以通过容器方法操作子节点（如append()、insertAfter()、remove()或clear()）。
+   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点
+   * （如[append]{@link Container.append}、[insertAfter]{@link Container.insertAfter}、
+   * [remove]{@link Container.remove}或[clear]{@link Container.clear}）。
    * 如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；
    * 添加新节点才会真正增加子节点数量。
    *
@@ -426,7 +427,14 @@ export interface Light extends Node {
 }
 
 /**
- * 定义聚光灯.
+ * 聚光灯类型，继承自[Light]{@link Light}。
+ * 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。
+ * 另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
+ *
+ * > > **注意：**
+ * >
+ * > 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。
+ * > 当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
  *
  * @extends Light
  * @interface SpotLight
@@ -436,7 +444,8 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * 聚光灯的内角, 单位为弧度.
+   * 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。
+   * 设置的值必须大于等于0，小于等于outerAngle。
    * 
    * @type { ?double }
    * @default 0
@@ -446,7 +455,8 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * 聚光灯的外角, 单位为弧度.
+   * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。
+   * 设置的值必须大于等于innerAngle，小于等于PI/2。
    * 
    * @type { ?double }
     * @default PI / 4.0 π/4 弧度
@@ -574,10 +584,11 @@ export interface Camera extends Node {
   renderingPipeline?: RenderingPipelineType;
 
   /**
-   * 向屏幕上的位置投射射线并列出射线击中的对象.
-   * @param { Vec2 } viewPosition - 在归一化设备坐标中投射的位置.
-   * @param { RaycastParameters } params - 执行射线检测使用的选项.
-   * @returns { Promise<RaycastResult[]> } - 返回命中结果数组的Promise，按从近到远排序. 数组可能为空.
+   * 从屏幕指定位置发射射线，检测并返回所有命中的3D物体信息。使用Promise异步回调。
+   * @param { Vec2 } viewPosition - 使用屏幕归一化坐标，取值范围为[0, 1]。
+   *     其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。
+   * @param { RaycastParameters } params - 射线检测的配置参数（如检测范围、过滤节点等）。
+   * @returns { Promise<RaycastResult[]> } - Promise对象，返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static

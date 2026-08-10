@@ -390,7 +390,7 @@ export interface RenderSort {
 }
 
 /**
- * 材质资源.
+ * 材质类型，继承自[SceneResource]{@link SceneResource}。
  *
  * @extends SceneResource
  * @interface Material
@@ -400,7 +400,7 @@ export interface RenderSort {
  */
 export interface Material extends SceneResource {
   /**
-   * 材质资源类型.
+   * 材质类型。
    *
    * @type { MaterialType }
    * @readonly
@@ -411,7 +411,7 @@ export interface Material extends SceneResource {
   readonly materialType: MaterialType;
   
   /**
-   * 定义材质是否可以接收阴影.
+   * 材质是否接收阴影。true表示该材质接收阴影，false表示不接收，默认值为false。
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -421,7 +421,7 @@ export interface Material extends SceneResource {
   shadowReceiver?: boolean;
 
   /**
-   * 剔除模式.
+   * 当前材质的剔除模式设置，用于控制是否剔除背面几何面片，默认值为BACK。
    * 
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -431,7 +431,7 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * 控制是否启用混合
+   * 材质的透明效果设置，默认值为undefined，即禁用材质的透明属性。
    * 
    * @type { ?Blend }
    * @default undefined, which means that blending is disabled.
@@ -442,7 +442,8 @@ export interface Material extends SceneResource {
   blend?: Blend;
 
   /**
-   * 透明度截止值[0,1]. Enabled if < 1.
+   * 透明通道阈值，如果像素的alpha值等于或高于此阈值，则渲染该像素；如果低于此阈值，则不会渲染该像素。
+   * 设置值小于1时，则开启该模式，取值范围为[0, 1]，默认值为1。
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -452,7 +453,7 @@ export interface Material extends SceneResource {
   alphaCutoff?: double;
 
   /**
-   * 层的渲染排序优先级.
+   * 渲染排序设置，用于控制材质在渲染管线中的渲染顺序，渲染图层id默认值为32，同一图层内的渲染顺序默认值为0。
    * 
    * @type { ?RenderSort }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -462,7 +463,7 @@ export interface Material extends SceneResource {
   renderSort?: RenderSort;
 
   /**
-   * 材质的多边形模式
+   * 模型的多边形绘制模式，默认值为FILL。
    * 
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL 填充多边形模式
