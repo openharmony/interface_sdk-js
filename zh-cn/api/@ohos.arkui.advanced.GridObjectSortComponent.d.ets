@@ -14,6 +14,14 @@
  */
 
 /**
+ * ######  子组件
+ *
+ * 无
+ *
+ * ###### 事件
+ *
+ * 不建议设置[通用事件]{@link ./@internal/component/ets/common}，设置后可能不生效或不符合预期。
+ *
  * @file
  * @kit ArkUI
  */
@@ -88,7 +96,7 @@ export interface GridObjectSortComponentItem {
   text: ResourceStr;
 
   /**
-   * 是否已经被添加，已添加：true，未添加：false。
+   * 是否被选中，已选中：true，未选中：false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -99,7 +107,7 @@ export interface GridObjectSortComponentItem {
   selected: boolean;
 
   /**
-   * 顺序序号。
+   * 顺序序号，数值越小排序越靠前。
    *
    * 取值范围：大于等于0。
    *
@@ -114,7 +122,7 @@ export interface GridObjectSortComponentItem {
   order: number;
 
   /**
-   * GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入图片地址。
+   * GridObjectSortComponentType类型为IMAGE_TEXT时，用于配置图片地址；类型为TEXT时不生效。若同时配置symbolStyle，优先使用symbolStyle。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +133,7 @@ export interface GridObjectSortComponentItem {
   url?: ResourceStr;
 
   /**
-   * GridObjectSortComponentType类型为IMAGE_TEXT时，需要传入Symbol图标资源。配置优先级高于url。
+   * GridObjectSortComponentType类型为IMAGE_TEXT时，用于配置Symbol图标资源；类型为TEXT时不生效。配置优先级高于url。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -148,7 +156,7 @@ export interface GridObjectSortComponentItem {
  */
 export interface GridObjectSortComponentOptions {
   /**
-   * 组件展示形态：文字|图片+文字。
+   * 组件展示形态：文字|图片+文字。设置为GridObjectSortComponentType.IMAGE_TEXT时，需为数据项配置url或symbolStyle。
    *
    * 默认值：GridObjectSortComponentType.TEXT
    *
@@ -162,7 +170,7 @@ export interface GridObjectSortComponentOptions {
   type?: GridObjectSortComponentType;
 
   /**
-   * 图片的尺寸，单位vp。
+   * 图片的尺寸，单位vp。仅在type为GridObjectSortComponentType.IMAGE_TEXT时生效。设置为数值0时，普通图片按默认尺寸显示，Symbol图标的字号为0vp。
    *
    * 取值范围：大于等于0。
    *
@@ -262,7 +270,7 @@ export declare struct GridObjectSortComponent {
   options: GridObjectSortComponentOptions;
 
   /**
-   * 传入的数据，最大长度为50，数据长度超过50，只会取前50的数据。
+   * 传入的数据，最大长度为50，数据长度超过50，只会取前50条数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,7 +281,7 @@ export declare struct GridObjectSortComponent {
   dataList: Array<GridObjectSortComponentItem>;
 
   /**
-   * 保存编辑排序的回调函数，返回编辑后的数据。
+   * 保存编辑排序的回调函数，select为编辑后的选中数据，unselect为编辑后的未选中数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
