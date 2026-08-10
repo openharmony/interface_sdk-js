@@ -351,7 +351,7 @@ declare namespace inputConsumer {
    * @param { 'key' } type - 事件类型，当前仅支持 'key'。
    * @param { KeyOptions } keyOptions - 组合键选项。从API版本26.0.0起keyOptions中新增参数
    *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
-   * @param { Callback<KeyOptions> } callback - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
+   * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -469,7 +469,7 @@ declare namespace inputConsumer {
    *
    * @param { 'hotkeyChange' } type - 事件类型，固定取值为'hotkeyChange'。
    * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
-   * @param { Callback<HotkeyOptions> } callback - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
+   * @param { Callback<HotkeyOptions> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -526,7 +526,7 @@ declare namespace inputConsumer {
    * 取消对'keyPressed'事件的订阅，使用callback异步回调。调用该方法后，被屏蔽的系统按键默认行为将恢复，即系统对音量调节等默认响应将恢复。
    *
    * @param { 'keyPressed' } type - 事件类型，固定取值为'keyPressed'。
-   * @param { Callback<KeyEvent> } callback - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
+   * @param { Callback<KeyEvent> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.

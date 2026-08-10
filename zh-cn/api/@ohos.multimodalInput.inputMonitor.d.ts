@@ -166,7 +166,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touch' } type - 输入设备事件类型，取值'touch'。
-   * @param { TouchEventReceiver } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { TouchEventReceiver } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -197,7 +197,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'mouse' } type - 输入设备事件类型，取值'mouse'。
-   * @param { Callback<MouseEvent> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<MouseEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -259,7 +259,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - 输入设备事件类型，取值'pinch'。
-   * @param { Callback<Pinch> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<Pinch> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -324,7 +324,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - 输入设备事件类型，取值'pinch'。
    * @param { number } fingers - 捏合的手指数，取值范围：大于等于2。
-   * @param { Callback<Pinch> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<Pinch> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -390,7 +390,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - 输入设备事件类型，取值'rotate'。
    * @param { number } fingers - 旋转的手指数，目前支持监听手指数是2。
-   * @param { Callback<Rotate> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<Rotate> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -453,7 +453,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'threeFingersSwipe' } type - 输入设备事件类型，取值'threeFingersSwipe'。
-   * @param { Callback<ThreeFingersSwipe> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<ThreeFingersSwipe> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -515,7 +515,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fourFingersSwipe' } type - 输入设备事件类型，取值'fourFingersSwipe'。
-   * @param { Callback<FourFingersSwipe> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<FourFingersSwipe> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -577,7 +577,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'threeFingersTap' } type - 输入设备事件类型，取值'threeFingersTap'。
-   * @param { Callback<ThreeFingersTap> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<ThreeFingersTap> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -639,7 +639,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fingerprint' } type - 输入事件类型，取值'fingerprint'。
-   * @param { Callback<FingerprintEvent> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<FingerprintEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -699,7 +699,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'swipeInward' } type - 输入事件类型，取值'swipeInward'。
-   * @param { Callback<SwipeInward> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<SwipeInward> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -766,7 +766,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - 输入设备事件类型，取值'touchscreenSwipe'。
    * @param { number } fingers - 滑动手势的手指数，取值范围：[3,5]。
-   * @param { Callback<TouchGestureEvent> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -840,7 +840,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - 输入设备事件类型，取值'touchscreenPinch'。
    * @param { number } fingers - 捏合手势的手指数，取值范围：[4,5]。
-   * @param { Callback<TouchGestureEvent> } receiver - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -913,7 +913,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - 按键事件类型，取唯一值'keyPressed'。
-   * @param { Callback<KeyEvent> } receiver - 需要取消监听的回调函数。若不填，取消应用所有按键监听的回调函数。
+   * @param { Callback<KeyEvent> } [receiver] - 需要取消监听的回调函数。若不填，取消应用所有按键监听的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

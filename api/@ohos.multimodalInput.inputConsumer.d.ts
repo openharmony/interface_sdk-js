@@ -358,7 +358,7 @@ declare namespace inputConsumer {
    *
    * @param { 'key' } type - Event type. Currently, only **key** is supported.
    * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback to unregister. If this parameter is not specified, listening
+   * @param { Callback<KeyOptions> } [callback] - Callback to unregister. If this parameter is not specified, listening
    *     will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -484,7 +484,7 @@ declare namespace inputConsumer {
    *
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of **hotkeyChange**.
    * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback to unregister. If this parameter is left unspecified,
+   * @param { Callback<HotkeyOptions> } [callback] - Callback to unregister. If this parameter is left unspecified,
    *     listening will be disabled for all callbacks registered for the specified shortcut key options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -549,7 +549,7 @@ declare namespace inputConsumer {
    * volume adjustment, will be triggered normally.
    *
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of **keyPressed**.
-   * @param { Callback<KeyEvent> } callback - Callback to unregister. If this parameter is not specified, listening will
+   * @param { Callback<KeyEvent> } [callback] - Callback to unregister. If this parameter is not specified, listening will
    *     be disabled for all registered callbacks.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.

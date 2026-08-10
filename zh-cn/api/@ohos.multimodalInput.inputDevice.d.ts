@@ -224,7 +224,7 @@ declare namespace inputDevice {
    * 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
    *
    * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
-   * @param { Callback<DeviceListener> } listener - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
+   * @param { Callback<DeviceListener> } [listener] - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
