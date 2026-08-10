@@ -17147,7 +17147,7 @@ declare namespace photoAccessHelper {
    * @atomicservice
    * @since 26.1.0 dynamic&static
    */
-  export enum PickerColorMode {
+  export declare enum PickerColorMode {
     /**
      * Same with the system.
      *
