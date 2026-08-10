@@ -9498,7 +9498,8 @@ declare namespace window {
      *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -9512,7 +9513,8 @@ declare namespace window {
      * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
@@ -9532,7 +9534,8 @@ declare namespace window {
      *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -9547,7 +9550,8 @@ declare namespace window {
      *     if not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
