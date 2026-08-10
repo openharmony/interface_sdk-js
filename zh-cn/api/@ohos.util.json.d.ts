@@ -76,13 +76,13 @@ declare namespace json {
   function stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string;
 
   /**
-   * 该方法将一个ArkTS对象或数组转换为JSON字符串，支持线性容器的转换，不支持非线性容器（传入非线性容器时无法正确序列化）。
+   * 该方法将一个ArkTS对象或数组转换为JSON字符串，支持线性容器的转换，不支持非线性容器。
    *
    * @param { Object } value - ArkTS对象或数组，支持线性容器的转换，不支持非线性容器。
-   * @param { Transformer } [replacer] - 序列化期间，序列化值的每个键都由此函数转换和处理。默认值为undefined。
-   * @param { string | number } [space] - 为提高可读性，添加到输出JSON字符串中的缩进、空白或换行字符。如果是数字，表示作为缩进的空格字符数。
-   *     如果是字符串，该字符串将插入到输出JSON字符串之前。如果传入null，不使用任何空白字符。默认值为空字符串。
-   * @returns { string } 返回JSON文本。
+   * @param { Transformer } [replacer] - 在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理。
+   * 当参数未提供时，则对象所有的属性都会被直接序列化，不经过转换处理。默认值是undefined。
+   * @param { string | number } [space] - 指定缩进用的空格或字符串，用于美化输出。当参数是数字时表示缩进空格数；当参数是字符串时表示缩进字符；无参数则无缩进。默认值是空字符串。
+   * @returns { string } 表示对象或数组经序列化处理后生成的JSON格式文本字符串。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -165,7 +165,7 @@ declare namespace json {
    */
   interface ParseOptions {
     /**
-     * 定义处理BigInt的模式。
+     * 定义处理BigInt的模式。由于JSON规范不支持BigInt类型，且Number精度范围为-(2^53-1)到(2^53-1)，本模块提供三种模式以适配不同场景的整数精度需求。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

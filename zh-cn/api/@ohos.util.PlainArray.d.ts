@@ -19,7 +19,7 @@
  * PlainArray和[LightWeightMap]{@link @ohos.util.LightWeightMap}都是用来存储键值对，且均采用轻量级结构，
  * 但PlainArray的key值类型仅限于number。
  * **推荐使用场景：** 当需要存储key值为number类型的键值对时，可以使用PlainArray。
- * 文档中使用了泛型，涉及以下泛型标记符：
+ * 文档中使用了泛型，涉及以下泛型类型参数：
  *
  * - T：Type，类型
  *
@@ -286,7 +286,7 @@ declare class PlainArray<T> {
   /**
    * 获取包含容器中所有键和值的字符串。
    *
-   * @returns { String } 返回将容器中所有键和值拼接而成的字符串。
+   * @returns { String } 返回对应字符串。
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -296,7 +296,7 @@ declare class PlainArray<T> {
    */
   toString(): String;
   /**
-   * 查找指定下标元素键值对中的Value值，失败则返回undefined。
+   * 查找指定下标元素键值对中的value值，失败则返回undefined。
    *
    * @param { int } index - 指定下标。需要小于等于int32_max即2147483647。
    * @returns { T } 返回该下标元素键值对中的value值，失败返回undefined。

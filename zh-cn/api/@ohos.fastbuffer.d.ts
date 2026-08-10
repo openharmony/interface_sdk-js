@@ -91,7 +91,7 @@ declare namespace fastbuffer {
      * 根据不同的编码格式，返回指定内容的字节数。
      *
      * @param { string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } value - 指定用于计算字节长度的内容。
-     * @param { BufferEncoding } [encoding] - 编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+     * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
      * @returns { number } 返回指定内容的字节数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -161,8 +161,8 @@ declare namespace fastbuffer {
     /**
      * 根据指定编码格式的字符串，创建新的FastBuffer对象。
      *
-     * @param { string } value - 字符串。
-     * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+     * @param { string } value - 用于创建FastBuffer对象的字符串。
+     * @param { BufferEncoding } [encoding] - 编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
      * @returns { FastBuffer } 返回新的FastBuffer对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -173,7 +173,7 @@ declare namespace fastbuffer {
     /**
      * 判断`obj`是否为FastBuffer。
      *
-     * @param { Object } obj - 要判断是否为FastBuffer的对象。
+     * @param { Object } obj - 待判断是否为FastBuffer的对象。
      * @returns { boolean } 如果obj是FastBuffer，则返回true，否则返回false。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -184,7 +184,7 @@ declare namespace fastbuffer {
     /**
      * 判断`encoding`是否为支持的编码格式。
      *
-     * @param { string } encoding - 编码格式，支持的格式范围为[BufferEncoding]{@link fastbuffer.BufferEncoding}。
+     * @param { string } encoding - 待判断是否为支持的编码格式。
      *
      * @returns { boolean } 是支持的编码格式返回true，反之则返回false。
      * @syscap SystemCapability.Utils.Lang
@@ -207,11 +207,12 @@ declare namespace fastbuffer {
      */
     function compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 1;
     /**
-     * 将FastBuffer或Uint8Array对象从fromEnc编码转换为toEnc编码。
+     * 将FastBuffer或Uint8Array对象从fromEnc编码转换为toEnc编码。适用于需要在不同编码格式之间转换数据的场景。例如，将UTF-8编码的数据转换为Latin1编码，以便在仅支持ASCII的系统中处理。
      *
-     * @param { FastBuffer | Uint8Array } source - 待转码的FastBuffer或Uint8Array实例，提供需要重新编码的源数据。
-     * @param { string } fromEnc - 当前编码格式。支持的格式范围为BufferEncoding。传入空字符串时，表示使用编码格式'utf8'。
-     * @param { string } toEnc - 目标编码。支持的格式范围为BufferEncoding。
+     * @param { FastBuffer | Uint8Array } source - 需要进行编码转换的源数据对象，将从fromEnc编码转换为toEnc编码。
+     * @param { string } fromEnc - 当前编码格式。支持的格式范围为'ascii' | 'utf8' | 'utf16le' | 'ucs2' | 'latin1' | 'binary'。传入空字符串时，
+     * 表示使用编码格式'utf8'。
+     * @param { string } toEnc - 目标编码。支持的格式范围为'ascii' | 'utf8' | 'utf16le' | 'ucs2' | 'latin1' | 'binary'。
      * @returns { FastBuffer } 将当前编码转换成目标编码，并返回一个新的FastBuffer对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -239,7 +240,7 @@ declare namespace fastbuffer {
          */
         length: number;
         /**
-         * ArrayBuffer对象。
+         * FastBuffer底层对应的ArrayBuffer对象。
          *
          * @type { ArrayBuffer }
          * @syscap SystemCapability.Utils.Lang
@@ -249,7 +250,7 @@ declare namespace fastbuffer {
          */
         buffer: ArrayBuffer;
         /**
-         * 当前Buffer所在内存池的偏移量。
+         * 当前FastBuffer底层ArrayBuffer的偏移量。
          *
          * @type { number }
          * @syscap SystemCapability.Utils.Lang
@@ -259,7 +260,7 @@ declare namespace fastbuffer {
          */
         byteOffset: number;
         /**
-         * 使用`value`填充当前对象指定位置的数据，默认为循环填充，并返回填充后的FastBuffer对象。
+         * 使用`value`填充当前对象指定位置的数据，当`value`长度小于待填充范围时将循环重复`value`进行填充，并返回填充后的FastBuffer对象。
          *
          * @param { string | FastBuffer | Uint8Array | number } value - 用于填充的值。
          * @param { number } [offset] - 起始偏移量。默认值：0。取值范围：0 <= offset <= this.length。
@@ -343,7 +344,7 @@ declare namespace fastbuffer {
          * @param { string | number | FastBuffer | Uint8Array } value - 要查找的内容。
          * @param { number } [byteOffset] - 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：0。
          * @param { BufferEncoding } [encoding] - 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
-         * @returns { number } 返回第一次出现的位置。
+         * @returns { number } 返回第一次出现的位置。如果不包含`value`，则返回-1。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -353,7 +354,7 @@ declare namespace fastbuffer {
         /**
          * 返回一个包含key值的迭代器，其中key为字节索引位置，范围为0到length-1。
          *
-         * @returns { IterableIterator<number> }
+         * @returns { IterableIterator<number> } 返回一个包含key值的迭代器。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -363,7 +364,7 @@ declare namespace fastbuffer {
         /**
          * 返回一个包含FastBuffer字节值的迭代器。
          *
-         * @returns { IterableIterator<number> }
+         * @returns { IterableIterator<number> } 包含FastBuffer中每个字节值的迭代器。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -373,7 +374,7 @@ declare namespace fastbuffer {
         /**
          * 返回一个包含key值和value值的迭代器，其中key为字节索引位置，value为该位置的字节值。
          *
-         * @returns { IterableIterator<[number, number]> }
+         * @returns { IterableIterator<[number, number]> } 包含key和value的迭代器，同时两者皆为number类型。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -388,8 +389,8 @@ declare namespace fastbuffer {
          *
          * @param { string | number | FastBuffer | Uint8Array } value - 要搜索的内容。
          * @param { number } [byteOffset] - 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：this.length - 1。
-         * @param { BufferEncoding } [encoding] - 字符编码格式。默认值：'utf8'。
-         * @returns { number } 最后一次出现`value`值的索引。
+         * @param { BufferEncoding } [encoding] - 字符编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+         * @returns { number } 最后一次出现`value`值的索引。如果对象不包含`value`，则返回-1。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
@@ -399,7 +400,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的大端序64位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。
          * @returns { bigint } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -411,7 +412,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的小端序64位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。
          * @returns { bigint } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -423,7 +424,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取无符号的大端序64位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。
          * @returns { bigint } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -435,7 +436,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取无符号的小端序64位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。
          * @returns { bigint } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -447,7 +448,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取64位大端序双精度值。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -471,7 +472,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取32位大端序浮点数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -483,7 +484,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取32位小端序浮点数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -495,7 +496,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的8位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 1，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -507,7 +508,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的大端序16位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -519,7 +520,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的小端序16位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -531,7 +532,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的大端序32位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -543,7 +544,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取有符号的小端序32位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -579,9 +580,9 @@ declare namespace fastbuffer {
          */
         readIntLE(offset: number, byteLength: number): number;
         /**
-         * 从`offset`处读取8位无符号整型数。
+         * 从指定的`offset`处读取8位无符号整型数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 1，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -593,7 +594,7 @@ declare namespace fastbuffer {
         /**
          * 从指定的`offset`处读取无符号的大端序16位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -603,9 +604,9 @@ declare namespace fastbuffer {
          */
         readUInt16BE(offset?: number): number;
         /**
-         * 从指定的`offset`处的buf读取无符号的小端序16位整数。
+         * 从指定的`offset`处读取无符号的小端序16位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -615,9 +616,9 @@ declare namespace fastbuffer {
          */
         readUInt16LE(offset?: number): number;
         /**
-         * 从指定的`offset`处的buf读取无符号的大端序32位整数。
+         * 从指定的`offset`处读取无符号的大端序32位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -627,9 +628,9 @@ declare namespace fastbuffer {
          */
         readUInt32BE(offset?: number): number;
         /**
-         * 从指定的`offset`处的buf读取无符号的小端序32位整数。
+         * 从指定的`offset`处读取无符号的小端序32位整数。
          *
-         * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
+         * @param { number } [offset] - 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。
          * @returns { number } 读取出的内容。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          * @syscap SystemCapability.Utils.Lang
@@ -639,9 +640,9 @@ declare namespace fastbuffer {
          */
         readUInt32LE(offset?: number): number;
         /**
-         * 从指定的`offset`处的buf读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号大端序整数。
+         * 从指定的`offset`处读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号大端序整数。
          *
-         * @param { number } offset - 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。
+         * @param { number } offset - 偏移量。取值范围：0 <= offset <= this.length - byteLength。
          * @param { number } byteLength - 要读取的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 读取出的内容。当offset为小数时，返回undefined。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -652,9 +653,9 @@ declare namespace fastbuffer {
          */
         readUIntBE(offset: number, byteLength: number): number;
         /**
-         * 从指定的`offset`处的buf读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号小端序整数。
+         * 从指定的`offset`处读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号小端序整数。
          *
-         * @param { number } offset - 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。
+         * @param { number } offset - 偏移量。取值范围：0 <= offset <= this.length - byteLength。
          * @param { number } byteLength - 读取的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 读取出的内容。当offset为小数时，返回undefined。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -665,10 +666,11 @@ declare namespace fastbuffer {
          */
         readUIntLE(offset: number, byteLength: number): number;
         /**
-         * 截取当前对象指定位置的数据并返回。
+         * 截取当前对象指定位置的数据并返回。返回的FastBuffer对象与原对象共享同一内存区域，修改任一对象的数据都会影响另一个。
          *
          * @param { number } [start] - 截取开始位置。默认值：0。
-         * @param { number } [end] - 截取结束位置（不包含结束位置）。默认值：当前对象的字节长度。取值范围：start <= end <= this.length。传入null时返回空FastBuffer。
+         * @param { number } [end] - 截取结束位置（不包含结束位置）。默认值：当前对象的字节长度。取值范围：start <= end <= this.length。
+         * 传入null时返回长度为0的FastBuffer对象。
          * @returns { FastBuffer } 返回新的FastBuffer对象。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
@@ -677,7 +679,7 @@ declare namespace fastbuffer {
          */
         subarray(start?: number, end?: number): FastBuffer;
         /**
-         * 将当前对象转换为无符号的16位整数数组，并交换字节顺序。
+         * 以16位无符号整数为单位交换当前对象的字节顺序。
          *
          * @returns { FastBuffer } 交换之后的FastBuffer对象。
          * @throws { BusinessError } 10200009 - The fastbuffer size must be a multiple of 16-bits
@@ -710,7 +712,7 @@ declare namespace fastbuffer {
          */
         swap64(): FastBuffer;
         /**
-         * 将Buffer转为JSON并返回。
+         * 将FastBuffer转为JSON并返回。
          *
          * @returns { Object } JSON对象。
          * @syscap SystemCapability.Utils.Lang
@@ -724,7 +726,7 @@ declare namespace fastbuffer {
          *
          * @param { string } [encoding] - 字符编码格式。默认值：'utf8'。
          * @param { number } [start] - 开始位置。默认值：0。
-         * @param { number } [end] - 结束位置。默认值：Buffer.length。
+         * @param { number } [end] - 结束位置。默认值：this.length。
          * @returns { string } 字符串。当start >= this.length或start > end时返回空字符串。
          * @throws { BusinessError } 10200068 - The underlying ArrayBuffer is null or detach.
          * @syscap SystemCapability.Utils.Lang
@@ -734,12 +736,12 @@ declare namespace fastbuffer {
          */
         toString(encoding?: string, start?: number, end?: number): string;
         /**
-         * 在FastBuffer对象的offset偏移处写入指定编码的字符串，写入的字节长度为length。
+         * 在FastBuffer对象的offset偏移处写入指定编码的字符串，最大写入字节长度为length，实际写入字节数取决于字符串编码后的字节数。
          *
-         * @param { string } str - 要写入Buffer的字符串。
+         * @param { string } str - 要写入FastBuffer的字符串。
          * @param { number } [offset] - 偏移量。默认值：0。
-         * @param { number } [length] - 最大字节长度。默认值：（this.length - offset）。
-         * @param { string } [encoding] - 字符编码。默认值：'utf8'。
+         * @param { number } [length] - 最大字节长度。默认值：(this.length - offset)。
+         * @param { string } [encoding] - 字符编码格式，支持的格式范围参考BufferEncoding。默认值：'utf8'。
          * @returns { number } 写入的字节数。
          * @throws { BusinessError } 10200001 - Range error. Possible causes:
          * The value of the parameter is not within the specified range.
@@ -753,7 +755,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入有符号的大端序64位BigInt型数据。
          *
-         * @param { bigint } value - 写入Buffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。
+         * @param { bigint } value - 写入FastBuffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -766,7 +768,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入有符号的小端序64位BigInt型数据。
          *
-         * @param { bigint } value - 写入Buffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。
+         * @param { bigint } value - 写入FastBuffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -779,7 +781,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入无符号的大端序64位BigUInt型数据。
          *
-         * @param { bigint } value - 写入Buffer的数据。取值范围：0 <= value <= UINT64_MAX。
+         * @param { bigint } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT64_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -792,7 +794,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入无符号的小端序64位BigUInt型数据。
          *
-         * @param { bigint } value - 写入Buffer的数据。取值范围：0 <= value <= UINT64_MAX。
+         * @param { bigint } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT64_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -805,7 +807,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的64位双浮点型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -818,7 +820,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的64位双浮点型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -831,7 +833,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的32位浮点型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -844,7 +846,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的32位浮点型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
@@ -857,7 +859,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入8位有符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-INT8_MAX <= value <= INT8_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-INT8_MAX <= value <= INT8_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -870,7 +872,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的16位有符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -883,7 +885,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的16位有符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -896,7 +898,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的32位有符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -909,7 +911,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的32位有符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -922,9 +924,9 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的有符号数据，字节长度为byteLength。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围取决于byteLength。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-2^(8×byteLength-1) ≤ value ≤ 2^(8×byteLength-1)-1。
          * @param { number } offset - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。
-         * @param { number } byteLength - 要写入的字节数。
+         * @param { number } byteLength - 要写入的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -936,9 +938,9 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的有符号数据，字节长度为byteLength。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围取决于byteLength。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：-2^(8×byteLength-1) ≤ value ≤ 2^(8×byteLength-1)-1。
          * @param { number } offset - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。
-         * @param { number } byteLength - 要写入的字节数。
+         * @param { number } byteLength - 要写入的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -950,7 +952,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入8位无符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：0 <= value <= UINT8_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT8_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -963,7 +965,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的16位无符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：0 <= value <= UINT16_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT16_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -976,7 +978,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的16位无符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：0 <= value <= UINT16_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT16_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -989,7 +991,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的32位无符号整型数据。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围：0 <= value <= UINT32_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT32_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -1002,7 +1004,7 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的32位无符号整型数据。
          *
-         * @param { number } value - 写入FastBuffer对象的数据。取值范围：0 <= value <= UINT32_MAX。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 <= value <= UINT32_MAX。
          * @param { number } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
@@ -1015,9 +1017,9 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入大端序的无符号数据，字节长度为byteLength。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围取决于byteLength。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 ≤ value ≤ 2^(8×byteLength)-1。
          * @param { number } offset - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。
-         * @param { number } byteLength - 要写入的字节数。
+         * @param { number } byteLength - 要写入的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang
@@ -1029,9 +1031,9 @@ declare namespace fastbuffer {
         /**
          * 在FastBuffer对象的offset偏移处写入小端序的无符号数据，字节长度为byteLength。
          *
-         * @param { number } value - 写入Buffer的数据。取值范围取决于byteLength。
+         * @param { number } value - 写入FastBuffer的数据。取值范围：0 ≤ value ≤ 2^(8×byteLength)-1。
          * @param { number } offset - 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。
-         * @param { number } byteLength - 要写入的字节数。
+         * @param { number } byteLength - 要写入的字节数。取值范围：1 <= byteLength <= 6。
          * @returns { number } 偏移量offset加上写入的字节数。
          * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          * @syscap SystemCapability.Utils.Lang

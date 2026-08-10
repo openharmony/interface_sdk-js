@@ -73,7 +73,7 @@ declare class HashSet<T> {
   /**
    * 判断HashSet是否为空。
    *
-   * @returns { boolean } 为空返回true，不为空返回false。
+   * @returns { boolean } 为空时返回true，不为空时返回false。
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -204,7 +204,7 @@ declare class HashSet<T> {
   /**
    * 返回一个迭代器，迭代器的每一项为HashSet中的元素。
    *
-   * @returns { IterableIterator<T> } 返回一个迭代器。
+   * @returns { IterableIterator<T> } 返回包含此HashSet中所有元素的迭代器对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -216,9 +216,9 @@ declare class HashSet<T> {
 /**
  * HashSet中forEach方法的回调函数。
  *
- * @param { T } value - 当前遍历到的元素键值对的值。
- * @param { T } key - 当前遍历到的元素键值对的键（和value相同）。
- * @param { HashSet<T> } set - 当前调用forEach方法的实例对象，默认值为当前实例对象。
+ * @param { T } value - 当前遍历到的元素值，forEach遍历过程中总会传入此参数。
+ * @param { T } key - 当前遍历到的元素值（与value相同），forEach遍历过程中总会传入此参数。
+ * @param { HashSet<T> } set - 当前调用forEach方法的实例对象。
  * @returns { void } 此回调不返回值。
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice

@@ -220,10 +220,9 @@ declare namespace process {
     /**
      * 发送信号到指定的进程，结束指定进程（仅支持结束本进程）。
      *
-     * @param { number } signal - 发送特定的信号给目标进程。取值范围：1 <= signal <= 64。
-     * @param { number } pid - 进程的 id。
-     * @returns { boolean } 信号是否发送成功。如果信号发送成功则返回 true；
-     *     否则返回 false。
+     * @param { number } signal - 发送特定的信号给指定进程。取值范围：1 <= signal <= 64。
+     * @param { number } pid - 进程的id。可通过process.pid获取。
+     * @returns { boolean } 信号是否发送成功。如果信号发送成功则返回true，否则返回false。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -263,7 +262,7 @@ declare namespace process {
   const gid: number;
 
   /**
-   * 进程的用户标识（UID）。
+   * 进程的用户标识。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -303,7 +302,7 @@ declare namespace process {
   const ppid: number;
 
   /**
-   * 线程的 ID（TID）。
+   * 当前线程的tid。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

@@ -96,7 +96,7 @@ declare class Deque<T> {
   /**
    * 判断此Deque中是否包含指定元素。
    *
-   * @param { T } element - 指定的元素。
+   * @param { T } element - 要在Deque中查找的指定元素，用于判断Deque是否包含该元素。类型需与Deque实例化时指定的泛型类型T一致。
    * @returns { boolean } 如果包含指定元素返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -178,7 +178,8 @@ declare class Deque<T> {
   /**
    * 通过回调函数遍历Deque实例中的每个元素。
    *
-   * @param { DequeForEachCb<T> } callbackFn - 回调函数。
+   * @param { DequeForEachCb<T> } callbackFn - 遍历每个元素时执行的回调函数，执行时的this值可通过thisArg参数指定。在回调函数执行过程中，不建议修改Deque（如插入或删除元素），
+   * 否则可能导致遍历行为异常。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

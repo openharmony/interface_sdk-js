@@ -22,7 +22,7 @@
  * >
  * > 在LinkedList中使用\[index\]的方式获取元素可能导致结果不可预测，推荐使用get()方法。
  * **推荐使用场景：** 当需要频繁的插入删除元素且需要使用双向链表时，推荐使用LinkedList。
- * 文档中使用了泛型，涉及以下泛型标记符：
+ * 文档中使用了泛型，涉及以下泛型类型参数：
  *
  * - T：Type，类型
  *
@@ -106,7 +106,7 @@ declare class LinkedList<T> {
    * 根据下标获取LinkedList中的元素。
    *
    * @param { int } index - 指定的下标值。需要小于等于int32_max即2147483647。
-   * @returns { T } 返回指定下标位置的元素，如果元素不存在返回undefined。
+   * @returns { T } 根据下标查找到的元素，元素不存在返回undefined。
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
@@ -293,7 +293,7 @@ declare class LinkedList<T> {
   /**
    * 获取LinkedList实例中的第一个元素。
    *
-   * @returns { T } 返回对应元素，如果元素为undefined则返回undefined，为null则返回null。
+   * @returns { T } 返回对应元素，若元素为空则返回undefined。
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
