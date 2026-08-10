@@ -373,6 +373,30 @@ declare namespace PiPWindow {
      * @since 26.0.0 static
      */
     VIDEO_LIVE = 3,
+
+    /**
+    * 表示将要切换为画中画播放的媒体类型是车载影像，系统依此加载车载影像模板。
+    *
+    * 设备行为差异：仅支持Car设备，其他设备不支持。
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
+    VIDEO_DRIVE = 4,
+
+    /**
+    * 表示将要切换为画中画播放的媒体类型是车载导航，系统依此加载车载导航模板。
+    *
+    * 设备行为差异：仅支持Car设备，其他设备不支持。
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use
+    * @atomicservice
+    * @since 26.1.0 dynamic&static
+    */
+    VIDEO_NAVIGATION = 5,
   }
 
   /**
