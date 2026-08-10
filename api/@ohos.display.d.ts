@@ -773,8 +773,7 @@ declare namespace display {
    * @param { long } screenId - Screen ID, which must match the ID of the virtual screen created by calling the
    *     [createVirtualScreen()]{@link display.createVirtualScreen} API. This parameter only accepts integer values.
    * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can use the
-   *     [getXComponentSurfaceId]
-   *     (docroot://reference/apis-arkui/arkui-ts/ts-basic-components-xcomponent.md#getxcomponentsurfaceid9) method to
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method to
    *     obtain the ID of the surface corresponding to an existing surface. The maximum length for this
    *     parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes are used.
    * @returns { Promise<void> } Promise that returns no value.
@@ -795,8 +794,7 @@ declare namespace display {
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
    * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can use the
-   *     [getXComponentSurfaceId]
-   *     (docroot://reference/apis-arkui/arkui-ts/ts-basic-components-xcomponent.md#getxcomponentsurfaceid9) method to
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method to
    *     obtain the ID of the surface corresponding to an existing surface. The maximum length for this
    *     parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes are used.
    * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen displayed by the surface.
