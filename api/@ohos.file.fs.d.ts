@@ -6008,8 +6008,8 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * Start position of the file to read (current **filePointer** plus **offset**), in bytes. This parameter is optional.
-   * By default, data is read from the **filePointer**.
+   * Start position of the file to read, in bytes. This parameter is optional.
+   * By default, data is read from the current position.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -6059,8 +6059,8 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * Start position of the file to write (current **filePointer** plus **offset**), in bytes. This parameter is
-   * optional. By default, data is written from the **filePointer**.
+   * Start position of the file to write, in bytes. This parameter is
+   * optional. By default, data is written from the current position.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]

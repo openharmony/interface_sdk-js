@@ -15,8 +15,7 @@
  */
 
 /**
- * This module is the core module of Core File Kit. It provides APIs for basic file operations, such as creating,
- * opening, reading, writing, copying, moving, deleting, and querying files and directories in the application sandbox.
+ * 本模块是Core File Kit的核心模块，提供基础文件操作API，用于对应用沙箱内的文件和目录进行创建、打开、读写、拷贝、移动、删除、查询属性等操作。
  *
  * @file File Management
  * @kit CoreFileKit
@@ -34,15 +33,14 @@ import stream from './@ohos.util.stream';
 declare namespace fileIo {
 
   /**
-   * Enumerates the constants of the **mode** parameter used in **open()**, which specifies the file opening mode, such
-   * as **READ_ONLY**, **WRITE_ONLY**, **READ_WRITE**, or **CREATE**.
+   * open接口flags参数常量，用于指定文件打开模式（如只读、只写、读写、创建等）。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
   namespace OpenMode {
     /**
-     * Read only Permission. The value is 0o0.
+     * 只读打开。值为 0o0。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -50,7 +48,7 @@ declare namespace fileIo {
      */
     const READ_ONLY: int;
     /**
-     * Write only Permission. The value is 0o1.
+     * 只写打开。值为 0o1。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -58,7 +56,7 @@ declare namespace fileIo {
      */
     const WRITE_ONLY: int;
     /**
-     * Write and Read Permission. The value is 0o2.
+     * 读写打开。值为 0o2。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -66,7 +64,7 @@ declare namespace fileIo {
      */
     const READ_WRITE: int;
     /**
-     * If not exist, create file. The value is 0o100.
+     * 若文件不存在，则创建文件。值为 0o100。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -74,7 +72,7 @@ declare namespace fileIo {
      */
     const CREATE: int;
     /**
-     * File truncate len 0. The value is 0o1000.
+     * 如果文件存在且以只写或读写的方式打开，则将其长度裁剪为零。值为 0o1000
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -82,7 +80,7 @@ declare namespace fileIo {
      */
     const TRUNC: int;
     /**
-     * File append write. The value is 0o2000.
+     * 以追加方式打开，后续写将追加到文件末尾。值为 0o2000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -90,7 +88,7 @@ declare namespace fileIo {
      */
     const APPEND: int;
     /**
-     * File open in nonblocking mode. The value is 0o4000.
+     * 如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。值为 0o4000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -98,7 +96,7 @@ declare namespace fileIo {
      */
     const NONBLOCK: int;
     /**
-     * File is Dir. The value is 0o200000.
+     * 如果path不指向目录，则出错。值为 0o200000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -106,7 +104,7 @@ declare namespace fileIo {
      */
     const DIR: int;
     /**
-     * File is not symbolic link. The value is 0o400000.
+     * 如果path指向符号链接，则出错。值为 0o400000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -114,7 +112,7 @@ declare namespace fileIo {
      */
     const NOFOLLOW: int;
     /**
-     * SYNC IO. The value is 0o4010000.
+     * 以同步IO的方式打开文件。值为 0o4010000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -122,7 +120,7 @@ declare namespace fileIo {
      */
     const SYNC: int;
     /**
-     * UNCACHE IO. The value is 0o10000000000.
+     * 读写文件不进行页缓存。值为 0o10000000000。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -132,17 +130,13 @@ declare namespace fileIo {
   }
 
 /**
- * Checks whether a file or directory exists or has the operation permission. This API uses a promise to return the
- * result.
+ * 检查文件或目录是否存在，或校验操作权限。使用Promise异步回调。
  *
- * If the read, write, or read and write permission verification fails, the error code 13900012
- * (Permission denied) will be thrown.
+ * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { AccessModeType } [mode] - Permission on the file or directory to check. If this
- *     parameter is left blank, the system checks whether the file exists.
- * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the file or directory
- *     exists; the value **false** means the opposite.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { AccessModeType } [mode] - 文件或目录校验的权限。不填该参数则默认校验文件是否存在。
+ * @returns { Promise<boolean> } Promise对象。返回true表示文件或目录存在；返回false表示文件或目录不存在。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -161,11 +155,10 @@ declare namespace fileIo {
 function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
 /**
- * Checks whether a file or directory exists. This API uses an asynchronous callback to return the result.
+ * 检查文件或目录是否存在。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the file
- *     exists; the value **false** means the opposite.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { AsyncCallback<boolean> } callback - 异步检查文件或目录是否存在的回调。如果存在，回调返回true；否则返回false。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -184,18 +177,14 @@ function access(path: string, mode?: AccessModeType): Promise<boolean>;
 function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
- * Checks whether the file or directory is on the local host or verifies the operation permission. This API uses a
- * promise to return the result.
+ * 检查文件或目录是否在本地，或校验操作权限。使用Promise异步回调。
  *
- * If the read, write, or read and write permission verification fails, the error code 13900012
- * (Permission denied) will be thrown.
+ * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { AccessModeType } mode - Permission on the file or directory to check.
- * @param { AccessFlagType } flag - Position of the file or directory to check.
- * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the file or directory
- *     is a local one and has the related permission. The value **false** means the file or directory
- *     does not exist or is on the cloud or a distributed device.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { AccessModeType } mode - 文件或目录校验的权限。
+ * @param { AccessFlagType } flag - 文件或目录校验的位置。
+ * @returns { Promise<boolean> } Promise对象。返回true表示文件或目录在本地且校验权限存在；返回false表示文件或目录不存在或者文件或目录在云端或其他分布式设备上。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -213,16 +202,13 @@ function access(path: string, callback: AsyncCallback<boolean>): void;
 function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
 
 /**
- * Checks whether a file or directory exists or has the operation permission. This API returns the
- * result synchronously.
+ * 以同步方法检查文件或目录是否存在，或校验操作权限。
  *
- * If the read, write, or read and write permission verification fails, the error code 13900012
- * (Permission denied) will be thrown.
+ * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { AccessModeType } [mode] - Permission on the file or directory to check. If this
- *     parameter is left blank, the system checks whether the file or directory exists.
- * @returns { boolean } The value **true** means the file or directory exists; the value **false** means the opposite.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { AccessModeType } [mode] - 文件或目录校验的权限。不填该参数则默认校验文件或目录是否存在。
+ * @returns { boolean } 返回true，表示文件或目录存在；返回false，表示文件或目录不存在。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -241,17 +227,14 @@ function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promi
 function accessSync(path: string, mode?: AccessModeType): boolean;
 
 /**
- * Checks whether a file or directory is stored locally or has the operation permission. This API returns the result
- * synchronously.
+ * 以同步方法检查文件或目录是否在本地，或校验操作权限。
  *
- * If the read, write, or read and write permission verification fails, the error code 13900012
- * (Permission denied) will be thrown.
+ * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { AccessModeType } mode - Permission on the file or directory to check.
- * @param { AccessFlagType } flag - Position of the file or directory to check.
- * @returns { boolean } The value **true** means the file or directory is a local one and has the related permission.
- *     The value **false** means the file or directory does not exist or is on the cloud or a distributed device.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { AccessModeType } mode - 文件或目录校验的权限。
+ * @param { AccessFlagType } flag - 文件或目录校验的位置。
+ * @returns { boolean } 返回true，表示文件或目录在本地且校验权限存在；返回false，表示文件或目录不存在或者文件或目录在云端或其他分布式设备上。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -269,13 +252,10 @@ function accessSync(path: string, mode?: AccessModeType): boolean;
 function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
 /**
- * Closes a file or directory. After the file or directory is closed, the FD becomes invalid and
- * cannot be used for read /write operations. This API uses a promise to return the result.
+ * 关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。使用Promise异步回调。
  *
- * @param { int | File } file - **File** object or FD of the file to close. After the function is disabled,
- *     the **File** object or FD cannot be used for read and write operations.
- *     If the file object or file descriptor is still used, an error may occur or the operation may fail.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { int | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -288,14 +268,10 @@ function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): b
 function close(file: int | File): Promise<void>;
 
 /**
- * Closes a file or directory. After the file or directory is closed, the FD becomes invalid and
- * cannot be used for read /write operations. This API uses an asynchronous callback to return the result.
+ * 关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。使用callback异步回调。
  *
- * @param { int | File } file - **File** object or FD of the file to close. After the function is disabled,
- *     the **File** object or FD cannot be used for read and write operations.
- *     If the file object or file descriptor is still used, an error may occur or the operation may fail.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. When the file or directory is
- *     successfully closed asynchronously, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { int | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
+ * @param { AsyncCallback<void> } callback - 回调函数。当异步关闭文件或目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -308,12 +284,9 @@ function close(file: int | File): Promise<void>;
 function close(file: int | File, callback: AsyncCallback<void>): void;
 
 /**
- * Closes a file or directory synchronously. After the file or directory is closed, the FD becomes
- * invalid and cannot be used for read/write operations.
+ * 以同步方法关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。
  *
- * @param { int | File } file - **File** object or FD of the file to close. After the function is disabled,
- *     the **File** object or FD cannot be used for read and write operations.
- *     If the file object or file descriptor is still used, an error may occur or the operation may fail.
+ * @param { int | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -326,19 +299,16 @@ function close(file: int | File, callback: AsyncCallback<void>): void;
 function closeSync(file: int | File): void;
 
 /**
- * Copies a file or directory. This API uses a promise to return the result.
+ * 拷贝文件或目录。使用Promise异步回调。
  *
- * File copy across devices is supported. This API forcibly overwrites the file or directory. The
- * input parameter can be the URI of the file or directory.
+ * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
- * A maximum of 10 cross-device copy tasks are allowed at the same time, and the number of files
- * to be copied at a time cannot exceed 500.
+ * 跨端拷贝时，最多同时存在10个拷贝任务；单次拷贝的文件数量不得超过500个。
  *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { CopyOptions } [options] - Callback invoked to provide the copy progress. If this parameter is not set, the
- *     callback will not be invoked.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } srcUri - 待复制文件或目录的URI。
+ * @param { string } destUri - 目标文件或目录的URI。
+ * @param { CopyOptions } [options] - options中提供拷贝进度回调。不填该参数则无拷贝进度回调。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -372,18 +342,15 @@ function closeSync(file: int | File): void;
 function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * 拷贝文件或者目录。使用callback异步回调。
  *
- * File copy across devices is supported. This API forcibly overwrites the file or directory. The
- * input parameter can be the URI of the file or directory.
+ * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
- * A maximum of 10 cross-device copy tasks are allowed at the same time, and the number of files
- * to be copied at a time cannot exceed 500.
+ * 跨端拷贝时，最多同时存在10个拷贝任务；单次拷贝的文件数量不得超过500个。
  *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the copy is successful, **err** is
- *     **undefined**. Otherwise, **err** is an error object.
+ * @param { string } srcUri - 待复制文件或目录的URI。
+ * @param { string } destUri - 目标文件或目录的URI。
+ * @param { AsyncCallback<void> } callback - 回调函数。当拷贝成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -416,19 +383,16 @@ function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<v
 function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copies a file or directory. This API uses an asynchronous callback to return the result.
+ * 拷贝文件或者目录。使用callback异步回调。
  *
- * File copy across devices is supported. This API forcibly overwrites the file or directory. The
- * input parameter can be the URI of the file or directory.
+ * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
- * A maximum of 10 cross-device copy tasks are allowed at the same time, and the number of files
- * to be copied at a time cannot exceed 500.
+ * 跨端拷贝时，最多同时存在10个拷贝任务；单次拷贝的文件数量不得超过500个。
  *
- * @param { string } srcUri - URI of the file or directory to copy.
- * @param { string } destUri - URI of the destination file or directory.
- * @param { CopyOptions } options - Callback used to return the copy progress.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the copy is successful, **err** is
- *     **undefined**. Otherwise, **err** is an error object.
+ * @param { string } srcUri - 待复制文件或目录的URI。
+ * @param { string } destUri - 目标文件或目录的URI。
+ * @param { CopyOptions } options - 拷贝进度回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当拷贝成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -461,23 +425,15 @@ function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): v
 function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
- * Copies the source directory and its content to the destination path. You can set the conflict
- * handling mode. This API uses a promise to return the result.
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用Promise异步回调。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } [mode] - Copy mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be copied to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The **data** attribute in the error returned provides information about
- *     the conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **1**: Forcibly overwrite the files with the same name in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } [mode] - 复制模式，默认值为0。<br/>
+ *     - mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目
+ *     标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
+ *     - mode为1，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -502,18 +458,13 @@ function copy(srcUri: string, destUri: string, options: CopyOptions, callback: A
 function copyDir(src: string, dest: string, mode?: int): Promise<void>;
 
 /**
- * Copies the source directory and its content to the destination path. This API uses an
- * asynchronous callback to return the result.
+ * 复制源目录及其内容至目标路径下。使用callback异步回调。
  *
- * An exception will be thrown if the destination directory contains a directory with the same name as the source
- * directory and there are files with the same name in the conflicting directory. All the non-conflicting files in the
- * source directory will be copied to the destination directory, and the non-conflicting files in the destination
- * directory will be retained.
+ * 如果目标目录下有与源目录名冲突的目录，且冲突目录下有同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目标目录下未冲突文件将继续保留。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory is successfully
- *     copied, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当复制目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -537,42 +488,30 @@ function copyDir(src: string, dest: string, mode?: int): Promise<void>;
 function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * Copies the source directory to the destination path. This API uses an asynchronous callback to return the result.
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用callback异步回调。
  *
- * An exception will be thrown if the destination directory contains a directory with the same name as the source
- * directory and there are files with the same name in the conflicting directory. All the non-conflicting files in
- * the source directory will be copied to the destination directory, and the non-conflicting files in the
- * destination directory will be retained. The data attribute in the error returned provides information about the
- * conflicting files in the Array<ConflictFiles> format.
+ * 如果目标目录下有与源目录名冲突的目录，且冲突目录下有同名文件，则抛出异常。
+ * 源目录下未冲突的文件全部移动至目标目录下，目标目录下冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<ConflictFiles>形式提供。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当复制目录成功，err为undefined；否则为错误对象。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void,
-  Array<ConflictFiles>>): void;
+   Array<ConflictFiles>>): void;
 
 /**
- * Copies the source directory and its content to the destination path. You can set the conflict
- * handling mode. This API uses an asynchronous callback to return the result.
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用callback异步回调。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } mode - Copy mode.
- *     <br>- **0**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be copied to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained.
- *     <br>- **1**: Forcibly overwrite the files with the same name in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory is successfully
- *     copied, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } mode - 复制模式。<br/>
+ *     - mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目标目录下未冲突文
+ *     件将继续保留。<br/>- mode为1，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
+ * @param { AsyncCallback<void> } callback - 回调函数。当复制目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -596,23 +535,14 @@ function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
 function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
 /**
- * Copies the source directory to the destination directory. You can set the copy mode.
- * This API uses an asynchronous callback to return the result.
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用callback异步回调。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } mode - Copy mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be copied to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The **data** attribute in the error returned provides information about
- *     the conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **1**: Forcibly overwrite the files with the same name in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } mode - 复制模式。<br/>
+ *     - mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目标目录下未冲突文
+ *     件将继续保留。<br/>- mode为1，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当复制目录成功，err为undefined；否则为错误对象。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -621,21 +551,14 @@ function copyDirWithConflictFiles(src: string, dest: string, mode: int,
   callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
- * Copies the source directory to the destination path. This API returns the result synchronously.
+ * 以同步方法复制源目录至目标路径下。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } [mode] - Copy mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be copied to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The **data** attribute in the error returned provides information about
- *     the conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **1**: Forcibly overwrite the files with the same name in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } [mode] - 复制模式，默认值为0。<br/>
+ *     - mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目
+ *     标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
+ *     - mode为1，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -661,14 +584,12 @@ function copyDirWithConflictFiles(src: string, dest: string, mode: int,
 function copyDirSync(src: string, dest: string, mode?: int): void;
 
 /**
- * Copies a file. This API uses a promise to return the result.
+ * 复制文件。使用Promise异步回调。
  *
- * @param { string | int } src - Path or FD of the file to copy.
- * @param { string | int } dest - Destination path of the file or FD of the file created.
- * @param { int } [mode] - Whether to overwrite the file with the same name in the destination directory. The default
- *     value is **0**, which is the only value supported.
- *     <br>**0**: Overwrite the file with the same name completely and truncate the part that is not overwritten.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string | int } src - 待复制文件的路径或待复制文件的文件描述符。
+ * @param { string | int } dest - 目标文件路径或目标文件的文件描述符。
+ * @param { int } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -693,13 +614,11 @@ function copyDirSync(src: string, dest: string, mode?: int): void;
 function copyFile(src: string | int, dest: string | int, mode?: int): Promise<void>;
 
 /**
- * Copies a file. This API overwrites the file with the same name in the destination directory and truncates the part
- * that is not overwritten. This API uses an asynchronous callback to return the result.
+ * 复制文件，覆盖方式为完全覆盖目标文件，未覆盖部分将被裁剪。使用callback异步回调。
  *
- * @param { string | int } src - Path or FD of the file to copy.
- * @param { string | int } dest - Destination path of the file or FD of the file created.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is successfully copied,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string | int } src - 待复制文件的路径或待复制文件的文件描述符。
+ * @param { string | int } dest - 目标文件路径或目标文件的文件描述符。
+ * @param { AsyncCallback<void> } callback - 回调函数。当复制文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -723,15 +642,12 @@ function copyFile(src: string | int, dest: string | int, mode?: int): Promise<vo
 function copyFile(src: string | int, dest: string | int, callback: AsyncCallback<void>): void;
 
 /**
- * Copies a file with the specified mode. This API uses an asynchronous callback to return the result.
+ * 复制文件，可设置覆盖文件的方式。使用callback异步回调。
  *
- * @param { string | int } src - Path or FD of the file to copy.
- * @param { string | int } dest - Destination path of the file or FD of the file created.
- * @param { int } [mode] - Whether to overwrite the file with the same name in the destination directory. The default
- *     value is **0**, which is the only value supported.
- *     <br>**0**: Overwrite the file with the same name completely and truncate the part that is not overwritten.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is successfully copied,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string | int } src - 待复制文件的路径或待复制文件的文件描述符。
+ * @param { string | int } dest - 目标文件路径或目标文件的文件描述符。
+ * @param { int } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
+ * @param { AsyncCallback<void> } callback - 回调函数。当复制文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -760,13 +676,11 @@ function copyFile(
 ): void;
 
 /**
- * Copies a file. This API returns the result synchronously.
+ * 以同步方法复制文件。
  *
- * @param { string | int } src - Path or FD of the file to copy.
- * @param { string | int } dest - Destination path of the file or FD of the file created.
- * @param { int } [mode] - Whether to overwrite the file with the same name in the destination directory. The default
- *     value is **0**, which is the only value supported.
- *     <br>**0**: Overwrite the file with the same name completely and truncate the part that is not overwritten.
+ * @param { string | int } src - 待复制文件的路径或待复制文件的文件描述符。
+ * @param { string | int } dest - 目标文件路径或目标文件的文件描述符。
+ * @param { int } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -791,23 +705,15 @@ function copyFile(
 function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
 
 /**
- * Creates a stream based on a file path. This API uses a promise to return the result. To close the stream, use
- * **close()** of [Stream]{@link fileIo.Stream}.
+ * 基于文件路径创建文件流。使用Promise异步回调。需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @returns { Promise<Stream> } Promise used to return the stream result.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @returns { Promise<Stream> } Promise对象，返回文件流的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -841,23 +747,15 @@ function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
 function createStream(path: string, mode: string): Promise<Stream>;
 
 /**
- * Creates a stream based on a file path. To close the stream, use **close()** of [Stream]{@link fileIo.Stream}. This
- * API uses an asynchronous callback to return the result.
+ * 基于文件路径创建文件流，需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @param { AsyncCallback<Stream> } callback - Callback used to return the **Stream** object.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { AsyncCallback<Stream> } callback - 回调函数，返回Stream对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -890,23 +788,15 @@ function createStream(path: string, mode: string): Promise<Stream>;
 function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
- * Creates a stream based on a file path. This API returns the result synchronously. To close the stream, use
- * **close()** of [Stream]{@link fileIo.Stream}.
+ * 以同步方法基于文件路径创建文件流。需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @returns { Stream } File stream.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @returns { Stream } 返回文件流的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -940,38 +830,23 @@ function createStream(path: string, mode: string, callback: AsyncCallback<Stream
 function createStreamSync(path: string, mode: string): Stream;
 
 /**
- * Creates a **RandomAccessFile** instance based on a file path or file object. This API uses a promise to return the
- * result.
+ * 基于文件路径或文件对象创建RandomAccessFile对象。使用Promise异步回调。
  *
- * @param { string | File } file - Application sandbox path of the file or an opened file object.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for creating the **RandomAccessFile** instance. This
- *     parameter is valid only when the application sandbox path of the file is passed in. One of
- *     the following options must be specified:
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Create the file in read-only mode. This is the default value.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Create the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Create the file in read/write mode.
- *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By
- *     default, no additional options are given.
- *     <br>- **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the **RandomAccessFile** object already exists and is
- *     created in write mode, truncate the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Create the file in append mode. New data will be added to the end of the
- *     **RandomAccessFile** object.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Create a **RandomAccessFile** instance in synchronous I/O mode.
- * @param { RandomAccessFileOptions } [options] - The options are as follows:
- *     <br>- **start** (number): start position to read data, in bytes. This parameter is
- *     optional. By default, data is read from the current position.
- *     <br>- **end** (number): end position to read data, in bytes. This parameter is optional. The
- *     default value is the end of the file.
- *     <br>This parameter takes effect only for file stream objects obtained by
- *     [getreadstream]{@link fileIo.RandomAccessFile.getReadStream} and
- *     [getwritestream]{@link fileIo.RandomAccessFile.getWriteStream}.
- * @returns { Promise<RandomAccessFile> } Promise used to return the **RandomAccessFile** object.
+ * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
+ * @param { int } [mode] - 创建文件RandomAccessFile对象的[OpenMode]{@link fileIo.OpenMode}，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，
+ *     默认以只读方式创建：<br/>- OpenMode.READ_ONLY(0o0)：只读创建。<br/>- OpenMode.WRITE_ONLY(0o1)：只写创建。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写创建。<br/>给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：<br/>
+ *     - RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。
+ * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>
+ *     - start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>
+ *     - end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。<br/>
+ *     此选项仅对[getreadstream]{@link fileIo.RandomAccessFile.getReadStream}及
+ *     [getwritestream]{@link fileIo.RandomAccessFile.getWriteStream}获取的文件流对象生效。
+ * @returns { Promise<RandomAccessFile> } Promise对象，返回RandomAccessFile对象的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1006,11 +881,10 @@ function createRandomAccessFile(file: string | File, mode?: int,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
 
 /**
- * Creates a **RandomAccessFile** instance in read-only mode based on a file path or file object. This API uses an
- * asynchronous callback to return the result.
+ * 基于文件路径或文件对象，以只读方式创建RandomAccessFile对象。使用callback异步回调。
  *
- * @param { string | File } file - Application sandbox path of the file or an opened file object.
- * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the **RandomAccessFile** object.
+ * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
+ * @param { AsyncCallback<RandomAccessFile> } callback - 回调函数，返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1043,30 +917,18 @@ function createRandomAccessFile(file: string | File, mode?: int,
 function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
- * Creates a **RandomAccessFile** instance based on a file path or file object. This API uses an asynchronous callback
- * to return the result.
+ * 基于文件路径或文件对象创建RandomAccessFile对象。使用callback异步回调。
  *
- * @param { string | File } file - Application sandbox path of the file or an opened file object.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for creating the **RandomAccessFile** instance. This
- *     parameter is valid only when the application sandbox path of the file is passed in. One of
- *     the following options must be specified:
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Create the file in read-only mode. This is the default value.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Create the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Create the file in read/write mode.
- *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By
- *     default, no additional options are given.
- *     <br>- **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the **RandomAccessFile** object already exists and is
- *     created in write mode, truncate the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Create the file in append mode. New data will be added to the end of the
- *     **RandomAccessFile** object.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Create a **RandomAccessFile** instance in synchronous I/O mode.
- * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the **RandomAccessFile** object.
+ * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
+ * @param { int } [mode] - 创建文件RandomAccessFile对象的[OpenMode]{@link fileIo.OpenMode}，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，
+ *     默认以只读方式创建：<br/>- OpenMode.READ_ONLY(0o0)：只读创建。<br/>- OpenMode.WRITE_ONLY(0o1)：只写创建。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写创建。<br/>给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：<br/>
+ *     - RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。
+ * @param { AsyncCallback<RandomAccessFile> } callback - 回调函数，返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1099,37 +961,23 @@ function createRandomAccessFile(file: string | File, callback: AsyncCallback<Ran
 function createRandomAccessFile(file: string | File, mode: int, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
- * Creates a **RandomAccessFile** instance based on a file path or file object.
+ * 基于文件路径或文件对象创建RandomAccessFile对象。
  *
- * @param { string | File } file - Application sandbox path of the file or an opened file object.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for creating the **RandomAccessFile** instance. This
- *     parameter is valid only when the application sandbox path of the file is passed in. One of
- *     the following options must be specified:
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Create the file in read-only mode. This is the default value.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Create the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Create the file in read/write mode.
- *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By
- *     default, no additional options are given.
- *     <br>- **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the **RandomAccessFile** object already exists and is
- *     created in write mode, truncate the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Create the file in append mode. New data will be added to the end of the
- *     **RandomAccessFile** object.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Create a **RandomAccessFile** instance in synchronous I/O mode.
- * @param { RandomAccessFileOptions } [options] - The options are as follows:
- *     <br>- **start** (number): start position to read data, in bytes. This parameter is
- *     optional. By default, data is read from the current position.
- *     <br>- **end** (number): end position to read data, in bytes. This parameter is optional. The
- *     default value is the end of the file.
- *     <br>This parameter takes effect only for file stream objects obtained by
- *     [getreadstream]{@link fileIo.RandomAccessFile.getReadStream} and
- *     [getwritestream]{@link fileIo.RandomAccessFile.getWriteStream}.
- * @returns { RandomAccessFile } **RandomAccessFile** instance created.
+ * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
+ * @param { int } [mode] - 创建文件RandomAccessFile对象的[OpenMode]{@link fileIo.OpenMode}，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，
+ *     默认以只读方式创建：<br/>- OpenMode.READ_ONLY(0o0)：只读创建。<br/>- OpenMode.WRITE_ONLY(0o1)：只写创建。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写创建。<br/>给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：<br/>
+ *     - RandomAccessFile对象存在且对应文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到RandomAccessFile对象末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建RandomAccessFile对象。
+ * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>
+ *     - start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>
+ *     - end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。<br/>
+ *     此选项仅对[getreadstream]{@link fileIo.RandomAccessFile.getReadStream}及
+ *     [getwritestream]{@link fileIo.RandomAccessFile.getWriteStream}获取的文件流对象生效。
+ * @returns { RandomAccessFile } 返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1164,15 +1012,12 @@ function createRandomAccessFileSync(file: string | File, mode?: int,
   options?: RandomAccessFileOptions): RandomAccessFile;
 
 /**
- * Creates a readable stream. This API returns the result synchronously.
+ * 以同步方法打开文件可读流。
  *
- * @param { string } path - Path of the file.
- * @param { ReadStreamOptions } [options] - The options are as follows:
- *     <br>- **start** (number): start position to read data, in bytes. This parameter is
- *     optional. By default, data is read from the current position.
- *     <br>- **end** (number): end position to read data, in bytes. This parameter is optional. The
- *     default value is the end of the file.
- * @returns { ReadStream } **ReadStream** instance obtained.
+ * @param { string } path - 文件路径。
+ * @param { ReadStreamOptions } [options] - 支持如下选项：<br/>- start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- end，
+ *     number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。
+ * @returns { ReadStream } 文件可读流。
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1195,15 +1040,12 @@ function createRandomAccessFileSync(file: string | File, mode?: int,
 function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
 /**
- * Creates a writeable stream. This API returns the result synchronously.
+ * 以同步方法打开文件可写流。
  *
- * @param { string } path - Path of the file.
- * @param { WriteStreamOptions } [options] - The options are as follows:
- *     <br>- **start** (number): start position to write the data, in bytes. This parameter is optional. By default,
- *     data is written from the current position.
- *     <br>- **mode** (number): [OpenMode]{@link fileIo.OpenMode} for creating the writeable stream. This parameter is
- *     optional. The default value is the write-only mode.
- * @returns { WriteStream } **WriteStream** instance obtained.
+ * @param { string } path - 文件路径。
+ * @param { WriteStreamOptions } [options] - 支持如下选项：<br/>- start，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>
+ *     - mode，number 类型，创建文件可写流的[OpenMode]{@link fileIo.OpenMode}，可选，默认以只写方式创建。
+ * @returns { WriteStream } 文件可写流。
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1228,28 +1070,22 @@ function createReadStream(path: string, options?: ReadStreamOptions): ReadStream
 function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
 /**
- * Creates a **Watcher** object to listen for file or directory changes such as creating, deleting, and modifying.
+ * 创建Watcher对象，用于监听文件或目录的创建、删除、修改等变动事件。
  *
- * @param { string } path - Application sandbox path of the file or director.
- * @param { int } events - Events to observe. Multiple events can be separated by vertical bars (|).
- *     <br>- **0x1: IN_ACCESS**: A file is accessed.
- *     <br>- **0x2: IN_MODIFY**: The file content is modified.
- *     <br>- **0x4: IN_ATTRIB**: The file metadata is modified.
- *     <br>- **0x8: IN_CLOSE_WRITE**: A file is opened, written with data, and then closed.
- *     <br>- **0x10: IN_CLOSE_NOWRITE**: A file or directory is opened and then closed without data written.
- *     <br>- **0x20: IN_OPEN**: A file or directory is opened.
- *     <br>- **0x40: IN_MOVED_FROM**: A file in the observed directory is moved.
- *     <br>- **0x80: IN_MOVED_TO**: A file is moved to the observed directory.
- *     <br>- **0x100: IN_CREATE**: A file or directory is created in the observed directory.
- *     <br>- **0x200: IN_DELETE**: A file or directory is deleted from the observed directory.
- *     <br>- **0x400: IN_DELETE_SELF**: The observed directory is deleted. After the directory is
- *     deleted, the listening stops.
- *     <br>- **0x800: IN_MOVE_SELF**: The observed file or directory is moved. After the file or
- *     directory is moved, the listening continues.
- *     <br>- **0xfff: IN_ALL_EVENTS**: All events.
- * @param { WatchEventListener } listener - Callback invoked when an observed event occurs. The
- *     callback will be invoked each time an observed event occurs.
- * @returns { Watcher } **Watcher** object created.
+ * @param { string } path - 监听文件或目录的应用沙箱路径。
+ * @param { int } events - 监听变动的事件集，多个事件通过或(|)的方式进行集合。<br/>- 0x1: IN_ACCESS， 文件被访问。<br/>
+ *     - 0x2: IN_MODIFY，文件内容被修改。<br/>
+ *     - 0x4: IN_ATTRIB，文件元数据被修改。<br/>- 0x8: IN_CLOSE_WRITE，文件在打开时进行了写操作，然后被关闭。<br/>
+ *     - 0x10: IN_CLOSE_NOWRITE，文件或目录在打开时未进行写操作，然后被关闭。<br/>
+ *     - 0x20: IN_OPEN，文件或目录被打开。 <br/>- 0x40: IN_MOVED_FROM，监听目录中文件被移动走。<br/>
+ *     - 0x80: IN_MOVED_TO，监听目录中文件被移动过来。<br/>
+ *     - 0x100: IN_CREATE，监听目录中文件或子目录被创建。<br/>
+ *     - 0x200: IN_DELETE，监听目录中文件或子目录被删除。<br/>
+ *     - 0x400: IN_DELETE_SELF，监听的目录被删除，删除后监听停止。<br/>
+ *     - 0x800: IN_MOVE_SELF，监听的文件或目录被移动，移动后监听继续。<br/>
+ *     - 0xfff: IN_ALL_EVENTS，监听以上所有事件。
+ * @param { WatchEventListener } listener - 监听事件发生后的回调。监听事件每发生一次，回调一次。
+ * @returns { Watcher } 返回Watcher对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1269,10 +1105,10 @@ function createWriteStream(path: string, options?: WriteStreamOptions): WriteStr
 function createWatcher(path: string, events: int, listener: WatchEventListener): Watcher;
 
 /**
- * Duplicates the file descriptor and returns the corresponding **File** object.
+ * 复制文件描述符，并返回对应的File对象。
  *
- * @param { int } fd - File descriptor.
- * @returns { File } File object opened.
+ * @param { int } fd - 文件描述符。
+ * @returns { File } 打开的File对象。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1286,10 +1122,10 @@ function createWatcher(path: string, events: int, listener: WatchEventListener):
 function dup(fd: int): File;
 
 /**
- * Synchronizes data in a file. This API uses a promise to return the result.
+ * 实现文件内容数据同步。使用Promise异步回调。
  *
- * @param { int } fd - FD of the file.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1303,11 +1139,10 @@ function dup(fd: int): File;
 function fdatasync(fd: int): Promise<void>;
 
 /**
- * Synchronizes data in a file. This API uses an asynchronous callback to return the result.
+ * 实现文件内容数据同步。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file data is successfully
- *     synchronized, **err** is **undefined**. Otherwise, **err** is an error object.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件内容数据同步成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1321,9 +1156,9 @@ function fdatasync(fd: int): Promise<void>;
 function fdatasync(fd: int, callback: AsyncCallback<void>): void;
 
 /**
- * Synchronizes the data of a file. This API returns the result synchronously.
+ * 以同步方法实现文件内容的数据同步。
  *
- * @param { int } fd - FD of the file.
+ * @param { int } fd - 已打开的文件描述符fd。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1337,23 +1172,15 @@ function fdatasync(fd: int, callback: AsyncCallback<void>): void;
 function fdatasyncSync(fd: int): void;
 
 /**
- * Opens a file stream based on the file descriptor. This API uses a promise to return the result.
- * To close the stream, use **close()** of [Stream]{@link fileIo.Stream}.
+ * 基于文件描述符打开文件流。使用Promise异步回调。需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。
  *
- * @param { int } fd - FD of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @returns { Promise<Stream> } Promise used to return the stream result.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。<br/>
+ *     - a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @returns { Promise<Stream> } Promise对象，返回文件流的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1387,23 +1214,15 @@ function fdatasyncSync(fd: int): void;
 function fdopenStream(fd: int, mode: string): Promise<Stream>;
 
 /**
- * Opens a stream based on the file descriptor. To close the stream, use **close()** of [Stream]{@link fileIo.Stream}.
- * This API uses an asynchronous callback to return the result.
+ * 基于文件描述符打开文件流，需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @param { AsyncCallback<Stream> } callback - Callback used to return the **Stream** object.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。<br/>
+ *     - a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { AsyncCallback<Stream> } callback - 回调函数，返回Stream对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1437,23 +1256,15 @@ function fdopenStream(fd: int, mode: string): Promise<Stream>;
 function fdopenStream(fd: int, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
- * Opens a stream based on an FD. This API returns the result synchronously. To close the stream, use **close()** of
- * [Stream]{@link fileIo.Stream}.
+ * 以同步方法基于文件描述符打开文件流。需要配合[Stream]{@link fileIo.Stream}中的close()函数关闭文件流。
  *
- * @param { int } fd - FD of the file.
- * @param { string } mode - - **r**: Open a file for reading. The file must exist.
- *     <br>- **r+**: Open a file for both reading and writing. The file must exist.
- *     <br>- **w**: Open a file for writing. If the file exists, clear its content. If the file
- *     does not exist, create a file.
- *     <br>- **w+**: Open a file for both reading and writing. If the file exists, clear its content. If the file does
- *     not exist, create a file.
- *     <br>- **a**: Open a file in append mode for writing at the end of the file. If the file
- *     does not exist, create a file.
- *     If the file exists, write data to the end of the file (the original content of the file is reserved).
- *     <br>- **a+**: Open a file in append mode for reading or updating at the end of the file. If the file does not
- *     exist, create a file. If the file exists, write data to the end of the file (the original
- *     content of the file is reserved).
- * @returns { Stream } File stream.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>
+ *     - w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>
+ *     - a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。<br/>
+ *     - a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @returns { Stream } 返回文件流的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1487,10 +1298,10 @@ function fdopenStream(fd: int, mode: string, callback: AsyncCallback<Stream>): v
 function fdopenStreamSync(fd: int, mode: string): Stream;
 
 /**
- * Synchronizes the cached data of a file to storage. This API uses a promise to return the result.
+ * 将文件系统缓存数据写入磁盘。使用Promise异步回调。
  *
- * @param { int } fd - FD of the file.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1504,12 +1315,10 @@ function fdopenStreamSync(fd: int, mode: string): Stream;
 function fsync(fd: int): Promise<void>;
 
 /**
- * Synchronizes the cached data of a file to storage. This API uses an asynchronous callback to return the result.
+ * 将文件系统缓存数据写入磁盘。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the cache data
- *     of the file system is
- *     successfully written to the disk, **err** is **undefined**. Otherwise, **err** is an error object.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件系统缓存数据写入磁盘成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1523,9 +1332,9 @@ function fsync(fd: int): Promise<void>;
 function fsync(fd: int, callback: AsyncCallback<void>): void;
 
 /**
- * Synchronizes the cached data of a file to storage. This API returns the result synchronously.
+ * 以同步方法将文件系统缓存数据写入磁盘。
  *
- * @param { int } fd - FD of the file.
+ * @param { int } fd - 已打开的文件描述符fd。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1539,16 +1348,13 @@ function fsync(fd: int, callback: AsyncCallback<void>): void;
 function fsyncSync(fd: int): void;
 
 /**
- * Lists the names of all files and directories in the current directory. A file name array is returned, which can be
- * filtered by file name or file name extension. This API uses a promise to return the result.
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。使用Promise异步回调。
  *
- * This API supports recursively listing the relative paths of all files by setting **recursion** in
- * **ListFileOptions**. The relative path starts with a slash (/).
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
- * @returns { Promise<string[]> } Promise used to return the file name array, which is encoded in UTF-8 format by
- *     default.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { ListFileOptions } [options] - 文件过滤选项。默认不进行过滤。
+ * @returns { Promise<string[]> } Promise对象，返回文件名数组，默认以'utf-8'编码。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1563,12 +1369,10 @@ function listFile(
 ): Promise<string[]>;
 
 /**
- * Lists the names of all files and directories in the current path. A file name array is returned. This API uses an
- * asynchronous callback to return the result.
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Callback used to return the file name array,
- *     which is encoded in UTF-8 format by default.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { AsyncCallback<string[]> } callback - 回调函数，返回文件名数组，默认以'utf-8'编码。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1580,16 +1384,13 @@ function listFile(
 function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
 /**
- * Lists the names of all files and directories in the current directory. A file name array is returned, which can be
- * filtered by file name or file name extension. This API uses an asynchronous callback to return the result.
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。使用callback异步回调。
  *
- * This API supports recursively listing the relative paths of all files by setting **recursion** in
- * **ListFileOptions**. The relative path starts with a slash (/).
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { ListFileOptions } [options] - Options for filtering files.
- * @param { AsyncCallback<string[]> } callback - Callback used to return the file name array,
- *     which is encoded in UTF-8 format by default.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { ListFileOptions } [options] - 文件过滤选项。
+ * @param { AsyncCallback<string[]> } callback - 回调函数，返回文件名数组，默认以'utf-8'编码。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1605,15 +1406,13 @@ function listFile(
 ): void;
 
 /**
- * Lists the names of all files and directories in the current directory synchronously. A file name array is returned,
- * which can be filtered by file name or file name extension.
+ * 默认以同步方式列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。
  *
- * This API supports recursively listing the relative paths of all files by setting **recursion** in
- * **ListFileOptions**. The relative path starts with a slash (/).
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
- * @returns { string[] } File name array, which is encoded in UTF-8 format by default.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { ListFileOptions } [options] - 文件过滤选项。默认不进行过滤。
+ * @returns { string[] } 返回文件名数组，默认以'utf-8'编码。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1628,16 +1427,13 @@ function listFileSync(
 ): string[];
 
 /**
- * Lists all files in a directory. This API supports recursive listing of files and file filtering. This API uses a
- * promise to return the result.
+ * 列出目录下所有文件名，支持递归列出和自定义文件名过滤。使用Promise异步回调。
  *
- * You can configure the **recursion** parameter in **options** to recursively list the relative
- * paths of all files. The relative path starts with a slash (/).
+ * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { ListFileExtOptions } [options] - Options for listing files. The default value is empty, indicating no
- *     recursive listing of files or file filtering and no limit on the number of files to be listed.
- * @returns { Promise<string[]> } Promise used to return the files names listed.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { ListFileExtOptions } [options] - 文件列出选项。默认为空，表示不递归、不限制列出数量、不进行过滤。
+ * @returns { Promise<string[]> } Promise对象，返回文件名数组。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900018 - Not a directory
@@ -1652,16 +1448,13 @@ function listFileExt(
 ): Promise<string[]>;
 
 /**
- * Lists all files in a directory. This API supports recursive listing of files and file filtering and returns the
- * result synchronously.
+ * 以同步方式列出目录下所有文件名，支持递归列出和自定义文件名过滤。
  *
- * You can configure the **recursion** parameter in **options** to recursively list the relative
- * paths of all files. The relative path starts with a slash (/).
+ * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { ListFileExtOptions } [options] - Options for listing files. The default value is empty, indicating no
- *     recursive listing of files or file filtering and no limit on the number of files to be listed.
- * @returns { string[] } File names listed.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { ListFileExtOptions } [options] - 文件列出选项。默认为空，表示不递归、不限制列出数量、不进行过滤。
+ * @returns { string[] } 返回文件名数组。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900018 - Not a directory
@@ -1676,13 +1469,12 @@ function listFileExtSync(
 ): string[];
 
 /**
- * Adjusts the position of the file offset pointer.
+ * 调整文件偏移指针位置。
  *
- * @param { int } fd - File descriptor.
- * @param { long } offset - Relative offset, in bytes.
- * @param { WhenceType } [whence] - Where to start the offset. If this parameter is not specified, the file start
- *     position is used by default.
- * @returns { long } Position of the current offset as measured from the beginning of the file, in bytes.
+ * @param { int } fd - 文件描述符。
+ * @param { long } offset - 相对偏移位置，单位为Byte。
+ * @param { WhenceType } [whence] - 偏移指针相对位置类型。不指定则默认为文件起始位置处。
+ * @returns { long } 当前文件偏移指针位置（相对于文件头的偏移量，单位为Byte）。
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
  * @throws { BusinessError } 13900026 - Illegal seek
@@ -1694,13 +1486,11 @@ function listFileExtSync(
 function lseek(fd: int, offset: long, whence?: WhenceType): long;
 
 /**
- * Obtains information about a symbolic link that is used to refer to a file or directory. The attributes of the
- * symbolic link are returned, instead of the attributes of the target file. This API uses a promise to return the
- * result.
+ * 获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。使用Promise异步回调。
  *
- * @param { string } path - Application sandbox path or URI of the file.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @returns { Promise<Stat> } Promise used to return the **Stat** object. For details, see **Stat**.
+ * @param { string } path - 文件的应用沙箱路径path或URI。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @returns { Promise<Stat> } Promise对象，返回Stat对象，表示文件的具体信息，详情见Stat。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1717,13 +1507,11 @@ function lseek(fd: int, offset: long, whence?: WhenceType): long;
 function lstat(path: string): Promise<Stat>;
 
 /**
- * Obtains information about a symbolic link that is used to refer to a file or directory. The attributes of the
- * symbolic link are returned, instead of the attributes of the target file. This API uses an asynchronous callback to
- * return the result.
+ * 获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path or URI of the file.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @param { AsyncCallback<Stat> } callback - Callback used to return the **Stat** object.
+ * @param { string } path - 文件的应用沙箱路径path或URI。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @param { AsyncCallback<Stat> } callback - 回调函数，返回Stat对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1740,12 +1528,11 @@ function lstat(path: string): Promise<Stat>;
 function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
- * Obtains information about a symbolic link that is used to refer to a file or directory
- * synchronously. The attributes of the symbolic link are returned, instead of the attributes of the target file.
+ * 以同步方法获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。
  *
- * @param { string } path - Application sandbox path or URI of the file.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @returns { Stat } File information obtained.
+ * @param { string } path - 文件的应用沙箱路径path或URI。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @returns { Stat } 表示文件的具体信息。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1762,11 +1549,10 @@ function lstat(path: string, callback: AsyncCallback<Stat>): void;
 function lstatSync(path: string): Stat;
 
 /**
- * Creates a single-level directory. If the parent directory does not exist, an error is reported. This API uses a
- * promise to return the result.
+ * 创建单层目录，若父目录不存在则会报错。使用Promise异步回调。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1788,14 +1574,11 @@ function lstatSync(path: string): Stat;
 function mkdir(path: string): Promise<void>;
 
 /**
- * Creates a directory. This API uses a promise to return the result. The value **true** means to create a directory
- * recursively.
+ * 创建目录。使用Promise异步回调。当recursion指定为true时，可递归创建目录。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { boolean } recursion - Whether to create a directory recursively.
- *     <br> The value **true** means to create a directory recursively. The value **false** means to create a single-
- *     level directory.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { boolean } recursion - 是否递归创建目录。recursion指定为true时，可递归创建目录。recursion指定为false时，仅可创建单层目录。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1817,12 +1600,10 @@ function mkdir(path: string): Promise<void>;
 function mkdir(path: string, recursion: boolean): Promise<void>;
 
 /**
- * Creates a single-level directory. If the parent directory does not exist, an error is reported. This API uses an
- * asynchronous callback to return the result.
+ * 创建单层目录，若父目录不存在则会报错。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory is successfully
- *     created, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1844,15 +1625,11 @@ function mkdir(path: string, recursion: boolean): Promise<void>;
 function mkdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * Creates a directory. If **recursion** is set to **true**, a directory is created recursively. This API uses an
- * asynchronous callback to return the result.
+ * 创建目录，当recursion指定为true，可递归创建目录。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { boolean } recursion - Whether to create a directory recursively.
- *     <br> The value **true** means to create a directory recursively. The value **false** means to create a single-
- *     level directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory is successfully
- *     created, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { boolean } recursion - 是否递归创建目录。recursion指定为true时，可递归创建目录。recursion指定为false时，仅可创建单层目录。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1874,9 +1651,9 @@ function mkdir(path: string, callback: AsyncCallback<void>): void;
 function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
 /**
- * Creates a single-level directory synchronously. If the parent directory does not exist, an error is reported.
+ * 以同步方法创建单层目录，若父目录不存在则会报错。
  *
- * @param { string } path - Application sandbox path of the directory.
+ * @param { string } path - 目录的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1898,13 +1675,10 @@ function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>):
 function mkdirSync(path: string): void;
 
 /**
- * Creates a directory. This API returns the result synchronously. The value **true** means to create a directory
- * recursively.
+ * 以同步方法创建目录。当recursion指定为true，可递归创建目录。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { boolean } recursion - Whether to create a directory recursively.
- *     <br> The value **true** means to create a directory recursively. The value **false** means to create a single-
- *     level directory.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { boolean } recursion - 是否递归创建目录。recursion指定为true时，可递归创建目录。recursion指定为false时，仅可创建单层目录。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1926,11 +1700,10 @@ function mkdirSync(path: string): void;
 function mkdirSync(path: string, recursion: boolean): void;
 
 /**
- * Create a temporary directory. This API uses a promise to return the result.
+ * 创建临时目录。使用Promise异步回调。
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to
- *     create a unique temporary directory.
- * @returns { Promise<string> } Promise used to return the unique directory generated.
+ * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
+ * @returns { Promise<string> } Promise对象，返回生成的唯一目录路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1952,11 +1725,10 @@ function mkdirSync(path: string, recursion: boolean): void;
 function mkdtemp(prefix: string): Promise<string>;
 
 /**
- * Create a temporary directory. This API uses an asynchronous callback to return the result.
+ * 创建临时目录。使用callback异步回调。
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to
- *     create a unique temporary directory.
- * @param { AsyncCallback<string> } callback - Callback used to return the temporary directory.
+ * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
+ * @param { AsyncCallback<string> } callback - 回调函数，返回临时目录路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1978,11 +1750,10 @@ function mkdtemp(prefix: string): Promise<string>;
 function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 
 /**
- * Creates a temporary directory. This API returns the result synchronously.
+ * 以同步方法创建临时目录。
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to
- *     create a unique temporary directory.
- * @returns { string } Unique directory generated.
+ * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
+ * @returns { string } 产生的唯一目录路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2004,39 +1775,26 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 function mkdtempSync(prefix: string): string;
 
 /**
- * Creates a file mapping object based on a file descriptor or file object for efficient read and
- * write access to files. This API uses a promise to return the result.
+ * 基于文件描述符或文件对象创建文件映射对象，实现文件的高效读写访问。使用Promise异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > 1. Memory mapping can be performed only for regular files. Non-regular files, such as
- * > pipeline, socket, and device
- * > files, are not supported. You can use [statSync()]{@link fileIo.statSync} to obtain file attributes and then call
- * > [Stat.isFile()]{@link fileIo.Stat.isFile} to check whether the file is a regular file.
+ * > 1. 仅支持对常规文件（regular file）进行内存映射，不支持管道、socket、设备文件等非常规文件类型。可通过[statSync]{@link fileIo.statSync}获取文件属性后调用
+ * > [Stat.isFile()]{@link fileIo.Stat.isFile}判断文件是否为常规文件。
  * >
- * > 2. If the mapping range exceeds the raw file size and the write permission is granted for the file, the mapping
- * > file size will be automatically expanded.
+ * > 2. 若映射范围超过原始文件大小且文件具有写权限，将自动扩展映射文件大小。
  * >
- * > 3. For files from external storage or network files, the establishment of mappings and access
- * > to the mapped memory
- * > are not guaranteed due to differences in the underlying file system. This may cause the application to terminate
- * > unexpectedly. You are advised to use other file access APIs such as [read]{@link fileIo.read},
- * > [write]{@link fileIo.write}, or [Stream]{@link fileIo.Stream} in this scenario.
+ * > 3. 对于外部存储或网络文件等，由于底层文件系统的差异，映射的建立及对映射内存的访问行为不做保证，可能导致应用异常终止。建议此类场景优先使用[read]{@link fileIo.read}、
+ * > [write]{@link fileIo.write}或[Stream]{@link fileIo.Stream}等其他文件访问接口。
  *
- * @param { int | File } file - **File** object or FD of the file to close.
- * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
- *     options:
- *     <br>- **MappingMode.READ_ONLY(0)**: read-only mode. The file mapping area is not writable.
- *     An exception is thrown when the file mapping area is modified.
- *     <br>- **MappingMode.READ_WRITE(1)**: read/write mode. The modification is written to the file mapping area and
- *     then synchronized to the file by the operating system (non-real-time).
- *     <br>- **MappingMode.PRIVATE(2)**: private mode. It is a copy-on-write mapping mechanism. Modifications to the
- *     mapping area are visible only to the current process and do not affect the raw file.
- * @param { long } offset - Start position of the file mapping area, in bytes.
- * @param { int } size - Size of the file mapping area, in bytes. The value ranges from 0 to **INT32_MAX**.
- * @returns { Promise<FileMapping> } Promise used to return the file mapping object. Initial state of the returned
- *     object: The value of **position** is **0**, and the values of **limit** and **capacity** are equal to the value
- *     of **size**.
+ * @param { int | File } file - 已打开的File对象或已打开的文件描述符fd。
+ * @param { MappingMode } mode - 创建文件内存映射对象的选项，必须指定如下选项中的一个：<br/>
+ *     - MappingMode.READ_ONLY(0)：只读映射模式。文件映射区不可写，修改会抛出异常。<br/>
+ *     - MappingMode.READ_WRITE(1)：读写映射模式。修改会写入文件映射区，后续由操作系统同步到文件（非实时）。<br/>
+ *     - MappingMode.PRIVATE(2)：私有映射模式。是一种写时复制的映射机制，对映射区的修改仅对当前进程可见，不会影响原始文件。
+ * @param { long } offset - 文件映射区的起始位置，单位为Byte。
+ * @param { int } size - 文件映射区的大小，取值范围(0, INT32_MAX]，单位为Byte。
+ * @returns { Promise<FileMapping> } Promise对象，返回文件映射对象。返回的对象初始状态：position为0，limit和capacity均等于size。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2060,39 +1818,26 @@ function mkdtempSync(prefix: string): string;
 function mmap(file: int | File, mode: MappingMode, offset: long, size: int): Promise<FileMapping>;
 
 /**
- * Creates a file mapping object synchronously based on a file descriptor or file object for efficient read and write
- * access to files.
+ * 以同步方法基于文件描述符或文件对象创建文件映射对象，实现文件的高效读写访问。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > 1. Memory mapping can be performed only for regular files. Non-regular files, such as
- * > pipeline, socket, and device
- * > files, are not supported. You can use [statSync()]{@link fileIo.statSync} to obtain file attributes and then call
- * > [Stat.isFile()]{@link fileIo.Stat.isFile} to check whether the file is a regular file.
+ * > 1. 仅支持对常规文件（regular file）进行内存映射，不支持管道、socket、设备文件等非常规文件类型。可通过[statSync]{@link fileIo.statSync}获取文件属性后调用
+ * > [Stat.isFile()]{@link fileIo.Stat.isFile}判断文件是否为常规文件。
  * >
- * > 2. If the mapping range exceeds the raw file size and the write permission is granted for the file, the mapping
- * > file size will be automatically expanded.
+ * > 2. 若映射范围超过原始文件大小且文件具有写权限，将自动扩展映射文件大小。
  * >
- * > 3. For files from external storage or network files, the establishment of mappings and access
- * > to the mapped memory
- * > are not guaranteed due to differences in the underlying file system. This may cause the application to terminate
- * > unexpectedly. You are advised to use other file access APIs such as [read]{@link fileIo.read},
- * > [write]{@link fileIo.write}, or [Stream]{@link fileIo.Stream} in this scenario.
+ * > 3. 对于外部存储或网络文件等，由于底层文件系统的差异，映射的建立及对映射内存的访问行为不做保证，可能导致应用异常终止。建议此类场景优先使用[read]{@link fileIo.read}、
+ * > [write]{@link fileIo.write}或[Stream]{@link fileIo.Stream}等其他文件访问接口。
  *
- * @param { int | File } file - **File** object or FD of the file to close.
- * @param { MappingMode } mode - Option to create a file memory-mapped object. You must specify one of the following
- *     options:
- *     <br>- **MappingMode.READ_ONLY(0)**: read-only mode. The file mapping area is not writable.
- *     An exception is thrown when the file mapping area is modified.
- *     <br>- **MappingMode.READ_WRITE(1)**: read/write mode. The modification is written to the file mapping area and
- *     then synchronized to the file by the operating system (non-real-time).
- *     <br>- **MappingMode.PRIVATE(2)**: private mode. It is a copy-on-write mapping mechanism. Modifications to the
- *     mapping area are visible only to the current process and do not affect the raw file.
- * @param { long } offset - Start position of the file mapping area, in bytes.
- * @param { int } size - Size of the file mapping area, in bytes. The value ranges from 0 to **INT32_MAX**.
- * @returns { FileMapping } File mapping object created. Initial state of the returned object: The
- *     value of **position**
- *     is **0**, and the values of **limit** and **capacity** are equal to the value of **size**.
+ * @param { int | File } file - 已打开的File对象或已打开的文件描述符fd。
+ * @param { MappingMode } mode - 创建文件内存映射对象的选项，必须指定如下选项中的一个：<br/>
+ *     - MappingMode.READ_ONLY(0)：只读映射模式。文件映射区不可写，修改会抛出异常。<br/>
+ *     - MappingMode.READ_WRITE(1)：读写映射模式。修改会写入文件映射区，后续由操作系统同步到文件（非实时）。<br/>
+ *     - MappingMode.PRIVATE(2)：私有映射模式。是一种写时复制的映射机制，对映射区的修改仅对当前进程可见，不会影响原始文件。
+ * @param { long } offset - 文件映射区的起始位置，单位为Byte。
+ * @param { int } size - 文件映射区的大小，取值范围(0, INT32_MAX]，单位为Byte。
+ * @returns { FileMapping } 创建的文件映射对象。返回的对象初始状态：position为0，limit和capacity均等于size。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2116,33 +1861,20 @@ function mmap(file: int | File, mode: MappingMode, offset: long, size: int): Pro
 function mmapSync(file: int | File, mode: MappingMode, offset: long, size: int): FileMapping;
 
 /**
- * Moves the source directory and its content to the destination path. This API uses a promise to return the result.
+ * 移动源目录及其内容至目标路径下。使用Promise异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } [mode] - Move mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a directory conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a non-empty directory with the same name
- *     as the source directory.
- *     <br>- **1**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be moved to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The data attribute in the error returned provides information about the
- *     conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **2**: Forcibly overwrite the conflicting files in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- *     <br>- **3**: Forcibly overwrite the conflicting directory.
- *     <br> The source directory is moved to the destination directory, and the content of the moved directory is the
- *     same as that of the source directory. If the destination directory contains a directory with
- *     the same name as the source directory, all original files in the directory will be deleted.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，
+ *     目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array< [ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
+ *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下的所有原始文件将被删除。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2168,20 +1900,17 @@ function mmapSync(file: int | File, mode: MappingMode, offset: long, size: int):
 function moveDir(src: string, dest: string, mode?: int): Promise<void>;
 
 /**
- * Moves the source directory and its content to the destination path. This API uses an
- * asynchronous callback to return the result.
+ * 移动源目录及其内容至目标路径下。使用callback异步回调。
  *
- * An exception will be thrown if a directory conflict occurs, that is, the destination directory contains a directory
- * with the same name as the source directory.
+ * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的目录，则抛出异常。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory
- *     is successfully moved, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2206,15 +1935,8 @@ function moveDir(src: string, dest: string, mode?: int): Promise<void>;
 function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * Moves the source directory and its content to the destination path. This API uses an asynchronous
- * callback to return the result.
- *
- * An exception will be thrown if a directory conflict occurs, that is, the destination directory contains a directory
- * with the same name as the source directory.
- *
- * > **NOTE**
- * >
- * > This API is not supported in a distributed directory.
+ * Moves the source directory to the destination directory. This API uses an asynchronous callback to return the
+ * result.
  *
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
@@ -2223,38 +1945,23 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
-function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void,
+ function moveDirWithConflictFiles(src: string, dest: string, callback:  AsyncCallback<void,
   Array<ConflictFiles>>): void;
 
 /**
- * Moves the source directory and its content to the destination path. You can set the conflict
- * handling mode. This API uses an asynchronous callback to return the result.
+ * 移动源目录及其内容至目标路径下，支持设置冲突处理模式。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } mode - Move mode.
- *     <br>- **0**: Throw an exception if a directory conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory.
- *     <br>- **1**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be moved to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained.
- *     <br>- **2**: Forcibly overwrite the conflicting files in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- *     <br>- **3**: Forcibly overwrite the conflicting directory.
- *     <br> The source directory is moved to the destination directory, and the content of the moved directory is the
- *     same as that of the source directory. If the destination directory contains a directory with
- *     the same name as the source directory, all original files in the directory will be deleted.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory
- *     is successfully moved, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突 目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
+ *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2279,64 +1986,36 @@ function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
 function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
 /**
- * Moves the source directory to the destination directory. You can set the move mode.
- * This API uses an asynchronous callback to return the result.
+ * 移动源目录及其内容至目标路径下，支持设置冲突处理模式。使用callback异步回调。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } mode - Move mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a directory conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory.
- *     <br>- **1**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be moved to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The data attribute in the error returned provides information about the
- *     conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **2**: Forcibly overwrite the conflicting files in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- *     <br>- **3**: Forcibly overwrite the conflicting directory.
- *     <br> The source directory is moved to the destination directory, and the content of the moved directory is the
- *     same as that of the source directory. If the destination directory contains a directory with
- *     the same name as the source directory, all original files in the directory will be deleted.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
+ *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 异步移动目录之后的回调。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 function moveDirWithConflictFiles(src: string, dest: string, mode: int,
-    callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+  callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
- * Moves the source directory and its content to the destination directory. This API returns the result synchronously.
+ * 以同步方法移动源目录及其内容至目标路径下。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the source directory.
- * @param { string } dest - Application sandbox path of the destination directory.
- * @param { int } [mode] - Move mode. The default value is **0**.
- *     <br>- **0**: Throw an exception if a directory conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory.
- *     <br>- **1**: Throw an exception if a file conflict occurs.
- *     <br> An exception will be thrown if the destination directory contains a directory with the same name as the
- *     source directory, and a file with the same name exists in the conflict directory. All the non-conflicting files
- *     in the source directory will be moved to the destination directory, and the non-conflicting files in the
- *     destination directory will be retained. The data attribute in the error returned provides information about the
- *     conflicting files in the Array<[ConflictFiles]{@link ConflictFiles}> format.
- *     <br>- **2**: Forcibly overwrite the conflicting files in the destination directory.
- *     <br> When the destination directory contains a directory with the same name as the source directory, the files
- *     with the same names in the destination directory are overwritten forcibly; the files without conflicts in the
- *     destination directory are retained.
- *     <br>- **3**: Forcibly overwrite the conflicting directory.
- *     <br> The source directory is moved to the destination directory, and the content of the moved directory is the
- *     same as that of the source directory. If the destination directory contains a directory with
- *     the same name as the source directory, all original files in the directory will be deleted.
+ * @param { string } src - 源目录的应用沙箱路径。
+ * @param { string } dest - 目标目录的应用沙箱路径。
+ * @param { int } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，
+ *     且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
+ *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2362,19 +2041,16 @@ function moveDirWithConflictFiles(src: string, dest: string, mode: int,
 function moveDirSync(src: string, dest: string, mode?: int): void;
 
 /**
- * Moves a file to the target path. You can set the conflict handling mode. This API uses a promise to return the
- * result.
+ * 移动文件至目标路径，支持设置冲突处理模式。使用Promise异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the file to move.
- * @param { string } dest - Application sandbox path of the destination file.
- * @param { int } [mode] - Move mode.
- *     <br> The value **0** means to overwrite the file with the same name in the destination
- *     directory; the value **1** means to throw an exception. The default value is **0**.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } src - 源文件的应用沙箱路径。
+ * @param { string } dest - 目标文件的应用沙箱路径。
+ * @param { int } [mode] - 移动模式。若mode为0，移动位置存在同名文件时，强制移动覆盖。若mode为1，移动位置存在同名文件时，抛出异常。默认为0。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2400,17 +2076,15 @@ function moveDirSync(src: string, dest: string, mode?: int): void;
 function moveFile(src: string, dest: string, mode?: int): Promise<void>;
 
 /**
- * Moves a file and forcibly overwrites the file with the same name in the destination directory. This API uses an
- * asynchronous callback to return the result.
+ * 移动文件。如果移动位置存在同名文件，将强制覆盖。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the file to move.
- * @param { string } dest - Application sandbox path of the destination file.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is moved successfully,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源文件的应用沙箱路径。
+ * @param { string } dest - 目标文件的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2436,20 +2110,16 @@ function moveFile(src: string, dest: string, mode?: int): Promise<void>;
 function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * Moves a file to the target path. You can set the conflict handling mode. This API uses an asynchronous callback to
- * return the result.
+ * 移动文件至目标路径，支持设置冲突处理模式。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the file to move.
- * @param { string } dest - Application sandbox path of the destination file.
- * @param { int } [mode] - Move mode.
- *     <br> The value **0** means to overwrite the file with the same name in the destination
- *     directory; the value **1** means to throw an exception. The default value is **0**.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is moved successfully,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } src - 源文件的应用沙箱路径。
+ * @param { string } dest - 目标文件的应用沙箱路径。
+ * @param { int } [mode] - 移动模式。若mode为0，移动位置存在同名文件时，强制移动覆盖。若mode为1，移动位置存在同名文件时，抛出异常。默认为0。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2475,17 +2145,15 @@ function moveFile(src: string, dest: string, callback: AsyncCallback<void>): voi
 function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
 /**
- * Moves a file to the destination path. This API returns the result synchronously.
+ * 以同步方式移动文件至目标路径。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } src - Application sandbox path of the file to move.
- * @param { string } dest - Application sandbox path of the destination file.
- * @param { int } [mode] - Move mode.
- *     <br> The value **0** means to overwrite the file with the same name in the destination
- *     directory; the value **1** means to throw an exception. The default value is **0**.
+ * @param { string } src - 源文件的应用沙箱路径。
+ * @param { string } dest - 目标文件的应用沙箱路径。
+ * @param { int } [mode] - 移动模式。若mode为0，移动位置存在同名文件时，强制移动覆盖。若mode为1，移动位置存在同名文件时，抛出异常。默认为0。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2511,28 +2179,21 @@ function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<
 function moveFileSync(src: string, dest: string, mode?: int): void;
 
 /**
- * Opens a file or directory. This API supports the use of a URI. This API uses a promise to return the result.
+ * 打开文件或目录，支持使用URI打开文件。使用Promise异步回调。
  *
- * @param { string } path - Application sandbox path or URI of the file or directory.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for opening the file or directory.
- *     You must specify one of the following options. By default, the file is opened in read-only mode.
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Open the file in read-only mode.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Open the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Open the file in read/write mode.
- *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
- *     <br>- **OpenMode.CREATE(0o100)**: Create a file if the file does not exist.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the file exists and is opened in write mode, truncate
- *     the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Open the file in append mode. New data will be added to the end of the file.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Open the file in synchronous I/O mode.
- *     <br>- **OpenMode.UNCACHE(0o10000000000)**: Disable the page cache for reading and writing a
- *     file. This option is supported since API version 26.0.0.
- * @returns { Promise<File> } Promise used to return the **File** object.
+ * @param { string } path - 文件或目录的应用沙箱路径或文件URI。
+ * @param { int } [mode] - 打开文件或目录的[OpenMode]{@link fileIo.OpenMode}，必须指定如下选项中的一个，默认以只读方式打开：<br/>
+ *     - OpenMode.READ_ONLY(0o0)：只读打开。<br/>- OpenMode.WRITE_ONLY(0o1)：只写打开。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写打开。<br/>可以追加以下功能选项，以按位或的方式组合，默认情况下不追加任何额外选项。<br/>
+ *     - OpenMode.CREATE(0o100)：如果文件不存在，则创建文件。<br/>
+ *     - OpenMode.TRUNC(0o1000)：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到文件末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>
+ *     - OpenMode.SYNC(0o4010000)：以同步IO方式打开文件。<br/>
+ *     - OpenMode.UNCACHE(0o10000000000)：读写文件不进行页缓存，从API版本26.0.0开始支持此选项。
+ * @returns { Promise<File> } Promise对象，返回File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2566,11 +2227,10 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
 function open(path: string, mode?: int): Promise<File>;
 
 /**
- * Opens a file or directory. This API supports the use of a URI. This API uses an asynchronous callback to return the
- * result.
+ * 打开文件或目录，支持使用URI打开文件。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path or URI of a file or directory.
- * @param { AsyncCallback<File> } callback - Callback used to return the **File** object.
+ * @param { string } path - 文件或目录的应用沙箱路径或URI。
+ * @param { AsyncCallback<File> } callback - 回调函数，返回File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2603,31 +2263,23 @@ function open(path: string, mode?: int): Promise<File>;
 function open(path: string, callback: AsyncCallback<File>): void;
 
 /**
- * Opens a file or directory with the specified mode. This API uses an asynchronous callback to return the result.
+ * 打开文件或目录，可设置打开文件的选项。使用callback异步回调。
  *
- * This API supports the use of a URI.
+ * 支持使用URI打开文件。
  *
- * @param { string } path - Application sandbox path or URI of a file or directory.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for opening the file or directory.
- *     You must specify one of the following options. By default, the file is opened in read-only mode.
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Open the file in read-only mode.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Open the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Open the file in read/write mode.
- *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By
- *     default, no additional options are given.
- *     <br>- **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the file exists and is opened in write mode, truncate
- *     the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Open the file in append mode. New data will be added to the end of the file.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Open the file in synchronous I/O mode.
- *     <br>- **OpenMode.UNCACHE(0o10000000000)**: Disable the page cache for reading and writing a
- *     file. This option is supported since API version 26.0.0.
- * @param { AsyncCallback<File> } callback - Callback used to return the **File** object.
+ * @param { string } path - 文件或目录的应用沙箱路径或URI。
+ * @param { int } [mode] - 打开文件或目录的[OpenMode]{@link fileIo.OpenMode}，必须指定如下选项中的一个，默认以只读方式打开：<br/>
+ *     - OpenMode.READ_ONLY(0o0)：只读打开。<br/>- OpenMode.WRITE_ONLY(0o1)：只写打开。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写打开。<br/>可以追加以下功能选项，以按位或的方式组合，默认情况下不追加任何额外选项。<br/>
+ *     - OpenMode.CREATE(0o100)：如果文件不存在，则创建文件。<br/>
+ *     - OpenMode.TRUNC(0o1000)：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到文件末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>
+ *     - OpenMode.SYNC(0o4010000)：以同步IO方式打开文件。<br/>
+ *     - OpenMode.UNCACHE(0o10000000000)：读写文件不进行页缓存，从API版本26.0.0开始支持此选项。
+ * @param { AsyncCallback<File> } callback - 回调函数，返回File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2660,29 +2312,21 @@ function open(path: string, callback: AsyncCallback<File>): void;
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 
 /**
- * Opens a file or directory. This API returns the result synchronously. This API supports the use of a URI.
+ * 以同步方法打开文件或目录。支持使用URI打开文件。
  *
- * @param { string } path - Application sandbox path or URI of a file or directory to open.
- * @param { int } [mode] - [OpenMode]{@link fileIo.OpenMode} for opening the file or directory.
- *     You must specify one of the following options. By default, the file is opened in read-only mode.
- *     <br>- **OpenMode.READ_ONLY(0o0)**: Open the file in read-only mode.
- *     <br>- **OpenMode.WRITE_ONLY(0o1)**: Open the file in write-only mode.
- *     <br>- **OpenMode.READ_WRITE(0o2)**: Open the file in read/write mode.
- *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By
- *     default, no additional options are given.
- *     <br>- **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
- *     <br>- **OpenMode.TRUNC(0o1000)**: If the file exists and is opened in write mode, truncate
- *     the file length to 0.
- *     <br>- **OpenMode.APPEND(0o2000)**: Open the file in append mode. New data will be added to the end of the file.
- *     <br>- **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special
- *     file, or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- *     <br>- **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write
- *     permission is not allowed.
- *     <br>- **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
- *     <br>- **OpenMode.SYNC(0o4010000)**: Open the file in synchronous I/O mode.
- *     <br>- **OpenMode.UNCACHE(0o10000000000)**: Disable the page cache for reading and writing a
- *     file. This option is supported since API version 26.0.0.
- * @returns { File } File object opened.
+ * @param { string } path - 打开文件或目录的应用沙箱路径或URI。
+ * @param { int } [mode] - 打开文件或目录的[OpenMode]{@link fileIo.OpenMode}，必须指定如下选项中的一个，默认以只读方式打开：<br/>
+ *     - OpenMode.READ_ONLY(0o0)：只读打开。<br/>- OpenMode.WRITE_ONLY(0o1)：只写打开。<br/>
+ *     - OpenMode.READ_WRITE(0o2)：读写打开。<br/>可以追加以下功能选项，以按位或的方式组合，默认情况下不追加任何额外选项。<br/>
+ *     - OpenMode.CREATE(0o100)：如果文件不存在，则创建文件。<br/>
+ *     - OpenMode.TRUNC(0o1000)：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>
+ *     - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到文件末尾。<br/>
+ *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。<br/>
+ *     - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>
+ *     - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>
+ *     - OpenMode.SYNC(0o4010000)：以同步IO方式打开文件。<br/>
+ *     - OpenMode.UNCACHE(0o10000000000)：读写文件不进行页缓存，从API版本26.0.0开始支持此选项。
+ * @returns { File } 打开的File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2716,16 +2360,13 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 function openSync(path: string, mode?: int): File;
 
 /**
- * Reads data from a file and returns the number of bytes read. This API uses a promise to return the result.
+ * 从文件读取数据，返回实际读取的字节数。使用Promise异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
- * @param { ReadOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the buffer length.
- * @returns { Promise<long> } Promise used to return the length of the data read, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+ * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
+ *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
+ * @returns { Promise<long> } Promise对象，返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2746,12 +2387,11 @@ function read(
 ): Promise<long>;
 
 /**
- * Reads data from a file and returns the number of bytes read. This API uses an asynchronous callback to return the
- * result.
+ * 从文件读取数据，返回实际读取的字节数。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
- * @param { AsyncCallback<long> } callback - Callback used to return the length of the data read, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+ * @param { AsyncCallback<long> } callback - 回调函数。返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2767,18 +2407,13 @@ function read(
 function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
 /**
- * Reads data from a file. Read options (such as the offset position and length of the data read)
- * can be configured. The
- * number of bytes read is returned. This API uses an asynchronous callback to return the result.
+ * 从文件读取数据，支持配置读取选项（如偏移位置和读取长度），返回实际读取的字节数。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
- * @param { ReadOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the buffer length.
- * @param { AsyncCallback<long> } callback - Callback used to return the length of the data read, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+ * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
+ *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
+ * @param { AsyncCallback<long> } callback - 回调函数，返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2799,16 +2434,13 @@ function read(
 ): void;
 
 /**
- * Reads data from a file synchronously and returns the number of bytes read.
+ * 以同步方法从文件读取数据，返回实际读取的字节数。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
- * @param { ReadOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the buffer length.
- * @returns { long } Length of the data read, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+ * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
+ *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
+ * @returns { long } 返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2829,15 +2461,12 @@ function readSync(
 ): long;
 
 /**
- * Reads a file text line by line. Only the files in UTF-8 format are supported. This API uses a promise to return the
- * result.
+ * 逐行读取文件文本内容，只支持读取utf-8格式文件。使用promise异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { Options } [options] - Options for reading the text. The options are as follows:
- *     <br>- **encoding** (string): format of the data to be encoded.
- *     <br>It is valid only when the data is of the string type.
- *     <br>The default value is **'utf-8'**, which is the only value supported.
- * @returns { Promise<ReaderIterator> } Promise used to return the **ReaderIterator** object.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { Options } [options] - 可选项。支持以下选项：<br/>- encoding，string类型，当数据是 string 类型时有效，表示数据的编码方式，
+ *     默认 'utf-8'，仅支持 'utf-8'。
+ * @returns { Promise<ReaderIterator> } Promise对象，返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2857,11 +2486,10 @@ function readSync(
 function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
 /**
- * Reads a file text line by line. Only the files in UTF-8 format are supported. This API uses an
- * asynchronous callback to return the result.
+ * 逐行读取文件文本内容，只支持读取utf-8格式文件。使用callback异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { AsyncCallback<ReaderIterator> } callback - Callback used to return a **ReaderIterator** object.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { AsyncCallback<ReaderIterator> } callback - 回调函数，返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2880,15 +2508,12 @@ function readLines(filePath: string, options?: Options): Promise<ReaderIterator>
 function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
- * Reads a file text line by line. Read options can be configured. Only the files in UTF-8 format are supported. This
- * API uses an asynchronous callback to return the result.
+ * 逐行读取文件文本内容，可配置读取选项，只支持读取utf-8格式文件。使用callback异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { Options } options - Read options. The options are as follows:
- *     <br>- **encoding** (string): format of the data to be encoded.
- *     <br>It is valid only when the data is of the string type.
- *     <br>The default value is **'utf-8'**, which is the only value supported.
- * @param { AsyncCallback<ReaderIterator> } callback - Callback used to return a **ReaderIterator** object.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { Options } options - 读取选项。支持以下选项：<br/>- encoding，string类型，当数据是 string 类型时有效，表示数据的编码方式，
+ *     默认 'utf-8'，仅支持 'utf-8'。
+ * @param { AsyncCallback<ReaderIterator> } callback - 回调函数，返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2907,14 +2532,12 @@ function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): v
 function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
- * Reads a file text line by line synchronously. Only the files in UTF-8 format are supported.
+ * 以同步方式逐行读取文件的文本内容，只支持读取utf-8格式文件。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { Options } [options] - Options for reading the text. The options are as follows:
- *     <br>- **encoding** (string): format of the data to be encoded.
- *     <br>It is valid only when the data is of the string type.
- *     <br>The default value is **'utf-8'**, which is the only value supported.
- * @returns { ReaderIterator } **ReaderIterator** object.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { Options } [options] - 可选项。支持以下选项：<br/>- encoding，string类型，当数据是 string 类型时有效，表示数据的编码方式，
+ *     默认 'utf-8'，仅支持 'utf-8'。
+ * @returns { ReaderIterator } 返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2934,19 +2557,13 @@ function readLines(filePath: string, options: Options, callback: AsyncCallback<R
 function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
 /**
- * Reads the text content of a file synchronously. This API returns the result synchronously. This
- * API uses a promise to return the result.
+ * 基于文本方式读取文件（即直接读取文件的文本内容）。使用Promise异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the file length.
- *     <br>- **encoding** (string): format of the data to be encoded.
- *     <br>It is valid only when the data is of the string type. The default value is **'utf-8'**, which is the only
- *     value supported.
- * @returns { Promise<string> } Promise used to return the content read.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- 
+ *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，当数据是 string 类型时有效，表示数据的编码方式，默认 'utf-8'，
+ *     仅支持'utf-8'。
+ * @returns { Promise<string> } Promise对象，返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2970,10 +2587,10 @@ function readText(
 ): Promise<string>;
 
 /**
- * Reads the text of a file. This API uses an asynchronous callback to return the result.
+ * 基于文本方式读取文件内容。使用callback异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { AsyncCallback<string> } callback - Callback used to return the content read.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { AsyncCallback<string> } callback - 回调函数，返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2993,18 +2610,12 @@ function readText(
 function readText(filePath: string, callback: AsyncCallback<string>): void;
 
 /**
- * Reads the text of a file. Read options can be configured. This API uses an asynchronous callback to return the
- * result.
+ * 基于文本方式读取文件内容，支持配置读取选项。使用callback异步回调。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the file length.
- *     <br>- **encoding** (string): format of the data to be encoded. The default value is **'utf-8'**, which is the
- *     only value supported.
- * @param { AsyncCallback<string> } callback - Callback used to return the content read.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- 
+ *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，表示数据的编码方式，默认 'utf-8'，仅支持 'utf-8'。
+ * @param { AsyncCallback<string> } callback - 回调函数，返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3028,18 +2639,13 @@ function readText(
 ): void;
 
 /**
- * Reads the text content of a file. This API returns the result synchronously.
+ * 以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
  *
- * @param { string } filePath - Application sandbox path of the file.
- * @param { ReadTextOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
- *     default, data is read from the current position.
- *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
- *     The default value is the file length.
- *     <br>- **encoding** (string): format of the data to be encoded.
- *     <br>It is valid only when the data is of the string type. The default value is **'utf-8'**, which is the only
- *     value supported.
- * @returns { string } File content read.
+ * @param { string } filePath - 文件的应用沙箱路径。
+ * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- 
+ *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，当数据是 string 类型时有效，表示数据的编码方式，默认 'utf-8'，
+ *     仅支持'utf-8'。
+ * @returns { string } 返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3063,15 +2669,15 @@ function readTextSync(
 ): string;
 
 /**
- * Renames a file or directory. This API uses a promise to return the result.
+ * 重命名文件或目录。使用Promise异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - Original application sandbox path of the file or directory.
- * @param { string } newPath - New application sandbox path of the file or directory.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3097,16 +2703,15 @@ function readTextSync(
 function rename(oldPath: string, newPath: string): Promise<void>;
 
 /**
- * Renames a file or directory. This API uses an asynchronous callback to return the result.
+ * 重命名文件或目录。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - Original application sandbox path of the file or directory.
- * @param { string } newPath - New application sandbox path of the file or directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is renamed successfully,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当重命名文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3132,14 +2737,14 @@ function rename(oldPath: string, newPath: string): Promise<void>;
 function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
 
 /**
- * Renames a file or directory. This API returns the result synchronously.
+ * 以同步方法重命名文件或目录。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API is not supported in a distributed directory.
+ * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - Original application sandbox path of the file or directory.
- * @param { string } newPath - New application sandbox path of the file or directory.
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3165,14 +2770,14 @@ function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>)
 function renameSync(oldPath: string, newPath: string): void;
 
 /**
- * Deletes a directory and all its subdirectories and files. This API uses a promise to return the result.
+ * 删除目录及其所有子目录和文件。使用Promise异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API can be used to remove a single file. However, you are advised to use **unlink()** instead.
+ * > 该接口支持删除单个文件，但不推荐使用此方法删除单个文件，推荐使用unlink接口删除单个文件。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3191,16 +2796,14 @@ function renameSync(oldPath: string, newPath: string): void;
 function rmdir(path: string): Promise<void>;
 
 /**
- * Deletes a directory and all its subdirectories and files. This API uses an asynchronous callback to return the
- * result.
+ * 删除目录及其所有子目录和文件。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API can be used to remove a single file. However, you are advised to use **unlink()** instead.
+ * > 该接口支持删除单个文件，但不推荐使用此方法删除单个文件，推荐使用unlink接口删除单个文件。
  *
- * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the directory is successfully
- *     deleted, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } path - 目录的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当删除目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3219,13 +2822,13 @@ function rmdir(path: string): Promise<void>;
 function rmdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * Removes a directory and all its subdirectories and files synchronously.
+ * 以同步方法删除目录及其所有子目录和文件。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > This API can be used to remove a single file. However, you are advised to use **unlinkSync** instead.
+ * > 该接口支持删除单个文件，但不推荐使用此方法删除单个文件，推荐使用unlinkSync接口删除单个文件。
  *
- * @param { string } path - Application sandbox path of the directory.
+ * @param { string } path - 目录的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3244,12 +2847,11 @@ function rmdir(path: string, callback: AsyncCallback<void>): void;
 function rmdirSync(path: string): void;
 
 /**
- * Obtains detailed attributes of a file or directory. The returned **Stat** object contains attributes such as the
- * file size, permission mode, access time, and modification time. This API uses a promise to return the result.
+ * 获取文件或目录详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。使用Promise异步回调。
  *
- * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @returns { Promise<Stat> } Promise used to return the file or directory information.
+ * @param { string | int } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @returns { Promise<Stat> } Promise对象，返回文件或目录的具体信息。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3269,13 +2871,11 @@ function rmdirSync(path: string): void;
 function stat(file: string | int): Promise<Stat>;
 
 /**
- * Obtains detailed attributes of a file or directory. The returned **Stat** object contains attributes such as the
- * file size, permission mode, access time, and modification time. This API uses an asynchronous callback to
- * return the result.
+ * 获取文件或目录的详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。使用callback异步回调。
  *
- * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @param { AsyncCallback<Stat> } callback - Callback used to return the file or directory information obtained.
+ * @param { string | int } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @param { AsyncCallback<Stat> } callback - 异步获取文件或目录的信息之后的回调。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3295,12 +2895,11 @@ function stat(file: string | int): Promise<Stat>;
 function stat(file: string | int, callback: AsyncCallback<Stat>): void;
 
 /**
- * Obtains detailed attributes of a file or directory synchronously. The returned **Stat** object contains attributes
- * such as the file size, permission mode, access time, and modification time.
+ * 以同步方法获取文件或目录详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。
  *
- * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
- *     <br>**Note**: URIs can be passed since API version 22.
- * @returns { Stat } Detailed information of a file or directory.
+ * @param { string | int } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。
+ *     <br>**说明**：从API version 22开始，支持传入URI。
+ * @returns { Stat } 表示文件或目录的具体信息。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3320,11 +2919,15 @@ function stat(file: string | int, callback: AsyncCallback<Stat>): void;
 function statSync(file: string | int): Stat;
 
 /**
- * Creates a symbolic link based on a file path. This API uses a promise to return the result.
+ * 基于文件路径创建符号链接。使用Promise异步回调。
  *
- * @param { string } target - Application sandbox path of the target file.
- * @param { string } srcPath - Application sandbox path of the symbolic link.
- * @returns { Promise<void> } Promise that returns no value.
+ * > **说明：**
+ * >
+ * > 从API version 11开始，不支持三方应用使用。
+ *
+ * @param { string } target - 要链接的目标文件的应用沙箱路径。
+ * @param { string } srcPath - 符号链接文件的应用沙箱路径。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3345,16 +2948,15 @@ function statSync(file: string | int): Stat;
 function symlink(target: string, srcPath: string): Promise<void>;
 
 /**
- * Creates a symbolic link based on a file path. This API uses an asynchronous callback to return the result.
+ * 基于文件路径创建符号链接。使用callback异步回调。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > Since API version 11, this API cannot be used by third-party applications.
+ * > 从API version 11开始，不支持三方应用使用。
  *
- * @param { string } target - Application sandbox path of the target file.
- * @param { string } srcPath - Application sandbox path of the symbolic link.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the symbolic link is successfully
- *     created, **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } target - 要链接的目标文件的应用沙箱路径。
+ * @param { string } srcPath - 符号链接文件的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建符号链接成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3375,14 +2977,14 @@ function symlink(target: string, srcPath: string): Promise<void>;
 function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
 
 /**
- * Creates a symbolic link based on the file path. This API returns the result synchronously.
+ * 以同步的方法基于文件路径创建符号链接。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > Since API version 11, this API cannot be used by third-party applications.
+ * > 从API version 11开始，不支持三方应用使用。
  *
- * @param { string } target - Application sandbox path of the target file.
- * @param { string } srcPath - Application sandbox path of the symbolic link.
+ * @param { string } target - 要链接的目标文件的应用沙箱路径。
+ * @param { string } srcPath - 符号链接文件的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3403,12 +3005,11 @@ function symlink(target: string, srcPath: string, callback: AsyncCallback<void>)
 function symlinkSync(target: string, srcPath: string): void;
 
 /**
- * Truncates a file to the specified length. Excess content will be deleted. This API uses a promise to return the
- * result.
+ * 截断文件，将文件大小调整为指定长度，超出部分的内容将被删除。使用Promise异步回调。
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @param { long } [len] - File length after truncation, in bytes. The default value is **0**.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string | int } file - 文件的应用沙箱路径或已打开的文件描述符fd。
+ * @param { long } [len] - 文件截断后的长度，单位为Byte。默认为0。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3431,11 +3032,10 @@ function symlinkSync(target: string, srcPath: string): void;
 function truncate(file: string | int, len?: long): Promise<void>;
 
 /**
- * Truncates a file and deletes its content. This API uses an asynchronous callback to return the result.
+ * 截断文件，删除文件内容。使用callback异步回调。
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @param { AsyncCallback<void> } callback - Callback used to return the result.
- *    If the file is truncated successfully, **err** is **undefined**. Otherwise, **err** is an error object.
+ * @param { string | int } file - 文件的应用沙箱路径或已打开的文件描述符fd。
+ * @param { AsyncCallback<void> } callback - 回调函数。当截断文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3458,13 +3058,11 @@ function truncate(file: string | int, len?: long): Promise<void>;
 function truncate(file: string | int, callback: AsyncCallback<void>): void;
 
 /**
- * Truncates a file to the specified length. Excess content will be deleted. This API uses an asynchronous callback to
- * return the result.
+ * 截断文件，将文件大小调整为指定长度，超出部分的内容将被删除。使用callback异步回调。
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @param { long } len - File length after truncation, in bytes.
- * @param { AsyncCallback<void> } callback - Callback used to return the result.
- *     If the file is truncated successfully,**err** is **undefined**. Otherwise, **err** is an error object.
+ * @param { string | int } file - 文件的应用沙箱路径或已打开的文件描述符fd。
+ * @param { long } len - 文件截断后的长度，单位为Byte。
+ * @param { AsyncCallback<void> } callback - 回调函数。当截断文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3487,10 +3085,10 @@ function truncate(file: string | int, callback: AsyncCallback<void>): void;
 function truncate(file: string | int, len: long, callback: AsyncCallback<void>): void;
 
 /**
- * Truncates a file to the specified length synchronously. Excess content will be deleted.
+ * 以同步方法截断文件内容，将文件大小调整为指定长度，超出部分的内容将被删除。
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @param { long } [len] - File length after truncation, in bytes. The default value is **0**.
+ * @param { string | int } file - 文件的应用沙箱路径或已打开的文件描述符fd。
+ * @param { long } [len] - 文件截断后的长度，单位为Byte。默认为0。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3513,11 +3111,10 @@ function truncate(file: string | int, len: long, callback: AsyncCallback<void>):
 function truncateSync(file: string | int, len?: long): void;
 
 /**
- * Deletes a single file. This method cannot be used to delete a directory. This API uses a promise to return the
- * result.
+ * 删除单个文件，仅适用于文件，不可用于删除目录。使用Promise异步回调。
  *
- * @param { string } path - Application sandbox path of the file.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3539,12 +3136,10 @@ function truncateSync(file: string | int, len?: long): void;
 function unlink(path: string): Promise<void>;
 
 /**
- * Deletes a single file. This method cannot be used to delete a directory. This API uses an asynchronous callback to
- * return the result.
+ * 删除单个文件，仅适用于文件，不可用于删除目录。使用callback异步回调。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is deleted successfully,
- *     **err** is **undefined**; otherwise, **err** is an error object.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当删除文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3566,9 +3161,9 @@ function unlink(path: string): Promise<void>;
 function unlink(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * Deletes a single file synchronously. This method cannot be used to delete a directory.
+ * 以同步方法删除单个文件，仅适用于文件，不可用于删除目录。
  *
- * @param { string } path - Application sandbox path of the file.
+ * @param { string } path - 文件的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3590,11 +3185,10 @@ function unlink(path: string, callback: AsyncCallback<void>): void;
 function unlinkSync(path: string): void;
 
 /**
- * Changes the time when the file was last modified.
+ * 更改文件上次修改该文件的时间。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since the Epoch
- *     time (00:00:00 UTC on January 1, 1970). Only the time when the file was last modified can be changed.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { double } mtime - 待更新的时间戳。自1970年1月1日起至目标时间的毫秒数。仅支持更改上次修改该文件的时间属性。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3607,18 +3201,14 @@ function unlinkSync(path: string): void;
 function utimes(path: string, mtime: double): void;
 
 /**
- * Writes data to a file and returns the number of bytes written. This API uses a promise to return the result.
+ * 将数据写入文件，返回实际写入的字节数。使用Promise异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { WriteOptions } [options] - The options are as follows: <br>
- *     - **offset** (number): start position to write the data in the file, in bytes.
- *     This parameter is optional. Bydefault, data is written from the current position.
- *     <br>- **length** (number): length of the data to write, in bytes. This parameter is optional.
- *     The default valueis the buffer length.<br>
- *     - **encoding** (string): format of the data to be encoded when the data is a string. The default value is
- *     **'utf-8'**, which is the only value supported currently.
- * @returns { Promise<long> } Promise used to return the length of the data written, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写入。<br/>- 
+ *     length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。
+ *     当前仅支持 'utf-8'。
+ * @returns { Promise<long> } Promise对象，返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3641,12 +3231,11 @@ function write(
 ): Promise<long>;
 
 /**
- * Writes data to a file and returns the number of bytes written. This API uses an asynchronous callback to return the
- * result.
+ * 将数据写入文件，返回实际写入的字节数。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3665,20 +3254,14 @@ function write(
 function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
 /**
- * Writes data to a file. Write options (such as the offset position and length of the data written)
- * can be configured.The number of bytes written is returned. This API uses an asynchronous callback
- * to return the result.
+ * 将数据写入文件，支持配置写入选项（如偏移位置和写入长度），返回实际写入的字节数。使用callback异步回调。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { WriteOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): start position to write the data in the file, in bytes.
- *     This parameter is optional. Bydefault, data is written from the current position.
- *     <br>- **length** (number): length of the data to write, in bytes. This parameter is optional.
- *     The default valueis the buffer length.
- *     <br>- **encoding** (string): format of the data to be encoded when the data is a string.
- *     The default value is**'utf-8'**, which is the only value supported currently.
- * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。
+ *     当前仅支持 'utf-8'。
+ * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3702,18 +3285,14 @@ function write(
 ): void;
 
 /**
- * Writes data to a file synchronously and returns the number of bytes written.
+ * 以同步方法将数据写入文件，返回实际写入的字节数。
  *
- * @param { int } fd - FD of the file.
- * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { WriteOptions } [options] - The options are as follows:
- *     <br>- **offset** (number): start position to write the data in the file, in bytes.
- *     This parameter is optional. Bydefault, data is written from the current position.
- *     <br>- **length** (number): length of the data to write, in bytes. This parameter is optional.
- *     The default valueis the buffer length.
- *     <br>- **encoding** (string): format of the data to be encoded when the data is a string.
- *     The default value is**'utf-8'**, which is the only value supported currently.
- * @returns { long } Length of the data written, in bytes.
+ * @param { int } fd - 已打开的文件描述符fd。
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。
+ *     当前仅支持 'utf-8'。
+ * @returns { long } 返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3735,83 +3314,84 @@ function writeSync(
   options?: WriteOptions
 ): long;
 
-  /**
-   * Triggers connection. If the peer device is abnormal, [onStatus]{@link DfsListeners.onStatus}
-   * in DfsListeners will be called to notify the application.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
-   *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
-   *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
-   * @param { DfsListeners } listeners - Listeners for distributed file system status.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 13900045 - Connection failed.
-   * @throws { BusinessError } 13900046 - Software caused connection abort.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 static
-   */
-  function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+/**
+ * 业务调用connectDfs接口，触发建链。如果对端设备出现异常，业务执行回调DfsListeners内
+ * [onStatus](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#onstatus12)通知应用。可参考
+ * [跨设备文件共享和访问](docroot://file-management/file-access-across-devices.md)文档进行开发。
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - 设备的网络Id。通过
+ *     [distributedDeviceManager]{@link @ohos.distributedDeviceManager:distributedDeviceManager}接口调用
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}获得。
+ * @param { DfsListeners } listeners - 分布式文件系统状态监听器。
+ * @returns { Promise<void> } Promise对象，无返回结果。
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:
+ *     1.Mandatory parameters are left unspecified;
+ *     <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900045 - Connection failed.
+ * @throws { BusinessError } 13900046 - Software caused connection abort.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 
-  /**
-   * Triggers disconnection.
-   *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } networkId - Network ID of the device. The device network ID can be obtained from
-   *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}
-   *     using the related [distributedDeviceManager]{@link @ohos.distributedDeviceManager} API.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left
-   *     unspecified;
-   *     <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 13600004 - Unmount failed.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 static
-   */
-  function disconnectDfs(networkId: string): Promise<void>;
+/**
+ * 业务调用disconnectDfs接口，传入networkId参数，触发断链。
+ * 可参考[跨设备文件共享和访问](docroot://file-management/file-access-across-devices.md)文档进行开发。
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - 设备的网络Id。通过
+ *     [distributedDeviceManager]{@link @ohos.distributedDeviceManager:distributedDeviceManager}接口调用
+ *     [DeviceBasicInfo]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceBasicInfo}获得。
+ * @returns { Promise<void> } Promise对象，无返回结果。
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left
+ *     unspecified;
+ *     <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13600004 - Unmount failed.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function disconnectDfs(networkId: string): Promise<void>;
 
+/**
+ * DfsListener Callback function.
+ *
+ * @param { string } networkId - 设备的网络Id。
+ * @param { int } status - 分布式文件系统的状态码（以connectDfs回调onStatus的特定错误码作为入参）。
+ *     触发场景为connectDfs调用过程中出现对端设备异常，对应错误码为：- 13900046：软件造成连接中断。
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+type DfsListenerCallback = (networkId: string, status: int) => void;
+
+/**
+ * 事件监听类。创建DFSListener对象，用于监听分布式文件系统状态。
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+export interface DfsListeners {
   /**
-   * DfsListener Callback function.
+   * 分布式文件系统状态监听器。
    *
-   * @param { string } networkId - The networkId of device.
-   * @param { int } status - The status code of Distributed File System.
-   *     The value should be an integer.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
    * @since 23 static
    */
-  type DfsListenerCallback = (networkId: string, status: int) => void;
-
-  /**
-   * The listeners of Distributed File System.
-   *
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @stagemodelonly
-   * @since 23 static
-   */
-  export interface DfsListeners {
-    /**
-     * The Listener of Distributed File System status
-     *
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onStatus: DfsListenerCallback;
+  onStatus: DfsListenerCallback;
 }
 
 /**
- * Sets an extended attribute of a file or directory. This API uses a promise to return the result.
+ * 设置文件或目录的扩展属性。使用promise异步回调。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { string } key - Key of the extended attribute to obtain.
- *     The value is a string of less than 256 bytes and can contain only the **user.** prefix.
- * @param { string } value - Value of the extended attribute to set.
- * @returns { Promise<void> } Promise that returns no value.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { string } key - 扩展属性的key。仅支持前缀为“user.”的字符串，且长度需小于256字节。
+ * @param { string } value - 扩展属性的value。
+ * @returns { Promise<void> } Promise对象，无返回结果。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3829,12 +3409,11 @@ function writeSync(
 function setxattr(path: string, key: string, value: string): Promise<void>;
 
 /**
- * Sets an extended attribute of a file or directory.
+ * 设置文件或目录的扩展属性。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { string } key - Key of the extended attribute to obtain.
- *     The value is a string of less than 256 bytes and can contain only the **user.** prefix.
- * @param { string } value - Value of the extended attribute to set.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { string } key - 扩展属性的key。仅支持前缀为“user.”的字符串，且长度需小于256字节。
+ * @param { string } value - 扩展属性的value。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3852,11 +3431,11 @@ function setxattr(path: string, key: string, value: string): Promise<void>;
 function setxattrSync(path: string, key: string, value: string): void;
 
 /**
- * Obtains an extended attribute of a file or directory. This API uses a promise to return the result.
+ * 获取文件或目录的扩展属性。使用promise异步回调。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { string } key - Key of the extended attribute to obtain.
- * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { string } key - 扩展属性的key。
+ * @returns { Promise<string> } Promise对象，返回扩展属性的value。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3872,11 +3451,11 @@ function setxattrSync(path: string, key: string, value: string): void;
 function getxattr(path: string, key: string): Promise<string>;
 
 /**
- * Obtains an extended attribute of a file. This API returns the result synchronously.
+ * 使用同步接口获取文件或目录的扩展属性。
  *
- * @param { string } path - Application sandbox path of the file or directory.
- * @param { string } key - Key of the extended attribute to obtain.
- * @returns { string } Value of the extended attribute obtained.
+ * @param { string } path - 文件或目录的应用沙箱路径。
+ * @param { string } key - 扩展属性的key。
+ * @returns { string } 返回扩展属性的value。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3892,22 +3471,22 @@ function getxattr(path: string, key: string): Promise<string>;
 function getxattrSync(path: string, key: string): string;
 
 /**
- * Defines the copy progress information.
+ * 拷贝进度回调数据
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 interface Progress {
   /**
-   * Size of the copied data, in bytes.
+   * 已拷贝的数据大小，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
   readonly processedSize: long;
-
+  
   /**
-   * Total size of the data to be copied, in bytes.
+   * 待拷贝的数据总大小，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -3915,60 +3494,59 @@ interface Progress {
   readonly totalSize: long;
 }
 
+/**
+ * 拷贝中断信号。
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+class TaskSignal {
   /**
-   * Provides APIs for interrupting a copy task.
+   * 取消拷贝任务。
    *
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
-  class TaskSignal {
-    /**
-     * Cancels a copy task.
-     *
-     * @throws { BusinessError } 13900010 - Try again
-     * @throws { BusinessError } 13900012 - Permission denied by the file system
-     * @throws { BusinessError } 13900043 - No task can be canceled.
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 23 static
-     */
-    cancel(): void;
+  cancel(): void;
 }
 
+/**
+ * 拷贝进度回调监听
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+interface CopyOptions {
   /**
-   * Defines the callback for listening for the copy progress.
+   * 拷贝进度监听。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
-  interface CopyOptions {
-    /**
-     * Listener used to observe the copy progress.
-     *
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 23 static
-     */
-    progressListener?: ProgressListener;
-    /**
-     * Signal used to cancel a copy task.
-     *
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 23 static
-     */
-    copySignal?: TaskSignal;
+  progressListener?: ProgressListener;
+  /**
+   * 取消拷贝信号。
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 23 static
+   */
+  copySignal?: TaskSignal;
 }
 
-  /**
-   * Listener used to observe the copy progress.
-   *
-   * @param { Progress } progress - indicates the progress data of copyFile
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 23 static
-   */
+/**
+ * 拷贝进度监听。
+ *
+ * @param { Progress } progress - indicates the progress data of copyFile
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
   type ProgressListener = (progress: Progress) => void;
 
 /**
- * Represents a **File** object opened by **open()**. It contains the FD and provides capabilities such as locking a
- * file and obtaining the parent directory.
+ * 由open接口打开的File对象，持有文件描述符fd，提供文件锁和获取父目录等能力。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -3976,7 +3554,7 @@ interface Progress {
 interface File {
 
   /**
-   * FD of the file.
+   * 已打开的文件描述符fd。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -3984,7 +3562,7 @@ interface File {
   readonly fd: int;
 
   /**
-   * Path of the file.
+   * 文件路径。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -3995,7 +3573,7 @@ interface File {
   readonly path: string;
 
   /**
-   * Name of the file.
+   * 文件名。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -4005,9 +3583,9 @@ interface File {
   readonly name: string;
 
   /**
-   * Obtains the parent directory of this file object.
+   * 获取File对象对应文件的父目录路径。
    *
-   * @returns { string } Parent directory obtained.
+   * @returns { string } 返回父目录路径。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
@@ -4017,12 +3595,10 @@ interface File {
   getParent(): string;
 
   /**
-   * Applies an exclusive lock or a shared lock on a file in blocking mode. This API uses a promise to return the
-   * result.
+   * 对文件阻塞式施加共享锁或独占锁。使用Promise异步回调。
    *
-   * @param { boolean } exclusive - Lock to apply.
-   *     <br> The value **true** means an exclusive lock, and the value **false** (default) means a shared lock.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } exclusive - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4035,10 +3611,9 @@ interface File {
   lock(exclusive?: boolean): Promise<void>;
 
   /**
-   * Applies a shared lock on a file in blocking mode. This API uses an asynchronous callback to return the result.
+   * 对文件阻塞式施加共享锁。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file is locked successfully,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当文件上锁成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4051,13 +3626,10 @@ interface File {
   lock(callback: AsyncCallback<void>): void;
 
   /**
-   * Applies an exclusive lock or a shared lock on a file in blocking mode. This API uses an asynchronous callback to
-   * return the result.
+   * 对文件阻塞式施加共享锁或独占锁。使用callback异步回调。
    *
-   * @param { boolean } exclusive - Whether to apply an exclusive lock.
-   *     The value **true** means an exclusive lock, and the value **false** (default) means a shared lock.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   *     If the file is locked successfully, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { boolean } exclusive - 是否施加独占锁。true：施加独占锁；false：不施加独占锁。
+   * @param { AsyncCallback<void> } callback - 回调函数。当文件上锁成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4070,10 +3642,9 @@ interface File {
   lock(exclusive: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Applies an exclusive lock or a shared lock on this file in non-blocking mode.
+   * 文件非阻塞式施加共享锁或独占锁。
    *
-   * @param { boolean } exclusive - Lock to apply.
-   *     <br> The value **true** means an exclusive lock, and the value **false** (default) means a shared lock.
+   * @param { boolean } exclusive - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4086,7 +3657,7 @@ interface File {
   tryLock(exclusive?: boolean): void;
 
   /**
-   * Unlocks a file. This API returns the result synchronously.
+   * 以同步方式解锁文件。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4101,8 +3672,7 @@ interface File {
 }
 
 /**
- * Defines a file mapping object. Before calling the **FileMapping** method,
- * construct a **FileMapping** instance using [mmap()]{@link fileIo.mmap} or [mmapSync()]{@link fileIo.mmapSync}.
+ * 文件映射对象，在调用FileMapping的方法前，需要先通过[mmap()]{@link fileIo.mmap}或方法[mmapSync()]{@link fileIo.mmapSync}构建一个FileMapping实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -4110,12 +3680,10 @@ interface File {
  */
 interface FileMapping {
   /**
-   * Sets the current location of the file mapping area.
+   * 设置文件映射区的当前位置。
    *
-   * @param { int } position - Target position to set, in bytes.
-   *     <br>The value must be a non-negative number and cannot be greater than the upper bound (**limit**) of the
-   *     readable and writable area. You can obtain the value of **limit** by calling
-   *     [getLimit()]{@link fileIo.FileMapping.getLimit}.
+   * @param { int } position - 期望设置的目标位置，单位为Byte。
+   *     <br>必须为非负数且不大于当前可读写上界的limit，可通过[getLimit()]{@link fileIo.FileMapping.getLimit}获得可读写上界的limit。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4126,9 +3694,9 @@ interface FileMapping {
   setPosition(position: int): void;
 
   /**
-   * Gets the current location of the file mapping area.
+   * 获取文件映射区的当前位置。
    *
-   * @returns { int } Current position of the file mapping area, in bytes.
+   * @returns { int } 文件映射区的当前位置，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4139,9 +3707,9 @@ interface FileMapping {
   getPosition(): int;
 
   /**
-   * Obtains the capacity of the file mapping area.
+   * 获取文件映射区的容量。
    *
-   * @returns { int } Capacity of the file mapping area, in bytes.
+   * @returns { int } 文件映射区的容量，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4152,12 +3720,10 @@ interface FileMapping {
   capacity(): int;
 
   /**
-   * Sets the upper bound of the readable and writable area of the file mapping area.
+   * 设置文件映射区可读写区域的上界。
    *
-   * @param { int } limit - Upper bound of the readable and writable area to set, in bytes.
-   *     <br>The value is greater than or equal to 0 and less than or equal to the value of
-   *     [capacity]{@link fileIo.FileMapping.capacity}. If the value of **limit** is smaller than that of **position**
-   *     in the file mapping area, the value of **position** is automatically adjusted to that of **limit**.
+   * @param { int } limit - 要设置的可读写区域上界值，单位为Byte。
+   *     <br>取值需大于等于0，且小于等于当前[capacity]{@link fileIo.FileMapping.capacity}。若所设值小于文件映射区的当前位置，则当前位置将自动调整至该值。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4168,9 +3734,9 @@ interface FileMapping {
   setLimit(limit: int): void;
 
   /**
-   * Obtains the upper bound of the readable and writable area of the file mapping area.
+   * 获取文件映射区可读写区域的上界。
    *
-   * @returns { int } Upper bound of the current readable and writable area, in bytes.
+   * @returns { int } 当前可读写区域上界值，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4181,13 +3747,14 @@ interface FileMapping {
   getLimit(): int;
 
   /**
-   * Flips the file mapping area to switch from the write-ready state to the read-ready state.
-   * After this API is called, **limit** is set to the value of **position**, and **position** is reset to **0**.
+   * 翻转文件映射区，将写入准备状态切换为读取准备状态。调用后，limit被设置为当前position的值，position被重置为0。
    *
-   * It is recommended that this API be called to prepare for subsequent
+   * 推荐在一系列
+   * [write()]{@link fileIo.Stream.write( buffer: ArrayBuffer | string, options: WriteOptions, callback: 
+   *     AsyncCallback<long> )}
+   * 操作完成后，调用此方法准备后续的
    * [read()]{@link fileIo.Stream.read( buffer: ArrayBuffer, options: ReadOptions, callback: AsyncCallback<long> )}
-   * operations after the[write()]{@link fileIo.Stream.write( buffer: ArrayBuffer | string, options: WriteOptions,
-   * callback: AsyncCallback<long> )} operations are complete.
+   * 操作。
    *
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -4199,10 +3766,9 @@ interface FileMapping {
   flip(): void;
 
   /**
-   * Obtains the number of remaining bytes between the current position (**position**) and the upper bound (**limit**)
-   * of the readable and writable area.
+   * 获取从当前位置（position）到可读写区域的上界（limit）之间的剩余字节数。
    *
-   * @returns { int } Number of remaining readable or writable bytes.
+   * @returns { int } 剩余可读或可写的字节数，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4213,11 +3779,11 @@ interface FileMapping {
   remaining(): int;
 
   /**
-   * Reads data from the current position and moves the position backward by the number of bytes actually read.
+   * 从当前位置读取数据，并将位置后移实际读取的字节数。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
-   * @param { int } [length] - Length of the data to read, in bytes. The default value is the buffer length.
-   * @returns { int } Length of the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+   * @param { int } [length] - 期望读取数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { int } 返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4230,12 +3796,12 @@ interface FileMapping {
   read(buffer: ArrayBuffer, length?: int): int;
 
   /**
-   * Reads data from the specified position. The current position does not move.
+   * 从指定位置读取数据，当前位置不会发生移动。
    *
-   * @param { int } position - Start position to read the data, in bytes.
-   * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
-   * @param { int } [length] - Length of the data to read, in bytes. The default value is the buffer length.
-   * @returns { int } Length of the data read, in bytes.
+   * @param { int } position - 期望读取的起始位置，单位为Byte。
+   * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
+   * @param { int } [length] - 期望读取数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { int } 返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4248,11 +3814,11 @@ interface FileMapping {
   read(position: int, buffer: ArrayBuffer, length?: int): int;
 
   /**
-   * Writes data from the current position and moves the position backward by the number of bytes actually written.
+   * 从当前位置写入数据，并将位置后移实际写入的字节数。
    *
-   * @param { ArrayBuffer } data - Buffer data to be written to the file.
-   * @param { int } [length] - Length of the data to write, in bytes. The default value is the buffer length.
-   * @returns { int } return the length of the data written, in bytes.
+   * @param { ArrayBuffer } data - 待写入文件的缓冲区数据。
+   * @param { int } [length] - 期望写入数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { int } 返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4266,13 +3832,12 @@ interface FileMapping {
   write(data: ArrayBuffer, length?: int): int;
 
   /**
-   * Writes data to the specified position. The current position does not move.
+   * 从指定位置写入数据，当前位置不会发生移动。
    *
-   * @param { int } position - Start position to write, in bytes.
-   * @param { ArrayBuffer } data - Buffer data to be written to the file.
-   * @param { int } [length] - Length of the data to write, in bytes. This parameter is optional. The default value is
-   *     the buffer length.
-   * @returns { int } return the length of the data written, in bytes.
+   * @param { int } position - 期望写入的起始位置，单位为Byte。
+   * @param { ArrayBuffer } data - 待写入文件的缓冲区数据。
+   * @param { int } [length] - 期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。
+   * @returns { int } 返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4286,15 +3851,13 @@ interface FileMapping {
   write(position: int, data: ArrayBuffer, length?: int): int;
 
   /**
-   * Synchronizes data of the entire file mapping area to the disk file synchronously.
-   * This API uses a promise to return the result.
+   * 将整个文件映射区的数据同步到磁盘文件。使用Promise异步回调。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > If the file is not stored on the local device, calling this API does not ensure that all changes are stored
-   * > persistently.
+   * > 如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4308,17 +3871,15 @@ interface FileMapping {
   msync(): Promise<void>;
 
   /**
-   * Synchronizes data in the specified range of the file mapping area to the disk file synchronously. This API uses a
-   * promise to return the result.
+   * 将文件映射区指定范围内的数据同步到磁盘文件。使用Promise异步回调。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > If the file is not stored on the local device, calling this API does not ensure that all changes are stored
-   * > persistently.
+   * > 如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
-   * @param { int } position - Start position to synchronize, in bytes.
-   * @param { int } length - Length of the data to synchronize, in bytes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } position - 期望同步的起始位置，单位为Byte。
+   * @param { int } length - 期望同步的数据长度，单位为Byte。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4332,12 +3893,11 @@ interface FileMapping {
   msync(position: int, length: int): Promise<void>;
 
   /**
-   * Synchronizes data of the entire file mapping area to the disk file synchronously.
+   * 以同步方法将整个文件映射区的数据同步到磁盘文件。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > If the file is not stored on the local device, calling this API does not ensure that all changes are stored
-   * > persistently.
+   * > 如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
@@ -4352,15 +3912,14 @@ interface FileMapping {
   msyncSync(): void;
 
   /**
-   * Synchronizes data in the specified range of the file mapping area to the disk file synchronously.
+   * 以同步方法将文件映射区指定范围内的数据同步到磁盘文件。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > If the file is not stored on the local device, calling this API does not ensure that all changes are stored
-   * > persistently.
+   * > 如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
-   * @param { int } position - Start position to synchronize, in bytes.
-   * @param { int } length - Length of the data to synchronize, in bytes.
+   * @param { int } position - 期望同步的起始位置，单位为Byte。
+   * @param { int } length - 期望同步的数据长度，单位为Byte。
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4374,11 +3933,9 @@ interface FileMapping {
   msyncSync(position: int, length: int): void;
 
   /**
-   * Releases the file mapping area. This API uses a promise to return the result. After this API is called,
-   * **position**, **limit**, and **capacity** are all reset to **0**, and no operation can be performed on the
-   * **FileMapping** object.
+   * 释放文件映射区。使用Promise异步回调。调用后，position、limit和capacity均被重置为0，FileMapping对象不可再进行任何操作。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4388,8 +3945,7 @@ interface FileMapping {
   unmap(): Promise<void>;
 
   /**
-   * Releases the file mapping area synchronously. After this API is called, **position**, **limit**, and **capacity**
-   * are all reset to **0**, and no operation can be performed on the **FileMapping** object.
+   * 以同步方法释放文件映射区。调用后，position、limit和capacity均被重置为0，FileMapping对象不可再进行任何操作。
    *
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -4401,9 +3957,7 @@ interface FileMapping {
 }
 
 /**
- * Provides APIs for randomly reading and writing a stream based on offset pointers. Before invoking any API of
- * **RandomAccessFile**, you need to use **createRandomAccessFile()** to create a **RandomAccessFile** instance
- * synchronously or asynchronously.
+ * 随机读写文件流，提供基于偏移指针的随机读写能力。在调用RandomAccessFile的方法前，需要先通过createRandomAccessFile()方法（同步或异步）来构建一个RandomAccessFile实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -4411,7 +3965,7 @@ interface FileMapping {
 interface RandomAccessFile {
 
   /**
-   * FD of the file.
+   * 已打开的文件描述符fd。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -4419,8 +3973,7 @@ interface RandomAccessFile {
   readonly fd: int;
 
   /**
-   * Offset pointer to the **RandomAccessFile** instance, in bytes. This parameter indicates the current read/write
-   * position.
+   * RandomAccessFile对象的偏移指针，表示当前读写位置，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -4428,9 +3981,9 @@ interface RandomAccessFile {
   readonly filePointer: long;
 
   /**
-   * Sets the file offset pointer to specify the start position of subsequent read and write operations.
+   * 设置文件偏移指针，用于指定后续读写等操作的起始位置。
    *
-   * @param { long } filePointer - Offset pointer to the **RandomAccessFile** instance, in bytes.
+   * @param { long } filePointer - RandomAccessFile对象的偏移指针，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4442,8 +3995,7 @@ interface RandomAccessFile {
   setFilePointer(filePointer: long): void;
 
   /**
-   * Closes a **RandomAccessFile** object synchronously. After the object is closed,
-   * it cannot be used for read or write operations.
+   * 以同步方式关闭RandomAccessFile对象，关闭后不可再用于读写等操作。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4457,17 +4009,13 @@ interface RandomAccessFile {
   close(): void;
 
   /**
-   * Writes data to a file. This API uses a promise to return the result.
+   * 将数据写入文件。使用Promise异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data, in bytes (it is determined by
-   *     **filePointer** plus **offset**). This parameter is optional. By default,
-   *     data is written from the **filePointer**.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string.
-   *     The default value is **'utf-8'**, which is the only value supported.
-   * @returns { Promise<long> } Promise used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，
+   *     string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。
+   * @returns { Promise<long> } Promise对象，返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4489,10 +4037,10 @@ interface RandomAccessFile {
   ): Promise<long>;
 
   /**
-   * Writes data to a file. This API uses an asynchronous callback to return the result.
+   * 将数据写入文件。使用callback异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4511,18 +4059,13 @@ interface RandomAccessFile {
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
   /**
-   * Writes data to a file. Write options can be configured. This API uses an asynchronous callback to return the
-   * result.
+   * 将数据写入文件，支持配置写入选项。使用callback异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data, in bytes (it is determined by
-   *     **filePointer** plus **offset**). This parameter is optional. By default,
-   *     data is written from the **filePointer**.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string.
-   *     The default value is **'utf-8'**, which is the only value supported.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，
+   *     string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4545,17 +4088,13 @@ interface RandomAccessFile {
   ): void;
 
   /**
-   * Writes data to a file. This API returns the result synchronously.
+   * 以同步方法将数据写入文件。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data, in bytes (it is determined by
-   *     **filePointer** plus **offset**). This parameter is optional. By default,
-   *     data is written from the **filePointer**.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string.
-   *     The default value is **'utf-8'**, which is the only value supported.
-   * @returns { long } Length of the data written in the file, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，
+   *     string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。
+   * @returns { long } 实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4577,15 +4116,12 @@ interface RandomAccessFile {
   ): long;
 
   /**
-   * Reads data from a file and returns the number of bytes read. This API uses a promise to return the result.
+   * 从文件读取数据，返回实际读取的字节数。使用Promise异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default value is the buffer length.<br>
-   *     - **offset** (number): start position to read the data, in bytes (it is determined by **filePointer** plus
-   *     **offset**). This parameter is optional. By default, data is read from the **filePointer**.
-   * @returns { Promise<long> } Promise used to return the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
+   *     number类型，表示期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。
+   * @returns { Promise<long> } Promise对象，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4605,11 +4141,10 @@ interface RandomAccessFile {
   ): Promise<long>;
 
   /**
-   * Reads data from a file and returns the number of bytes read. This API uses an asynchronous callback to return the
-   * result.
+   * 从文件读取数据，返回实际读取的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4625,16 +4160,12 @@ interface RandomAccessFile {
   read(buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
   /**
-   * Reads data from a file and returns the number of bytes read. The read options can be configured. This API uses an
-   * asynchronous callback to return the result.
+   * 从文件读取数据，支持配置读取选项，返回实际读取的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default valueis the buffer length.<br>-
-   *     **offset** (number): start position to read the data, in bytes (it is determined by **filePointer** plus
-   *     **offset**). This parameter is optional. By default, data is read from the **filePointer**.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示读取数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
+   *     number类型，表示读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从filePointer开始读。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4654,15 +4185,12 @@ interface RandomAccessFile {
   ): void;
 
   /**
-   * Reads data from a file synchronously and returns the number of bytes read.
+   * 以同步方法从文件读取数据，返回实际读取的字节数。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default valueis the buffer length.<br>-
-   *     **offset** (number): start position to read the data, in bytes (it is determined by **filePointer** plus
-   *     **offset**). This parameter is optional. By default, data is read from the **filePointer**.
-   * @returns { long } Length of the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。<br/>
+   * @returns { long } 实际读取的长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4682,9 +4210,9 @@ interface RandomAccessFile {
   ): long;
 
   /**
-   * Obtains a **ReadStream** instance of this **RandomAccessFile** to read data from a stream file.
+   * 获取当前RandomAccessFile的一个ReadStream实例，用于流式读取文件数据。
    *
-   * @returns { ReadStream } **ReadStream** instance obtained.
+   * @returns { ReadStream } 文件可读流。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
@@ -4697,9 +4225,9 @@ interface RandomAccessFile {
   getReadStream(): ReadStream;
 
   /**
-   * Obtains a **WriteStream** instance of this **RandomAccessFile** to write data to a stream file.
+   * 获取当前RandomAccessFile的一个WriteStream实例，用于流式写入文件数据。
    *
-   * @returns { WriteStream } **WriteStream** instance obtained.
+   * @returns { WriteStream } 文件可写流。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
@@ -4713,10 +4241,10 @@ interface RandomAccessFile {
 }
 
 /**
- * Defines a readable stream. You need to use [fileIo.createReadStream]{@link fileIo.createReadStream} to create a
- * **ReadStream** instance, which is inherited from [stream.Readable]{@link @ohos.util.stream:stream.Readable}.
+ * 文件可读流，需要先通过[fileIo.createReadStream]{@link fileIo.createReadStream}方法来构建一个ReadStream实例。ReadStream继承自数据流基类
+ * [stream.Readable]{@link @ohos.util.stream:stream.Readable}。
  *
- * The data obtained by **ReadStream** is a decoded string. Currently, only the UTF-8 format is supported.
+ * **规格**：ReadStream读到的数据为解码后的字符串，其编码格式当前仅支持'utf-8'。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -4731,7 +4259,7 @@ class ReadStream extends stream.Readable {
   constructor();
 
   /**
-   * Number of bytes read by the readable stream.
+   * 可读流已经读取的字节数。
    *
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4740,7 +4268,7 @@ class ReadStream extends stream.Readable {
   readonly bytesRead: long;
 
   /**
-   * Path of the file corresponding to the readable stream.
+   * 当前可读流对应的文件路径。
    *
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4749,12 +4277,12 @@ class ReadStream extends stream.Readable {
   readonly path: string;
 
   /**
-   * Adjusts the position of the readable stream offset pointer.
+   * 调整可读流偏移指针位置。
    *
-   * @param { long } offset - Relative offset, in bytes.
+   * @param { long } offset - 相对偏移位置，单位为Byte。
    * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET,
    *     <br>which indicates the beginning of the file.
-   * @returns { long } Position of the current offset pointer (offset relative to the file header, in bytes).
+   * @returns { long } 当前可读流偏移指针位置（相对于文件头的偏移量，单位为Byte）。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900026 - Illegal seek
@@ -4765,7 +4293,7 @@ class ReadStream extends stream.Readable {
   seek(offset: long, whence?: WhenceType): long;
 
   /**
-   * Closes this readable stream.
+   * 关闭可读流。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4780,8 +4308,8 @@ class ReadStream extends stream.Readable {
 }
 
 /**
- * Defines a writeable stream. You need to use [fileIo.createWriteStream]{@link fileIo.createWriteStream} to create a
- * **WriteStream** instance, which is inherited from [stream.Writable]{@link @ohos.util.stream:stream.Writable}.
+ * 文件可写流，需要先通过[fileIo.createWriteStream]{@link fileIo.createWriteStream}方法来构建一个WriteStream实例。WriteStream继承自数据流基类
+ * [stream.Writable]{@link @ohos.util.stream:stream.Writable}。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -4796,7 +4324,7 @@ class WriteStream extends stream.Writable {
   constructor();
 
   /**
-   * Number of bytes written to the writable stream.
+   * 可写流已经写入的字节数。
    *
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4805,7 +4333,7 @@ class WriteStream extends stream.Writable {
   readonly bytesWritten: long;
 
   /**
-   * Path of the file corresponding to the writeable stream.
+   * 当前可写流对应的文件路径。
    *
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4814,12 +4342,12 @@ class WriteStream extends stream.Writable {
   readonly path: string;
 
   /**
-   * Adjusts the position of the writeable stream offset pointer.
+   * 调整可写流的偏移指针位置。
    *
-   * @param { long } offset - Relative offset, in bytes.
+   * @param { long } offset - 相对偏移位置，单位为Byte。
    * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
    *     <br>The default value is SEEK_SET, which indicates the beginning of the file.
-   * @returns { long } Position of the current offset pointer (offset relative to the file header, in bytes).
+   * @returns { long } 当前可写流偏移指针位置（相对于文件头的偏移量，单位为Byte）。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900026 - Illegal seek
@@ -4830,7 +4358,7 @@ class WriteStream extends stream.Writable {
   seek(offset: long, whence?: WhenceType): long;
 
   /**
-   * Closes this writeable stream.
+   * 关闭可写流。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4845,19 +4373,18 @@ class WriteStream extends stream.Writable {
 }
 
 /**
- * AtomicFile is a class used to perform atomic read and write operations on files.
- * A temporary file is written and renamed to the original file location, which ensures file integrity.
- * If the write operation fails, the temporary file is deleted without modifying the original file content.
- * You can call finishWrite() or failWrite() to write or roll back file content.
+ * AtomicFile是一个用于对文件进行原子读写等操作的类。
+ * 在写操作时，通过写入临时文件，并在写入成功后将其重命名到原始文件位置来确保写入文件的完整性；而在写入失败时删除临时文件，不修改原始文件内容。
+ * 使用者可以自行调用finishWrite或failWrite来完成文件内容的写入或回滚。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export class AtomicFile {
   /**
-   * The AtomicFile constructor.
+   * 对于给定路径的文件创建一个AtomicFile类。
    *
-   * @param { string } path - Application sandbox path of the file.
+   * @param { string } path - 文件的沙箱路径。
    * @throws { BusinessError } 401 Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4866,7 +4393,7 @@ export class AtomicFile {
   constructor(path: string);
 
   /**
-   * Obtains the file object through the AtomicFile object. The FD needs to be closed by calling close().
+   * 通过AtomicFile对象获取文件对象。
    *
    * @returns { File } File object opened.
    * @throws { BusinessError } 13900002 No such file or directory
@@ -4879,7 +4406,7 @@ export class AtomicFile {
   getBaseFile(): File;
 
   /**
-   * Creates a ReadStream instance.
+   * 创建一个读文件流。
    *
    * @returns { ReadStream } ReadStream instance obtained.
    * @throws { BusinessError } 13900001 Operation not permitted
@@ -4892,7 +4419,7 @@ export class AtomicFile {
   openRead(): ReadStream;
 
   /**
-   * Reads all content of a file.
+   * 读取文件全部内容。
    *
    * @returns { ArrayBuffer } Full content of a file.
    * @throws { BusinessError } 13900005 I/O error
@@ -4903,8 +4430,9 @@ export class AtomicFile {
   readFully(): ArrayBuffer;
 
   /**
-   * Starts to write new file data in the WriteStream object returned. If the file does not exist, create a file.
-   * Call finishWrite() if the write operation is successful; call failWrite() if the write operation fails.
+   * 对文件开始新的写入操作。将返回一个WriteStream，用于在其中写入新的文件数据。
+   * 当文件不存在时新建文件。
+   * 在写入文件完成后，写入成功需要调用finishWrite()，写入失败需要调用failWrite()。
    *
    * @returns { WriteStream } Returns the file write stream.
    * @throws { BusinessError } 13900001 Operation not permitted
@@ -4918,7 +4446,7 @@ export class AtomicFile {
   startWrite(): WriteStream;
 
   /**
-   * Finishes writing file data when the write operation is complete.
+   * 在完成对startWrite返回流的写入操作时调用，表示文件写入成功。
    *
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4927,7 +4455,7 @@ export class AtomicFile {
   finishWrite(): void;
 
   /**
-   * Rolls back the file after the file fails to be written.
+   * 文件写入失败后调用，将执行文件回滚操作。
    *
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4936,7 +4464,7 @@ export class AtomicFile {
   failWrite(): void;
 
   /**
-   * Deletes the AtomicFile class, including the original files and temporary files.
+   * 删除AtomicFile类，会删除原始文件和临时文件。
    *
    * @throws { BusinessError } 13900001 Operation not permitted
    * @throws { BusinessError } 13900002 No such file or directory
@@ -4950,16 +4478,14 @@ export class AtomicFile {
 }
 
 /**
- * Obtains detailed information of a file, including attributes such as the file size, permission mode,
- * access time, and modification time. Before calling an API of the **Stat** class,
- * use [stat()]{@link fileIo.stat} to create a **Stat** instance.
+ * 文件具体信息，包含文件大小、权限模式、访问时间、修改时间等属性。在调用Stat的方法前，需要先通过[stat()]{@link fileIo.stat}方法（同步或异步）构建一个Stat实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 interface Stat {
   /**
-   * File ID. Different files on the same device have different **ino**s.
+   * 标识该文件。通常同设备上的不同文件的INO不同。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -4969,23 +4495,27 @@ interface Stat {
   readonly ino: bigint;
 
   /**
-   * File permissions. The meaning of each bit is as follows:
+   * 表示文件权限，各特征位的含义如下：
    *
-   * Note: The following values are in octal format. The return values are in decimal format. You need to convert the
-   * values.
+   * **说明**：以下值为八进制，取得的返回值为十进制，请换算后查看。
    *
-   * - **0o400**: The user has the read permission on a regular file or a directory entry.
-   * - **0o200**: The user has the permission to write a regular file or create and delete a directory entry.
-   * - **0o100**: The user has the permission to execute a regular file or search for the specified path in a
-   * directory.
-   * - **0o040**: The user group has the read permission on a regular file or a directory entry.
-   * - **0o020**: The user group has the permission to write a regular file or create and delete a directory entry.
-   * - **0o010**: The user group has the permission to execute a regular file or search for the specified path in a
-   * directory.
-   * - **0o004**: Other users have the permission to read a regular file or read a directory entry.
-   * - **0o002**: Other users have the permission to write a regular file or create and delete a directory entry.
-   * - **0o001**: Other users have the permission to execute a regular file or search for the specified path in a
-   * directory.
+   * - 0o400：用户读。对于普通文件，所有者可读取文件；对于目录，所有者可读取目录项。
+   *
+   * - 0o200：用户写。对于普通文件，所有者可写入文件；对于目录，所有者可创建/删除目录项。
+   *
+   * - 0o100：用户执行。对于普通文件，所有者可执行文件；对于目录，所有者可在目录中搜索给定路径名。
+   *
+   * - 0o040：用户组读。对于普通文件，所有用户组可读取文件；对于目录，所有用户组可读取目录项。
+   *
+   * - 0o020：用户组写。对于普通文件，所有用户组可写入文件；对于目录，所有用户组可创建/删除目录项。
+   *
+   * - 0o010：用户组执行。对于普通文件，所有用户组可执行文件；对于目录，所有用户组是否可在目录中搜索给定路径名。
+   *
+   * - 0o004：其他读。对于普通文件，其余用户可读取文件；对于目录，其他用户组可读取目录项。
+   *
+   * - 0o002：其他写。对于普通文件，其余用户可写入文件；对于目录，其他用户组可创建/删除目录项。
+   *
+   * - 0o001：其他执行。对于普通文件，其余用户可执行文件；对于目录，其他用户组可在目录中搜索给定路径名。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -4995,7 +4525,7 @@ interface Stat {
   readonly mode: long;
 
   /**
-   * ID of the file owner.
+   * 文件所有者的ID。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5007,7 +4537,7 @@ interface Stat {
   readonly uid: long;
 
   /**
-   * ID of the user group of the file.
+   * 文件所有组的ID。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5017,7 +4547,7 @@ interface Stat {
   readonly gid: long;
 
   /**
-   * File size, in bytes. This parameter is valid only for regular files.
+   * 文件的大小，单位为Byte。仅对普通文件有效。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5027,11 +4557,9 @@ interface Stat {
   readonly size: long;
 
   /**
-   * Time when the file was last accessed. The value is the number of seconds elapsed since 00:00:00
-   * on January 1, 1970.
+   * 上次访问该文件的时间，表示距1970年1月1日0时0分0秒的秒数。
    *
-   * **Note**: Currently, user data partitions are mounted in **noatime** mode by default, and **atime** update is
-   * disabled.
+   * **注意**：目前用户数据分区默认以“noatime”方式挂载，atime更新被禁用。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5041,8 +4569,7 @@ interface Stat {
   readonly atime: long;
 
   /**
-   * Time when the file content was last modified. The value is the number of seconds elapsed since 00:00:00
-   *  on January 1, 1970.
+   * 上次修改该文件的时间，表示距1970年1月1日0时0分0秒的秒数。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5052,8 +4579,7 @@ interface Stat {
   readonly mtime: long;
 
   /**
-   * Time when the file metadata was last modified. The value is the number of seconds elapsed since 00:00:00
-   * on January 1, 1970.
+   * 最近改变文件状态的时间，表示距1970年1月1日0时0分0秒的秒数。
    *
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5063,11 +4589,9 @@ interface Stat {
   readonly ctime: long;
 
   /**
-   * Time of the last access to the file. The value is the number of nanoseconds elapsed since 00:00:00 on
-   *  January 1, 1970.
+   * 上次访问该文件的时间，表示距1970年1月1日0时0分0秒的纳秒数。
    *
-   * **Note**: Currently, user data partitions are mounted in **noatime** mode by default, and **atime** update is
-   * disabled.
+   * **注意**：目前用户数据分区默认以“noatime”方式挂载，atime更新被禁用。
    *
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5076,8 +4600,7 @@ interface Stat {
   readonly atimeNs?:bigint;
 
   /**
-   * Time of the last modification to the file. The value is the number of nanoseconds elapsed since 00:00:00
-   * on January 1, 1970.
+   * 上次修改该文件的时间，表示距1970年1月1日0时0分0秒的纳秒数。
    *
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5086,8 +4609,7 @@ interface Stat {
   readonly mtimeNs?:bigint;
 
   /**
-   * Time of the last status change of the file. The value is the number of nanoseconds elapsed since 00:00:00 on
-   * January 1, 1970.
+   * 最近改变文件状态的时间，表示距1970年1月1日0时0分0秒的纳秒数。
    *
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5096,7 +4618,7 @@ interface Stat {
   readonly ctimeNs?:bigint;
 
   /**
-   * File location, which indicates whether the file is stored in a local device or in the cloud.
+   * 文件的位置，表示该文件是本地文件或者云端文件。
    *
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5105,11 +4627,9 @@ interface Stat {
   readonly location: LocationType;
 
   /**
-   * Checks whether this file is a block special file. A block special file supports access by block only, and it is
-   * cached when accessed.
+   * 用于判断文件是否是块特殊文件。一个块特殊文件只能以块为粒度进行访问，且访问的时候带缓存。
    *
-   * @returns { boolean } Whether the file is a block special file. The value **true** means the file
-   *     is a block special file; the value **false** means the file is not a block special file.
+   * @returns { boolean } 表示文件是否是块特殊设备。true：是块特殊设备；false：不是块特殊设备。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5118,11 +4638,9 @@ interface Stat {
   isBlockDevice(): boolean;
 
   /**
-   * Checks whether this file is a character special file. A character special device supports random access,
-   * and it is not cached when accessed.
+   * 判断文件是否为字符特殊文件。字符特殊设备支持随机访问，且访问时无缓存。
    *
-   * @returns { boolean } Whether the file is a character special device. The value **true** means the file is a
-   *     character special device; the value **false** means the opposite.
+   * @returns { boolean } 表示文件是否是字符特殊设备。true：是字符特殊设备；false：不是字符特殊设备。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5131,10 +4649,9 @@ interface Stat {
   isCharacterDevice(): boolean;
 
   /**
-   * Checks whether this file is a directory.
+   * 判断文件是否为目录。
    *
-   * @returns { boolean } Whether the file is a directory. The value **true** means the file is a directory; the value
-   *     **false** means the opposite.
+   * @returns { boolean } 表示文件是否是目录。true：是目录；false：不是目录。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5143,10 +4660,9 @@ interface Stat {
   isDirectory(): boolean;
 
   /**
-   * Checks whether this file is a named pipe (or FIFO). Named pipes are used for inter-process communication.
+   * 用于判断文件是否是命名管道（有时也称为FIFO）。命名管道通常用于进程间通信。
    *
-   * @returns { boolean } Whether the file is an FIFO. The value **true** means the file is an FIFO;
-   *     the value **false** means the opposite.
+   * @returns { boolean } 表示文件是否是 FIFO。true：是FIFO；false：不是FIFO。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5155,10 +4671,9 @@ interface Stat {
   isFIFO(): boolean;
 
   /**
-   * Checks whether this file is a regular file.
+   * 用于判断文件是否是普通文件。
    *
-   * @returns { boolean } Whether the file is a regular file. The value **true** means that
-   *     the file is a regular file; the value **false** means the opposite.
+   * @returns { boolean } 表示文件是否是普通文件。true：是普通文件；false：不是普通文件。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5167,10 +4682,9 @@ interface Stat {
   isFile(): boolean;
 
   /**
-   * Checks whether this file is a socket.
+   * 判断文件是否是套接字。
    *
-   * @returns { boolean } Whether the file is a socket. The value **true** means that the file is a socket; the value
-   *     **false** means the opposite.
+   * @returns { boolean } 表示文件是否是套接字。true：是套接字；false：不是套接字。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5179,10 +4693,9 @@ interface Stat {
   isSocket(): boolean;
 
   /**
-   * Checks whether this file is a symbolic link.
+   * 判断文件是否为符号链接。
    *
-   * @returns { boolean } Whether the file is a symbolic link. The value **true** means that the file is a symbolic
-   *     link; the value **false** means the opposite.
+   * @returns { boolean } 表示文件是否是符号链接。true：是符号链接；false：不是符号链接。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5192,20 +4705,17 @@ interface Stat {
 }
 
 /**
- * Provides APIs for stream operations, such as reading and writing data streams of files. After using an API of the
- * **Stream** class, you need to call **close** to close the file stream. Before calling an API of the
- *  **Stream** class, you need to create a **Stream** instance by using
- *  [fileIo.createStream]{@link fileIo.createStream} or [fileIo.fdopenStream]{@link fileIo.fdopenStream}.
+ * 文件流，提供流式读写文件数据的能力，使用完毕后需调用close关闭。在调用Stream的方法前，需要先通过[fileIo.createStream]{@link fileIo.createStream}方法或者
+ * [fileIo.fdopenStream]{@link fileIo.fdopenStream}（同步或异步）来构建一个Stream实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 interface Stream {
   /**
-   * Closes the file stream. After the stream is closed, it cannot be used for read or write operations.
-   * This API uses a promise to return the result.
+   * 关闭文件流，关闭后不可再用于读写等操作。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5218,11 +4728,9 @@ interface Stream {
   close(): Promise<void>;
 
   /**
-   * Closes the file stream. After the stream is closed, it cannot be used for read or write operations. This API uses
-   * an asynchronous callback to return the result.
+   * 关闭文件流，关闭后不可再用于读写等操作。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file stream is closed
-   *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当关闭文件流成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5235,7 +4743,7 @@ interface Stream {
   close(callback: AsyncCallback<void>): void;
 
   /**
-   * Closes the file stream synchronously. After the stream is closed, it cannot be used for read or write operations.
+   * 同步关闭文件流，关闭后不可再用于读写等操作。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5249,9 +4757,9 @@ interface Stream {
   closeSync(): void;
 
   /**
-   * Flushes all data from this stream. This API uses a promise to return the result.
+   * 刷新文件流。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5270,11 +4778,9 @@ interface Stream {
   flush(): Promise<void>;
 
   /**
-   * Flushes the file stream. This API returns the result asynchronously. This API uses an asynchronous callback to
-   * return the result.
+   * 异步刷新文件流。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the file stream is refreshed
-   *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当刷新文件流成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5293,7 +4799,7 @@ interface Stream {
   flush(callback: AsyncCallback<void>): void;
 
   /**
-   * Flushes the file stream. This API returns the result synchronously.
+   * 同步刷新文件流。
    *
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5313,17 +4819,13 @@ interface Stream {
   flushSync(): void;
 
   /**
-   * Writes data to a stream file and returns the number of bytes written.
-   * This API uses a promise to return the result.
+   * 将数据写入流文件，返回实际写入的字节数。使用Promise异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data in the file, in bytes.
-   *     This parameter is optional. By default, data is written from the current position.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string. The default value is
-   *     **'utf-8'**, which is the only value supported.
-   * @returns { Promise<long> } Promise used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，
+   *     表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。
+   * @returns { Promise<long> } Promise对象，返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5345,11 +4847,10 @@ interface Stream {
   ): Promise<long>;
 
   /**
-   * Writes data to a stream file and returns the number of bytes written. This API uses an asynchronous callback to
-   * return the result.
+   * 将数据写入流文件，返回实际写入的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5368,18 +4869,13 @@ interface Stream {
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
   /**
-   * Writes data to a stream file and returns the number of bytes written. The write options can be configured.
-   * This API uses an asynchronous callback to return the result.
+   * 将数据写入流文件，支持配置写入选项，返回实际写入的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. This parameter is optional.
-   *     The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data in the file, in bytes.
-   *     This parameter is optional. By default, data is written from the current position.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string. The default value is
-   *     **'utf-8'**, which is the only value supported.
-   * @param { AsyncCallback<long> } callback - Callback used to return the length of the data written, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，
+   *     默认 'utf-8'。仅支持 'utf-8'。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5402,17 +4898,13 @@ interface Stream {
   ): void;
 
   /**
-   * Writes data to a stream file synchronously and returns the number of bytes written.
+   * 以同步方法将数据写入流文件，返回实际写入的字节数。
    *
-   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { WriteOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to write, in bytes. This parameter is optional.
-   *     The default value is the buffer length.
-   *     <br>- **offset** (number): start position to write the data in the file, in bytes.
-   *     This parameter is optional. By default, data is written from the current position.
-   *     <br>- **encoding** (string): format of the data to be encoded when the data is a string. The default value is
-   *     **'utf-8'**, which is the only value supported.
-   * @returns { long } Length of the data written in the file, in bytes.
+   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，
+   *     默认 'utf-8'。仅支持 'utf-8'。
+   * @returns { long } 实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5434,15 +4926,12 @@ interface Stream {
   ): long;
 
   /**
-   * Reads data from a stream file and returns the number of bytes read. This API uses a promise to return the result.
+   * 从流文件读取数据，返回实际读取的字节数。使用Promise异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default value is the buffer length.
-   *     <br>- **offset** (number): position of the data to read in the file, in bytes. This parameter is optional. By
-   *     default, data is read from the current position.
-   * @returns { Promise<long> } Promise used to return the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。
+   * @returns { Promise<long> } Promise对象，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5462,11 +4951,10 @@ interface Stream {
   ): Promise<long>;
 
   /**
-   * Reads data from a stream file and returns the number of bytes read. This API uses an asynchronous callback to
-   * return the result.
+   * 从流文件读取数据，返回实际读取的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { AsyncCallback<long> } callback - Callback used to return the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5482,16 +4970,12 @@ interface Stream {
   read(buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
   /**
-   * Reads data from a stream file and returns the number of bytes read. The read options can be configured. This API
-   * uses an asynchronous callback to return the result.
+   * 从流文件读取数据，支持配置读取选项，返回实际读取的字节数。使用callback异步回调。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default value is the buffer length.
-   *     <br>- **offset** (number): position of the data to read in the file, in bytes.
-   *     This parameter is optional. By default, data is read from the current position.
-   * @param { AsyncCallback<long> } callback - Callback used to return the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5511,16 +4995,12 @@ interface Stream {
   ): void;
 
   /**
-   * Reads data from a stream file synchronously and returns the number of bytes read.
+   * 以同步方法从流文件读取数据，返回实际读取的字节数。
    *
-   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { ReadOptions } [options] - The options are as follows:
-   *     <br>- **length** (number): length of the data to read, in bytes. This parameter is optional.
-   *     The default value is the buffer length.
-   *     <br>- **offset** (number): position of the data to read in the file, in bytes.
-   *     This parameter is optional. By default, data is read from the current position.
-   *     <br>
-   * @returns { long } Length of the data read, in bytes.
+   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+   *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>
+   * @returns { long } 实际读取的长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5541,15 +5021,14 @@ interface Stream {
 }
 
 /**
- * Provides APIs for observing the changes of files or directories.
- * Before using the APIs of Watcher, call createWatcher() to create a Watcher object.
+ * 文件目录变化监听对象。由createWatcher接口获得。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 interface Watcher {
   /**
-   * Starts listening.
+   * 开启监听文件或目录变动事件。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5570,7 +5049,7 @@ interface Watcher {
   start(): void;
 
   /**
-   * Stops listening and removes the Watcher object.
+   * 停止监听文件或目录变动事件并移除Watcher对象。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5592,7 +5071,7 @@ interface Watcher {
 }
 
 /**
- * Enumerates file memory mapping modes.
+ * 文件内存映射模式类型的枚举。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -5600,8 +5079,7 @@ interface Watcher {
  */
 enum MappingMode {
   /**
-   * Read-only mode. The file mapping area is not writable. An exception is thrown when the file mapping area is
-   * modified.
+   * 只读映射模式。文件映射区不可写，修改会抛出异常。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5610,8 +5088,7 @@ enum MappingMode {
   READ_ONLY = 0,
 
   /**
-   * Read/Write mode. The modification is written to the file mapping area and then synchronized to the file by the
-   * operating system (non-real-time).
+   * 读写映射模式。修改会写入文件映射区，后续由操作系统同步到文件（非实时）。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5620,8 +5097,7 @@ enum MappingMode {
   READ_WRITE = 1,
 
   /**
-   * Private mode. It is a copy-on-write mapping mechanism. Modifications to the mapping area are visible only to the
-   * current process and do not affect the raw file.
+   * 私有映射模式。是一种写时复制的映射机制，对映射区的修改仅对当前进程可见，不会影响原始文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5631,14 +5107,14 @@ enum MappingMode {
 }
 
 /**
- * Enumerates the types of the relative offset position used in **lseek()**.
+ * 枚举，文件偏移指针相对偏移位置类型，支持lseek接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 enum WhenceType {
   /**
-   * Beginning of the file.
+   * 文件起始位置处。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5646,7 +5122,7 @@ enum WhenceType {
   SEEK_SET = 0,
 
   /**
-   * Current offset position.
+   * 当前文件偏移指针位置处。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5654,7 +5130,7 @@ enum WhenceType {
   SEEK_CUR = 1,
 
   /**
-   * End of the file.
+   * 文件末尾位置处。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5663,14 +5139,14 @@ enum WhenceType {
 }
 
 /**
- * Enumerates the file locations.
+ * 枚举，文件位置，表示该文件是否在本地或者云端存在。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 enum LocationType {
   /**
-   * The file is stored in a local device.
+   * 文件在本地存在。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5678,7 +5154,7 @@ enum LocationType {
   LOCAL = 1 << 0,
 
   /**
-   * The file is stored in the cloud.
+   * 文件在云端存在。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5687,14 +5163,14 @@ enum LocationType {
 }
 
 /**
- * Enumerates the access modes to verify. If this parameter is left blank, the system checks whether the file exists.
+ * 枚举，表示需要校验的具体权限。若不填，默认校验文件是否存在。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 enum AccessModeType {
   /**
-   * Whether the file exists.
+   * 文件是否存在。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5702,7 +5178,7 @@ enum AccessModeType {
   EXIST = 0,
 
   /**
-   * Verify the write permission on the file.
+   * 文件是否具有写入权限。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5710,7 +5186,7 @@ enum AccessModeType {
   WRITE = 2,
 
   /**
-   * Verify the read permission on the file.
+   * 文件是否具有读取权限。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5718,7 +5194,7 @@ enum AccessModeType {
   READ = 4,
 
   /**
-   * Verify the read/write permission on the file.
+   * 文件是否具有读写权限。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5727,14 +5203,14 @@ enum AccessModeType {
 }
 
 /**
- * Enumerates the locations of the file to verify.
+ * 枚举，表示需要校验的文件位置。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 enum AccessFlagType {
   /**
-   * The file is stored locally.
+   * 文件是否在本地。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5743,17 +5219,16 @@ enum AccessFlagType {
 }
 
 /**
- * Provides a **ReaderIterator** object. Before calling APIs of **ReaderIterator**, you need to use **readLines()** to
- * create a **ReaderIterator** instance.
+ * 文件读取迭代器。在调用ReaderIterator的方法前，需要先通过readLines方法（同步或异步）来构建一个ReaderIterator实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 interface ReaderIterator {
   /**
-   * Obtains the **ReaderIterator** result.
+   * 获取迭代器下一项内容。
    *
-   * @returns { ReaderIteratorResult } **ReaderIteratorResult** object obtained.
+   * @returns { ReaderIteratorResult } 文件读取迭代器返回结果。
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900037 - No data available
    * @throws { BusinessError } 13900042 - Unknown error
@@ -5766,23 +5241,23 @@ interface ReaderIterator {
 }
 
 /**
- * Defines a watch event listener. When the monitored file or directory changes, a callback is triggered.
+ * 事件监听类，当监听的文件或目录发生变动事件时触发回调。
  *
- * @param { WatchEvent } event - Event for the callback to invoke.
+ * @param { WatchEvent } event - 回调的事件类。
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export type WatchEventListener = (event: WatchEvent) => void;
 
 /**
- * Defines the event to observe.
+ * 事件类
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface WatchEvent {
   /**
-   * Sandbox path of the file to observe. The sandbox path contains the file name.
+   * 发生监听事件对应文件的沙箱路径，该沙箱路径包含文件名称。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5790,23 +5265,33 @@ export interface WatchEvent {
   readonly fileName: string;
 
   /**
-   * Events to observe. Multiple events can be separated by vertical bars (|).
+   * 监听变动的事件集，多个事件通过或(|)的方式进行集合。
    *
-   * - **0x1: IN_ACCESS**: A file is accessed.
-   * - **0x2: IN_MODIFY**: The file content is modified.
-   * - **0x4: IN_ATTRIB**: The file metadata is modified.
-   * - **0x8: IN_CLOSE_WRITE**: A file is opened, written with data, and then closed.
-   * - **0x10: IN_CLOSE_NOWRITE**: A file or directory is opened and then closed without data written.
-   * - **0x20: IN_OPEN**: A file or directory is opened.
-   * - **0x40: IN_MOVED_FROM**: A file in the observed directory is moved.
-   * - **0x80: IN_MOVED_TO**: A file is moved to the observed directory.
-   * - **0x100: IN_CREATE**: A file or directory is created in the observed directory.
-   * - **0x200: IN_DELETE**: A file or directory is deleted from the observed directory.
-   * - **0x400: IN_DELETE_SELF**: The observed directory is deleted. After the directory is deleted, the listening
-   * stops.
-   * - **0x800: IN_MOVE_SELF**: The observed file or directory is moved. After the file or directory is moved, the
-   * listening continues.
-   * - **0xfff: IN_ALL_EVENTS**: All events.
+   * - 0x1: IN_ACCESS， 文件被访问。
+   *
+   * - 0x2: IN_MODIFY，文件内容被修改。
+   *
+   * - 0x4: IN_ATTRIB，文件元数据被修改。
+   *
+   * - 0x8: IN_CLOSE_WRITE，文件在打开时进行了写操作，然后被关闭。
+   *
+   * - 0x10: IN_CLOSE_NOWRITE，文件或目录在打开时未进行写操作，然后被关闭。
+   *
+   * - 0x20: IN_OPEN，文件或目录被打开。
+   *
+   * - 0x40: IN_MOVED_FROM，监听目录中文件被移动走。
+   *
+   * - 0x80: IN_MOVED_TO，监听目录中文件被移动过来。
+   *
+   * - 0x100: IN_CREATE，监听目录中文件或子目录被创建。
+   *
+   * - 0x200: IN_DELETE，监听目录中文件或子目录被删除。
+   *
+   * - 0x400: IN_DELETE_SELF，监听的目录被删除，删除后监听停止。
+   *
+   * - 0x800: IN_MOVE_SELF，监听的文件或目录被移动，移动后监听继续。
+   *
+   * - 0xfff: IN_ALL_EVENTS，监听以上所有事件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5814,10 +5299,7 @@ export interface WatchEvent {
   readonly event: int;
 
   /**
-   * Cookie bound with the event.
-   *
-   * Currently, only the **IN_MOVED_FROM** and **IN_MOVED_TO** events are supported. The **IN_MOVED_FROM** and
-   * **IN_MOVED_TO** events of the same file have the same **cookie** value.
+   * 绑定相关事件的cookie。当前仅支持事件IN_MOVED_FROM与IN_MOVED_TO，同一个文件的移动事件IN_MOVED_FROM和IN_MOVED_TO具有相同的cookie值。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5826,15 +5308,14 @@ export interface WatchEvent {
 }
 
 /**
- * Represents the information obtained by the **ReaderIterator** object.
+ * 文件读取迭代器返回结果，支持ReaderIterator接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ReaderIteratorResult {
   /**
-   * Whether the iteration is complete. The value **true** means the iteration is complete; the value **false** means
-   * the opposite.
+   * 迭代器是否已完成迭代。true：已完成迭代；false：未完成迭代。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5842,7 +5323,7 @@ export interface ReaderIteratorResult {
   done: boolean;
 
   /**
-   * File text content read line by line.
+   * 逐行读取的文件文本内容。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5851,14 +5332,14 @@ export interface ReaderIteratorResult {
 }
 
 /**
- * Defines the file filtering configuration used by **listFile()**.
+ * 文件过滤配置项，支持listFile接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface Filter {
   /**
-   * Locate files that fully match the specified file name extensions, which are of the OR relationship.
+   * 文件后缀名完全匹配，各个关键词OR关系。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5866,8 +5347,7 @@ export interface Filter {
   suffix?: Array<string>;
 
   /**
-   * Locate files that fuzzy match the specified file names, which are of the OR relationship. Currently, only the
-   * wildcard * is supported.
+   * 文件名模糊匹配，各个关键词OR关系。当前仅支持通配符*。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5875,8 +5355,7 @@ export interface Filter {
   displayName?: Array<string>;
 
   /**
-   * Locate files that fully match the specified MIME types, which are of the OR relationship. This parameter is
-   * reserved.
+   * mime类型完全匹配，各个关键词OR关系。预留字段，暂不支持使用。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5884,7 +5363,7 @@ export interface Filter {
   mimeType?: Array<string>;
 
   /**
-   * Locate files that are greater than the specified size, in bytes.
+   * 文件大小匹配，大于指定大小的文件，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5892,7 +5371,7 @@ export interface Filter {
   fileSizeOver?: long;
 
   /**
-   * Locate files whose last modification time is the same or later than the specified time.
+   * 文件最近修改时间匹配，在指定时间点及之后的文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5900,10 +5379,7 @@ export interface Filter {
   lastModifiedAfter?: double;
 
   /**
-   * Whether to exclude the files already in **Media**.
-   *
-   * The value **true** means to exclude the files already in **Media**; the value **false** means not to exclude the
-   * files already in **Media**. This parameter is reserved.
+   * 是否排除Media中已有的文件。true：排除Media中已有的文件；false：不排除Media中已有的文件。预留字段，暂不支持使用。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5912,14 +5388,14 @@ export interface Filter {
 }
 
 /**
- * Defines conflicting file information used in **copyDir()** or **moveDir()**.
+ * 冲突文件信息，支持copyDir及moveDir接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ConflictFiles {
   /**
-   * Path of the source file.
+   * 源冲突文件路径。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5927,7 +5403,7 @@ export interface ConflictFiles {
   srcFile: string;
 
   /**
-   * Path of the destination file.
+   * 目标冲突文件路径。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5936,14 +5412,14 @@ export interface ConflictFiles {
 }
 
 /**
- * Defines the options used in **readLines()**.
+ * 可选项类型，支持readLines接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface Options {
   /**
-   * File encoding format. It is optional.
+   * 文件编码方式。可选项。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5952,15 +5428,14 @@ export interface Options {
 }
 
 /**
- * Defines the options used in **read()**.
+ * 可选项类型，支持read接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ReadOptions {
   /**
-   * Start position of the file to read, in bytes. This parameter is optional.
-   * By default, data is read from the current position.
+   * 期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5968,7 +5443,7 @@ export interface ReadOptions {
   offset?: long;
 
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * 期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5977,15 +5452,14 @@ export interface ReadOptions {
 }
 
 /**
- * Defines the options used in **readText()**. It inherits from [ReadOptions]{@link ReadOptions}.
+ * 可选项类型，支持readText接口使用，ReadTextOptions继承自[ReadOptions]{@link ReadOptions}。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ReadTextOptions extends ReadOptions {
   /**
-   * Format of the data to be encoded. This parameter is valid only when the data type is string.
-   * The default value is 'utf-8', which is the only value supported.
+   * 当数据是 string 类型时有效，表示数据的编码方式，默认 'utf-8'，仅支持 'utf-8'。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -5994,22 +5468,21 @@ export interface ReadTextOptions extends ReadOptions {
 }
 
 /**
- * Defines the options used in **write()**. It inherits from [Options]{@link Options}.
+ * 可选项类型，支持write接口使用，WriteOptions继承自[Options]{@link Options}。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface WriteOptions extends Options {
   /**
-   * Start position of the file to write, in bytes. This parameter is
-   * optional. By default, data is written from the current position.
+   * 期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
   offset?: long;
   /**
-   * Length of the data to write, in bytes. This parameter is optional. The default value is the buffer length.
+   * 期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6018,17 +5491,14 @@ export interface WriteOptions extends Options {
 }
 
 /**
- * Defines the options used in **listFile()**.
+ * 可选项类型，支持listFile接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ListFileOptions {
   /**
-   * Whether to list all files in the subdirectories recursively. This parameter is optional. The default value is
-   * **false**. If **recursion** is **false**, the names of files and directories that meet the filtering requirements
-   * in the current directory are returned. If **recursion** is **true**, relative paths (starting with /) of all files
-   * that meet the specified conditions in the current directory are returned.
+   * 是否递归子目录下文件名。可选，默认为false。当recursion为false时，返回当前目录下满足过滤要求的文件名及目录名。当recursion为true时，返回此目录下所有满足过滤要求的文件的相对路径（以“/”开头）。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6036,8 +5506,7 @@ export interface ListFileOptions {
   recursion?: boolean;
 
   /**
-   * Number of file names to list. This parameter is optional. The default value is **0**, which means to list all
-   * files.
+   * 列出文件名数量。可选，当设置0时，列出所有文件，默认为0。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6045,7 +5514,7 @@ export interface ListFileOptions {
   listNum?: long;
 
   /**
-   * File filtering configuration. This parameter is optional. It specifies the file filtering conditions.
+   * 文件过滤配置项。 可选，设置过滤条件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6054,7 +5523,7 @@ export interface ListFileOptions {
 }
 
 /**
- * Describes a file name filter, which can be used to customize file name filtering rules.
+ * 文件名过滤器接口，可通过该接口自定义文件名过滤规则。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -6062,18 +5531,15 @@ export interface ListFileOptions {
  */
 export interface FileFilter {
   /**
-   * Filters files of the [listFileExt]{@link fileIo.listFileExt} or [listFileExtSync]{@link fileIo.listFileExtSync} API
-   * and determines whether a specified file name should be included in the returned file list.
+   * 用于[listFileExt]{@link fileIo.listFileExt}或[listFileExtSync]{@link fileIo.listFileExtSync}接口的文件过滤，
+   * 判断指定文件名是否应包含在返回的文件列表中。
    *
-   * > **NOTE**
+   * > **说明**：
    * >
-   * > This function is frequently called. Do not perform time-consuming operations, such as file I/O operations and
-   * > network requests.
+   * > 该函数调用频率较高，请避免执行耗时操作，如文件I/O、网络请求等。
    *
-   * @param { string } name - Name or relative path of the file to be filtered. In recursive mode, the value is a
-   *     relative file path, which starts with a slash (/).
-   * @returns { boolean } Whether the file is included in the returned file list. The value **true** indicates the file
-   *     is included, and the value **false** indicates the opposite.
+   * @param { string } name - 待过滤的文件名或文件相对路径。递归模式下为文件的相对路径，相对路径以“/”开头。
+   * @returns { boolean } 表示是否包含在返回的文件列表中。true：包含该文件；false：不包含该文件。
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
    * @since 26.0.0 static
@@ -6082,7 +5548,7 @@ export interface FileFilter {
 }
 
 /**
- * Defines the options used in **listFileExt**.
+ * 可选项类型，支持listFileExt接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -6090,13 +5556,11 @@ export interface FileFilter {
  */
 export interface ListFileExtOptions {
   /**
-   * Whether to list all files in subfolders recursively. The default value is **false**.
+   * 是否递归子目录下的文件名，默认为false。
    *
-   * **false**: The names of files and directories that meet the filtering requirements in the current directory are
-   * returned.
+   * false：返回当前目录下满足过滤要求的文件名及目录名。
    *
-   * **true**: Relative paths (starting with /) of all files that meet the filtering requirements in the directory are
-   * returned.
+   * true：返回该目录下所有符合过滤条件的文件的相对路径，相对路径以“/”开头。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -6105,7 +5569,7 @@ export interface ListFileExtOptions {
   recursion?: boolean;
 
   /**
-   * Number of file names to be listed. The default value is **0**, indicating that all files are listed.
+   * 列出文件名数量，默认为0，表示列出所有文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -6114,7 +5578,7 @@ export interface ListFileExtOptions {
   listNum?: long;
 
   /**
-   * File name filtering rule. The default value is empty, indicating that no filtering is performed.
+   * 自定义文件名过滤的规则，默认为空，表示不进行过滤。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -6124,15 +5588,14 @@ export interface ListFileExtOptions {
 }
 
 /**
- * Defines the options used in **createRandomAccessFile()**.
+ * 可选项类型，支持 createRandomAccessFile 接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface RandomAccessFileOptions {
   /**
-   * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current
-   * position.
+   * 表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6140,7 +5603,7 @@ export interface RandomAccessFileOptions {
   start?: long;
 
   /**
-   * End position to read the data, in bytes. This parameter is optional. The default value is the end of the file.
+   * 表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6149,15 +5612,14 @@ export interface RandomAccessFileOptions {
 }
 
 /**
- * Defines the options used in **createReadStream()**.
+ * 可选项类型，支持 createReadStream 接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface ReadStreamOptions {
   /**
-   * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current
-   * position.
+   * 表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6165,7 +5627,7 @@ export interface ReadStreamOptions {
   start?: long;
 
   /**
-   * End position to read the data, in bytes. This parameter is optional. The default value is the end of the file.
+   * 表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6174,39 +5636,43 @@ export interface ReadStreamOptions {
 }
 
 /**
- * Defines the options used in **createWriteStream()**.
+ * 可选项类型，支持 createWriteStream 接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
  */
 export interface WriteStreamOptions {
   /**
-   * [OpenMode]{@link fileIo.OpenMode} for creating the writeable stream. You must specify one of the following options.
+   * 创建文件可写流的[OpenMode]{@link fileIo.OpenMode}，必须指定如下选项中的一个，默认只写方式创建：
    *
-   * - **OpenMode.READ_ONLY(0o0)**: read-only, which is the default value.
-   * - **OpenMode.WRITE_ONLY(0o1)**: write-only.
-   * - **OpenMode.READ_WRITE(0o2)**: read/write.
+   * - OpenMode.READ_ONLY(0o0)：只读。
    *
-   * You can also specify the following options, separated by a bitwise OR operator (|). By default, no additional
-   * options are given.
+   * - OpenMode.WRITE_ONLY(0o1)：只写。
    *
-   * - **OpenMode.CREATE(0o100)**: If the file does not exist, create it.
-   * - **OpenMode.TRUNC(0o1000)**: If the file exists and is opened in write mode, truncate the file length to 0.
-   * - **OpenMode.APPEND(0o2000)**: Open the file in append mode. New data will be added to the end of the file.
-   * - **OpenMode.NONBLOCK(0o4000)**: If **path** points to a named pipe (also known as a FIFO), block special file, or
-   * character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * - **OpenMode.DIR(0o200000)**: If **path** does not point to a directory, throw an exception. The write permission
-   * is not allowed.
-   * - **OpenMode.NOFOLLOW(0o400000)**: If **path** points to a symbolic link, throw an exception.
-   * - **OpenMode.SYNC(0o4010000)**: Open the file in synchronous I/O mode.
+   * - OpenMode.READ_WRITE(0o2)：读写。
+   *
+   * 给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：
+   *
+   * - OpenMode.CREATE(0o100)：若文件不存在，则创建文件。
+   *
+   * - OpenMode.TRUNC(0o1000)：如果文件存在且文件具有写权限，则将其长度裁剪为零。
+   *
+   * - OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到文件末尾。
+   *
+   * - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续 IO 进行非阻塞操作。
+   *
+   * - OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。
+   *
+   * - OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。
+   *
+   * - OpenMode.SYNC(0o4010000)：以同步IO的方式打开文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
    */
   mode?: int;
   /**
-   * Start position to write the data, in bytes. This parameter is optional. By default, data is written from the
-   * current position.
+   * 表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 23 static
@@ -6215,7 +5681,7 @@ export interface WriteStreamOptions {
 }
 
 /**
- * Provides APIs for interrupting a copy task.
+ * 拷贝中断信号。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -6223,8 +5689,7 @@ export interface WriteStreamOptions {
 type TaskSignal = fileIo.TaskSignal;
 
 /**
- * Provides APIs for observing the changes of files or directories. Before using the APIs of **Watcher**, call
- * **createWatcher()** to create a **Watcher** object.
+ * 文件目录变化监听对象。由createWatcher接口获得。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
@@ -6232,7 +5697,7 @@ type TaskSignal = fileIo.TaskSignal;
 type Watcher = fileIo.Watcher;
 
 /**
- * AtomicFile
+ * AtomicFile类。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 23 static
