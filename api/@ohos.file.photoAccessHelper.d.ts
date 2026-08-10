@@ -10763,7 +10763,7 @@ declare namespace photoAccessHelper {
     isSelectionOrderAdjustable?: boolean;
 
     /**
-     * Picker color mode. Dark/Light color mode of all content within the Picker.
+     * Picker color mode. Dark/light color mode of all content within the Picker.
      * The default value is `PickerColorMode.AUTO`, which follows the system's dark/light color mode.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
