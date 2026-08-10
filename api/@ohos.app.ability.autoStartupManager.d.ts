@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -41,8 +41,6 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace autoStartupManager {
   /**
    * Registers a callback to listen for auto-startup status changes of an application component.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -83,8 +81,6 @@ declare namespace autoStartupManager {
 
   /**
    * Unregisters the callback used to listen for auto-startup status changes of an application component.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -126,8 +122,6 @@ declare namespace autoStartupManager {
   /**
    * Sets an application component to automatically start upon system boot. This API uses an asynchronous callback to
    * return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -156,8 +150,6 @@ declare namespace autoStartupManager {
   /**
    * Sets an application component to automatically start upon system boot. This API uses a promise to return the
    * result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -185,8 +177,6 @@ declare namespace autoStartupManager {
   /**
    * Cancels the auto-startup setting for an application component. This API uses an asynchronous callback to return the
    * result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -214,8 +204,6 @@ declare namespace autoStartupManager {
 
   /**
    * Cancels the auto-startup setting for an application component. This API uses a promise to return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -243,8 +231,6 @@ declare namespace autoStartupManager {
   /**
    * Obtains information about all auto-startup application components. This API uses an asynchronous callback to return
    * the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
@@ -271,8 +257,6 @@ declare namespace autoStartupManager {
 
   /**
    * Obtains information about all auto-startup application components. This API uses a promise to return the result.
-   * Starting from API version 21, this API can be properly called only on phones, 2-in-1 devices, tablets, and
-   * wearables. On other devices, it returns the error code 16000050.
    * Starting from API version 18, this API can be properly called on 2-in-1 devices and wearables. If it is called on
    * other device types, error code 16000050 is returned.
    * For versions earlier than API version 18, this API can be properly called only on 2-in-1 devices. If it is called
