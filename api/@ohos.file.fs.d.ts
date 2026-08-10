@@ -818,7 +818,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  *
  * @param { string | number } src - Path or FD of the file to copy.
  * @param { string | number } dest - Destination path of the file or FD of the file created.
- * @param { number } [mode] - Whether to overwrite the file with the same name in the destination directory. The default
+ * @param { number } mode - Whether to overwrite the file with the same name in the destination directory. The default
  *     value is **0**, which is the only value supported.<br>**0**: overwrite the file with the same name and truncate
  *     the part that is not overwritten.
  * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is copied.
@@ -1132,7 +1132,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  * to return the result.
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
- * @param { number } [mode] - [Mode](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode) for creating
+ * @param { number } mode - [Mode](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode) for creating
  *     the **RandomAccessFile** instance. This parameter is valid only when the application sandbox path of the file is
  *     passed in. One of the following options must be specified:<br>- **OpenMode.READ_ONLY(0o0)**: Create the file in
  *     read-only mode. This is the default value.<br>- **OpenMode.WRITE_ONLY(0o1)**: Create the file in write-only mode.
@@ -1656,8 +1656,8 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * relative path starts with a slash (/).
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { object } [options] - Options for filtering files. The files are not filtered by default. [since 9 - 10]
- * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default. [since 11]
+ * @param { object } options - Options for filtering files. The files are not filtered by default. [since 9 - 10]
+ * @param { ListFileOptions } options - Options for filtering files. The files are not filtered by default. [since 11]
  * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed. The files are encoded in
  *     UTF-8 by default.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2473,7 +2473,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  *
  * @param { string } src - Application sandbox path of the file to move.
  * @param { string } dest - Application sandbox path of the destination file.
- * @param { number } [mode] - Move mode.<br> The value **0** means to overwrite the file with the same name in the
+ * @param { number } mode - Move mode.<br> The value **0** means to overwrite the file with the same name in the
  *     destination directory; the value **1** means to throw an exception. The default value is **0**.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2635,7 +2635,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * This API supports the use of a URI.
  *
  * @param { string } path - Application sandbox path or URI of a file or directory.
- * @param { number } [mode] - [Mode](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode) for opening the
+ * @param { number } mode - [Mode](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode) for opening the
  *     file or directory. You must specify one of the following options. By default, the file is opened in read-only
  *     mode.<br>- **OpenMode.READ_ONLY(0o0)**: Open the file in read-only mode.<br>- **OpenMode.WRITE_ONLY(0o1)**: Open
  *     the file in write-only mode.<br>- **OpenMode.READ_WRITE(0o2)**: Open the file in read/write mode.<br>You can also
@@ -2798,11 +2798,11 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
+ * @param { object } options - The options are as follows:<br>- **offset** (number): position of the data to read in
  *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
  *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
  *     buffer length. [since 9 - 10]
- * @param { ReadOptions } [options] - The options are as follows:<br>- **offset** (number): position of the data to read
+ * @param { ReadOptions } options - The options are as follows:<br>- **offset** (number): position of the data to read
  *     in the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
  *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
  *     buffer length. [since 11]
@@ -3037,12 +3037,12 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * Reads the text content of a file. This API uses an asynchronous callback to return the result.
  *
  * @param { string } filePath - Application sandbox path of the file.
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
+ * @param { object } options - The options are as follows:<br>- **offset** (number): position of the data to read in
  *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
  *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
  *     file length.<br>- **encoding** (string): format of the data to be encoded. The default value is **'utf-8'**,
  *     which is the only value supported. [since 9 - 10]
- * @param { ReadTextOptions } [options] - The options are as follows:<br>- **offset** (number): position of the data to
+ * @param { ReadTextOptions } options - The options are as follows:<br>- **offset** (number): position of the data to
  *     read in the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
  *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
  *     file length.<br>- **encoding** (string): format of the data to be encoded. The default value is **'utf-8'**,
@@ -3750,12 +3750,12 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  *
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): start position to write the data
+ * @param { object } options - The options are as follows:<br>- **offset** (number): start position to write the data
  *     in the file, in bytes. This parameter is optional. By default, data is written from the current position.<br>-
  *     **length** (number): length of the data to write, in bytes. This parameter is optional. The default value is the
  *     buffer length.<br>- **encoding** (string): format of the data to be encoded when the data is a string. The
  *     default value is **'utf-8'**, which is the only value supported currently. [since 9 - 10]
- * @param { WriteOptions } [options] - The options are as follows:<br>- **offset** (number): start position to write the
+ * @param { WriteOptions } options - The options are as follows:<br>- **offset** (number): start position to write the
  *     data in the file, in bytes. This parameter is optional. By default, data is written from the current position.<br
  *     >- **length** (number): length of the data to write, in bytes. This parameter is optional. The default value is
  *     the buffer length.<br>- **encoding** (string): format of the data to be encoded when the data is a string. The
@@ -4104,7 +4104,7 @@ declare interface File {
    * Applies an exclusive lock or a shared lock on this file in blocking mode. This API uses a promise to return the
    * result.
    *
-   * @param { boolean } exclusive - Lock to apply.<br> The value **true** means an exclusive lock, and the value
+   * @param { boolean } [exclusive] - Lock to apply.<br> The value **true** means an exclusive lock, and the value
    *     **false** (default) means a shared lock.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4155,7 +4155,7 @@ declare interface File {
   /**
    * Applies an exclusive lock or a shared lock on this file in non-blocking mode.
    *
-   * @param { boolean } exclusive - Lock to apply.<br> The value **true** means an exclusive lock, and the value
+   * @param { boolean } [exclusive] - Lock to apply.<br> The value **true** means an exclusive lock, and the value
    *     **false** (default) means a shared lock.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4718,11 +4718,11 @@ declare interface RandomAccessFile {
    * Reads data from a file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
+   * @param { object } options - The options are as follows:<br>- **length** (number): length of the data to read, in
    *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
    *     position to read the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
    *     optional. By default, data is read from the **filePointer**. [since 10 - 10]
-   * @param { ReadOptions } [options] - The options are as follows:<br>- **length** (number): length of the data to read
+   * @param { ReadOptions } options - The options are as follows:<br>- **length** (number): length of the data to read
    *     , in bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
    *     position to read the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
    *     optional. By default, data is read from the **filePointer**. [since 11]
@@ -5523,12 +5523,12 @@ declare interface Stream {
    * Writes data to a stream file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
+   * @param { object } options - The options are as follows:<br>- **length** (number): length of the data to write, in
    *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
    *     position to write the data in the file, in bytes. This parameter is optional. By default, data is written from
    *     the current position.<br>- **encoding** (string): format of the data to be encoded when the data is a string.
    *     The default value is **'utf-8'**, which is the only value supported. [since 9 - 10]
-   * @param { WriteOptions } [options] - The options are as follows:<br>- **length** (number): length of the data to
+   * @param { WriteOptions } options - The options are as follows:<br>- **length** (number): length of the data to
    *     write, in bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number):
    *     start position to write the data in the file, in bytes. This parameter is optional. By default, data is written
    *     from the current position.<br>- **encoding** (string): format of the data to be encoded when the data is a
@@ -5654,11 +5654,11 @@ declare interface Stream {
    * Reads data from a stream file. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
+   * @param { object } options - The options are as follows:<br>- **length** (number): length of the data to read, in
    *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): position
    *     of the data to read in the file, in bytes. This parameter is optional. By default, data is read from the
    *     current position. [since 9 - 10]
-   * @param { ReadOptions } [options] - The options are as follows:<br>- **length** (number): length of the data to read
+   * @param { ReadOptions } options - The options are as follows:<br>- **length** (number): length of the data to read
    *     , in bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number):
    *     position of the data to read in the file, in bytes. This parameter is optional. By default, data is read from
    *     the current position. [since 11]
