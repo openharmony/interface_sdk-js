@@ -31,10 +31,10 @@ import { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace wifiext {
   /**
-    * 使能WLAN热点。
-    *
-    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-    * @returns { boolean } 操作结果， true: 成功， false: 失败。
+   * 使能WLAN热点。
+   *
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @returns { boolean } 操作结果， true: 成功， false: 失败。
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -43,65 +43,65 @@ declare namespace wifiext {
   function enableHotspot(): boolean;
 
   /**
-    * 去使能WLAN热点。
-    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-    * @returns { boolean } 操作结果， true: 成功， false: 失败。
-    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
+   * 去使能WLAN热点。
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @returns { boolean } 操作结果， true: 成功， false: 失败。
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
    */
   function disableHotspot(): boolean;
 
   /**
-    * 获取支持的功率模式。
-    * @permission ohos.permission.GET_WIFI_INFO
-    * @returns { Promise<Array<PowerModel>> } 返回支持的功率模式数组。
-    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
-    */
+   * 获取支持的功率模式。
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<Array<PowerModel>> } 返回支持的功率模式数组。
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
+   */
   function getSupportedPowerModel(): Promise<Array<PowerModel>>;
 
   /**
-    * 获取支持的功率模式。
-    * @permission ohos.permission.GET_WIFI_INFO
-    * @param { AsyncCallback<Array<PowerModel>> } callback - 回调函数。当操作成功时，err为0，data表示支持的功率模式。如果err为非0，表示处理出现错误。
-    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
-    */
+   * 获取支持的功率模式。
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<Array<PowerModel>> } callback - 回调函数。当操作成功时，err为0，data表示支持的功率模式。如果err为非0，表示处理出现错误。
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
+   */
   function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
 
   /**
-    * 获取功率模式。
-    * @permission ohos.permission.GET_WIFI_INFO
-    * @returns { Promise<PowerModel> } 返回当前的WLAN功率模式。返回值小于零表示失败。
-    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
-    */
+   * 获取功率模式。
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<PowerModel> } 返回当前的WLAN功率模式。返回值小于零表示失败。
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
+   */
   function getPowerModel(): Promise<PowerModel>;
 
   /**
-    * 获取功率模式。
-    * @permission ohos.permission.GET_WIFI_INFO
-    * @param { AsyncCallback<PowerModel> } callback - 回调函数。当操作成功时，err为0，data表示功率模式。如果err为非0，表示处理出现错误。
-    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
-    */
+   * 获取功率模式。
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<PowerModel> } callback - 回调函数。当操作成功时，err为0，data表示功率模式。如果err为非0，表示处理出现错误。
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
+   */
   function getPowerModel(callback: AsyncCallback<PowerModel>): void;
 
   /**
-    * 设置功率模式。
-    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-    * @param { PowerModel } model - 功率模式。
-    * @returns { boolean } 操作结果， true: 成功， false: 失败。
+   * 设置功率模式。
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @param { PowerModel } model - 功率模式。
+   * @returns { boolean } 操作结果， true: 成功， false: 失败。
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -110,7 +110,7 @@ declare namespace wifiext {
   function setPowerModel(model: PowerModel): boolean;
 
   /**
-    * 表示功率模式的枚举。
+   * 表示功率模式的枚举。
    *
    * @enum { number } PowerModel
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
