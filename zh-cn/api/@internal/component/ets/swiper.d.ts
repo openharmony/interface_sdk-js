@@ -457,8 +457,8 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * 是否显示Swiper组件圆点导航指示器的蒙版样式。
    *
-   * @param { boolean } value - 设置是否显示Swiper组件圆点导航指示器的蒙版样式。为true时显示Swiper组件圆点导航指示器的蒙版样式，为false时不显示。<br/>默认值：false
-   * @returns { DotIndicator } 返回当前圆点指示器。
+   * @param { boolean } value - 设置是否显示Swiper组件圆点导航指示器的蒙版样式。true为显示Swiper组件圆点导航指示器的蒙版样式，false为不显示。<br/>默认值：false
+   * @returns { DotIndicator } 返回当前圆点指示器，用于支持链式调用配置其他导航点属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
