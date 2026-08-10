@@ -6993,7 +6993,7 @@ declare namespace media {
 
   /**
    * AVRecorder is a class for audio and video recording management. It provides APIs to record media assets. Before 
-   * calling any API in AVRecorder, you must use
+   * calling any API in AVRecorder, you must use 
    * [createAVRecorder()]{@link @ohos.multimedia.media:media.createAVRecorder(callback: AsyncCallback<AVRecorder>)} to 
    * create an AVRecorder instance.
    * 
