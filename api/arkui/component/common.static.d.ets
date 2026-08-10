@@ -593,7 +593,7 @@ export declare enum AccessibilityRoleType {
     */
     BUTTON = 5,
     /**
-    * back button component type
+    * button component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -712,7 +712,7 @@ export declare enum AccessibilityRoleType {
     */
     DATA_PANEL = 22,
     /**
-    * date picker component type
+    * data picker component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -1079,7 +1079,7 @@ export declare enum AccessibilityRoleType {
     */
     POLYLINE = 74,
     /**
-    * popup component type
+    * pop up component type
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 23 static
@@ -14614,7 +14614,7 @@ export declare interface PixelRoundPolicy {
     /**
      * Rounding for alignment with the start edge.
      *
-     * @type { PixelRoundCalcPolicy }
+     * @type { ?PixelRoundCalcPolicy }
      * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15873,6 +15873,7 @@ export declare interface DynamicNode {
 /**
  * Define EdgeEffect Options.
  *
+ * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
