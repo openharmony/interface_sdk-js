@@ -321,13 +321,13 @@ declare namespace wifiManager {
    * @since 9
    */
 
- /**
-   * 添加指定的候选热点配置，并返回networkId。
-   * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
-   * 应用必须在前台运行。
-   * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - 候选配置。
-   * @returns { Promise<int> } 添加配置时返回{@code networkId}，否则返回{@code -1}。
+  /**
+  * 添加指定的候选热点配置，并返回networkId。
+  * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
+  * 应用必须在前台运行。
+  * @permission ohos.permission.SET_WIFI_INFO
+  * @param { WifiDeviceConfig } config - 候选配置。
+  * @returns { Promise<int> } 添加配置时返回{@code networkId}，否则返回{@code -1}。
   * @throws {BusinessError} 201 - Permission denied.
   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
   *     2. Incorrect parameter types. 3.Parameter verification failed.
@@ -341,12 +341,12 @@ declare namespace wifiManager {
   function addCandidateConfig(config: WifiDeviceConfig): Promise<int>;
   
   /**
-   * 添加指定的候选热点配置，并返回networkId。
-   * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
-   * 应用必须在前台运行。
-   * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - 候选配置。
-   * @param { AsyncCallback<number> } callback - 表示addCandidateConfig的回调函数。
+  * 添加指定的候选热点配置，并返回networkId。
+  * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
+  * 应用必须在前台运行。
+  * @permission ohos.permission.SET_WIFI_INFO
+  * @param { WifiDeviceConfig } config - 候选配置。
+  * @param { AsyncCallback<number> } callback - 表示addCandidateConfig的回调函数。
   * @throws {BusinessError} 201 - Permission denied.
   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
   *     2. Incorrect parameter types. 3.Parameter verification failed.
@@ -357,12 +357,12 @@ declare namespace wifiManager {
   */
 
   /**
-   * 添加指定的候选热点配置，并返回networkId。
-   * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
-   * 应用必须在前台运行。
-   * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - 候选配置。
-   * @param { AsyncCallback<int> } callback - 表示addCandidateConfig的回调函数。
+  * 添加指定的候选热点配置，并返回networkId。
+  * 此方法一次添加一个配置。添加此配置后，设备将决定是否连接到该热点。
+  * 应用必须在前台运行。
+  * @permission ohos.permission.SET_WIFI_INFO
+  * @param { WifiDeviceConfig } config - 候选配置。
+  * @param { AsyncCallback<int> } callback - 表示addCandidateConfig的回调函数。
   * @throws {BusinessError} 201 - Permission denied.
   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
   *     2. Incorrect parameter types. 3.Parameter verification failed.
@@ -505,7 +505,7 @@ declare namespace wifiManager {
    * @param { int } networkId - 将要连接的网络ID。networkId的值不能小于0。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3.Parameter verification failed.
+   *      2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
@@ -4266,61 +4266,61 @@ declare namespace wifiManager {
      */
     WIFI_STANDARD_UNDEFINED,
 
-     /**
-      * WLAN 802.11a
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11A,
+    /**
+     * WLAN 802.11a
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11A,
+
+    /**
+     * WLAN 802.11b
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11B,
+
+    /**
+     * WLAN 802.11g
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11G,
+
+    /**
+     * WLAN 802.11n
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11N,
+
+    /**
+     * WLAN 802.11ac
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11AC,
 
      /**
-      * WLAN 802.11b
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11B,
+     * WLAN 802.11ax
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11AX,
 
      /**
-      * WLAN 802.11g
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11G,
-
-     /**
-      * WLAN 802.11n
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11N,
-
-     /**
-      * WLAN 802.11ac
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11AC,
-
-     /**
-      * WLAN 802.11ax
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11AX,
-
-     /**
-      * WLAN 802.11ad
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @since 10 dynamic
-      * @since 23 static
-      */
-     WIFI_STANDARD_11AD
+     * WLAN 802.11ad
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    WIFI_STANDARD_11AD
   }
 
   /**

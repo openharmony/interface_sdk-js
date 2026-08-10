@@ -1246,7 +1246,7 @@ declare namespace wifi {
    */
   interface IpConfig {
     /**
-      * IP地址。
+     * IP地址。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1256,7 +1256,7 @@ declare namespace wifi {
     ipAddress: number;
 
     /**
-      * 网关。
+     * 网关。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1266,7 +1266,7 @@ declare namespace wifi {
     gateway: number;
 
     /**
-      * DNS服务器。
+     * DNS服务器。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1276,7 +1276,7 @@ declare namespace wifi {
     dnsServers: number[];
 
     /**
-      * 域名。
+     * 域名。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1361,7 +1361,7 @@ declare namespace wifi {
     channelWidth: number;
 
     /**
-      * 时间戳
+     * 时间戳
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1397,7 +1397,7 @@ declare namespace wifi {
     WIFI_SEC_TYPE_OPEN = 1,
 
     /**
-      * 有线等效保密(WEP)
+     * 有线等效保密(WEP)
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1406,7 +1406,7 @@ declare namespace wifi {
     WIFI_SEC_TYPE_WEP = 2,
 
     /**
-      * 预共享密钥(PSK)
+     * 预共享密钥(PSK)
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1415,7 +1415,7 @@ declare namespace wifi {
     WIFI_SEC_TYPE_PSK = 3,
 
     /**
-      * 等同认证(SAE)
+     * 等同认证(SAE)
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1435,7 +1435,7 @@ declare namespace wifi {
    */
   interface WifiLinkedInfo {
     /**
-      * WLAN热点的SSID
+     * WLAN热点的SSID
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1444,7 +1444,7 @@ declare namespace wifi {
     ssid: string;
 
     /**
-      *  WLAN热点的BSSID
+     *  WLAN热点的BSSID
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1453,7 +1453,7 @@ declare namespace wifi {
     bssid: string;
 
     /**
-      * WLAN连接的ID(唯一标识)。
+     * WLAN连接的ID(唯一标识)。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1463,7 +1463,7 @@ declare namespace wifi {
     networkId: number;
 
     /**
-      * WLAN AP的RSSI(dBm)。
+     * WLAN AP的RSSI(dBm)。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1472,7 +1472,7 @@ declare namespace wifi {
     rssi: number;
 
     /**
-      * WLAN AP的频段。
+     * WLAN AP的频段。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1481,7 +1481,7 @@ declare namespace wifi {
     band: number;
 
     /**
-      * WLAN AP的速度。
+     * WLAN AP的速度。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1490,7 +1490,7 @@ declare namespace wifi {
     linkSpeed: number;
 
     /**
-      * WLAN AP的频率。
+     * WLAN AP的频率。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1499,7 +1499,7 @@ declare namespace wifi {
     frequency: number;
 
     /**
-      * 此WLAN连接的AP的SSID是否隐藏。
+     * 此WLAN连接的AP的SSID是否隐藏。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1508,7 +1508,7 @@ declare namespace wifi {
     isHidden: boolean;
 
     /**
-      * 此WLAN连接是否限制数据量。
+     * 此WLAN连接是否限制数据量。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1518,7 +1518,7 @@ declare namespace wifi {
 
     /**
      *
-      * 此WLAN连接的负载值。值越大表示负载越高。
+     * 此WLAN连接的负载值。值越大表示负载越高。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1528,7 +1528,7 @@ declare namespace wifi {
     chload: number;
 
     /**
-      * 此WLAN连接的信噪比(SNR)。
+     * 此WLAN连接的信噪比(SNR)。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1539,7 +1539,7 @@ declare namespace wifi {
 
     /**
      *
-      * 设备的WLAN MAC地址。
+     * 设备的WLAN MAC地址。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1548,7 +1548,7 @@ declare namespace wifi {
     macAddress: string;
 
     /**
-      * 此WLAN连接的IP地址。
+     * 此WLAN连接的IP地址。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1558,7 +1558,7 @@ declare namespace wifi {
 
     /**
      *
-      * 此WLAN连接的 supplicant 状态。
+     * 此WLAN连接的 supplicant 状态。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1568,7 +1568,7 @@ declare namespace wifi {
     suppState: SuppState;
 
     /**
-      * 此WLAN连接的状态。
+     * 此WLAN连接的状态。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1588,16 +1588,16 @@ declare namespace wifi {
    */
   interface IpInfo {
      /**
-      * WLAN连接的IP地址
-      * @syscap SystemCapability.Communication.WiFi.AP.Core
-      * @since 7 dynamiconly
-      * @deprecated since 9
-      * @useinstead ohos.wifiManager/wifiManager.IpInfo.ipAddress
-      *  */
+     * WLAN连接的IP地址
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.IpInfo.ipAddress
+     *  */
     ipAddress: number;
 
     /**
-      * WLAN连接的网关
+     * WLAN连接的网关
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1606,7 +1606,7 @@ declare namespace wifi {
     gateway: number;
 
     /**
-      * WLAN连接的网络掩码
+     * WLAN连接的网络掩码
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1616,7 +1616,7 @@ declare namespace wifi {
 
     /**
      *
-      * WLAN连接的主DNS服务器IP地址
+     * WLAN连接的主DNS服务器IP地址
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1625,16 +1625,16 @@ declare namespace wifi {
     primaryDns: number;
 
     /**
-      * WLAN连接的辅助DNS服务器IP地址
-      * @syscap SystemCapability.Communication.WiFi.AP.Core
-      * @since 7 dynamiconly
-      * @deprecated since 9
-      * @useinstead ohos.wifiManager/wifiManager.IpInfo.secondDns
-      *  */
+     * WLAN连接的辅助DNS服务器IP地址
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.IpInfo.secondDns
+     *  */
     secondDns: number;
 
     /**
-      * WLAN连接的DHCP服务器IP地址
+     * WLAN连接的DHCP服务器IP地址
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1643,7 +1643,7 @@ declare namespace wifi {
     serverIp: number;
 
     /**
-      * WLAN连接的IP地址租约时长
+     * WLAN连接的IP地址租约时长
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1664,7 +1664,7 @@ declare namespace wifi {
    */
   interface HotspotConfig {
     /**
-      * WLAN热点的SSID
+     * WLAN热点的SSID
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1674,7 +1674,7 @@ declare namespace wifi {
     ssid: string;
 
     /**
-      * WLAN热点的加密类型
+     * WLAN热点的加密类型
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1684,7 +1684,7 @@ declare namespace wifi {
     securityType: WifiSecurityType;
 
     /**
-      * WLAN热点的频段
+     * WLAN热点的频段
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1694,7 +1694,7 @@ declare namespace wifi {
     band: number;
 
     /**
-      * WLAN热点的密码
+     * WLAN热点的密码
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1704,7 +1704,7 @@ declare namespace wifi {
     preSharedKey: string;
 
     /**
-      * WLAN热点允许的最大连接数
+     * WLAN热点允许的最大连接数
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1726,7 +1726,7 @@ declare namespace wifi {
    */
   interface StationInfo {
     /**
-      * WLAN客户端的网络名称
+     * WLAN客户端的网络名称
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1736,7 +1736,7 @@ declare namespace wifi {
     name: string;
 
     /**
-      * WLAN客户端的MAC地址
+     * WLAN客户端的MAC地址
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1746,7 +1746,7 @@ declare namespace wifi {
     macAddress: string;
 
     /**
-      * WLAN客户端的IP地址
+     * WLAN客户端的IP地址
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
@@ -1768,7 +1768,7 @@ declare namespace wifi {
    */
   enum IpType {
     /**
-      * 使用静态配置的IP设置
+     * 使用静态配置的IP设置
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
@@ -1778,7 +1778,7 @@ declare namespace wifi {
     STATIC,
 
     /**
-      * 使用动态配置的IP设置
+     * 使用动态配置的IP设置
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
@@ -1788,7 +1788,7 @@ declare namespace wifi {
     DHCP,
 
     /**
-      *  未分配IP详情
+     *  未分配IP详情
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
@@ -1819,7 +1819,7 @@ declare namespace wifi {
     DISCONNECTED,
 
     /**
-      * 网络接口已禁用。
+     * 网络接口已禁用。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1829,7 +1829,7 @@ declare namespace wifi {
     INTERFACE_DISABLED,
 
     /**
-      * supplicant已禁用。
+     * supplicant已禁用。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1839,7 +1839,7 @@ declare namespace wifi {
     INACTIVE,
 
     /**
-      * supplicant正在扫描WLAN连接。
+     * supplicant正在扫描WLAN连接。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1849,7 +1849,7 @@ declare namespace wifi {
     SCANNING,
 
     /**
-      * supplicant正在与指定AP进行认证。
+     * supplicant正在与指定AP进行认证。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1859,7 +1859,7 @@ declare namespace wifi {
     AUTHENTICATING,
 
     /**
-      * supplicant正在与指定AP关联。
+     * supplicant正在与指定AP关联。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1869,7 +1869,7 @@ declare namespace wifi {
     ASSOCIATING,
 
     /**
-      * supplicant已与指定AP关联。
+     * supplicant已与指定AP关联。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1879,7 +1879,7 @@ declare namespace wifi {
     ASSOCIATED,
 
     /**
-      * 四次握手正在进行中。
+     * 四次握手正在进行中。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1898,7 +1898,7 @@ declare namespace wifi {
     GROUP_HANDSHAKE,
 
     /**
-      * 所有认证已完成。
+     * 所有认证已完成。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1908,7 +1908,7 @@ declare namespace wifi {
     COMPLETED,
 
     /**
-      * 与 supplicant 建立连接失败。
+     * 与 supplicant 建立连接失败。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1918,7 +1918,7 @@ declare namespace wifi {
     UNINITIALIZED,
 
     /**
-      * supplicant处于未知或无效状态。
+     * supplicant处于未知或无效状态。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1939,7 +1939,7 @@ declare namespace wifi {
    */
   export enum ConnState {
     /**
-      * 设备正在搜索可用的AP。
+     * 设备正在搜索可用的AP。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1948,7 +1948,7 @@ declare namespace wifi {
     SCANNING,
 
     /**
-      * WLAN连接正在建立。
+     * WLAN连接正在建立。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1957,7 +1957,7 @@ declare namespace wifi {
     CONNECTING,
 
     /**
-      * WLAN连接正在认证。
+     * WLAN连接正在认证。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1966,7 +1966,7 @@ declare namespace wifi {
     AUTHENTICATING,
 
     /**
-      * 正在获取WLAN连接的IP地址。
+     * 正在获取WLAN连接的IP地址。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1975,7 +1975,7 @@ declare namespace wifi {
     OBTAINING_IPADDR,
 
     /**
-      * WLAN连接已建立。
+     * WLAN连接已建立。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1984,7 +1984,7 @@ declare namespace wifi {
     CONNECTED,
 
     /**
-      * WLAN连接正在断开。
+     * WLAN连接正在断开。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1993,7 +1993,7 @@ declare namespace wifi {
     DISCONNECTING,
 
     /**
-      * WLAN连接已断开。
+     * WLAN连接已断开。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -2002,7 +2002,7 @@ declare namespace wifi {
     DISCONNECTED,
 
     /**
-      * WLAN连接建立失败。
+     * WLAN连接建立失败。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -2022,7 +2022,7 @@ declare namespace wifi {
    */
   interface WifiP2pDevice {
     /**
-      * 设备名称
+     * 设备名称
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2031,16 +2031,16 @@ declare namespace wifi {
     deviceName: string;
 
     /**
-      * 设备MAC地址
-      * @syscap SystemCapability.Communication.WiFi.P2P
-      * @since 8 dynamiconly
-      * @deprecated since 9
-      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceAddress
+     * 设备MAC地址
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceAddress
      * */
     deviceAddress: string;
 
     /**
-      *  主要设备类型
+     *  主要设备类型
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2049,7 +2049,7 @@ declare namespace wifi {
     primaryDeviceType: string;
 
     /**
-      * 设备状态
+     * 设备状态
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2058,7 +2058,7 @@ declare namespace wifi {
     deviceStatus: P2pDeviceStatus;
 
     /**
-      * 设备群组能力
+     * 设备群组能力
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2077,7 +2077,7 @@ declare namespace wifi {
    */
   interface WifiP2PConfig {
     /**
-      * 设备MAC地址
+     * 设备MAC地址
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2086,7 +2086,7 @@ declare namespace wifi {
     deviceAddress: string;
 
     /**
-      * 群组网络ID。创建群组时，-1表示创建临时群组，-2表示创建持久群组
+     * 群组网络ID。创建群组时，-1表示创建临时群组，-2表示创建持久群组
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2095,7 +2095,7 @@ declare namespace wifi {
     netId: number;
 
     /**
-      * 此{@code WifiP2pConfig}实例的密码短语
+     * 此{@code WifiP2pConfig}实例的密码短语
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2104,7 +2104,7 @@ declare namespace wifi {
     passphrase: string;
 
     /**
-      * 群组名称
+     * 群组名称
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2113,7 +2113,7 @@ declare namespace wifi {
     groupName: string;
 
     /**
-      * 群组所有者频段
+     * 群组所有者频段
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2132,7 +2132,7 @@ declare namespace wifi {
    */
   interface WifiP2pGroupInfo {
     /**
-      * 是否为群组所有者
+     * 是否为群组所有者
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2141,7 +2141,7 @@ declare namespace wifi {
     isP2pGo: boolean;
 
     /**
-      * 群组所有者信息
+     * 群组所有者信息
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2150,7 +2150,7 @@ declare namespace wifi {
     ownerInfo: WifiP2pDevice;
 
     /**
-      * 群组密码短语
+     * 群组密码短语
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2159,7 +2159,7 @@ declare namespace wifi {
     passphrase: string;
 
     /**
-      * 接口名称
+     * 接口名称
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2168,7 +2168,7 @@ declare namespace wifi {
     interface: string;
 
     /**
-      * 群组名称
+     * 群组名称
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2193,7 +2193,7 @@ declare namespace wifi {
     frequency: number;
 
     /**
-      * 客户端列表
+     * 客户端列表
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2202,7 +2202,7 @@ declare namespace wifi {
     clientDevices: WifiP2pDevice[];
 
     /**
-      * 群组所有者IP地址
+     * 群组所有者IP地址
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2222,7 +2222,7 @@ declare namespace wifi {
    */
   enum P2pConnectState {
     /**
-      * P2P已断开连接。
+     * P2P已断开连接。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2231,7 +2231,7 @@ declare namespace wifi {
     DISCONNECTED = 0,
 
     /**
-      * P2P已连接。
+     * P2P已连接。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2250,7 +2250,7 @@ declare namespace wifi {
    */
   interface WifiP2pLinkedInfo {
     /**
-      * 连接状态
+     * 连接状态
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2259,7 +2259,7 @@ declare namespace wifi {
     connectState: P2pConnectState;
 
     /**
-      * 是否为群组所有者
+     * 是否为群组所有者
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2268,7 +2268,7 @@ declare namespace wifi {
     isGroupOwner: boolean;
 
     /**
-      * 群组所有者地址
+     * 群组所有者地址
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2288,7 +2288,7 @@ declare namespace wifi {
    */
   enum P2pDeviceStatus {
     /**
-      * 表示P2P设备已连接。
+     * 表示P2P设备已连接。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2297,7 +2297,7 @@ declare namespace wifi {
     CONNECTED = 0,
 
     /**
-      * 表示P2P设备已邀请。
+     * 表示P2P设备已邀请。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2306,7 +2306,7 @@ declare namespace wifi {
     INVITED = 1,
 
     /**
-      * 表示P2P设备失败。
+     * 表示P2P设备失败。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2315,7 +2315,7 @@ declare namespace wifi {
     FAILED = 2,
 
     /**
-      * 表示P2P设备可用。
+     * 表示P2P设备可用。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2324,7 +2324,7 @@ declare namespace wifi {
     AVAILABLE = 3,
 
     /**
-      * 表示P2P设备不可用。
+     * 表示P2P设备不可用。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2344,7 +2344,7 @@ declare namespace wifi {
    */
   enum GroupOwnerBand {
     /**
-      * 默认频段。
+     * 默认频段。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2353,7 +2353,7 @@ declare namespace wifi {
     GO_BAND_AUTO = 0,
 
     /**
-      * 2.4G频段。
+     * 2.4G频段。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2362,7 +2362,7 @@ declare namespace wifi {
     GO_BAND_2GHZ = 1,
 
     /**
-      * 5G频段。
+     * 5G频段。
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
