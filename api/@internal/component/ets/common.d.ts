@@ -970,7 +970,7 @@ declare enum SystemProperties {
    * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
-};
+}
 
 /**
  * Defining Consume PropertyDecorator.
@@ -2095,7 +2095,7 @@ declare enum AccessibilitySamePageMode {
  */
 declare enum AccessibilityRoleType {
   /**
-  * actionSheet component type
+  * ActionSheet component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2105,7 +2105,7 @@ declare enum AccessibilityRoleType {
   */
   ACTION_SHEET = 0,
   /**
-  * alertDialog component type
+  * AlertDialog component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2115,7 +2115,7 @@ declare enum AccessibilityRoleType {
   */
   ALERT_DIALOG = 1,
   /**
-  * alphabetIndexer component type
+  * AlphabetIndexer component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2255,7 +2255,7 @@ declare enum AccessibilityRoleType {
   */
   CIRCLE = 15,
   /**
-   * column split component type
+  * column split component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -2959,7 +2959,7 @@ declare enum AccessibilityRoleType {
    */
   RICH_TEXT = 85,
   /**
-   * role pager component type
+   * rolepager component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3059,7 +3059,7 @@ declare enum AccessibilityRoleType {
    */
   SIDEBAR_CONTAINER = 95,
   /**
-   * sidebar container component type
+   * slider component type
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3292,7 +3292,7 @@ declare enum AccessibilityRoleType {
    */
   TOGGLER = 118,
   /**
-   * uiExtensionComponent component type
+   * uiextensioncomponent component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3342,7 +3342,7 @@ declare enum AccessibilityRoleType {
    */
   XCOMPONENT = 123,
   /**
-   * none component type: screen reader will not broadcast the component type
+   * none component type: screen reader will not broadcast the component type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4697,7 +4697,7 @@ declare interface HorizontalAlignParam {
    * @since 11
    */
    /**
-    * Sets the horizontal alignment relative to the anchor component.
+   * Sets the horizontal alignment relative to the anchor component.
    *
    * Anonymous Object Rectification
    *
@@ -8195,7 +8195,7 @@ declare interface MultiShadowOptions {
  */
 declare enum SafeAreaType {
   /**
-   * Default safe area of the system, including the status bar and navigation bar.
+   * Default area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10616,6 +10616,7 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
  * Defines the callback type used in onNeedSoftkeyboard.
  * Called when component is focused, the return value indicates whether keyboard is needed.
  *
+ * @typedef { function } OnNeedSoftkeyboardCallback
  * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
