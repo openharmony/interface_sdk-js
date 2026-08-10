@@ -2560,7 +2560,7 @@ declare enum AccessibilityRoleType {
   DATA_PANEL = 22,
 
   /**
-   * date picker component type
+   * data picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

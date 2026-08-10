@@ -2325,7 +2325,7 @@ declare enum AccessibilityRoleType {
    */
   DATA_PANEL = 22,
   /**
-   * date picker component type
+   * data picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2848,7 +2848,7 @@ declare enum AccessibilityRoleType {
    */
   POLYLINE = 74,
   /**
-   * popup component type
+   * pop up component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24261,9 +24261,7 @@ declare class CommonMethod<T> {
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
-   * Sets the checked state for the accessibility node. This API is used in multi-select scenarios and only affects
-   * <br>
-   * component state announcements in screen reading scenarios.
+   * Sets accessibilityChecked
    *
    * @param { boolean } isCheck - set accessibility checked status
    * @returns { T }
@@ -24277,9 +24275,7 @@ declare class CommonMethod<T> {
   accessibilityChecked(isCheck: boolean): T;
 
   /**
-   * Sets the checked state for the accessibility node. This API is used in single-select scenarios and only affects
-   * <br>
-   * component state announcements in screen reading scenarios.
+   * Sets accessibilitySelected
    *
    * @param { boolean } isSelect - set accessibility selected status
    * @returns { T }
@@ -24723,9 +24719,7 @@ declare class CommonMethod<T> {
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
 
   /**
-   * Sets the state description of a component for broadcasting, which clearly describes the real-time state of the
-   * <br>
-   * component in screen reading scenarios. Screen reader will broadcast the state description first.
+   * Sets the state announcement text of the component under accessibility.
    *
    * @param { string | Resource | undefined } description - the state anouncement text of
    *     the component under accessibility. if incoming is undefined, it will be processed as empty string.
@@ -24754,15 +24748,11 @@ declare class CommonMethod<T> {
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
   /**
-   * Sets the next component to receive focus during screen reader navigation, with optional detailed parameters.
-   * The detailed parameters can provide additional behavior for the accessibility focus transition.
+   * Sets the next accessibility focus ID for the component, with optional detailed parameters.
+   * Ther detailed parameters can provider additional behavior for the accessibility focus transition.
    * 
-   * @param { string } nextId - [Unique ID]{@link CommonMethod#id} of the next component to receive focus.
-   *     <br>If the ID does not correspond to any component, the setting is ignored.
-   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - Detailed parameters for accessibility next
-   *     <br>focus processing, used to configure whether to search for focusable nodes among descendant nodes.
-   *     <br>When the value is **undefined**, no detailed parameters are configured and no focus search is performed
-   *     <br>among descendant nodes.
+   * @param { string } nextId - set component next accessibility focus id
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24774,9 +24764,7 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
-   * Sets the custom accessibility operations of the component, allowing developers to set an array of custom actions
-   * <br>
-   * for binding custom operation callbacks to components by operation name.
+   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
    *
    * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
    * @returns { T } return component instance who call method.
