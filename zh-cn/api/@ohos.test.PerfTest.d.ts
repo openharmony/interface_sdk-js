@@ -18,6 +18,8 @@
   * 
   * > **说明：**
   * >
+  * > - 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+  * >
   * > - 本模块接口在<!--RP1-->[单元测试框架](docroot://application-test/unittest-guidelines.md)<!--RP1End-->中使用。
   * >
   * > - 本模块接口不支持并发调用。
@@ -37,9 +39,12 @@ import { Callback } from './@ohos.base';
  * > **说明**
  * >
  * >
+ * > 1. 以上指标均用于采集指定应用进程的性能数据，非系统整机性能数据。
+ * > 2. CPU（CPU_LOAD/CPU_USAGE）、内存（MEMORY_RSS/MEMORY_PSS）数据采集说明如下：
  * > - 测试过程中，代码段执行开始前和代码段执行结束后，会分别采集指定应用进程的CPU和内存数据，因此测试过程中需要保证被测应用进程一直存在。
  * >
  * >
+ * > 3. 应用启动时延（APP_START_RESPONSE_TIME/APP_START_COMPLETE_TIME）数据采集说明如下：
  * > - 应用启动时延数据受系统打点上报限制，开始时间为点击事件上报时间点，响应时延结束时间为点击后系统响应首帧的上屏时间点（首帧显示在屏幕上的时间点），完成时延结束时间为应用启动后的首帧上屏时间点，与端到端用户感知时延存在差异。
  * >
  * > - 应用启动时延数据采集支持的场景：桌面点击应用图标启动、Dock栏点击应用图标启动、应用中心点击应用图标启动。
@@ -47,6 +52,7 @@ import { Callback } from './@ohos.base';
  * > - 单次测试期间，仅第一次指定应用启动的时延数据会被采集。
  * >
  * >
+ * > 4. 页面切换时延（PAGE_SWITCH_COMPLETE_TIME）数据采集说明如下：
  * > - 页面切换时延计算受系统打点上报限制，开始时间为点击事件上报时间点，完成时延结束时间为页面切换后的首帧上屏时间点，与端到端用户感知时延存在差异。
  * >
  * > - 页面切换时延数据采集支持的场景：Router、Navigation控件内的页面切换。
@@ -54,9 +60,10 @@ import { Callback } from './@ohos.base';
  * > - 单次测试期间，仅指定应用内第一次页面切换的时延数据会被采集。
  * >
  * >
+ * > 5. 列表滑动帧率（LIST_SWIPE_FPS）数据采集说明如下：
  * > - 列表滑动帧率：指的是在列表滑动时，屏幕每秒钟渲染更新帧的次数。
  * >
- * > - 列表滑动帧率数据采集支持的场景：ArkUI子系统List、Grid、scroll、waterflow滚动控件列表的滑动。
+ * > - 列表滑动帧率数据采集支持的场景：ArkUI子系统List、Grid、Scroll、WaterFlow滚动控件列表的滑动。
  * >
  * > - 单次测试期间，仅指定应用内第一次列表滑动的帧率数据会被采集。
  *
@@ -113,7 +120,7 @@ declare enum PerfMetric {
   MEMORY_RSS = 3,
 
   /**
-   * 代码段单次执行结束时，应用进程占用物理内存（不含共享库），单位：KB。
+   * 代码段单次执行结束时，应用进程占用物理内存（按比例分摊共享库），单位：KB。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -157,7 +164,7 @@ declare enum PerfMetric {
   PAGE_SWITCH_COMPLETE_TIME = 7,
 
   /**
-   * 应用内列表滑动的帧率，单位：fps。
+   * 应用内列表滑动的帧率，单位：fps(每秒帧数)。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -184,7 +191,7 @@ declare enum PerfMetric {
  */
 declare interface PerfTestStrategy {
   /**
-   * 被测性能指标列表。
+   * 被测性能指标列表，列表为空则不采集任何性能指标数据。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -228,7 +235,7 @@ declare interface PerfTestStrategy {
   bundleName?: string;
 
   /**
-   * 测试迭代执行次数，默认值为5。
+   * 测试迭代执行次数，取值范围为大于0的整数，默认值为5。超出范围时抛出异常。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -239,7 +246,8 @@ declare interface PerfTestStrategy {
   iterations?: int;
 
   /**
-   * 单次代码段（actionCode/resetCode）执行的超时时间，默认值为10000ms。
+   * 单次代码段（actionCode/resetCode）执行的超时时间，取值范围为大于0的整数，单位：ms，默认值为10000ms。
+   * 当测试代码段执行耗时较长时，可适当增大此值以避免超时，超时后将触发异常，并终止测试执行。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -272,7 +280,7 @@ declare interface PerfMeasureResult {
   readonly metric: PerfMetric;
 
   /**
-   * 被测性能指标的各轮测量数据值。当数据采集失败时返回-1。
+   * 被测性能指标的各轮测量数据值，单位与对应PerfMetric指标一致。当数据采集失败时返回-1。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -317,7 +325,7 @@ declare interface PerfMeasureResult {
  }
 
 /**
- * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
+ * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。通过{@link create}创建实例。
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
@@ -330,7 +338,7 @@ declare class PerfTest {
    * 静态方法，构造一个PerfTest对象，并返回该对象。
    *
    * @param { PerfTestStrategy } strategy - 性能测试执行策略。
-   * @returns { PerfTest }  返回构造的PerfTest对象。
+   * @returns { PerfTest }  返回构造的PerfTest对象，可用于执行测试任务、采集性能数据和获取测量结果。
    * @throws { BusinessError } 32400001 - Initialization failed.
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
@@ -349,6 +357,7 @@ declare class PerfTest {
    *
    * @returns { Promise<void> }
    Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes: 1. An exception is thrown in the callback. 2. Callback execution timed out.
    * @throws { BusinessError } 32400005 - Failed to collect metric data.
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
@@ -362,7 +371,7 @@ declare class PerfTest {
   run(): Promise<void>;
 
   /**
-   * 获取指定性能指标的测量数据。
+   * 获取指定性能指标的测量数据。需要在run()执行完成后调用，否则无法获取到有效的测量数据。
    *
    * @param { PerfMetric } metric - 性能指标。
    * @returns { PerfMeasureResult } - 性能指标对应测量结果数据。
