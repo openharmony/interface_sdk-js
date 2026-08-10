@@ -14,8 +14,8 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
@@ -146,6 +146,10 @@ export interface OperateIconV2Options {
   /**
    * 列表项右侧图标/箭头资源。
    *
+   * 默认值为""，不显示图标/箭头资源。
+   *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -155,7 +159,9 @@ export interface OperateIconV2Options {
   value?: ResourceStr;
 
   /**
-   * 列表项右侧Symbol图标/箭头资源。
+   * 列表项右侧Symbol图标/箭头资源，优先级大于value，同时设置时只显示Symbol图标。
+   *
+   * 默认不设置或设置为undefined时，不显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -166,7 +172,9 @@ export interface OperateIconV2Options {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * 列表项右侧图标/箭头点击事件。
+   * 列表项右侧图标/箭头点击回调。
+   *
+   * 默认不设置或设置为undefined时，点击图标/箭头不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -209,7 +217,7 @@ export interface OperateIconV2Options {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -243,6 +251,8 @@ export declare class OperateIconV2 {
   /**
    * 列表项右侧图标/箭头资源。
    *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -253,7 +263,9 @@ export declare class OperateIconV2 {
   public value: ResourceStr;
 
   /**
-   * 列表项右侧Symbol图标/箭头资源。
+   * 列表项右侧Symbol图标/箭头资源，优先级大于value，同时设置时只显示Symbol图标。
+   *
+   * 默认不设置或设置为undefined时，不显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -265,7 +277,9 @@ export declare class OperateIconV2 {
   public symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * 列表项右侧图标/箭头点击事件。
+   * 列表项右侧图标/箭头点击回调。
+   *
+   * 默认不设置或设置为undefined时，点击图标/箭头不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,7 +325,7 @@ export declare class OperateIconV2 {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -334,7 +348,7 @@ export declare class OperateIconV2 {
   /**
    * OperateIconV2的构造函数。
    *
-   * @param { OperateIconV2Options } [options] - 列表项右侧图标属性配置。
+   * @param { OperateIconV2Options } [options] - 列表项右侧图标属性配置。<br/>默认不设置或设置为undefined时，按各属性的默认效果创建对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -357,6 +371,8 @@ export interface OperateCheckV2Options {
   /**
    * 列表项右侧元素Switch/CheckBox/Radio选中状态。
    *
+   * 值为true时表示选中，值为false时表示未选中。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -367,6 +383,8 @@ export interface OperateCheckV2Options {
 
   /**
    * 列表项右侧元素Switch/CheckBox/Radio选中状态改变时触发回调。
+   *
+   * 默认不设置或设置为undefined时，状态改变不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -409,7 +427,7 @@ export interface OperateCheckV2Options {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -465,6 +483,8 @@ export declare class OperateCheckV2 {
    *
    * value为false时，表示从选中变为未选中。
    *
+   * 默认不设置或设置为undefined时，状态改变不触发回调。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -509,7 +529,7 @@ export declare class OperateCheckV2 {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -532,7 +552,8 @@ export declare class OperateCheckV2 {
   /**
    * OperateCheckV2的构造函数。
    *
-   * @param { OperateCheckV2Options } [options] - 列表项右侧元素为Switch、CheckBox、Radio属性配置。
+   * @param { OperateCheckV2Options } [options] - 列表项右侧元素为Switch、CheckBox、Radio属性配置。<br/>默认不设置或设置为undefined时，按各属性的默认效果创建
+   *     对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -554,6 +575,8 @@ export declare class OperateCheckV2 {
 export interface OperateButtonV2Options {
   /**
    * 列表项右侧按钮文字。
+   *
+   * 默认不设置或设置为undefined时，不显示按钮文字。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -596,7 +619,7 @@ export interface OperateButtonV2Options {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -676,7 +699,7 @@ export declare class OperateButtonV2 {
    *
    * 支持的值为:
    *
-   * "auto":当前组件会转换"no"。
+   * "auto":当前组件是否可被无障碍辅助服务识别由无障碍服务和ArkUI综合判断。
    *
    * "yes":当前组件可被无障碍辅助服务所识别。
    *
@@ -699,7 +722,7 @@ export declare class OperateButtonV2 {
   /**
    * OperateButtonV2的构造函数。
    *
-   * @param { OperateButtonV2Options } [options] - 列表项右侧按钮属性配置。
+   * @param { OperateButtonV2Options } [options] - 列表项右侧按钮属性配置。<br/>默认不设置或设置为undefined时，按各属性的默认效果创建对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -720,7 +743,9 @@ export declare class OperateButtonV2 {
  */
 export interface ContentItemV2Options {
   /**
-   * 左侧元素的图标样式。
+   * 左侧元素的图标类型。
+   *
+   * 默认不设置或设置为undefined时，不显示左侧图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -733,6 +758,10 @@ export interface ContentItemV2Options {
   /**
    * 左侧元素的图标资源。
    *
+   * 默认不设置或设置为undefined时，不显示icon图标资源。
+   *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -742,7 +771,9 @@ export interface ContentItemV2Options {
   icon?: ResourceStr;
 
   /**
-   * 左侧元素的Symbol图标资源。
+   * 左侧元素的Symbol图标资源，优先级大于icon，同时设置时只显示Symbol图标。
+   *
+   * 默认不设置或设置为undefined时，不显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -755,6 +786,10 @@ export interface ContentItemV2Options {
   /**
    * 中间元素的标题内容。
    *
+   * 默认不设置或设置为undefined时，不显示标题内容。
+   *
+   * 文本超长后无限换行显示。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -766,6 +801,10 @@ export interface ContentItemV2Options {
   /**
    * 中间元素的副标题内容。
    *
+   * 默认不设置或设置为undefined时，不显示副标题内容。
+   *
+   * 文本超长后无限换行显示。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -776,6 +815,10 @@ export interface ContentItemV2Options {
 
   /**
    * 中间元素的描述内容。
+   *
+   * 默认不设置或设置为undefined时，不显示描述内容。
+   *
+   * 文本超长后无限换行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -798,7 +841,7 @@ export interface ContentItemV2Options {
 @ObservedV2
 export declare class ContentItemV2 {
   /**
-   * 左侧元素的图标样式。
+   * 左侧元素的图标类型。
    *
    * 默认不设置或设置为undefined，表示不显示icon图标资源。
    *
@@ -815,6 +858,8 @@ export declare class ContentItemV2 {
    * 左侧元素的图标资源。
    *
    * 默认不设置或设置为undefined，表示不显示icon图标资源。
+   *
+   * 同时设置symbolStyle时，只显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -842,6 +887,10 @@ export declare class ContentItemV2 {
   /**
    * 中间元素的标题内容。
    *
+   * 默认不设置或设置为undefined时，不显示标题内容。
+   *
+   * 文本超长后无限换行显示。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -853,6 +902,10 @@ export declare class ContentItemV2 {
 
   /**
    * 中间元素的副标题内容。
+   *
+   * 默认不设置或设置为undefined时，不显示副标题内容。
+   *
+   * 文本超长后无限换行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -866,6 +919,10 @@ export declare class ContentItemV2 {
   /**
    * 中间元素的描述内容。
    *
+   * 默认不设置或设置为undefined时，不显示描述内容。
+   *
+   * 文本超长后无限换行显示。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -878,7 +935,7 @@ export declare class ContentItemV2 {
   /**
    * ContentItemV2的构造函数。
    *
-   * @param { ContentItemV2Options } [options] - 列表左侧属性配置。
+   * @param { ContentItemV2Options } [options] - 列表左侧属性配置。<br/>默认不设置或设置为undefined时，按各属性的默认效果创建对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -903,6 +960,8 @@ export interface OperateItemV2Options {
    *
    * 默认不设置或设置为undefined，表示不显示icon图标资源。
    *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -913,6 +972,8 @@ export interface OperateItemV2Options {
 
   /**
    * 列表项右侧元素的第二个图标。
+   *
+   * 默认不设置或设置为undefined时，不显示第二个图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -925,6 +986,8 @@ export interface OperateItemV2Options {
   /**
    * 列表项右侧元素为按钮。
    *
+   * 默认不设置或设置为undefined时，不显示按钮。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -935,6 +998,8 @@ export interface OperateItemV2Options {
 
   /**
    * 列表项右侧元素为开关。
+   *
+   * 默认不设置或设置为undefined时，不显示开关。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -947,6 +1012,8 @@ export interface OperateItemV2Options {
   /**
    * 列表项右侧元素为多选框。
    *
+   * 默认不设置或设置为undefined时，不显示多选框。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -957,6 +1024,8 @@ export interface OperateItemV2Options {
 
   /**
    * 列表项右侧元素为单选框。
+   *
+   * 默认不设置或设置为undefined时，不显示单选框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -969,6 +1038,10 @@ export interface OperateItemV2Options {
   /**
    * 列表项右侧元素为图片。
    *
+   * 默认不设置或设置为undefined时，不显示图片。
+   *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -978,7 +1051,9 @@ export interface OperateItemV2Options {
   image?: ResourceStr;
 
   /**
-   * 列表项右侧元素为Symbol图标资源。
+   * 列表项右侧元素为Symbol图标资源，优先级大于image，同时设置时只显示Symbol图标。
+   *
+   * 默认不设置或设置为undefined时，不显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -991,6 +1066,8 @@ export interface OperateItemV2Options {
   /**
    * 列表项右侧元素为文字。
    *
+   * 默认不设置或设置为undefined时，不显示文字。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1001,6 +1078,8 @@ export interface OperateItemV2Options {
 
   /**
    * 列表项右侧元素为箭头。
+   *
+   * 默认不设置或设置为undefined时，不显示箭头。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1026,6 +1105,8 @@ export declare class OperateItemV2 {
    * 左侧元素的图标资源。
    *
    * 默认不设置或设置为undefined，表示不显示icon图标资源。
+   *
+   * 同时设置symbolStyle时，只显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1111,6 +1192,8 @@ export declare class OperateItemV2 {
    *
    * 默认不设置或设置为undefined，列表项右侧图片不显示。
    *
+   * 同时设置symbolStyle时，只显示Symbol图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1121,7 +1204,7 @@ export declare class OperateItemV2 {
   public image?: ResourceStr;
 
   /**
-   * 列表项右侧元素为Symbol图标资源，大小为48*48vp。
+   * 列表项右侧元素为Symbol图标资源，大小为48*48vp，优先级大于image，同时设置时只显示Symbol图标。
    *
    * 默认不设置或设置为undefined，列表项右侧Symbol图标不显示。
    *
@@ -1165,7 +1248,7 @@ export declare class OperateItemV2 {
   /**
    * OperateItemV2的构造函数。
    *
-   * @param { OperateItemV2Options } [options] - 列表项右侧属性配置。
+   * @param { OperateItemV2Options } [options] - 列表项右侧属性配置。<br/>默认不设置或设置为undefined时，按各属性的默认效果创建对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1201,6 +1284,8 @@ export declare struct ComposeListItemV2 {
   /**
    * 定义列表项左侧以及中间元素。
    *
+   * 默认不设置或设置为undefined时，不显示左侧和中间元素。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1212,6 +1297,8 @@ export declare struct ComposeListItemV2 {
 
   /**
    * 定义列表项右侧元素。
+   *
+   * 默认不设置或设置为undefined时，不显示右侧元素。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

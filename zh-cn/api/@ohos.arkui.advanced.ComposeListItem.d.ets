@@ -121,7 +121,7 @@ export declare enum IconType {
  */
 export declare class OperateIcon {
   /**
-   * 右侧图标/箭头资源。
+   * 右侧图标/箭头资源，与symbolStyle同时设置时，优先显示Symbol图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -171,7 +171,7 @@ export declare class OperateIcon {
 
   /**
    * 右侧图标/箭头的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同
-   * 时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
+   * 时包含文本信息和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本信息，随后播报无障碍说明属性的内容。
    *
    * 默认值为“单指双击即可执行”。
    *
@@ -188,7 +188,7 @@ export declare class OperateIcon {
    *
    * 支持的值为：
    *
-   * "auto"：当前组件会转换"no"。
+   * "auto"：当前组件视为"no"。
    *
    * "yes"：当前组件可被无障碍辅助服务所识别。
    *
@@ -266,7 +266,7 @@ export declare class OperateCheck {
 
   /**
    * 右侧Switch/CheckBox/Radio的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无
-   * 障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
+   * 障碍文本中直接获知时。如果组件同时包含文本信息和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本信息，随后播报无障碍说明属性的内容。
    *
    * 默认跟随基础组件Switch/CheckBox/Radio播报规则。
    *
@@ -283,7 +283,7 @@ export declare class OperateCheck {
    *
    * 支持的值为：
    *
-   * "auto"：当前组件会转换"no"。
+   * "auto"：当前组件视为"no"。
    *
    * "yes"：当前组件可被无障碍辅助服务所识别。
    *
@@ -341,8 +341,8 @@ export declare class OperateButton {
   accessibilityText?: ResourceStr;
 
   /**
-   * 右侧按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备
-   * 文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。
+   * 右侧按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时包含
+   * 文本信息和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本信息，随后播报无障碍说明属性的内容。
    *
    * 默认值："单指双击即可执行"。
    *
@@ -359,7 +359,7 @@ export declare class OperateButton {
    *
    * 支持的值为：
    *
-   * "auto"：当前组件会转换"no"。
+   * "auto"：当前组件视为"no"。
    *
    * "yes"：当前组件可被无障碍辅助服务所识别。
    *
@@ -390,7 +390,7 @@ export declare class OperateButton {
  */
 export declare class ContentItem {
   /**
-   * 左侧元素的图标样式。
+   * 左侧元素的图标样式。需同时设置icon或symbolStyle才显示图标。
    *
    * 默认不设置或设置为undefined，icon图标资源不显示。
    *
@@ -403,7 +403,7 @@ export declare class ContentItem {
   iconStyle?: IconType;
 
   /**
-   * 左侧元素的图标资源。
+   * 左侧元素的图标资源。需同时设置iconStyle才显示图标；与symbolStyle同时设置时，优先显示Symbol图标。
    *
    * 默认不设置或设置为undefined，icon图标资源不显示。
    *
@@ -416,7 +416,7 @@ export declare class ContentItem {
   icon?: ResourceStr;
 
   /**
-   * 左侧元素的Symbol图标资源，优先级大于icon，同时设置了icon和Symbol图标，只显示Symbol图标。
+   * 左侧元素的Symbol图标样式。需同时设置iconStyle才显示图标；与icon同时设置时，优先显示Symbol图标。
    *
    * 默认不设置或设置为undefined，Symbol图标不显示。
    *
@@ -476,6 +476,9 @@ export declare class ContentItem {
 
 /**
  * 列表右侧显示的元素类型。
+ *
+ * 同时配置多个属性时，按button、symbolStyle、image、icon与text组合、arrow、text、radio、checkbox、switch、icon的优先级选择右侧显示内容。icon可与text或subIcon组
+ * 合，arrow可与text组合；其他情况下仅显示优先级最高的内容。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -576,7 +579,7 @@ export declare class OperateItem {
   image?: ResourceStr;
 
   /**
-   * 右侧元素为Symbol图标资源，大小为48*48vp。
+   * 右侧元素为Symbol图标资源，大小为48*48vp，优先级大于image，同时设置时只显示Symbol图标。
    *
    * 默认不设置或设置为undefined，右侧Symbol图标不显示。
    *
@@ -637,6 +640,8 @@ export declare struct ComposeListItem {
   /**
    * 定义左侧以及中间元素。
    *
+   * 默认不设置或设置为undefined时，左侧和中间元素不显示。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -648,6 +653,8 @@ export declare struct ComposeListItem {
 
   /**
    * 定义右侧元素。
+   *
+   * 默认不设置或设置为undefined时，右侧元素不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
