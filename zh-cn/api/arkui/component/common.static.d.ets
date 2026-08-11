@@ -10196,7 +10196,6 @@ export declare interface CustomPopupOptions {
 /**
  * 菜单的预览样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10317,7 +10316,6 @@ export interface ContextMenuAnimationOptions {
 /**
  * 预览图的缩放方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -11135,7 +11133,6 @@ export declare interface ContextMenuOptions {
 /**
  * 菜单项的信息，继承自[ContextMenuOptions]{@link ContextMenuOptions}。
  *
- * @extends ContextMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -17550,7 +17547,6 @@ export declare interface FocusMovement {
 /**
  * 弹窗避让键盘时，避让模式的枚举类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
