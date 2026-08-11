@@ -30,7 +30,7 @@
 type window = import('../api/@ohos.window').default;
 
 /**
- * 定义回调上下文信息的类，用于在悬停检测回调中传递给应用程序，使其能访问拖拽状态。
+ * 定义回调上下文信息的类，用于在悬停检测回调中传递给应用，使其能访问拖拽状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -38,7 +38,7 @@ type window = import('../api/@ohos.window').default;
  * @atomicservice
  * @since 20 dynamic
  */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext
 
 /**
  * 定义拖拽的悬停检测配置参数的接口。

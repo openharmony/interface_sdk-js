@@ -22,7 +22,12 @@ import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
 
 /**
- * 提供获取组件绘制区域坐标和大小的能力。
+ * 提供获取组件绘制区域坐标和大小的能力，适用于在组件布局完成后查询组件实际绘制区域信息的场景，帮助开发者获取组件尺寸、位置等布局结果。
+ * 
+ * > **说明：**
+ * >
+ * > - 本模块功能依赖UI的执行上下文，不可在[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的地方使用，参见
+ * > [UIContext]{@link @ohos.arkui.UIContext}说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -52,10 +57,10 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    size: Size;
+    size: Size
 
     /**
-     * 组件相对于父组件信息。
+     * 组件相对于父组件的偏移量。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -63,10 +68,10 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    localOffset: Offset;
+    localOffset: Offset
 
     /**
-     * 组件相对于窗口信息。
+     * 组件相对于窗口的偏移量。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -74,10 +79,10 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    windowOffset: Offset;
+    windowOffset: Offset
 
     /**
-     * 组件相对于屏幕信息。
+     * 组件相对于屏幕的偏移量。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -85,7 +90,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    screenOffset: Offset;
+    screenOffset: Offset
 
     /**
      * 组件平移信息。
@@ -96,7 +101,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    translate: TranslateResult;
+    translate: TranslateResult
 
     /**
      * 组件缩放信息。
@@ -107,7 +112,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    scale: ScaleResult;
+    scale: ScaleResult
 
     /**
      * 组件旋转信息。
@@ -118,7 +123,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    rotate: RotateResult;
+    rotate: RotateResult
 
     /**
      * 仿射矩阵信息，根据入参创建的四阶矩阵对象。
@@ -129,7 +134,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    transform: Matrix4Result;
+    transform: Matrix4Result
   }
 
   /**
@@ -146,7 +151,7 @@ declare namespace componentUtils {
     /**
      * 组件宽度。
      * 
-     * 单位: px
+     * 单位：px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -154,12 +159,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    width: number;
+    width: number
 
     /**
      * 组件高度。
      * 
-     * 单位: px
+     * 单位：px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -167,7 +172,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    height: number;
+    height: number
   }
 
   /**
@@ -184,7 +189,7 @@ declare namespace componentUtils {
     /**
      * x点坐标。
      * 
-     * 单位: px
+     * 单位：px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -192,12 +197,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    x: number;
+    x: number
 
     /**
      * y点坐标。
      * 
-     * 单位: px
+     * 单位：px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -205,7 +210,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    y: number;
+    y: number
   }
 
   /**
@@ -222,7 +227,7 @@ declare namespace componentUtils {
     /**
      * x轴平移距离。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -230,12 +235,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    x: number;
+    x: number
 
     /**
      * y轴平移距离。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -243,12 +248,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    y: number;
+    y: number
 
     /**
      * z轴平移距离。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -256,7 +261,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    z: number;
+    z: number
   }
 
   /**
@@ -279,7 +284,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    x: number;
+    x: number
 
     /**
      * y轴缩放倍数。
@@ -290,7 +295,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    y: number;
+    y: number
 
     /**
      * z轴缩放倍数。
@@ -301,12 +306,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    z: number;
+    z: number
 
     /**
      * 变换中心点x轴坐标。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -314,12 +319,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    centerX: number;
+    centerX: number
 
     /**
      * 变换中心点y轴坐标。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -327,7 +332,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    centerY: number;
+    centerY: number
   }
 
   /**
@@ -350,7 +355,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    x: number;
+    x: number
 
     /**
      * 旋转轴向量y坐标。
@@ -361,7 +366,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    y: number;
+    y: number
 
     /**
      * 旋转轴向量z坐标。
@@ -372,12 +377,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    z: number;
+    z: number
 
     /**
      * 变换中心点x轴坐标。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -385,12 +390,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    centerX: number;
+    centerX: number
 
     /**
      * 变换中心点y轴坐标。
      * 
-     * 单位: vp
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -398,12 +403,12 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    centerY: number;
+    centerY: number
 
     /**
      * 旋转角度。
      * 
-     * 单位: deg
+     * 单位：deg
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -411,7 +416,7 @@ declare namespace componentUtils {
      * @atomicservice [since 11]
      * @since 10 dynamic
      */
-    angle: number;
+    angle: number
   }
 
   /**
@@ -607,12 +612,17 @@ declare namespace componentUtils {
    * > **说明：**
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getComponentUtils]{@link @ohos.arkui.UIContext:UIContext#getComponentUtils}方法获取当前UI上下
-   * > 文关联的[ComponentUtils]{@link @ohos.arkui.UIContext:ComponentUtils}对象。在目标组件布局完成后，通过该接口能够获取组件坐标和尺寸信息。建议在
-   * > [布局回调]{@link @ohos.arkui.inspector:inspector}中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常
-   * > 的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。
+   * > [getComponentUtils]{@link @ohos.arkui.UIContext:UIContext.getComponentUtils}方法获取当前UI上下文关联的
+   * > [ComponentUtils]{@link @ohos.arkui.UIContext}对象。在目标组件布局完成后，通过该接口能够获取组件坐标和尺寸信息。建议在
+   * > [布局回调]{@link @ohos.arkui.inspector:inspector}中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取组件的坐标和尺寸信息。因为组件在未挂载组件树的情况下，一般未经过UI框
+   * > 架的测量与布局，此时请确保组件已挂载到组件树后再尝试获取组件信息。
+   * >
+   * > - 该接口返回的组件位置为布局位置，某些属性计算不支持，如[translate]{@link CommonMethod#translate(value: TranslateOptions)}、
+   * > [offset]{@link CommonMethod#offset}、[markAnchor]{@link CommonMethod#markAnchor}、
+   * > [scale]{@link CommonMethod#scale(value: ScaleOptions)}、[transform]{@link CommonMethod#transform(value: object)}等，
+   * > 可以使用替代接口[getPositionToWindowWithTransform]{@link ./arkui/FrameNode:FrameNode#getPositionToWindowWithTransform}。
    *
-   * @param {string} id - 指定组件id。
+   * @param {string} id - 指定组件id。目标组件需已挂载到组件树并完成布局。
    * @returns {ComponentInfo} 组件大小、位置、平移缩放旋转及仿射矩阵属性信息。
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

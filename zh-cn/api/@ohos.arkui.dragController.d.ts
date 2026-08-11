@@ -22,7 +22,7 @@ import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
- * 本模块提供发起主动拖拽的能力，当应用接收到触摸或长按等事件时可以主动发起拖拽的动作，并在其中携带拖拽信息。
+ * 本模块提供发起主动拖拽的能力，当应用接收到触摸或长按等事件时可以主动发起拖拽动作，并在拖拽过程中携带拖拽信息，适用于应用需要自主控制拖拽发起时机、拖拽预览效果和拖拽数据传递的场景，帮助应用实现更灵活的自定义拖拽交互。
  * 
  * > **说明：**
  * >
@@ -38,7 +38,6 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @since 10 dynamic
  */
 declare namespace dragController {
-
   /**
    * 拖拽开始和结束状态。
    *
@@ -49,7 +48,6 @@ declare namespace dragController {
    * @since 11 dynamic
    */
   const enum DragStatus {
-
     /**
      * 拖拽已成功发起。
      *
@@ -60,7 +58,6 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     STARTED = 0,
-
     /**
      * 拖拽结束。
      *
@@ -70,7 +67,7 @@ declare namespace dragController {
      * @atomicservice [since 12]
      * @since 11 dynamic
      */
-    ENDED = 1
+    ENDED = 1,
   }
 
   /**
@@ -83,7 +80,6 @@ declare namespace dragController {
    * @since 11 dynamic
    */
   interface DragAndDropInfo {
-
     /**
      * 当前拖拽状态（启动和结束）。
      *
@@ -94,7 +90,6 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     status: DragStatus;
-
     /**
      * 当前状态所对应的拖拽事件。通过dragController发起的dragEvent仅支持获取result和behavior，且用于拖拽结束状态。
      *
@@ -105,7 +100,6 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     event: DragEvent;
-
     /**
      * 设置拖拽事件额外信息，具体功能暂未实现。默认值为空。
      *
@@ -128,9 +122,8 @@ declare namespace dragController {
    * @since 11 dynamic
    */
   interface DragAction {
-
     /**
-     * 启动拖拽服务。使用Promise异步回调。
+     * 启动拖拽服务。适用于通过createDragAction创建DragAction对象后，主动发起多对象拖拽或自定义拖拽背板的场景。使用Promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 100001 - Internal handling failed.
@@ -141,9 +134,8 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     startDrag(): Promise<void>;
-
     /**
-     * 注册监听拖拽状态改变事件。
+     * 注册监听拖拽状态改变事件，用于在主动拖拽开始或结束时获取拖拽状态，并执行更新UI、记录状态或清理资源等操作。
      *
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
@@ -156,7 +148,7 @@ declare namespace dragController {
     on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
 
     /**
-     * 取消注册监听拖拽状态改变事件。
+     * 取消注册监听拖拽状态改变事件，适用于拖拽结束、页面销毁或不再需要响应拖拽状态变化时释放监听的场景。
      *
      * @param { 'statusChange' } type for status changing
      * @param { Callback<DragAndDropInfo> } callback with drag event and status information
@@ -179,7 +171,6 @@ declare namespace dragController {
    * @since 10 dynamic
    */
   interface DragInfo {
-
     /**
      * 设置启动拖拽时屏幕上触摸点的Id。取值范围为[0, 9]的整数。
      *
@@ -192,7 +183,7 @@ declare namespace dragController {
     pointerId: number;
 
     /**
-     * 设置拖拽过程中携带的数据。 
+     * 设置拖拽过程中携带的数据。与dataLoadParams同时设置时，dataLoadParams生效。
      * 
      * 默认值：空
      *
@@ -229,7 +220,7 @@ declare namespace dragController {
     touchPoint?: TouchPoint;
 
     /**
-     * 设置拖拽过程中背板图处理模式及数量角标的显示。
+     * 设置拖拽过程中背板图处理模式及数量角标的显示。当需要自定义拖拽预览背板效果或数量角标显示方式时传入；不传入时使用系统默认的拖拽预览背板处理模式和数量角标显示策略。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -246,8 +237,8 @@ declare namespace dragController {
      * 
      * 若主动拖拽源本身也需要被隐藏，需要同时传入其uniqueId。
      * 
-     * 组件的uniqueId可通过[UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext#getFrameNodeById}
-     * 配合[FrameNode.getUniqueId()]{@link FrameNode:FrameNode#getUniqueId}获取。
+     * 组件的uniqueId可通过[UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext.getFrameNodeById}配合
+     * [FrameNode.getUniqueId()]{@link ./arkui/FrameNode:FrameNode#getUniqueId}获取。
      * 
      * 开发者需要在拖拽结束回调中按需恢复组件显示状态。
      *
@@ -260,7 +251,7 @@ declare namespace dragController {
     autoHideComponentUniqueIds?: int | int[];
 
     /**
-     * 设置拖起方延迟提供数据。调用此方法向系统提供数据加载参数，而非直接传入完整的数据对象。当用户将数据拖拽至目标应用程序并释放时，系统将使用此参数从起拖方请求实际数据。与data同时设置时，dataLoadParams生效。
+     * 设置起拖方延迟提供数据。调用此方法向系统提供数据加载参数，而非直接传入完整的数据对象。当用户将数据拖拽至目标应用程序并释放时，系统将使用此参数从起拖方请求实际数据。与data同时设置时，dataLoadParams生效。
      * 
      * 默认值：空
      *
@@ -282,7 +273,6 @@ declare namespace dragController {
    * @since 11 dynamic
    */
   interface AnimationOptions {
-
     /**
      * 动画持续时间，单位为毫秒。
      * 
@@ -292,7 +282,7 @@ declare namespace dragController {
      * 
      * - 设置小于0的值时按0处理。
      * 
-     * - 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。
+     * - 设置浮点类型的值时，向下取整。例如，设置值为1.2，按照1处理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -301,7 +291,6 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     duration?: number;
-
     /**
      * 设置动画曲线。
      * 
@@ -317,7 +306,7 @@ declare namespace dragController {
   }
 
   /**
-   * 拖拽背板的对象，在OnDrop和OnDragEnd回调中使用不生效。
+   * 拖拽背板的对象，在onDrop和onDragEnd回调中使用不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -326,11 +315,9 @@ declare namespace dragController {
    * @since 11 dynamic
    */
   export class DragPreview {
-
     /**
-     * 设置背板蒙版颜色，在OnDrop和OnDragEnd回调中使用不生效，仅支持通过 
-     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController#getDragPreview}方法获取到的
-     * 对象上使用。
+     * 设置背板蒙版颜色，在onDrop和onDragEnd回调中使用不生效，仅支持通过 
+     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController.getDragPreview} 方法获取到的对象上使用。
      *
      * @param { ResourceColor } color - 背板蒙版颜色。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,13 +327,11 @@ declare namespace dragController {
      * @since 11 dynamic
      */
     setForegroundColor(color: ResourceColor): void;
-
     /**
-     * 设置背板蒙版颜色变化动效，在OnDrop和OnDragEnd回调中使用不生效，仅支持通过 
-     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController#getDragPreview}方法获取到的
-     * 对象上使用。
+     * 设置背板蒙版颜色变化动效，在onDrop和onDragEnd回调中使用不生效，仅支持通过 
+     * [getDragPreview()]{@link @ohos.arkui.UIContext:DragController.getDragPreview} 方法获取到的对象上使用。
      *
-     * @param { AnimationOptions } options - 动效参数。
+     * @param { AnimationOptions } options - 背板蒙版颜色变化的动效配置参数，用于设置动画持续时间、动画曲线等效果。
      * @param { function } handler - 用于修改背板蒙版颜色等属性的回调方法。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -380,9 +365,7 @@ declare namespace dragController {
     event: DragEvent;
 
     /**
-     * 设置拖拽事件额外信息，具体功能暂未实现。
-     * 
-     * 默认值：空
+     * 拖拽事件额外信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -394,13 +377,24 @@ declare namespace dragController {
   }
 
   /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback function. If the operation
-   *     is successful, **err** is **undefined** and **data** is the **DragEventParam** object obtained. Otherwise,
-   *     **err** is an error object. [since 10 - 11]
-   * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
+   * 主动发起拖拽能力，传入拖拽发起后跟手效果所拖拽的对象以及携带拖拽信息。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > - 从API version 11开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext.getDragController}方法获取当前UI上下文关联的
+   * > [DragController]{@link @ohos.arkui.UIContext}对象。
+   *
+   * @param { CustomBuilder | DragItemInfo } custom - 拖拽发起后跟手效果所拖拽的对象。
+   *     <br>**说明：** 
+   *     <br>不支持全局builder。如果builder中使用了[Image]{@link ./@internal/component/ets/image}组件，应尽量开启同步加载，即配置Image的
+   *     [syncLoad]{@link ImageAttribute#syncLoad}为true。该builder只用于生成当次拖拽中显示的图片。builder的根组件宽高为0时，无法生成拖拽显示的图片导致拖拽失败。
+   *     builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。
+   * @param { DragInfo } dragInfo - 拖拽信息。
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - 回调函数。当拖拽成功结束，err为undefined，data为获取到的
+   *     DragEventParam；否则为错误对象。 [since 10 - 11]
+   * @param { AsyncCallback<DragEventParam> } callback - 回调函数。当拖拽成功结束，err为undefined，data为获取到的DragEventParam；否则为错误对
+   *     象。 [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -423,12 +417,12 @@ declare namespace dragController {
    * > **说明：**
    * >
    * > 从API version 11开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController}方法获取当前UI
-   * > 上下文关联的[DragController]{@link @ohos.arkui.UIContext:DragController}对象。
+   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext.getDragController}方法获取当前UI上下文关联的
+   * > [DragController]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { CustomBuilder | DragItemInfo } custom - 拖拽发起后跟手效果所拖拽的对象。
    * @param { DragInfo } dragInfo - 拖拽信息。
-   * @returns { Promise<{ event: DragEvent, extraParams: string }> } Promise used to return the result. [since 10 - 11]
+   * @returns { Promise<{ event: DragEvent, extraParams: string }> } Promise对象，拖拽结束时返回结果。 [since 10 - 11]
    * @returns { Promise<DragEventParam> } A Promise with the drag event information. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -446,14 +440,14 @@ declare namespace dragController {
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
 
   /**
-   * 创建拖拽的Action对象，需要显式指定拖拽背板图（可多个），以及拖拽的数据，跟手点等信息；当通过一个已创建的 Action 对象发起的拖拽未结束时，无法再次创建新的 Action 对象，接口会抛出异常；
-   * 当Action对象的生命周期结束后，注册在该对象上的回调函数会失效，因此需要在一个尽量长的作用域下持有该对象，并在每次发起拖拽前通过createDragAction返回新的对象覆盖旧值。
+   * 创建拖拽的Action对象，需要显式指定拖拽背板图(可多个)，以及拖拽的数据，跟手点等信息；当通过一个已创建的 Action 对象发起的拖拽未结束时，无法再次创建新的 Action 对象，接口会抛出异常；当Action对象的生命周
+   * 期结束后，注册在该对象上的回调函数会失效，因此需要在一个尽量长的作用域下持有该对象，并在每次发起拖拽前通过createDragAction返回新的对象覆盖旧值。
    * 
    * > **说明：**
    * >
    * > - 从API version 11开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController}方法获取当前UI
-   * > 上下文关联的[DragController]{@link @ohos.arkui.UIContext:DragController}对象。
+   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext.getDragController}方法获取当前UI上下文关联的
+   * > [DragController]{@link @ohos.arkui.UIContext}对象。
    * >
    * > - 建议控制传递的拖拽背板数量，传递过多容易导致拖起的效率问题。
    *
@@ -481,10 +475,10 @@ declare namespace dragController {
    * > **说明：**
    * >
    * > 从API version 11开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext#getDragController}方法获取当前UI
-   * > 上下文关联的[DragController]{@link @ohos.arkui.UIContext:DragController}对象。
+   * > [getDragController]{@link @ohos.arkui.UIContext:UIContext.getDragController}方法获取当前UI上下文关联的
+   * > [DragController]{@link @ohos.arkui.UIContext}对象。
    *
-   * @returns { DragPreview } 一个代表拖拽背板的对象，提供背板样式设置的接口，在OnDrop和OnDragEnd回调中使用不生效。
+   * @returns { DragPreview } 一个代表拖拽背板的对象，提供背板样式设置的接口，在onDrop和onDragEnd回调中使用不生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
@@ -523,7 +517,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 18 dynamic
      */
-    READY = 1
+    READY = 1,
   }
 
   /**
@@ -539,7 +533,8 @@ declare namespace dragController {
    */
   const enum DragSpringLoadingState {
     /**
-     * 拖拽进入组件范围静止一段时间，被识别为悬停状态。此时允许进行一些悬停检测的准备操作。
+     * 拖拽进入组件范围并静止达到[stillTimeLimit]{@link dragController.DragSpringLoadingConfiguration}配置的时长后，被识别为悬停状态。此时允许进行悬停检测所需的数据
+     * 准备、状态记录等准备操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -548,11 +543,8 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     BEGIN,
-
     /**
-     * Already in the spring loading state. The system periodically checks the user's hover status.
- 	   * If the user remains stationary, it triggers an UPDATE state notification at regular intervals.
- 	   * This state allows for UI effect refreshes to emphasize the hover state.
+     * 拖拽已处于悬停状态，如果继续静止会定期触发UPDATE通知，以检查悬停状态。此时允许UI效果刷新以突出悬停状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -561,10 +553,8 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     UPDATE,
-
     /**
-     * The entire spring loading state ends. The application can perform cleanup operations
- 	   * and execute navigation or view switching actions when this state occurs.
+     * 如果最后一次UPDATE通知后拖拽继续静止会进入END，整个悬停检测结束。进入END后拖拽需要移出组件范围后再次进入组件或移入组件内子组件才会重新开始悬停检测。此时应用可进行清理、导航或视图切换操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -573,11 +563,8 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     END,
-
     /**
-     * After entering the BEGIN state, if the user moves out of the component range, exceeds the displacement
- 	   * threshold, lifts the finger, or switches windows (pull out), the CANCEL state is triggered.
- 	   * The application should restore the UI style and cancel any pending navigation or view switching actions.
+     * 拖拽进入BEGIN后，在手指/鼠标抬起、切换窗口、息屏、移出组件范围、移入组件内子组件或组件内移动超过检测阈值等场景会触发CANCEL通知，悬停检测中断。应用将恢复UI样式，并取消待定的导航及视图切换操作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -585,12 +572,12 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    CANCEL,
-  }
+    CANCEL
+   }
 
   /**
-   * 定义拖拽的悬停检测配置参数的接口。默认的配置参数通常已能满足需求。可以通过在绑定[onDragSpringLoading]{@link CommonMethod#onDragSpringLoading}时指定配置，或者通过在
-   * BEGIN状态期间使用[updateConfiguration]{@link dragController.SpringLoadingContext#updateConfiguration}方法动态修改的方式以自定义该配置参数。
+   * 定义拖拽的悬停检测配置参数的接口。默认的配置参数通常已能满足需求。可以在绑定[onDragSpringLoading]{@link CommonMethod#onDragSpringLoading}时指定配置，或者在BEGIN状态
+   * 期间使用[updateConfiguration]{@link dragController.SpringLoadingContext#updateConfiguration}方法动态修改该配置参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -599,7 +586,6 @@ declare namespace dragController {
    * @since 20 dynamic
    */
   interface DragSpringLoadingConfiguration {
-
     /**
      * 进入悬停检测BEGIN状态所需保持静止的时间，单位：ms。取值范围为[0, 2<sup>31</sup>-1]的整数。输入浮点数时只取整数部分。输入非法值（负数、null、undefined、NaN）时取默认值500。
      *
@@ -646,16 +632,15 @@ declare namespace dragController {
   }
 
   /**
-   * 定义触发悬停检测时拖拽事件信息的接口。该接口提供了拖拽数据摘要和拖拽事件额外信息，应用程序可以据此决定是否响应悬停检测回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  interface SpringLoadingDragInfos {
-
+    * 定义触发悬停检测时拖拽事件信息的接口。该接口提供了拖拽数据摘要和拖拽事件额外信息，应用可以据此决定是否响应悬停检测回调。
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 20 dynamic
+    */
+   interface SpringLoadingDragInfos {
     /**
      * 拖拽数据的摘要，默认为null。
      *
@@ -666,7 +651,7 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     dataSummary?: unifiedDataChannel.Summary;
-
+    
     /**
      * 拖拽事件额外信息，默认为空字符串。
      *
@@ -677,10 +662,10 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     extraInfos?: string;
-  }
+   }
 
   /**
-   * 定义回调上下文信息的类，用于在悬停检测回调中传递给应用程序，使其能访问拖拽状态、动态刷新UI效果以及访问拖拽数据以确定是否处理拖拽操作。
+   * 定义回调上下文信息的类，用于在悬停检测回调中传递给应用，使其能访问拖拽状态、动态刷新UI效果以及访问拖拽数据以确定是否处理拖拽操作。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -688,7 +673,6 @@ declare namespace dragController {
    * @since 20 dynamic
    */
   class SpringLoadingContext {
-
     /**
      * 当前悬停检测的状态。
      *
@@ -699,7 +683,6 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     state: DragSpringLoadingState;
-
     /**
      * 在一次悬停检测流转中的回调通知次数，从0开始。
      *
@@ -710,7 +693,6 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     currentNotifySequence: number;
-
     /**
      * 拖拽信息，当悬停检测状态为CANCEL时缺失，为undefined时取[SpringLoadingDragInfos]{@link dragController.SpringLoadingDragInfos}默认值。
      *
@@ -721,7 +703,6 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     dragInfos?: SpringLoadingDragInfos;
-
     /**
      * 当前回调中的配置信息，当悬停检测状态为CANCEL时缺失，为undefined时取
      * [DragSpringLoadingConfiguration]{@link dragController.DragSpringLoadingConfiguration}默认值。
@@ -733,9 +714,8 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     currentConfig?: DragSpringLoadingConfiguration;
-
     /**
-     * 终止后续的悬停检测。本方法不会触发CANCEL状态通知，应用程序需要在执行本方法时进行状态清理。
+     * 终止后续的悬停检测。该方法应在悬停检测回调中通过SpringLoadingContext对象调用。本方法不会触发CANCEL状态通知，应用需要在执行本方法时进行状态清理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -744,12 +724,12 @@ declare namespace dragController {
      * @since 20 dynamic
      */
     abort(): void;
-
     /**
-     * 更新悬停检测的配置，仅在悬停检测状态为BEGIN时生效。应用程序通常在绑定[onDragSpringLoading]{@link CommonMethod#onDragSpringLoading}时设置悬停检测配置或使用默认配
-     * 置。该方法不会修改绑定时的原始配置，而是在后续悬停检测中更新动态的配置信息。请谨慎使用本方法，因为不同的拖拽数据类型可能需要不同的UX时间。
+     * 更新悬停检测的配置，仅在悬停检测状态为BEGIN时生效。应用通常在绑定[onDragSpringLoading]{@link CommonMethod#onDragSpringLoading}时设置悬停检测配置或使用默认配置。
+     * 该方法不会修改绑定时的原始配置，而是在后续悬停检测中更新动态的配置信息。使用本方法时，应根据拖拽数据类型调整悬停检测相关时间配置，因为不同的拖拽数据类型可能需要不同的用户交互响应时间。
      *
-     * @param { DragSpringLoadingConfiguration } config - 悬停检测配置。
+     * @param { DragSpringLoadingConfiguration } config - 需要更新的悬停检测配置，用于动态设置进入BEGIN状态的静止时间、UPDATE通知间隔、通知次数和结束等待时间等，仅在悬停检
+     *     测状态为BEGIN时生效。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
