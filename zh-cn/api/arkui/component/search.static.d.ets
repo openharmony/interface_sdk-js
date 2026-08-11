@@ -17,25 +17,15 @@
  * @file
  * @kit ArkUI
  */
-
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
-import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable } from './common';
-
 import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
-import { CustomBuilder, CustomBuilderT } from './builder';
-
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics, LengthMetrics } from "./units";
-import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
-
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, IMEClient, SelectDataDetectorConfig, TextDirection, SelectedDragPreviewStyle, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
 import { ComponentContentBase } from '../ComponentContent';
 
 /**

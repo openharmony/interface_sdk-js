@@ -23,10 +23,7 @@ import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { ComponentBuilder } from "./../stateManagement/runtime";
-import { CustomBuilder, CustomBuilderT } from './builder';
 import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon";
 
 /**
