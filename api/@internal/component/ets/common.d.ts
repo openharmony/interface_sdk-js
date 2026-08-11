@@ -24751,6 +24751,8 @@ declare class CommonMethod<T> {
    * 
    * @param { string } nextId - set component next accessibility focus id
    * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
+   *     accessibility next focus processing.
+   *     Undefined indicates reverting to the default of the detailed parameters.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
