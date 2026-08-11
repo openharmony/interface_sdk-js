@@ -34,9 +34,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
    *     , the snapshot is a white screen.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object. The size of the
@@ -58,9 +58,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -76,9 +76,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 26.0.0]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
-   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.1.0]
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
    *     , the snapshot is a white screen. [since 7 - 21]
    * @param { ScreenshotOptions } [options] - Information about the snapshot. If the screen to capture is a virtual
