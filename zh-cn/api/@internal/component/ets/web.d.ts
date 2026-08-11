@@ -754,6 +754,7 @@ declare interface WebKeyboardOptions {
  * @typedef UrlRegexRule
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
+ * @crossplatform [since 26.1.0]
  * @since 23 dynamic
  */
 declare interface UrlRegexRule {
@@ -765,6 +766,7 @@ declare interface UrlRegexRule {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   secondLevelDomain : string;
@@ -774,6 +776,7 @@ declare interface UrlRegexRule {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   rule : string;
@@ -1670,6 +1673,7 @@ declare enum SslError {
    * 一般错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -4074,6 +4078,7 @@ declare interface WebOptions {
  *
  * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -4082,6 +4087,7 @@ declare interface ScriptItem {
    * 需要注入、执行的JavaScript脚本。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4097,6 +4103,7 @@ declare interface ScriptItem {
    * 6.一组scriptRule中，如果其中一条不满足以上规则，则整组scriptRule都不生效。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4107,6 +4114,7 @@ declare interface ScriptItem {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
   urlRegexRules? : Array<UrlRegexRule>;
@@ -5173,6 +5181,7 @@ declare interface OnShowFileSelectorEvent {
  * 定义加载url时触发。
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5181,6 +5190,7 @@ declare interface OnResourceLoadEvent {
    * 所加载的资源文件url信息。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -7214,6 +7224,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<OnResourceLoadEvent> } callback 加载url时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8505,6 +8516,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -8525,6 +8537,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
