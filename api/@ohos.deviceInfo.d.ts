@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -674,24 +674,27 @@ declare namespace deviceInfo {
 
   /**
    * Checks whether a specified API version is available on the current device.
-   * This API provides compatibility check across different OpenHarmony/distributed OS versions.
+   * This API provides compatibility check across different OpenHarmony/Distribution OS versions.
    * A suitable version check method is automatically selected based on the input format and supported API versions.
    *
    * @param { string | number } version - API version number to be verified. The value can be an integer or in the
    *     dotted format.
-   *     - String format with dots (e.g., "26.0.0", "5.0.1"):
-   *     - For API 26+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
-   *     - For API 26- (version < 26.0.0): Represents Distribution OS API version
+   *     - String format shall be in M.S.F. (e.g., "26.0.0", "5.0.1"):
+   *     - For API 26.0.0 & 26.0.0+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
+   *     - For API 26.0.0- (version < 26.0.0): Represents Distribution OS API version
    *     - Number format (e.g., 13): Represents OpenHarmony SDK API version (API 26- only)
-   * @returns { boolean } Boolean value. The value **true** indicates that the current version number is later than the
-   *     input parameter version number; **false** indicates the opposite.
+   *     M>=26,0<=S<=99,0<=F<=99. An error will be thrown when an invalid value is passed in.
+   * @returns { boolean } Boolean value. The value **true** indicates that the current version number is later than
+   *     or equal to the input parameter version number; **false** indicates that the current device's API version
+   *     is lower than the input version number, or the input version number is in an invalid format,
+   *     or the specified version does not exist.
    * @syscap SystemCapability.Startup.SystemInfo
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  function apiAvailable(version: string | number): boolean;
+    function apiAvailable(version: string | number): boolean;
 
   /**
    * Obtain the device color represented by a string. If it cannot be obtained, return an empty string
