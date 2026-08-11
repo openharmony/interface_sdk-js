@@ -3127,8 +3127,9 @@ declare namespace drawing {
     /**
      * 给字体属性添加可变维度轴标签及对应的属性值。
      *
-     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
-     * @param { number } value  - Indicates the value of the axis field.
+     * @param { string } axis  - 字体属性对象可变维度轴标签。具体支持哪些标签取决于加载的字体文件。具体支持的属性及标签值请参考对应的字体文件。
+     * @param { number } value  - 字体属性对象可变维度字重的标签'wght'对应的属性值，需要在字体文件支持的范围内，否则不会生效。
+     * 如果属性值小于支持的最小值，则默认和最小值一致。如果属性值大于支持的最大值，则默认和最大值效果一致。请打开对应的字体文件具体查看支持的属性值。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -3138,10 +3139,11 @@ declare namespace drawing {
     addVariation(axis: string, value: number);
 
     /**
-     * Adds variation axis for the TypefaceArguments.
+     * 给字体属性添加可变维度轴标签及对应的属性值。
      *
-     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
-     * @param { double } value  - Indicates the value of the axis field.
+     * @param { string } axis  - 字体属性对象可变维度轴标签。具体支持哪些标签取决于加载的字体文件。具体支持的属性及标签值请参考对应的字体文件。
+     * @param { double } value  - 字体属性对象可变维度字重的标签'wght'对应的属性值，需要在字体文件支持的范围内，否则不会生效。
+     * 如果属性值小于支持的最小值，则默认和最小值一致。如果属性值大于支持的最大值，则默认和最大值效果一致。请打开对应的字体文件具体查看支持的属性值。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4930,7 +4932,7 @@ declare namespace drawing {
      * @param { TileMode } mode - 着色器效果平铺模式。
      * @param { Array<number> | null } [pos] - 表示每种对应颜色在颜色数组中的相对位置。数组长度需和colors保持一致，
      * 数组的首个元素应当是0.0，末尾元素应当是1.0，中间的元素应当在0与1之间并且逐下标递增，表示colors中每个对应颜色的相对位置。
-     * 当不传该参数，或者pos传入undefined时，默认为null，表示颜色均匀分布在起始角度和结束角度之间。
+     * 默认为null，表示颜色均匀分布在起始圆和结束圆之间。
      * @param { Matrix | null } [matrix] - 矩阵对象，用于对着色器做矩阵变换。当不传该参数，或者matrix传入undefined时，默认为null，表示单位矩阵。
      * @returns { ShaderEffect } 返回锥形渐变着色器对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4984,14 +4986,14 @@ declare namespace drawing {
         samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates an ShaderEffect object that generates a shader with single image.
+     * 基于图片创建一个着色器。此接口不建议用于录制类型的画布（即用于记录绘制指令而非直接渲染的Canvas对象），会影响性能。
      *
-     * @param { image.PixelMap } pixelmap - PixelMap.
-     * @param { TileMode } tileX - Indicates the type of tile mode for horizontal shader effect.
-     * @param { TileMode } tileY - Indicates the type of tile mode for vertical shader effect.
-     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
-     * @param { Matrix | null } [matrix] - Indicates the Matrix object. The default value is null.
-     * @returns { ShaderEffect | undefined } Returns the shader with single image ShaderEffect object.
+     * @param { image.PixelMap } pixelmap - 进行采样的图片对象。
+     * @param { TileMode } tileX - 水平方向的平铺模式。
+     * @param { TileMode } tileY - 竖直方向的平铺模式。
+     * @param { SamplingOptions } samplingOptions - 图片采样参数，用于指定图像采样时的过滤模式。
+     * @param { Matrix | null } [matrix] - 矩阵对象，用于对着色器做矩阵变换。默认为null，表示单位矩阵。
+     * @returns { ShaderEffect | undefined } 返回基于图片的着色器对象。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
@@ -5015,12 +5017,12 @@ declare namespace drawing {
         blendMode: BlendMode): ShaderEffect;
 
     /**
-     * Creates an ShaderEffect object that generates a blend ShaderEffect object by two shaders.
+     * 按照指定的混合模式对两个着色器进行叠加，生成一个新的着色器。
      *
-     * @param { ShaderEffect } dstShaderEffect - Indicates a destination ShaderEffect pointer.
-     * @param { ShaderEffect } srcShaderEffect - Indicates a source ShaderEffect pointer.
-     * @param { BlendMode } blendMode - BlendMode.
-     * @returns { ShaderEffect | undefined } Returns a blend ShaderEffect object.
+     * @param { ShaderEffect } dstShaderEffect - 在混合模式中作为目标色的着色器
+     * @param { ShaderEffect } srcShaderEffect - 在混合模式中作为源色的着色器。
+     * @param { BlendMode } blendMode -  混合模式，用于指定两个着色器叠加时的颜色混合算法。
+     * @returns { ShaderEffect | undefined } 返回叠加后的着色器对象。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 24 static
@@ -5667,7 +5669,7 @@ declare namespace drawing {
    */
   enum BlurType {
     /**
-     * Both the outer edges and the inner solid parts are blurred.
+     * 全面模糊，外圈边缘和内部实体一起模糊。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -5677,7 +5679,7 @@ declare namespace drawing {
     NORMAL = 0,
 
     /**
-     * The inner solid part remains unchanged, while only the outer edges are blurred.
+     * 内部实体不变，只模糊外圈边缘部分。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -5687,7 +5689,7 @@ declare namespace drawing {
     SOLID = 1,
 
     /**
-     * Only the outer edges are blurred, with the inner solid part being fully transparent.
+     * 只有外圈边缘模糊，内部实体完全透明。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
@@ -5697,7 +5699,7 @@ declare namespace drawing {
     OUTER = 2,
 
     /**
-     * Only the inner solid part is blurred, while the outer edges remain sharp.
+     * 只有内部实体模糊，外圈边缘清晰。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 20]
