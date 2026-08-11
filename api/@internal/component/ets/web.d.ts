@@ -986,6 +986,7 @@ declare enum CacheMode {
  * Enumerates whether to enable overscroll mode.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -994,6 +995,7 @@ declare enum OverScrollMode {
    * The overscroll mode is disabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1003,6 +1005,7 @@ declare enum OverScrollMode {
    * The overscroll mode is enabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6604,6 +6607,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     The default value is OverScrollMode.NEVER.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6675,6 +6679,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     Default value: 100.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */

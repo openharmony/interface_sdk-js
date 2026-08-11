@@ -1149,6 +1149,7 @@ declare enum CacheMode {
  * 设置Web的过滚动模式为关闭或开启。
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1157,6 +1158,7 @@ declare enum OverScrollMode {
    * Web过滚动模式关闭。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1166,6 +1168,7 @@ declare enum OverScrollMode {
    * Web过滚动模式开启。
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6727,6 +6730,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     默认值为 OverScrollMode.NEVER。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6800,6 +6804,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     默认值：100。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
