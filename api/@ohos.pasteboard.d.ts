@@ -516,6 +516,10 @@ declare namespace pasteboard {
   /**
    * Provides **PasteDataRecord** APIs. A **PasteDataRecord** is an abstract definition of the content in the
    * pasteboard. The pasteboard content consists of one or more plain text, HTML, URI, or Want records.
+   * After creating a PasteDataRecord, it is not supported to modify the value of the default data type of the
+   * PasteDataRecord. The correct value for the default data type should be specified when creating the PasteDataRecord.
+   * If you need to refresh the attribute value of the PasteDataRecord,
+   * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
    *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform [since 24]
@@ -526,9 +530,6 @@ declare namespace pasteboard {
   interface PasteDataRecord {
     /**
      * HTML content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -539,9 +540,6 @@ declare namespace pasteboard {
     htmlText: string;
     /**
      * Want content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -552,9 +550,6 @@ declare namespace pasteboard {
     want: Want;
     /**
      * Default type of PasteDataRecord.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -565,9 +560,6 @@ declare namespace pasteboard {
     mimeType: string;
     /**
      * Plain text.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -578,9 +570,6 @@ declare namespace pasteboard {
     plainText: string;
     /**
      * URI content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -591,9 +580,6 @@ declare namespace pasteboard {
     uri: string;
     /**
      * PixelMap content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -604,9 +590,6 @@ declare namespace pasteboard {
     pixelMap: image.PixelMap;
     /**
      * Content of custom data.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
      *
      * @type { object } [since 9 - 22]
      * @type { Record<string, ArrayBuffer> } [since 23]
