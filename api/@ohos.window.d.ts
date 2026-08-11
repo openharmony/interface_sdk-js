@@ -4091,7 +4091,7 @@ declare namespace window {
    *     [abilities in the module.json5 file](docroot://quick-start/module-configuration-file.md#abilities).
    * @param { ColorMetrics } color - Background color of the splash screen.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not work
    *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    *     Possible cause: Internal task error.
@@ -4132,7 +4132,7 @@ declare namespace window {
    *     the image falls short of the window dimensions, the shortfall is automatically repeated to complete the image.
    * @returns {  Promise<void>  } Promise that returns no value.
    * @throws {  BusinessError  } 801 - Capability not supported.
-   *     Function setWatermarkImageForAppWindows can not to work correctly due to limited device capabilities.
+   *     Function setWatermarkImageForAppWindows can not work correctly due to limited device capabilities.
    * @throws {  BusinessError  } 1300003 - This window manager service works abnormally.
    * @throws {  BusinessError  } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -7226,8 +7226,8 @@ declare namespace window {
      * Get window state snapshot, including isPcMode information.
      *
      * @returns { Promise<string> } Promise used to return the window state snapshot.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the api due to limited device
-     *     capabilities. Possible cause: The device does not support the api itself.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities. Possible cause: The device does not support the API itself.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed;
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
