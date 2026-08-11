@@ -331,7 +331,7 @@ declare namespace rpc {
      * Writes an interface token to this **MessageParcel** object. The remote object can use this interface token to 
      *     verify the communication.
      *
-     * @param { string } token - Interface token to write. The length of the string must be less than 40960 bytes.
+     * @param { string } token - Interface token to write. The length of the string must be less than 40960.
      * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -585,7 +585,7 @@ declare namespace rpc {
     /**
      * Writes a string to this **MessageParcel** object.
      *
-     * @param { string } val - String to write. The length of the string must be less than 40960 bytes.
+     * @param { string } val - String to write. The length of the string must be less than 40960.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -707,7 +707,7 @@ declare namespace rpc {
      * Writes a string array to this **MessageParcel** object.
      *
      * @param { string[] } stringArray - String array to write. The length of a single element in the array must be less
-     *     than 40960 bytes.
+     *     than 40960.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -1266,11 +1266,11 @@ declare namespace rpc {
      * Writes an interface token to this **MessageSequence** object. The remote object can use this interface token to
      *     verify the communication.
      *
-     * @param { string } token - Interface token to write. The length of the string must be less than 40960 bytes.
+     * @param { string } token - Interface token to write. The length of the string must be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1545,11 +1545,11 @@ declare namespace rpc {
     /**
      * Writes a string to this **MessageSequence** object.
      *
-     * @param { string } val - String to write. The length of the string must be less than 40960 bytes.
+     * @param { string } val - String to write. The length of the string must be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1712,12 +1712,12 @@ declare namespace rpc {
      * Writes a string array to this **MessageSequence** object.
      *
      * @param { string[] } stringArray - String array to write. The length of a single element in the array must be less
-     *     than 40960 bytes.
+     *     than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
      *     3.The parameter type does not match;
-     *     4.The string length is greater than or equal to 40960 bytes;
+     *     4.The string length is greater than or equal to 40960;
      *     5.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2569,7 +2569,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -3222,7 +3222,7 @@ declare namespace rpc {
     /**
      * A constructor used to create a **RemoteObject** object.
      *
-     * @param { string } descriptor - Interface descriptor. The length of the string must be less than 40960 bytes.
+     * @param { string } descriptor - Interface descriptor. The length of the string must be less than 40960.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 23 static
@@ -3245,12 +3245,12 @@ declare namespace rpc {
      * Obtains the string of the interface descriptor.
      *
      * @param { string } descriptor - String of the interface descriptor. The length of the string must be less than
-     *     40960 bytes.
+     *     40960.
      * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface token.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -3536,11 +3536,11 @@ declare namespace rpc {
      *
      * @param { IRemoteBroker } localInterface - **IRemoteBroker** object.
      * @param { string } descriptor - **IRemoteBroker** object bound to the interface descriptor. The length of the
-     *     descriptor must be less than 40960 bytes.
+     *     descriptor must be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -4048,11 +4048,11 @@ declare namespace rpc {
      *     required.
      *
      * @param { string } identity - A string containing the UID and PID of the remote user. The length of the string
-     *     must be less than 40960 bytes. are returned by **resetCallingIdentity**.
+     *     must be less than 40960. are returned by **resetCallingIdentity**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
-     *     3.The string length is greater than or equal to 40960 bytes;
+     *     3.The string length is greater than or equal to 40960;
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
