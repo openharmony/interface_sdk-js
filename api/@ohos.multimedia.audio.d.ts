@@ -5378,7 +5378,23 @@ declare namespace audio {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    PAUSE_WHEN_INTERRUPTED = 0x00000004
+    PAUSE_WHEN_INTERRUPTED = 0x00000004,
+
+    /**
+     * Allows the VoIP capture stream of the current application to run concurrently
+     * with other existing VoIP capture streams. When a later VoIP capture stream
+     * arrives, it can interrupt the current stream.
+     *
+     * This flag only takes effect when used in
+     * {@link #AudioCapturer.setIndependentAudioSessionStrategy}.
+     * When using this flag, the permission ohos.permission.VOIP_CAPTURE_CONCURRENCY must be verified.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VOIP_CAPTURE_MIX_WITH_OTHERS = 0x20000000
   }
 
   /**
@@ -6389,6 +6405,60 @@ declare namespace audio {
      * @since 23 static
      */
     setAppVolumeMutedForUid(uid: int, muted: boolean): Promise<void>;
+
+    /**
+     * Sets the mute state for the VoIP audio renderer stream of a specified application.
+     * If there are multiple callers setting muted states for the same uid and streamId,
+     * only when all callers cancel muted state the VoIP renderer stream will be truly unmuted.
+     * When the application abnormally exits, the application releases the audio stream and
+     * restarts it, or the audio service abnormally exits and restarts, the mute state set
+     * for this audio stream will automatically become invalid. In these cases, you need to
+     * call this API again to apply the mute state.
+     *
+     * @permission ohos.permission.MUTE_VOIP_PLAYBACK
+     * @param { int } uid - Uid of the application to be muted.
+     *    <br>The value should be an integer.
+     * @param { long } streamId - Unique ID of the VoIP audio stream.
+     * @param { boolean } muted - Mute state to set. The value **true** means to mute the VoIP renderer stream,
+     *     and **false** means to unmute the VoIP renderer stream.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setVoipRendererMuteForUid(uid: int, streamId: long, muted: boolean): Promise<void>;
+
+    /**
+     * Sets the mute state for the VoIP audio capture stream of a specified application.
+     * If there are multiple callers setting muted states for the same uid and streamId,
+     * only when all callers cancel muted state the VoIP capture stream will be truly unmuted.
+     * When the application abnormally exits, the application releases the audio stream and
+     * restarts it, or the audio service abnormally exits and restarts, the mute state set
+     * for this audio stream will automatically become invalid. In these cases, you need to
+     * call this API again to apply the mute state.
+     *
+     * @permission ohos.permission.MUTE_VOIP_CAPTURE
+     * @param { int } uid - Uid of the application to be muted.
+     *    <br>The value should be an integer.
+     * @param { long } streamId - Unique ID of the VoIP audio stream.
+     * @param { boolean } muted - Mute state to set. The value **true** means to mute the VoIP capture stream,
+     *     and **false** means to unmute the VoIP capture stream.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setVoipCapturerMuteForUid(uid: int, streamId: long, muted: boolean): Promise<void>;
 
     /**
      * Obtains the volume of the application. (The volume range is 0 to 100.) This API uses a promise to return the
