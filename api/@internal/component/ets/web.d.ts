@@ -1338,6 +1338,7 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1366,6 +1367,7 @@ declare enum RenderExitReason {
    * The rendering process crashes due to segmentation or other errors.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1384,6 +1386,7 @@ declare enum RenderExitReason {
    * Other reasons, such as failure to spawn the rendering process.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -2182,6 +2185,7 @@ declare class DataResubmissionHandler {
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -2190,6 +2194,7 @@ declare class ControllerHandler {
    * Constructs a **ControllerHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -2200,6 +2205,7 @@ declare class ControllerHandler {
    *
    * @param { WebviewController } controller
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -4924,6 +4930,7 @@ declare interface OnRefreshAccessedHistoryEvent {
  *
  * @typedef OnRenderExitedEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -4933,6 +4940,7 @@ declare interface OnRenderExitedEvent {
    *
    * @type { RenderExitReason }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5314,6 +5322,7 @@ declare interface OnClientAuthenticationEvent {
  * Represents the callback invoked when the web page requests the user to create a window.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5323,6 +5332,7 @@ declare interface OnWindowNewEvent {
    * and **false** means to open the target URL in a new tab.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5333,6 +5343,7 @@ declare interface OnWindowNewEvent {
    * and **false** means the opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5342,6 +5353,7 @@ declare interface OnWindowNewEvent {
    * Target URL.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5351,6 +5363,7 @@ declare interface OnWindowNewEvent {
    * **WebviewController** instance for setting the new window.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -7052,6 +7065,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     { function } callback The triggered when the render process exits. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7361,6 +7375,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     { function } callback The triggered callback when web page requires the user to create a window. [since 9 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7396,6 +7411,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7408,6 +7424,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7749,6 +7766,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If the system property is not set, the default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
