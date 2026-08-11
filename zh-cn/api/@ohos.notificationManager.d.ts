@@ -2054,8 +2054,8 @@ declare namespace notificationManager {
    * @since 23 static
    * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} 查询当前应用通知授权状态。
    * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起当前应用的通知设置界面。
-   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): Promise<notificationsetting>} 拉起
-   *     应用的通知设置界面。
+   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): 
+   *     Promise<notificationsetting>} 拉起应用的通知设置界面。
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
@@ -2999,7 +2999,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
    * @since 23 static
-   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起应用的通知设置界面。
+   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} 拉起
+   *     应用的通知设置界面。
    * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} 获取指定应用的通知使能状态。
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
