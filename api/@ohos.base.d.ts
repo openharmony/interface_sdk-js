@@ -21,7 +21,7 @@
  * 
  * > **NOTE**
  * >
- * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a 
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
  * >   superscript to indicate their earliest API version.
  * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
  *
@@ -30,8 +30,8 @@
  */
 
 /**
- * Defines a common callback used to return the processing result when an asynchronous operation is complete. You need
- * to customize the callback type.
+ * Defines a common callback used to return the processing result when an asynchronous operation is successful.
+ * You need to define the callback type.
  *
  * @typedef { Callback } [since 6 - 11]
  * @typedef { Callback<T> } [since 12]
@@ -46,7 +46,7 @@ export interface Callback<T> {
   /**
    *
    * @param { T } data - Common callback information. The type is defined by the developer.
-   *     The callback is used to return data of the corresponding type.
+   *     The callback is used to return data of the corresponding type. No data is returned if the callback fails.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -57,9 +57,10 @@ export interface Callback<T> {
 }
 
 /**
- * Defines a common callback that carries an error parameter, which is used to return error information when the API
- * call fails. The specific error code is defined by each API. For details, please refer to the error code description
- * of the corresponding API.
+ * Defines a common callback that carries an error parameter.
+ * It is used to return error information when an asynchronous operation fails.
+ * The specific error code is defined by each API.
+ * For details, please refer to the error code description of the corresponding API.
  *
  * The information returned by the callback is an error parameter of the [BusinessError]{@link BusinessError} type.
  *
@@ -74,7 +75,9 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 
   /**
    *
-   * @param { T } err - Common error message returned when the API fails to be called.
+   * @param { T } err - Common error information returned when the API fails to be called.
+   *     The default type is **BusinessError**, including the error code (**code**)
+   *     and optional additional data (**data**).
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -103,7 +106,11 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - Common error message returned when the API fails to be called.
+   * @param { BusinessError<E> } err - Common error information returned when the API fails to be called,
+   *     including the error code and optional additional data.
+   *     If the **E** parameter is not specified, the default value **void** is used.
+   *     In this case, **BusinessError** contains only the error code.
+   *     If the API call succeeds, this parameter returns **null**.
    * @param { T } data - Data returned asynchronously when the API is successfully called. The data type is defined by
    *     the developer. This parameter is unavailable when the API fails to be called.
    * @syscap SystemCapability.Base
