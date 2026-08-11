@@ -906,7 +906,7 @@ export class PromptAction {
   /**
    * Creates and displays a toast.
    *
-   * @param { promptAction.ShowToastOptions } options - Toast configuration options
+   * @param { promptAction.ShowToastOptions } options - Toast configuration options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -995,11 +995,10 @@ export class PromptAction {
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
-   * Shows an action menu in the given settings. This API uses an asynchronous callback to return the result.
+   * Creates and displays an action menu. This API uses an asynchronous callback to return the result.
    *
    * @param { promptAction.ActionMenuOptions } options - Action menu options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - Callback used to return the action menu
-   * response result.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - Callback used to return the menu response.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1147,11 +1146,11 @@ export class PromptAction {
   /**
    * Creates and displays a custom dialog box. This API uses a promise to return the dialog box ID for use with **closeCustomDialog**.
    *
-  +   * @param { promptAction.CustomDialogOptions } options - Content of the custom dialog box.<br>
-  +   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
-  +   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**,
-  +   *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
-  +   * @returns { Promise<number> } Promise that returns the dialog box ID for use with **closeCustomDialog**.
+   * @param { promptAction.CustomDialogOptions } options - Content of the custom dialog box.<br>
+   *    Note: If both [isModal]{@link @ohos.promptAction:promptAction.BaseDialogOptions}
+   *    and [showInSubWindow]{@link @ohos.promptAction:promptAction.BaseDialogOptions} in **BaseDialogOptions** are set to **true**,
+   *    only **showInSubWindow** takes effect. In this case, the non-modal dialog box is displayed without mask in the subwindow.
+   * @returns { Promise<number> } Promise that returns the dialog box ID for use with **closeCustomDialog**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1558,7 +1557,6 @@ export declare type OnOverlayBackPressCallback = () => boolean;
 /**
  * Provides the parameters used for initializing [OverlayManager]{@link @ohos.arkui.UIContext}.
  *
- * @interface OverlayManagerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1618,6 +1616,7 @@ export interface OverlayManagerOptions {
 /**
  * Options for opening an overlay with order.
  *
+ * @interface OrderOverlayOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1629,6 +1628,7 @@ export interface OrderOverlayOptions {
   /**
    * The display order of the overlay.
    *
+   * @type { ?LevelOrder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1640,6 +1640,7 @@ export interface OrderOverlayOptions {
   /**
    * The display mode of the overlay.
    *
+   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1650,15 +1651,16 @@ export interface OrderOverlayOptions {
 
   /**
    * The uniqueId of any node in the router or navigation page.
+   * The value range is all integers.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  levelUniqueId?: int;
+  levelUniqueId?: number;
 }
 
 /**
