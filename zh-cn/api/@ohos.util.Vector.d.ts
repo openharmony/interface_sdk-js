@@ -60,7 +60,7 @@ declare class Vector<T> {
    * 在Vector中尾部插入元素，插入成功后Vector的长度增加1。
    *
    * @param { T } element - 添加的元素。
-   * @returns { boolean } 成功添加元素返回true，否则返回false。
+   * @returns { boolean } 插入成功返回true，失败返回false。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -77,10 +77,10 @@ declare class Vector<T> {
    */
   insert(element: T, index: number): void;
   /**
-   * 判断此Vector中是否包含指定元素。
+   * 判断此Vector中是否含有该指定元素。
    *
    * @param { T } element - 指定的元素。
-   * @returns { boolean } 如果包含指定元素返回true，否则返回false。
+   * @returns { boolean } 是否包含指定元素，true表示包含该元素，false表示不包含。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -89,8 +89,8 @@ declare class Vector<T> {
   /**
    * 获取指定下标对应的元素。
    *
-   * @param { number } index - 查找的下标位置。
-   * @returns { T } 返回指定下标对应的元素。
+   * @param { number } index - 查找的下标值，取值范围：0 ≤ index < length。
+   * @returns { T } 返回获取到的元素。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -107,18 +107,18 @@ declare class Vector<T> {
    */
   getIndexOf(element: T): number;
   /**
-   * 获取Vector实例中的第一个元素。
+   * 获取Vector实例中的第一个元素。Vector为空时返回undefined。
    *
-   * @returns { T } 返回Vector实例中的第一个元素。
+   * @returns { T } 返回Vector实例中的第一个元素；若Vector为空，返回undefined。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   getFirstElement(): T;
   /**
-   * 获取Vector实例中的最后一个元素。
+   * 获取Vector实例中的最后一个元素。Vector为空时返回undefined。
    *
-   * @returns { T } 返回Vector实例中的最后一个元素。
+   * @returns { T } 返回Vector实例中的最后一个元素；若Vector为空，返回undefined。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -138,7 +138,7 @@ declare class Vector<T> {
    * 删除指定元素第一次出现的元素。
    *
    * @param { T } element - 待删除的元素。
-   * @returns { boolean } 成功删除元素返回true，否则返回false。
+   * @returns { boolean } 删除成功返回true，删除失败返回false。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -200,7 +200,7 @@ declare class Vector<T> {
   /**
    * 对Vector中的所有元素进行替换，并返回替换后的元素。
    *
-   * @param { function } callbackFn - 回调函数。
+   * @param { function } callbackFn - 回调函数，用于操作Vector中的元素，并用操作后的结果替换原元素。
    * @param { Object } thisArg - callbackFn被调用时用作this值，默认值为当前实例对象。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -210,7 +210,7 @@ declare class Vector<T> {
   /**
    * 通过回调函数来遍历Vector实例对象上的元素以及元素对应的下标。
    *
-   * @param { function } callbackFn - 回调函数。
+   * @param { function } callbackFn - 回调函数，用于遍历Vector中的每个元素。
    * @param { Object } thisArg - callbackFn被调用时用作this值，默认值为当前实例对象。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -218,9 +218,9 @@ declare class Vector<T> {
    */
   forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void, thisArg?: Object): void;
   /**
-   * 对Vector中的元素进行排序。
+   * 对Vector中的元素进行一个排序操作。排序后元素的索引位置会发生改变，排序前通过getIndexOf、getLastIndexOf等方法获取的索引值将不再有效，需重新查询索引。
    *
-   * @param { function } comparator - 排序的回调函数。默认值为当前实例对象。
+   * @param { function } comparator - 回调函数，若不传入此参数，则按照默认排序规则对元素进行排序。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -229,9 +229,9 @@ declare class Vector<T> {
   /**
    * 获取Vector实例中指定范围内的元素，包括起始位置但不包括结束位置的元素，作为一个新的Vector实例返回。
    *
-   * @param { number } fromIndex - 起始位置的下标。
-   * @param { number } toIndex - 结束位置的下标。
-   * @returns { Vector<T> } 返回新的Vector实例。
+   * @param { number } fromIndex - 起始下标，取值范围：0 ≤ fromIndex < length。
+   * @param { number } toIndex - 终止下标，取值范围：0 ≤ toIndex ≤ length，且toIndex应大于fromIndex。
+   * @returns { Vector<T> } 返回包含从起始下标到终止下标（不包括终止下标）元素的Vector对象实例。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -248,7 +248,7 @@ declare class Vector<T> {
   /**
    * 克隆一个实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。
    *
-   * @returns { Vector<T> } 返回新的Vector实例。
+   * @returns { Vector<T> } 返回与原实例内容相同的克隆Vector对象实例，修改克隆实例不影响原实例。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -266,7 +266,7 @@ declare class Vector<T> {
   /**
    * 获取Vector实例的容量大小。
    *
-   * @returns { number } 返回Vector的容量。
+   * @returns { number } 返回Vector的容量大小。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -275,7 +275,7 @@ declare class Vector<T> {
   /**
    * 将Vector实例转换为数组。
    *
-   * @returns { Array<T> } 返回数组。
+   * @returns { Array<T> } 返回包含Vector中所有元素的数组。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -302,7 +302,7 @@ declare class Vector<T> {
   /**
    * 用逗号（,）将Vector实例中的元素拼接成字符串。
    *
-   * @returns { string } 返回对应字符串。
+   * @returns { string } 返回用","将Vector中的元素按顺序拼接成的字符串。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -319,7 +319,7 @@ declare class Vector<T> {
   /**
    * 将Vector中的元素复制到指定数组中，覆盖数组中相同下标的元素。
    *
-   * @param { Array<T> } array - 接收Vector中复制元素的数组。
+   * @param { Array<T> } array - 接收复制元素的目标数组。
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
    * @deprecated since 9

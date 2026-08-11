@@ -33,6 +33,10 @@ declare namespace xml {
    * 转换选项，用于自定义XML到JavaScript对象的转换行为，如控制是否修剪空白字符、是否忽略特定组件（声明、指令、属性、注释、CDATA、Doctype和文本等），
    * 以及指定输出对象中各类型组件的属性键名称。
    *
+   * > **说明：**
+   * >
+   * > 各键属性（declarationKey、instructionKey等）的取值应唯一，不可与其他键属性值重复，否则输出对象可能出现键名冲突。
+   *
    * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -232,6 +236,8 @@ declare namespace xml {
      * >
      * > 从API version 8开始支持，从API version 9开始废弃，建议使用
      * > [fastConvertToJSObject<sup>14+</sup>]{@link xml.ConvertXML#fastConvertToJSObject}替代。
+     * >
+     * > 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。本接口转换后的对象以换行符（LF）表示换行。
      *
      * @param { string } xml - XML文本，需符合XML语法规范，若包含"&"字符，请使用实体引用"&amp;"替换。
      * @param { ConvertOptions } options - 转换选项，用于自定义XML转换行为。不传入时使用ConvertOptions各属性的默认值。
@@ -250,6 +256,8 @@ declare namespace xml {
      * >
      * > 从API version 9开始支持，从API version 14开始废弃，建议使用
      * > [fastConvertToJSObject<sup>14+</sup>]{@link xml.ConvertXML#fastConvertToJSObject}替代。
+     * >
+     * > 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。本接口转换后的对象以换行符（LF）表示换行。
      *
      * @param { string } xml - XML文本，需符合XML语法规范，若包含"&"字符，请使用实体引用"&amp;"替换。
      * @param { ConvertOptions } [options] - 转换选项，用于自定义XML转换行为。不传入时使用ConvertOptions各属性的默认值。

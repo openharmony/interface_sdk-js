@@ -126,7 +126,7 @@ declare namespace util {
   /**
    * 接收一个使用错误优先回调模式的函数（即最后一个参数为 `(err, value) => callback`），并通过 promise 返回结果。
    *
-   * @param { function } original - 异步函数。
+   * @param { function } original - 采用错误优先回调模式的函数，第一个参数err是拒绝原因，第二个参数value是已解决的值。
    * @returns { Object } 错误优先风格（即最后一个参数为 (err, value) => ... ）的 promise。
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -153,7 +153,8 @@ declare namespace util {
    * 使用加密安全随机数生成器生成随机的RFC 4122版本4的Uint8Array类型UUID。为了提升性能，此接口会默认使用缓存，即入参为true，
    * 最多可缓存128个随机的UUID。当缓存中128个UUID用尽后，会重新生成，以保证UUID的随机性。如需禁用缓存，请将入参设置为false。
    *
-   * @param { boolean } [entropyCache] - 是否使用已缓存的UUID，true表示使用缓存的UUID，false表示不使用缓存的UUID，默认true。
+   * @param { boolean } [entropyCache] - 是否使用已缓存的UUID，true表示使用缓存的UUID以提升性能（最多缓存128个UUID，缓存用尽后会重新生成以保证随机性），
+   * false表示不使用缓存的UUID，默认true。
    * @returns { Uint8Array } 表示此UUID的Uint8Array值。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -282,11 +283,10 @@ declare namespace util {
     constructor();
 
     /**
-     * 编码格式。<br>支持的格式包括：utf-8、ibm866、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、
-     * iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、
-     * macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、
-     * windows-1256、windows-1257、windows-1258、x-mac-cyrillic、gbk、gb18030、big5、euc-jp、iso-2022-jp、shift_jis、
-     * euc-kr、utf-16be、utf-16le、gb2312 和 iso-8859-1。
+     * 编码格式。<br/>-&nbsp;支持格式：utf-8、ibm866、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、
+     * iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、
+     * windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、
+     * x-mac-cyrillic、gbk、gb18030、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、utf-16be、utf-16le、gb2312、iso-8859-1。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -296,7 +296,7 @@ declare namespace util {
     readonly encoding: string;
 
     /**
-     * 是否显示致命错误。值为 **true** 表示显示致命错误，值为 **false** 表示相反的情况。
+     * 是否显示致命错误，true表示显示，false表示不显示。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -306,7 +306,7 @@ declare namespace util {
     readonly fatal: boolean;
 
     /**
-     * 是否忽略字节顺序标记（BOM）。默认值为 **false**，表示结果中包含 BOM。
+     * 是否忽略BOM（byte order marker）标记，true表示忽略BOM标记，false表示解码结果包含BOM标记，默认值为false。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -344,6 +344,10 @@ declare namespace util {
 
     /**
      * 将输入内容解码为字符串。
+     *
+     * > **说明：**
+     * >
+     * > 该接口会正常解析值为\0的字节，将其转换为Unicode字符\u0000（空字符），不会导致解码中断或错误。
      *
      * @param { Uint8Array } input - 要解码的 Uint8Array 对象。
      * @param { object } options - 解码相关的选项。
@@ -424,11 +428,11 @@ declare namespace util {
    */
   class TextEncoder {
     /**
-     * 编码格式。<br>支持的格式包括：utf-8、gb2312、gb18030、ibm866、iso-8859-1、iso-8859-2、iso-8859-3、iso-8859-4、
-     * iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、
-     * iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、
-     * windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、gbk、big5、euc-jp、iso-2022-jp、shift_jis、
-     * euc-kr、x-mac-cyrillic、utf-16be 和 utf-16le。<br>默认值为 **'utf-8'**。
+     * 编码格式。<br/>-&nbsp;支持格式：utf-8、gb2312、gb18030、ibm866、iso-8859-1、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、
+     * iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、
+     * macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、
+     * windows-1257、windows-1258、gbk、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、x-mac-cyrillic、utf-16be、utf-16le。
+     * <br/>-&nbsp; 默认值是：'utf-8'。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -783,7 +787,7 @@ declare namespace util {
     toString(): string;
 
     /**
-     * 此缓存中值的总数。
+     * 当前缓冲区中值的总数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
@@ -1044,7 +1048,7 @@ declare namespace util {
     toString(): string;
 
     /**
-     * 此缓存中值的总数。
+     * 当前缓存中值的总数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -1950,6 +1954,12 @@ declare namespace util {
     /**
      * 判断入参是否为异步函数。
      *
+     * > **说明：**
+     * >
+     * > 该接口无法对AsyncGenerator Function进行有效判断，建议通过获取函数的constructor.name属性与'AsyncGeneratorFunction'做判等的方式替代。
+     * >
+     * > 该接口无法对Sendable class中的async成员函数进行有效判断，无替代方案。
+     *
      * @param { Object } value - 要检查的对象。
      * @returns { boolean } 检查结果。如果入参为异步函数，则返回 **true**；否则返回 **false**。
      * @syscap SystemCapability.Utils.Lang
@@ -2070,6 +2080,10 @@ declare namespace util {
     isFloat64Array(value: Object): boolean;
     /**
      * 判断入参是否为 generator 函数。
+     *
+     * > **说明：**
+     * >
+     * > 该接口无法对AsyncGenerator Function进行有效判断，建议通过获取函数的constructor.name属性与'AsyncGeneratorFunction'做判等的方式替代。
      *
      * @param { Object } value - 要检查的对象。
      * @returns { boolean } 检查结果。如果入参为 generator 函数，则返回 **true**；否则返回 **false**。
@@ -2473,6 +2487,10 @@ declare namespace util {
   /**
    * 提供一个可通过开发者自定义回调释放由开发者管理的资源的接口。
    *
+   * > **说明：**
+   * >
+   * > AutoFinalizer<T>需要和AutoFinalizerCleaner<T>一起使用，只实现该接口类没有任何功能。
+   *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -2513,7 +2531,7 @@ declare namespace util {
   }
 
   /**
-   * 多线程检测功能参数配置。
+   * 多线程安全检测功能参数配置。
    *
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
@@ -2531,7 +2549,7 @@ declare namespace util {
      */
     abort?: boolean;
     /**
-     * 多线程检测的采样频率。
+     * 多线程安全检测的采样频率。
      * 该值必须为整数，最小为 **100**，最大为 **2147483647**（默认 **100**）。
      * 该值应为整数。
      *
@@ -2543,7 +2561,7 @@ declare namespace util {
     frequency?: number;
 
     /**
-     * 多线程检测的时间间隔（分钟）。
+     * 多线程安全检测的时间间隔（分钟）。
      * 只有距离上次检测的时间超过此间隔时才会再次上报错误。
      * 该值必须为 [0,1440] 范围内的整数（默认 5min）。
      *
@@ -2565,11 +2583,12 @@ declare namespace util {
    */
   class ArkTSVM {
     /**
-     * 设置是否开启多线程检测。当 **enabled** 设置为 **true** 时开启检测，多线程问题的 cppcrash 文件中将包含多线程相关的
+     * 设置是否开启多线程安全检测。当 **enabled** 设置为 **true** 时开启检测，多线程问题的 cppcrash 文件中将包含多线程相关的
      * 详细信息。当 **enabled** 设置为 **false** 时关闭检测，相应的 cppcrash 文件中将不包含此类详细信息。
      *
-     * @param { boolean } enabled - 控制是否开启多线程检测。**true** 表示开启检测，**false** 表示关闭检测。
-     * @param { MultithreadingDetectionOptions } [options] - 可选的配置项。[since 26.0.0]
+     * @param { boolean } enabled - 控制是否开启多线程安全检测。**true** 表示开启检测，**false** 表示关闭检测。
+     * @param { MultithreadingDetectionOptions } [options] - 多线程安全检测的参数配置，此参数不填时，
+     * 对应各属性取MultithreadingDetectionOptions的默认值。[since 26.0.0]
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @crossplatform
@@ -2607,6 +2626,10 @@ declare namespace util {
 
     /**
      * 从 ArkTS-VM 和共享堆中获取所有堆内存信息。
+     *
+     * > **说明：**
+     * >
+     * > 此接口在执行时会暂停所有VM线程运行以获取内存信息。由于需要等待所有VM线程暂停，高负载场景下调用此接口的耗时可能较高。
      *
      * @returns { Promise<HeapMemoryInfo[]> } 返回一个 promise，包含 ArkTS-VM 的 local 堆和共享堆中的所有堆内存信息。
      * @syscap SystemCapability.Utils.Lang

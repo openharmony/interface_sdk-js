@@ -108,8 +108,8 @@ declare namespace stream {
      *
      * @param { string | Uint8Array } [chunk] - 待写入的数据。默认值为**undefined**。
      * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @param { Function } [callback] - 用于返回结果的回调函数。
-     * @returns { Writable } 当前**Writable**对象。
+     * @param { Function } [callback] - 用于返回结果的回调函数。传入时异步调用，不传入时，不调用回调函数。
+     * @returns { Writable } 返回当前可写流对象。
      * @throws { BusinessError } 10200035 - The doWrite method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -120,10 +120,10 @@ declare namespace stream {
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
 
     /**
-     * 设置可写流的默认编码格式。
+     * 设置可写流的默认字符编码类型。
      *
-     * @param { string } [encoding] - 默认编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @param { string } [encoding] - 设置默认字符编码类型。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
+     * @returns { boolean } 返回是否设置成功。true表示成功，false表示失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -135,7 +135,7 @@ declare namespace stream {
     /**
      * 强制将后续写入的数据缓存起来。调用此API可优化连续写入操作的性能。调用此API后，**writableCorked**的值加1。建议与[uncork()]{@link stream.Writable.uncork}配合使用。
      *
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @returns { boolean } 返回设置cork状态是否成功。true表示成功，false表示失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -147,7 +147,7 @@ declare namespace stream {
     /**
      * 释放cork状态，刷新缓冲区中的数据并写入目标位置。调用此API后，**writableCorked**的值减1。如果值变为**0**，则流不再处于cork状态；否则，流仍处于cork状态。建议与[cork()]{@link stream.Writable.cork}配合使用。
      *
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @returns { boolean } 返回解除cork状态是否成功。true表示成功，false表示失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -227,8 +227,8 @@ declare namespace stream {
     /**
      * 数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
      *
-     * @param { string | Uint8Array } chunk - 待写入的数据。
-     * @param { string } encoding - 编码格式。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
+     * @param { string | Uint8Array } chunk - 要写出的数据。
+     * @param { string } encoding - 字符编码类型。当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -241,7 +241,7 @@ declare namespace stream {
     /**
      * 批量数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
      *
-     * @param { string[] | Uint8Array[] } chunks - 批量写入的数据数组。
+     * @param { string[] | Uint8Array[] } chunks - 待批量写出的数据块数组。
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -252,7 +252,7 @@ declare namespace stream {
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
     /**
-     * 返回布尔值，表示是否处于ObjectMode。
+     * 表示可写流是否以对象模式工作。true表示流被配置为对象模式，false表示流处于非对象模式。当前版本只支持原始数据（字符串和Uint8Array），返回值为false。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -263,7 +263,7 @@ declare namespace stream {
     get writableObjectMode(): boolean;
 
     /**
-     * highWatermark的值。
+     * 定义可写流缓冲区数据量的水位线大小，单位：字节。当前版本不支持开发者自定义修改水位线大小。调用write()写入数据后，若缓冲区数据量达到该值，write()会返回false。默认值为16 * 1024字节。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -274,7 +274,7 @@ declare namespace stream {
     get writableHighWatermark(): int;
 
     /**
-     * 如果调用writable.write()是安全的，返回true，即表示流未被销毁、未出错或未结束。
+     * 表示可写流是否处于可写状态。true表示流当前是可写的，false表示流当前不再接受写入操作。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -285,7 +285,7 @@ declare namespace stream {
     get writable(): boolean;
 
     /**
-     * 可刷新的数据大小，单位为字节或对象。
+     * 表示可写流缓冲区中待写入的字节数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -296,7 +296,7 @@ declare namespace stream {
     get writableLength(): int;
 
     /**
-     * 为完全释放流，需要调用writable.uncork()的次数。
+     * 表示可写流cork状态计数。值大于0时，可写流处于强制写入缓冲区状态；值为0时，该状态解除。使用cork()方法时计数加一，使用uncork()方法时计数减一，使用end()方法时计数清零。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -307,7 +307,7 @@ declare namespace stream {
     get writableCorked(): int;
 
     /**
-     * 是否已调用Writable.end。
+     * 表示当前可写流的end()是否被调用，该状态不代表数据已经全部写入。true表示end()已被调用，false表示end()未被调用。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -318,7 +318,7 @@ declare namespace stream {
     get writableEnded(): boolean;
 
     /**
-     * 是否已调用Writable.end并刷新了所有缓冲区。
+     * 表示当前可写流是否处于写入完成状态。true表示当前流已处于写入完成状态，false表示当前流的写入操作可能还在进行中。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -353,7 +353,7 @@ declare namespace stream {
     /**
      * 创建**Readable**对象的构造函数。
      *
-     * @param { ReadableOptions } options - **Readable**构造函数中的选项。
+     * @param { ReadableOptions } options - Readable构造函数的选项信息。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -365,8 +365,8 @@ declare namespace stream {
     /**
      * 从可读流的缓冲区中读取数据，并返回读取的数据。如果没有读取到数据，则返回**null**。
      *
-     * @param { number } size - 待读取的字节数。默认值为**undefined**。
-     * @returns { string | null } 从可读流中读取的数据。
+     * @param { number } size - 读取数据的字节数。默认为undefined。
+     * @returns { string | null } 从可读流缓冲区读取出的数据。如果未读取到数据，则返回null。
      * @throws { BusinessError } 10200038 - The doRead method has not been implemented.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -392,7 +392,7 @@ declare namespace stream {
     /**
      * 恢复已显式暂停的可读流。可以使用**isPaused**检查流是否已暂停。
      *
-     * @returns { Readable } 当前**Readable**对象。
+     * @returns { Readable } 当前可读流本身。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -404,7 +404,7 @@ declare namespace stream {
     /**
      * 暂停流动模式下的可读流。可以使用**isPaused**检查流是否已暂停。
      *
-     * @returns { Readable } 当前**Readable**对象。
+     * @returns { Readable } 当前可读流本身。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -414,11 +414,11 @@ declare namespace stream {
     pause(): Readable;
 
     /**
-     * 设置可读流的编码格式。
-     * 如果缓冲区中包含数据，则不允许设置编码格式，并返回**false**。
+     * 设置可读流的字符编码类型。
+     * 当缓冲区有数据时，不允许设置字符编码类型，返回值为**false**。
      *
-     * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @returns { boolean } 操作结果。设置成功返回**true**，否则返回**false**。
+     * @param { string } [encoding] - 需要设置的字符编码类型。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
+     * @returns { boolean } 返回是否设置成功。true表示设置成功，false表示设置失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -430,7 +430,7 @@ declare namespace stream {
     /**
      * 检查可读流是否已暂停。流在调用[pause()]{@link stream.Readable.pause}后暂停，在调用[resume()]{@link stream.Readable.resume}后从暂停状态恢复。
      *
-     * @returns { boolean } 检查结果。流已暂停返回**true**，否则返回**false**。
+     * @returns { boolean } 返回流是否处于暂停模式。true表示流处于暂停模式，false表示流未处于暂停模式。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -443,8 +443,8 @@ declare namespace stream {
      * 将一个可写流附加到可读流上，以实现数据的自动传输。
      *
      * @param { Writable } destination - 接收数据的可写流。
-     * @param { Object } [options] - 预留参数。
-     * @returns { Writable } 当前**Writable**对象。
+     * @param { Object } [options] - 预留字段，暂不支持使用。
+     * @returns { Writable } 返回当前可写流对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -456,8 +456,8 @@ declare namespace stream {
     /**
      * 将之前附加到可读流的可写流分离。
      *
-     * @param { Writable } [destination] - 待分离的可写流。默认值为**undefined**。
-     * @returns { Readable } 当前**Readable**对象。
+     * @param { Writable } [destination] - 从当前可写流中移除指定的这个可读流。默认为undefined。
+     * @returns { Readable } 返回当前可读流对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -543,7 +543,7 @@ declare namespace stream {
     /**
      * 数据读取API，需在子类中实现。
      *
-     * @param { int } size - 待读取的字节数。取值范围：0 <= size <= Number.MAX_VALUE
+     * @param { int } size - 读取数据的字节数。取值范围：0 <= size <= Number.MAX_VALUE。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -555,10 +555,12 @@ declare namespace stream {
     /**
      * 将数据推入可读流的缓冲区。
      *
-     * @param {  Uint8Array | string | null } chunk - 待读取的数据。<br> 从API version 22起有兼容性变更。在API version 21及之前版本，类型为 `Uint8Array | string | null`。 [since 12 - 22]
-     * @param {  Uint8Array | string | undefined | null } chunk - 待读取的数据。<br> 从API version 22起有兼容性变更。在API version 21及之前版本，类型为 `Uint8Array | string | null`。 [since 23]
-     * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @returns { boolean } 表示可读流缓冲区中是否还有空间。**true**表示缓冲区中还有空间；**false**表示缓冲区已满。如果传入**null**，则始终返回**false**，表示没有可推送的数据块。
+     * @param {  Uint8Array | string | null } chunk - 读取的数据。 <br> API version22开始发生兼容性变更，在API version21及之前的版本其类型为：
+     * `Uint8Array | string | null`。 [since 12 - 22]
+     * @param {  Uint8Array | string | undefined | null } chunk - 读取的数据。 <br> API version22开始发生兼容性变更，在API
+     * version21及之前的版本其类型为：`Uint8Array | string | null`。 [since 23]
+     * @param { string } [encoding] - 数据的字符编码类型。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
+     * @returns { boolean } 可读流的缓冲区中是否还有空间。true表示缓冲区还有空间，false表示流的内部缓冲区已满。输入null时，固定返回false表示推送结束，没有数据块可推送。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -568,7 +570,7 @@ declare namespace stream {
     push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean;
 
     /**
-     * 返回布尔值，表示是否处于ObjectMode。
+     * 用于指定可读流是否以对象模式工作。true表示流被配置为对象模式，false表示流处于非对象模式。当前版本只支持原始数据（字符串和Uint8Array），返回值为false。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -579,7 +581,7 @@ declare namespace stream {
     get readableObjectMode(): boolean;
 
     /**
-     * 如果调用readable.read()是安全的，返回true，即表示流未被销毁、未发出'error'或'end'。
+     * 表示可读流是否处于可读状态。true表示流处于可读状态，false表示流中没有更多数据可供读取。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -590,7 +592,7 @@ declare namespace stream {
     get readable(): boolean;
 
     /**
-     * 返回创建此Readable时传入的highWatermark的值。
+     * 定义缓冲区的最大数据量，单位：字节。默认值为16 * 1024字节。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -601,7 +603,7 @@ declare namespace stream {
     get readableHighWatermark(): int;
 
     /**
-     * 此属性反映可读流的当前状态 null/true/false。
+     * 表示当前可读流的状态。true表示流处于流动模式，false表示流处于非流动模式。默认值是true。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -612,7 +614,7 @@ declare namespace stream {
     get readableFlowing(): boolean | null;
 
     /**
-     * 可读取的数据大小，单位为字节或对象。
+     * 表示缓冲区的当前字节数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -623,7 +625,7 @@ declare namespace stream {
     get readableLength(): int;
 
     /**
-     * 获取给定Readable流的encoding属性的getter。encoding属性可通过readable.setEncoding()方法设置。
+     * 被解码成字符串时所使用的字符编码。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -634,7 +636,7 @@ declare namespace stream {
     get readableEncoding(): string | null;
 
     /**
-     * 是否已生成所有数据。
+     * 表示当前可读流是否已经结束。true表示流已经没有更多数据可读且已结束，false表示流尚未结束，仍有数据可读或等待读取。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -670,10 +672,11 @@ declare namespace stream {
     /**
      * 向流的缓冲区写入数据。使用异步回调返回结果。
      *
-     * @param { string | Uint8Array } [chunk] - 待写入的数据。不能为**null**、**undefined**或空字符串。
+     * @param { string | Uint8Array } [chunk] - 需要写入的数据。默认值为undefined。当前版本不支持传入null、undefined和空字符串，会抛出异常。
      * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @param { Function } [callback] - 用于返回结果的回调函数。默认不调用。
-     * @returns { boolean } 表示可写流缓冲区中是否还有空间。**true**表示缓冲区中还有空间；**false**表示缓冲区已满，不建议继续写入数据。如果继续调用write函数，数据仍会添加到缓冲区，直到内存溢出。
+     * @param { Function } [callback] - 回调函数，用于在数据写入完成后执行特定逻辑。传入callback时，数据写入缓冲区后会调用该回调函数；不传入时，不调用回调函数。
+     * @returns { boolean } 可写流的缓冲区中是否还有空间。true表示缓冲区还有空间，false表示流的内部缓冲区数据量已达到设定水位线，不建议继续写入，如果连续调用写入函数，数据仍会被添加到缓冲区中，
+     * 直到内存溢出为止。
      * @throws { BusinessError } 10200036 - The stream has been ended.
      * @throws { BusinessError } 10200037 - The callback is invoked multiple times consecutively.
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits
@@ -689,10 +692,10 @@ declare namespace stream {
     /**
      * 结束双工流的写入过程。如果**writableCorked**的值大于0，则将其置为**0**，并输出缓冲区中的剩余数据。如果传入**chunk**参数，则将其视为最后一个数据块，根据当前执行上下文使用**write**或**doWrite** API写入。如果使用**doWrite**写入，**encoding**参数的有效性检查由**doWrite**决定。如果单独使用**end**（不使用**write**）且传入**chunk**参数，则数据通过**doWrite**写入。使用异步回调返回结果。
      *
-     * @param { string | Uint8Array } [chunk] - 待写入的数据。默认值为**undefined**。
+     * @param { string | Uint8Array } [chunk] - 需要写入的数据。默认值为undefined。
      * @param { string } [encoding] - 编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @param { Function } [callback] - 用于返回结果的回调函数。默认不调用。
-     * @returns { Writable } 当前**Duplex**对象。
+     * @param { Function } [callback] - 回调函数。传入时异步调用，不传入时，不调用回调函数。
+     * @returns { Writable } 返回可写流对象。
      * @throws { BusinessError } 10200039 - The doTransform method has not been implemented for a class that inherits
      *     from Transform.
      * @syscap SystemCapability.Utils.Lang
@@ -704,10 +707,10 @@ declare namespace stream {
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
 
     /**
-     * 设置可写流的默认编码格式。
+     * 设置双工流的默认字符编码类型，确保在读取数据时正确解析字符。
      *
-     * @param { string } [encoding] - 默认编码格式。默认值为**'utf8'**。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @param { string } [encoding] - 需要设置的默认字符编码类型。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
+     * @returns { boolean } 返回是否设置成功。true表示设置成功，false表示设置失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -719,7 +722,7 @@ declare namespace stream {
     /**
      * 强制将后续写入的数据缓存起来。调用此API可优化连续写入操作的性能。调用此API后，**writableCorked**的值加1。建议与[uncork()]{@link stream.Writable.uncork}配合使用。
      *
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @returns { boolean } 返回设置cork状态是否成功。true表示设置成功，false表示设置失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -731,7 +734,7 @@ declare namespace stream {
     /**
      * 释放cork状态，刷新缓冲区中的数据并写入目标位置。调用此API后，**writableCorked**的值减1。如果值变为**0**，则流不再处于cork状态；否则，流仍处于cork状态。建议与[cork()]{@link stream.Writable.cork}配合使用。
      *
-     * @returns { boolean } 操作结果。**true**表示成功；**false**表示失败。
+     * @returns { boolean } 返回解除cork状态是否成功。true表示成功，false表示失败。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -743,8 +746,8 @@ declare namespace stream {
     /**
      * 数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
      *
-     * @param { string | Uint8Array } chunk - 待写入的数据。
-     * @param { string } encoding - 编码格式。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
+     * @param { string | Uint8Array } chunk - 要写出的数据。
+     * @param { string } encoding - 字符编码类型。当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -757,7 +760,7 @@ declare namespace stream {
     /**
      * 批量数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
      *
-     * @param { string[] | Uint8Array[] } chunks - 批量写入的数据数组。
+     * @param { string[] | Uint8Array[] } chunks - 待批量写出的数据块数组。
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -768,7 +771,7 @@ declare namespace stream {
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
     /**
-     * 返回布尔值，表示是否处于ObjectMode。
+     * 用于指定双工流的写模式是否以对象模式工作。true表示流的写模式被配置为对象模式，false表示流的写模式处于非对象模式。当前版本只支持原始数据（字符串和Uint8Array），返回值为false。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -779,7 +782,7 @@ declare namespace stream {
     get writableObjectMode(): boolean;
 
     /**
-     * highWatermark的值。
+     * 定义双工流的写模式下缓冲区数据量的水位线大小。当前版本不支持开发者自定义修改设置水位线大小。调用write()写入后，若缓冲区数据量达到该值，write()会返回false。默认值为16 * 1024字节。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -790,7 +793,7 @@ declare namespace stream {
     get writableHighWatermark(): int;
 
     /**
-     * 如果调用writable.write()是安全的，返回true，即表示流未被销毁、未出错或未结束。
+     * 表示双工流是否处于可写状态。true表示当前流是可写的，false表示流当前不再接受写入操作。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -801,7 +804,7 @@ declare namespace stream {
     get writable(): boolean;
 
     /**
-     * 可刷新的数据大小，单位为字节或对象。
+     * 表示双工流缓冲区中待写入的字节数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -812,7 +815,7 @@ declare namespace stream {
     get writableLength(): int;
 
     /**
-     * 为完全释放流，需要调用writable.uncork()的次数。
+     * 表示双工流cork状态计数。值大于0时，双工流处于强制写入缓冲区状态，值为0时，该状态解除。使用cork()方法时计数加一，使用uncork()方法时计数减一，使用end()方法时计数清零。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -823,7 +826,7 @@ declare namespace stream {
     get writableCorked(): int;
 
     /**
-     * 是否已调用Writable.end。
+     * 表示当前双工流的end()是否被调用，该状态不代表数据已经全部写入。true表示end()已被调用，false表示end()未被调用。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -834,7 +837,7 @@ declare namespace stream {
     get writableEnded(): boolean;
 
     /**
-     * 是否已调用Writable.end并刷新了所有缓冲区。
+     * 表示当前双工流是否处于写入完成状态。true表示当前流已处于写入完成状态，false表示当前流的写入操作可能还在进行中。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -869,8 +872,8 @@ declare namespace stream {
     /**
      * 转换或处理输入的数据块，并通过回调通知处理完成。
      *
-     * @param { string } chunk - 待写入的数据。
-     * @param { string } encoding - 编码格式。目前支持**'utf8'**、**'gb18030'**、**'gbk'**和**'gb2312'**。
+     * @param { string } chunk - 需要写入的数据。
+     * @param { string } encoding - 字符编码类型。当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
