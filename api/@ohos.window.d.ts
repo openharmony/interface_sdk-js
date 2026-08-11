@@ -13947,8 +13947,8 @@ declare namespace window {
      * Get sub window of the stage.
      *
      * @returns { Promise<Array<Window>> }
-     * @throws { BusinessError } 1300002 - This window state is abnormal. [since 10]
-     *     Possible cause: The window is not created or destroyed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed. [since 10]
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -13962,8 +13962,8 @@ declare namespace window {
      * Get sub window of the stage.
      *
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. [since 10]
-     *     Possible cause: The window is not created or destroyed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed. [since 10]
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
