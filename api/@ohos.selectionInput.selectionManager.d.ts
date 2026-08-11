@@ -97,8 +97,8 @@ declare namespace selectionManager {
    *
    * @param { 'selectionCompleted' } type - Type of the event to unsubscribe from. The value is fixed to
    *     **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback to be unregistered (that is, the callback instance
-   *     registered using on). If this parameter is not specified, this API unregisters all callbacks for the specified
+   * @param { Callback<SelectionInfo> } [callback] - Callback to be unregistered, which the callback instance
+   *     registered using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified
    *     type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -345,7 +345,7 @@ declare namespace selectionManager {
   }
 
   /**
-   * Describes a Panel object, which is created using [createPanel]{@link selectionManager.createPanel}. This method can
+   * Describes a **Panel** object, which is created using [createPanel]{@link selectionManager.createPanel}. This method can
    * be used to set, display, hide, and move the panel, as well as subscribe to events. It is applicable to scenarios 
    * where a custom operation UI needs to be displayed to users after word selection is complete.
    *
@@ -379,7 +379,7 @@ declare namespace selectionManager {
 
     /**
      * Shows the word selection panel. This API is used together with [hide]{@link selectionManager.Panel.hide}. This 
-     * API can be called only after a Panel instance is obtained by calling 
+     * API can be called only after a **Panel** instance is obtained by calling
      * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
@@ -395,8 +395,8 @@ declare namespace selectionManager {
     show(): Promise<void>;
 
     /**
-     * Hides the word selection panel. This API is used together with [show]{@link selectionManager.Panel.show}. This 
-     * API can be called only after a Panel instance is obtained by calling 
+     * Hides the word selection panel. This API is used together with [show]{@link selectionManager.Panel.show}. This
+     * API can be called only after a **Panel** instance is obtained by calling 
      * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result. If this API is 
      * not called proactively, the panel is automatically hidden when it loses focus.
      *
@@ -455,7 +455,7 @@ declare namespace selectionManager {
 
     /**
      * Moves the word selection panel to the specified coordinates in the global coordinates system of the screen. The 
-     * panel can be moved to an extended screen. This API can be called only after a Panel instance is obtained by 
+     * panel can be moved to an extended screen. This API can be called only after a **Panel** instance is obtained by 
      * calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @param { int } x - X-coordinate of the target position in the global coordinate system of the screen, in px. The
@@ -510,8 +510,8 @@ declare namespace selectionManager {
      * called only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'destroyed' } type - Type of the event to unsubscribe from. The value is fixed to **'destroyed'**.
-     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
-     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
+     * @param { Callback<void> } [callback] - Callback to be unregistered, which the callback instance registered
+     *     using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -570,8 +570,8 @@ declare namespace selectionManager {
      * only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'hidden' } type - Type of the event to unsubscribe from. The value is fixed to **'hidden'**.
-     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
-     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
+     * @param { Callback<void> } [callback] - Callback to be unregistered, which the callback instance registered
+     *     using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
