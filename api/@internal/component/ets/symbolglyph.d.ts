@@ -750,7 +750,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * Used to set the font weight of symbolGlyph.
    *
    * @param { number | FontWeight | ResourceStr } value - the symbolGlyph font weight.
+   *     For the number type, the value range is [100, 900]. When enableVariableFontWeight in
+   *     fontWeightConfigs is **false**, the value must be a multiple of 100; when **true**,
+   *     any integer within [100, 900] is supported.
+   *     The default value is **FontWeight.Normal**.
    * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   *     If not specified, the default values of FontWeightConfigs are used:
+   *     enableVariableFontWeight defaults to **false**, and enableDeviceFontWeightCategory defaults to **true**.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

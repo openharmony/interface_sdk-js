@@ -862,7 +862,8 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onCopy(callback: Callback<string>): SearchAttribute;
 
   /**
-   * Called before using the Clipboard copy menu.
+   * Called before a copy operation is performed. This event is triggered when the user taps the copy menu.
+   * Returning **true** allows the copy operation; returning **false** prevents it.
    *
    * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
    * @returns { SearchAttribute }
@@ -888,7 +889,8 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onCut(callback: Callback<string>): SearchAttribute;
 
   /**
-   * Called before using the Clipboard cut menu.
+   * Called before a cut operation is performed. This event is triggered when the user taps the cut menu.
+   * Returning **true** allows the cut operation; returning **false** prevents it.
    *
    * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
    * @returns { SearchAttribute }

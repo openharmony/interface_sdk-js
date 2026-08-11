@@ -18,19 +18,11 @@
  * @kit ArkUI
  */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-
-import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable } from "./common";
-
 import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
-import { CustomBuilder, CustomBuilderT } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
-
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
-import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
-
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, IMEClient, SelectDataDetectorConfig, TextDirection, SelectedDragPreviewStyle, VoiceButtonOptions, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
@@ -128,7 +120,6 @@ export declare enum InputType {
    *
    * 在已启用密码保险箱的情况下，支持用户名、密码的自动保存和自动填充。
    *
-   * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -824,7 +815,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { InputType | undefined } value - 输入框类型。<br/>默认值：InputType.Normal<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -834,7 +825,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ContentType | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -860,7 +851,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { boolean | undefined } enable - 是否开启选中文本实体识别。<br/>true：开启识别，false：关闭识别。默认值为：true。<br/>值为undefined时，按默认值处
    *     理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -872,7 +863,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { ResourceColor | undefined } value - placeholder文本颜色。<br/>默认值：跟随主题。<br/>Wearable设备上默认值为：'#99ffffff'<br/>取
    *     值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -888,7 +879,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { TextOverflow | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -910,7 +901,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Font | undefined } [value]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -920,7 +911,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { EnterKeyType | undefined } value - 输入法回车键类型。<br/>默认值：EnterKeyType.Done<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -930,7 +921,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceColor | undefined } value - 输入框光标颜色。<br/>默认值：'#007DFF'<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -940,7 +931,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Callback<boolean> | undefined } callback
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -953,7 +944,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { OnSubmitCallback | undefined } callback - 提交回调。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -965,7 +956,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { EditableTextOnChangeCallback | undefined } callback
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -996,7 +987,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { int | undefined } value - 文本的最大输入字符数。<br/>默认值：Infinity，可以无限输入。<br/>**说明：** <br/>当不设置该属性或设置异常值时，取默认值，设置小数
    *     时，取整数部分，设置值超过2^31-1时，可能导致异常行为。<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1006,7 +997,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceColor | undefined } value - 字体颜色。<br/>Wearable设备上默认值为：'#dbffffff'<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1016,7 +1007,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Length | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1026,7 +1017,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { FontStyle | undefined } value - 字体样式。<br/>默认值：FontStyle.Normal<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1039,7 +1030,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *     <br/>默认值：FontWeight.Normal
    *     <br>从API version 20开始，支持Resource类型。<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1049,7 +1040,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceStr | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1064,7 +1055,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { ResourceStr | undefined } value
    * @param { Callback<string> | undefined } [error]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1074,7 +1065,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Callback<string> | undefined } callback - 复制回调，其返回值为复制的文本内容。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1085,7 +1076,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<string, boolean> | undefined } callback - 复制操作前的回调。回调参数类型为string时，表示将要被复制的文本内容。回调参数类型为boolean时，
    *     表示当前选中文本是否允许被复制，true：允许文本被复制；false：不允许文本被复制。undefined时，恢复组件默认复制行为。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -1095,7 +1086,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Callback<string> | undefined } callback
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1106,7 +1097,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<string, boolean> | undefined } callback - 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调参数类型为boolean时，
    *     表示当前选中文本是否允许被剪切，true：允许文本被剪切；false：不允许文本被剪切。undefined时，恢复组件默认剪切行为。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -1129,7 +1120,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { CopyOptions | undefined } value - 输入的文本是否可复制。<br/>默认值：CopyOptions.LocalDevice，支持设备内复制。<br/>取值为undefined
    *     时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1140,7 +1131,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { boolean | undefined } value - 密码输入模式时，输入框末尾的图标是否显示。<br/>true表示显示，false表示不显示。<br/>默认值：TV设备为false，其他设备为
    *     true。<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1159,7 +1150,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { TextAlign | undefined } value - 文本在输入框中的水平对齐方式。<br/>默认值：TextAlign.Start<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1172,7 +1163,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { TextInputStyle | TextContentStyle | undefined } value - 输入框为默认风格或内联输入风格。<br/>默认值：TextInputStyle.Default<
    *     br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1182,7 +1173,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { CaretStyle | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1192,7 +1183,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceColor | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1202,7 +1193,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { int | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1225,7 +1216,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { PasswordIcon | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1238,7 +1229,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceStr | undefined } [value]
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1248,7 +1239,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { CustomBuilder | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1259,7 +1250,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { boolean | undefined } value - 是否开启下划线。<br/>true表示开启，false表示不开启。<br/>默认值：false<br/>下划线默认颜色为'#33182431'，默认
    *     粗细为1px，文本框尺寸48vp，下划线只支持InputType.Normal类型。<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1271,7 +1262,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ResourceColor | UnderlineColor | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1390,7 +1381,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *     [InputCounterOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#inputcounteroptions11对象说明)
    *     中的默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1401,7 +1392,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { CancelButtonOptions | undefined } iconOptions - 右侧清除按钮样式选项。<br />默认值：<br />{<br />style:
    *     CancelButtonStyle.INPUT<br />}<br/>Wearable设备上默认值为：28vp <br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1415,7 +1406,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { CancelButtonSymbolOptions | undefined } symbolOptions - 右侧清除按钮样式。<br />默认值：<br />{<br />style:
    *     CancelButtonStyle.INPUT<br />}<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1445,7 +1436,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { double | string | Resource | undefined } value -  文本最小显示字号。<br/>单位：
    *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，不生效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1462,7 +1453,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { double | string | Resource | undefined } value -  文本最大显示字号。<br/>单位：
    *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，不生效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1472,7 +1463,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { double | Resource | undefined } scale
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1482,7 +1473,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { double | Resource | undefined } scale
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1507,7 +1498,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { TextHeightAdaptivePolicy | undefined } value - 文本自适应高度的方式。<br/>默认值：
    *     TextHeightAdaptivePolicy.MAX_LINES_FIRST<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1529,7 +1520,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *      color: Color.Black,<br/> style: TextDecorationStyle.SOLID,<br/> thicknessScale: 1.0<br/>}<br/>取值为undefined时，
    *     按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1544,7 +1535,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { double | string | Resource | undefined } value -  文本字符间距。<br/>默认值：0<br/>单位：
    *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1563,7 +1554,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { double | string | Resource | undefined } value
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1591,7 +1582,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { string | undefined } value - 文字特性效果。<br/>默认值：''<br/>取值为undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1630,7 +1621,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<InsertValue, boolean> | undefined } callback - 在将要输入时调用的回调。<br/>在返回true时，表示正常插入，返回false时，表示不插入。
    *     <br/>在预上屏和候选词操作时，该回调不触发。<br/>仅支持系统输入法输入的场景。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1641,7 +1632,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<InsertValue> | undefined } callback - 在输入完成时调用的回调。<br/>仅支持系统输入法输入的场景。<br/>取值为undefined时，不使用回调函
    *     数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1652,7 +1643,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<DeleteValue, boolean> | undefined } callback - 在将要删除时调用的回调。<br/>在返回true时，表示正常删除，返回false时，表示不删除。
    *     <br/>在预上屏删除操作时，该回调不触发。<br/>仅支持系统输入法输入的场景。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1663,7 +1654,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<DeleteValue> | undefined } callback - 在删除完成时调用的回调。<br/>仅支持系统输入法输入的场景。<br/>取值为undefined时，不使用回调函
    *     数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1691,7 +1682,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { Callback<IMEClient> | undefined } callback - 在输入框将要绑定输入法前触发该回调。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -1707,7 +1698,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { EditMenuOptions | undefined } editMenu - 扩展菜单选项。<br/>取值为undefined时，显示系统文本选择菜单。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1720,7 +1711,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { boolean | undefined } enable - 是否开启输入预上屏。<br/>true表示开启输入预上屏，false表示不开启输入预上屏。<br/>默认值：true<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1744,7 +1735,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { AutoCapitalizationMode | undefined } mode - 自动大小写模式，默认状态无效。<br/>值为undefined时为默认状态无效。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1754,7 +1745,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { boolean | undefined } halfLeading
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1775,8 +1766,8 @@ export declare interface TextInputAttribute extends CommonMethod {
    */
   default ellipsisMode(mode: EllipsisMode | undefined): this;
   /**
-     * 设置语音按键选项。
-     *
+   * 设置语音按键选项。
+   *
    * @param { VoiceButtonOptions | undefined } options - 语音按键的选项。
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1804,7 +1795,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { Callback<EditableTextChangeValue, boolean> | undefined } callback - 在文本内容将要发生变化时的回调。<br/>返回true时，表示正常修改。
    *     返回false时，表示拦截此次触发。<br/>取值为undefined时，不使用回调函数。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1879,7 +1870,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { SelectedDragPreviewStyle | undefined } value - 文本拖拽时的背板样式。<br/>设置为undefined时：背板颜色跟随主题，浅色模式显示白色，深色模式显示黑色。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1890,7 +1881,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { TextDirection | undefined } direction - 文本排版方向。<br/>设置为undefined时，按照TextDirection.DEFAULT处理，表现为文本排版方向遵循组
    *     件布局方向。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1955,7 +1946,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。<br/>值为undefined时，按照StrokeJoinStyle.MITER_JOIN处
    *     理，请参考[StrokeJoinStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#strokejoinstyle)，文本拐角处表现为锐角。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -1972,7 +1963,7 @@ export declare interface TextInputAttribute extends CommonMethod {
    *
    * @param { ShaderStyle | undefined } shader - 文本着色器效果。<br/>值为undefined时，无渐变效果。
    * @returns { TextInputAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -1991,8 +1982,8 @@ export declare interface TextInputAttribute extends CommonMethod {
   default punctuationOverflow(enabled: boolean | undefined): this;
 
   /**
-     * 设置TextInput组件选项。
-     *
+   * 设置TextInput组件选项。
+   *
    * @param { TextInputOptions } [value] - 构建TextInput组件的选项。
    * @returns { TextInputAttribute } 返回TextInput属性的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2008,7 +1999,7 @@ export declare interface TextInputAttribute extends CommonMethod {
  *
  * @param { TextInputOptions } [value]
  * @returns { TextInputAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -2023,7 +2014,7 @@ export declare function TextInput(
  *
  * @param { CustomBuilderT<TextInputAttribute> } style - TextInput属性的实例。
  * @returns { TextInputAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
  * @since 26.1.0 staticonly

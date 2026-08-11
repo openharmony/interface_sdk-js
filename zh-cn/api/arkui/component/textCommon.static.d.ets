@@ -13,27 +13,18 @@
  * limitations under the License.
  */
 /**
-  * @file
-  * @kit ArkUI
+ * @file
+ * @kit ArkUI
  */
 
 import { ResourceColor, ResourceStr, Length, LengthMetrics } from './units';
-import { ResourceColor, ResourceStr, Length } from './units';
-
-import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { SelectionOptions, Callback } from './common';
-
 import { TextDecorationType, TextDecorationStyle } from './enums';
-import { TextDecorationType, TextDecorationStyle } from './enums';
-
 import { AttributeModifier, CommonMethod, LinearGradientOptions, RadialGradientOptions } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
 import { InputMethodExtraConfig } from '@ohos.inputMethod.ExtraConfig';
 import text from '../../@ohos.graphics.text';
-
-import { InputMethodExtraConfig } from '../../@ohos.inputMethod.ExtraConfig';
 
 /**
  * 文本识别实体类型。
@@ -981,16 +972,16 @@ export declare interface StyledStringController {
  */
 export declare interface StyledStringChangedListener {
   /**
-     * 文本内容将要变化回调函数。
-     *
+   * 文本内容将要变化回调函数。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   onWillChange?: Callback<StyledStringChangeValue, boolean>;
   /**
-     * 文本内容完成变化回调函数。
-     *
+   * 文本内容完成变化回调函数。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1043,8 +1034,8 @@ export interface StyledStringChangeValue {
  */
 export declare interface LayoutManager {
   /**
-     * 获取组件内容的总行数。
-     *
+   * 获取组件内容的总行数。
+   *
    * @returns { int | undefined } 组件内容的总行数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1052,8 +1043,8 @@ export declare interface LayoutManager {
    */
   getLineCount(): int | undefined;
   /**
-     * 获取较为接近给定坐标的字形的位置信息。
-     *
+   * 获取较为接近给定坐标的字形的位置信息。
+   *
    * @param { double } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
    * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
    * @returns { PositionWithAffinity | undefined } 字形位置信息。
@@ -1064,12 +1055,12 @@ export declare interface LayoutManager {
   getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity | undefined;
 
   /**
-     * 获取距离指定坐标最近的字符的位置信息。
-     *
+   * 获取距离指定坐标最近的字符的位置信息。
+   *
    * @param { double } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
    * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
-     *     undefined。
+   *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -1156,8 +1147,8 @@ export declare interface LayoutManager {
   getLineMetrics(lineNumber: int): LineMetrics | undefined;
 
   /**
-     * 获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中任意区间范围内的字符或占位符所占的绘制区域信息。
-     *
+   * 获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中任意区间范围内的字符或占位符所占的绘制区域信息。
+   *
    * @param { TextRange } range - 需要获取的区域的文本区间。
    * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度的规格。
    * @param { RectHeightStyle } heightStyle - 返回的矩形区域的高度的规格。
@@ -1318,7 +1309,7 @@ export declare class TextMenuItemId {
    *
    * @param { TextMenuItemId } id - 需要比较的TextMenuItemId对象。
    * @returns { boolean }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */

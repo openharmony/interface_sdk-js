@@ -18,16 +18,11 @@
  * @kit ArkUI
  */
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
-
-import { CustomBuilder, Builder, CustomBuilderT, ConstructorT, ComponentBuilder } from './builder';
 import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
-
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
-import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
 
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectDataDetectorConfig, SelectedDragPreviewStyle, TextDirection, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
 import { ComponentBuilder } from "./../stateManagement/runtime";
@@ -89,7 +84,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { ResourceColor | undefined } value - 字体颜色。<br />默认值：'#e6182431'<br />Wearable设备上默认值为：'#c5ffffff'<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -100,7 +95,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { double | string | Resource | undefined } value - 字体大小。fontSize为number类型时，使用fp单位。不支持设置百分比字符串。<br />默认值：16
    *     fp<br />Wearable设备上默认值为：15fp<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -120,7 +115,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按照
    *     [fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -140,7 +135,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按照
    *     [fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -150,7 +145,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { double | Resource | undefined } scale
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -160,7 +155,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { double | Resource | undefined } scale
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -170,7 +165,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { FontStyle | undefined } value - 字体样式。<br/>默认值：FontStyle.Normal<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -183,7 +178,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [FontSettingOptions](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontsettingoptions12对象说明)。<br/
    *     >设置undefined时按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -195,7 +190,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { LengthMetrics | undefined } value
    * @param { LineSpacingOptions } [options]
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -222,7 +217,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { TextAlign | undefined } value - 文本段落在水平方向的对齐方式。<br/>默认值：TextAlign.Start<br/>Wearable设备上默认值为：
    *     TextAlign.Center<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -271,7 +266,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { double | string | Resource | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -282,7 +277,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { LengthMetrics | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -295,7 +290,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { LengthMetrics | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -317,7 +312,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { double | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -355,7 +350,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [TextOverflowOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textoverflowoptions18对象说明)
    *     中的默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -369,7 +364,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { string | Resource | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -381,7 +376,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { int | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -400,7 +395,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { int | undefined } minLines - 文本最小行数。
    *     <br>取值范围：[0, INT32_MAX]<br/>设置的值小于0时按0处理。<br/>值为undefined时，最小行数无限制。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -418,7 +413,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     TextDecorationType.None,<br/> color: Color.Black,<br/> style: TextDecorationStyle.SOLID <br/>}<br/>**说明：**<br
    *     />style参数不支持卡片能力。<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -434,7 +429,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { double | string | undefined } value
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -444,7 +439,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { TextCase | undefined } value - 文本大小写。<br />默认值：TextCase.Normal<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -460,7 +455,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     <br>从API version 20开始，支持[Resource](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resource)类型。<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -489,7 +484,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { CopyOptions | undefined } value - 组件是否支持文本可复制粘贴。<br />默认值：CopyOptions.None<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -505,7 +500,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { boolean | undefined } value - 选中文本拖拽效果。<br/>true表示选中文本可拖拽，false表示不可拖拽。<br/>默认值：false<br/>取值为undefined时，按
    *     默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -519,7 +514,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [ShadowOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadowoptions对象说明)
    *     中的默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -539,7 +534,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { TextHeightAdaptivePolicy | undefined } value - 文本自适应高度的方式。<br/>默认值：
    *     TextHeightAdaptivePolicy.MAX_LINES_FIRST<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -644,7 +639,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { ResourceColor | undefined } color - 文本选中手柄颜色。<br/>默认值：'#007DFF'<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -654,7 +649,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { ResourceColor | undefined } color - 文本选中底板颜色。<br/>默认值：'#007DFF'<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -727,7 +722,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { boolean | undefined } enable - 是否对选中文本进行实体识别。<br/>true：开启识别，false：关闭识别。默认值为：true。<br/>取值为undefined时，按默认值
    *     处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -767,7 +762,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [SelectionMenuOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md#selectionmenuoptions)
    *     中的默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -813,7 +808,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { string | undefined } value - 文字特性效果。<br/>默认值：''<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -828,7 +823,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [TextMarqueeOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textmarqueeoptions18对象说明)
    *     中的默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -853,7 +848,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [obscured](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-obscured.md#obscured)配置。<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -866,7 +861,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { TextSelectableMode | undefined } mode - 文本是否支持可选择、可获焦。 <br />默认值：
    *     TextSelectableMode.SELECTABLE_UNFOCUSABLE<br/>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -888,7 +883,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { EditMenuOptions | undefined } editMenu - 扩展菜单选项。<br/>取值为undefined时，显示系统文本选择菜单。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -899,7 +894,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { boolean | undefined } halfLeading - 设置文本是否垂直居中。<br/>true表示将行间距平分至行的顶部与底部，false则不平分。<br/>默认值：false<br/>取值
    *     为undefined时，按默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -934,7 +929,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { boolean | undefined } optimize - 是否优化每行末尾的空格。<br/>true表示优化末尾空格，false则不优化。<br/>默认值：false
    *     <br>值为undefined时，不优化末尾空格。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -991,7 +986,7 @@ export declare interface TextAttribute extends CommonMethod {
    *     [RadialGradientOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-gradient-color.md#radialgradientoptions18对象说明)
    *     的center参数设置到组件范围外时，可将repeating参数设置为true，此时渐变效果会更明显。<br/>值为undefined时，无渐变效果。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -1013,7 +1008,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { SelectedDragPreviewStyle | undefined } value - 文本拖拽时的背板样式。<br/>设置为undefined时：背板颜色跟随主题，浅色模式显示白色，深色模式显示黑色。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1025,7 +1020,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { TextDirection | undefined } direction - 文本排版方向。<br/>设置为undefined时，按照TextDirection.DEFAULT处理，表现为文本排版方向遵循组
    *     件布局方向。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1527,7 +1522,7 @@ export declare class TextController {
  * @param { CustomBuilderT<TextAttribute> } style - Text属性实例。
  * @param { CustomBuilder } [content_] - 容器。
  * @returns { TextAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
  * @since 26.1.0 staticonly
@@ -1546,7 +1541,7 @@ export declare function Text(
  * @param { TextOptions } [value]
  * @param { CustomBuilder } [content_]
  * @returns { TextAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -1573,7 +1568,7 @@ export declare abstract class ExtendableText implements TextAttribute {
    * @param { TextOptions } [value]
    * @param { CustomBuilder } [content_]
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
@@ -1608,7 +1603,7 @@ export declare abstract class ExtendableText implements TextAttribute {
    * @param { string | Resource } [content]
    * @param { TextOptions } [value]
    * @returns { ExtendableText }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
