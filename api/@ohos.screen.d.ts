@@ -1082,7 +1082,7 @@ declare namespace screen {
     readonly isInUse?: boolean;
 
     /**
-     * Screen type
+     * Screen type.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
