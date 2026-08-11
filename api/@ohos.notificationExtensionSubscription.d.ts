@@ -91,6 +91,9 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe(): Promise<void>} unsubscribes from the notification extension.
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} obtains all 
+   *     applications that have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented.
    */
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
@@ -105,9 +108,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
-   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe(): Promise<void>} Unsubscribes from the notification extension.
-   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} Obtains all 
-   * applications that have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented.
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: _NotificationExtensionSubscriptionInfo[]): Promise<void>} subscribes to the 
+   *     notification extension. 
    */
   function unsubscribe(): Promise<void>;
 
