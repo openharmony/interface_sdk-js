@@ -1188,8 +1188,8 @@ declare namespace rpc {
   }
 
   /**
-   * 在RPC或IPC过程中，发送方可以使用MessageSequence提供的写方法，将待发送的数据以特定格式写入该对象。接收方可以使用MessageSequence提供的读方法从该对象中读取特定格式的数据。数据格式包括：基础类型及数
-   * 组、IPC对象、接口描述符和自定义序列化对象。读取顺序必须与写入顺序一致，否则会导致数据解析错误。
+   * 在RPC或IPC过程中，发送方可以使用MessageSequence提供的写方法，将待发送的数据以特定格式写入该对象。接收方可以使用MessageSequence提供的读方法从该对象中读取特定格式的数据。
+   * 数据格式包括：基础类型及数组、IPC对象、接口描述符和自定义序列化对象。读取顺序必须与写入顺序一致，否则会导致数据解析错误。
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @atomicservice [since 26.0.0]
@@ -1457,8 +1457,8 @@ declare namespace rpc {
 
     /**
      * 将字节值写入MessageSequence实例。调用此方法后，字节值会被以8位无符号整数形式存入缓冲区当前写指针位置，并自动更新写指针。该方法适用于传输小范围整数或标志位数据。
-     * 
-     * - 存储范围:0-255(无符号)或-128-127(有符号)。
+     *
+     * - 存储范围:[0, 255](无符号)或[-128, 127](有符号)。
      * - 数据对齐方式为字节对齐。
      * - 数值必须在字节范围内，超出范围可能导致数据截断。
      * - 读取时必须使用[readByte]{@link rpc.MessageSequence#readByte}方法配对读取。
@@ -1499,15 +1499,15 @@ declare namespace rpc {
      * 将整数值写入MessageSequence实例。 调用此方法后，整数值会被以32位有符号整数形式存入缓冲区当前写指针位置，并自动更新写指针。该方法适用于传输标准整数数据。对于小范围数值建议使用
      * [writeByte]{@link rpc.MessageSequence#writeByte}/[writeShort]{@link rpc.MessageSequence#writeShort}提高效率；对于大范围数值建议
      * 使用[writeLong]{@link rpc.MessageSequence#writeLong}。
-     * 
+     *
      * - 必须与[readInt]{@link rpc.MessageSequence#readInt}配对使用。
      * - 一次写入对应一次读取
      * - 占用4字节(32位)存储空间。
      * - 采用系统默认字节序存储。
      * - 超出范围会导致数据截断或写入失败。
      *
-     * @param { int } val - 要写入的整数值。取值范围：[-2^31, 2^31-1]。适用于传输标准整数数据(如计数器、索引值、配置参数等)。超出此范围会导致数据截断或写入失败。对于小范围数值(0-255或-12
-     *     8-127)建议使用writeByte提高效率，对于小范围整数(-32768-32767)建议使用writeShort，对于大整数建议使用writeLong。
+     * @param { int } val - 要写入的整数值。取值范围：[-2^31, 2^31-1]。适用于传输标准整数数据(如计数器、索引值、配置参数等)。超出此范围会导致数据截断或写入失败。
+     * 对于小范围数值(0-255或-128-127)建议使用writeByte提高效率，对于小范围整数(-32768-32767)建议使用writeShort，对于大整数建议使用writeLong。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1521,12 +1521,12 @@ declare namespace rpc {
 
     /**
      * 将长整数值写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readLong]{@link rpc.MessageSequence#readLong}配对使用。
      * - 一次写入对应一次读取。
      *
-     * @param { long } val - 要写入的长整数值。取值范围：[-2^63, 2^63-1]。超出此范围会导致数据截断或写入失败。建议根据数值范围选择合适的类型(writeByte/writeShort/
-     *     writeInt/writeLong)以提高传输效率。
+     * @param { long } val - 要写入的长整数值。取值范围：[-2^63, 2^63-1]。超出此范围会导致数据截断或写入失败。
+     * 建议根据数值范围选择合适的类型(writeByte/writeShort/writeInt/writeLong)以提高传输效率。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1540,8 +1540,8 @@ declare namespace rpc {
     /**
      * 将双精度浮点值写入MessageSequence实例。由于系统内部对float类型的数据是按照double处理的，实际写入的数据按双精度格式存储。
      *
-     * @param { double } val - 要写入的双精度浮点值。适用于传输浮点数据(如坐标、比例、测量值等)。必须与[readFloat]{@link rpc.MessageSequence#readFloat}配对使
-     *     用。
+     * @param { double } val - 要写入的双精度浮点值。适用于传输浮点数据(如坐标、比例、测量值等)。
+     * 必须与[readFloat]{@link rpc.MessageSequence#readFloat}配对使用。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1900,9 +1900,9 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取整数值。
-     * 
+     *
      * - 整数值占用4字节存储空间。
-     * - 存储范围：-2^31到2^31-1。
+     * - 存储范围：[-2^31, 2^31-1]。
      *
      * @returns { int } 返回整数值。
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2117,8 +2117,8 @@ declare namespace rpc {
     /**
      * 从MessageSequence实例中读取双精度浮点数组，并将其写入到创建的空数组中。
      *
-     * @param { double[] } dataIn - 用于存储从MessageSequence读取的双精度浮点数组，需预先创建空数组且长度应与写入时的数组长度一致。由于系统内部对float类型的数据是按照double处理
-     *     的，使用时对于数组所占的总字节数应按照double类型来计算。
+     * @param { double[] } dataIn - 用于存储从MessageSequence读取的双精度浮点数组，需预先创建空数组且长度应与写入时的数组长度一致。
+     * 由于系统内部对float类型的数据是按照double处理的，使用时对于数组所占的总字节数应按照double类型来计算。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2381,9 +2381,9 @@ declare namespace rpc {
     writeFileDescriptor(fd: int): void;
 
     /**
-     * 从MessageSequence中读取文件描述符。接收端读取到的是映射后的新文件描述符编号，与发送端写入的描述符编号不同，但指向同一个文件资源。读取后建议及时使用并关闭，防止资源泄漏。如需长期使用，可调用
-     * dupFileDescriptor复制描述符。
-     * 
+     * 从MessageSequence中读取文件描述符。接收端读取到的是映射后的新文件描述符编号，与发送端写入的描述符编号不同，但指向同一个文件资源。读取后建议及时使用并关闭，防止资源泄漏。
+     * 如需长期使用，可调用dupFileDescriptor复制描述符。
+     *
      * - 必须与[writeFileDescriptor]{@link rpc.MessageSequence#writeFileDescriptor}配对使用。
      * - 不要依赖源端的fd编号。
      * - 读取后需要管理生命周期。
@@ -2426,7 +2426,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence读取匿名共享对象。使用前需先调用[mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem}方法进行内存映射。
-     * 
+     *
      * - readAshmem()获取对象。
      * - [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem}映射内存。
      * - [readDataFromAshmem]{@link rpc.Ashmem#readDataFromAshmem}读取数据。
@@ -2436,8 +2436,8 @@ declare namespace rpc {
      * - 数据读取后需要取消映射。
      * - 及时关闭避免内存泄漏。
      *
-     * @returns { Ashmem } 返回匿名共享对象，用于跨进程共享内存数据。读取数据前需先调用[mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem}方法进行内存
-     *     映射。
+     * @returns { Ashmem } 返回匿名共享对象，用于跨进程共享内存数据。
+     * 读取数据前需先调用[mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem}方法进行内存映射。
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -2572,13 +2572,13 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence读取ArrayBuffer类型数据。
-     * 
+     *
      * - 必须与[writeArrayBuffer]{@link rpc.MessageSequence#writeArrayBuffer}配对使用。
      * - 读取typeCode必须与写入typeCode一致，顺序必须匹配。
      * - typeCode必须正确匹配，不匹配会导致数据异常或错误，建议根据业务类型选择合适的[TypeCode]{@link rpc.TypeCode}。
      *
-     * @param { TypeCode } typeCode - ArrayBuffer数据具体是以哪一种TypedArray来访问和操作(会根据业务传递的类型枚举值去决定底层的读取方式，需要业务正确传递枚举值，读写枚举值不匹配会
-     *     导致数据异常。)
+     * @param { TypeCode } typeCode - ArrayBuffer数据具体是以哪一种TypedArray来访问和操作(会根据业务传递的类型枚举值去决定底层的读取方式，需要业务正确传递枚举值，
+     *     读写枚举值不匹配会导致数据异常。)
      * @returns { ArrayBuffer } 返回ArrayBuffer类型数据，用于存储从MessageSequence读取的二进制数据，可通过TypedArray进行访问和操作。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -3010,7 +3010,7 @@ declare namespace rpc {
   }
 
   /**
-   * Called to perform subsequent operations when a death notification of the remote object is received.
+   * 调用以在接收到远程对象的死亡通知时执行后续操作。
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 23 static
@@ -3018,8 +3018,8 @@ declare namespace rpc {
   type OnRemoteDiedFunc = () => void;
 
   /**
-   * 用于订阅远端对象的死亡通知。当被订阅该通知的远端对象死亡时，本端可收到消息，调用[onRemoteDied]{@link rpc.DeathRecipient.onRemoteDied()}接口。远端对象死亡可以为远端对象所在进程
-   * 死亡，远端对象所在设备关机或重启，当远端对象与本端对象属于不同设备时，也可为远端对象离开组网时。
+   * 用于订阅远端对象的死亡通知。当被订阅该通知的远端对象死亡时，本端可收到消息，调用[onRemoteDied]{@link rpc.DeathRecipient.onRemoteDied()}接口。
+   * 远端对象死亡可以为远端对象所在进程死亡，远端对象所在设备关机或重启，当远端对象与本端对象属于不同设备时，也可为远端对象离开组网时。
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7 dynamic
@@ -3035,7 +3035,7 @@ declare namespace rpc {
     onRemoteDied(): void;
 
     /**
-     * Called to perform subsequent operations when a death notification of the remote object is received.
+     * 接收到远程对象的死亡通知时执行后续操作。
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
@@ -3063,9 +3063,9 @@ declare namespace rpc {
     static readonly TF_SYNC: number;
 
     /**
-     * Indicates synchronous call.
+     * 同步调用标识。
      *
-     * @returns { int } Return vaule indicating synchronous call.
+     * @returns { int } 表示同步调用的标识。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3082,9 +3082,9 @@ declare namespace rpc {
     static readonly TF_ASYNC: number;
 
     /**
-     * Indicates asynchronous call.
+     * 异步调用标识。
      *
-     * @returns { int } Return vaule indicating asynchronous call.
+     * @returns { int } 表示异步调用的标识。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3092,8 +3092,8 @@ declare namespace rpc {
 
     /**
      * 指示
-     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence, reply: MessageSequence, options: MessageOption )}
-     * 接口可以传递文件描述符。
+     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}接口可以传递文件描述符。
      *
      * @default 16
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3103,9 +3103,11 @@ declare namespace rpc {
     static readonly TF_ACCEPT_FDS: number;
 
     /**
-     * Indicates the sendRequest API for returning the file descriptor.
+     * 指示
+     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}接口可以传递文件描述符。
      *
-     * @returns { int } Return vaule indicating the sendRequest API for returning the file descriptor.
+     * @returns { int } 表示接口可以传递文件描述符。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3123,9 +3125,9 @@ declare namespace rpc {
     static readonly TF_WAIT_TIME: number;
 
     /**
-     * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+     * RPC等待时间（单位：秒），IPC场景下无效。默认等待为8秒（不建议修改等待时间）。
      *
-     * @returns { int } Return vaule indicating the wait time for RPC, in seconds. It is NOT used in IPC case.
+     * @returns { int } 返回值表示RPC的等待时间（单位：秒）。IPC场景下无效。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3134,10 +3136,10 @@ declare namespace rpc {
     /**
      * MessageOption构造函数。
      *
-     * @param { number } syncFlags - 同步调用或异步调用标志。取值范围：{0, 1}。同步调用标志：0（当需要立即获取响应结果时选择）；异步调用标志：1（当不需要立即获取响应结果时选择）。不传入时默认为0
-     *     （同步调用）。
-     * @param { number } waitTime - 调用rpc最长等待时间（单位：秒）。<br/>默认值：8<br/>取值范围：(0, 3000]。当RPC调用耗时较长时，可适当增加等待时间；当需要快速响应时，可适当减少
-     *     等待时间。不传入时使用默认等待时间8秒。
+     * @param { number } [syncFlags] - 同步调用或异步调用标志。取值范围：{0, 1}。同步调用标志：0（当需要立即获取响应结果时选择）；异步调用标志：1（当不需要立即获取响应结果时选择）。
+     *      不传入时默认为0（同步调用）。
+     * @param { number } [waitTime] - 调用rpc最长等待时间（单位：秒）。<br/>默认值：8<br/>取值范围：(0, 3000]。
+     *     当RPC调用耗时较长时，可适当增加等待时间；当需要快速响应时，可适当减少等待时间。不传入时使用默认等待时间8秒。
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 7 dynamic
@@ -3147,7 +3149,7 @@ declare namespace rpc {
     /**
      * MessageOption构造函数。
      *
-     * @param { boolean } async - 是否异步调用。true表示异步调用（当不需要立即获取响应结果时选择），false表示同步调用（当需要立即获取响应结果时选择）。不传入时默认为false（同步调用）。
+     * @param { boolean } [async] - 是否异步调用。true表示异步调用（当不需要立即获取响应结果时选择），false表示同步调用（当需要立即获取响应结果时选择）。不传入时默认为false（同步调用）。
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3155,17 +3157,16 @@ declare namespace rpc {
     constructor(async?: boolean);
 
     /**
-     * A constructor used to create a MessageOption instance.
+     * MessageOption构造函数。
      *
-     * @param { boolean } isAsync - Specifies whether the SendRequest is called synchronously (default) or
-     *     asynchronously.
+     * @param { boolean } isAsync - true：表示异步调用标志，false：表示同步调用标志。默认同步调用。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
     constructor(isAsync: boolean);
 
     /**
-     * A constructor used to create a MessageOption instance.
+     * MessageOption构造函数。
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
@@ -3173,19 +3174,19 @@ declare namespace rpc {
     constructor();
 
     /**
-     * A constructor used to create a MessageOption instance.
+     * MessageOption构造函数。
      *
-     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { int } syncFlags - 同步调用或异步调用标志，同步调用标志：0；异步调用标志：1。默认同步调用。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
     constructor(syncFlags: int);
 
     /**
-     * A constructor used to create a MessageOption instance.
+     * MessageOption构造函数。
      *
-     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call, in seconds. The default value is **TF_WAIT_TIME**.
+     * @param { int } syncFlags - 同步调用或异步调用标志，同步调用标志：0；异步调用标志：1。默认同步调用。
+     * @param { int } waitTime - 调用rpc最长等待时间（单位：秒）。<br/>默认值：8<br/>取值范围：(0, 3000]
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3215,8 +3216,8 @@ declare namespace rpc {
 
     /**
      * 获取
-     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence, reply: MessageSequence, options: MessageOption )}
-     * 调用中确定同步或是异步的标志。
+     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}调用中确定同步或是异步的标志。
      *
      * @returns { boolean } true：异步调用成功，false：同步调用成功。
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3228,8 +3229,8 @@ declare namespace rpc {
 
     /**
      * 设置
-     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence, reply: MessageSequence, options: MessageOption )}
-     * 调用中确定同步或是异步的标志。
+     * [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}调用中确定同步或是异步的标志。
      *
      * @param { boolean } isAsync - true：表示异步调用标志，false：表示同步调用标志。
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3280,10 +3281,9 @@ declare namespace rpc {
      */
     readonly callerPid: number;
     /**
-     * Indicates the pid of caller.
-     * callerPid is valid only when the {@link isLocalCalling} is true. Otherwise callerPid is invalid.
+     * 调用者的PID，仅IPC场景有效。
      *
-     * @returns { int } Return the pid of caller.
+     * @returns { int } 返回调用者的PID。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3299,10 +3299,9 @@ declare namespace rpc {
      */
     readonly callerUid: number;
     /**
-     * Indicates the uid of caller.
-     * callerUid is valid only when the {@link isLocalCalling} is true. Otherwise callerUid is invalid.
+     * 调用者的UID，仅IPC场景有效。
      *
-     * @returns { int } Return the uid of caller.
+     * @returns { int } 返回调用者的UID。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3318,10 +3317,9 @@ declare namespace rpc {
      */
     readonly callerTokenId: number;
     /**
-     * Indicates the tokenId of caller.
-     * callerTokenId is valid only when the {@link isLocalCalling} is true. Otherwise callerTokenId is invalid.
+     * 调用者的TokenId，仅IPC场景有效。
      *
-     * @returns { long } Return the tokenId of caller.
+     * @returns { long } 返回调用者的TokenId。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3337,10 +3335,9 @@ declare namespace rpc {
      */
     readonly remoteDeviceId: string;
     /**
-     * Indicates the DeviceId of remote device.
-     * remoteDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise remoteDeviceId is invalid.
+     * 对端设备的设备ID，仅RPC场景有效。
      *
-     * @returns { string } Return the DeviceId of caller.
+     * @returns { string } 返回对端设备的设备ID。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3356,10 +3353,9 @@ declare namespace rpc {
      */
     readonly localDeviceId: string;
     /**
-     * Indicates the DeviceId of local device.
-     * localDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise localDeviceId is invalid.
+     * 本端设备的设备ID，仅RPC场景有效。
      *
-     * @returns { string } Return the DeviceId of local device.
+     * @returns { string } 返回本地设备的设备ID。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3376,9 +3372,9 @@ declare namespace rpc {
     readonly isLocalCalling: boolean;
 
     /**
-     * Indicates whether the peer process is a process of the local device.
+     * 当前通信对端是否为本设备进程。true：调用在同一台设备（IPC场景），false：调用未在同一台设备（RPC场景）。
      *
-     * @returns { boolean } Return {@code true} if the call is made on the same device; return {@code false} otherwise.
+     * @returns { boolean } 如果在同一设备上调用，则返回true；否则返回false。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3527,8 +3523,8 @@ declare namespace rpc {
     onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回
-     * 复，回复内容在reply报文里。
+     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。
+     * 如果为选项设置了同步模式，则将在sendRequest返回时收到回复，回复内容在reply报文里。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
@@ -3704,9 +3700,9 @@ declare namespace rpc {
     static readonly PING_TRANSACTION: number;
 
     /**
-     * Indicates the message code for a Ping operation.
+     * 内部指令码，用于测试IPC服务是否正常。
      *
-     * @returns { int } Return vaule indicating the message code for a Ping operation.
+     * @returns { int } 返回值表示Ping操作的指令码。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3722,9 +3718,9 @@ declare namespace rpc {
     static readonly DUMP_TRANSACTION: number;
 
     /**
-     * Indicates the message code for a dump operation.
+     * 内部指令码，获取IPC服务相关的状态信息。
      *
-     * @returns { int } Return vaule indicating the message code for a dump operation.
+     * @returns { int } 返回值表示转储操作的指令码。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3740,9 +3736,9 @@ declare namespace rpc {
     static readonly INTERFACE_TRANSACTION: number;
 
     /**
-     * Indicates the message code for a transmission.
+     * 内部指令码，获取对端接口描述符。
      *
-     * @returns { int } Return vaule indicating the message code for a transmission.
+     * @returns { int } 返回值指示传输的指令码。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3758,11 +3754,11 @@ declare namespace rpc {
     static readonly MIN_TRANSACTION_ID: number;
 
     /**
-     * Indicates the minimum value of a valid message code.
-     * 
-     * <p>This constant is used to check the validity of an operation.
+     * 最小有效指令码。
      *
-     * @returns { int } Return vaule indicating the minimum value of a valid message code.
+     * <p>该常量用于检查操作的有效性。
+     *
+     * @returns { int } 返回值表示有效指令码的最小值。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3778,11 +3774,11 @@ declare namespace rpc {
     static readonly MAX_TRANSACTION_ID: number;
 
     /**
-     * Indicates the maximum value of a valid message code.
-     * 
-     * <p>This constant is used to check the validity of an operation.
+     * 最大有效指令码。
      *
-     * @returns { int } Return vaule indicating the maximum value of a valid message code.
+     * <p>该常量用于检查操作的有效性。
+     *
+     * @returns { int } 返回值表示有效指令码的最大值。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3895,8 +3891,8 @@ declare namespace rpc {
     getDescriptor(): string;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回
-     * 复，回复内容在reply报文里。
+     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。
+     * 如果为选项设置了同步模式，则将在sendRequest返回时收到回复，回复内容在reply报文里。
      *
      * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
@@ -3982,9 +3978,9 @@ declare namespace rpc {
 
     /**
      * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，将
-     * 在
-     *  [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence, reply: MessageSequence, options: MessageOption )}
-     * 返回后、服务端处理请求完成时执行回调，回调中可读取[RequestResult]{@link rpc.RequestResult}获取服务端返回的数据。
+     * 在[sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}返回后、服务端处理请求完成时执行回调，
+     * 回调中可读取[RequestResult]{@link rpc.RequestResult}获取服务端返回的数据。
      *
      * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
      * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
@@ -4038,8 +4034,8 @@ declare namespace rpc {
 
     /**
      * 静态方法，获取调用者的PID。此方法由[RemoteObject]{@link rpc.RemoteObject}对象在IPC上下文环境（
-     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence, 
-     * reply: MessageSequence, options: MessageOption )}）中使用，否则直接返回。
+     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}）中调用，不在则返回本进程的PID。
      *
      * @returns { int } 返回调用者的PID。
      * @syscap SystemCapability.Communication.IPC.Core
@@ -4050,8 +4046,8 @@ declare namespace rpc {
 
     /**
      * 静态方法，获取调用者的UID。此方法由[RemoteObject]{@link rpc.RemoteObject}对象在IPC上下文环境（
-     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence, 
-     * reply: MessageSequence, options: MessageOption )}）中使用，否则直接返回。
+     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence,
+     * reply: MessageSequence, options: MessageOption )}）中调用，不在则返回本进程的UID。
      *
      * @returns { int } 返回调用者的UID。
      * @syscap SystemCapability.Communication.IPC.Core
@@ -4149,7 +4145,7 @@ declare namespace rpc {
 
     /**
      * 静态方法，将UID和PID恢复为远程用户的UID和PID。它通常在使用resetCallingIdentity后调用，需要resetCallingIdentity返回的远程用户的UID和PID。该接口仅支持在IPC上下文（
-     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence, 
+     * [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence,
      * reply: MessageSequence, options: MessageOption )}）中使用，否则直接返回。
      *
      * @param { string } identity - 标识表示包含远程用户UID和PID的字符串，其长度应小于40960。由resetCallingIdentity返回。
@@ -4192,9 +4188,9 @@ declare namespace rpc {
     static readonly PROT_EXEC: number;
 
     /**
-     * The mapped memory is executable.
+     * 映射内存保护类型，代表映射的内存可执行。
      *
-     * @returns { int } Return vaule indicating the mapped memory is executable.
+     * @returns { int } 返回值表示映射的内存是可执行的。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -4210,9 +4206,9 @@ declare namespace rpc {
     static readonly PROT_NONE: number;
 
     /**
-     * The mapped memory is inaccessible.
+     * 映射内存保护类型，代表映射的内存不可访问。
      *
-     * @returns { int } Return vaule indicating the mapped memory is inaccessible.
+     * @returns { int } 返回值表示映射的内存无法访问。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -4228,9 +4224,9 @@ declare namespace rpc {
     static readonly PROT_READ: number;
 
     /**
-     * The mapped memory is readable.
+     * 映射内存保护类型，代表映射的内存可读。
      *
-     * @returns { int } Return vaule indicating the mapped memory is readable.
+     * @returns { int } 返回值表示映射的内存是可读的。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -4246,9 +4242,9 @@ declare namespace rpc {
     static readonly PROT_WRITE: number;
 
     /**
-     * The mapped memory is writable.
+     * 映射内存保护类型，代表映射的内存可写。
      *
-     * @returns { int } Return vaule indicating the mapped memory is writable.
+     * @returns { int } 返回值表示映射的内存是可写的。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
