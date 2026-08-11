@@ -143,10 +143,8 @@ export class MediaQuery {
 }
 
 /**
-* class UIInspector
-*
-* 提供注册组件布局和组件绘制送显完成回调通知的能力。送显指节点的绘制命令发送到图形服务并完成显示。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作，适用于需要精确感知组件布局和绘制时机的场景。
-*
+ * class UIInspector
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -156,10 +154,10 @@ export class MediaQuery {
 export class UIInspector {
 
   /**
-   * 注册组件布局和组件绘制送显完成回调通知。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle. 
    *
-   * @param { string } id - 指定组件id，该id通过通用属性[id]{@link CommonMethod#id}或者[key]{@link CommonMethod#key}设置。
-   * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
+   * @param { string } id - component id.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -169,11 +167,10 @@ export class UIInspector {
   createComponentObserver(id: string): inspector.ComponentObserver;
 
   /**
-   * 注册组件布局和组件绘制送显完成回调通知。送显指节点的绘制命令发送到图形服务并完成显示。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
-   * 相比createComponentObserver，新增支持传入UniqueID（系统为节点分配的唯一标识）。
+   * 创建当前节点或者当前节点的子节点的布局和送显的事件监听句柄。
    *
-   * @param { string | number } id - 类型为string时，为指定的组件id，该id通过通用属性[id]{@link CommonMethod#id}或者[key]{@link CommonMethod#key}设置。使用组件id创建监听句柄时，请确保该id对应的组件已经存在，否则后续监听无法生效。类型为number时，为系统为节点分配的唯一标识UniqueID，UniqueID通过getUniqueId获取。使用UniqueID创建监听句柄时，请确保UniqueID对应的节点已经存在，否则后续监听无法生效。number的取值范围为1~2147483647的整数。
-   * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
+   * @param { string | number } id - 当前节点的inspector key或者唯一id。
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

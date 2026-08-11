@@ -2325,7 +2325,7 @@ declare enum AccessibilityRoleType {
    */
   DATA_PANEL = 22,
   /**
-   * data picker component type
+   * date picker component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2848,7 +2848,7 @@ declare enum AccessibilityRoleType {
    */
   POLYLINE = 74,
   /**
-   * pop up component type
+   * popup component type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24091,10 +24091,8 @@ declare class CommonMethod<T> {
   accessibilityText(text: Resource): T;
 
   /**
-   * Sets the role type of the accessibility component, which affects how the component is announced by screen readers.
-   * @param { AccessibilityRoleType } role - Role of the component as announced by screen readers (for example, button
-   *     or
-   *     <br>chart). You can define custom roles.
+   * Sets accessibility role,role indicates the custom type of the component
+   * @param { AccessibilityRoleType } role - set accessibility component type
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24749,7 +24747,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the next accessibility focus ID for the component, with optional detailed parameters.
-   * Ther detailed parameters can provider additional behavior for the accessibility focus transition.
+   * The detailed parameters can provide additional behavior for the accessibility focus transition.
    * 
    * @param { string } nextId - set component next accessibility focus id
    * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
