@@ -699,7 +699,6 @@ declare namespace distributedKVStore {
     /**
      * Security level of the KV store.
      *
-     * SystemCapability.DistributedDataManager.KVStore.Core
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
@@ -744,7 +743,7 @@ declare namespace distributedKVStore {
     /**
      * Specifies the file name to the backup database
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -753,7 +752,7 @@ declare namespace distributedKVStore {
     /**
      * Specifies the root directory relative to the backup database
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -3829,7 +3828,7 @@ declare namespace distributedKVStore {
      *
      * @param { 'distributedDataServiceDie' } event - Event type. The value is **distributedDataServiceDie**, which indicates
      *     the termination of the distributed data service.
-     * @param { Callback<void> } deathCallback - Callback to unregister. If this parameter is not specified, this API
+     * @param { Callback<void> } [deathCallback] - Callback to unregister. If this parameter is not specified, this API
      *     unregisters all callbacks for the **distributedDataServiceDie** event.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;

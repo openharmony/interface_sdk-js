@@ -695,7 +695,7 @@ declare namespace distributedKVStore {
     /**
      * 备份数据库的名称，无长度限制，不能包含特殊字符'/'。
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -704,7 +704,7 @@ declare namespace distributedKVStore {
     /**
      * 备份数据库的路径，无长度限制。
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -3705,7 +3705,7 @@ declare namespace distributedKVStore {
      * 订阅后，才能调用off取消订阅。参数中的deathCallback必须是已经订阅过的deathCallback，否则会取消订阅失败。
      *
      * @param { 'distributedDataServiceDie' } event - 取消订阅的事件名，固定为'distributedDataServiceDie'，即服务状态变更事件。
-     * @param { Callback<void> } deathCallback - 回调函数。如果该参数不填，那么会将之前订阅过的所有的deathCallback取消订阅。
+     * @param { Callback<void> } [deathCallback] - 回调函数。如果该参数不填，那么会将之前订阅过的所有的deathCallback取消订阅。
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
