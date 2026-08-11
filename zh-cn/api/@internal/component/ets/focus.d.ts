@@ -19,8 +19,8 @@
  */
 
 /**
-* 设置当前组件系统焦点框样式。
-*
+ * 设置当前组件系统焦点框样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28,11 +28,10 @@
  * @since 12 dynamic
  */
 declare interface FocusBoxStyle {
-
   /**
    * 焦点框相对组件边缘的距离。
-   *
-   * 正数代表外侧，负数代表内侧。不支持百分比。
+   * 
+   * 正数代表外侧，负数代表内侧。不支持百分比。未设置时，使用默认焦点框边距2.0vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,9 +40,8 @@ declare interface FocusBoxStyle {
    * @since 12 dynamic
    */
   margin?: LengthMetrics;
-
   /**
-   * 焦点框颜色。
+   * 焦点框颜色。未设置时，使用默认焦点框颜色#FF007DFF。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,11 +50,10 @@ declare interface FocusBoxStyle {
    * @since 12 dynamic
    */
   strokeColor?: ColorMetrics;
-
   /**
    * 焦点框宽度。
-   *
-   * 不支持负数与百分比。
+   * 
+   * 不支持负数与百分比。未设置时，使用默认焦点框宽度2.0vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -68,8 +65,8 @@ declare interface FocusBoxStyle {
 }
 
 /**
-* 设置组件焦点的优先级。
-*
+ * 设置组件获焦优先级。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -77,7 +74,6 @@ declare interface FocusBoxStyle {
  * @since 12 dynamic
  */
 declare enum FocusPriority {
-
   /**
    * 默认的优先级，缺省时组件的获焦优先级。
    *
@@ -90,7 +86,7 @@ declare enum FocusPriority {
   AUTO = 0,
 
   /**
-   * 容器内优先获焦的优先级。优先级高于AUTO。
+   * 容器首次获焦时优先获焦的优先级。优先级高于AUTO。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -109,12 +105,12 @@ declare enum FocusPriority {
    * @atomicservice
    * @since 12 dynamic
    */
-  PREVIOUS = 3000
+  PREVIOUS = 3000,
 }
 
 /**
-* 设置按键事件处理的优先级。
-*
+ * 设置按键事件处理的模式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -122,9 +118,8 @@ declare enum FocusPriority {
  * @since 15 dynamic
  */
 declare enum KeyProcessingMode {
-
   /**
-   * 默认值，当前组件不消费按键时，tab/方向键优先在当前容器内走焦。
+   * 默认值，当前组件不消费按键时，Tab/方向键优先在当前容器内走焦。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,7 +130,7 @@ declare enum KeyProcessingMode {
   FOCUS_NAVIGATION = 0,
 
   /**
-   * 当前组件不消费按键时，tab/方向键优先冒泡给父组件。
+   * 当前组件不消费按键时，Tab/方向键优先冒泡给父组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -143,5 +138,5 @@ declare enum KeyProcessingMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  ANCESTOR_EVENT = 1
+  ANCESTOR_EVENT = 1,
 }

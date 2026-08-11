@@ -32,12 +32,11 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  * 
  * > **说明：**
  * >
- * > - 对于使用[XComponent]{@link xcomponent}的场景，例如：Video或者相机流媒体展示类组件，不建议使用组件截图相关接口，建议使用
- * > [createPixelMapFromSurface]{@link @ohos.multimedia.image:image.createPixelMapFromSurface(surfaceId: string, region: Region)}
- * > 直接获取图片。
+ * > - 对于使用[XComponent]{@link ./@internal/component/ets/xcomponent}的场景，例如：Video或者相机流媒体展示类组件，不建议使用组件截图相关接口，建议使用
+ * > [createPixelMapFromSurface]{@link @ohos.multimedia.image:image.createPixelMapFromSurface}直接获取图片。
  * >
- * > - 如果组件自身内容不能填满组件大小区域，那么剩余位置截图返回的内容为透明像素。如果组件使用了[图像效果]{@link common}类属性或其他的效果类属性，则可能产生非用户预期的截图结果。请排查是否需要填充组件透明内容区域，或
- * > 使用窗口截图接口[snapshot]{@link @ohos.window:window.Window#snapshot(callback: AsyncCallback<image.PixelMap>)}替代。
+ * > - 如果组件自身内容不能填满组件大小区域，那么剩余位置截图返回的内容为透明像素。如果组件使用了[图像效果]{@link ./@internal/component/ets/common}类属性或其他的效果类属性，则可能产生非用户预期的截图结果。
+ * > 请排查是否需要填充组件透明内容区域，或使用窗口截图接口[snapshot]{@link @ohos.window:window.Window#snapshot(callback: AsyncCallback<image.PixelMap>)}替代。
  * >
  * > - 示例效果请以真机运行为准，当前 DevEco Studio预览器不支持。
  *
@@ -48,7 +47,6 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  * @since 10 dynamic
  */
 declare namespace componentSnapshot {
-
   /**
    * 定义组件截图的矩形区域。
    *
@@ -58,14 +56,13 @@ declare namespace componentSnapshot {
    * @atomicservice
    * @since 15 dynamic
    */
-  interface SnapshotRegion {
-
+  interface SnapshotRegion {  
     /**
      * 截图区域矩形左上角的x轴坐标。
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件宽度]
+     * 取值范围：[0, 组件宽度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -80,7 +77,7 @@ declare namespace componentSnapshot {
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件宽度]
+     * 取值范围：[0, 组件宽度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -95,7 +92,7 @@ declare namespace componentSnapshot {
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件高度]
+     * 取值范围：[0, 组件高度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -110,7 +107,7 @@ declare namespace componentSnapshot {
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件高度]
+     * 取值范围：[0, 组件高度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -127,8 +124,8 @@ declare namespace componentSnapshot {
    * > **说明：**
    * >
    * > 直接使用componentSnapshot可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
-   * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用[getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext#getComponentSnapshot}
-   * > 获取绑定实例的componentSnapshot。
+   * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
+   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext.getComponentSnapshot}获取绑定实例的componentSnapshot。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -137,13 +134,12 @@ declare namespace componentSnapshot {
    * @since 15 dynamic
    */
   interface LocalizedSnapshotRegion {
-
     /**
      * 布局方向为LTR时表示截图区域矩形左上角的x轴坐标，布局方向为RTL时表示截图区域矩形右上角的x轴坐标。
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件宽度]
+     * 取值范围：[0, 组件宽度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -158,7 +154,7 @@ declare namespace componentSnapshot {
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件宽度]
+     * 取值范围：[0, 组件宽度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -173,7 +169,7 @@ declare namespace componentSnapshot {
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件高度]
+     * 取值范围：[0, 组件高度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -184,11 +180,11 @@ declare namespace componentSnapshot {
     top: number;
 
     /**
-     * 截图区域矩形右下角的y轴坐标。
+     * 布局方向为LTR时表示截图区域矩形右下角的y轴坐标，布局方向为RTL时表示截图区域矩形左下角的y轴坐标。
      * 
      * 单位：px 
      * 
-     * 取值范围：[0, 组件高度]
+     * 取值范围：[0, 组件高度]。取值超出范围时，截图失败，返回错误码401。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -198,9 +194,9 @@ declare namespace componentSnapshot {
      */
     bottom: number;
   }
-
+  
   /**
-   * 表示组件截图区域。
+   * Defines the snapshot region rect type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,8 +214,7 @@ declare namespace componentSnapshot {
    * @atomicservice
    * @since 23 dynamic
    */
-  interface ColorModeOptions {
-
+  interface ColorModeOptions {  
     /**
      * 指定截图使用的色彩空间。
      * 
@@ -272,8 +267,7 @@ declare namespace componentSnapshot {
    * @atomicservice
    * @since 23 dynamic
    */
-  interface DynamicRangeModeOptions {
-
+  interface DynamicRangeModeOptions {  
     /**
      * 指定截图使用的动态范围模式。
      * 
@@ -336,12 +330,11 @@ declare namespace componentSnapshot {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  interface SnapshotSizeLimitation {
-
+  interface SnapshotSizeLimitation {  
     /**
      * 组件截图的最大宽度限制。
      * 
-     * 取值范围：（-∞，+∞）
+     * 取值范围：[0, +∞)
      * 
      * 单位：px
      *
@@ -356,7 +349,7 @@ declare namespace componentSnapshot {
     /**
      * 组件截图的最大高度限制。
      * 
-     * 取值范围：（-∞，+∞）
+     * 取值范围：[0, +∞)
      * 
      * 单位：px
      *
@@ -370,7 +363,6 @@ declare namespace componentSnapshot {
   }
 
   /**
-   *  定义截图额外选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -379,7 +371,6 @@ declare namespace componentSnapshot {
    * @since 12 dynamic
    */
   interface SnapshotOptions {
-
     /**
      * 指定截图时图形侧绘制pixelmap的缩放比例，比例过大时截图时间会变长，或者截图可能会失败。
      * 
@@ -389,7 +380,8 @@ declare namespace componentSnapshot {
      * 
      * **说明：** 
      * 
-     * 请不要截取过大尺寸的图片，截图不建议超过屏幕尺寸的大小。当要截取的图片目标长宽超过底层限制时，截图会返回失败，不同设备的底层限制不同。
+     * 请不要截取过大尺寸的图片，截图不建议超过屏幕尺寸的大小。当要截取的图片目标长宽超过底层限制时，截图会返回失败，不同设备的底层限制不同，具体限制可通过
+     * [getSizeLimitation]{@link @ohos.arkui.UIContext:ComponentSnapshot.getSizeLimitation}方法获取。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -397,11 +389,11 @@ declare namespace componentSnapshot {
      * @atomicservice
      * @since 12 dynamic
      */
-    scale?: number;
+    scale?: number
 
     /**
      * 设置是否强制系统在截图前等待所有绘制指令执行完毕。true表示强制系统在截图前等待所有绘制指令执行完毕，false表示不强制系统在截图前等待所有绘制指令执行完毕。该选项可尽可能确保截图内容是最新的状态，应尽量开启。需要注意的
-     * 是，开启后接口可能需要更长的时间返回，具体的时间依赖页面当时时刻需要重绘区域的大小。
+     * 是，开启后接口可能需要更长的时间返回，具体的时间依赖页面当前时刻需要重绘区域的大小。
      * 
      * 默认值：false
      *
@@ -411,7 +403,7 @@ declare namespace componentSnapshot {
      * @atomicservice
      * @since 12 dynamic
      */
-    waitUntilRenderFinished?: boolean;
+    waitUntilRenderFinished?: boolean
 
     /**
      * 指定截图的矩形区域范围，默认为整个组件。
@@ -423,7 +415,6 @@ declare namespace componentSnapshot {
      * @since 15 dynamic
      */
     region?: SnapshotRegionType;
-
     /**
      * 指定截图使用的色彩空间。
      * 
@@ -450,17 +441,17 @@ declare namespace componentSnapshot {
   }
 
   /**
-   * 获取已加载的组件的截图，传入组件的[组件标识]{@link common}，找到对应组件进行截图。通过回调返回结果。
+   * 获取已加载的组件的截图，传入组件的[组件标识]{@link ./@internal/component/ets/common}，找到对应组件进行截图。通过回调返回结果。
    * 
-   * > **说明：** 
+   * > **说明：**
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext#getComponentSnapshot}方法
-   * > 获取当前UI上下文关联的[ComponentSnapshot]{@link @ohos.arkui.UIContext:ComponentSnapshot}对象。
+   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext.getComponentSnapshot}方法获取当前UI上下文关联的
+   * > [ComponentSnapshot]{@link @ohos.arkui.UIContext}对象。
    * >
    * > - 截图会获取最近一帧的绘制内容。如果在组件触发更新的同时调用截图，更新的渲染内容不会被截取到，截图会返回上一帧的绘制内容。
    *
-   * @param { string } id - 目标组件的[组件标识]{@link common}。
+   * @param { string } id - 目标组件的[组件标识]{@link ./@internal/component/ets/common}。
    * @param { AsyncCallback<image.PixelMap> } callback - 截图返回结果的回调。
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -479,17 +470,17 @@ declare namespace componentSnapshot {
   function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
 
   /**
-   * 获取已加载的组件的截图，传入组件的[组件标识]{@link common}，找到对应组件进行截图。通过Promise返回结果。
+   * 获取已加载的组件的截图，传入组件的[组件标识]{@link ./@internal/component/ets/common}，找到对应组件进行截图。通过Promise返回结果。
    * 
    * > **说明：**
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext#getComponentSnapshot}方法
-   * > 获取当前UI上下文关联的[ComponentSnapshot]{@link @ohos.arkui.UIContext:ComponentSnapshot}对象。
+   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext.getComponentSnapshot}方法获取当前UI上下文关联的
+   * > [ComponentSnapshot]{@link @ohos.arkui.UIContext}对象。
    * >
    * > - 截图会获取最近一帧的绘制内容。如果在组件触发更新的同时调用截图，更新的渲染内容不会被截取到，截图会返回上一帧的绘制内容。
    *
-   * @param { string } id - 目标组件的[组件标识]{@link common}。
+   * @param { string } id - 目标组件的[组件标识]{@link ./@internal/component/ets/common}。
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
    * @returns { Promise<image.PixelMap> } 截图返回的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -510,26 +501,33 @@ declare namespace componentSnapshot {
   /**
    * 在应用后台渲染CustomBuilder自定义组件，并输出其截图。通过回调返回结果并支持在回调中获取离屏组件绘制区域坐标和大小。
    * 
-   * > **说明：** 
+   * > **说明：**
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext#getComponentSnapshot}方法
-   * > 获取当前UI上下文关联的[ComponentSnapshot]{@link @ohos.arkui.UIContext:ComponentSnapshot}对象。
+   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext.getComponentSnapshot}方法获取当前UI上下文关联的
+   * > [ComponentSnapshot]{@link @ohos.arkui.UIContext}对象。
    * >
    * > - 由于需要等待组件构建、渲染成功，离屏截图的回调有500ms以内的延迟。
    * >
-   * > - builder中的组件不支持设置动画相关的属性，如[transition]{@link common}。
+   * > - builder中的组件不支持设置动画相关的属性，如[transition]{@link ./@internal/component/ets/common}。
    * >
-   * > - 部分执行耗时任务的组件可能无法及时在截图前加载完成，因此会截取不到加载成功后的图像。例如：加载网络图片的[Image]{@link image}组件、[Web]{@link web}组件。
+   * > - 部分执行耗时任务的组件可能无法及时在截图前加载完成，因此会截取不到加载成功后的图像。例如：加载网络图片的[Image]{@link ./@internal/component/ets/image}组件、
+   * > [Web]{@link ./@internal/component/ets/web}组件。
    *
-   * @param { CustomBuilder } builder - 自定义组件构建函数。<br/>**说明：** 不支持全局builder。<br/>builder的根组件宽高为0时，截图操作会失败并抛出100001错误码。
+   * @param { CustomBuilder } builder - 自定义组件构建函数。
+   *     <br>**说明：** 不支持全局builder。
+   *     <br>builder的根组件宽高为0时，截图操作会失败并抛出100001错误码。
    * @param { AsyncCallback<image.PixelMap> } callback - 截图返回结果的回调。支持在回调中获取离屏组件绘制区域坐标和大小。
    * @param { number } [delay] - 指定触发截图指令的延迟时间。当布局中使用了图片组件时，需要指定延迟时间，以便系统解码图片资源。资源越大，解码需要的时间越长，建议尽量使用不需要解码的PixelMap资源。
-   *     <br/> 当使用PixelMap资源或对Image组件设置syncLoad为true时，可以配置delay为0，强制不等待触发截图。该延迟时间并非指接口从调用到返回的时间，由于系统需要对传入的builder进行临时离屏构
-   *     建，因此返回的时间通常要比该延迟时间长。<br/>**说明：** 截图接口传入的builder中，不应使用状态变量控制子组件的构建，如果必须要使用，在调用截图接口时，也不应再有变化，以避免出现截图不符合预期的情况。
-   *     <br/> 默认值：300 <br/> 单位：毫秒 <br/> 取值范围：[0, +∞)，小于0时按默认值处理。 [since 12]
+   *     <br> 当使用PixelMap资源或对Image组件设置syncLoad为true时，可以配置delay为0，强制不等待触发截图。该延迟时间并非指接口从调用到返回的时间，由于系统需要对传入的builder进行临时离屏构
+   *     建，因此返回的时间通常要比该延迟时间长。
+   *     <br>**说明：** 截图接口传入的builder中，不应使用状态变量控制子组件的构建，如果必须要使用，在调用截图接口时，也不应再有变化，以避免出现截图不符合预期的情况。
+   *     <br> 默认值：300 
+   *     <br> 单位：毫秒 
+   *     <br> 取值范围：[0, +∞)，小于0时按默认值处理。 [since 12]
    * @param { boolean } [checkImageStatus] - 指定是否允许在截图之前，校验图片解码状态。如果为true，则会在截图之前检查所有Image组件是否已经解码完成。为false，则不会校验图片解码状态。
-   *     如果没有完成检查，则会放弃截图并返回异常。<br/>默认值：false [since 12]
+   *     如果没有完成检查，则会放弃截图并返回异常。
+   *     <br>默认值：false [since 12]
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -552,25 +550,31 @@ declare namespace componentSnapshot {
   /**
    * 在应用后台渲染CustomBuilder自定义组件，并输出其截图。通过Promise返回结果，支持获取离屏组件绘制区域的坐标和大小。
    * 
-   * > **说明：** 
+   * > **说明：**
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext#getComponentSnapshot}方法
-   * > 获取当前UI上下文关联的[ComponentSnapshot]{@link @ohos.arkui.UIContext:ComponentSnapshot}对象。
+   * > [getComponentSnapshot]{@link @ohos.arkui.UIContext:UIContext.getComponentSnapshot}方法获取当前UI上下文关联的
+   * > [ComponentSnapshot]{@link @ohos.arkui.UIContext}对象。
    * >
    * > - 由于需要等待组件构建、渲染成功，离屏截图的回调有500ms以内的延迟。
    * >
-   * > - builder中的组件不支持设置动画相关的属性，如[transition]{@link common}。
+   * > - builder中的组件不支持设置动画相关的属性，如[transition]{@link ./@internal/component/ets/common}。
    * >
-   * > - 部分执行耗时任务的组件可能无法及时在截图前加载完成，因此会截取不到加载成功后的图像。例如：加载网络图片的[Image]{@link image}组件、[Web]{@link web}组件。
+   * > - 部分执行耗时任务的组件可能无法及时在截图前加载完成，因此会截取不到加载成功后的图像。例如：加载网络图片的[Image]{@link ./@internal/component/ets/image}组件、
+   * > [Web]{@link ./@internal/component/ets/web}组件。
    *
-   * @param { CustomBuilder } builder - 自定义组件构建函数。<br/>**说明：** 不支持全局builder。<br/>builder的根组件宽高为0时，截图操作会失败并抛出100001错误码。
+   * @param { CustomBuilder } builder - 自定义组件构建函数。
+   *     <br>**说明：** 不支持全局builder。
+   *     <br>builder的根组件宽高为0时，截图操作会失败并抛出100001错误码。
    * @param { number } [delay] - 指定触发截图指令的延迟时间。当布局中使用了图片组件时，需要指定延迟时间，以便系统解码图片资源。资源越大，解码需要的时间越长，建议尽量使用不需要解码的PixelMap资源。
-   *     <br/> 当使用PixelMap资源或对Image组件设置syncLoad为true时，可以配置delay为0，强制不等待触发截图。该延迟时间并非指接口从调用到返回的时间，由于系统需要对传入的builder进行临时离屏构
-   *     建，因此返回的时间通常要比该延迟时间长。<br/>**说明：** 截图接口传入的builder中，不应使用状态变量控制子组件的构建，如果必须要使用，在调用截图接口时，也不应再有变化，以避免出现截图不符合预期的情况。
-   *     <br/> 默认值：300 <br/> 单位：毫秒 [since 12]
+   *     <br> 当使用PixelMap资源或对Image组件设置syncLoad为true时，可以配置delay为0，强制不等待触发截图。该延迟时间并非指接口从调用到返回的时间，由于系统需要对传入的builder进行临时离屏构
+   *     建，因此返回的时间通常要比该延迟时间长。
+   *     <br>**说明：** 截图接口传入的builder中，不应使用状态变量控制子组件的构建，如果必须要使用，在调用截图接口时，也不应再有变化，以避免出现截图不符合预期的情况。
+   *     <br> 默认值：300 
+   *     <br> 单位：毫秒 [since 12]
    * @param { boolean } [checkImageStatus] - 指定是否允许在截图之前，校验图片解码状态。如果为true，则会在截图之前检查所有Image组件是否已经解码完成。为false，则不会校验图片解码状态。
-   *     如果没有完成检查，则会放弃截图并返回异常。<br/>默认值：false [since 12]
+   *     如果没有完成检查，则会放弃截图并返回异常。
+   *     <br>默认值：false [since 12]
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
    * @returns { Promise<image.PixelMap> } 截图返回的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -592,15 +596,16 @@ declare namespace componentSnapshot {
     checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>;
 
   /**
-   * 获取已加载的组件的截图，传入组件的[组件标识]{@link common}，找到对应组件进行截图。同步等待截图完成返回[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}。
+   * 获取已加载的组件的截图，传入组件的[组件标识]{@link ./@internal/component/ets/common}，找到对应组件进行截图。同步等待截图完成返回
+   * [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}。
    * 
    * > **说明：**
    * >
    * > 截图会获取最近一帧的绘制内容。如果在组件触发更新的同时调用截图，更新的渲染内容不会被截取到，截图会返回上一帧的绘制内容。
    *
-   * @param { string } id - 目标组件的[组件标识]{@link common}。
-   * @param { SnapshotOptions } [options] - 截图相关的自定义参数。
-   * @returns { image.PixelMap } 截图返回的结果。
+   * @param { string } id - 目标组件的[组件标识]{@link ./@internal/component/ets/common}。
+   * @param { SnapshotOptions } [options] - 截图相关的自定义参数，用于在需要自定义截图行为时传入，例如设置缩放比例、等待渲染完成、截图区域、色彩空间或动态范围等。不传入时使用默认截图配置。
+   * @returns { image.PixelMap } 组件截图的PixelMap对象，用于表示截取到的组件图像。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
