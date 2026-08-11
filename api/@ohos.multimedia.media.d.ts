@@ -12201,9 +12201,9 @@ declare namespace media {
   /**
    * Create a MediaSource object from the given directory.
    *
-   * @param { string } path - Buffer path information for creating a media source
-   * @returns { Promise<MediaSource | undefined> } If success, an MediaSource is returned. Otherwise returns null.
-   * @throws { BusinessError } 5411007 - The directory specified by the path parameter does not exist or unaccessed.
+   * @param { string } path - Buffer path information for creating a media source.
+   * @returns { Promise<MediaSource | undefined> } If success, a MediaSource is returned. Otherwise returns null.
+   * @throws { BusinessError } 5411007 - The directory specified by the path parameter does not exist or inaccessible.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -12213,12 +12213,12 @@ declare namespace media {
   /**
    * Creating a Streaming Resource Download Task Manager
    *
-   * @returns { Promise<AVDownloaderManager> } Returns an instance of the Offline Download Manager
+   * @returns { Promise<AVDownloaderManager> } Promise used to return AVDownloaderManager.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function createAVDownloaderManager( ): Promise<AVDownloaderManager>;
+  function createAVDownloaderManager(): Promise<AVDownloaderManager>;
 
   /**
    * Enumerates the states of the download task.
@@ -12272,15 +12272,15 @@ declare namespace media {
     /**
      * Sets the network timeout interval for HTTP requests. If the timeout interval is exceeded, the download fails.
      *
-     * @param { int } expired - Timeout duration, in ms. If is not set, the default timeout duration is used.
-     *     The value should be an interager.
+     * @param { int } timeout - Timeout duration, in ms. If is not set, the default timeout duration is used.
+     *     The value should be an integer.
      *     <br>**Description**</br>
      *     <ul><li>If the value is less than 0, there is no timeout duration.</li></ul>.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    setRequestTimeout(expired: int): void;
+    setRequestTimeout(timeout: int): void;
 
     /**
      * Create a download task based on the media description.
@@ -12367,12 +12367,11 @@ declare namespace media {
     getTaskStatus(taskId: string): AVDownloadTaskState;
 
     /**
-     * Remove a download task from the offline download manager
+     * Obtains the progress of a specified offline download task.
      *
      * @param { string } taskId - ID of the task for querying the progress.
      * @returns { double } Returns the approximate ratio of the download progress of a specified task.
-     *     Value range: [0.0-1.0)
-     *     If the returned value range is -1, the resource size is unknown.
+     *     Value range: [0.0-1.0] If the returned value range is -1, the resource size is unknown.
      * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
