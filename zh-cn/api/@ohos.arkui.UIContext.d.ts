@@ -4472,6 +4472,31 @@ export class ResolvedUIContext extends UIContext {
    */
   strategy: ResolveStrategy;
 }
+export abstract class FrameCallback {
+  /**
+   * 在下一帧进行渲染时，该方法将被执行。
+   *
+   * @param { number } frameTimeInNano - 下一帧渲染开始执行的时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * 在下一帧渲染结束时，如果距离下一个Vsync信号到来还有1ms以上的剩余时间，该方法将被执行，否则将顺延至后面的帧。
+   *
+   * @param { number } timeLeftInNano - 这一帧剩余的空闲时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onIdle(timeLeftInNano: number): void;
+}
 
 /**
 * UIContext实例对象。
