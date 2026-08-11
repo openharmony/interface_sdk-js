@@ -26,7 +26,7 @@ import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBrea
 
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
 
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, TextDirection, IMEClient, SelectedDragPreviewStyle, VoiceButtonOptions, ShaderStyle, StrokeJoinStyle } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentContentBase } from '../ComponentContent';
 /**
