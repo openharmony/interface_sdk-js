@@ -839,7 +839,7 @@ declare namespace deviceInfo {
      * 检查指定的API版本在当前设备上是否可用。
      * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
      * 
-     * @param { string | int } version - 需要检验的API版本号，支持整数格式版本号和字符串格式版本号。
+     * @param { string | int } version - 需要校验的API版本号，支持整数格式版本号和字符串格式版本号。
      *     - 字符串采用M.S.F格式（如 "26.0.0","5.0.1"）：
      *         - 对于API 26.0.0及以上版本（version >= 26.0.0）：代表OpenHarmony和发行版系统API版本。
      *         - 对于API 26.0.0以下版本（version < 26.0.0）:代表发行版系统API版本。
