@@ -725,8 +725,8 @@ export declare class PromptAction {
   /**
    * 弹出对话框。
    *
-   * @param { promptAction.ShowDialogOptions } options - 页面显示对话框信息描述。
-   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。
+   * @param { promptAction.ShowDialogOptions } options - 选项。
+   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - showDialog的回调。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -736,13 +736,27 @@ export declare class PromptAction {
    * @stagemodelonly
    * @since 23 static
    */
-  showDialog(options: promptAction.ShowDialogOptions,
-    callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
+  /**
+   * 创建并显示对话框，对话框响应结果使用callback异步回调返回。
+   *
+   * @param { promptAction.ShowDialogOptions } options - 页面显示对话框信息描述。
+   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
 
   /**
    * 弹出对话框。
    *
-   * @param { promptAction.ShowDialogOptions } options - 对话框选项。
+   * @param { promptAction.ShowDialogOptions } options - 选项。
    * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -753,13 +767,28 @@ export declare class PromptAction {
    * @stagemodelonly
    * @since 23 static
    */
+  /**
+   * 创建并显示对话框，使用Promise异步回调获取对话框的响应结果。
+   *
+   * @param { promptAction.ShowDialogOptions } options - 对话框选项。
+   * @returns { Promise<promptAction.ShowDialogSuccessResponse> } Promise对象，返回对话框的响应结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
    * 显示操作菜单。
    *
-   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。
+   * @param { promptAction.ActionMenuOptions } options - 选项。
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - showActionMenu的回调。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -769,13 +798,28 @@ export declare class PromptAction {
    * @stagemodelonly
    * @since 23 static
    */
+  /**
+   * 创建并显示操作菜单，菜单响应结果使用callback异步回调返回。
+   *
+   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   showActionMenu(options: promptAction.ActionMenuOptions,
     callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
 
   /**
    * 显示操作菜单。
    *
-   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
+   * @param { promptAction.ActionMenuOptions } options - 选项。
    * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -786,16 +830,28 @@ export declare class PromptAction {
    * @stagemodelonly
    * @since 23 static
    */
+  /**
+   * 创建并显示操作菜单，通过Promise异步回调获取菜单的响应结果。
+   *
+   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
+   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } Promise对象，返回菜单的响应结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 
   /**
    * 使用frameNode打开自定义对话框。
    *
-   * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
-   * @param { promptAction.BaseDialogOptions } options - 弹窗样式。
-   *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
-   *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
-   *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @param { ComponentContent<T> } dialogContent - 自定义对话框的内容。
+   * @param { promptAction.BaseDialogOptions } options - 选项。
    * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -807,28 +863,69 @@ export declare class PromptAction {
    * @stagemodelonly
    * @since 23 static
    */
+  /**
+   * 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的
+   * 显示效果。
+   *
+   * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
+   * @param { promptAction.BaseDialogOptions } options - 弹窗样式。
+   *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
+   *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
+   *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
     options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * 打开带有frameNode和控制器的自定义对话框。
    *
-   * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
-   * @param { promptAction.DialogController } controller - 自定义弹窗的控制器。
-   * @param { promptAction.BaseDialogOptions } options - 自定义弹窗的样式。
-   *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
-   *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
-   *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @param { ComponentContent<T> } dialogContent - 自定义对话框的内容。
+   * @param { promptAction.DialogController } controller - 对话框控制器。
+   * @param { promptAction.BaseDialogOptions } options - 选项。
    * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
+   */
+  /**
+   * 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
+   * 
+   * 通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的显示效果。
+   *
+   * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
+   * @param { promptAction.DialogController } controller - 自定义弹窗的控制器。
+   * @param { promptAction.BaseDialogOptions } options - 自定义弹窗的样式。 
+   *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
+   *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
+   *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
     controller: promptAction.DialogController,
@@ -873,31 +970,43 @@ export declare class PromptAction {
   /**
    * 打开自定义对话框。
    *
-   * @param { promptAction.CustomDialogOptions } options - 自定义弹窗的内容。
-   *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
-   *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
-   *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @param { promptAction.CustomDialogOptions } options - 选项。
    * @returns { Promise<int> } 返回closeCustomDialog可以使用的对话框ID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
+   */
+  /**
+   * 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
+   *
+   * @param { promptAction.CustomDialogOptions } options - 自定义弹窗的内容。
+   *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
+   *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
+   *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @returns { Promise<int> } Promise对象。返回对话框id，可供closeCustomDialog使用。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
 
   /**
    * 使用控制器显示自定义对话框。
    *
-   * @param { CustomBuilder | CustomBuilderT<int> } builder - 自定义弹窗的内容。
-   * @param { promptAction.DialogController } [controller] - 自定义弹窗的控制器。
-   * @param { promptAction.DialogOptions } [options] - 自定义弹窗的样式。
-   *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
-   *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
-   *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @param { CustomBuilder | CustomBuilderT<int> } builder - 对话框生成器。
+   * @param { promptAction.DialogController } [controller] - 对话框控制器。
+   * @param { promptAction.DialogOptions } [options] - 选项。
    * @returns { Promise<int> } 返回将由closeCustomDialog使用的对话框ID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -907,6 +1016,28 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
+   */
+  /**
+   * 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
+   * 
+   * 支持在自定义弹窗内容中持有弹窗ID进行对应操作。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
+   *
+   * @param { CustomBuilder | CustomBuilderT<int> } builder - 自定义弹窗的内容。
+   * @param { promptAction.DialogController } [controller] - 自定义弹窗的控制器。
+   * @param { promptAction.DialogOptions } [options] - 自定义弹窗的样式。
+   *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
+   *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
+   *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
+   * @returns { Promise<int> } Promise对象。返回自定义弹窗ID。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
     options?: promptAction.DialogOptions): Promise<int>;
@@ -931,7 +1062,7 @@ export declare class PromptAction {
    *
    * 获取最顶层显示的弹窗的顺序，可以在下一个弹窗时指定期望的顺序。
    *
-   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
+   * @returns { LevelOrder | undefined } 返回弹窗层级信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -941,7 +1072,7 @@ export declare class PromptAction {
   /**
    * 获取最底层显示的弹窗的顺序，可以在下一个弹窗时指定期望的顺序。
    *
-   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
+   * @returns { LevelOrder | undefined } 返回弹窗层级信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1109,6 +1240,31 @@ export declare class PromptAction {
    * @since 23 static
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
+
+  /**
+   * 显示告警对话框。
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options -
+   告警对话框的选项。
+   * @returns { Promise<void> } 函数返回的promise。
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): Promise<void>;
+
+  /**
+   * 显示操作列表。
+   *
+   * @param { ActionSheetOptions } options - 操作列表的选项。
+   * @returns { Promise<void> } 函数返回的promise。
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  showActionSheet(options: ActionSheetOptions): Promise<void>;
 }
 
 /**
@@ -1188,7 +1344,6 @@ export interface PageInfo {
 /**
 * 初始化[OverlayManager]{@link @ohos.arkui.UIContext}时所用参数。
 *
- * @interface OverlayManagerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1198,7 +1353,6 @@ export interface OverlayManagerOptions {
   /**
    * 是否渲染overlay根节点，true表示渲染overlay根节点，false表示不渲染overlay根节点，默认值为true。
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1209,7 +1363,6 @@ export interface OverlayManagerOptions {
   /**
    * 是否支持通过侧滑手势关闭OverlayManager下的ComponentContent，true表示可以通过侧滑关闭，false表示不可以通过侧滑关闭，默认值为false。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2460,7 +2613,7 @@ export declare class OverlayManager {
    * 打开具有指定ComponentContent和选项的浮层。
    *
    * @param { ComponentContent<Object> } content - 该内容将被添加到OverlayManager中。
-   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
+   * @param { OrderOverlayOptions } [ options ] - 浮层的选项。
    * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
