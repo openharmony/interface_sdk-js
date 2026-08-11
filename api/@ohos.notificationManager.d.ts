@@ -193,8 +193,8 @@ declare namespace notificationManager {
    *     notification is enabled for the specified application.
    * @see [cancel]{@link notificationManager.cancel(id: int,label?: string): Promise<void>} cancels a published
    *     notification based on the notification ID and label. 
-   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} cancels all
-   *     notifications of this application.
+   * @see [cancelAll]{@link notificationManager.cancelAll(): Promise<void>} cancels all notifications of 
+   *     this application.
    */
   function publish(request: NotificationRequest): Promise<void>;
 
