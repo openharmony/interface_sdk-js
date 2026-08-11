@@ -157,7 +157,9 @@ declare namespace hiTraceMeter {
    * 用来标记一个跟踪的整数变量，该变量的数值会不断变化。适用于需要实时监控数值变化（如网络请求次数、缓存命中率、内存占用等）的场景，能够帮助开发者
    * 快速发现异常波动，分析数据趋势。
    *
-   * 从API version 19开始，建议使用[traceByValue<sup>19+</sup>()]{@link hiTraceMeter.traceByValue}接口，以便分级控制跟踪输出。
+   * 从API version 19开始，建议使用
+   * [traceByValue]{@link hiTraceMeter.traceByValue(level: HiTraceOutputLevel, name: string, count: long)}接口，以便分级控
+   * 制跟踪输出。
    *
    * @param { string } name - 要跟踪的整数变量名称。
    *     由于单条trace记录的总长度限制为512Byte，超过的部分将会被截断，建议该参数的长度不要超过420Byte。
