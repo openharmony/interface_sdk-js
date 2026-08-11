@@ -3424,7 +3424,7 @@ export declare interface DragItemInfo {
      */
     builder?: CustomBuilder;
     /**
-     * 拖拽项的附近信息，用于描述拖拽项。
+     * 拖拽项的附加信息，用于描述拖拽项。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3501,7 +3501,7 @@ export declare namespace cursorControl {
      */
     function setCursor(value: PointerStyle): void;
     /**
-     * 方法语句中可使用的全局接口，调用该接口可将鼠标光标恢复成默认箭头样式。
+     * 方法语句中可使用的全局接口，调用此接口可将鼠标光标恢复成默认箭头样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4823,7 +4823,7 @@ export declare interface BaseEvent {
      */
     tiltY: double;
     /**
-     * 手写笔在设备平面上的投影与设备平面X轴的夹角。
+     * 手写笔与设备平面的夹角。
      *
      * 单位：deg 
      *
@@ -8365,9 +8365,6 @@ export declare interface PopupBorderLinearGradient {
      * [ResourceColor]{@link ResourceColor}表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，0表示需要设置渐变色的容器的起始位置，1.0表示容器的结束位置。为实现多个颜
      * 色渐变效果，建议多个数组中number参数递增设置，如后一个数组number参数比前一个数组number小时，按照等于前一个数组number的值处理。
      *
-     * When the color setting is undefined, use the default value Color.Black.
-     * The position setting ranges from 0 to 1.
-     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -9642,7 +9639,7 @@ export declare interface PopupOptions {
   onDidDisappear?: VoidCallback;
 }
 /**
- * Defines the custom popup options.
+ * 弹出自定义气泡的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -9650,15 +9647,15 @@ export declare interface PopupOptions {
  */
 export declare interface CustomPopupOptions {
     /**
-     * Popup builder.
-     * <p><strong>NOTE</strong>:
-     * <br>The popup attribute is a universal attribute. A custom popup does not support display of another popup.
-     * <br>The position attribute cannot be used for the first-layer container in the builder.
-     * <br>If the position attribute is used, the popup will not be displayed.
-     * <br>If a custom component is used in the builder, the aboutToAppear and aboutToDisappear lifecycle callbacks
-     * of the custom component are irrelevant to the visibility of the popup. As such, the lifecycle of the
-     * custom component cannot be used to determine whether the popup is displayed or not.
-     * </p>
+     * 提示气泡内容的构造器。
+     *
+     * **说明：**
+     *
+     * 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用[Position]{@link Position}属性，如果使用将导致气泡不显示。
+     * 2. builder中若使用自定义组件，自定义组件的[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)和[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。
+     * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build)方法里。
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -9666,8 +9663,11 @@ export declare interface CustomPopupOptions {
      */
     builder: CustomBuilder;
     /**
-     * Preferred position of the popup. If the set position is insufficient for holding the popup,
-     * it will be automatically adjusted.
+     * 气泡组件优先显示的位置，当前位置显示不下时，会自动调整位置。
+     *
+     * 默认值：Placement.Bottom
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default Placement.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9676,7 +9676,13 @@ export declare interface CustomPopupOptions {
      */
     placement?: Placement;
     /**
-     * Color of the popup. To remove the background blur, set backgroundBlurStyle to BlurStyle.NONE.
+     * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。
+     *
+     * API version 10，默认值：'#4d4d4d'
+     *
+     * API version 11及以后，默认值：透明色[Transparent]{@link Color}加模糊背景填充效果[COMPONENT_ULTRA_THICK]{@link BlurStyle}
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default TRANSPARENT plus COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9685,7 +9691,17 @@ export declare interface CustomPopupOptions {
      */
     popupColor?: Color | string | Resource | long;
     /**
-     * whether show arrow
+     * 设置是否显示箭头。
+     *
+     * true：显示箭头；false：不显示箭头。
+     *
+     * 默认值：true
+     *
+     * **说明：**
+     *
+     * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
