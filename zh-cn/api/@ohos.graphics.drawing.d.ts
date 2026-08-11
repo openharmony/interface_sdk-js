@@ -3908,9 +3908,9 @@ declare namespace drawing {
     getHinting(): FontHinting;
 
     /**
-     * Obtains the font hinting effect.
+     * 获取字型轮廓效果。
      *
-     * @returns { FontHinting | undefined } Font hinting effect.
+     * @returns { FontHinting | undefined } 返回字型轮廓效果。获取失败时返回undefined。
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
