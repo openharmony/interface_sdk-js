@@ -236,7 +236,6 @@ declare namespace dragController {
   /**
      * 拖拽相关的动效参数。
      *
-   * @interface AnimationOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -306,7 +305,6 @@ declare namespace dragController {
   /**
      * 拖拽结束返回结果的回调。
      *
-   * @interface DragEventParam
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -336,7 +334,6 @@ declare namespace dragController {
   /**
    * 定义应用是否可以发起拖拽的枚举类型。仅在[onDragStart]{@link CommonMethod#onDragStart}调用时有效。
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -365,7 +362,6 @@ declare namespace dragController {
    * 默认系统配置下，如果没有触发CANCEL，状态报告如下：
    * 保持Hover-->500ms-->BEGIN-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->END
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static

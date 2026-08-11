@@ -670,7 +670,7 @@ declare enum ImageFit {
    * @atomicservice
    * @since 15 dynamic
    */
-  MATRIX = 16,
+  MATRIX = 16
 }
 
 /**
@@ -985,6 +985,7 @@ declare enum LineJoinStyle {
  * @since 7 dynamic
  */
 declare enum TouchType {
+
   /**
    * 手指按下时触发。
    *
@@ -1067,7 +1068,7 @@ declare enum TouchType {
    * @atomicservice
    * @since 20 dynamic
    */
-  HOVER_CANCEL = 12,
+  HOVER_CANCEL = 12
 }
 
 /**
@@ -1080,6 +1081,7 @@ declare enum TouchType {
  * @since 15 dynamic
  */
 declare enum InteractionHand {
+
   /**
    * 未定义。
    *
@@ -1111,7 +1113,7 @@ declare enum InteractionHand {
    * @atomicservice
    * @since 15 dynamic
    */
-  RIGHT = 2,
+  RIGHT = 2
 }
 
 /**
@@ -1123,6 +1125,7 @@ declare enum InteractionHand {
  * @since 8 dynamic
  */
 declare enum MouseButton {
+
   /**
    * 鼠标左键。
    *
@@ -1181,7 +1184,7 @@ declare enum MouseButton {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
@@ -1207,7 +1210,7 @@ declare enum MouseAction {
   Press,
 
   /**
-   * 鼠标按键释放。
+   *
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1218,7 +1221,7 @@ declare enum MouseAction {
   Release,
 
   /**
-   * 鼠标移动。
+   *
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1229,9 +1232,7 @@ declare enum MouseAction {
   Move,
 
   /**
-   * 鼠标悬浮。
-   * 
-   * **说明：** 该枚举值无效。
+   *
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1621,6 +1622,7 @@ declare enum PlayMode {
  * @since 7 dynamic
  */
 declare enum KeyType {
+
   /**
    * 按键按下。
    *
@@ -1665,6 +1667,7 @@ declare enum KeyType {
  * @since 7 dynamic
  */
 declare enum KeySource {
+
   /**
    * 输入设备类型未知。
    *
@@ -1696,7 +1699,7 @@ declare enum KeySource {
    * @atomicservice
    * @since 15 dynamic
    */
-  JOYSTICK,
+  JOYSTICK
 }
 
 /**
@@ -1724,6 +1727,7 @@ declare enum KeySource {
  * @since 11 dynamic
  */
 declare enum Edge {
+
   /**
    * The top is centered horizontally.
    *
@@ -1841,7 +1845,7 @@ declare enum Edge {
    * @atomicservice
    * @since 11 dynamic
    */
-  End,
+  End
 }
 
 /**
@@ -2215,6 +2219,7 @@ declare enum Direction {
  * @since 7 dynamic
  */
 declare enum BarState {
+
   /**
    * Not displayed.
    *
@@ -2249,7 +2254,7 @@ declare enum BarState {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  On,
+  On
 }
 
 /**
@@ -2262,6 +2267,7 @@ declare enum BarState {
  * @since 7 dynamic
  */
 declare enum EdgeEffect {
+
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or 
    * touch event, and spring back when released.
@@ -2294,7 +2300,7 @@ declare enum EdgeEffect {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
@@ -2662,7 +2668,7 @@ declare enum Alignment {
 }
 
 /**
- * LocalizedAlignment enumeration description.
+ * Alignment enumeration description.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2846,6 +2852,7 @@ declare enum TransitionType {
  * @since 11 dynamic
  */
 declare enum RelateType {
+
   /**
    * Scales the current component to fill the parent component.
    *
@@ -2896,7 +2903,7 @@ declare enum RelateType {
    * @atomicservice
    * @since 11 dynamic
    */
-  FIT,
+  FIT
 }
 
 /**
@@ -2909,6 +2916,7 @@ declare enum RelateType {
  * @since 7 dynamic
  */
 declare enum Visibility {
+
   /**
    * 显示。
    *
@@ -2940,7 +2948,7 @@ declare enum Visibility {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
@@ -3043,20 +3051,20 @@ declare enum LineCapStyle {
   Round,
 
   /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3064,7 +3072,7 @@ declare enum LineCapStyle {
    * @since 10
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4696,8 +4704,8 @@ declare enum SharedTransitionEffectType {
 }
 
 /**
-* Text style
-*
+ * Text style
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4715,7 +4723,7 @@ declare enum FontStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * Italic style.
@@ -4726,12 +4734,12 @@ declare enum FontStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Italic = 1
+  Italic
 }
 
 /**
-* The font weight of the text
-*
+ * The font weight of the text
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4749,7 +4757,7 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Lighter = 0,
+  Lighter,
 
   /**
    * Normal font. Equivalent to a digital value of 400.
@@ -4760,7 +4768,7 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 1,
+  Normal,
 
   /**
    * Defines a more general value than [Inherited Value].
@@ -4771,7 +4779,7 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Regular = 2,
+  Regular,
 
   /**
    * Defines a value that is more centered than [Inherited Value].
@@ -4782,7 +4790,7 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Medium = 3,
+  Medium,
 
   /**
    * Bold. Equivalent to a numeric value of 700.
@@ -4793,7 +4801,7 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bold = 4,
+  Bold,
 
   /**
    * Defines a value that is heavier than [Inherited Value].
@@ -4804,12 +4812,12 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bolder = 5
+  Bolder
 }
 
 /**
-* Alignment of text.
-*
+ * Alignment of text.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4827,7 +4835,7 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 0,
+  Center,
 
   /**
    * The text is aligned in the same direction as the writing
@@ -4838,7 +4846,7 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 1,
+  Start,
 
   /**
    * The text is aligned in the opposite direction of writing
@@ -4849,7 +4857,7 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 2,
+  End,
 
   /**
    * Justify the text.
@@ -4861,7 +4869,7 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  JUSTIFY = 3,
+  JUSTIFY,
 
   /**
    * 文本在左侧对齐。
@@ -4889,8 +4897,8 @@ declare enum TextAlign {
 }
 
 /**
-* Declare how text overflows.
-*
+ * Declare how text overflows.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4908,7 +4916,7 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * When the text overflows its dimensions, the text will be cropped and displayed.
@@ -4919,7 +4927,7 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Clip = 1,
+  Clip,
 
   /**
    * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
@@ -4930,7 +4938,7 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Ellipsis = 2,
+  Ellipsis,
 
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
@@ -4941,12 +4949,12 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MARQUEE = 3
+  MARQUEE
 }
 
 /**
-* Type of text modifier.
-*
+ * Type of text modifier.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4964,7 +4972,7 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Underline the words.
@@ -4975,7 +4983,7 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Underline = 1,
+  Underline,
 
   /**
    * Text is in all uppercase.
@@ -4986,7 +4994,7 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Overline = 2,
+  Overline,
 
   /**
    * A modifier line that passes through the text.
@@ -4997,12 +5005,12 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  LineThrough = 3
+  LineThrough
 }
 
 /**
-* Letter type in text
-*
+ * Letter type in text
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -5020,7 +5028,7 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The text is all lowercase.
@@ -5031,7 +5039,7 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  LowerCase = 1,
+  LowerCase,
 
   /**
    * The text is all uppercase.
@@ -5042,12 +5050,12 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  UpperCase = 2
+  UpperCase
 }
 
 /**
-* Enum of text height adaptation
-*
+ * Enum of text height adaptation
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5067,7 +5075,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MAX_LINES_FIRST = 0,
+  MAX_LINES_FIRST,
 
   /**
    * Priority is given to using the minFontSize attribute to adapt the text height.
@@ -5080,7 +5088,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MIN_FONT_SIZE_FIRST = 1,
+  MIN_FONT_SIZE_FIRST,
 
   /**
    * Priority is given to using the layout constraint to adapt the text height.
@@ -5094,20 +5102,20 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  LAYOUT_CONSTRAINT_FIRST = 2
+  LAYOUT_CONSTRAINT_FIRST
 }
 
 /**
- * ResponseType for contextMenu
- *
+* ResponseType for contextMenu
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 8
  */
 /**
- * ResponseType for contextMenu
- *
+* ResponseType for contextMenu
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5115,8 +5123,8 @@ declare enum TextHeightAdaptivePolicy {
  * @since 10
  */
 /**
- * ResponseType for contextMenu
- *
+* ResponseType for contextMenu
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5125,6 +5133,7 @@ declare enum TextHeightAdaptivePolicy {
  * @since 11 dynamic
  */
 declare enum ResponseType {
+
   /**
    * Right click.
    *
@@ -5149,7 +5158,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightClick = 0,
+  RightClick,
 
   /**
    * Long press.
@@ -5175,7 +5184,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  LongPress = 1
+  LongPress
 }
 
 /**
@@ -5187,6 +5196,7 @@ declare enum ResponseType {
  * @since 8 dynamic
  */
 declare enum HoverEffect {
+
   /**
    * 使用组件的系统默认悬浮效果。
    *
@@ -5225,20 +5235,20 @@ declare enum HoverEffect {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
- * Placement enumeration description
- *
+* Placement enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 8
  */
 /**
- * Placement enumeration description
- *
+* Placement enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5246,8 +5256,8 @@ declare enum HoverEffect {
  * @since 10
  */
 /**
- * Placement enumeration description
- *
+* Placement enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5256,6 +5266,7 @@ declare enum HoverEffect {
  * @since 11 dynamic
  */
 declare enum Placement {
+
   /**
    * Left placement
    *
@@ -5566,12 +5577,12 @@ declare enum Placement {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightBottom,
+  RightBottom
 }
 
 /**
- * ArrowPointPosition enumeration description
- *
+* ArrowPointPosition enumeration description
+*
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5579,8 +5590,8 @@ declare enum Placement {
  * @since 11
  */
 /**
- * ArrowPointPosition enumeration description
- *
+* ArrowPointPosition enumeration description
+*
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5589,6 +5600,7 @@ declare enum Placement {
  * @since 12 dynamic
  */
 declare enum ArrowPointPosition {
+
   /**
    * Target start position
    *
@@ -5644,19 +5656,19 @@ declare enum ArrowPointPosition {
    * @atomicservice
    * @since 12 dynamic
    */
-  END = 'End',
+  END = 'End'
 }
 
 /**
 * Indicates the share option.
 *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform [since 10]
- * @form
- * @atomicservice [since 11]
- * @since 9 dynamic
- */
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @FaAndStageModel
+* @crossplatform [since 10]
+* @form
+* @atomicservice [since 11]
+* @since 9 dynamic
+*/
 declare enum CopyOptions {
 
   /**
@@ -5710,7 +5722,7 @@ declare enum CopyOptions {
 
 /**
  * 定义触摸测试的响应逻辑及节点阻塞规则。
- *
+ * 
  * > **说明：**
  * >
  * > 当Stack组件中有多个节点触摸区域重叠时，如果最上层节点的子组件命中，则默认只会对显示在最上层的节点做触摸测试。此时只有给显示在最上层的节点设置
@@ -5724,6 +5736,7 @@ declare enum CopyOptions {
  * @since 9 dynamic
  */
 declare enum HitTestMode {
+
   /**
    * 默认触摸测试效果。自身及子节点响应触摸测试，但阻塞兄弟节点的触摸测试，不影响祖先节点的触摸测试。
    *
@@ -5734,7 +5747,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Default = 0,
+  Default,
 
   /**
    * 自身响应触摸测试，阻塞子节点、兄弟节点和祖先节点的触摸测试。
@@ -5746,7 +5759,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Block = 1,
+  Block,
 
   /**
    * 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
@@ -5758,7 +5771,7 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Transparent = 2,
+  Transparent,
 
   /**
    * 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。
@@ -5770,7 +5783,8 @@ declare enum HitTestMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  None = 3,
+  None,
+
   /**
    * 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。
    *
@@ -5781,7 +5795,8 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_HIERARCHY = 4,
+  BLOCK_HIERARCHY,
+
   /**
    * 自身不响应触摸测试，并且所有的后代（孩子，孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。
    *
@@ -5792,27 +5807,27 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS = 5
+  BLOCK_DESCENDANTS,
 }
 
 /**
- * Title height.
- *
+* Title height.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
- * Title height.
- *
+* Title height.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
- * Title height.
- *
+* Title height.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -5820,6 +5835,7 @@ declare enum HitTestMode {
  * @since 11 dynamic
  */
 declare enum TitleHeight {
+
   /**
    * Title height when only main title is available.
    *
@@ -5864,7 +5880,7 @@ declare enum TitleHeight {
    * @atomicservice
    * @since 11 dynamic
    */
-  MainWithSub,
+  MainWithSub
 }
 
 /**
@@ -5877,6 +5893,7 @@ declare enum TitleHeight {
  * @since 10 dynamic
  */
 declare enum ModifierKey {
+
   /**
    * 表示键盘上Ctrl键。
    *
@@ -5908,7 +5925,7 @@ declare enum ModifierKey {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  ALT,
+  ALT
 }
 
 /**
@@ -5921,6 +5938,7 @@ declare enum ModifierKey {
  * @since 10 dynamic
  */
 declare enum FunctionKey {
+
   /**
    * 表示键盘上ESC功能键。
    *
@@ -6063,7 +6081,7 @@ declare enum FunctionKey {
    * @since 10 dynamic
    */
   F12,
-    
+
   /**
    * 表示键盘上TAB功能键。
    *
@@ -6117,18 +6135,18 @@ declare enum FunctionKey {
    * @atomicservice
    * @since 12 dynamic
    */
-  DPAD_RIGHT,
+  DPAD_RIGHT
 }
 
 /**
 * The alignment of ImageSpan
 *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice [since 11]
- * @since 10 dynamic
- */
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @crossplatform
+* @atomicservice [since 11]
+* @since 10 dynamic
+*/
 declare enum ImageSpanAlignment {
 
   /**
@@ -6140,7 +6158,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BASELINE = 0,
+  BASELINE,
 
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
@@ -6151,7 +6169,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BOTTOM = 1,
+  BOTTOM,
 
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
@@ -6162,7 +6180,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  CENTER = 2,
+  CENTER,
 
   /**
    * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
@@ -6173,7 +6191,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  TOP = 3,
+  TOP,
 
   /**
    * 按照段落TextVerticalAlign的对齐方式来布局
@@ -6184,18 +6202,18 @@ declare enum ImageSpanAlignment {
    * @atomicservice
    * @since 20 dynamic
    */
-  FOLLOW_PARAGRAPH = 4
+  FOLLOW_PARAGRAPH
 }
 
 /**
 * ObscuredReasons.
 *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform [since 11]
- * @atomicservice [since 11]
- * @since 10 dynamic
- */
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @crossplatform [since 11]
+* @atomicservice [since 11]
+* @since 10 dynamic
+*/
 declare enum ObscuredReasons {
 
   /**
@@ -6213,12 +6231,12 @@ declare enum ObscuredReasons {
 /**
 * Text content style.
 *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform [since 11]
- * @atomicservice [since 11]
- * @since 10 dynamic
- */
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @crossplatform [since 11]
+* @atomicservice [since 11]
+* @since 10 dynamic
+*/
 declare enum TextContentStyle {
 
   /**
@@ -6230,7 +6248,7 @@ declare enum TextContentStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  DEFAULT = 0,
+  DEFAULT,
 
   /**
    * Text content inline style.
@@ -6241,7 +6259,7 @@ declare enum TextContentStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INLINE = 1
+  INLINE
 }
 
 /**
@@ -6316,6 +6334,7 @@ declare enum ClickEffectLevel {
  * @since 12 dynamic
  */
 declare enum XComponentType {
+
   /**
    * Surface type. The default type is used.
    *
@@ -6340,7 +6359,7 @@ declare enum XComponentType {
    * @atomicservice
    * @since 12 dynamic
    */
-  SURFACE,
+  SURFACE = 0,
 
   /**
    * Component type.
@@ -6392,10 +6411,10 @@ declare enum XComponentType {
    * @atomicservice
    * @since 23 dynamic
    */
-  TEXTURE,
+  TEXTURE = 2,
 
   /**
-   * Node type.
+   * Node类型：用于Native UI节点的占位容器，开发者通过Native接口开发的页面组件可展示在此容器区域内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6404,7 +6423,7 @@ declare enum XComponentType {
    * @deprecated since 20
    * @useinstead ContentSlot
    */
-  NODE,
+  NODE = 3
 }
 
 /**
@@ -6417,6 +6436,7 @@ declare enum XComponentType {
  * @since 10 dynamic
  */
 declare enum NestedScrollMode {
+
   /**
    * Only Self response scrolling.
    *
@@ -6459,11 +6479,12 @@ declare enum NestedScrollMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  PARALLEL,
+  PARALLEL
 }
 
 /**
- * The possible source of scroll event
+* The possible source of scroll event
+*
  * @enum { number } ScrollSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6472,8 +6493,10 @@ declare enum NestedScrollMode {
  * @since 12 dynamic
  */
 declare enum ScrollSource {
+
   /**
    * Drag events.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6484,6 +6507,7 @@ declare enum ScrollSource {
 
   /**
    * Fling after the drag has ended with velocity.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6494,6 +6518,7 @@ declare enum ScrollSource {
 
   /**
    * Over scroll with EdgeEffect.Spring.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6504,6 +6529,7 @@ declare enum ScrollSource {
 
   /**
    * Other user input except drag, such as mouse wheel, key event.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6514,6 +6540,7 @@ declare enum ScrollSource {
 
   /**
    * Drag events of scroll bar.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6524,6 +6551,7 @@ declare enum ScrollSource {
 
   /**
    * Fling after the drag on scroll bar has ended with velocity.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6534,6 +6562,7 @@ declare enum ScrollSource {
 
   /**
    * Member methods of Scroller without animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6544,13 +6573,14 @@ declare enum ScrollSource {
 
   /**
    * Member methods of Scroller with animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  SCROLLER_ANIMATION,
+  SCROLLER_ANIMATION
 }
 
 /**
@@ -6803,8 +6833,8 @@ declare enum DialogButtonStyle {
 }
 
 /**
- * Enum of word break
- *
+* Enum of word break
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6813,6 +6843,7 @@ declare enum DialogButtonStyle {
  * @since 11 dynamic
  */
 declare enum WordBreak {
+
   /**
    * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
    *
@@ -6856,12 +6887,12 @@ declare enum WordBreak {
    * @atomicservice
    * @since 18 dynamic
    */
-  HYPHENATION = 3,
+  HYPHENATION = 3
 }
 
 /**
- * Enum of line break strategy
- *
+* Enum of line break strategy
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6870,6 +6901,7 @@ declare enum WordBreak {
  * @since 12 dynamic
  */
 declare enum LineBreakStrategy {
+
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -6904,7 +6936,7 @@ declare enum LineBreakStrategy {
    * @atomicservice
    * @since 12 dynamic
    */
-  BALANCED = 2,
+  BALANCED = 2
 }
 
 /**
@@ -6975,12 +7007,12 @@ declare enum IlluminatedType {
 /**
 * Enum of ellipsisMode
 *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice [since 12]
- * @since 11 dynamic
- */
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @crossplatform
+* @atomicservice [since 12]
+* @since 11 dynamic
+*/
 declare enum EllipsisMode {
 
   /**
@@ -7040,30 +7072,21 @@ declare enum EllipsisMode {
 }
 
 /**
- * A type which can be undefined
- *
- * @typedef { T | undefined } Nullable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 11
- */
-/**
  * 在使用该类型时，其值可以使泛型参数T所指定的类型，也可以是undefined。
  *
- * @typedef { T | undefined } Nullable<T>
+ * @unionmember { T } The object can be of any custom type.
+ * @unionmember { undefined } The object can be **undefined**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type Nullable<T> = T | undefined;
 
-
 /**
- * Decide whether the width of select menu fit the trigger or content 
- *
+* Decide whether the width of select menu fit the trigger or content
+*
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7071,8 +7094,8 @@ declare type Nullable<T> = T | undefined;
  * @since 11
  */
 /**
- * Decide whether the width of select menu fit the trigger or content 
- *
+* Decide whether the width of select menu fit the trigger or content
+*
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7081,6 +7104,7 @@ declare type Nullable<T> = T | undefined;
  * @since 12 dynamic
  */
 declare enum OptionWidthMode {
+
   /**
    * The menu width fit the content.
    *
@@ -7117,12 +7141,12 @@ declare enum OptionWidthMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  FIT_TRIGGER = 'fit_trigger',
+  FIT_TRIGGER = 'fit_trigger'
 }
 
 /**
- * Enumerates the fold status.
- *
+* Enumerates the fold status.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7130,8 +7154,8 @@ declare enum OptionWidthMode {
  * @since 11
  */
 /**
- * Enumerates the fold status.
- *
+* Enumerates the fold status.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7140,6 +7164,7 @@ declare enum OptionWidthMode {
  * @since 12 dynamic
  */
 declare enum FoldStatus {
+
   /**
    * Fold Status Unknown.
    *
@@ -7158,6 +7183,7 @@ declare enum FoldStatus {
    * @since 12 dynamic
    */
   FOLD_STATUS_UNKNOWN = 0,
+
   /**
    * Fold Status Expanded.
    *
@@ -7176,6 +7202,7 @@ declare enum FoldStatus {
    * @since 12 dynamic
    */
   FOLD_STATUS_EXPANDED = 1,
+
   /**
    * Fold Status Folded.
    *
@@ -7194,6 +7221,7 @@ declare enum FoldStatus {
    * @since 12 dynamic
    */
   FOLD_STATUS_FOLDED = 2,
+
   /**
    * Fold Status Half Folded.
    *
@@ -7211,12 +7239,12 @@ declare enum FoldStatus {
    * @atomicservice
    * @since 12 dynamic
    */
-  FOLD_STATUS_HALF_FOLDED = 3,
+  FOLD_STATUS_HALF_FOLDED = 3
 }
 
 /**
- * Enumerates the app rotation.
- *
+* Enumerates the app rotation.
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7289,8 +7317,8 @@ declare enum EmbeddedType {
 }
 
 /**
- * Marquee scrolling strategy after text update
- *
+* Marquee scrolling strategy after text update
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7299,6 +7327,7 @@ declare enum EmbeddedType {
  * @since 12 dynamic
  */
 declare enum MarqueeUpdateStrategy {
+
   /**
    * Reset scroll position and restart scroll.
    *
@@ -7323,8 +7352,8 @@ declare enum MarqueeUpdateStrategy {
 }
 
 /**
- * Type of text decoration line style.
- * 
+* Type of text decoration line style.
+*
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7333,9 +7362,10 @@ declare enum MarqueeUpdateStrategy {
  * @since 12 dynamic
  */
 declare enum TextDecorationStyle {
+
   /**
    * Solid line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7346,7 +7376,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Double lines.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7357,7 +7387,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dotted line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7368,7 +7398,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dashed line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7379,19 +7409,19 @@ declare enum TextDecorationStyle {
 
   /**
    * Wavy line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  WAVY = 4,
+  WAVY = 4
 }
 
 /**
- * Type of text selectable.
- *
+* Type of text selectable.
+*
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7400,6 +7430,7 @@ declare enum TextDecorationStyle {
  * @since 12 dynamic
  */
 declare enum TextSelectableMode {
+
   /**
    * set text selectable and unfocusable.
    *
@@ -7431,7 +7462,7 @@ declare enum TextSelectableMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  UNSELECTABLE = 2,
+  UNSELECTABLE = 2
 }
 
 /**
@@ -7488,12 +7519,15 @@ declare enum AccessibilityHoverType {
    * @atomicservice
    * @since 12 dynamic
    */
-  HOVER_CANCEL = 3,
+  HOVER_CANCEL = 3
 }
 
 /**
- * Type of window width breakpoint.
- *
+* 表示窗口不同宽度阈值下对应的宽度断点枚举值。通过[getWindowWidthBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowWidthBreakpoint}返回。
+*
+*
+* 下表列出了典型设备默认宽度断点的阈值划分，可在基于窗口宽度断点布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7501,8 +7535,11 @@ declare enum AccessibilityHoverType {
  * @since 13 dynamic
  */
 /**
- * Type of window width breakpoint.
- *
+* 表示窗口不同宽度阈值下对应的宽度断点枚举值。通过[getWindowWidthBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowWidthBreakpoint}返回。
+*
+*
+* 下表列出了典型设备默认宽度断点的阈值划分，可在基于窗口宽度断点布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7511,8 +7548,9 @@ declare enum AccessibilityHoverType {
  * @since 22 dynamic
  */
 declare enum WidthBreakpoint {
+
   /**
-   * Window width < 320vp type.
+   * 窗口宽度小于320vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7520,7 +7558,7 @@ declare enum WidthBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window width < 320vp type.
+   * 窗口宽度小于320vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7531,7 +7569,7 @@ declare enum WidthBreakpoint {
   WIDTH_XS = 0,
 
   /**
-   * Window width >= 320vp and < 600vp type.
+   * 窗口宽度大于等于320vp，且小于600vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7539,7 +7577,7 @@ declare enum WidthBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window width >= 320vp and < 600vp type.
+   * 窗口宽度大于等于320vp，且小于600vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7550,7 +7588,7 @@ declare enum WidthBreakpoint {
   WIDTH_SM = 1,
 
   /**
-   * Window width >= 600vp and < 840vp type.
+   * 窗口宽度大于等于600vp，且小于840vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7558,7 +7596,7 @@ declare enum WidthBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window width >= 600vp and < 840vp type.
+   * 窗口宽度大于等于600vp，且小于840vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7569,7 +7607,7 @@ declare enum WidthBreakpoint {
   WIDTH_MD = 2,
 
   /**
-   * Window width >= 840vp and < 1440vp type.
+   * 窗口宽度大于等于840vp，且小于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7577,7 +7615,7 @@ declare enum WidthBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window width >= 840vp and < 1440vp type.
+   * 窗口宽度大于等于840vp，且小于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7588,7 +7626,7 @@ declare enum WidthBreakpoint {
   WIDTH_LG = 3,
 
   /**
-   * Window width >= 1440vp type.
+   * 窗口宽度大于等于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7596,7 +7634,7 @@ declare enum WidthBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window width >= 1440vp type.
+   * 窗口宽度大于等于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7604,12 +7642,15 @@ declare enum WidthBreakpoint {
    * @atomicservice
    * @since 22 dynamic
    */
-  WIDTH_XL = 4,
+  WIDTH_XL = 4
 }
 
 /**
- * Type of window height breakpoint.
- *
+* 表示窗口不同高宽比阈值下对应的高度断点枚举值。通过[getWindowHeightBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowHeightBreakpoint}
+* 返回。
+*
+* 下表列出了典型设备默认高宽比断点的阈值划分，可在基于窗口高宽比布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7617,8 +7658,11 @@ declare enum WidthBreakpoint {
  * @since 13 dynamic
  */
 /**
- * Type of window height breakpoint.
- *
+* 表示窗口不同高宽比阈值下对应的高度断点枚举值。通过[getWindowHeightBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowHeightBreakpoint}
+* 返回。
+*
+* 下表列出了典型设备默认高宽比断点的阈值划分，可在基于窗口高宽比布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7627,8 +7671,9 @@ declare enum WidthBreakpoint {
  * @since 22 dynamic
  */
 declare enum HeightBreakpoint {
+
   /**
-   * Window aspectRatio < 0.8 type.
+   * 窗口高宽比小于0.8。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7636,7 +7681,7 @@ declare enum HeightBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window aspectRatio < 0.8 type.
+   * 窗口高宽比小于0.8。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7647,7 +7692,7 @@ declare enum HeightBreakpoint {
   HEIGHT_SM = 0,
 
   /**
-   * Window aspectRatio >= 0.8 and < 1.2 type.
+   * 窗口高宽比大于等于0.8，且小于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7655,7 +7700,7 @@ declare enum HeightBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window aspectRatio >= 0.8 and < 1.2 type.
+   * 窗口高宽比大于等于0.8，且小于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7666,7 +7711,7 @@ declare enum HeightBreakpoint {
   HEIGHT_MD = 1,
 
   /**
-   * Window aspectRatio >= 1.2 type.
+   * 窗口高宽比大于等于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7674,7 +7719,7 @@ declare enum HeightBreakpoint {
    * @since 13 dynamic
    */
   /**
-   * Window aspectRatio >= 1.2 type.
+   * 窗口高宽比大于等于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7694,6 +7739,7 @@ declare enum HeightBreakpoint {
  * @since 15 dynamic
  */
 declare enum AxisModel {
+
   /**
    * 游戏手柄X轴。
    *
@@ -7884,6 +7930,7 @@ declare enum AxisModel {
    */
   ABS_HAT3Y = 18
 }
+
 /**
  * 交叉轴方向键走焦模式枚举。
  *
@@ -7894,6 +7941,7 @@ declare enum AxisModel {
  * @since 20 dynamic
  */
 declare enum FocusWrapMode {
+
   /**
    * 交叉轴方向键不允许换行。
    *
@@ -7907,7 +7955,7 @@ declare enum FocusWrapMode {
 
   /**
    * 交叉轴方向键允许换行。
-   *
+   * 
    * 不规则单元格场景下，交叉轴方向键走焦时优先走到同一行的可获焦item。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7916,12 +7964,12 @@ declare enum FocusWrapMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  WRAP_WITH_ARROW = 1,
+  WRAP_WITH_ARROW = 1
 }
 
 /**
- * Specify the number of columns for different responsive breakpoints.
- *
+* 指定不同响应断点的列数。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7930,10 +7978,9 @@ declare enum FocusWrapMode {
  * @since 22 dynamic
  */
 declare enum PresetFillType {
+
   /**
-   * For Lists and Swipers: One column is displayed on SM (and smaller),two on MD, and three on LG (and larger)
-   * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
-   * (and larger) devices.
+   * 对于列表和滑动器：在SM（及更小）上显示一列，在MD上显示两列，在LG（及更大）设备上显示三列。对于网格和瀑布流：在SM（及更小）上显示两列，在MD上显示三列，在LG（及更大的）设备上显示五列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7942,8 +7989,9 @@ declare enum PresetFillType {
    * @since 22 dynamic
    */
   BREAKPOINT_DEFAULT = 0,
+
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices, one,two,and three columns are displayed respectively.
+   * 对于SM（及更小）、MD和LG（及更大）设备，分别显示一列、两列和三列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7952,8 +8000,9 @@ declare enum PresetFillType {
    * @since 22 dynamic
    */
   BREAKPOINT_SM1MD2LG3 = 1,
+
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices,two,three,and five columns are displayed respectively.
+   * 对于SM（及更小）、MD和LG（及更大）设备，分别显示两列、三列和五列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7961,7 +8010,7 @@ declare enum PresetFillType {
    * @atomicservice
    * @since 22 dynamic
    */
-  BREAKPOINT_SM2MD3LG5 = 2,
+  BREAKPOINT_SM2MD3LG5 = 2
 }
 
 /**
@@ -7973,6 +8022,7 @@ declare enum PresetFillType {
  * @since 18 dynamic
  */
 declare enum CrownAction {
+
   /**
    * 表冠开始转动。
    *
@@ -8014,6 +8064,7 @@ declare enum CrownAction {
  * @since 18 dynamic
  */
 declare enum CrownSensitivity {
+
   /**
    * 低灵敏度。
    *
@@ -8057,6 +8108,7 @@ declare enum CrownSensitivity {
  * @since 15 dynamic
  */
 declare enum PageFlipMode {
+
   /**
    * Turn pages continuously according to the number of mouse wheel events.
    *
@@ -8079,7 +8131,7 @@ declare enum PageFlipMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  SINGLE = 1,
+  SINGLE = 1
 }
 
 /**
@@ -8091,6 +8143,7 @@ declare enum PageFlipMode {
  * @since 17 dynamic
  */
 declare enum AxisAction {
+
   /**
    * 无轴事件。
    *
@@ -8139,7 +8192,7 @@ declare enum AxisAction {
    * @atomicservice
    * @since 17 dynamic
    */
-  CANCEL = 4,
+  CANCEL = 4
 }
 
 /**
@@ -8154,6 +8207,7 @@ declare enum AxisAction {
  * @since 19 dynamic
  */
 declare enum FocusDrawLevel {
+
   /**
    * Draw focus on node self level.
    *
@@ -8176,7 +8230,7 @@ declare enum FocusDrawLevel {
    * @atomicservice
    * @since 19 dynamic
    */
-  TOP = 1,
+  TOP = 1
 }
 
 /**
@@ -8190,6 +8244,7 @@ declare enum FocusDrawLevel {
  * @since 19 dynamic
  */
 declare enum DividerMode {
+
   /**
    * Menu divider mode floating above menu.
    *
@@ -8223,6 +8278,7 @@ declare enum DividerMode {
  * @since 19 dynamic
  */
 declare enum EventQueryType {
+
   /**
    * 点击事件。
    *
@@ -8232,7 +8288,7 @@ declare enum EventQueryType {
    * @atomicservice
    * @since 19 dynamic
    */
-  ON_CLICK = 0,
+  ON_CLICK = 0
 }
 
 /**
@@ -8246,6 +8302,7 @@ declare enum EventQueryType {
  * @since 20 dynamic
  */
 declare enum TipsAnchorType {
+
   /**
    * Follow the component.
    *
@@ -8270,7 +8327,7 @@ declare enum TipsAnchorType {
 }
 
 /**
- * Dialog display mode.
+ * 弹出框显示模式
  *
  * @enum { DialogDisplayMode }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8280,8 +8337,9 @@ declare enum TipsAnchorType {
  * @since 26.0.0 dynamic
  */
 declare enum DialogDisplayMode {
+
   /**
-   * The dialog displayed based on screen.
+   * 弹出框基于屏幕显示
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8290,8 +8348,9 @@ declare enum DialogDisplayMode {
    * @since 26.0.0 dynamic
    */
   SCREEN_BASED = 0,
+
   /**
-   * The dialog displayed based on application window.
+   * 弹出框基于应用窗口显示
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8411,6 +8470,7 @@ declare enum AnimationPropertyType {
  * @since 22 dynamic
  */
 declare enum ResponseRegionSupportedTool {
+
   /**
    * 所有输入工具类型。
    *
@@ -8465,6 +8525,7 @@ declare enum ResponseRegionSupportedTool {
  * @since 22 dynamic
  */
 declare enum AxisType {
+
   /**
    * 垂直滚动轴。
    *
@@ -8493,7 +8554,7 @@ declare enum AxisType {
    * @atomicservice
    * @since 22 dynamic
    */
-  PINCH_AXIS = 2,
+  PINCH_AXIS = 2
 }
 
 /**
@@ -8506,6 +8567,7 @@ declare enum AxisType {
  * @since 26.0.0 dynamic
  */
 declare enum InputEventSubTypeMask {
+
   /**
    * 鼠标左键按下。
    *
@@ -8651,7 +8713,7 @@ declare enum InputEventSubTypeMask {
 }
 
 /**
- * 输入事件拦截动作枚举。
+ * 输入事件拦截动作枚举，用于控制输入事件是否继续传递到UI框架，适用于需要按业务规则允许或阻止输入事件继续传递的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8682,8 +8744,19 @@ declare enum InputEventInterceptAction {
    */
   BLOCK = 1
 }
+
+/**
+ * 定义分发的事件是否为竞争手势，竞争场景下手势原始节点和目标节点只有一个节点会响应手势，非竞争场景下手势原始节点和目标节点可以同时响应。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum CompetitionStrategy {
   /**
-   * 定义分发的事件是否为竞争手势，竞争场景手势原始节点和目标节点只有一个节点会响应手势，非竞争场景可以同时响应。
+   * 表示分发的事件为非竞争手势。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8691,32 +8764,22 @@ declare enum InputEventInterceptAction {
    * @atomicservice
    * @since 24 dynamic
    */
-  declare enum CompetitionStrategy {
-    /**
-     * 表示分发的事件为非竞争手势。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    DEFAULT = 0,
-  
-    /**
-     * 表示分发的事件为竞争手势。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    COMPETITION = 1,
-  }
+  DEFAULT = 0,
+
+  /**
+   * 表示分发的事件为竞争手势。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  COMPETITION = 1
+}
 
 /**
- * 定义手势和事件收集的干预操作类型。
+ * 定义手势和事件收集的干预操作类型，适用于手势和事件收集过程中需要按优先级保留或丢弃部分手势的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8778,123 +8841,7 @@ declare enum GestureCollectIntervention {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
-}
-
-/**
- * 原始输入事件类型。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare enum RawInputEventType {
-  /**
-   * 触摸事件。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  TOUCH = 0,
-
-  /**
-   * 鼠标事件。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  MOUSE = 1
-}
-
-/**
- * 边缘流光位置。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 dynamic
- */
-declare enum EdgeLightPosition {
-  /**
-   * 边缘流光在左上角。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  TOP_LEFT = 0,
-  /**
-   * 边缘流光在右上角。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  TOP_RIGHT = 1,
-  /**
-   * 边缘流光在左下角。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  BOTTOM_LEFT = 2,
-  /**
-   * 边缘流光在右下角。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  BOTTOM_RIGHT = 3,
-  /**
-   * 边缘流光在顶部。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  TOP = 4,
-  /**
-   * 边缘流光在底部。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  BOTTOM = 5,
-  /**
-   * 边缘流光在左边。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  LEFT = 6,
-  /**
-   * 边缘流光在右边。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  RIGHT = 7
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4
 }
 
 /**
@@ -9025,4 +8972,129 @@ declare enum OperateIntention {
    * @since 26.0.0 dynamic
    */
   BACK_PRESS = 2
+}
+
+/**
+ * 原始输入事件类型。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RawInputEventType {
+
+  /**
+   * 触摸事件。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOUCH = 0,
+
+  /**
+   * 鼠标事件。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  MOUSE = 1
+}
+
+/**
+ * 定义边缘光效果的位置。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum EdgeLightPosition {
+
+  /**
+   * 边缘光效果在左上角
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP_LEFT = 0,
+
+  /**
+   * 边缘光效果在右上角
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP_RIGHT = 1,
+
+  /**
+   * 边缘光效果在左下角。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM_LEFT = 2,
+
+  /**
+   * 边缘光效果在右下角。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM_RIGHT = 3,
+
+  /**
+   * 边缘光效果在顶部边缘。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  TOP = 4,
+
+  /**
+   * 边缘光效果在底部边缘。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM = 5,
+
+  /**
+   * 边缘光效果在左边缘。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  LEFT = 6,
+
+  /**
+   * 边缘光效果在右边缘。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  RIGHT = 7
 }
