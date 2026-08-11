@@ -1845,16 +1845,16 @@ declare enum Edge {
 }
 
 /**
- * Set Weekend
- *
+* 定义星期枚举值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 7
  */
 /**
- * Set Weekend
- *
+* 定义星期枚举值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1862,8 +1862,8 @@ declare enum Edge {
  * @since 10
  */
 /**
- * 定义星期枚举值。
- *
+* 定义星期枚举值。
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1872,15 +1872,16 @@ declare enum Edge {
  * @since 11 dynamic
  */
 declare enum Week {
+
   /**
-   * Monday.
+   * 星期一。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Monday.
+   * 星期一。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1888,7 +1889,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Monday.
+   * 星期一。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1899,14 +1900,14 @@ declare enum Week {
   Mon,
 
   /**
-   * Tuesday.
+   * 星期二。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Tuesday.
+   * 星期二。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1914,7 +1915,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Tuesday.
+   * 星期二。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1925,14 +1926,14 @@ declare enum Week {
   Tue,
 
   /**
-   * Wednesday.
+   * 星期三。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Wednesday.
+   * 星期三。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1940,7 +1941,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Wednesday.
+   * 星期三。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1951,14 +1952,14 @@ declare enum Week {
   Wed,
 
   /**
-   * Thursday.
+   * 星期四。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Thursday.
+   * 星期四。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1966,7 +1967,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Thursday.
+   * 星期四。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1977,14 +1978,14 @@ declare enum Week {
   Thur,
 
   /**
-   * Friday.
+   * 星期五。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Friday.
+   * 星期五。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1992,7 +1993,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Friday.
+   * 星期五。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2003,14 +2004,14 @@ declare enum Week {
   Fri,
 
   /**
-   * Saturday.
+   * 星期六。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Saturday.
+   * 星期六。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2018,7 +2019,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Saturday.
+   * 星期六。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2029,14 +2030,14 @@ declare enum Week {
   Sat,
 
   /**
-   * Sunday.
+   * 星期日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7
    */
   /**
-   * Sunday.
+   * 星期日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2044,7 +2045,7 @@ declare enum Week {
    * @since 10
    */
   /**
-   * Sunday.
+   * 星期日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2052,7 +2053,7 @@ declare enum Week {
    * @atomicservice
    * @since 11 dynamic
    */
-  Sun,
+  Sun
 }
 
 /**
@@ -4303,16 +4304,16 @@ declare enum VerticalAlign {
 }
 
 /**
- * ImageRepeat enumeration description
- *
+* ImageRepeat enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 7
  */
 /**
- * ImageRepeat enumeration description
- *
+* ImageRepeat enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -4320,8 +4321,8 @@ declare enum VerticalAlign {
  * @since 9
  */
 /**
- * ImageRepeat enumeration description
- *
+* ImageRepeat enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -4330,8 +4331,8 @@ declare enum VerticalAlign {
  * @since 10
  */
 /**
- * ImageRepeat enumeration description
- *
+* ImageRepeat enumeration description
+*
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -4341,6 +4342,7 @@ declare enum VerticalAlign {
  * @since 11 dynamic
  */
 declare enum ImageRepeat {
+
   /**
    * Do not draw the picture again.
    *
@@ -4483,7 +4485,7 @@ declare enum ImageRepeat {
    * @atomicservice
    * @since 11 dynamic
    */
-  XY,
+  XY
 }
 
 /**
