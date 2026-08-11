@@ -26476,6 +26476,7 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
 /**
  * The navigation information.
  *
+ * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -26487,6 +26488,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
 /**
  * The router page information.
  *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -26569,6 +26571,7 @@ declare type ComponentContent<T = Object> = import('../api/arkui/ComponentConten
 /**
  * Theme.
  *
+ * @typedef {import('../api/@ohos.arkui.theme').Theme} Theme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
