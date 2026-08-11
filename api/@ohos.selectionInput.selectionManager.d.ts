@@ -26,14 +26,14 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * This module provides word selection management capabilities, including creating, displaying, moving, hiding, and
  * destroying panels, listening for word selection events using a mouse or touchpad, and retrieving the selected text.
  * The typical usage process is as follows:
- * 1. Call on('selectionCompleted') to subscribe to the selection completion event.
- * 2. In the callback, call getSelectionContent to obtain the selected text.
- * 3. Call createPanel to create a word selection panel.
- * 4. Call setUiContent to load the page content.
- * 5. Call moveToGlobalDisplay to move the panel to the specified position.
- * 6. Call show to display the panel.
- * 7. Call destroyPanel to destroy the panel.
- * 8. Call off('selectionCompleted') to unsubscribe from the selection completion event.
+ * 1. Call [on('selectionCompleted')]{@link selectionManager.on} to subscribe to the selection completion event.
+ * 2. In the callback, call [getSelectionContent]{@link selectionManager.getSelectionContent} to obtain the selected text.
+ * 3. Call [createPanel]{@link selectionManager.createPanel} to create a word selection panel.
+ * 4. Call [setUiContent]{@link selectionManager.Panel.setUiContent} to load the page content.
+ * 5. Call [moveToGlobalDisplay]{@link selectionManager.Panel.moveToGlobalDisplay} to move the panel to the specified position.
+ * 6. Call [show]{@link selectionManager.Panel.show} to display the panel.
+ * 7. Call [destroyPanel]{@link selectionManager.destroyPanel} to destroy the panel.
+ * 8. Call [off('selectionCompleted')]{@link selectionManager.off} to unsubscribe from the selection completion event.
  *
  * > **NOTE**
  * >
@@ -129,7 +129,7 @@ declare namespace selectionManager {
    * callback and is valid only after the word selection completion event is triggered.
    *
    * @returns { Promise<string> } Promise used to return the content of the selected text.
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @throws { BusinessError } 33600004 - The interface is called too frequently.
    * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
    * @throws { BusinessError } 33600006 - The current application is prohibited from accessing content.
@@ -612,7 +612,7 @@ declare namespace selectionManager {
    */
   enum SelectionType {
     /**
-     * Move the cursor to select words.
+     * Word selection by sliding the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -624,7 +624,7 @@ declare namespace selectionManager {
     MOUSE_MOVE = 1,
 
     /**
-     * Double-click to select words.
+     * Word selection by double-clicking the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -636,7 +636,7 @@ declare namespace selectionManager {
     DOUBLE_CLICK = 2,
 
     /**
-     * Triple-click to select words.
+     * Word selection by triple-clicking the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
