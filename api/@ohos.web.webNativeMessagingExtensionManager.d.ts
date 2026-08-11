@@ -46,6 +46,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @stagemodelonly
    * @since 21 dynamic
    */
+
   interface ConnectionNativeInfo {
     /**
      * Unique identifier of the Web native message extension connection, returned by connectNative() and used to
@@ -125,6 +126,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @stagemodelonly
    * @since 21 dynamic
    */
+
   interface WebExtensionConnectionCallback {
     /**
      * Called when a connection is set up.
@@ -200,7 +202,5 @@ declare namespace webNativeMessagingExtensionManager {
    */
   function disconnectNative(connectionId: number): Promise<void>;
 }
-
-export default WebNativeMessagingExtensionManager;
 
 export default webNativeMessagingExtensionManager;
