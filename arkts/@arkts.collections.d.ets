@@ -855,9 +855,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS array.
      *
      * @param { T } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS array, **-1** is returned. If a negative number is passed in
-     *     , it refers to the index of **fromIndex + array.length**.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int8Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS array, **-1** is returned. If a negative number is passed in, it refers to the index of
+     *     **fromIndex + array.length**.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1004,7 +1005,7 @@ declare namespace collections {
     /**
      * A constructor used to create an ArkTS map.
      *
-     * @param { Iterable<readonly [K, V]>} [iterable] - Object used to construct the ArkTS map.
+     * @param { Iterable<readonly [K, V]>} iterable - Object used to construct the ArkTS map.
      * @throws { BusinessError } 10200012 - The ArkTS Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1185,7 +1186,7 @@ declare namespace collections {
     /**
      * A constructor used to create an ArkTS set.
      *
-     * @param { Iterable<T>} [iterable] - Object used to construct an ArkTS set.
+     * @param { Iterable<T>} iterable - Object used to construct an ArkTS set.
      * @throws { BusinessError } 10200012 - The ArkTS Set's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1386,7 +1387,7 @@ declare namespace collections {
   @Sendable
   class Int8Array {
     /**
-     * Number of bytes occupied by each element in the ArkTS Int16Array.
+     * Number of bytes occupied by each element in the ArkTS Int8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1395,7 +1396,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Int16Array.
+     * Bottom-layer buffer used by an ArkTS Int8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1404,7 +1405,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Int16Array.
+     * Number of bytes occupied by an ArkTS Int8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1413,7 +1414,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Int16Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Int8Array and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1422,7 +1423,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Int16Array.
+     * Number of elements in an ArkTS Int8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1467,7 +1468,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Int8Array from an array-like object or ArkTS ArrayBuffer.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int8Array. When the
-     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
+     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 1.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1479,7 +1480,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Int8Array from an ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Int8Array. The number of bytes
-     *     occupied by the buffer must be an integer multiple of 4.
+     *     occupied by the buffer must be an integer multiple of 1.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Int8Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
@@ -1904,9 +1905,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Int8Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Int8Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Int8Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int8Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Int8Array, **-1** is returned. If a negative number is passed in, the search starts from the end of
+     *     the ArkTS Int8Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2012,7 +2014,7 @@ declare namespace collections {
   @Sendable
   class Uint8ClampedArray {
     /**
-     * Number of bytes occupied by each element in the ArkTS Int16Array.
+     * Number of bytes occupied by each element in the ArkTS Uint8ClampedArray.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2021,7 +2023,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Int16Array.
+     * Bottom-layer buffer used by an ArkTS Uint8ClampedArray.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2030,7 +2032,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Int16Array.
+     * Number of bytes occupied by an ArkTS Uint8ClampedArray.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2039,7 +2041,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Int16Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Uint8ClampedArray and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2048,7 +2050,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Int16Array.
+     * Number of elements in an ArkTS Uint8ClampedArray.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2093,7 +2095,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint8ClampedArray from an array-like object or ArkTS ArrayBuffer.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8ClampedArray. When the
-     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
+     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 1.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2105,7 +2107,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint8ClampedArray from an ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Uint8ClampedArray. The number of
-     *     bytes occupied by the buffer must be an integer multiple of 4.
+     *     bytes occupied by the buffer must be an integer multiple of 1.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint8ClampedArray. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
@@ -2258,13 +2260,13 @@ declare namespace collections {
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint8ClampedArray>): void;
     /**
-     * Returns the index of the first occurrence of a value in this ArkTS Float32Array. If the value is not found,
+     * Returns the index of the first occurrence of a value in this ArkTS Uint8ClampedArray. If the value is not found,
      * **-1** is returned.
      *
      * @param { number } searchElement - Value to search for.
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     *     greater than or equal to the length of the ArkTS Uint8ClampedArray, **-1** is returned. If a negative number is
+     *     passed in, the search starts from the end of the ArkTS Uint8ClampedArray.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2275,7 +2277,7 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
-     * Concatenates all elements in this ArkTS Float32Array into a string, with a given separator.
+     * Concatenates all elements in this ArkTS Uint8ClampedArray into a string, with a given separator.
      *
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
@@ -2450,7 +2452,7 @@ declare namespace collections {
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Uint8ClampedArray.
      *
      * @returns { IterableIterator<[number, number]> } Iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -2462,7 +2464,7 @@ declare namespace collections {
      */
     entries(): IterableIterator<[number, number]>;
     /**
-     * Returns an iterator object that contains the key (index) of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key (index) of each element in this ArkTS Uint8ClampedArray.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -2474,7 +2476,7 @@ declare namespace collections {
      */
     keys(): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the value of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the value of each element in this ArkTS Uint8ClampedArray.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -2486,7 +2488,7 @@ declare namespace collections {
      */
     values(): IterableIterator<number>;
     /**
-     * Checks whether elements are contained in this ArkTS Float32Array.
+     * Checks whether elements are contained in this ArkTS Uint8ClampedArray.
      *
      * @param { number } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
@@ -2513,9 +2515,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Uint8ClampedArray.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Uint8ClampedArray, **-1** is returned. If a negative number
-     *     is passed in, the search starts from the end of the ArkTS Uint8ClampedArray.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS
+     *     Uint8ClampedArray length minus 1 (i.e., starting from the end). If the index is greater than or equal to the
+     *     length of the ArkTS Uint8ClampedArray, **-1** is returned. If a negative number is passed in, the search
+     *     starts from the end of the ArkTS Uint8ClampedArray.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2619,7 +2622,7 @@ declare namespace collections {
   @Sendable
   class Uint8Array {
     /**
-     * Number of bytes occupied by each element in the ArkTS Float32Array.
+     * Number of bytes occupied by each element in the ArkTS Uint8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2628,7 +2631,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Float32Array.
+     * Bottom-layer buffer used by an ArkTS Uint8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2637,7 +2640,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Float32Array.
+     * Number of bytes occupied by an ArkTS Uint8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2646,7 +2649,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Float32Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Uint8Array and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2655,7 +2658,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Float32Array.
+     * Number of elements in an ArkTS Uint8Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2700,7 +2703,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint8Array from an array-like object or ArkTS ArrayBuffer.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8Array. When the
-     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
+     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 1.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -2712,7 +2715,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint8Array from an ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Uint8Array. The number of bytes
-     *     occupied by the buffer must be an integer multiple of 4.
+     *     occupied by the buffer must be an integer multiple of 1.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint8Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint8Array's constructor cannot be directly invoked.
@@ -2863,13 +2866,13 @@ declare namespace collections {
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): void;
     /**
-     * Returns the index of the first occurrence of a value in this ArkTS Float32Array. If the value is not found,
+     * Returns the index of the first occurrence of a value in this ArkTS Uint8Array. If the value is not found,
      * **-1** is returned.
      *
      * @param { number } searchElement - Value to search for.
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     *     greater than or equal to the length of the ArkTS Uint8Array, **-1** is returned. If a negative number is
+     *     passed in, the search starts from the end of the ArkTS Uint8Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2880,7 +2883,7 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
-     * Concatenates all elements in this ArkTS Float32Array into a string, with a given separator.
+     * Concatenates all elements in this ArkTS Uint8Array into a string, with a given separator.
      *
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
@@ -3070,7 +3073,7 @@ declare namespace collections {
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Uint8Array.
      *
      * @returns { IterableIterator<[number, number]> } Iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -3082,7 +3085,7 @@ declare namespace collections {
      */
     entries(): IterableIterator<[number, number]>;
     /**
-     * Returns an iterator object that contains the key (index) of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key (index) of each element in this ArkTS Uint8Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -3094,7 +3097,7 @@ declare namespace collections {
      */
     keys(): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the value of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the value of each element in this ArkTS Uint8Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -3106,7 +3109,7 @@ declare namespace collections {
      */
     values(): IterableIterator<number>;
     /**
-     * Checks whether elements are contained in this ArkTS Float32Array.
+     * Checks whether elements are contained in this ArkTS Uint8Array.
      *
      * @param { number } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
@@ -3133,9 +3136,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Uint8Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Uint8Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Uint8Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Uint8Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Uint8Array, **-1** is returned. If a negative number is passed in, the search starts from the end of
+     *     the ArkTS Uint8Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3321,7 +3325,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Int16Array from an array-like object or ArkTS ArrayBuffer.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int16Array. When the
-     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
+     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 2.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3333,7 +3337,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Int16Array from an ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Int16Array. The number of bytes
-     *     occupied by the buffer must be an integer multiple of 4.
+     *     occupied by the buffer must be an integer multiple of 2.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Int16Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
@@ -3758,9 +3762,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Int16Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Int16Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Int16Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int16Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Int16Array, **-1** is returned. If a negative number is passed in, the search starts from the end of
+     *     the ArkTS Int16Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3865,7 +3870,7 @@ declare namespace collections {
   @Sendable
   class Uint16Array {
     /**
-     * Number of bytes occupied by each element in the ArkTS Float32Array.
+     * Number of bytes occupied by each element in the ArkTS Uint16Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3874,7 +3879,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Float32Array.
+     * Bottom-layer buffer used by an ArkTS Uint16Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3883,7 +3888,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Float32Array.
+     * Number of bytes occupied by an ArkTS Uint16Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3892,7 +3897,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Float32Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Uint16Array and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3901,7 +3906,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Float32Array.
+     * Number of elements in an ArkTS Uint16Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3946,7 +3951,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint16Array from an array-like object or ArkTS ArrayBuffer.
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint16Array. When the
-     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
+     *     parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 2.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3958,7 +3963,7 @@ declare namespace collections {
      * A constructor that creates an ArkTS Uint16Array from an ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Uint16Array. The number of bytes
-     *     occupied by the buffer must be an integer multiple of 4.
+     *     occupied by the buffer must be an integer multiple of 2.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is **0**.
      * @param { number } [length] - Length of the ArkTS Uint16Array. The default value is **0**.
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
@@ -4109,13 +4114,13 @@ declare namespace collections {
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): void;
     /**
-     * Returns the index of the first occurrence of a value in this ArkTS Float32Array. If the value is not found,
+     * Returns the index of the first occurrence of a value in this ArkTS Uint16Array. If the value is not found,
      * **-1** is returned.
      *
      * @param { number } searchElement - Value to search for.
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     *     greater than or equal to the length of the ArkTS Uint16Array, **-1** is returned. If a negative number is
+     *     passed in, the search starts from the end of the ArkTS Uint16Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -4126,7 +4131,7 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
-     * Concatenates all elements in this ArkTS Float32Array into a string, with a given separator.
+     * Concatenates all elements in this ArkTS Uint16Array into a string, with a given separator.
      *
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
@@ -4315,7 +4320,7 @@ declare namespace collections {
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Uint16Array.
      *
      * @returns { IterableIterator<[number, number]> } Iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -4327,7 +4332,7 @@ declare namespace collections {
      */
     entries(): IterableIterator<[number, number]>;
     /**
-     * Returns an iterator object that contains the key (index) of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key (index) of each element in this ArkTS Uint16Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -4339,7 +4344,7 @@ declare namespace collections {
      */
     keys(): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the value of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the value of each element in this ArkTS Uint16Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -4351,7 +4356,7 @@ declare namespace collections {
      */
     values(): IterableIterator<number>;
     /**
-     * Checks whether elements are contained in this ArkTS Float32Array.
+     * Checks whether elements are contained in this ArkTS Uint16Array.
      *
      * @param { number } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
@@ -4378,9 +4383,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Uint16Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Uint16Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Uint16Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Uint16Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Uint16Array, **-1** is returned. If a negative number is passed in, the search starts from the
+     *     end of the ArkTS Uint16Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -4485,7 +4491,7 @@ declare namespace collections {
   @Sendable
   class Int32Array {
     /**
-     * Number of bytes occupied by each element in the ArkTS Float32Array.
+     * Number of bytes occupied by each element in the ArkTS Int32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -4494,7 +4500,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Float32Array.
+     * Bottom-layer buffer used by an ArkTS Int32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -4503,7 +4509,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Float32Array.
+     * Number of bytes occupied by an ArkTS Int32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -4512,7 +4518,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Float32Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Int32Array and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -4521,7 +4527,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Float32Array.
+     * Number of elements in an ArkTS Int32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -4729,13 +4735,13 @@ declare namespace collections {
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Int32Array>): void;
     /**
-     * Returns the index of the first occurrence of a value in this ArkTS Float32Array. If the value is not found,
+     * Returns the index of the first occurrence of a value in this ArkTS Int32Array. If the value is not found,
      * **-1** is returned.
      *
      * @param { number } searchElement - Value to search for.
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     *     greater than or equal to the length of the ArkTS Int32Array, **-1** is returned. If a negative number is
+     *     passed in, the search starts from the end of the ArkTS Int32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -4746,7 +4752,7 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
-     * Concatenates all elements in this ArkTS Float32Array into a string, with a given separator.
+     * Concatenates all elements in this ArkTS Int32Array into a string, with a given separator.
      *
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
@@ -4936,7 +4942,7 @@ declare namespace collections {
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Int32Array.
      *
      * @returns { IterableIterator<[number, number]> } Iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -4948,7 +4954,7 @@ declare namespace collections {
      */
     entries(): IterableIterator<[number, number]>;
     /**
-     * Returns an iterator object that contains the key (index) of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key (index) of each element in this ArkTS Int32Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -4960,7 +4966,7 @@ declare namespace collections {
      */
     keys(): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the value of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the value of each element in this ArkTS Int32Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -4972,7 +4978,7 @@ declare namespace collections {
      */
     values(): IterableIterator<number>;
     /**
-     * Checks whether elements are contained in this ArkTS Float32Array.
+     * Checks whether elements are contained in this ArkTS Int32Array.
      *
      * @param { number } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
@@ -4999,9 +5005,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Int32Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Int32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Int32Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int32Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Int32Array, **-1** is returned. If a negative number is passed in, the search starts from the end
+     *     of the ArkTS Int32Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -5106,7 +5113,7 @@ declare namespace collections {
   @Sendable
   class Uint32Array {
     /**
-     * Number of bytes occupied by each element in the ArkTS Float32Array.
+     * Number of bytes occupied by each element in the ArkTS Uint32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -5115,7 +5122,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * Bottom-layer buffer used by an ArkTS Float32Array.
+     * Bottom-layer buffer used by an ArkTS Uint32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -5124,7 +5131,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * Number of bytes occupied by an ArkTS Float32Array.
+     * Number of bytes occupied by an ArkTS Uint32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -5133,7 +5140,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * Offset between the ArkTS Float32Array and the start position of the ArrayBuffer.
+     * Offset between the ArkTS Uint32Array and the start position of the ArrayBuffer.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -5142,7 +5149,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * Number of elements in an ArkTS Float32Array.
+     * Number of elements in an ArkTS Uint32Array.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -5350,13 +5357,13 @@ declare namespace collections {
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): void;
     /**
-     * Returns the index of the first occurrence of a value in this ArkTS Float32Array. If the value is not found,
+     * Returns the index of the first occurrence of a value in this ArkTS Uint32Array. If the value is not found,
      * **-1** is returned.
      *
      * @param { number } searchElement - Value to search for.
      * @param { number } [fromIndex] - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     *     greater than or equal to the length of the ArkTS Uint32Array, **-1** is returned. If a negative number is
+     *     passed in, the search starts from the end of the ArkTS Uint32Array.
      * @returns { number } Index of the first occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -5367,7 +5374,7 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
-     * Concatenates all elements in this ArkTS Float32Array into a string, with a given separator.
+     * Concatenates all elements in this ArkTS Uint32Array into a string, with a given separator.
      *
      * @param { string } [separator] - Separator to be used. If no value is passed in, a comma (,) is used as the
      *     separator.
@@ -5556,7 +5563,7 @@ declare namespace collections {
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS Uint32Array.
      *
      * @returns { IterableIterator<[number, number]> } Iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -5568,7 +5575,7 @@ declare namespace collections {
      */
     entries(): IterableIterator<[number, number]>;
     /**
-     * Returns an iterator object that contains the key (index) of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the key (index) of each element in this ArkTS Uint32Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -5580,7 +5587,7 @@ declare namespace collections {
      */
     keys(): IterableIterator<number>;
     /**
-     * Returns an iterator object that contains the value of each element in this ArkTS Float32Array.
+     * Returns an iterator object that contains the value of each element in this ArkTS Uint32Array.
      *
      * @returns { IterableIterator<number> } Iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -5592,7 +5599,7 @@ declare namespace collections {
      */
     values(): IterableIterator<number>;
     /**
-     * Checks whether elements are contained in this ArkTS Float32Array.
+     * Checks whether elements are contained in this ArkTS Uint32Array.
      *
      * @param { number } searchElement - The element to search for.
      * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
@@ -5619,9 +5626,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Uint32Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Uint32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Uint32Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Uint32Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Uint32Array, **-1** is returned. If a negative number is passed in, the search starts from the end
+     *     of the ArkTS Uint32Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -6226,9 +6234,10 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Float32Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is **0**. If the index is
-     *     greater than or equal to the length of the ArkTS Float32Array, **-1** is returned. If a negative number is
-     *     passed in, the search starts from the end of the ArkTS Float32Array.
+     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Float32Array
+     *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
+     *     ArkTS Float32Array, **-1** is returned. If a negative number is passed in, the search starts from the end
+     *     of the ArkTS Float32Array.
      * @returns { number } Index of the last occurrence of the value. If the value is not found, **-1** is returned.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.

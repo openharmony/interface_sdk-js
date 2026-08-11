@@ -836,7 +836,7 @@ declare namespace collections {
      * 返回ArkTS Array实例中最后一次出现指定值的索引。
      *
      * @param { T } searchElement - 要搜索的值。
-     * @param { number } fromIndex - 开始搜索的索引。默认值为**0**。如果索引大于或等于
+     * @param { number } fromIndex - 开始搜索的索引。默认值为ArkTS Array长度减1（即从末尾开始）。如果索引大于或等于
      *     ArkTS Array的长度，则返回**-1**。如果传入负数，则指代
      *     **fromIndex + array.length**位置的下标。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
@@ -983,7 +983,7 @@ declare namespace collections {
     /**
      * 构造函数，用于通过可迭代对象创建ArkTS Map对象。
      *
-     * @param { Iterable<readonly [K, V]>} [iterable] - 用于构造ArkTS Map的可迭代对象。
+     * @param { Iterable<readonly [K, V]>} iterable - 用于构造ArkTS Map的可迭代对象。
      * @throws { BusinessError } 10200012 - The ArkTS Map's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -1162,7 +1162,7 @@ declare namespace collections {
     /**
      * 构造函数，用于通过可迭代对象创建ArkTS Set对象。
      *
-     * @param { Iterable<T>} [iterable] - 用于构造ArkTS Set的可迭代对象。
+     * @param { Iterable<T>} iterable - 用于构造ArkTS Set的可迭代对象。
      * @throws { BusinessError } 10200012 - The ArkTS Set's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3033,7 +3033,7 @@ declare namespace collections {
      * 返回ArkTS Uint8Array实例中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Uint8Array的长度，
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint8Array的长度，
      *     则返回**-1**。如果传入负数，则从后到前从ArkTS Uint8Array末尾开始搜索。
      * @returns { number } 该值最后一次出现的索引。如果未找到该值，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3215,7 +3215,7 @@ declare namespace collections {
      * 构造函数，以ArrayLike或ArkTS ArrayBuffer创建一个ArkTS Int16Array对象。
      *
      * @param { ArrayLike<number> | ArrayBuffer } array - 用于构造ArkTS Int16Array的对象。当参数类型是ArrayBuffer时，
-     *     buffer所占的字节数须是4的整数倍。
+     *     buffer所占的字节数须是2的整数倍。
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
@@ -3227,7 +3227,7 @@ declare namespace collections {
      * 构造函数，以ArkTS ArrayBuffer创建一个ArkTS Int16Array对象。
      *
      * @param { ArrayBuffer } buffer - 用于构造ArkTS Int16Array的ArrayBuffer对象。buffer所占的字节数须是
-     *     4的整数倍。
+     *     2的整数倍。
      * @param { number } [byteOffset] - 指定buffer的字节偏移，从0开始，默认为**0**。
      * @param { number } [length] - 指定ArkTS Int16Array的长度，默认为**0**。
      * @throws { BusinessError } 10200012 - The Int16Array's constructor cannot be directly invoked.
@@ -3632,7 +3632,7 @@ declare namespace collections {
      * 返回ArkTS Int16Array中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Int16Array的长度，
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Int16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int16Array的长度，
      *     则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3825,7 +3825,7 @@ declare namespace collections {
     /**
      * 构造函数，以ArrayBuffer创建一个ArkTS Uint16Array对象。
      *
-     * @param { ArrayBuffer } buffer - 用于构造ArkTS Uint16Array的ArrayBuffer对象。buffer所占的字节数须是4的整数倍。
+     * @param { ArrayBuffer } buffer - 用于构造ArkTS Uint16Array的ArrayBuffer对象。buffer所占的字节数须是2的整数倍。
      * @param { number } [byteOffset] - 指定buffer的字节偏移，从0开始。默认值为**0**。
      * @param { number } [length] - 指定ArkTS Uint16Array的长度。默认值为**0**。
      * @throws { BusinessError } 10200012 - The Uint16Array's constructor cannot be directly invoked.
@@ -4221,7 +4221,7 @@ declare namespace collections {
      * 返回ArkTS Uint16Array实例中最后一次出现searchElement的索引，如果不包含该元素，则返回-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
      *     如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -4804,7 +4804,7 @@ declare namespace collections {
      * 返回ArkTS Int32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Int32Array的长度，
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Int32Array末尾开始搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果未找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -5391,7 +5391,7 @@ declare namespace collections {
      * 返回ArkTS Uint32Array实例中最后一次出现给定元素的索引，如果不存在，则返回**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Uint32Array的长度，
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Uint32Array的末尾开始向前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -5960,7 +5960,8 @@ declare namespace collections {
      * 返回ArkTS Float32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为**0**。如果下标大于等于ArkTS Float32Array的长度，则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
+     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。
+     *     如果下标大于等于ArkTS Float32Array的长度，则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
