@@ -73,10 +73,10 @@ declare namespace displaySync {
      * 
      * @param { ExpectedFrameRateRange } rateRange - 设置DisplaySync期望的帧率范围，包含expected、min和max三个字段，单位为帧/秒（fps），
      *                                               字段需为非负整数，取值范围为[0, 设备最大帧率]，且满足min <= expected <= max。超出有效范围时会抛出401错误码。
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     *                                 1. Mandatory parameters are left unspecified. 
-     *                                 2. Incorrect parameters types. 
-     *                                 3. Parameter verification failed. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1. Mandatory parameters are left unspecified.
+     *                                 2. Incorrect parameters types.
+     *                                 3. Parameter verification failed.
      *                                 or check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
