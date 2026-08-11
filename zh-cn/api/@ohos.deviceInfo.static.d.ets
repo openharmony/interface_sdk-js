@@ -844,7 +844,7 @@ declare namespace deviceInfo {
      *         - 对于API 26.0.0及以上版本（version >= 26.0.0）：代表OpenHarmony和发行版系统API版本。
      *         - 对于API 26.0.0以下版本（version < 26.0.0）:代表发行版系统API版本。
      *     - 整数格式（如13）：代表OpenHarmony SDK API版本。（仅支持API 26以下）
-     *     M>=26,0<=S<=90,0<=F<=99。传入无效字面量时编译报错。
+     *     M>=26,0<=S<=99,0<=F<=99。传入无效字面量时编译报错。
      * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false代表当前设备API版本小于入参版本号，或传入的版本号格式非法、该版本不存在。
      * @syscap SystemCapability.Startup.SystemInfo
      * @stagemodelonly
