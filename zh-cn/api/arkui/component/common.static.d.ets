@@ -105,7 +105,7 @@ export declare interface InputCounterOptions {
     highlightBorder?: boolean;
     /**
      * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -114,7 +114,7 @@ export declare interface InputCounterOptions {
 
     /**
      * It is the color of counter when textField wants to exceed the maximum character count.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -257,13 +257,13 @@ export declare interface AnimatableArithmetic<T> {
     equals(rhs: AnimatableArithmetic<T>): boolean;
 }
 /**
-  * ReuseId callback type. It is used to compute reuseId.
-  *
-  * @returns { string }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * ReuseId callback type. It is used to compute reuseId.
+ *
+ * @returns { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
 export type ReuseIdCallback = () => string;
 /**
  * Defining the reusable configuration parameters.
@@ -392,7 +392,7 @@ export declare interface Rectangle {
  * > - width和height采用string类型时，string需采用小写字符否则不生效，支持calc()的动态计算。指定calc()的入参字符串格式为'宽高缩放比例 ± 宽高增量'，宽高缩放比例为百分比，宽高增量单位为px或
  * > vp。例如'calc(80% + 10vp)'中，80%为宽高缩放比例、10vp为宽高增量。width和height采用LengthMetrics类型且单位为percent时，相对于组件自身宽高进行计算，percent(1)代表1
  * > 00%。当计算结果为负值时，采用默认值。
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -402,19 +402,18 @@ export declare interface ResponseRegion {
    * 触摸热区适用的输入工具类型。
    *
    * 默认值：ResponseRegionSupportedTool.ALL
-   * 
+   *
    * @default ResponseRegionSupportedTool.ALL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   tool?: ResponseRegionSupportedTool;
-
   /**
    * 触摸点相对于组件左上角的x轴坐标。
    *
    * 默认值：LengthMetrics.vp(0)
-   * 
+   *
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -426,7 +425,7 @@ export declare interface ResponseRegion {
    * 触摸点相对于组件左上角的y轴坐标。
    *
    * 默认值：LengthMetrics.vp(0)
-   * 
+   *
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -438,7 +437,7 @@ export declare interface ResponseRegion {
    * 触摸热区的宽度。
    *
    * 默认值：LengthMetrics.percent(1)
-   * 
+   *
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -450,7 +449,7 @@ export declare interface ResponseRegion {
    * 触摸热区的高度。
    *
    * 默认值：LengthMetrics.percent(1)
-   * 
+   *
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -523,22 +522,25 @@ export declare function $r(value: string, ...params: RecordData[]): Resource;
 export declare function $rawfile(value: string): Resource;
 /**
  * Defines the same page mode
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum AccessibilitySamePageMode {
     /**
-    * the first page and root page event is not send.but if application load new page whith navigation,the page event
-    * will be sent.
-    * this mode is to solve skipping focus
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * the first page and root page event is not send.but if application load new page whith navigation,the page event 
+     * will be sent.
+     * this mode is to solve skipping focus
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     SEMI_SILENT = 0,
     /**
      * the all page event is not send
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1666,7 +1668,6 @@ export declare enum FinishCallbackType {
 /**
  * 事件派发策略。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2461,6 +2462,7 @@ export declare interface VerticalAlignParam {
      * Specifies the anchor component
      *
      * Anonymous Object Rectification
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2470,6 +2472,7 @@ export declare interface VerticalAlignParam {
      * Sets the vertical alignment relative to the anchor component.
      *
      * Anonymous Object Rectification
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2489,6 +2492,7 @@ export declare interface HorizontalAlignParam {
      * Specifies the anchor component
      *
      * Anonymous Object Rectification
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2498,6 +2502,7 @@ export declare interface HorizontalAlignParam {
      * Sets the horizontal alignment relative to the anchor component.
      *
      * Anonymous Object Rectification
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -3035,20 +3040,23 @@ export declare class DrawModifier {
     drawContent(drawContext: DrawContext): void;
 
     /**
-     * drawFront Method. Executed after drawing associated Node and its children.
-     * @param { DrawContext } drawContext - The drawContext used to draw.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    drawFront(drawContext: DrawContext): void;
+      * drawFront Method. Executed after drawing associated Node and its children.
+      *
+      * @param { DrawContext } drawContext - The drawContext used to draw.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @since 23 static
+      */
+     drawFront(drawContext: DrawContext): void;
 
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
      *
      * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
+     * 
      * - The Foreground and Overlay layers are drawn after child nodes.
      * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+     *
      * @param { DrawContext } drawContext - The drawContext used to draw
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3319,14 +3327,13 @@ export declare enum EffectType {
 /**
  * 定义拖拽手势触发前的各阶段状态。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum PreDragStatus {
     /**
-     * 拖拽手势启动阶段。（按下50ms时触发）
+     * 拖拽手势启动阶段。(按下50ms时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3334,7 +3341,7 @@ export declare enum PreDragStatus {
      */
     ACTION_DETECTING_STATUS = 0,
     /**
-     * 拖拽准备完成，可发起拖拽阶段。（按下500ms时触发）
+     * 拖拽准备完成，可发起拖拽阶段。(按下500ms时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3342,7 +3349,7 @@ export declare enum PreDragStatus {
      */
     READY_TO_TRIGGER_DRAG_ACTION = 1,
     /**
-     * 拖拽浮起动效发起阶段。（按下800ms时触发）
+     * 拖拽浮起动效发起阶段。(按下800ms时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3350,7 +3357,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LIFT_STARTED = 2,
     /**
-     * 拖拽浮起动效结束阶段。（浮起动效完全结束时触发）
+     * 拖拽浮起动效结束阶段。(浮起动效完全结束时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3358,7 +3365,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LIFT_FINISHED = 3,
     /**
-     * 拖拽落回动效发起阶段。（落回动效发起时触发）
+     * 拖拽落回动效发起阶段。(落回动效发起时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3366,7 +3373,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LANDING_STARTED = 4,
     /**
-     * 拖拽落回动效结束阶段。（落回动效结束时触发）
+     * 拖拽落回动效结束阶段。(落回动效结束时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3374,7 +3381,7 @@ export declare enum PreDragStatus {
      */
     PREVIEW_LANDING_FINISHED = 5,
     /**
-     * 拖拽浮起落位动效中断。（已满足READY_TO_TRIGGER_DRAG_ACTION状态后，未达到动效阶段，手指抬手时触发）
+     * 拖拽浮起落位动效中断。(已满足READY_TO_TRIGGER_DRAG_ACTION状态后，未达到动效阶段，手指抬手时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3382,7 +3389,7 @@ export declare enum PreDragStatus {
      */
     ACTION_CANCELED_BEFORE_DRAG = 6,
     /**
-     * 拖拽准备完成，可发起拖拽阶段。（按下350ms时触发）
+     * 拖拽准备完成，可发起拖拽阶段。(按下350ms时触发)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3539,7 +3546,6 @@ export declare interface EventTarget {
 /**
  * 定义输入源对应的设备类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3560,7 +3566,7 @@ export declare enum SourceType {
      * @stagemodelonly
      * @since 23 static
      */
-    Mouse = 1,
+    Mouse,
     /**
      * 触摸屏。
      *
@@ -3568,7 +3574,7 @@ export declare enum SourceType {
      * @stagemodelonly
      * @since 23 static
      */
-    TouchScreen = 2,
+    TouchScreen,
     /**
      * 按键。
      *
@@ -3589,7 +3595,6 @@ export declare enum SourceType {
 /**
  * 定义输入源对应的工具类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4478,6 +4483,7 @@ export declare interface MultiShadowOptions {
     /**
      * Shadow blur radius.
      * Unit: vp.
+     * 
      * <p>**NOTE**:
      * <br>A value less than or equal to 0 is handled as the default value.
      * </p>
@@ -4512,7 +4518,6 @@ export declare interface MultiShadowOptions {
 /**
  * The types of expanded safe areas.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -4602,7 +4607,7 @@ export declare enum LayoutSafeAreaType {
     SYSTEM = 0
 }
 /**
- *  Define the edges for expanding the safe area in layout.
+ * Define the edges for expanding the safe area in layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4728,7 +4733,7 @@ export type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
  * @since 23 static
  */
 export declare interface BaseEvent {
-     /**
+    /**
      * 触发手势事件的元素对象。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4825,7 +4830,7 @@ export declare interface BaseEvent {
     /**
      * 手写笔与设备平面的夹角。
      *
-     * 单位：deg 
+     * 单位：deg
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -4979,7 +4984,7 @@ export declare class LayoutPolicy {
 
     /**
      * The component fills its content which means its size is as large as its children but it is constained by its
-     *     parent.
+     * parent.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5089,6 +5094,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+
     /**
      * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
      * 
@@ -5101,6 +5107,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 26.0.0 static
      */
     globalDisplayX?: double;
+
     /**
      * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
      * 
@@ -5113,17 +5120,16 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 26.0.0 static
      */
     globalDisplayY?: double;
-
- 	/**
- 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
- 	 *
- 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
- 	 * real-time position.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
- 	default getCurrentLocalPosition(): Coordinate2D;
+    /**
+     * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+     *
+     * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+     *     real-time position.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * 继承于[BaseEvent]{@link BaseEvent}。
@@ -5134,7 +5140,13 @@ export declare interface ClickEvent extends BaseEvent {
  */
 export declare interface HoverEvent extends BaseEvent {
     /**
-     * X coordinate of the hover point relative to the left edge of the hover element.
+     * 鼠标光标或手写笔位置在当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5142,7 +5154,13 @@ export declare interface HoverEvent extends BaseEvent {
      */
     x?: double;
     /**
-     * Y coordinate of the hover point relative to the upper edge of the hover element.
+     * 鼠标光标或手写笔位置在当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5150,7 +5168,13 @@ export declare interface HoverEvent extends BaseEvent {
      */
     y?: double;
     /**
-     * X coordinate of the hover point relative to the left edge of the current window.
+     * 鼠标光标或手写笔位置在当前应用窗口坐标系中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5158,7 +5182,13 @@ export declare interface HoverEvent extends BaseEvent {
      */
     windowX?: double;
     /**
-     * Y coordinate of the hover point relative to the upper edge of the current window.
+     * 鼠标光标或手写笔位置在当前应用窗口坐标系中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5166,7 +5196,13 @@ export declare interface HoverEvent extends BaseEvent {
      */
     windowY?: double;
     /**
-     * X coordinate of the hover point relative to the left edge of the device screen.
+     * 鼠标光标或手写笔位置在当前应用屏幕坐标系中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5174,7 +5210,13 @@ export declare interface HoverEvent extends BaseEvent {
      */
     displayX?: double;
     /**
-     * Y coordinate of the hover point relative to the upper edge of the device screen.
+     * 鼠标光标或手写笔位置在当前应用屏幕坐标系中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5182,139 +5224,20 @@ export declare interface HoverEvent extends BaseEvent {
      */
     displayY?: double;
     /**
-     * The blocking hover event pops up.
+     * 阻塞事件冒泡。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     stopPropagation(): void;
+
     /**
-     * X coordinate of the point relative to the global display.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    globalDisplayX?: double;
-    /**
-     * Y coordinate of the point relative to the global display.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    globalDisplayY?: double;
-}
-/**
- * The mouse click action triggers this method invocation.
- *
- * @extends BaseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare interface MouseEvent extends BaseEvent {
-    /**
-     * Mouse button of the click event.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    button: MouseButton;
-    /**
-     * Mouse action of the click event.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    action: MouseAction;
-    /**
-     * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    displayX: double;
-    /**
-     * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    displayY: double;
-    /**
-     * X coordinate of the mouse pointer relative to the upper left corner of the application window.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    windowX: double;
-    /**
-     * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    windowY: double;
-    /**
-     * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    x: double;
-    /**
-     * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    y: double;
-    /**
-     * Stops the event from bubbling upwards or downwards.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    stopPropagation(): void;
-    /**
-     * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
-     * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    rawDeltaX?: double;
-    /**
-     * Y axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
-     * the edge of the screen, the value may be less than the difference of the Y coordinate reported twice.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    rawDeltaY?: double;
-    /**
-     * Array of all mouse buttons that are currently pressed.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    pressedButtons?: MouseButton[];
-    /**
-     * X coordinate of the point relative to the global display.
+     * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5323,16 +5246,170 @@ export declare interface MouseEvent extends BaseEvent {
     globalDisplayX?: double;
 
     /**
-     * Y coordinate of the point relative to the global display.
+     * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     globalDisplayY?: double;
+}
+/**
+ * 继承于[BaseEvent]{@link BaseEvent}。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface MouseEvent extends BaseEvent {
     /**
-     * The unique handle for the event processing session. This handle must be used for any further operations on the
-     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     * 鼠标按键。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    button: MouseButton;
+    /**
+     * 鼠标动作。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    action: MouseAction;
+    /**
+     * 鼠标位置在当前应用屏幕坐标系中的X坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    displayX: double;
+    /**
+     * 鼠标位置在当前应用屏幕坐标系中的Y坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    displayY: double;
+    /**
+     * 鼠标位置在当前应用窗口坐标系中的X坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    windowX: double;
+    /**
+     * 鼠标位置在当前应用窗口坐标系中的Y坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    windowY: double;
+    /**
+     * 鼠标位置在事件响应组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    x: double;
+    /**
+     * 鼠标位置在事件响应组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    y: double;
+    /**
+     * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    stopPropagation(): void;
+    /**
+     * 鼠标设备在二维平面X轴的移动增量。其数值为鼠标硬件的原始移动数据，使用物理世界中鼠标移动的距离单位进行表示。上报数值由硬件本身决定，并非屏幕的物理/逻辑像素。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    rawDeltaX?: double;
+    /**
+     * 鼠标设备在二维平面Y轴的移动增量。其数值为鼠标硬件的原始移动数据，使用物理世界中鼠标移动的距离单位进行表示。上报数值由硬件本身决定，并非屏幕的物理/逻辑像素。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    rawDeltaY?: double;
+    /**
+     * 当前按下的鼠标按键集合。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    pressedButtons?: MouseButton[];
+
+    /**
+     * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    globalDisplayY?: double;
+
+    /**
+     * 用于事件处理的唯一标识。
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **说明：** 在使用[postInputEventWithStrategy]{@link ../BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字
+     * 段，事件每分发一次字段会增加100000。
+     * 
+     * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5343,12 +5420,13 @@ export declare interface MouseEvent extends BaseEvent {
      * Gets the coordinates of the top-left corner of the current component based on its real-time position.
      *
      * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
-     * real-time position.
+     *     real-time position.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     default getCurrentLocalPosition(): Coordinate2D;
+
     /**
      * Obtains all historical points of the current frame.
      *
@@ -5361,7 +5439,18 @@ export declare interface MouseEvent extends BaseEvent {
     default getHistoricalPoints(): MouseHistoricalPoint[] | undefined;
 }
 /**
- * Defines the historical point information for mouse event.
+ * 鼠标事件历史点信息。
+ * 
+ * 历史点按时间顺序排列，获取到的第一个历史点是最早发生的事件的信息，最后一个是最新发生事件的信息。历史点的数量取决于系统事件队列的配置和硬件性能。历史点主要用于如下场景：
+ * 
+ * 1. 平滑绘制：使用历史点可以实现更平滑的绘制效果，特别是在鼠标快速移动时。
+ *  
+ * 2. 手势识别：通过分析历史点的轨迹，可以识别各种鼠标手势。
+ *  
+ * 3. 性能优化：在一个事件回调中处理多个历史点，减少事件处理频率，提升性能。
+ *  
+ * 4. 轨迹分析：分析鼠标移动轨迹，用于绘图应用或手势控制。
+ * 5. 数据分析：历史点中的timestamp可用于计算鼠标移动速度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5369,7 +5458,9 @@ export declare interface MouseEvent extends BaseEvent {
  */
 export declare interface MouseHistoricalPoint {
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   * 鼠标指针相对于被点击组件左上角的X坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5378,7 +5469,9 @@ export declare interface MouseHistoricalPoint {
   x: double;
   
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   * 鼠标指针相对于被点击组件左上角的Y坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5387,7 +5480,9 @@ export declare interface MouseHistoricalPoint {
   y: double;
   
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   * 鼠标指针相对于整个屏幕左上角的X坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5396,7 +5491,9 @@ export declare interface MouseHistoricalPoint {
   displayX: double;
   
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
+   * 鼠标指针相对于整个屏幕左上角的Y坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5405,7 +5502,9 @@ export declare interface MouseHistoricalPoint {
   displayY: double;
   
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
+   * 鼠标指针相对于应用窗口左上角的X坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5414,24 +5513,32 @@ export declare interface MouseHistoricalPoint {
   windowX: double;
   
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
+   * 鼠标指针相对于应用窗口左上角的Y坐标。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   windowY: double;
- 
+
   /**
-   * X coordinate of the point relative to the global display.
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+   * 
+   * 单位：vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   globalDisplayX: double;
- 
+
   /**
-   * Y coordinate of the point relative to the global display.
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 
+   * 单位：vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -5439,7 +5546,9 @@ export declare interface MouseHistoricalPoint {
   globalDisplayY: double;
   
   /**
-   * Timestamp of the mouse event.
+   * 鼠标事件的时间戳。
+   * 
+   * 单位：ns
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5450,7 +5559,6 @@ export declare interface MouseHistoricalPoint {
 /**
  * The accessibility hover action triggers this method invocation.
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -5531,7 +5639,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
     globalDisplayY?: double;
 }
 /**
- * Type of the touch event.
+ * 触摸事件类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5539,7 +5647,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
  */
 export declare interface TouchObject {
     /**
-     * Type of the touch event.
+     * 触摸事件的类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5547,7 +5655,7 @@ export declare interface TouchObject {
      */
     type: TouchType;
     /**
-     * Unique identifier of a finger.
+     * 手指唯一标识符。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5555,7 +5663,9 @@ export declare interface TouchObject {
      */
     id: int;
     /**
-     * X coordinate of the touch point relative to the upper left corner of the application screen.
+     * 触摸点在当前应用屏幕坐标系中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5563,7 +5673,9 @@ export declare interface TouchObject {
      */
     displayX: double;
     /**
-     * Y coordinate of the touch point relative to the upper left corner of the application screen.
+     * 触摸点在当前应用屏幕坐标系中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5571,7 +5683,9 @@ export declare interface TouchObject {
      */
     displayY: double;
     /**
-     * X coordinate of the touch point relative to the upper left corner of the application window.
+     * 触摸点在当前应用窗口坐标系中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5579,7 +5693,9 @@ export declare interface TouchObject {
      */
     windowX: double;
     /**
-     * Y coordinate of the touch point relative to the upper left corner of the application window.
+     * 触摸点在当前应用窗口坐标系中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5587,7 +5703,9 @@ export declare interface TouchObject {
      */
     windowY: double;
     /**
-     * X coordinate of the touch point relative to the upper left corner of the event responding component.
+     * 触摸点在事件响应组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5595,7 +5713,9 @@ export declare interface TouchObject {
      */
     x: double;
     /**
-     * Y coordinate of the touch point relative to the upper left corner of the event responding component.
+     * 触摸点在事件响应组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5603,7 +5723,7 @@ export declare interface TouchObject {
      */
     y: double;
     /**
-     * Whether the event is triggered by a left-hand or right-hand tap.
+     * 表示事件是由左手点击还是右手点击触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5611,7 +5731,9 @@ export declare interface TouchObject {
      */
     hand?: InteractionHand;
     /**
-     * Time when the finger is pressed.
+     * 当前手指按下的时间。
+     * 
+     * 单位：ns
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5619,15 +5741,19 @@ export declare interface TouchObject {
      */
     pressedTime?: long;
     /**
-   * Pressure value of the finger press.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
+     * 当前手指按压的压力值。
+     * 
+     * 取值范围：[0,65535)，压力越大，值越大。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     pressure?: double;
     /**
-     * Width of the area pressed by the finger.
+     * 当前手指按压区域的宽度。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5635,15 +5761,22 @@ export declare interface TouchObject {
      */
     width?: double;
     /**
-     * Height of the area pressed by the finger.
+     * 当前手指按压区域的高度。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     height?: double;
+
     /**
-     * X coordinate of the point relative to the global display.
+     * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5652,27 +5785,30 @@ export declare interface TouchObject {
     globalDisplayX?: double;
 
     /**
-     * Y coordinate of the point relative to the global display.
+     * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     globalDisplayY?: double;
-
- 	/**
- 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
- 	 *
- 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
- 	 * real-time position.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
- 	default getCurrentLocalPosition(): Coordinate2D;
+    /**
+     * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+     *
+     * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+     *     real-time position.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
- * TouchObject getHistoricalPoints Function Parameters
+ * 历史点信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5680,7 +5816,7 @@ export declare interface TouchObject {
  */
 export declare interface HistoricalPoint {
     /**
-     * The base touchObject information of historicalPoint
+     * 历史点对应触摸事件的基础信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5688,7 +5824,9 @@ export declare interface HistoricalPoint {
      */
     touchObject: TouchObject;
     /**
-     * Contact area between the finger pad and the screen.
+     * 历史点对应触摸事件中手指与屏幕的触摸区域大小。
+     * 
+     * 默认值：0
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5696,7 +5834,11 @@ export declare interface HistoricalPoint {
      */
     size: int;
     /**
-     * Pressure of the touch event.
+     * 历史点对应触摸事件的压力大小。
+     * 
+     * 默认值：0
+     * 
+     * 取值范围：[0,65535)，压力越大，值越大。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5704,7 +5846,9 @@ export declare interface HistoricalPoint {
      */
     force: double;
     /**
-     * Timestamp of the touch event.
+     * 历史点对应触摸事件的时间戳，表示触发事件时距离系统启动的时间间隔。
+     * 
+     * 单位：ns
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5713,16 +5857,16 @@ export declare interface HistoricalPoint {
     timestamp: long;
 }
 /**
- * Touch Action Function Parameters
+ * 继承于[BaseEvent]{@link BaseEvent}。在非事件注入场景下，changedTouches是按屏幕刷新率重采样的点，而touches是按器件刷新率上报的点，因此changedTouches与touches的数据可
+ * 能不同。
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface TouchEvent extends BaseEvent {
     /**
-     * Type of the touch event.
+     * 触摸事件的类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5730,7 +5874,7 @@ export declare interface TouchEvent extends BaseEvent {
      */
     type: TouchType;
     /**
-     * All finger information.
+     * 全部屏幕触点（多指）的信息，每个元素代表一个触点。在使用该属性时，需要校验是否为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5738,7 +5882,7 @@ export declare interface TouchEvent extends BaseEvent {
      */
     touches: TouchObject[];
     /**
-     * Finger information changed.
+     * 发生变化而产生事件的手指信息。在使用该属性时，需要校验是否为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5746,7 +5890,7 @@ export declare interface TouchEvent extends BaseEvent {
      */
     changedTouches: TouchObject[];
     /**
-     * Stops the event from bubbling upwards or downwards.
+     * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5754,17 +5898,22 @@ export declare interface TouchEvent extends BaseEvent {
      */
     stopPropagation(): void;
     /**
-     * Obtains all historical points of the current frame.
+     * 获取当前帧的所有历史点。不同设备每帧的触摸事件频率不同，且该接口仅能在[TouchEvent]{@link TouchEvent}中调用，用于获取触发[onTouch]{@link CommonMethod.onTouch}时
+     * 当前帧历史点的相关信息。[onTouch]{@link CommonMethod.onTouch}一帧通常只会调用一次，如果当前帧收到的[TouchEvent]{@link TouchEvent}数目大于1，会将该帧最后一个点
+     * 通过[onTouch]{@link CommonMethod.onTouch}返回，其余点作为历史点。如果多指在同一帧上报事件，可能触发多次onTouch。
      *
-     * @returns { Array<HistoricalPoint> | undefined } - return all historical points. Undefined will be returned
-     *     if the internal runtime environment is broken.
+     * @returns { Array<HistoricalPoint> | undefined } 由历史点组成的数组。如果内部运行时环境异常，可能返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getHistoricalPoints(): Array<HistoricalPoint> | undefined;
     /**
-     * Blocks the default event.
+     * 阻止默认事件。
+     * 
+     * > **说明：**
+     * >
+     * > 该接口仅支持部分组件使用，当前支持组件：[Hyperlink]{@link ./common}，不支持的组件在使用时会抛出异常。暂不支持异步调用和提供Modifier接口。
      *
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5772,9 +5921,16 @@ export declare interface TouchEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+
     /**
-     * The unique handle for the event processing session. This handle must be used for any further operations on the
-     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     * 用于事件处理的唯一标识。
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **说明：** 在使用[postInputEventWithStrategy]{@link ../BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字
+     * 段，事件每分发一次字段会增加100000。
+     * 
+     * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5783,16 +5939,15 @@ export declare interface TouchEvent extends BaseEvent {
     eventHandleId?: int;
 }
 /**
- * The axis event triggers this method invocation.
+ * 轴事件的对象说明，继承于[BaseEvent]{@link BaseEvent}。
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface AxisEvent extends BaseEvent {
     /**
-     * Axis action of the axis event.
+     * 轴事件的动作类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5800,7 +5955,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     action: AxisAction;
     /**
-     * X coordinate of the mouse cursor relative to the left edge of the device screen.
+     * 鼠标光标在当前应用屏幕坐标系中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5808,7 +5965,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     displayX: double;
     /**
-     * Y coordinate of the mouse cursor relative to the upper edge of the device screen.
+     * 鼠标光标在当前应用屏幕坐标系中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5816,7 +5975,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     displayY: double;
     /**
-     * X coordinate of the mouse cursor relative to the left edge of the current window.
+     * 鼠标光标在当前应用窗口坐标系中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5824,7 +5985,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     windowX: double;
     /**
-     * Y coordinate of the mouse cursor relative to the upper edge of the current window.
+     * 鼠标光标在当前应用窗口坐标系中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5832,7 +5995,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     windowY: double;
     /**
-     * X coordinate of the mouse cursor relative to the left edge of the axis event hit element.
+     * 鼠标光标在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5840,7 +6005,9 @@ export declare interface AxisEvent extends BaseEvent {
      */
     x: double;
     /**
-     * Y coordinate of the mouse cursor relative to the upper edge of the axis event hit element.
+     * 鼠标光标在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5848,16 +6015,24 @@ export declare interface AxisEvent extends BaseEvent {
      */
     y: double;
     /**
-     * Scroll step configuration which is only mouse wheel has.
-     *  *
+     * 鼠标轴滚动步长配置。
+     * 
+     * **说明：** 仅支持鼠标滚轮，取值范围：[0~65535]
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     scrollStep?: int;
     /**
-     * The unique handle for the event processing session. This handle must be used for any further operations on the
-     * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+     * 用于事件处理的唯一标识。
+     * 
+     * 取值范围：[0, +∞)
+     * 
+     * **说明：** 在使用[postInputEventWithStrategy]{@link ../BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字
+     * 段，事件每分发一次字段会增加100000。
+     * 
+     * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5865,7 +6040,7 @@ export declare interface AxisEvent extends BaseEvent {
      */
     eventHandleId?: int;
     /**
-     * Active event bubbling.
+     * 激活事件冒泡。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5873,44 +6048,51 @@ export declare interface AxisEvent extends BaseEvent {
      */
     propagation(): void;
     /**
-     * Obtains the value of the horizontal scroll axis for this axis event.
+     * 获取此次轴事件的水平轴值。
      *
-     * @returns { double }
+     * @returns { double } 水平轴值。<br>单位：vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getHorizontalAxisValue(): double;
     /**
-     * Obtains the value of the vertical scroll axis for this axis event.
+     * 获取此次轴事件的垂直轴值。
      *
-     * @returns { double }
+     * @returns { double } 垂直轴值。<br>单位：vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getVerticalAxisValue(): double;
     /**
-     * Obtains the value of the pinch axis for this axis event.
+     * 返回此次轴事件双指缩放的比例。
      *
-     * @returns { double }
+     * @returns { double } 双指缩放比例。<br/> **说明：** 缩放比例指的是触控板双指缩放事件触发过程中双指当前的距离与双指最初按下时的距离的比值。<br/>默认值：0
+     *     <br/>取值范围：[0, +∞)<br/>
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getPinchAxisScaleValue(): double;
     /**
-     * Checks whether this event contains a specified axis type.
+     * 检测此轴事件是否包含指定的轴类型。
      *
-     * @param { AxisType } axisType - Indicates the axis type.
-     * @returns { boolean }
+     * @param { AxisType } axisType - 轴事件的轴类型。
+     * @returns { boolean } 此轴事件是否包含指定的轴类型。
+     *     <br>true：包含指定的轴类型；false：不包含指定的轴类型。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     hasAxis(axisType: AxisType): boolean;
+
     /**
-     * X coordinate of the point relative to the global display.
+     * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -5919,24 +6101,27 @@ export declare interface AxisEvent extends BaseEvent {
     globalDisplayX?: double;
 
     /**
-     * Y coordinate of the point relative to the global display.
+     * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+     * 
+     * 单位：vp
+     * 
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     globalDisplayY?: double;
-
- 	/**
- 	 * Gets the coordinates of the top-left corner of the current component based on its real-time position.
- 	 *
- 	 * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
- 	 * real-time position.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
- 	default getCurrentLocalPosition(): Coordinate2D;
+    /**
+     * Gets the coordinates of the top-left corner of the current component based on its real-time position.
+     *
+     * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
+     *     real-time position.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default getCurrentLocalPosition(): Coordinate2D;
 }
 /**
  * 组件区域变化时的回调类型。
@@ -5949,35 +6134,38 @@ export declare interface AxisEvent extends BaseEvent {
  */
 export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
 /**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ * 自定义手势识别器判定回调类型。
  *
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
+ * @param { BaseGestureEvent } event - 当前基础手势事件信息。<br/>
+ * @param { GestureRecognizer } current - 当前即将要响应的识别器对象。<br/>
+ * @param { Array<GestureRecognizer> } recognizers - 响应链上的其他手势识别器对象。<br/>
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上的Touch识别器对象。 默认值为null，表示在当前手势绑定组件及其子孙组件没有可响应的Touch识别器。<br/>
+ * @returns { GestureJudgeResult } 手势是否裁决成功的判定结果。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
- * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
+ * 系统内置手势与响应链上其他组件的手势设置并行关系的回调事件类型。
  *
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
- * @returns { GestureRecognizer } gesture recognizer of the component
+ * @param { GestureRecognizer } current - 当前组件的系统内置手势识别器，当前版本只提供内置的
+ *     [GestureType]{@link GestureControl.GestureType}.PAN_GESTURE类型的手势识别器。
+ * @param { Array<GestureRecognizer> } others - 响应链上更高优先级的其他组件相同类别的手势识别器。
+ * @returns { GestureRecognizer } 与current识别器绑定并行关系的某个手势识别器。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 /**
- * Defines the callback type used in shouldRecognizerParallelWith.
+ * 手势与响应链上其他组件的手势设置并行关系的回调事件类型。
  *
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
- * @returns { GestureRecognizer } gesture recognizer of the component
+ * @param { GestureRecognizer } current - 当前组件的手势识别器，当前仅支持
+ *     [GestureType]{@link GestureControl.GestureType}.PAN_GESTURE类型的手势识别器。
+ * @param { Array<GestureRecognizer> } others - 响应链上优先级高于当前组件的其他组件所持有的同类型
+ *     [GestureType]{@link GestureControl.GestureType}的手势识别器。
+ * @returns { GestureRecognizer } 与current识别器绑定并行关系的某个手势识别器。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -5993,24 +6181,23 @@ export type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, 
  */
 export type TransitionFinishCallback = (transitionIn: boolean) => void;
 /**
- * Defines the callback type used in onTouchTestDone.
- * When the user touch down, the system performs hit test process to collect all gesture recognizers
- * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
- * the callback is triggered, you can get all recognizer's information from this callback.
+ * 动态指定手势识别器是否参与手势处理的回调事件类型，回调内参数的生命周期跟随回调本身，参数内的方法仅支持在回调内同步使用。
  *
- * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { BaseGestureEvent } event - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后的基础手势事件的信息。
+ *     <br/>**说明：** <br/>仅包含BaseGestureEvent的信息，不包含其子类拓展信息。<br/>axisHorizontal和axisVertical的值为0。
+ * @param { Array<GestureRecognizer> } recognizers - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后，
+ *     所有手势识别器对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 /**
- * Defines the callback type used in onGestureCollectIntercept.
+ * 定义在[onGestureCollectIntercept]{@link CommonMethod.onGestureCollectIntercept}中使用的回调类型。
  *
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain.
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain.
- * @returns { GestureCollectIntervention } the gesture intervention.
+ * @param { Array<GestureRecognizer> } recognizers - 响应链上组件的手势识别器对象。
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上组件的触摸识别器对象。<br/>默认值为null。
+ * @returns { GestureCollectIntervention } 手势收集干预结果。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -6036,7 +6223,6 @@ export type OnNeedSoftkeyboardCallback = () => boolean;
  */
 export type PixelMap = image.PixelMap;
 
-
 /**
  * pixelmap object with release function.
  *
@@ -6058,20 +6244,17 @@ declare interface PixelMapMock {
 }
 
 /**
- * Enum for Drag Behavior.
+ * 当设置[DragResult]{@link DragResult}为DROP_ENABLED后，可设置DragBehavior为复制（COPY）或剪切（MOVE）。当DragBehavior为复制（COPY）时，拖拽对象的角标会显示加
+ * 号；为剪切（MOVE）时，拖拽对象的角标不会显示加号。DragBehavior用来向开发者描述数据的处理方式是复制（COPY）还是剪切（MOVE），但无法最终决定对数据的实际处理方式。DragBehavior会通过onDragEnd带
+ * 回给数据拖出方，发起拖拽的一方可通过DragBehavior来区分做出的是复制（COPY）还是剪切（MOVE）数据的不同行为。
  *
- * <strong>NOTE</strong>:<br>
- * DragBehavior serves to inform you about the intended method of data handling,
- * whether it's a copy or a move, but it does not actually dictate the real processing of the data.
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum DragBehavior {
     /**
-     * If drag use copy event, then set DragBehavior.COPY.
+     * 指定对数据的处理方式为复制。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6079,18 +6262,17 @@ export declare enum DragBehavior {
      */
     COPY = 0,
     /**
-     * If drag use move event, then set DragBehavior.MOVE.
+     * 指定对数据的处理方式为剪切。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    MOVE = 1
+    MOVE
 }
 /**
- * Enum for Drag Animation Type.
+ * 拖拽动画类型。
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -6098,7 +6280,7 @@ export declare enum DragBehavior {
  */
 export declare enum DragAnimationType {
     /**
-     * Use the default animation during dragging.
+     * 使用默认拖拽动画。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -6107,7 +6289,7 @@ export declare enum DragAnimationType {
      */
     DEFAULT = 0,
     /**
-     * Use the follow-hand morph animation during dragging.
+     * 使用跟手变形拖拽动画。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -6117,7 +6299,7 @@ export declare enum DragAnimationType {
     FOLLOW_HAND_MORPH = 1
 }
 /**
- * Import the UnifiedData type object for ui component.
+ * 拖拽相关的数据。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6125,7 +6307,7 @@ export declare enum DragAnimationType {
  */
 export type UnifiedData = unifiedDataChannel.UnifiedData;
 /**
- * Import the Summary type object for ui component.
+ * 拖拽相关数据的简介。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6133,7 +6315,7 @@ export type UnifiedData = unifiedDataChannel.UnifiedData;
  */
 export type Summary = unifiedDataChannel.Summary;
 /**
- * Import the UniformDataType type object for ui component.
+ * 标准化数据类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6141,48 +6323,54 @@ export type Summary = unifiedDataChannel.Summary;
  */
 export type UniformDataType = uniformTypeDescriptor.UniformDataType;
 /**
- * Import the GetDataParams type object for ui component.
+ * 作为startDataLoading的入参对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type DataSyncOptions = unifiedDataChannel.GetDataParams;
+
 /**
- * Import the DataLoadParams type object for ui component.
+ * 落入操作时使用的数据加载参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export type DataLoadParams = unifiedDataChannel.DataLoadParams;
+
 /**
- * The type for SpringLoadingContext, see the detailed description in dragController.
+ * 定义回调上下文信息的类，用于在悬停检测回调中传递给应用程序，使其能访问拖拽状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export type SpringLoadingContext = dragController.SpringLoadingContext;
+
 /**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ * 定义拖拽的悬停检测配置参数的接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export type DragSpringLoadingConfiguration = dragController.DragSpringLoadingConfiguration;
+
 /**
- * Enum for Drag Result.
+ * 定义拖拽操作的结果及组件的落入选定状态。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum DragResult {
     /**
-     * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
+     * 拖拽结果尚未设置，在[onDragStart]{@link CommonMethod.onDragStart}，[onDragEnter]{@link CommonMethod.onDragEnter}，
+     * [onDragMove]{@link CommonMethod.onDragMove}，[onDragLeave]{@link CommonMethod.onDragLeave}，
+     * [onDrop]{@link CommonMethod.default onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}
+     * 中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6190,7 +6378,9 @@ export declare enum DragResult {
      */
     UNKNOWN = -1,
     /**
-     * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
+     * 拖拽成功，在
+     * [onDrop]{@link CommonMethod.default onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}
+     * 中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6198,7 +6388,9 @@ export declare enum DragResult {
      */
     DRAG_SUCCESSFUL = 0,
     /**
-     * If drag fail, return DragResult.DRAG_FAILED.
+     * 拖拽失败，在
+     * [onDrop]{@link CommonMethod.default onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}
+     * 中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6206,7 +6398,9 @@ export declare enum DragResult {
      */
     DRAG_FAILED = 1,
     /**
-     * If drag action cancel, return DragResult.DRAG_CANCELED.
+     * 拖拽取消，在
+     * [onDrop]{@link CommonMethod.default onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}
+     * 中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6214,7 +6408,8 @@ export declare enum DragResult {
      */
     DRAG_CANCELED = 2,
     /**
-     * If node allow drop in, return DragResult.DROP_ENABLED.
+     * 组件允许落入，在[onDragEnter]{@link CommonMethod.onDragEnter}，[onDragMove]{@link CommonMethod.onDragMove}，
+     * [onDragLeave]{@link CommonMethod.onDragLeave}中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6222,7 +6417,8 @@ export declare enum DragResult {
      */
     DROP_ENABLED = 3,
     /**
-     * If node don't allow drop in, return DragResult.DROP_DISABLED.
+     * 组件不允许落入，在[onDragEnter]{@link CommonMethod.onDragEnter}，[onDragMove]{@link CommonMethod.onDragMove}，
+     * [onDragLeave]{@link CommonMethod.onDragLeave}中使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6517,19 +6713,19 @@ export declare enum BlendApplyType {
      */
     OFFSCREEN = 1,
     /**
-    * The content of the component and its child components are drawn on the
-    * offscreen canvas, and then blended with the existing content on the canvas.
-    * The offscreen canvas will copy background to initialize itself when created.
-    * 
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @systemapi
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * The content of the component and its child components are drawn on the
+     * offscreen canvas, and then blended with the existing content on the canvas.
+     * The offscreen canvas will copy background to initialize itself when created.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
     OFFSCREEN_WITH_BACKGROUND = 2
 }
 /**
- * DragEvent object description
+ * 拖拽事件信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6537,51 +6733,63 @@ export declare enum BlendApplyType {
  */
 export declare interface DragEvent {
     /**
-     * X coordinate of the touch point relative to the left edge of the device screen.
+     * 获取当前拖拽点相对于屏幕左上角的x轴坐标。
      *
-     * @returns { double }
+     * @returns { double } 当前拖拽点相对于屏幕左上角的x轴坐标，单位为vp。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getDisplayX(): double;
     /**
-     * Y coordinate of the touch point relative to the upper edge of the device screen.
+     * 获取当前拖拽点相对于屏幕左上角的y轴坐标。
      *
-     * @returns { double }
+     * @returns { double } 当前拖拽点相对于屏幕左上角的y轴坐标，单位为vp。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getDisplayY(): double;
     /**
-     * X coordinate of the touch point relative to the left edge of the current window.
+     * 获取拖拽点相对于窗口左上角的x轴坐标。
      *
-     * @returns { double }
+     * @returns { double } 当前拖拽点相对于窗口左上角的x轴坐标，单位为vp。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getWindowX(): double;
     /**
-     * Y coordinate of the touch point relative to the left edge of the current window.
+     * 获取拖拽点相对于窗口左上角的y轴坐标。
      *
-     * @returns { double }
+     * @returns { double } 当前拖拽点相对于窗口左上角的y轴坐标，单位为vp。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getWindowY(): double;
     /**
-    * If copy is COPY, this DragEvent is a copy event.
-    * @default COPY
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 切换复制和剪贴模式的角标显示状态。
+     * 
+     * 默认值：DragBehavior.COPY。
+     *
+     * @default COPY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     dragBehavior: DragBehavior;
     /**
-     * If useCustomDropAnimation is true, System will not use drop animation.
+     * 当拖拽结束时，是否禁用系统默认落位动效。
+     * 
+     * 应用可将该值设定为true来禁用系统默认落位动效，并实现自己的自定义落位动效。
+     * 
+     * 当不配置或设置为false时，系统默认落位动效生效，当[setResult]{@link DragEvent.setResult}设置为DRAG_SUCCESSFUL时，落位为缩小消失动效，不为DRAG_SUCCESSFUL
+     * 时，则为放大消失动效。
+     * 
+     * 当未禁用系统默认落位动效时，应用不应再实现自定义动效，以避免动效上的冲突。
+     * 
+     * 默认值：false
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6589,10 +6797,18 @@ export declare interface DragEvent {
      */
     useCustomDropAnimation: boolean;
     /**
-     * Set the uniqueId or uniqueId array of components that need to be automatically hidden during dragging.
-     * This property takes effect only in onDragStart. After the drag starts successfully, the system hides the
-     * target components before the drag preview window is shown. Developers need to restore component visibility
-     * in onDragEnd or onDrop based on service requirements.
+     * 设置拖拽过程中需要自动隐藏的组件uniqueId，支持传入单个uniqueId或数组。
+     * 
+     * 仅在[onDragStart]{@link CommonMethod.onDragStart}回调中设置生效。拖拽成功发起后，系统会在显示拖拽预览窗口前隐藏目标组件。
+     * 
+     * 若拖拽源本身也需要隐藏，需要同时传入拖拽源组件的uniqueId。
+     * 
+     * 组件的uniqueId可通过[UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext.getFrameNodeById}配合
+     * [FrameNode.getUniqueId()]{@link ../FrameNode:FrameNode#getUniqueId}获取。
+     * 
+     * 开发者应在[onDragEnd]{@link CommonMethod.onDragEnd}或
+     * [onDrop]{@link CommonMethod.default onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}
+     * 中恢复组件显示状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6600,8 +6816,11 @@ export declare interface DragEvent {
      */
     autoHideComponentUniqueIds?: int | int[];
     /**
-     * Sets the drag animation type.
-     * This property can only be set during onDragStart, but can be retrieved in any onDragXXX callback.
+     * 设置拖拽动画类型。该属性仅支持在[onDragStart]{@link CommonMethod#onDragStart}阶段设置，可在[onDragStart]{@link CommonMethod#onDragStart}、
+     * [onDragEnter]{@link CommonMethod#onDragEnter}、[onDragMove]{@link CommonMethod#onDragMove}、
+     * [onDragLeave]{@link CommonMethod#onDragLeave}、
+     * [onDrop]{@link CommonMethod#onDrop(event: ((event: DragEvent, extraParams?: string) => void) | undefined)}、
+     * [onDragEnd]{@link CommonMethod#onDragEnd}回调中获取。
      *
      * @default DragAnimationType.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6611,18 +6830,18 @@ export declare interface DragEvent {
      */
     dragAnimationType?: DragAnimationType;
     /**
-     * Set dragData into DragEvent.
+     * 向DragEvent中设置用于拖拽的数据。
      *
-     * @param { UnifiedData } unifiedData - dragData.
+     * @param { UnifiedData } unifiedData - 拖拽相关的数据。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setData(unifiedData: UnifiedData): void;
     /**
-     * Get dragData from DragEvent.
+     * 获取拖拽相关数据。
      *
-     * @returns { UnifiedData | undefined } - get dragData, undefined will be returned if the internal runtime environment is broken.
+     * @returns { UnifiedData | undefined } 从DragEvent中获取拖拽相关数据。数据获取结果请参考错误码说明。
      * @throws { BusinessError } 190001 - Data not found.
      * @throws { BusinessError } 190002 - Data error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6631,70 +6850,70 @@ export declare interface DragEvent {
      */
     getData(): UnifiedData | undefined;
     /**
-     * Get dragData summary from DragEvent.
+     * 获取所拖拽数据的概要，包括数据类型及大小信息；在延迟拖拽场景下，只能获取到数据类型信息。
      *
-     * @returns { Summary | undefined } - get Summary Data, undefined will be returned if the internal runtime environment is broken.
+     * @returns { Summary | undefined } 拖拽相关数据的概要。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getSummary(): Summary | undefined;
     /**
-     * Set dragEvent result to DragEvent.
+     * 在DragEvent中设置拖拽结果。
      *
-     * @param { DragResult } dragResult - the return of dragEvent.
+     * @param { DragResult } dragResult - 拖拽结果。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setResult(dragResult: DragResult): void;
     /**
-     * Get dragEvent result from DragEvent.
+     * 获取拖拽结果。
      *
-     * @returns { DragResult } - dragResult Data.
+     * @returns { DragResult } 从DragEvent中获取的拖拽结果。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getResult(): DragResult;
     /**
-     * Get the rectangle of drag window.
+     * 获取拖拽预览图相对于当前窗口的位置，以及预览图尺寸信息。
      *
-     * @returns { Rectangle } - getPreview rectangle.
+     * @returns { Rectangle } 拖拽预览图相对于当前窗口的位置，以及预览图尺寸信息，单位vp，其中x和y代表预览图左上角的窗口坐标，width和height代表预览图的尺寸。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getPreviewRect(): Rectangle;
     /**
-     * Get the x axis velocity of drag gesture.
+     * 获取当前拖拽的x轴方向拖动速度。
      *
-     * @returns { double } - get x axis velocity.
+     * @returns { double } 当前拖拽的x轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从左往右为正，反之为负。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getVelocityX(): double;
     /**
-     * Get the y axis velocity of drag gesture.
+     * 获取当前拖拽的y轴方向拖动速度。
      *
-     * @returns { double } - get y axis velocity.
+     * @returns { double } 当前拖拽的y轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从上往下为正，反之为负。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getVelocityY(): double;
     /**
-     * Get the velocity of drag gesture.
+     * 获取当前拖拽的主方向拖动速度。
      *
-     * @returns { double } - get velocity.
+     * @returns { double } 当前拖拽的主方向拖动速度。为xy轴方向速度的平方和的算术平方根，单位为vp。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getVelocity(): double;
     /**
-     * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
+     * 获取功能键按压状态。支持功能键 'Ctrl' | 'Alt' | 'Shift'。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6702,40 +6921,11 @@ export declare interface DragEvent {
      */
     getModifierKeyState?: ModifierKeyStateGetter;
     /**
-     * Setup one drop animation execution callback, which will be triggered by system when user drops.
-     * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
-     * will decide when to trigger the callback during the drop handling.
-     * [Note]:
-     *   1. Please set useCustomDropAnimation to true as well when using this method.
-     *   2. Do not implement the animation no-related logics in the callback.
+     * 异步获取拖拽数据，并通知开发者当前数据同步进度，仅支持在onDrop阶段使用。
      *
-     * @param { VoidCallback } customDropAnimation - the custom drop animation function.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    executeDropAnimation(customDropAnimation: VoidCallback): void;
-    /**
-     * Setup one follow-hand morph drop animation execution callback, which will be triggered by system
-     * after the drag framework animation ends.
-     * [Note]:
-     *   1. This method is effective only when dragAnimationType is FOLLOW_HAND_MORPH.
-     *   2. Do not implement animation no-related logic in the callback.
-     *
-     * @param { VoidCallback } onAnimationFinished - the callback triggered after framework animation ends.
-     * @param { string } [animationOption] - optional animation option payload that will be forwarded by framework.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    executeFollowHandMorphDropAnimation(onAnimationFinished: VoidCallback, animationOption?: string): void;
-    /**
-     * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
-     * Only can be used in onDrop event processing.
-     *
-     * @param { DataSyncOptions } options - the data sync options.
-     * @returns { string | undefined } The data key returned by system, which can be used as the identify of the request.
+     * @param { DataSyncOptions } options - 获取拖拽数据时的参数，包含目标路径、文件冲突选项、进度条类型等。数据传输过程中可使用
+     *     [cancelDataLoading]{@link @ohos.arkui.UIContext:DragController#cancelDataLoading}接口取消数据加载。
+     * @returns { string | undefined } 拖拽数据的标识，用于区分每次拖拽。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 190003 - Operation not allowed for current phase.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6744,55 +6934,23 @@ export declare interface DragEvent {
      */
     startDataLoading(options: DataSyncOptions): string | undefined;
     /**
-     * Get the id of display which the drag event is occuring on.
+     * 设置自定义落位动效的执行函数，仅在
+     * [useCustomDropAnimation]{@link DragEvent#useCustomDropAnimation}为true时有效。
      *
-     * @returns { int }
+     * @param { VoidCallback } customDropAnimation - 在此回调函数中实现自定义落位动效。<br/> **说明：** <br/>1. 该接口仅在onDrop回调中使用有效。<br/> 2.
+     *     使用前需设置useCustomDropAnimation为true，否则该接口不生效。<br/> 3. 不要在动画callback中实现与动效无关的逻辑，避免影响执行效率。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
-    getDisplayId(): int;
-     /**
-     * Retrieve the bundle information of the drag source application.
-     *
-     * @returns { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    getDragSource(): string;
+    executeDropAnimation(customDropAnimation: VoidCallback): void;
+
     /**
-     * Call this method to determine whether the current drag operation is a cross-device drag.
+     * 使用系统的内置动效，且该动效只有系统应用可使用。仅支持在onDrop阶段使用。
      *
-     * @returns { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    isRemote(): boolean;
-    /**
-     * Use this method to provide a data representation to the system instead of directly providing a complete data
-     * object. When the user releases the drag over the target application, the system will use this data
-     * representation to request the actual data from drag source. This approach significantly improves the
-     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
-     * reception. It is recommended to use this method instead of the setData method.
-     *
-     * @param { DataLoadParams } dataLoadParams The data backend representation.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    setDataLoadParams(dataLoadParams: DataLoadParams): void;
-    /**
-     * Enable the internal drop animation, which is only avaiable for system applications.
-     *
-     * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
-     *
-     * This method can only be called in onDrop, and please do not use custom drop animation after this method,
-     * as it will reset the calling result, and use custom drop animation insteadly.
-     *
-     * @param { string } configuration - the internal drop animation's configuration.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } configuration - 动效配置参数，字符串内容为json格式。
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 190003 - Operation not allowed for current phase.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6801,10 +6959,52 @@ export declare interface DragEvent {
      * @since 26.0.0 static
      */
     enableInternalDropAnimation(configuration: string): void;
+
     /**
-     * X coordinate of the point relative to the global display.
+     * 获取当前拖拽事件发生时所在的屏幕ID，不支持在[onDragEnd]{@link CommonMethod.onDragEnd}阶段使用。
      *
-     * @returns { double }
+     * @returns { int } 当前拖拽事件发生时所在的屏幕ID。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    getDisplayId(): int;
+
+    /**
+     * 获取拖起方包名。
+     *
+     * @returns { string } 拖起方的包名。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    getDragSource(): string;
+
+    /**
+     * 获取是否是跨设备拖拽，跨设备拖拽时为true。
+     *
+     * @returns { boolean } 是否是跨设备拖拽，返回true表示是跨设备拖拽，返回false表示不是跨设备拖拽。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    isRemote(): boolean;
+
+    /**
+     * 设置起拖方延迟提供数据。使用此方法向系统提供数据加载参数，而不是直接提供完整的数据对象。当用户在目标应用程序上落入时，系统将使用此参数从起拖方请求实际数据。与[setData]{@link DragEvent.setData}
+     * 方法同时使用，以最后调用的方法为准。该接口仅在[onDragStart]{@link CommonMethod.onDragStart}回调中生效。
+     *
+     * @param { DataLoadParams } dataLoadParams - 落入操作时使用的数据加载参数。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    setDataLoadParams(dataLoadParams: DataLoadParams): void;
+
+    /**
+     * 当前拖拽点相对于全局屏幕的左上角的X坐标。
+     *
+     * @returns { double } 返回当前拖拽点相对于全局屏幕的左上角的X坐标。<br/>单位：vp，取值范围：[0, +∞)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
@@ -6812,26 +7012,53 @@ export declare interface DragEvent {
     getGlobalDisplayX(): double;
 
     /**
-     * Y coordinate of the point relative to the global display.
+     * 当前拖拽点相对于全局屏幕的左上角的Y坐标。
      *
-     * @returns { double }
+     * @returns { double } 返回当前拖拽点相对于全局屏幕的左上角的Y坐标。<br/>单位：vp<br/>取值范围：[0, +∞)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     getGlobalDisplayY(): double;
+
+    /**
+     * 设置一个跟手变形落位动效执行完成后的回调，该回调由系统在拖拽框架动效结束后触发。使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 1. 该接口仅在[dragAnimationType]{@link DragEvent#dragAnimationType}设置为DragAnimationType.FOLLOW_HAND_MORPH时生效。
+     * >
+     * > 2. 不要在回调中实现与动效无关的逻辑，避免影响执行效率。
+     *
+     * @param { VoidCallback } onAnimationFinished - 拖拽框架动效结束后触发的回调。
+     * @param { string } [animationOption] - 落位动效参数。<br> 参数为JSON字符串格式，包含以下字段：<br> **CubicCurveEnable**: boolean，表示是否启用三次曲线
+     *     动画。设置为true时启用三次曲线动画，设置为false时不启用。<br> **SpringEnable**: boolean，表示是否启用弹簧动画。设置为true时启用弹簧动画效果，设置为false时不启用。 <br>
+     *     **dropAnimationCurve**: number[]，表示落位动画曲线参数，其含义由SpringEnable和CubicCurveEnable决定（SpringEnable优先级更高）。当
+     *     SpringEnable为true时，数组长度为3，格式为[response, dampingRatio, blendDuration]，对应
+     *     [curves.springMotion]{@link @ohos.curves:curves.springMotion}的弹簧曲线参数；当SpringEnable为false且CubicCurveEnable为true
+     *     时，数组长度为4，格式为[x1, y1, x2, y2]，对应[curves.cubicBezierCurve]{@link @ohos.curves:curves.cubicBezierCurve}的三次贝塞尔曲线控制点
+     *     参数。<br> **说明：** SpringEnable优先级高于CubicCurveEnable，当两者同时为true时，以弹簧动画为准。当SpringEnable和CubicCurveEnable均未正确设置时，使用默
+     *     认弹簧动效。<br> **dropPosition**: number[]，落位位置坐标。数组长度为2，格式为[x, y]，单位为px，表示拖拽元素落位时的目标位置坐标，取值范围为(-∞, +∞)。<br>
+     *     **dropSize**: number[]，落位尺寸。数组长度为2，格式为[width, height]，单位为px，表示拖拽元素落位时的目标尺寸，取值范围为(0, +∞)。
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    executeFollowHandMorphDropAnimation(onAnimationFinished: VoidCallback, animationOption?: string): void;
 }
+
 /**
- * The event callback function for drag and drop common interfaces.
- * @param { DragEvent } event - the event object indicating current drag status.
- * @param { string } [extraParams] - extra information set by user or system.
+ * 拖拽事件的回调函数。
+ *
+ * @param { DragEvent } event - event为拖拽事件信息，包括拖拽点坐标。
+ * @param { string } [extraParams] - extraParams为拖拽事件额外信息，需要解析为JSON格式。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type OnDragEventCallback = (event: DragEvent, extraParams?: string) => void;
 /**
- * Defines the options for the drop handling.
+ * 设置落入过程的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6839,14 +7066,11 @@ export type OnDragEventCallback = (event: DragEvent, extraParams?: string) => vo
  */
 export declare interface DropOptions {
     /**
-     * Indicating to disable the UDMF data prefetch action by system or not.
-     * The system will try to fetch data before calling user's onDrop for some situation,
-     * it will retry to get data until the max time limit (2.4s for now) reaches,
-     * this's useful for the cross device draging operation, as the system helps to eliminate
-     * the communication instability, but it's redundant for startDataLoading method, as this
-     * method will take care the data fetching with asynchronous mechanism, so must set this
-     * field to true if using startDataLoading in onDrop to avoid the data is fetched before
-     * onDrop executing unexpectedly.
+     * 设置拖拽是否提前获取数据。true表示不提前获取数据，false表示提前获取数据，默认值为false。
+     * 
+     * **说明：**
+     * 
+     * 当使用[startDataLoading]{@link DragEvent.startDataLoading}获取数据时需设置该参数为true，防止拖拽提前获取数据。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6855,7 +7079,7 @@ export declare interface DropOptions {
     disableDataPrefetch?: boolean;
 }
 /**
- * KeyEvent object description:
+ * 按键事件信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6863,7 +7087,7 @@ export declare interface DropOptions {
  */
 export declare interface KeyEvent {
     /**
-     * Type of a key.
+     * 按键的类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6871,7 +7095,7 @@ export declare interface KeyEvent {
      */
     type: KeyType;
     /**
-     * Key code of a key
+     * 按键的键值。按键设备提供的键值请参考[KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6879,7 +7103,7 @@ export declare interface KeyEvent {
      */
     keyCode: int;
     /**
-     * Key value of a key.
+     * 按键的名称。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6887,7 +7111,7 @@ export declare interface KeyEvent {
      */
     keyText: string;
     /**
-     * Type of the input device that triggers the current key, such as the keyboard or handle.
+     * 触发当前按键的输入设备类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6895,7 +7119,7 @@ export declare interface KeyEvent {
      */
     keySource: KeySource;
     /**
-     * Indicates the ID of the input device that triggers the current key.
+     * 触发当前按键的输入设备ID。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6903,8 +7127,7 @@ export declare interface KeyEvent {
      */
     deviceId: int;
     /**
-     * Indicates the status of the key when the key is pressed.
-     * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
+     * 按键发生时元键（即键盘左下角紧挨Ctrl键或Fn标记了窗口logo的按键）的状态，1表示按压态，0表示未按压态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6912,7 +7135,7 @@ export declare interface KeyEvent {
      */
     metaKey: int;
     /**
-     * Timestamp when the key was pressed.
+     * 事件时间戳。触发事件时距离系统启动的时间间隔，单位：ns。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6920,7 +7143,7 @@ export declare interface KeyEvent {
      */
     timestamp: long;
     /**
-     * Block event bubbling.
+     * 阻塞事件冒泡传递。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6928,7 +7151,9 @@ export declare interface KeyEvent {
      */
     stopPropagation(): void;
     /**
-     * Intention code of a key or modifier keys.
+     * 按键对应的意图。
+     * 
+     * 默认值：IntentionCode.INTENTION_UNKNOWN。
      *
      * @default IntentionCode.INTENTION_UNKNOWN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6937,7 +7162,7 @@ export declare interface KeyEvent {
      */
     intentionCode: IntentionCode;
     /**
-     * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
+     * 获取功能键按压状态。支持功能键 'Ctrl'\|'Alt'\|'Shift'。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6945,7 +7170,7 @@ export declare interface KeyEvent {
      */
     getModifierKeyState?: ModifierKeyStateGetter;
     /**
-     * Unicode of a key
+     * 按键的Unicode码值。支持范围为非空格的基本拉丁字符：0x0021-0x007E，不支持字符为0。组合键场景下，返回当前keyEvent对应按键的Unicode码值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6953,23 +7178,31 @@ export declare interface KeyEvent {
      */
     unicode?: long;
     /**
-     * Whether Num Lock is on
+     * NumLock是否锁定。
+     * 
+     * true表示NumLock锁定；false表示NumLock解锁。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     isNumLockOn?: boolean;
+ 
     /**
-     * Whether Caps Lock is on
+     * CapsLock是否锁定。
+     * 
+     * true表示CapsLock锁定；false表示CapsLock解锁。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
     isCapsLockOn?: boolean;
+  
     /**
-     * Whether Scroll Lock is on
+     * ScrollLock是否锁定。
+     * 
+     * true表示ScrollLock锁定；false表示ScrollLock解锁。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6978,16 +7211,15 @@ export declare interface KeyEvent {
     isScrollLockOn?: boolean;
 }
 /**
- * Focus axis event object description.
+ * 焦点轴事件的对象说明，继承于[BaseEvent]{@link BaseEvent}。
  *
- * @extends BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface FocusAxisEvent extends BaseEvent {
     /**
-     * The axis values of axis event.
+     * 焦点轴事件的轴值表。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -6995,7 +7227,7 @@ export declare interface FocusAxisEvent extends BaseEvent {
      */
     axisMap: Map<AxisModel, double>;
     /**
-     * The blocking event pops up.
+     * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7004,7 +7236,7 @@ export declare interface FocusAxisEvent extends BaseEvent {
     stopPropagation(): void;
 }
 /**
- * CrownEvent object description
+ * 组件接收表冠事件的数据结构。内容包括时间戳、旋转角速度、旋转角度、表冠动作和阻止事件冒泡。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7012,7 +7244,9 @@ export declare interface FocusAxisEvent extends BaseEvent {
  */
 export declare interface CrownEvent {
     /**
-     *The timestamp of the rotating crown event.
+     * 时间戳。触发事件时距离系统启动的时间间隔。
+     * 
+     * 单位：ns
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7020,7 +7254,9 @@ export declare interface CrownEvent {
      */
     timestamp: long;
     /**
-     * The angular velocity of a rotating crown.
+     * 旋转角速度。
+     * 
+     * 单位：deg/s
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7028,7 +7264,11 @@ export declare interface CrownEvent {
      */
     angularVelocity: double;
     /**
-     * The rotation angle of the rotating crown.
+     * 相对旋转角度。
+     * 
+     * 单位：deg 
+     * 
+     * 取值范围:[-360, 360]。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7036,7 +7276,7 @@ export declare interface CrownEvent {
      */
     degree: double;
     /**
-     * The behavior of rotating crown.
+     * 表冠动作。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -7044,7 +7284,7 @@ export declare interface CrownEvent {
      */
     action: CrownAction;
     /**
-     * The blocking event pops up.
+     * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8098,16 +8338,16 @@ export declare interface SheetOptions extends BindOptions {
     edgeLightMode?: EdgeLightMode;
 }
 /**
- * The custom styles function block.
+ * 定义用于多态样式的回调类型。
  *
- * @param { CommonMethod } instance - The component instance which can be used to set common attributes.
+ * @param { CommonMethod } instance - 提供组件的实例。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type CustomStyles = (instance: CommonMethod) => void;
 /**
- * Component State Styles.
+ * 组件不同状态下的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8115,7 +8355,7 @@ export type CustomStyles = (instance: CommonMethod) => void;
  */
 export declare interface StateStyles {
     /**
-     * Defines normal state styles.
+     * 组件无状态时的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8123,7 +8363,7 @@ export declare interface StateStyles {
      */
     normal?: CustomStyles;
     /**
-     * Defines pressed state styles.
+     * 组件按下状态的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8131,7 +8371,7 @@ export declare interface StateStyles {
      */
     pressed?: CustomStyles;
     /**
-     * Defines disabled state styles.
+     * 组件禁用状态的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8139,7 +8379,7 @@ export declare interface StateStyles {
      */
     disabled?: CustomStyles;
     /**
-     * Defines focused state styles.
+     * 组件获焦状态的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8147,7 +8387,7 @@ export declare interface StateStyles {
      */
     focused?: CustomStyles;
     /**
-     * Defines clicked state styles.
+     * 组件点击状态的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8155,7 +8395,7 @@ export declare interface StateStyles {
      */
     clicked?: CustomStyles;
     /**
-     * Defines selected state styles.
+     * 组件选中状态的样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -8163,14 +8403,14 @@ export declare interface StateStyles {
      */
     selected?: CustomStyles;
 
-    /**
-     * Defines hovered state styles.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    hovered?: CustomStyles;
+     /**
+      * 组件悬浮状态的样式。
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @since 26.0.0 static
+      */
+     hovered?: CustomStyles;
 }
 /**
  * 气泡文本的样式。
@@ -8190,9 +8430,9 @@ export declare interface PopupMessageOptions {
     textColor?: ResourceColor;
     /**
      * 设置气泡信息字体属性。
-     *
-     * **说明：**
-     *
+     * 
+     * **说明：** 
+     * 
      * 1. 不支持设置family。
      * 2. Font中的weight属性不支持传入number类型。
      *
@@ -8338,11 +8578,11 @@ export declare interface PopupMaskType {
 export declare interface PopupBorderLinearGradient {
     /**
      * 线性渐变的方向。
-     *
-     * 默认值：GradientDirection.Bottom
-     *
-     * **说明：**
-     *
+     * 
+     * 默认值：GradientDirection.Bottom 
+     * 
+     * **说明：** 
+     * 
      * 当线性渐变的方向设置为GradientDirection.None时，显示默认值。
      *
      * @default GradientDirection.Bottom
@@ -8808,13 +9048,13 @@ export declare interface PopupCommonOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
- 	 * Define the popup theme color mode.
- 	 * 
- 	 * @default AnchoredColorMode.FOLLOW_TARGET
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
+   * Define the popup theme color mode.
+   *
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
  	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
@@ -9555,13 +9795,13 @@ export declare interface PopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
- 	 * Define the popup theme color mode.
- 	 * 
- 	 * @default AnchoredColorMode.FOLLOW_TARGET
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
+   * Define the popup theme color mode.
+   *
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
  	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
@@ -9650,7 +9890,7 @@ export declare interface CustomPopupOptions {
      * 提示气泡内容的构造器。
      *
      * **说明：**
-     *
+     * 
      * 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用[Position]{@link Position}属性，如果使用将导致气泡不显示。
      * 2. builder中若使用自定义组件，自定义组件的[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)和[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。
      * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build)方法里。
@@ -9906,7 +10146,7 @@ export declare interface CustomPopupOptions {
     /**
      * 设置气泡阴影。
      *
-     * 默认值：ShadowStyle.OUTER_DEFAULT_MD
+     * 默认值：ShadowStyle.OUTER_DEFAULT_MD 
      *
      * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
@@ -9919,7 +10159,7 @@ export declare interface CustomPopupOptions {
     /**
      * 设置气泡模糊背景参数。
      *
-     * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
+     * 默认值：BlurStyle.COMPONENT_ULTRA_THICK 
      *
      * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
@@ -9968,7 +10208,7 @@ export declare interface CustomPopupOptions {
      *
      * **说明：**
      *
-     * 在onWillDismiss回调中，不能再做onWillDismiss拦截。
+     * 在onWillDismiss回调中，不能再做onWillDismiss拦截。 
      *
      * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
@@ -9979,23 +10219,23 @@ export declare interface CustomPopupOptions {
      */
     onWillDismiss?: boolean | Callback<DismissPopupAction>;
     /**
-      * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
-      *
-      * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
-      *
-      * **说明：**
-      *
-      * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
-      * 2. 2in1设备从API version 20开始生效。
-      * 3. 2in1设备仅在窗口瀑布模式下生效。
-      *
-      * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
-      *
-      * @default false
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @stagemodelonly
-      * @since 23 static
-      */
+     * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+     *
+     * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+     *
+     * **说明：**
+     *
+     * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+     * 2. 2in1设备从API version 20开始生效。
+     * 3. 2in1设备仅在窗口瀑布模式下生效。
+     *
+     * **原子化服务API（仅ArkTS-Dyn）：** 从API version 18开始，该接口支持在原子化服务中使用。
+     *
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     enableHoverMode?: boolean;
     /**
      * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
@@ -10109,13 +10349,13 @@ export declare interface CustomPopupOptions {
      */
     borderLinearGradient?: PopupBorderLinearGradient;
     /**
- 	 * Define the popup theme color mode.
- 	 * 
- 	 * @default AnchoredColorMode.FOLLOW_TARGET
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 static
- 	 */
+   * Define the popup theme color mode.
+   *
+   * @default AnchoredColorMode.FOLLOW_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
  	colorMode?: AnchoredColorMode;
     /**
      * Set system-styled materials for popup. Different materials have different effects, which can influence
@@ -10357,7 +10597,6 @@ export declare class ContentTransitionEffect {
   /**
    * When the content changes,there is no animation effect.
    *
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -10367,7 +10606,6 @@ export declare class ContentTransitionEffect {
   /**
    * When the content changes,there is a smooth fade-in and fade-out effect.
    *
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -10375,8 +10613,11 @@ export declare class ContentTransitionEffect {
   static get OPACITY(): ContentTransitionEffect;
 }
 /**
- * Defines the type of border radius.
+ * 圆角类型。
  *
+ * @unionmember { Length } 长度类型，用于描述尺寸单位。
+ * @unionmember { BorderRadiuses } 圆角类型，用于描述组件边框圆角半径。
+ * @unionmember { LocalizedBorderRadiuses } 圆角类型，用于描述组件边框圆角半径
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -10763,11 +11004,11 @@ export declare interface ContextMenuOptions {
      *
      * 菜单退出动效过程中，进行横竖屏切换，菜单会避让。二级菜单不继承自定义动效。弹出过程可以点击二级菜单，退出动效执行过程不允许点击二级菜单。
      *
-     * 详细描述见[TransitionEffect]{@link TransitionEffect}对象说明。
+     * 详细描述见[TransitionEffect]{@link TransitionEffect}对象说明。 
      *
      * 动效曲线使用弹簧曲线，在动效退出时，由于弹簧曲线的回弹震荡，菜单消失后有较长的拖尾，使得其他事件无法响应。
      *
-     * 当设置transition自定义动效时，菜单的默认显示和退出动效不生效。
+     * 当设置transition自定义动效时，菜单的默认显示和退出动效不生效。 
      *
      * **原子化服务API（仅ArkTS-Dyn）：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
@@ -10776,6 +11017,7 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     transition?: TransitionEffect;
+    /**
     /**
       * 菜单组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
       *
@@ -11220,15 +11462,17 @@ export declare class ProgressMask {
     enableBreathingAnimation(value: boolean): void;
 }
 /**
- * Defines TouchTestInfo class.
+ * 当前屏幕触点所在组件的坐标系、id和尺寸相关信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class TouchTestInfo {
-   /**
-     * Get the X-coordinate relative to the window.
+    /**
+     * 按压点相对于窗口左上角的x轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11236,7 +11480,9 @@ export declare class TouchTestInfo {
      */
     windowX: double;
     /**
-     * Get the Y-coordinate relative to the window.
+     * 按压点相对于窗口左上角的y轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11244,7 +11490,9 @@ export declare class TouchTestInfo {
      */
     windowY: double;
     /**
-     * Get the X-coordinate relative to the current component.
+     * 按压点相对于父组件左上角的x轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11252,7 +11500,9 @@ export declare class TouchTestInfo {
      */
     parentX: double;
     /**
-     * Get the Y-coordinate relative to the current component.
+     * 按压点相对于父组件左上角的y轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11260,7 +11510,9 @@ export declare class TouchTestInfo {
      */
     parentY: double;
     /**
-     * Get the X-coordinate relative to the sub component.
+     * 按压点相对于子组件左上角的x轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11268,7 +11520,9 @@ export declare class TouchTestInfo {
      */
     x: double;
     /**
-     * Get the Y-coordinate relative to the sub component.
+     * 按压点相对于子组件左上角的y轴坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11276,7 +11530,7 @@ export declare class TouchTestInfo {
      */
     y: double;
     /**
-     * Get the rectangle of sub component.
+     * 子组件的位置和宽高。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11284,7 +11538,7 @@ export declare class TouchTestInfo {
      */
     rect: RectResult;
     /**
-     * Get the name of sub component.
+     * 子组件的唯一标识。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11293,7 +11547,7 @@ export declare class TouchTestInfo {
     id: string;
 }
 /**
- * Defines TouchResult class.
+ * 自定义事件分发结果，开发者通过返回结果来影响事件分发。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11301,7 +11555,7 @@ export declare class TouchTestInfo {
  */
 export declare class TouchResult {
     /**
-     * Defines the touch test strategy.
+     * 事件派发策略。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11309,7 +11563,10 @@ export declare class TouchResult {
      */
     strategy: TouchTestStrategy;
     /**
-     * Defines the component's name.
+     * 子组件的唯一标识。
+     * 
+     * 当strategy为TouchTestStrategy.DEFAULT时，id是可选的；当strategy是TouchTestStrategy.FORWARD_COMPETITION或
+     * TouchTestStrategy.FORWARD时，id是必需的（如果没有返回id，则当成TouchTestStrategy.DEFAULT处理）。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11974,7 +12231,7 @@ export declare enum DragPreviewMode {
  */
 export declare enum DraggingSizeChangeEffect {
     /**
-     * Default effect, no transition.
+     * 发起拖拽时直接从菜单预览图切换为最终尺寸的拖拽预览图。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11982,7 +12239,8 @@ export declare enum DraggingSizeChangeEffect {
      */
     DEFAULT = 0,
     /**
-     * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
+     * 发起拖拽时，由菜单预览图直接切换为拖拽预览图，尺寸逐步从菜单预览图尺寸过渡到最终预览图尺寸，设置了[DragPreviewMode]{@link DragPreviewMode}中的DISABLE_SCALE枚举值时尺寸过渡不
+     * 生效。这在长按浮起预览图与拖拽预览图相同时使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -11990,7 +12248,8 @@ export declare enum DraggingSizeChangeEffect {
      */
     SIZE_TRANSITION = 1,
     /**
-     * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
+     * 发起拖拽时，由菜单预览图逐步过渡切换为最终拖拽预览图，设置[DragPreviewMode]{@link DragPreviewMode}中的DISABLE_SCALE时尺寸过渡不生效。这常用于菜单预览图与拖拽预览图差异较大时
+     * 使用，过渡效果包含内容透明度及尺寸变化。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12032,7 +12291,7 @@ export declare enum MenuPolicy {
     SHOW = 2
 }
 /**
- * Defines the preview options.
+ * 设置拖拽过程中预览图处理模式及数量角标的显示。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -12040,7 +12299,11 @@ export declare enum MenuPolicy {
  */
 export declare interface DragPreviewOptions {
     /**
-     * Drag preview mode.
+     * 表示拖拽过程中背板图处理模式。
+     * 
+     * 默认值：DragPreviewMode.AUTO
+     * 
+     * 当组件同时设置DragPreviewMode.AUTO和其它枚举值时，以DragPreviewMode.AUTO为准，其它枚举值设置无效。
      *
      * @default DragPreviewMode.AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12049,7 +12312,27 @@ export declare interface DragPreviewOptions {
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
     /**
-     * Drag preview modifier.
+     * 用于配置拖拽背板图的样式Modifier对象，可使用图片组件所支持的属性和样式来配置背板图样式，当前支持透明度，阴影，背景模糊度，圆角。文本拖拽只支持默认效果，不支持通过modifier进行自定义。
+     * 
+     * 1.透明度
+     * 
+     * 通过[opacity]{@link CommonMethod.opacity}设置不透明度，不透明度的取值范围为0-1。设置0或不设置时采用背板图透明度的默认值0.95，设置1或异常值时不透明。
+     * 
+     * 2.阴影
+     * 
+     * 通过[shadow]{@link CommonMethod.shadow}设置阴影。
+     * 
+     * 3.背景模糊度
+     * 
+     * 通过[backgroundEffect]{@link CommonMethod.backgroundEffect}或
+     * [backgroundBlurStyle]{@link CommonMethod.backgroundBlurStyle}设置背景模糊度，如果两者同时设置，以后设置的属性为准。
+     * 
+     * 4.圆角
+     * 
+     * 通过[border]{@link CommonMethod.border}或[borderRadius]{@link CommonMethod.borderRadius}设置圆角，当同时在mode和modifier中设置圆角，
+     * mode设置的圆角显示优先级低于modifier设置。
+     * 
+     * 默认值：空，无法修改属性。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12057,7 +12340,13 @@ export declare interface DragPreviewOptions {
      */
     modifier?: ImageModifier;
     /**
-     * The flag for number showing.
+     * 控制数量角标是否显示，或强制设置显示的数量。当设置数量角标时取值范围为[0，2<sup>31</sup>-1]，超过取值范围时会按默认状态处理。当设置为浮点数时，只显示整数部分。
+     * 
+     * **说明：** 
+     * 
+     * 在多选拖拽场景，需通过该接口设置拖拽对象的数量。
+     * 
+     * 默认值：true。
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12066,149 +12355,181 @@ export declare interface DragPreviewOptions {
      */
     numberBadge?: boolean | long;
     /**
-    * Drag start animation effect from drag preview to the handle drag image.
-    *
-    * @default DraggingSizeChangeEffect.DEFAULT
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 用于选择长按浮起图与拖拽预览图过渡效果。
+     * 
+     * 默认值：DraggingSizeChangeEffect.DEFAULT。
+     *
+     * @default DraggingSizeChangeEffect.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     sizeChangeEffect?: DraggingSizeChangeEffect;
 }
 /**
- * Defines the drag options.
+ * 设置拖拽过程中预览图浮起的交互模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface DragInteractionOptions {
-    /**
-    * Define whether to gather selected nodes in grid or list.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    isMultiSelectionEnabled?: boolean;
-    /**
-    * Define whether to execute animation before preview floating.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    defaultAnimationBeforeLifting?: boolean;
-    /**
-    * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
-    *
-    * @default true
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    enableEdgeAutoScroll?: boolean;
-    /**
-    * Define whether to enable the haptic feedback when dragging, the default value is false.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    enableHapticFeedback?: boolean;
-    /**
-    * Define whether to lifting trigger drag by finger.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    isLiftingDisabled?: boolean;
+  /**
+   * 表示拖拽过程中背板图是否支持多选聚拢效果。true表示支持多选聚拢效果，false表示不支持多选聚拢效果。该参数只在[Grid]{@link ./common}和[List]{@link ./common}组件中的
+   * [GridItem]{@link ./common}组件和[ListItem]{@link ./common}组件生效。
+   * 
+   * 当一个item组件设置为多选拖拽时，该组件的子组件不可拖拽。聚拢组件预览图设置的优先级为[dragPreview]{@link CommonMethod#dragPreview}
+   * 中的string，dragPreview中的PixelMap，组件自截图，不支持dragPreview中的Builder形式。
+   * 
+   * 不支持组件绑定[bindContextMenu]{@link CommonMethod.bindContextMenu}中参数存在isShown的模式。
+   * 
+   * 默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  isMultiSelectionEnabled?: boolean;
+  /**
+   * 表示是否启用长按浮起阶段组件自身的默认点按效果（缩小）。true表示启用默认点按效果，false表示不启用默认点按效果。
+   * 
+   * 默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  defaultAnimationBeforeLifting?: boolean;
+  /**
+   * 设置在拖拽至可滚动组件边缘时是否触发自动滚屏。true表示触发自动滚屏，false表示不触发自动滚屏。
+   * 
+   * 默认值：true
+   *
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  enableEdgeAutoScroll?: boolean;
+  /**
+   * 表示拖拽时是否启用震动。true表示启用震动，false表示不启用震动。仅在存在蒙层的预览（通过[bindContextMenu]{@link CommonMethod.bindContextMenu}）场景生效。
+   * 
+   * **注意：** 仅当应用具备 ohos.permission.VIBRATE 权限，且用户启用了触感反馈时才会生效。
+   * 
+   * 默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  enableHapticFeedback?: boolean;
+  /**
+   * 表示长按拖拽时，是否禁用浮起效果。true表示禁用浮起效果，false表示不禁用浮起效果。
+   * 
+   * 如果设置为true，当组件支持拖拽并同时设置[bindContextMenu]{@link CommonMethod.bindContextMenu}时，仅弹出配置的自定义菜单预览。 
+   * 
+   * 默认值：false
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  isLiftingDisabled?: boolean;
 }
 /**
- * Defines the drag preview configuration.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
+* 配置自定义拖拽过程中的预览图样式。
+*
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @since 23 static
+*/
 export declare interface PreviewConfiguration {
-    /**
-    * Define whether to only use for lifting.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    onlyForLifting?: boolean;
-    /**
-    * Define whether to delay create builder.
-    *
-    * @default false
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
-    delayCreating?: boolean;
+  /**
+   * 自定义配置的预览图是否仅用于浮起。
+   * 
+   * **说明：** 
+   * 
+   * 默认值为false。true表示自定义预览图仅用于浮起，false表示可用于浮起和拖拽。设置为true时，如果发起长按拖拽，浮起时的预览图为自定义配置的预览图，拖拽时的预览图不使用
+   * [dragPreview](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-drop.md#dragpreview11)属性，优先使用开
+   * 发者在[onDragStart]{@link CommonMethod.onDragStart}中返回的预览图，如果[onDragStart]{@link CommonMethod.onDragStart}中没有返回预览图则使
+   * 用组件自截图。
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onlyForLifting?: boolean;
+  /**
+   * 组件预览builder是否在设置时加载。
+   * 
+   * 默认值为false。true表示组件预览builder在设置时加载，false表示组件预览builder不在设置时加载。
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  delayCreating?: boolean;
 }
 /**
- * Define the options of invert
- *
- * @interface InvertOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
+* Define the options of invert
+*
+* @interface InvertOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @since 23 static
+*/
 export declare interface InvertOptions {
-    /**
-     * Defines the low value of threshold
-     *
-     * @type { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    low: double;
-    /**
-     * Defines the high value of threshold
-     *
-     * @type { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    high: double;
-    /**
-     * Defines the threshold
-     *
-     * @type { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    threshold: double;
-    /**
-     * Defines the threshold range
-     *
-     * @type { double }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    thresholdRange: double;
+  /**
+   * Defines the low value of threshold
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  low: double;
+  /**
+   * Defines the high value of threshold
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  high: double;
+  /**
+   * Defines the threshold
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  threshold: double;
+  /**
+   * Defines the threshold range
+   *
+   * @type { double }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  thresholdRange: double;
 }
 /**
- * Defines the type that can be undefined.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
+* Defines the type that can be undefined.
+*
+* @typedef { T | undefined } Optional<T>
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @since 23 static
+*/
 export type Optional<T> = T | undefined;
 /**
  * 悬浮气泡弹窗信息。
@@ -12360,6 +12681,7 @@ export declare interface BackgroundOptions {
 /**
  * Defines the value of the custom property..
  *
+ * @typedef { undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty> } CustomProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -12404,8 +12726,8 @@ export declare interface CommonMethod {
      * Sets the drawModifier of the current component.
      *
      * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
-     * Default value: undefined
-     * A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
+     *     Default value: undefined
+     *     A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12440,7 +12762,8 @@ export declare interface CommonMethod {
     /**
      * Expands the layout safe area of a component.
      *
-     * @param { Array<LayoutSafeAreaType> | undefined } [types] - The region type to expand the component's layout safe area into.
+     * @param { Array<LayoutSafeAreaType> | undefined } [types] - The region type to expand the component's layout safe
+     *     area into.
      *     The default value is LayoutSafeAreaType.SYSTEM.
      * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - The set of edges for which to ignore layout safe area.
      *     The default value is LayoutSafeAreaEdge.ALL.
@@ -12471,14 +12794,14 @@ export declare interface CommonMethod {
      */
     default mouseResponseRegion(value: Array<Rectangle> | Rectangle | undefined): this;
     /**
-    * Sets the response region list of the current component.
-    * 
-    * @param { Array<ResponseRegion> | undefined } regions
-    * @returns { this } return the component attribute
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Sets the response region list of the current component.
+     *
+     * @param { Array<ResponseRegion> | undefined } regions
+     * @returns { this } return the component attribute
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default responseRegionList(regions: Array<ResponseRegion> | undefined): this;
     /**
      * Sets the size of the component.
@@ -12504,9 +12827,9 @@ export declare interface CommonMethod {
     /**
      * Sets how the component behaves during hit testing.
      *
-     * @param { HitTestMode | undefined } value - the hit test mode.
      * @default HitTestMode.default - Both the node and its child nodes respond to the hit test of a touch event,
      *     but its sibling nodes are blocked from the hit test. The hit test for ancestor nodes is not affected.
+     * @param { HitTestMode | undefined } value - the hit test mode.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12562,7 +12885,8 @@ export declare interface CommonMethod {
      * safe area for child components to expand into.
      * Default value: **LengthMetrics.vp(0)**
      *
-     * @param { Padding | LengthMetrics | LocalizedPadding | undefined } paddingValue - Indicates safeArea padding values
+     * @param { Padding | LengthMetrics | LocalizedPadding | undefined } paddingValue - Indicates safeArea padding
+     *     values
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12669,7 +12993,7 @@ export declare interface CommonMethod {
     /**
      * 为当前组件提供一种背景材质模糊能力，通过枚举值的方式封装了不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
      *
-     * @param { BlurStyle | undefined } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined时，恢复为默认
+     * @param { BlurStyle | undefined } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined  时，恢复为默认
      *     关闭模糊的背景。
      * @param { BackgroundBlurStyleOptions } [options] - 背景模糊选项。<br/>该参数在ArkTS卡片中，暂不支持使用。
      * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
@@ -12686,7 +13010,7 @@ export declare interface CommonMethod {
      * >
      * > backgroundEffect接口为实时接口，每帧对模糊等效果执行实时渲染，性能负载较大。当组件背景模糊效果无需变动时，推荐采用静态模糊接口
      * > [blur]{@link @ohos.effectKit:effectKit.Filter.blur(radius: double)}实现模糊效果。最佳实践请参考：
-     * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fuzzy-scene-performance-optimization#section4945532519)。
+     * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/  bpta-fuzzy-scene-performance-optimization#section4945532519)。
      *
      * @param { BackgroundEffectOptions | undefined } options - 设置组件背景属性包括：饱和度，亮度，颜色。<br/>当options的值为undefined时，恢复为无效果的背
      *     景。
@@ -12827,6 +13151,7 @@ export declare interface CommonMethod {
     /**
      * Sets the border color.
      * Default value: **Color.Black**.
+     *
      * @param { ResourceColor | EdgeColors | LocalizedEdgeColors | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12836,12 +13161,14 @@ export declare interface CommonMethod {
     default borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors | undefined): this;
     /**
      * Sets the radius of the border rounded corners.
-     *     The radius is restricted by the component size. The maximum value is half of the component width or height.
+     * The radius is restricted by the component size. The maximum value is half of the component width or height.
      * NOTE
-     *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
-     *        onto the canvas with rounded corners applied.
-     *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
-     *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+     * 
+     * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+     * onto the canvas with rounded corners applied.
+     * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+     * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+     *
      * @param { Length | BorderRadiuses | LocalizedBorderRadiuses | undefined } value
      * @param { RenderStrategy | undefined } [type] - Application types for drawing rounded corners.
      *     Default value: **RenderStrategy.FAST**.
@@ -12938,6 +13265,7 @@ export declare interface CommonMethod {
      * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
      * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
      * </p>
+     *
      * @param { ((event: ClickEvent) => void) | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12955,11 +13283,12 @@ export declare interface CommonMethod {
      * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
      * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
      * </p>
+     *
+     * @default (2^31-1)vp
      * @param { Callback<ClickEvent> | undefined } event - this function callback executed when the click
      *     action is recognized
      * @param { double | undefined } distanceThreshold - the distance threshold of finger's movement when
      *     detecting a click action
-     * @default (2^31-1)vp
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12997,7 +13326,7 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onAccessibilityHover(callback: AccessibilityCallback | undefined): this;
-
+   
     /**
      * prompt for current component and descendants unable to handle accessibility hover event
      *
@@ -13156,6 +13485,7 @@ export declare interface CommonMethod {
     /**
      * Set focus index by key tab.
      * The tabIndex and focusScopeId cannot be used together.
+     *
      * @param { int | undefined } index
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13207,28 +13537,28 @@ export declare interface CommonMethod {
      */
     default focusBox(style: FocusBoxStyle | undefined): this;
     /**
-    * Set container as a focus group with a specific identifier.
-    *
-    * @param { string | undefined } id - focus scope identifier.
-    * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
-    * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
-    * only effective when isGroup is true, the default value is true.
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Set container as a focus group with a specific identifier.
+     *
+     * @param { string | undefined } id - focus scope identifier.
+     * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
+     * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
+     *     only effective when isGroup is true, the default value is true.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default focusScopeId(id: string | undefined, isGroup?: boolean, arrowStepOut?: boolean): this;
     /**
-    * Set the focus priority of component in a specific focus scope.
-    *
-    * @param { string | undefined } scopeId
-    * @param { FocusPriority } [priority] - the default value is AUTO
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Set the focus priority of component in a specific focus scope.
+     *
+     * @param { string | undefined } scopeId
+     * @param { FocusPriority } [priority] - the default value is AUTO
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default focusScopePriority(scopeId: string | undefined, priority?: FocusPriority): this;
     /**
      * animation
@@ -13812,7 +14142,8 @@ export declare interface CommonMethod {
      */
     default displayPriority(value: double | undefined): this;
     /**
-     * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
+     * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher
+     * display level.
      *
      * @param { int | undefined } value
      * @returns { this }
@@ -13903,8 +14234,8 @@ export declare interface CommonMethod {
      * Sets the alignment rules in the relative container.
      * <br>This API is valid only when the container is RelativeContainer.
      * <br>LocalizedAlignRuleOptions takes the right-to-left scripts into account, using start and end instead of
-     *     left and right for alignment in the horizontal direction. Prioritize this API in aligning
-     *     child components in the relative container.
+     * left and right for alignment in the horizontal direction. Prioritize this API in aligning
+     * child components in the relative container.
      *
      * @param { AlignRuleOption | LocalizedAlignRuleOptions | undefined } value
      * @returns { this }
@@ -13930,9 +14261,12 @@ export declare interface CommonMethod {
     default chainMode(direction: Axis | undefined, style: ChainStyle | undefined): this;
     /**
      * Sets the aspect ratio of the component, which can be obtained using the following formula: width/height.
-     * <br>If only width and aspectRatio are set, the height is calculated using the following formula: width/aspectRatio.
-     * <br>If only height and aspectRatio are set, the width is calculated using the following formula: height x aspectRatio.
-     * <br>If width, height, and aspectRatio are all set, the explicitly set height is ignored, and the effective height is
+     * <br>If only width and aspectRatio are set, the height is calculated using the following formula: width/
+     * aspectRatio.
+     * <br>If only height and aspectRatio are set, the width is calculated using the following formula: height x 
+     * aspectRatio.
+     * <br>If width, height, and aspectRatio are all set, the explicitly set height is ignored, and the effective height
+     * is
      * calculated using the following formula: width/aspectRatio.
      * <br>This parameter takes effect only when a valid value greater than 0 is specified.
      *
@@ -13956,7 +14290,7 @@ export declare interface CommonMethod {
     default clickEffect(value: ClickEffect | null | undefined): this;
     /**
      * Set whether this component should have sound effects enabled for clicking.
-     *
+     * 
      * Sound effects playback is affected by the audio-related settings in the device system settings.
      * When the user sets the device to silent mode, sound effects cannot be played.
      *
@@ -13973,7 +14307,7 @@ export declare interface CommonMethod {
     /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))
-     *
+     * 
      * <strong>NOTE</strong>:<br>
      * The global builder is not supported.
      *
@@ -14039,20 +14373,23 @@ export declare interface CommonMethod {
     default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
     /**
      * Enables the component as a drag-and-drop target with spring loading functionality.
-     *
+     * 
      * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
      * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
      * by hovering (hover) without needing to use another hand.
-     * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+     * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below 
+     * are
      * some common scenarios suitable for supporting this feature:
-     *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-     *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-     *  automatically opened.
+     * 
+     * - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+     * - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+     * automatically opened.
      *
-     * @param { Callback<SpringLoadingContext> | null | undefined } callback Registers the callback for spring loading response, or
-     *    sets it to null to disable the support for spring loading.
+     * @param { Callback<SpringLoadingContext> | null | undefined } callback Registers the callback for spring loading
+     *     response, or
+     *     sets it to null to disable the support for spring loading.
      * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-     *    only used when the entire spring detecting.
+     *     only used when the entire spring detecting.
      * @returns { this } - return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14062,7 +14399,8 @@ export declare interface CommonMethod {
     /**
      * This function is called when the drag event is end.
      *
-     * @param { ((event: DragEvent, extraParams?: string) => void) | undefined } event - indicates the function to be called.
+     * @param { ((event: DragEvent, extraParams?: string) => void) | undefined } event - indicates the function to be
+     *     called.
      * @returns { this } return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14093,7 +14431,8 @@ export declare interface CommonMethod {
     /**
      * Set preview of the component for dragging process
      *
-     * @param { CustomBuilder | DragItemInfo | string | undefined } preview - preview of the component for dragging process
+     * @param { CustomBuilder | DragItemInfo | string | undefined } preview - preview of the component for dragging
+     *     process
      * @param { PreviewConfiguration } [config] - drag preview configuration.
      * @returns { this } return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14115,7 +14454,8 @@ export declare interface CommonMethod {
     /**
      * After binding, a callback is triggered when the preDrag status change finished.
      *
-     * @param { Callback<PreDragStatus> | undefined } callback callback - The callback will be triggered when the preDrag status change.
+     * @param { Callback<PreDragStatus> | undefined } callback callback - The callback will be triggered when the
+     *     preDrag status change.
      * @returns { this } return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14125,21 +14465,13 @@ export declare interface CommonMethod {
     /**
      * Add mask text to the current component. The layout is the same as that of the current component.
      *
-     * @param { string | CustomBuilder | ComponentContent<T> | undefined } value
-     * @param { OverlayOptions } [options]
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    /**
-     * Add mask text to the current component. The layout is the same as that of the current component.
-     *
-     * @param { string | CustomBuilder | ComponentContent<Object> | undefined } value
-     * @param { OverlayOptions } [options]
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @param { string | CustomBuilder | ComponentContent<T> | undefined } value [since 23 - 24]
+     * @param { OverlayOptions } [options] [since 23]
+     * @param { string | CustomBuilder | ComponentContent<Object> | undefined } value [since 26.0.0]
+     * @returns { this } [since 23]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
      * @stagemodelonly
-     * @since 26.0.0 static
+     * @since 23 static
      */
     default overlay(value: string | CustomBuilder | ComponentContent<Object> | undefined, options?: OverlayOptions): this;
     /**
@@ -14242,7 +14574,7 @@ export declare interface CommonMethod {
     default shadow(value: ShadowOptions | ShadowStyle | undefined): this;
     /**
      * Sets the edge light effect for the component.
-     *
+     * 
      * <p><strong>NOTE</strong>:
      * <br>The edge light effect creates a glowing light effect along the component's edges,
      * starting from the specified position and extending along the edge.
@@ -14283,7 +14615,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default blendMode(value: BlendMode | undefined, type?: BlendApplyType): this;
-
 
     /**
      * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
@@ -14528,7 +14859,7 @@ export declare interface CommonMethod {
      *  该参数从API version 18开始支持[!!语法](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
      *  <br/>true：弹出菜单；false：关闭菜单。<br/>默认值：false <br/>设置undefined时与默认值保持一致。
      * @param { CustomBuilder | undefined } content - 自定义菜单内容构造器。<br/>设置undefined时，与上一次弹出内容保持一致。
-     * @param { ContextMenuOptions } [options] - 配置弹出菜单的参数。
+     * @param { ContextMenuOptions } [options] - 配置弹出菜单的参数。 
      * @returns { this } 返回当前组件。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -14636,7 +14967,8 @@ export declare interface CommonMethod {
      * The interval between two visible area change callbacks will not be less than the expected update interval.
      *
      * @param { VisibleAreaEventOptions | undefined } options - The options for the visibility event.
-     * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+     * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of
+     *     component changed and get close to any number in ratios defined by options.
      *     If set undefined will reset the target callback.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14678,19 +15010,6 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default lightUpEffect(value: double | undefined): this;
-
-    /**
-     * Applies a spatial effect to component.
-     *
-     * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default spatialEffect(params: SpatialEffectParams | undefined): this;
-
     /**
      * Applies a pixel stretch effect to the component.
      *
@@ -14722,7 +15041,8 @@ export declare interface CommonMethod {
      * Sets hot keys
      *
      * @param { string | FunctionKey | undefined } value - Character of the combination key.
-     * @param { Array<ModifierKey> | undefined } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+     * @param { Array<ModifierKey> | undefined } keys - The modifier keys modify the action of key when the key are
+     *     pressed at the same time.
      * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14758,6 +15078,7 @@ export declare interface CommonMethod {
     default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions?: AccessibilityOptions): this;
     /**
      * Sets accessibility next focus id
+     *
      * @param { string | undefined } nextId - set component next accessibility focus id
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14767,6 +15088,7 @@ export declare interface CommonMethod {
     default accessibilityNextFocusId(nextId: string | undefined): this;
     /**
      * Sets the accessibility default foucs flag
+     *
      * @param { boolean | undefined } focus - if the component is accessibility default focus,focus set true
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14776,6 +15098,7 @@ export declare interface CommonMethod {
     default accessibilityDefaultFocus(focus: boolean | undefined): this;
     /**
      * Sets accessibility same page mode
+     *
      * @param { AccessibilitySamePageMode | undefined } pageMode - accessibility same page mode
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14785,6 +15108,7 @@ export declare interface CommonMethod {
     default accessibilityUseSamePage(pageMode: AccessibilitySamePageMode | undefined): this;
     /**
      * Sets accessibilityScrollTriggerable
+     *
      * @param { boolean | undefined } isTriggerable - set property of supporting scroll in accessibility
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14794,6 +15118,7 @@ export declare interface CommonMethod {
     default accessibilityScrollTriggerable(isTriggerable: boolean | undefined): this;
     /**
      * Sets the accessibility text.
+     * 
      * <p><strong>NOTE</strong>
      * <br>When a component does not contain a text attribute, you can use this API to set an accessibility
      * <br>text attribute, so that accessibility services can announce the specified content for the component.
@@ -14802,6 +15127,7 @@ export declare interface CommonMethod {
      * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
      * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
      * </p>
+     *
      * @param { Resource | string | undefined } text - set accessibility text, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14811,6 +15137,7 @@ export declare interface CommonMethod {
     default accessibilityText(text: Resource | string | undefined): this;
     /**
      * Sets accessibility role,role indicates the custom type of the component
+     *
      * @param { AccessibilityRoleType | undefined } role - set accessibility component type
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14820,6 +15147,7 @@ export declare interface CommonMethod {
     default accessibilityRole(role: AccessibilityRoleType | undefined): this;
     /**
      * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
+     *
      * @param { AccessibilityFocusCallback | undefined } callback - accessibility focus callback function
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14855,12 +15183,14 @@ export declare interface CommonMethod {
      * with support for resource references using Resource.
      * This property provides additional context or explanation for the component,
      * helping users understand the action or function it performs.
+     * 
      * <p><strong>NOTE</strong>:
      * <br>Reference resource of the accessibility description. You can specify further explanation
      * <br>of the current component, for example, possible operation consequences, especially those that
      * <br>cannot be learned from component attributes and accessibility text. If a component contains
      * <br>both text information and the accessibility description, the text is read first and then the
      * <br>accessibility description, when the component is selected.</p>
+     *
      * @param { Resource | string | undefined } description - set description of accessibility, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14871,6 +15201,7 @@ export declare interface CommonMethod {
     /**
      * Sets the accessibility level.
      * This property determines whether the component can be recognized by accessibility services.
+     * 
      * <p>
      * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
      * <br>The options are as follows:
@@ -14885,6 +15216,7 @@ export declare interface CommonMethod {
      * <br>not focus on its child components, making them unrecognizable.
      * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
      * <br>recognized by accessibility services.</p>
+     *
      * @param { string | undefined } value - set accessibility level, default value is auto.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14943,7 +15275,7 @@ export declare interface CommonMethod {
      */
     default reuseId(id: string | undefined): this;
     /**
-     * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control
+     * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control 
      * of sub-component recycle and reuse.
      *
      * @param { ReuseOptions | undefined } options - The configuration parameter for reusable custom component.
@@ -14988,7 +15320,8 @@ export declare interface CommonMethod {
     /**
      * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
      *
-     * @param { ((gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult) | undefined } callback - A callback
+     * @param { ((gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult) | undefined } callback - A
+     *     callback
      *     instance used when a gesture bound to this component will be accepted.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15017,6 +15350,7 @@ export declare interface CommonMethod {
      * <br> Do not set exposeInnerGesture for other components. When exposeInnerGesture is set to false, this API
      * provides the same functionality
      * <br> as the onGestureRecognizerJudgeBegin API.
+     * 
      * </p>
      *
      * @param { GestureRecognizerJudgeBeginCallback | undefined } callback - A callback instance used when a gesture
@@ -15030,7 +15364,8 @@ export declare interface CommonMethod {
      */
     default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined, exposeInnerGesture: boolean | undefined): this;
     /**
-     * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in the response chain.
+     * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components 
+     * in the response chain.
      *
      * @param { ShouldBuiltInRecognizerParallelWithCallback | undefined } callback - A callback instance used when
      *     a component is doing touch test.
@@ -15044,7 +15379,8 @@ export declare interface CommonMethod {
      * Provides a callback to set the parallel relationship between gestures of current component and gestures of other
      * components in the response chain.
      *
-     * @param { ShouldRecognizerParallelWithCallback | undefined } callback - A callback instance used when a component is
+     * @param { ShouldRecognizerParallelWithCallback | undefined } callback - A callback instance used when a component
+     *     is
      *     doing touch test.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15056,8 +15392,8 @@ export declare interface CommonMethod {
      * Sets whether the component exclusively handles events.
      * true: The component exclusively handles events. false: The component does not exclusively handle events.
      *
-     * @param { boolean | undefined } monopolize - indicate the monopoly of events
      * @default false
+     * @param { boolean | undefined } monopolize - indicate the monopoly of events
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15067,7 +15403,8 @@ export declare interface CommonMethod {
     /**
      * When the component does a touch test, a user-defined callback is triggered.
      *
-     * @param { Callback<TouchEvent, HitTestMode> | undefined } callback - A callback instance used when the component does a touch test.
+     * @param { Callback<TouchEvent, HitTestMode> | undefined } callback - A callback instance used when the component
+     *     does a touch test.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15110,10 +15447,12 @@ export declare interface CommonMethod {
      */
     default onTouchTestDone(callback: TouchTestDoneCallback | undefined): this;
     /**
-     * When the events and gestures on this node and higher-priority nodes have been collected, the callback is executed.
+     * When the events and gestures on this node and higher-priority nodes have been collected, the callback is 
+     * executed.
      * This callback is used to intervene in the event and gesture collection results.
      *
-     * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch test.
+     * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch
+     *     test.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15179,7 +15518,8 @@ export declare interface CommonMethod {
      */
     default accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): this;
     /**
-     * Set the component's source code redirection information. 
+     * Set the component's source code redirection information.
+     *
      * @param { string } sourceLine - the source code line.
      * @param { string } [moduleName] - module to which the component belongs.
      * @returns { this }
@@ -15200,6 +15540,7 @@ export declare interface CommonMethod {
     default smartGestureShortcut(options?: SmartGestureShortcutOptions): this;
     /**
      * Set the component's inspector label which only display on DevEco Studio.
+     *
      * @param { string | undefined } label - the inspector label.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15315,7 +15656,6 @@ export type FractionStop = [
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15601,7 +15941,6 @@ export declare interface MotionBlurOptions {
 /**
  * Sub component layout info.
  *
- * @extends SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15669,7 +16008,7 @@ export declare interface Layoutable {
      * Obtains the margin of the child component.
      *
      * @returns { DirectionalEdgesT<double> | undefined } the margin of sub component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15679,7 +16018,7 @@ export declare interface Layoutable {
      * Call this method to get the padding of sub component.
      *
      * @returns { DirectionalEdgesT<double> | undefined } Padding of the child component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15689,7 +16028,7 @@ export declare interface Layoutable {
      * Obtains the border width of the child component.
      *
      * @returns { DirectionalEdgesT<double> | undefined } the borderWidth of sub component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15727,7 +16066,7 @@ export declare interface Measurable {
      * Obtains the margin of the child component.
      *
      * @returns { DirectionalEdgesT<double> | undefined } Margin of the child component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15737,7 +16076,7 @@ export declare interface Measurable {
      * Obtains the padding of the child component.
      *
      * @returns { DirectionalEdgesT<double> | undefined } the padding of sub component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15746,8 +16085,9 @@ export declare interface Measurable {
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<double> | undefined } Border width of the child component, unit is vp. If some errors
-     * occur in the internal runtime environment, returns undefined.
+     * @returns { DirectionalEdgesT<double> | undefined } Border width of the child component, unit is vp. If some
+     *     errors
+     *     occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -15782,7 +16122,6 @@ export declare interface SizeResult {
 /**
  * Provides the measurement result of the component.
  *
- * @extends SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -15875,7 +16214,7 @@ export type Blender = uiEffect.Blender;
  */
 export type PromptActionDialogController = promptAction.DialogController;
 /**
- * Describe the position, width, and height of a component.
+ * 位置和尺寸类型，用于描述组件的位置和宽高。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -15883,7 +16222,9 @@ export type PromptActionDialogController = promptAction.DialogController;
  */
 export declare interface RectResult {
     /**
-     * Horizontal coordinate.
+     * 水平方向横坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15891,7 +16232,9 @@ export declare interface RectResult {
      */
     x: double;
     /**
-     * Vertical coordinate.
+     * 竖直方向纵坐标。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15899,7 +16242,9 @@ export declare interface RectResult {
      */
     y: double;
     /**
-     * Content width.
+     * 内容宽度大小。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15907,7 +16252,9 @@ export declare interface RectResult {
      */
     width: double;
     /**
-     * Content height.
+     * 内容高度大小。
+     * 
+     * 单位：vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -15915,34 +16262,6 @@ export declare interface RectResult {
      */
     height: double;
 }
-/**
- * Defines the options about AreaChangeEvent.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare interface AreaChangeOptions {
-    /**
-     * The value of expectedUpdateInterval indicates the desired update interval (ms).
-     *
-     * @default 1000
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    expectedUpdateInterval?: int;
-}
-/**
- * Defines the options for the AreaChangeEvent.
- *
- * @param { Area } oldValue - Component area information before the change.
- * @param { Area } newValue - Component area information after the change.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * CaretOffset info.
  *
@@ -16116,6 +16435,7 @@ export declare abstract class TextContentControllerBase {
 
     /**
      * Scroll the input field component to make the specified content visible.
+     *
      * @param { TextRange } [range] - The visible range.
      *     If the parameter is invalid, this method will have no effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16127,7 +16447,6 @@ export declare abstract class TextContentControllerBase {
 /**
  * Enum of scrollable containers' content clip mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -16162,7 +16481,6 @@ export declare enum ContentClipMode {
 /**
  * CommonScrollableMethod
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -16225,7 +16543,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * Margin of the scrollbar.
      *
      * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.
-     *     <br>Passing undefined will restore the default value.Default value: {start: LengthMetrics.vp(0), end: 
+     *     <br>Passing undefined will restore the default value.Default value: {start: LengthMetrics.vp(0), end:
      *     LengthMetrics.vp(0)}.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16323,7 +16641,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *
      * @param { double | Resource | undefined } offset - Offset from the end of the content to the boundary of
      *     the scrollable display area.
-     *     <br>Unit: vp, <br>Passing undefined will restore the default value.Default value: <em>0</em>. 
+     *     <br>Unit: vp, <br>Passing undefined will restore the default value.Default value: <em>0</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16389,7 +16707,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * Enable left mouse button press-and-drag scrolling.
      *
      * @param { boolean | undefined } enabled - Enable left mouse button press-and-drag scrolling.
-     *    <br>Default value: false.
+     *     <br>Default value: false.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16410,7 +16728,8 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Triggered when the scrollable component reaches the end position.
      *
-     * @param { function | undefined } event - Callback function, triggered when the scrollable reaches the end position.
+     * @param { function | undefined } event - Callback function, triggered when the scrollable reaches the end
+     *     position.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16439,12 +16758,14 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      */
     default onScrollStop(event: (() => void) | undefined): this;
     /**
-     * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
+     * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling 
+     * ends.
      *
      * @param { double | undefined } speedLimit - Maximum initial velocity at the start of the fling animation.
      *     <br>Default value: <em>9000</em>
      *     <br>Unit: vp/s
-     *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
+     *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is
+     *     used.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16454,7 +16775,8 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the content clipping area for this scrollable component.
      *
-     * @param { ContentClipMode | RectShape | undefined } clip - A value from enum ContentClipMode or a customized clip rect.
+     * @param { ContentClipMode | RectShape | undefined } clip - A value from enum ContentClipMode or a customized clip
+     *     rect.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16464,7 +16786,8 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Set the sensitivity of rotating crown.
      *
-     * @param { CrownSensitivity | undefined } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+     * @param { CrownSensitivity | undefined } sensitivity - The sensitivity of rotating crown, default value is {
+     *     MEDIUM }.
      * @returns { this } The component instance.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16498,6 +16821,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
 }
 /**
  * The actual offset by which the scrollable scrolls.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -16505,6 +16829,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
 export declare class ScrollResult {
     /**
      * Get the actual offset by which the scrollable scrolls in vp.
+     *
      * @returns { double } actual offset by which the scrollable scrolls in vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16514,6 +16839,7 @@ export declare class ScrollResult {
 
     /**
      * Set the actual offset by which the scrollable scrolls in vp.
+     *
      * @param { double } offsetRemain - actual offset by which the scrollable scrolls in vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -16535,14 +16861,14 @@ export declare class ScrollResult {
  */
 export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => (undefined | ScrollResult);
 /**
-  * On scroll callback using in scrollable onDidScroll.
-  *
-  * @param { double } scrollOffset - offset this frame did scroll.
-  * @param { ScrollState } scrollState - current scroll state.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * On scroll callback using in scrollable onDidScroll.
+ *
+ * @param { double } scrollOffset - offset this frame did scroll.
+ * @param { ScrollState } scrollState - current scroll state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
 export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
 /**
  * On scroll callback using in scrollable onWillStopDragging.
@@ -16564,24 +16890,24 @@ export type OnWillStopDraggingCallback = (velocity: double) => void;
  */
 export type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
-  * Defines the callback type used in onItemDragStart.
-  *
-  * @param { ItemDragInfo } event - Information about the dragged item.
-  * @param { int } itemIndex - The index number of the dragged item.
-  * @returns {CustomBuilder | undefined}
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * Defines the callback type used in onItemDragStart.
+ *
+ * @param { ItemDragInfo } event - Information about the dragged item.
+ * @param { int } itemIndex - The index number of the dragged item.
+ * @returns {CustomBuilder | undefined}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
 export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => (CustomBuilder | undefined);
 /**
-  * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
-  *
-  * @returns { boolean | int }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 23 static
-  */
+ * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
+ *
+ * @returns { boolean | int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
 export type OnGetPreviewBadgeCallback = () => (boolean | int);
 /**
  * Defines the callback type used in OnVisibleIndexesChange.
@@ -16702,7 +17028,6 @@ export declare interface EdgeEffectOptions {
 /**
  * Enumerates the effective edge of the edge effect.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -16737,7 +17062,7 @@ export declare class ChildrenMainSize {
      * Creates an instance of ChildrenMainSize.
      *
      * @param { double } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
-     * If the main axis is horizontal, it indicates width.
+     *     If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -16751,7 +17076,7 @@ export declare class ChildrenMainSize {
      * Set default size.
      *
      * @param { double } value - default main size, in vp. If the main axis is vertical, it indicates height.
-     * If the main axis is horizontal, it indicates width.
+     *     If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -16765,7 +17090,7 @@ export declare class ChildrenMainSize {
      * Get default size
      *
      * @returns { double } - default main size, in vp. If the main axis is vertical, it indicates height.
-     * If the main axis is horizontal, it indicates width.
+     *     If the main axis is horizontal, it indicates width.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -16785,8 +17110,8 @@ export declare class ChildrenMainSize {
      * @stagemodelonly
      * @since 23 static
      * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
-     * splice(1, 1), Delete the second child.
-     * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
+     *     splice(1, 1), Delete the second child.
+     *     splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
      */
     splice(start: int, deleteCount?: int, childrenSize?: Array<double>): void;
     /**
@@ -17146,12 +17471,10 @@ export declare interface KeyframeState {
  */
 export type Callback<T, V = void> = (data: T) => V;
 /**
- * Defines the callback type used in hover events.
- * The value of isHover indicates whether the mouse is hovering over the component.
- * The value of event contains information about HoverEvent.
+ * hover事件的回调类型。
  *
- * @param { boolean } isHover
- * @param { HoverEvent} event
+ * @param { boolean } isHover - 是否处于hover状态，true表示处于hover状态，false表示不在hover状态。
+ * @param { HoverEvent} event - 获取鼠标或手写笔悬浮的位置坐标。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -17181,7 +17504,7 @@ export type AccessibilityCallback = (isHover: boolean, event: AccessibilityHover
 export type AccessibilityTransparentCallback = (event: TouchEvent) => void
 
 /**
- * Defines the options about VisibleAreaEvent.
+ * 关于区域变化相关的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17189,7 +17512,8 @@ export type AccessibilityTransparentCallback = (event: TouchEvent) => void
  */
 export declare interface VisibleAreaEventOptions {
     /**
-     * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
+     * 阈值数组。其中，每个阈值代表组件可见面积（即组件在屏幕显示区的面积，只计算父组件内的面积，超出父组件部分不会计算）与组件自身面积的比值。每个阈值的取值范围为[0.0, 1.0]，如果开发者设置的阈值小于0.0，则实际取值为0.
+     * 0；如果设置的阈值大于1.0，则实际取值为1.0。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17197,7 +17521,9 @@ export declare interface VisibleAreaEventOptions {
      */
     ratios: Array<double>;
     /**
-     * The value of expectedUpdateInterval indicates desired update period(ms).
+     * 定义了开发者期望的计算间隔，单位为ms。当该字段小于100或为NaN时，默认取值为100；当该字段大于2^31-1时，默认取值为2^31-1。
+     * 
+     * 默认值：1000
      *
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17206,11 +17532,16 @@ export declare interface VisibleAreaEventOptions {
      */
     expectedUpdateInterval?: int;
     /**
-     * When this parameter is set to true, the parts of the component that exceed the parent component's area will also
-     * be included in the visible area calculation. However, this only applies if the parent component does not
-     * explicitly set the clip property to true. If the parent component sets clip to true, regardless of the value
-     * of this parameter, the parts that exceed the parent component's area will still be treated as invisible in the
-     * visible area calculation.
+     * 设置可见区域计算模式。
+     * 
+     * 当measureFromViewport设置为true时，系统在计算该组件的可见区域时，会考虑父组件的[clip]{@link CommonMethod.clip} 属性设置。如果父组件的
+     * [clip]{@link CommonMethod.clip}为false，则认为其内的子组件可以超出其区域进行显示，因此超出父组件的区域也将被视为可见区域纳入计算；如果父组件的
+     * [clip]{@link CommonMethod.clip}设置为true，则组件超出父组件的区域会被裁剪，无法显示，因此会被视为不可见区域进行计算。而当measureFromViewport设置为false时，则不考虑
+     * [clip]{@link CommonMethod.clip}的影响，直接将组件超出父组件的部分视为不可见区域。
+     * 
+     * 默认值：false 
+     * 
+     * measureFromViewport设置为true时，祖先节点设置[scale]{@link CommonMethod.scale}属性，组件可见比例会被正确计算。
      *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17220,18 +17551,47 @@ export declare interface VisibleAreaEventOptions {
     measureFromViewport?: boolean;
 }
 /**
- * Defines the callback type used in VisibleAreaChange events.
+ * 组件区域变化事件的回调类型。
  *
- * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
- * It is true as the ratio increases and false as the ratio decreases.
- * @param { double } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @param { Area } oldValue - 区域变化前的信息，包括：目标元素的宽度、高度、相对于父元素的坐标和目标元素左上角在当前窗口坐标系中的位置坐标。
+ * @param { Area } newValue - 区域变化后的信息，包括：目标元素的宽度、高度、相对于父元素的坐标和目标元素左上角在当前窗口坐标系中的位置坐标。
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
+/**
+ * 区域变化相关的参数。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AreaChangeOptions {
+  /**
+   * 区域变化的计算时间间隔，单位为ms。当该字段大于2^31-1时，默认取值为2^31-1。
+   * 
+   * 默认值：1000
+   *
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  expectedUpdateInterval?: int;
+}
+/**
+ * 组件可见区域变化事件的回调类型。
+ *
+ * @param { boolean } isExpanding - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。
+ * @param { double } currentRatio - 触发回调时，组件可见面积与自身面积的比值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: double) => void;
 /**
- * Defines a UICommonEvent which is used to set different common event to target component.
+ * 用于设置基础事件回调。方法入参为undefined的时候，重置对应的事件回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17239,101 +17599,102 @@ export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: dou
  */
 export declare interface UICommonEvent {
     /**
-     * Set or reset the callback which will be triggered a click event when clicked.
+     * 设置[点击事件]{@link ./common}的回调。
      *
-     * @param { Callback<ClickEvent> | undefined } callback - The callback about the click event. If set undefined will reset the target callback.
+     * @param { Callback<ClickEvent> | undefined } callback - 点击事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnClick(callback: Callback<ClickEvent> | undefined): void;
     /**
-     * Set or reset the callback which will be triggered a touch event when touched.
+     * 设置[触摸事件]{@link ./common}的回调。
      *
-     * @param { Callback<TouchEvent> | undefined } callback - The callback about the touch event. If set undefined will reset the target callback.
+     * @param { Callback<TouchEvent> | undefined } callback - 触摸事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnTouch(callback: Callback<TouchEvent> | undefined): void;
     /**
-     * Set or reset the callback is triggered when a component mounts a display.
+     * 设置[onAppear]{@link CommonMethod.onAppear}挂载显示事件的回调。
      *
-     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - 挂载显示事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnAppear(callback: VoidCallback | undefined): void;
     /**
-     * Set or reset the callback is triggered when component uninstallation disappears.
+     * 设置[onDisAppear]{@link CommonMethod.onDisAppear}卸载消失事件的回调。
      *
-     * @param { VoidCallback | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - 卸载消失事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnDisappear(callback: VoidCallback | undefined): void;
     /**
-     * Set or reset the callback is triggered when component has keyboard input.
+     * 设置[按键事件]{@link ./common}的回调。
      *
-     * @param { Callback<KeyEvent> | undefined } callback - The callback will be triggered when has keyboard input. If set undefined will reset the target callback.
+     * @param { Callback<KeyEvent> | undefined } callback - 按键事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
     /**
-     * Set or reset the callback which is triggered when component get focus.
+     * 设置[onFocus]{@link CommonMethod.onFocus}获焦事件的回调。
      *
-     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - 获焦事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnFocus(callback: VoidCallback | undefined): void;
     /**
-     * Set or reset the callback which is triggered when lose focus.
+     * 设置[onBlur]{@link CommonMethod.onBlur}失焦事件的回调。
      *
-     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - 失焦事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnBlur(callback: VoidCallback | undefined): void;
     /**
-     * Set or reset the callback which is triggered when has a hover event.
+     * 设置[onHover]{@link CommonMethod.onHover}悬浮事件的回调。
      *
-     * @param { HoverCallback | undefined } callback - The callback will be triggered when has a hover event. If set undefined will reset the target callback.
+     * @param { HoverCallback | undefined } callback - 悬浮事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setOnHover(callback: HoverCallback | undefined): void;
     /**
-    * Set or reset the callback which is triggered when has a mouse event.
-    *
-    * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 设置[onMouse]{@link CommonMethod.onMouse}鼠标事件的回调。
+     *
+     * @param { Callback<MouseEvent> | undefined } callback - 鼠标事件的回调函数。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     setOnMouse(callback: Callback<MouseEvent> | undefined): void;
     /**
-    * Sets the callback for the onSizeChange event.
-    *
-    * @param { SizeChangeCallback | undefined } callback - The callback will be triggered when the size of component changed. If set undefined will reset the target callback.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * 设置[onSizeChange]{@link CommonMethod.onSizeChange}组件区域变化事件的回调。
+     *
+     * @param { SizeChangeCallback | undefined } callback - 组件区域变化事件的回调函数。
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     setOnSizeChange(callback: SizeChangeCallback | undefined): void;
     /**
-     * Sets the onVisibleAreaChange callback that limits the callback interval.
+     * 设置限制回调间隔的
+     * [onVisibleAreaChange]{@link CommonMethod.default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined)}
+     * 可见区域变化事件的回调。
      *
-     * @param { VisibleAreaEventOptions } options - The options for the visibility event.
-     * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
-     * If set undefined will reset the target callback.
+     * @param { VisibleAreaEventOptions } options - 可见区域变化相关的参数。
+     * @param { VisibleAreaChangeCallback | undefined } event - 可见区域变化事件的回调函数。当组件可见面积与自身面积的比值接近options中设置的阈值时触发该回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -17343,7 +17704,6 @@ export declare interface UICommonEvent {
 /**
  * Defines a UIScrollableCommonEvent which is used to set event to target component.
  *
- * @extends UICommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -17404,7 +17764,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
 }
 /**
- * Defines a UIGestureEvent which is used to set different gestures to target component.
+ * 用于设置组件绑定的手势。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17412,37 +17772,40 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
  */
 export declare interface UIGestureEvent {
     /**
-     * Add a gesture bound to the component.
+     * 添加手势。
      *
-     * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
-     * @param { GesturePriority } [priority] - priority indicates the gesture's priority.
-     * @param { GestureMask } [mask] - mask indicates the gesture's GestureMask value.
+     * @param { GestureHandler } gesture - 手势处理器对象。
+     * @param { GesturePriority } [priority] - 绑定手势的优先级。
+     *     <br>默认值：GesturePriority.NORMAL
+     * @param { GestureMask } [mask] - 事件响应设置。
+     *     <br>默认值：GestureMask.Normal
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
     /**
-     * Add a parallel gesture bound to the component.
+     * 绑定可与子组件手势同时触发的手势。
      *
-     * @param { GestureHandler } gesture - gesture indicates the gesture bound to a component.
-     * @param { GestureMask } [mask] - mask indicates the gesture's GestureMask value.
+     * @param { GestureHandler } gesture - 手势处理器对象。
+     * @param { GestureMask } [mask] - 事件响应设置。
+     *     <br>默认值：GestureMask.Normal
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
     /**
-     * Remove a gesture from a component that has been bound with a specific tag through a modifier.
+     * 移除该组件上通过modifier绑定的设置为指定标志的手势。
      *
-     * @param { string } tag - tag indicates the gesture's tag.
+     * @param { string } tag - 手势处理器标志。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     removeGestureByTag(tag: string): void;
     /**
-     * Clear gestures bound to the component.
+     * 清除该组件上通过modifier绑定的所有手势。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17451,7 +17814,7 @@ export declare interface UIGestureEvent {
     clearGestures(): void;
 }
 /**
- * Defines the gesture modifier.
+ * 开发者需要自定义class实现GestureModifier接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17459,9 +17822,11 @@ export declare interface UIGestureEvent {
  */
 export declare interface GestureModifier {
     /**
-     * Defines the gesture update function.
+     * 手势更新函数。
+     * 
+     * 开发者可根据需要自定义实现该方法，对组件设置需要绑定的手势，支持使用if/else语法进行动态设置。若在当次手势操作过程中触发了组件上的手势动态切换，该切换效果在当次手势结束（所有手指抬起）后的下一次手势操作中生效。
      *
-     * @param { UIGestureEvent } event
+     * @param { UIGestureEvent } event - UIGestureEvent对象，用于设置组件需要绑定的手势。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -17488,7 +17853,13 @@ export declare interface SelectionOptions {
     menuPolicy?: MenuPolicy;
 }
 /**
- * Defines the next focus item.
+ * 设置对应的按键对应的走焦目的组件，缺省则遵循默认走焦规则。
+ * 
+ * > **说明：**
+ * >
+ * > 直接使用focusControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
+ * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
+ * > [getFocusController]{@link @ohos.arkui.UIContext:UIContext.getFocusController}获取绑定实例的focusControl。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17496,7 +17867,9 @@ export declare interface SelectionOptions {
  */
 export declare interface FocusMovement {
     /**
-     * Next focus item's component identifier of forward.
+     * 通过tab键走焦到组件的id。
+     * 
+     * 默认值为重置forward为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17504,7 +17877,9 @@ export declare interface FocusMovement {
      */
     forward?: string;
     /**
-     * Next focus item's component identifier of backward.
+     * 通过shift+tab键走焦到组件的id。
+     * 
+     * 默认值为重置backward为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17512,7 +17887,9 @@ export declare interface FocusMovement {
      */
     backward?: string;
     /**
-     * Next focus item's component identifier of up.
+     * 通过方向键上键走焦到组件的id。
+     * 
+     * 默认值为重置up为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17520,7 +17897,9 @@ export declare interface FocusMovement {
      */
     up?: string;
     /**
-     * Next focus item's component identifier of down.
+     * 通过方向键下键走焦到组件的id。
+     * 
+     * 默认值为重置down为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17528,7 +17907,9 @@ export declare interface FocusMovement {
      */
     down?: string;
     /**
-     * Next focus item's component identifier of left.
+     * 通过方向键左键走焦到组件的id。
+     * 
+     * 默认值为重置left为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17536,7 +17917,9 @@ export declare interface FocusMovement {
      */
     left?: string;
     /**
-     * Next focus item's component identifier of right.
+     * 通过方向键右键走焦到组件的id。
+     * 
+     * 默认值为重置right为空。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17570,7 +17953,7 @@ export declare enum KeyboardAvoidMode {
     NONE = 1
 }
 /**
- * 悬停态显示区域类型。
+ * Enumerates the type of area in hover mode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17578,7 +17961,7 @@ export declare enum KeyboardAvoidMode {
  */
 export declare enum HoverModeAreaType {
     /**
-     * 上半屏。
+     * Layout top half screen when the phone in hover mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17586,7 +17969,7 @@ export declare enum HoverModeAreaType {
      */
     TOP_SCREEN = 0,
     /**
-     * 下半屏。
+     * Layout bottom half screen when the phone in hover mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -17655,6 +18038,7 @@ export type DateTimeOptions = intl.DateTimeOptions;
 
 /**
  * Defines a bindable property
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -17662,7 +18046,7 @@ export type DateTimeOptions = intl.DateTimeOptions;
 export declare interface Bindable<T> {
     /**
      * Defines value of the bindable property.
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -17670,48 +18054,12 @@ export declare interface Bindable<T> {
     readonly value: T;
     /**
      * Defines the callback of the bindable property which will be invoked when the property is changed.
-     * @readonly
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     readonly onChange: Callback<T>;
-}
-
-/**
- * Options for configuring smart gesture shortcuts.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare interface SmartGestureShortcutOptions {
-    /**
-     * Set the response priority.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    action?: GestureShortcut;
-
-    /**
-     * Whether to enable the specific smart gesture shortcuts.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    enabled?: boolean;
-
-    /**
-     * Whether to enable the selection state effect of the component's smart gesture.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    selectable?: boolean;
 }
 
 /**
@@ -17729,6 +18077,7 @@ export declare function makeBindable<T>(value: T, onChange: Callback<T>): Bindab
 /**
  * Defines the Two-way binding type of ResourceStr.
  *
+ * @typedef { ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -17738,6 +18087,7 @@ export declare type BindableResourceStr = ResourceStr | Bindable<ResourceStr> | 
 /**
  * Defines the Two-way binding type of ResourceStr[].
  *
+ * @typedef { ResourceStr[] | Bindable<ResourceStr[]> | Bindable<Resource[]> | Bindable<string[]> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -17767,7 +18117,7 @@ export declare function $$<T>(value: T): Bindable<T>;
 export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
 
 /**
- * Defines the input event intercept result.
+ * 输入事件拦截结果接口，用于监听器回调[InputEventListener]{@link InputEventListener}返回是否拦截的决策。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17775,9 +18125,11 @@ export declare function applyStyles<T extends CommonMethod>(this: T, customStyle
  */
 export declare interface InputEventInterceptResult {
   /**
-   * Event intercept decision.
-   * - CONTINUE: Allows the event to continue to be delivered to the UI framework.
-   * - BLOCK: Blocks the event from being delivered, the event will not enter the UI framework.
+   * 输入事件拦截动作。
+   * 
+   * CONTINUE：允许事件继续传递到UI框架。
+   * 
+   * BLOCK：阻止事件传递到UI框架。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17787,13 +18139,18 @@ export declare interface InputEventInterceptResult {
 }
 
 /**
- * Defines the input event monitor identifier.
- *
- * Important Notes:
- * - This object is created and returned by the system as a unique identifier for the listener.
- * - The object is an empty object with no accessible members.
- * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
- * - Used for subsequent unregistration to verify identity.
+ * 输入事件监听器标识对象。
+ * 
+ * 此对象由系统创建并返回，作为监听器的唯一标识。
+ * 
+ * > **说明：**
+ * >
+ * > - 对象为空对象，不包含任何可访问的成员。
+ * >
+ * > - 开发者无法主动构造此对象，只能通过[addLocalInputEventMonitor]{@link @ohos.arkui.UIContext:UIContext#addLocalInputEventMonitor}接口注册
+ * > 获取。
+ * >
+ * > - 用于后续解除注册时验证身份。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17805,7 +18162,21 @@ export declare interface InputEventMonitor {
 }
 
 /**
- * Defines the raw input event wrapper.
+ * 原始输入事件包装器类。
+ * 
+ * 提供统一的接口来访问不同类型的输入事件，确保类型安全和向后兼容性。
+ * 
+ * 此类封装了原始的MouseEvent、TouchEvent或KeyEvent对象，并通过类型安全的方法访问。
+ * 
+ * 此类为抽象类，开发者无法自行创建实例。系统会在触发输入事件监听器时自动创建实例并传递回调函数。
+ * 
+ * > **说明：**
+ * >
+ * > 由于监听器在事件派发给具体组件之前执行，事件中的一些字段将无法提供有效值：如触发对象[target]{@link EventTarget}、相对于组件的坐标
+ * > [x]{@link MouseEvent#x}和[y]{@link MouseEvent#y}、[getCurrentLocalPosition]{@link TouchObject#getCurrentLocalPosition}和
+ * > [stopPropagation]{@link TouchEvent#stopPropagation}方法、TouchEvent的[preventDefault]{@link TouchEvent#preventDefault}和
+ * > [getHistoricalPoints]{@link TouchEvent#getHistoricalPoints}方法以及KeyEvent的[metaKey]{@link KeyEvent#metaKey}属性和
+ * > [getModifierKeyState]{@link KeyEvent#getModifierKeyState}方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -17813,9 +18184,9 @@ export declare interface InputEventMonitor {
  */
 export declare abstract class RawInputEventWrapper {
   /**
-   * Checks whether the event is a mouse event.
+   * 判断是否为鼠标事件。
    *
-   * @returns { boolean } - Returns true if the event is a mouse event, otherwise returns false.
+   * @returns { boolean } 判断是否为鼠标事件，如果是鼠标事件则返回true，否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17823,9 +18194,9 @@ export declare abstract class RawInputEventWrapper {
   isMouseEvent(): boolean;
 
   /**
-   * Checks whether the event is a touch event.
+   * 判断是否为触摸事件。
    *
-   * @returns { boolean } - Returns true if the event is a touch event, otherwise returns false.
+   * @returns { boolean } 判断是否为触摸事件，如果是触摸事件则返回true，否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17833,9 +18204,9 @@ export declare abstract class RawInputEventWrapper {
   isTouchEvent(): boolean;
 
   /**
-   * Checks whether the event is a keyboard event.
+   * 判断是否为按键事件。
    *
-   * @returns { boolean } - Returns true if the event is a keyboard event, otherwise returns false.
+   * @returns { boolean } 判断是否为按键事件，如果是按键事件则返回true，否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17843,11 +18214,9 @@ export declare abstract class RawInputEventWrapper {
   isKeyEvent(): boolean;
 
   /**
-   * Attempts to get the mouse event.
+   * 获取鼠标事件。
    *
-   * Returns the event object if it is a mouse event, otherwise returns null.
-   *
-   * @returns { MouseEvent | null } - The mouse event object or null.
+   * @returns { MouseEvent | null } 获取鼠标事件，如果是鼠标事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17855,11 +18224,9 @@ export declare abstract class RawInputEventWrapper {
   asMouseEvent(): MouseEvent | null;
 
   /**
-   * Attempts to get the touch event.
+   * 获取触摸事件。
    *
-   * Returns the event object if it is a touch event, otherwise returns null.
-   *
-   * @returns { TouchEvent | null } - The touch event object or null.
+   * @returns { TouchEvent | null } 获取触摸事件，如果是触摸事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17867,11 +18234,9 @@ export declare abstract class RawInputEventWrapper {
   asTouchEvent(): TouchEvent | null;
 
   /**
-   * Attempts to get the keyboard event.
+   * 获取按键事件。
    *
-   * Returns the event object if it is a keyboard event, otherwise returns null.
-   *
-   * @returns { KeyEvent | null } - The keyboard event object or null.
+   * @returns { KeyEvent | null } 获取按键事件，如果是按键事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -17880,20 +18245,65 @@ export declare abstract class RawInputEventWrapper {
 }
 
 /**
- * Defines the input event listener callback function type.
+ * Options for configuring smart gesture shortcuts.
  *
- * Performance Warning: Do not perform time-consuming operations in the callback, otherwise it may cause
- * the application to freeze.
+ * @interface SmartGestureShortcutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface SmartGestureShortcutOptions {
+    /**
+     * Set the response priority.
+     *
+     * @type { ?GestureShortcut }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    action?: GestureShortcut;
+
+    /**
+     * Whether to enable the specific smart gesture shortcuts.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    enabled?: boolean;
+
+    /**
+     * Whether to enable the selection state effect of the component's smart gesture.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    selectable?: boolean;
+}
+
+/**
+ * 输入事件监听器回调函数类型。
+ * 
+ * > **说明：**
+ * >
+ * > - RawInputEventWrapper是抽象类，开发者无法使用`new`运算符创建实例。
+ * >
+ * > - 系统会在事件触发时自动创建实例并通过此参数传递给回调函数。
+ * >
+ * > - 当前回调参数event仅会封装以下原始输入事件类型：
+ * > [MouseEvent]{@link MouseEvent}、[TouchEvent]{@link TouchEvent}、[KeyEvent]{@link KeyEvent}。开发者可通过
+ * > [asMouseEvent]{@link RawInputEventWrapper#asMouseEvent}、[asTouchEvent]{@link RawInputEventWrapper#asTouchEvent}、
+ * > [asKeyEvent]{@link RawInputEventWrapper#asKeyEvent}获取对应事件对象。
+ * >
+ * > - 请勿在回调中执行耗时操作（如复杂计算或网络请求），否则可能导致应用卡顿。
+ * >
+ * > - 监听器在UI线程中同步执行会直接阻塞事件处理流程。建议只进行简单的判断和计算。
  *
- * The listener executes synchronously in the UI thread and will directly block the event processing flow.
- * It is recommended to only perform simple judgments and calculations, avoiding:
- * - Synchronous I/O operations
- * - Complex data processing
- * - Network requests
- * - Massive log output
- *
- * @param { RawInputEventWrapper } event - Input event wrapper
- * @returns { InputEventInterceptResult } - Event intercept result
+ * @param { RawInputEventWrapper } event - 输入事件包装器，系统自动创建和传递，开发者无需手动创建。
+ * @returns { InputEventInterceptResult } 事件拦截结果。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -17944,7 +18354,7 @@ export declare enum EdgeLightMode {
 
 /**
  * Enum for distortion animation mode.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -17954,7 +18364,7 @@ export declare enum DistortionMode {
 
   /**
    * Adaptive implementation of edgeLight animation
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17964,7 +18374,7 @@ export declare enum DistortionMode {
 
   /**
    * Distortion animation is enabled.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -17974,7 +18384,7 @@ export declare enum DistortionMode {
 
   /**
    * Distortion animation is disabled.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly

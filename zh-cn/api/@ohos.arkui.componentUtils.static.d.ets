@@ -480,7 +480,7 @@ declare namespace componentUtils {
     /**
      * Information about the rotation of the box which displays the image.
      *
-     * @type { Rotation2D }
+     * @type { ?Rotation2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -535,7 +535,7 @@ declare namespace componentUtils {
      * The proportion of non-transparent blank pixels in the selected area
      * relative to the total pixels of the image. Default value is 0.15.
      *
-     * @type { double }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly

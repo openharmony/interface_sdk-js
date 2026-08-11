@@ -1935,11 +1935,11 @@ declare interface Configuration {
  * 
  * > **说明：**
  * >
- * > - x和y可以设置正负值百分比。当x设置为'100%'时表示热区往右偏移组件本身宽度大小，当x设置为'-100%'时表示热区往左偏移组件本身宽度大小。当y设置为'100%'时表示热区往下偏移组件本身高度大小，当y设置为
- * > '-100%'时表示热区往上偏移组件本身高度大小。
+ * > - x和y可以设置正负值百分比。当x设置为'100%'时表示热区往右偏移组件本身宽度大小，当x设置为'-100%'时表示热区往左偏移组件本身宽度大小。当y设置为'100%'时表示热区往下偏移组件本身高度大小，当y设置为'-100%
+ * > '时表示热区往上偏移组件本身高度大小。
  * >
  * > - width和height设置百分比时，只能设置正值百分比。width：'100%'表示热区宽度设置为该组件本身的宽度。比如组件本身宽度是100vp，那么'100%'表示热区宽度也为100vp。height：'100%'表示热区
- * > 高度设置为该组件本身的高度。
+ * > 高度设置为该组件本身的高度。设置为0或负值百分比时，采用默认值'100%'。
  * >
  * > - 百分比相对于组件自身宽高进行计算。
  * >
@@ -1954,7 +1954,6 @@ declare interface Configuration {
  * @since 8 dynamic
  */
 declare interface Rectangle {
-
   /**
    * 触摸点相对于组件左上角的x轴坐标。
    * 
@@ -2015,13 +2014,13 @@ declare interface Rectangle {
  * >
  * > - 当父组件设置[clip]{@link CommonMethod#clip(value: boolean)}为true时，子组件的响应会受到父组件触摸热区的影响，不在父组件触摸热区内的子组件无法响应手势和事件。
  * >
- * > - 如果触摸热区未配置输入工具类型，触摸位置和大小均采用默认值。
+ * > - 如果触摸热区未配置输入工具类型、触摸位置或大小，对应项采用默认值。
  * >
  * > - x和y的计算结果为正值时，分别代表向右偏移和向下偏移；当计算结果为负值时，分别代表向左偏移和向上偏移。
  * >
- * > - width和height采用string类型时，string需采用小写字符否则不生效，支持calc()的动态计算。指定calc()的入参字符串格式为'宽高缩放比例 ± 宽高增量'，宽高缩放比例为百分比，宽高增量单位为px或
- * > vp。例如'calc(80% + 10vp)'中，80%为宽高缩放比例、10vp为宽高增量。width和height采用LengthMetrics类型且单位为percent时，相对于组件自身宽高进行计算，percent(1)代表1
- * > 00%。当计算结果为负值时，采用默认值。
+ * > - width和height采用string类型时，string需采用小写字符，否则不生效，支持calc()的动态计算。指定calc()的入参字符串格式为'宽高缩放比例 ± 宽高增量'，宽高缩放比例为百分比，宽高增量单位为px或
+ * > vp；格式不符合要求或使用其他单位时不生效。例如'calc(80% + 10vp)'中，80%为宽高缩放比例、10vp为宽高增量。width和height采用LengthMetrics类型且单位为percent时，相对于组件自身宽
+ * > 高进行计算，percent(1)代表100%。当计算结果为负值时，采用默认值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2030,7 +2029,6 @@ declare interface Rectangle {
  * @since 22 dynamic
  */
 declare interface ResponseRegion {
-
   /**
    * 触摸热区适用的输入工具类型。
    * 
@@ -2374,6 +2372,7 @@ declare enum AccessibilityRoleType {
 
   /**
    * 返回按钮类型
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2935,7 +2934,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * navrouter component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3013,7 +3011,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * option component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3036,7 +3033,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * paper page component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3147,7 +3143,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * progress component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3522,7 +3517,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * text entry component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3611,7 +3605,6 @@ declare enum AccessibilityRoleType {
 
   /**
    * toggler component type
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3843,7 +3836,6 @@ declare enum FinishCallbackType {
  * @since 11 dynamic
  */
 declare enum TouchTestStrategy {
-
   /**
    * 自定义分发不产生影响，系统按当前节点命中状态分发事件。
    *
@@ -3857,7 +3849,7 @@ declare enum TouchTestStrategy {
   DEFAULT = 0,
 
   /**
-   * 应用指定分发事件到某个子节点，其他兄弟节点是否分发事件交由系统决定。
+   * 应用指定将事件分发到某个子节点，系统决定是否继续向其他兄弟节点分发事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3869,7 +3861,7 @@ declare enum TouchTestStrategy {
   FORWARD_COMPETITION = 1,
 
   /**
-   * 应用指定分发事件到某个子节点，系统不再分发事件到其他兄弟节点。
+   * 应用指定将事件分发到某个子节点，系统不再将事件分发到其他兄弟节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6894,9 +6886,8 @@ declare enum EffectType {
  * @since 12 dynamic
  */
 declare enum PreDragStatus {
-
   /**
-   * 拖拽手势启动阶段。(按下50ms时触发)
+   * 拖拽手势启动阶段。（按下50ms时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6907,7 +6898,7 @@ declare enum PreDragStatus {
   ACTION_DETECTING_STATUS = 0,
 
   /**
-   * 拖拽准备完成，可发起拖拽阶段。(按下500ms时触发)
+   * 拖拽准备完成，可发起拖拽阶段。（按下500ms时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6918,7 +6909,7 @@ declare enum PreDragStatus {
   READY_TO_TRIGGER_DRAG_ACTION = 1,
 
   /**
-   * 拖拽浮起动效发起阶段。(按下800ms时触发)
+   * 拖拽浮起动效发起阶段。（按下800ms时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6929,7 +6920,7 @@ declare enum PreDragStatus {
   PREVIEW_LIFT_STARTED = 2,
 
   /**
-   * 拖拽浮起动效结束阶段。(浮起动效完全结束时触发)
+   * 拖拽浮起动效结束阶段。（浮起动效完全结束时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6940,7 +6931,7 @@ declare enum PreDragStatus {
   PREVIEW_LIFT_FINISHED = 3,
 
   /**
-   * 拖拽落回动效发起阶段。(落回动效发起时触发)
+   * 拖拽落回动效发起阶段。（落回动效发起时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6951,7 +6942,7 @@ declare enum PreDragStatus {
   PREVIEW_LANDING_STARTED = 4,
 
   /**
-   * 拖拽落回动效结束阶段。(落回动效结束时触发)
+   * 拖拽落回动效结束阶段。（落回动效结束时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6962,7 +6953,7 @@ declare enum PreDragStatus {
   PREVIEW_LANDING_FINISHED = 5,
 
   /**
-   * 拖拽浮起落位动效中断。(已满足READY_TO_TRIGGER_DRAG_ACTION状态后，未达到动效阶段，手指抬手时触发)
+   * 拖拽浮起落位动效中断。（已满足READY_TO_TRIGGER_DRAG_ACTION状态后，未达到动效阶段，手指抬手时触发）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6993,9 +6984,8 @@ declare enum PreDragStatus {
  * @since 8 dynamic
  */
 declare interface DragItemInfo {
-
   /**
-   * 设置拖拽过程中显示的图片。
+   * 设置拖拽过程中显示的图片。未设置时不使用图片作为拖拽预览。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -7005,11 +6995,11 @@ declare interface DragItemInfo {
   pixelMap?: PixelMap;
 
   /**
-   * 拖拽过程中显示自定义组件，如果设置了pixelMap，则忽略此值。
+   * 拖拽过程中显示自定义组件，未设置时不使用自定义组件作为拖拽预览。如果设置了pixelMap，则忽略此值。
    * 
    * **说明：** 
    * 
-   * 不支持全局builder。如果builder中使用了[Image]{@link image}组件，应尽量开启同步加载，即配置Image的[syncLoad]{@link ImageAttribute#syncLoad}为true。
+   * 不支持全局builder。如果builder中使用了[Image]{@link ./image}组件，建议配置Image的[syncLoad]{@link ImageAttribute#syncLoad}为true以开启同步加载。
    * 该builder只用于生成当次拖拽中显示的图片，builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。
    * 
    * builder传参时，建议传参格式为builder: ()=>{this.customBuilder()}，用以保证this指向的正确性。具体请参考
@@ -7023,7 +7013,7 @@ declare interface DragItemInfo {
   builder?: CustomBuilder;
 
   /**
-   * 拖拽项的附加信息，用于描述拖拽项。
+   * 拖拽项的附加信息，用于描述拖拽项。未设置时无附加信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -7398,7 +7388,17 @@ declare function lpx2px(value: number): number;
 declare function px2lpx(value: number): number;
 
 /**
- * 焦点控制模块。
+ * 焦点控制模块，用于通过接口主动请求指定组件获焦，适用于需要在代码中主动控制焦点转移的场景。
+ * 
+ * > **说明：**
+ * >
+ * > - 直接使用focusControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
+ * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
+ * > [getFocusController]{@link @ohos.arkui.UIContext:UIContext.getFocusController}获取绑定实例的focusControl。
+ * >
+ * > - 支持焦点控制的组件：[TextInput]{@link ./text_input}、[TextArea]{@link ./text_area}、[Search]{@link ./search}、
+ * > [Button]{@link ./button}、[Text]{@link ./text}、[Image]{@link ./image}、[List]{@link ./list}、[Grid]{@link ./grid}。焦点事件
+ * > 当前仅支持在真机上显示运行效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -7407,11 +7407,10 @@ declare function px2lpx(value: number): number;
  * @since 9 dynamic
  */
 declare namespace focusControl {
-
   /**
-   * 方法语句中可使用的全局接口，调用此接口可以主动让焦点在下一帧渲染时转移至参数指定的组件上。
+   * 全局接口，使焦点在下一帧渲染时转移至参数指定的组件上。
    * 
-   * 如果需要指定组件立刻获焦，推荐使用FocusController中的焦点同步转移接口[requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}。
+   * 如果需要指定组件立刻获焦，推荐使用FocusController中的焦点同步转移接口[requestFocus]{@link @ohos.arkui.UIContext:FocusController.requestFocus}。
    *
    * @param { string } value - 目标组件使用接口key(value: string)或id(value: string)绑定的字符串。
    * @returns { boolean } 返回值表示是否成功给目标组件申请到焦点。若参数指向的目标组件存在且已挂载组件树，并具备获焦能力，则返回true，否则返回false。
@@ -7424,14 +7423,7 @@ declare namespace focusControl {
 }
 
 /**
- * 光标样式。
- *
- * > **说明：**
- * >
- * > 直接使用cursorControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
- * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
- * > [getCursorController]{@link @ohos.arkui.UIContext:UIContext#getcursorcontroller}获取绑定实例
- * > 的cursorControl。
+ * 鼠标光标样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7441,7 +7433,14 @@ declare namespace focusControl {
 declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').default.PointerStyle;
 
 /**
- * 控制鼠标光标的显示样式。
+ * 鼠标光标控制用于设置鼠标光标的显示样式，支持设置多种预设光标样式及恢复默认箭头样式，适用于需要根据组件状态或交互区域切换光标样式的场景，
+ * 解决默认光标样式无法匹配交互意图的问题，帮助提升用户的交互识别和操作反馈体验。
+ * 
+ * > **说明：**
+ * >
+ * > 直接使用cursorControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
+ * > [UIContext]{@link @ohos.arkui.UIContext}实例，并使用
+ * > [getCursorController]{@link @ohos.arkui.UIContext:UIContext.getCursorController}获取绑定实例的cursorControl。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7451,9 +7450,9 @@ declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').defau
 declare namespace cursorControl {
 
   /**
-   * 方法语句中可使用的全局接口，调用该接口可更改当前的鼠标光标样式。
+   * 在组件方法或事件回调中可使用的全局接口，调用该接口可设置当前的鼠标光标样式，例如在文本编辑区域悬浮时显示I型光标、在可拖拽元素上显示移动光标或在地图标记点悬浮时显示手指光标。
    *
-   * @param { PointerStyle } value - 设置的鼠标样式。
+   * @param { PointerStyle } value - 设置的鼠标光标样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7463,7 +7462,7 @@ declare namespace cursorControl {
   function setCursor(value: PointerStyle): void;
 
   /**
-   * 方法语句中可使用的全局接口，调用此接口可将鼠标光标恢复成默认箭头样式。
+   * 在组件方法或事件回调中可使用的全局接口，调用该接口可将鼠标光标恢复成默认箭头样式，例如在鼠标离开悬浮区域、组件失焦或交互结束时恢复默认光标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7486,7 +7485,6 @@ declare namespace cursorControl {
  * @since 8 dynamic
  */
 declare interface EventTarget {
-
   /**
    * 目标元素的区域信息。
    *
@@ -7520,7 +7518,6 @@ declare interface EventTarget {
  * @since 8 dynamic
  */
 declare enum SourceType {
-
   /**
    * 未知输入源。
    *
@@ -7583,7 +7580,6 @@ declare enum SourceType {
  * @since 9 dynamic
  */
 declare enum SourceTool {
-
   /**
    * 未知输入源。
    *
@@ -9751,7 +9747,6 @@ declare enum SheetSize {
  * @since 8 dynamic
  */
 declare interface BaseEvent {
-
   /**
    * 触发手势事件的元素对象。
    *
@@ -9767,6 +9762,8 @@ declare interface BaseEvent {
    * 事件时间戳，触发事件时距离系统启动的时间间隔。
    * 
    * 单位：ns
+   * 
+   * 取值范围：[0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -9828,28 +9825,6 @@ declare interface BaseEvent {
   axisVertical?: number;
 
   /**
-   * 双指缩放比例。
-   * 
-   * 默认值：0
-   * 
-   * **说明：**
-   * 
-   * 仅在触控板上通过双指缩放操作触发的Pinch手势，或在轴事件中，可以获取该值；在其他场景下，获取到的将是默认值。
-   * 
-   * 缩放比例是指在双指缩放事件触发过程中，双指当前距离与最初按下时距离的比值。
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  axisPinch?: number;
-
-  /**
    * 按压的压力大小。
    * 
    * 默认值：0
@@ -9895,20 +9870,6 @@ declare interface BaseEvent {
   tiltY: number;
 
   /**
-   * 手写笔与设备平面的夹角。
-   * 
-   * 单位：deg
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 17 dynamic
-   */
-  rollAngle?: number;
-
-  /**
    * 事件输入源的类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9920,14 +9881,14 @@ declare interface BaseEvent {
   sourceTool: SourceTool;
 
   /**
-   * 获取功能键按压状态。报错信息请参考以下错误码。支持功能键'Ctrl'\|'Alt'\|'Shift'。
+   * 获取修饰键按压状态，可用于在手势事件处理中判断Ctrl、Alt、Shift修饰键是否被按下，以处理组合键交互逻辑。报错信息请参考以下错误码。支持修饰键'Ctrl'\|'Alt'\|'Shift'。
    * 
    * > **说明：**
    * >
    * > 此接口不支持在手写笔场景下使用。
    *
-   * @param { Array<string> } keys - 功能键列表。
-   * @returns { boolean } 返回功能键按压状态。当功能键均处于按压状态时返回true，否则返回false。
+   * @param { Array<string> } keys - 修饰键列表，数组元素支持 'Ctrl'、'Alt'、'Shift'，用于查询指定修饰键是否均处于按压状态。
+   * @returns { boolean } 返回修饰键按压状态。当修饰键均处于按压状态时返回true，否则返回false。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
    *     verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9967,6 +9928,42 @@ declare interface BaseEvent {
    * @since 15 dynamic
    */
   targetDisplayId?: number;
+
+  /**
+   * 手写笔与设备平面的夹角。
+   * 
+   * 单位：deg
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 17 dynamic
+   */
+  rollAngle?: number;
+
+  /**
+   * 双指缩放比例。
+   * 
+   * 默认值：0
+   * 
+   * **说明：**
+   * 
+   * 仅在触控板上通过双指缩放操作触发的Pinch手势，或在轴事件中，可以获取该值；在其他场景下，获取到的将是默认值。
+   * 
+   * 缩放比例是指在双指缩放事件触发过程中，双指当前距离与最初按下时距离的比值。
+   * 
+   * 取值范围：[0, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  axisPinch?: number;
 }
 
 /**
@@ -10003,37 +10000,37 @@ declare interface BorderImageOption {
 
   /**
    * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
-   * 
+   *
    * 默认值：0
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 设置负数时取默认值。
-   * 
+   *
    * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
-   * 
+   *
    * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Left：设置图片左侧被切割的宽。
-   * 
-   * - Right：设置图片右侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
    * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Start：设置图片左侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片右侧被切割的宽。
-   * 
-   * - End：设置图片右侧被切割的宽。
-   * 
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
@@ -10044,37 +10041,37 @@ declare interface BorderImageOption {
    */
   /**
    * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
-   * 
+   *
    * 默认值：0
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 设置负数时取默认值。
-   * 
+   *
    * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
-   * 
+   *
    * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Left：设置图片左侧被切割的宽。
-   * 
-   * - Right：设置图片右侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
    * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Start：设置图片左侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片右侧被切割的宽。
-   * 
-   * - End：设置图片右侧被切割的宽。
-   * 
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
@@ -10086,37 +10083,37 @@ declare interface BorderImageOption {
    */
   /**
    * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
-   * 
+   *
    * 默认值：0
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 设置负数时取默认值。
-   * 
+   *
    * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
-   * 
+   *
    * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Left：设置图片左侧被切割的宽。
-   * 
-   * - Right：设置图片右侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
    * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Start：设置图片左侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片右侧被切割的宽。
-   * 
-   * - End：设置图片右侧被切割的宽。
-   * 
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
@@ -10129,37 +10126,37 @@ declare interface BorderImageOption {
    */
   /**
    * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
-   * 
+   *
    * 默认值：0
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 设置负数时取默认值。
-   * 
+   *
    * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
-   * 
+   *
    * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Left：设置图片左侧被切割的宽。
-   * 
-   * - Right：设置图片右侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
    * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
-   * 
-   * - Top：设置图片上侧被切割的高。
-   * 
-   * - Bottom：设置图片下侧被切割的高。
-   * 
-   * - Start：设置图片左侧被切割的宽。
-   * 
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片右侧被切割的宽。
-   * 
-   * - End：设置图片右侧被切割的宽。
-   * 
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
    * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
@@ -10175,7 +10172,7 @@ declare interface BorderImageOption {
 
   /**
    * 设置被切割的图片在边框上的重复方式。
-   * 
+   *
    * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
@@ -10186,7 +10183,7 @@ declare interface BorderImageOption {
    */
   /**
    * 设置被切割的图片在边框上的重复方式。
-   * 
+   *
    * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
@@ -10198,7 +10195,7 @@ declare interface BorderImageOption {
    */
   /**
    * 设置被切割的图片在边框上的重复方式。
-   * 
+   *
    * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
@@ -10214,11 +10211,11 @@ declare interface BorderImageOption {
 
   /**
    * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
-   * 
+   *
    * 默认值：undefined（不设置边框图源）
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
@@ -10229,11 +10226,11 @@ declare interface BorderImageOption {
    */
   /**
    * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
-   * 
+   *
    * 默认值：undefined（不设置边框图源）
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
@@ -10245,11 +10242,11 @@ declare interface BorderImageOption {
    */
   /**
    * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
-   * 
+   *
    * 默认值：undefined（不设置边框图源）
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
@@ -10608,7 +10605,7 @@ declare interface BorderImageOption {
 
   /**
    * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
-   * 
+   *
    * 默认值：false
    *
    * @type { ?boolean }
@@ -10619,7 +10616,7 @@ declare interface BorderImageOption {
    */
   /**
    * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
-   * 
+   *
    * 默认值：false
    *
    * @type { ?boolean }
@@ -10631,7 +10628,7 @@ declare interface BorderImageOption {
    */
   /**
    * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
-   * 
+   *
    * 默认值：false
    *
    * @type { ?boolean }
@@ -10725,39 +10722,8 @@ declare class LayoutPolicy {
  * @since 7 dynamic
  */
 declare interface ClickEvent extends BaseEvent {
-
   /**
-   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayX?: number;
-
-  /**
-   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayY?: number;
-
-  /**
-   * 点击位置在当前应用屏幕坐标系中的X坐标。
+   * 点击位置在当前应用屏幕坐标系中的X坐标。onClick的distanceThreshold设置后，点击位置为抬手点。
    * 
    * 单位：vp
    *
@@ -10770,7 +10736,7 @@ declare interface ClickEvent extends BaseEvent {
   displayX: number;
 
   /**
-   * 点击位置在当前应用屏幕坐标系中的Y坐标。
+   * 点击位置在当前应用屏幕坐标系中的Y坐标。onClick的distanceThreshold设置后，点击位置为抬手点。
    * 
    * 单位：vp
    *
@@ -10833,7 +10799,7 @@ declare interface ClickEvent extends BaseEvent {
   screenY: number;
 
   /**
-   * 点击位置在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。onClick的
+   * 点击位置在以被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。onClick的
    * [distanceThreshold]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)}设置后，点击位置为抬手
    * 点。触发事件的是键盘或手柄时，点击位置为被点击元素的中心点。
    * 
@@ -10848,7 +10814,7 @@ declare interface ClickEvent extends BaseEvent {
   x: number;
 
   /**
-   * 点击位置在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。onClick的distanceThreshold设置后，点击位置为抬手点。触发事件的是键盘或手柄
+   * 点击位置在以被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。onClick的distanceThreshold设置后，点击位置为抬手点。触发事件的是键盘或手柄
    * 时，点击位置为被点击元素的中心点。
    * 
    * 单位：vp
@@ -10873,7 +10839,7 @@ declare interface ClickEvent extends BaseEvent {
   hand?: InteractionHand;
 
   /**
-   * 阻止默认事件。
+   * 阻止默认行为。
    * 
    * **说明：** 该接口仅支持部分组件使用，当前支持组件：RichEditor、Hyperlink，不支持的组件使用时会抛出异常。暂不支持异步调用和提供Modifier接口。
    *
@@ -10887,7 +10853,39 @@ declare interface ClickEvent extends BaseEvent {
   preventDefault: () => void;
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。onClick的
+   * distanceThreshold设置后，点击位置为抬手点。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。onClick的
+   * distanceThreshold设置后，点击位置为抬手点。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayY?: number;
+
+  /**
+   * 获取点击位置相对于当前组件实时位置的左上角坐标，适用于组件发生位移、动画或布局变化后，需要获取点击点相对于组件当前位置坐标的场景。
    *
    * @returns { Coordinate2D } 点击位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10910,13 +10908,11 @@ declare interface ClickEvent extends BaseEvent {
 declare interface HoverEvent extends BaseEvent {
 
   /**
-   * 鼠标光标或手写笔位置在当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+   * 鼠标光标或手写笔位置在以当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
    * 
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10926,13 +10922,11 @@ declare interface HoverEvent extends BaseEvent {
   x?: number;
 
   /**
-   * 鼠标光标或手写笔位置在当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+   * 鼠标光标或手写笔位置在以当前组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10947,8 +10941,6 @@ declare interface HoverEvent extends BaseEvent {
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10963,8 +10955,6 @@ declare interface HoverEvent extends BaseEvent {
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10979,8 +10969,6 @@ declare interface HoverEvent extends BaseEvent {
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10995,8 +10983,6 @@ declare interface HoverEvent extends BaseEvent {
    * 单位：vp
    * 
    * 取值范围：[0, +∞)
-   * 
-   * **原子化服务API：**  从API version 15开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11006,11 +10992,11 @@ declare interface HoverEvent extends BaseEvent {
   displayY?: number;
 
   /**
-   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。
    * 
    * 单位：vp
    * 
-   * 取值范围：[0, +∞)
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11020,11 +11006,11 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
-   * 取值范围：[0, +∞)
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11034,9 +11020,7 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayY?: number;
 
   /**
-   * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。 
-   * 
-   * **原子化服务API：**  从API version 11开始，该接口支持在原子化服务中使用。
+   * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，可用于组件已处理悬浮事件后，阻止该事件继续向父组件传递，避免父组件重复响应同一事件。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11054,7 +11038,6 @@ declare interface HoverEvent extends BaseEvent {
  * @since 8 dynamic
  */
 declare interface MouseEvent extends BaseEvent {
-
   /**
    * 鼠标按键。
    *
@@ -11074,11 +11057,11 @@ declare interface MouseEvent extends BaseEvent {
   action: MouseAction;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。
    * 
    * 单位：vp
    * 
-   * 取值范围：[0, +∞)
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11088,11 +11071,11 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
-   * 取值范围：[0, +∞)
+   * 取值范围：(-∞, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11153,6 +11136,8 @@ declare interface MouseEvent extends BaseEvent {
    * 鼠标位置在当前应用窗口坐标系中的X坐标。
    * 
    * 单位：vp
+   * 
+   * **说明：** 从API version 8开始支持，从API version 10开始废弃，建议使用windowX替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
@@ -11165,6 +11150,8 @@ declare interface MouseEvent extends BaseEvent {
    * 鼠标位置在当前应用窗口坐标系中的Y坐标。
    * 
    * 单位：vp
+   * 
+   * **说明：** 从API version 8开始支持，从API version 10开始废弃，建议使用windowY替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
@@ -11196,7 +11183,7 @@ declare interface MouseEvent extends BaseEvent {
   y: number;
 
   /**
-   * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
+   * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，适用于当前组件已处理鼠标事件且需要阻止事件继续向父组件传递的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 11]
@@ -11239,24 +11226,12 @@ declare interface MouseEvent extends BaseEvent {
   pressedButtons?: MouseButton[];
 
   /**
-   * 获取鼠标位置相对于当前组件实时位置的左上角坐标。
-   *
-   * @returns { Coordinate2D } 鼠标位置相对于当前组件实时位置的左上角坐标。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  getCurrentLocalPosition?(): Coordinate2D;
-
-  /**
    * 用于事件处理的唯一标识。
    * 
    * 取值范围：[0, +∞)
    * 
-   * **说明：** 在使用[postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字段，事件每分
-   * 发一次字段会增加100000。
+   * **说明：** 在使用[postInputEventWithStrategy]{@link ../../../arkui/BuilderNode:BuilderNode#postInputEventWithStrategy}接口分
+   * 发事件时会使用该字段，事件每分发一次字段会增加100000。
    * 
    * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
    *
@@ -11269,11 +11244,24 @@ declare interface MouseEvent extends BaseEvent {
   eventHandleId?: number;
 
   /**
-   * 获取当前帧的所有历史点信息。历史点可用于实现更平滑的绘制效果。
+   * 获取鼠标位置相对于当前组件实时位置的左上角坐标，适用于组件位置动态变化时实时获取鼠标相对组件坐标的场景。
+   *
+   * @returns { Coordinate2D } 鼠标位置相对于当前组件实时位置的左上角坐标。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCurrentLocalPosition?(): Coordinate2D;
+
+  /**
+   * 获取当前帧的所有历史点信息。历史点可用于实现更平滑的绘制效果、手势识别、性能优化、轨迹分析或数据分析等操作。目前仅支持通过外接鼠标触发。
    * 
-   * 该接口仅能在[MouseEvent]{@link MouseEvent}中调用，用于获取触发[onMouse]{@link CommonMethod#onMouse}时当前帧历史点的相关信息，不同设备每帧的鼠标事件上报频率不同，一
-   * 帧通常只会上报一个鼠标事件，如果当前帧收到的[MouseEvent]{@link MouseEvent}数目大于1，会将该帧最后一个点通过[onMouse]{@link CommonMethod#onMouse}返回，其余点作为历
-   * 史点。
+   * 该接口仅能在[MouseEvent]{@link MouseEvent}中调用，用于获取触发
+   * [onMouse]{@link CommonMethod#onMouse}时当前帧历史点的相关信息，不同设备每帧的鼠标事件上报频率不同，一帧通常只会上报一个鼠标事件，如果当前帧收到的
+   * [MouseEvent]{@link MouseEvent}数目大于1，会将该帧最后一个点通过
+   * [onMouse]{@link CommonMethod#onMouse}返回，其余点作为历史点。
    *
    * @returns { Array<MouseHistoricalPoint> } 当前帧的所有历史点信息组成的数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11290,15 +11278,11 @@ declare interface MouseEvent extends BaseEvent {
  * 
  * 历史点按时间顺序排列，获取到的第一个历史点是最早发生的事件的信息，最后一个是最新发生事件的信息。历史点的数量取决于系统事件队列的配置和硬件性能。历史点主要用于如下场景：
  * 
- *  1. 平滑绘制：使用历史点可以实现更平滑的绘制效果，特别是在鼠标快速移动时。
- *  
- *  2. 手势识别：通过分析历史点的轨迹，可以识别各种鼠标手势。
- *  
- *  3. 性能优化：在一个事件回调中处理多个历史点，减少事件处理频率，提升性能。
- *  
- *  4. 轨迹分析：分析鼠标移动轨迹，用于绘图应用或手势控制。
- *  
- *  5. 数据分析：历史点中的timestamp可用于计算鼠标移动速度。
+ * 1. 平滑绘制：使用历史点可以实现更平滑的绘制效果，特别是在鼠标快速移动时。
+ * 2. 手势识别：通过分析历史点的轨迹，可以识别各种鼠标手势。
+ * 3. 性能优化：在一个事件回调中处理多个历史点，减少事件处理频率，提升性能。
+ * 4. 轨迹分析：分析鼠标移动轨迹，用于绘图应用或手势控制。
+ * 5. 数据分析：历史点中的timestamp可用于计算鼠标移动速度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11306,9 +11290,8 @@ declare interface MouseEvent extends BaseEvent {
  * @since 26.0.0 dynamic
  */
 declare interface MouseHistoricalPoint {
-
   /**
-   * 鼠标指针相对于被点击组件左上角的X坐标。
+   * 鼠标指针相对于事件响应组件左上角的X坐标。
    * 
    * 单位：vp
    *
@@ -11320,7 +11303,7 @@ declare interface MouseHistoricalPoint {
   x: double;
 
   /**
-   * 鼠标指针相对于被点击组件左上角的Y坐标。
+   * 鼠标指针相对于事件响应组件左上角的Y坐标。
    * 
    * 单位：vp
    *
@@ -11332,7 +11315,7 @@ declare interface MouseHistoricalPoint {
   y: double;
 
   /**
-   * 鼠标指针相对于整个屏幕左上角的X坐标。
+   * 鼠标指针相对于当前应用屏幕左上角的X坐标。
    * 
    * 单位：vp
    *
@@ -11344,7 +11327,7 @@ declare interface MouseHistoricalPoint {
   displayX: double;
 
   /**
-   * 鼠标指针相对于整个屏幕左上角的Y坐标。
+   * 鼠标指针相对于当前应用屏幕左上角的Y坐标。
    * 
    * 单位：vp
    *
@@ -11380,7 +11363,7 @@ declare interface MouseHistoricalPoint {
   windowY: double;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。
    * 
    * 单位：vp
    *
@@ -11390,21 +11373,21 @@ declare interface MouseHistoricalPoint {
    * @since 26.0.0 dynamic
    */
   globalDisplayX: double;
+   
+   /**
+    * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。
+    * 
+    * 单位：vp
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
+   globalDisplayY: double;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  globalDisplayY: double;
-
-  /**
-   * 鼠标事件的时间戳。
+   * 鼠标事件的时间戳，表示触发事件时距离系统启动的时间间隔。
    * 
    * 单位：ns
    *
@@ -11567,36 +11550,6 @@ declare interface TouchObject {
   id: number;
 
   /**
-   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayX?: number;
-
-  /**
-   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayY?: number;
-
-  /**
    * 触摸点在当前应用屏幕坐标系中的X坐标。
    * 
    * 单位：vp
@@ -11652,6 +11605,8 @@ declare interface TouchObject {
    * 触摸点在当前应用窗口坐标系中的X坐标。
    * 
    * 单位：vp
+   * 
+   * **说明：** 从API version 7开始支持，从API version 10开始废弃，建议使用windowX替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -11664,6 +11619,8 @@ declare interface TouchObject {
    * 触摸点在当前应用窗口坐标系中的Y坐标。
    * 
    * 单位：vp
+   * 
+   * **说明：** 从API version 7开始支持，从API version 10开始废弃，建议使用windowY替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -11719,7 +11676,6 @@ declare interface TouchObject {
    * @since 15 dynamic
    */
   pressedTime?: number;
-
   /**
    * 当前手指按压的压力值。
    * 
@@ -11760,7 +11716,37 @@ declare interface TouchObject {
   height?: number;
 
   /**
-   * 获取触摸位置相对于当前组件实时位置的左上角坐标。
+   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayY?: number;
+
+  /**
+   * 获取触摸位置相对于当前组件实时位置左上角的坐标。
    *
    * @returns { Coordinate2D } 触摸位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11782,7 +11768,6 @@ declare interface TouchObject {
  * @since 10 dynamic
  */
 declare interface HistoricalPoint {
-
   /**
    * 历史点对应触摸事件的基础信息。
    *
@@ -11798,6 +11783,8 @@ declare interface HistoricalPoint {
    * 历史点对应触摸事件中手指与屏幕的触摸区域大小。
    * 
    * 默认值：0
+   * 
+   * 取值范围：[0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11846,7 +11833,6 @@ declare interface HistoricalPoint {
  * @since 7 dynamic
  */
 declare interface TouchEvent extends BaseEvent {
-
   /**
    * 触摸事件的类型。
    *
@@ -11868,7 +11854,7 @@ declare interface TouchEvent extends BaseEvent {
   touches: TouchObject[];
 
   /**
-   * 发生变化而产生事件的手指信息。在使用该属性时，需要校验是否为空。
+   * 发生变化而产生事件的触点信息。在使用该属性时，需要校验是否为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -11888,10 +11874,11 @@ declare interface TouchEvent extends BaseEvent {
   stopPropagation: () => void;
 
   /**
-   * 获取当前帧的所有历史点。不同设备每帧的触摸事件频率不同，且该接口仅能在[TouchEvent]{@link TouchEvent}中调用，用于获取触发
+   * 获取当前帧的所有历史点。不同设备每帧的触摸事件频率不同，且该接口仅能在
+   * [TouchEvent]{@link TouchEvent}中调用，用于获取触发
    * [onTouch]{@link CommonMethod#onTouch}时当前帧历史点的相关信息。[onTouch]{@link CommonMethod#onTouch}一帧通常只会调用一次，如果当前帧收到的
-   * [TouchEvent]{@link TouchEvent}数目大于1，会将该帧最后一个点通过[onTouch]{@link CommonMethod#onTouch}返回，其余点作为历史点。如果多指在同一
-   * 帧上报事件，可能触发多次onTouch。
+   * [TouchEvent]{@link TouchEvent}数目大于1，会将该帧最后一个点通过
+   * [onTouch]{@link CommonMethod#onTouch}返回，其余点作为历史点。如果多指在同一帧上报事件，可能触发多次onTouch。
    *
    * @returns { Array<HistoricalPoint> } 由历史点组成的数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11903,9 +11890,9 @@ declare interface TouchEvent extends BaseEvent {
   getHistoricalPoints(): Array<HistoricalPoint>;
 
   /**
-   * 阻止默认事件。
+   * 阻止默认事件，适用于需要拦截组件默认行为并执行自定义处理的场景。
    * 
-   * **说明：** 该接口仅支持部分组件使用，当前支持组件：[Hyperlink]{@link hyperlink}，不支持的组件在使用时会抛出异常。暂不支持异步调用和提供Modifier接口。
+   * **说明：** 该接口仅支持部分组件使用，当前支持组件：[Hyperlink]{@link ./hyperlink}，不支持的组件在使用时会抛出异常。暂不支持异步调用和提供Modifier接口。
    *
    * @throws { BusinessError } 100017 - Component does not support prevent function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11921,8 +11908,8 @@ declare interface TouchEvent extends BaseEvent {
    * 
    * 取值范围：[0, +∞)
    * 
-   * **说明：** 在使用[postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字段，事件每分
-   * 发一次字段会增加100000。
+   * **说明：** 在使用[postInputEventWithStrategy]{@link ../../../arkui/BuilderNode:BuilderNode#postInputEventWithStrategy}接口分
+   * 发事件时会使用该字段，事件每分发一次字段会增加100000。
    * 
    * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
    *
@@ -11944,7 +11931,6 @@ declare interface TouchEvent extends BaseEvent {
  * @since 17 dynamic
  */
 declare interface AxisEvent extends BaseEvent {
-
   /**
    * 轴事件的动作类型。
    *
@@ -11954,34 +11940,6 @@ declare interface AxisEvent extends BaseEvent {
    * @since 17 dynamic
    */
   action: AxisAction;
-
-  /**
-   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的X坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayX?: number;
-
-  /**
-   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  globalDisplayY?: number;
 
   /**
    * 鼠标光标在当前应用屏幕坐标系中的X坐标。
@@ -12032,7 +11990,7 @@ declare interface AxisEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * 鼠标光标在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
+   * 鼠标光标以目标组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的X坐标。
    * 
    * 单位：vp
    *
@@ -12044,7 +12002,7 @@ declare interface AxisEvent extends BaseEvent {
   x: number;
 
   /**
-   * 鼠标光标在被点击元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
+   * 鼠标光标以目标组件为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的Y坐标。
    * 
    * 单位：vp
    *
@@ -12072,8 +12030,10 @@ declare interface AxisEvent extends BaseEvent {
    * 
    * 取值范围：[0, +∞)
    * 
-   * **说明：** 在使用[postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy}接口分发事件时会使用该字段，事件每分
-   * 发一次字段会增加100000。
+   * **说明：**
+   * 
+   * 在使用[postInputEventWithStrategy]{@link ../../../arkui/BuilderNode:BuilderNode#postInputEventWithStrategy}接口分
+   * 发事件时会使用该字段，事件每分发一次字段会增加100000。
    * 
    * 多次使用相同的eventHandleId进行事件分发将导致事件响应异常。仅在构造事件的时候需要对此字段赋值，其余情况开发者无需处理。
    *
@@ -12086,7 +12046,7 @@ declare interface AxisEvent extends BaseEvent {
   eventHandleId?: number;
 
   /**
-   * 激活[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
+   * 激活[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，适用于需要将轴事件继续传递给父组件并由父组件统一处理的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12120,10 +12080,41 @@ declare interface AxisEvent extends BaseEvent {
   getVerticalAxisValue(): number;
 
   /**
+   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的X坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#global-coordinate-system全局坐标系)中的Y坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：(-∞, +∞)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  globalDisplayY?: number;
+
+  /**
    * 返回此次轴事件双指缩放的比例。
    *
-   * @returns { number } 双指缩放比例。<br/> **说明：** 缩放比例指的是触控板双指缩放事件触发过程中双指当前的距离与双指最初按下时的距离的比值。<br/>默认值：0
-   *     <br/>取值范围：[0, +∞)<br/>
+   * @returns { number } 双指缩放比例。
+   *     <br> **说明：** 缩放比例指的是触控板双指缩放事件触发过程中双指当前的距离与双指最初按下时的距离的比值；当前轴事件不包含捏合轴时，取默认值0。
+   *     <br>默认值：0
+   *     <br>取值范围：[0, +∞)
+   *     <br>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12134,7 +12125,7 @@ declare interface AxisEvent extends BaseEvent {
   /**
    * 检测此轴事件是否包含指定的轴类型。
    *
-   * @param { AxisType } axisType - 轴事件的轴类型。
+   * @param { AxisType } axisType - 要检测的轴类型，用于判断当前轴事件是否包含该指定轴类型。
    * @returns { boolean } 此轴事件是否包含指定的轴类型。
    *     <br>true：包含指定的轴类型；false：不包含指定的轴类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12145,9 +12136,9 @@ declare interface AxisEvent extends BaseEvent {
   hasAxis(axisType: AxisType): boolean;
 
   /**
-   * 获取鼠标光标位置相对于当前组件实时位置的左上角坐标。
+   * 获取鼠标光标相对于当前组件实时位置左上角的坐标。
    *
-   * @returns { Coordinate2D } 鼠标光标位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 鼠标光标相对于当前组件实时位置左上角的坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12159,9 +12150,9 @@ declare interface AxisEvent extends BaseEvent {
 
 /**
  * 组件区域变化时的回调类型。
- *
+ * 
  * oldValue表示目标元素变化之前的宽高。
- *
+ * 
  * newValue表示目标元素变化之后的宽高。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12177,10 +12168,9 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * 自定义手势识别器判定回调类型。
  *
  * @param { BaseGestureEvent } event - 当前基础手势事件信息。
- * @param { GestureRecognizer } current - 当前即将要响应的识别器对象。
+ * @param { GestureRecognizer } current - 当前即将响应的识别器对象。
  * @param { Array<GestureRecognizer> } recognizers - 响应链上的其他手势识别器对象。
- * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上的Touch识别器对象。 默认值为null，表示在当前手势绑定组件及其子孙组件没有可响应的Touch识别
- *     器。 [since 20]
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上的触摸识别器对象。未传入时，表示在当前手势绑定组件及其子孙组件没有可响应的触摸识别器。 [since 20]
  * @returns { GestureJudgeResult } 手势是否裁决成功的判定结果。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -12188,15 +12178,32 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12 dynamic
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
-  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+
+/**
+ * 定义在[onGestureCollectIntercept]{@link CommonMethod#onGestureCollectIntercept}中使用的回调类型。
+ *
+ * @param { Array<GestureRecognizer> } recognizers - 响应链上组件的手势识别器对象。
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上组件的触摸识别器对象。
+ *     <br>默认值为null，表示响应链上没有触摸识别器对象。
+ * @returns { GestureCollectIntervention } 手势收集干预结果。
+ *     <br>返回值不是GestureCollectIntervention枚举值时，按照GestureCollectIntervention.[CONTINUE]{@link GestureCollectIntervention}
+ *     处理。
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type GestureCollectInterceptCallback = (recognizers: Array<GestureRecognizer>,
+   touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
 
 /**
  * 系统内置手势与响应链上其他组件的手势设置并行关系的回调事件类型。
  *
- * @param { GestureRecognizer } current - 当前组件的系统内置手势识别器，当前版本只提供内置的[GestureType]{@link GestureControl.GestureType}.PAN_GESTURE类型的手势识别器。
+ * @param { GestureRecognizer } current - 当前组件的系统内置手势识别器，当前版本只提供内置的[GestureType]{@link GestureType}.PAN_GESTURE类型的手势识别器。
  * @param { Array<GestureRecognizer> } others - 响应链上更高优先级的其他组件相同类别的手势识别器。
- * @returns { GestureRecognizer } 与current识别器绑定并行关系的某个手势识别器。
+ * @returns { GestureRecognizer } 与current识别器绑定并行关系的某个手势识别器；返回undefined表示不建立并行关系。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12208,8 +12215,8 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 /**
  * 手势与响应链上其他组件的手势设置并行关系的回调事件类型。
  *
- * @param { GestureRecognizer } current - 当前组件的手势识别器，当前仅支持[GestureType]{@link GestureControl.GestureType}.PAN_GESTURE类型的手势识别器。
- * @param { Array<GestureRecognizer> } others - 响应链上优先级高于当前组件的其他组件所持有的同类型[GestureType]{@link GestureControl.GestureType}的手势识别器。
+ * @param { GestureRecognizer } current - 当前组件的手势识别器，当前仅支持[GestureType]{@link GestureType}.PAN_GESTURE类型的手势识别器。
+ * @param { Array<GestureRecognizer> } others - 响应链上优先级高于当前组件的其他组件所持有的同类型[GestureType]{@link GestureType}的手势识别器。
  * @returns { GestureRecognizer } 与current识别器绑定并行关系的某个手势识别器。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -12218,6 +12225,23 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
  * @since 26.0.0 dynamic
  */
 declare type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
+
+/**
+ * 动态指定手势识别器是否参与手势处理的回调事件类型，回调内参数的生命周期跟随回调本身，参数内的方法仅支持在回调内同步使用。
+ *
+ * @param { BaseGestureEvent } event - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后的基础手势事件的信息。 
+ *     <br>**说明：** 
+ *     <br>仅包含BaseGestureEvent的信息，不包含其子类拓展信息。
+ *     <br>axisHorizontal和axisVertical的值为0。
+ * @param { Array<GestureRecognizer> } recognizers - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后，
+ *     所有手势识别器对象。
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 
 /**
  * 组件转场动画的结束回调类型。
@@ -12243,36 +12267,6 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
  * @since 24 dynamic
  */
 declare type OnNeedSoftkeyboardCallback = () => boolean;
-
-/**
- * 动态指定手势识别器是否参与手势处理的回调事件类型，回调内参数的生命周期跟随回调本身，参数内的方法仅支持在回调内同步使用。
- *
- * @param { BaseGestureEvent } event - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后的基础手势事件的信息。 <br/>
- *     **说明：** <br/>仅包含BaseGestureEvent的信息，不包含其子类拓展信息。<br/>axisHorizontal和axisVertical的值为0。
- * @param { Array<GestureRecognizer> } recognizers - [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)结束后，
- *     所有手势识别器对象。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
-
-/**
- * 定义在[onGestureCollectIntercept]{@link CommonMethod#onGestureCollectIntercept}中使用的回调类型。
- *
- * @param { Array<GestureRecognizer> } recognizers - 响应链上组件的手势识别器对象。
- * @param { Array<TouchRecognizer> } [touchRecognizers] - 响应链上组件的触摸识别器对象。<br/>默认值为null。
- * @returns { GestureCollectIntervention } 手势收集干预结果。
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare type GestureCollectInterceptCallback = (recognizers: Array<GestureRecognizer>,
-   touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
 
 /**
  * Defines the PixelMap type object for ui component.
@@ -12321,7 +12315,7 @@ declare interface PixelMapMock {
 /**
  * 当设置[DragResult]{@link DragResult}为DROP_ENABLED后，可设置DragBehavior为复制（COPY）或剪切（MOVE）。当DragBehavior为复制（COPY）时，拖拽对象的角标会显示加
  * 号；为剪切（MOVE）时，拖拽对象的角标不会显示加号。DragBehavior用来向开发者描述数据的处理方式是复制（COPY）还是剪切（MOVE），但无法最终决定对数据的实际处理方式。DragBehavior会通过onDragEnd带
- * 回给数据拖出方，发起拖拽的一方可通过DragBehavior来区分做出的是复制（COPY）还是剪切（MOVE）数据的不同行为。
+ * 回给数据拖出方，发起拖拽的一方可通过DragBehavior区分数据处理方式是复制（COPY）还是剪切（MOVE）。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -12330,7 +12324,6 @@ declare interface PixelMapMock {
  * @since 10 dynamic
  */
 declare enum DragBehavior {
-
   /**
    * 指定对数据的处理方式为复制。
    *
@@ -12341,7 +12334,6 @@ declare enum DragBehavior {
    * @since 10 dynamic
    */
   COPY = 0,
-
   /**
    * 指定对数据的处理方式为剪切。
    *
@@ -12363,9 +12355,8 @@ declare enum DragBehavior {
  * @since 26.0.0 dynamic
  */
 declare enum DragAnimationType {
-
   /**
-   * 使用默认拖拽动画。
+   * 使用默认拖拽动画，适用于无需自定义拖拽落位动效的常规拖拽场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -12373,9 +12364,8 @@ declare enum DragAnimationType {
    * @since 26.0.0 dynamic
    */
   DEFAULT = 0,
-
   /**
-   * 使用跟手变形拖拽动画。
+   * 使用跟手变形拖拽动画，适用于需要拖拽元素跟随手势变形并执行自定义落位动效的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -12450,7 +12440,6 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  * @since 10 dynamic
  */
 declare enum DragResult {
-
   /**
    * 拖拽结果尚未设置，在[onDragStart]{@link CommonMethod#onDragStart}，[onDragEnter]{@link CommonMethod#onDragEnter}，
    * [onDragMove]{@link CommonMethod#onDragMove}，[onDragLeave]{@link CommonMethod#onDragLeave}，
@@ -12463,7 +12452,6 @@ declare enum DragResult {
    * @since 24 dynamic
    */
   UNKNOWN = -1,
-
   /**
    * 拖拽成功，在[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}中使用。
    *
@@ -12474,7 +12462,6 @@ declare enum DragResult {
    * @since 10 dynamic
    */
   DRAG_SUCCESSFUL = 0,
-
   /**
    * 拖拽失败，在[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}中使用。
    *
@@ -12485,7 +12472,6 @@ declare enum DragResult {
    * @since 10 dynamic
    */
   DRAG_FAILED = 1,
-
   /**
    * 拖拽取消，在[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}中使用。
    *
@@ -12496,7 +12482,6 @@ declare enum DragResult {
    * @since 10 dynamic
    */
   DRAG_CANCELED = 2,
-
   /**
    * 组件允许落入，在[onDragEnter]{@link CommonMethod#onDragEnter}，[onDragMove]{@link CommonMethod#onDragMove}，
    * [onDragLeave]{@link CommonMethod#onDragLeave}中使用。
@@ -12508,7 +12493,6 @@ declare enum DragResult {
    * @since 10 dynamic
    */
   DROP_ENABLED = 3,
-
   /**
    * 组件不允许落入，在[onDragEnter]{@link CommonMethod#onDragEnter}，[onDragMove]{@link CommonMethod#onDragMove}，
    * [onDragLeave]{@link CommonMethod#onDragLeave}中使用。
@@ -13354,29 +13338,6 @@ declare enum EdgeLightMode {
  * @since 7 dynamic
  */
 declare interface DragEvent {
-
-  /**
-   * 当前拖拽点相对于全局屏幕的左上角的X坐标。
-   *
-   * @returns { number } 返回当前拖拽点相对于全局屏幕的左上角的X坐标。<br/>单位：vp，取值范围：[0, +∞)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  getGlobalDisplayX(): number;
-
-  /**
-   * 当前拖拽点相对于全局屏幕的左上角的Y坐标。
-   *
-   * @returns { number } 返回当前拖拽点相对于全局屏幕的左上角的Y坐标。<br/>单位：vp，取值范围：[0, +∞)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  getGlobalDisplayY(): number;
-
   /**
    * 获取当前拖拽点相对于屏幕左上角的x轴坐标。
    *
@@ -13427,10 +13388,9 @@ declare interface DragEvent {
 
   /**
    * 当前拖拽点相对于窗口左上角的x轴坐标，单位为vp。
-   * 
-   * > **说明：**
    *
-   * @returns { number } 返回当前拖拽点相对于窗口左上角的x轴坐标。<br/>单位：vp
+   * @returns { number } 返回当前拖拽点相对于窗口左上角的x轴坐标。
+   *     <br>单位：vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -13440,10 +13400,9 @@ declare interface DragEvent {
 
   /**
    * 当前拖拽点相对于窗口左上角的y轴坐标，单位为vp。
-   * 
-   * > **说明：**
    *
-   * @returns { number } 返回当前拖拽点相对于窗口左上角的y轴坐标。<br/>单位：vp
+   * @returns { number } 返回当前拖拽点相对于窗口左上角的y轴坐标。
+   *     <br>单位：vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -13452,7 +13411,7 @@ declare interface DragEvent {
   getY(): number;
 
   /**
-   * 切换复制和剪贴模式的角标显示状态。
+   * 切换复制和剪切模式的角标显示状态。
    * 
    * 默认值：DragBehavior.COPY。
    *
@@ -13468,9 +13427,9 @@ declare interface DragEvent {
   /**
    * 当拖拽结束时，是否禁用系统默认落位动效。
    * 
-   * 应用可将该值设定为true来禁用系统默认落位动效，并实现自己的自定义落位动效。
+   * 应用可将该值设定为true来禁用系统默认落位动效，并实现自定义落位动效。
    * 
-   * 当不配置或设置为false时，系统默认落位动效生效，当[setResult]{@link DragEvent#setResult}设置为DRAG_SUCCESSFUL时，落位为缩小消失动效，不为DRAG_SUCCESSFUL时，则
+   * 当不配置或设置为false时，系统默认落位动效生效，当[setResult]{@link DragEvent.setResult}设置为DRAG_SUCCESSFUL时，落位为缩小消失动效，不为DRAG_SUCCESSFUL时，则
    * 为放大消失动效。
    * 
    * 当未禁用系统默认落位动效时，应用不应再实现自定义动效，以避免动效上的冲突。
@@ -13491,7 +13450,7 @@ declare interface DragEvent {
    * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}、
    * [onDragEnd]{@link CommonMethod#onDragEnd}回调中获取。
    * 
-   * 默认值为DEFAULT 
+   * 默认值为DEFAULT。
    * 
    * **系统接口：** 此接口为系统接口。
    *
@@ -13510,8 +13469,8 @@ declare interface DragEvent {
    * 
    * 若拖拽源本身也需要隐藏，需要同时传入拖拽源组件的uniqueId。
    * 
-   * 组件的uniqueId可通过[UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext#getFrameNodeById}
-   * 配合[FrameNode.getUniqueId()]{@link FrameNode:FrameNode#getUniqueId}获取。
+   * 组件的uniqueId可通过[UIContext.getFrameNodeById()]{@link @ohos.arkui.UIContext:UIContext.getFrameNodeById}配合
+   * [FrameNode.getUniqueId()]{@link ../../../arkui/FrameNode:FrameNode#getUniqueId}获取。
    * 
    * 开发者应在[onDragEnd]{@link CommonMethod#onDragEnd}或
    * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}中恢复组件显示状态。
@@ -13525,7 +13484,7 @@ declare interface DragEvent {
   autoHideComponentUniqueIds?: int | int[];
 
   /**
-   * 向DragEvent中设置用于拖拽的数据。
+   * 向DragEvent中设置用于拖拽的数据。与[setDataLoadParams]{@link DragEvent.setDataLoadParams}方法同时使用时，以最后调用的方法为准。
    *
    * @param { UnifiedData } unifiedData - 拖拽相关的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13601,7 +13560,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的x轴方向拖动速度。
    *
-   * @returns { number } 当前拖拽的x轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从左往右为正，反之为负。
+   * @returns { number } 当前拖拽的x轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp/s，分正负方向速度，从左往右为正，反之为负。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13613,7 +13572,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的y轴方向拖动速度。
    *
-   * @returns { number } 当前拖拽的y轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从上往下为正，反之为负。
+   * @returns { number } 当前拖拽的y轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp/s，分正负方向速度，从上往下为正，反之为负。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13625,7 +13584,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的主方向拖动速度。
    *
-   * @returns { number } 当前拖拽的主方向拖动速度。为xy轴方向速度的平方和的算术平方根，单位为vp。
+   * @returns { number } 当前拖拽的主方向拖动速度。为xy轴方向速度的平方和的算术平方根，单位为vp/s。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13635,10 +13594,11 @@ declare interface DragEvent {
   getVelocity(): number;
 
   /**
-   * 获取功能键按压状态。
+   * 获取修饰键按压状态。
    *
-   * @param { Array<string> } keys - 获取功能键按压状态。报错信息请参考以下错误码。支持功能键 'Ctrl' | 'Alt' | 'Shift'。<br/>**说明：**<br/>此接口不支持在手写笔场景
-   *     下使用。
+   * @param { Array<string> } keys - 获取修饰键按压状态。报错信息请参考以下错误码。支持功能键 'Ctrl' | 'Alt' | 'Shift'。
+   *     <br>**说明：**
+   *     <br>此接口不支持在手写笔场景下使用。
    * @returns { boolean } 是否被按下，返回true表示被按下，返回false表示未被按下
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
    *     verification failed.
@@ -13654,8 +13614,11 @@ declare interface DragEvent {
    * 设置自定义落位动效的执行函数，仅在
    * [useCustomDropAnimation]{@link DragEvent#useCustomDropAnimation}为true时有效。
    *
-   * @param { Callback<void> } customDropAnimation - 在此回调函数中实现自定义落位动效。<br/> **说明：** <br/>1. 该接口仅在onDrop回调中使用有效。<br/> 2.
-   *     使用前需设置useCustomDropAnimation为true，否则该接口不生效。<br/> 3. 不要在动画callback中实现与动效无关的逻辑，避免影响执行效率。
+   * @param { Callback<void> } customDropAnimation - 在此回调函数中实现自定义落位动效。
+   *     <br> **说明：** 
+   *     <br>1. 该接口仅在onDrop回调中使用有效。
+   *     <br> 2. 使用前需设置useCustomDropAnimation为true，否则该接口不生效。
+   *     <br> 3. 不要在动画callback中实现与动效无关的逻辑，避免影响执行效率。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13665,24 +13628,31 @@ declare interface DragEvent {
   executeDropAnimation(customDropAnimation: Callback<void>): void;
 
   /**
-   * 设置一个跟手变形落位动效执行完成后的回调，该回调由系统在拖拽框架动效结束后触发。使用callback异步回调。
+   * 执行跟手变形落位动效，动效执行完成后触发回调，该回调由系统在拖拽框架动效结束后触发。使用callback异步回调。
    * 
    * > **说明：**
    * >
-   * > 1. 该接口仅在[dragAnimationType]{@link DragEvent#dragAnimationType}设置为DragAnimationType.FOLLOW_HAND_MORPH时生效。
+   * > 1. 该接口仅在[dragAnimationType]{@link DragEvent#dragAnimationType}设置为
+   * > DragAnimationType.FOLLOW_HAND_MORPH时生效。
    * >
    * > 2. 不要在回调中实现与动效无关的逻辑，避免影响执行效率。
    *
-   * @param { Callback<void> } onAnimationFinished - 拖拽框架动效结束后触发的回调。
-   * @param { string } [animationOption] - 落位动效参数。<br> 参数为JSON字符串格式，包含以下字段：<br> **CubicCurveEnable**: boolean，表示是否启用三次曲线
-   *     动画。设置为true时启用三次曲线动画，设置为false时不启用。<br> **SpringEnable**: boolean，表示是否启用弹簧动画。设置为true时启用弹簧动画效果，设置为false时不启用。 <br>
-   *     **dropAnimationCurve**: number[]，表示落位动画曲线参数，其含义由SpringEnable和CubicCurveEnable决定（SpringEnable优先级更高）。当
+   * @param { Callback<void> } onAnimationFinished - 拖拽框架动效结束后触发的回调。仅在
+   *     [dragAnimationType]{@link DragEvent#dragAnimationType}设置为
+   *     DragAnimationType.FOLLOW_HAND_MORPH时生效。
+   * @param { string } [animationOption] - 落位动效参数。用于在需要自定义跟手变形落位动效的曲线、落位位置或落位尺寸时传入；不传入时，使用系统默认的跟手变形落位动效配置。
+   *     <br> 参数为JSON字符串格式，包含以下字段：
+   *     <br> **CubicCurveEnable**: boolean，表示是否启用三次曲线动画。设置为true时启用三次曲线动画，适用于需要自定义贝塞尔曲线控制落位节奏的场景；设置为false时不启用。
+   *     <br> **SpringEnable**: boolean，表示是否启用弹簧动画。设置为true时启用弹簧动画效果，适用于需要弹性回落效果的场景；设置为false时不启用。 
+   *     <br> **dropAnimationCurve**: number[]，表示落位动画曲线参数，其含义由SpringEnable和CubicCurveEnable决定（SpringEnable优先级更高）。当
    *     SpringEnable为true时，数组长度为3，格式为[response, dampingRatio, blendDuration]，对应
    *     [curves.springMotion]{@link @ohos.curves:curves.springMotion}的弹簧曲线参数；当SpringEnable为false且CubicCurveEnable为true
    *     时，数组长度为4，格式为[x1, y1, x2, y2]，对应[curves.cubicBezierCurve]{@link @ohos.curves:curves.cubicBezierCurve}的三次贝塞尔曲线控制点
-   *     参数。<br> **说明：** SpringEnable优先级高于CubicCurveEnable，当两者同时为true时，以弹簧动画为准。当SpringEnable和CubicCurveEnable均未正确设置时，使用默
-   *     认弹簧动效。<br> **dropPosition**: number[]，落位位置坐标。数组长度为2，格式为[x, y]，单位为px，表示拖拽元素落位时的目标位置坐标，取值范围为(-∞, +∞)。<br>
-   *     **dropSize**: number[]，落位尺寸。数组长度为2，格式为[width, height]，单位为px，表示拖拽元素落位时的目标尺寸，取值范围为(0, +∞)。
+   *     参数。
+   *     <br> **说明：** SpringEnable优先级高于CubicCurveEnable，当两者同时为true时，以弹簧动画为准。当SpringEnable和CubicCurveEnable均未设置为true时，使用默
+   *     认弹簧动效。
+   *     <br> **dropPosition**: number[]，落位位置坐标。数组长度为2，格式为[x, y]，单位为px，表示拖拽元素落位时的目标位置坐标，取值范围为(-∞, +∞)。
+   *     <br> **dropSize**: number[]，落位尺寸。数组长度为2，格式为[width, height]，单位为px，表示拖拽元素落位时的目标尺寸，取值范围为(0, +∞)。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -13691,7 +13661,8 @@ declare interface DragEvent {
   executeFollowHandMorphDropAnimation(onAnimationFinished: Callback<void>, animationOption?: string): void;
 
   /**
-   * 异步获取拖拽数据，并通知开发者当前数据同步进度，仅支持在onDrop阶段使用。
+   * 异步获取拖拽数据，并通知开发者当前数据同步进度，仅支持在onDrop阶段使用。使用该接口获取数据时，需将[DropOptions]{@link DropOptions}中的disableDataPrefetch设置为true，防止
+   * 拖拽提前获取数据。
    *
    * @param { DataSyncOptions } options - 获取拖拽数据时的参数，包含目标路径、文件冲突选项、进度条类型等。数据传输过程中可使用
    *     [cancelDataLoading]{@link @ohos.arkui.UIContext:DragController#cancelDataLoading}接口取消数据加载。
@@ -13706,29 +13677,7 @@ declare interface DragEvent {
   startDataLoading(options: DataSyncOptions): string;
 
   /**
-   * 获取拖起方包名。
-   *
-   * @returns { string } 拖起方的包名。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  getDragSource(): string;
-
-  /**
-   * 获取是否是跨设备拖拽，跨设备拖拽时为true。
-   *
-   * @returns { boolean } 是否是跨设备拖拽，返回true表示是跨设备拖拽，返回false表示不是跨设备拖拽。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  isRemote(): boolean;
-
-  /**
-   * 获取当前拖拽事件发生时所在的屏幕ID，不支持在[onDragEnd]{@link CommonMethod#onDragEnd}阶段使用。
+   * 获取当前拖拽事件发生时所在的屏幕ID，可用于多屏设备拖拽场景中识别拖拽发生的屏幕并适配目标屏幕处理逻辑，不支持在[onDragEnd]{@link CommonMethod#onDragEnd}阶段使用。
    *
    * @returns { number } 当前拖拽事件发生时所在的屏幕ID。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13740,10 +13689,32 @@ declare interface DragEvent {
   getDisplayId(): number;
 
   /**
-   * 设置起拖方延迟提供数据。使用此方法向系统提供数据加载参数，而不是直接提供完整的数据对象。当用户在目标应用程序上落入时，系统将使用此参数从起拖方请求实际数据。与[setData]{@link DragEvent.setData}方法
-   * 同时使用，以最后调用的方法为准。该接口仅在[onDragStart]{@link CommonMethod#onDragStart}回调中生效。
+   * 获取拖起方包名，可用于跨应用拖拽场景中识别数据来源应用，并根据来源应用进行数据接收校验或业务处理。
    *
-   * @param { DataLoadParams } dataLoadParams - 落入操作时使用的数据加载参数。
+   * @returns { string } 拖起方的包名。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  getDragSource(): string;
+
+  /**
+   * 获取是否是跨设备拖拽，跨设备拖拽时为true，可用于跨设备拖拽场景中区分本机拖拽和跨设备拖拽，并据此调整数据传输、权限校验或提示逻辑。
+   *
+   * @returns { boolean } 是否是跨设备拖拽，返回true表示是跨设备拖拽，返回false表示不是跨设备拖拽。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  isRemote(): boolean;
+
+  /**
+   * 设置起拖方延迟提供数据。使用此方法向系统提供数据加载参数，而不是直接提供完整的数据对象。当用户在目标应用上落入时，系统将使用此参数从起拖方请求实际数据。与[setData]{@link DragEvent.setData}方法同时
+   * 使用，以最后调用的方法为准。该接口仅在[onDragStart]{@link CommonMethod#onDragStart}回调中生效。
+   *
+   * @param { DataLoadParams } dataLoadParams - 起拖方延迟提供数据时使用的数据加载参数，用于在目标应用落入时向系统提供实际拖拽数据的加载方式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -13752,9 +13723,33 @@ declare interface DragEvent {
   setDataLoadParams(dataLoadParams: DataLoadParams): void;
 
   /**
-   * 使用系统的内置动效，且该动效只有系统应用可使用。仅支持在onDrop阶段使用。
+   * 当前拖拽点相对于全局屏幕的左上角的X坐标。
    *
-   * @param { string } configuration - 动效配置参数，字符串内容为json格式。
+   * @returns { number } 返回当前拖拽点相对于全局屏幕的左上角的X坐标。
+   *     <br>单位：vp，取值范围：(-∞, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  getGlobalDisplayX(): number;
+
+  /**
+   * 当前拖拽点相对于全局屏幕的左上角的Y坐标。
+   *
+   * @returns { number } 返回当前拖拽点相对于全局屏幕的左上角的Y坐标。
+   *     <br>单位：vp，取值范围：(-∞, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  getGlobalDisplayY(): number;
+
+  /**
+   * 使用系统的内置动效，且该动效只有系统应用可使用。仅支持在onDrop阶段使用，适用于系统应用在拖拽释放后需要使用统一内置落位动效的场景。
+   *
+   * @param { string } configuration - the internal drop animation's configuration.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
    *     system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -13771,7 +13766,9 @@ declare interface DragEvent {
  * 拖拽事件的回调函数。
  *
  * @param { DragEvent } event - event为拖拽事件信息，包括拖拽点坐标。
- * @param { string } [extraParams] - extraParams为拖拽事件额外信息，需要解析为JSON格式。
+ * @param { string } [extraParams] - extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+ *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。未传入时无额外信
+ *     息。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13796,7 +13793,7 @@ declare interface DropOptions {
    * 
    * **说明：**
    * 
-   * 当使用[startDataLoading]{@link DragEvent#startDataLoading}获取数据时需设置该参数为true，防止拖拽提前获取数据。
+   * 当使用[startDataLoading]{@link DragEvent.startDataLoading}获取数据时需设置该参数为true，防止拖拽提前获取数据。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -13826,7 +13823,6 @@ declare type IntentionCode = import('../api/@ohos.multimodalInput.intentionCode'
  * @since 7 dynamic
  */
 declare interface KeyEvent {
-
   /**
    * 按键的类型。
    *
@@ -13878,7 +13874,7 @@ declare interface KeyEvent {
   deviceId: number;
 
   /**
-   * 按键发生时元键（即键盘左下角紧挨Ctrl键或Fn标记了窗口logo的按键）的状态，1表示按压态，0表示未按压态。
+   * 按键发生时元键（即键盘左下角紧挨Ctrl键或Alt键、标记了窗口logo的按键）的状态，1表示按压态，0表示未按压态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -13921,10 +13917,12 @@ declare interface KeyEvent {
   intentionCode: IntentionCode;
 
   /**
-   * 获取功能键按压状态。
+   * 获取修饰键按压状态，适用于组合键判断或快捷键处理等需要识别Ctrl、Alt、Shift等修饰键是否被按下的场景。
    *
-   * @param { Array<string> } keys - 功能键列表。支持功能键 'Ctrl'| 'Alt' | 'Shift'。<br/>**说明：**<br/>此接口不支持在手写笔场景下使用。
-   * @returns { boolean } 功能键是否被按下。true表示被按下，false表示未被按下。
+   * @param { Array<string> } keys - 修饰键列表。支持修饰键 'Ctrl'| 'Alt' | 'Shift'。传入不支持的修饰键时，抛出401错误码。
+   *     <br>**说明：**
+   *     <br>此接口不支持在手写笔场景下使用。
+   * @returns { boolean } 修饰键是否被按下。true表示被按下，false表示未被按下。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
    *     verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13946,7 +13944,7 @@ declare interface KeyEvent {
   unicode?: number;
 
   /**
-   * NumLock是否锁定（true: 锁定；false: 解锁）。
+   * NumLock是否锁定（true：锁定；false：解锁）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -13956,7 +13954,7 @@ declare interface KeyEvent {
   isNumLockOn?: boolean;
 
   /**
-   * CapsLock是否锁定（true: 锁定；false: 解锁）。
+   * CapsLock是否锁定（true：锁定；false：解锁）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -13966,7 +13964,7 @@ declare interface KeyEvent {
   isCapsLockOn?: boolean;
 
   /**
-   * ScrollLock是否锁定（true: 锁定；false: 解锁）。
+   * ScrollLock是否锁定（true：锁定；false：解锁）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -13985,7 +13983,6 @@ declare interface KeyEvent {
  * @since 15 dynamic
  */
 declare interface FocusAxisEvent extends BaseEvent {
-
   /**
    * 焦点轴事件的轴值表。
    *
@@ -13997,7 +13994,7 @@ declare interface FocusAxisEvent extends BaseEvent {
   axisMap: Map<AxisModel, number>;
 
   /**
-   * 阻塞[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)传递。
+   * 阻止[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)传递，可用于当前组件处理焦点轴事件后，不希望父组件继续响应该事件的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14008,7 +14005,7 @@ declare interface FocusAxisEvent extends BaseEvent {
 }
 
 /**
- * 组件接收表冠事件的数据结构。内容包括时间戳、旋转角速度、旋转角度、表冠动作和阻止事件冒泡。
+ * 组件接收表冠事件的数据结构。内容包括时间戳、旋转角速度、旋转角度、表冠动作和用于阻止事件冒泡的回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -14016,7 +14013,6 @@ declare interface FocusAxisEvent extends BaseEvent {
  * @since 18 dynamic
  */
 declare interface CrownEvent {
-
   /**
    * 时间戳。触发事件时距离系统启动的时间间隔。
    * 
@@ -14046,7 +14042,7 @@ declare interface CrownEvent {
    * 
    * 单位：deg 
    * 
-   * 取值范围:[-360, 360]。
+   * 取值范围：[-360, 360]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14066,7 +14062,7 @@ declare interface CrownEvent {
   action: CrownAction;
 
   /**
-   * 阻止[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)。
+   * 阻止[事件冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，可用于当前获焦组件已处理表冠事件、不希望父组件继续响应表冠旋转的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19150,7 +19146,6 @@ declare class ProgressMask {
  * @since 11 dynamic
  */
 declare class TouchTestInfo {
-
   /**
    * 按压点相对于窗口左上角的x轴坐标。
    *
@@ -19262,7 +19257,6 @@ declare class TouchTestInfo {
  * @since 11 dynamic
  */
 declare class TouchResult {
-
   /**
    * 事件派发策略。
    *
@@ -19278,7 +19272,7 @@ declare class TouchResult {
    * 子组件的唯一标识。
    *
    * 当strategy为TouchTestStrategy.DEFAULT时，id是可选的；当strategy是TouchTestStrategy.FORWARD_COMPETITION或
-   * TouchTestStrategy.FORWARD时，id是必需的（如果没有返回id，则当成TouchTestStrategy.DEFAULT处理）。
+   * TouchTestStrategy.FORWARD时，id是必需的（如果没有返回id，则视为TouchTestStrategy.DEFAULT处理）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20201,9 +20195,8 @@ declare enum OutlineStyle {
  * @since 11 dynamic
  */
 declare enum DragPreviewMode {
-
   /**
-   * 系统根据拖拽场景自动改变跟手点位置，根据规则自动对拖拽背板图进行缩放变换等。
+   * 系统根据拖拽场景自动改变跟手点位置，并自动对拖拽背板图进行缩放变换。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20212,9 +20205,8 @@ declare enum DragPreviewMode {
    * @since 11 dynamic
    */
   AUTO = 1,
-
   /**
-   * 禁用系统对拖拽背板图的缩放行为。
+   * 禁用系统对拖拽背板图的缩放行为。适用于需要保持拖拽预览图原始尺寸、不希望系统自动缩放的场景，如精确尺寸拖拽或自定义预览图大小控制场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20223,9 +20215,8 @@ declare enum DragPreviewMode {
    * @since 11 dynamic
    */
   DISABLE_SCALE = 2,
-
   /**
-   * 启用非文本类组件默认阴影效果。
+   * 启用非文本类组件默认阴影效果。适用于需要为拖拽预览图添加视觉层次感、提升拖拽对象辨识度的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20234,9 +20225,8 @@ declare enum DragPreviewMode {
    * @since 12 dynamic
    */
   ENABLE_DEFAULT_SHADOW = 3,
-
   /**
-   * 启用非文本类组件统一圆角效果，默认值12vp。当应用自身设置的圆角值大于默认值或modifier设置的圆角时，则显示应用自定义圆角效果。
+   * 启用非文本类组件统一圆角效果，适用于需要为拖拽预览图提供一致圆角外观的场景。默认值12vp。当应用自身设置的圆角值大于默认值或modifier设置的圆角时，则显示应用自定义圆角效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20245,11 +20235,9 @@ declare enum DragPreviewMode {
    * @since 12 dynamic
    */
   ENABLE_DEFAULT_RADIUS = 4,
-
   /**
-   * 启用支持原拖拽对象灰显（透明度）效果，对文本内容拖拽不生效。用户拖起时原对象显示灰显效果，释放时原对象恢复原有效果。
-   *   开启默认灰显效果后，不建议在拖拽开始后自行修改透明度，如果开发者在拖拽发起后自行修改应用透明度，则灰显效果将被覆盖，
-   *   且在结束拖拽时无法正确恢复原始透明度效果。
+   * 启用支持原拖拽对象灰显（透明度）效果，对文本内容拖拽不生效。用户拖起时原对象显示灰显效果，释放时原对象恢复原有效果。开启默认灰显效果后，不建议在拖拽开始后自行修改透明度，如果开发者在拖拽发起后自行修改应用透明度，则灰显效果将被覆
+   * 盖，且在结束拖拽时无法正确恢复原始透明度效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20258,11 +20246,10 @@ declare enum DragPreviewMode {
    * @since 18 dynamic
    */
   ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
-
   /**
-   * 启用支持多选对象鼠标拖拽不聚拢效果，各拖拽图显示在其原始位置的相对位置，当满足多选的情况下且
-   *   isMultiSelectionEnabled为true时该参数才生效。不聚拢效果优先级高于dragPreview。
-   *   不支持二次拖拽、圆角和缩放设置。
+   * 启用支持多选对象鼠标拖拽不聚拢效果，对文本内容拖拽不生效。各拖拽图显示在其原始位置的相对位置，当多个[GridItem]{@link ./gridItem}或[ListItem]{@link ./list_item}处于选中状态且
+   * isMultiSelectionEnabled为true时该参数才生效。不聚拢效果优先级高于
+   * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}。不支持二次拖拽、圆角和缩放设置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20273,8 +20260,7 @@ declare enum DragPreviewMode {
   ENABLE_MULTI_TILE_EFFECT = 6,
 
   /**
-   * 启用支持以拖拽预览图初始尺寸计算跟手点位置，长按浮起图和拖拽图不一致时使用。
-   *   鼠标拖拽，设置DragPreviewMode.ENABLE_MULTI_TILE_EFFECT时不生效。
+   * 启用支持基于最终拖拽预览图缩放前的原始尺寸计算跟手点位置，长按浮起图和拖拽预览图不一致时使用。鼠标拖拽，设置DragPreviewMode.ENABLE_MULTI_TILE_EFFECT时不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20286,7 +20272,9 @@ declare enum DragPreviewMode {
 }
 
 /**
- * 当一个节点上同时设置长按浮起预览（参考bindContextMenu）与拖拽时，使用该字段设置长按浮起预览图与拖拽预览图过渡动效方式。
+ * 当一个节点上同时设置长按浮起预览（参考
+ * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+ * ）与拖拽时，使用该字段设置长按浮起预览图与拖拽预览图过渡动效方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -20295,7 +20283,6 @@ declare enum DragPreviewMode {
  * @since 19 dynamic
  */
 declare enum DraggingSizeChangeEffect {
-
   /**
    * 发起拖拽时直接从菜单预览图切换为最终尺寸的拖拽预览图。
    *
@@ -20308,8 +20295,8 @@ declare enum DraggingSizeChangeEffect {
   DEFAULT = 0,
 
   /**
-   * 发起拖拽时，由菜单预览图直接切换为拖拽预览图，尺寸逐步从菜单预览图尺寸过渡到最终预览图尺寸，
-   *   设置了DragPreviewMode中的DISABLE_SCALE枚举值时尺寸过渡不生效。这在长按浮起预览图与拖拽预览图相同时使用。
+   * 发起拖拽时，由菜单预览图直接切换为拖拽预览图，尺寸逐步从菜单预览图尺寸过渡到最终预览图尺寸，设置了[DragPreviewMode]{@link DragPreviewMode}中的DISABLE_SCALE枚举值时尺寸过渡不生
+   * 效。这在长按浮起预览图与拖拽预览图相同时使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20320,8 +20307,8 @@ declare enum DraggingSizeChangeEffect {
   SIZE_TRANSITION = 1,
 
   /**
-   * 发起拖拽时，由菜单预览图逐步过渡切换为最终拖拽预览图，设置DragPreviewMode中的DISABLE_SCALE时尺寸过渡不生效。
-   *   这常用于菜单预览图与拖拽预览图差异较大时使用，过渡效果包含内容透明度及尺寸变化。
+   * 发起拖拽时，由菜单预览图逐步过渡切换为最终拖拽预览图，设置[DragPreviewMode]{@link DragPreviewMode}中的DISABLE_SCALE时尺寸过渡不生效。这常用于菜单预览图与拖拽预览图差异较大时使
+   * 用，过渡效果包含内容透明度及尺寸变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20379,14 +20366,14 @@ declare enum MenuPolicy {
 }
 
 /**
- * ImageModifier
+ * 图片组件modifier对象。
  *
- * @typedef { import('../api/arkui/ImageModifier').ImageModifier } ImageModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
@@ -20402,7 +20389,7 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
 /**
- * 设置拖拽过程中预览图处理模式及数量角标的显示。
+ * 设置拖拽过程中预览图处理模式、数量角标的显示、背板图样式及过渡效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -20411,9 +20398,8 @@ declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').Sy
  * @since 11 dynamic
  */
 declare interface DragPreviewOptions {
-
   /**
-   * 表示拖拽过程中背板图处理模式。
+   * 表示拖拽过程中预览图处理模式。
    *
    * 默认值：DragPreviewMode.AUTO
    *
@@ -20430,12 +20416,12 @@ declare interface DragPreviewOptions {
   mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
-   * 用于配置拖拽背板图的样式Modifier对象，可使用图片组件所支持的属性和样式来配置背板图样式（参考示例6），当前支持透明度，阴影，背景模糊度，圆角，材质效果。文本拖拽只支持默认效果，不支持通过modifier进行自定义。
+   * 用于配置拖拽背板图的样式Modifier对象，可使用图片组件所支持的属性和样式来配置背板图样式（参考示例6），当前支持透明度、阴影、背景模糊度、圆角、材质效果。文本拖拽只支持默认效果，不支持通过modifier进行自定义。
    *
    * 1.透明度。
    *
-   * 通过[opacity]{@link CommonMethod#opacity(value: number | Resource)}设置不透明度，不透明度的取值范围为0-1。设置0或不设置时采用背板图透明度的默认值0.95，设置1或
-   * 异常值时不透明。
+   * 通过[opacity]{@link CommonMethod#opacity(value: number | Resource)}设置不透明度，不透明度的取值范围为(0, 1)。设置0或不设置时采用背板图透明度的默认值0.95，设
+   * 置1或超出取值范围的值时不透明。
    *
    * 2.阴影。
    *
@@ -20457,27 +20443,28 @@ declare interface DragPreviewOptions {
    *
    * 通过[systemMaterial]{@link CommonMethod#systemMaterial}设置系统材质效果。
    *
-   * 默认值：空，拖拽背板不设置背板图样式。
+   * 默认值：空，拖拽背板图不设置样式。
    *
    * **说明：**
    *
    * 1.若节点已设置背景模糊或材质效果，直接用作拖拽预览会导致截图包含这些效果，与拖拽modifier属性冲突。建议使用
    * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}自定义不包含背景模糊和材质效果的预览。
    *
-   * 2.[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:ImmersiveMaterial#immersivematerial}的
-   * [colorInvert]{@link @ohos.arkui.uiMaterial:ImmersiveOptions#colorInvert}参数在拖拽中不生效。
+   * 2.[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}的
+   * [colorInvert]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}参数在拖拽中不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 18]
    * @atomicservice
-   * @noninterop
    * @since 12 dynamic
+   * @noninterop
    */
   modifier?: ImageModifier;
 
   /**
-   * 控制数量角标是否显示，或强制设置显示的数量。当设置数量角标时取值范围为[0，2<sup>31</sup>-1]，超过取值范围时会按默认状态处理。当设置为浮点数时，只显示整数部分。
+   * 控制数量角标是否显示，或强制设置显示的数量。设置为true时显示角标并使用实际拖拽对象数量，设置为false时不显示角标，设置为number值时强制显示指定数量的角标。当设置数量角标时取值范围为
+   * [0, 2<sup>31</sup>-1]，超过取值范围时会按默认值true处理。当设置为浮点数时，只显示整数部分。
    *
    * **说明：**
    *
@@ -20517,14 +20504,13 @@ declare interface DragPreviewOptions {
  * @since 12 dynamic
  */
 declare interface DragInteractionOptions {
-
   /**
    * 表示拖拽过程中背板图是否支持多选聚拢效果。true表示支持多选聚拢效果，false表示不支持多选聚拢效果。该参数只在[Grid]{@link ./grid}和[List]{@link ./list}组件中的
    * [GridItem]{@link ./gridItem}组件和[ListItem]{@link ./list_item}组件生效。
    *
    * 当一个item组件设置为多选拖拽时，该组件的子组件不可拖拽。聚拢组件预览图设置的优先级为
-   * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}中的string，dragPreview中的
-   * PixelMap，组件自截图，不支持dragPreview中的Builder形式。
+   * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}中的string、dragPreview中的
+   * PixelMap、组件自截图，不支持dragPreview中的Builder形式。
    *
    * 不支持组件绑定
    * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
@@ -20554,9 +20540,22 @@ declare interface DragInteractionOptions {
   defaultAnimationBeforeLifting?: boolean;
 
   /**
+   * 设置在拖拽至可滚动组件边缘时是否触发自动滚屏。true表示触发自动滚屏，false表示不触发自动滚屏。
+   *
+   * 默认值：true
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  enableEdgeAutoScroll?: boolean;
+
+  /**
    * 表示拖拽时是否启用震动。true表示启用震动，false表示不启用震动。仅在存在蒙层的预览（通过
-   * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
-   * ）场景生效。
+   * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}）
+   * 场景生效。
    *
    * **注意：** 仅当应用具备 ohos.permission.VIBRATE 权限，且用户启用了触感反馈时才会生效。
    *
@@ -20569,19 +20568,6 @@ declare interface DragInteractionOptions {
    * @since 18 dynamic
    */
   enableHapticFeedback?: boolean;
-
-  /**
-   * 设置在拖拽至可滚动组件边缘时是否触发自动滚屏。true表示触发自动滚屏，false表示不触发自动滚屏。
-   *
-   * 默认值：true
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  enableEdgeAutoScroll?: boolean;
 
   /**
    * 表示长按拖拽时，是否禁用浮起效果。true表示禁用浮起效果，false表示不禁用浮起效果。
@@ -20612,7 +20598,6 @@ declare interface DragInteractionOptions {
  * @since 15 dynamic
  */
 declare interface PreviewConfiguration {
-
   /**
    * 自定义配置的预览图是否仅用于浮起。
    * 
@@ -20633,9 +20618,9 @@ declare interface PreviewConfiguration {
   onlyForLifting?: boolean;
 
   /**
-   * 组件预览builder是否在设置时加载。
+   * 组件预览builder是否延时创建。
    * 
-   * 默认值为false。true表示组件预览builder在设置时加载，false表示组件预览builder不在设置时加载。
+   * 默认值为false。true表示组件预览builder延迟到需要生成拖拽预览图时创建，false表示组件预览builder在设置时创建。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20999,37 +20984,13 @@ declare interface BackgroundOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CommonMethod<T> {
-
   /**
    * constructor.
    *
@@ -21228,13 +21189,21 @@ declare class CommonMethod<T> {
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): T;
 
   /**
-   * 设置一个或多个触摸热区。从API版本26.0.0开始，未主动设置时[Button]{@link button}、[Button模式的Toggle]{@link toggle}、[Select]{@link select}、
+   * 设置一个或多个触摸热区。调用[responseRegionList]{@link CommonMethod#responseRegionList}接口时，该接口不再生效。从API版本26.0.0开始，未主动设置时
+   * [Button]{@link ./button}、[Button模式的Toggle]{@link ./toggle}、[Select]{@link ./select}、
    * [Chip]{@link @ohos.arkui.advanced.Chip}和[ChipGroup]{@link @ohos.arkui.advanced.ChipGroup}组件的触摸热区默认最小高度从28vp变更为32vp。
    * 该变更仅影响触摸命中范围，不影响组件实际显示高度。
    *
-   * @param { Array<Rectangle> | Rectangle } value - 触摸热区，包括位置和大小。<br/>默认触摸热区为整个组件，默认值：<br/>{<br/>x：0,<br/>y：0,<br/>
-   *     width：'100%',<br/>height：'100%'<br/>}<br/>
-   * @returns { T } 返回当前组件。
+   * @param { Array<Rectangle> | Rectangle } value - 触摸热区，包括位置和大小。
+   *     <br>默认触摸热区为整个组件，默认值：
+   *     <br>{
+   *     <br>x: 0,
+   *     <br>y: 0,
+   *     <br>width: '100%',
+   *     <br>height: '100%'
+   *     <br>}
+   *     <br>
+   * @returns { T } 返回当前组件，用于支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21244,11 +21213,17 @@ declare class CommonMethod<T> {
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
-   * 设置一个或多个鼠标触摸热区。
+   * 设置一个或多个鼠标触摸热区。调用[responseRegionList]{@link CommonMethod#responseRegionList}接口时，该接口不再生效。
    *
-   * @param { Array<Rectangle> | Rectangle } value - 鼠标触摸热区，包括位置和大小。<br/>默认触摸热区为整个组件，默认值：<br/>{<br/>x：0,<br/>y：0,<br/>
-   *     width：'100%',<br/>height：'100%'<br/>}
-   * @returns { T } 返回当前组件。
+   * @param { Array<Rectangle> | Rectangle } value - 鼠标触摸热区，包括位置和大小。
+   *     <br>默认触摸热区为整个组件，默认值：
+   *     <br>{
+   *     <br>x: 0,
+   *     <br>y: 0,
+   *     <br>width: '100%',
+   *     <br>height: '100%'
+   *     <br>}
+   * @returns { T } 返回当前组件，用于支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21261,9 +21236,17 @@ declare class CommonMethod<T> {
    * 设置组件的触摸热区列表。调用该接口时，[responseRegion]{@link CommonMethod#responseRegion}与
    * [mouseResponseRegion]{@link CommonMethod#mouseResponseRegion}接口不再生效。
    *
-   * @param { Array<ResponseRegion> } regions - 组件的触摸热区数组。<br/>每个触摸热区均包括输入工具类型、位置和大小。<br/>默认值：<br/>
-   *     [{<br/>tool：ResponseRegionSupportedTool.ALL,<br/>x：LengthMetrics.vp(0),<br/>y：LengthMetrics.vp(0),<br/>width：LengthMetrics.percent(1),<br/>height：LengthMetrics.percent(1)<br/>}]
-   * @returns { T } 返回当前组件。
+   * @param { Array<ResponseRegion> } regions - 组件的触摸热区数组。
+   *     <br>每个触摸热区均包括输入工具类型、位置和大小。
+   *     <br>默认值：
+   *     <br>[{
+   *     <br>tool: ResponseRegionSupportedTool.ALL,
+   *     <br>x: LengthMetrics.vp(0),
+   *     <br>y: LengthMetrics.vp(0),
+   *     <br>width: LengthMetrics.percent(1),
+   *     <br>height: LengthMetrics.percent(1)
+   *     <br>}]
+   * @returns { T } 返回当前组件，用于支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21334,8 +21317,8 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的触摸测试类型。如果组件不设置hitTestBehavior，其默认触摸测试类型为HitTestMode.Default。
    *
-   * @param { HitTestMode } value - 设置当前组件的触摸测试类型。
-   * @returns { T } 返回当前组件。
+   * @param { HitTestMode } value - 设置当前组件的触摸测试模式。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -21347,15 +21330,16 @@ declare class CommonMethod<T> {
 
   /**
    * 当前组件通过设置回调，可自定义触摸测试并控制触摸测试中的子节点行为。
-   *
+   * 
    * > **说明：**
    * >
    * > - 子节点信息数组中仅包含命名节点的信息，即开发者通过id属性设置了id的节点。
    * >
    * > - 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { function } event - 触摸事件信息。value的值为包含子节点信息的数组。
-   * @returns { T } 返回当前组件。
+   * @param { function } event - 自定义触摸测试的回调函数，用于接收包含子节点触摸测试信息的数组value，value中仅包含开发者通过id属性设置了id的命名节点的信息，并返回TouchResult以控制子
+   *     节点的事件分发策略。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21518,7 +21502,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder | ResourceColor } content
    * @param { BackgroundOptions } [options]
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -21531,7 +21515,7 @@ declare class CommonMethod<T> {
    *
    * @param { ResourceColor } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
@@ -21539,7 +21523,7 @@ declare class CommonMethod<T> {
    *
    * @param { ResourceColor } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
@@ -21548,7 +21532,7 @@ declare class CommonMethod<T> {
    *
    * @param { ResourceColor } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
@@ -21558,7 +21542,7 @@ declare class CommonMethod<T> {
    *
    * @param { ResourceColor } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
@@ -21571,7 +21555,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<ResourceColor> } color
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21585,7 +21569,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<ResourceColor | ColorMetrics> } color
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22366,7 +22350,7 @@ declare class CommonMethod<T> {
    * @since 18 dynamic
    */
   outlineRadius(radius: Optional<Dimension | OutlineRadiuses>): T;
-
+ 
   /**
    * 设置组件的前景色。当组件未设置前景色，默认继承父组件。
    *
@@ -22465,8 +22449,8 @@ declare class CommonMethod<T> {
   /**
    * 手写笔悬浮于组件上方时触发悬浮移动事件。
    *
-   * @param { Callback<HoverEvent> } event - 设置阻塞事件冒泡属性，并获取手写笔悬浮的位置坐标。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<HoverEvent> } event - 悬浮移动事件触发时调用的回调函数，回调参数为HoverEvent对象，用于获取手写笔悬浮的位置坐标，并可设置阻塞事件冒泡属性。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22480,7 +22464,7 @@ declare class CommonMethod<T> {
    *
    * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22494,7 +22478,7 @@ declare class CommonMethod<T> {
    * @param { AccessibilityTransparentCallback } callback - A callback instance used when current component and
    * descendants not handled accessibility hover event
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22503,10 +22487,11 @@ declare class CommonMethod<T> {
   onAccessibilityHoverTransparent(callback: AccessibilityTransparentCallback): T;
 
   /**
-   * 设置组件的鼠标悬浮态显示效果。当未设置hoverEffect时，组件默认鼠标悬浮态效果为HoverEffect.Auto。对于应用了悬浮态效果的组件，当鼠标悬浮于组件上并按下时，悬浮态效果会消失；当鼠标松开时，悬浮态效果会恢复。
+   * 设置组件的鼠标悬浮态显示效果。当未设置hoverEffect时，组件默认鼠标悬浮态效果为HoverEffect.Auto。对于设置了悬浮态效果的组件，当鼠标悬浮于组件上并按下时，悬浮态效果会消失；松开鼠标且鼠标指针仍悬浮于组件上方
+   * 时，悬浮态效果会恢复。
    *
    * @param { HoverEffect } value - 设置当前组件悬浮态下的悬浮效果。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -22515,7 +22500,7 @@ declare class CommonMethod<T> {
   hoverEffect(value: HoverEffect): T;
 
   /**
-   * 当前组件被鼠标按键点击时或者鼠标在组件上悬浮移动时，触发该回调。
+   * 当前组件被鼠标按键点击时或者鼠标在组件上悬浮移动时，或通过触控板触发相同的鼠标操作时，触发该回调。
    *
    * @param { function } event - 返回触发事件时的时间戳、鼠标按键、动作、鼠标位置在整个屏幕上的坐标和相对于当前组件的坐标。
    * @returns { T } 返回当前组件。
@@ -22526,10 +22511,11 @@ declare class CommonMethod<T> {
   onMouse(event: (event: MouseEvent) => void): T;
 
   /**
-   * 手指触摸动作触发该回调。触摸事件默认[冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，会被多个组件消费，如果需阻止冒泡，可参考
-   * [TouchEvent]{@link TouchEvent}的stopPropagation方法。鼠标左键按下时，对应的事件也会转换成触摸事件并触发该回调。
+   * 手指或手写笔触摸动作触发该回调。触摸事件默认[冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)，会被多个组件消费，如果需阻止冒泡，可参考
+   * [TouchEvent]{@link TouchEvent}的stopPropagation方
+   * 法。鼠标左键按下时，对应的事件也会转换成触摸事件并触发该回调。
    *
-   * @param { function } event - 获得TouchEvent对象。
+   * @param { function } event - 触摸事件触发时调用的回调函数，用于接收并处理TouchEvent对象。回调参数event表示本次触摸事件的详细信息。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22539,10 +22525,11 @@ declare class CommonMethod<T> {
   onTouch(event: (event: TouchEvent) => void): T;
 
   /**
-   * 绑定该方法的组件获焦后，按键动作触发该回调。
+   * 绑定该方法的组件获焦后，按键动作触发该回调。onKeyEvent事件默认冒泡，可通过
+   * [stopPropagation]{@link KeyEvent#stopPropagation}方法阻止事件冒泡。
    *
-   * @param { function } event - 获得KeyEvent对象。
-   * @returns { T } 返回当前组件。
+   * @param { function } event - 按键事件回调函数，用于在组件获焦后接收KeyEvent对象并处理按键事件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -22551,10 +22538,10 @@ declare class CommonMethod<T> {
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
-   * 当绑定该方法的组件获焦后，按键操作将触发此回调。若此回调的返回值为`true`，则视为按键事件已被处理。
+   * 当绑定该方法的组件获焦后，按键操作将触发此回调。若此回调的返回值为`true`，则视为按键事件已被消费，并阻止事件冒泡，效果等同于调用`stopPropagation`；返回`false`时，视为按键事件未被消费，事件可继续冒泡。
    *
-   * @param { Callback<KeyEvent, boolean> } event - 按键事件的回调。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<KeyEvent, boolean> } event - 按键事件回调函数，用于接收KeyEvent对象并处理按键事件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22570,8 +22557,8 @@ declare class CommonMethod<T> {
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Callback<CrownEvent> } event - 获得[CrownEvent]{@link CrownEvent}对象。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<CrownEvent> } event - [CrownEvent]{@link CrownEvent} object.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -22582,10 +22569,11 @@ declare class CommonMethod<T> {
   /**
    * 绑定该方法的组件获焦后，按键动作优先触发该回调。
    * 
-   * 该回调的返回值为`true`时，视作该按键事件已被消费，后续的事件回调（`keyboardShortcut`、输入法事件、`onKeyEventDispatch`、`onKeyEvent`）会被拦截，不再触发。
+   * 该回调的返回值为`true`时，视作该按键事件已被消费，后续的事件回调（`keyboardShortcut`、输入法事件、`onKeyEventDispatch`、`onKeyEvent`）会被拦截，不再触发；返回`false`
+   * 时，视作该按键事件未被消费，后续事件回调可继续触发。
    *
-   * @param { Callback<KeyEvent, boolean> } event - 处理按键事件的回调。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<KeyEvent, boolean> } event - 按键事件预处理回调函数，用于接收KeyEvent对象并在输入法事件前处理按键事件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22595,12 +22583,14 @@ declare class CommonMethod<T> {
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
   /**
-   * 对应组件收到按键事件时，会触发该回调，该按键事件不会分发给其子组件。不支持构造KeyEvent进行分发，只支持分发已有的按键事件。
+   * 对应组件收到按键事件时，会触发该回调，该按键事件不会分发给其子组件，适用于需要由父组件统一处理按键事件、避免子组件重复响应按键操作的场景。从API version 23开始，支持构造KeyEvent进行分发。API version
+   * 22及之前版本，不支持构造KeyEvent进行分发，只支持分发已有的按键事件。
    * 
-   * 该回调的返回值为`true`时，视作该按键事件已被消费，不会[冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)给父组件处理。
+   * 该回调的返回值为`true`时，视作该按键事件已被消费，不会[冒泡](docroot://ui/arkts-interaction-basic-principles.md#事件冒泡)给父组件处理；返回`false`时，视作该按键事
+   * 件未被消费，可继续冒泡给父组件处理。
    *
-   * @param { Callback<KeyEvent, boolean> } event - 处理按键事件分发的回调。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<KeyEvent, boolean> } event - 按键事件分发回调函数，用于接收KeyEvent对象并处理当前组件收到的按键事件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22610,10 +22600,11 @@ declare class CommonMethod<T> {
   onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
 
   /**
-   * 给组件绑定焦点轴事件回调。绑定该方法的组件获焦后，游戏手柄上的摇杆、十字键等的操作会触发该回调。
+   * 给组件绑定焦点轴事件回调。绑定该方法的组件获焦后，游戏手柄上的操作杆、十字按键等的操作会触发该回调。若组件默认不可获焦，需要先将[focusable]{@link CommonMethod#focusable}属性设置为true来
+   * 启用焦点轴事件。
    *
-   * @param { Callback<FocusAxisEvent> } event - 焦点轴事件回调。
-   * @returns { T } 返回当前组件。
+   * @param { Callback<FocusAxisEvent> } event - 焦点轴事件回调。绑定该方法的组件获焦后触发。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -22622,9 +22613,9 @@ declare class CommonMethod<T> {
   onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
 
   /**
-   * 鼠标滚轮滚动或触控板双指轻触滑动、双指捏合时触发该回调。
+   * 当鼠标或触控板等带指针输入设备的指针位于组件区域内时，鼠标滚轮滚动或触控板双指轻触滑动、双指捏合会触发该回调。
    *
-   * @param { Callback<AxisEvent> } event - 获得[AxisEvent]{@link AxisEvent}对象。
+   * @param { Callback<AxisEvent> } event - 轴事件触发时执行的回调函数，用于接收[AxisEvent]{@link AxisEvent}对象，该对象包含轴事件的动作类型、坐标、滚动步长等信息。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22636,9 +22627,10 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件是否可以获焦。
    *
-   * @param { boolean } value - 设置当前组件是否可以获焦，true表示组件可以获焦，false表示组件不可获焦。<br/>**说明：**<br/>存在默认交互逻辑的组件例如
-   *     [Button]{@link button}、[TextInput]{@link text_input}等，默认即为可获焦，[Text]{@link text}、[Image]{@link image}等组件则默认状态为不
-   *     可获焦。不可获焦状态下，无法触发[焦点事件]{@link common}。
+   * @param { boolean } value - 设置当前组件是否可以获焦，true表示组件可以获焦，false表示组件不可获焦。
+   *     <br>**说明：**
+   *     <br>存在默认交互逻辑的组件例如[Button]{@link ./button}、[TextInput]{@link ./text_input}等，默认为可获焦，[Text]{@link ./text}、
+   *     [Image]{@link ./image}等组件则默认为不可获焦。不可获焦状态下，无法触发[焦点事件]{@link ./common}。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22648,10 +22640,12 @@ declare class CommonMethod<T> {
   focusable(value: boolean): T;
 
   /**
-   * 设置组件的自定义焦点走焦逻辑。
+   * 设置组件的自定义焦点走焦逻辑，适用于需要精确控制焦点流向的场景。
    *
-   * @param { FocusMovement } nextStep - 设置当前容器组件的自定义走焦规则。<br/>**说明：**<br/>默认值为重置nextStep为空。<br/>没设置自定义走焦或者设置自定义组件容器不存
-   *     在，仍进行默认走焦规则。
+   * @param { FocusMovement } nextStep - 设置当前组件的自定义走焦规则。
+   *     <br>**说明：** 
+   *     <br>默认值为重置nextStep为空。
+   *     <br>未设置自定义走焦规则，或自定义走焦规则中设置的目标组件不存在时，仍按照默认走焦规则进行走焦。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22662,16 +22656,21 @@ declare class CommonMethod<T> {
   nextFocus(nextStep: Optional<FocusMovement>): T;
 
   /**
-   * 设置当前容器组件的tabStop，可决定焦点在走焦时是否会停留在当前容器。
+   * 设置当前容器组件的tabStop，可决定焦点在走焦时是否会停留在当前容器。未设置时，tabStop默认为false，走焦时焦点不会因tabStop停留在当前容器。
    *
-   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器。true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。<br/>**说明：**<br/>1.配
-   *     置tabStop需要确保是容器组件且有可获焦的孩子组件，默认容器组件不能直接获焦。<br/>2.通过[requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}请求焦
-   *     点，如果是容器组件且配置tabStop，焦点能够停留在容器组件，如果未配置tabStop，即使整条焦点链上有配置了tabStop的组件，该组件依然能获取到焦点。<br/>3.配置tabStop的容器不允许嵌
-   *     套超过2层。<br/>tabStop走焦规则：<br/>1.通过tab键和方向键走焦，焦点会停留在配置了tabStop的组件上，如果焦点停留在配置了tabStop的容器内部时，可以走焦到容器内部的下一个可获焦
-   *     组件，如果焦点停留在配置了tabStop的容器外部时，可以走焦到容器外的下一个可获焦组件。<br/>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按Esc能够将焦点
-   *     退回到不超过当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)根容器的上一个配置了tabStop的组件，按空格键可以响应该容器的onClick事件。<br/>3.不建
-   *     议根容器配置tabStop。如果根容器配置了tabStop，通过[clearFocus]{@link @ohos.arkui.UIContext:FocusController#clearFocus}将焦点清理到根容器，再按Enter键会重新走回内部上
-   *     一次获焦组件，通过ESC键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
+   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器。true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。
+   *     <br>**说明：** 
+   *     <br>1.配置tabStop需要确保是容器组件且有可获焦的子组件，默认容器组件不能直接获焦。
+   *     <br> 2.通过[requestFocus]{@link @ohos.arkui.UIContext:FocusController.requestFocus}请求焦点，如果是容器组件且配置tabStop，焦点能够停留在
+   *     容器组件，如果目标容器组件未配置tabStop，即使整条焦点链上有配置了tabStop的组件，目标组件依然能获取到焦点。
+   *     <br>3.配置tabStop的容器不允许嵌套超过2层。
+   *     <br>tabStop走焦规则：
+   *     <br>1.通过tab键和方向键走焦，焦点会停留在配置了tabStop的组件上，如果焦点停留在配置了tabStop的容器内部时，可以走焦到容器内部的下一个可获焦组件，如果焦点停留在配置了tabStop的容器外部时，可以走焦
+   *     到容器外的下一个可获焦组件。
+   *     <br>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按ESC能够将焦点退回到不超过当前
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)根容器的上一个配置了tabStop的组件，按空格键可以响应该容器的onClick事件。
+   *     <br>3.不建议根容器配置tabStop。如果根容器配置了tabStop，通过[clearFocus]{@link @ohos.arkui.UIContext:FocusController.clearFocus}将焦点
+   *     清理到根容器，再按Enter键会重新走回内部上一次获焦组件，通过ESC键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22685,7 +22684,7 @@ declare class CommonMethod<T> {
    * 当前组件获取焦点时触发的回调。
    *
    * @param { function } event - onFocus的回调函数，表示组件已获焦。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -22697,7 +22696,7 @@ declare class CommonMethod<T> {
    * 当前组件失去焦点时触发的回调。
    *
    * @param { function } event - onBlur的回调函数，表示组件已失焦。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -22706,18 +22705,22 @@ declare class CommonMethod<T> {
   onBlur(event: () => void): T;
 
   /**
-   * 自定义组件tab键走焦能力。当组件未设置tabIndex时，默认按照预设的焦点移动规则进行焦点移动。
+   * 设置组件的Tab键走焦能力。当组件未设置tabIndex时，默认按照预设的焦点移动规则进行焦点移动。
    * 
    * > **说明：**
    * >
    * > - tabIndex只能够自定义Tab键走焦，若想同时自定义方向键等走焦能力，建议使用[nextFocus]{@link CommonMethod#nextFocus}。
    *
-   * @param { number } index - 自定义组件tab键走焦能力。若有配置了tabIndex大于0的组件，则tab键走焦只会在tabIndex大于0的组件内按照tabIndex的值从小到大并循环依次走焦。若没有配置
-   *     tabIndex大于0的组件，则tabIndex等于0的组件按照组件预设的走焦规则走焦。<br />[UiExtension]{@link @ohos.arkui.uiExtension:uiExtension}组件未适配
-   *     tabIndex，在含有[UiExtension]{@link @ohos.arkui.uiExtension:uiExtension}组件的
-   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)使用tabIndex会导致走焦错乱。<br />- tabIndex >= 0：表示元素是可聚焦的，并
-   *     且可以通过tab键走焦来访问到该元素。<br />- tabIndex < 0（通常是tabIndex = -1）：表示元素是可聚焦的，但是不能通过tab键走焦来访问到该元素。<br/> **说明：**<br/>
-   *     tabIndex与focusScopeId不能混用。
+   * @param { number } index - 设置组件的Tab键走焦顺序索引值。若有配置了tabIndex大于0的组件，则Tab键走焦只会在tabIndex大于0的组件内按照tabIndex的值从小到大并循环依次走焦。若没有
+   *     配置tabIndex大于0的组件，则tabIndex等于0的组件按照组件预设的走焦规则走焦。
+   *     <br>[UiExtension]{@link @ohos.arkui.uiExtension:uiExtension}组件未适配tabIndex，在含有
+   *     [UiExtension]{@link @ohos.arkui.uiExtension:uiExtension}组件的
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)使用tabIndex会导致走焦错乱。
+   *     <br>- tabIndex > 0：表示元素是可聚焦的，并且可以通过Tab键走焦来访问到该元素。
+   *     <br>- tabIndex = 0：表示元素是可聚焦的，当层级页面不存在tabIndex大于0的节点时，可以通过Tab键走焦来访问到该元素。
+   *     <br>- tabIndex < 0（通常是tabIndex = -1）：表示元素是可聚焦的，但是不能通过Tab键走焦来访问到该元素。
+   *     <br> **说明：**
+   *     <br>tabIndex与focusScopeId不能混用，否则会导致走焦结果不符合预期。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22727,16 +22730,25 @@ declare class CommonMethod<T> {
   tabIndex(index: number): T;
 
   /**
-   * 设置当前组件是否为当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)上的默认焦点。当未设置defaultFocus时，组件默认不为当前层级页面的默认焦点。
+   * 设置当前组件是否为当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)上的默认焦点。当未设置defaultFocus时，组件默认不为当前层级页面的默认焦点。与
+   * [groupDefaultFocus]{@link CommonMethod#groupDefaultFocus}的区别：defaultFocus作用于层级页面范围，groupDefaultFocus作用于容器获焦范围；两者可同时
+   * 使用但生效范围不同。
    * 
    * > **说明：**
    * >
-   * > 可以设置默认焦点的页面指的是支持页面路由或是弹窗类的容器组件，例如Page、NaviDestination、NavBar、PopUp、Dialog等。
+   * > 可以设置默认焦点的页面指的是支持页面路由或是弹窗类的容器组件，例如Page、NavDestination、NavBar、PopUp、Dialog等。
    *
    * @param { boolean } value - 设置当前组件是否为当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)上的默认焦点，仅在初次创建的
-   *     层级页面第一次进入时生效。<br/>**说明：** <br/>值为true则表示为默认焦点，值为false时无效。<br/>若层级页面内无任何组件设置defaultFocus(true)，
-   *     API version 11及之前，层级页面的默认焦点是当前层级页面上首个可获焦的非容器组件，API version 11之后，层级页面的默认焦点就是层级页面的根容器。<br/>
-   *     若某层级页面内有多个组件设置了defaultFocus(true)，则以组件树深度遍历找到的第一个组件为默认焦点。
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)第一次进入时生效。
+   *     <br>**说明：** 
+   *     <br>值为true则表示为默认焦点，值为false时表示不为默认焦点。
+   *     <br>若[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)内无任何组件设置defaultFocus(true)，API version 11及之前，
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)的默认焦点是当前
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)上首个可获焦的非容器组件，API version 11之后，
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)的默认焦点就是
+   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)的根容器。
+   *     <br>若某[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)内有多个组件设置了defaultFocus(true)，则以组件树深度遍历找到的第一个组件
+   *     为默认焦点。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22749,8 +22761,10 @@ declare class CommonMethod<T> {
    * 设置当前组件是否为当前组件所在容器获焦时的默认焦点。当组件未设置groupDefaultFocus时，组件默认不为当前组件所在容器获焦时的默认焦点。
    *
    * @param { boolean } value - 设置当前组件是否为当前组件所在容器获焦时的默认焦点，仅在初次创建容器节点第一次获焦时生效。true表示当前组件为所在容器获焦时的默认焦点，false表示当前组件不是所在容器获焦
-   *     时的默认焦点。<br/>**说明：** <br/>必须与[tabIndex]{@link CommonMethod#tabIndex}联合使用，当某个容器设置了tabIndex，且容器内某子组件或容器自身设置了
-   *     groupDefaultFocus(true)，当该容器首次TAB键获焦时，会自动将焦点转移至该指定的组件上。若容器内（包含容器本身）有多个组件设置了groupDefaultFocus(true)，则以组件树深度遍历找到的
+   *     时的默认焦点。
+   *     <br>**说明：** 
+   *     <br>必须与[tabIndex]{@link CommonMethod#tabIndex}联合使用，单独设置groupDefaultFocus时不会生效。当某个容器设置了tabIndex，且容器内某子组件或容器自身设置了
+   *     groupDefaultFocus(true)，当该容器首次Tab键获焦时，会自动将焦点转移至该指定的组件上。若容器内（包含容器本身）有多个组件设置了groupDefaultFocus(true)，则以组件树深度遍历找到的
    *     第一个组件为最终结果。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22763,7 +22777,9 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件是否支持点击获焦能力。当组件未设置focusOnTouch时，组件默认不支持点击获焦能力。
    *
-   * @param { boolean } value - 设置当前组件是否支持点击获焦能力。true表示组件支持点击获焦，false表示不支持点击获焦。<br/>**说明：** <br/>仅在组件可点击时才能正常获取焦点。
+   * @param { boolean } value - 设置当前组件是否支持点击获焦能力。true表示组件支持点击获焦，false表示不支持点击获焦。
+   *     <br>**说明：** 
+   *     <br>仅在组件可点击且可获焦时才能正常获取焦点。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22775,7 +22791,9 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件系统焦点框样式。
    *
-   * @param { FocusBoxStyle } style - 设置当前组件系统焦点框样式。<br/>**说明：** <br/>仅影响走焦状态下展示了系统焦点框的组件。
+   * @param { FocusBoxStyle } style - 设置当前组件系统焦点框样式。
+   *     <br>**说明：** 
+   *     <br>仅影响走焦状态下展示了系统焦点框的组件。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22788,11 +22806,17 @@ declare class CommonMethod<T> {
   /**
    * 设置当前容器组件的id标识，以及是否为焦点组。
    *
-   * @param { string } id - 设置当前容器组件的id标识。<br/>**说明：** <br/>单个
-   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)下，id标识全局唯一，不可重复。
-   * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。<br/>**说明：** <br/>焦点组不可嵌套，不
-   *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
-   *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
+   * @param { string } id - 设置当前容器组件的id标识。
+   *     <br>**说明：** 
+   *     <br>单个[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)下，id标识全局唯一。若id重复，后设置的id不生效，后设置的组件不能成为该id对应的焦点
+   *     域或焦点组，其内部针对该id设置的获焦优先级也不生效。
+   * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。
+   *     <br>**说明：** 
+   *     <br>焦点组不可嵌套。嵌套时，内层焦点组不会独立生效，主要按照外层焦点组规则走焦。
+   *     <br>同一组件不能同时设置focusScopeId与tabIndex。混用不会抛出异常，但Tab键走焦会受tabIndex规则影响；tabIndex大于0时，焦点组可能被Tab键选中，无法按预期跳出。
+   *     <br>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：
+   *     <br>1.焦点组容器内只能通过方向键走焦，Tab键会使焦点跳出焦点组容器。
+   *     <br>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22803,13 +22827,19 @@ declare class CommonMethod<T> {
   focusScopeId(id: string, isGroup?: boolean): T;
 
   /**
-   * 设置当前容器组件的id标识，以及是否为焦点组。新增参数arrowStepOut，用于设置能否使用方向键走焦出当前焦点组。
+   * 设置当前容器组件的id标识，以及是否为焦点组。新增参数arrowStepOut，设置能否使用方向键走焦出当前焦点组。
    *
-   * @param { string } id - 设置当前容器组件的id标识。<br/>**说明：** <br/>单个
-   *     [层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)下，id标识全局唯一，不可重复。
-   * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。<br/>**说明：** <br/>焦点组不可嵌套，不
-   *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
-   *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
+   * @param { string } id - 设置当前容器组件的id标识。
+   *     <br>**说明：** 
+   *     <br>单个[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)下，id标识全局唯一。若id重复，后设置的id不生效，后设置的组件不能成为该id对应的焦点
+   *     域或焦点组，其内部针对该id设置的获焦优先级也不生效。
+   * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。
+   *     <br>**说明：** 
+   *     <br>焦点组不可嵌套。嵌套时，内层焦点组不会独立生效，主要按照外层焦点组规则走焦。
+   *     <br>同一组件不能同时设置focusScopeId与tabIndex。混用不会抛出异常，但Tab键走焦会受tabIndex规则影响；tabIndex大于0时，焦点组可能被Tab键选中，无法按预期跳出。
+   *     <br>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：
+   *     <br>1.焦点组容器内只能通过方向键走焦，Tab键会使焦点跳出焦点组容器。
+   *     <br>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
    * @param { boolean } [arrowStepOut] - 设置能否使用方向键走焦出当前焦点组。true表示可以使用方向键走焦出当前焦点组，false表示不能使用方向键走焦出当前焦点组。默认值为true。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22823,12 +22853,18 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件在指定容器内获焦的优先级。需要配合[focusScopeId]{@link CommonMethod#focusScopeId(id: string, isGroup?: boolean)}一起使用。
    *
-   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。<br/>**说明：**<br/>1.当前组件必须在scopeId所标识的容器内，或其所属容器在scopeId所标识的容器
-   *     内。<br/>2.组件不可重复设置多个优先级。<br/>3.设置了focusScopeId的容器组件不可设置优先级。
-   * @param { FocusPriority } [priority] - 获焦优先级。<br/>**说明：** <br/>未设置priority时，默认为AUTO优先级。<br/>优先级对走焦以及获焦组件的影响：<br/>1.容
-   *     器整体获焦（[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)切换/焦点切换到焦点组/容器组件使用requestFocus申请焦点）时，若容器内存在优先
-   *     级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由容器内上次获焦的组件获焦。<br/>2.容器非整体获焦（非焦点组场景下使用tab键/方向键走焦）时，若容器为首次获焦，则容器内优先级最高的组件获焦，
-   *     若容器非首次获焦，不考虑优先级按照位置顺序走焦。
+   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。
+   *     <br>**说明：** 
+   *     <br>1.当前组件必须在scopeId所标识的容器内，或其所属容器在scopeId所标识的容器内。
+   *     <br>2.组件不可重复设置多个优先级。重复设置可能导致容器获焦时选择的优先组件不符合预期。
+   *     <br>3.设置了focusScopeId的容器组件不可设置优先级，否则设置的优先级不生效。
+   * @param { FocusPriority } [priority] - 获焦优先级。
+   *     <br>**说明：** 
+   *     <br>未设置priority时，默认为AUTO优先级。
+   *     <br>优先级对走焦以及获焦组件的影响：
+   *     <br>1.容器整体获焦（[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)切换/焦点切换到焦点组/容器组件使用requestFocus申请焦点）时，若
+   *     容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由容器内上次获焦的组件获焦。
+   *     <br>2.容器非整体获焦（非焦点组场景下使用Tab键/方向键走焦）时，若容器为首次获焦，则容器内优先级最高的组件获焦，若容器非首次获焦，不考虑优先级按照容器预设的走焦算法走焦。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23453,6 +23489,50 @@ declare class CommonMethod<T> {
   /**
    * 指定当前组件是否参与祖先组件UnionEffectContainer的融合效果
    *
+   * @param { Optional<boolean> } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>useEffect为true时表示应用<
+   *     !--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：false
+   * @param { EffectType } effectType - 设置组件应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：
+   *     EffectType.DEFAULT
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  useEffect(useEffect: boolean, effectType: EffectType): T;
+
+  /**
+   * 用于设置组件是否应用<!--Del-->父级[EffectComponent]{@link effect_component}或<!--DelEnd-->窗口定义的效果模板。与
+   * [useEffect<sup>14+</sup>]{@link CommonMethod#useEffect(useEffect: boolean, effectType: EffectType)}相比，useEffect参数新增
+   * 了对undefined类型的支持。
+   *
+   * @param { Optional<boolean> } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>useEffect为
+   *     true时表示应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：false<br/>当useEffect的值为undefined时，维持之前取值。
+   * @param { EffectType } [effectType] - 设置组件应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：
+   *     EffectType.DEFAULT
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
+
+  /**
+   * 用于对背景模糊等特效进行绘制合并。
+   *
+   * @param { boolean } value - 控制组件是否继承特效绘制合并组件的特效属性参数，从而合并绘制特效。<br/>useEffect为true时子组件继承特效绘制合并组件的特效属性参数，为false时子组件不继承特
+   *     效绘制合并组件的特效属性参数。<br/>默认值：false
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  useEffect(value: boolean): T;
+
+  /**
+   *
    * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
    *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
    *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
@@ -23860,12 +23940,13 @@ declare class CommonMethod<T> {
 
   /**
    * 组件挂载后触发此回调。
+   * 
    * > **说明：**
    * >
    * > 回调的调用时机有可能发生在组件布局渲染后。
    *
    * @param { function } event - onAppear事件的回调函数，表示组件已挂载显示。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -23878,7 +23959,7 @@ declare class CommonMethod<T> {
    * 组件从组件树卸载时触发此回调。
    *
    * @param { function } event - onDisAppear事件的回调函数，表示组件已卸载消失。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -23897,7 +23978,7 @@ declare class CommonMethod<T> {
    * > - 不允许在回调中对组件树进行变更，例如启动动画或使用if-else变更组件树结构。
    *
    * @param { Callback<void> } callback - onAttach事件的回调函数，表示组件已经挂载至组件树。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23907,10 +23988,10 @@ declare class CommonMethod<T> {
   onAttach(callback: Callback<void>): T;
 
   /**
-   * 组件从组件树卸载时触发此回调。建议使用[onDisAppear]{@link CommonMethod#onDisAppear}替代此接口。
+   * 组件从组件树卸载时触发此回调。
    *
    * @param { Callback<void> } callback - onDetach事件的回调函数，表示组件已经从组件树卸载。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23929,13 +24010,12 @@ declare class CommonMethod<T> {
    * 
    * > **说明：**
    * >
-   * > 当组件同时绑定onAreaChange事件和[position]{@link CommonMethod#position}属性时，onAreaChange事件响应设置
-   * > [Position]{@link Position}类型的position属性变化，不响应设置[Edges]{@link Edges}和[LocalizedEdges]{@link LocalizedEdges}
-   * > 类型的position属性变化。
+   * > 当组件同时绑定onAreaChange事件和[position]{@link CommonMethod#position}属性时，onAreaChange事件响应设置[Position]{@link Position}类型的
+   * > position属性变化，不响应设置[Edges]{@link Edges}和[LocalizedEdges]{@link LocalizedEdges}类型的position属性变化。
    *
-   * @param { function } event - 返回目标元素位置信息变化情况，oldValue为目标元素变化之前的宽高以及目标元素相对父元素和页面左上角的坐标位置。newValue为目标元素变化之后的宽高以及目标元素相对父
-   *     元素和页面左上角的坐标位置。
-   * @returns { T } 返回当前组件。
+   * @param { function } event - 组件区域变化时触发的回调，oldValue为目标元素变化之前的宽高以及目标元素相对父元素和页面左上角的坐标位置。newValue为目标元素变化之后的宽高以及目标元素相对父元素
+   *     和页面左上角的坐标位置。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -23945,11 +24025,20 @@ declare class CommonMethod<T> {
 
   /**
    * 组件区域变化时触发该回调，可通过[AreaChangeOptions]{@link AreaChangeOptions}中的expectedUpdateInterval设置触发回调的间隔。仅会响应由布局变化所导致的组件大小、位置发
-   * 生变化时的回调。
+   * 生变化时的回调。由绘制变化所导致的渲染属性变化不会响应回调，如[translate]{@link CommonMethod#translate(value: TranslateOptions)}、
+   * [offset]{@link CommonMethod#offset}、[markAnchor]{@link CommonMethod#markAnchor}、
+   * [scale]{@link CommonMethod#scale(value: ScaleOptions)}、[transform]{@link CommonMethod#transform(value: object)}。若组件
+   * 自身位置由绘制变化决定也不会响应回调，如[bindSheet]{@link CommonMethod#bindSheet}。
+   * 
+   * > **说明：**
+   * >
+   * > 当组件同时绑定onAreaChange事件和[position]{@link CommonMethod#position}属性时，onAreaChange事件响应设置[Position]{@link Position}类型的
+   * > position属性变化，不响应设置[Edges]{@link Edges}和[LocalizedEdges]{@link LocalizedEdges}类型的position属性变化。
    *
    * @param { AreaChangeCallback } event - onAreaChange事件的回调函数。组件显示的尺寸、位置发生变化时触发该回调。
-   * @param { AreaChangeOptions } [options] - 区域变化相关的参数。缺省时，expectedUpdateInterval时间间隔按照0处理。
-   * @returns { T } 返回当前组件。
+   * @param { AreaChangeOptions } [options] - 区域变化相关的配置参数，用于设置区域变化回调的计算时间间隔。可通过expectedUpdateInterval设置回调触发间隔，单位为ms；未传入
+   *     options时，expectedUpdateInterval按照0处理。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23963,7 +24052,7 @@ declare class CommonMethod<T> {
    *
    * @param { Visibility } value - 控制当前组件显示或隐藏。根据具体场景需要可使用
    *     [条件渲染](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)代替。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于支持属性链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24076,9 +24165,10 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的堆叠顺序。
    *
-   * @param { number } value - 同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。当不涉及新增或减少兄弟节点，动态改变zIndex时会
-   *     在zIndex改变前层级顺序的基础上进行稳定排序。
-   * @returns { T } 返回当前组件。
+   * @param { number } value - 同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方；不同容器内的组件无法根据zIndex值改变跨容器显示
+   *     层级。当不涉及新增或减少兄弟节点，动态改变zIndex时会在zIndex改变前层级顺序的基础上进行稳定排序；涉及新增或减少兄弟节点时，zIndex值越大，显示层级越高，zIndex值相等时将按声明顺序显示，即后声明的组件会
+   *     覆盖在先声明的组件上方。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24275,8 +24365,9 @@ declare class CommonMethod<T> {
   /**
    * 设置组件是否可交互。当未设置enabled时，组件默认可交互。
    *
-   * @param { boolean } value - 值为true表示组件可交互，响应点击等操作。<br/>值为false表示组件不可交互，不响应点击等操作。
-   * @returns { T } 返回当前组件。
+   * @param { boolean } value - 值为true表示组件可交互，响应交互操作。
+   *     <br>值为false表示组件不可交互，不响应交互操作。
+   * @returns { T } 返回当前组件，支持链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24397,11 +24488,13 @@ declare class CommonMethod<T> {
   clickEffect(effect: Optional<ClickEffect | null>): T;
 
   /**
-   * 设置组件是否启用默认点击音效。是否能够发音依赖设备声音相关的设置，如静音模式下不会播放音效。
+   * 设置组件是否启用默认点击音效，适用于需要控制组件点击反馈音效或自定义点击发音的场景。是否能够发音还依赖设备声音相关的设置，
+   * 如静音模式下不会播放音效。禁用默认点击音效后，开发者可以在onClick回调中调用音频相关接口自定义发音。
    *
    * @param { boolean | undefined } enabled - 设置此组件是否启用默认点击音效。
-   *    true表示启用默认点击音效；false表示禁用默认点击音效。值为undefined时，启用默认点击音效。
-   * @returns { T } 返回当前组件。
+   *     <br>true表示启用默认点击音效；false表示禁用默认点击音效。
+   *     <br>值为undefined时，启用默认点击音效。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24417,15 +24510,19 @@ declare class CommonMethod<T> {
    * - 如果开发者返回了自定义预览图，则不再使用系统默认的拖拽预览图；
    * - 如果开发者设置了拖拽数据，则不再使用系统默认填充的拖拽数据。
    * 
-   * 文本类组件[Text]{@link text}、[Search]{@link search}、[TextInput]{@link text_input}、[TextArea]{@link text_area}、
-   * [RichEditor]{@link rich_editor}对选中的文本内容进行拖拽时，不支持自定义预览图。当onDragStart与菜单预览一起使用或使用了默认支持拖拽能力的组件时，预览及菜单项上的自定义内容不支持拖拽。
+   * 文本类组件[Text]{@link ./text}、[Search]{@link ./search}、[TextInput]{@link ./text_input}、[TextArea]{@link ./text_area}、
+   * [RichEditor]{@link ./rich_editor}对选中的文本内容进行拖拽时，不支持自定义预览图。当onDragStart与菜单预览一起使用或使用了默认支持拖拽能力的组件时，预览及菜单项上的自定义内容不支持拖拽。
    * 
    * > **说明：**
    * >
    * > 从API version 13开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { function } event - 回调函数。<br/> **说明：**<br/> event参数为拖拽事件的信息。<br/> extraParams参数为拖拽事件的额外信息，需要解析为JSON格式。
-   *     <br/>CustomBuilder为拖拽过程中显示的组件信息，不支持全局builder。
+   * @param { function } event - 回调函数。
+   *     <br> **说明：**
+   *     <br> event参数为拖拽事件的信息。
+   *     <br> extraParams参数为拖拽事件的额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
+   *     <br> CustomBuilder为拖拽过程中显示的组件信息，不支持全局builder。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -24438,7 +24535,11 @@ declare class CommonMethod<T> {
    * 拖拽进入组件范围内时，触发回调，当监听了[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}事件
    * 时，此事件才有效。
    *
-   * @param { function } event - 回调函数。<br/>**说明：**<br/> event为拖拽事件信息，包括拖拽点坐标。<br/> extraParams为拖拽事件额外信息，需要解析为JSON格式。
+   * @param { function } event - 回调函数。
+   *     <br>**说明：**
+   *     <br> event为拖拽事件信息，包括拖拽点坐标。
+   *     <br> extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -24451,7 +24552,11 @@ declare class CommonMethod<T> {
    * 拖拽在组件范围内移动时，触发回调，当监听了[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}事件
    * 时，此事件才有效。
    *
-   * @param { function } event - 回调函数。<br/>**说明：**<br/> event为拖拽事件信息，包括拖拽点坐标。<br/> extraParams为拖拽事件额外信息，需要解析为JSON格式。
+   * @param { function } event - 回调函数。
+   *     <br>**说明：**
+   *     <br> event为拖拽事件信息，包括拖拽点坐标。
+   *     <br> extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -24464,7 +24569,11 @@ declare class CommonMethod<T> {
    * 拖拽离开组件范围内时，触发回调，当监听了[onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}事件
    * 时，此事件才有效。
    *
-   * @param { function } event - 回调函数。<br/>**说明：**<br/> event为拖拽事件信息，包括拖拽点坐标。<br/> extraParams为拖拽事件额外信息，需要解析为JSON格式。
+   * @param { function } event - 回调函数。
+   *     <br>**说明：**
+   *     <br> event为拖拽事件信息，包括拖拽点坐标。
+   *     <br> extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -24477,7 +24586,11 @@ declare class CommonMethod<T> {
    * 绑定此事件的组件可作为释放目标。当在本组件范围内停止拖放行为时，将触发回调。如果开发者未在onDrop中主动调用event.setResult()来设置拖拽接收的结果，对于系统支持的默认可拖入组件，处理结果将以系统实际处理的数据为
    * 准。对于其他组件，系统将默认视为数据接收成功。
    *
-   * @param { function } event - 回调函数。<br/>**说明：**<br/> event为拖拽事件信息，包括拖拽点坐标。<br/> extraParams为拖拽事件额外信息，需要解析为JSON格式。
+   * @param { function } event - 回调函数。
+   *     <br>**说明：**
+   *     <br> event为拖拽事件信息，包括拖拽点坐标。
+   *     <br> extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 14]
@@ -24487,11 +24600,11 @@ declare class CommonMethod<T> {
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。如果开发者没有在onDrop中主动调用event.[setResult]{@link DragEvent#setResult}()设置拖拽接收的结果，若
-   * 拖拽组件为系统支持默认拖入的组件，以系统实际处理数据结果为准，其它组件则系统按照数据接收成功处理。
+   * 绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。如果开发者没有在onDrop中主动调用event.[setResult]{@link DragEvent.setResult}()设置拖拽接收的结果，对
+   * 于系统支持的默认可拖入组件，处理结果以系统实际处理的数据为准；对于其他组件，系统默认按数据接收成功处理。
    *
-   * @param { OnDragEventCallback } eventCallback - 回调函数。
-   * @param { DropOptions } [dropOptions] - 落入过程的参数。
+   * @param { OnDragEventCallback } eventCallback - 拖拽释放事件的回调函数，用于在组件作为拖拽释放目标并触发onDrop时接收拖拽事件信息。
+   * @param { DropOptions } [dropOptions] - 落入过程的参数。当需要配置拖拽落入过程行为（如禁用数据预获取）时传入；不传入时使用默认落入配置，默认提前获取拖拽数据。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24504,8 +24617,11 @@ declare class CommonMethod<T> {
   /**
    * 绑定此事件的组件触发的拖拽结束后，触发回调。
    *
-   * @param { function } event - 回调函数。<br/>**说明：**<br/> event为拖拽事件信息，在onDragEnd调用中不包括拖拽点坐标。<br/> extraParams为拖拽事件额外信息，需要
-   *     解析为JSON格式。
+   * @param { function } event - 回调函数。
+   *     <br>**说明：**
+   *     <br> event为拖拽事件信息，在onDragEnd调用中不包括拖拽点坐标。
+   *     <br> extraParams为拖拽事件额外信息，需要解析为JSON格式，参考
+   *     [extraParams](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#extraparams说明)说明。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24516,24 +24632,34 @@ declare class CommonMethod<T> {
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * 设置该组件上允许落入的数据类型。如果未设置allowDrop，组件将默认接受所有数据类型。
+   * 绑定此事件的组件可作为具有悬停检测功能的拖拽响应目标。当拖拽对象悬停在目标上时，触发回调通知。此时只有一个目标可以成为响应方，并且子组件始终具有更高的响应优先级。
+   * 
+   * 关于悬停检测的触发机制及详细使用方法，请参考开发指南[支持悬停检测](docroot://ui/arkts-common-events-drag-event.md#支持悬停检测)。
    *
-   * @param { Array<UniformDataType> } value - Types of data that can be dropped to the component. Since API version 12,
-   *     this parameter can be set to **null** to make the component reject all data types. Starting from API version 2
-   *     3, this parameter can be set to an application-defined data type string array Array<string> is supported. While
-   *     there is no strict format requirement for the string, it should not duplicate the format of standard types in
-   *     **UniformDataType**. You are advised to define them based on the principle of being easy to remember and
-   *     distinguish. [since 10 - 11]
-   * @param { Array<UniformDataType> | null } value - Types of data that can be dropped to the component. Since API
-   *     version 12, this parameter can be set to **null** to make the component reject all data types. Starting from
-   *     API version 23, this parameter can be set to an application-defined data type string array Array<string> is
-   *     supported. While there is no strict format requirement for the string, it should not duplicate the format of
-   *     standard types in **UniformDataType**. You are advised to define them based on the principle of being easy to
-   *     remember and distinguish. [since 12 - 22]
+   * @param { Callback<SpringLoadingContext> | null } callback - 悬停检测回调函数，当值为null时禁用悬停检测。
+   * @param { DragSpringLoadingConfiguration } [configuration] - 悬停检测配置信息。当需要自定义悬停检测的触发时长、更新间隔或通知次数等行为时传入；不传入或为undefined
+   *     时取
+   *     [DragSpringLoadingConfiguration]{@link @ohos.arkui.dragController:dragController.DragSpringLoadingConfiguration}
+   *     默认值。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
+
+  /**
+   * 设置该组件上允许落入的数据类型。如果未设置allowDrop，组件将默认接受所有数据类型；如果已设置allowDrop，仅允许符合指定数据类型的拖入数据落入该组件，不符合指定数据类型的数据将被拒绝落入，不会触发
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}事件。
+   *
+   * @param { Array<UniformDataType> } value - 设置该组件上允许落入的数据类型。 [since 10 - 11]
+   * @param { Array<UniformDataType> | null } value - 设置该组件上允许落入的数据类型。从API version 12开始，允许设置成null使该组件不接受所有的数据类型。 [since 12 - 22]
    * @param { Array<UniformDataType> | null | Array<string> } value - 设置该组件上允许落入的数据类型。从API version 12开始，允许设置成null使该组件不接受
    *     所有的数据类型。从API version 23开始，支持设置自定义数据类型Array<string>，自定义数据类型为应用自行定义的数据类型字符串，字符串无明确格式要求，但不应与UniformDataType标准类型格式重
-   *     复，建议以易记易区分为原则来定义。 [since 23]
-   * @returns { T } 返回当前组件。
+   *     复，以防与标准类型产生混淆，建议以易记易区分为原则来定义。 [since 23]
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24546,7 +24672,7 @@ declare class CommonMethod<T> {
    * 设置该组件是否允许拖拽。默认情况下，组件不允许拖拽。
    *
    * @param { boolean } value - 设置该组件是否允许进行拖拽。true表示允许拖拽，false表示不允许拖拽。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -24557,36 +24683,44 @@ declare class CommonMethod<T> {
 
   /**
    * 设置组件浮起和拖拽过程中的预览图。
+   * 
+   * > **说明：**
+   * >
+   * > 在[attributeModifier]{@link CommonMethod#attributeModifier}中调用该接口时，不支持为preview参数传入
+   * > [CustomBuilder]{@link CustomBuilder}类型的值，也不支持设置
+   * > [DragItemInfo]{@link DragItemInfo}中的builder字段。
    *
-   * @param { CustomBuilder | DragItemInfo } value - Preview image displayed during component drag operations. It only
-   *    applies to [onDragStart]{@link CommonMethod#onDragStart} drag mode.<br>If the component supports drag and drop
-   *    and a preview is specified through
-   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)},
-   *    that specified preview is displayed when the component is dragged. The priority of the background image
-   *    returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
-   *    once set, the latter will be used in place of the former. Using
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
-   *    and may increase performance overhead and latency. In light of this, you are advised to use
-   *    [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
-   *    an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
-   *    image. If the component assigned the ID cannot be found or its [Visibility]{@link Visibility} attribute is set
-   *    to **None** or **Hidden**, a snapshot of the current component is used as the preview image. Currently,
-   *    snapshots do not support visual effects, such as brightness, shadow, blur, and rotation. [since 11 - 11]
+   * @param { CustomBuilder | DragItemInfo } value - 设置组件浮起和拖拽过程中的预览图，仅在[onDragStart]{@link CommonMethod#onDragStart}拖拽方
+   *     式中有效。
+   *     <br>当组件支持拖拽并同时设置
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     的预览图时，则长按浮起的预览图以
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     设置的预览图为准。开发者在[onDragStart]{@link CommonMethod#onDragStart}中返回的背板图优先级低于
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
+   *     [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
+   *     推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。
+   *     <br> 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件
+   *     [Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截
+   *     图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。 [since 11 - 11]
    * @param { CustomBuilder | DragItemInfo | string } value - 设置组件浮起和拖拽过程中的预览图，仅在
-   *    [onDragStart]{@link CommonMethod#onDragStart}拖拽方式中有效。<br/>当组件支持拖拽并同时设置
-   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
-   *    的预览图时，则长按浮起的预览图以
-   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
-   *    设置的预览图为准。开发者在[onDragStart]{@link CommonMethod#onDragStart}中返回的背板图优先级低于
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
-   *    推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。<br/> 当传入类
-   *    型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截图
-   *    作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。 [since 12]
-   * @returns { T } 返回当前组件。
+   *     [onDragStart]{@link CommonMethod#onDragStart}拖拽方式中有效。
+   *     <br>当组件支持拖拽并同时设置
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     的预览图时，则长按浮起的预览图以
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     设置的预览图为准。开发者在[onDragStart]{@link CommonMethod#onDragStart}中返回的背板图优先级低于
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
+   *     [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
+   *     推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。
+   *     <br> 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件
+   *     [Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截
+   *     图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。 [since 12]
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]
@@ -24596,28 +24730,32 @@ declare class CommonMethod<T> {
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
   /**
-   * 自定义组件拖拽过程中的预览图，仅用于设置浮起效果或者禁用浮起效果。
-   *
+   * 设置组件浮起和拖拽过程中的预览图，支持通过config参数配置预览图是否仅用于浮起效果、是否延迟创建等。
+   * 
    * > **说明：**
    * >
-   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   * > 在[attributeModifier]{@link CommonMethod#attributeModifier}中调用该接口时，不支持为preview参数传入
+   * > [CustomBuilder]{@link CustomBuilder}类型的值，也不支持设置[DragItemInfo]{@link DragItemInfo}中的builder字段。
    *
    * @param { CustomBuilder | DragItemInfo | string } preview - 设置组件浮起和拖拽过程中的预览图，仅在
-   *    [onDragStart]{@link CommonMethod#onDragStart}拖拽方式中有效。<br/>当组件支持拖拽并同时设置
-   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
-   *    的预览图时，则长按浮起的预览图以
-   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
-   *    设置的预览图为准。开发者在[onDragStart]{@link CommonMethod#onDragStart}中返回的背板图优先级低于
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
-   *    [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
-   *    推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。<br/> 当传入类
-   *    型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截图
-   *    作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。
-   * @param { PreviewConfiguration } config - 对自定义拖拽过程中的预览图进行配置。<br/>只对
-   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}中的预览生效。
-   * @returns { T } 返回当前组件。
+   *     [onDragStart]{@link CommonMethod#onDragStart}拖拽方式中有效。
+   *     <br>当组件支持拖拽并同时设置
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     的预览图时，则长按浮起的预览图以
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   *     设置的预览图为准。开发者在[onDragStart]{@link CommonMethod#onDragStart}中返回的背板图优先级低于
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
+   *     [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此会增加预览图生成的性能开销
+   *     和时延，推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。
+   *     <br> 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件
+   *     [Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截
+   *     图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。
+   * @param { PreviewConfiguration } config - 对自定义拖拽过程中的预览图进行配置，仅对
+   *     [dragPreview]{@link CommonMethod#dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration)}
+   *     中的预览生效。当需要配置预览图是否仅用于浮起效果、是否延迟创建等自定义预览行为时传入该参数；不传入时，使用系统默认的拖拽预览行为，即预览图不限制仅用于浮起效果且不延迟创建预览图。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24627,15 +24765,17 @@ declare class CommonMethod<T> {
   dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration): T;
 
   /**
-   * 设置拖拽过程中预览图处理模式，数量角标的显示以及预览图浮起的交互模式。不支持onItemDragStart拖拽方式。
+   * 设置拖拽过程中预览图处理模式，数量角标的显示以及预览图浮起的交互模式。不支持通过Grid的[onItemDragStart]{@link GridAttribute#onItemDragStart}拖拽GridItem，也不支持通
+   * 过List的[onItemDragStart]{@link ListAttribute#onItemDragStart}拖拽ListItem。
    * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { DragPreviewOptions } value - 设置拖拽过程中预览图处理模式及数量角标的显示。
-   * @param { DragInteractionOptions } options - 设置拖拽过程中预览图浮起的交互模式。<br/>默认值：空 [since 12]
-   * @returns { T } 返回当前组件。
+   * @param { DragPreviewOptions } value - 设置拖拽过程中预览图处理模式、数量角标的显示、背板图样式及浮起与拖拽预览图过渡效果。
+   * @param { DragInteractionOptions } options - 设置拖拽过程中预览图浮起的交互模式。当需要启用多选聚拢、默认点按效果、禁用浮起、边缘自动滚屏或震动反馈等交互能力时传入该参数；不传入该参数时，
+   *     拖拽交互按[DragInteractionOptions]{@link DragInteractionOptions}中各字段的默认值处理。 [since 12]
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]
@@ -24646,12 +24786,12 @@ declare class CommonMethod<T> {
 
   /**
    * 绑定此事件的组件，当处于手势拖拽发起前的不同阶段时，触发回调。拖拽发起前的各阶段可参考[PreDragStatus]{@link PreDragStatus}。此接口不支持在鼠标拖拽中触发。
-   *
+   * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Callback<PreDragStatus> } callback - 回调函数。
+   * @param { Callback<PreDragStatus> } callback - 拖拽发起前状态变化的回调函数，用于接收当前拖拽手势触发前所处阶段。回调参数为PreDragStatus，表示拖拽发起前的各阶段状态。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24662,35 +24802,33 @@ declare class CommonMethod<T> {
   onPreDrag(callback: Callback<PreDragStatus>): T;
 
   /**
-   * 在当前组件上，增加遮罩文本或者叠加自定义组件以及[ComponentContent]{@link ComponentContent}作为该组件的浮层。浮层的定位同样基于当前组件进行计算。浮层不通过组件树进行渲染，部分接口（例如
-   * [getRectangleById]{@link api\@ohos.arkui.ComponentUtils#getRectangleById}）不支持获取浮层中
-   * 的组件。
-   *
+   * 在当前组件上，增加遮罩文本、叠加自定义组件或将[ComponentContent]{@link ComponentContent}作为该组件的浮层。浮层的定位同样基于当前组件进行计算。浮层不通过组件树进行渲染，
+   * [getRectangleById]{@link @ohos.arkui.UIContext:ComponentUtils#getRectangleById}等获取组件信息的接口不支持获取浮层中的组件。
+   * 
    * > **说明：**
    * >
-   * > - overlay会将浮层组件覆盖在所绑定的组件上方，阻塞用户对浮层下方组件的所有交互操作。
-   * > - 多次调用overlay接口时，如果同时传入string类型和
-   * > [CustomBuilder]{@link CustomBuilder}类型，或者同时传入string类型和
-   * > [ComponentContent]{@link ComponentContent}类型，浮层内容会叠加显示。
+   * > - overlay会将浮层组件覆盖在所绑定的组件上方，阻塞用户对浮层下方组件的所有交互操作。若需用户可操作下方组件，应参照
+   * > [示例2（通过builder设置浮层）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-overlay.md#示例2通过builder设置浮层)
+   * > 中的实现，在浮层builder的最外层组件上配置`.hitTestBehavior(HitTestMode.Transparent)`。此配置在通过浮层实现水印时尤其重要，因为水印显示不应妨碍用户对下层组件的操作。
+   * >
+   * > - 多次调用overlay接口时，如果同时传入string类型和[CustomBuilder]{@link CustomBuilder}类型，
+   * > 或者同时传入string类型和[ComponentContent]{@link ComponentContent}类型，浮层内容会叠加显示。
    *
-   * @param { string } value - Content of the overlay, which can be text or a custom component.<br>**NOTE**<br>When the
-   *     overlay is a custom component, it cannot obtain focus through sequential keyboard navigation. Using
-   *     **CustomBuilder** will cause the overlay content to be destroyed and recreated on page refresh, which may incur
-   *     performance overhead. For scenarios with frequent page updates, using **ComponentContent** is
-   *     recommended. [since 7 - 9]
-   * @param { object } options - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than API
-   *     version 12, **options** is defined as follows:<br>{<br>align?: [Alignment]{@link Alignment}, <br>offset?: {x?:
-   *     number, y?: number}<br>} [since 7 - 11]
-   * @param { string | CustomBuilder } value - Content of the overlay, which can be text or a custom component.<br>
-   *     **NOTE**<br>When the overlay is a custom component, it cannot obtain focus through sequential keyboard
-   *     navigation. Using **CustomBuilder** will cause the overlay content to be destroyed and recreated on page
-   *     refresh, which may incur performance overhead. For scenarios with frequent page updates, using
-   *     **ComponentContent** is recommended. [since 10 - 11]
-   * @param { string | CustomBuilder | ComponentContent } value - 遮罩文本内容或自定义组件构造函数。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自
-   *     定义组件中。通过CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在一定的性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 12]
-   * @param { OverlayOptions } options - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
+   * @param { string } value - 遮罩文本内容、自定义组件构造函数或组件内容的实体封装。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自定义组件中。通过CustomBuilder设置浮层
+   *     时，浮层中的内容会在页面刷新时销毁并重新创建，存在性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 7 - 9]
+   * @param { object } options - 浮层的定位。当需要自定义浮层相对于组件的方位或偏移量时传入该参数；不传入时，浮层默认按照`align`的默认值`TopStart`定位，并使用默认偏移量
+   *     `offset: { x: 0, y: 0 }`，显示在组件左上角。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
+   *     [Alignment]{@link Alignment}, <br/>offset?: {x?: number,
+   *     y?: number}<br/>} [since 7 - 11]
+   * @param { string | CustomBuilder } value - 遮罩文本内容、自定义组件构造函数或组件内容的实体封装。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自定义组件中。通过
+   *     CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 10 - 11]
+   * @param { string | CustomBuilder | ComponentContent } value - 遮罩文本内容、自定义组件构造函数或组件内容的实体封装。<br/>**说明：**<br/>自定义组件作为浮层
+   *     时，不支持键盘走焦到自定义组件中。通过CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮
+   *     层。 [since 12]
+   * @param { OverlayOptions } options - 浮层的定位。当需要自定义浮层相对于组件的方位或偏移量时传入该参数；不传入时，浮层默认按照`align`的默认值`TopStart`定位，并使用默认偏移量
+   *     `offset: { x: 0, y: 0 }`，显示在组件左上角。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
    *     [Alignment]{@link Alignment}, <br/>offset?: {x?: number, y?: number}<br/>} [since 12]
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24772,7 +24910,6 @@ declare class CommonMethod<T> {
    * @since 18 dynamic
    */
   linearGradient(value: LinearGradientOptions): T;
-
   /**
    * 线性渐变。与[linearGradient]{@link CommonMethod#linearGradient(value: LinearGradientOptions)}相比，options参数新增了对undefined类型的
    * 支持。
@@ -25443,7 +25580,7 @@ declare class CommonMethod<T> {
    * Menu control
    *
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
-   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu. [since 11]
+   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25453,7 +25590,7 @@ declare class CommonMethod<T> {
    * Menu control
    *
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
-   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu. [since 11]
+   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options - Indicates the options of menu.
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25463,7 +25600,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu. [since 11]
+   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options - Indicates the options of menu.
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25526,8 +25663,7 @@ declare class CommonMethod<T> {
    * component. Only custom menu items are supported.
    *
    * @param { CustomBuilder } content - Indicates the content of context menu.
-   * @param { ResponseType } responseType - Indicates response type of context menu, Long pressing with a mouse device
-   *     is not supported.
+   * @param { ResponseType } responseType - Indicates response type of context menu.
    * @param { ContextMenuOptions } options - Indicates the options of context menu.
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25699,7 +25835,7 @@ declare class CommonMethod<T> {
    *
    * @param { number } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
@@ -25707,7 +25843,7 @@ declare class CommonMethod<T> {
    *
    * @param { number } value
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -25802,14 +25938,13 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    */
   sphericalEffect(value: number): T;
-
   /**
    * 设置组件的图像球面化程度。与[sphericalEffect<sup>12+</sup>]{@link CommonMethod#sphericalEffect(value: number)}相比，effect参数新增了对
    * undefined类型的支持。
    *
    * @param { Optional<number> } effect - 设置组件的图像球面化程度。<br/>取值范围：[0,1]。<br/>**说明：**<br/>1. 如果value等于0则图像保持原样，如果value等于1则
-   *     图像为完全球面化效果。在0和1之间，数值越大，则球面化程度越高。<br/>`effect < 0 `或者` effect > 1`为异常情况，`effect < 0`按0处理，`effect > 1`按1处理。<br/>
-   *     2. 组件阴影和外描边不支持球面效果。<br/>3. 设置effect大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把effect设置为0。<br/>当effect的值为
+   *     图像为完全球面化效果。在0和1之间，数值越大，则球面化程度越高。<br/>`effect < 0 `或者` effect > 1`为异常情况，`effect < 0`按0处理，`effect > 1按1处理。<br/>
+   *     2. 组件阴影和外描边不支持球面效果。<br/>3. 设置effect大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把effect设置0。<br/>当effect的值为
    *     undefined时，恢复为图像球面化程度为0的效果。
    * @returns { T }
    返回当前组件。
@@ -25899,12 +26034,21 @@ declare class CommonMethod<T> {
   pixelStretchEffect(options: Optional<PixelStretchEffectOptions>): T;
 
   /**
-   * 设置组件的自定义组合键。
+   * 设置组件的自定义组合键。快捷键的响应、绑定和不生效场景需满足下文
+   * [快捷键使用注意事项](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-keyboardshortcut.md#快捷键使用注意事项)和
+   * [禁止绑定的系统快捷键](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-keyboardshortcut.md#禁止绑定的系统快捷键)中的约束。
    *
-   * @param { string | FunctionKey } value - 热键的单个字符（可以通过键盘输入的字符）或[FunctionKey]{@link FunctionKey}。<br />空字符串意为取消快捷键绑定。<br/>
-   * @param { Array<ModifierKey> } keys - 热键组合。<br />仅当value为[FunctionKey]{@link FunctionKey}的情况下keys的值可以为空。<br/>
-   * @param { function } [action] - 组合快捷键触发成功后的自定义事件回调。
-   * @returns { T } 返回当前组件。
+   * @param { string | FunctionKey } value - 热键的单个字符（可以通过键盘输入的字符）或[FunctionKey]{@link FunctionKey}。
+   *     <br>空字符串意为取消快捷键绑定；绑定了多个快捷键的组件不能解除绑定快捷键。
+   *     <br>当value有多个字符时，不绑定组合键，先前绑定的组合键仍然有效。
+   *     <br>
+   * @param { Array<ModifierKey> } keys - 热键组合。
+   *     <br>仅当value为[FunctionKey]{@link FunctionKey}的情况下keys的值可以为空。
+   *     <br>当keys有重复的控制键时，不绑定组合键，先前绑定的组合键仍然有效。
+   *     <br>
+   * @param { function } [action] - 组合快捷键触发成功后的自定义事件回调。若未设置该参数，则组合快捷键行为与click行为一致。
+   *     <br>
+   * @returns { T } 返回当前组件，用于支持后续链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25913,110 +26057,110 @@ declare class CommonMethod<T> {
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
-   /**
-    * Sets whether to enable accessibility grouping.
-    *
-    * @param { boolean } value - set group with accessibility, default value is false.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @since 10
-    */
-   /**
-    * Sets whether to enable accessibility grouping.
-    *
-    * @param { boolean } value - set group with accessibility, default value is false.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
-   /**
-    * Sets whether to enable accessibility grouping.
-    *
-    * <p><strong>NOTE</strong>
-    * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
-    * <br>the component and all its children are treated as a single selectable unit, and the accessibility
-    * <br>service will no longer focus on the individual child components.</p>
-    *
-    * @param { boolean } value - set group with accessibility, default value is false.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 12 dynamic
-    */
-   accessibilityGroup(value: boolean): T;
+  /**
+   * Sets whether to enable accessibility grouping.
+   *
+   * @param { boolean } value - set group with accessibility, default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Sets whether to enable accessibility grouping.
+   *
+   * @param { boolean } value - set group with accessibility, default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Sets whether to enable accessibility grouping.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
+   * <br>the component and all its children are treated as a single selectable unit, and the accessibility
+   * <br>service will no longer focus on the individual child components.</p>
+   *
+   * @param { boolean } value - set group with accessibility, default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  accessibilityGroup(value: boolean): T;
 
-   /**
-    * Sets whether to enable accessibility grouping.
-    *
-    * <p><strong>NOTE</strong>
-    * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
-    * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
-    * <br>its child components to form a merged text for the component. If a child component lacks a universal
-    * <br>text attribute, it will be ignored in the concatenation process.
-    *
-    * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
-    * <br>text attributes of the child components to form the merged text. If a child component lacks an
-    * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
-    * <br>If a child component lacks both, it will be ignored.</p>
-    *
-    * @param { boolean } isGroup - set group with accessibility, default value is false.
-    * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 14 dynamic
-    */
-   accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
+  /**
+   * Sets whether to enable accessibility grouping.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
+   * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
+   * <br>its child components to form a merged text for the component. If a child component lacks a universal
+   * <br>text attribute, it will be ignored in the concatenation process.
+   * 
+   * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
+   * <br>text attributes of the child components to form the merged text. If a child component lacks an
+   * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
+   * <br>If a child component lacks both, it will be ignored.</p>
+   *
+   * @param { boolean } isGroup - set group with accessibility, default value is false.
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
 
-   /**
-    * Sets the accessibility text.
-    *
-    * @param { string } value - set accessibility text, default value is "".
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @since 10
-    */
-   /**
-    * Sets the accessibility text.
-    *
-    * @param { string } value - set accessibility text, default value is "".
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
-   /**
-    * Sets the accessibility text.
-    * When a component does not contain a text attribute, you can use this API to set an accessibility
-    * text attribute, so that accessibility services can announce the specified content for the component.
-    *
-    * @param { string } value - set accessibility text, default value is "".
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 12 dynamic
-    */
-   accessibilityText(value: string): T;
+  /**
+   * Sets the accessibility text.
+   *
+   * @param { string } value - set accessibility text, default value is "".
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Sets the accessibility text.
+   *
+   * @param { string } value - set accessibility text, default value is "".
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Sets the accessibility text.
+   * When a component does not contain a text attribute, you can use this API to set an accessibility
+   * text attribute, so that accessibility services can announce the specified content for the component.
+   * 
+   * @param { string } value - set accessibility text, default value is "".
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  accessibilityText(value: string): T;
 
-   /**
+  /**
     * Sets accessibility next focus id
     * @param { string } nextId - set component next accessibility focus id
     * @returns { T }
@@ -26027,34 +26171,34 @@ declare class CommonMethod<T> {
     * @atomicservice
     * @since 18 dynamic
     */
-   accessibilityNextFocusId(nextId: string): T;
+  accessibilityNextFocusId(nextId: string): T;
+ 
+  /**
+   * Sets the accessibility default foucs flag
+   * @param { boolean } focus - if the component is accessibility default focus,focus set true
+   * @returns { T }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  accessibilityDefaultFocus(focus: boolean): T;
 
-   /**
-    * Sets the accessibility default foucs flag
-    * @param { boolean } focus - if the component is accessibility default focus,focus set true
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 18 dynamic
-    */
-   accessibilityDefaultFocus(focus: boolean): T;
-
-   /**
-    * Sets accessibility same page mode
-    * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 18 dynamic
-    */
-   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
-
+  /**
+   * Sets accessibility same page mode
+   * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
+   * @returns { T }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
+ 
    /**
     * 提供通用属性accessibilityScrollingTriggerable设置控制滚动组件，走焦到边界时，是否需要被屏幕朗读自动滚动
     * @param { boolean } isTriggerable - 是否触发滚动
@@ -26068,26 +26212,26 @@ declare class CommonMethod<T> {
     */
    accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
-   /**
-    * Sets the accessibility text.
-    * <p><strong>NOTE</strong>
-    * If a component has both text content and accessibility text, only the accessibility text is announced.
-    * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
-    * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
-    * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
-    * </p>
-    * @param { Resource } text - set accessibility text
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 12 dynamic
-    */
-   accessibilityText(text: Resource): T;
+  /**
+   * Sets the accessibility text.
+   * <p><strong>NOTE</strong>
+   * If a component has both text content and accessibility text, only the accessibility text is announced.
+   * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
+   * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
+   * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
+   * </p>
+   * @param { Resource } text - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  accessibilityText(text: Resource): T;
 
-   /**
+  /**
     * Sets accessibility role,role indicates the custom type of the component
     * @param { AccessibilityRoleType } role - set accessibility component type
     * @returns { T }
@@ -26098,35 +26242,35 @@ declare class CommonMethod<T> {
     * @atomicservice
     * @since 18 dynamic
     */
-   accessibilityRole(role: AccessibilityRoleType): T;
+  accessibilityRole(role: AccessibilityRoleType): T;
 
-   /**
-    * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
-    * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 18 dynamic
-    */
-   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
-
-   /**
-    * 注册可访问性操作拦截回调，
-    * 当要执行可访问性操作时，将执行回调
-    * @param { AccessibilityActionInterceptCallback } callback - 可访问性操作拦截回调函数
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 20 dynamic
-    */
-   onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
-
+  /**
+   * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
+   * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
+ 
+  /**
+   * 注册可访问性操作拦截回调，
+   * 当要执行可访问性操作时，将执行回调
+   * @param { AccessibilityActionInterceptCallback } callback - 可访问性操作拦截回调函数
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
+ 
    /**
     * Sets accessibilityTextHint
     *
@@ -26199,58 +26343,58 @@ declare class CommonMethod<T> {
     */
    accessibilityDescription(description: Resource): T;
 
-   /**
-    * Sets the accessibility level.
-    * This property determines whether the component can be recognized by accessibility services.
-    *
-    * @param { string } value - set accessibility level, default value is auto.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @since 10
-    */
-   /**
-    * Sets the accessibility level.
-    * This property determines whether the component can be recognized by accessibility services.
-    *
-    * @param { string } value - set accessibility level, default value is auto.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
-   /**
-    * Sets the accessibility level.
-    * This property determines whether the component can be recognized by accessibility services.
-    * <p>
-    * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
-    * <br>The options are as follows:
-    * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
-    * <br>"yes": The component can be recognized by accessibility services.
-    * <br>"no": The component cannot be recognized by accessibility services.
-    * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
-    * <strong>NOTE</strong>
-    * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
-    * <br>1. The accessibility service internally determines whether the component can be recognized.
-    * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
-    * <br>not focus on its child components, making them unrecognizable.
-    * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
-    * <br>recognized by accessibility services.</p>
-    * @param { string } value - set accessibility level, default value is auto.
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 12 dynamic
-    */
-   accessibilityLevel(value: string): T;
+  /**
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
+   *
+   * @param { string } value - set accessibility level, default value is auto.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
+   *
+   * @param { string } value - set accessibility level, default value is auto.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Sets the accessibility level.
+   * This property determines whether the component can be recognized by accessibility services.
+   * <p>
+   * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
+   * <br>The options are as follows:
+   * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
+   * <br>"yes": The component can be recognized by accessibility services.
+   * <br>"no": The component cannot be recognized by accessibility services.
+   * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
+   * <strong>NOTE</strong>
+   * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
+   * <br>1. The accessibility service internally determines whether the component can be recognized.
+   * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
+   * <br>not focus on its child components, making them unrecognizable.
+   * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
+   * <br>recognized by accessibility services.</p>
+   * @param { string } value - set accessibility level, default value is auto.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  accessibilityLevel(value: string): T;
 
-   /**
+  /**
     * Sets accessibilityVirtualNode
     *
     * @param { CustomBuilder } builder - set virtual node of accessibility
@@ -26417,16 +26561,18 @@ declare class CommonMethod<T> {
   attributeModifier(modifier: AttributeModifier<T>): T;
 
   /**
-   * 动态设置组件绑定的手势。
+   * 动态设置组件绑定的手势，适用于需要根据组件状态或用户操作动态切换手势绑定的场景。若在当次手势操作过程中触发了组件上的手势动态切换，该切换效果在当次手势结束（所有手指抬起）后的下一次手势操作中生效。
+   * 
+   * > **说明：**
+   * >
+   * > gestureModifier不支持自定义组件。
+   * >
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * 说明：
-   * gestureModifier不支持自定义组件。
-   * 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { GestureModifier } modifier 动态设置当前组件的手势绑定，支持if/else语法。
-   *    modifier: 手势修改器，开发者需自定义class实现GestureModifier接口。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { GestureModifier } modifier - 动态设置当前组件的手势绑定，支持if/else语法。
+   *     <br>本参数为手势修改器，开发者需自定义class实现GestureModifier接口。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26468,7 +26614,10 @@ declare class CommonMethod<T> {
    * >
    * > 在Text组件中使用该接口时，不支持对点击事件进行自定义手势判定。
    *
-   * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @param { function } callback - 自定义手势判定回调。
+   *     当手势即将成功时触发，用于根据手势信息和基础手势事件决定是否继续响应手势。
+   *     其中gestureInfo表示当前手势的类型、标识等信息，event表示当前手势事件信息；
+   *     返回GestureJudgeResult用于指定手势判定结果。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26494,11 +26643,11 @@ declare class CommonMethod<T> {
   /**
    * 给组件绑定自定义手势识别器判定回调。
    * 
-   * 新增exposeInnerGesture参数作为是否将ArkUI系统组合组件的内置组件的手势暴露给开发者的标识。当该标识置为true时，将ArkUI系统组合组件的内置组件的手势暴露给开发者。
+   * 新增exposeInnerGesture参数，用于标识是否将ArkUI系统组合组件中内置组件的手势暴露给开发者。当该参数设置为true时，将ArkUI系统组合组件中内置组件的手势暴露给开发者。
    * 
-   * 对于不需要将ArkUI系统组合组件的内置组件的手势暴露给开发者的场景，建议采用原有
-   * [onGestureRecognizerJudgeBegin]{@link onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback)}
-   * 接口。若要求将ArkUI系统组合组件的内置组件的手势暴露给开发者，建议使用该接口并将exposeInnerGesture设置为true。
+   * 对于不需要暴露ArkUI系统组合组件中内置组件手势的场景，建议采用原有
+   * [onGestureRecognizerJudgeBegin]{@link CommonMethod#onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback)}
+   * 接口。若需要暴露该手势，建议使用该接口并将exposeInnerGesture设置为true。
    *
    * @param { GestureRecognizerJudgeBeginCallback } callback - 自定义手势识别器判定回调，当绑定到该组件的手势即将成功时，会触发用户定义的回调来获取结果。
    * @param { boolean } exposeInnerGesture - 暴露内部手势标识。<br/>默认值：false<br/>**说明：** <br/>如果是组合组件，此参数设置true，回调中的current参数则会包含组合组件内部的手势识别器。<br>
@@ -26529,7 +26678,7 @@ declare class CommonMethod<T> {
   shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
 
   /**
-   * 提供手势与响应链上其他组件的手势设置并行关系的回调事件。使用callback异步回调。此接口对应的C API接口为
+   * 提供非内置手势与响应链上其他组件的手势设置并行关系的回调事件，使用callback异步回调。此接口对应的C API接口为
    * [setGestureParallelTo](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativegestureapi-3.md#setgestureparallelto)。
    *
    * @param { ShouldRecognizerParallelWithCallback } callback - A callback instance used when a component is doing
@@ -26547,12 +26696,13 @@ declare class CommonMethod<T> {
    * 设置组件是否独占事件。
    *
    * @param { boolean } monopolize - 组件是否独占事件。true表示组件独占事件，false表示组件不独占事件。
-   *    默认值：false
-   *    说明：
-   *    1、如果第一根手指触发了组件事件独占，在抬起前又按下了一根手指，则第二根手指的交互继续处于组件独占状态，依次类推。
-   *    2、如果开发者通过[parallelGesture]{@link parallelGesture(gesture: GestureType, mask?: GestureMask)}绑定了与子组件同时触发的手势，如PanGesture，子组件设置了独占控制且首个响应事件，则父组件的手势不会响应。
-   * @returns { T }
-   返回当前组件。
+   *     <br>默认值：false
+   *     <br>**说明：**
+   *     <br>1. 如果第一根手指触发了组件事件独占，在抬起前又按下了一根手指，则第二根手指的交互继续处于组件独占状态，依次类推。
+   *     <br>2. 如果开发者通过[parallelGesture]{@link CommonMethod#parallelGesture}绑定了与子组件同时触发的手势，如
+   *     [PanGesture]{@link ./gesture}，子组件设置了独占控制且首个响应事件，则父组件的手势不会响应。
+   * @returns { T } 返回当前组件，可用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 12]
@@ -26562,9 +26712,14 @@ declare class CommonMethod<T> {
 
   /**
    * 给组件绑定自定义事件拦截回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Callback<TouchEvent, HitTestMode> } callback - 自定义事件拦截回调。在做触摸测试时回调此函数。
-   *    通过返回值设置组件的HitTestMode。
+   * @param { Callback<TouchEvent, HitTestMode> } callback - 自定义事件拦截回调。在做
+   *     [触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)时回调此函数。通过返回值设置组件的
+   *     [HitTestMode]{@link HitTestMode}。使用TouchEvent中的touches属性前，需先校验其是否为空。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26575,19 +26730,18 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
-   * 组件区域变化时触发该回调。仅会响应由布局变化所导致的组件尺寸发生变化时的回调。
+   * 组件尺寸变化时触发该回调。该回调仅在布局变化导致组件尺寸发生变化时触发。
    * 
    * > **说明：**
    * >
-   * > 1. 该接口在布局发生变化时触发，由于计算精度的关系，其返回值可能与真实物理尺寸存在细微的差异。
+   * > 1. 该接口在布局发生变化时触发，由于计算精度的关系，其返回值可能与真实物理尺寸存在差异。
    * >
    * > 2. onSizeChange是布局过程中触发的同步回调，直接在其中更改状态变量存在被纳入动画闭包的风险。具体而言，动画会对比动画前的布局与动画闭包后的布局，若onSizeChange的回调在动画前的布局中同步触发，那么
-   * > onSizeChange回调中所做的变更将与动画闭包中的变更一同纳入动画过程。为了避免此类问题，可在onSizeChange中使用延迟时间为0的
-   * > [setTimeout]{@link api/@internal/ets/global:setTimeout}或
-   * > [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback}，将UI处理逻辑
-   * > 延后至异步执行。
+   * > onSizeChange回调中所做的变更将与动画闭包中的变更一同纳入动画过程。为了避免此类问题，可在onSizeChange中使用延迟时间为0ms的
+   * > [setTimeout]{@link ../../ets/global:setTimeout}或
+   * > [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext.postFrameCallback}，将UI处理逻辑延后至异步执行。
    *
-   * @param { SizeChangeCallback } event - 目标元素变化前后的尺寸。
+   * @param { SizeChangeCallback } event - 组件尺寸变化时触发的回调函数，用于获取目标元素变化前后的尺寸。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26599,9 +26753,9 @@ declare class CommonMethod<T> {
   onSizeChange(event: SizeChangeCallback): T;
 
   /**
-   * 无障碍焦点框绘制层级。默认层级是跟随组件。
+   * 无障碍焦点框绘制层级，默认层级是跟随组件。
    *
-   * @param { FocusDrawLevel } drawLevel - 无障碍焦点绘制层级定义。
+   * @param { FocusDrawLevel } drawLevel - 无障碍焦点绘制层级定义
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26627,7 +26781,7 @@ declare class CommonMethod<T> {
   onTouchTestDone(callback: TouchTestDoneCallback): T;
 
   /**
-   * 在当前节点及更高优先级节点上的事件和手势被收集完成后触发该回调。该回调可用于干预事件和手势的收集结果。使用callback异步回调。
+   * 在当前节点及更高优先级节点上的事件和手势被收集完成后触发该回调。该回调可用于干预事件和手势的收集结果。
    *
    * @param { GestureCollectInterceptCallback } callback - 组件进行触摸测试时使用的回调函数。在当前节点及更高优先级节点上的事件和手势收集完成后执行，以干预收集结果。
    * @returns { T } 返回当前组件。
@@ -26638,24 +26792,6 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   onGestureCollectIntercept(callback: GestureCollectInterceptCallback): T;
-
-  /**
-   * 绑定此事件的组件可作为具有悬停检测功能的拖拽响应目标。当拖拽对象悬停在目标上时，触发回调通知。此时只有一个目标可以成为响应方，并且子组件始终具有更高的响应优先级。
-   * 
-   * 关于悬停检测的触发机制及详细使用方法，请参考开发指南[支持悬停检测](docroot://ui/arkts-common-events-drag-event.md#支持悬停检测)。
-   *
-   * @param { Callback<SpringLoadingContext> | null } callback - 悬停检测回调函数，当值为null时禁用悬停检测。
-   * @param { DragSpringLoadingConfiguration } [configuration] - 悬停检测配置信息，为undefined时取
-   *     [DragSpringLoadingConfiguration]{@link @ohos.arkui.dragController:dragController#DragSpringLoadingConfiguration}
-   *     默认值。
-   * @returns { T } 返回当前组件。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 
   /**
    * Set whether the component enables the ability to invert colors.
@@ -26730,60 +26866,60 @@ declare class CommonMethod<T> {
    */
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
 
-   /**
-    * 设置组件的状态播报文本，可用于屏幕朗读场景下指示当前组件所处于的状态。屏幕朗读场景下会优先播报状态文本。
-    *
-    * @param { string | Resource | undefined } description - 无障碍场景组件的状态播报文本。当设置成undefined的时候，会被当作空字符串处理。
-    * @returns { T } 返回调用该接口的组件引用。
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 23 dynamic
-    */
-   accessibilityStateDescription(description: string | Resource | undefined): T;
+  /**
+   * 设置组件的状态播报文本，可用于屏幕朗读场景下指示当前组件所处于的状态。屏幕朗读场景下会优先播报状态文本。
+   *
+   * @param { string | Resource | undefined } description - 无障碍场景组件的状态播报文本。当设置成undefined的时候，会被当作空字符串处理。
+   * @returns { T } 返回调用该接口的组件引用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityStateDescription(description: string | Resource | undefined): T;
+ 
+  /**
+   * 设置组件的无障碍操作的参数，用于限制或者修改无障碍操作下的行为。无障碍操作由屏幕朗读等辅助应用发起。
+   *
+   * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的行为。
+   * @returns { T } 返回调用该接口的组件引用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
-   /**
-    * 设置组件的无障碍操作的参数，用于限制或者修改无障碍操作下的行为。无障碍操作由屏幕朗读等辅助应用发起。
-    *
-    * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的行为。
-    * @returns { T } 返回调用该接口的组件引用。
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 23 dynamic
-    */
-   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
-
-   /**
+  /**
     * 设置组件的下一个辅助功能焦点ID，使用可选的详细参数。
-    * 详细的参数可以为可访问性焦点转换提供额外的行为。
-    *
-    * @param { string } nextId - 设置组件下一个可访问性焦点ID
-    * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 可访问性下一个焦点处理的详细参数。
-    *     Undefined表示恢复默认的详细参数。
-    * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
+   * 详细的参数可以为可访问性焦点转换提供额外的行为。
+   *
+   * @param { string } nextId - 设置组件下一个可访问性焦点ID
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 可访问性下一个焦点处理的详细参数。
+   *     Undefined表示恢复默认的详细参数。
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
-   * 设置组件智慧手势响应行为配置。
+   * 设置组件智慧手势响应行为。该属性仅用于声明组件是否响应智慧手势，不会直接触发点击、滚动、翻页或返回等动作。
    *
    * @param { SmartGestureShortcutOptions } [options] - 组件智慧手势响应配置。
-   *    SmartGestureShortcutOptions中enabled用于配置组件是否响应智慧手势。
-   *    selectable用于设置组件被智慧手势操作选中后是否展示并保留选中态。
-   *    action用于设置智慧手势响应优先级，当前仅支持GestureShortcut.PRIMARY，会使组件在智慧手势的滑动，点击等操作中作为首选响应目标。
-   *    建议显式传入，避免因缺省配置导致预期不一致，缺省配置处理参考[SmartGestureShortcutOptions]{@link SmartGestureShortcutOptions}。
-   * @returns { T } 返回当前组件。
+   *     <br>SmartGestureShortcutOptions中enabled用于配置组件是否响应智慧手势。
+   *     <br>selectable用于设置组件被智慧手势操作选中后是否展示并保留选中态。
+   *     <br>action用于设置智慧手势响应优先级，当前仅支持GestureShortcut.PRIMARY，会使组件在智慧手势支持的操作中作为首选响应目标，例如滑动、点击。
+   *     <br>建议显式传入，避免因缺省配置导致预期不一致，缺省配置处理参考[SmartGestureShortcutOptions]{@link SmartGestureShortcutOptions}。
+   * @returns { T } 返回当前组件，用于链式调用属性方法。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -26926,9 +27062,10 @@ declare type CustomBuilderT<T> = (t: T) => void;
  *
  * > **说明：**
  * >
- * > 为规范匿名对象的定义，API 12版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ * > 为规范匿名对象的定义，API version 12修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ * > > **说明：**
  * >
- * > align和offset都设置时，效果重叠，浮层相对于组件方位定位后，再基于当前位置的左上角进行偏移。
+ * > align和offset都设置时，定位效果叠加：浮层相对于组件方位定位后，再基于当前位置的左上角进行偏移。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26938,9 +27075,8 @@ declare type CustomBuilderT<T> = (t: T) => void;
  * @since 12 dynamic
  */
 declare interface OverlayOptions {
-
   /**
-   * 设置浮层相对于组件的方位。
+   * 设置浮层相对于组件的方位。与offset同时设置时，浮层相对于组件方位定位后，再基于当前位置的左上角进行偏移。
    *
    * 默认值：TopStart
    *
@@ -26953,7 +27089,7 @@ declare interface OverlayOptions {
   align?: Alignment;
 
   /**
-   * 设置浮层基于自身左上角的偏移量。浮层默认处于组件左上角。
+   * 设置浮层基于自身左上角的偏移量。与align同时设置时，浮层相对于组件方位定位后，再基于当前位置的左上角进行偏移。浮层默认处于组件左上角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -26969,7 +27105,7 @@ declare interface OverlayOptions {
  *
  * > **说明：**
  * >
- * > 为规范匿名对象的定义，API 12版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ * > 为规范匿名对象的定义，API version 12修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26979,7 +27115,6 @@ declare interface OverlayOptions {
  * @since 12 dynamic
  */
 declare interface OverlayOffset {
-
   /**
    * 横向偏移量。
    *
@@ -26994,7 +27129,6 @@ declare interface OverlayOffset {
    * @since 7 dynamic
    */
   x?: number;
-
   /**
    * 纵向偏移量。
    *
@@ -27999,11 +28133,12 @@ declare interface LayoutInfo {
  * @since 26.0.0 dynamic
  */
 declare interface AreaChangeOptions {
-
   /**
-   * 区域变化的计算时间间隔，单位为ms。当该字段大于2^31-1时，默认取值为2^31-1。
+   * 区域变化的预期更新时间间隔，单位为ms。当该字段大于2^31-1时，取值为2^31-1；当该字段小于0或未设置时，取值为默认值1000。
    * 
    * 默认值：1000
+   * 
+   * 取值范围：[0, 2^31-1]
    *
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28653,7 +28788,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
-   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在onWillApplyTheme函数中改变状态变量，更改将在后续执行build()函
+   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在onWillApplyTheme函数中改变状变量，更改将在后续执行build()函
    * 数中生效。
    *
    * > **说明：**
@@ -30533,7 +30668,6 @@ declare interface BackgroundBrightnessOptions {
  * @since 11 dynamic
  */
 declare interface PointLightStyle {
-
   /**
    * 设置光源属性，光源会影响到周围标记为可以被照亮的组件，并在组件上产生光效。
    *
@@ -30546,7 +30680,6 @@ declare interface PointLightStyle {
    * @since 11 dynamic
    */
   lightSource?: LightSource;
-
   /**
    * 设置当前组件是否可以被光源照亮，以及被照亮的类型。
    *
@@ -30559,7 +30692,6 @@ declare interface PointLightStyle {
    * @since 11 dynamic
    */
   illuminated?: IlluminatedType;
-
   /**
    * 设置组件的发光强度，取值范围为[0, 1]，超出取值范围时会转换为默认值。
    *
@@ -30583,7 +30715,6 @@ declare interface PointLightStyle {
  * @since 11 dynamic
  */
 declare interface LightSource {
-
   /**
    * 光源相对于当前组件的X坐标。
    *
@@ -30593,7 +30724,6 @@ declare interface LightSource {
    * @since 11 dynamic
    */
   positionX: Dimension;
-
   /**
    * 光源相对于当前组件的Y坐标。
    *
@@ -30603,7 +30733,6 @@ declare interface LightSource {
    * @since 11 dynamic
    */
   positionY: Dimension;
-
   /**
    * 光源高度。光源越高，照射范围越大。
    *
@@ -30613,9 +30742,8 @@ declare interface LightSource {
    * @since 11 dynamic
    */
   positionZ: Dimension;
-
   /**
-   * 光源强度，建议取值范围0-1。当光源强度为0时，光源不发光。
+   * 光源强度，取值范围为[0, +∞)，超出取值范围时转换为默认值0。当光源强度为0时，光源不发光。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -30623,10 +30751,9 @@ declare interface LightSource {
    * @since 11 dynamic
    */
   intensity: number;
-
   /**
    * 光源颜色。
-   *
+   * 
    * 默认值：Color.White
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30901,10 +31028,10 @@ declare interface Callback<T, V = void> {
 }
 
 /**
- * hover事件的回调类型。
+ * 悬浮事件的回调类型。
  *
- * @param { boolean } isHover - 是否处于hover状态，true表示处于hover状态，false表示不在hover状态。
- * @param { HoverEvent} event - 获取鼠标或手写笔悬浮的位置坐标。
+ * @param { boolean } isHover - 是否处于悬浮状态，true 表示处于悬浮状态，false 表示不处于悬浮状态。
+ * @param { HoverEvent} event - 鼠标或手写笔悬浮事件对象，用于提供悬浮位置坐标等事件信息。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31016,7 +31143,7 @@ declare interface VisibleAreaEventOptions {
 declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
 /**
- * 用于设置基础事件回调。方法入参为undefined的时候，重置对应的事件回调。
+ * 用于设置组件基础事件回调，覆盖点击、触摸、显示/消失、按键、焦点、悬浮、鼠标、组件区域变化和可见区域变化等事件；方法入参为undefined时，重置对应的事件回调，适用于集中配置和清理组件基础事件处理逻辑的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31025,11 +31152,11 @@ declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: nu
  * @since 12 dynamic
  */
 declare interface UICommonEvent {
-
   /**
-   * 设置[点击事件]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}的回调。
+   * 设置[点击事件]{@link ./common}的回调。当callback为undefined时，重置点击事件的回调。
    *
-   * @param { Callback<ClickEvent> | undefined } callback - 点击事件的回调函数。
+   * @param { Callback<ClickEvent> | undefined } callback - 点击事件的回调函数，签名为 (event: ClickEvent) => void，用于在组件触发点击事件时接收点击事件
+   *     对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31039,9 +31166,10 @@ declare interface UICommonEvent {
   setOnClick(callback: Callback<ClickEvent> | undefined): void;
 
   /**
-   * 设置[触摸事件]{@link CommonMethod#onTouch(event: (event: TouchEvent) => void)}的回调。
+   * 设置[触摸事件]{@link ./common}的回调。当callback为undefined时，重置触摸事件的回调。
    *
-   * @param { Callback<TouchEvent> | undefined } callback - 触摸事件的回调函数。
+   * @param { Callback<TouchEvent> | undefined } callback - 触摸事件的回调函数，签名为 (event: TouchEvent) => void，用于在组件触发触摸事件时接收触摸事件
+   *     对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31051,9 +31179,9 @@ declare interface UICommonEvent {
   setOnTouch(callback: Callback<TouchEvent> | undefined): void;
 
   /**
-   * 设置[onAppear]{@link CommonMethod#onAppear}挂载显示事件的回调。
+   * 设置[onAppear]{@link CommonMethod#onAppear}挂载显示事件的回调。当callback为undefined时，重置挂载显示事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - 挂载显示事件的回调函数。
+   * @param { Callback<void> | undefined } callback - 挂载显示事件的回调函数，签名为 () => void，用于组件挂载显示时触发。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31063,9 +31191,9 @@ declare interface UICommonEvent {
   setOnAppear(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onDisAppear]{@link CommonMethod#onDisAppear}卸载消失事件的回调。
+   * 设置[onDisappear]{@link CommonMethod#onDisAppear}卸载消失事件的回调。当callback为undefined时，重置卸载消失事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - 卸载消失事件的回调。
+   * @param { Callback<void> | undefined } callback - 卸载消失事件的回调函数，签名为 () => void，用于组件卸载消失时触发。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31075,9 +31203,9 @@ declare interface UICommonEvent {
   setOnDisappear(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[按键事件]{@link common}的回调。
+   * 设置[按键事件]{@link ./common}的回调。当callback为undefined时，重置按键事件的回调。
    *
-   * @param { Callback<KeyEvent> | undefined } callback - 按键事件的回调函数。
+   * @param { Callback<KeyEvent> | undefined } callback - 按键事件的回调函数，签名为 (event: KeyEvent) => void，用于在组件触发按键事件时接收按键事件对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31087,9 +31215,9 @@ declare interface UICommonEvent {
   setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
 
   /**
-   * 设置[onFocus]{@link CommonMethod#onFocus}获焦事件的回调。
+   * 设置[onFocus]{@link CommonMethod#onFocus}获焦事件的回调。当callback为undefined时，重置获焦事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - 获焦事件的回调。
+   * @param { Callback<void> | undefined } callback - 获焦事件的回调函数，签名为 () => void，用于组件获得焦点时触发。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31099,9 +31227,9 @@ declare interface UICommonEvent {
   setOnFocus(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onBlur]{@link CommonMethod#onBlur}失焦事件的回调。
+   * 设置[onBlur]{@link CommonMethod#onBlur}失焦事件的回调。当callback为undefined时，重置失焦事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - 失焦事件的回调。
+   * @param { Callback<void> | undefined } callback - 失焦事件的回调函数，签名为 () => void，用于组件失去焦点时触发。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31111,9 +31239,10 @@ declare interface UICommonEvent {
   setOnBlur(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onHover]{@link CommonMethod#onHover}悬浮事件的回调。
+   * 设置[onHover]{@link CommonMethod#onHover}悬浮事件的回调。当callback为undefined时，重置悬浮事件的回调。
    *
-   * @param { HoverCallback | undefined } callback - 悬浮事件的回调函数。
+   * @param { HoverCallback | undefined } callback - 悬浮事件的回调函数，签名为 (isHover: boolean, event: HoverEvent) => void，用于组件进入或
+   *     退出悬浮状态时接收悬浮状态和事件对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31123,9 +31252,10 @@ declare interface UICommonEvent {
   setOnHover(callback: HoverCallback | undefined): void;
 
   /**
-   * 设置[onMouse]{@link CommonMethod#onMouse}鼠标事件的回调。
+   * 设置[onMouse]{@link CommonMethod#onMouse}鼠标事件的回调。当callback为undefined时，重置鼠标事件的回调。
    *
-   * @param { Callback<MouseEvent> | undefined } callback - 鼠标事件的回调函数。
+   * @param { Callback<MouseEvent> | undefined } callback - 鼠标事件的回调函数，签名为 (event: MouseEvent) => void，用于在组件触发鼠标事件时接收鼠标事件
+   *     对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31135,9 +31265,10 @@ declare interface UICommonEvent {
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
 
   /**
-   * 设置[onSizeChange]{@link CommonMethod#onSizeChange}组件区域变化事件的回调。
+   * 设置[onSizeChange]{@link CommonMethod#onSizeChange}组件区域变化事件的回调。当callback为undefined时，重置组件区域变化事件的回调。
    *
-   * @param { SizeChangeCallback | undefined } callback - 组件区域变化事件的回调函数。
+   * @param { SizeChangeCallback | undefined } callback - 组件区域变化事件的回调函数，签名为 (oldValue: SizeOptions, newValue:
+   *     SizeOptions) => void，用于在组件区域尺寸发生变化时接收变化前后的尺寸信息。其中 oldValue 表示变化前的尺寸信息，newValue 表示变化后的尺寸信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31149,10 +31280,13 @@ declare interface UICommonEvent {
   /**
    * 设置限制回调间隔的
    * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
-   * 可见区域变化事件的回调。
+   * 可见区域变化事件的回调。当event为undefined时，重置可见区域变化事件的回调。
    *
-   * @param { VisibleAreaEventOptions } options - 可见区域变化相关的参数。
-   * @param { VisibleAreaChangeCallback | undefined } event - 可见区域变化事件的回调函数。当组件可见面积与自身面积的比值接近options中设置的阈值时触发该回调。
+   * @param { VisibleAreaEventOptions } options - 可见区域变化事件的配置参数，用于设置可见面积比例阈值和期望更新间隔；当前接口的可见区域回调阈值默认包含0，当组件可见面积与自身面积的比值接近
+   *     实际生效的阈值时触发 event 回调。
+   * @param { VisibleAreaChangeCallback | undefined } event - 可见区域变化事件的回调函数，签名为 (isExpanding: boolean, currentRatio:
+   *     number) => void。当组件可见面积与自身面积的比值接近options中设置的阈值时触发该回调，其中 isExpanding 表示可见区域比例是否正在增大，currentRatio 表示当前可见面积与组件自身面积
+   *     的比值。为undefined时，重置可见区域变化事件的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31174,7 +31308,6 @@ declare interface UICommonEvent {
  * @since 19 dynamic
  */
 declare interface UIScrollableCommonEvent extends UICommonEvent {
-
   /**
    * 设置[onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)事件的回调。
    *
@@ -31247,7 +31380,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
 }
 
 /**
- * 用于设置组件绑定的手势。
+ * 用于设置组件绑定的手势，支持为组件动态添加普通手势或并行手势，并可按手势标志移除或清除已绑定的手势，适用于运行时调整组件手势交互的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31256,13 +31389,14 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
  * @since 12 dynamic
  */
 declare interface UIGestureEvent {
-
   /**
-   * 添加手势。
+   * 添加手势。与addParallelGesture相比，addGesture用于为组件添加普通手势；当需要绑定可与子组件手势同时触发的手势时，建议使用addParallelGesture。
    *
-   * @param { GestureHandler<T> } gesture - 手势处理器对象。
-   * @param { GesturePriority } priority - 绑定手势的优先级。<br>默认值：GesturePriority.NORMAL
-   * @param { GestureMask } mask - 事件响应设置。<br>默认值：GestureMask.Normal
+   * @param { GestureHandler<T> } gesture - 要添加到当前组件的手势处理器对象，用于定义绑定到当前组件的普通手势行为。
+   * @param { GesturePriority } priority - 绑定手势的优先级。GesturePriority.NORMAL表示普通优先级，适用于按默认手势识别顺序处理的场景；
+   *     GesturePriority.PRIORITY表示高优先级，适用于需要当前组件手势优先识别的场景。不传入时默认值为GesturePriority.NORMAL。
+   * @param { GestureMask } mask - 事件响应设置。GestureMask.Normal表示按默认事件响应策略处理，适用于当前组件手势按默认规则响应的场景；GestureMask.IgnoreInternal
+   *     表示忽略内部或子组件手势响应，适用于需要避免子组件手势参与响应的场景。不传入时默认值为GestureMask.Normal。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31274,8 +31408,9 @@ declare interface UIGestureEvent {
   /**
    * 绑定可与子组件手势同时触发的手势。
    *
-   * @param { GestureHandler<T> } gesture - 手势处理器对象。
-   * @param { GestureMask } mask - 事件响应设置。<br>默认值：GestureMask.Normal
+   * @param { GestureHandler<T> } gesture - 要绑定到当前组件的手势处理器对象，用于定义可与子组件手势同时触发的手势行为。
+   * @param { GestureMask } mask - 是否屏蔽子组件手势。GestureMask.Normal表示不屏蔽子组件的手势，按照默认手势识别顺序进行识别；GestureMask.IgnoreInternal表示屏蔽
+   *     子组件的手势，包括子组件上系统内置的手势，适用于绑定并行手势时需要避免子组件手势参与识别的场景。不传入时默认值为GestureMask.Normal。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31285,9 +31420,9 @@ declare interface UIGestureEvent {
   addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
 
   /**
-   * 移除该组件上通过modifier绑定的设置为指定标志的手势。
+   * 移除该组件上通过modifier绑定的设置为指定标志的手势，适用于组件交互模式切换或业务状态变化时取消某个已标记手势的场景。
    *
-   * @param { string } tag - 手势处理器标志。
+   * @param { string } tag - 要移除的手势处理器标志，用于匹配并移除当前组件上通过 modifier 绑定且设置了该标志的手势。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31297,7 +31432,7 @@ declare interface UIGestureEvent {
   removeGestureByTag(tag: string): void;
 
   /**
-   * 清除该组件上通过modifier绑定的所有手势。
+   * 清除该组件上通过modifier绑定的所有手势，适用于组件交互模式切换或需要禁用全部动态手势的场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31309,7 +31444,7 @@ declare interface UIGestureEvent {
 }
 
 /**
- * 开发者需要自定义class实现GestureModifier接口。
+ * GestureModifier用于封装组件手势的动态设置逻辑。开发者需自定义class实现GestureModifier接口，并在applyGesture中根据需要设置或切换组件绑定的手势。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31318,13 +31453,13 @@ declare interface UIGestureEvent {
  * @since 12 dynamic
  */
 declare interface GestureModifier {
-
   /**
-   * 手势更新函数。
+   * 手势应用函数，适用于需要根据组件状态或用户操作动态切换手势绑定的场景。
+   * 
+   * 开发者可根据需要自定义实现该方法，通过调用UIGestureEvent的[addGesture()]{@link UIGestureEvent.addGesture}方法对组件设置需要绑定的手势，支持使用if/else语法进行动态
+   * 设置。若在当次手势操作过程中触发了组件上的手势动态切换，该切换效果在当次手势结束（所有手指抬起）后的下一次手势操作中生效。
    *
-   * 开发者可根据需要自定义实现该方法，对组件设置需要绑定的手势，支持使用if/else语法进行动态设置。若在当次手势操作过程中触发了组件上的手势动态切换，该切换效果在当次手势结束（所有手指抬起）后的下一次手势操作中生效。
-   *
-   * @param { UIGestureEvent } event - UIGestureEvent对象，用于设置组件需要绑定的手势。
+   * @param { UIGestureEvent } event - 手势事件对象，用于设置组件需要绑定的手势。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31360,13 +31495,7 @@ declare interface SelectionOptions {
 }
 
 /**
- * 设置对应的按键对应的走焦目的组件，缺省则遵循默认走焦规则。
- * 
- * > **说明：**
- * >
- * > 直接使用focusControl可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用getUIContext()获取
- * > [UIContext]{@link @ohos.arkui.UIContext:UIContext}实例，并使用
- * > [getFocusController]{@link @ohos.arkui.UIContext:UIContext#getFocusController}获取绑定实例的focusControl。
+ * 设置按键对应的走焦目的组件，缺省则遵循默认走焦规则。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31375,9 +31504,8 @@ declare interface SelectionOptions {
  * @since 18 dynamic
  */
 declare interface FocusMovement {
-
   /**
-   * 通过tab键走焦到组件的id。
+   * 通过Tab键走焦到组件的[id]{@link CommonMethod#id}。
    * 
    * 默认值为重置forward为空。
    *
@@ -31388,9 +31516,8 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   forward?: string;
-
   /**
-   * 通过shift+tab键走焦到组件的id。
+   * 通过Shift+Tab键走焦到组件的id。
    * 
    * 默认值为重置backward为空。
    *
@@ -31401,7 +31528,6 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   backward?: string;
-
   /**
    * 通过方向键上键走焦到组件的id。
    * 
@@ -31414,7 +31540,6 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   up?: string;
-
   /**
    * 通过方向键下键走焦到组件的id。
    * 
@@ -31427,7 +31552,6 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   down?: string;
-
   /**
    * 通过方向键左键走焦到组件的id。
    * 
@@ -31440,7 +31564,6 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   left?: string;
-
   /**
    * 通过方向键右键走焦到组件的id。
    * 
@@ -31561,7 +31684,7 @@ declare interface DateRange {
 }
 
 /**
- * 输入事件拦截结果接口，用于监听器回调[InputEventListener]{@link InputEventListener}返回是否拦截的决策。
+ * 输入事件拦截结果接口，用于监听器回调[InputEventListener]{@link InputEventListener}返回是否阻止事件传递的决策。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31570,7 +31693,6 @@ declare interface DateRange {
  * @since 26.0.0 dynamic
  */
 declare interface InputEventInterceptResult {
-
   /**
    * 输入事件拦截动作。
    * 
@@ -31596,9 +31718,11 @@ declare interface InputEventInterceptResult {
  * >
  * > - 对象为空对象，不包含任何可访问的成员。
  * >
- * > - 开发者无法主动构造此对象，只能通过[addLocalInputEventMonitor]{@link UIContext:UIContext#addLocalInputEventMonitor}接口注册获取。
+ * > - 开发者无法主动构造此对象，只能通过[addLocalInputEventMonitor]{@link @ohos.arkui.UIContext:UIContext.addLocalInputEventMonitor}接口注册
+ * > 获取。
  * >
- * > - 用于后续解除注册时验证身份。
+ * > - 用于后续调用[removeLocalInputEventMonitor]{@link @ohos.arkui.UIContext:UIContext.removeLocalInputEventMonitor}解除注册时验证身
+ * > 份。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31606,7 +31730,10 @@ declare interface InputEventInterceptResult {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare interface InputEventMonitor {}
+declare interface InputEventMonitor {
+  // Empty interface, no members
+  // Used only as an identifier
+}
 
 /**
  * 原始输入事件包装器类。
@@ -31615,15 +31742,15 @@ declare interface InputEventMonitor {}
  * 
  * 此类封装了原始的MouseEvent、TouchEvent或KeyEvent对象，并通过类型安全的方法访问。
  * 
- * 此类为抽象类，开发者无法自行创建实例。系统会在触发输入事件监听器时自动创建实例并传递回调函数。
+ * 此类为抽象类，开发者无法自行创建实例。系统会在触发输入事件监听器时自动创建实例，并将实例传递给回调函数。
  * 
  * > **说明：**
  * >
- * > 由于监听器在事件派发给具体组件之前执行，事件中的一些字段将无法提供有效值：如触发对象[target]{@link EventTarget}、相对于组件的坐标
- * > [x]{@link MouseEvent#x}和[y]{@link MouseEvent#y}、[getCurrentLocalPosition]{@link TouchObject#getCurrentLocalPosition}和
- * > [stopPropagation]{@link TouchEvent#stopPropagation}方法、TouchEvent的[preventDefault]{@link TouchEvent#preventDefault}和
- * > [getHistoricalPoints]{@link TouchEvent#getHistoricalPoints}方法以及KeyEvent的[metaKey]{@link KeyEvent#metaKey}属性和
- * > [getModifierKeyState]{@link KeyEvent#getModifierKeyState}方法。
+ * > 由于监听器在事件派发给具体组件之前执行，事件中的以下字段和方法将无法提供有效值：触发对象
+ * > [target]{@link EventTarget}、相对于组件的坐标（[x]{@link MouseEvent#x}、[y]{@link MouseEvent#y}）、
+ * > [getCurrentLocalPosition]{@link TouchObject#getCurrentLocalPosition}和[stopPropagation]{@link TouchEvent#stopPropagation}
+ * > 方法、TouchEvent的[preventDefault]{@link TouchEvent#preventDefault}和[getHistoricalPoints]{@link TouchEvent#getHistoricalPoints}
+ * > 方法以及KeyEvent的[metaKey]{@link KeyEvent#metaKey}属性和[getModifierKeyState]{@link KeyEvent.getModifierKeyState}方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31632,7 +31759,6 @@ declare interface InputEventMonitor {}
  * @since 26.0.0 dynamic
  */
 declare abstract class RawInputEventWrapper {
-
   /**
    * 判断是否为鼠标事件。
    *
@@ -31672,7 +31798,8 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取鼠标事件。
    *
-   * @returns { MouseEvent | null } 获取鼠标事件，如果是鼠标事件则返回事件对象，否则返回null。
+   * @returns { MouseEvent | null } 获取鼠标事件，如果是鼠标事件则返回事件对象，否则返回null。由于监听器在事件派发给具体组件之前执行，返回的MouseEvent中触发对象target、相对于组件的坐标
+   *     x和y等字段无法提供有效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31684,7 +31811,8 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取触摸事件。
    *
-   * @returns { TouchEvent | null } 获取触摸事件，如果是触摸事件则返回事件对象，否则返回null。
+   * @returns { TouchEvent | null } 获取触摸事件，如果是触摸事件则返回事件对象，否则返回null。由于监听器在事件派发给具体组件之前执行，返回的TouchEvent中
+   *     getCurrentLocalPosition、stopPropagation、preventDefault和getHistoricalPoints等方法无法提供有效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31696,7 +31824,8 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取按键事件。
    *
-   * @returns { KeyEvent | null } 获取按键事件，如果是按键事件则返回事件对象，否则返回null。
+   * @returns { KeyEvent | null } 获取按键事件，如果是按键事件则返回事件对象，否则返回null。由于监听器在事件派发给具体组件之前执行，返回的KeyEvent中metaKey属性和
+   *     getModifierKeyState方法无法提供有效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31722,7 +31851,7 @@ declare abstract class RawInputEventWrapper {
  * >
  * > - 请勿在回调中执行耗时操作（如复杂计算或网络请求），否则可能导致应用卡顿。
  * >
- * > - 监听器在UI线程中同步执行会直接阻塞事件处理流程。建议只进行简单的判断和计算。
+ * > - 监听器在UI线程中同步执行会直接阻塞事件处理流程。建议仅执行不会阻塞UI线程的本地条件判断和简单计算。
  *
  * @param { RawInputEventWrapper } event - 输入事件包装器，系统自动创建和传递，开发者无需手动创建。
  * @returns { InputEventInterceptResult } 事件拦截结果。
@@ -31872,11 +32001,10 @@ declare interface GravityCenterOptions {
  * @since 26.0.0 dynamic
  */
 declare interface SmartGestureShortcutOptions {
-
   /**
-   * 智慧手势响应优先级。当前仅支持GestureShortcut.PRIMARY。
+   * 智慧手势响应优先级。当前仅支持GestureShortcut.PRIMARY，表示组件在智慧手势的滑动、点击等操作中作为首选响应目标。
    * 
-   * 当未显式传入该参数或参数异常时，会清空当前组件的智慧手势响应行为配置。
+   * 默认值为GestureShortcut.PRIMARY。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
