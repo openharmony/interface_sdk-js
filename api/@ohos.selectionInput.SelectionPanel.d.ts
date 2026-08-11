@@ -28,8 +28,8 @@
  * 
  * > **NOTE**
  * >
- * > - This module is supported only on PCs/2-in-1 devices. You can use canIUse('
- * > SystemCapability.SelectionInput.Selection') to check whether the current device supports this function.
+ * > - This module is supported only on PCs/2-in-1 devices. You can use **canIUse('
+ * > SystemCapability.SelectionInput.Selection')** to check whether the current device supports this function.
  *
  * @file Word Selection Panel
  * @kit BasicServicesKit
@@ -118,8 +118,8 @@ export interface PanelInfo {
 }
 
 /**
- * Enumerates the word selection panel types, which defines the two-level architecture of the panel: menu panel (level 1
- * ) and main panel (level 2).
+ * Enumerates the word selection panel types, which defines the two-level architecture of the panel: menu panel (level 1)
+ * and main panel (level 2).
  *
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi [since 20 - 23]
