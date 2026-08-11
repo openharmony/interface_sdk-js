@@ -1042,6 +1042,7 @@ declare enum BlurOnKeyboardHideMode {
  * Enumerates whether to enable web dark mode.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1050,6 +1051,7 @@ declare enum WebDarkMode {
    * The web dark mode is disabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1059,6 +1061,7 @@ declare enum WebDarkMode {
    * The web dark mode is enabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1068,6 +1071,7 @@ declare enum WebDarkMode {
    * The web dark mode setting follows the system setting.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1497,6 +1501,7 @@ declare enum FileSelectorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1505,6 +1510,7 @@ declare enum WebLayoutMode {
    * Web layout follows the system.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1514,6 +1520,7 @@ declare enum WebLayoutMode {
    * Adaptive web layout based on page size.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6499,6 +6506,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     **null** or **undefined** is passed, the value is **WebDarkMode.Off**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -6514,6 +6522,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -6582,6 +6591,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
@@ -7510,6 +7520,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     or **undefined** is passed in, the value is **16**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7955,6 +7966,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     **WebLayoutMode.NONE**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 11 dynamic
    */
