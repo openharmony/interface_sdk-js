@@ -1190,6 +1190,7 @@ declare namespace window {
    * Describes the rectangular area of the window, in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface RectInVP {
@@ -1198,6 +1199,7 @@ declare namespace window {
      * Left boundary of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1207,6 +1209,7 @@ declare namespace window {
      * Top boundary of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1216,6 +1219,7 @@ declare namespace window {
      * Width of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1225,6 +1229,7 @@ declare namespace window {
      * Height of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1535,6 +1540,7 @@ declare namespace window {
    * [immersive layout](docroot://windowmanager/window-terminology.md#immersive-layout) adaptation.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvAvoidAreaVP {
@@ -1550,6 +1556,7 @@ declare namespace window {
      * Rectangle centered to the left of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     leftRect: RectInVP;
@@ -1558,6 +1565,7 @@ declare namespace window {
      * Rectangle centered at the top of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     topRect: RectInVP;
@@ -1566,6 +1574,7 @@ declare namespace window {
      * Rectangle centered to the right of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     rightRect: RectInVP;
@@ -1574,6 +1583,7 @@ declare namespace window {
      * Rectangle centered at the bottom of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     bottomRect: RectInVP;
@@ -1616,6 +1626,7 @@ declare namespace window {
    * Describes the window size, in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface SizeInVP {
@@ -1623,6 +1634,7 @@ declare namespace window {
      * Window width, in vp. The value is a floating-point number.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1632,6 +1644,7 @@ declare namespace window {
      * Window height, in vp. The value is a floating-point number.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -2712,6 +2725,7 @@ declare namespace window {
    * of different types. All types of window avoidance areas are measured in px.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoPX {
@@ -2719,6 +2733,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_SYSTEM** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     statusBar: AvoidArea;
@@ -2727,6 +2742,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_CUTOUT** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     cutout: AvoidArea;
@@ -2735,6 +2751,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_KEYBOARD** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     keyboard: AvoidArea;
@@ -2744,6 +2761,7 @@ declare namespace window {
      * type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     navigationIndicator: AvoidArea;
@@ -2754,6 +2772,7 @@ declare namespace window {
    * of different types. All types of window avoidance areas are measured in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoVP {
@@ -2761,6 +2780,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_SYSTEM** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     statusBar: UIEnvAvoidAreaVP;
@@ -2769,6 +2789,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_CUTOUT** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     cutout: UIEnvAvoidAreaVP;
@@ -2777,6 +2798,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_KEYBOARD** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     keyboard: UIEnvAvoidAreaVP;
@@ -2786,6 +2808,7 @@ declare namespace window {
      * type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     navigationIndicator: UIEnvAvoidAreaVP;

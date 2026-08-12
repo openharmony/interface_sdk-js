@@ -1173,6 +1173,7 @@ declare namespace window {
    * 窗口矩形区域，单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface RectInVP {
@@ -1181,6 +1182,7 @@ declare namespace window {
      * 矩形区域的左边界值，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1190,6 +1192,7 @@ declare namespace window {
      * 矩形区域的上边界值，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1199,6 +1202,7 @@ declare namespace window {
      * 矩形区域的宽度，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1208,6 +1212,7 @@ declare namespace window {
      * 矩形区域的高度，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1508,6 +1513,7 @@ declare namespace window {
    * 以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)适配时需关注。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvAvoidAreaVP {
@@ -1523,6 +1529,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的左侧的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     leftRect: RectInVP;
@@ -1531,6 +1538,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的顶部的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     topRect: RectInVP;
@@ -1539,6 +1547,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的右侧的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     rightRect: RectInVP;
@@ -1547,6 +1556,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的底部的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     bottomRect: RectInVP;
@@ -1589,6 +1599,7 @@ declare namespace window {
    * 窗口大小，单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface SizeInVP {
@@ -1596,6 +1607,7 @@ declare namespace window {
      * 窗口宽度，单位为vp，该参数为浮点数。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1605,6 +1617,7 @@ declare namespace window {
      * 窗口高度，单位为vp，该参数为浮点数。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -2638,6 +2651,7 @@ declare namespace window {
    * 窗口不同类型避让区域信息组成的[环境变量](docroot://ui/arkts-env-system-property.md)数据类型，每种类型避让区域单位为px。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoPX {
@@ -2645,6 +2659,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_SYSTEM类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     statusBar: AvoidArea;
@@ -2653,6 +2668,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_CUTOUT类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     cutout: AvoidArea;
@@ -2661,6 +2677,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_KEYBOARD类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     keyboard: AvoidArea;
@@ -2669,6 +2686,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_NAVIGATION_INDICATOR类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     navigationIndicator: AvoidArea;
@@ -2678,6 +2696,7 @@ declare namespace window {
    * 窗口不同类型避让区域信息组成的[环境变量](docroot://ui/arkts-env-system-property.md)数据类型，每种类型避让区域单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoVP {
@@ -2685,6 +2704,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_SYSTEM类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     statusBar: UIEnvAvoidAreaVP;
@@ -2693,6 +2713,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_CUTOUT类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     cutout: UIEnvAvoidAreaVP;
@@ -2701,6 +2722,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_KEYBOARD类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     keyboard: UIEnvAvoidAreaVP;
@@ -2709,6 +2731,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_NAVIGATION_INDICATOR类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     navigationIndicator: UIEnvAvoidAreaVP;
