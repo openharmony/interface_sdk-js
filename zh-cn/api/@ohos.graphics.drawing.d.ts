@@ -4933,7 +4933,7 @@ declare namespace drawing {
      * @param { Array<number> | null } [pos] - 表示每种对应颜色在颜色数组中的相对位置。数组长度需和colors保持一致，
      * 数组的首个元素应当是0.0，末尾元素应当是1.0，中间的元素应当在0与1之间并且逐下标递增，表示colors中每个对应颜色的相对位置。
      * 默认为null，表示颜色均匀分布在起始圆和结束圆之间。
-     * @param { Matrix | null } [matrix] - 矩阵对象，用于对着色器做矩阵变换。当不传该参数，或者matrix传入undefined时，默认为null，表示单位矩阵。
+     * @param { Matrix | null } [matrix] - 矩阵对象，用于对着色器做矩阵变换。默认为null，表示单位矩阵。
      * @returns { ShaderEffect } 返回锥形渐变着色器对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
