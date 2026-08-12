@@ -9808,7 +9808,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisHorizontal ?: number;
+  axisHorizontal?: number;
 
   /**
    * 垂直轴值。
@@ -9828,7 +9828,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisVertical ?: number;
+  axisVertical?: number;
 
   /**
    * 双指缩放比例。
@@ -10745,7 +10745,7 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -11023,7 +11023,11 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 相对于全局显示的点的 Y 坐标。
+   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：[0, +∞)
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11088,7 +11092,7 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -11239,9 +11243,9 @@ declare interface MouseEvent extends BaseEvent {
   pressedButtons?: MouseButton[];
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取鼠标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 鼠标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11514,7 +11518,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * 相对于全局显示的点的 Y 坐标。
+   * 点相对于全局显示的 X 坐标。
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11525,12 +11529,9 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
+   * 相对于全局显示的点的 Y 坐标。
    *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11585,7 +11586,7 @@ declare interface TouchObject {
   globalDisplayX?: number;
 
   /**
-   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -11763,9 +11764,9 @@ declare interface TouchObject {
   height?: number;
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取触摸位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } - 触摸位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11973,7 +11974,7 @@ declare interface AxisEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -12148,9 +12149,9 @@ declare interface AxisEvent extends BaseEvent {
   hasAxis(axisType: AxisType): boolean;
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取鼠标光标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } - 鼠标光标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12191,7 +12192,8 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12 dynamic
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
+  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * 系统内置手势与响应链上其他组件的手势设置并行关系的回调事件类型。
@@ -22653,9 +22655,10 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的自定义焦点走焦逻辑。
    *
-   * @param { FocusMovement } nextStep
-   * @returns { T }
-   返回当前组件。
+   * @param { FocusMovement } nextStep - 设置当前容器组件的自定义走焦规则。<br/>**说明：**<br/>默认值为重置nextStep为空。<br/>没设置自定义走焦或者设置自定义组件容器不存
+   *     在，仍进行默认走焦规则。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22666,9 +22669,16 @@ declare class CommonMethod<T> {
   /**
    * 设置当前容器组件的tabStop，可决定焦点在走焦时是否会停留在当前容器。
    *
-   * @param { boolean } isTabStop
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器，true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。<br/>**说明：**<br/>1.配
+   *     置tabStop需要确保是容器组件且有可获焦的孩子组件，默认容器组件不能直接获焦。<br/>2.通过[requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}请求焦
+   *     点，如果是容器组件且配置tabStop，焦点能够停留在容器组件，如果未配置tabStop，即使整条焦点链上有配置了tabStop的组件，该组件依然能获取到焦点。<br/>3.配置tabStop的容器不允许嵌
+   *     套超过2层。<br/>tabStop走焦规则：<br/>1.通过tab键和方向键走焦，焦点会停留在配置了tabStop的组件上，如果焦点停留在配置了tabStop的容器内部时，可以走焦到容器内部的下一个可获焦
+   *     组件，如果焦点停留在配置了tabStop的容器外部是，可以走焦到容器外的下一个可获焦组件。<br/>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按Esc能够将焦点
+   *     退回到不超过当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)根容器的上一个配置了tabStop的组件，按空格键可以响应该容器的onClick事件。<br/>3.不建
+   *     议根容器配置tabStop。如果根容器配置了tabStop，通过[clearFocus]{@link @ohos.arkui.UIContext:FocusController#clearFocus}将焦点清理到根容器，再按Enter键会重新走回内部上
+   *     一次获焦组件，通过Esc键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22788,8 +22798,8 @@ declare class CommonMethod<T> {
    * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。<br/>**说明：** <br/>焦点组不可嵌套，不
    *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
    *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22806,8 +22816,8 @@ declare class CommonMethod<T> {
    *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
    *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
    * @param { boolean } [arrowStepOut] - 设置能否使用方向键走焦出当前焦点组。true表示可以使用方向键走焦出当前焦点组，false表示不能使用方向键走焦出当前焦点组。默认值为true。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22818,13 +22828,14 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件在指定容器内获焦的优先级。需要配合[focusScopeId]{@link CommonMethod#focusScopeId(id: string, isGroup?: boolean)}一起使用。
    *
-   * @param { string } scopeId
+   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。<br/>**说明：**<br/>1.当前组件必须在scopedId所标识的容器内，或其所属容器在scopeId所标识的容器
+   *     内。<br/>2.组件不可重复设置多个优先级。<br/>3.设置了focusScopeId的容器租金按不可设置优先级。
    * @param { FocusPriority } [priority] - 获焦优先级。<br/>**说明：** <br/>未设置priority时，默认为AUTO优先级。<br/>优先级对走焦以及获焦组件的影响：<br/>1.容
    *     器整体获焦（[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)切换/焦点切换到焦点组/容器组件使用requestFocus申请焦点）时，若容器内存在优先
    *     级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由容器内上次获焦的组件获焦。<br/>2.容器非整体获焦（非焦点组场景下使用tab键/方向键走焦）时，若容器为首次获焦，则容器内优先级最高的组件获焦，
    *     若容器非首次获焦，不考虑优先级按照位置顺序走焦。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23853,7 +23864,6 @@ declare class CommonMethod<T> {
 
   /**
    * 组件挂载后触发此回调。
-   * 
    * > **说明：**
    * >
    * > 回调的调用时机有可能发生在组件布局渲染后。
@@ -25730,7 +25740,7 @@ declare class CommonMethod<T> {
    * @param { Array<number> } ratios - 阈值数组。其中，每个阈值代表组件可见面积（即组件在屏幕显示区的面积，只计算父组件内的面积，超出父组件部分不会计算）与组件自身面积的比值。当组件可见面积与自身面积的
    *     比值接近阈值时，均会触发该回调。每个阈值的取值范围为[0.0, 1.0]，如果开发者设置的阈值小于0.0，则实际取值为0.0；如果设置的阈值大于1.0，则实际取值为1.0。<br/>**说明：** <br/>当数值接近边界
    *     0和1时，将会按照误差不超过0.001的规则进行舍入。例如，0.9997会被近似为1。
-   * @param { function } event - Callback for visible area changes of the component. [since 9 - 12]
+   * @param { function } event - 组件可见区域变化事件的回调。 [since 9 - 12]
    * @param { VisibleAreaChangeCallback } event - 组件可见区域变化事件的回调。 [since 13]
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31004,8 +31014,8 @@ declare interface VisibleAreaEventOptions {
  * 组件可见区域变化事件的回调类型。
  *
  * @param { boolean } isVisible - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 12 - 12]
- * @param { boolean } isExpanding - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 13]
  * @param { number } currentRatio - 触发回调时，组件可见面积与自身面积的比值。
+ * @param { boolean } isExpanding - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 13]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31671,7 +31681,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取鼠标事件。
    *
-   * @returns { MouseEvent | null } Mouse event object if it is a mouse event, or **null** otherwise.
+   * @returns { MouseEvent | null } 获取鼠标事件，如果是鼠标事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31683,7 +31693,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取触摸事件。
    *
-   * @returns { TouchEvent | null } Touch event object if it is a touch event, or **null** otherwise.
+   * @returns { TouchEvent | null } 获取触摸事件，如果是触摸事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31695,7 +31705,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取按键事件。
    *
-   * @returns { KeyEvent | null } Key event object if it is a key event, or **null** otherwise.
+   * @returns { KeyEvent | null } 获取按键事件，如果是触摸事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
