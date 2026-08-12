@@ -14,16 +14,15 @@
  */
 
 /**
- * 本模块定义了OpenHarmony ArkTS接口的公共回调类型，包括接口调用时出现的公共回调和公共错误信息。这些回调类型为开发者提供了统一的异步处理机制，适用于需要处理异步操作结果、错误信息回传等场景，
- * 可以帮助开发者简化异步编程模型，提高代码的可读性和可维护性。
- *
- * > **说明**
+ * 本模块定义了OpenHarmony ArkTS接口的公共回调类型，包括接口调用时出现的公共回调和公共错误信息。
+ * 这些回调类型为开发者提供了统一的异步处理机制，适用于需要处理异步操作结果、错误信息回传等场景，可以帮助开发者简化异步编程模型，提高代码的可读性和可维护性。
+ * 
+ * > **说明：**
  * >
  * > - 本模块首批接口从API version 6 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * > 
  * > - 从API version 12开始，本模块接口支持在ArkTS卡片中使用。
  *
- * @file
+ * @file 公共回调信息
  * @kit BasicServicesKit
  */
 
@@ -42,7 +41,7 @@ export interface Callback<T> {
 
   /**
    *
-   * @param { T } data - 接口调用时的公共回调信息。类型由开发者自定义，回调将返回对应类型的数据。
+   * @param { T } data - 接口调用时的公共回调信息。类型由开发者自定义，回调成功时将返回对应类型的数据。失败则不返回数据。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -53,7 +52,9 @@ export interface Callback<T> {
 }
 
 /**
- * 通用回调函数，携带错误参数，用于在接口调用失败时回传错误信息。回调返回的信息为[BusinessError]{@link BusinessError}类型的错误参数。
+ * 通用回调函数，携带错误参数，用于在接口调用失败时回传错误信息。具体错误码值由各接口定义，请参考对应接口的错误码说明。
+ * 
+ * 回调返回的信息为[BusinessError]{@link BusinessError}类型的错误参数。
  *
  * @typedef ErrorCallback [since 6 - 10]
  * @typedef ErrorCallback<T extends Error = BusinessError> [since 11]
@@ -66,7 +67,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 
   /**
    *
-   * @param { T } err - 接口调用失败的公共错误信息，类型默认为BusinessError，包含错误码（code）和可选附加数据（data）。
+   * @param { T } err - 接口调用失败的公共错误信息，类型默认为[BusinessError]{@link BusinessError}，包含错误码（code）和可选附加数据（data）。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -76,8 +77,11 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 }
 
 /**
- * 通用回调函数，携带错误参数和异步返回值，用于在异步操作完成时同时回传错误信息或成功数据。错误参数为[BusinessError]{@link BusinessError}类型的信息。
- * 异步返回值的类型由开发者自定义，回调将返回对应类型。
+ * 通用回调函数，携带错误参数和异步返回值，用于在异步操作完成时同时回传错误信息或成功数据。
+ * 
+ * 错误参数为[BusinessError]{@link BusinessError}类型。
+ * 
+ * 异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
  *
  * @typedef AsyncCallback [since 6 - 11]
  * @typedef AsyncCallback<T, E = void> [since 12]
@@ -91,7 +95,8 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - 接口调用失败的公共错误信息。接口调用成功时，此参数返回null
+   * @param { BusinessError<E> } err - 接口调用失败的公共错误信息，包含错误码和可选附加信息。
+   * 当不指定E类型参数时，默认为void，此时BusinessError不包含附加信息，只包含错误码。接口调用成功时，此参数返回null。
    * @param { T } data - 接口调用成功时的异步返回数据，类型由开发者自定义。接口调用失败时，此参数不可用。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
@@ -103,7 +108,7 @@ export interface AsyncCallback<T, E = void> {
 }
 
 /**
- * 错误参数。
+ * 错误参数，继承自Error类，用于在接口调用失败时传递标准化的错误信息，包含错误码和可选的附加信息。
  *
  * @typedef BusinessError [since 6 - 11]
  * @typedef BusinessError<T = void> [since 12]
@@ -116,7 +121,7 @@ export interface AsyncCallback<T, E = void> {
 export interface BusinessError<T = void> extends Error {
 
   /**
-   * 接口调用失败返回的错误码信息。
+   * 接口调用失败返回的错误码信息。具体错误码值由各接口定义，请参考对应接口的错误码说明。
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
