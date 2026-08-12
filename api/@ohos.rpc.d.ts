@@ -2951,9 +2951,9 @@ declare namespace rpc {
     /**
      * A constructor used to create a **MessageOption** object.
      *
-     * @param { number } syncFlags - Call flag to set. The options are as follows: 0 (synchronous call) and 1
+     * @param { number } [syncFlags] - Call flag to set. The options are as follows: 0 (synchronous call) and 1
      *     (asynchronous call). The default value is **synchronous**.
-     * @param { number } waitTime - Maximum wait time for an RPC call, in seconds. The default value is
+     * @param { number } [waitTime] - Maximum wait time for an RPC call, in seconds. The default value is
      *     **TF_WAIT_TIME**.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
@@ -2964,7 +2964,7 @@ declare namespace rpc {
     /**
      * A constructor used to create a **MessageOption** object.
      *
-     * @param { boolean } async - Whether to execute the call asynchronously. The value **true** means to execute the
+     * @param { boolean } [async] - Whether to execute the call asynchronously. The value **true** means to execute the
      *     call asynchronously; the value **false** means to execute the call synchronously. The default value is
      *     **synchronous**.
      * @syscap SystemCapability.Communication.IPC.Core
