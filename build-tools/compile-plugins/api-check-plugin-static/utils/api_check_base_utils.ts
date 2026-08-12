@@ -361,8 +361,6 @@ export function checkApiAvailableCache(node: arkts.AstNode): boolean {
 
   const program = arkts.getProgramFromAstNode(node);
   const sourceFileName = program?.sourceFilePath || '';
-  const sourceFileText = program?.ast.dumpSrc() || '';
-
   if (fileApiAvailableCheckCache.has(sourceFileName)) {
     const hasApiAvailable = fileApiAvailableCheckCache.get(sourceFileName)!;
     if (!hasApiAvailable) {
@@ -370,6 +368,7 @@ export function checkApiAvailableCache(node: arkts.AstNode): boolean {
     }
   } else {
     try {
+      const sourceFileText = program?.ast.dumpSrc() || '';
       const apiAvailableContentChecker = /\.apiAvailable\b/g.test(sourceFileText);
       fileApiAvailableCheckCache.set(sourceFileName, apiAvailableContentChecker);
       if (!apiAvailableContentChecker) {
