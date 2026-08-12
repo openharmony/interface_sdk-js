@@ -1643,6 +1643,20 @@ export declare interface NavigationConfiguration {
   stackSizeLimit?: int;
 
   /**
+   * Whether to clear the content stack when navigation is triggered from the primary side.
+   *
+   * In Navigation split mode, when enabled, navigaiton triggered from the primary side clears old
+   * NavDestination after the Primary/Home node while preserving all NavDestinations created by
+   * the current operation.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  clearContentStackOnPrimaryNavigation?: boolean;
+
+  /**
    * Whether to recycle invisible pages when a low memory signal is received.
    *
    * When enabled, Navigation recycles invisible NavDestination page instance after receiving
