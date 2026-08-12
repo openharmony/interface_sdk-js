@@ -5032,7 +5032,7 @@ export const enum CustomKeyboardContinueFeature {
   /**
    * 使能自定义键盘接续。
    *
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -5041,7 +5041,7 @@ export const enum CustomKeyboardContinueFeature {
   /**
    * 关闭自定义键盘接续。
    *
-   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */

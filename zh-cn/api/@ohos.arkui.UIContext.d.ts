@@ -6420,6 +6420,7 @@ export const enum GestureListenerType {
 /**
 * 自定义键盘接续特性的枚举。
 *
+* @enum { number } CustomKeyboardContinueFeature
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
