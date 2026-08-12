@@ -860,7 +860,6 @@ export class LuminanceSampler {
  *     PromptAction对象，再通过该对象调用对应方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 11]
  * @since 10 dynamic
@@ -877,7 +876,6 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -895,7 +893,6 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -913,7 +910,6 @@ export class PromptAction {
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -932,7 +928,6 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -950,7 +945,6 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -1005,7 +999,6 @@ export class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
