@@ -1252,7 +1252,7 @@ declare namespace photoAccessHelper {
    * @since 11 dynamic
    * @since 23 static
    */
-  interface PhotoProxy {  }
+  interface PhotoProxy {}
 
   /**
    * 媒体资产管理类，管理媒体资源读取。
