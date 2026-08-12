@@ -18,49 +18,47 @@
  */
 import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
 /**
- * Called when an item in the drop-down list box is selected.
+ * 下拉菜单选中某一项的回调。
  *
- * @param { number } index - Index of the selected option. The index is zero-based.
- * @param { string } [selectValue] - Value of the selected option.
+ * @param { number } index - 选中项的索引，索引从0开始。
+ * @param { string } [selectValue] - 选中项的值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnSelectCallback = (index: number, selectValue: string) => void;
 /**
- * Called when a paste operation is performed.
+ * 进行粘贴操作时，触发该回调。
  *
- * @param { string } pasteValue - Text to be pasted.
- * @param { PasteEvent } event - Custom paste event.
+ * @param { string } pasteValue - 要粘贴的文本内容。
+ * @param { PasteEvent } event - 用户自定义粘贴事件。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
 /**
- * Called when the position of the text selection changes or when the cursor position changes during the editing state.
+ * 文本选择的位置发生变化或编辑状态下光标位置发生变化时，触发该回调。
  *
- * @param { number } selectionStart - Start position of the text to be selected.
- * @param { number } selectionEnd - End position of the text to be selected.
+ * @param { number } selectionStart - 文本选择区域的起始位置。
+ * @param { number } selectionEnd - 文本选择区域的结束位置。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 /**
- * Called when the text content is scrolled.
+ * 文本内容滚动时，触发该回调。
  *
- * @param { number } totalOffsetX - Offset of the horizontal coordinate of the upper left corner of the text relative to
- *     the horizontal coordinate of the upper left corner of the entire content input area.
- * @param { number } totalOffsetY - Offset of the vertical coordinate of the upper left corner of the text relative to
- *     the vertical coordinate of the upper left corner of the entire content input area.
+ * @param { number } totalOffsetX - 文本左上角横坐标相较于整个内容输入区左上角横坐标的偏移量。单位：px。
+ * @param { number } totalOffsetY - 文本左上角纵坐标相较于整个内容输入区左上角纵坐标的偏移量。单位：px。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
- * Sets regular expression for input filtering.
+ * 搜索框过滤设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -68,7 +66,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  */
 export interface InputFilterParams {
   /**
-   * Regular expression.
+   * 正则表达式。仅支持单个字符匹配，不支持字符串匹配。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -76,8 +74,7 @@ export interface InputFilterParams {
    */
   inputFilterValue: ResourceStr;
   /**
-   * Callback used to return the filtered-out content when regular expression matching fails. Default value:
-   * **undefined**.
+   * 正则匹配失败时，返回被过滤的内容。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -86,7 +83,7 @@ export interface InputFilterParams {
   error?: Callback<string>;
 }
 /**
- * Sets the search button located next to the search text box.
+ * 搜索框末尾搜索按钮设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -94,7 +91,7 @@ export interface InputFilterParams {
  */
 export interface SearchButtonParams {
   /**
-   * Text on the search button located next to the search text box.
+   * 搜索框末尾搜索按钮文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -102,7 +99,7 @@ export interface SearchButtonParams {
    */
   searchButtonValue: ResourceStr;
   /**
-   * Font of the search text box. Default value: **{fontSize: '16fp',fontColor: '#ff3f97e9'}**
+   * 配置搜索框文本样式。默认值：`{fontSize: '16fp',fontColor: '#ff3f97e9'}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -111,7 +108,7 @@ export interface SearchButtonParams {
   options?: SearchButtonOptions;
 }
 /**
- * Sets the alignment between the drop-down list button and the drop-down list box.
+ * 下拉按钮与下拉菜单间的对齐方式设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -119,7 +116,7 @@ export interface SearchButtonParams {
  */
 export interface MenuAlignParams {
   /**
-   * Alignment type. Default value: **MenuAlignType.START**
+   * 对齐方式类型。默认值：`MenuAlignType.START`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -127,8 +124,7 @@ export interface MenuAlignParams {
    */
   alignType: MenuAlignType;
   /**
-   * Offset of the drop-down list box relative to the drop-down list button after alignment based on the alignment type.
-   * Default value: **{dx: 0, dy: 0}**
+   * 按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。默认值：`{dx: 0, dy: 0}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -137,7 +133,7 @@ export interface MenuAlignParams {
   offset?: Offset;
 }
 /**
- * Provides optional attributes for the search area.
+ * AtomicServiceSearch中“搜索区”的可选属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -145,7 +141,7 @@ export interface MenuAlignParams {
  */
 export interface SearchParams {
   /**
-   * Search key used to find a unique **search** component. Default value: **undefined**.
+   * 用作标识内部search组件的唯一键值，便于外部通过该键值引用或查找对应的Search组件。默认值：`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -153,7 +149,7 @@ export interface SearchParams {
    */
   searchKey?: ResourceStr;
   /**
-   * Background color of a component. Default value: **$r('sys.color.ohos_id_color_text_field_sub_bg')**.
+   * 设置组件的背景色。默认值：`$r('sys.color.ohos_id_color_text_field_sub_bg')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -161,7 +157,7 @@ export interface SearchParams {
    */
   componentBackgroundColor?: ResourceColor;
   /**
-   * Background color of the pressed component. Default value: **$r('sys.color.ohos_id_color_click_effect')**.
+   * 设置组件按压态的背景色。默认值：`$r('sys.color.ohos_id_color_click_effect')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -169,11 +165,11 @@ export interface SearchParams {
    */
   pressedBackgroundColor?: ResourceColor;
   /**
-   * Search button located next to the search text box. Clicking the search button triggers both **onSubmit** and
-   * **onClick** callbacks.
-   *
-   * - **value**: Text on the search button located next to the search text box.
-   * - **option**: Font of the search text box. Default value: **{fontSize: '16fp', fontColor: '#ff3f97e9'}**
+   * 设置搜索框末尾搜索按钮。点击搜索按钮，触发onSubmit回调。默认值为`undefined`
+   * 
+   * -searchButtonValue: 搜索框末尾搜索按钮文本内容。
+   * 
+   * -options: 配置搜索框文本样式。默认值：`{fontSize: '16fp', fontColor: '#ff3f97e9'}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -181,7 +177,7 @@ export interface SearchParams {
    */
   searchButton?: SearchButtonParams;
   /**
-   * Placeholder text color. Default value: **$r('sys.color.ohos_id_color_text_secondary')**.
+   * placeholder文本颜色。默认值：`$r('sys.color.ohos_id_color_text_secondary')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -189,8 +185,8 @@ export interface SearchParams {
    */
   placeholderColor?: ResourceColor;
   /**
-   * Placeholder text style, including the font size, font weight, font family, and font style. Default value:
-   * **{size: $r('sys_float.ohos_id_text_size_body1')}**.
+   * 设置placeholder文本样式，包括字体大小、字体粗细、字体族、字体风格。目前仅支持默认字体族。
+   * 默认值：`{size: $r('sys.float.ohos_id_text_size_body1')}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -198,9 +194,8 @@ export interface SearchParams {
    */
   placeholderFont?: Font;
   /**
-   * Style of the text entered in the search box, including the font size, font width, font family, and font style.
-   * Currently, only the default font family is supported. Default value:
-   * **{size: $r('sys_float.ohos_id_text_size_body1')}**.
+   * 设置搜索框内输入文本样式，包括字体大小、字体粗细、字体族、字体风格。目前仅支持默认字体族。
+   * 默认值：`{size: $r('sys.float.ohos_id_text_size_body1')}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -208,7 +203,7 @@ export interface SearchParams {
    */
   textFont?: Font;
   /**
-   * Text alignment mode in the search text box. Default value: **TextAlign.Start**.
+   * 文本在搜索框中的对齐方式。默认值：`TextAlign.Start`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -216,7 +211,7 @@ export interface SearchParams {
    */
   textAlign?: TextAlign;
   /**
-   * Whether the input text can be copied. Default value: **CopyOptions.LocalDevice**.
+   * 输入的文本是否可复制。默认值：`CopyOptions.LocalDevice`，支持设备内复制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -224,11 +219,11 @@ export interface SearchParams {
    */
   copyOptions?: CopyOptions;
   /**
-   * Style of the search icon on the left.
-   *
-   * Default value in light mode: **{size: '16vp', color: '#99182431', src:' '}**.
-   *
-   * Default value in dark mode: **{size: '16vp', color: '#99ffffff', src:' '}**.
+   * 左侧搜索图标样式。
+   * 
+   * 浅色模式默认值：`{size: '16vp', color: '#99182431', src: ' '}`。
+   * 
+   * 深色模式默认值：`{size: '16vp', color: '#99ffffff', src: ' '}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -236,10 +231,9 @@ export interface SearchParams {
    */
   searchIcon?: IconOptions | SymbolGlyphModifier;
   /**
-   * Style of the cancel button on the right. Default value:
-   * **{style: CancelButtonStyle.INPUT, icon: {size: '16vp', color: '#99ffffff', src:' '}}**.
-   *
-   * When style is set to **CancelButtonStyle.CONSTANT**, the cancel button is displayed in a default style.
+   * 右侧清除按钮样式。默认值：`{style: CancelButtonStyle.INPUT, icon: {size: '16vp', color: '#99ffffff', src: ' '}}`。
+   * 
+   * 当style为CancelButtonStyle.CONSTANT时，默认显示清除样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -247,7 +241,7 @@ export interface SearchParams {
    */
   cancelIcon?: IconOptions;
   /**
-   * Font color of the input text. Default value: **$r('sys.color.ohos_id_color_text_secondary')**.
+   * 输入文本的字体颜色。默认值：`$r('sys.color.ohos_id_color_text_secondary')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -255,7 +249,7 @@ export interface SearchParams {
    */
   fontColor?: ResourceColor;
   /**
-   * Pointer style. Default value: **{width: '1.5vp', color: '#007DFF'}**.
+   * 光标样式。默认值：`{width: '1.5vp', color: '#007DFF'}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -263,8 +257,7 @@ export interface SearchParams {
    */
   caretStyle?: CaretStyle;
   /**
-   * Whether to automatically open the soft keyboard when the **Search** component gains focus. The value **true** means
-   * to automatically open the soft keyboard when the **Search** component gains focus. Default value: **true**.
+   * Search获焦时，是否主动拉起软键盘。true表示Search获焦时主动拉起软键盘。false表示Search获焦时不主动拉起键盘。默认值：`true`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -272,13 +265,9 @@ export interface SearchParams {
    */
   enableKeyboardOnFocus?: boolean;
   /**
-   * Whether to hide the system text selection menu.
-   *
-   * **true**: The system text selection menu does not appear under the following circumstances: clicking the text box
-   * cursor, long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking the
-   * text box. **false**: The system text selection menu appears under the following circumstances: clicking the text
-   * box cursor, long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking
-   * the text box. Default value: **false**.
+   * 是否隐藏系统文本选择菜单。
+   * 
+   * 设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。设置为false时，弹出系统文本选择菜单。默认值：`false`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -286,7 +275,7 @@ export interface SearchParams {
    */
   hideSelectionMenu?: boolean;
   /**
-   * Text box type. Default value: **SearchType.Normal**.
+   * 输入框类型。默认值：`SearchType.Normal`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -294,8 +283,7 @@ export interface SearchParams {
    */
   type?: SearchType;
   /**
-   * Maximum number of characters in the text input. By default, there is no maximum number of characters. When the
-   * maximum number is reached, no more characters can be entered. Default value: **-1**.
+   * 设置文本的最大输入字符数。默认不设置最大输入字符数限制。到达文本最大字符限制，将无法继续输入字符。默认值：`-1`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -303,7 +291,7 @@ export interface SearchParams {
    */
   maxLength?: number;
   /**
-   * Type of the Enter key. Default value: **EnterKeyType.Search**.
+   * 输入法回车键类型。默认值：`EnterKeyType.Search`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -311,8 +299,7 @@ export interface SearchParams {
    */
   enterKeyType?: EnterKeyType;
   /**
-   * Text decorative line options. Default value:
-   * **{type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID}**.
+   * 文本装饰线对象。默认值：`{type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID}`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -320,9 +307,7 @@ export interface SearchParams {
    */
   decoration?: TextDecorationOptions;
   /**
-   * Letter spacing. A positive value causes characters to spread farther apart, and a negative value bring characters
-   * closer together. The value for floating point numbers is **0.0**, in units of px. If the input is not a number and
-   * cannot be parsed as a number, the default value will be used.
+   * 设置文本字符间距。正数拉开字符距离，负数则拉近字符距离。浮点数默认值为0.0，单位为物理像素px。若输入类型非number且无法解析为数字，则使用默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -330,15 +315,15 @@ export interface SearchParams {
    */
   letterSpacing?: number | string | Resource;
   /**
-   * Font feature, for example, monospaced digits.
-   *
-   * Format: normal | <feature-tag-value>
-   *
-   * Syntax for **<feature-tag-value>**: <string> [ <integer> | on | off ]
-   *
-   * There can be multiple **<feature-tag-value>** values, which are separated by commas (,).
-   *
-   * For example, the input format for monospaced digits is "ss01" on. Default value: **undefined**.
+   * 设置文字特性效果，比如数字等宽的特性。
+   * 
+   * 格式为：normal | <feature-tag-value>
+   * 
+   * <feature-tag-value>的格式为：<string> [ <integer> | on | off ]
+   * 
+   * <feature-tag-value>的个数可以有多个，中间用','隔开。
+   * 
+   * 例如，使用等宽数字的输入格式为："ss01" on。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -346,7 +331,7 @@ export interface SearchParams {
    */
   fontFeature?: ResourceStr;
   /**
-   * Background color of the selected text. By default, a 20% opacity is applied.
+   * 文本选中底板颜色。默认值：系统默认底板颜色，20%不透明度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -354,12 +339,11 @@ export interface SearchParams {
    */
   selectedBackgroundColor?: ResourceColor;
   /**
-   * Regular expression for input filtering. Only inputs that comply with the regular expression can be displayed. Other
-   * inputs are filtered out. The specified regular expression can match single characters, but not strings. Default
-   * value: **undefined**.
-   *
-   * - **value**: regular expression.
-   * - **error**: Filtered-out content to return when regular expression matching fails.
+   * 通过正则表达式设置输入过滤器。匹配表达式的输入允许显示，不匹配的输入将被过滤。仅支持单个字符匹配，不支持字符串匹配。默认值为`undefined`。
+   * 
+   * -value: 正则表达式。 
+   * 
+   * -error: 正则匹配失败时，返回被过滤的内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -367,7 +351,7 @@ export interface SearchParams {
    */
   inputFilter?: InputFilterParams;
   /**
-   * Indent of the first line text. Default value: **0**.
+   * 首行文本缩进。默认值：`0`。单位：vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -375,8 +359,7 @@ export interface SearchParams {
    */
   textIndent?: Dimension;
   /**
-   * Minimum font size. For the setting to take effect, this attribute must be used together with **maxFontSize** or
-   * layout constraint settings. Default value: **undefined**.
+   * 设置文本最小显示字号。需要配合maxFontSize以及布局大小限制使用，单独设置不生效。默认值为`undefined`。取值为number类型时，单位：fp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -384,8 +367,7 @@ export interface SearchParams {
    */
   minFontSize?: number | string | Resource;
   /**
-   * Maximum font size. For the setting to take effect, this attribute must be used together with **minFontSize** or
-   * layout constraint settings. Default value: **undefined**.
+   * 设置文本最大显示字号。需要配合minFontSize以及布局大小限制使用，单独设置不生效。默认值为`undefined`。取值为number类型时，单位：fp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -393,8 +375,7 @@ export interface SearchParams {
    */
   maxFontSize?: number | string | Resource;
   /**
-   * Extended options of the custom context menu on selection, including the text content, icon, and callback. Default
-   * value: **undefined**.
+   * 设置自定义菜单扩展项，允许用户设置扩展项的文本内容、图标、回调方法。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -402,10 +383,9 @@ export interface SearchParams {
    */
   editMenuOptions?: EditMenuOptions;
   /**
-   * Whether to enable preview text. The value **true** means to enable preview text. Default value: **true**.
-   *
-   * Preview text of the input method should be enabled. Preview text is in a temporary state and does not support text
-   * interception. As such, it does not trigger **onWillInsert** and **onDidInsert** callbacks.
+   * 是否开启输入预上屏。true表示开启输入预上屏。false表示不开启输入预上屏。默认值：`true`。 
+   * 
+   * 需要配合开启输入法的预上屏功能。预上屏内容定义为文字暂存态，目前不支持文字拦截功能，因此该值为true时不触发onWillInsert、onDidInsert回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -413,7 +393,7 @@ export interface SearchParams {
    */
   enablePreviewText?: boolean;
   /**
-   * Whether to enable haptic feedback. The value **true** means to enable haptic feedback. Default value: **true**.
+   * 是否开启触控反馈。true表示开启触控反馈。false表示不开启触控反馈。默认值：`true`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -421,8 +401,7 @@ export interface SearchParams {
    */
   enableHapticFeedback?: boolean;
   /**
-   * Callback triggered when users click the search icon or the search button, or touch the search button on a soft
-   * keyboard. Default value: **undefined**.
+   * 点击搜索图标、搜索按钮或者按下软键盘搜索按钮时触发该回调。string为当前搜索框中输入的文本内容。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -430,7 +409,7 @@ export interface SearchParams {
    */
   onSubmit?: Callback<string> | SearchSubmitCallback;
   /**
-   * Callback triggered when the content in the text box changes. Default value: **undefined**.
+   * 输入内容发生变化时，触发该回调。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -438,7 +417,7 @@ export interface SearchParams {
    */
   onChange?: EditableTextOnChangeCallback;
   /**
-   * Callback triggered when a copy operation is performed. Default value: **undefined**.
+   * 进行复制操作时，触发该回调，string为被复制的文本内容。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -446,7 +425,7 @@ export interface SearchParams {
    */
   onCopy?: Callback<string>;
   /**
-   * Callback triggered when a cut operation is performed. Default value: **undefined**.
+   * 进行剪切操作时，触发该回调，string为被剪切的文本内容。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -454,7 +433,7 @@ export interface SearchParams {
    */
   onCut?: Callback<string>;
   /**
-   * Callback triggered when a paste operation is performed. Default value: **undefined**.
+   * 进行粘贴操作时，触发该回调。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -462,8 +441,7 @@ export interface SearchParams {
    */
   onPaste?: OnPasteCallback;
   /**
-   * Callback triggered when the position of the text selection changes or when the cursor position changes during the
-   * editing state. Default value: **undefined**.
+   * 文本选择的位置发生变化或编辑状态下光标位置发生变化时，触发该回调。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -471,7 +449,7 @@ export interface SearchParams {
    */
   onTextSelectionChange?: OnTextSelectionChangeCallback;
   /**
-   * Callback triggered when the text content is scrolled. Default value: **undefined**.
+   * 文本内容滚动时，触发该回调。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -479,8 +457,7 @@ export interface SearchParams {
    */
   onContentScroll?: OnContentScrollCallback;
   /**
-   * Callback triggered when the input status changes. If a cursor is displayed, that is, the value of **isEditing** is
-   * **true**, the text box is in the editing state. Default value: **undefined**.
+   * 输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。isEditing为true表示正在输入。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -488,8 +465,8 @@ export interface SearchParams {
    */
   onEditChange?: Callback<boolean>;
   /**
-   * Callback triggered when text is about to be inserted. **true**: Insert the input content into the result string.
-   * **false**: Do not insert the input content into the result string. Default value: **undefined**.
+   * 在将要输入时，触发该回调。true表示将输入内容正常插入结果字符串，false表示不插入。默认值为`undefined`。
+   * 当enablePreviewText为true时，不触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -497,7 +474,8 @@ export interface SearchParams {
    */
   onWillInsert?: Callback<InsertValue, boolean>;
   /**
-   * Callback triggered when text is inserted. Default value: **undefined**.
+   * 在输入完成时触发该回调，在onWillInsert之后触发。当onWillInsert返回false拦截插入操作时，该回调不触发。默认值为`undefined`。
+   * 当enablePreviewText为true时，不触发本回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -505,8 +483,7 @@ export interface SearchParams {
    */
   onDidInsert?: Callback<InsertValue>;
   /**
-   * Callback triggered when text is about to be deleted. **true**: Delete the text. **false**: Do not delete the text.
-   * Default value: **undefined**.
+   * 在将要删除时，触发该回调。true表示正常删除，false表示不删除。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -514,7 +491,7 @@ export interface SearchParams {
    */
   onWillDelete?: Callback<DeleteValue, boolean>;
   /**
-   * Callback triggered when text is deleted. Default value: **undefined**.
+   * 在删除完成时触发该回调，在onWillDelete之后触发。当onWillDelete返回false拦截删除操作时，该回调不触发。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -523,7 +500,7 @@ export interface SearchParams {
   onDidDelete?: Callback<DeleteValue>;
 }
 /**
- * Provides optional attributes for the selection area.
+ * AtomicServiceSearch中“选择区”的可选属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -531,7 +508,7 @@ export interface SearchParams {
  */
 export interface SelectParams {
   /**
-   * SubOption array of the select.
+   * 下拉选项内容。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -539,7 +516,7 @@ export interface SelectParams {
    */
   options?: Array<SelectOption>;
   /**
-   * The default selected index.
+   * 设置下拉菜单初始选项的索引。第一项的索引为0。当不设置selected属性时，默认选择值为-1，菜单项不选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -547,7 +524,7 @@ export interface SelectParams {
    */
   selected?: number;
   /**
-   * The default text value.
+   * 设置下拉按钮本身的文本内容。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -555,7 +532,7 @@ export interface SelectParams {
    */
   selectValue?: ResourceStr;
   /**
-   * Callback when the select is selected.
+   * 下拉菜单选中某一项的回调。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -563,7 +540,9 @@ export interface SelectParams {
    */
   onSelect?: OnSelectCallback;
   /**
-   * Register a ContentModifier for each menu item.
+   * 在Select组件上，定制下拉菜单项内容区的方法。
+   * 在应用了该属性后，下拉菜单的内容将完全由开发者自定义，此时为选择区设置的下拉菜单分割线、背景色及字体样式等属性将不再生效。
+   * modifier: 内容修改器，开发者需要自定义class实现ContentModifier接口。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -571,7 +550,12 @@ export interface SelectParams {
    */
   menuItemContentModifier?: ContentModifier<MenuItemConfiguration>;
   /**
-   * Sets the divider of select.
+   * 1.设置DividerOptions，则按设置的样式显示分割线。默认值：{strokeWidth: '1px', color: '#33182431'}。
+   * 当设置了menuItemContentModifier属性时，本属性不生效。
+   * 2.设置为null时，不显示分割线。
+   * 3.strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。
+   * 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，
+   * 不显示分割线。 startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -579,7 +563,7 @@ export interface SelectParams {
    */
   divider?: Optional<DividerOptions> | null;
   /**
-   * Sets the text properties of the select button itself.
+   * 下拉按钮本身的文本样式。默认值：{size: $r('sys.float.ohos_id_text_size_body1')}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -587,7 +571,7 @@ export interface SelectParams {
    */
   font?: Font;
   /**
-   * Sets the text color of the select button itself.
+   * 下拉按钮本身的文本颜色。默认值：{fontColor: $r('sys.color.ohos_id_color_text_primary')}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -595,7 +579,9 @@ export interface SelectParams {
    */
   fontColor?: ResourceColor;
   /**
-   * Sets the background color of the selected items in the select.
+   * 下拉菜单选中项的背景色。
+   * 默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。
+   * 当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -603,7 +589,8 @@ export interface SelectParams {
    */
   selectedOptionBgColor?: ResourceColor;
   /**
-   * Sets the text style of the selected items in the select.
+   * 下拉菜单选中项的文本样式。默认值：{size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular}。
+   * 当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -611,7 +598,8 @@ export interface SelectParams {
    */
   selectedOptionFont?: Font;
   /**
-   * Sets the text color of the selected item in the select.
+   * 下拉菜单选中项的文本颜色。默认值：$r('sys.color.ohos_id_color_text_primary_activated')。
+   * 当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -619,7 +607,7 @@ export interface SelectParams {
    */
   selectedOptionFontColor?: ResourceColor;
   /**
-   * Sets the background color of the select item.
+   * 下拉菜单项的背景色。默认值：Color.Transparent。当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -627,7 +615,8 @@ export interface SelectParams {
    */
   optionBgColor?: ResourceColor;
   /**
-   * Sets the text style for select items.
+   * 下拉菜单项的文本样式。默认值：{size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular}。
+   * 当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -635,7 +624,7 @@ export interface SelectParams {
    */
   optionFont?: Font;
   /**
-   * Sets the text color for select items.
+   * 下拉菜单项的文本颜色。默认值：$r('sys.color.ohos_id_color_text_primary')。当设置了menuItemContentModifier属性时，本属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -643,7 +632,8 @@ export interface SelectParams {
    */
   optionFontColor?: ResourceColor;
   /**
-   * Set the width of each option and set whether the option width fit the trigger.
+   * 设置下拉菜单项的宽度，不支持设置百分比。单位：vp。OptionWidthMode为枚举类型，决定下拉菜单是否继承下拉按钮宽度。
+   * 当设置为异常值或小于最小宽度56vp时，属性不生效，菜单项宽度设为默认值，即菜单默认宽度为2栅格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -651,7 +641,8 @@ export interface SelectParams {
    */
   optionWidth?: Dimension | OptionWidthMode;
   /**
-   * Set the height of each option.
+   * 设置下拉菜单显示的最大高度，不支持设置百分比。单位：vp。
+   * 下拉菜单的默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度，超过时属性不生效，按默认最大高度显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -659,7 +650,7 @@ export interface SelectParams {
    */
   optionHeight?: Dimension;
   /**
-   * Set the space for text and icon in select.
+   * 下拉菜单项的文本与箭头之间的间距。默认值：8。单位：vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -667,7 +658,7 @@ export interface SelectParams {
    */
   space?: Length;
   /**
-   * Set the layout direction for text and arrow in select.
+   * 下拉菜单项的文本与箭头之间的对齐方式。默认值：ArrowPosition.END。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -675,7 +666,7 @@ export interface SelectParams {
    */
   arrowPosition?: ArrowPosition;
   /**
-   * Set the alignment between select and menu.
+   * 设置下拉按钮与下拉菜单间的对齐方式。默认值：{alignType: MenuAlignType.START, offset: {dx: 0, dy: 0}}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -683,7 +674,7 @@ export interface SelectParams {
    */
   menuAlign?: MenuAlignParams;
   /**
-   * Set the menu's background color.
+   * 下拉菜单的背景色。默认值：Color.Transparent。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -691,7 +682,7 @@ export interface SelectParams {
    */
   menuBackgroundColor?: ResourceColor;
   /**
-   * Set menu background blur Style.
+   * 下拉菜单的背景模糊材质。默认值：BlurStyle.COMPONENT_ULTRA_THICK。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -700,7 +691,7 @@ export interface SelectParams {
   menuBackgroundBlurStyle?: BlurStyle;
 }
 /**
- * Sets initialization parameters of the function area.
+ * AtomicServiceSearch中“功能区”的初始化参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -708,7 +699,7 @@ export interface SelectParams {
  */
 export interface OperationParams {
   /**
-   * Auxiliary item on the right of the search area. Default value: **undefined**.
+   * 附属于搜索区（右侧）的功能位。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -716,7 +707,7 @@ export interface OperationParams {
    */
   auxiliaryItem?: OperationOption;
   /**
-   * Independent item on the right of the search area. Default value: **undefined**.
+   * 独立于搜索区（右侧）的功能位。默认值为`undefined`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -725,8 +716,11 @@ export interface OperationParams {
   independentItem?: OperationOption;
 }
 /**
- * **AtomicServiceSearch** allows you to customize the default search area, customizable selection area, and function
- * area (a maximum of two).
+ * AtomicServiceSearch为开发者提供满足定制化需求的功能，内容包括默认显示的搜索区、可自定义的选择区和功能区（最多两个）。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -735,7 +729,7 @@ export interface OperationParams {
 @Component
 export declare struct AtomicServiceSearch {
   /**
-   * Sets the search text content that is currently displayed.
+   * 设置当前显示的搜索文本内容。默认值为空字符串。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -744,8 +738,7 @@ export declare struct AtomicServiceSearch {
   @Prop
   value?: ResourceStr;
   /**
-   * Indicates default prompt text displayed in the search box.
-   * The default value is Search, which supports globalization.
+   * 搜索框内默认显示的提示文本。默认值为Search。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -754,7 +747,7 @@ export declare struct AtomicServiceSearch {
   @Prop
   placeholder?: ResourceStr;
   /**
-   * Events and styles supported by the search area.
+   * search搜索区可支持的事件及样式。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -763,7 +756,7 @@ export declare struct AtomicServiceSearch {
   @Prop
   search?: SearchParams;
   /**
-   * Contents, events, and styles of the select area.
+   * select选择区的内容、事件及样式。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -772,7 +765,7 @@ export declare struct AtomicServiceSearch {
   @Prop
   select?: SelectParams;
   /**
-   * Function settings in the selection area (right).
+   * 功能区（右侧）的功能设置项。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -780,7 +773,7 @@ export declare struct AtomicServiceSearch {
    */
   operation?: OperationParams;
   /**
-   * Set the Search component controller.
+   * Search组件控制器，用于设置输入光标的位置、退出编辑态等操作。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice

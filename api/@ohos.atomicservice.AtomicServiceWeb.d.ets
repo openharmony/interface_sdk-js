@@ -14,6 +14,23 @@
  */
 
 /**
+ * ###### Required Permissions
+ * 
+ * **ohos.permission.INTERNET**, required for accessing online web pages. For details about how to apply for a 
+ * permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+ * 
+ * ###### Child Components
+ * 
+ * Not supported
+ * 
+ * ###### Attributes
+ * 
+ * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ * 
+ * ###### Events
+ * 
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ *
  * @file Defines the atomicService web component
  * @kit ArkUI
  */
@@ -21,9 +38,13 @@
 import { Callback } from '@ohos.base';
 
 /**
- * Declare Component AtomicServiceWeb.
+ * **AtomicServiceWeb** is an advanced web component offering customization to meet specific demands. It shields
+ * irrelevant APIs from the native **Web** component and extends functionality through JavaScript capabilities.
  *
- * @struct { AtomicServiceWeb }
+ * > **NOTE**
+ * >
+ * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -33,7 +54,6 @@ export declare struct AtomicServiceWeb {
   /**
    * The address of the web page to be displayed.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -42,7 +62,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets the controller of the AtomicServiceWeb.
    *
-   * @type { AtomicServiceWebController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -52,7 +71,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets how to load HTTP and HTTPS content.
    *
-   * @type { ?MixedMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -62,7 +80,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets the dark mode of Web.
    *
-   * @type { ?WebDarkMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -72,7 +89,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets whether to enable forced dark algorithm when the web is in dark mode.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -82,7 +98,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Sets the nested scroll options.
    *
-   * @type { ?(NestedScrollOptions | NestedScrollOptionsExt) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15 dynamiconly
@@ -92,7 +107,6 @@ export declare struct AtomicServiceWeb {
   /**
    * The navPathStack to control page route in Navigation and NavDestination.
    *
-   * @type { ?NavPathStack }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -101,7 +115,6 @@ export declare struct AtomicServiceWeb {
   /**
    * The callback method to invoke after page is back or destroyed if postMessage() is called in H5 page.
    *
-   * @type { ?Callback<OnMessageEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -110,7 +123,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered when the web page receives a web resource loading error.
    *
-   * @type { ?Callback<OnErrorReceiveEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -119,7 +131,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
    *
-   * @type { ?Callback<OnHttpErrorReceiveEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -128,7 +139,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered at the begin of web page loading.
    *
-   * @type { ?Callback<OnPageBeginEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -137,7 +147,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered at the end of web page loading.
    *
-   * @type { ?Callback<OnPageEndEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -147,7 +156,6 @@ export declare struct AtomicServiceWeb {
    * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
    * This callback can not use the interface about manipulating web pages.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -156,7 +164,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered when the resources loading is intercepted.
    *
-   * @type { ?OnLoadInterceptCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -165,7 +172,6 @@ export declare struct AtomicServiceWeb {
   /**
    * Triggered when the page loading progress changes.
    *
-   * @type { ?Callback<OnProgressChangeEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -174,9 +180,8 @@ export declare struct AtomicServiceWeb {
 }
 
 /**
- * Message event after page is back or destroyed if postMessage() is called in H5 page.
+ * Represents the callback invoked when the page is navigated back or destroyed.
  *
- * @typedef OnMessageEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -185,7 +190,6 @@ export declare interface OnMessageEvent {
   /**
    * The message data list.
    *
-   * @type { object[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -194,9 +198,8 @@ export declare interface OnMessageEvent {
 }
 
 /**
- * Error receive event when the web page receives a web resource loading error.
+ * Represents the callback invoked when an error occurs during web page loading.
  *
- * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -205,7 +208,6 @@ export declare interface OnErrorReceiveEvent {
   /**
    * Web resource request of event.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -215,7 +217,6 @@ export declare interface OnErrorReceiveEvent {
   /**
    * Web resource error of event.
    *
-   * @type { WebResourceError }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -224,9 +225,8 @@ export declare interface OnErrorReceiveEvent {
 }
 
 /**
- * Http error receive event when the web page receives a web resource loading HTTP error.
+ * Represents the callback invoked when an HTTP error occurs during web page resource loading.
  *
- * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -235,7 +235,6 @@ export declare interface OnHttpErrorReceiveEvent {
   /**
    * Web resource request of event.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -245,7 +244,6 @@ export declare interface OnHttpErrorReceiveEvent {
   /**
    * Web resource response of event.
    *
-   * @type { WebResourceResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -254,9 +252,8 @@ export declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * Page begin event at the begin of web page loading.
+ * Represents the callback invoked when the web page loading begins.
  *
- * @typedef OnPageBeginEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -265,7 +262,6 @@ export declare interface OnPageBeginEvent {
   /**
    * The url of page.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -274,9 +270,8 @@ export declare interface OnPageBeginEvent {
 }
 
 /**
- * Page end event at the end of web page loading.
+ * Represents the callback invoked when the web page loading ends.
  *
- * @typedef OnPageEndEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -285,7 +280,6 @@ export declare interface OnPageEndEvent {
   /**
    * The url of page.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -294,9 +288,8 @@ export declare interface OnPageEndEvent {
 }
 
 /**
- * Load intercept event when the resources loading is intercepted.
+ * Represents the event triggered when resource loading is intercepted.
  *
- * @typedef OnLoadInterceptEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -305,7 +298,6 @@ export declare interface OnLoadInterceptEvent {
   /**
    * Web resource request of event.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -314,9 +306,8 @@ export declare interface OnLoadInterceptEvent {
 }
 
 /**
- * Progress change event when the page loading progress changes.
+ * Represents the callback invoked when the web page loading progress changes.
  *
- * @typedef OnProgressChangeEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -325,7 +316,6 @@ export declare interface OnProgressChangeEvent {
   /**
    * The new progress of the page.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -334,7 +324,10 @@ export declare interface OnProgressChangeEvent {
 }
 
 /**
- * Provides methods for controlling the AtomicServiceWeb controller.
+ * Implements an **AtomicServiceWebController** object for controlling the behavior of the **AtomicServiceWeb**
+ * component. An **AtomicServiceWebController** can control only one **AtomicServiceWeb** component, and the APIs on the
+ * **AtomicServiceWebController** can be called only after it has been bound to the target **AtomicServiceWeb**
+ * component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -343,11 +336,12 @@ export declare interface OnProgressChangeEvent {
 @Observed
 export declare class AtomicServiceWebController {
   /**
-   * Gets the default user agent.
+   * Obtains the default user agent of this web page.
    *
-   * @returns { string } Return user agent information.
+   * @returns { string } Default user agent. For details about the specifications and usage scenarios, see
+   *     [Developing User-Agent](docroot://web/web-default-userAgent.md).
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -355,11 +349,12 @@ export declare class AtomicServiceWebController {
   getUserAgent(): string;
 
   /**
-   * Get custom user agent.
+   * Obtains a custom user agent.
    *
-   * @returns { string } Get custom User agent information.
+   * @returns { string } Information about the custom user agent. For details about the specifications and usage
+   *     scenarios, see [Developing User-Agent](docroot://web/web-default-userAgent.md).
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -367,13 +362,25 @@ export declare class AtomicServiceWebController {
   getCustomUserAgent(): string;
 
   /**
-   * Set custom user agent.
+   * Sets a custom user agent, which will override the default user agent.
    *
-   * @param { string } userAgent - User custom agent information.
+   * Set the user agent in the **onControllerAttached** callback to ensure that it takes effect. For details about the
+   * setting, see the example. Avoid setting the user agent in **onLoadIntercept**. Otherwise, the setting may fail
+   * occasionally.
+   *
+   * > **NOTE**
+   * >
+   * > If a URL is set for the **Web** component **src** and **UserAgent** is not set in the **onControllerAttached**
+   * > callback, calling **setCustomUserAgent** may cause mismatches between the loaded page and the intended user
+   * > agent.
+   *
+   * @param { string } userAgent - Information about the custom user agent. It is recommended that you obtain the
+   *     current default user agent through [getUserAgent]{@link AtomicServiceWebController#getUserAgent} and then
+   *     customize the obtained user agent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -381,10 +388,10 @@ export declare class AtomicServiceWebController {
   setCustomUserAgent(userAgent: string): void;
 
   /**
-   * Refreshes the current URL.
+   * Refreshes the web page.
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -392,10 +399,11 @@ export declare class AtomicServiceWebController {
   refresh(): void;
 
   /**
-   * Goes forward in the history of the web page.
+   * Moves to the next page based on the history stack. This API is generally used together with
+   * [accessForward]{@link AtomicServiceWebController#accessForward}.
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -403,10 +411,11 @@ export declare class AtomicServiceWebController {
   forward(): void;
 
   /**
-   * Goes back in the history of the web page.
+   * Moves to the previous page based on the history stack. This API is generally used together with
+   * [accessBackward]{@link AtomicServiceWebController#accessBackward}.
    *
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -414,11 +423,12 @@ export declare class AtomicServiceWebController {
   backward(): void;
 
   /**
-   * Checks whether the web page can go forward.
+   * Checks whether going to the next page can be performed on this page.
    *
-   * @returns { boolean } True if the web page can go forward else false.
+   * @returns { boolean } Returns **true** if going to the next page can be performed on the current page; returns
+   *     **false** otherwise.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -426,11 +436,12 @@ export declare class AtomicServiceWebController {
   accessForward(): boolean;
 
   /**
-   * Checks whether the web page can go back.
+   * Checks whether going to the previous page can be performed on this page.
    *
-   * @returns { boolean } True if the web page can go back else false.
+   * @returns { boolean } Returns **true** if going to the previous page can be performed on the current page; returns
+   *     **false** otherwise.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -438,14 +449,16 @@ export declare class AtomicServiceWebController {
   accessBackward(): boolean;
 
   /**
-   * Checks whether the web page can go back or forward the given number of steps.
+   * Checks whether this page can navigate forward or backward by the specified number of steps.
    *
-   * @param { number } step - The number of steps.
-   * @returns { boolean } True if the web page can go back else false.
+   * @param { number } step - Number of the steps to take. A positive number means to go forward, and a negative number
+   *     means to go backward.
+   * @returns { boolean } Whether the page can navigate forward or backward by the specified number of steps. Returns
+   *     **true** if navigation can be performed on the current page; returns **false** otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -453,14 +466,14 @@ export declare class AtomicServiceWebController {
   accessStep(step: number): boolean;
 
   /**
-   * Loads the URL.
+   * Loads a specified URL.
    *
-   * @param { string | Resource } url - The URL to load.
-   * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
+   * @param { string | Resource } url - URL to load.
+   * @param { Array<WebHeader> } [headers] - Additional HTTP request header of the URL.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
-   *    AtomicServiceWeb component.
+   *     AtomicServiceWeb component.
    * @throws { BusinessError } 17100002 - Invalid url.
    * @throws { BusinessError } 17100003 - Invalid resource path or file type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -471,18 +484,16 @@ export declare class AtomicServiceWebController {
 }
 
 /**
- * Defines the Web's request/response header.
+ * Describes the request/response header returned by the **AtomicServiceWeb** component.
  *
- * @typedef WebHeader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
  */
 export declare interface WebHeader {
   /**
-   * Gets the key of the request/response header.
+   * Key of the request/response header.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -490,9 +501,8 @@ export declare interface WebHeader {
   headerKey: string;
 
   /**
-   * Gets the value of the request/response header.
+   * Value of the request/response header.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -501,11 +511,11 @@ export declare interface WebHeader {
 }
 
 /**
- * Callback for OnLoadIntercept
+ * Represents the callback invoked when resource loading is intercepted.
  *
- * @typedef { function } OnLoadIntercept Function.
- * @param { OnLoadInterceptEvent } event - the load intercept event when the resources loading is intercepted.
- * @returns { boolean } True if the load is intercepted else false.
+ * @param { OnLoadInterceptEvent } event - Event triggered when resource loading is intercepted.
+ * @returns { boolean } Whether resource loading is intercepted. The value **true** indicates that resource loading is
+ *     intercepted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly

@@ -14,14 +14,23 @@
 */
 
 /**
+ * ###### Child Components
+ * 
+ * Not supported
+ * 
+ * ###### Attributes
+ * 
+ * The [universal attributes]{@link ./@internal/component/ets/common} are not supported.
+ *
  * @file Provides an advanced struct of tabs for atomic services
  * @kit ArkUI
  */
 
 /**
- * Defines AtomicServiceTabs.
+ * **AtomicServiceTabs** is an advanced component designed to streamline the use of the **Tabs** component by limiting
+ * customization options. It restricts the display to a maximum of five tabs, with fixed styles, positions, and sizes
+ * for the tabs.
  *
- * @struct { AtomicServiceTabs }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -31,7 +40,6 @@ export declare struct AtomicServiceTabs {
   /**
    * The TabContent array of tabs.
    *
-   * @type { ?[TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
@@ -71,7 +79,7 @@ export declare struct AtomicServiceTabs {
   @Prop
   tabBarPosition?: TabBarPosition;
   /**
-   * Set the layout mode of the bottom tab bar
+   * Sets the layout mode of the bottom tab bar
    *
    * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -149,7 +157,7 @@ export declare struct AtomicServiceTabs {
 }
 
 /**
- * the class for TabBarOption
+ * Array of tab bar container configurations.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -157,24 +165,25 @@ export declare struct AtomicServiceTabs {
  */
 export declare class TabBarOptions {
   /**
-   * constructor to init the tabbar including icon, text, unselectedColor and selectedColor.
+   * A constructor used to create a **TabBarOptions** instance.
    *
-   * @param { (ResourceStr | TabBarSymbol) } - icon - cannot be empty
-   * @param { ResourceStr } text - cannot be empty
-   * @param { ?ResourceColor } - unselectedColor - the color of icon and text when tabbar is unselected
-   * @param { ?ResourceColor } - selectedColor - the color of icon and text when tabbar is selected
+   * @param { (ResourceStr | TabBarSymbol) } icon - Image for the tab.
+   * @param { ResourceStr } text - Text of the tab.
+   * @param { ResourceColor } [unselectedColor] - Color of the tab when it is not selected.
+   *     <br>Default value: **#99182431**
+   * @param { ResourceColor } [selectedColor] - Color of the tab when it is selected.
+   *     <br>Default value: **#FF007DFF**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
-   **/
+   */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr,
     unselectedColor?: ResourceColor, selectedColor?: ResourceColor);
 }
 
 /**
- * the enum for TabBarOption.
+ * Position of the tab bar. The default value is **TabBarPosition.BOTTOM**.
  *
- * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -182,7 +191,7 @@ export declare class TabBarOptions {
 export declare enum TabBarPosition {
 
   /**
-   * when the TabBarPosition set left,the tabs is located on the left of the tabs
+   * The tab bar is on the left side of the screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -191,19 +200,18 @@ export declare enum TabBarPosition {
   LEFT = 0,
 
   /**
-   * when the TabBarPosition set bottom,the tabs is located on the bottom of the tabs
+   * The tab bar is at the bottom of the screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamiconly
    */
-  BOTTOM = 1,
+  BOTTOM = 1
 }
 
 /**
- * CustomBuilder for tabContent
+ * Defines the content view container.
  *
- * @typedef { function } TabContentBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -211,11 +219,10 @@ export declare enum TabBarPosition {
 export type TabContentBuilder = () => void;
 
 /**
- * Callback for OnContentWillChange
+ * Defines the callback function triggered when the page content changes.
  *
- * @typedef { function } OnContentWillChange
- * @param { number } currentIndex - the index value of the current tab.
- * @param { number } comingIndex - the index value of the tab that will change.
+ * @param { number } currentIndex - Index of the current tab.
+ * @param { number } comingIndex - Index of the tab to be switched to.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
