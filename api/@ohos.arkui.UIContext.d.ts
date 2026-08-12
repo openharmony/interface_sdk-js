@@ -2584,7 +2584,7 @@ export class UIObserver {
    * @atomicservice
    * @since 22 dynamic
    */
-  on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void
+  on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
@@ -2599,7 +2599,7 @@ export class UIObserver {
    * @atomicservice
    * @since 22 dynamic
    */
-  off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void
+  off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
   /**
    * Registers a callback to listen for gesture triggering information.
