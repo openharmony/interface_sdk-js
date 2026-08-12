@@ -41,12 +41,12 @@ declare namespace fontManager {
    *     <br>- 返回其他值：安装失败，请根据错误码排查原因。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
-   * @throws { BusinessError } 31100101 - Font does not exist.
-   * @throws { BusinessError } 31100102 - Font is not supported.
-   * @throws { BusinessError } 31100103 - Font file copy failed.
-   * @throws { BusinessError } 31100104 - Font file installed.
-   * @throws { BusinessError } 31100105 - Exceeded maximum number of installed files.
-   * @throws { BusinessError } 31100106 - Other error.
+   * @throws { BusinessError } 31100101 - The font does not exist.
+   * @throws { BusinessError } 31100102 - The font is not supported.
+   * @throws { BusinessError } 31100103 - Failed to copy the font file.
+   * @throws { BusinessError } 31100104 - The font file is installed.
+   * @throws { BusinessError } 31100105 - Exceeded the maximum number of installed files.
+   * @throws { BusinessError } 31100106 - The system ability works abnormally.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
    * @since 19 dynamic
@@ -65,9 +65,9 @@ declare namespace fontManager {
    *     <br>- 返回其他值：卸载失败，请根据错误码排查原因。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
-   * @throws { BusinessError } 31100107 - Font file does not exist.
-   * @throws { BusinessError } 31100108 - Font file delete error.
-   * @throws { BusinessError } 31100109 - Other error.
+   * @throws { BusinessError } 31100107 - The font file does not exist.
+   * @throws { BusinessError } 31100108 - Failed to delete the font file.
+   * @throws { BusinessError } 31100109 - The system ability works abnormally.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
    * @since 19 dynamic
@@ -85,8 +85,8 @@ declare namespace fontManager {
    *     <br>- 其他值：迁移任务启动失败，请根据错误码排查原因。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
-   * @throws { BusinessError } 31100110 Call failed due to system error.
-   * @throws { BusinessError } 31100111 Data migration is in progress.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100111 - Data migration is in progress.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
    * @since 23 dynamic&static
