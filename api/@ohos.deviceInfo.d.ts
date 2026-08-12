@@ -683,7 +683,7 @@ declare namespace deviceInfo {
      *     - For API 26.0.0 & 26.0.0+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
      *     - For API 26.0.0- (version < 26.0.0): Represents Distribution OS API version
      *     - Number format (e.g., 13): Represents OpenHarmony SDK API version (API 26- only)
-     *     M>=26,0<=S<=99,0<=F<=99. An error will be thrown when an invalid value is passed in.
+     *     M>=26,0<=S<=99,0<=F<=99. A compilation error occurs when an invalid literal is input.
      * @returns { boolean } Boolean value. The value **true** indicates that the current version number is later than
      *     or equal to the input parameter version number; **false** indicates that the current device's API version
      *     is lower than the input version number, or the input version number is in an invalid format,
