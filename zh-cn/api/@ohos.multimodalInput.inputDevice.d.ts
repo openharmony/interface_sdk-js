@@ -224,7 +224,7 @@ declare namespace inputDevice {
    * 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
    *
    * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
-   * @param { Callback<DeviceListener> } listener - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
+   * @param { Callback<DeviceListener> } [listener] - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -790,7 +790,7 @@ declare namespace inputDevice {
    * @param { FunctionKey } functionKey - 需要设置的功能键类型。
    * @param { boolean } enabled - 功能键使能状态。取值为true表示使能功能键，取值为false表示不使能功能键。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.

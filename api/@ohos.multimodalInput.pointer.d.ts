@@ -1830,9 +1830,9 @@ declare namespace pointer {
    *
    * @param { int } windowId - Window ID.
    * @param { image.PixelMap } pixelMap - Custom cursor resource.
-   * @param { int } focusX - Custom cursor focus X, in px. The value must be greater than or equal to 0. The default
+   * @param { int } [focusX] - Custom cursor focus X, in px. The value must be greater than or equal to 0. The default
    *     value is **0**.
-   * @param { int } focusY - Custom cursor focus Y, in px. The value must be greater than or equal to 0. The default
+   * @param { int } [focusY] - Custom cursor focus Y, in px. The value must be greater than or equal to 0. The default
    *     value is **0**.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1851,9 +1851,9 @@ declare namespace pointer {
    *
    * @param { int } windowId - Window ID. The value must be an integer greater than 0.
    * @param { image.PixelMap } pixelMap - Custom cursor resource.
-   * @param { int } focusX - Custom pointer focus X, in px. The value must be greater than or equal to 0. The default
+   * @param { int } [focusX] - Custom pointer focus X, in px. The value must be greater than or equal to 0. The default
    *     value is **0**.
-   * @param { int } focusY - Custom pointer focus Y, in px. The value must be greater than or equal to 0. The default
+   * @param { int } [focusY] - Custom pointer focus Y, in px. The value must be greater than or equal to 0. The default
    *     value is **0**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.

@@ -1703,8 +1703,8 @@ declare namespace pointer {
    *
    * @param { int } windowId - 窗口ID。
    * @param { image.PixelMap } pixelMap - 自定义光标资源。
-   * @param { int } focusX - 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。
-   * @param { int } focusY - 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。
+   * @param { int } [focusX] - 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。
+   * @param { int } [focusY] - 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1720,8 +1720,8 @@ declare namespace pointer {
    *
    * @param { int } windowId - 窗口ID。取值为大于0的整数。
    * @param { image.PixelMap } pixelMap - 自定义光标资源。
-   * @param { int } focusX - 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。
-   * @param { int } focusY - 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。
+   * @param { int } [focusX] - 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。
+   * @param { int } [focusY] - 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
