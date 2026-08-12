@@ -11018,7 +11018,6 @@ export declare interface ContextMenuOptions {
      */
     transition?: TransitionEffect;
     /**
-    /**
       * 菜单组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
       *
       * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
@@ -12156,16 +12155,15 @@ export declare enum OutlineStyle {
     DOTTED = 2
 }
 /**
- * Defines the drag preview mode.
+ * 设置拖拽预览图的显示模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum DragPreviewMode {
     /**
-     * Default preview mode, let system process preview scale.
+     * 系统根据拖拽场景自动改变跟手点位置，根据规则自动对拖拽背板图进行缩放变换等。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12173,7 +12171,7 @@ export declare enum DragPreviewMode {
      */
     AUTO = 1,
     /**
-     * Disable system scale to preview panel
+     * 禁用系统对拖拽背板图的缩放行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12181,7 +12179,7 @@ export declare enum DragPreviewMode {
      */
     DISABLE_SCALE = 2,
     /**
-     * Enable the default shadow effect of preview.
+     * 启用非文本类组件默认阴影效果。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12189,7 +12187,7 @@ export declare enum DragPreviewMode {
      */
     ENABLE_DEFAULT_SHADOW = 3,
     /**
-     * Enable the default radius effect of preview.
+     * 启用非文本类组件统一圆角效果，默认值12vp。当应用自身设置的圆角值大于默认值或modifier设置的圆角时，则显示应用自定义圆角效果。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12197,7 +12195,8 @@ export declare enum DragPreviewMode {
      */
     ENABLE_DEFAULT_RADIUS = 4,
     /**
-     * Enable the default gray effect on the dragging item.
+     * 启用支持原拖拽对象灰显（透明度）效果，对文本内容拖拽不生效。用户拖起时原对象显示灰显效果，释放时原对象恢复原有效果。开启默认灰显效果后，不建议在拖拽开始后自行修改透明度，如果开发者在拖拽发起后自行修改应用透明度，则灰显效果将被
+     * 覆盖，且在结束拖拽时无法正确恢复原始透明度效果。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12205,7 +12204,8 @@ export declare enum DragPreviewMode {
      */
     ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
     /**
-     * Enable the tile effect for multi drag, each dragged graph is display in the original relative position.
+     * 启用支持多选对象鼠标拖拽不聚拢效果，各拖拽图显示在其原始位置的相对位置，当满足多选的情况下且isMultiSelectionEnabled为true时该参数才生效。不聚拢效果优先级高于
+     * [dragPreview]{@link CommonMethod#dragPreview}。不支持二次拖拽、圆角和缩放设置。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12213,7 +12213,7 @@ export declare enum DragPreviewMode {
      */
     ENABLE_MULTI_TILE_EFFECT = 6,
     /**
-     * Enable the touch point calculation position based on final preview rect.
+     * 启用支持以拖拽预览图初始尺寸计算跟手点位置，长按浮起图和拖拽图不一致时使用。鼠标拖拽，设置DragPreviewMode.ENABLE_MULTI_TILE_EFFECT时不生效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -12222,9 +12222,8 @@ export declare enum DragPreviewMode {
     ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7
 }
 /**
- * Define drag start animation effect from drag preview to the handle drag image
+ * 当一个节点上同时设置长按浮起预览（参考[bindContextMenu]{@link CommonMethod.bindContextMenu}）与拖拽时，使用该字段设置长按浮起预览图与拖拽预览图过渡动效方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -12993,7 +12992,7 @@ export declare interface CommonMethod {
     /**
      * 为当前组件提供一种背景材质模糊能力，通过枚举值的方式封装了不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
      *
-     * @param { BlurStyle | undefined } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined  时，恢复为默认
+     * @param { BlurStyle | undefined } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined时，恢复为默认
      *     关闭模糊的背景。
      * @param { BackgroundBlurStyleOptions } [options] - 背景模糊选项。<br/>该参数在ArkTS卡片中，暂不支持使用。
      * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
@@ -13010,7 +13009,7 @@ export declare interface CommonMethod {
      * >
      * > backgroundEffect接口为实时接口，每帧对模糊等效果执行实时渲染，性能负载较大。当组件背景模糊效果无需变动时，推荐采用静态模糊接口
      * > [blur]{@link @ohos.effectKit:effectKit.Filter.blur(radius: double)}实现模糊效果。最佳实践请参考：
-     * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/  bpta-fuzzy-scene-performance-optimization#section4945532519)。
+     * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fuzzy-scene-performance-optimization#section4945532519)。
      *
      * @param { BackgroundEffectOptions | undefined } options - 设置组件背景属性包括：饱和度，亮度，颜色。<br/>当options的值为undefined时，恢复为无效果的背
      *     景。
