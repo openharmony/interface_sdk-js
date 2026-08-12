@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +14,18 @@
  */
 
 /**
+ * WebNativeMessagingExtensionAbility is a base class for web native message communication extension provided by ArkWeb,
+ * inherited from ExtensionAbility. It allows web pages to establish a secure, bidirectional pipe communication channel 
+ * with system native services through the Native Messaging mechanism. By inheriting this class and implementing its 
+ * lifecycle callbacks (such as [onConnectNative]{@link WebNativeMessagingExtensionAbility#onConnectNative}, 
+ * [onDisconnectNative]{@link WebNativeMessagingExtensionAbility#onDisconnectNative}, and 
+ * [onDestroy]{@link WebNativeMessagingExtensionAbility#onDestroy}), developers can detect connection establishment when
+ * a web page initiates a connection request, obtain the caller identity and bidirectional pipe file descriptors (see 
+ * [ConnectionInfo]{@link ConnectionInfo}), and release resources when the connection is disconnected or the extension 
+ * is destroyed. This capability is primarily used in scenarios where browser extensions communicate with apps, enabling
+ * efficient message passing and data exchange to enhance extension integration and functionality. The app side must 
+ * manage pipe read/write operations, permission verification, and the Ability lifecycle on its own.
+ *
  * @file
  * @kit ArkWeb
  */
@@ -28,10 +39,10 @@ import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessag
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
  */
-
 export interface ConnectionInfo {
   /**
-   * Connection ID.
+   * Unique identifier of the connection, used to distinguish and manage different Web native message connections. It
+   * can be used to locate a specific connection during logging, status tracking, or resource cleanup.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -39,7 +50,8 @@ export interface ConnectionInfo {
   connectionId: number;
 
   /**
-   * Application bundle name of the caller.
+   * App package name of the caller, used for identity identification and permission verification. It can be used to
+   * determine whether to allow the app to establish a connection or perform message interaction.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -47,7 +59,8 @@ export interface ConnectionInfo {
   bundleName: string;
 
   /**
-   * Original URL of the caller extension.
+   * Original URL of the caller extension, used for security control and origin identification. It can be used to
+   * determine the legitimacy of the extension or implement domain-based access policies.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -55,7 +68,7 @@ export interface ConnectionInfo {
   extensionOrigin: string;
 
   /**
-   * Pipe file descriptor used to read data.
+   * Pipe file descriptor used for reading data. Messages can be read from the Web side through this file descriptor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -63,7 +76,7 @@ export interface ConnectionInfo {
   fdRead: number;
 
   /**
-   * Pipe file descriptor used to write data.
+   * Pipe file descriptor used for writing data. Messages can be sent to the Web side through this file descriptor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -72,7 +85,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * class of web native messaging extension ability.
+ * Provides the web native messaging capability and is inherited from ExtensionAbility.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -80,7 +93,7 @@ export interface ConnectionInfo {
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
-   * Context of web native messaging.
+   * Context of the current web native message ExtensionAbility.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -89,9 +102,10 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   context: WebNativeMessagingExtensionContext;
 
   /**
-   * Called when a web native messaging connection is established.
+   * Called when a web native message connection is established. In this callback, you can obtain the connection
+   * information for subsequent message communication processing.
    *
-   * @param { ConnectionInfo } info - Indicates connection information about new native connection.
+   * @param { ConnectionInfo } info - Connection information.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
@@ -99,9 +113,10 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onConnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called when a web native messaging connection is disconnected.
+   * Called when a web native message connection is disconnected. In this callback, you can release resources related to
+   * the connection and complete necessary cleanup.
    *
-   * @param { ConnectionInfo } info - Indicates connection information about new native connection.
+   * @param { ConnectionInfo } info - Connection information.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
@@ -109,7 +124,8 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
   onDisconnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called when the WebNativeMessagingExtensionAbility is destroyed.
+   * Called when the WebNativeMessagingExtensionAbility is destroyed. In this callback, you can release all occupied
+   * resources and complete final cleanup operations.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly

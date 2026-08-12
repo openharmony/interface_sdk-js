@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,8 +22,18 @@ import type UIAbilityContext from './application/UIAbilityContext';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The webNativeMessagingExtensionManager module provides the capability of managing message extensions based on web
- * standards.
+ * The webNativeMessagingExtensionManager module is a Web native message extension management module provided by ArkWeb.
+ * It is used to initiate and manage connections from the app side (caller) to
+ * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}. Developers can call
+ * [connectNative]{@link webNativeMessagingExtensionManager.connectNative} to specify the target extension Ability and
+ * establish a connection, use the returned connection ID and
+ * [WebExtensionConnectionCallback]{@link webNativeMessagingExtensionManager.WebExtensionConnectionCallback} to listen
+ * for connection establishment, disconnection, and failure events, and call
+ * [disconnectNative]{@link webNativeMessagingExtensionManager.disconnectNative} to actively release the connection.
+ * This module is suitable for scenarios where browser extensions communicate with apps. Before using it, you need to
+ * request the
+ * [ohos.permission.WEB_NATIVE_MESSAGING](docroot://security/AccessToken/restricted-permissions.md#ohospermissionweb_native_messaging)
+ * permission, and it is available only under the Stage model.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -40,8 +49,8 @@ declare namespace webNativeMessagingExtensionManager {
 
   interface ConnectionNativeInfo {
     /**
-     * Connection ID.
-     * The value range is all integers.
+     * Unique identifier of the Web native message extension connection, returned by connectNative() and used to
+     * identify and manage the connection.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -69,7 +78,6 @@ declare namespace webNativeMessagingExtensionManager {
 
     /**
      * Process ID of the web native message extension.
-     * The value range is all integers.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -123,7 +131,8 @@ declare namespace webNativeMessagingExtensionManager {
     /**
      * Called when a connection is set up.
      *
-     * @param { ConnectionNativeInfo } connection - Connection information.
+     * @param { ConnectionNativeInfo } connection - Connection information, including the connection ID, extension
+     *     application bundle name, browser extension source URL, and extension process ID.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
@@ -133,7 +142,8 @@ declare namespace webNativeMessagingExtensionManager {
     /**
      * Called when a connection is interrupted.
      *
-     * @param { ConnectionNativeInfo } connection - Connection information.
+     * @param { ConnectionNativeInfo } connection - Connection information, including the connection ID, extension
+     *     application package name, browser extension source URL, and extension process ID.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
@@ -156,10 +166,15 @@ declare namespace webNativeMessagingExtensionManager {
    * Connects the current ability to the specified web native message extension ability.
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { UIAbilityContext } context - Context of the caller UIAbility.
-   * @param { Want } want - Want information about the target ability.
+   * @param { UIAbilityContext } context - Context of the calling UIAbility.
+   * @param { Want } want - Want information for starting the Ability, whose parameters must include '
+   *     ohos.arkweb.messageReadPipe' (read pipe FD), 'ohos.arkweb.messageWritePipe' (write pipe FD), and '
+   *     ohos.arkweb.extensionOrigin' (extension URI).
    * @param { WebExtensionConnectionCallback } callback - Callback object of the WebExtensionConnection status.
-   * @returns { number } Connection ID.
+   * @returns { number } ID of the connection, returned by the
+   *     [connectNative]{@link webNativeMessagingExtensionManager.connectNative} method, used to uniquely identify a Web
+   *     native message extension connection. The connection must be released through disconnectNative after being
+   *     established.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -171,8 +186,11 @@ declare namespace webNativeMessagingExtensionManager {
    * Disconnects the connection of a specified web native message extension.
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { number } connectionId - Connection ID.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } connectionId - Connection identifier, used to identify a Web native message extension connection,
+   *     returned by the [connectNative]{@link webNativeMessagingExtensionManager.connectNative} method. After
+   *     establishing the connection, it must be released through disconnectNative. A valid connection ID returned by
+   *     connectNative must be used.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.

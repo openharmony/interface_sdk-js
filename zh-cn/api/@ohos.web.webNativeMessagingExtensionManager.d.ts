@@ -194,6 +194,4 @@ declare namespace webNativeMessagingExtensionManager {
   function disconnectNative(connectionId: number): Promise<void>;
 }
 
-export default WebNativeMessagingExtensionManager;
-
 export default webNativeMessagingExtensionManager;
