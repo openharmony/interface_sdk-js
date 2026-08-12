@@ -1505,9 +1505,13 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
- * Represents the page information of the router or navigation destination.
- * If there is no related page information, **undefined** is returned.
+ * Defines the PageInfo type.
+ * The value of routerPageInfo indicates the information of the router page, or undefined if the
+ * frameNode does not have router page information. And the value of navDestinationInfo indicates
+ * the information of the navDestination, or undefined if the frameNode does not have navDestination
+ * information.
  *
+ * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1517,8 +1521,9 @@ export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void
 export interface PageInfo {
 
   /**
-   * Router information.
+   * the property of router page information.
    *
+   * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1688,7 +1693,7 @@ export class UIObserver {
   /**
    * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - Event type.
+   * @param { 'navDestinationUpdate' } type - Event type. 
    * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event
    * <br>of the **NavDestination** component.
    * @param { object } options - ID of the target **NavDestination** component.
@@ -1697,37 +1702,11 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Subscribes to status changes of this **NavDestination** component.
-   *
-   * @param { 'navDestinationUpdate' } type - Event type.
-   * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event
-   * <br>of the **NavDestination** component.
-   * @param { object } options - ID of the target **NavDestination** component.
-   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current
-   * <br>state of the **NavDestination** component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { object } options - Specify the id of observed navigation.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                             navigation ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
@@ -1738,28 +1717,15 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Subscribes to status changes of this **NavDestination** component.
    *
-   * @param { 'navDestinationUpdate' } type - Event type.
-   * The value is fixed at **'navDestinationUpdate'**, which indicates the state change event of
-   * <br>the **NavDestination** component.
-   * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current state of
-   * <brthe **NavDestination** component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Subscribes to status changes of this **NavDestination** component.
-   *
-   * @param { 'navDestinationUpdate' } type - Event type.
+   * @param { 'navDestinationUpdate' } type - Event type. 
    * The value is fixed at **'navDestinationUpdate'**,
    * <br>which indicates the state change event of the **NavDestination** component.
    * @param { Callback<observer.NavDestinationInfo> } callback - Callback used to return the current state of
@@ -1767,33 +1733,20 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
@@ -1889,24 +1842,13 @@ export class UIObserver {
    * Unsubscribes to state changes of the page in the router.
    *
    * @param { 'routerPageUpdate' } type - Event type.
-   * <br>The value is fixed at 'routerPageUpdate', which indicates the state change event of the page in the router.
+   *     <br>The value is fixed at 'routerPageUpdate', which indicates the state change event of the page in the router.
    * @param { Callback<observer.RouterPageInfo> } callback - Callback to be unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Unsubscribes to state changes of the page in the router.
-   *
-   * @param { 'routerPageUpdate' } type - Event type.
-   * <br>The value is fixed at 'routerPageUpdate', which indicates the state change event of the page in the router.
-   * @param { Callback<observer.RouterPageInfo> } callback - Callback to be unregistered.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void;
 
@@ -2775,8 +2717,9 @@ export class UIObserver {
 }
 
 /**
- * Provides content area information of the **Swiper** component.
+ * The information returned when the Swiper content changes.
  *
+ * @interface SwiperContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2786,8 +2729,9 @@ export class UIObserver {
 export interface SwiperContentInfo {
 
   /**
-   * ID of the **Swiper** component.
+   * Swiper id, set by the 'id' attribute.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2797,8 +2741,9 @@ export interface SwiperContentInfo {
   id: string;
 
   /**
-   * Unique ID of the **Swiper** component.
+   * Swiper uniqueId, generated by the system.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2808,8 +2753,9 @@ export interface SwiperContentInfo {
   uniqueId: number;
 
   /**
-   * Information about the currently visible child components within the **Swiper** container.
+   * The array of changed SwiperItemInfo.
    *
+   * @type { Array<SwiperItemInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2820,8 +2766,9 @@ export interface SwiperContentInfo {
 }
 
 /**
- * Provides information about **Swiper** child components.
+ * The information of changed SwiperItem.
  *
+ * @interface SwiperContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2831,8 +2778,9 @@ export interface SwiperContentInfo {
 export interface SwiperItemInfo {
 
   /**
-   * Unique ID of the **Swiper** child component.
+   * The uniqueId of SwiperItem.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2842,8 +2790,9 @@ export interface SwiperItemInfo {
   uniqueId: number;
 
   /**
-   * Index of the child component in the **Swiper** container.
+   * The index of SwiperItem.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
