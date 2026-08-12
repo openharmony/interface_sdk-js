@@ -1740,6 +1740,7 @@ export class UIObserver {
 
   /**
    * Removes a callback function that was previously registered with `on()`.
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6396,6 +6397,7 @@ export const enum TextSelectionClearPolicy {
 /**
  * Enum of SwiperDynamicSyncSceneType
  *
+ * @enum { number } SwiperDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
