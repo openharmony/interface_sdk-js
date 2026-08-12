@@ -1313,7 +1313,10 @@ declare namespace sendablePhotoAccessHelper {
      * @systemapi
      * @since 12 dynamiconly
      */
-    getHiddenAlbums(mode: photoAccessHelper.HiddenPhotosDisplayMode, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
+    getHiddenAlbums(
+      mode: photoAccessHelper.HiddenPhotosDisplayMode, 
+      options?: photoAccessHelper.FetchOptions
+    ): Promise<FetchResult<Album>>;
     /**
      * 释放PhotoAccessHelper实例，当后续不需要使用PhotoAccessHelper实例中的方法时调用。使用Promise异步回调。
      *
