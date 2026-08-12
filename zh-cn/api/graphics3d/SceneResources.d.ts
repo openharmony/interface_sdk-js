@@ -134,7 +134,7 @@ export enum SceneResourceType {
  */
 export interface SceneResource {
   /**
-   * 场景资源名称.
+   * 场景资源名称，没有特殊格式要求。
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -144,7 +144,7 @@ export interface SceneResource {
   name: string;
 
   /**
-   * 场景资源类型.
+   * 场景资源类型，默认值为undefined。
    *
    * @type { SceneResourceType }
    * @readonly
@@ -155,7 +155,7 @@ export interface SceneResource {
   readonly resourceType: SceneResourceType;
 
   /**
-   * 场景资源URI.
+   * 需要加载的场景资源URI，默认值为undefined。
    *
    * @type { ?ResourceStr }
    * @readonly
@@ -167,7 +167,7 @@ export interface SceneResource {
 
 
   /**
-   * 释放场景资源.
+   * 销毁场景资源，释放所有关联的资源或引用，一旦被释放，资源就不能被再次使用或访问。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -251,7 +251,7 @@ export enum MaterialType {
   OCCLUSION = 4,
 
   /**
-   * 仅渲染材质表面接收的阴影，材质透明。
+   * 仅对阴影进行绘制，当材质开启[Blend]{@link Blend}属性，与背景融合模拟透明材质效果。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -390,7 +390,7 @@ export interface RenderSort {
 }
 
 /**
- * 材质资源.
+ * 材质类型，继承自[SceneResource]{@link SceneResource}。
  *
  * @extends SceneResource
  * @interface Material
@@ -400,7 +400,7 @@ export interface RenderSort {
  */
 export interface Material extends SceneResource {
   /**
-   * 材质资源类型.
+   * 材质类型。
    *
    * @type { MaterialType }
    * @readonly
@@ -411,7 +411,7 @@ export interface Material extends SceneResource {
   readonly materialType: MaterialType;
   
   /**
-   * 定义材质是否可以接收阴影.
+   * 材质是否接收阴影。true表示该材质接收阴影，false表示不接收，默认值为false。
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -421,7 +421,7 @@ export interface Material extends SceneResource {
   shadowReceiver?: boolean;
 
   /**
-   * 剔除模式.
+   * 当前材质的剔除模式设置，用于控制是否剔除背面几何面片，默认值为BACK。
    * 
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -431,7 +431,7 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * 控制是否启用混合
+   * 材质的透明效果设置，默认值为undefined，即禁用材质的透明属性。
    * 
    * @type { ?Blend }
    * @default undefined, which means that blending is disabled.
@@ -442,7 +442,8 @@ export interface Material extends SceneResource {
   blend?: Blend;
 
   /**
-   * 透明度截止值[0,1]. Enabled if < 1.
+   * 透明通道阈值，如果像素的alpha值等于或高于此阈值，则渲染该像素；如果低于此阈值，则不会渲染该像素。
+   * 设置值小于1时，则开启该模式，取值范围为[0, 1]，默认值为1。
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -452,7 +453,7 @@ export interface Material extends SceneResource {
   alphaCutoff?: double;
 
   /**
-   * 层的渲染排序优先级.
+   * 渲染排序设置，用于控制材质在渲染管线中的渲染顺序，渲染图层id默认值为32，同一图层内的渲染顺序默认值为0。
    * 
    * @type { ?RenderSort }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -462,7 +463,7 @@ export interface Material extends SceneResource {
   renderSort?: RenderSort;
 
   /**
-   * 材质的多边形模式
+   * 模型的多边形绘制模式，默认值为FILL。
    * 
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL 填充多边形模式
@@ -502,7 +503,7 @@ export interface MaterialProperty {
   factor: Vec4;
 
   /**
-   * 纹理采样器.
+   * 纹理贴图采样器，默认使用放大、缩小和mipmap过滤模式为线性过滤（LINEAR），纹理贴图U、V、W方向的寻址模式为重复（REPEAT）。
    * 
    * @type { ?Sampler }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -655,7 +656,8 @@ export interface UnlitMaterial extends Material {
 }
 
 /**
- * 无光照阴影透明度材质资源
+ * 无光照阴影透明度材质资源。
+ * 此材质继承自[Material]{@link Material}，仅绘制材质表面阴影。材质启用[Blend]{@link Blend}属性时，可与背景融合模拟透明效果。
  * 
  * @extends Material
  * @interface UnlitShadowAlphaMaterial
@@ -1017,7 +1019,7 @@ export interface Animation extends SceneResource {
   readonly progress: double;
 
   /**
-   * 注册动画完成时的回调.
+   * 动画播放结束时执行的回调函数，动画播放完成或者finish操作会触发这个回调。
    *
    * @param { Callback<void> } callback - 动画完成时调用的回调
    * @syscap SystemCapability.ArkUi.Graphics3D

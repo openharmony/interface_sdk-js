@@ -23,7 +23,15 @@ import { Node } from './SceneNodes';
 import { Vec3, Quaternion } from './SceneTypes';
 
 /**
- * 每个boid绑定的群组模拟参数.
+ * 群组模拟参数，用于配置每个个体的行为属性。
+ *
+ * > **说明：**
+ * > 模拟帧是指群组模拟中按固定时间步长执行的更新周期，类似Unity中的FixedUpdate。
+ * > 默认时间步长为16ms（约62.5FPS），模拟通过累积真实时间并按固定步长消耗来驱动。
+ * > 下文部分参数的默认值基于该时间步长计算：
+ * > - maxVelocityMag： 0.01 / 0.016 ≈ 0.625（m/s）。
+ * > - maxAccelerationMag： maxVelocityMag / 0.016 ≈ 39.06（m/s²）。
+ * > - maxTurnRate： π × 0.75 × 0.016 ≈ 0.0377（rad/模拟帧）。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -32,7 +40,7 @@ import { Vec3, Quaternion } from './SceneTypes';
  */
 export interface BoidsSimParameters {
   /**
-   * boid的初始速度. 默认值：(0, 0, 0).
+   * 每个个体的初始速度向量，各分量单位为m/s。默认值为(0, 0, 0)。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -42,8 +50,7 @@ export interface BoidsSimParameters {
   initialVelocity?: Vec3;
 
   /**
-   * boid的初始位置. 未设置时，使用实体的当前变换位置.
-   * 默认值：(NaN, NaN, NaN).
+   * 每个个体的初始位置，各分量单位为m。未设置时保留当前实体位置。默认值为(NaN, NaN, NaN)。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -84,7 +91,7 @@ export interface BoidsSimParameters {
   boundaryMaxPos?: Vec3;
 
   /**
-   * boid每模拟帧可达到的最大速度. 取值范围：[0, +∞). 默认值：约为0.625.
+   * 个体每模拟帧可达到的最大速度，单位为m/s。取值 >= 0。默认值约为0.625。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -94,7 +101,7 @@ export interface BoidsSimParameters {
   maxVelocityMag?: double;
 
   /**
-   * boid每模拟帧可达到的最大加速度. 取值范围：[0, +∞). 默认值：约为39.06.
+   * 个体每模拟帧可达到的最大加速度，单位为m/s²。取值 >= 0。默认值约为39.06。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -104,8 +111,7 @@ export interface BoidsSimParameters {
   maxAccelerationMag?: double;
 
   /**
-   * 每模拟帧每轴最大转向速率. 取值范围：[0, +∞) per axis.
-   * 默认值：每轴约为0.0377.
+   * 每模拟帧每轴最大转向速率，各分量单位为rad/模拟帧。每个分量取值 >= 0。默认值各分量约为0.0377。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -115,7 +121,7 @@ export interface BoidsSimParameters {
   maxTurnRate?: Vec3;
 
   /**
-   * boid在separationDistance范围内避开邻近个体的强度。取值范围：[0, +∞)。默认值：0.0
+   * 分离规则权重。个体在separationDistance范围内受邻近个体排斥的强度。取值 >= 0。默认值为0.0。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -125,7 +131,7 @@ export interface BoidsSimParameters {
   separationWeight?: double;
 
   /**
-   * 分离规则的感知半径。此距离范围内的boid会产生分离力（边界处力为零）。取值范围：[0, +∞)。默认值：0.0
+   * 分离规则的感知半径，单位为m。仅严格在该距离内的邻近个体对分离力有贡献（边界处力为0）。取值 >= 0。默认值为0.0。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -175,7 +181,7 @@ export interface BoidsSimParameters {
   cohesionDistance?: double;
 
   /**
-   * boid在boundaryDistance范围内被边界墙推回的强度。取值范围：[0, +∞)。默认值：0.0
+   * 边界约束力权重。个体在boundaryDistance范围内被边界墙推回的强度。取值 >= 0。默认值为0.0。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -277,6 +283,9 @@ export interface BoidsSimRepulsionParameters {
 
 /**
  * 群组模拟世界接口. 提供群组模拟的播放控制和组件管理.
+ *
+ * > **说明：**
+ * > 使用以下接口前，需先通过[BoidsSimPlugin.getDefaultBoidsSimWorld]{@link BoidsSimPlugin.getDefaultBoidsSimWorld}获取群组模拟世界实例。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -480,7 +489,7 @@ export declare class BoidsSimPlugin {
    * 获取指定场景的默认群组模拟世界.
    *
    * @param { Scene } scene - 要获取群组模拟世界的场景
-   * @returns { BoidsSimWorld | null } 群组模拟世界，如果插件未加载则返回null
+   * @returns { BoidsSimWorld | null } 返回群组模拟世界实例，若不存在则返回null。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly

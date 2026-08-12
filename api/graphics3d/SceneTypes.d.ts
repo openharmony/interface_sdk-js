@@ -19,7 +19,8 @@
  */
 
 /**
- * Defines Vec2.
+ * A two-dimensional vector used to represent a point or a direction in 2D space.
+ * It consists of two components: x and y.
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +29,7 @@
  */
 export interface Vec2 {
   /**
-   * X component of the vec2.
+   * Component on the X axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -38,7 +39,7 @@ export interface Vec2 {
   x: double;
 
   /**
-   * Y component of the vec2.
+   * Component on the Y axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -49,7 +50,8 @@ export interface Vec2 {
 }
 
 /**
- * Defines Vec3.
+ * A three-dimensional vector used to represent a point, a direction, or a vector transformation in 3D space.
+ * It consists of three components: x, y, and z.
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -58,7 +60,7 @@ export interface Vec2 {
  */
 export interface Vec3 {
   /**
-   * X component of the vec3.
+   * Component on the X axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -68,7 +70,7 @@ export interface Vec3 {
   x: double;
 
   /**
-   * Y component of the vec3.
+   * Component on the Y axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -78,7 +80,7 @@ export interface Vec3 {
   y: double;
 
   /**
-   * Z component of the vec3.
+   * Component on the Z axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -89,7 +91,9 @@ export interface Vec3 {
 }
 
 /**
- * Defines Vec4.
+ * A four-dimensional vector used to represent a point, a direction, or a vector transformation in 4D space.
+ * It consists of four components: x, y, z, and w. The fourth component (w) enhances normalization
+ * and convenience for various calculations and transformations.
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -98,7 +102,7 @@ export interface Vec3 {
  */
 export interface Vec4 {
   /**
-   * X component of the vec4.
+   * Component on the X axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -108,7 +112,7 @@ export interface Vec4 {
   x: double;
 
   /**
-   * Y component of the vec4.
+   * Component on the Y axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -118,7 +122,7 @@ export interface Vec4 {
   y: double;
 
   /**
-   * Z component of the vec4.
+   * Component on the Z axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -128,7 +132,7 @@ export interface Vec4 {
   z: double;
 
   /**
-   * W component of the vec4.
+   * Component on the W axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -139,7 +143,8 @@ export interface Vec4 {
 }
 
 /**
- * Quaternion representing a rotation.
+ * A mathematical notation for representing spatial rotations of elements in 3D space.
+ * Compared with Euler angles, a quaternion has advantages in numerical stability and avoiding the gimbal lock problem.
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -148,7 +153,7 @@ export interface Vec4 {
  */
 export interface Quaternion {
   /**
-   * X component of the quaternion.
+   * Component on the X axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -158,7 +163,7 @@ export interface Quaternion {
   x: double;
 
   /**
-   * Y component of the quaternion.
+   * Component on the Y axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,7 +173,7 @@ export interface Quaternion {
   y: double;
 
   /**
-   * Z component of the quaternion.
+   * Component on the Z axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -178,7 +183,7 @@ export interface Quaternion {
   z: double;
 
   /**
-   * W component of the quaternion.
+   * Component on the W axis. The value is a real number.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -189,7 +194,7 @@ export interface Quaternion {
 }
 
 /**
- * Axis aligned bounding box.
+ * Axis aligned boundary box used to determine whether two objects in space are overlapping.
  *
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -198,7 +203,7 @@ export interface Quaternion {
  */
 export interface Aabb {
   /**
-   * Coordinates of the AABB minimum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Minimum point of the axis-aligned bounding box, in scene units of the world coordinate system (such as cm, m, km, etc.).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -208,7 +213,7 @@ export interface Aabb {
   aabbMin: Vec3;
 
   /**
-   * Coordinates of the AABB maximum corner, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Maximum point of the axis-aligned bounding box, in scene units of the world coordinate system (such as cm, m, km, etc.).
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -219,7 +224,7 @@ export interface Aabb {
 }
 
 /**
- * Defines Color.
+ * Color in RGBA format. It consists of four components: red, green, blue, and alpha.
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -228,7 +233,7 @@ export interface Aabb {
  */
 export interface Color {
   /**
-   * R component of the color.
+   * Red component. The value range is [0, 1].
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -238,7 +243,7 @@ export interface Color {
   r: double;
 
   /**
-   * G component of the color.
+   * Green component. The value range is [0, 1].
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -248,7 +253,7 @@ export interface Color {
   g: double;
 
   /**
-   * B component of the color.
+   * Blue component. The value range is [0, 1].
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -258,7 +263,7 @@ export interface Color {
   b: double;
 
   /**
-   * A component of the color.
+   * Alpha component. The value range is [0, 1].
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -269,7 +274,7 @@ export interface Color {
 }
 
 /**
- * Defines rectangle.
+ * Rectangle in a plane.
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -278,7 +283,8 @@ export interface Color {
  */
 export interface Rect {
   /**
-   * Left up x coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * X component of the rectangle's bottom-left corner, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value can be any real number, and the specific range depends on the scene coordinate system settings.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -288,7 +294,8 @@ export interface Rect {
   x: double;
 
   /**
-   * Left up y coordinate, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Y component of the rectangle's bottom-left corner, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value can be any real number, and the specific range depends on the scene coordinate system settings.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -298,7 +305,8 @@ export interface Rect {
   y: double;
 
   /**
-   * The width of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Rectangle width, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The valid value range is greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -308,7 +316,8 @@ export interface Rect {
   width: double;
 
   /**
-   * The height of the rectangle, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Rectangle height, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The valid value range is greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -424,7 +433,7 @@ export declare abstract class GeometryDefinition {
 }
 
 /**
- * Defines Mat4x4
+ * A camera matrix, which is a mathematical tool for transforming 3D world coordinates into 2D image coordinates.
  *
  * @typedef Mat4x4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -432,7 +441,7 @@ export declare abstract class GeometryDefinition {
  */
 export interface Mat4x4 {
   /**
-   * the first column of the matrix
+   * The first column of the matrix, represented as a four-dimensional vector.
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -440,7 +449,7 @@ export interface Mat4x4 {
   x: Vec4;
 
   /**
-   * the second column of the matrix
+   * The second column of the matrix, represented as a four-dimensional vector.
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -448,7 +457,7 @@ export interface Mat4x4 {
   y: Vec4;
 
   /**
-   * the third column of the matrix
+   * The third column of the matrix, represented as a four-dimensional vector.
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -456,7 +465,7 @@ export interface Mat4x4 {
   z: Vec4;
 
   /**
-   * the fourth column of the matrix
+   * The fourth column of the matrix, represented as a four-dimensional vector.
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -819,7 +828,12 @@ export declare class SphereGeometry extends GeometryDefinition {
 }
 
 /**
- * Define a cylinder.
+ * A cylinder geometry type that inherits from [GeometryDefinition]{@link GeometryDefinition}.
+ *
+ * > **NOTE**
+ * >
+ * > You must ensure that all three parameters are set correctly.
+ * > Invalid values may prevent cylinder creation or cause undefined behavior.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
