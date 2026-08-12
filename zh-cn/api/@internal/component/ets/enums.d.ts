@@ -8292,7 +8292,7 @@ declare enum EventQueryType {
 }
 
 /**
- * Follow position type.
+ * Tips show position type.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
