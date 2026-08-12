@@ -19,7 +19,7 @@
  */
 
 /**
- * The enum of tone mapping type.
+ * Enumerates the tone mapping types.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +28,7 @@
  */
 export enum ToneMappingType {
   /**
-   * The tone mapping type is ACES.
+   * Academy Color Encoding System (ACES).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -56,7 +56,7 @@ export enum ToneMappingType {
 }
 
 /**
- * Defines tone mapping parameters.
+ * Describes the tone mapping settings.
  *
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ export enum ToneMappingType {
  */
 export interface ToneMappingSettings {
   /**
-   * Type of the tone mapping.
+   * Tone mapping type. The default value is undefined.
    *
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -75,7 +75,7 @@ export interface ToneMappingSettings {
   type?: ToneMappingType;
 
   /**
-   * Exposure of the tone mapping.
+   * Exposure. The value must be greater than 0. The default value is undefined.
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -86,7 +86,8 @@ export interface ToneMappingSettings {
 }
 
 /**
- * Defines bloom parameters.
+ * Describes the settings for bloom effects.
+ * It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
  * 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -95,7 +96,7 @@ export interface ToneMappingSettings {
  */
 export interface BloomSettings {
   /**
-   * Bloom threshold hard.
+   * Hard threshold. The value is a non-negative number. The default value is 1.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -105,7 +106,7 @@ export interface BloomSettings {
   thresholdHard?: double;
 
   /**
-   * Bloom threshold soft.
+   * Soft threshold. The value is a non-negative number. The default value is 2.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,9 +116,7 @@ export interface BloomSettings {
   thresholdSoft?: double;
 
   /**
-   * Scaling factor. Controls the amount of scaling and bloom spread.
-   * Reduces the downscale and upscale steps.
-   * Values 0 - 1. Value of 0.5 halves the scale steps.
+   * Scale factor. The value must be greater than 0. The default value is 1.0.
    * 
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -127,7 +126,7 @@ export interface BloomSettings {
   scaleFactor?: double;
 
   /**
-   * Scatter (amount of bloom spread). (1.0 full spread / default).
+   * Scatter amount. The value must be greater than 0. The default value is 1.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -138,7 +137,7 @@ export interface BloomSettings {
 }
 
 /**
- * Defines vignette parameters.
+ * Describes the settings for vignette effects.
  *
  * @typedef VignetteSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -147,8 +146,10 @@ export interface BloomSettings {
  */
 export interface VignetteSettings {
   /**
-   * Controls the roundness of vignette between [0, 1].
-   * Lower value will make the vignette effect more square.
+   * Application scope. The value range is [0, 1].
+   * When the value is 0, the application scope is minimized.
+   * When the value is 1, the application scope is global.
+   * The default value is sqrt(0.5).
    *
    * @type { ?double }
    * @default sqrt(0.5)
@@ -159,9 +160,9 @@ export interface VignetteSettings {
   roundness?: double;
 
   /**
-   * Controls how strong the dark or bright edges are.
-   * When intensity > 0, the edges darken and the center brightens, creating a classic vignette effect.
-   * When intensity < 0, the center darkens and the edges brighten, producing an reverse vignette effect.
+   * Effect strength. The value range is [0, 1].
+   * The value 0 indicates no vignetting effect, and the value 1 indicates maximum vignetting intensity.
+   * The default value is 0.4.
    *
    * @type { ?double }
    * @default 0.4
@@ -173,7 +174,7 @@ export interface VignetteSettings {
 }
 
 /**
- * Defines color fringe parameters.
+ * Describes the settings for color fringing. It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
  *
  * @typedef ColorFringeSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -182,7 +183,7 @@ export interface VignetteSettings {
  */
 export interface ColorFringeSettings {
   /**
-   * Controls the strength of color fringe.
+   * Strength of the effect. The value ranges from 0 to 1. The default value is 0.2.
    *
    * @type { ?double }
    * @default 0.2
@@ -194,7 +195,9 @@ export interface ColorFringeSettings {
 }
 
 /**
- * Defines post processing settings.
+ * Post-processing settings, which are used to configure the image processing effect after camera rendering,
+ * including tone mapping, bloom, vignetting, and chromatic aberration.
+ * This is used as the postProcess attribute of Camera.
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +206,7 @@ export interface ColorFringeSettings {
  */
 export interface PostProcessSettings {
   /**
-   * Tone mapping settings of the post processing settings.
+   * Tone mapping settings of the post processing settings. The default value is undefined.
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +216,7 @@ export interface PostProcessSettings {
   toneMapping?: ToneMappingSettings;
 
   /**
-   * Bloom settings of the post processing settings
+   * Bloom settings of the post processing settings. The default value is undefined.
    * 
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,10 +226,10 @@ export interface PostProcessSettings {
   bloom?: BloomSettings;
 
   /**
-   * Vignette settings of the post processing settings
+   * Vignette settings of the post processing settings.
    *
    * @type { ?VignetteSettings }
-   * @default vignette enabled by default
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static
@@ -234,10 +237,10 @@ export interface PostProcessSettings {
   vignette?: VignetteSettings;
 
   /**
-   * Color fringe settings of the post processing settings
+   * Color fringe settings of the post processing settings.
    *
    * @type { ?ColorFringeSettings }
-   * @default colorFringe enabled by default
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static

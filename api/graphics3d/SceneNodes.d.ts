@@ -33,10 +33,10 @@ import { PostProcessSettings } from './ScenePostProcessSettings';
  */
 export interface LayerMask {
   /**
-   * Get whether layer mask is enabled.
+   * Checks whether the mask is enabled for a layer of a given index.
    *
-   * @param { int } index - the layer mask
-   * @returns { boolean } whether layer mask is enabled 
+   * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
+   * @returns { boolean } Check result for whether the layer mask is enabled. true if enabled, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -44,10 +44,10 @@ export interface LayerMask {
   getEnabled(index: int): boolean;
 
   /**
-   * Set whether the layer mask is enabled.
+   * Enables the mask of a layer of a given index.
    *
-   * @param { int } index - the layer mask
-   * @param { boolean } enabled - whether layer mask is enabled
+   * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
+   * @param { boolean } enabled - Whether to enable the layer mask. true to enable, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -152,10 +152,10 @@ export interface Container<T> {
   remove(item: T): void;
 
   /**
-   * Returns a child at given index from this Container's child list.
+   * Obtains a node of a given index. If no node is obtained, null is returned.
    *
-   * @param { int } index - the index of the child to return
-   * @returns { T | null } return the item specified by the index
+   * @param { int } index - Index of the node. The value is an integer greater than or equal to 0.
+   * @returns { T | null } Object obtained. If no object is obtained, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -172,9 +172,9 @@ export interface Container<T> {
   clear(): void;
 
   /**
-   * Returns the number of items in the container.
+   * Obtains the number of nodes in the container.
    *
-   * @returns { int } the number of the container
+   * @returns { int } Number of nodes in the container. The value is a non-negative integer.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -183,7 +183,7 @@ export interface Container<T> {
 }
 
 /**
- * Defines Node interface.
+ * The 3D scene consists of nodes in a tree hierarchy, where each node implements a Node interface.
  *
  * @extends SceneResource
  * @interface Node
@@ -193,7 +193,7 @@ export interface Container<T> {
  */
 export interface Node extends SceneResource {
   /**
-   * position of the node, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Node position, in scene units of the world coordinate system (for example, cm, m, or km).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +203,7 @@ export interface Node extends SceneResource {
   position: Position3;
 
   /**
-   * Rotation of the node.
+   * Rotation angle of a node.
    *
    * @type { Quaternion }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +213,7 @@ export interface Node extends SceneResource {
   rotation: Quaternion;
 
   /**
-   * Scale of the node.
+   * Node scale.
    *
    * @type { Scale3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,7 +223,7 @@ export interface Node extends SceneResource {
   scale: Scale3;
 
   /**
-   * Visibility flag for the node.
+   * Whether a node is visible. true if visible, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -233,7 +233,7 @@ export interface Node extends SceneResource {
   visible: boolean;
 
   /**
-   * Type of the node.
+   * Node type.
    *
    * @type { NodeType }
    * @readonly
@@ -244,7 +244,7 @@ export interface Node extends SceneResource {
   readonly nodeType: NodeType;
 
   /**
-   * Layer mask of the node.
+   * Layer mask of a node.
    *
    * @type { LayerMask }
    * @readonly
@@ -255,7 +255,7 @@ export interface Node extends SceneResource {
   readonly layerMask: LayerMask;
 
   /**
-   * Path of the node.
+   * Node path.
    *
    * @type { string }
    * @readonly
@@ -266,7 +266,7 @@ export interface Node extends SceneResource {
   readonly path: string;
 
   /**
-   * Parent of the node.
+   * Parent node of the node and null if it does not exist.
    *
    * @type { Node | null }
    * @readonly
@@ -277,10 +277,10 @@ export interface Node extends SceneResource {
   readonly parent: Node | null;
 
   /**
-   * Get node by path.
+   * Obtains a node by path. If no node is obtained, null is returned.
    *
-   * @param { string } path - the path of the node queried
-   * @returns { Node | null }
+   * @param { string } path - Path in the scene node tree. Each layer is separated by a slash (/).
+   * @returns { Node | null } Returns the node object.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -288,7 +288,13 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * Children of the node.
+   * Child node of the node and null if it does not exist.
+   * This is a read-only property, indicating that you cannot directly replace the entire children container.
+   * However, you can operate the child nodes using container methods like [append]{@link Container.append},
+   * [insertAfter]{@link Container.insertAfter}, [remove]{@link Container.remove}, or [clear]{@link Container.clear}.
+   * If the node being appended or inserted already exists in the container, it is removed first and then reinserted.
+   * As a result, the total number of child nodes remains unchanged, making the operation seem ineffective.
+   * The count increases only when a new node is added.
    *
    * @type { Container<Node> }
    * @readonly
@@ -300,7 +306,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * Defines Geometry interface.
+ * Geometric node type that holds renderable mesh data and supports optional deformation features.
  *
  * @extends Node
  * @interface Geometry
@@ -310,7 +316,7 @@ export interface Node extends SceneResource {
  */
 export interface Geometry extends Node {
   /**
-   * Mesh of the node.
+   * Mesh property.
    *
    * @type { Mesh }
    * @readonly
@@ -321,7 +327,8 @@ export interface Geometry extends Node {
   readonly mesh: Mesh;
   
   /**
-   * Morpher target definition.
+   * Optional morpher that adds vertex-based deformation or animation effects to the geometry.
+   * If this parameter is not specified, the geometry does not support deformation.
    * 
    * @type { ?Morpher }
    * @readonly
@@ -392,7 +399,7 @@ export interface Light extends Node {
   color: Color;
 
   /**
-   * The intensity of the light, the unit is candela.
+   * Light density in candelas (cd) with a value range of real numbers greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -402,7 +409,7 @@ export interface Light extends Node {
   intensity: double;
 
   /**
-   * Whether casting shadows.
+   * Whether the shadow effect is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -412,7 +419,7 @@ export interface Light extends Node {
   shadowEnabled: boolean;
 
   /**
-   * Whether enable the light.
+   * Whether the light is used. true if used, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -423,7 +430,17 @@ export interface Light extends Node {
 }
 
 /**
- * Defines spot light.
+ * Spotlight, which inherits from [Light]{@link Light}.
+ *
+ * A spotlight emits a conical beam of light in a specific direction,
+ * with the intensity of the light decaying according to the angles defined by the innerAngle and outerAngle parameters.
+ * Like a point light, a spotlight's intensity also diminishes with distance from the source.
+ *
+ * > **NOTE**
+ * >
+ * > Ensure that the innerAngle and outerAngle values are proper.
+ * > If the value set for outerAngle is greater than PI/2, it is forcibly set to PI/2 internally.
+ * > If the value set for outerAngle is less than innerAngle, it is forcibly set to innerAngle internally.
  *
  * @extends Light
  * @interface SpotLight
@@ -476,7 +493,8 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * Field of view of the camera, the unit is radian.
+   * Field of view. The unit is radian (rad).
+   * The value ranges from 0 to π radians.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -486,7 +504,8 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * Near plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Near plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system.
+   * The value is greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -496,7 +515,8 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * Far plane of the camera, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Far plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system.
+   * The value is greater than that of nearPlane.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -506,7 +526,7 @@ export interface Camera extends Node {
   farPlane: double;
 
   /**
-   * Whether the camera is enabled.
+   * Whether the camera is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -516,7 +536,7 @@ export interface Camera extends Node {
   enabled: boolean;
 
   /**
-   * The post processing settings of the camera.
+   * Post-processing settings.
    *
    * @type { PostProcessSettings | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -526,7 +546,7 @@ export interface Camera extends Node {
   postProcess: PostProcessSettings | null;
 
   /**
-   * The effects to apply on the camera output.
+   * Post-processing effects applied to the camera output.
    * 
    * @type { Container<Effect> }
    * @readonly
@@ -537,8 +557,7 @@ export interface Camera extends Node {
   readonly effects: Container<Effect>;
 
   /**
-   * Background clear color (environment background overrides this color,
-   * BACKGROUND_NONE is needed for this to actually take effect).
+   * Color after the render target is cleared.
    *
    * @type { Color | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -548,7 +567,8 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * Controls whether MSAA is enabled or not.
+   * Whether Multisample Anti-Aliasing (MSAA) is enabled. true if enabled, false otherwise.
+   * The default value is false.
    *
    * @type { ?boolean }
    * @default false
@@ -559,8 +579,8 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * Controls the rendering pipeline. 
-   * Note that if FORWARD_LIGHTWEIGHT pipeline is selected, some features will be unavailable.
+   * Rendering pipeline type. If this parameter is not set, the lightweight forward rendering pipeline is used by default.
+   * (If the FORWARD_LIGHTWEIGHT pipeline is selected, certain features are unavailable.)
    *
    * @type { ?RenderingPipelineType }
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
@@ -571,10 +591,15 @@ export interface Camera extends Node {
   renderingPipeline?: RenderingPipelineType;
 
   /**
-   * Casts a ray to a position on the screen and lists what the ray hits.
-   * @param { Vec2 } viewPosition - Position to cast in the normalized device coordinates.
-   * @param { RaycastParameters } params - Options used to execute the ray cast.
-   * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
+   * Casts a ray from a specific position on the screen to detect and retrieve information about all hit 3D objects.
+   * This API uses a promise to return the result.
+   *
+   * @param { Vec2 } viewPosition - Normalized screen coordinates.
+   *     The value range is [0, 1], where (0,0) corresponds to the top-left corner of the Component3D component,
+   *     and (1,1) corresponds to the bottom-right corner.
+   * @param { RaycastParameters } params - Configuration parameters for raycasting, such as detection range and filtered nodes.
+   * @returns { Promise<RaycastResult[]> } - An array of hit objects sorted by distance (from nearest to farthest).
+   *     If no objects are hit, an empty array is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static

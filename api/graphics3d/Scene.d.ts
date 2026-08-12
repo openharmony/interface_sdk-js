@@ -108,7 +108,7 @@ export interface SceneNodeParameters {
 }
 
 /**
- * The result of a ray cast hit.
+ * Describes a result object from raycasting, containing details about the 3D object hit by the ray.
  *
  * @typedef RaycastResult
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -117,7 +117,8 @@ export interface SceneNodeParameters {
  */
 export interface RaycastResult {
   /**
-   * The node that was hit.
+   * 3D scene node hit by the ray.
+   * You can use this node to manipulate the target object (for example, moving, rotating, or hiding the object).
    *
    * @type { Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -127,7 +128,9 @@ export interface RaycastResult {
   node: Node;
 
   /**
-   * The distance to the center of the axis-aligned bounding box, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Distance from the center of the hit object's bounding box to the camera center,
+   * in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value range is greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -137,7 +140,8 @@ export interface RaycastResult {
   centerDistance: double;
 
   /**
-   * The position of the hit in world coordinates, the unit is the scene unit in the world coordinate system (e.g., cm, m, km).
+   * Exact world coordinates of the collision point between the ray and the object ({x: number, y: number, z: number}),
+   * in scene units of the world coordinate system (such as cm, m, km, etc.).
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -261,7 +265,7 @@ export interface RenderResourceFactory {
 }
 
 /**
- * Camera creation parameters. Can be used to define extra options for camera creation.
+ * Describes the camera parameters, which are used to define additional configuration options for camera initialization.
  *
  * @interface CameraParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -270,7 +274,8 @@ export interface RenderResourceFactory {
  */
 export interface CameraParameters {
   /**
-   * Select whether MSAA is enabled.
+   * Whether Multisample Anti-Aliasing (MSAA) is enabled for the camera. true if enabled, false otherwise.
+   * The default value is false.
    *
    * @type { ?boolean }
    * @default false
@@ -281,7 +286,8 @@ export interface CameraParameters {
   msaa?: boolean;
 
   /**
-   * Select the initial rendering pipeline type to use.
+   * Initial rendering pipeline type.
+   * The default value is FORWARD_LIGHTWEIGHT.
    * 
    * @type { ?RenderingPipelineType }
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
@@ -293,7 +299,8 @@ export interface CameraParameters {
 }
 
 /**
- * The parameters for effect
+ * Special effect parameter configuration, which is used to specify the special effect ID required for creating a special effect.
+ * It is used as the input parameter of the createEffect API to create a special effect object.
  * 
  * @interface EffectParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -302,7 +309,8 @@ export interface CameraParameters {
  */
 export interface EffectParameters {
   /**
-   * Id of the effect to create.
+   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+   * for example, 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'.
    * 
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -416,7 +424,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
 }
 
 /**
- * Define underlying scene component
+ * Represents a basic scene component, which is used to describe the component information of a scene node,
+ * including the component name and its properties.
  * 
  * @interface SceneComponent
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -425,7 +434,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
  */
 export interface SceneComponent {
   /**
-   * Scene component name
+   * Name of the scene component, which is customizable.
    * 
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -435,7 +444,9 @@ export interface SceneComponent {
   name: string;
 
   /**
-   * Component properties
+   * A set of component properties stored in key-value pairs.
+   * It supports multiple basic and complex types to describe various properties of the scene component.
+   * The unit and value range depend on the specific scene component.
    * 
    * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] |
    * SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
@@ -469,10 +480,13 @@ export interface RenderContext {
   getRenderResourceFactory() : RenderResourceFactory;
 
   /**
-   * Load external plugin
+   * Loads a plugin by name. The API locates and loads the corresponding plugin resource using the provided plugin name.
+   * It uses a promise to return the result.
    * 
-   * @param {string} name - Name of the plugin
-   * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
+   * @param {string} name - Name of the plugin to load, which must be a system predefined or registered and available plugin name,
+   *     and follow the naming conventions.
+   * @returns { Promise<boolean> } - Promise used to return a Boolean value, indicating whether the plugin is loaded.
+   *     The value true means that the plugin is loaded, and false means the opposite.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -480,11 +494,17 @@ export interface RenderContext {
   loadPlugin(name: string): Promise<boolean>;
 
   /**
-   * Register resource path
+   * Registers the directory path and retrieval name for asset files, such as shaders.
+   * It allows the system to find and replace the path descriptions of related files within the shaders using the retrieval name.
+   * This ensures that the correct paths for assets and their associated files are located and loaded properly.
    *
-   * @param { string } protocol - Protocol of the uri
-   * @param { string } uri - Path to register
-   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @param { string } protocol - Path retrieval name to be registered, used as the prefix identifier for file paths associated internally in the shader.
+   *     Must be a non-empty retrieval name that is not predefined or registered by the system.
+   * @param { string } uri - Directory path of the assets to be registered, which corresponds to the retrieval name.
+   *     When the shader is loaded, the retrieval name prefix in the path is replaced with this directory.
+   *     It must be the path to the folder containing the asset files.
+   * @returns { boolean } - Result indicating whether the registration is successful. true if successful, and false otherwise.
+   *     The possible cause of a registration failure is that the retrieval name has been registered or an input parameter is invalid.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -565,7 +585,7 @@ export declare class PCFConfig extends SoftShadowConfig {
 }
 
 /**
- * Global render configuration control
+ * Describes the rendering configuration.
  *
  * @interface RenderConfiguration
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -573,9 +593,11 @@ export declare class PCFConfig extends SoftShadowConfig {
  */
 export interface RenderConfiguration {
   /**
-   * resolution for single shadow map buffer, undefined by default,
-   *  which means we use (1024, 1024) as the resolution of a single shadow map.
-   * You need to provide the same x and y value to get the right shadow effect, the unit is pixel.
+   * Global shadow map resolution, in pixels (px). The default value is undefined,
+   * indicating that the shadow map resolution is set to 1024 * 1024.
+   * The value must be greater than 0 for the parameter to take effect.
+   * If the input value is a floating-point number, it will be truncated to an integer;
+   * if the input value is less than or equal to 0, the input will be ignored, and the original configuration will be retained.
    *
    * @type { ?Vec2 }
    * @default { 1024, 1024 }
@@ -596,7 +618,7 @@ export interface RenderConfiguration {
 }
 
 /**
- * Defines parameters for manual rendering.
+ * Describes the rendering parameters.
  *
  * @interface RenderParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -605,8 +627,8 @@ export interface RenderConfiguration {
  */
 export interface RenderParameters {
   /**
-   * If true, the renderer should always render even if there have been no changes in the scene
-   * since the previous frame. If false, renderer may omit rendering if no changes have been made.
+   * Whether to render every frame. The value true means to render every frame, and false means to render frames on demand.
+   * The default value is true.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -636,11 +658,11 @@ export declare class Scene {
   static getDefaultRenderContext(): RenderContext | null;
 
   /**
-   * Create a new scene from a ResourceStr.
-   * If uri is not provided, will return an empty scene.
+   * Loads a resource by path.
+   * This API uses a promise to return the result.
    *
-   * @param { ResourceStr } [uri] - the resource of creating a scene
-   * @returns { Promise<Scene> } promise a scene
+   * @param { ResourceStr } [uri] - Path of the model file resource to load. The default value is undefined.
+   * @returns { Promise<Scene> } Promise used to return the Scene object created.
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -704,11 +726,12 @@ export declare class Scene {
   get root(): Node | null;
 
   /**
-   * Get a node by path.
+   * Obtains a node by path.
    *
-   * @param { string } path - the path of the node
-   * @param { NodeType } type - verify the type of node, if it does not match, return null
-   * @returns { Node | null } if the node is found by it's path
+   * @param { string } path - Path in the scene node tree. Each layer is separated by a slash (/).
+   * @param { NodeType } type - Expected type of the node to be returned. The default value is null.
+   * @returns { Node | null } Returns the instance of the requested node.
+   *     Returns null if not found or if the type of the found node does not match the passed parameter.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -716,9 +739,9 @@ export declare class Scene {
   getNodeByPath(path: string, type?: NodeType): Node | null;
 
   /**
-   * Get resource factory.
+   * Obtains the scene resource factory.
    *
-   * @returns { SceneResourceFactory } if the node is found by it's path
+   * @returns { SceneResourceFactory } Scene resource factory.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -726,7 +749,7 @@ export declare class Scene {
   getResourceFactory(): SceneResourceFactory;
 
   /**
-   * Release all native scene resources. All TS references will be undefined.
+   * Destroys this scene and releases all scene resources.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -795,11 +818,12 @@ export declare class Scene {
   get renderConfiguration(): RenderConfiguration;
 
   /**
-    * Get component by name.
+    * Obtains the component instance from a node based on the component name.
     * 
-    * @param { Node } node - The node component is attached to. 
-    * @param { string } name - name of the component
-    * @returns { SceneComponent | null }
+    * @param { Node } node - Node to which the component is attached.
+    * @param { string } name - Name of the component to obtain.
+    *     The value must be a system predefined or registered custom component name, and follow the naming conventions.
+    * @returns { SceneComponent | null } SceneComponent object corresponding to the given name, or null if not found.
     * @syscap SystemCapability.ArkUi.Graphics3D
     * @since 20 dynamic
     * @since 23 static
@@ -807,12 +831,13 @@ export declare class Scene {
   getComponent(node: Node, name: string): SceneComponent | null;
 
   /**
-   * clone a node or a subtree whose root node is the input node
+   * Clones a node in the current scene. Cross-scene node cloning is not supported.
    *
-   * @param { Node } node - input node to be cloned
-   * @param { Node } parent - the parent node which the cloned node will be set as its child node
-   * @param { string } name - the name of the cloned node
-   * @returns { Node | null } the clone result, return null if clone is failed.
+   * @param { Node } node - Node to be cloned.
+   * @param { Node } parent - Target parent node of the cloned node in the current scene.
+   *     The cloned node and the target parent node must belong to the same scene.
+   * @param { string } name - Name of the cloned node, which can be customized and has no special requirements.
+   * @returns { Node | null } Returns the cloned node. If the operation fails, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
