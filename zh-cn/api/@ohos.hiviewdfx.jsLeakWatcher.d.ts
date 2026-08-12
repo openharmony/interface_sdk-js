@@ -19,7 +19,7 @@
  */
 
 /**
- * ±¾Ä£¿éÌá¹©ÁË¼à¿ØArkTS¶ÔÏóÊÇ·ñ·¢ÉúĞ¹Â©µÄÄÜÁ¦£¬¿ÉÔÚÓ¦ÓÃ¿ª·¢¡¢²âÊÔ½×¶Î·¢ÏÖ²¢¶¨Î»ArkTS¶ÔÏóµÄÄÚ´æĞ¹Â©ÎÊÌâ¡£
+ * æœ¬æ¨¡å—æä¾›äº†ç›‘æ§ArkTSå¯¹è±¡æ˜¯å¦å‘ç”Ÿæ³„æ¼çš„èƒ½åŠ›ï¼Œå¯åœ¨åº”ç”¨å¼€å‘ã€æµ‹è¯•é˜¶æ®µå‘ç°å¹¶å®šä½ArkTSå¯¹è±¡çš„å†…å­˜æ³„æ¼é—®é¢˜ã€‚
  *
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 12 dynamic
@@ -27,9 +27,9 @@
  */
 declare namespace jsLeakWatcher {
   /**
-   * Ê¹ÄÜArkTS¶ÔÏóĞ¹Â©¼ì²â£¬Ä¬ÈÏ¹Ø±Õ¡£¿ªÆôºó»áÊÕ¼¯Ğ¹Â©ĞÅÏ¢£¬¿ÉÄÜÔö¼ÓĞÔÄÜ¿ªÏú¡£
+   * ä½¿èƒ½ArkTSå¯¹è±¡æ³„æ¼æ£€æµ‹ï¼Œé»˜è®¤å…³é—­ã€‚å¼€å¯åä¼šæ”¶é›†æ³„æ¼ä¿¡æ¯ï¼Œå¯èƒ½å¢åŠ æ€§èƒ½å¼€é”€ã€‚
    *
-   * @param { boolean } isEnable - ÊÇ·ñÊ¹ÄÜjsLeakWatcher¡£true£ºÊ¹ÄÜjsLeakWatcher£»false£º²»Ê¹ÄÜjsLeakWatcher¡£
+   * @param { boolean } isEnable - æ˜¯å¦ä½¿èƒ½jsLeakWatcherã€‚trueï¼šä½¿èƒ½jsLeakWatcherï¼›falseï¼šä¸ä½¿èƒ½jsLeakWatcherã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.1.0 static
@@ -37,10 +37,10 @@ declare namespace jsLeakWatcher {
   function enable(isEnable: boolean): void;
 
   /**
-   * ×¢²á´ı¼ì²âĞ¹Â©µÄ¶ÔÏó¡£
+   * æ³¨å†Œå¾…æ£€æµ‹æ³„æ¼çš„å¯¹è±¡ã€‚
    *
-   * @param { object } obj - ĞèÒª¼ì²âµÄ¶ÔÏó¡£<br>**ËµÃ÷**£º¿É´«ÈëÈÎºÎ·ÇnullµÄArkTS¶ÔÏó£¬²»Ö§³ÖundefinedºÍ»ù±¾ÀàĞÍ¡£
-   * @param { string } msg - ×Ô¶¨Òå¶ÔÏóĞÅÏ¢¡£
+   * @param { object } obj - éœ€è¦æ£€æµ‹çš„å¯¹è±¡ã€‚<br>**è¯´æ˜**ï¼šå¯ä¼ å…¥ä»»ä½•énullçš„ArkTSå¯¹è±¡ï¼Œä¸æ”¯æŒundefinedå’ŒåŸºæœ¬ç±»å‹ã€‚
+   * @param { string } msg - è‡ªå®šä¹‰å¯¹è±¡ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.1.0 static
@@ -48,10 +48,10 @@ declare namespace jsLeakWatcher {
   function watch(obj: object, msg: string): void;
 
   /**
-   * »ñÈ¡ÒÑÍ¨¹ıjsLeakWatcher.watch×¢²á·¢ÉúĞ¹Â©µÄ¶ÔÏóÁĞ±í£¬´¥·¢GCºóÎ´±»»ØÊÕµÄ¶ÔÏó»á±»±ê¼ÇÎªĞ¹Â©¡£
+   * è·å–å·²é€šè¿‡jsLeakWatcher.watchæ³¨å†Œå‘ç”Ÿæ³„æ¼çš„å¯¹è±¡åˆ—è¡¨ï¼Œè§¦å‘GCåæœªè¢«å›æ”¶çš„å¯¹è±¡ä¼šè¢«æ ‡è®°ä¸ºæ³„æ¼ã€‚
    *
-   * @returns { string } ´¥·¢GCºóÎ´±»»ØÊÕµÄĞ¹Â©¶ÔÏóÁĞ±í¡£
-   *     <br>**ËµÃ÷**£ºcheck³É¹¦£¬·µ»ØJSON¸ñÊ½µÄĞ¹Â©¶ÔÏóÁĞ±í£»checkÊ§°Ü£¬·µ»Ø¿Õ×Ö·û´®¡£
+   * @returns { string } è§¦å‘GCåæœªè¢«å›æ”¶çš„æ³„æ¼å¯¹è±¡åˆ—è¡¨ã€‚
+   *     <br>**è¯´æ˜**ï¼šcheckæˆåŠŸï¼Œè¿”å›JSONæ ¼å¼çš„æ³„æ¼å¯¹è±¡åˆ—è¡¨ï¼›checkå¤±è´¥ï¼Œè¿”å›ç©ºå­—ç¬¦ä¸²ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.1.0 static
@@ -59,11 +59,11 @@ declare namespace jsLeakWatcher {
   function check(): string;
 
   /**
-   * µ¼³öĞ¹Â©ÁĞ±íºÍĞéÄâ»úÄÚ´æ¿ìÕÕ¡£
+   * å¯¼å‡ºæ³„æ¼åˆ—è¡¨å’Œè™šæ‹Ÿæœºå†…å­˜å¿«ç…§ã€‚
    *
-   * @param { string } filePath - µ¼³öĞÅÏ¢Éú³ÉµÄÎÄ¼ş´æ·ÅµÄÂ·¾¶¡£<br>**ËµÃ÷**£º´ÓAPI version 24¿ªÊ¼£¬½ø³ÌÉúÃüÖÜÆÚÄÚ£¬½ö±£Áô×îĞÂµÄÒ»·İ¿ìÕÕĞÅÏ¢¡£
-   * @returns { Array<string> } µ¼³ö½á¹û¡£·Ö±ğÎªÎÄ¼şÃûºó×ºÎª.jsleaklistµÄĞ¹Â©ÁĞ±íºÍÎÄ¼şÃûºó×ºÎª.heapsnapshotĞéÄâ»úÄÚ´æ¿ìÕÕÎÄ¼ş¡£
-   *     <br>**ËµÃ÷**£ºdump³É¹¦£¬·µ»ØĞ¹Â©ÁĞ±íÎÄ¼şÂ·¾¶ºÍĞéÄâ»úÄÚ´æ¿ìÕÕÂ·¾¶£»dumpÊ§°Ü£¬·µ»Ø¿ÕÊı×é¡£
+   * @param { string } filePath - å¯¼å‡ºä¿¡æ¯ç”Ÿæˆçš„æ–‡ä»¶å­˜æ”¾çš„è·¯å¾„ã€‚<br>**è¯´æ˜**ï¼šä»API version 24å¼€å§‹ï¼Œè¿›ç¨‹ç”Ÿå‘½å‘¨æœŸå†…ï¼Œä»…ä¿ç•™æœ€æ–°çš„ä¸€ä»½å¿«ç…§ä¿¡æ¯ã€‚
+   * @returns { Array<string> } å¯¼å‡ºç»“æœã€‚åˆ†åˆ«ä¸ºæ–‡ä»¶ååç¼€ä¸º.jsleaklistçš„æ³„æ¼åˆ—è¡¨å’Œæ–‡ä»¶ååç¼€ä¸º.heapsnapshotè™šæ‹Ÿæœºå†…å­˜å¿«ç…§æ–‡ä»¶ã€‚
+   *     <br>**è¯´æ˜**ï¼šdumpæˆåŠŸï¼Œè¿”å›æ³„æ¼åˆ—è¡¨æ–‡ä»¶è·¯å¾„å’Œè™šæ‹Ÿæœºå†…å­˜å¿«ç…§è·¯å¾„ï¼›dumpå¤±è´¥ï¼Œè¿”å›ç©ºæ•°ç»„ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.1.0 static
@@ -71,15 +71,15 @@ declare namespace jsLeakWatcher {
   function dump(filePath: string): Array<string>;
 
   /**
-   * Ê¹ÄÜArkTS¶ÔÏóĞ¹Â©¼ì²â¡£
+   * ä½¿èƒ½ArkTSå¯¹è±¡æ³„æ¼æ£€æµ‹ã€‚
    * 
-   * ´Ë½Ó¿ÚÍ¨¹ıÒ»´Îµ÷ÓÃ¼´¿É¼ì²âArkTS¶ÔÏóµÄÄÚ´æĞ¹Â©£¬±ÈÖ®Ç°ĞèÒªµ÷ÓÃËÄ¸öº¯Êı£¨enable¡¢watch¡¢check¡¢dump£©µÄ·½·¨¸ü¼Ó¼ò½à¡£
+   * æ­¤æ¥å£é€šè¿‡ä¸€æ¬¡è°ƒç”¨å³å¯æ£€æµ‹ArkTSå¯¹è±¡çš„å†…å­˜æ³„æ¼ï¼Œæ¯”ä¹‹å‰éœ€è¦è°ƒç”¨å››ä¸ªå‡½æ•°ï¼ˆenableã€watchã€checkã€dumpï¼‰çš„æ–¹æ³•æ›´åŠ ç®€æ´ã€‚
    *
-   * @param { boolean } isEnabled - ÊÇ·ñÊ¹ÄÜArkTS¶ÔÏóÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ¡£true£º¿ªÆôArkTSÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ£»false£º¹Ø±ÕArkTSÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ¡£
-   * @param { Array<string> } configs - ÅäÖÃÏî£¬Êı×éÖĞÃ¿¸öÔªËØÎª¼à²â¾ßÌå¶ÔÏóµÄÀàĞÍ¡£<br>¿ÉÅäÖÃÏî°üÀ¨£ºXComponent£¬NodeContainer£¬Window£¬CustomComponent
-   *     ºÍAbility¡£<br>**ËµÃ÷**£º´«Èë¿ÕÊı×é´ú±í¼à²âÒÔÉÏÈ«²¿¶ÔÏó¡£
-   * @param { Callback<Array<string>> } callback - »Øµ÷º¯Êı£¬ÓÃÓÚ½ÓÊÕjsLeakWatcher.enableLeakWatcher½Ó¿Ú·µ»ØµÄÄÚ´æĞ¹Â©ÎÄ¼şÁĞ±íºÍĞéÄâ»úÄÚ´æ¿ìÕÕÎÄ¼ş¡£<br>»Øµ÷º¯ÊıÖĞ´«ÈëÒ»¸öÊı×é
-   *     ¶ÔÏó£¬Ë÷Òı0ÎªĞ¹Â©ÁĞ±íÎÄ¼şÃû£¬ºó×ºÎª.jsleaklist£»Ë÷Òı1ÎªĞéÄâ»úÄÚ´æ¿ìÕÕÎÄ¼şÃû£¬ºó×ºÎª.rawheap¡£
+   * @param { boolean } isEnabled - æ˜¯å¦ä½¿èƒ½ArkTSå¯¹è±¡å†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ã€‚trueï¼šå¼€å¯ArkTSå†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ï¼›falseï¼šå…³é—­ArkTSå†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ã€‚
+   * @param { Array<string> } configs - é…ç½®é¡¹ï¼Œæ•°ç»„ä¸­æ¯ä¸ªå…ƒç´ ä¸ºç›‘æµ‹å…·ä½“å¯¹è±¡çš„ç±»å‹ã€‚<br>å¯é…ç½®é¡¹åŒ…æ‹¬ï¼šXComponentï¼ŒNodeContainerï¼ŒWindowï¼ŒCustomComponent
+   *     å’ŒAbilityã€‚<br>**è¯´æ˜**ï¼šä¼ å…¥ç©ºæ•°ç»„ä»£è¡¨ç›‘æµ‹ä»¥ä¸Šå…¨éƒ¨å¯¹è±¡ã€‚
+   * @param { Callback<Array<string>> } callback - å›è°ƒå‡½æ•°ï¼Œç”¨äºæ¥æ”¶jsLeakWatcher.enableLeakWatcheræ¥å£è¿”å›çš„å†…å­˜æ³„æ¼æ–‡ä»¶åˆ—è¡¨å’Œè™šæ‹Ÿæœºå†…å­˜å¿«ç…§æ–‡ä»¶ã€‚<br>å›è°ƒå‡½æ•°ä¸­ä¼ å…¥ä¸€ä¸ªæ•°ç»„
+   *     å¯¹è±¡ï¼Œç´¢å¼•0ä¸ºæ³„æ¼åˆ—è¡¨æ–‡ä»¶åï¼Œåç¼€ä¸º.jsleaklistï¼›ç´¢å¼•1ä¸ºè™šæ‹Ÿæœºå†…å­˜å¿«ç…§æ–‡ä»¶åï¼Œåç¼€ä¸º.rawheapã€‚
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -94,7 +94,7 @@ declare namespace jsLeakWatcher {
   function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void;
 
   /**
-   * ĞèÒª¼à¿ØµÄ×é¼ş¶ÔÏóÀàĞÍÃ¶¾Ù¡£
+   * éœ€è¦ç›‘æ§çš„ç»„ä»¶å¯¹è±¡ç±»å‹æšä¸¾ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -103,7 +103,7 @@ declare namespace jsLeakWatcher {
    */
   export declare enum MonitorObjectType {
     /**
-     * ¼à²âËùÓĞ×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹æ‰€æœ‰ç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -112,7 +112,7 @@ declare namespace jsLeakWatcher {
      */
     ALL = -1,
     /**
-     * ¼à²â×Ô¶¨Òå×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹è‡ªå®šä¹‰ç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -121,7 +121,7 @@ declare namespace jsLeakWatcher {
      */
     CUSTOM_COMPONENT = 1 << 0,
     /**
-     * ¼à²âWindow×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹Windowç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -130,7 +130,7 @@ declare namespace jsLeakWatcher {
      */
     WINDOW = 1 << 1,
     /**
-     * ¼à²âNodeContainer×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹NodeContainerç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -139,7 +139,7 @@ declare namespace jsLeakWatcher {
      */
     NODE_CONTAINER = 1 << 2,
     /**
-     * ¼à²âXComponent×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹XComponentç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -148,7 +148,7 @@ declare namespace jsLeakWatcher {
      */
     X_COMPONENT = 1 << 3,
     /**
-     * ¼à²âAbility×é¼şÀàĞÍ¡£
+     * ç›‘æµ‹Abilityç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -159,7 +159,7 @@ declare namespace jsLeakWatcher {
   }
 
   /**
-   * LeakWatcherConfig¶ÔÏóÀàĞÍ£¬¶ÔÏóÖĞ°üº¬¶à¸öÓÃÓÚÄÚ´æĞ¹Â©¼à²âµÄ¿ÉÅäÖÃÊôĞÔ¡£
+   * LeakWatcherConfigå¯¹è±¡ç±»å‹ï¼Œå¯¹è±¡ä¸­åŒ…å«å¤šä¸ªç”¨äºå†…å­˜æ³„æ¼ç›‘æµ‹çš„å¯é…ç½®å±æ€§ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -168,9 +168,9 @@ declare namespace jsLeakWatcher {
    */
   interface LeakWatcherConfig {
     /**
-     * ±»¼à²â¶ÔÏóÀàĞÍ¡£
+     * è¢«ç›‘æµ‹å¯¹è±¡ç±»å‹ã€‚
      * 
-     * Ä¬ÈÏ¼à²âËùÓĞ×é¼şÀàĞÍ¡£
+     * é»˜è®¤ç›‘æµ‹æ‰€æœ‰ç»„ä»¶ç±»å‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -179,13 +179,13 @@ declare namespace jsLeakWatcher {
      */
     monitorObjectTypes: MonitorObjectType;
     /**
-     * ±»¼à²âĞ¹Â©¶ÔÏóIDÁĞ±í¡£
+     * è¢«ç›‘æµ‹æ³„æ¼å¯¹è±¡IDåˆ—è¡¨ã€‚
      * 
-     * Ö»×÷ÓÃÓÚ×Ô¶¨Òå×é¼ş£¬²»»áÓ°ÏìÆäËû×é¼şÀàĞÍµÄ¼à²â¡£
+     * åªä½œç”¨äºè‡ªå®šä¹‰ç»„ä»¶ï¼Œä¸ä¼šå½±å“å…¶ä»–ç»„ä»¶ç±»å‹çš„ç›‘æµ‹ã€‚
      * 
-     * ÀıÈç£º°×Ãûµ¥ÖĞÉèÖÃµÄ¶ÔÏóÀàÃûIDÓë×Ô¶¨ÒåIDÁĞ±í´æÔÚÏàÍ¬ÖµÊ±£¬ÉúĞ§×Ô¶¨ÒåIDÁĞ±í²ÎÊı¡£
+     * ä¾‹å¦‚ï¼šç™½åå•ä¸­è®¾ç½®çš„å¯¹è±¡ç±»åIDä¸è‡ªå®šä¹‰IDåˆ—è¡¨å­˜åœ¨ç›¸åŒå€¼æ—¶ï¼Œç”Ÿæ•ˆè‡ªå®šä¹‰IDåˆ—è¡¨å‚æ•°ã€‚
      * 
-     * Ä¬ÈÏÎª¿ÕÊı×é¡£
+     * é»˜è®¤ä¸ºç©ºæ•°ç»„ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -194,15 +194,15 @@ declare namespace jsLeakWatcher {
      */
     objectUniqueIDs?: Array<int>;
     /**
-     * Ã¿ÂÖĞ¹Â©¼ì²â¼ä¸ôÊ±¼ä£¬µ¥Î»£ºms£¬È¡Öµ·¶Î§Îª[90000, +¡Ş)¡£
+     * æ¯è½®æ³„æ¼æ£€æµ‹é—´éš”æ—¶é—´ï¼Œå•ä½ï¼šmsï¼Œå–å€¼èŒƒå›´ä¸º[90000, +âˆ)ã€‚
      * 
-     * Ä¬ÈÏÎª90000ms¡£
+     * é»˜è®¤ä¸º90000msã€‚
      * 
-     * Èç¹ûÓ¦ÓÃÊäÈëµÄ×Ô¶¨Òå¼ì²â¼ä¸ôÊ±¼äĞ¡ÓÚÄ¬ÈÏÖµ£¬JSLeakWatcherÇ¿ÖÆ½«¼ä¸ôÉèÖÃÎªÄ¬ÈÏÖµ¡£
+     * å¦‚æœåº”ç”¨è¾“å…¥çš„è‡ªå®šä¹‰æ£€æµ‹é—´éš”æ—¶é—´å°äºé»˜è®¤å€¼ï¼ŒJSLeakWatcherå¼ºåˆ¶å°†é—´éš”è®¾ç½®ä¸ºé»˜è®¤å€¼ã€‚
      * 
-     * µ±Ç°jsLeakWatcherĞ¹Â©¼ì²âĞÔÄÜ¿ªÏú½Ï´ó£¬»áµ¼ÖÂÓ¦ÓÃ¿¨¶Ù£¬½¨ÒéÔö´ó¸Ã²ÎÊı£¬¼õÉÙ¿¨¶ÙÆµÂÊ¡£
+     * å½“å‰jsLeakWatcheræ³„æ¼æ£€æµ‹æ€§èƒ½å¼€é”€è¾ƒå¤§ï¼Œä¼šå¯¼è‡´åº”ç”¨å¡é¡¿ï¼Œå»ºè®®å¢å¤§è¯¥å‚æ•°ï¼Œå‡å°‘å¡é¡¿é¢‘ç‡ã€‚
      * 
-     * ´«Èë²»ÔÚÈ¡Öµ·¶Î§ÄÚµÄÖµÊ±½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
+     * ä¼ å…¥ä¸åœ¨å–å€¼èŒƒå›´å†…çš„å€¼æ—¶å°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -211,13 +211,13 @@ declare namespace jsLeakWatcher {
      */
     checkInterval?: int;
     /**
-     * Ó¦ÓÃÔÚÇ°Ì¨Ğ¹Â©¸öÊı´ïµ½Éè¶¨Öµ´¥·¢dump£¬È¡Öµ·¶Î§Îª[0, +¡Ş)¡£
+     * åº”ç”¨åœ¨å‰å°æ³„æ¼ä¸ªæ•°è¾¾åˆ°è®¾å®šå€¼è§¦å‘dumpï¼Œå–å€¼èŒƒå›´ä¸º[0, +âˆ)ã€‚
      * 
-     * GC/Dump½×¶Î£¬´óÓÚµÈÓÚ5Ê±´¥·¢Dump¡£
+     * GC/Dumpé˜¶æ®µï¼Œå¤§äºç­‰äº5æ—¶è§¦å‘Dumpã€‚
      * 
-     * ãĞÖµÄ¬ÈÏÎª5¡£
+     * é˜ˆå€¼é»˜è®¤ä¸º5ã€‚
      * 
-     * ´«Èë²»ÔÚÈ¡Öµ·¶Î§ÄÚµÄÖµÊ±½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
+     * ä¼ å…¥ä¸åœ¨å–å€¼èŒƒå›´å†…çš„å€¼æ—¶å°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -226,13 +226,13 @@ declare namespace jsLeakWatcher {
      */
     fgLeakCountThreshold?: int;
     /**
-     * Ó¦ÓÃÔÚºóÌ¨Ğ¹Â©¸öÊı´ïµ½Éè¶¨Öµ´¥·¢dump£¬È¡Öµ·¶Î§Îª[0, +¡Ş)¡£
+     * åº”ç”¨åœ¨åå°æ³„æ¼ä¸ªæ•°è¾¾åˆ°è®¾å®šå€¼è§¦å‘dumpï¼Œå–å€¼èŒƒå›´ä¸º[0, +âˆ)ã€‚
      * 
-     * GC/Dump½×¶Î£¬´óÓÚµÈÓÚ1Ê±´¥·¢Dump¡£
+     * GC/Dumpé˜¶æ®µï¼Œå¤§äºç­‰äº1æ—¶è§¦å‘Dumpã€‚
      * 
-     * ãĞÖµÄ¬ÈÏÎª1¡£
+     * é˜ˆå€¼é»˜è®¤ä¸º1ã€‚
      * 
-     * ´«Èë²»ÔÚÈ¡Öµ·¶Î§ÄÚµÄÖµÊ±½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
+     * ä¼ å…¥ä¸åœ¨å–å€¼èŒƒå›´å†…çš„å€¼æ—¶å°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -241,11 +241,11 @@ declare namespace jsLeakWatcher {
      */
     bgLeakCountThreshold?: int;
     /**
-     * ×î´ódump±£´æ¸öÊı£¬È¡Öµ·¶Î§Îª(0, 10]£¬±ÜÃâ´ÅÅÌ¿Õ¼äÕ¼Âú£¬³¬¹ıÔòÉ¾³ıÊ±¼ä´Á×îĞ¡µÄrawheap¡¢jsleaklistÎÄ¼ş¡£
+     * æœ€å¤§dumpä¿å­˜ä¸ªæ•°ï¼Œå–å€¼èŒƒå›´ä¸º(0, 10]ï¼Œé¿å…ç£ç›˜ç©ºé—´å æ»¡ï¼Œè¶…è¿‡åˆ™åˆ é™¤æ—¶é—´æˆ³æœ€å°çš„rawheapã€jsleaklistæ–‡ä»¶ã€‚
      * 
-     * Ä¬ÈÏ±£´æ10¸örawheap¡¢10¸öjsleaklistÎÄ¼ş¡£
+     * é»˜è®¤ä¿å­˜10ä¸ªrawheapã€10ä¸ªjsleaklistæ–‡ä»¶ã€‚
      * 
-     * ´«Èë²»ÔÚÈ¡Öµ·¶Î§ÄÚµÄÖµÊ±½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
+     * ä¼ å…¥ä¸åœ¨å–å€¼èŒƒå›´å†…çš„å€¼æ—¶å°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -254,15 +254,15 @@ declare namespace jsLeakWatcher {
      */
     maxStoredHeapDumps?: int;
     /**
-     * ÑÓ³ÙÖ´ĞĞdump£¬±£Ö¤GCÄÜµ÷¶ÈÇÒÖ´ĞĞÍêÔÙÖ´ĞĞdump£¬ÑÓ³Ù¼ä¸ôĞ¡ÓÚµÈÓÚĞ¹Â©¼ì²â¼ä¸ôÊ±¼ä£¬µ¥Î»£ºms£¬È¡Öµ·¶Î§Îª[0, +¡Ş)¡£
+     * å»¶è¿Ÿæ‰§è¡Œdumpï¼Œä¿è¯GCèƒ½è°ƒåº¦ä¸”æ‰§è¡Œå®Œå†æ‰§è¡Œdumpï¼Œå»¶è¿Ÿé—´éš”å°äºç­‰äºæ³„æ¼æ£€æµ‹é—´éš”æ—¶é—´ï¼Œå•ä½ï¼šmsï¼Œå–å€¼èŒƒå›´ä¸º[0, +âˆ)ã€‚
      * 
-     * ÉèÖÃÑÓ³ÙÊ±³¤³¬¹ıĞ¹Â©¼ä¸ôÊ±³¤ÔòÄ¬ÈÏÓëĞ¹Â©¼ä¸ôÊ±³¤±£³ÖÒ»ÖÂ¡£
+     * è®¾ç½®å»¶è¿Ÿæ—¶é•¿è¶…è¿‡æ³„æ¼é—´éš”æ—¶é•¿åˆ™é»˜è®¤ä¸æ³„æ¼é—´éš”æ—¶é•¿ä¿æŒä¸€è‡´ã€‚
      * 
-     * ÈôÎŞĞÂÔöĞ¹Â©¶ÔÏó½«²»»á´¥·¢dump¡£
+     * è‹¥æ— æ–°å¢æ³„æ¼å¯¹è±¡å°†ä¸ä¼šè§¦å‘dumpã€‚
      * 
-     * GC½áÊøºóÄ¬ÈÏÑÓ³Ù5ÃëÖ´ĞĞdump¡£
+     * GCç»“æŸåé»˜è®¤å»¶è¿Ÿ5ç§’æ‰§è¡Œdumpã€‚
      * 
-     * ´«Èë²»ÔÚÈ¡Öµ·¶Î§ÄÚµÄÖµÊ±½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
+     * ä¼ å…¥ä¸åœ¨å–å€¼èŒƒå›´å†…çš„å€¼æ—¶å°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -271,15 +271,15 @@ declare namespace jsLeakWatcher {
      */
     dumpHeapWaitTimeMs?: int;
     /**
-     * ¹ıÂË²»Ïë¼à²âµÄ¶ÔÏóÀàÃû¡£
+     * è¿‡æ»¤ä¸æƒ³ç›‘æµ‹çš„å¯¹è±¡ç±»åã€‚
      * 
-     * ×÷ÓÃÓÚWindow¡¢CustomComponentºÍAbility×é¼ş£¬²»»áÓ°ÏìÆäËû×é¼şÀàĞÍµÄ¹ıÂË¡£
+     * ä½œç”¨äºWindowã€CustomComponentå’ŒAbilityç»„ä»¶ï¼Œä¸ä¼šå½±å“å…¶ä»–ç»„ä»¶ç±»å‹çš„è¿‡æ»¤ã€‚
      * 
-     * ´æÔÚ»ìÏıÎÊÌâÊ±ÎŞ·¨½øĞĞ¹ıÂË£¬Ö»ÔÚ¿ª·¢Ì¬ÉúĞ§¡£
+     * å­˜åœ¨æ··æ·†é—®é¢˜æ—¶æ— æ³•è¿›è¡Œè¿‡æ»¤ï¼Œåªåœ¨å¼€å‘æ€ç”Ÿæ•ˆã€‚
      * 
-     * ÅäÖÃÏî³åÍ»ÓÅÏÈ¼¶£ºIDÁĞ±í > °×Ãûµ¥¡£
+     * é…ç½®é¡¹å†²çªä¼˜å…ˆçº§ï¼šIDåˆ—è¡¨ > ç™½åå•ã€‚
      * 
-     * Ä¬ÈÏÎª¿ÕÊı×é¡£
+     * é»˜è®¤ä¸ºç©ºæ•°ç»„ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -290,19 +290,19 @@ declare namespace jsLeakWatcher {
   }
 
   /**
-   * Ê¹ÄÜArkTS¶ÔÏóĞ¹Â©¼ì²â¡£
+   * ä½¿èƒ½ArkTSå¯¹è±¡æ³„æ¼æ£€æµ‹ã€‚
    * 
-   * ´Ë½Ó¿ÚÍ¨¹ıÒ»´Îµ÷ÓÃ¼´¿É¼ì²âArkTS¶ÔÏóµÄÄÚ´æĞ¹Â©£¬±ÈÖ®Ç°ĞèÒªµ÷ÓÃËÄ¸öº¯Êı£¨enable¡¢watch¡¢check¡¢dump£©µÄ·½·¨¸ü¼Ó¼ò½à£»Í¨¹ıconfigs¿ÉÅäÖÃÏî²ÎÊı£¬×Ô¶¨ÒåÉèÖÃ¼à²âÏî¸÷ÊôĞÔ£¬Ïà±È½ÏÖ®Ç°¼«´óÌáÉıÁËĞ¹Â©¼ì²âĞÔÄÜ¡£
+   * æ­¤æ¥å£é€šè¿‡ä¸€æ¬¡è°ƒç”¨å³å¯æ£€æµ‹ArkTSå¯¹è±¡çš„å†…å­˜æ³„æ¼ï¼Œæ¯”ä¹‹å‰éœ€è¦è°ƒç”¨å››ä¸ªå‡½æ•°ï¼ˆenableã€watchã€checkã€dumpï¼‰çš„æ–¹æ³•æ›´åŠ ç®€æ´ï¼›é€šè¿‡configså¯é…ç½®é¡¹å‚æ•°ï¼Œè‡ªå®šä¹‰è®¾ç½®ç›‘æµ‹é¡¹å„å±æ€§ï¼Œç›¸æ¯”è¾ƒä¹‹å‰æå¤§æå‡äº†æ³„æ¼æ£€æµ‹æ€§èƒ½ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > µ±Ç°jsLeakWatcherĞ¹Â©¼ì²âĞÔÄÜ¿ªÏú½Ï´ó£¬»áµ¼ÖÂÓ¦ÓÃ¿¨¶Ù£¬½¨ÒéÔö´ó¼ì²â¼ä¸ôÊ±¼ä£¬¼õÉÙ¿¨¶ÙÆµÂÊ¡£
+   * > å½“å‰jsLeakWatcheræ³„æ¼æ£€æµ‹æ€§èƒ½å¼€é”€è¾ƒå¤§ï¼Œä¼šå¯¼è‡´åº”ç”¨å¡é¡¿ï¼Œå»ºè®®å¢å¤§æ£€æµ‹é—´éš”æ—¶é—´ï¼Œå‡å°‘å¡é¡¿é¢‘ç‡ã€‚
    *
-   * @param { boolean } isEnabled - ÊÇ·ñÊ¹ÄÜArkTS¶ÔÏóÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ¡£<br>true£º¿ªÆôArkTSÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ¡£<br>false£º¹Ø±ÕArkTSÄÚ´æĞ¹Â©¼ì²â¹¦ÄÜ¡£
-   * @param { LeakWatcherConfig } configs - LeakWatcherConfig¶ÔÏóÀàĞÍ£¬¶ÔÏóÖĞ°üº¬¶à¸öÓÃÓÚÄÚ´æĞ¹Â©¼à²âµÄ¿ÉÅäÖÃÊôĞÔ¡£<br>**ËµÃ÷**£º¶ÔÏóÖĞ²ÎÊıÀàĞÍ´«Èë¿ÕÖµ»ò¼ÙÖµ´ú±í¸ÃÊôĞÔÉèÖÃ
-   *     ÎªÄ¬ÈÏÖµ¡£
-   * @param { Callback<Array<string>> } callback - »Øµ÷º¯Êı£¬ÓÃÓÚ½ÓÊÕĞ¹Â©¼ì²âµÄµ¼³öÎÄ¼şÂ·¾¶¡£<br>»Øµ÷º¯ÊıÖĞ´«ÈëÒ»¸öÊı×é
-   *     ¶ÔÏó£¬Ë÷Òı0ÎªĞ¹Â©ÁĞ±íÎÄ¼şÃû£¬ºó×ºÎª.jsleaklist£»Ë÷Òı1ÎªĞéÄâ»úÄÚ´æ¿ìÕÕÎÄ¼şÃû£¬ºó×ºÎª.rawheap¡£
+   * @param { boolean } isEnabled - æ˜¯å¦ä½¿èƒ½ArkTSå¯¹è±¡å†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ã€‚<br>trueï¼šå¼€å¯ArkTSå†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ã€‚<br>falseï¼šå…³é—­ArkTSå†…å­˜æ³„æ¼æ£€æµ‹åŠŸèƒ½ã€‚
+   * @param { LeakWatcherConfig } configs - LeakWatcherConfigå¯¹è±¡ç±»å‹ï¼Œå¯¹è±¡ä¸­åŒ…å«å¤šä¸ªç”¨äºå†…å­˜æ³„æ¼ç›‘æµ‹çš„å¯é…ç½®å±æ€§ã€‚<br>**è¯´æ˜**ï¼šå¯¹è±¡ä¸­å‚æ•°ç±»å‹ä¼ å…¥ç©ºå€¼æˆ–å‡å€¼ä»£è¡¨è¯¥å±æ€§è®¾ç½®
+   *     ä¸ºé»˜è®¤å€¼ã€‚
+   * @param { Callback<Array<string>> } callback - å›è°ƒå‡½æ•°ï¼Œç”¨äºæ¥æ”¶æ³„æ¼æ£€æµ‹çš„å¯¼å‡ºæ–‡ä»¶è·¯å¾„ã€‚<br>å›è°ƒå‡½æ•°ä¸­ä¼ å…¥ä¸€ä¸ªæ•°ç»„
+   *     å¯¹è±¡ï¼Œç´¢å¼•0ä¸ºæ³„æ¼åˆ—è¡¨æ–‡ä»¶åï¼Œåç¼€ä¸º.jsleaklistï¼›ç´¢å¼•1ä¸ºè™šæ‹Ÿæœºå†…å­˜å¿«ç…§æ–‡ä»¶åï¼Œåç¼€ä¸º.rawheapã€‚
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
