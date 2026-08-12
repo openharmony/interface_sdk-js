@@ -741,8 +741,10 @@ declare namespace photoAccessHelper {
   /**
    * 枚举，资源分发模式。
    * 
-   * 该模式适用于分段式拍照或分段式视频。如果当前设备不具备分段式能力，则以下三种分发模式无区别，直接返回请求的图片或视频资源。请求的结果通过
-   * [onDataPrepared]{@link @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetDataHandler.onDataPrepared(data: T, map?: Map<string, string>)}
+   * 该模式适用于分段式拍照或分段式视频。如果当前设备不具备分段式能力，则以下三种分发模式无区别，直接返回请求的图片或视频资源。
+   * 请求的结果通过
+   * [onDataPrepared]{@link @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetDataHandler.onDataPrepared(
+   * data: T, map?: Map<string, string>)}
    * 回调返回。
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -753,7 +755,8 @@ declare namespace photoAccessHelper {
     /**
      * 快速模式。
      * 
-     * 针对分段式拍照或视频场景，若当前存在高质量图或视频，则立即返回高质量图或视频的请求结果回调；若当前存在低质量图或视频，则立即返回低质量图或视频的请求结果回调。
+     * 针对分段式拍照或视频场景，若当前存在高质量图或视频，则立即返回高质量图或视频的请求结果回调；若当前存在低质量图或视频，
+     * 则立即返回低质量图或视频的请求结果回调。
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
@@ -764,7 +767,8 @@ declare namespace photoAccessHelper {
     /**
      * 高质量模式。
      * 
-     * 针对分段式拍照或视频场景，若当前存在高质量图或视频，则立即返回高质量图或视频的请求结果回调；若当前存在低质量图或视频，则申请高质量图或视频的生成任务，待高质量图或视频生成后，返回高质量图或视频的请求结果回调。
+     * 针对分段式拍照或视频场景，若当前存在高质量图或视频，则立即返回高质量图或视频的请求结果回调；若当前存在低质量图或视频，
+     * 则申请高质量图或视频的生成任务，待高质量图或视频生成后，返回高质量图或视频的请求结果回调。
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
@@ -775,8 +779,10 @@ declare namespace photoAccessHelper {
     /**
      * 均衡模式。
      * 
-     * - 针对分段式拍照场景，若当前存在高质量图，则立即返回高质量图的请求结果回调；若当前存在低质量图，则立即返回低质量图的请求结果回调，并申请高质量图生成任务，待高质量图生成后，再次返回高质量图的请求结果回调。
-     * - 针对分段式视频场景，若当前存在高质量视频，则立即返回高质量视频的请求结果回调；若当前存在低质量视频，则立即返回低质量视频的请求结果回调。
+     * - 针对分段式拍照场景，若当前存在高质量图，则立即返回高质量图的请求结果回调；若当前存在低质量图，则立即返回低质量图的请求
+     * 结果回调，并申请高质量图生成任务，待高质量图生成后，再次返回高质量图的请求结果回调。
+     * - 针对分段式视频场景，若当前存在高质量视频，则立即返回高质量视频的请求结果回调；若当前存在低质量视频，
+     * 则立即返回低质量视频的请求结果回调。
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
@@ -949,7 +955,9 @@ declare namespace photoAccessHelper {
     NO_HIDE_SENSITIVE_TYPE = 3,
 
     /**
-     * 根据[ohos.permission.MEDIA_LOCATION](docroot://security/AccessToken/permissions-for-all-user.md#ohospermissionmedia_location)
+     * 根据
+     * [ohos.permission.MEDIA_LOCATION](
+     * docroot://security/AccessToken/permissions-for-all-user.md#ohospermissionmedia_location)
      * 权限进行脱敏。规格为：
      * 
      * - 有ohos.permission.MEDIA_LOCATION权限：不脱敏。
@@ -1171,7 +1179,8 @@ declare namespace photoAccessHelper {
      * |----------|-------|
      * | 'quality'  | 图片质量。高质量为'high'，低质量为'low'。 |
      *
-     * @param { T } data - 已就绪的图片资源数据。泛型，支持ArrayBuffer, [ImageSource]{@link @ohos.multimedia.image:image.ImageSource},
+     * @param { T } data - 已就绪的图片资源数据。泛型，支持ArrayBuffer,
+     *     [ImageSource]{@link @ohos.multimedia.image:image.ImageSource},
      *     [MovingPhoto]{@link photoAccessHelper.MovingPhoto}和boolean四种数据类型。
      * @param { Map<string, string> } [map] - 用于获取图片资源的额外信息，如图片质量。当前仅支持'quality'。 [since 12]
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1281,7 +1290,12 @@ declare namespace photoAccessHelper {
      * @since 11 dynamic
      * @since 23 static
      */
-    static requestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<image.ImageSource>): Promise<string>;
+    static requestImage(
+      context: Context,
+      asset: PhotoAsset,
+      requestOptions: RequestOptions,
+      dataHandler: MediaAssetDataHandler<image.ImageSource>
+    ): Promise<string>;
 
     /**
      * 根据不同的策略模式，快速请求图片资源。使用Promise异步回调。
@@ -1333,7 +1347,12 @@ declare namespace photoAccessHelper {
      * @since 11 dynamic
      * @since 23 static
      */
-    static requestImageData(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<ArrayBuffer>): Promise<string>;
+    static requestImageData(
+      context: Context,
+      asset: PhotoAsset,
+      requestOptions: RequestOptions,
+      dataHandler: MediaAssetDataHandler<ArrayBuffer>
+    ): Promise<string>;
 
     /**
      * 根据不同的策略模式，请求动态照片对象（动态照片对象可用于请求动态照片的资源数据）。使用Promise异步回调。
@@ -1389,10 +1408,10 @@ declare namespace photoAccessHelper {
      * @param { Context } context - 传入Ability实例的上下文。
      * @param { PhotoAsset } asset - 待请求的媒体文件对象。
      * @param { RequestOptions } requestOptions - 视频请求策略模式配置项。
-     * @param { string } fileUri - 目标写入沙箱路径uri。示例fileUri：'file://com.example.temptest/data/storage/el2/base/haps/entry/
-     *     files/test.mp4'。
-     * @param { MediaAssetDataHandler<boolean> } dataHandler - 媒体资源处理器，当所请求的视频资源写入完成时会触发回调。<br>视频资源写入成功时返回true，写入失败则返回
-     *     false。
+     * @param { string } fileUri - 目标写入沙箱路径uri。
+     *     示例fileUri：'file://com.example.temptest/data/storage/el2/base/haps/entry/files/test.mp4'。
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - 媒体资源处理器，当所请求的视频资源写入完成时会触发回调。
+     *     <br>视频资源写入成功时返回true，写入失败则返回false。
      * @returns { Promise<string> } Promise对象，返回请求id，可用于
      *     [cancelRequest]{@link photoAccessHelper.MediaAssetManager.cancelRequest}取消请求。
      * @throws { BusinessError } 201 - Permission denied
@@ -1421,12 +1440,12 @@ declare namespace photoAccessHelper {
      * 加载应用沙箱的动态照片。使用Promise异步回调。
      *
      * @param { Context } context - 传入AbilityContext或者UIExtensionContext的实例。
-     * @param { string } imageFileUri - 应用沙箱动态照片的图片uri。<br>示例：'file://com.example.temptest/data/storage/el2/base/haps/
-     *     ImageFile.jpg'
-     * @param { string } videoFileUri - 应用沙箱动态照片的视频uri。<br>示例：'file://com.example.temptest/data/storage/el2/base/haps/
-     *     VideoFile.mp4'
-     * @returns { Promise<MovingPhoto> } Promise对象，返回[MovingPhoto]{@link @ohos.file.photoAccessHelper:photoAccessHelper}
-     *     实例。
+     * @param { string } imageFileUri - 应用沙箱动态照片的图片uri。
+     *     <br>示例：'file://com.example.temptest/data/storage/el2/base/haps/ImageFile.jpg'
+     * @param { string } videoFileUri - 应用沙箱动态照片的视频uri。
+     *     <br>示例：'file://com.example.temptest/data/storage/el2/base/haps/VideoFile.mp4'
+     * @returns { Promise<MovingPhoto> } Promise对象，返回
+     *     [MovingPhoto]{@link @ohos.file.photoAccessHelper:photoAccessHelper}实例。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1706,8 +1725,9 @@ declare namespace photoAccessHelper {
     /**
      * 设置PhotoAsset成员参数。
      *
-     * @param { string } member - 成员参数名称例如：[PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}
-   	 * .TITLE。字符串长度的取值范围为[1, 255]。
+     * @param { string } member - 成员参数名称例如：
+     *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}
+   	 *     .TITLE。字符串长度的取值范围为[1, 255]。
      * @param { string } value - 设置成员参数名称，只能修改
      *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}.TITLE的值。title的参数规格为：
      *     <br>- 不应包含扩展名。
@@ -1829,7 +1849,8 @@ declare namespace photoAccessHelper {
      * 使用完毕后调用close释放文件描述符。
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<number> } callback - 回调函数。当打开当前文件成功，err为undefined，data为文件描述符；否则为错误对象。
+     * @param { AsyncCallback<number> } callback - 回调函数。当打开当前文件成功，err为undefined，data为文件描述符；
+     *     否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -1905,7 +1926,8 @@ declare namespace photoAccessHelper {
      * 获取文件的缩略图。使用callback异步回调。
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取文件的缩略图成功，err为undefined，data为缩略图的PixelMap；否则为错误对象。
+     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取文件的缩略图成功，err为undefined，
+     *     data为缩略图的PixelMap；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -1923,7 +1945,8 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } size - 缩略图尺寸。
-     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取文件的缩略图成功，err为undefined，data为缩略图的PixelMap；否则为错误对象。
+     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取文件的缩略图成功，err为undefined，
+     *     data为缩略图的PixelMap；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2185,7 +2208,8 @@ declare namespace photoAccessHelper {
      * 为图片或视频资源设置pending状态。使用callback异步回调。
      * 
      * 将文件通过`setPending(true)`设置为pending状态后，只能通过`setPending(false)`解除pending状态。
-   	 * 可以通过`photoAsset.get(photoAccessHelper.PhotoKeys.PENDING)`的方式获取是否为pending状态，pending状态下返回true，否则返回false。
+   	 * 可以通过`photoAsset.get(photoAccessHelper.PhotoKeys.PENDING)`的方式获取是否为pending状态，pending状态下返回true，
+     * 否则返回false。
      * 
      * > **注意：**
      * >
@@ -2211,7 +2235,8 @@ declare namespace photoAccessHelper {
      * 为图片或视频资源设置pending状态。使用Promise异步回调。
      * 
      * 将文件通过`setPending(true)`设置为pending状态后，只能通过`setPending(false)`解除pending状态。
-     * 可以通过`photoAsset.get(photoAccessHelper.PhotoKeys.PENDING)`的方式获取是否为pending状态，pending状态下返回true，否则返回false。
+     * 可以通过`photoAsset.get(photoAccessHelper.PhotoKeys.PENDING)`的方式获取是否为pending状态，pending状态下返回true，
+     * 否则返回false。
      * 
      * > **注意：**
      * >
@@ -2237,7 +2262,8 @@ declare namespace photoAccessHelper {
      * 查询图片或视频资源是否被编辑过。使用callback异步回调。
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<boolean> } callback - Callback对象，返回图片或视频资源是否被编辑过。true为被编辑过，false为没有被编辑过，默认是false。
+     * @param { AsyncCallback<boolean> } callback - Callback对象，返回图片或视频资源是否被编辑过。
+     *     true为被编辑过，false为没有被编辑过，默认是false。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2254,7 +2280,8 @@ declare namespace photoAccessHelper {
      * 查询图片或视频资源是否被编辑过。使用Promise异步回调。
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @returns { Promise<boolean> } Promise对象，返回图片或视频资源是否被编辑过。true为被编辑过，false为没有被编辑过，默认是false。
+     * @returns { Promise<boolean> } Promise对象，返回图片或视频资源是否被编辑过。
+     *     true为被编辑过，false为没有被编辑过，默认是false。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2401,7 +2428,8 @@ declare namespace photoAccessHelper {
     /**
      * 提交编辑数据以及编辑后的图片或视频。使用callback异步回调。
      * 
-     * 通过uri将编辑后的文件传递给媒体库，uri是编辑后的文件在应用沙箱下的FileUri，可参考[FileUri]{@link @ohos.file.fileuri:fileUri}。
+     * 通过uri将编辑后的文件传递给媒体库，uri是编辑后的文件在应用沙箱下的FileUri，可参考
+     * [FileUri]{@link @ohos.file.fileuri:fileUri}。
      * 
      * > **注意：**
      * >
@@ -2430,7 +2458,8 @@ declare namespace photoAccessHelper {
     /**
      * 提交编辑数据以及编辑后的图片或视频。使用Promise异步回调。
      * 
-     * 通过uri将编辑后的文件传递给媒体库，uri是编辑后的文件在应用沙箱下的FileUri，可参考[FileUri]{@link @ohos.file.fileuri:fileUri}。
+     * 通过uri将编辑后的文件传递给媒体库，uri是编辑后的文件在应用沙箱下的FileUri，可参考
+     * [FileUri]{@link @ohos.file.fileuri:fileUri}。
      * 
      * > **注意：**
      * >
@@ -2501,7 +2530,8 @@ declare namespace photoAccessHelper {
     /**
      * 通过callback的形式，获取资源的快速缩略图和普通缩略图。
      * 
-     * 快速缩略图尺寸为128*128，普通缩略图尺寸为256*256。应用调用接口后，callback将返回两次缩略图对象，第一次为快速缩略图，第二次为普通缩略图。
+     * 快速缩略图尺寸为128*128，普通缩略图尺寸为256*256。应用调用接口后，callback将返回两次缩略图对象，第一次为快速缩略图，
+     * 第二次为普通缩略图。
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AsyncCallback<image.PixelMap> } callback - Callback对象，返回获取的缩略图，调用2次。
@@ -2776,7 +2806,9 @@ declare namespace photoAccessHelper {
      */
     DATE_MODIFIED = 'date_modified',
     /**
-     * 持续时间（单位：毫秒）。在API version 23之前，动态照片的duration将返回0；在API version 23及之后，返回动态照片附带视频片段的时长，异常场景返回-1。
+     * 持续时间（单位：毫秒）。
+     * 在API version 23之前，动态照片的duration将返回0；
+     * 在API version 23及之后，返回动态照片附带视频片段的时长，异常场景返回-1。
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform [since 12]

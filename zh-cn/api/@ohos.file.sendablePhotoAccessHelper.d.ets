@@ -24,7 +24,8 @@ import lang from '../arkts/@arkts.lang';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
- * 该模块基于[Sendable](docroot://arkts-utils/arkts-sendable.md)对象，提供相册管理功能，包括创建相册和访问、修改相册中的媒体数据。
+ * 该模块基于[Sendable](docroot://arkts-utils/arkts-sendable.md)对象，提供相册管理功能，包括创建相册和访问、修改相册中的媒体
+ * 数据。
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
@@ -314,8 +315,9 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * 获取PhotoAsset成员参数的值。
      *
-     * @param { string } member - 成员参数名称，在get时，除了'uri'、'media_type'、'subtype'和'display_name'四个属性之外，其他的属性都需要
-     * 在fetchColumns中填入需要get的[PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}，例如：get title属性
+     * @param { string } member - 成员参数名称，在get时，除了'uri'、'media_type'、'subtype'和'display_name'四个属性之外，
+     * 其他的属性都需要在fetchColumns中填入需要get的[PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper
+     * .PhotoKeys}，例如：get title属性
      * fetchColumns: ['title']。
      * @returns { photoAccessHelper.MemberType } 获取PhotoAsset成员参数的值。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -329,7 +331,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * 设置PhotoAsset成员参数。
      *
-     * @param { string } member - 成员参数名称例如：[PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}
+     * @param { string } member - 成员参数名称例如：
+     * [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}
      *     .TITLE。字符串长度的取值范围为[1, 255]。
      * @param { string } value - 设置成员参数名称，只能修改
      *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}.TITLE的值。title的参数规格为：
@@ -458,7 +461,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * 获取文件检索结果中的下一个文件资产。使用Promise异步回调。
      * 
-     * 在调用此方法之前，必须使用[isAfterLast()]{@link sendablePhotoAccessHelper.FetchResult.isAfterLast}来检查当前位置是否为最后一行。
+     * 在调用此方法之前，必须使用[isAfterLast()]{@link sendablePhotoAccessHelper.FetchResult.isAfterLast}来检查当前位置
+     * 是否为最后一行。
      *
      * @returns { Promise<T> } Promise对象，返回结果集中下一个对象。
      * @throws { BusinessError } 14000011 - Internal system error
@@ -1294,7 +1298,11 @@ declare namespace sendablePhotoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
-    getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
+    getAlbums(
+      type: AlbumType,
+      subtype: AlbumSubtype,
+      options?: photoAccessHelper.FetchOptions
+    ): Promise<FetchResult<Album>>;
     /**
      * 根据隐藏文件显示模式和检索选项获取系统中的隐藏相册。使用Promise异步回调。
      *
@@ -1314,7 +1322,7 @@ declare namespace sendablePhotoAccessHelper {
      * @since 12 dynamiconly
      */
     getHiddenAlbums(
-      mode: photoAccessHelper.HiddenPhotosDisplayMode, 
+      mode: photoAccessHelper.HiddenPhotosDisplayMode,
       options?: photoAccessHelper.FetchOptions
     ): Promise<FetchResult<Album>>;
     /**
