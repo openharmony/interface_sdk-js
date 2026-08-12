@@ -3086,7 +3086,7 @@ declare namespace photoAccessHelper {
      * @since 13 dynamic
      * @since 23 static
      */
-    DATE_TAKEN_MS  = 'date_taken_ms',
+    DATE_TAKEN_MS = 'date_taken_ms',
     /**
      * 云增强任务标识。
      *
