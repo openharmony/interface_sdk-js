@@ -3637,48 +3637,6 @@ export declare class ContextMenuController {
 }
 
 /**
-* 用于定义帧回调任务，可在下一帧渲染阶段或帧渲染任务结束后的空闲阶段执行。
-*
-* > **说明：**
-* >
-* > - 以下API需要配合[UIContext]{@link @ohos.arkui.UIContext}中的[postFrameCallback]{@link UIContext#postFrameCallback}和
-* > [postDelayedFrameCallback]{@link UIContext#postDelayedFrameCallback}使用。开发者需要继承该类并重写
-* > [onFrame]{@link FrameCallback#onFrame}或[onIdle]{@link FrameCallback#onIdle}方法，实现具体的业务逻辑。
-*
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- */
-export abstract class FrameCallback {
-
-  /**
-   * 在下一帧进行渲染时，该方法将被执行。
-   *
-   * @param { number } frameTimeInNano - 下一帧渲染开始执行的时间，以纳秒为单位。<br/>取值范围：[0, +∞)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  onFrame(frameTimeInNano: number): void;
-
-  /**
-   * 在下一帧渲染结束时，如果距离下一个Vsync信号到来还有1ms以上的剩余时间，该方法将被执行，否则将顺延至后面的帧。
-   *
-   * @param { number } timeLeftInNano - 这一帧剩余的空闲时间，以纳秒为单位。<br/>取值范围：[0, +∞)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  onIdle(timeLeftInNano: number): void;
-}
-
-/**
 * 当前组件所在Ability的上下文。
 *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -4465,6 +4423,21 @@ export class ResolvedUIContext extends UIContext {
    */
   strategy: ResolveStrategy;
 }
+/**
+* 用于定义帧回调任务，可在下一帧渲染阶段或帧渲染任务结束后的空闲阶段执行。
+*
+* > **说明：**
+* >
+* > - 以下API需要配合[UIContext]{@link @ohos.arkui.UIContext}中的[postFrameCallback]{@link UIContext#postFrameCallback}和
+* > [postDelayedFrameCallback]{@link UIContext#postDelayedFrameCallback}使用。开发者需要继承该类并重写
+* > [onFrame]{@link FrameCallback#onFrame}或[onIdle]{@link FrameCallback#onIdle}方法，实现具体的业务逻辑。
+*
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
 export abstract class FrameCallback {
   /**
    * 在下一帧进行渲染时，该方法将被执行。
@@ -5635,7 +5608,7 @@ export class UIContext {
 
   /**
    * 更新bindSheetContent对应的半模态页面的样式，使用Promise异步回调。
-   *
+   * 
    * > **说明：**
    * >
    * > 不支持更新SheetOptions.UIContext、SheetOptions.mode、回调函数。
@@ -5662,7 +5635,7 @@ export class UIContext {
 
   /**
    * 关闭bindSheetContent对应的半模态页面，使用Promise异步回调。
-   *
+   * 
    * > **说明：**
    * >
    * > 使用此接口关闭半模态页面时，不会触发shouldDismiss回调。
