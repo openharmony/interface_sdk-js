@@ -1500,7 +1500,7 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { FirewallRule } firewallRule - Firewall rule to remove. If the value is empty, all firewall rules will be
+   * @param { FirewallRule } [firewallRule] - Firewall rule to remove. If the value is empty, all firewall rules will be
    *     removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1599,7 +1599,7 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { DomainFilterRule } domainFilterRule - Domain name filtering rule to remove. If the value is empty, all
+   * @param { DomainFilterRule } [domainFilterRule] - Domain name filtering rule to remove. If the value is empty, all
    *     domain name filtering rules will be removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.

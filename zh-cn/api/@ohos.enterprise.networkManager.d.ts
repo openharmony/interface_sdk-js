@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 网络管理
+ * @file 系统接口
  * @kit MDMKit
  */
 
@@ -508,7 +508,7 @@ declare namespace networkManager {
     /**
      * 日志类型，当前仅支持配置NFLOG类型，该参数仅支持PC/2in1设备。
      * 
-     * 添加防火墙过滤规则时，此参数非必填。若填写，仅在丢弃或拒绝数据包时生效。
+     * 添加防火墙过滤规则时，此参数非必填。若填写，仅在丢弃或拒绝数据包时生效。<!--RP1--><!--RP1End-->
      * 
      * 移除防火墙过滤规则时，当清空某条链时非必填，不影响整条链的清空；当移除单条规则时，是否填写必须与该规则一致，否则可能导致过滤规则已经移除，但是日志还在记录的问题；相同过滤规则移除时必须按添加时的顺序移除。
      * 
@@ -590,7 +590,7 @@ declare namespace networkManager {
     /**
      * 日志类型，当前仅支持配置NFLOG类型，该参数仅支持PC/2in1设备。
      * 
-     * 添加域名过滤规则时，此参数非必填。若填写，仅在丢弃或拒绝数据包时生效。
+     * 添加域名过滤规则时，此参数非必填。若填写，仅在丢弃或拒绝数据包时生效。<!--RP2--><!--RP2End-->
      * 
      * 移除域名过滤规则时，当清空某条链时非必填，不影响整条链的清空；当移除单条规则时，是否填写必须与该规则一致，否则可能导致过滤规则已经移除，但是日志还在记录的问题；相同过滤规则移除时必须按添加时的顺序移除。
      * 
@@ -1331,7 +1331,7 @@ declare namespace networkManager {
   function listIptablesFilterRules(admin: Want): Promise<string>;
 
   /**
-   * 为设备添加防火墙过滤规则。适用于企业网络安全管控场景，例如限制特定IP地址的网络访问、防止恶意网络攻击、控制应用程序的网络通信、实现网络访问的允许名单或禁用名单管理，帮助企业精细化控制
+   * 为设备添加防火墙过滤规则。<!--RP3--><!--RP3End-->适用于企业网络安全管控场景，例如限制特定IP地址的网络访问、防止恶意网络攻击、控制应用程序的网络通信、实现网络访问的允许名单或禁用名单管理，帮助企业精细化控制
    * 网络访问，防止网络攻击和数据泄露。
    * 
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
@@ -1364,17 +1364,17 @@ declare namespace networkManager {
 
   /**
    * 移除设备防火墙过滤规则。适用于企业网络安全策略调整场景，例如取消某些网络访问限制、调整防火墙策略、清理过时或无效的规则，帮助企业灵活调整网络安全策略，确保网络访问控制策略与实际需求保持一致。
-   * 
+   *
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
-   * 
+   *
    * 从API version 23开始，支持[LogType]{@link networkManager.LogType}。
-   * 
+   *
    * 移除规则后如果不存在[Action]{@link networkManager.Action}为ALLOW规则后，会将[addFirewallRule]{@link networkManager.addFirewallRule}添
    * 加的默认DENY规则清空。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { FirewallRule } firewallRule - 移除防火墙过滤规则。值为空时，清空所有的防火墙规则。
+   * @param { FirewallRule } [firewallRule] - 移除防火墙过滤规则。值为空时，清空所有的防火墙规则。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1410,7 +1410,7 @@ declare namespace networkManager {
   function getFirewallRules(admin: Want): Array<FirewallRule>;
 
   /**
-   * 为设备添加域名过滤规则。
+   * 为设备添加域名过滤规则。<!--RP3--><!--RP3End-->
    * 
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
    * 
@@ -1444,17 +1444,17 @@ declare namespace networkManager {
 
   /**
    * 移除设备域名过滤规则。适用于企业网络安全策略调整场景，例如取消某些域名访问限制、调整域名过滤策略、清理过时或无效的规则、解决误拦截问题，帮助企业灵活调整域名访问策略，确保网络访问控制策略符合实际需求。
-   * 
+   *
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
-   * 
+   *
    * 从API version 23开始，支持[LogType]{@link networkManager.LogType}。
-   * 
+   *
    * 移除规则后如果不存在[Action]{@link networkManager.Action}为ALLOW规则后，会将
    * [addDomainFilterRule]{@link networkManager.addDomainFilterRule}添加的默认DENY规则清空。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { DomainFilterRule } domainFilterRule - 移除域名过滤规则。值为空时，清空所有的域名规则。
+   * @param { DomainFilterRule } [domainFilterRule] - 移除域名过滤规则。值为空时，清空所有的域名规则。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
