@@ -1054,7 +1054,7 @@ declare class Decimal {
    * @param { double } decimalPlaces 转换时保留的小数点后有效位数。取值范围为[0, 1e9]的整数。
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang [since 18]
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
    * @since 12 dynamic
