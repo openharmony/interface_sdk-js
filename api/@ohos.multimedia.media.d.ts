@@ -4121,8 +4121,7 @@ declare namespace media {
      * >
      * > This API is not supported in live mode.
      *
-     * @param { double } rate - Playback rate, which is in the range [0.125, 8.0]
-     *     on API 24 and below, the range is [0.125, 4.0].
+     * @param { double } rate - Playback rate, which is in the range [0.125, 4.0].
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
