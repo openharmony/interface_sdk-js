@@ -14,7 +14,7 @@
  */
 
 /**
- * @file SMS
+ * @file 短信服务
  * @kit TelephonyKit
  */
 
@@ -22,9 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 
 /**
- * The **sms** module provides basic SMS management functions. With the APIs provided by this module, you can create and
- * send SMS messages, and obtain the ID of the default SIM card used to send and receive SMS messages, and check whether
- * the current device can send and receive SMS messages.
+ * 短信服务提供了管理短信的一些基础能力，包括创建、发送短信，获取发送短信的默认SIM卡槽ID、检查当前设备是否具备短信发送和接收能力等。
  *
  * @syscap SystemCapability.Telephony.SmsMms
  * @since 6 dynamic
@@ -32,11 +30,11 @@ import type Context from './application/BaseContext';
  */
 declare namespace sms {
   /**
-   * Splits an SMS message into multiple segments. This API uses an asynchronous callback to return the result.
+   * 将长短信拆分为多个片段。使用callback异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { string } content - SMS message content. The value cannot be null.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+   * @param { string } content - 指示短消息内容，不能为null。
+   * @param { AsyncCallback<Array<string>> } callback - 返回可合并为完整SMS的拆分段列表的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -53,11 +51,11 @@ declare namespace sms {
   function splitMessage(content: string, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Splits an SMS message into multiple segments. This API uses a promise to return the result.
+   * 将长短信拆分为多个片段。使用Promise异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { string } content - SMS message content. The value cannot be null.
-   * @returns { Promise<Array<string>> } Promise used to return the result.
+   * @param { string } content - 指示短消息内容，不能为null。
+   * @returns { Promise<Array<string>> } 以Promise形式返回多个片段的的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -74,14 +72,11 @@ declare namespace sms {
   function splitMessage(content: string): Promise<Array<string>>;
 
   /**
-   * Creates an SMS instance based on the protocol data unit (PDU) and specified SMS protocol. This API uses an
-   * asynchronous callback to return the result.
+   * 根据协议数据单元(PDU)和指定的短信协议创建短信实例。使用callback异步回调。
    *
-   * @param { Array<int> } pdu - Protocol data unit, which is obtained from the received SMS message.
-   * @param { string } specification - SMS protocol type.
-   *     <br>- **3gpp**: GSM/UMTS/LTE SMS
-   *     <br>- **3gpp2**: CDMA SMS
-   * @param { AsyncCallback<ShortMessage> } callback - Callback used to return the result.
+   * @param { Array<int> } pdu - 协议数据单元，从收到的信息中获取。
+   * @param { string } specification - 短信协议类型。<br/>- 3gpp：表示GSM/UMTS/LTE SMS。<br/>- 3gpp2：表示CDMA SMS。
+   * @param { AsyncCallback<ShortMessage> } callback - 获取短信实例的回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -95,14 +90,11 @@ declare namespace sms {
   function createMessage(pdu: Array<int>, specification: string, callback: AsyncCallback<ShortMessage>): void;
 
   /**
-   * Creates an SMS instance based on the protocol data unit (PDU) and specified SMS protocol. This API uses a promise
-   * to return the result.
+   * 根据协议数据单元(PDU)和指定的短信协议创建短信实例。使用Promise异步回调。
    *
-   * @param { Array<int> } pdu - Protocol data unit, which is obtained from the received SMS message.
-   * @param { string } specification - SMS protocol type.
-   *     <br>- **3gpp**: GSM/UMTS/LTE SMS
-   *     <br>- **3gpp2**: CDMA SMS
-   * @returns { Promise<ShortMessage> } Promise used to return the result.
+   * @param { Array<int> } pdu - 协议数据单元，从收到的信息中获取。
+   * @param { string } specification - 短信协议类型。<br/>- 3gpp：表示GSM/UMTS/LTE SMS。<br/>- 3gpp2：表示CDMA SMS。
+   * @returns { Promise<ShortMessage> } 以Promise形式返回创建的短信实例。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -116,16 +108,14 @@ declare namespace sms {
   function createMessage(pdu: Array<int>, specification: string): Promise<ShortMessage>;
 
   /**
-   * Sends an SMS message.
-   *
-   * > **NOTE**
+   * 发送短信。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 6 and deprecated since API version 10. You are advised to use
-   * > [sendShortMessage]{@link sms.sendShortMessage}.
+   * > 从 API version 6开始支持，从API version 10开始废弃。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { SendMessageOptions } options - Options (including the callback) for sending SMS messages. For details, see
-   *     [SendMessageOptions]{@link sms.SendMessageOptions}.
+   * @param { SendMessageOptions } options - 发送短信的参数和回调，参考[SendMessageOptions]{@link sms.SendMessageOptions}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -141,12 +131,11 @@ declare namespace sms {
   function sendMessage(options: SendMessageOptions): void;
 
   /**
-   * Sends an SMS message. This API uses an asynchronous callback to return the result.
+   * 发送短信。使用callback异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { SendMessageOptions } options - Options (including the callback) for sending SMS messages. For details, see
-   *     [SendMessageOptions]{@link sms.SendMessageOptions}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SendMessageOptions } options - 发送短信的参数和回调，参考[SendMessageOptions]{@link sms.SendMessageOptions}。
+   * @param { AsyncCallback<void> } callback - 发送短信的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -161,12 +150,11 @@ declare namespace sms {
   function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends an SMS message. This API uses a promise to return the result.
+   * 发送短信。使用Promise异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { SendMessageOptions } options - Options (including the callback) for sending SMS messages. For details, see
-   *     [SendMessageOptions]{@link sms.SendMessageOptions}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { SendMessageOptions } options - 发送短信的参数和回调，参考[SendMessageOptions]{@link sms.SendMessageOptions}。
+   * @returns { Promise<void> } 以Promise形式返回发送短信的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -181,15 +169,11 @@ declare namespace sms {
   function sendShortMessage(options: SendMessageOptions): Promise<void>;
 
   /**
-   * Sets the default slot ID of the SIM card used to send SMS messages. This API uses an asynchronous callback to
-   * return the result.
+   * 设置发送短信的默认SIM卡槽ID。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   *     <br>- **-1**: Clears the default configuration.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID。<br/>- 0：卡槽1<br/>- 1：卡槽2<br/>- -1：清除默认配置
+   * @param { AsyncCallback<void> } callback - 设置发送短信的默认SIM卡槽ID的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -207,14 +191,11 @@ declare namespace sms {
   function setDefaultSmsSlotId(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the default slot ID of the SIM card used to send SMS messages. This API uses a promise to return the result.
+   * 设置发送短信的默认SIM卡槽ID。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   *     <br>- **-1**: Clears the default configuration.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID。<br/>- 0：卡槽1<br/>- 1：卡槽2<br/>- -1：清除默认配置
+   * @returns { Promise<void> } 以Promise形式异步返回设置结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -232,12 +213,9 @@ declare namespace sms {
   function setDefaultSmsSlotId(slotId: int): Promise<void>;
 
   /**
-   * Obtains the default slot ID of the SIM card used to send SMS messages. This API uses an asynchronous callback to
-   * return the result.
+   * 获取发送短信的默认SIM卡槽ID。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<int> } callback - 获取发送短信的默认SIM卡槽ID的回调函数。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7 dynamic
    * @since 23 static
@@ -245,12 +223,9 @@ declare namespace sms {
   function getDefaultSmsSlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default slot ID of the SIM card used to send SMS messages. This API uses a promise to return the
-   * result.
+   * 获取发送短信的默认SIM卡槽ID。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the result.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
+   * @returns { Promise<int> } 以Promise形式返回发送短信的默认SIM卡：<br/>- 0：卡槽1。<br/>- 1：卡槽2。
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7 dynamic
    * @since 23 static
@@ -258,14 +233,12 @@ declare namespace sms {
   function getDefaultSmsSlotId(): Promise<int>;
 
   /**
-   * Sets the short message service center (SMSC) address. This API uses an asynchronous callback to return the result.
+   * 设置短信服务中心（SMSC）地址。使用callback异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { string } smscAddr - SMSC address.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { string } smscAddr - 短信服务中心地址。
+   * @param { AsyncCallback<void> } callback - 设置短信服务中心（SMSC）地址的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -282,14 +255,12 @@ declare namespace sms {
   function setSmscAddr(slotId: int, smscAddr: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the SMSC address. This API uses a promise to return the result.
+   * 设置短信服务中心（SMSC）地址。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { string } smscAddr - SMSC address.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { string } smscAddr - 短信服务中心地址。
+   * @returns { Promise<void> } 以Promise形式异步返回设置结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -306,13 +277,11 @@ declare namespace sms {
   function setSmscAddr(slotId: int, smscAddr: string): Promise<void>;
 
   /**
-   * Obtains the SMSC address. This API uses an asynchronous callback to return the result.
+   * 获取短信服务中心（SMSC）地址。使用callback异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { AsyncCallback<string> } callback - 指示用于获取SMSC地址的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -329,13 +298,11 @@ declare namespace sms {
   function getSmscAddr(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the SMSC address. This API uses a promise to return the result.
+   * 获取短信服务中心（SMSC）地址。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @returns { Promise<string> } 以Promise形式返回获取短信服务中心地址的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -352,10 +319,9 @@ declare namespace sms {
   function getSmscAddr(slotId: int): Promise<string>;
 
   /**
-   * Checks whether the current device can send and receive SMS messages. This API works in synchronous mode.
+   * 检查当前设备是否具备短信发送和接收能力，该方法是同步方法。
    *
-   * @returns { boolean } - **true**: The device can send and receive SMS messages.
-   *     <br>- **false**: The device cannot send or receive SMS messages.
+   * @returns { boolean } - true：设备具备短信发送和接收能力。<br/>- false：设备不具备短信发送和接收能力。
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7 dynamic
    * @since 23 static
@@ -363,12 +329,11 @@ declare namespace sms {
   function hasSmsCapability(): boolean;
 
   /**
-   * Adds a message to the SIM card. If the SIM card is full, an error is reported. This API uses an asynchronous
-   * callback to return the result.
+   * 添加SIM卡消息，sim卡消息满，添加报错。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { SimMessageOptions } options - SIM message options.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { SimMessageOptions } options - SIM卡消息选项。
+   * @param { AsyncCallback<void> } callback - 添加SIM卡消息的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -385,12 +350,11 @@ declare namespace sms {
   function addSimMessage(options: SimMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a message to the SIM card. If the SIM card is full, an error is reported. This API uses a promise to return
-   * the result.
+   * 添加SIM卡消息，sim卡消息满，添加报错。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { SimMessageOptions } options - SIM message options.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { SimMessageOptions } options - SIM卡消息选项。
+   * @returns { Promise<void> } 以Promise形式返回添加的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -407,15 +371,12 @@ declare namespace sms {
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
   /**
-   * Deletes a message from the SIM card. If the specified **msgIndex** is invalid, an error is reported. This API uses
-   * an asynchronous callback to return the result.
+   * 删除SIM卡消息，msgIndex无效时，删除报错。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { int } msgIndex - Message index.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { int } msgIndex - 消息索引。
+   * @param { AsyncCallback<void> } callback - 删除SIM卡消息的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -432,15 +393,12 @@ declare namespace sms {
   function delSimMessage(slotId: int, msgIndex: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a message from the SIM card. If the specified **msgIndex** is invalid, an error is reported. This API uses
-   * a promise to return the result.
+   * 删除SIM卡消息，msgIndex无效时，删除报错。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { int } msgIndex - Message index.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { int } msgIndex - 消息索引。
+   * @returns { Promise<void> } 以Promise形式返回删除的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -457,11 +415,11 @@ declare namespace sms {
   function delSimMessage(slotId: int, msgIndex: int): Promise<void>;
 
   /**
-   * Updates a SIM message. This API uses an asynchronous callback to return the result.
+   * 更新SIM卡消息。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { UpdateSimMessageOptions } options - SIM message updating options.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { UpdateSimMessageOptions } options - 更新SIM卡消息选项。
+   * @param { AsyncCallback<void> } callback - 更新SIM卡消息的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -478,11 +436,11 @@ declare namespace sms {
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a SIM message. This API uses a promise to return the result.
+   * 更新SIM卡消息。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { UpdateSimMessageOptions } options - SIM message updating options.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { UpdateSimMessageOptions } options - 更新SIM卡消息选项。
+   * @returns { Promise<void> } 以Promise形式返回更新的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -499,13 +457,11 @@ declare namespace sms {
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
   /**
-   * Obtains all SIM card messages. This API uses an asynchronous callback to return the result.
+   * 获取所有SIM卡消息。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<Array<SimShortMessage>> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { AsyncCallback<Array<SimShortMessage>> } callback - 获取所有SIM卡消息的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -522,13 +478,11 @@ declare namespace sms {
   function getAllSimMessages(slotId: int, callback: AsyncCallback<Array<SimShortMessage>>): void;
 
   /**
-   * Obtains all SIM card messages. This API uses a promise to return the result.
+   * 获取所有SIM卡消息。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<Array<SimShortMessage>> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @returns { Promise<Array<SimShortMessage>> } 以Promise形式返回获取的SIM短消息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -545,11 +499,11 @@ declare namespace sms {
   function getAllSimMessages(slotId: int): Promise<Array<SimShortMessage>>;
 
   /**
-   * Sets the cell broadcast configuration. This API uses an asynchronous callback to return the result.
+   * 设置小区广播配置。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS
-   * @param { CBConfigOptions } options - Cell broadcast configuration options.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { CBConfigOptions } options - 小区广播配置选项。
+   * @param { AsyncCallback<void> } callback - 设置小区广播配置的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -566,11 +520,11 @@ declare namespace sms {
   function setCBConfig(options: CBConfigOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the cell broadcast configuration. This API uses a promise to return the result.
+   * 设置小区广播配置。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_SMS
-   * @param { CBConfigOptions } options - Cell broadcast configuration options.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { CBConfigOptions } options - 小区广播配置选项。
+   * @returns { Promise<void> } 以Promise形式返回设置的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -587,7 +541,7 @@ declare namespace sms {
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
   /**
-   * Turn on Cell BroadCast by list.
+   * 打开小区广播列表
    *
    * @permission ohos.permission.RECEIVE_SMS
    * @param { CBConfigListConfigs } configs - Indicates cell broadcast configuration list configs.
@@ -605,16 +559,12 @@ declare namespace sms {
   function setCBConfigList(configs: CBConfigListConfigs): Promise<void>;
 
   /**
-   * Obtains SMS message segment information. This API uses an asynchronous callback to return the result.
+   * 获取短信段信息。使用callback异步回调。
    *
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { string } message - SMS message.
-   * @param { boolean } force7bit - Whether to use 7-bit encoding. The default value is **false**.
-   *     <br>- **true**: yes
-   *     <br>- **false**: no
-   * @param { AsyncCallback<SmsSegmentsInfo> } callback - Callback used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { string } message - 消息。
+   * @param { boolean } force7bit - 是否使用7 bit编码，默认false。<br/>-true：是<br/>-false：否
+   * @param { AsyncCallback<SmsSegmentsInfo> } callback - 指示用于获取短信短信息的回调函数。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -630,16 +580,12 @@ declare namespace sms {
   function getSmsSegmentsInfo(slotId: int, message: string, force7bit: boolean, callback: AsyncCallback<SmsSegmentsInfo>): void;
 
   /**
-   * Obtains SMS message segment information. This API uses a promise to return the result.
+   * 获取短信段信息。使用Promise异步回调。
    *
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { string } message - SMS message.
-   * @param { boolean } force7bit - Whether to use 7-bit encoding. The default value is **false**.
-   *     <br>- **true**: yes
-   *     <br>- **false**: no
-   * @returns { Promise<SmsSegmentsInfo> } Promise used to return the result.
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { string } message - 消息。
+   * @param { boolean } force7bit - 是否使用7 bit编码，默认false。<br/>-true：是<br/>-false：否
+   * @returns { Promise<SmsSegmentsInfo> } 以Promise形式返回短信段信息。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -655,14 +601,10 @@ declare namespace sms {
   function getSmsSegmentsInfo(slotId: int, message: string, force7bit: boolean): Promise<SmsSegmentsInfo>;
 
   /**
-   * Checks whether SMS is supported on IMS. This API uses an asynchronous callback to return the result.
+   * 如果IMS已注册并且在IMS上支持SMS，则支持通过IMS发送SMS。使用callback异步回调。
    *
-   * @param { int } slotId - SIM card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<boolean> } callback - Whether SMS is supported on IMS. The default value is **false**.
-   *     <br>- **true**: yes
-   *     <br>- **false**: no
+   * @param { int } slotId - SIM卡槽ID：<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @param { AsyncCallback<boolean> } callback - 指示是否支持IMS发送SMS的回调函数，默认false。<br/>-true：是<br/>-false：否
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -678,12 +620,10 @@ declare namespace sms {
   function isImsSmsSupported(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether SMS is supported on IMS. This API uses a promise to return the result.
+   * 如果IMS已注册并且在IMS上支持SMS，则支持通过IMS发送SMS。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<boolean> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1<br/>- 1：卡槽2
+   * @returns { Promise<boolean> } 以Promise形式返回结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -699,10 +639,9 @@ declare namespace sms {
   function isImsSmsSupported(slotId: int): Promise<boolean>;
 
   /**
-   * Obtains the SMS format supported by the IMS, for example, **3gpp**, **3gpp2**, or **unknown**. This API uses an
-   * asynchronous callback to return the result.
+   * 获取IMS上支持的SMS格式。使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { AsyncCallback<string> } callback - 指示用于获取格式、3gpp、3gpp2或未知的回调函数。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
@@ -718,10 +657,9 @@ declare namespace sms {
   function getImsShortMessageFormat(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the SMS format supported by the IMS, for example, **3gpp**, **3gpp2**, or **unknown**. This API uses a
-   * promise to return the result.
+   * 获取IMS上支持的SMS格式。使用Promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the result.
+   * @returns { Promise<string> } 以Promise形式返回SMS格式。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -734,11 +672,10 @@ declare namespace sms {
   function getImsShortMessageFormat(): Promise<string>;
 
   /**
-   * Decodes MMS messages. This API uses an asynchronous callback to return the result.
+   * 彩信解码。使用callback异步回调。
    *
-   * @param { string | Array<int> } mmsFilePathName - MMS message file path.
-   * @param { AsyncCallback<MmsInformation> } callback - Callback used to return the result, which is carried in {@code
-   *     MmsInformation}.
+   * @param { string | Array<int> } mmsFilePathName - 彩信文件路径。
+   * @param { AsyncCallback<MmsInformation> } callback - 获取｛@code MmsInformation｝的回调函数。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -754,10 +691,10 @@ declare namespace sms {
   function decodeMms(mmsFilePathName: string | Array<int>, callback: AsyncCallback<MmsInformation>): void;
 
   /**
-   * Decodes MMS messages. This API uses a promise to return the result.
+   * 彩信解码。使用Promise异步回调。
    *
-   * @param { string | Array<int> } mmsFilePathName - MMS message file path.
-   * @returns { Promise<MmsInformation> } Promise used to return the result.
+   * @param { string | Array<int> } mmsFilePathName - 彩信文件路径。
+   * @returns { Promise<MmsInformation> } 以Promise形式返回彩信信息。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -773,10 +710,10 @@ declare namespace sms {
   function decodeMms(mmsFilePathName: string | Array<int>): Promise<MmsInformation>;
 
   /**
-   * MMS message code. This API uses an asynchronous callback to return the result.
+   * 彩信编码。使用callback异步回调。
    *
-   * @param { MmsInformation } mms - MMS message information.
-   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.
+   * @param { MmsInformation } mms - 彩信信息。
+   * @param { AsyncCallback<Array<int>> } callback - 指示用于获取MMS编码结果的回调函数。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -792,10 +729,10 @@ declare namespace sms {
   function encodeMms(mms: MmsInformation, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * MMS message code. This API uses a promise to return the result.
+   * 彩信编码。使用Promise异步回调。
    *
-   * @param { MmsInformation } mms - MMS message information.
-   * @returns { Promise<Array<int>> } Promise used to return the result.
+   * @param { MmsInformation } mms - 彩信信息。
+   * @returns { Promise<Array<int>> } 以Promise形式返回彩信编码后的结果。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3. Parameter verification failed.
@@ -811,12 +748,9 @@ declare namespace sms {
   function encodeMms(mms: MmsInformation): Promise<Array<int>>;
 
   /**
-   * Obtains the default ID of the SIM card used to send SMS messages. This API uses an asynchronous callback to return
-   * the result.
+   * 获取发送短信的默认SIM卡ID。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
-   *     <br>The return value is bound to the SIM card and increases from 1.
-   *     <br>The return value is **-1** if no SIM card is detected.
+   * @param { AsyncCallback<int> } callback - 获取默认短信SIM的SIM ID的回调函数。<br/>与SIM卡绑定，从1开始递增。<br/>无卡时返回值为-1。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -832,11 +766,9 @@ declare namespace sms {
   function getDefaultSmsSimId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default ID of the SIM card used to send SMS messages. This API uses a promise to return the result.
+   * 获取发送短信的默认SIM卡ID。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the result.
-   *     <br>The return value is bound to the SIM card and increases from 1.
-   *     <br>The return value is **-1** if no SIM card is detected.
+   * @returns { Promise<int> } 以Promise形式返回发送短信的默认SIM卡ID：<br/>与SIM卡绑定，从1开始递增。<br/>无卡时返回值为-1。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -850,14 +782,14 @@ declare namespace sms {
   function getDefaultSmsSimId(): Promise<int>;
 
   /**
-   * Get the SMS short code type of the destination address.
+   * 获取拟发送短信的目标地址短码类型
    *
    * @permission ohos.permission.SEND_MESSAGES
    * @param { int } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
    *     The value {@code 0} indicates card slot 1, and the value {@code 1} indicates card slot 2.
    * @param { string } destAddr - Indicates the destination address of the sending SMS.
-   *     <br>Value range:[0,+∞)
-   * @returns { Promise<SmsShortCodeType> } Returns the SMS short code type of the sending destination address.
+   *     <br>取值范围:[0,+∞)
+   * @returns { Promise<SmsShortCodeType> } 返回发送目标地址的短信短码类型
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -873,7 +805,7 @@ declare namespace sms {
   function getSmsShortCodeType(slotId: int, destAddr: string): Promise<SmsShortCodeType>;
 
   /**
-   * Defines the MMS message information.
+   * 彩信信息。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -882,7 +814,7 @@ declare namespace sms {
    */
   export interface MmsInformation {
     /**
-     * Message type.
+     * 消息类型。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -892,7 +824,7 @@ declare namespace sms {
     messageType: MessageType;
 
     /**
-     * PDU header type.
+     * PDU头类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -902,7 +834,7 @@ declare namespace sms {
     mmsType: MmsSendReq | MmsSendConf | MmsNotificationInd | MmsRespInd | MmsRetrieveConf | MmsAcknowledgeInd | MmsDeliveryInd | MmsReadOrigInd | MmsReadRecInd;
 
     /**
-     * Attachment.
+     * 附件
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -913,16 +845,14 @@ declare namespace sms {
   }
 
   /**
-   * Sends an MMS message. This API uses an asynchronous callback to return the result.
+   * 发送彩信。使用callback异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/UIAbilityContext:UIAbilityContext}.
-   * @param { MmsParams } mmsParams - Parameters (including the callback) for sending MMS messages. For details, see
-   *     [MmsParams]{@link sms.MmsParams}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context - 应用上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/UIAbilityContext:UIAbilityContext}。
+   * @param { MmsParams } mmsParams - 发送彩信的参数和回调，参考[MmsParams]{@link sms.MmsParams}。
+   * @param { AsyncCallback<void> } callback - 发送彩信的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -939,16 +869,14 @@ declare namespace sms {
   function sendMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends an MMS message. This API uses a promise to return the result.
+   * 发送彩信。使用Promise异步回调。
    *
    * @permission ohos.permission.SEND_MESSAGES
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/UIAbilityContext:UIAbilityContext}.
-   * @param { MmsParams } mmsParams - Parameters (including the callback) for sending MMS messages. For details, see
-   *     [MmsParams]{@link sms.MmsParams}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { Context } context - 应用上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/UIAbilityContext:UIAbilityContext}。
+   * @param { MmsParams } mmsParams - 发送彩信的参数和回调，参考[MmsParams]{@link sms.MmsParams}。
+   * @returns { Promise<void> } 以Promise形式返回发送彩信的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -965,16 +893,14 @@ declare namespace sms {
   function sendMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
   /**
-   * Downloads an MMS message. This API uses an asynchronous callback to return the result.
+   * 下载彩信。使用callback异步回调。
    *
    * @permission ohos.permission.RECEIVE_MMS
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/UIAbilityContext:UIAbilityContext}.
-   * @param { MmsParams }  mmsParams - Parameters (including the callback) for downloading MMS messages. For details,
-   *     see [MmsParams]{@link sms.MmsParams}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context - 应用上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/UIAbilityContext:UIAbilityContext}。
+   * @param { MmsParams }  mmsParams - 下载彩信的参数和回调，参考[MmsParams]{@link sms.MmsParams}。
+   * @param { AsyncCallback<void> } callback - 下载彩信的回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -991,16 +917,14 @@ declare namespace sms {
   function downloadMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
   /**
-   * Downloads an MMS message. This API uses a promise to return the result.
+   * 下载彩信。使用Promise异步回调。
    *
    * @permission ohos.permission.RECEIVE_MMS
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/UIAbilityContext:UIAbilityContext}.
-   * @param { MmsParams }  mmsParams - Parameters (including the callback) for sending MMS messages. For details, see
-   *     [MmsParams]{@link sms.MmsParams}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { Context } context - 应用上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/UIAbilityContext:UIAbilityContext}。
+   * @param { MmsParams }  mmsParams - 发送彩信的参数和回调，参考[MmsParams]{@link sms.MmsParams}。
+   * @returns { Promise<void> } 以Promise形式返回发送彩信的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
@@ -1017,7 +941,7 @@ declare namespace sms {
   function downloadMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
   /**
-   * Defines the parameters for sending SMS messages.
+   * 发送彩信的参数。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1026,10 +950,10 @@ declare namespace sms {
    */
   export interface MmsParams {
     /**
-     * Slot ID of the SIM card used for sending SMS messages.
-     *
-     * - **0**: card slot 1
-     * - **1**: card slot 2
+     * 用于发送短信的SIM卡槽ID：
+     * 
+     * - 0：卡槽1
+     * - 1：卡槽2
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1039,7 +963,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * MMSC address.
+     * 彩信中心地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1049,7 +973,7 @@ declare namespace sms {
     mmsc: string;
 
     /**
-     * MMS PDU address.
+     * 彩信PDU地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1059,7 +983,7 @@ declare namespace sms {
     data: string;
 
     /**
-     * MMS configuration file. For details, see [MmsParams]{@link sms.MmsParams}.
+     * 彩信配置文件，参考[MmsConfig]{@link sms.MmsConfig}。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1070,7 +994,7 @@ declare namespace sms {
   }
 
   /**
-   * MMS configuration file.
+   * 彩信配置文件。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1079,7 +1003,7 @@ declare namespace sms {
    */
   export interface MmsConfig {
     /**
-     * User agent.
+     * 用户代理。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1089,7 +1013,7 @@ declare namespace sms {
     userAgent: string;
 
     /**
-     * User agent profile.
+     * 用户代理配置。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1100,7 +1024,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMS message sending request.
+   * 彩信发送请求。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1109,7 +1033,7 @@ declare namespace sms {
    */
   export interface MmsSendReq {
     /**
-     * MMS message source.
+     * 彩信来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1119,7 +1043,7 @@ declare namespace sms {
     from: MmsAddress;
 
     /**
-     * Transaction ID.
+     * 事务ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1129,7 +1053,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Content type.
+     * 内容类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1139,7 +1063,7 @@ declare namespace sms {
     contentType: string;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1149,7 +1073,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Destination address.
+     * 发送至
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1159,7 +1083,7 @@ declare namespace sms {
     to?: Array<MmsAddress>;
 
     /**
-     * Date.
+     * 日期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1169,7 +1093,7 @@ declare namespace sms {
     date?: long;
 
     /**
-     * Carbon copy.
+     * 抄送
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1179,7 +1103,7 @@ declare namespace sms {
     cc?: Array<MmsAddress>;
 
     /**
-     * Blind carbon copy.
+     * 暗抄送
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1189,7 +1113,7 @@ declare namespace sms {
     bcc?: Array<MmsAddress>;
 
     /**
-     * Subject.
+     * 主题
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1199,7 +1123,7 @@ declare namespace sms {
     subject?: string;
 
     /**
-     * Message class.
+     * 消息类
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1209,7 +1133,7 @@ declare namespace sms {
     messageClass?: int;
 
     /**
-     * Expiration.
+     * 到期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1219,7 +1143,7 @@ declare namespace sms {
     expiry?: int;
 
     /**
-     * Priority.
+     * 优先
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1229,7 +1153,7 @@ declare namespace sms {
     priority?: MmsPriorityType;
 
     /**
-     * Sender visibility.
+     * 发件人可见性
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1239,7 +1163,7 @@ declare namespace sms {
     senderVisibility?: int;
 
     /**
-     * Delivery report.
+     * 交付报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1249,7 +1173,7 @@ declare namespace sms {
     deliveryReport?: int;
 
     /**
-     * Read report.
+     * 阅读报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1260,7 +1184,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the MMS message sending configuration.
+   * 彩信发送配置。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1269,7 +1193,7 @@ declare namespace sms {
    */
   export interface MmsSendConf {
     /**
-     * Response status.
+     * 响应状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1279,7 +1203,7 @@ declare namespace sms {
     responseState: int;
 
     /**
-     * Transaction ID.
+     * 事务ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1289,7 +1213,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1299,7 +1223,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Message ID.
+     * 消息ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1310,7 +1234,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMS notification index.
+   * 彩信通知索引。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1319,7 +1243,7 @@ declare namespace sms {
    */
   export interface MmsNotificationInd {
     /**
-     * Transaction ID.
+     * 事务ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1329,7 +1253,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Message class.
+     * 消息类
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1339,7 +1263,7 @@ declare namespace sms {
     messageClass: int;
 
     /**
-     * Message size.
+     * 消息大小
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1349,7 +1273,7 @@ declare namespace sms {
     messageSize: long;
 
     /**
-     * Expiration.
+     * 到期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1359,7 +1283,7 @@ declare namespace sms {
     expiry: int;
 
     /**
-     * Content location.
+     * 内容位置
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1369,7 +1293,7 @@ declare namespace sms {
     contentLocation: string;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1379,7 +1303,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Source address.
+     * 来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1389,7 +1313,7 @@ declare namespace sms {
     from?: MmsAddress;
 
     /**
-     * Subject.
+     * 主题
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1399,7 +1323,7 @@ declare namespace sms {
     subject?: string;
 
     /**
-     * Status report.
+     * 状态报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1409,7 +1333,7 @@ declare namespace sms {
     deliveryReport?: int;
 
     /**
-     * Content class.
+     * 内容类
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1420,7 +1344,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMS response index.
+   * 彩信回复标志。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1429,7 +1353,7 @@ declare namespace sms {
    */
   export interface MmsRespInd {
     /**
-     * Event ID.
+     * 事件ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1439,7 +1363,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Status.
+     * 状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1449,7 +1373,7 @@ declare namespace sms {
     status: int;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1459,7 +1383,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Report allowed.
+     * 允许报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1470,7 +1394,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the MMS message retrieval configuration.
+   * 彩信检索配置。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1479,7 +1403,7 @@ declare namespace sms {
    */
   export interface MmsRetrieveConf {
     /**
-     * Transaction ID.
+     * 事务ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1489,7 +1413,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Message ID.
+     * 消息ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1499,7 +1423,7 @@ declare namespace sms {
     messageId: string;
 
     /**
-     * Date.
+     * 日期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1509,7 +1433,7 @@ declare namespace sms {
     date: long;
 
     /**
-     * Content type.
+     * 内容类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1519,7 +1443,7 @@ declare namespace sms {
     contentType: string;
 
     /**
-     * Destination address.
+     * 发送至
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1529,7 +1453,7 @@ declare namespace sms {
     to: Array<MmsAddress>;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1539,7 +1463,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Source address.
+     * 来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1549,7 +1473,7 @@ declare namespace sms {
     from?: MmsAddress;
 
     /**
-     * Carbon copy.
+     * 抄送
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1559,7 +1483,7 @@ declare namespace sms {
     cc?: Array<MmsAddress>;
 
     /**
-     * Subject.
+     * 主题
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1569,7 +1493,7 @@ declare namespace sms {
     subject?: string;
 
     /**
-     * Priority.
+     * 优先
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1579,7 +1503,7 @@ declare namespace sms {
     priority?: MmsPriorityType;
 
     /**
-     * Status report.
+     * 状态报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1589,7 +1513,7 @@ declare namespace sms {
     deliveryReport?: int;
 
     /**
-     * Read report.
+     * 阅读报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1599,7 +1523,7 @@ declare namespace sms {
     readReport?: int;
 
     /**
-     * Retrieval status.
+     * 检索状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1609,7 +1533,7 @@ declare namespace sms {
     retrieveStatus?: int;
 
     /**
-     * Retrieval text.
+     * 检索文本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1620,7 +1544,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMS confirmation index.
+   * 彩信确认索引。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1629,7 +1553,7 @@ declare namespace sms {
    */
   export interface MmsAcknowledgeInd {
     /**
-     * Transaction ID.
+     * 事务ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1639,7 +1563,7 @@ declare namespace sms {
     transactionId: string;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1649,7 +1573,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Report allowed.
+     * 允许报告
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1660,7 +1584,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMS message delivery index.
+   * 彩信发送标识。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1669,7 +1593,7 @@ declare namespace sms {
    */
   export interface MmsDeliveryInd {
     /**
-     * Message ID.
+     * 消息ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1679,7 +1603,7 @@ declare namespace sms {
     messageId: string;
 
     /**
-     * Date.
+     * 日期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1689,7 +1613,7 @@ declare namespace sms {
     date: long;
 
     /**
-     * Destination address.
+     * 发送至
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1699,7 +1623,7 @@ declare namespace sms {
     to: Array<MmsAddress>;
 
     /**
-     * Status.
+     * 状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1709,7 +1633,7 @@ declare namespace sms {
     status: int;
 
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1720,7 +1644,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the original MMS message reading index.
+   * 彩信读取原始索引。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1729,7 +1653,7 @@ declare namespace sms {
    */
   export interface MmsReadOrigInd {
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1739,7 +1663,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Message ID.
+     * 消息ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1749,7 +1673,7 @@ declare namespace sms {
     messageId: string;
 
     /**
-     * Destination address.
+     * 发送至
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1759,7 +1683,7 @@ declare namespace sms {
     to: Array<MmsAddress>;
 
     /**
-     * Source address.
+     * 来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1769,7 +1693,7 @@ declare namespace sms {
     from: MmsAddress;
 
     /**
-     * Date.
+     * 日期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1779,7 +1703,7 @@ declare namespace sms {
     date: long;
 
     /**
-     * Read status.
+     * 阅读状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1790,7 +1714,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the MMS message reading index.
+   * 彩信读取记录索引。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1799,7 +1723,7 @@ declare namespace sms {
    */
   export interface MmsReadRecInd {
     /**
-     * Version.
+     * 版本
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1809,7 +1733,7 @@ declare namespace sms {
     version: MmsVersionType;
 
     /**
-     * Message ID.
+     * 消息ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1819,7 +1743,7 @@ declare namespace sms {
     messageId: string;
 
     /**
-     * Destination address.
+     * 发送至
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1829,7 +1753,7 @@ declare namespace sms {
     to: Array<MmsAddress>;
 
     /**
-     * Source address.
+     * 来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1839,7 +1763,7 @@ declare namespace sms {
     from: MmsAddress;
 
     /**
-     * Read status.
+     * 阅读状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1849,7 +1773,7 @@ declare namespace sms {
     readStatus: int;
 
     /**
-     * Date.
+     * 日期
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1860,7 +1784,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the attachment of an MMS message.
+   * 彩信附件。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1869,7 +1793,7 @@ declare namespace sms {
    */
   export interface MmsAttachment {
     /**
-     * Content ID.
+     * 内容ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1879,7 +1803,7 @@ declare namespace sms {
     contentId: string;
 
     /**
-     * Content location.
+     * 内容位置
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1889,7 +1813,7 @@ declare namespace sms {
     contentLocation: string;
 
     /**
-     * Content disposition.
+     * 内容处理
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1899,7 +1823,7 @@ declare namespace sms {
     contentDisposition: DispositionType;
 
     /**
-     * Encoding for content transfer.
+     * 内容传输编码
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1909,7 +1833,7 @@ declare namespace sms {
     contentTransferEncoding: string;
 
     /**
-     * Content type.
+     * 内容类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1919,7 +1843,7 @@ declare namespace sms {
     contentType: string;
 
     /**
-     * Whether the synchronized multimedia integration language is used.
+     * 同步多媒体集成语言
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1929,7 +1853,7 @@ declare namespace sms {
     isSmil: boolean;
 
     /**
-     * Path.
+     * 路径
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1939,7 +1863,7 @@ declare namespace sms {
     path?: string;
 
     /**
-     * Whether the message is in the buffer.
+     * 缓冲区中
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1949,7 +1873,7 @@ declare namespace sms {
     inBuff?: Array<int>;
 
     /**
-     * File name.
+     * 文件名
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1959,7 +1883,7 @@ declare namespace sms {
     fileName?: string;
 
     /**
-     * Character set.
+     * 字符集
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1970,7 +1894,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an MMSC address.
+   * 彩信地址。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -1979,7 +1903,7 @@ declare namespace sms {
    */
   export interface MmsAddress {
     /**
-     * Network address.
+     * 地址
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -1989,7 +1913,7 @@ declare namespace sms {
     address: string;
 
     /**
-     * Character set.
+     * 字符集
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2000,7 +1924,7 @@ declare namespace sms {
   }
 
   /**
-   * Message type.
+   * 消息类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2009,7 +1933,7 @@ declare namespace sms {
    */
   export enum MessageType {
     /**
-     * MMS message sending request.
+     * 彩信发送请求类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2019,7 +1943,7 @@ declare namespace sms {
     TYPE_MMS_SEND_REQ = 128,
 
     /**
-     * MMS message sending configuration.
+     * 彩信发送配置类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2029,7 +1953,7 @@ declare namespace sms {
     TYPE_MMS_SEND_CONF = 129,
 
     /**
-     * MMS notification index.
+     * 彩信通知索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2039,7 +1963,7 @@ declare namespace sms {
     TYPE_MMS_NOTIFICATION_IND = 130,
 
     /**
-     * MMS message response index.
+     * 彩信回复索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2049,7 +1973,7 @@ declare namespace sms {
     TYPE_MMS_RESP_IND = 131,
 
     /**
-     * MMS message retrieval configuration.
+     * 彩信检索配置类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2059,7 +1983,7 @@ declare namespace sms {
     TYPE_MMS_RETRIEVE_CONF = 132,
 
     /**
-     * MMS message acknowledgement index.
+     * 彩信确认索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2069,7 +1993,7 @@ declare namespace sms {
     TYPE_MMS_ACKNOWLEDGE_IND = 133,
 
     /**
-     * MMS message delivery index.
+     * 彩信传送索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2079,7 +2003,7 @@ declare namespace sms {
     TYPE_MMS_DELIVERY_IND = 134,
 
     /**
-     * MMS message reading and receiving index.
+     * 彩信读取接收索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2089,7 +2013,7 @@ declare namespace sms {
     TYPE_MMS_READ_REC_IND = 135,
 
     /**
-     * Original MMS message reading index.
+     * 彩信读取原始索引类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2100,7 +2024,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates MMS message priorities.
+   * 彩信优先级类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2109,7 +2033,7 @@ declare namespace sms {
    */
   export enum MmsPriorityType {
     /**
-     * Low priority.
+     * 彩信优先级低
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2119,7 +2043,7 @@ declare namespace sms {
     MMS_LOW = 128,
 
     /**
-     * Normal priority.
+     * 彩信优先级正常
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2129,7 +2053,7 @@ declare namespace sms {
     MMS_NORMAL = 129,
 
     /**
-     * High priority.
+     * 彩信优先级高
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2140,7 +2064,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates MMS versions.
+   * 彩信版本类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2149,7 +2073,7 @@ declare namespace sms {
    */
   export enum MmsVersionType {
     /**
-     * MMS version 1_0.
+     * 彩信版本1_0
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2159,7 +2083,7 @@ declare namespace sms {
     MMS_VERSION_1_0 = 0x10,
 
     /**
-     * MMS version 1_1.
+     * 彩信版本1_1
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2169,7 +2093,7 @@ declare namespace sms {
     MMS_VERSION_1_1 = 0x11,
 
     /**
-     * MMS version 1_2.
+     * 彩信版本1_2
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2179,7 +2103,7 @@ declare namespace sms {
     MMS_VERSION_1_2 = 0x12,
 
     /**
-     * MMS version 1_3.
+     * 彩信版本1_3
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2190,7 +2114,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates MMS character sets.
+   * 彩信字符集。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2199,7 +2123,7 @@ declare namespace sms {
    */
   export enum MmsCharSets {
     /**
-     * BIG5 format.
+     * BIG5格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2209,7 +2133,7 @@ declare namespace sms {
     BIG5 = 0X07EA,
 
     /**
-     * ISO_10646_UCS_2 format.
+     * ISO_10646_UCS_2格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2219,7 +2143,7 @@ declare namespace sms {
     ISO_10646_UCS_2 = 0X03E8,
 
     /**
-     * ISO_8859_1 format.
+     * ISO_8859_1格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2229,7 +2153,7 @@ declare namespace sms {
     ISO_8859_1 = 0X04,
 
     /**
-     * ISO_8859_2 format.
+     * ISO_8859_2格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2239,7 +2163,7 @@ declare namespace sms {
     ISO_8859_2 = 0X05,
 
     /**
-     * ISO_8859_3 format.
+     * ISO_8859_3格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2249,7 +2173,7 @@ declare namespace sms {
     ISO_8859_3 = 0X06,
 
     /**
-     * ISO_8859_4 format.
+     * ISO_8859_4格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2259,7 +2183,7 @@ declare namespace sms {
     ISO_8859_4 = 0X07,
 
     /**
-     * ISO_8859_5 format.
+     * ISO_8859_5格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2269,7 +2193,7 @@ declare namespace sms {
     ISO_8859_5 = 0X08,
 
     /**
-     * ISO_8859_6 format.
+     * ISO_8859_6格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2279,7 +2203,7 @@ declare namespace sms {
     ISO_8859_6 = 0X09,
 
     /**
-     * ISO_8859_7 format.
+     * ISO_8859_7格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2289,7 +2213,7 @@ declare namespace sms {
     ISO_8859_7 = 0X0a,
 
     /**
-     * ISO_8859_8 format.
+     * ISO_8859_8格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2299,7 +2223,7 @@ declare namespace sms {
     ISO_8859_8 = 0X0b,
 
     /**
-     * ISO_8859_9 format.
+     * ISO_8859_9格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2309,7 +2233,7 @@ declare namespace sms {
     ISO_8859_9 = 0X0c,
 
     /**
-     * SHIFT_JIS format.
+     * SHIFT_JIS格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2319,7 +2243,7 @@ declare namespace sms {
     SHIFT_JIS = 0X11,
 
     /**
-     * US_ASCII format.
+     * US_ASCII格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2329,7 +2253,7 @@ declare namespace sms {
     US_ASCII = 0X03,
 
     /**
-     * UTF_8 format.
+     * UTF_8格式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2340,7 +2264,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates disposition types.
+   * 处理类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2349,7 +2273,7 @@ declare namespace sms {
    */
   export enum DispositionType {
     /**
-     * Data source.
+     * 数据来源
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2359,7 +2283,7 @@ declare namespace sms {
     FROM_DATA = 0,
 
     /**
-     * Attachment.
+     * 附件
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2369,7 +2293,7 @@ declare namespace sms {
     ATTACHMENT = 1,
 
     /**
-     * Inlining.
+     * 内联
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2380,7 +2304,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates report types.
+   * 报告类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2410,7 +2334,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the cell broadcast configuration options.
+   * 小区广播配置选项。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2419,7 +2343,7 @@ declare namespace sms {
    */
   export interface CBConfigOptions {
     /**
-     * Card slot ID.
+     * 卡槽ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2429,7 +2353,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * Whether to enable cell broadcast.
+     * 可行
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2439,7 +2363,7 @@ declare namespace sms {
     enable: boolean;
 
     /**
-     * Start message ID.
+     * 消息起始ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2449,7 +2373,7 @@ declare namespace sms {
     startMessageId: int;
 
     /**
-     * End message ID.
+     * 消息结束ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2459,7 +2383,7 @@ declare namespace sms {
     endMessageId: int;
 
     /**
-     * RAN type.
+     * 设备网络制式
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2470,7 +2394,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the cell broadcast configuration list configs.
+   * 定义小区广播列表配置
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2478,7 +2402,7 @@ declare namespace sms {
    */
   export interface CBConfigListConfigs {
     /**
-     * Indicates the card slot ID for the cell broadcast configuration list configs.
+     * 指定当前小区广播配置列表对应的卡槽
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2487,7 +2411,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * Indicates the messageIDs for the cell broadcast configuration list configs.
+     * 定义当前小区广播列表的消息号
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2496,7 +2420,7 @@ declare namespace sms {
     messageIds: int[];
 
     /**
-     * Indicates the RAN type for the cell broadcast configuration list configs.
+     * 定义当前小区广播列表接入网类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2506,7 +2430,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the SIM message options.
+   * SIM卡消息选项。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2515,7 +2439,7 @@ declare namespace sms {
    */
   export interface SimMessageOptions {
     /**
-     * Card slot ID.
+     * 卡槽ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2525,7 +2449,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * Short message service center.
+     * 短消息业务中心
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2535,7 +2459,7 @@ declare namespace sms {
     smsc: string;
 
     /**
-     * Protocol data unit.
+     * 协议数据单元
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2545,7 +2469,7 @@ declare namespace sms {
     pdu: string;
 
     /**
-     * Status.
+     * 状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2556,7 +2480,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the updating SIM message options.
+   * 更新SIM卡消息选项。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2565,7 +2489,7 @@ declare namespace sms {
    */
   export interface UpdateSimMessageOptions {
     /**
-     * Card slot ID.
+     * 卡槽ID
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2575,7 +2499,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * Message index.
+     * 消息索引
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2585,7 +2509,7 @@ declare namespace sms {
     msgIndex: int;
 
     /**
-     * New status.
+     * 新状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2595,7 +2519,7 @@ declare namespace sms {
     newStatus: SimMessageStatus;
 
     /**
-     * Protocol data unit.
+     * 协议数据单元
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2605,7 +2529,7 @@ declare namespace sms {
     pdu: string;
 
     /**
-     * Short message service center.
+     * 短消息业务中心
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2616,7 +2540,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines an SMS message instance.
+   * 短信实例。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -2624,7 +2548,7 @@ declare namespace sms {
    */
   export interface ShortMessage {
     /**
-     * SMS message body.
+     * 短信正文。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2633,7 +2557,7 @@ declare namespace sms {
     visibleMessageBody: string;
 
     /**
-     * Sender address.
+     * 发送者地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2642,7 +2566,7 @@ declare namespace sms {
     visibleRawAddress: string;
 
     /**
-     * Enumerates SMS message types.
+     * 短信类型。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2651,7 +2575,7 @@ declare namespace sms {
     messageClass: ShortMessageClass;
 
     /**
-     * Protocol identifier used for delivering the SMS message.
+     * 发送短信时使用的协议标识。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2660,7 +2584,7 @@ declare namespace sms {
     protocolId: int;
 
     /**
-     * SMSC address.
+     * 短消息服务中心(SMSC)地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2669,7 +2593,7 @@ declare namespace sms {
     scAddress: string;
 
     /**
-     * SMSC timestamp.
+     * SMSC时间戳。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2678,12 +2602,13 @@ declare namespace sms {
     scTimestamp: long;
 
     /**
-     * Whether the received SMS message is a **replace short message**. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
-     *
-     * For details, see [3GPP TS 23.040 9.2.3.9](https://www.3gpp.org/ftp/specs/archive/23_series/23.040).
+     * 收到的短信是否为“替换短信”，默认为false。
+     * 
+     * -true：是
+     * 
+     * -false：否
+     * 
+     * “替换短信”有关详细信息，参见 [“3GPP TS 23.040 9.2.3.9”](https://www.3gpp.org/ftp/specs/archive/23_series/23.040)。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2692,12 +2617,13 @@ declare namespace sms {
     isReplaceMessage: boolean;
 
     /**
-     * Whether the received SMS contains **TP-Reply-Path**. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
-     *
-     * **TP-Reply-Path**: The device returns a response based on the SMSC that sends the SMS message.
+     * 收到的短信是否包含“TP-Reply-Path”，默认为false。
+     * 
+     * -true：是
+     * 
+     * -false：否
+     * 
+     * “TP-Reply-Path”：设备根据发送SMS消息的短消息中心进行回复。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2706,7 +2632,7 @@ declare namespace sms {
     hasReplyPath: boolean;
 
     /**
-     * PDU in the SMS message.
+     * SMS消息中的协议数据单元 (PDU)。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2715,7 +2641,7 @@ declare namespace sms {
     pdu: Array<int>;
 
     /**
-     * SMS message status sent by the SMSC in the **SMS-STATUS-REPORT** message.
+     * SMS-STATUS-REPORT消息中的短信状态指示短信服务中心(SMSC)发送的短信状态。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2724,12 +2650,13 @@ declare namespace sms {
     status: int;
 
     /**
-     * Whether the received SMS message is an SMS delivery report. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
-     *
-     * SMS delivery report: a message sent from the SMSC to show the current status of the SMS message you delivered.
+     * 当前消息是否为“短信状态报告”，默认为false。
+     * 
+     * -true：是
+     * 
+     * -false：否
+     * 
+     * “短信状态报告”是一种特定格式的短信，被用来从Service Center到Mobile Station传输状态报告。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2739,7 +2666,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines a SIM message.
+   * SIM卡短消息。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2748,7 +2675,7 @@ declare namespace sms {
    */
   export interface SimShortMessage {
     /**
-     * SMS message.
+     * 短消息
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2758,7 +2685,7 @@ declare namespace sms {
     shortMessage: ShortMessage;
 
     /**
-     * SIM message status.
+     * SIM卡消息状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2768,7 +2695,7 @@ declare namespace sms {
     simMessageStatus: SimMessageStatus;
 
     /**
-     * SIM card index.
+     * SIM卡索引
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2779,7 +2706,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the SIM message status.
+   * SIM卡消息状态。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -2788,7 +2715,7 @@ declare namespace sms {
    */
   export enum SimMessageStatus {
     /**
-     * Free space state of the SIM card.
+     * SIM卡上的可用空间状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2798,7 +2725,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_FREE = 0,
 
     /**
-     * Read state.
+     * 消息已读状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2808,7 +2735,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_READ = 1,
 
     /**
-     * Unread state.
+     * 消息未读状态
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2818,7 +2745,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_UNREAD = 3,
 
     /**
-     * Storage of sent messages (applicable only to SMS).
+     * 存储发送消息（仅适用于SMS）
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2828,7 +2755,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_SENT = 5,
 
     /**
-     * Storage of unsent messages (applicable only to SMS).
+     * 存储未发送消息（仅适用于SMS）
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2839,7 +2766,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates SMS message types.
+   * 短信类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -2847,7 +2774,7 @@ declare namespace sms {
    */
   export enum ShortMessageClass {
     /**
-     * Unknown type.
+     * 未知类型。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2856,7 +2783,7 @@ declare namespace sms {
     UNKNOWN = 0,
 
     /**
-     * Instant message, which is displayed immediately after being received.
+     * 即时消息，收到后立即显示。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2865,7 +2792,7 @@ declare namespace sms {
     INSTANT_MESSAGE = 1,
 
     /**
-     * Message stored in the device or SIM card.
+     * 存储在设备或SIM卡上的短信。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2874,7 +2801,7 @@ declare namespace sms {
     OPTIONAL_MESSAGE = 2,
 
     /**
-     * Message containing SIM card information, which is to be stored in the SIM card.
+     * 包含SIM卡信息的短信，需要存储在SIM卡中。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2883,7 +2810,7 @@ declare namespace sms {
     SIM_MESSAGE = 3,
 
     /**
-     * Message to be forwarded to another device.
+     * 要转发到另一台设备的短信。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2893,8 +2820,7 @@ declare namespace sms {
   }
 
   /**
-   * Provides the options (including callbacks) for sending SMS messages. For example, you can specify the SMS message
-   * type by the optional parameter **content**.
+   * 发送短信的参数和回调。根据SendMessageOptions中的可选参数content的值判断短信类型。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -2902,10 +2828,10 @@ declare namespace sms {
    */
   export interface SendMessageOptions {
     /**
-     * Slot ID of the SIM card used for sending SMS messages.
-     *
-     * - **0**: card slot 1.
-     * - **1**: card slot 2
+     * 用于发送短信的SIM卡槽ID：
+     * 
+     * - 0：卡槽1。
+     * - 1：卡槽2。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2914,7 +2840,7 @@ declare namespace sms {
     slotId: int;
 
     /**
-     * Destination address of the SMS message.
+     * 短信的发送地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2923,7 +2849,7 @@ declare namespace sms {
     destinationHost: string;
 
     /**
-     * SMSC address. By default, the SMSC address in the SIM card is used.
+     * 短信中心地址。默认使用SIM卡中的短信中心地址。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2932,8 +2858,7 @@ declare namespace sms {
     serviceCenter?: string;
 
     /**
-     * SMS message type. If the content is composed of character strings, the SMS message is a text message. If the
-     * content is composed of byte arrays, the SMS message is a data message.
+     * 如果内容是字符串，则这是一条文本短信。如果内容是字节数组，则这是一条数据短信。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2942,7 +2867,7 @@ declare namespace sms {
     content: string | Array<int>;
 
     /**
-     * Destination port of the SMS message. This field is mandatory only for a data message. Otherwise, it is optional.
+     * 如果发送数据消息，destinationPort 是必需的。否则是可选的。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2951,9 +2876,7 @@ declare namespace sms {
     destinationPort?: int;
 
     /**
-     * Callback used to return the SMS message sending result. For details, see
-     * [ISendShortMessageCallback]{@link sms.ISendShortMessageCallback}. This parameter is mandatory for sending an SMS
-     * message.
+     * 短信发送结果回调，返回短信发送的结果，参考[ISendShortMessageCallback]{@link sms.ISendShortMessageCallback}。发送数据短信时，此项必填。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2962,9 +2885,7 @@ declare namespace sms {
     sendCallback?: AsyncCallback<ISendShortMessageCallback>;
 
     /**
-     * Callback used to return the SMS message delivery report. For details, see
-     * [IDeliveryShortMessageCallback]{@link sms.IDeliveryShortMessageCallback}. This parameter is mandatory for sending
-     * an SMS message.
+     * 短信送达结果回调，返回短信递送报告，参考[IDeliveryShortMessageCallback]{@link sms.IDeliveryShortMessageCallback}。发送数据短信时，此项必填。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2974,8 +2895,7 @@ declare namespace sms {
   }
 
   /**
-   * Provides the callback for the SMS message sending result. It consists of three parts: SMS message sending result,
-   * URI for storing the sent SMS message, and whether the SMS message is the last part of a long SMS message.
+   * 回调实例。返回短信发送结果、存储已发送短信的URI和是否为长短信的最后一部分。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -2983,7 +2903,7 @@ declare namespace sms {
    */
   export interface ISendShortMessageCallback {
     /**
-     * SMS message sending result.
+     * 短信发送结果。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -2992,7 +2912,7 @@ declare namespace sms {
     result: SendSmsResult;
 
     /**
-     * URI for storing the sent SMS message.
+     * 存储发送短信的URI。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3001,10 +2921,11 @@ declare namespace sms {
     url: string;
 
     /**
-     * Whether this SMS message is the last part of a long SMS message. The default value is **false**.
-     *
-     * - **true**: yes
-     * - **false**: no
+     * 指定这是否是长短信的最后一部分。默认为false。
+     * 
+     * -true：是
+     * 
+     * -false：否
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3014,7 +2935,7 @@ declare namespace sms {
   }
 
   /**
-   * Provides the callback for the SMS message delivery report.
+   * 回调实例，返回短信送达报告。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -3022,7 +2943,7 @@ declare namespace sms {
    */
   export interface IDeliveryShortMessageCallback {
     /**
-     * SMS message delivery report.
+     * 短信送达报告。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3032,7 +2953,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates SMS message sending results.
+   * 短信发送结果。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6 dynamic
@@ -3040,7 +2961,7 @@ declare namespace sms {
    */
   export enum SendSmsResult {
     /**
-     * The SMS message is sent successfully.
+     * 发送短信成功。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3049,7 +2970,7 @@ declare namespace sms {
     SEND_SMS_SUCCESS = 0,
 
     /**
-     * Failed to send the SMS message due to an unknown reason.
+     * 发送短信失败，原因未知。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3058,7 +2979,7 @@ declare namespace sms {
     SEND_SMS_FAILURE_UNKNOWN = 1,
 
     /**
-     * Failed to send the SMS message because the modem is shut down.
+     * 发送短信失败，原因为调制解调器关机。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3067,8 +2988,7 @@ declare namespace sms {
     SEND_SMS_FAILURE_RADIO_OFF = 2,
 
     /**
-     * Failed to send the SMS message because the network is unavailable or SMS message sending or receiving is not
-     * supported.
+     * 发送短信失败，原因为网络不可用、不支持发送或接收短信。
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6 dynamic
@@ -3078,7 +2998,7 @@ declare namespace sms {
   }
 
   /**
-   * RAN type.
+   * 设备网络制式。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -3108,7 +3028,7 @@ declare namespace sms {
   }
 
   /**
-   * Defines the SMS message segment information.
+   * 短信段信息。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -3117,7 +3037,7 @@ declare namespace sms {
    */
   export interface SmsSegmentsInfo {
     /**
-     * Split count.
+     * 拆分计数
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3127,7 +3047,7 @@ declare namespace sms {
     splitCount: int;
 
     /**
-     * Encoding count.
+     * 编码计数
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3137,7 +3057,7 @@ declare namespace sms {
     encodeCount: int;
 
     /**
-     * Remaining encoding count.
+     * 剩余编码计数
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3147,7 +3067,7 @@ declare namespace sms {
     encodeCountRemaining: int;
 
     /**
-     * Encoding scheme.
+     * 短信编码方案
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3158,7 +3078,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates SMS encoding schemes.
+   * 短信编码方案。
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -3167,7 +3087,7 @@ declare namespace sms {
    */
   export enum SmsEncodingScheme {
     /**
-     * Unknown code.
+     * 未知短信编码
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3177,7 +3097,7 @@ declare namespace sms {
     SMS_ENCODING_UNKNOWN = 0,
 
     /**
-     * 7-digit code.
+     * 7位短信编码
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3187,7 +3107,7 @@ declare namespace sms {
     SMS_ENCODING_7BIT = 1,
 
     /**
-     * 8-digit code.
+     * 8位短信编码
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3197,7 +3117,7 @@ declare namespace sms {
     SMS_ENCODING_8BIT = 2,
 
     /**
-     * 16-digit code.
+     * 16位短信编码
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3208,7 +3128,7 @@ declare namespace sms {
   }
 
   /**
-   * Enumerates SMS short code types.
+   * 短信短码类型
    *
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
@@ -3217,7 +3137,7 @@ declare namespace sms {
    */
   export enum SmsShortCodeType {
     /**
-     * Indicates an unknown SMS short code type.
+     * 未知短信短码类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3227,7 +3147,7 @@ declare namespace sms {
     SMS_SHORT_CODE_TYPE_UNKNOWN = -1,
 
     /**
-     * Indicates a not premium SMS short code type.
+     * 非付费短码类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -3237,7 +3157,7 @@ declare namespace sms {
     SMS_SHORT_CODE_TYPE_NOT_PREMIUM = 0,
 
     /**
-     * Indicates a possible premium SMS short code type.
+     * 潜在付费短码类型
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
