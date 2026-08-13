@@ -95,7 +95,7 @@ declare class SelectionExtensionAbility {
    * Defines a callback triggered when the client disconnects from the **SelectionExtensionAbility** (for example, when
    * the user disables the word selection function or switches the word selection app). You can perform cleanup
    * operations for the **onConnect** callback in this callback. For example, you can
-   * [destroyPanel]{@link @ohos.selectionInput.selectionManager:selectionManager.destroyPanel} to destroy the created
+   * call [destroyPanel]{@link @ohos.selectionInput.selectionManager:selectionManager.destroyPanel} to destroy the created
    * panel, or call
    * [off('selectionCompleted')]{@link @ohos.selectionInput.selectionManager:selectionManager.off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>)}
    * to unsubscribe from the word selection completion event.

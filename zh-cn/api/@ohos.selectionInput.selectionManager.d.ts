@@ -24,14 +24,14 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
 
 /**
  * 本模块提供划词管理能力，包括创建面板、显示面板、移动面板、隐藏面板、销毁面板、监听鼠标/触控板划词事件、获取选中文本等。典型使用流程如下：
- * 1. 调用on('selectionCompleted')订阅划词完成事件。
- * 2. 在回调中调用getSelectionContent获取选中文本。
- * 3. 调用createPanel创建划词面板。
- * 4. 调用setUiContent加载页面内容。
- * 5. 调用moveToGlobalDisplay移动面板到指定位置。
- * 6. 调用show显示面板。
- * 7. 调用destroyPanel销毁面板。
- * 8. 调用off('selectionCompleted')取消订阅划词完成事件。
+ * 1. 调用[on('selectionCompleted')]{@link selectionManager.on}订阅划词完成事件。
+ * 2. 在回调中调用[getSelectionContent]{@link selectionManager.getSelectionContent}获取选中文本。
+ * 3. 调用[createPanel]{@link selectionManager.createPanel}创建划词面板。
+ * 4. 调用[setUiContent]{@link selectionManager.Panel.setUiContent}加载页面内容。
+ * 5. 调用[moveToGlobalDisplay]{@link selectionManager.Panel.moveToGlobalDisplay}移动面板到指定位置。
+ * 6. 调用[show]{@link selectionManager.Panel.show}显示面板。
+ * 7. 调用[destroyPanel]{@link selectionManager.destroyPanel}销毁面板。
+ * 8. 调用[off('selectionCompleted')]{@link selectionManager.off}取消订阅划词完成事件。
  *
  * > **说明：**
  * >
@@ -110,7 +110,7 @@ declare namespace selectionManager {
    * 回调中调用，且仅在划词完成事件触发后有效。
    *
    * @returns { Promise<string> } Promise对象，返回当前选中文本的内容。
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @throws { BusinessError } 33600004 - The interface is called too frequently.
    * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
    * @throws { BusinessError } 33600006 - The current application is prohibited from accessing content.
