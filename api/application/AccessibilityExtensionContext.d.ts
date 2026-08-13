@@ -2794,7 +2794,7 @@ export declare interface AccessibilityVirtualNode {
    */
   accessibilityLevel?: string;
   /**
-   * Area of the accessibility virtual node.
+   * Area of the accessibility virtual node. Offset position relative to the parent node.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
