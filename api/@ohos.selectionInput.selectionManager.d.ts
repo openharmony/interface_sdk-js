@@ -26,14 +26,14 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * This module provides word selection management capabilities, including creating, displaying, moving, hiding, and
  * destroying panels, listening for word selection events using a mouse or touchpad, and retrieving the selected text.
  * The typical usage process is as follows:
- * 1. Call on('selectionCompleted') to subscribe to the selection completion event.
- * 2. In the callback, call getSelectionContent to obtain the selected text.
- * 3. Call createPanel to create a word selection panel.
- * 4. Call setUiContent to load the page content.
- * 5. Call moveToGlobalDisplay to move the panel to the specified position.
- * 6. Call show to display the panel.
- * 7. Call destroyPanel to destroy the panel.
- * 8. Call off('selectionCompleted') to unsubscribe from the selection completion event.
+ * 1. Call [on('selectionCompleted')]{@link selectionManager.on} to subscribe to the selection completion event.
+ * 2. In the callback, call [getSelectionContent]{@link selectionManager.getSelectionContent} to obtain the selected text.
+ * 3. Call [createPanel]{@link selectionManager.createPanel} to create a word selection panel.
+ * 4. Call [setUiContent]{@link selectionManager.Panel.setUiContent} to load the page content.
+ * 5. Call [moveToGlobalDisplay]{@link selectionManager.Panel.moveToGlobalDisplay} to move the panel to the specified position.
+ * 6. Call [show]{@link selectionManager.Panel.show} to display the panel.
+ * 7. Call [destroyPanel]{@link selectionManager.destroyPanel} to destroy the panel.
+ * 8. Call [off('selectionCompleted')]{@link selectionManager.off} to unsubscribe from the selection completion event.
  *
  * > **NOTE**
  * >
@@ -97,8 +97,8 @@ declare namespace selectionManager {
    *
    * @param { 'selectionCompleted' } type - Type of the event to unsubscribe from. The value is fixed to
    *     **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback to be unregistered (that is, the callback instance
-   *     registered using on). If this parameter is not specified, this API unregisters all callbacks for the specified
+   * @param { Callback<SelectionInfo> } [callback] - Callback to be unregistered, which the callback instance
+   *     registered using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified
    *     type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -129,7 +129,7 @@ declare namespace selectionManager {
    * callback and is valid only after the word selection completion event is triggered.
    *
    * @returns { Promise<string> } Promise used to return the content of the selected text.
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @throws { BusinessError } 33600004 - The interface is called too frequently.
    * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
    * @throws { BusinessError } 33600006 - The current application is prohibited from accessing content.
@@ -345,7 +345,7 @@ declare namespace selectionManager {
   }
 
   /**
-   * Describes a Panel object, which is created using [createPanel]{@link selectionManager.createPanel}. This method can
+   * Describes a **Panel** object, which is created using [createPanel]{@link selectionManager.createPanel}. This method can
    * be used to set, display, hide, and move the panel, as well as subscribe to events. It is applicable to scenarios 
    * where a custom operation UI needs to be displayed to users after word selection is complete.
    *
@@ -379,7 +379,7 @@ declare namespace selectionManager {
 
     /**
      * Shows the word selection panel. This API is used together with [hide]{@link selectionManager.Panel.hide}. This 
-     * API can be called only after a Panel instance is obtained by calling 
+     * API can be called only after a **Panel** instance is obtained by calling
      * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
@@ -395,8 +395,8 @@ declare namespace selectionManager {
     show(): Promise<void>;
 
     /**
-     * Hides the word selection panel. This API is used together with [show]{@link selectionManager.Panel.show}. This 
-     * API can be called only after a Panel instance is obtained by calling 
+     * Hides the word selection panel. This API is used together with [show]{@link selectionManager.Panel.show}. This
+     * API can be called only after a **Panel** instance is obtained by calling 
      * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result. If this API is 
      * not called proactively, the panel is automatically hidden when it loses focus.
      *
@@ -455,7 +455,7 @@ declare namespace selectionManager {
 
     /**
      * Moves the word selection panel to the specified coordinates in the global coordinates system of the screen. The 
-     * panel can be moved to an extended screen. This API can be called only after a Panel instance is obtained by 
+     * panel can be moved to an extended screen. This API can be called only after a **Panel** instance is obtained by 
      * calling [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @param { int } x - X-coordinate of the target position in the global coordinate system of the screen, in px. The
@@ -510,8 +510,8 @@ declare namespace selectionManager {
      * called only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'destroyed' } type - Type of the event to unsubscribe from. The value is fixed to **'destroyed'**.
-     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
-     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
+     * @param { Callback<void> } [callback] - Callback to be unregistered, which the callback instance registered
+     *     using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -570,8 +570,8 @@ declare namespace selectionManager {
      * only after a **Panel** instance is obtained by calling [createPanel]{@link selectionManager.createPanel}.
      *
      * @param { 'hidden' } type - Type of the event to unsubscribe from. The value is fixed to **'hidden'**.
-     * @param { Callback<void> } [callback] - Callback to be unregistered (that is, the callback instance registered
-     *     using **on**). If this parameter is not specified, this API unregisters all callbacks for the specified type.
+     * @param { Callback<void> } [callback] - Callback to be unregistered, which the callback instance registered
+     *     using **on**. If this parameter is not specified, this API unregisters all callbacks for the specified type.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
      * @publicapi [since 24]
@@ -612,7 +612,7 @@ declare namespace selectionManager {
    */
   enum SelectionType {
     /**
-     * Move the cursor to select words.
+     * Word selection by sliding the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -624,7 +624,7 @@ declare namespace selectionManager {
     MOUSE_MOVE = 1,
 
     /**
-     * Double-click to select words.
+     * Word selection by double-clicking the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -636,7 +636,7 @@ declare namespace selectionManager {
     DOUBLE_CLICK = 2,
 
     /**
-     * Triple-click to select words.
+     * Word selection by triple-clicking the mouse or touchpad.
      *
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
