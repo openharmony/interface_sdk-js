@@ -109,16 +109,6 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
   /**
    * Sets the image frame information.
    *
-   * @returns { ImageAnimatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setImageAnimatorOptions(): this;
-
-  /**
-   * Sets the image frame information.
-   *
    * <p><strong>NOTE</strong>:
    * <br>Dynamic update is not supported.
    * </p>

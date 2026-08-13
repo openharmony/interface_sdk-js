@@ -461,19 +461,6 @@ export declare interface DepthComponentAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default onError(callback: DepthComponentErrorCallback): this;
-
-  /**
-   * Set DepthComponent options.
-   *
-   * @param { ResourceStr | PixelMap } background - Background resource (required).
-   * @param { DepthComponentOptions } [options] - DepthComponent options.
-   * @returns { this } Returns instance of  DepthComponentAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setDepthComponentOptions(background: ResourceStr | PixelMap, options?: DepthComponentOptions): this;
 }
 
 /**
