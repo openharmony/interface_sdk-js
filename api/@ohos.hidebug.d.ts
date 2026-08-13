@@ -195,7 +195,7 @@ declare namespace hidebug {
    *
    * @param { string } filename - Custom file name of the sampling data. The .json file is generated in the **files**
    *     directory of the application based on the specified file name. The maximum length of a string is 128.
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 23 static
@@ -224,7 +224,7 @@ declare namespace hidebug {
    * @param { string } filename - User-defined name of the VM heap data output file. The .heapsnapshot file is generated
    *     in the **files** directory of the application based on the specified file name. The maximum length of a string
    *     is 128 bytes.
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    */
@@ -237,7 +237,7 @@ declare namespace hidebug {
    *
    * @param { string } filename - User-defined file name of the sampling data. The .heapsnapshot file is generated
    * in the files directory of the application based on the specified file name.
-   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * @param { boolean } needClean - Whether to release the snapshot cache before dumping the heap snapshot.
    * The default value is false.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
@@ -256,9 +256,9 @@ declare namespace hidebug {
    * @param { int } fd - File descriptor to which data is written by the API.
    * @param { Array<string> } args - Parameter list of the **Dump** API of the system service. The maximum length of a
    *     string is 254 characters. The excess part will be truncated.
-   * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
-   *     1.the parameter type error
-   *     2.the args parameter is not string array
+   * @throws {BusinessError} 401 - The parameter check failed, Possible causes:
+   *     1.The parameter type error.
+   *     2.The args parameter is not string array.
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
@@ -948,9 +948,9 @@ declare namespace hidebug {
    * @param { int } limitSize - Limit on the trace file size, in bytes. The maximum size of a single file is 500 MB.
    * @returns { string } Returns the path of the trace file.
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
-   *     1.The limit parameter is too small
-   *     2.The parameter is not within the enumeration type
-   *     3.The parameter type error or parameter order error
+   *     1.The limit parameter is too small.
+   *     2.The parameter is not within the enumeration type.
+   *     3.The parameter type error or parameter order error.
    * @throws { BusinessError } 11400102 - Capture trace already enabled.
    * @throws { BusinessError } 11400103 - No write permission on the file.
    * @throws { BusinessError } 11400104 - Abnormal trace status.
@@ -969,8 +969,8 @@ declare namespace hidebug {
    * trace may exceed the **limitSize** value, causing the system to automatically call **stopAppTraceCapture()**. In
    * this case, if **stopAppTraceCapture()** is called again, an error code 11400105 will be displayed.
    *
-   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
-   * @throws { BusinessError } 11400105 - No capture trace running
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal.
+   * @throws { BusinessError } 11400105 - No capture trace running.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -1071,7 +1071,7 @@ declare namespace hidebug {
    *     thread, in bytes.<br> **"ark.gc.fullgc-longtime-count"**: number of longtime full GC times triggered by the
    *     current thread.
    * @returns { long } System GC statistics returned based on the input parameters.
-   * @throws { BusinessError } 401 - Possible causes:
+   * @throws { BusinessError } 401 - Possible causes: 
    *     1. Invalid parameter, a string parameter required.
    *     2. Invalid parameter, unknown property.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1099,10 +1099,10 @@ declare namespace hidebug {
    *     application smoothness problems.<br>The value **true** means to enable external debugging logs, and false means
    *     the opposite.<br>
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
-   *     1.The limit parameter is too small
-   *     2.The parameter is not in the specified type
-   *     3.The parameter type error or parameter order error
-   * @throws { BusinessError } 11400104 - Set limit failed due to remote exception
+   *     1.The limit parameter is too small.
+   *     2.The parameter is not in the specified type.
+   *     3.The parameter type error or parameter order error.
+   * @throws { BusinessError } 11400104 - Set limit failed due to remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 12 dynamiconly
@@ -1247,7 +1247,7 @@ declare namespace hidebug {
    * >
    * > This API is valid only when the **Developer options** is enabled.
    *
-   * @param { boolean } needGC - Whether GC is required before storing heap snapshots. The value **true** indicates that
+   * @param { boolean } [needGC] - Whether GC is required before storing heap snapshots. The value **true** indicates that
    *     GC is required, and **false** indicates the opposite. The default value is **true**.
    * @returns { Promise<string> } Path of the generated snapshot file. 
    * @throws { BusinessError } 11400106 - Quota exceeded.
@@ -1275,7 +1275,7 @@ declare namespace hidebug {
    *
    * @param { boolean } needGC - Whether GC is required when a heap snapshot is dumped. The default value is true.
    * If this parameter is not specified, GC is triggered before dumping.
-   * @param { boolean } [needClean] - Whether to release the snapshot cache before dumping the heap snapshot.
+   * @param { boolean } needClean - Whether to release the snapshot cache before dumping the heap snapshot.
    * The default value is false.
    * @returns { Promise<string> } Returns the path of the generated snapshot file.
    * @throws { BusinessError } 11400106 - Quota exceeded.
