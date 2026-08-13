@@ -54,23 +54,6 @@ export declare interface WithEnvAttribute {
      * @since 26.0.0 static
      */
     customEnv<T>(key: CustomEnvKey<T>,  value: T): this;
-    /**
-     * Sets WithEnv options.
-     *
-     * @returns { this } WithEnvAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setWithEnvOptions(): this;
-    /**
-     * Notify WithEnv has finished setting up its attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    applyAttributesFinish(): void;
 }
 
 /**
