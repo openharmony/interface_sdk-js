@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides methods for controlling the web controller.
+ * Defines methods for the web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
@@ -29,9 +29,10 @@
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
 /**
- * The callback of load committed.
+ * Defines a callback invoked when a navigation entry is submitted.
  *
- * @param { LoadCommittedDetails } loadCommittedDetails - callback information of onNavigationEntryCommitted.
+ * @param { LoadCommittedDetails } loadCommittedDetails - Detailed information about the web page that has been
+ *     submitted for redirection.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -39,9 +40,10 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
- * The callback of ssl error event.
+ * Callback invoked when an SSL error occurs during resource loading. Returns detailed information about the SSL error.
  *
- * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
+ * @param { SslErrorEvent } sslErrorEvent - Detailed information passed when an SSL error occurs during resource
+ *     loading.
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
  * @atomicservice
@@ -50,26 +52,22 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
- * The callback of verify pin.
+ * Defines a callback of **onOverrideErrorPage**. This callback is triggered when a web page fails to be loaded.
  *
- * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
- * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic
- */
-type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
-
-/**
- * The callback of onOverrideErrorPage.
- *
- * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
- * @returns { string } - Return an HTML text content encoded in Base64.
+ * @param { OnErrorReceiveEvent } errorPageEvent - Information returned when an error occurs during web page loading.
+ * @returns { string } Base64-encoded HTML text content.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 type OnOverrideErrorPageCallback = (errorPageEvent: OnErrorReceiveEvent) => string;
 
 /**
- * Defines a callback invoked when the largest content paint occurs on the web page.
+ * Callback triggered when the largest content area is painted on the web page. Used to obtain performance measurement
+ * information for the largest content paint. Applicable to scenarios such as monitoring web page loading performance
+ * and optimizing page rendering speed. Compared with OnFirstMeaningfulPaintCallback, which focuses on the completion of
+ * main content loading, and OnFirstScreenPaintCallback, which focuses on the rendering completion of the first screen's
+ * visible content, this callback focuses on the paint time of the largest content element, making it suitable for
+ * evaluating page rendering completeness and performance bottlenecks.
  *
  * @param { LargestContentfulPaint } largestContentfulPaint - Information about the largest content paint.
  * @syscap SystemCapability.Web.Webview.Core
@@ -79,7 +77,11 @@ type OnOverrideErrorPageCallback = (errorPageEvent: OnErrorReceiveEvent) => stri
 type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentfulPaint) => void;
 
 /**
- * Defines a callback invoked when the first meaningful paint occurs on the page.
+ * Callback for measuring the first meaningful paint of the main content on the page. This callback is triggered when
+ * the page finishes loading the main content. Compared with OnLargestContentfulPaintCallback, which focuses on the
+ * paint time of the largest content element, and OnFirstScreenPaintCallback, which focuses on the rendering completion
+ * of the first screen's visible content, this callback focuses more on whether the main content has finished loading,
+ * making it suitable for evaluating the loading experience of user-visible content.
  *
  * @param { FirstMeaningfulPaint } firstMeaningfulPaint - Information about the first meaningful paint.
  * @syscap SystemCapability.Web.Webview.Core
@@ -89,12 +91,145 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
 type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
 
 /**
- * The callback of onOverrideUrlLoading.
- * Should not call WebviewController.loadUrl with the request's URL and then return true.
+ * Defines the camera capture states, which identify the current working status of the camera and help developers
+ * monitor camera resource usage in real time, optimizing resource management and user privacy protection.
  *
- * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
- * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
- *     false causes the Web to continue loading the url as usual.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum CameraCaptureState {
+  /**
+   * The camera is not working.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NONE = 0,
+  /**
+   * The camera is paused.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  PAUSED = 1,
+  /**
+   * The camera is active.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  ACTIVE = 2
+}
+
+/**
+ * Defines the microphone capture states, which identify the current working status of the microphone and help
+ * developers monitor microphone resource usage in real time, optimizing resource management and user privacy
+ * protection.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum MicrophoneCaptureState {
+  /**
+   * The microphone is not working.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NONE = 0,
+  /**
+   * The microphone is paused.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  PAUSED = 1,
+  /**
+   * The microphone is active.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  ACTIVE = 2
+}
+
+/**
+ * Provides the state change information of the camera when the callback is triggered, including the state before the
+ * change and the new state. It is suitable for scenarios where monitoring camera state changes is required, improving
+ * camera management visibility and user experience.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface CameraCaptureStateChangeInfo {
+  /**
+   * State before the change.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  originalState: CameraCaptureState;
+
+  /**
+   * New state.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  newState: CameraCaptureState;
+}
+
+/**
+ * Provides the state change information of the microphone when the callback is triggered, including the state before
+ * the change and the state after the change. It is suitable for scenarios where monitoring microphone state changes is
+ * required, improving microphone management visibility and user experience.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface MicrophoneCaptureStateChangeInfo {
+  /**
+   * State before the change.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  originalState: MicrophoneCaptureState;
+
+  /**
+   * New state.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  newState: MicrophoneCaptureState;
+}
+
+/**
+ * This callback is triggered when the camera device state of the page changes.
+ *
+ * @param { CameraCaptureStateChangeInfo } event - Original and new camera state.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
+
+/**
+ * Defines a callback triggered when the microphone state of the page changes.
+ *
+ * @param { MicrophoneCaptureStateChangeInfo } event - Original and new microphone state.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
+
+/**
+ * Callback used to intercept URL loading requests. It can block the loading of specific URLs or perform custom
+ * processing. Applicable to scenarios such as intercepting ads and blocking redirects to malicious websites.
+ *
+ * @param { WebResourceRequest } webResourceRequest - Information about the URL request.
+ * @returns { boolean } Whether the loading is blocked. **true** is returned if the loading is blocked; otherwise,
+ *     **false** is returned.
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
  * @atomicservice
@@ -103,9 +238,9 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
 /**
- * The callback of Intelligent Tracking Prevention.
+ * Defines a callback invoked when the tracker cookie is intercepted.
  *
- * @param { IntelligentTrackingPreventionDetails } details - callback information of onIntelligentTrackingPrevention.
+ * @param { IntelligentTrackingPreventionDetails } details - Detailed information about intelligent tracking prevention.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -113,10 +248,10 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
- * The callback of onNativeEmbedVisibilityChange.
+ * Defines a callback invoked when the visibility of a same-layer tag changes.
  *
- * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - callback information of
- *     onNativeEmbedVisibilityChange.
+ * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - Provides information about visibility changes of
+ *     same-layer tags.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
  */
@@ -134,7 +269,129 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
 type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) => void;
 
 /**
- * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
+ * Defines the PIN verification results, which identify the execution status of PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic
+ */
+declare enum PinVerifyResult {
+  /**
+   * Verification successful.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  PIN_VERIFICATION_SUCCESS = 0,
+  /**
+   * Verification failed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  PIN_VERIFICATION_FAILED = 1
+}
+
+/**
+ * Defines the credential types used for identity authentication.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic
+ */
+declare enum CredentialType {
+  /**
+   * User credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  CREDENTIAL_USER = 2,
+  /**
+   * Application credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  CREDENTIAL_APP = 3,
+  /**
+   * UKey credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  CREDENTIAL_UKEY = 4
+}
+
+/**
+ * VerifyPinHandler is a class in the Web component that handles PIN code verification requests. It is used to enhance
+ * app security in scenarios requiring identity authentication on web pages (such as secure payment, sensitive operation
+ * confirmation, etc.). When user PIN authentication is required, this handler is provided to the app through the
+ * onVerifyPin event callback, allowing the app to respond to the PIN verification result, effectively preventing
+ * unauthorized access and protecting user privacy. For sample code, see [onVerifyPin]{@link WebAttribute#onVerifyPin}.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic
+ */
+declare class VerifyPinHandler {
+  /**
+   * A constructor used to create a **VerifyPinHandler** instance.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  constructor();
+
+  /**
+   * Notifies the Web component of the PIN authentication result. The app calls this method to return the PIN
+   * verification result to the Web component, which then continues the subsequent authentication process based on the
+   * result. If the verification is successful, the Web component allows access to protected content; if the
+   * verification fails, the Web component denies access and may prompt the user to retry.
+   *
+   * @param { PinVerifyResult } result - PIN authentication result. If successful, the Web component allows subsequent
+   *     page operations; if failed, page navigation or content loading may be blocked.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  confirm(result: PinVerifyResult): void;
+}
+
+/**
+ * Defines the callback triggered to notify the user of PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic
+ */
+declare interface VerifyPinEvent {
+  /**
+   * User operation.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  handler: VerifyPinHandler;
+
+  /**
+   * Certificate credential ID used for verification.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  identity: string;
+}
+
+/**
+ * Callback triggered to notify the user of PIN authentication.
+ *
+ * @param { VerifyPinEvent } verifyPinEvent - Details of the callback triggered to notify the user of PIN
+ *     authentication.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic
+ */
+type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
+
+/**
+ * Enumerates the status change types of the **param** element embedded in the same-layer rendering tag **object**.
+ * **ADD** is triggered when the **param** element is added, **UPDATE** is triggered when it is modified, and **DELETE**
+ * is triggered when it is deleted.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
@@ -166,7 +423,134 @@ declare enum  NativeEmbedParamStatus {
 }
 
 /**
- * Provides details about the **param** element embedded in the same-layer rendering tag **object**.
+ * Enumerates the log sources of the console messages.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum ConsoleMessageSource {
+  /**
+   * Logs are generated by the XML/HTML parser of the web page, for example, HTML syntax errors, XML format exceptions,
+   * and parsing warnings caused by unclosed HTML tags.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  XML = 0,
+
+  /**
+   * Logs are generated when an exception occurs during JavaScript execution, such as a JavaScript syntax error or
+   * runtime exception.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  JAVASCRIPT = 1,
+
+  /**
+   * Logs are generated when web page resources (such as JS, CSS, and images) fail to be loaded and error code 404 is
+   * returned.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NETWORK = 2,
+
+  /**
+   * Logs are generated when web pages call W3C console APIs, such as **console.warn** and **console.error**.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  CONSOLE_API = 3,
+
+  /**
+   * Logs are generated when exceptions (such as storage quota exceeding and operation exceptions) occur on storage-
+   * related modules (LocalStorage, SessionStorage, IndexedDB and Cookie).
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  STORAGE = 4,
+
+  /**
+   * Logs are generated when exceptions (such as invalid CSS styles, layout exceptions, and rendering performance
+   * warnings) occur on the rendering engine (such as Blink).
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  RENDERING = 5,
+
+  /**
+   * Logs are generated when web page security policies are violated, HTTPS certificate errors occur, and mixed content
+   * (HTTP resources are loaded on HTTPS pages) occurs.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  SECURITY = 6,
+
+  /**
+   * Logs are generated by other sources, such as web extension plugins.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  OTHER = 7,
+
+  /**
+   * Logs are generated when an expired syntax, such as **slider-vertical**, is used.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  DEPRECATION = 8,
+
+  /**
+   * Logs are generated when service worker errors occur, for example, service worker navigation preload requests are
+   * interrupted before being completed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  WORKER = 9,
+
+  /**
+   * Logs are generated when a rule is violated, for example, the execution of a piece of JavaScript code takes more
+   * than 50 ms.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  VIOLATION = 10,
+
+  /**
+   * Logs are generated when the web page detects code behaviors that may compromise user experience, security, or
+   * performance. The web page proactively intervenes, blocks or modifies the behavior, and notifies you of the behavior
+   * through a message containing **kIntervention**. For example, the **DispatchBeforeUnload** event is triggered on a
+   * web page without user interaction.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  INTERVENTION = 11,
+
+  /**
+   * Logs are generated when code behaviors that do not comply with web security best practices are detected and
+   * improvement suggestions are provided. For example, when the page uses APIs (such as **innerHTML** and **eval()**)
+   * that may have XSS risks and does not comply with the Trusted Types security specifications.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  RECOMMENDATION = 12
+}
+
+/**
+ * Provides detailed information about the **param** element embedded in the same-layer rendering tag **object**,
+ * including the status and parameters. It is suitable for scenarios where monitoring param element changes is required,
+ * improving same-layer element management flexibility and accuracy.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
@@ -206,7 +590,9 @@ declare interface NativeEmbedParamItem {
 }
 
 /**
- * Provides details about the same-layer tag when the **param** element embedded in the **object** tag changes.
+ * Provides detailed information about the same-layer tag when the **param** element embedded in the **object** tag
+ * changes, including the tag ID and parameter items. It is suitable for scenarios where monitoring param element
+ * changes is required, improving same-layer element management flexibility and accuracy.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
@@ -229,8 +615,8 @@ declare interface NativeEmbedParamDataInfo {
   objectAttributeId?: string;
 
   /**
-   * Details of the changed **param** element, including the status change type, ID, name, and value of each **param**
-   * element.
+   * Detailed information about the changed param elements, including the status change type, ID, parameter name, and
+   * parameter value of each param element.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -247,8 +633,8 @@ declare interface NativeEmbedParamDataInfo {
  */
 declare enum WebRotateEffect {
   /**
-   * The component's content stays at the final size and always aligned with the
-   * upper left corner of the component. This value is used by default.
+   * The component's content stays at the final size and always aligned with the upper left corner of the component.
+   * This value is used by default.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -256,9 +642,8 @@ declare enum WebRotateEffect {
   TOPLEFT_EFFECT = 0,
 
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled
-   * to cover the component's entire content box. It is always aligned with the center of the component, so that its
-   * middle part is displayed.
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's
+   * entire content box. It is always aligned with the center of the component, so that its middle part is displayed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -267,54 +652,9 @@ declare enum WebRotateEffect {
 }
 
 /**
-* Enum type supplied to {@link keyboardAppearance} for setting the web keyboard appearance mode.
-*
-* @enum { number }
-* @syscap SystemCapability.Web.Webview.Core
-* @stagemodelonly
-* @since 26.0.0 dynamic
-*/
-declare enum WebKeyboardAppearanceMode {
-  /**
-  * Default skin mode, no immersive style.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
-  NONE_IMMERSIVE = 0,
-
-  /**
-  * No immersive style.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
-  IMMERSIVE = 1,
-
-  /**
-  * Light immersive style.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
-  LIGHT_IMMERSIVE = 2,
-
-  /**
-  * Dark immersive style.
-  *
-  * @syscap SystemCapability.Web.Webview.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
-  DARK_IMMERSIVE = 3
-}
-
-/**
- * Represents the configuration for
- * [enabling the application to take over web page media playback]{@link web:WebAttribute.enableNativeMediaPlayer}.
+ * Configures the [enableNativeMediaPlayer]{@link WebAttribute#enableNativeMediaPlayer} API for the app to take over web
+ * page media playback, supporting whether to enable it and whether to override web page content. It is suitable for
+ * scenarios where custom media playback behavior is required, improving media playback integration and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -322,12 +662,12 @@ declare enum WebKeyboardAppearanceMode {
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Whether to enable the application to take over web page media playback.
+   * Whether to enable the app to take over web media playback.
    *
-   * The value **true** means to enable the application to take over web page media playback, and **false** means the
-   * opposite.
+   * The value **true** indicates that the app takes over web media playback, and **false** indicates that this feature
+   * is disabled.
    *
-   * Default value: **false**.
+   * Default value: **false**
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -336,15 +676,13 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * Whether the video player's display overlays the web page content when the application takes over the web page's
-   * video player.
+   * Whether the player screen of the app-taken-over web video overlays the web content after the app takes over web
+   * media playback.
    *
-   * The value **true** indicates that the video player's display overlays the web page content. This means that the
-   * height of the video layer is adjusted to cover the web page content. The value **false** indicates that the video
-   * player's display does not overlay the web page content. This means that the video player maintains its original
-   * height and is embedded within the web page.
+   * The value **true** indicates that the video layer level is changed to overlay the web content, and **false**
+   * indicates that the original layer level is maintained and the video is embedded in the web page.
    *
-   * Default value: **false**.
+   * Default value: **false**
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -356,17 +694,16 @@ declare interface NativeMediaPlayerConfig {
 /**
  * Defines a callback invoked when the rendering process does not respond.
  *
- * @typedef { function } OnRenderProcessNotRespondingCallback
- * @param { RenderProcessNotRespondingData } data - details of onRenderProcessNotResponding.
+ * @param { RenderProcessNotRespondingData } data - Detailed information about the unresponsive rendering process.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
  */
 type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingData) => void;
 
 /**
- * The callback of render process responding.
+ * Defines a callback invoked when the rendering process transitions back to a normal operating state from an
+ * unresponsive state.
  *
- * @typedef { function } OnRenderProcessRespondingCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
  */
@@ -383,9 +720,9 @@ type OnRenderProcessRespondingCallback = () => void;
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
 /**
- * The callback of ads block
+ * Defines a callback invoked when ads are blocked on the web page.
  *
- * @param { AdsBlockedDetails } details - details of OnAdsBlockedCallback.
+ * @param { AdsBlockedDetails } details - Detailed information about the blocked ads when ads are blocked.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -393,34 +730,7 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
- * Defines a callback triggered when the camera state of the page changes.
- *
- * @param { CameraCaptureStateChangeInfo } event - Original and new camera state.
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
-
-/**
- * Defines a callback triggered when the microphone state of the page changes.
- *
- * @param { MicrophoneCaptureStateChangeInfo } event - Original and new microphone state.
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
-
-/**
- * The callback will be triggered when inputmethod is attached.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @stagemodelonly
- * @since 26.0.0 dynamic
- */
-type OnInputmethodAttachedCallback = () => void;
-
-/**
- * Defines the ads block details.
+ * Provides detailed information about the blocked ads when ads are blocked.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -428,7 +738,7 @@ type OnInputmethodAttachedCallback = () => void;
  */
 declare interface AdsBlockedDetails {
   /**
-   * The url of main frame.
+   * URL of the page where ads are blocked.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -437,7 +747,7 @@ declare interface AdsBlockedDetails {
   url: string;
 
   /**
-   * the url of ads.
+   * URLs or dompaths of the blocked ads. If multiple ads have the same URLs, duplicate elements may exist.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -447,11 +757,10 @@ declare interface AdsBlockedDetails {
 }
 
 /**
- * Represents the return value of the callback that intercepts the soft keyboard started from editable elements on the
- * web page. You can specify the types of the keyboard, and return the value to the Web kernel to control the startup of
- * different types of soft keyboards.
+ * Return value of the callback that intercepts the soft keyboard started from editable elements on the web page,
+ * including the keyboard type and custom keyboard. It is suitable for scenarios where controlling soft keyboard
+ * behavior is required.
  *
- * @interface WebKeyboardOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -460,7 +769,10 @@ declare interface WebKeyboardOptions {
   /**
    * Whether to use the system's default soft keyboard.
    *
-   * @type { boolean }
+   * The value **true** means to use the system's default soft keyboard, and **false** means the opposite.
+   *
+   * Default value: **true**.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -469,11 +781,10 @@ declare interface WebKeyboardOptions {
 
   /**
    * Type of the **Enter** key on the system soft keyboard. For details about the value range, see
-   * [EnterKeyType]{@link ./../../../@ohos.inputMethod:inputMethod.EnterKeyType}. This parameter is optional and the
-   * default value is **UNSPECIFIED**. This parameter is valid only when **useSystemKeyboard** is set to **true** and
-   * **enterKeyType** is set to a valid value.
+   * [EnterKeyType]{@link @ohos.inputMethod:inputMethod.EnterKeyType}. This parameter is optional and the default value
+   * is **UNSPECIFIED**. This parameter is valid only when **useSystemKeyboard** is set to **true** and **enterKeyType**
+   * is set to a valid value.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -484,7 +795,6 @@ declare interface WebKeyboardOptions {
    * Builder of a custom keyboard. This parameter is required when **useSystemKeyboard** is set to **false**. After it
    * is set, the **Web** component starts the custom keyboard as configured.
    *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -493,7 +803,46 @@ declare interface WebKeyboardOptions {
 }
 
 /**
- * Define the controller to interact with a custom keyboard, related to the {@link onInterceptKeyboardAttach} event.
+ * Defines the URL regular expression rule.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @crossplatform [since 26.1.0]
+ * @since 23 dynamic
+ */
+declare interface UrlRegexRule {
+  /**
+   * Exact match of the second-level domain. For example, the second-level domain name of "https://www.example.com" is
+   * **example.com**, and that of "https://www.example.com.cn" is **example.com.cn**. If the URL does not have a second-
+   * level domain name, the value is empty.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @crossplatform [since 26.1.0]
+   * @since 23 dynamic
+   */
+  secondLevelDomain : string;
+  /**
+   * URL regular expression. URL regular expression matching is performed only after **secondLevelDomain** is matched
+   * successfully.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @crossplatform [since 26.1.0]
+   * @since 23 dynamic
+   */
+  rule : string;
+}
+
+/**
+ * WebKeyboardController is a controller class provided by ArkWeb for controlling the custom keyboard behavior of the
+ * Web component. When an input field on a web page needs to display a keyboard, developers can intercept the mounting
+ * of the system default keyboard through the [onInterceptKeyboardAttach]{@link WebAttribute#onInterceptKeyboardAttach}
+ * event, and use WebKeyboardController to perform operations such as inserting characters, forward/backward deletion,
+ * sending function keys like Enter, and closing the custom keyboard on the currently focused web input field. This
+ * class is suitable for apps that need to implement custom secure keyboards, emoji keyboards, handwriting keyboards, or
+ * business-specific input panels for web scenarios, enabling developers to fully take over the keyboard input logic of
+ * web input fields.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -512,41 +861,43 @@ declare class WebKeyboardController {
   /**
    * Inserts characters into the **Web** component text box.
    *
-   * @param { string } text - Characters to insert into the **Web** component text box.
+   * @param { string } text - Text inserted into the web input box at the current cursor position. If there is selected
+   *     text, it is replaced with this text. An input event is triggered. The cursor moves to the end of the inserted
+   *     text.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   insertText(text: string): void;
 
   /**
-   * Deletes a specified number of characters forward in a **Web** component text box.
+   * Deletes a specified length of characters before the cursor.
    *
-   * @param { number } length - Length of characters to delete forward in a **Web** component text box.<br>Value range:
-   * [-2147483648, 2147483647]. If the parameter value exceeds the character length, all characters before the cursor are
-   * deleted by default. If the parameter value is a negative number, the deletion is not performed.
+   * @param { number } length - Deletes a specified length of characters before the cursor.
+   *     <br>Value range: [-2147483648, 2147483647]. When the parameter value is greater than the character length, all
+   *     characters before the cursor are deleted by default. When the parameter value is negative, no deletion is
+   *     performed.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   deleteForward(length: number): void;
 
   /**
-   * Deletes a specified number of characters backward in a **Web** component text box.
+   * Deletes a specified length of characters after the cursor.
    *
-   * @param { number } length - Length of characters to delete backward in a **Web** component text box.<br>Value range:
-   * [-2147483648, 2147483647]. If the parameter value exceeds the character length, all characters after the cursor are
-   * deleted by default. If the parameter value is a negative number, the deletion is not performed.
+   * @param { number } length - Number of characters to delete after the cursor.
+   *     <br>Value range: [-2147483648, 2147483647]. If the parameter value is greater than the character length, all
+   *     characters after the cursor are deleted by default. If the parameter value is negative, no deletion is
+   *     performed.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   deleteBackward(length: number): void;
 
   /**
-   * Inserts a function key. Currently, only the Enter key type is supported.
-   * For details about the value, see
+   * Inserts a function key. Currently, only the Enter key type is supported. For details about the value, see
    * [EnterKeyType]{@link @ohos.inputMethod:inputMethod.EnterKeyType}.
    *
-   * @param { number } key - Function key to insert into the **Web** component text box. Currently, only the Enter
-   * key is supported.
+   * @param { number } key - Type of the function key. Only the Enter key is supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
@@ -562,10 +913,10 @@ declare class WebKeyboardController {
 }
 
 /**
- * Represents input parameters of the callback used to intercept the soft keyboard started from editable elements on a
- * web page, including [WebKeyboardController]{@link web} and editable element attributes.
+ * Input parameters of the callback used to intercept the soft keyboard started from editable elements on a web page,
+ * including [WebKeyboardController]{@link ./web} and the attributes of the editable element. It is suitable for
+ * scenarios where custom keyboard interaction is required, improving input experience customization and flexibility.
  *
- * @interface WebKeyboardCallbackInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -574,7 +925,6 @@ declare interface WebKeyboardCallbackInfo {
   /**
    * Controller used to control the input, deletion, and closure of the custom keyboard.
    *
-   * @type { WebKeyboardController }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -584,7 +934,6 @@ declare interface WebKeyboardCallbackInfo {
   /**
    * Attribute of the web page element that triggers the display of the soft keyboard.
    *
-   * @type { Record<string, string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -596,12 +945,11 @@ declare interface WebKeyboardCallbackInfo {
  * Defines a callback to intercept the soft keyboard initiated from editable elements on a web page. This event is
  * typically called when the **\<input>** tag on the web page is clicked.
  *
- * @typedef { function } WebKeyboardCallback
  * @param { WebKeyboardCallbackInfo } keyboardCallbackInfo - Input parameter of the callback used to intercept the soft
- *     keyboard initiated from editable elements on a web page, including [WebKeyboardController]{@link web} and
+ *     keyboard initiated from editable elements on a web page, including [WebKeyboardController]{@link ./web} and
  *     editable element attributes.
- * @returns { WebKeyboardOptions } R[WebKeyboardOptions]{@link web:WebKeyboardOptions} instance, which is used to
- *     determine which type of soft keyboard to start by the ArkWeb kernel.
+ * @returns { WebKeyboardOptions } [WebKeyboardOptions]{@link WebKeyboardOptions} instance, which is used to determine
+ *     which type of soft keyboard to start by the ArkWeb kernel.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -609,7 +957,12 @@ declare interface WebKeyboardCallbackInfo {
 type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => WebKeyboardOptions;
 
 /**
- * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
+ * Enumerates the information levels of the console messages.
+ *
+ * > **NOTE**
+ * >
+ * > On the HTML5 side, calling console.log or console.info both correspond to the console message level of
+ * > MessageLevel.Info.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -628,7 +981,7 @@ declare enum MessageLevel {
   Debug = 1,
 
   /**
-   * Info level.
+   * Information level.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -638,7 +991,7 @@ declare enum MessageLevel {
   Info = 2,
 
   /**
-   * Warn level.
+   * Warning level.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -670,120 +1023,7 @@ declare enum MessageLevel {
 }
 
 /**
- * The source of console message.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-declare enum ConsoleMessageSource {
-  /**
-   * Logs generated by the browser's XML/HTML parser (such as HTML syntax errors, XML format exceptions), for example,
-   * parsing warnings caused by unclosed HTML tags.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  XML = 0,
-
-  /**
-   * JavaScript execution error, such as syntax error or runtime exception.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  JAVASCRIPT = 1,
-
-  /**
-   * Web resource loading failure, such as JS/CSS/image 404.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NETWORK = 2,
-
-  /**
-   * Console API usage, such as console.warn or console.error.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  CONSOLE_API = 3,
-
-  /**
-   * Logs from storage modules like LocalStorage, SessionStorage, IndexedDB, or Cookie.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  STORAGE = 4,
-
-  /**
-   * Logs from rendering engine (e.g., Blink), such as invalid CSS, layout issues, or rendering performance warnings.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  RENDERING = 5,
-
-  /**
-   * Security policy violations, such as HTTPS certificate error or mixed content.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  SECURITY = 6,
-
-  /**
-   * Other logs, such as those from extensions.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  OTHER = 7,
-
-  /**
-   * Usage of deprecated syntax, such as slider-vertical.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  DEPRECATION = 8,
-
-  /**
-   * Errors in service worker or shared worker, such as navigation preload being interrupted.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  WORKER = 9,
-
-  /**
-   * Rule violations, such as JavaScript execution exceeding 50ms.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  VIOLATION = 10,
-
-  /**
-   * Browser intervention due to potential user experience, security, or performance issues.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  INTERVENTION = 11,
-
-  /**
-   * Code practices that do not follow web security best practices, with improvement suggestions.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  RECOMMENDATION = 12
-}
-
-/**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
+ * Enumerates the mixed content modes.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -791,9 +1031,8 @@ declare enum ConsoleMessageSource {
  * @since 8 dynamic
  */
 declare enum MixedMode {
-
   /**
-   * Loose mode: Allow a secure origin to load content from any other origin.
+   * Loose mode: HTTP and HTTPS hybrid content can be loaded. This means that all insecure content can be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -803,7 +1042,7 @@ declare enum MixedMode {
   All = 0,
 
   /**
-   * Compatible mode: Some insecure content may be allowed to be loaded by a secure origin.
+   * Compatible mode. Allows some HTTP content to be loaded on an HTTPS page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -813,7 +1052,7 @@ declare enum MixedMode {
   Compatible = 1,
 
   /**
-   * Strict mode: Not allow a secure origin to load content from an insecure origin.
+   * Strict mode: HTTP and HTTPS hybrid content cannot be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -824,9 +1063,9 @@ declare enum MixedMode {
 }
 
 /**
- * The callback of safe browsing check.
+ * Defines a callback invoked by a website safe browsing check.
  *
- * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
+ * @param { ThreatType } threatType - Website threat type.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -835,6 +1074,11 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
 
 /**
  * Enumerates the test result types of the click event.
+ *
+ * > **NOTE**
+ * >
+ * > Supported since API version 9 and deprecated since API version 21. You are advised to use
+ * > [WebHitTestType]{@link @ohos.web.webview:webview.WebHitTestType} instead.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -933,7 +1177,7 @@ declare enum HitTestType {
 }
 
 /**
- * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
+ * Enumerates the cache modes.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -942,7 +1186,8 @@ declare enum HitTestType {
  */
 declare enum CacheMode {
   /**
-   * load cache when they are available and not expired, otherwise load online.
+   * The cache that has not expired is preferentially used to load resources. If the cache is invalid or no cache is
+   * available, resources are obtained from the Internet.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -952,7 +1197,8 @@ declare enum CacheMode {
   Default = 0,
 
   /**
-   * load cache when they are available, otherwise load online.
+   * Preferentially loads resources from the cache (including expired ones), and fetches them from the network when no
+   * cache is available.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -962,7 +1208,7 @@ declare enum CacheMode {
   None = 1,
 
   /**
-   * Load online and not cache.
+   * The cache is not used to load the resources. All resources are forcibly obtained from the Internet.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -972,7 +1218,7 @@ declare enum CacheMode {
   Online = 2,
 
   /**
-   * load cache and not online.
+   * The local cache alone is used to load the resources.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -992,7 +1238,8 @@ declare enum CacheMode {
  */
 declare enum OverScrollMode {
   /**
-   * The overscroll mode is disabled.
+   * Web overscroll mode disabled. Applicable to pages that do not require additional scrolling effects, such as
+   * scenarios where the content height matches the container height.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1002,7 +1249,8 @@ declare enum OverScrollMode {
   NEVER = 0,
 
   /**
-   * The overscroll mode is enabled.
+   * Web overscroll mode enabled. Applicable to pages that require enhanced scrolling feedback, such as list pages or
+   * scenarios that require clear scroll boundary indication.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1015,14 +1263,15 @@ declare enum OverScrollMode {
 /**
  * Enumerates whether the **Web** component loses focus when the soft keyboard is hidden.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 14 dynamic
  */
 declare enum BlurOnKeyboardHideMode {
   /**
-   * The **Web** component does not lose focus when the soft keyboard is hidden.
+   * The blur function of the Web component is disabled when the soft keyboard is hidden. When the user manually hides
+   * the soft keyboard, the focus remains on the text box. This is applicable to scenarios where the input focus needs
+   * to be retained.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1031,8 +1280,9 @@ declare enum BlurOnKeyboardHideMode {
   SILENT = 0,
 
   /**
-   * The **Web** component loses focus when the soft keyboard is hidden, and the focus moves from the text
-   * box to the web body.
+   * The blur function of the Web component is enabled when the soft keyboard is hidden. When the user manually hides
+   * the soft keyboard, the focus moves from the text box to the body of the Web component, and the text box loses
+   * focus. This is applicable to scenarios where standard input box behavior is required.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1042,7 +1292,8 @@ declare enum BlurOnKeyboardHideMode {
 }
 
 /**
- * Enumerates whether to enable web dark mode.
+ * Configures the web dark mode, which controls the dark theme display of web content and helps developers improve
+ * visual experience and readability based on user preferences and system themes.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
@@ -1071,7 +1322,8 @@ declare enum WebDarkMode {
   On = 1,
 
   /**
-   * The web dark mode setting follows the system setting.
+   * The Web dark mode follows the system. This mode is applicable to scenarios where the Web component theme needs to
+   * stay consistent with the system. It is recommended to use this mode to provide a consistent user experience.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1100,7 +1352,7 @@ declare enum WebCaptureMode {
 }
 
 /**
- * Enum type supplied to {@link threatType} for the website's threat type.
+ * Enumerates the website threat types.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -1108,7 +1360,7 @@ declare enum WebCaptureMode {
  */
 declare enum ThreatType {
   /**
-   * Illegal websites.
+   * Illegal website.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1117,7 +1369,7 @@ declare enum ThreatType {
   THREAT_ILLEGAL = 0,
 
   /**
-   * Fraud websites.
+   * Fraudulent website.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1126,7 +1378,7 @@ declare enum ThreatType {
   THREAT_FRAUD = 1,
 
   /**
-   * Websites with security risks.
+   * Website that poses security risks.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1135,8 +1387,7 @@ declare enum ThreatType {
   THREAT_RISK = 2,
 
   /**
-   * Websites suspected of containing unhealthy content.
-   * ArkWeb will not intercept this type of website and apps could handle it themselves.
+   * Website suspected to contain unsafe content.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1145,7 +1396,7 @@ declare enum ThreatType {
   THREAT_WARNING = 3,
 
   /**
-   * Security check passed, no risks found.
+   * Website that passes the security check and no risk is found.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -1153,7 +1404,7 @@ declare enum ThreatType {
   THREAT_NONE = 4,
 
   /**
-   * Security check not performed.
+   * Website that does not perform security check.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -1162,25 +1413,27 @@ declare enum ThreatType {
 }
 
 /**
- * Describes the web media options.
+ * Configures the media policy of the **Web** component, including the audio playback continuation validity period,
+ * audio exclusive mode, and more. It is suitable for scenarios where audio playback experience optimization and multi-
+ * instance audio management are required, improving media playback stability and user experience.
  *
- * @typedef WebMediaOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
  * @since 10 dynamic
  */
 declare interface WebMediaOptions {
   /**
-   * Validity period for automatically resuming a web audio paused by another application, in seconds. The value range
-   * is [-2147483648, 2147483647]. If **resumeInterval** is set to **0**, the playback is not automatically resumed. If
-   * **resumeInterval** is set to a value greater than 0, the playback is resumed in the specified period. If
-   * **resumeInterval** is set to a value less than 0, the playback is resumed in an unlimited period. Due to the
-   * approximate value, the validity period may have a deviation of less than 1 second.
+   * Validity period during which Web audio and video paused by other apps can automatically resume playback, in
+   * seconds. Value range: [-2147483648, 2147483647]. The value **0** means no automatic resumption; a value greater
+   * than **0** means an attempt to resume within the specified period; a value less than **0** means an attempt to
+   * resume within an unlimited period. Due to approximation, this validity period may have an error within one second.
    *
    * **NOTE**
    *
-   * After an HLS video is interrupted, the video playback is automatically resumed when the video is returned to the
-   * foreground.
+   * After an HLS video is interrupted, it will automatically resume when returning to the foreground, regardless of
+   * this time setting.
+   *
+   * Default value: **0**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1189,12 +1442,12 @@ declare interface WebMediaOptions {
   resumeInterval?: number;
 
   /**
-   * Whether the audio of multiple **Web** instances in an application is exclusive.
+   * Whether the audio of multiple Web instances in an app is exclusive.
    *
-   * The value **true** indicates that the audio of multiple **Web** instances in an application is exclusive, and
-   * **false** indicates the opposite.
+   * The value **true** means the audio of multiple Web instances in an app is exclusive, and **false** means the
+   * opposite.
    *
-   * The default value is **true**.
+   * Default value: **true**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1203,9 +1456,9 @@ declare interface WebMediaOptions {
   audioExclusive?: boolean;
 
   /**
-   * Web audio type in the application. The default value is
-   * [STREAM_USAGE_MUSIC]{@link ./../../../@ohos.multimedia.audio:audio.StreamUsage}. This parameter changes the mapping
-   * between the component audio type and the system audio type, which affects the ArkWeb audio focus policy.
+   * Web audio type in the app. The default value corresponds to STREAM_USAGE_MUSIC in the system audio stream type
+   * [StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage}. Used to change the mapping between the component
+   * audio type and the system audio type, affecting the ArkWeb audio focus policy.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -1214,9 +1467,9 @@ declare interface WebMediaOptions {
 }
 
 /**
- * Provides the web screen capture configuration.
+ * Provides the web screen capture configuration options, including the capture mode. It is suitable for scenarios where
+ * custom web page screen recording behavior is required, improving screen recording flexibility and user experience.
  *
- * @typedef ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
  * @since 10 dynamic
@@ -1233,13 +1486,8 @@ declare interface ScreenCaptureConfig {
 }
 
 /**
- * Implements the **FullScreenExitHandler** object to notify you that the **Web** component exits full screen mode.
- * For details about the sample code,
- * see [onFullScreenEnter](./arkts-basic-components-web-events.md#onfullscreenenter9).
- *
- * > **NOTE**
- * >
- * > - The sample effect is subject to the actual device.
+ * Implements the **FullScreenExitHandler** object to notify you that the **Web** component exits full screen mode. For
+ * details about the sample code, see [onFullScreenEnter]{@link WebAttribute#onFullScreenEnter}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -1269,7 +1517,9 @@ declare class FullScreenExitHandler {
 }
 
 /**
- * Provides details about the event that the **Web** component to enter the full-screen mode.
+ * Provides the callback information for the **Web** component to enter the full-screen mode, including the video size
+ * and exit handler. It is suitable for scenarios where handling full-screen video is required, improving video playback
+ * immersive experience and controllability.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -1299,10 +1549,10 @@ declare interface FullScreenEnterEvent {
    */
   videoWidth?: number;
 
-   /**
-   * Video height, in px. If the element that enters fulls screen mode is a **<video>** element, the value represents its
-   * height; if the element that enters fulls screen mode contains a **<video>** element, the value represents the height
-   * of the first sub-video element; in other cases, the value is **0**.
+  /**
+   * Video height, in px. If the element that enters fulls screen mode is a **<video>** element, the value represents
+   * its height; if the element that enters fulls screen mode contains a **<video>** element, the value represents the
+   * height of the first sub-video element; in other cases, the value is **0**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -1324,10 +1574,10 @@ declare interface FullScreenEnterEvent {
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
 /**
- * Defines a callback triggered when a same-layer tag is clicked using the mouse or touchpad.
+ * This callback is triggered when a same-layer tag is clicked using the mouse or touchpad.
  *
- * @param { NativeEmbedMouseInfo } event - Detailed information about clicking or touching and holding a same-layer tag
- *     using the mouse or touchpad.
+ * @param { NativeEmbedMouseInfo } event - Detailed information about the mouse or touchpad click or long press on the
+ *     same-layer tag.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
@@ -1336,7 +1586,6 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
 /**
  * Enumerates the reasons why the rendering process exits.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
  * @atomicservice [since 11]
@@ -1344,9 +1593,9 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  */
 declare enum RenderExitReason {
   /**
-   * The rendering process terminates abnormally. Possible causes include: rendering
-   * process startup timeout, system reclaiming older rendering processes upon reaching the process limit, or simultaneous
-   * closure of multiple tabs.
+   * The rendering process exited abnormally. Possible causes include rendering process startup timeout, system
+   * reclaiming old rendering processes due to reaching the process quantity limit, and simultaneous closing of multiple
+   * tabs.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1383,7 +1632,7 @@ declare enum RenderExitReason {
   ProcessOom = 3,
 
   /**
-   * Other reasons, such as failure to spawn the rendering process.
+   * Other reasons, such as rendering process spawning failure.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1403,7 +1652,7 @@ declare enum RenderExitReason {
 type OnContextMenuHideCallback = () => void;
 
 /**
- * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
+ * Enumerates the error codes returned by **onSslErrorEventReceive** API.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -1411,9 +1660,8 @@ type OnContextMenuHideCallback = () => void;
  * @since 9 dynamic
  */
 declare enum SslError {
-
   /**
-   * General error.
+   * Minor error.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1423,7 +1671,7 @@ declare enum SslError {
   Invalid = 0,
 
   /**
-   * Hostname mismatch.
+   * The host name does not match.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1433,7 +1681,7 @@ declare enum SslError {
   HostMismatch = 1,
 
   /**
-   * The certificate date is invalid.
+   * The certificate has an invalid date.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1443,7 +1691,7 @@ declare enum SslError {
   DateInvalid = 2,
 
   /**
-   * The certificate authority is not trusted.
+   * The certificate issuer is not trusted.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1454,7 +1702,8 @@ declare enum SslError {
 }
 
 /**
- * Enumerates the modes of the file selector.
+ * Defines the file selector mode, which controls how the file selector is opened and behaves, helping developers
+ * implement file operation scenarios such as file upload.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -1504,9 +1753,9 @@ declare enum FileSelectorMode {
 }
 
 /**
- * Enum type supplied to {@link layoutMode} for setting the web layout mode.
+ * Configures the web layout mode, which controls the page layout of web content and helps developers optimize web page
+ * adaptability and user experience based on screen size and display requirements.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
  * @atomicservice
@@ -1514,7 +1763,8 @@ declare enum FileSelectorMode {
  */
 declare enum WebLayoutMode {
   /**
-   * Web layout follows the system.
+   * Web layout follows the system. This is suitable for traditional web page layout scenarios, keeping consistent with
+   * the default system behavior.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1524,7 +1774,8 @@ declare enum WebLayoutMode {
   NONE = 0,
 
   /**
-   * Adaptive web layout based on page size.
+   * Web adaptive layout based on page size. This is suitable for scenarios where the layout needs to automatically
+   * adjust based on the screen size, and is recommended for mobile web page optimization.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -1537,7 +1788,6 @@ declare enum WebLayoutMode {
 /**
  * Enumerates the reasons why the rendering process does not respond.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
  */
@@ -1560,7 +1810,23 @@ declare enum RenderProcessNotRespondingReason {
 }
 
 /**
- * Encompassed message information as parameters to {@link onFileSelectorShow} method.
+ * FileSelectorParam is a file selector parameter class in the ArkWeb component, used to obtain parameter information
+ * when a file selection request is triggered by `<input type="file">` in a web page, including the file selection mode,
+ * file filtering type, MIME type, suggested file name, and default starting path. It helps developers efficiently build
+ * custom file selectors that comply with HTML specifications.
+ *
+ * When a web page initiates a file selection request, developers use FileSelectorParam to obtain the complete parameter
+ * information passed from the frontend, and build a custom file selector that matches the frontend requirements based
+ * on this information, ensuring that the file selection mode, type filtering, naming, and other behaviors comply with
+ * HTML specifications.
+ *
+ * Used in scenarios where the Web component needs to custom-handle file upload requests. Register the
+ * `onShowFileSelector` callback to intercept file selection requests; obtain the FileSelectorParam instance from the
+ * `fileSelector` property of the callback event; read the parameters and build a corresponding system file selector (
+ * such as DocumentViewPicker, PhotoViewPicker, etc.); return the selection result to the Web component through
+ * FileSelectorResult.
+ *
+ * For sample code, see [onShowFileSelector]{@link WebAttribute#onShowFileSelector}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -1569,7 +1835,7 @@ declare enum RenderProcessNotRespondingReason {
  */
 declare class FileSelectorParam {
   /**
-   * Constructor.
+   * Constructs a **FileSelectorParam**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1579,9 +1845,10 @@ declare class FileSelectorParam {
   constructor();
 
   /**
-   * Gets the title of this file selector.
+   * Obtains the title of this file selector.
    *
-   * @returns { string } Return the title of this file selector.
+   * @returns { string } Title string of the file selector, which indicates the title text displayed on the UI for the
+   *     current file selector.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1590,9 +1857,9 @@ declare class FileSelectorParam {
   getTitle(): string;
 
   /**
-   * Gets the FileSelectorMode of this file selector.
+   * Obtains the mode of the file selector.
    *
-   * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
+   * @returns { FileSelectorMode } Mode of the file selector.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1601,9 +1868,11 @@ declare class FileSelectorParam {
   getMode(): FileSelectorMode;
 
   /**
-   * Gets an array of acceptable MIME type.
+   * Obtains the file filtering type.
    *
-   * @returns { Array<string> } Return an array of acceptable MIME type.
+   * @returns { Array<string> } Array of file filter types, containing type information used to limit the selectable
+   *     file range in the file selector. The elements are extensions (such as '.png'), corresponding to the HTML accept
+   *     attribute.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1612,9 +1881,12 @@ declare class FileSelectorParam {
   getAcceptType(): Array<string>;
 
   /**
-   * Gets whether this file selector use a live media captured value.
+   * Checks whether multimedia capabilities are invoked.
    *
-   * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
+   * @returns { boolean } Whether to invoke multimedia capabilities.
+   *     <br>The value **true** means that multimedia devices such as the camera or microphone need to be called to
+   *     obtain files (for example, taking a photo or recording audio), and **false** means that only existing files are
+   *     selected from the storage device. Corresponds to the **capture** attribute of the HTML input tag.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1623,54 +1895,80 @@ declare class FileSelectorParam {
   isCapture(): boolean;
 
   /**
-   * Gets an array of raw acceptable MIME type.
+   * Obtains the MIME type of a file.
    *
-   * @returns { Array<string> } Return an array of raw acceptable MIME type.
+   * @returns { Array<string> } Value of the accept attribute of the HTML input element, containing the MIME types and
+   *     file extensions allowed for selection.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
    */
   getMimeTypes(): Array<string>;
 
   /**
-   * Gets suggested file names.
+   * Obtains the suggested file name. Corresponds to `suggestedName` in the HTML
+   * [option](docroot://web/web-file-upload.md#custom-handling-of-file-requests-initiated-by-js-interface). If the
+   * frontend does not set suggestedName, an empty string is returned. Developers can use this return value as the
+   * default file name when building a file selector, and use it together with
+   * [getDefaultPath]{@link FileSelectorParam#getDefaultPath} to preset the complete file path and name.
    *
-   * @returns { string } Return the suggested file names.
+   * @returns { string } String that suggests the default file name for the file selector.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   getSuggestedName(): string;
 
   /**
-   * Get the default path opened when pulling up the selector.
+   * Obtains the default path of the file selector, which corresponds to **startIn** in HTML's
+   * [option](docroot://web/web-file-upload.md#customizing-the-file-request-initiated-by-the-javascript-api).
    *
-   * @returns { string } Return to the default path opened when pulling up the selector.
+   * @returns { string } Default starting path.
+   *     <br>When the frontend startIn is set to the public directories `downloads` or `pictures`, note that they should
+   *     be converted to `download` and `images` in the OpenHarmony system, respectively. For details, see
+   *     [Obtaining and Using Public Directories](docroot://file-management/request-dir-permission.md).
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   getDefaultPath(): string;
 
   /**
-   * Gets a description array of file types.
+   * Obtains the optional description of each group of allowed file types. Corresponds to `description` in the HTML
+   * [option](docroot://web/web-file-upload.md#custom-handling-of-file-requests-initiated-by-js-interface). The returned
+   * description array corresponds one-to-one with the file type groups returned by getAcceptableFileTypes. Developers
+   * can use these descriptions as the display text for each file type group when building a file selector, helping
+   * users understand the selectable file types. If the frontend does not set description, an empty string is returned.
    *
-   * @returns { Array<string> } Return an array of description of the file type.
+   * @returns { Array<string> } Array of description strings for file types, containing optional description text for
+   *     each group of file types.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   getDescriptions(): Array<string>;
 
   /**
-   * Gets whether to filter fully matching file types.
+   * Obtains whether the file selector excludes the option (*\/*), that is, all files. Corresponds to
+   * `excludeAcceptAllOption` in the HTML
+   * [option](docroot://web/web-file-upload.md#custom-handling-of-file-requests-initiated-by-js-interface).
    *
-   * @returns { boolean } Return whether to filter all matching file types.
+   * @returns { boolean } Whether to exclude the "All file types" option.
+   *     <br>The value **true** means to exclude (the "All file types" option is not included), and **false** means to
+   *     include (the developer must ensure that the "All file types" option is included in the file selector).
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   isAcceptAllOptionExcluded(): boolean;
 
   /**
-   * Gets an array of selected types for web page files.
+   * Obtains the file type information. Corresponds to `types` in the HTML
+   * [option](docroot://web/web-file-upload.md#custom-handling-of-file-requests-initiated-by-js-interface). The return
+   * value is a two-dimensional array, where each sub-array represents a group of allowed file types. Developers should
+   * use this return value to set file type filtering rules when building a file selector, ensuring that users can only
+   * select files that meet the frontend requirements. The difference between this parameter and getAcceptType and
+   * getMimeTypes is that types supports more fine-grained file type control, allowing grouping by MIME type or file
+   * extension.
    *
-   * @returns { Array<Array<AcceptableFileType>> } Return an array of selected types for web page files.
+   * @returns { Array<Array<AcceptableFileType>> } File type information, which is a two-dimensional array structure
+   *     containing detailed information about multiple groups of optional file types. Corresponds to the types
+   *     attribute of the HTML option.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
@@ -1678,7 +1976,12 @@ declare class FileSelectorParam {
 }
 
 /**
- * Defines the js result.
+ * JsResult is a result handling object returned by the Web component when processing JavaScript dialog box events. It
+ * is used in scenarios where developers intercept and customize the handling of dialog boxes such as `window.alert`,
+ * `window.confirm`, and `window.prompt`. In event callbacks such as [onAlert]{@link WebAttribute#onAlert},
+ * [onConfirm]{@link WebAttribute#onConfirm}, or [onPrompt]{@link WebAttribute#onPrompt}, developers can use this object
+ * to feed back the user's operation results, such as confirmation, cancellation, or input content, to the Web
+ * component, thereby controlling the subsequent behavior of the dialog box.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -1687,7 +1990,7 @@ declare class FileSelectorParam {
  */
 declare class JsResult {
   /**
-   * Constructor.
+   * Constructor of JsResult. Used to handle JavaScript dialog box events.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1697,7 +2000,7 @@ declare class JsResult {
   constructor();
 
   /**
-   * Handle the user's JavaScript result if cancel the dialog.
+   * Notifies the **Web** component of the user's cancel operation in the dialog box.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1707,7 +2010,7 @@ declare class JsResult {
   handleCancel(): void;
 
   /**
-   * Handle the user's JavaScript result if confirm the dialog.
+   * Notifies the **Web** component of the user's confirm operation in the dialog box.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1717,9 +2020,9 @@ declare class JsResult {
   handleConfirm(): void;
 
   /**
-   * Handle the user's JavaScript result if confirm the prompt dialog.
+   * Notifies the Web component that the user has confirmed the dialog box operation and passes the dialog box content.
    *
-   * @param { string } result - The content of the dialog box entered by the user.
+   * @param { string } result - User input in the dialog box.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1729,7 +2032,16 @@ declare class JsResult {
 }
 
 /**
- * Defines the file selector result, related to {@link onFileSelectorShow} method.
+ * The FileSelectorResult class in the ArkWeb component is used to notify the Web component of file selection results.
+ * It supports custom file selection behavior at the app layer and a unified file selection result return mechanism,
+ * making it suitable for scenarios where the app needs to take over the file selection process, such as returning
+ * selected file results to a web page after launching the system file picker, gallery picker, or camera picker. When an
+ * HTML page in the Web component initiates a file selection request through `<input type="file">` or similar means, the
+ * app can use FileSelectorResult to return the user-selected file list to the Web component, completing the file
+ * selection process. This class is primarily used in the `onShowFileSelector` event callback, enabling the app to
+ * flexibly control file selection interactions and improve user experience consistency.
+ *
+ * For details about the sample code, see [onShowFileSelector]{@link WebAttribute#onShowFileSelector}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -1738,7 +2050,7 @@ declare class JsResult {
  */
 declare class FileSelectorResult {
   /**
-   * Constructor.
+   * Constructs a **FileSelectorResult**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1748,9 +2060,11 @@ declare class FileSelectorResult {
   constructor();
 
   /**
-   * select a list of files.
+   * Notifies the Web component of the user-selected files through the passed file list (fileList), completing the file
+   * selection process. The Web component can use the passed file list for subsequent processing.
    *
-   * @param { Array<string> } fileList - List of files that need to be operated.
+   * @param { Array<string> } fileList - Array of file URI strings, used to pass the file paths selected by the user to
+   *     the Web component.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1760,7 +2074,10 @@ declare class FileSelectorResult {
 }
 
 /**
- * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
+ * HttpAuthHandler is a handler class used by the Web component to process HTTP authentication requests. When the server
+ * returns 401 Unauthorized to request authentication, the Web component obtains an HttpAuthHandler instance through the
+ * onHttpAuthRequest event callback, and the app decides whether to provide authentication credentials. For sample code,
+ * see [onHttpAuthRequest]{@link WebAttribute#onHttpAuthRequest}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -1768,9 +2085,8 @@ declare class FileSelectorResult {
  * @since 9 dynamic
  */
 declare class HttpAuthHandler {
-
   /**
-   * Constructor.
+   * Constructs an **HttpAuthHandler**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -1782,9 +2098,9 @@ declare class HttpAuthHandler {
   /**
    * Performs HTTP authentication with the user name and password provided by the user.
    *
-   * @param { string } userName - HTTP authentication user name.
-   * @param { string } password - HTTP authentication password.
-   * @returns { boolean } **true** is returned if the authentication is successful; otherwise, **false** is returned.
+   * @param { string } userName - HTTP authentication user name, which must be a non-empty string.
+   * @param { string } password - HTTP authentication password, which must be a non-empty string.
+   * @returns { boolean } Returns **true** if authentication succeeds; returns **false** otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1803,10 +2119,10 @@ declare class HttpAuthHandler {
   cancel(): void;
 
   /**
-   * Determine whether the credentials stored for the current host are suitable for use. If the credentials have
-   * previously been rejected by the server for the current request, they are not suitable for use.
+   * Checks whether the credentials stored for the current host are applicable. The credentials are not applicable if
+   * they have been rejected by the server in the current request.
    *
-   * @returns { boolean } **true** is suitable for use; otherwise, **false** is not suitable for use.
+   * @returns { boolean } true if the stored credentials are applicable; false otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1816,7 +2132,11 @@ declare class HttpAuthHandler {
 }
 
 /**
- * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
+ * SslErrorHandler is a class in the Web component for handling SSL certificate verification errors. When an SSL
+ * certificate error (such as certificate expiration, hostname mismatch, or untrusted CA) is encountered while loading a
+ * secure page, the app can obtain an SslErrorHandler instance through the onSslErrorEvent callback and decide whether
+ * to continue loading or cancel navigation. For sample code, see the
+ * [onSslErrorEvent]{@link WebAttribute#onSslErrorEvent} event.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -1825,7 +2145,7 @@ declare class HttpAuthHandler {
  */
 declare class SslErrorHandler {
   /**
-   * Constructor.
+   * Constructs a **SslErrorHandler** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1835,7 +2155,7 @@ declare class SslErrorHandler {
   constructor();
 
   /**
-   * Confirm to use the SSL certificate.
+   * Ignores the SSL certificate verification error and continues loading the page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1845,7 +2165,7 @@ declare class SslErrorHandler {
   handleConfirm(): void;
 
   /**
-   * Cancel this request.
+   * Notifies the Web component to cancel this request and stops the current SSL certificate verification process.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1855,14 +2175,11 @@ declare class SslErrorHandler {
   handleCancel(): void;
 
   /**
-   * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
-   * continue displaying the error to users.
+   * Cancels this request and determines whether to stop loading based on the **abortLoading** parameter.
    *
-   * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
-   *                                 user will remain on the current page. If it is false, the SSL error
-   *                                 will not be ignored, and a blank page will be displayed. If a default
-   *                                 error page is enabled, the default error page will be shown instead.
-   *                                 The default value is false.
+   * @param { boolean } abortLoading - Whether to stop loading the page after canceling the request.
+   *     <br>The value **true** indicates that the page stops loading, and **false** indicates that the page continues
+   *     loading.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -1870,7 +2187,11 @@ declare class SslErrorHandler {
 }
 
 /**
- * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
+ * ClientAuthenticationHandler is a class in the **Web** component that handles SSL client certificate authentication
+ * requests. When a server requests a client certificate for TLS mutual authentication, this handler is provided to the
+ * app through the `onClientAuthenticationRequest` event callback, allowing the app to select appropriate certificate
+ * credentials for response. For sample code, see
+ * [onClientAuthenticationRequest]{@link WebAttribute#onClientAuthenticationRequest}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -1878,7 +2199,7 @@ declare class SslErrorHandler {
  */
 declare class ClientAuthenticationHandler {
   /**
-   * Constructor.
+   * Constructs a **ClientAuthenticationHandler**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1887,10 +2208,10 @@ declare class ClientAuthenticationHandler {
   constructor();
 
   /**
-   * Confirm to use the specified private key and client certificate chain.
+   * Uses the specified private key and client certificate chain.
    *
-   * @param { string } priKeyFile - The file that store private key.
-   * @param { string } certChainFile - The file that store client certificate chain.
+   * @param { string } priKeyFile - Full path for storing the private key file.
+   * @param { string } certChainFile - Full path for storing the certificate chain file.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1898,9 +2219,9 @@ declare class ClientAuthenticationHandler {
   confirm(priKeyFile: string, certChainFile: string): void;
 
   /**
-   * Confirm to use the authUri.The authUri can be obtained from certificate management.
+   * Instructs the **Web** component to use the specified credentials (obtained from the certificate management module).
    *
-   * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
+   * @param { string } authUri - Key value of the credentials.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -1908,11 +2229,12 @@ declare class ClientAuthenticationHandler {
   confirm(authUri: string): void;
 
   /**
-   * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+   * Instructs the **Web** component to use the specified credential and credential type obtained from the certificate
+   * management module.
    *
-   * @param { string } identity - The identify of the credential.
-   * @param { CredentialType | string } credentialTypeOrCertChainFile - The type of the credential or the file that store
-   *     client certificate chain.
+   * @param { string } identity - Unique ID of a credential.
+   * @param { CredentialType | string } credentialTypeOrCertChainFile - Credential type when the type is CredentialType,
+   *     or certificate chain file path when the type is string.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -1929,7 +2251,7 @@ declare class ClientAuthenticationHandler {
   cancel(): void;
 
   /**
-   * Ignore this certificate request temporarily.
+   * Ignores this request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -1939,31 +2261,9 @@ declare class ClientAuthenticationHandler {
 }
 
 /**
- * Handle the result of PIN verification.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic
- */
-declare class VerifyPinHandler {
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  constructor();
-  /**
-   * Passes the PIN verify result.
-   *
-   * @param { PinVerifyResult } result The PIN code verify result.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  confirm(result: PinVerifyResult): void;
-}
-
-/**
- * Defines the accessible resource type, related to {@link onPermissionRequest} method.
+ * Defines the types of protected resources that the Web component needs to access. It is used to control access
+ * permissions for sensitive resources such as MIDI, camera, microphone, and sensors, helping developers provide rich
+ * web functionality while protecting user privacy.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2013,17 +2313,29 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Implements the **PermissionRequest** object.For details about the sample code,
- * see [onPermissionRequest](./arkts-basic-components-web-events.md#onpermissionrequest9).
+ * PermissionRequest is an object used by the **Web** component to grant or deny permission requests. When a web page
+ * attempts to access protected system resources (such as camera, microphone, geolocation, etc.), the ArkWeb kernel
+ * sends a permission request to the app through the [onPermissionRequest]{@link WebAttribute#onPermissionRequest} event
+ * callback. The app then uses the PermissionRequest object to decide whether to grant these requests. This object is
+ * applicable to scenarios where the app needs to manage web page access to sensitive resources, protect user privacy,
+ * and ensure secure and controllable resource access, helping developers flexibly handle web page permission requests.
  *
  * > **NOTE**
  * >
- * > - The initial APIs of this component are supported since API version 8.
- * > Updates will be marked with a superscript to indicate their earliest API version.
+ * > - The [grant]{@link PermissionRequest#grant}() and [deny]{@link PermissionRequest#deny}() methods are mutually
+ * > exclusive. For the same PermissionRequest object, only one of them can be called.
  * >
- * > - The initial APIs of this class are supported since API version 9.
+ * > - After grant() or deny() is called, the PermissionRequest object has completed its response and cannot be called
+ * > again.
  * >
- * > - The sample effect is subject to the actual device.
+ * > - A PermissionRequest object that has not been responded to by calling any method will cause the permission request
+ * > to time out.
+ * >
+ * > - The resources parameter of the grant() method typically uses the return value of the getAccessibleResource()
+ * > method.
+ * >
+ * > - Typical usage flow: Call getAccessibleResource() to obtain the list of requested resources, select the resources
+ * > to be authorized, and then call grant() for authorization.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2054,7 +2366,7 @@ declare class PermissionRequest {
   /**
    * Obtains the origin of this web page.
    *
-   * @returns { string }
+   * @returns { string } Origin of the web page that requests the permission.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2063,10 +2375,10 @@ declare class PermissionRequest {
   getOrigin(): string;
 
   /**
-   * Obtains the list of accessible resources requested for the web page. For details about the resource types, see
-   * [ProtectedResourceType]{@link web:ProtectedResourceType}.
+   * Obtains the list of permission resources requested by the web page. For details about the type, see
+   * [ProtectedResourceType]{@link ProtectedResourceType}.
    *
-   * @returns { Array<string> }
+   * @returns { Array<string> } List of accessible resources requested by the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2075,10 +2387,12 @@ declare class PermissionRequest {
   getAccessibleResource(): Array<string>;
 
   /**
-   * Grants the permission for resources requested by the web page.
+   * Grants the permission requested by the web page.
    *
-   * @param { Array<string> } resources List of resources that can be requested by the web page with the permission to
-   * grant.
+   * @param { Array<string> } resources - List of permission resources granted to the web page, which must be obtained
+   *     through getAccessibleResource(). For the type, see [ProtectedResourceType]{@link ProtectedResourceType}. After
+   *     this parameter is passed in, the web page will obtain access to the specified resources. If an empty list is
+   *     passed in, all permission requests are denied.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2088,18 +2402,22 @@ declare class PermissionRequest {
 }
 
 /**
- * Implements the **ScreenCaptureHandler** object for accepting or rejecting a screen capture request.
- * For details about the sample code,
- * see [onScreenCaptureRequest](./arkts-basic-components-web-events.md#onscreencapturerequest10).
+ * **ScreenCaptureHandler** is a screen capture permission handling class provided by the **Web** component, used to
+ * respond to screen capture requests initiated by web pages. This class is applicable to scenarios such as online
+ * education, remote meetings, and screen recording where access to the user's screen content is required. It allows
+ * developers to control whether to grant screen capture permission to a web page through the **grant** or **deny**
+ * method, and to obtain request origin information through the **getOrigin** method. This helps developers flexibly
+ * handle screen capture access requests from web pages while protecting user privacy, thereby improving app security
+ * and user experience. For details about the sample code, see the
+ * [onScreenCaptureRequest]{@link WebAttribute#onScreenCaptureRequest} event.
  *
  * > **NOTE**
  * >
- * > - The initial APIs of this component are supported since API version 8.
- * >  Updates will be marked with a superscript to indicate their earliest API version.
+ * > - The [grant]{@link ScreenCaptureHandler#grant}() and [deny]{@link ScreenCaptureHandler#deny}() methods are
+ * > mutually exclusive. For the same request on the same **ScreenCaptureHandler** instance, only one of them can be
+ * > called.
  * >
- * > - The initial APIs of this class are supported since API version 10.
- * >
- * > - The sample effect is subject to the actual device.
+ * > - After calling one method, do not call the other method for the same request.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2116,9 +2434,10 @@ declare class ScreenCaptureHandler {
   constructor();
 
   /**
-   * Obtains the origin of this web page.
+   * Obtains the origin of the web page. This method is used to verify the trustworthiness of the request origin, or to
+   * implement a whitelist mechanism to control which web pages can perform screen capture.
    *
-   * @returns { string } Origin of the web page that requests the permission.
+   * @returns { string } Origin of the web page that initiates the current screen capture request.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -2126,9 +2445,14 @@ declare class ScreenCaptureHandler {
   getOrigin(): string;
 
   /**
-   * Grants the screen capture permission.
+   * Grants permission for the screen capture operation accessed by a web page. This method grants screen capture
+   * permission based on the provided configuration parameters. After the permission is granted, the web page can
+   * perform screen capture according to the configured parameters. The configuration parameters are validated to ensure
+   * compliance with system security requirements. This method is called after the user agrees to the screen capture
+   * request from a web page, or when automatically granting permission to trusted web pages based on business policies.
    *
-   * @param { ScreenCaptureConfig } config Screen capture configuration.
+   * @param { ScreenCaptureConfig } config - Screen capture configuration, which is used to set screen capture related
+   *     parameters.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -2136,7 +2460,10 @@ declare class ScreenCaptureHandler {
   grant(config: ScreenCaptureConfig): void;
 
   /**
-   * Rejects this screen capture request.
+   * Denies the screen capture operation initiated by a web page. This method is called when the user chooses not to
+   * allow screen capture, or when screen capture needs to be blocked for security reasons. After being called, the
+   * current screen capture request is terminated, and the system notifies the web page that the screen capture
+   * permission has been denied. The denial does not affect subsequent new screen capture requests.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2146,7 +2473,7 @@ declare class ScreenCaptureHandler {
 }
 
 /**
- * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * Implements the **DataResubmissionHandler** object for resubmitting or canceling the web form data.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2154,7 +2481,7 @@ declare class ScreenCaptureHandler {
  */
 declare class DataResubmissionHandler {
   /**
-   * Constructor.
+   * Constructs a **DataResubmissionHandler** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2163,7 +2490,7 @@ declare class DataResubmissionHandler {
   constructor();
 
   /**
-   * Resend related form data.
+   * Resends the web form data.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2172,7 +2499,7 @@ declare class DataResubmissionHandler {
   resend(): void;
 
   /**
-   * Do not resend related form data.
+   * Cancels the resending of web form data.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2182,7 +2509,17 @@ declare class DataResubmissionHandler {
 }
 
 /**
- * Defines the onWindowNew callback, related to {@link onWindowNew} method.
+ * ControllerHandler is a helper class provided by ArkWeb for handling the allocation of controllers for newly created
+ * Web components. When a web page requests to create a new window through methods such as `window.open`, and the Web
+ * component has enabled the [multiWindowAccess]{@link WebAttribute#multiWindowAccess} capability, the system provides
+ * the ControllerHandler object to the app through the [onWindowNew]{@link WebAttribute#onWindowNew} event. Developers
+ * need to call its [setWebController]{@link ControllerHandler#setWebController} method to set a valid
+ * [WebviewController]{@link @ohos.web.webview:webview.WebviewController} object for the new window, associating the new
+ * window with the Web component actually created on the page. The web kernel blocks the render process while waiting
+ * for the setWebController call. If the app decides not to create a new window, it must call `setWebController(null)`
+ * to notify the web kernel; otherwise, the render process will remain blocked. Typical usage scenarios include opening
+ * a new web window in a custom dialog box, a new page, or a split screen, where the app needs to explicitly manage the
+ * URL display and security isolation of the new window.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
@@ -2201,9 +2538,11 @@ declare class ControllerHandler {
   constructor();
 
   /**
-   * Sets a **WebviewController** object. If opening a new window is not needed, set the parameter to **null**.
+   * Sets the WebviewController object for the newly created Web component. If the app decides not to create a new
+   * window, this parameter must be set to null to notify the web kernel; otherwise, the render process will be blocked.
    *
-   * @param { WebviewController } controller
+   * @param { WebviewController } controller - **WebviewController** object of the **Web** component. If opening a new
+   *     window is not needed, set it to **null**.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
@@ -2283,8 +2622,8 @@ declare enum ContextMenuMediaType {
  */
 declare enum ContextMenuDataMediaType {
   /**
-   * Default value, indicating that the current context menu is not associated with any media type (for
-   * example, right-click text or blank area).
+   * Default value, indicating that the current context menu is not associated with any media type (for example, right-
+   * click text or blank area).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -2333,7 +2672,8 @@ declare enum ContextMenuDataMediaType {
  */
 declare enum ContextMenuInputFieldType {
   /**
-   * Non-input field.
+   * Non-input field, referring to non-editable web elements such as buttons, divs, spans, and other common HTML
+   * elements.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2445,7 +2785,8 @@ declare enum NativeEmbedStatus {
 
 /**
  * Enumerates the context menu edit state flags. This enum can be used in bitwise OR mode. For example, to support
- * **CAN_CUT**, **CAN_COPY**, and **CAN_SELECT_ALL** at the same time, use **CAN_CUT | CAN_COPY | CAN_SELECT_ALL**.
+ * **CAN_CUT**, **CAN_COPY**, and **CAN_SELECT_ALL** at the same time, use **CAN_CUT | CAN_COPY | CAN_SELECT_ALL** or
+ * **11**.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2499,7 +2840,7 @@ declare enum ContextMenuEditStateFlags {
 }
 
 /**
- * Enum type supplied to {@link navigationType} for the navigation's type.
+ * Enumerates the navigation types.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -2516,10 +2857,7 @@ declare enum WebNavigationType {
   UNKNOWN = 0,
 
   /**
-   * A new entry was created due to a navigation happened on the main frame.
-   * Contains all situations that will generate a mainframe navigation entry,
-   * which means that navigations to a hash on the same document or history.pushState
-   * also belong to this type.
+   * Navigation to a new history entry from the main document.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2528,11 +2866,7 @@ declare enum WebNavigationType {
   MAIN_FRAME_NEW_ENTRY = 1,
 
   /**
-   * Navigate to an existing entry due to a navigation on the main frame.
-   * e.g.
-   *   1. History navigations.
-   *   2. Reloads (contains loading the same url).
-   *   3. Same-document navigations(history.replaceState(), location.replace()).
+   * Navigation to an existing history entry from the main document.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2541,7 +2875,7 @@ declare enum WebNavigationType {
   MAIN_FRAME_EXISTING_ENTRY = 2,
 
   /**
-   * A navigation happened on subframe which was triggered by user.
+   * User-triggered navigation from a subdocument.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2550,7 +2884,7 @@ declare enum WebNavigationType {
   NAVIGATION_TYPE_NEW_SUBFRAME = 4,
 
   /**
-   * A navigation happened on the subframe automatically.
+   * Non-user-triggered navigation from a subdocument.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2562,15 +2896,16 @@ declare enum WebNavigationType {
 /**
  * Enumerates the rendering modes of the **Web** component. By default, the asynchronous rendering mode is used.
  *
- * @enum { number }
+ * The asynchronous rendering mode is recommended because it has better performance and lower power consumption.
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare enum RenderMode {
   /**
-   * The **Web** component as a graphic surface node is rendered
-   * asynchronously and displayed independently. The maximum width of the **Web** component is 7,680 px (physical pixel)
+   * Asynchronous rendering mode of the Web component. The ArkWeb component acts as a graphics surface node and
+   * independently outputs display. The maximum height of the Web component does not exceed 7,680 px (physical pixels).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2579,9 +2914,9 @@ declare enum RenderMode {
   ASYNC_RENDER = 0,
 
   /**
-   * The **Web** component as a graphic canvas node is rendered synchronously
-   * and displayed together with the system component. The maximum width of the **Web** component is 500,000 px (physical
-   * pixel).
+   * Synchronous rendering mode of the Web component. The ArkWeb component acts as a graphics canvas node and outputs
+   * display together with system components, allowing longer Web component content to be rendered. The maximum height
+   * of the Web component does not exceed 500,000 px (physical pixels).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2599,7 +2934,8 @@ declare enum RenderMode {
  */
 declare enum ViewportFit {
   /**
-   * The entire web page is visible. Default value.
+   * Default value. The entire web page is visible. This is suitable for scenarios where the web page needs to be fully
+   * displayed within the visible area, and is recommended for most common web pages.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2608,8 +2944,9 @@ declare enum ViewportFit {
   AUTO = 0,
 
   /**
-   * The initial layout viewport and the visual viewport are confined within the bounding rectangle of the device's
-   * physical screen.
+   * The initial layout viewport and visual viewport are within the largest rectangle that fits the device display. This
+   * is suitable for scenarios where content must be completely within the safe area, such as preventing important
+   * content from being obscured by a notch.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2618,8 +2955,9 @@ declare enum ViewportFit {
   CONTAINS = 1,
 
   /**
-   * The initial layout viewport and the visual viewport are confined within the bounding rectangle of the device's
-   * physical screen.
+   * The initial layout viewport and visual viewport are within the bounding rectangle of the device's physical screen.
+   * This is suitable for scenarios where web page content needs to extend to the screen edges, such as full-screen
+   * background effects or immersive experiences.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2629,7 +2967,21 @@ declare enum ViewportFit {
 }
 
 /**
- * Defines the context menu param, related to {@link WebContextMenuParam} method.
+ * WebContextMenuParam is a parameter class in the ArkWeb component used to carry context menu information displayed
+ * when a user long presses a web element or right-clicks. As the data carrier for the **onContextMenuShow** event
+ * callback, it encapsulates key information such as the menu popup position, link address, media type, selected text,
+ * and edit state.
+ *
+ * When customizing the context menu of a Web component, use WebContextMenuParam to obtain detailed information about
+ * the web element at the long press/right-click position (such as the link URL, image content, media type, input field
+ * type, and edit state), determine the user operation scenario, and decide whether to intercept the default menu and
+ * build custom menu items.
+ *
+ * When customizing the long press or right-click menu of a Web component (such as replacing the default menu, providing
+ * differentiated menu items based on element types, or previewing images), use WebContextMenuParam in the
+ * **onContextMenuShow** event callback to obtain context information.
+ *
+ * For sample code, see [onContextMenuShow]{@link WebAttribute#onContextMenuShow}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2637,7 +2989,7 @@ declare enum ViewportFit {
  */
 declare class WebContextMenuParam {
   /**
-   * Constructor.
+   * Constructs a **WebContextMenuParam** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2646,11 +2998,11 @@ declare class WebContextMenuParam {
   constructor();
 
   /**
-   * Horizontal offset coordinates of the menu within the Web component.
+   * X coordinate of the context menu, which is the horizontal distance relative to the upper left corner of the Web
+   * component.
    *
-   * @returns { number } The context menu x coordinate.
-   *     Returns a non-negative integer if normal, otherwise returns -1.
-   *     Unit: px.
+   * @returns { number } Non-negative integer if successful; -1 otherwise.
+   *     <br>Unit: px (physical pixel).
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2658,11 +3010,11 @@ declare class WebContextMenuParam {
   x(): number;
 
   /**
-   * Vertical offset coordinates for the menu within the Web component.
+   * Y coordinate of the context menu, which is the vertical distance relative to the upper left corner of the Web
+   * component.
    *
-   * @returns { number } The context menu y coordinate.
-   *     Returns a non-negative integer if normal, otherwise returns -1.
-   *     Unit: px.
+   * @returns { number } Non-negative integer when obtained successfully, and -1 otherwise.
+   *     <br>Unit: px (physical pixel).
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2670,9 +3022,16 @@ declare class WebContextMenuParam {
   y(): number;
 
   /**
-   * If the long-press location is the link returns the link's security-checked URL.
+   * Obtains the URL link address that has passed the security check. This can be used to provide operations such as "
+   * Open Link", "Share Link", and "Copy Link" when building a custom menu.
    *
-   * @returns { string } If relate to a link return link url, else return null.
+   * > **NOTE**
+   * >
+   * > Compared with getUnfilteredLinkUrl(), this method performs a security check on the URL. Compared with
+   * > getSourceUrl(), this method obtains the link URL at the long press position, whereas getSourceUrl() obtains the
+   * > URL of the **src** attribute of the selected element (such as images, media, and other resources).
+   *
+   * @returns { string } Security-checked URL if the long-press position is a link; otherwise, an empty string.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2680,9 +3039,10 @@ declare class WebContextMenuParam {
   getLinkUrl(): string;
 
   /**
-   * If the long-press location is the link returns the link's original URL.
+   * Obtains the original URL link address that has not passed the security check.
    *
-   * @returns { string } If relate to a link return unfiltered link url, else return null.
+   * @returns { string } If the long-press position is a link, returns the original URL link; otherwise, returns an
+   *     empty string.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2690,9 +3050,10 @@ declare class WebContextMenuParam {
   getUnfilteredLinkUrl(): string;
 
   /**
-   * Returns the SRC URL if the selected element has a SRC attribute.
+   * Obtains the URL link address corresponding to the **src** attribute of the element.
    *
-   * @returns { string } If this context menu is "src" attribute, return link url, else return null.
+   * @returns { string } If the selected element has the **src** attribute, the URL in the **src** is returned. The
+   *     maximum size of the returned URL is 2 MB. If the size exceeds the upper limit, an empty string is returned.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2700,9 +3061,10 @@ declare class WebContextMenuParam {
   getSourceUrl(): string;
 
   /**
-   * Long press menu location has image content.
+   * Checks whether there is image content at the current long press or right-click position. This is used to provide
+   * image-related functions such as "Save Image" in a custom menu.
    *
-   * @returns { boolean } Return whether this context menu has image content.
+   * @returns { boolean } true if an image exists at the long-press position; false otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2710,9 +3072,14 @@ declare class WebContextMenuParam {
   existsImageContents(): boolean;
 
   /**
-   * Returns the type of context node.
+   * Obtains the media type of the web element.
    *
-   * @returns { ContextMenuMediaType } Returns the type of context node.
+   * > **NOTE**
+   * >
+   * > Since API version 22, [getContextMenuMediaType]{@link WebContextMenuParam#getContextMenuMediaType} provides
+   * > richer media type identification capabilities.
+   *
+   * @returns { ContextMenuMediaType } Media type of the web page element.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2720,9 +3087,11 @@ declare class WebContextMenuParam {
   getMediaType(): ContextMenuMediaType;
 
   /**
-   * Returns the text of the selection.
+   * Obtains the content when right-clicking selected text. This is used to provide text operation functions such as "
+   * Copy", "Share", "Translate", and "Search" in a custom menu.
    *
-   * @returns { string } Returns the text of the selection, or return null if no text is selected.
+   * @returns { string } Selected text content. If selected text exists at the right-click position, the selected text
+   *     is returned; otherwise, an empty string is returned.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2730,9 +3099,11 @@ declare class WebContextMenuParam {
   getSelectionText(): string;
 
   /**
-   * Returns the context menu source type.
+   * Obtains the trigger source type of the context menu event (such as mouse right-click, long press, etc.). This is
+   * used to adjust the menu display style or provide differentiated menu options based on different sources.
    *
-   * @returns { ContextMenuSourceType }
+   * @returns { ContextMenuSourceType } Type of the trigger source for the context menu event, including right-click,
+   *     long press, and other trigger methods.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2740,9 +3111,12 @@ declare class WebContextMenuParam {
   getSourceType(): ContextMenuSourceType;
 
   /**
-   * Returns input field type if the context menu was invoked on an input field.
+   * Obtains the input field type of the web element (such as text box, password box, search box, etc.). This is used to
+   * provide appropriate editing menu options based on the input field type (such as Paste and Select All for text
+   * boxes, and Copy or Hide Password for password boxes).
    *
-   * @returns { ContextMenuInputFieldType } Input field type if the context menu was invoked on an input field.
+   * @returns { ContextMenuInputFieldType } Type of the web element input field, including text, password, email, and
+   *     other types. It is used to identify the type of the input element that currently has focus.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2750,9 +3124,11 @@ declare class WebContextMenuParam {
   getInputFieldType(): ContextMenuInputFieldType;
 
   /**
-   * Returns whether the context is editable.
+   * Checks whether a web element is editable. This is used to dynamically show or hide editing-related options in a
+   * custom menu (such as displaying Paste, Cut, and Select All when editable, and hiding these options when not
+   * editable).
    *
-   * @returns { boolean }
+   * @returns { boolean } true if the web element is editable; false otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2760,9 +3136,11 @@ declare class WebContextMenuParam {
   isEditable(): boolean;
 
   /**
-   * Returns the context editable flags {@link ContextMenuEditStateFlags}.
+   * Obtains the edit state flag of the web element. This is used to finely control the display logic of custom menu
+   * options (such as displaying corresponding menu items based on whether copying, pasting, or undoing is available).
    *
-   * @returns { number }
+   * @returns { number } Obtains the editable flag of the web element. See
+   *     [ContextMenuEditStateFlags]{@link ContextMenuEditStateFlags}.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2770,27 +3148,30 @@ declare class WebContextMenuParam {
   getEditStateFlags(): number;
 
   /**
-   * Returns the selection menu preview width.
+   * Obtains the width of a preview image.
    *
-   * @returns { number } The preview menu width. Unit: px.
+   * @returns { number } Width of a preview image.
+   *     <br>Unit: px (physical pixel)
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   getPreviewWidth(): number;
 
   /**
-   * Returns the selection menu preview height.
+   * Obtains the height of a preview image.
    *
-   * @returns { number } The preview menu height. Unit: px.
+   * @returns { number } Height of a preview image.
+   *     <br>Unit: px (physical pixel)
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
    */
   getPreviewHeight(): number;
 
   /**
-   * Returns the type of context node.
+   * Obtains the type of the web element that the user long presses or right-clicks when reporting a context menu event.
    *
-   * @returns { ContextMenuDataMediaType } Returns the type of context node.
+   * @returns { ContextMenuDataMediaType } Media type of the web element, including image, video, audio, and other
+   *     types, used to distinguish the type of web element tapped by the user.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
    */
@@ -2798,7 +3179,18 @@ declare class WebContextMenuParam {
 }
 
 /**
- * Defines the context menu result, related to {@link WebContextMenuResult} method.
+ * WebContextMenuResult is a class in the ArkWeb component used to handle context menu events (triggered by long-
+ * pressing a page element or right-clicking). It provides developers with a set of menu operation execution
+ * capabilities, including text editing operations (copy, paste, cut, select all, undo, redo, paste and match style),
+ * image operations (copy image, save image), menu control (close menu), and password auto-fill.
+ *
+ * Developers typically use WebContextMenuResult when they need to customize the context menu behavior of the Web
+ * component. Obtain a WebContextMenuResult instance through the **onContextMenuShow** event callback, and use the menu
+ * context information provided by **WebContextMenuParam** to determine the user operation scenario and call the
+ * corresponding response method, thereby implementing custom menu interaction logic. If the developer does not perform
+ * any menu response operation, the **closeContextMenu** method must be called to close the menu.
+ *
+ * For details about the sample code, see [onContextMenuShow<sup>9+</sup>]{@link WebAttribute#onContextMenuShow}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2806,7 +3198,7 @@ declare class WebContextMenuParam {
  */
 declare class WebContextMenuResult {
   /**
-   * Constructor.
+   * Constructs a **WebContextMenuResult** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2815,8 +3207,7 @@ declare class WebContextMenuResult {
   constructor();
 
   /**
-   * When close context menu without other call in WebContextMenuResult,
-   * User should call this function to close menu
+   * Closes this context menu. This API must be called when no operations in **WebContextMenuResult** are performed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2825,8 +3216,14 @@ declare class WebContextMenuResult {
   closeContextMenu(): void;
 
   /**
-   * If WebContextMenuParam has image content, this function will copy image related to this context menu.
-   * If WebContextMenuParam has no image content, this function will do nothing.
+   * When **WebContextMenuParam** contains image content, this method is used to copy the image to the clipboard.
+   * Starting from API version 24, copying canvas images is supported. If you need to save the image to a local file,
+   * use the saveImage() method.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2835,7 +3232,12 @@ declare class WebContextMenuResult {
   copyImage(): void;
 
   /**
-   * Executes the copy operation related to this context menu.
+   * Performs the copy text operation.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2844,11 +3246,17 @@ declare class WebContextMenuResult {
   copy(): void;
 
   /**
-   * Executes the paste operation related to this context menu.
+   * Performs the paste operation, preserving the original format. If you need to paste plain text and match the target
+   * format, use the pasteAndMatchStyle() method.
    *
-   * <p><strong>API Note</strong>:<br>
-   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
-   * </p>
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
+   * >
+   * > The permission
+   * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
+   * > must be declared.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2857,7 +3265,12 @@ declare class WebContextMenuResult {
   paste(): void;
 
   /**
-   * Executes the cut operation related to this context menu.
+   * Performs the cut operation.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2866,7 +3279,12 @@ declare class WebContextMenuResult {
   cut(): void;
 
   /**
-   * Executes the selectAll operation related to this context menu.
+   * Performs the select all operation.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2875,7 +3293,12 @@ declare class WebContextMenuResult {
   selectAll(): void;
 
   /**
-   * Executes the redo operation related to this context menu.
+   * Performs the redo operation, which re-executes the revoked operation.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -2883,7 +3306,12 @@ declare class WebContextMenuResult {
   redo(): void;
 
   /**
-   * Executes the undo operation related to this context menu.
+   * Performs the undo operation, which undoes the last editing operation.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -2891,11 +3319,17 @@ declare class WebContextMenuResult {
   undo(): void;
 
   /**
-   * Executes the paste and match style operation related to this context menu.
+   * Performs the paste operation related to this context menu. The pasted content matches the target format and is
+   * presented as plain text.
    *
-   * <p><strong>API Note</strong>:<br>
-   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
-   * </p>
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
+   * >
+   * > The permission
+   * > [ohos.permission.READ_PASTEBOARD](docroot://security/AccessToken/restricted-permissions.md#ohospermissionread_pasteboard)
+   * > must be declared.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -2903,7 +3337,13 @@ declare class WebContextMenuResult {
   pasteAndMatchStyle(): void;
 
   /**
-   * Request to fill the password vault contents into the input field.
+   * Requests the username or password data in the password vault to be automatically filled in the current focused text
+   * box.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -2911,7 +3351,12 @@ declare class WebContextMenuResult {
   requestPasswordAutoFill(): void;
 
   /**
-   * Performing the "Save As Image" operation associated with this context menu will trigger the download process.
+   * Saves the image related to this context menu. Calling this method triggers the download process.
+   *
+   * > **NOTE**
+   * >
+   * > After the operation is complete, [closeContextMenu]{@link WebContextMenuResult#closeContextMenu} should be called
+   * > to close the menu. Failure to do so may result in menu resources not being properly released.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -2921,7 +3366,10 @@ declare class WebContextMenuResult {
 }
 
 /**
- * Encompassed message information as parameters to {@link onConsole} method.
+ * ConsoleMessage is an object that encapsulates JavaScript console output information in the **Web** component. When a
+ * web page outputs logs through methods such as `console.log()`, `console.warn()`, and `console.error()`, this object
+ * is provided to the app through the `onConsole` event callback for monitoring and inspecting web page debug output.
+ * For sample code, see [onConsole event]{@link WebAttribute#onConsole}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2930,12 +3378,12 @@ declare class WebContextMenuResult {
  */
 declare class ConsoleMessage {
   /**
-   * Constructor.
+   * Constructs a **ConsoleMessage** object.
    *
-   * @param { string } message - The console message.
-   * @param { string } sourceId - The Web source file's path and name.
-   * @param { number } lineNumber - The line number of the console message.
-   * @param { MessageLevel } messageLevel - The console log level.
+   * @param { string } message - Log output information of **ConsoleMessage**.
+   * @param { string } sourceId - Path and name of the web page source file.
+   * @param { number } lineNumber - Line number of **ConsoleMessage**.
+   * @param { MessageLevel } messageLevel - Log level of **ConsoleMessage**.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2944,7 +3392,7 @@ declare class ConsoleMessage {
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
   /**
-   * Constructor.
+   * Constructs a **ConsoleMessage** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -2954,9 +3402,9 @@ declare class ConsoleMessage {
   constructor();
 
   /**
-   * Gets the message of a console message.
+   * Obtains the log message of the console output.
    *
-   * @returns { string } Return the message of a console message.
+   * @returns { string } Log information output to the console.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -2965,9 +3413,9 @@ declare class ConsoleMessage {
   getMessage(): string;
 
   /**
-   * Gets the Web source file's path and name of a console message.
+   * Obtains the path and file name of the web source file.
    *
-   * @returns { string } Return the Web source file's path and name of a console message.
+   * @returns { string } Path and file name of the web source file.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -2976,9 +3424,9 @@ declare class ConsoleMessage {
   getSourceId(): string;
 
   /**
-   * Gets the line number of a console message.
+   * Obtains the line number of the console output in the web source file.
    *
-   * @returns { number } Return the line number of a console message.
+   * @returns { number } Line number of the console output in the web source file.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -2987,27 +3435,33 @@ declare class ConsoleMessage {
   getLineNumber(): number;
 
   /**
-   * Gets the message level of a console message.
+   * Obtains the level of this console message.
    *
-   * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
+   * @returns { MessageLevel } Level of the console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
   getMessageLevel(): MessageLevel;
+
   /**
-   * Gets the source of a console message.
+   * Obtains the log source of this console message.
    *
-   * @returns { ConsoleMessageSource } Return the source of a console message.
+   * @returns { ConsoleMessageSource } Log source of the console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  getSource(): ConsoleMessageSource;
+  getSource() : ConsoleMessageSource;
 }
 
 /**
- * Defines the Web resource request.
+ * WebResourceRequest is a class in the Web component that represents a network resource request, providing detailed
+ * metadata about the requested resource. This object is used in event callbacks such as `onErrorReceive`,
+ * `onHttpErrorReceive`, and request interception to help developers diagnose network errors, monitor request status,
+ * and implement resource interception control. By using this class, the app can improve error handling, enhance request
+ * controllability, and optimize user experience. For sample code, see
+ * [onErrorReceive event]{@link WebAttribute#onErrorReceive}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
@@ -3015,9 +3469,8 @@ declare class ConsoleMessage {
  * @since 8 dynamic
  */
 declare class WebResourceRequest {
-
   /**
-   * Constructor.
+   * Constructs a **WebResourceRequest** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -3027,9 +3480,10 @@ declare class WebResourceRequest {
   constructor();
 
   /**
-   * Gets request headers.
+   * Obtains the information about the resource request header.
    *
-   * @returns { Array<Header> } Return the request headers
+   * @returns { Array<Header> } Array containing the key-value pair information of the request headers. Each **Header**
+   *     object contains the name and corresponding value of a request header, such as User-Agent and Content-Type.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3038,9 +3492,10 @@ declare class WebResourceRequest {
   getRequestHeader(): Array<Header>;
 
   /**
-   * Gets the request URL.
+   * Obtains the URL of the resource request.
    *
-   * @returns { string } Return the request URL.
+   * @returns { string } Returns the complete resource request URL string, including the protocol, domain name, path,
+   *     and query parameters.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3049,9 +3504,11 @@ declare class WebResourceRequest {
   getRequestUrl(): string;
 
   /**
-   * Check whether the request is associated with gesture.
+   * Checks whether the resource request is associated with a gesture (such as a tap).
    *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @returns { boolean } Whether the resource request is associated with a gesture (for example, a tap).
+   *     <br>The value **true** indicates that the resource request is associated with a gesture, and **false**
+   *     indicates the opposite.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3060,10 +3517,12 @@ declare class WebResourceRequest {
   isRequestGesture(): boolean;
 
   /**
-   * Check whether the request is for getting the main frame.
+   * Checks whether the resource request is for the main frame. Used to differentiate between main frame and subframe
+   * requests.
    *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame;
-   *     return {@code false} otherwise.
+   * @returns { boolean } Whether the resource request is a main frame request.
+   *     <br>The value **true** indicates that the resource request is a main frame request, and **false** indicates
+   *     that the resource request is not a main frame request.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3072,9 +3531,12 @@ declare class WebResourceRequest {
   isMainFrame(): boolean;
 
   /**
-   * Check whether the request redirects.
+   * Checks whether the resource request is redirected by the server. Used to inspect the request redirect chain and
+   * identify malicious redirects.
    *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @returns { boolean } Whether the resource request is redirected by the server.
+   *     <br>The value **true** indicates that the resource request is redirected by the server, and **false** indicates
+   *     that the resource request is not redirected by the server.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3083,9 +3545,10 @@ declare class WebResourceRequest {
   isRedirect(): boolean;
 
   /**
-   * Get request method.
+   * Obtains the request method.
    *
-   * @returns { string } Return the request method.
+   * @returns { string } HTTP request method string. Common values include GET, POST, PUT, DELETE, etc., indicating the
+   *     HTTP method type used for the resource request.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3095,7 +3558,13 @@ declare class WebResourceRequest {
 }
 
 /**
- * Defines the Web resource response.
+ * WebResourceResponse is a class in the Web component that represents HTTP responses and allows custom web page
+ * resource responses. In events such as onHttpErrorReceive, it provides the app with information including the status
+ * code, status code description, response header, response data, encoding, and MIME type of the server response. In
+ * resource request interception scenarios, it allows the app to customize the status code, status code description,
+ * response header, response data, encoding, MIME type, and data readiness state of the response, so that the app takes
+ * over the return content of specific resources. For sample code, see
+ * [onHttpErrorReceive event]{@link WebAttribute#onHttpErrorReceive}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -3103,9 +3572,9 @@ declare class WebResourceRequest {
  * @since 8 dynamic
  */
 declare class WebResourceResponse {
-
   /**
-   * Constructor.
+   * Constructor of WebResourceResponse. It is used to create an HTTP response object, commonly used for customizing
+   * response content in resource request interception scenarios.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -3115,9 +3584,9 @@ declare class WebResourceResponse {
   constructor();
 
   /**
-   * Gets the response data.
+   * Obtains the data in the resource response.
    *
-   * @returns { string } Return the response data.
+   * @returns { string } Resource response data in HTML string format.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3126,13 +3595,13 @@ declare class WebResourceResponse {
   getResponseData(): string;
 
   /**
-   * Gets the response data.
+   * Obtains resource response data, supporting multiple data types. Compared with getResponseData, this method supports
+   * returning various types such as number (file handle), ArrayBuffer (binary data), and Resource ($rawfile resource).
+   * It is recommended to use this method when flexible data type support is needed.
    *
-   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *     string type indicate string in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
-   *     ArrayBuffer type indicate binary data.
+   * @returns { string | number | ArrayBuffer | Resource | undefined } An HTML string when the type is string; a file
+   *     descriptor when the type is number; binary data when the type is ArrayBuffer; a **$rawfile** resource when the
+   *     type is resource; or **undefined** if no data is available.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @since 13 dynamic
@@ -3140,9 +3609,10 @@ declare class WebResourceResponse {
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
   /**
-   * Gets the response encoding.
+   * Obtains the encoding string of the resource response.
    *
-   * @returns { string } Return the response encoding.
+   * @returns { string } Encoding of the resource response, for example, 'utf-8', 'gbk', and other character set
+   *     encodings.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -3151,9 +3621,9 @@ declare class WebResourceResponse {
   getResponseEncoding(): string;
 
   /**
-   * Gets the response MIME type.
+   * Obtains the MIME type of the resource response.
    *
-   * @returns { string } Return the response MIME type.
+   * @returns { string } Media (MIME) type of the resource response, for example, 'text/html', 'application/json', etc.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -3162,9 +3632,9 @@ declare class WebResourceResponse {
   getResponseMimeType(): string;
 
   /**
-   * Gets the reason message.
+   * Obtains the status code description of the resource response.
    *
-   * @returns { string } Return the reason message.
+   * @returns { string } Status code description of the resource response, for example, 'OK' and 'Not Found'.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3173,9 +3643,9 @@ declare class WebResourceResponse {
   getReasonMessage(): string;
 
   /**
-   * Gets the response headers.
+   * Obtains the resource response header.
    *
-   * @returns { Array<Header> } Return the response headers.
+   * @returns { Array<Header> } Resource response header.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -3184,9 +3654,10 @@ declare class WebResourceResponse {
   getResponseHeader(): Array<Header>;
 
   /**
-   * Gets the response code.
+   * Obtains the status code of the resource response.
    *
-   * @returns { number } Return the response code.
+   * @returns { number } Status code of the resource response. For example, 200 indicates success and 404 indicates not
+   *     found.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -3195,17 +3666,18 @@ declare class WebResourceResponse {
   getResponseCode(): number;
 
   /**
-   * Sets the response data.
+   * Sets the data in the resource response.
    *
-   * @param { string | number | Resource } data - the response data.
-   *     string type indicate strings in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource. [since 9 - 10]
-   * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *     string type indicate strings in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
-   *     ArrayBuffer type indicate binary data. [since 11]
+   * @param { string | number | Resource } data - Resource response data to set. When set to a string, the value
+   *     indicates a string in HTML format. When set to a number, the value indicates a file handle, which is closed by
+   *     the system **Web** component. When set to a **Resource** object, the value indicates the file resources in the
+   *     **rawfile** directory of the application. When set to an **ArrayBuffer** object, the value indicates the
+   *     original binary data of a resource. [since 9 - 10]
+   * @param { string | number | Resource | ArrayBuffer } data - Resource response data to set. When set to a string, the
+   *     value indicates a string in HTML format. When set to a number, the value indicates a file handle, which is
+   *     closed by the system **Web** component. When set to a **Resource** object, the value indicates the file
+   *     resources in the **rawfile** directory of the application. When set to an **ArrayBuffer** object, the value
+   *     indicates the original binary data of a resource. [since 11]
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3214,9 +3686,11 @@ declare class WebResourceResponse {
   setResponseData(data: string | number | Resource | ArrayBuffer): void;
 
   /**
-   * Sets the response encoding.
+   * Sets the encoding string of the resource response.
    *
-   * @param { string } encoding the response encoding.
+   * @param { string } encoding - Encoding of the resource response to set. The encoding format must be consistent with
+   *     the actual encoding of the response data. The encoding format affects how the browser or client parses and
+   *     displays the response content.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3225,9 +3699,10 @@ declare class WebResourceResponse {
   setResponseEncoding(encoding: string): void;
 
   /**
-   * Sets the response MIME type.
+   * Sets the MIME type of the resource response.
    *
-   * @param { string } mimeType the response MIME type.
+   * @param { string } mimeType - Media (MIME) type of the resource response to set. Common MIME types include text/html
+   *     (HTML document), application/json (JSON data), image/png (PNG image), etc.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3236,9 +3711,13 @@ declare class WebResourceResponse {
   setResponseMimeType(mimeType: string): void;
 
   /**
-   * Sets the reason message.
+   * Sets the status code description of the resource response.
    *
-   * @param { string } reason the reason message.
+   * @param { string } reason - Status code description of the resource response to set. The status code description is
+   *     a textual explanation of the status code, usually used in correspondence with the status code. For example,
+   *     when the status code is 200, the description can be set to "OK", and when the status code is 404, the
+   *     description can be set to "Not Found". This description is included in the HTTP response, making it easier for
+   *     the client or developer to understand the response result.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3247,9 +3726,12 @@ declare class WebResourceResponse {
   setReasonMessage(reason: string): void;
 
   /**
-   * Sets the response headers.
+   * Sets the resource response header.
    *
-   * @param { Array<Header> } header the response headers.
+   * @param { Array<Header> } header - Resource response header to set. The response header is used to pass HTTP
+   *     protocol header information, for example, setting "Cache-Control" to control the caching policy, setting "
+   *     Access-Control-Allow-Origin" to implement cross-origin access, and setting "Content-Type" to specify the
+   *     content type. Setting the response header affects how the browser or client processes the resource.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3258,9 +3740,16 @@ declare class WebResourceResponse {
   setResponseHeader(header: Array<Header>): void;
 
   /**
-   * Sets the response code.
+   * Sets the status code of the resource response.
    *
-   * @param { number } code the response code.
+   * @param { number } code - Status code of the resource response to set. If the resource request fails or the response
+   *     status is an error status, refer to [@ohos.web.netErrorList]{@link @ohos.web.netErrorList:WebNetErrorList} to
+   *     set the corresponding error code. Common error code scenarios: 404 indicates that the resource does not exist.
+   *     Check the resource path. 500 indicates an internal server error. Check the server status. 403 indicates no
+   *     access permission. Apply for the corresponding access permission. 401 indicates unauthorized access. Check the
+   *     authentication information. Check the network configuration, server status, or resource access permission based
+   *     on the error code. Avoid setting the error code to ERR_IO_PENDING, which may cause XMLHttpRequest synchronous
+   *     requests to be blocked.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3269,9 +3758,25 @@ declare class WebResourceResponse {
   setResponseCode(code: number): void;
 
   /**
-   * Sets the response is ready or not.
+   * Sets whether the resource response data is ready.
    *
-   * @param { boolean } IsReady whether the response is ready.
+   * > **NOTE**
+   * >
+   * > - In resource request interception scenarios, call setResponseData(), setResponseEncoding(), setResponseMimeType(
+   * > ), setResponseHeader(), setResponseCode(), setReasonMessage(), and other methods first to set the response
+   * > attributes. Finally, call setResponseIsReady(true) to trigger resource return.
+   * >
+   * > - Asynchronous data scenario: Call setResponseIsReady(false) first. After the data is ready, call setResponseData
+   * > () and other setting methods, and finally call setResponseIsReady(true) to trigger resource return.
+   * >
+   * > - If the calling sequence is incorrect, XMLHttpRequest synchronous requests may be blocked.
+   *
+   * @param { boolean } IsReady - Whether the resource response data is ready.
+   *     <br>The value **true** indicates that the resource response data is ready, and **false** indicates the
+   *     opposite.
+   *     <br>If the data is provided asynchronously, this parameter must be explicitly set to **false**. If this
+   *     parameter is set to an invalid value, for example, **null** or **undefined**, or is not set, the data is
+   *     considered ready.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3280,9 +3785,9 @@ declare class WebResourceResponse {
   setResponseIsReady(IsReady: boolean): void;
 
   /**
-   * Gets whether the response is ready.
+   * Obtains whether the response data is ready.
    *
-   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @returns { boolean } **true** indicates that the response data is ready, and **false** indicates the opposite.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @since 13 dynamic
@@ -3291,7 +3796,8 @@ declare class WebResourceResponse {
 }
 
 /**
- * Defines the Web's request/response header.
+ * Request/response header object returned by the **Web** component. It is suitable for scenarios where reading or
+ * modifying HTTP headers is required, improving network request handling flexibility and controllability.
  *
  * @interface Header [since 8 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -3300,9 +3806,8 @@ declare class WebResourceResponse {
  * @since 8 dynamic
  */
 declare interface Header {
-
   /**
-   * Gets the key of the request/response header.
+   * Key of the request or response header.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -3312,7 +3817,7 @@ declare interface Header {
   headerKey: string;
 
   /**
-   * Gets the value of the request/response header.
+   * Value of the request or response header.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -3323,7 +3828,11 @@ declare interface Header {
 }
 
 /**
- * Defines the Web resource error.
+ * WebResourceError is a class that provides error information when resource loading fails in the **Web** component. The
+ * error object is provided to the app through the `onErrorReceive` and `onHttpErrorReceive` event callbacks,
+ * encapsulating error details for debugging and error handling. It is typically used together with WebResourceRequest
+ * to determine which resource failed to load. For sample code, see
+ * [onErrorReceive event]{@link WebAttribute#onErrorReceive}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
@@ -3331,9 +3840,9 @@ declare interface Header {
  * @since 8 dynamic
  */
 declare class WebResourceError {
-
   /**
-   * Constructor.
+   * Constructor of WebResourceError. Creates a WebResourceError object to encapsulate error information when resource
+   * loading fails in the **Web** component.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -3343,9 +3852,11 @@ declare class WebResourceError {
   constructor();
 
   /**
-   * Gets the info of the Web resource error.
+   * Obtains the error information of the resource loading. It is used to describe the specific cause of the resource
+   * loading failure in detail. Developers can output the error information to logs for debugging and analysis, or
+   * display a user-friendly error message to users.
    *
-   * @returns { string } Return the info of the Web resource error.
+   * @returns { string } Error information about resource loading.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3354,15 +3865,19 @@ declare class WebResourceError {
   getErrorInfo(): string;
 
   /**
-   * Gets the code of the Web resource error.
+   * Obtains the error code of the resource loading. It is used to determine the specific cause of the resource loading
+   * failure (such as network errors, server errors, or permission issues), so that developers can take appropriate
+   * handling strategies based on the error type (such as retrying, prompting the user, or degrading the display).
    *
-   * @returns { number } Return the code of the Web resource error.
+   * @returns { number } Error code for loading the resource. For details about the error codes, see
+   *     [WebNetErrorList]{@link @ohos.web.netErrorList:WebNetErrorList} or HTTP status codes.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
   getErrorCode(): number;
+
   /**
    * Gets the custom error code of the Web resource.
    *
@@ -3374,7 +3889,18 @@ declare class WebResourceError {
 }
 
 /**
- * Defines the js geolocation request.
+ * JsGeolocation is the authorization response object provided to the app when the Web component receives a web page
+ * geolocation permission request. When a web page requests device location information through JavaScript geolocation
+ * APIs (such as navigator.geolocation), the app needs to decide whether to authorize the request. Through the invoke
+ * method, JsGeolocation allows the app to grant or deny the geolocation permission for web pages of a specified origin,
+ * and optionally save the permission decision to the system to avoid repeated authorization prompts when the same
+ * origin requests again.
+ *
+ * JsGeolocation is applicable to scenarios where web pages in the Web component actively request geolocation
+ * permission. The app must first register the [onGeolocationShow event]{@link WebAttribute#onGeolocationShow}. When a
+ * web page initiates a geolocation permission request, the event callback passes the JsGeolocation object to the app,
+ * and the app calls the invoke method in the callback to complete the authorization response. The "
+ * ohos.permission.LOCATION" and "ohos.permission.APPROXIMATELY_LOCATION" permissions must also be configured.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -3383,7 +3909,8 @@ declare class WebResourceError {
  */
 declare class JsGeolocation {
   /**
-   * Constructor.
+   * Constructor of JsGeolocation. The constructor itself is not directly called by the app. The JsGeolocation instance
+   * is typically obtained through the [onGeolocationShow event]{@link WebAttribute#onGeolocationShow} callback.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -3393,16 +3920,20 @@ declare class JsGeolocation {
   constructor();
 
   /**
-   * Sets the geolocation permission status of a web page.
+   * Sets the geolocation permission status of a web page. This method must be called in the
+   * [onGeolocationShow event]{@link WebAttribute#onGeolocationShow} callback to respond to the authorization request
+   * from the web page that initiated the geolocation permission request.
    *
-   * @param { string } origin - Index of the origin.
-   * @param { boolean } allow - Geolocation permission status. {@code true} means to allow geolocation permission;
-   *     {@code false} means to disallow geolocation permission.
-   * @param { boolean } retain - Whether the geolocation permission status can be saved to the system.
-   *     {@code true} means to allow the geolocation permission status to be saved to
-   *     the system; {@code false} means to disallow the geolocation permission status to
-   *     be saved to the system. You can manage the geolocation permissions saved
-   *     to the system through {@link GeolocationPermissions}.
+   * @param { string } origin - Web origin that initiates the location permission request, used to identify the source
+   *     of a geolocation request from a specific website.
+   *     <br>The origin format must comply with the format defined in RFC 6454.
+   * @param { boolean } allow - Geolocation permission status.
+   *     <br>The value **true** means to enable the geolocation permission, and **false** means the opposite.
+   * @param { boolean } retain - Whether to allow the location permission state to be saved to the system. The location
+   *     permissions saved to the system can be managed through the
+   *     [GeolocationPermissions]{@link @ohos.web.webview:webview.GeolocationPermissions} API.
+   *     <br>The value **true** indicates that the location permission state is saved to the system, and **false**
+   *     indicates that it is not saved to the system.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -3412,7 +3943,9 @@ declare class JsGeolocation {
 }
 
 /**
- * Defines the Web cookie.
+ * Manages behavior of cookies in **Web** components. All **Web** components in an application share a **WebCookie**.
+ * You can use the **getCookieManager** API in **controller** to obtain the **WebCookie** for subsequent cookie
+ * management.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -3421,9 +3954,12 @@ declare class JsGeolocation {
  * @useinstead ohos.web.webview.webview.WebCookieManager
  */
 declare class WebCookie {
-
   /**
-   * Constructor.
+   * Constructs a **WebCookie** object.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 23. No API is provided for substitute.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -3434,7 +3970,8 @@ declare class WebCookie {
   constructor();
 
   /**
-   * Sets the cookie.
+   * Sets the cookie. This API returns the result synchronously. **true** is returned if the operation is successful;
+   * otherwise, **false** is returned.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3444,7 +3981,7 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Saves the cookies.
+   * Saves the cookies in the memory to the drive. This API returns the result synchronously.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3455,20 +3992,22 @@ declare class WebCookie {
 }
 
 /**
- * Represents the event consumption result sent to the **Web** component. For details about the supported events, see
- * [TouchType]{@link enums:TouchType}, [MouseAction]{@link enums:MouseAction}, and left, middle, and right buttons in
- * [MouseButton]{@link enums:MouseButton}.
- *
- * If the application does not consume the event, set the consumption result to **false**, and the event will be
- * consumed by the **Web** component. If the application consumes the event, set the consumption result to **true**, and
- * the **Web** component will not consume the event. If the consumption result is not set according to the preceding
- * specifications, exceptions may occur.
+ * EventResult is a class in ArkWeb Kit used to notify the **Web** component of the same-layer event consumption result.
+ * In same-layer embedding scenarios, the app and the **Web** component are both exposed in the event response chain.
+ * EventResult allows the app to declare to the **Web** component whether it has consumed a touch or mouse event,
+ * thereby determining whether the **Web** component continues to process the event. When the app sets the consumption
+ * result to **true**, it indicates that the app has consumed the event and the **Web** component will no longer consume
+ * it. When set to **false**, it indicates that the app does not consume the event, and the event will be consumed by
+ * the **Web** component. EventResult is used to set the consumption result of touch events (
+ * [TouchType]{@link TouchType}) and mouse events ([MouseAction]{@link MouseAction}, limited to left, middle, and right
+ * buttons), with the mouse button type defined by [MouseButton]{@link MouseButton}. It is applicable to event
+ * coordination scenarios where the app and the **Web** component interact at the same layer.
  *
  * For details about the sample code of the touch event, see
- * [onNativeEmbedGestureEvent]{@link web:WebAttribute.onNativeEmbedGestureEvent}.
+ * [onNativeEmbedGestureEvent]{@link WebAttribute#onNativeEmbedGestureEvent}.
  *
  * For details about the sample code of the mouse event, see
- * [onNativeEmbedMouseEvent]{@link web:WebAttribute.onNativeEmbedMouseEvent}.
+ * [onNativeEmbedMouseEvent]{@link WebAttribute#onNativeEmbedMouseEvent}.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -3487,9 +4026,9 @@ declare class EventResult {
   /**
    * Sets the gesture event consumption result.
    *
-   * @param { boolean } result - Whether to consume the gesture event.<br>The value **true** means to consume the
-   *     gesture event, and **false** means the opposite.<br>If **null** or **undefined** is passed in, the value is
-   *     **true**.
+   * @param { boolean } result - Whether to consume the gesture event.
+   *     <br>The value **true** means to consume the gesture event, and **false** means the opposite.
+   *     <br>If **null** or **undefined** is passed in, the value is **true**.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -3497,27 +4036,31 @@ declare class EventResult {
   setGestureEventResult(result: boolean): void;
 
   /**
-   * Sets the gesture event consumption result.
+   * Sets the gesture event consumption result and bubbling control.
    *
-   * @param { boolean } result - Whether to consume the gesture event.<br>The value **true** means to consume the
-   *     gesture event, and **false** means the opposite.<br>If **null** or **undefined** is passed in, the value is
-   *     **true**.
+   * @param { boolean } result - Whether to consume the gesture event.
+   *     <br>The value **true** means to consume the gesture event, and **false** means the opposite.
+   *     <br>If **null** or **undefined** is passed in, the value is **true**.
    * @param { boolean } stopPropagation - Whether to stop propagation. This parameter is valid only when **result** is
-   *     set to **true**.<br>The value **true** means to stop propagation, and **false** means the opposite.<br>If
-   *     **null** or **undefined** is passed in, the value is **true**.
+   *     set to **true**.
+   *     <br>The value **true** means to stop propagation, and **false** means the opposite.
+   *     <br>If **null** or **undefined** is passed in, the value is **true**.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 
   /**
-   * Sets the mouse event consumption result.
+   * Sets the mouse event consumption result and bubbling control.
    *
-   * @param { boolean } result - Whether to consume the mouse event.<br>The value **true** means to consume the mouse
-   *     event, and **false** means the opposite.<br>If **null** or **undefined** is passed in, the value is **true**.
-   * @param { boolean } [stopPropagation] - Whether to stop propagation. This parameter is valid only when **result** is
-   *     set to **true**.<br>The value **true** means to stop propagation, and **false** means the opposite.<br>If
-   *     **null** or **undefined** is passed in, the value is **true**.
+   * @param { boolean } result - Whether to consume the mouse event.
+   *     <br>true indicates consumption of the mouse event, and false indicates no consumption of the mouse event.
+   *     <br>The value is true when null or undefined is passed in.
+   * @param { boolean } [stopPropagation] - Whether to stop bubbling. This parameter takes effect only when result is
+   *     true.
+   *     <br>true indicates that bubbling is stopped, and false indicates that bubbling is not stopped.
+   *     <br>The value is true when null or undefined is passed in.
+   *     <br>Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -3525,7 +4068,14 @@ declare class EventResult {
 }
 
 /**
- * Defines the Web controller.
+ * WebController is the controller class of the ArkWeb component, used to control various behaviors of the Web
+ * component. A WebController object can be bound to only one Web component. After binding, developers can use the
+ * controller to perform operations on the Web component, such as page navigation (forward/backward/loading), focus
+ * control, zoom adjustment, page refresh and stop, cookie management, and JavaScript injection and execution.
+ *
+ * WebController is suitable for scenarios where active control of the embedded Web component is required on the app
+ * side, such as implementing browser-like forward and backward navigation, establishing a JavaScript interaction
+ * channel between the app side and the web page side, dynamically loading web page content, or managing cookie data.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8 dynamiconly
@@ -3534,7 +4084,7 @@ declare class EventResult {
  */
 declare class WebController {
   /**
-   * Constructor.
+   * Constructs a **WebController** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3543,10 +4093,8 @@ declare class WebController {
    */
   constructor();
 
- /**
+  /**
    * Called when the **Web** component enters the inactive state.
-   * This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * [onInactive<sup>9+</sup>]{@link ./../../../@ohos.web.webview:webview.WebviewController.onInactive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3557,8 +4105,6 @@ declare class WebController {
 
   /**
    * Called when the **Web** component enters the active state.
-   * This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * [onActive<sup>9+</sup>]{@link ./../../../@ohos.web.webview:webview.WebviewController.onActive} instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3568,9 +4114,11 @@ declare class WebController {
   onActive(): void;
 
   /**
-   * Let the Web zoom by.
+   * Sets a zoom factor for the current web page.
    *
-   * @param { number } factor The zoom factor.
+   * @param { number } factor - Zoom factor. The value **1** indicates that the current zoom ratio remains unchanged. A
+   *     value less than **1** indicates zooming out, and a value greater than **1** indicates zooming in. The value
+   *     ranges from (0, 100].
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3579,7 +4127,7 @@ declare class WebController {
   zoom(factor: number): void;
 
   /**
-   * Clears the history in the Web.
+   * Clears the browsing history.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3589,14 +4137,9 @@ declare class WebController {
   clearHistory(): void;
 
   /**
-   * Asynchronously execute JavaScript in the context of the currently displayed page.
-   * The result of the script execution will be returned through an asynchronous callback.
-   * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
-   * <p><strong>API Note</strong>:<br>
-   * The state of JavaScript is no longer persisted across navigations like loadUrl.
-   * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
-   * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
-   * <p>
+   * Executes a JavaScript script. This API uses an asynchronous callback to return the script execution result.
+   * **runJavaScript** can be invoked only after **loadUrl** is executed. For example, it can be invoked in
+   * **onPageEnd**.
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3607,7 +4150,13 @@ declare class WebController {
   runJavaScript(options: { script: string, callback?: (result: string) => void });
 
   /**
-   * Loads the data or URL.
+   * If **baseUrl** is empty, the specified character string will be loaded using the data protocol.
+   *
+   * If **baseUrl** is set to a data URL, the encoded data string will be loaded by the Web component using the data
+   * protocol.
+   *
+   * If **baseUrl** is set to an HTTP or HTTPS URL, the encoded data string will be processed by the Web component as a
+   * non-encoded string in a manner similar to **loadUrl**.
    *
    * @param { object } options The options with the data or URL and other information.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3618,7 +4167,13 @@ declare class WebController {
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
-   * Loads the given URL.
+   * Loads the specified URL with the given HTTP headers.
+   *
+   * The object injected through **loadUrl** is valid only in the current document. It will be invalid on a new page
+   * navigated to through **loadUrl**.
+   *
+   * The object injected through **registerJavaScriptProxy** is still valid on a new page redirected through
+   * **loadUrl**.
    *
    * @param { object } options The options with the URL and other information.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3629,7 +4184,7 @@ declare class WebController {
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
-   * refreshes the current URL.
+   * Called when the **Web** component refreshes the web page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3639,7 +4194,7 @@ declare class WebController {
   refresh();
 
   /**
-   * Stops the current load.
+   * Stops page loading.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3649,7 +4204,8 @@ declare class WebController {
   stop();
 
   /**
-   * Registers the JavaScript object and method list.
+   * Injects a JavaScript object into the window object and calls the methods of the object in the window object. The
+   * injected object does not appear in JavaScript until the next (re)load of the page.
    *
    * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3660,9 +4216,12 @@ declare class WebController {
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
   /**
-   * Deletes a registered JavaScript object with given name.
+   * Deletes a specific application JavaScript object that is registered with the window through
+   * **registerJavaScriptProxy**. The deletion takes effect immediately, with no need for invoking the
+   * [refresh]{@link WebController#refresh} API.
    *
-   * @param { string } name - The name of a registered JavaScript object to be deleted.
+   * @param { string } name - Name of the registered JavaScript object, which can be used to invoke the corresponding
+   *     object on the application side from the web side.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3671,9 +4230,9 @@ declare class WebController {
   deleteJavaScriptRegister(name: string);
 
   /**
-   * Gets the type of HitTest.
+   * Obtains the element type of the area being clicked.
    *
-   * @returns { HitTestType } The type of HitTest.
+   * @returns { HitTestType } Element type of the area being clicked.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3682,7 +4241,7 @@ declare class WebController {
   getHitTest(): HitTestType;
 
   /**
-   * Gets the request focus.
+   * Makes the current web page obtain focus.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3692,9 +4251,10 @@ declare class WebController {
   requestFocus();
 
   /**
-   * Checks whether the web page can go back.
+   * Checks whether going to the previous page can be performed on the current page.
    *
-   * @returns { boolean } Whether the web page can go back.
+   * @returns { boolean } **true** is returned if going to the previous page can be performed on the current page;
+   *     otherwise, **false** is returned.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3703,9 +4263,10 @@ declare class WebController {
   accessBackward(): boolean;
 
   /**
-   * Checks whether the web page can go forward.
+   * Checks whether going to the next page can be performed on the current page.
    *
-   * @returns { boolean }
+   * @returns { boolean } If going to the next page can be performed on the current page, **true** is returned;
+   *     otherwise, **false** is returned.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3714,10 +4275,12 @@ declare class WebController {
   accessForward(): boolean;
 
   /**
-   * Checks whether the web page can go back or forward the given number of steps.
+   * Checks whether the current page can move forward or backward by the given step.
    *
-   * @param { number } step The number of steps.
-   * @returns { boolean }
+   * @param { number } step - Number of the steps to take. A positive number means to go forward, and a negative number
+   *     means to go backward.
+   * @returns { boolean } Whether the page can go forward or backward by the given step. The value **true** means it
+   *     can, and **false** means it cannot.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3726,7 +4289,9 @@ declare class WebController {
   accessStep(step: number): boolean;
 
   /**
-   * Goes back in the history of the web page.
+   * Goes backward by one page in the history stack. You are advised to call
+   * [accessBackward<sup>9+</sup>]{@link @ohos.web.webview:webview.WebviewController#accessBackward} to check whether
+   * the current page can go backward before calling **backward**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3736,7 +4301,9 @@ declare class WebController {
   backward();
 
   /**
-   * Goes forward in the history of the web page.
+   * Goes forward by one page in the history stack. You are advised to call
+   * [accessForward<sup>9+</sup>]{@link @ohos.web.webview:webview.WebviewController#accessForward} to check whether the
+   * current page can go forward before calling **forward**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -3746,9 +4313,10 @@ declare class WebController {
   forward();
 
   /**
-   * Gets network cookie manager
+   * Obtains the cookie management object of the **Web** component.
    *
-   * @returns { WebCookie }
+   * @returns { WebCookie } Cookie management object of the **Web** component. For details, see
+   *     [WebCookie]{@link ./web}.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9 dynamiconly
    * @deprecated since 9
@@ -3758,9 +4326,9 @@ declare class WebController {
 }
 
 /**
- * Defines web options through the [APIs]{@link web}.
+ * Defines Web options through the [API](docroot://reference/apis-arkweb/arkts-basic-components-web.md#api), including
+ * the web page resource URL, controller, rendering mode, and more.
  *
- * @typedef WebOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -3768,11 +4336,13 @@ declare class WebController {
  */
 declare interface WebOptions {
   /**
-   * Address of a web page resource. To access local resource files, use the $rawfile or resource protocol. To load a
-   * local resource file (in HTML or TXT format) in the sandbox outside of the application package, use **file://** to
-   * specify the path of the sandbox.
+   * Web page resource address. If a local resource file is accessed, use the resource protocol or $rawfile resource
+   * reference. If a local resource file in the sandbox path outside the app package is loaded (HTML and TXT file types
+   * are supported), use file:// sandbox file path.
    *
-   * @type { string | Resource }
+   * src cannot be dynamically changed through a state variable (for example, @State). To change the address, reload the
+   * page through [loadUrl()]{@link @ohos.web.webview:webview.WebviewController#loadUrl}.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3781,11 +4351,10 @@ declare interface WebOptions {
   src: string | Resource;
 
   /**
-   * Controller that controls various behaviors of **Web** components, including page navigation, declaration period
-   * status, and JavaScript interaction. **WebController** is deprecated since API version 9. You are advised to use
-   * [WebviewController]{@link web:WebviewController} instead.
+   * Controller used to control various behaviors of the Web component, including page navigation, lifecycle state,
+   * JavaScript interaction, etc. Since API version 9, WebController is no longer maintained. It is recommended to use
+   * [WebviewController]{@link WebviewController} instead.
    *
-   * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -3794,9 +4363,10 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
-   * Rendering mode.
+   * Rendering mode of the current Web component. `RenderMode.ASYNC_RENDER` indicates asynchronous rendering, and
+   * `RenderMode.SYNC_RENDER` indicates synchronous rendering. Default value: `RenderMode.ASYNC_RENDER`. This mode does
+   * not support dynamic adjustment.
    *
-   * @type { ?RenderMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -3804,12 +4374,13 @@ declare interface WebOptions {
   renderMode? : RenderMode;
 
   /**
-   * Whether to enable incognito mode. The value **true** means to enable incognito mode, and **false** means the
-   * opposite.
-   * Default value: **false**.
-   * If **undefined** or **null** is passed, the value is **false**.
+   * Whether the current Webview is created in incognito mode. The value **true** indicates incognito mode, and
+   * **false** indicates normal mode.
    *
-   * @type { ?boolean }
+   * Default value: **false**.
+   *
+   * The value is **false** when undefined or null is passed in.<!--RP1--><!--RP1End-->
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
    * @atomicservice
@@ -3818,20 +4389,22 @@ declare interface WebOptions {
   incognitoMode? : boolean;
 
   /**
-   * Token of the shared rendering process specified by the **Web** component. In multi-rendering process mode, the
-   * **Web** component with the same token preferentially attempts to reuse the rendering process bound to the token.
-   * The token is bound to the rendering process when the rendering process is initialized. When the rendering process
-   * is not associated with a **Web** component, its binding to the token is removed.
+   * Token that specifies the shared render process for the current Web component. In multi-render-process mode, Web
+   * components with the same token preferentially attempt to reuse the bound render process. The binding occurs during
+   * the initialization phase of the render process. When a render process has no associated Web component, its binding
+   * relationship is removed.
+   *
    * Default value: **""**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   sharedRenderProcessToken? : string;
 
   /**
-   * Whether to convert mouse events into touch events.
+   * Whether to convert mouse events to touch events. The value **true** indicates that mouse events are converted to
+   * touch events, which is suitable for scenarios where touch and mouse interaction behaviors need to be unified;
+   * **false** indicates that mouse events are not converted to touch events.
    *
    * Default value: **false**.
    *
@@ -3842,38 +4415,8 @@ declare interface WebOptions {
 }
 
 /**
- * Defines the regular expression rule.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @stagemodelonly
- * @crossplatform [since 26.1.0]
- * @since 23 dynamic
- */
-declare interface UrlRegexRule {
-  /**
-   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
-   * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
-   * is an IP address, the full IP is matched against the secondLevelDomain.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @stagemodelonly
-   * @crossplatform [since 26.1.0]
-   * @since 23 dynamic
-   */
-  secondLevelDomain: string;
-  /**
-   * Full URL regular expression.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @stagemodelonly
-   * @crossplatform [since 26.1.0]
-   * @since 23 dynamic
-   */
-  rule: string;
-}
-
-/**
- * Defines the contents of the JavaScript to be injected.
+ * Describes the **ScriptItem** object registered with the **Web** component through the
+ * [javaScriptOnDocumentStart]{@link WebAttribute#javaScriptOnDocumentStart} attribute.
  *
  * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -3883,7 +4426,7 @@ declare interface UrlRegexRule {
  */
 declare interface ScriptItem {
   /**
-   * Sets the JavaScript to be injected.
+   * JavaScript script to be registered and executed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -3893,15 +4436,17 @@ declare interface ScriptItem {
   script: string;
 
   /**
-   * Sets the rules of the JavaScript.
-   * 1. To allow URLs from all sources, use the wildcard (*).
-   * 2. If exact match is required, specify the exact URL, for example, **https://www.example.com**.
-   * 3. For fuzzy match, you can use a wildcard (*) in the website URL, for example, **https://*.example.com**.
-   *    Websites such as "x,*.y.com" and "* foobar.com" are not allowed.
-   * 4. If the source is an IP address, follow rule 2.
-   * 5. For protocols other than HTTP/HTTPS (custom protocols), exact match and fuzzy match are not supported,
-   *    and the protocol must end with **://**, for example, **resource://**.
-   * 6. If one of the preceding rules is not met in **scriptRules**, the **scriptRules** does not take effect.
+   * A set of matching rules for allowed sources.
+   *
+   * 1. To allow URLs from all sources, use the wildcard "*".
+   * 2. To perform exact matching, specify the website address, for example, "https://www.example.com".
+   * 3. To perform fuzzy matching, use the "*" wildcard, for example, "https://*.example.com".
+   * Patterns such as "x.*.y.com" and "*foobar.com" are not allowed.
+   * 4. If the source is an IP address, use rule 2.
+   * 5. For protocols other than HTTP/HTTPS (custom protocols), exact matching and fuzzy matching are not supported,
+   * and the rule must end with `://`, for example, "resource://".
+   * 6. In a set of scriptRules, if any rule does not meet the above requirements,
+   * the entire set of scriptRules does not take effect.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -3911,18 +4456,21 @@ declare interface ScriptItem {
   scriptRules: Array<string>;
 
   /**
-   * Set the regular expression rule that allows execution of this JavaScript.
+   * Regular expression matching rules for allowed sources. **urlRegexRules** is used for matching only when
+   * **scriptRules** is set to **[]**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @crossplatform [since 26.1.0]
    * @since 23 dynamic
    */
-  urlRegexRules?: Array<UrlRegexRule>;
+  urlRegexRules? : Array<UrlRegexRule>;
 }
 
 /**
- * Defines the load committed details.
+ * Provides detailed information about the web page that has been submitted for redirection, including whether it is the
+ * main document, the navigation type, and more. It is suitable for scenarios where monitoring page navigation behavior
+ * is required, improving navigation state management accuracy and user experience.
  *
  * @interface LoadCommittedDetails [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -3931,7 +4479,9 @@ declare interface ScriptItem {
  */
 declare interface LoadCommittedDetails {
   /**
-   * Check whether the request is for getting the main frame.
+   * Whether it is the main document.
+   *
+   * The value **true** indicates the main document, and **false** indicates a non-main document.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3940,11 +4490,13 @@ declare interface LoadCommittedDetails {
   isMainFrame: boolean;
 
   /**
-   * Whether the navigation happened without changing document. Examples of
-   * same document navigations are:
-   *   1. reference fragment navigations.
-   *   2. pushState/replaceState.
-   *   3. same page history navigation
+   * Whether the web page navigation is performed without changing the document.
+   *
+   * The value **true** indicates that the web page navigation is performed without changing the document, and **false**
+   * indicates that the web page navigation is performed with the document changed.
+   *
+   * Examples of same-document navigation: 1. Reference fragment navigation; 2. Navigation triggered by pushState or
+   * replaceState; 3. History navigation within the same page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3953,9 +4505,13 @@ declare interface LoadCommittedDetails {
   isSameDocument: boolean;
 
   /**
-   * True if the committed entry has replaced the existing one. Note that in
-   * case of subframes, the NavigationEntry and FrameNavigationEntry objects
-   * don't actually get replaced - they're reused, but with updated attributes.
+   * Whether the submitted new entry replaces the existing entry.
+   *
+   * The value **true** indicates that the submitted new entry replaces the existing entry, and **false** indicates the
+   * opposite.
+   *
+   * In certain scenarios for navigation to a subdocument, although the existing entry is not replaced, some attributes
+   * are changed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3964,7 +4520,7 @@ declare interface LoadCommittedDetails {
   didReplaceEntry: boolean;
 
   /**
-   * The type of the navigation.
+   * Navigation type.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3973,7 +4529,7 @@ declare interface LoadCommittedDetails {
   navigationType: WebNavigationType;
 
   /**
-   * The url to navigate.
+   * URL of the web page to navigate to.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -3983,7 +4539,9 @@ declare interface LoadCommittedDetails {
 }
 
 /**
- * Defines the Intelligent Tracking Prevention details.
+ * Provides detailed information about intelligent tracking prevention, including the website domain and tracker domain.
+ * It is suitable for scenarios where monitoring ad blocking behavior is required, improving privacy protection
+ * transparency and controllability.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -3991,7 +4549,7 @@ declare interface LoadCommittedDetails {
  */
 declare interface IntelligentTrackingPreventionDetails {
   /**
-   * The host of website url.
+   * Host name.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4000,7 +4558,7 @@ declare interface IntelligentTrackingPreventionDetails {
   host: string;
 
   /**
-   * The host of tracker url.
+   * Host name of the tracker.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4012,7 +4570,6 @@ declare interface IntelligentTrackingPreventionDetails {
 /**
  * Defines the Web interface.
  *
- * @typedef WebInterface
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -4023,18 +4580,20 @@ interface WebInterface {
   /**
    * Sets Value.
    *
-   * @param { WebOptions } value
+   * @param { WebOptions } value - Define web options.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since10]
-   * @atomicservice [since11]
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 8 dynamic
    */
   (value: WebOptions): WebAttribute;
 }
 
 /**
- * Provides detailed information about the same-layer tag.
+ * Provides detailed information about the same-layer tag, including the ID, type, size, and location. It is suitable
+ * for scenarios where obtaining same-layer element attributes is required, improving same-layer rendering customization
+ * and user experience.
  *
  * @interface NativeEmbedInfo [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -4071,8 +4630,7 @@ declare interface NativeEmbedInfo {
 
   /**
    * Position of the same-layer tag relative to the upper left corner of the **Web** component as the coordinate origin,
-   * This position is different from the standard position.
-   * <br>Unit: pixels.
+   * in pixels. This position is different from the standard position.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4081,10 +4639,8 @@ declare interface NativeEmbedInfo {
   position?: Position;
 
   /**
-   * The embed tag width.
-   * <br>Unit:px.
+   * Width of the same-layer tag, in px.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4092,10 +4648,8 @@ declare interface NativeEmbedInfo {
   width?: number;
 
   /**
-   * The embed tag height.
-   * <br>Unit:px.
+   * Height of the same-layer tag, in px.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4121,8 +4675,8 @@ declare interface NativeEmbedInfo {
   tag?: string;
 
   /**
-   * List of key-value pairs contained in the **object** tag that form a map of the Object type. Use the methods
-   * provided by the Object type, such as **embed.info?.param?.["name"]** to operate the map object.
+   * List of key-value pairs of the params tag in the object tag. Use the methods provided by Object to operate this
+   * object, for example, `embed.info?.params?.["name"]`.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4132,7 +4686,9 @@ declare interface NativeEmbedInfo {
 }
 
 /**
- * Provides detailed information about the changes of the same-layer tag lifecycle.
+ * Provides detailed information about the changes of the same-layer tag lifecycle, including the status and tag
+ * information. It is suitable for scenarios where monitoring same-layer element lifecycle is required, improving
+ * rendering state management accuracy and user experience.
  *
  * @interface NativeEmbedDataInfo [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -4150,7 +4706,7 @@ declare interface NativeEmbedDataInfo {
   status?: NativeEmbedStatus;
 
   /**
-   * Surface ID of the native image.
+   * SurfaceId of the NativeImage.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4159,7 +4715,7 @@ declare interface NativeEmbedDataInfo {
   surfaceId?: string;
 
   /**
-   * ID of the same-layer tag.
+   * Unique ID of the same-layer tag.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4178,7 +4734,9 @@ declare interface NativeEmbedDataInfo {
 }
 
 /**
- * Provides visibility information about the same-layer tag.
+ * Provides visibility information about the same-layer tag, including the visibility status and tag ID. It is suitable
+ * for scenarios where monitoring same-layer element visibility is required, improving rendering state management
+ * accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
@@ -4204,7 +4762,9 @@ declare interface NativeEmbedVisibilityInfo {
 }
 
 /**
- * Provides touch information of the same-layer tag.
+ * Provides detailed information about finger touch on a same-layer tag, including the tag ID and touch event. It is
+ * suitable for scenarios where handling same-layer element touch interaction is required, improving touch experience
+ * customization and flexibility.
  *
  * @interface NativeEmbedTouchInfo [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
@@ -4241,7 +4801,9 @@ declare interface NativeEmbedTouchInfo {
 }
 
 /**
- * Provides detailed information about clicking or touching and holding a same-layer tag using the mouse or touchpad.
+ * Provides detailed information about clicking or touching and holding a same-layer tag using the mouse or touchpad,
+ * including the tag ID and mouse event. It is suitable for scenarios where handling same-layer element mouse
+ * interaction is required, improving mouse experience customization and flexibility.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
@@ -4273,7 +4835,9 @@ declare interface NativeEmbedMouseInfo {
 }
 
 /**
- * Provides detailed information about the first meaningful paint.
+ * Provides detailed information about the first meaningful paint on the web page, including the navigation time and
+ * paint time. It is suitable for scenarios where monitoring page rendering performance is required, improving
+ * performance optimization accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -4281,10 +4845,8 @@ declare interface NativeEmbedMouseInfo {
  */
 declare interface FirstMeaningfulPaint {
   /**
-   * Start time of navigation.
-   * <br>Unit:microseconds.
+   * Start time of the navigation, in microseconds.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4292,10 +4854,8 @@ declare interface FirstMeaningfulPaint {
   navigationStartTime?: number;
 
   /**
-   * Paint time of first meaningful content.
-   * <br>Unit:milliseconds.
+   * Time taken for the first meaningful paint of the page, in milliseconds.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4304,7 +4864,9 @@ declare interface FirstMeaningfulPaint {
 }
 
 /**
- * Provides detailed information about the largest contentful paint.
+ * Provides detailed information about the largest contentful paint on the web page, including the navigation time and
+ * various paint times. It is suitable for scenarios where monitoring page rendering performance is required, improving
+ * performance optimization accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -4312,10 +4874,8 @@ declare interface FirstMeaningfulPaint {
  */
 declare interface LargestContentfulPaint {
   /**
-   * Start time of navigation.
-   * <br>Unit:microseconds.
+   * Start time of the navigation, in microseconds.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4323,10 +4883,8 @@ declare interface LargestContentfulPaint {
   navigationStartTime?: number;
 
   /**
-   * Paint time of largest image.
-   * <br>Unit:milliseconds.
+   * Loading time of the maximum image, in milliseconds.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4334,10 +4892,8 @@ declare interface LargestContentfulPaint {
   largestImagePaintTime?: number;
 
   /**
-   * Paint time of largest text.
-   * <br>Unit:milliseconds.
+   * Loading time of the maximum text, in milliseconds.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4354,8 +4910,7 @@ declare interface LargestContentfulPaint {
   imageBPP?: number;
 
   /**
-   * Start time of the loading of the maximum image.
-   * <br>Unit: milliseconds.
+   * Start time of the loading of the maximum image, in milliseconds.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4364,8 +4919,7 @@ declare interface LargestContentfulPaint {
   largestImageLoadStartTime?: number;
 
   /**
-   * End time of the loading of the maximum image.
-   * <br>Unit: milliseconds.
+   * End time of the loading of the maximum image, in milliseconds.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4375,9 +4929,9 @@ declare interface LargestContentfulPaint {
 }
 
 /**
- * Provides detailed information about the unresponsive rendering process.
+ * Provides detailed information about the unresponsive rendering process. It is suitable for scenarios where diagnosing
+ * rendering process exceptions is required, improving troubleshooting accuracy and efficiency.
  *
- * @interface RenderProcessNotRespondingData
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
  */
@@ -4385,7 +4939,6 @@ declare interface RenderProcessNotRespondingData {
   /**
    * JavaScript call stack information of the web page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
@@ -4394,7 +4947,6 @@ declare interface RenderProcessNotRespondingData {
   /**
    * Process ID of the web page.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
@@ -4403,7 +4955,6 @@ declare interface RenderProcessNotRespondingData {
   /**
    * Reason why the rendering process does not respond.
    *
-   * @type { RenderProcessNotRespondingReason }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
@@ -4411,9 +4962,9 @@ declare interface RenderProcessNotRespondingData {
 }
 
 /**
- * Defines the triggered function at the end of web page loading.
+ * Defines the callback information triggered when the web page loading ends, including the page URL. It is suitable for
+ * scenarios where monitoring page loading completion is required, improving page lifecycle management capabilities.
  *
- * @typedef OnPageEndEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -4421,7 +4972,7 @@ declare interface RenderProcessNotRespondingData {
  */
 declare interface OnPageEndEvent {
   /**
-   * The url of page.
+   * URL of the page after the web page is loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4432,7 +4983,8 @@ declare interface OnPageEndEvent {
 }
 
 /**
- * Defines the triggered function at the begin of web page loading.
+ * Defines the callback information triggered when the web page loading begins, including the page URL. It is suitable
+ * for scenarios where monitoring page loading start is required, improving page lifecycle management capabilities.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4441,7 +4993,7 @@ declare interface OnPageEndEvent {
  */
 declare interface OnPageBeginEvent {
   /**
-   * The url of page.
+   * URL of the page to be loaded when page loading starts.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4452,14 +5004,15 @@ declare interface OnPageBeginEvent {
 }
 
 /**
- * Defines the triggered function at the begin of web page loading.
+ * Defines the callback information triggered when the web page loading begins, including the page URL. It is suitable
+ * for scenarios where monitoring page loading start is required, improving page lifecycle management capabilities.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnLoadStartedEvent {
   /**
-   * The url to be loaded.
+   * URL of the page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -4468,14 +5021,15 @@ declare interface OnLoadStartedEvent {
 }
 
 /**
- * Defines the triggered function at the end of web page loading.
+ * Defines the callback information triggered when the web page loading ends, including the page URL. It is suitable for
+ * scenarios where monitoring page loading completion is required, improving page lifecycle management capabilities.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnLoadFinishedEvent {
   /**
-   * The url to be loaded.
+   * URL of the page.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -4484,9 +5038,10 @@ declare interface OnLoadFinishedEvent {
 }
 
 /**
- * Defines the triggered function when the page loading progress changes.
+ * Defines the callback information triggered when the web page loading progress changes, including the new progress
+ * value. It is suitable for scenarios where monitoring page loading progress is required, improving loading process
+ * visibility and user experience.
  *
- * @typedef OnProgressChangeEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -4494,7 +5049,7 @@ declare interface OnLoadFinishedEvent {
  */
 declare interface OnProgressChangeEvent {
   /**
-   * The new progress of the page.
+   * New loading progress, which is an integer in the range [0, 100].
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4505,7 +5060,9 @@ declare interface OnProgressChangeEvent {
 }
 
 /**
- * Defines the triggered function when the title of the main application document changes.
+ * Defines the callback information triggered when the document title of the web page is changed, including the title
+ * content and source. It is suitable for scenarios where monitoring page title changes is required, improving page
+ * information real-time performance and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4514,7 +5071,7 @@ declare interface OnProgressChangeEvent {
  */
 declare interface OnTitleReceiveEvent {
   /**
-   * The title of the page.
+   * Document title.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4524,8 +5081,10 @@ declare interface OnTitleReceiveEvent {
   title: string;
 
   /**
-   * Mark the source of the title. If it is true, the title is derived from the H5 title element;
-   * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
+   * Whether the document title is a real title. The value true indicates that the title is from the **title** tag of
+   * the web page, and **false** indicates that the title is automatically generated based on the URL.
+   *
+   * Default value: **false**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -4534,7 +5093,9 @@ declare interface OnTitleReceiveEvent {
 }
 
 /**
- * Represents the callback invoked when a request to obtain the geolocation information is received.
+ * Defines the callback information triggered when a request to obtain the geolocation information is received,
+ * including the origin information and geolocation object. It is suitable for scenarios where handling geolocation
+ * permissions is required.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4543,7 +5104,8 @@ declare interface OnTitleReceiveEvent {
  */
 declare interface OnGeolocationShowEvent {
   /**
-   * Index of the origin.
+   * Origin of the web page that initiates the geolocation permission request, used to identify the source of the
+   * geolocation request from a specific website.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4604,7 +5166,9 @@ declare interface OnAlertEvent {
 }
 
 /**
- * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+ * Defines the callback triggered when the user is about to leave the current page in refresh or close scenarios. It is
+ * suitable for scenarios such as form editing, allowing developers to intercept the leave action and display a
+ * confirmation dialog, thereby preventing accidental loss of unsubmitted user data.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -4612,7 +5176,6 @@ declare interface OnAlertEvent {
  * @since 12 dynamic
  */
 declare interface OnBeforeUnloadEvent {
-
   /**
    * The url of the page.
    *
@@ -4645,7 +5208,7 @@ declare interface OnBeforeUnloadEvent {
 
   /**
    * The isReload parameter is set to true when the page is refreshed;
-   * otherwise, it remains false. Default is false.
+   * otherwise, it remains false. Defult is false.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -4744,7 +5307,7 @@ declare interface OnPromptEvent {
 }
 
 /**
- * Defines the triggered function when the web page receives a JavaScript console message.
+ * Represents the callback invoked to notify the host application of a JavaScript console message.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4753,7 +5316,7 @@ declare interface OnPromptEvent {
  */
 declare interface OnConsoleEvent {
   /**
-   * Console message information of the event.
+   * Console message.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4764,7 +5327,9 @@ declare interface OnConsoleEvent {
 }
 
 /**
- * Defines the triggered function when the web page receives a web resource loading error.
+ * Defines the callback information triggered when an error occurs during web page loading, including the request and
+ * error details. It is suitable for scenarios where monitoring and handling web page loading errors are required,
+ * improving error handling timeliness and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4773,7 +5338,7 @@ declare interface OnConsoleEvent {
  */
 declare interface OnErrorReceiveEvent {
   /**
-   * The information of request.
+   * Encapsulation of a web page request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4783,7 +5348,7 @@ declare interface OnErrorReceiveEvent {
   request: WebResourceRequest;
 
   /**
-   * The information of error.
+   * Encapsulated information about the web page resource loading error.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4794,7 +5359,9 @@ declare interface OnErrorReceiveEvent {
 }
 
 /**
- * Defines the triggered function when the web page receives a web resource loading HTTP error.
+ * Defines the callback information triggered when the web page receives an HTTP error during resource loading,
+ * including the request and response details. It is suitable for scenarios where monitoring and handling HTTP errors
+ * are required, improving network error diagnosis accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4824,7 +5391,9 @@ declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * Defines the triggered function when starting to download.
+ * Defines the callback information for notifying the host app that a file download has started, including the URL, user
+ * agent, and file details. It is suitable for scenarios where monitoring and managing file downloads are required,
+ * improving download process controllability and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4833,7 +5402,7 @@ declare interface OnHttpErrorReceiveEvent {
  */
 declare interface OnDownloadStartEvent {
   /**
-   * The URL of page.
+   * URL for the download task.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4843,7 +5412,7 @@ declare interface OnDownloadStartEvent {
   url: string;
 
   /**
-   * The userAgent of page.
+   * User agent used for download.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4853,7 +5422,7 @@ declare interface OnDownloadStartEvent {
   userAgent: string;
 
   /**
-   * The contentDisposition of page.
+   * Content-Disposition response header returned by the server, which may be empty.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -4863,7 +5432,7 @@ declare interface OnDownloadStartEvent {
   contentDisposition: string;
 
   /**
-   * The mimetype of page.
+   * MIME type of the content returned by the server.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4873,7 +5442,7 @@ declare interface OnDownloadStartEvent {
   mimetype: string;
 
   /**
-   * The contentLength of page. Unit: bytes.
+   * Length of the file returned by the server. Unit: byte.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4884,7 +5453,9 @@ declare interface OnDownloadStartEvent {
 }
 
 /**
- * Callback triggered when the navigation is complete.
+ * Defines the callback information triggered when navigation is complete, including the URL and refresh status. It is
+ * suitable for scenarios where monitoring page navigation history is required, improving navigation behavior tracking
+ * accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -4892,7 +5463,6 @@ declare interface OnDownloadStartEvent {
  * @since 12 dynamic
  */
 declare interface OnRefreshAccessedHistoryEvent {
-
   /**
    * URL to be accessed.
    *
@@ -4905,8 +5475,8 @@ declare interface OnRefreshAccessedHistoryEvent {
 
   /**
    * Whether the page is reloaded. The value **true** means that the page is reloaded by invoking the
-   * [refresh]{@link ./../../../@ohos.web.webview:webview.WebviewController#refresh()} API, and **false**
-   * means the opposite.
+   * [refresh<sup>9+</sup>]{@link @ohos.web.webview:webview.WebviewController#refresh()} API, and **false** means the
+   * opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -4917,6 +5487,7 @@ declare interface OnRefreshAccessedHistoryEvent {
 
   /**
    * Whether the event is triggered by the main frame.
+   *
    * The value **true** indicates that the event is triggered by the main frame, and **false** indicates the opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -4926,9 +5497,9 @@ declare interface OnRefreshAccessedHistoryEvent {
 }
 
 /**
- * Represents the callback invoked when the rendering process exits.
+ * Defines the callback triggered when the rendering process exits. It is suitable for scenarios where monitoring
+ * rendering process exceptions is required, improving rendering stability and troubleshooting efficiency.
  *
- * @typedef OnRenderExitedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
  * @atomicservice
@@ -4938,7 +5509,6 @@ declare interface OnRenderExitedEvent {
   /**
    * Cause for the abnormal exit of the rendering process.
    *
-   * @type { RenderExitReason }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
    * @atomicservice
@@ -4948,7 +5518,7 @@ declare interface OnRenderExitedEvent {
 }
 
 /**
- * Represents the callback invoked to notify the file selector result.
+ * Defines the callback information for the file selector result, including the result and parameter details.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -4978,7 +5548,9 @@ declare interface OnShowFileSelectorEvent {
 }
 
 /**
- * Defines the triggered when the url loading.
+ * Defines the callback information triggered when a URL is loaded, including the resource URL. It is suitable for
+ * scenarios where monitoring resource loading behavior is required, improving resource management visibility and
+ * performance optimization.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
@@ -4987,7 +5559,7 @@ declare interface OnShowFileSelectorEvent {
  */
 declare interface OnResourceLoadEvent {
   /**
-   * The URL of the loaded resource file.
+   * URL of the loaded resource file.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -5028,7 +5600,9 @@ declare interface OnScaleChangeEvent {
 }
 
 /**
- * Defines the triggered when the browser needs credentials from the user.
+ * Defines the callback information triggered when an HTTP authentication request is received, including the host and
+ * realm information. It is suitable for scenarios where handling HTTP authentication is required, improving
+ * authentication process flexibility and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -5037,7 +5611,7 @@ declare interface OnScaleChangeEvent {
  */
 declare interface OnHttpAuthRequestEvent {
   /**
-   * Defines the http auth request result.
+   * User operation.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -5047,7 +5621,7 @@ declare interface OnHttpAuthRequestEvent {
   handler: HttpAuthHandler;
 
   /**
-   * Host of the page.
+   * Host to which the HTTP authentication credential is applied.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -5057,7 +5631,7 @@ declare interface OnHttpAuthRequestEvent {
   host: string;
 
   /**
-   * realm of the page.
+   * Realm to which the HTTP authentication credential is applied.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -5068,7 +5642,9 @@ declare interface OnHttpAuthRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the resources loading is intercepted.
+ * Defines the callback information triggered before the **Web** component loads a URL, including the request details.
+ * It is suitable for scenarios where intercepting or modifying network requests is required, improving request control
+ * flexibility and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -5076,9 +5652,8 @@ declare interface OnHttpAuthRequestEvent {
  * @since 12 dynamic
  */
 declare interface OnInterceptRequestEvent {
-
   /**
-   * The information of request.
+   * Information about the URL request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -5089,7 +5664,9 @@ declare interface OnInterceptRequestEvent {
 }
 
 /**
- * Represents the callback invoked when a permission request is received.
+ * Defines the callback information triggered when a permission request is received, including the request details. It
+ * is suitable for scenarios where handling permission grants is required, improving permission management flexibility
+ * and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -5109,7 +5686,9 @@ declare interface OnPermissionRequestEvent {
 }
 
 /**
- * Represents the callback invoked when a screen capture request is received.
+ * Defines the callback information triggered when a screen capture request is received. It is suitable for scenarios
+ * where handling screen recording permissions is required, improving screen recording process controllability and
+ * security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5127,7 +5706,7 @@ declare interface OnScreenCaptureRequestEvent {
 }
 
 /**
- * Represents the callback invoked during a call to allow for the display of a custom context menu.
+ * Defines the callback information triggered during a call to allow for the display of a custom context menu.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5154,7 +5733,9 @@ declare interface OnContextMenuShowEvent {
 }
 
 /**
- * Defines function Triggered when the host application call searchAllAsync.
+ * Defines the callback information for the search result on the web page, including the match ordinal and total count.
+ * It is suitable for scenarios where monitoring in-page search behavior is required, improving search interaction
+ * visibility and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5162,7 +5743,7 @@ declare interface OnContextMenuShowEvent {
  */
 declare interface OnSearchResultReceiveEvent {
   /**
-   * The ordinal number of the currently matched lookup item (starting from 0).
+   * Sequence number of the current match, which starts from 0.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5171,7 +5752,7 @@ declare interface OnSearchResultReceiveEvent {
   activeMatchOrdinal: number;
 
   /**
-   * The number of all matched keywords.
+   * Total number of matches.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5180,8 +5761,12 @@ declare interface OnSearchResultReceiveEvent {
   numberOfMatches: number;
 
   /**
-   * Indicates whether the current in-page search operation is complete. The method may be called back multiple times
-   * until isDoneCounting is true.
+   * Whether the current in-page search operation is complete.
+   *
+   * The value **true** indicates that the current in-page search operation is complete, and **false** indicates the
+   * opposite.
+   *
+   * This method may be called back multiple times until isDoneCounting is **true**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5191,7 +5776,8 @@ declare interface OnSearchResultReceiveEvent {
 }
 
 /**
- * Represents the callback invoked when the scrollbar scrolls to a specified position.
+ * Defines the callback information triggered when the scrollbar scrolls to a specified position, including the
+ * horizontal and vertical offsets.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -5225,7 +5811,9 @@ declare interface OnScrollEvent {
 }
 
 /**
- * Defines the triggered callback when the Web page receives an ssl Error.
+ * Defines the callback information triggered when the web page receives an SSL error, including the error code and
+ * certificate chain. It is suitable for scenarios where handling SSL errors is required, improving security exception
+ * monitoring and handling capabilities.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -5233,9 +5821,8 @@ declare interface OnScrollEvent {
  * @since 12 dynamic
  */
 declare interface OnSslErrorEventReceiveEvent {
-
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * User operation.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -5245,7 +5832,7 @@ declare interface OnSslErrorEventReceiveEvent {
   handler: SslErrorHandler;
 
   /**
-   * Error codes.
+   * Error code.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -5255,7 +5842,7 @@ declare interface OnSslErrorEventReceiveEvent {
   error: SslError;
 
   /**
-   * Certificate chain data in DER format.
+   * Certificate chain data.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -5265,7 +5852,9 @@ declare interface OnSslErrorEventReceiveEvent {
 }
 
 /**
- * Defines the triggered callback when needs ssl client certificate from the user.
+ * Defines the callback information triggered when an SSL client certificate is required, including the host, port, and
+ * key type. It is suitable for scenarios where handling client certificate authentication is required, improving
+ * authentication process flexibility and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5273,7 +5862,7 @@ declare interface OnSslErrorEventReceiveEvent {
  */
 declare interface OnClientAuthenticationEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * User operation.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5282,7 +5871,7 @@ declare interface OnClientAuthenticationEvent {
   handler : ClientAuthenticationHandler;
 
   /**
-   * The hostname of the requesting certificate server.
+   * Host name of the server that requests a certificate.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5291,7 +5880,8 @@ declare interface OnClientAuthenticationEvent {
   host : string;
 
   /**
-   * The port number of the request certificate server.
+   * Port number for requesting the certificate server. The valid range is 0-65535, and an exception is thrown when the
+   * value is out of range.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5309,7 +5899,7 @@ declare interface OnClientAuthenticationEvent {
   keyTypes : Array<string>;
 
   /**
-   * Certificates that match the private key are acceptable to the issuer.
+   * Issuer of the certificate that matches the private key.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5319,7 +5909,8 @@ declare interface OnClientAuthenticationEvent {
 }
 
 /**
- * Represents the callback invoked when the web page requests the user to create a window.
+ * Defines the callback triggered when the web page requests the user to create a window. Starting from API version 23,
+ * you can use [OnWindowNewExtEvent]{@link OnWindowNewExtEvent} to obtain more window information.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 26.1.0]
@@ -5371,166 +5962,9 @@ declare interface OnWindowNewEvent {
 }
 
 /**
- * Enumerates the modes of opening a new window in the WebView.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-declare enum NavigationPolicy {
-  /**
-   * Open in a new pop-up window.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NEW_POPUP = 0,
-
-  /**
-   * Open in a new window.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NEW_WINDOW = 1,
-
-  /**
-   * Open in a new tab in background.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NEW_BACKGROUND_TAB = 2,
-
-  /**
-   * Open in a new tab in foreground.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NEW_FOREGROUND_TAB = 3
-}
-
-/**
- * Represents the feature information of the new window requested to be created by the web page, including the size and
- * location.
- *
- * @interface WindowFeatures
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-declare interface WindowFeatures {
-  /**
-   * Height of the new window. Unit:pixels.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  height: number;
-
-  /**
-   * Width of the new window. Unit:pixels.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  width: number;
-
-  /**
-   * X coordinate of the top-left corner of the new window. Unit:pixels.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  x: number;
-
-  /**
-   * Y coordinate of the top-left corner of the new window. Unit:pixels.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  y: number;
-}
-
-/**
- * Callback invoked when the web page requests the user to create a window.
- *
- * @typedef OnWindowNewExtEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 23 dynamic
- */
-declare interface OnWindowNewExtEvent {
-  /**
-   * The value **true** indicates that a dialog box is requested to be created, and the value **false** indicates that a
-   * new tab page is requested to be created.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  isAlert: boolean;
-
-  /**
-   * Whether the creation is triggered by the user. The value **true** means that the creation is triggered by the user,
-   * and **false** means the opposite.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  isUserTrigger: boolean;
-
-  /**
-   * URL to be opened in the new window.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  targetUrl: string;
-
-  /**
-   * **WebviewController** instance for setting the new window.
-   *
-   * @type { ControllerHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  handler: ControllerHandler;
-
-  /**
-   * Feature information of the new window requested to be created by the web page.
-   *
-   * @type { WindowFeatures }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  windowFeatures: WindowFeatures;
-
-  /**
-   * Window opening mode when the web page requests a user to create a new window.
-   *
-   * @type { NavigationPolicy }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  navigationPolicy: NavigationPolicy;
-}
-
-/**
- * Defines the triggered callback when the application receive an new url of an apple-touch-icon.
+ * Defines the callback information triggered when an apple-touch-icon URL is received, including the URL and
+ * precomposed status. It is suitable for scenarios where obtaining web page icons is required, improving icon
+ * management flexibility and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5538,7 +5972,7 @@ declare interface OnWindowNewExtEvent {
  */
 declare interface OnTouchIconUrlReceivedEvent {
   /**
-   * The apple-touch-icon URL address received.
+   * Received apple-touch-icon URL.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5547,7 +5981,9 @@ declare interface OnTouchIconUrlReceivedEvent {
   url: string;
 
   /**
-   * Corresponding to whether apple-touch-icon is precomposited.
+   * Whether the apple-touch-icon is precomposed.
+   *
+   * **true** indicates that the apple-touch-icon is precomposed, and **false** indicates the opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5557,7 +5993,9 @@ declare interface OnTouchIconUrlReceivedEvent {
 }
 
 /**
- * Defines the triggered callback when the application receive a new favicon for the current web page.
+ * Defines the callback information triggered when the app receives a new favicon, including the icon PixelMap object.
+ * It is suitable for scenarios where obtaining web page favicons is required, improving icon management flexibility and
+ * user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5565,7 +6003,7 @@ declare interface OnTouchIconUrlReceivedEvent {
  */
 declare interface OnFaviconReceivedEvent {
   /**
-   * Received the Favicon icon for the PixelMap object.
+   * **PixelMap** object of the received favicon.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5575,10 +6013,8 @@ declare interface OnFaviconReceivedEvent {
 }
 
 /**
- * Represents the callback invoked when the old page is not displayed and the
- * new page is about to be visible.
+ * Represents the callback invoked when the old page is not displayed and the new page is about to be visible.
  *
- * @typedef OnPageVisibleEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5586,9 +6022,8 @@ declare interface OnFaviconReceivedEvent {
  */
 declare interface OnPageVisibleEvent {
   /**
-   * URL for the download task.
+   * URL address of the new page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5598,18 +6033,18 @@ declare interface OnPageVisibleEvent {
 }
 
 /**
- * Defines the triggered callback to decision whether resend form data or not.
+ * Defines the callback information triggered when the web form data can be resubmitted, including the submission
+ * handler. It is suitable for scenarios where handling form retry submission is required, improving form interaction
+ * reliability and user experience.
  *
- * @typedef OnDataResubmittedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnDataResubmittedEvent {
   /**
-   * Form data resubmission handle.
+   * Handler for resubmitting web form data.
    *
-   * @type { DataResubmissionHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -5618,7 +6053,9 @@ declare interface OnDataResubmittedEvent {
 }
 
 /**
- * Represents the callback invoked when the audio playback status on the web page changes.
+ * Defines the callback information triggered when the audio playback status on the web page changes, including the
+ * playback status. It is suitable for scenarios where monitoring audio playback behavior is required, improving audio
+ * management visibility and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5637,7 +6074,9 @@ declare interface OnAudioStateChangedEvent {
 }
 
 /**
- * Represents the callback invoked when the first content paint occurs on the web page.
+ * Defines the callback information for the first content paint on the web page, including the load time and paint time.
+ * It is suitable for scenarios where monitoring page rendering performance is required, improving performance
+ * optimization accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5646,7 +6085,6 @@ declare interface OnAudioStateChangedEvent {
 declare interface OnFirstContentfulPaintEvent {
   /**
    * Navigation start time, in microseconds.
-   * Unit: microseconds.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5655,8 +6093,7 @@ declare interface OnFirstContentfulPaintEvent {
   navigationStartTick: number;
 
   /**
-   * Time between navigation and when the content is first rendered.
-   * Unit: milliseconds.
+   * Time between navigation and when the content is first rendered, in milliseconds.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5666,7 +6103,9 @@ declare interface OnFirstContentfulPaintEvent {
 }
 
 /**
- * Defines the triggered callback when the resources loading is intercepted.
+ * Defines the callback information triggered when resource loading is intercepted, including the request details. It is
+ * suitable for scenarios where intercepting or handling resource loading is required, improving resource control
+ * flexibility and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
@@ -5675,7 +6114,7 @@ declare interface OnFirstContentfulPaintEvent {
  */
 declare interface OnLoadInterceptEvent {
   /**
-   * The information of request.
+   * Information about the URL request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -5686,7 +6125,8 @@ declare interface OnLoadInterceptEvent {
 }
 
 /**
- * Represents the callback invoked when the web page is overscrolled.
+ * Defines the callback information triggered when the web page is overscrolled, including the horizontal and vertical
+ * offsets.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -5717,7 +6157,7 @@ declare interface OnOverScrollEvent {
 }
 
 /**
- * Defines the function triggered when the PDF page is scrolled to the bottom.
+ * Defines the callback function triggered when the PDF page is scrolled to the bottom.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
@@ -5732,7 +6172,6 @@ declare interface OnPdfScrollEvent {
    */
   url:string;
 }
-
 /**
  * Defines the function triggered when the PDF loading is successful or fails.
  *
@@ -5756,9 +6195,10 @@ declare interface OnPdfLoadEvent {
    */
   url: string;
 }
-
 /**
- * Defines the JavaScript object to be injected.
+ * Defines the JavaScript object to be injected, including the object name, method list, and permission configuration.
+ * It is suitable for scenarios where JavaScript-to-native interaction is required, improving cross-language call
+ * flexibility and security.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 20]
@@ -5766,9 +6206,9 @@ declare interface OnPdfLoadEvent {
  * @since 12 dynamic
  */
 declare interface JavaScriptProxy {
-
   /**
-   * Objects participating in registration.
+   * Object participating in the registration. Only methods can be declared, not attributes. Methods must be of the
+   * function type.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -5778,8 +6218,7 @@ declare interface JavaScriptProxy {
   object: object;
 
   /**
-   * The name of the registered object, which is consistent with the
-   *                          object name called in the window.
+   * Name of the object to be registered, which is the same as that invoked in the window.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -5789,8 +6228,7 @@ declare interface JavaScriptProxy {
   name: string;
 
   /**
-   * The method of the application side JavaScript object participating
-   *                                       in the registration.
+   * Synchronous methods of the JavaScript object to be registered at the application side.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -5800,7 +6238,8 @@ declare interface JavaScriptProxy {
   methodList: Array<string>;
 
   /**
-   * Controller.
+   * Controller. Since API version 9, WebController is no longer maintained. You are advised to use WebviewController
+   * instead.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -5810,7 +6249,8 @@ declare interface JavaScriptProxy {
   controller: WebController | WebviewController;
 
   /**
-   * The async method of the application side JavaScript object participating in the registration.
+   * Asynchronous methods of the JavaScript object to be registered at the application side. Asynchronous methods cannot
+   * obtain return values.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -5820,8 +6260,14 @@ declare interface JavaScriptProxy {
   asyncMethodList?: Array<string>;
 
   /**
-   * permission configuration defining web page URLs that can access JavaScriptProxy methods.
-   * The configuration can be defined at two levels, object level and method level.
+   * JSON string, which is empty by default. This string is used to configure JSBridge permission control and define the
+   * URL trustlist at the object and method levels.
+   *
+   * The **permission** parameter of JavaScriptProxy supports the resource, HTTP, and HTTPS protocols, but does not
+   * support the file protocol.
+   *
+   * For the example, see
+   * [Invoking Application Functions on the Frontend Page](docroot://web/web-in-page-app-function-invoking.md).
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5833,7 +6279,6 @@ declare interface JavaScriptProxy {
 /**
  * Enumerates the soft keyboard avoidance modes.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -5849,7 +6294,7 @@ declare enum WebKeyboardAvoidMode {
   RESIZE_VISUAL = 0,
 
   /**
-   * For soft keyboard avoidance, both the visual viewport and layout viewport are resized.
+   * For soft keyboard avoidance, both the visual viewport and layout viewport are resized. Default value.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -5868,8 +6313,8 @@ declare enum WebKeyboardAvoidMode {
 
   /**
    * The soft keyboard avoidance behavior of the **Web** component follows the
-   * [KeyboardAvoidMode]{@link ./../../../@ohos.arkui.UIContext:KeyboardAvoidMode} set by UIcontext. The **Web** component
-   * does not process the avoidance behavior of the component.
+   * [KeyboardAvoidMode]{@link @ohos.arkui.UIContext:KeyboardAvoidMode} set by UIcontext. The **Web** component does not
+   * process the avoidance behavior of the component.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -5934,24 +6379,27 @@ declare enum WebResponseType {
 }
 
 /**
- * Enumerates the web audio types in the application.
+ * Defines the web audio types in the app, which control the audio stream type and behavior of web audio and help
+ * developers optimize the audio experience based on app scenarios, such as supporting simultaneous playback of web game
+ * sounds and system music.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare enum AudioSessionType {
   /**
-   * Web game sounds and system music can be played at the same time. This value is applicable to web
-   * game scenarios. Its corresponding system audio stream type is **STREAM_USAGE_GAME**.
+   * Web game sounds and system music can be played at the same time. This value is applicable to web game scenarios.
+   * Its corresponding system audio stream type is **STREAM_USAGE_GAME**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
-  AMBIENT = 3,
+  AMBIENT = 3
 }
 
 /**
- * Enumerates the PDF page loading results.
+ * Defines the PDF page loading results, which identify various states and error types during PDF file loading and help
+ * developers diagnose errors and provide user prompts when PDF display fails.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
@@ -5967,7 +6415,7 @@ declare enum PdfLoadResult {
   LOAD_SUCCESS = 0,
 
   /**
-   * The PDF file fails to be loaded.
+   * Failed to load the PDF file.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -5991,7 +6439,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_PASSWORD = 3,
 
   /**
-   * The PDF file fails to be processed.
+   * Failed to process the PDF file.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -6015,8 +6463,8 @@ declare enum WebBypassVsyncCondition {
   NONE = 0,
 
   /**
-   * When **scrollBy** is used (only the scrolling offset is supported) and the scrolling offset of the web page
-   * is **0**, the rendering process bypasses the vsync scheduling.
+   * When scrollBy (which supports only scroll with an offset) is used and the web page scroll offset is 0, the
+   * rendering process skips vsync scheduling and draws directly.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -6025,7 +6473,8 @@ declare enum WebBypassVsyncCondition {
 }
 
 /**
- * Represents the options of the preview menu.
+ * Configures preview menu options, supporting the vibration effect when the menu pops up. It is suitable for scenarios
+ * where enhanced menu interaction feedback is required, improving user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamiconly
@@ -6112,7 +6561,9 @@ declare interface SelectionMenuOptionsExt {
 }
 
 /**
- * Defines details of the blank screen issue detected.
+ * Provides the result details when a blank screen is detected, including the number of nodes with content. It is
+ * suitable for scenarios where analyzing blank screen causes is required, improving blank screen diagnosis detail and
+ * accuracy.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -6121,6 +6572,7 @@ declare interface BlankScreenDetails {
   /**
    * This attribute may exist when the contentful node detection policy is used and the threshold for the number of
    * detected nodes is set. Otherwise, this attribute does not exist.
+   *
    * Number of contentful nodes that are detected.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -6130,7 +6582,9 @@ declare interface BlankScreenDetails {
 }
 
 /**
- * Enumerates the reasons for the blank screen.
+ * Defines the specific reasons for the blank screen, which identify the underlying causes of page blank screen
+ * phenomena and help developers quickly locate the source of issues, improving the efficiency of troubleshooting page
+ * loading problems and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -6158,7 +6612,9 @@ declare enum DetectedBlankScreenReason {
 }
 
 /**
- * Defines the event information when a blank screen is detected.
+ * Provides the event information when a blank screen is detected, including the URL, reason, and details. It is
+ * suitable for scenarios where monitoring page blank screen issues is required, improving blank screen diagnosis
+ * accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -6181,9 +6637,10 @@ declare interface BlankScreenDetectionEventInfo {
   blankScreenReason: DetectedBlankScreenReason;
 
   /**
-   * Details of the blank screen issue detected.
-   * For example, if a near-blank screen issue is detected, the details contain the number of points that match the
-   * blank screen issue. Otherwise, this attribute does not exist.
+   * Details of the blank screen detection result. When the detection strategy that detects nodes with content is used
+   * and the number of detected nodes with content does not exceed the threshold, this parameter contains detailed
+   * information such as the number of nodes with content that are hit. If this strategy is not used or the number of
+   * nodes exceeds the threshold, this parameter is empty.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -6201,7 +6658,7 @@ declare interface BlankScreenDetectionEventInfo {
 type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => void;
 
 /**
- * Defines a callback triggered when the text selection changes.
+ * Callback for onTextSelectionChange. Triggered when the text selection content changes.
  *
  * @param { string } selectionText - Selected text.
  * @syscap SystemCapability.Web.Webview.Core
@@ -6210,7 +6667,9 @@ type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => voi
 type TextSelectionChangeCallback = (selectionText: string) => void;
 
 /**
- * Enumerates the methods for the blank screen detection.
+ * Defines the detection strategy methods used for blank screen detection, which specify the specific algorithms and
+ * points for page content detection and help developers strike a balance between detection accuracy and performance
+ * overhead, enabling timely identification of page rendering anomalies.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -6221,8 +6680,8 @@ declare enum BlankScreenDetectionMethod {
    * detection point, it is considered that the detection point is hit. A contentful node refers to an image, video, or
    * text node.
    *
-   * If no contentful node is detected or the number of contentful nodes is less than the threshold, a blank or near-blank
-   * screen is displayed.
+   * If no contentful node is detected or the number of contentful nodes is less than the threshold, a blank or near-
+   * blank screen is displayed.
    *
    * The 17 detection points are as follows:
    *
@@ -6238,14 +6697,17 @@ declare enum BlankScreenDetectionMethod {
 }
 
 /**
- * Defines the configuration options of the blank screen detection policy.
+ * Provides the policy configuration options for blank screen detection, including the detection timing, method, and
+ * threshold. It is suitable for scenarios where custom blank screen detection behavior is required, improving blank
+ * screen monitoring flexibility and accuracy.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
  */
 declare interface BlankScreenDetectionConfig {
   /**
-   * Whether to enable the blank screen policy.
+   * Whether to enable the white screen policy feature. The value **true** indicates enabled, and **false** indicates
+   * disabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -6253,13 +6715,17 @@ declare interface BlankScreenDetectionConfig {
   enable: boolean;
 
   /**
-   * The settings of the timing when web try to detect current page is blank or not.
-   * The timing is the duration after web navigation.
-   * <br>Length range:[0,+∞).Default value:[1.0,3.0,5.0].
-   * <br>1. Duplicate values are ignored.
-   * 2. The value must be greater than 0. If the value is less than 0, the value is ignored.Unit: second.
+   * Sets the timing (in seconds after loading) at which to detect whether a white screen occurs.
    *
-   * @type { ?number[] }
+   * Unit: second.
+   *
+   * Note:
+   *
+   * 1. Duplicate values are ignored.
+   * 2. The value must be greater than 0. Values less than 0 are ignored.
+   *
+   * Default value: [1.0, 3.0, 5.0].
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
    */
@@ -6278,13 +6744,14 @@ declare interface BlankScreenDetectionConfig {
    */
   detectionMethods?: BlankScreenDetectionMethod[];
   /**
-   * Threshold for number of detected contentful nodes. This parameter takes effect only when the contentful node
-   * detection policy is used.
+   * This parameter takes effect only when the contentful node detection strategy is used.
    *
-   * The value ranges from 0 to the maximum number of nodes in the detection policy. If the value is less than or equal
-   * to the threshold, the near-blank screen is triggered.
+   * The value ranges from 0 to ${maximum nodes of the detection strategy}. If the value is less than or equal to the
+   * threshold, a near-white screen is triggered.
    *
-   * Default value: **0**.
+   * Default value: 0.
+   *
+   * Note: The maximum nodes of the detection strategy depend on the selected detection strategy.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -6293,7 +6760,9 @@ declare interface BlankScreenDetectionConfig {
 }
 
 /**
- * Defines the event information when the first screen paint is detected.
+ * Provides the event information when the first screen paint is detected, including the URL and paint time. It is
+ * suitable for scenarios where monitoring page first screen rendering performance is required, improving performance
+ * optimization accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
@@ -6308,20 +6777,20 @@ declare interface FirstScreenPaint {
   url: string;
 
   /**
-   * The navigation start time of the url.
-   * <br>Unit:milliseconds.
+   * Time when navigation starts for the page pointed to by url.
    *
-   * @type { number }
+   * Unit: ms.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   navigationStartTime: number;
 
   /**
-   * The first screen paint time of the url.
-   * <br>Unit:milliseconds.
+   * Time when the first screen paint is completed for the page pointed to by url.
    *
-   * @type { number }
+   * Unit: ms.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
@@ -6329,7 +6798,11 @@ declare interface FirstScreenPaint {
 }
 
 /**
- * Defines a callback triggered when the first screen paint is complete.
+ * This callback is triggered when the first screen rendering is detected to be complete. Compared with
+ * OnFirstMeaningfulPaintCallback, which focuses on the completion of main content loading, and
+ * OnLargestContentfulPaintCallback, which focuses on the paint time of the largest content element, this callback
+ * focuses more on the rendering completion time of the first screen's visible content, making it suitable for
+ * evaluating the user's first visual experience.
  *
  * @param { FirstScreenPaint } firstScreenPaint - Details about the first screen paint.
  * @syscap SystemCapability.Web.Webview.Core
@@ -6338,22 +6811,77 @@ declare interface FirstScreenPaint {
 type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
 
 /**
- * Defines the Web attribute functions.
+ * This callback is triggered when the input method is detected to be successfully attached.
  *
- * @extends CommonMethod<WebAttribute>
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+type OnInputmethodAttachedCallback = () => void;
+
+/**
+ * Defines the input method immersive mode in the WebView, which controls the display style of the soft keyboard and
+ * helps developers provide a consistent visual experience based on the app theme and user preferences. It supports the
+ * default appearance, system-following, light immersive, and dark immersive styles.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare enum WebKeyboardAppearanceMode {
+  /**
+   * Default appearance mode, without immersive style.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode, following the system.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  DARK_IMMERSIVE = 3
+}
+
+/**
+ * Defines the Web attribute functions.
+ * 
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 8 dynamic
- * @noninterop [since 11]
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
-   * Sets whether the Web allows JavaScript scripts to execute.
+   * Sets whether to allow execution of JavaScript scripts. If this attribute is not explicitly called, execution is
+   * allowed by default.
    *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; 
-   *     {@code false} otherwise.
-   *     The default value is true.
+   * @param { boolean } javaScriptAccess - Whether to allow JavaScript script execution.
+   *     <br>The value **true** means allowed, and **false** means not allowed.
+   *     <br>The default value is **false** when undefined or null is passed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -6363,34 +6891,35 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
- 	 * Sets whether to enable access to the file system in the application. This setting does not affect the access to the
- 	 * files specified through
- 	 * [$rawfile(filepath/filename)](docroot://quick-start/resource-categories-and-access.md#accessing-resources). For API
- 	 * version 11 and earlier versions, access to the file system in the application is enabled by default if this
- 	 * attribute is not explicitly called. Since API version 12, access to the file system in the application is disabled
- 	 * by default if this attribute is not explicitly called.
- 	 *
- 	 * @param { boolean } fileAccess - Whether to enable access to the file system in the application.<br>The value
- 	 *     **true** means to enable access to the file system in the application, and **false** means the opposite.<br>
- 	 *     When **fileAccess** is set to **false**, only the resources in the read-only resource directory
- 	 *     **\/data/storage/el1/bundle/entry/resources/resfile** can be accessed using the file protocol, regardless of the
- 	 *     value of **fileAccess**.<br>For API version 11 and earlier versions, if **undefined** or **null** is passed in,
- 	 *     the value is **true**. Since API version 12, if **undefined** or **null** is passed in, the value is **false**.
- 	 * @returns { WebAttribute }
- 	 * @syscap SystemCapability.Web.Webview.Core
- 	 * @crossplatform [since 23]
- 	 * @atomicservice [since 11]
- 	 * @since 8 dynamic
+   * Sets whether to enable access to the file system in the application. This setting does not affect the access to the
+   * files specified through
+   * [$rawfile(filepath/filename)](docroot://quick-start/resource-categories-and-access.md#accessing-resources). For API
+   * version 11 and earlier versions, access to the file system in the application is enabled by default if this
+   * attribute is not explicitly called. Since API version 12, access to the file system in the application is disabled
+   * by default if this attribute is not explicitly called.
+   *
+   * @param { boolean } fileAccess - Whether to enable access to the file system in the app.
+   *     <br>The value **true** means to enable, and **false** means to disable.
+   *     <br>In addition, when fileAccess is **false**, resources in the read-only resource directory
+   *     `/data/storage/el1/bundle/entry/resources/resfile` can still be accessed through the file protocol, which is
+   *     not controlled by fileAccess.
+   *     <br>In API version 11 and earlier, the value is **true** when undefined or null is passed. In API version 12
+   *     and later, the value is **false** when undefined or null is passed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable access to online images through HTTP and HTTPS. When this attribute is not explicitly called
-   * , online image resources can be loaded by default.
+   * Sets whether to allow loading of image resources from the network (resources accessed via HTTP and HTTPS). If this
+   * attribute is not explicitly called, loading is allowed by default.
    *
-   * @param { boolean } onlineImageAccess - Whether to enable access to online images through HTTP and HTTPS.<br>The
-   *     value **true** means to enable access to online images through HTTP and HTTPS, and **false** means the
-   *     opposite.<br>If **undefined** or **null** is passed in, the value is **false**.
+   * @param { boolean } onlineImageAccess - Whether to allow loading image resources from the network.
+   *     <br>The value **true** means that loading is allowed, and **false** means it is not allowed.
+   *     <br>When **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -6400,27 +6929,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
- 	 * Sets whether to enable the DOM Storage API permission. If this attribute is not explicitly called, the DOM Storage
- 	 * API permission is disabled by default.
- 	 *
- 	 * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API.<br>The value **true** means to the DOM
- 	 *     Storage API, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the value is
- 	 *     **false**.
- 	 * @returns { WebAttribute }
- 	 * @syscap SystemCapability.Web.Webview.Core
- 	 * @crossplatform [since 18]
- 	 * @atomicservice [since 11]
- 	 * @since 8 dynamic
+   * Sets whether to enable the DOM Storage API permission. If this attribute is not explicitly called, the DOM Storage
+   * API permission is disabled by default.
+   *
+   * @param { boolean } domStorageAccess - Sets whether to enable the Document Object Model storage interface (DOM
+   *     Storage API).
+   *     <br>The value **true** enables it, and **false** disables it.
+   *     <br>If **undefined** or **null** is passed, the default value **false** is used.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable automatic image loading. When this attribute is not explicitly called, automatic loading of
-   * image resources is allowed.
+   * Sets whether to allow automatic loading of image resources. If this attribute is not explicitly called, automatic
+   * loading is allowed by default.
    *
-   * @param { boolean } imageAccess - Whether to enable automatic image loading.<br>The value **true** means to enable
-   *     automatic image loading, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the
-   *     value is **false**.
+   * @param { boolean } imageAccess - Whether to allow automatic loading of image resources.
+   *     <br>The value **true** means allowed, and **false** means not allowed.
+   *     <br>If **undefined** or **null** is passed, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -6430,10 +6960,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
-   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
+   * Sets the behavior when a secure source attempts to load resources from an insecure source. When this attribute is
+   * not explicitly called, the default value is **MixedMode.None**, which means that secure sources are not allowed to
+   * load content from insecure sources.
    *
-   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+   * @param { MixedMode } mixedMode - Mixed content mode to be set.
+   *     <br>If **undefined** or **null** is passed in, the value **MixedMode.All** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -6443,10 +6975,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
-   * Sets whether the Web supports zooming using gestures.
+   * Sets whether to support zoom gestures. If this attribute is not explicitly called, zoom gestures are supported by
+   * default.
    *
-   * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
-   *     The default value is true.
+   * @param { boolean } zoomAccess - Whether to support gesture-based zooming.
+   *     <br>The value **true** indicates supported, and **false** indicates not supported.
+   *     <br>When **undefined** or **null** is passed, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -6456,12 +6990,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
   /**
-   * Set whether to enable geolocation access. By default, this feature is enabled.
-   * For details, see Managing Location Permissions.
+   * Sets whether to enable the geolocation permission. If this attribute is not explicitly called, the permission is
+   * enabled by default. For details about how to use this feature, see
+   * [Managing Location Permissions](docroot://web/web-geolocation-permission.md).
    *
-   * @param { boolean } geolocationAccess - Whether to enable geolocation access. {@code true} means the Web
-   *     allows access to geographical locations; {@code false} means the
-   *     Web disallows access to geographical locations. The default value is true.
+   * @param { boolean } geolocationAccess - Whether to enable the geolocation permission.
+   *     <br>The value **true** means to enable the permission, and **false** means the opposite.
+   *     <br>The value **false** is used when **undefined** or **null** is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6471,23 +7006,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
 
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
-   * The object is registered into all frames of the web page, including all frames, using the specified name in
-   * javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * Registers the ArkTS object in **javaScriptProxy** with the **Web** component. The object will be registered in all
+   * frames of the web page, including all iframes, using the name specified in **JavaScriptProxy**. This enables
+   * JavaScript to call methods of the ArkTS object in **javaScriptProxy**.
    *
-   * <p><strong>API Note</strong>:
-   * <strong>Performance Note</strong>:
-   * <p>For details about how to arkWeb rendering framework adaptation solution,
-   * see [ArkWeb Rendering Framework Adaptation]
-   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
-   * </p>
+   * > **NOTE**
+   * >
+   * > The **javaScriptProxy** API must be used together with
+   * > [deleteJavaScriptRegister<sup>9+</sup>]{@link @ohos.web.webview:webview.WebviewController#deleteJavaScriptRegister}
+   * > to prevent memory leaks.
+   * >
+   * > All parameters of the **javaScriptProxy** object cannot be updated.
+   * >
+   * > When registering a **javaScriptProxy** object, at least one of the synchronous or asynchronous method lists must
+   * > be non-empty. Both types of methods can be registered simultaneously.
+   * >
+   * > This API supports registering only one object. To register multiple objects, use
+   * > [registerJavaScriptProxy<sup>9+</sup>]{@link @ohos.web.webview:webview.WebviewController#registerJavaScriptProxy}.
    *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected. [since 8 - 11]
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web
-   *     component,
-   *     and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed
-   *     by JavaScript. [since 12]
+   * @param { object } javaScriptProxy - Object to be registered. Methods can be declared, but attributes cannot.
+   *     <br>When **undefined** or **null** is passed in, the ArkTS object in javaScriptProxy is not registered with the
+   *     **Web** component. [since 8 - 11]
+   * @param { JavaScriptProxy } javaScriptProxy - Object to be registered. Methods can be declared, but attributes
+   *     cannot.
+   *     <br>When **undefined** or **null** is passed in, the ArkTS object in javaScriptProxy is not registered with the
+   *     **Web** component. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 20]
@@ -6497,9 +7040,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
   /**
-   * Sets whether the Web should save the password.
+   * Sets whether to save the password. This API is an empty API.
    *
-   * @param { boolean } password - {@code true} means the Web can save the password; {@code false} otherwise.
+   * @param { boolean } password - Whether to allow the web component to save passwords. The value **true** means the
+   *     web component is allowed to save passwords, and **false** means the opposite. If **undefined** or **null** is
+   *     passed, the default value **false** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -6509,9 +7054,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   password(password: boolean): WebAttribute;
 
   /**
-   * Sets the mode of cache in Web.
+   * Sets the cache mode. When this attribute is not explicitly called, the default value **CacheMode.Default** is used.
    *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
+   * @param { CacheMode } cacheMode - Cache mode to set.
+   *     <br>When **undefined** or **null** is passed in, the value is **CacheMode.Default**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -6521,15 +7067,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
   /**
-   * Sets dark mode for the web page. When this attribute is not explicitly called, dark mode is disabled by default.
+   * Sets the dark mode of the **Web** component. If this attribute is not explicitly called, dark mode is disabled by
+   * default.
    *
    * When dark mode is enabled, the **Web** component enables the dark style defined in the media query
    * **prefers-color-scheme** of the web page. If it is not defined, the web page remains unchanged. To enable forcible
-   * dark mode, use this API with [forceDarkAccess]{@link WebAttribute.forceDarkAccess}. For details about how to use
+   * dark mode, use this API with [forceDarkAccess]{@link WebAttribute#forceDarkAccess}. For details about how to use
    * dark mode, see [Setting Dark Mode](docroot://web/web-set-dark-mode.md).
    *
-   * @param { WebDarkMode } mode - Dark mode for the web page, which can be set to **Off**, **On**, or **Auto**.<br>When
-   *     **null** or **undefined** is passed, the value is **WebDarkMode.Off**.
+   * @param { WebDarkMode } mode - Dark mode for the web page, which can be set to **Off**, **On**, or **Auto**.
+   *     <br>When **null** or **undefined** is passed, the value is **WebDarkMode.Off**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -6540,12 +7087,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether to enable forcible dark mode for the web page. This API is applicable only when
-   * [darkMode]{@link WebAttribute.darkMode} is enabled. When this attribute is not explicitly called, forcible dark
+   * [darkMode]{@link WebAttribute#darkMode} is enabled. When this attribute is not explicitly called, forcible dark
    * mode is disabled for the web page by default.
    *
-   * @param { boolean } access - Whether to enable forcible dark mode for the web page.<br>The value **true** means to
-   *     enable forcible dark mode for the web page, and **false** means the opposite.<br>When **null** or **undefined**
-   *     is passed in, the value is **false**.
+   * @param { boolean } access - Whether to enable forced dark mode for web pages.
+   *     <br>The value **true** means to enable it, and **false** means not to enable it.
+   *     <br>If null or undefined is passed, the default value **false** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -6566,15 +7113,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * >
    * > - The media playback policy controls videos with an audio track.
    * >
-   * > - You are advised to set [audioExclusive]{@link web:WebMediaOptions} to the same value for all **Web**
-   * > components.
+   * > - You are advised to set [audioExclusive]{@link WebMediaOptions} to the same value for all **Web** components.
    * >
    * > - Audio and video interruption takes effect within an application and between applications, and playback
    * > resumption takes effect only between applications.
    *
-   * @param { WebMediaOptions } options - Web-based media playback policy.<br>After the parameter settings are updated,
-   *     the playback must be started again for the settings to take effect.<br>When **undefined** or **null** is passed
-   *     in, **{resumeInterval: 0, audioExclusive: true}** is used.
+   * @param { WebMediaOptions } options - Web-based media playback policy.
+   *     <br>After the parameter settings are updated, the playback must be started again for the settings to take
+   *     effect.
+   *     <br>When **undefined** or **null** is passed in, **{resumeInterval: 0, audioExclusive: true}** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -6583,9 +7130,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   mediaOptions(options: WebMediaOptions): WebAttribute;
 
   /**
-   * Sets whether the Web should save the table data.
+   * Sets whether to save form data. When this attribute is not explicitly called, the **Web** component is allowed to
+   * save form data by default. This API is an empty API.
    *
-   * @param { boolean } tableData {@code true} means the Web can save the table data; {@code false} otherwise.
+   * @param { boolean } tableData - Whether to allow the Web component to save form data. The value **true** means the
+   *     Web component is allowed to save form data, and **false** means the opposite. If **undefined** or **null** is
+   *     passed, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -6597,8 +7147,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether to support the **viewport** attribute of the HTML **\<meta>** tag. This API is an empty API.
    *
-   * @param { boolean } wideViewModeAccess - Whether to support the **viewport** attribute of the HTML **<meta>** tag.<
-   *     br>The value **true** means to support the **viewport** attribute of the HTML **<meta>** tag, and **false**
+   * @param { boolean } wideViewModeAccess - Whether to support the **viewport** attribute of the HTML **<meta>** tag.
+   *     <br>The value **true** means to support the **viewport** attribute of the HTML **<meta>** tag, and **false**
    *     means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6612,9 +7162,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to load web pages by using the overview mode. That is, zoom out the content to fit the screen width.
    * When this attribute is not explicitly called, web pages can be loaded in overview mode by default.
    *
-   * @param { boolean } overviewModeAccess - Whether to load web pages by using the overview mode.<br>The value **true**
-   *     means to load web pages by using the overview mode, and **false** means the opposite.<br>If **undefined** or
-   *     **null** is passed in, the value is **false**.
+   * @param { boolean } overviewModeAccess - Whether to load web pages in overview mode.
+   *     <br>The value **true** means to use overview mode, and **false** means not to use it.
+   *     <br>The default value is **false** when undefined or null is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -6624,10 +7174,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
 
   /**
-   * Sets the over-scroll mode for web
+   * Sets the over-scroll mode of the **Web** component. When enabled, if the user scrolls to the edge of the root web
+   * page, the **Web** component bounces back with an elastic animation, and inner pages on the root page do not trigger
+   * the bounce effect. If this attribute is not explicitly called, the over-scroll mode is disabled by default.
    *
-   * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
-   *     The default value is OverScrollMode.NEVER.
+   * @param { OverScrollMode } mode - Whether to enable the overscroll mode.
+   *     <br>When **undefined** or **null** is passed in, the value is **OverScrollMode.NEVER**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -6637,10 +7189,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overScrollMode(mode: OverScrollMode): WebAttribute;
 
   /**
-   * Sets whether to enable blur mode for the web element when soft keyboard is hidden.
+   * Sets the blur mode for **Web** elements when the soft keyboard is dismissed. If this attribute is not explicitly
+   * called, the [BlurOnKeyboardHideMode.SILENT]{@link BlurOnKeyboardHideMode} mode is used by default.
    *
-   * @param { BlurOnKeyboardHideMode } mode - Whether to enable blur mode of the web
-   * element when soft keyboard is hidden. The default value is **BlurOnKeyboardHideMode.SILENT**.
+   * @param { BlurOnKeyboardHideMode } mode - Whether to enable blur mode of the web element when soft keyboard is
+   *     hidden. The default value is **BlurOnKeyboardHideMode.SILENT**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6651,8 +7204,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the text zoom ratio of the page.
    *
-   * @param { number } textZoomAtio - Text zoom ratio to set.<br>The value is a positive integer.<br>Default value:
-   *     **100**
+   * @param { number } textZoomAtio - Text zoom percentage of the page to set. The value 100 indicates the original
+   *     size, a value greater than 100 indicates zoom-in, and a value less than 100 indicates zoom-out.
+   *     <br>The value range is (0, 2147483647].
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -6664,8 +7218,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the text zoom ratio of the page. When this attribute is not explicitly called, the default zoom ratio is 100%.
    *
-   * @param { number } textZoomRatio - Text zoom ratio to set.<br>The value is an integer. The value range is (0, 214748
-   *     3647].
+   * @param { number } textZoomRatio - Text zoom percentage for the page. The value **100** indicates the original size,
+   *     a value greater than **100** indicates zoom in, and a value less than **100** indicates zoom out.
+   *     <br>The value is an integer in the range (0, 2147483647].
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -6675,31 +7230,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
- 	 * Sets whether to enable the Web SQL Database storage API permission. If this permission is not explicitly called, it
- 	 * is disabled by default.
- 	 *
- 	 * > **NOTE**
- 	 * >
- 	 * > - After the ArkWeb kernel is upgraded to M132, the API's control over the Web SQL Database becomes invalid
- 	 * > because the kernel discards Web SQL. For details about the ArkWeb kernel version, see
- 	 * > [Constraints](docroot://web/web-component-overview.md#constraints).
- 	 *
- 	 * @param { boolean } databaseAccess - Whether to enable Web SQL Database storage API permission.<br>**true** means
- 	 *     enabling the detection, and **false** means disabling it.<br>If **undefined** or **null** is passed in, the
- 	 *     value is **false**.
- 	 * @returns { WebAttribute }
- 	 * @syscap SystemCapability.Web.Webview.Core
- 	 * @atomicservice [since 11]
- 	 * @since 8 dynamic
+   * Sets whether to enable the Web SQL Database storage API permission. If this permission is not explicitly called, it
+   * is disabled by default.
+   *
+   * > **NOTE**
+   * >
+   * > - After the ArkWeb kernel is upgraded to M132, the API's control over the Web SQL Database becomes invalid
+   * > because the kernel discards Web SQL. For details about the ArkWeb kernel version, see
+   * > [Constraints](docroot://web/web-component-overview.md#constraints).
+   *
+   * @param { boolean } databaseAccess - Whether to enable Web SQL Database storage API permission.
+   *     <br>**true** means enabling the detection, and **false** means disabling it.
+   *     <br>If **undefined** or **null** is passed in, the value is **false**.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
 
   /**
-   * Sets the initial scale for the Web.
+   * Sets the zoom percentage of the entire page. If this attribute is not explicitly called, the default value is
+   * **100**.
    *
-   * @param { number } percent the initial scale for the Web.
-   *     Value range: (0, 1000].
-   *     Default value: 100.
+   * @param { number } percent - Scale factor of the entire page.
+   *     <br>Value range: (0, 1000]
+   *     <br>When **undefined** or **null** is passed in, the attribute setting does not take effect.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -6709,9 +7265,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   initialScale(percent: number): WebAttribute;
 
   /**
-   * Sets the Web's user agent.
+   * Sets the user agent.
    *
-   * @param { string } userAgent The Web's user agent.
+   * @param { string } userAgent - User agent to set.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -6721,27 +7277,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
-   * Sets whether the viewport property of the meta tag is enabled.
+   * Sets whether the **viewport** attribute of the **meta** tag is enabled. When this attribute is not explicitly
+   * called, the **viewport** attribute of the **meta** tag is supported by default.
    *
-   * <p><strong>API Note</strong>:<br>
-   * If the device is 2-in-1, the viewport property is not supported. This means that,
-   * regardless of whether this parameter is set to true or false,
-   * the viewport property will not be parsed and a default layout will be used.<br>
-   * If the device is a tablet, the viewport-fit property of the meta tag is parsed regardless of
-   * whether this parameter is set to true or false. When viewport-fit is set to cover,
-   * the size of the safe area can be obtained through the CSS attribute.<br>
-   * The viewport parameter of the meta tag on the frontend HTML page is enabled or
-   * disabled based on whether User-Agent contains the Mobile field.
-   * If a User-Agent does not contain the Mobile field, the viewport property in the meta tag is disabled by default.
-   * In this case, you can explicitly set the metaViewport property to true to overwrite the disabled state.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - Whether the **viewport** attribute of the **\<meta>** tag in the frontend HTML page is enabled is determined by
+   * > checking whether the User-Agent contains the "Mobile" field. When the User-Agent does not contain the "Mobile"
+   * > field, the **viewport** attribute in the **\<meta>** tag is disabled by default. In this case, you can explicitly
+   * > set the **metaViewport** attribute to **true** to override the disabled state.
    *
-   * @param { boolean } enabled Whether the viewport property of the meta tag is enabled.
-   *    {@code true} means support the viewport attribute of the meta tag is enabled and parsed,
-   *    and the layout is performed based on the viewport attribute.
-   *    {@code false} means not support the viewport attribute of the meta tag is disabled and not parsed,
-   *    and the default layout is used.
-   *    Default value: true.
+   * @param { boolean } enabled - Whether the **viewport** attribute of the **meta** tag is enabled.
+   *     <br>The value **true** indicates that the **viewport** attribute of the **meta** tag is enabled and parsed, and
+   *     the layout is performed based on the **viewport** attribute.
+   *     <br>The value **false** indicates the **viewport** attribute of the **meta** tag is disabled and not parsed,
+   *     and the default layout is used.
+   *     <br>When **null** or **undefined** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6750,11 +7301,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   metaViewport(enabled: boolean): WebAttribute;
 
   /**
-   * Triggered at the end of web page loading.This callback is called only for the main frame content, and not
+   * Triggered when the web page loading is finished. This callback is called only for the main frame content, and not
    * for the iframe or frameset content.
    *
-   * @param { function } callback The triggered function at the end of web page loading. [since 8 - 11]
-   * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading. [since 12]
+   * @param { function } callback - Callback triggered when the web page loading is complete. [since 8 - 11]
+   * @param { Callback<OnPageEndEvent> } callback - Callback triggered when the web page loading is complete. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -6764,11 +7315,54 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
   /**
-   * Called when the web page starts to be loaded.
-   * This API is called only for the main frame, and not for the iframe or frameset content.
+   * Triggered to notify the host application that the page loading starts. This method is called once each time the
+   * main frame content is loaded. Therefore, for pages that contain iframes or frameset, **onLoadStarted** is called
+   * only once for the main frame. This means that when the content of the embedded frame changes, for example, a link
+   * or a fragment navigation in the iframe is clicked (navigation to **#fragment_id**), **onLoadStarted** is not
+   * invoked.
    *
-   * @param { function } callback The triggered function at the begin of web page loading. [since 8 - 11]
-   * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading. [since 12]
+   * > **NOTE**
+   * >
+   * > - When the document of the pop-up window is modified by JavaScript before being loaded, **onLoadStarted** is
+   * > simulated and the URL is set to null, because displaying the URL that is being loaded may be insecure.
+   * > **onPageBegin** will not be simulated.
+   *
+   * @param { Callback<OnLoadStartedEvent> } callback - Callback triggered when a web page loading starts.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 dynamic
+   */
+  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
+
+  /**
+   * Triggered to notify the host application that the page has been loaded. This method is called only when the main
+   * frame loading is complete. For fragment navigations (navigations to **#fragment_id**), **onLoadFinished** is also
+   * triggered.
+   *
+   * > **NOTE**
+   * >
+   * > - Fragment navigation also triggers **onLoadFinished**, but **onPageEnd** is not triggered.
+   * >
+   * > - If the main frame is automatically redirected before the page is fully loaded, **onLoadFinished** is triggered
+   * > only once. **onPageEnd** is triggered each time the main frame is navigated.
+   * >
+   * > - When the document of the pop-up window is modified by JavaScript before being loaded, **onLoadStarted** is
+   * > simulated and the URL is set to null, because displaying the URL that is being loaded may be insecure. <b class="
+   * > + topic/ph hi-d/b " id="b145733136532">onPageBegin</b> will not be simulated.
+   *
+   * @param { Callback<OnLoadFinishedEvent> } callback - Callback triggered when the web page loading is complete.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 dynamic
+   */
+  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
+
+  /**
+   * Triggered when the web page starts to be loaded. This callback is called only for the main frame content, and not
+   * for the iframe or frameset content.
+   *
+   * @param { function } callback - Callback triggered when a web page loading starts. [since 8 - 11]
+   * @param { Callback<OnPageBeginEvent> } callback - Callback triggered when a web page loading starts. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -6778,47 +7372,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
 
   /**
-   * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
-   * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
-   * will not trigger this callback.
+   * Triggered when the web page loading progress changes.
    *
-   * <p><strong>API Note</strong>:<br>
-   * When the document of a pop-up window has been modified by JavaScript before it is loaded, it will simulate the
-   * triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently loading maybe
-   * unsafe. onPageBegin will not be simulated.
-   * </p>
-   *
-   * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic
-   */
-  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
-
-  /**
-   * Notify the host application that a page has finished loading. This method is called only for main frame.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
-   * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
-   *    completely loaded. onPageEnd is triggered every navigation on mainframe.
-   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded, it will simulate the
-   *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
-   *    loading may be unsafe. onPageBegin will not be simulated.
-   * </p>
-   *
-   * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic
-   */
-  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
-
-  /**
-   * Triggered when the page loading progress changes.
-   *
-   * @param { function } callback The triggered function when the page loading progress changes. [since 8 - 11]
-   * @param { Callback<OnProgressChangeEvent> } callback The triggered function when the page loading progress
+   * @param { function } callback - Callback triggered when the page loading progress changes. [since 8 - 11]
+   * @param { Callback<OnProgressChangeEvent> } callback - Callback triggered when the page loading progress
    *     changes. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6829,14 +7386,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Notifies the application that the title has changed.
-   * If the page being loaded does not specify a title via the <title> element,
-   * ArkWeb will generate a title baseed on the URL and return it to the application.
+   * Called when the **\<title>** element of the page document changes. If no title is set on the current page, ArkWeb
+   * generates a title based on the page URL and returns it to the application before the loading is complete.
    *
-   * @param { function } callback The triggered function when the title of the main application document
-   *     changes. [since 8 - 11]
-   * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application
-   *     document changes. [since 12]
+   * @param { function } callback - Callback triggered when the document title on the page is changed. [since 8 - 11]
+   * @param { Callback<OnTitleReceiveEvent> } callback - Callback triggered when the document title on the page is
+   *     changed. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6846,10 +7401,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onTitleReceive(callback: Callback<OnTitleReceiveEvent>): WebAttribute;
 
   /**
-   * Called to notify the user that the request for obtaining the geolocation information received
-   * when {@link onGeolocationShow} is called has been canceled.
+   * Triggered to notify the user that the request for obtaining the geolocation information received when
+   * [onGeolocationShow]{@link WebAttribute#onGeolocationShow} is called has been canceled.
    *
-   * @param { function } callback Callback invoked when the request for obtaining geolocation information has been
+   * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been
    *     canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6860,12 +7415,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onGeolocationHide(callback: () => void): WebAttribute;
 
   /**
-   * Called when a request to obtain the geolocation information is received.
+   * Called to notify the user that the geolocation information obtaining request is received. To use this API, the
+   * **ohos.permission.LOCATION** and **ohos.permission.APPROXIMATELY_LOCATION** permissions must be configured. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { function } callback The triggered function when requesting to show the geolocation permission.
-   *     [since 8 - 11]
-   * @param { Callback<OnGeolocationShowEvent> } callback - Callback invoked when a request to obtain the geolocation
-   *     information is received. [since 12]
+   * @param { function } callback - Callback triggered when the geolocation permission is requested, returning the
+   *     geolocation information request object. [since 8 - 11]
+   * @param { Callback<OnGeolocationShowEvent> } callback - Callback triggered when the geolocation permission is
+   *     requested, returning the geolocation information request object. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6875,9 +7432,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onGeolocationShow(callback: Callback<OnGeolocationShowEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web gets the focus.
+   * Triggered when the **Web** component obtains the focus. If the **Web** component loads a web page in the unfocused
+   * state and successfully obtains the focus, the callback is triggered twice.
    *
-   * @param { function } callback The triggered function when the Web gets the focus.
+   * @param { function } callback - Callback triggered when a web page obtains the focus.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -6886,17 +7444,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRequestSelected(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when alert() is invoked to display an alert dialog box on the web page.
+   * Triggered when **alert()** is invoked to display an alert dialog box on the web page. Call the
+   * [handleCancel]{@link JsResult#handleCancel} or [handleConfirm]{@link JsResult#handleConfirm} API when this callback
+   * is triggered. Otherwise, the render process is blocked.
    *
-   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web
-   *     page. [since 8 - 11]
-   * @param {  Callback<OnAlertEvent, boolean> } callback Callback used when alert() is invoked to display an alert
-   *     dialog box on the web page.
-   *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and
-   *     cancellation buttons).
-   *     Developers need to use the JsResult interface to notify the web component whether to leave the current page
-   *     according to the user's choice.
-   *     {@code false} means the pop-up processing result is considered as cancelled. [since 12]
+   * @param { function } callback - Callback used when **alert()** is invoked to display an alert dialog box on the web
+   *     page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component the confirmation result. If
+   *     the callback returns **false**, the processing result of the dialog box is regarded as cancel. [since 8 - 11]
+   * @param {  Callback<OnAlertEvent, boolean> } callback - Callback used when **alert()** is invoked to display an
+   *     alert dialog box on the web page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component the confirmation result. If
+   *     the callback returns **false**, the processing result of the dialog box is regarded as cancel. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6906,12 +7469,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onAlert(callback: Callback<OnAlertEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
+   * Called when the page refresh is about to complete or the current page is closed.
    *
-   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript
-   *     onbeforeunload. [since 8 - 11]
-   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to
-   *     confirm navigation from JavaScript onbeforeunload. [since 12]
+   * > **NOTE**
+   * >
+   * > - If the current **Web** component does not have the focus, **onBeforeUnload** is not triggered when the page is
+   * > refreshed or closed.
+   *
+   * @param { function } callback - Callback triggered when the page refresh is about to complete or the current page is
+   *     closed.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component whether to exit the current
+   *     page based on the user's operation. The value **false** means that the custom dialog box drawn in the function
+   *     is ineffective. [since 8 - 11]
+   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback - Callback triggered when the page refresh is about to
+   *     complete or the current page is closed.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component whether to exit the current
+   *     page based on the user's operation. The value **false** means that the custom dialog box drawn in the function
+   *     is ineffective. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -6921,15 +7499,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when confirm() is invoked by the web page.
+   * Triggered when **confirm()** is invoked by the web page. Call the [handleCancel]{@link JsResult#handleCancel} or
+   * [handleConfirm]{@link JsResult#handleConfirm} API when this callback is triggered. Otherwise, the render process is
+   * blocked.
    *
-   * @param { function } callback Callback triggered when confirm() is invoked by the web page. [since 8 - 11]
-   * @param { Callback<OnConfirmEvent, boolean> } callback Callback triggered when confirm() is invoked by the web page.
-   *     {@code true} means the application can call the custom pop-up capability (including confirmation and
-   *     cancellation), and needs to call JsResult
-   *     to notify the Web component whether to leave the current page based on the user's confirmation or cancellation
-   *     operation.
-   *     {@code false} means the custom pop-up drawn in the function is invalid. [since 12]
+   * @param { function } callback - Callback triggered when **confirm()** is invoked by the web page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component the confirmation result. If
+   *     the callback returns **false**, the processing result of the dialog box is regarded as cancel. [since 8 - 11]
+   * @param { Callback<OnConfirmEvent, boolean> } callback - Callback triggered when **confirm()** is invoked by the web
+   *     page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm and
+   *     cancel operations) and invoke the **JsResult** API to notify the **Web** component the confirmation result. If
+   *     the callback returns **false**, the processing result of the dialog box is regarded as cancel. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6939,15 +7523,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onConfirm(callback: Callback<OnConfirmEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when prompt() is invoked by the web page.
+   * Triggered when **prompt()** is invoked by the web page. Call the [handleCancel]{@link JsResult#handleCancel} or
+   * [handlePromptConfirm]{@link JsResult#handlePromptConfirm} API when this callback is triggered. Otherwise, the
+   * render process is blocked.
    *
-   * @param { function } callback Callback used when prompt() is invoked by the web page. [since 9 - 11]
-   * @param { Callback<OnPromptEvent, boolean> } callback Callback used when prompt() is invoked by the web page.
-   *     {@code true} means the application can call the custom pop-up window capability (including confirmation,
-   *     cancellation, and input),and needs to
-   *     call JsResult to notify the Web component of the final processing result based on the user's confirmation or
-   *     cancellation operation.
-   *     {@code false} means the pop-up window processing result is considered as a cancellation. [since 12]
+   * @param { function } callback - Callback used when **prompt()** is invoked by the web page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm,
+   *     cancel, and input operations) and invoke the **JsResult** API to notify the **Web** component the processing
+   *     result. If the callback returns **false**, the processing result of the dialog box is regarded as
+   *     cancel. [since 9 - 11]
+   * @param { Callback<OnPromptEvent, boolean> } callback - Callback used when **prompt()** is invoked by the web page.
+   *     <br>Return value: boolean
+   *     <br> If the callback returns **true**, the application can use the custom dialog box (allows the confirm,
+   *     cancel, and input operations) and invoke the **JsResult** API to notify the **Web** component the processing
+   *     result. If the callback returns **false**, the processing result of the dialog box is regarded as
+   *     cancel. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6957,12 +7548,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPrompt(callback: Callback<OnPromptEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a JavaScript console message.
+   * Triggered to notify the host application of a JavaScript console message.
    *
-   * @param { function } callback The triggered function when the web page receives a JavaScript console
-   *     message. [since 8 - 11]
-   * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a
-   *     JavaScript console message. [since 12]
+   * @param { function } callback - Callback used when the web page receives a JavaScript console message.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that the message will not be printed to HiLog logs, and **false** means the
+   *     opposite. [since 8 - 11]
+   * @param {  Callback<OnConsoleEvent, boolean> } callback - Callback used when the web page receives a JavaScript
+   *     console message.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that the message will not be printed to HiLog logs, and **false** means the
+   *     opposite. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -6973,13 +7569,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when an error occurs during web page loading. The error may occur on the main resource or sub-resource.
-   * You can use [isMainFrame]{@link web:WebResourceRequest.isMainFrame} to determine whether the error occurs on the
-   * main resource. This API is called when there is no network connection.
+   * You can use [isMainFrame]{@link WebResourceRequest#isMainFrame} to determine whether the error occurs on the main
+   * resource. For performance reasons, simplify the implementation logic in the callback. This API is called when there
+   * is no network connection.
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading
-   *     error. [since 8 - 11]
-   * @param { Callback<OnErrorReceiveEvent> } callback The triggered function when the web page receives a web resource
-   *     loading error. [since 12]
+   * @param { function } callback - Callback used when an error occurs during web page loading. [since 8 - 11]
+   * @param { Callback<OnErrorReceiveEvent> } callback - Callback used when an error occurs during web page
+   *     loading. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 10]
@@ -6989,12 +7585,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onErrorReceive(callback: Callback<OnErrorReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a web resource loading HTTP error.
+   * Called when an HTTP error (the response code is greater than or equal to 400) occurs during web page resource
+   * loading.
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP
-   *     error. [since 8 - 11]
-   * @param { Callback<OnHttpErrorReceiveEvent> } callback The triggered function when the web page receives a web
-   *     resource loading HTTP error. [since 12]
+   * @param { function } callback - Callback triggered when an HTTP error occurs during web page resource
+   *     loading. [since 8 - 11]
+   * @param { Callback<OnHttpErrorReceiveEvent> } callback - Callback triggered when an HTTP error occurs during web
+   *     page resource loading. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7004,10 +7601,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when starting to download.
+   * Triggered to instruct the main application to start downloading a file.
    *
-   * @param { function } callback The triggered function when starting to download. [since 8 - 11]
-   * @param { Callback<OnDownloadStartEvent> } callback The triggered function when starting to download. [since 12]
+   * @param { function } callback - Callback used when a download starts. [since 8 - 11]
+   * @param { Callback<OnDownloadStartEvent> } callback - Callback used when a download starts. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7017,11 +7614,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onDownloadStart(callback: Callback<OnDownloadStartEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page refreshes accessed history.
+   * Triggered for the application to update its access history when the navigation is complete.
    *
-   * @param { function } callback The triggered callback when the Web page refreshes accessed history. [since 8 - 11]
-   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes
-   *     accessed history. [since 12]
+   * @param { function } callback - Callback triggered when the navigation is complete. [since 8 - 11]
+   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback - Callback triggered when the navigation is
+   *     complete. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -7031,9 +7628,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
   /**
-   * Triggered when the URL loading is intercepted.
+   * Triggered when the **Web** component is about to access a URL. This API is used to determine whether to block the
+   * access.
    *
-   * @param { function } callback The triggered callback when the URL loading is intercepted.
+   * @param { function } callback - URL information.
+   *     <br>The return value is of the Boolean type. If **true** is returned, the access is blocked. Otherwise, the
+   *     access is allowed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -7043,9 +7643,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * Triggered when an SSL error occurs during resource loading.
    *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { function } callback - Callback triggered when a web page detects an SSL error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -7055,14 +7655,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
   /**
-   * Triggered when the rendering process exits abnormally. A rendering process may be shared by multiple **Web** components.
-   * Each affected **Web** component triggers this callback. You can call the bound **webviewController** APIs to restore the
-   * web page when this callback is triggered. For example, [refresh]{@link ./../../../@ohos.web.webview:webview.WebviewController#refresh()} and
-   * [loadUrl]{@link ./../../../@ohos.web.webview:webview.WebviewController.loadUrl}.
-   * For details about the component lifecycle, see [Lifecycle of the Web Components](docroot://web/web-event-sequence.md)
+   * Triggered when the rendering process exits abnormally.
    *
-   * @param { Callback<OnRenderExitedEvent> } callback - Triggered when the rendering process exits abnormally. [since 12]
-   *     { function } callback The triggered when the render process exits. [since 9 - 11]
+   * A rendering process may be shared by multiple **Web** components. Each affected **Web** component triggers this
+   * callback.
+   *
+   * You can call the bound **webviewController** APIs to restore the web page when this callback is triggered. For
+   * example, [refresh]{@link @ohos.web.webview:webview.WebviewController#refresh()} and
+   * [loadUrl]{@link @ohos.web.webview:webview.WebviewController#loadUrl}.
+   *
+   * For details about the component lifecycle, see
+   * [Lifecycle of the Web Components](docroot://web/web-event-sequence.md).
+   *
+   * @param { Callback<OnRenderExitedEvent> } callback - Callback triggered when the rendering process exits
+   *     abnormally. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7072,16 +7678,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderExited(callback: Callback<OnRenderExitedEvent>): WebAttribute;
 
   /**
-   * Triggered when the file selector shows.
-   * Call this function to handle HTML forms with a "file" input type. If this function is not called or returns false,
-   * the web component provides the default "select file" handling interface. If it returns true, the application can
-   * customize
-   * the "select file" response behavior.
+   * Triggered to process an HTML form whose input type is **file**. If this function is not called or returns
+   * **false**, the **Web** component provides the default **Select file** UI. If it returns **true**, the application
+   * can customize the response behavior for **Select file**.
    *
-   * @param { function } callback The triggered when the file selector shows. [since 9 - 11]
-   * @param { Callback<OnShowFileSelectorEvent, boolean> } callback The triggered when the file selector shows.
-   *     {@code true} means the user can call the system-provided pop-up window capability.
-   *     {@code false} means the custom pop-up window drawn in the function is invalid. [since 12]
+   * @param { function } callback - Callback triggered to notify the **Web** component of the file selection result.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that you can invoke the system-provided dialog box. The value **false** means
+   *     that the custom dialog box drawn in the function is ineffective. [since 9 - 11]
+   * @param { Callback<OnShowFileSelectorEvent, boolean> } callback - Callback triggered to notify the **Web** component
+   *     of the file selection result.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that you can invoke the system-provided dialog box. The value **false** means
+   *     that the custom dialog box drawn in the function is ineffective. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7091,9 +7700,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onShowFileSelector(callback: Callback<OnShowFileSelectorEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the render process exits.
+   * Triggered when the rendering process exits due to an error or crash.
    *
-   * @param { function } callback The triggered when the render process exits.
+   * A rendering process may be shared by multiple **Web** components. Each affected **Web** component triggers this
+   * callback.
+   *
+   * You can call the bound **WebViewController** APIs to restore the web page when this callback is triggered. For
+   * example, [refresh]{@link @ohos.web.webview:webview.WebviewController#refresh()} and
+   * [loadUrl]{@link @ohos.web.webview:webview.WebviewController#loadUrl}.
+   *
+   * For details, see [Lifecycle of the Web Component](docroot://web/web-event-sequence.md).
+   *
+   * @param { function } callback - Callback triggered when the rendering process exits abnormally.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -7103,9 +7721,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the file selector shows.
+   * Triggered to process an HTML form whose input type is **file**, in response to the tapping of the **Select File**
+   * button.
    *
-   * @param { function } callback The triggered when the file selector shows.
+   * @param { function } callback - Callback to be executed when the file selector is triggered.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -7115,10 +7734,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
   /**
-   * Triggered when the url loading.
+   * Triggered to notify the **Web** component of the URL of the resource file to load.
    *
-   * @param { function } callback The triggered when the url loading. [since 9 - 11]
-   * @param { Callback<OnResourceLoadEvent> } callback The triggered when the url loading. [since 12]
+   * @param { function } callback - Callback triggered when a URL is loaded. [since 9 - 11]
+   * @param { Callback<OnResourceLoadEvent> } callback - Callback triggered when a URL is loaded. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7143,7 +7762,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the **Web** component enters full screen mode.
    *
    * @param { OnFullScreenEnterCallback } callback - Callback invoked when the **Web** component enters full screen
-   *     mode. Before API 12�� use { function } as param.
+   *     mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -7153,10 +7772,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
   /**
-   * Triggered when the scale of WebView changed.
+   * Called when the page display scale changes.
    *
-   * @param { function } callback The triggered when the scale of WebView changed. [since 9 - 11]
-   * @param { Callback<OnScaleChangeEvent> } callback The triggered when the scale of WebView changed. [since 12]
+   * @param { function } callback - Callback triggered when the page display scale changes. [since 9 - 11]
+   * @param { Callback<OnScaleChangeEvent> } callback - Callback triggered when the page display scale
+   *     changes. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7166,11 +7786,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScaleChange(callback: Callback<OnScaleChangeEvent>): WebAttribute;
 
   /**
-   * Triggered when the browser needs credentials from the user.
+   * Triggered when an HTTP authentication request is received.
    *
-   * @param { function } callback The triggered when the browser needs credentials from the user. [since 9 - 11]
-   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback The triggered when the browser needs credentials from
-   *     the user. [since 12]
+   * @param { function } callback - Callback invoked when the browser requires user credentials.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that the HTTP authentication is successful, and **false** means the
+   *     opposite. [since 9 - 11]
+   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback - Callback invoked when the browser requires user
+   *     credentials.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that the HTTP authentication is successful, and **false** means the
+   *     opposite. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7180,15 +7806,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onHttpAuthRequest(callback: Callback<OnHttpAuthRequestEvent, boolean>): WebAttribute;
 
   /**
-   * This API is used to intercept the resource loading and return the response data.
+   * Triggered when the **Web** component is about to access a URL. This API is used to block the URL and return the
+   * response data. The **onInterceptRequest** API can intercept all redirection requests and return response data, but
+   * cannot access POST request body content and obtain buffer data. In this scenario, use
+   * [WebSchemeHandler]{@link @ohos.web.webview:webview.WebSchemeHandler} based on service requirements.
    *
-   * <p><strong>API Note</strong>:<br>
-   * POST data cannot be retrieved when intercepting POST requests.
-   * </p>
-   *
-   * @param { function } callback The triggered callback when the resources loading is intercepted. [since 9 - 11]
-   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered
-   *     callback when the resources loading is intercepted. [since 12]
+   * @param { function } callback - Callback invoked when the **Web** component is about to load a URL.
+   *     <br>The return value is [WebResourceResponse]{@link ./web}. If response data is returned, the data is loaded
+   *     based on the response data. If no response data is returned, null is returned, indicating that the data is
+   *     loaded in the original mode. [since 9 - 11]
+   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback - Callback invoked when the **Web**
+   *     component is about to load a URL.
+   *     <br>The return value is [WebResourceResponse]{@link ./web}. If response data is returned, the data is loaded
+   *     based on the response data. If no response data is returned, null is returned, indicating that the data is
+   *     loaded in the original mode. [since 12]
    * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
    *     Otherwise, the response value will be used
    * @syscap SystemCapability.Web.Webview.Core
@@ -7215,7 +7846,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when a screen capture request is received.
    *
    * @param { Callback<OnScreenCaptureRequestEvent> } callback - Callback invoked when a screen capture request is
-   *     received. Before API 12�� use { function } as param.
+   *     received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7224,14 +7855,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScreenCaptureRequest(callback: Callback<OnScreenCaptureRequestEvent>): WebAttribute;
 
   /**
-   * Triggered when called to allow custom display of the context menu.
+   * Triggered when a context menu is displayed after the user clicks the right mouse button or long presses a specific
+   * element, such as an image or a link.
    *
-   * @param { function } callback The triggered callback when called to allow custom display of the context
-   *     menu. [since 9 - 11]
-   * @param { Callback<OnContextMenuShowEvent, boolean> } callback The triggered callback when called to allow custom
-   *     display of the context menu.
-   *     {@code true} means the custom menu is triggered.
-   *     {@code false} means the custom menu is invalid. [since 12]
+   * @param { function } callback - Callback invoked during a call to allow for the display of a custom context menu.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that a custom menu is triggered, and **false** means that the custom menu is
+   *     ineffective. [since 9 - 11]
+   * @param { Callback<OnContextMenuShowEvent, boolean> } callback - Callback invoked during a call to allow for the
+   *     display of a custom context menu.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means that a custom menu is triggered, and **false** means that the custom menu is
+   *     ineffective. [since 12]
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7240,10 +7875,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onContextMenuShow(callback: Callback<OnContextMenuShowEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when called to allow custom hide of the context menu.
+   * Triggered when a context menu is hidden after the user clicks the right mouse button or long presses a specific
+   * element, such as an image or a link.
    *
-   * @param { OnContextMenuHideCallback } callback The triggered function when called to allow custom hide of the
-   *     context menu.
+   * @param { OnContextMenuHideCallback } callback - Callback related to menus.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7252,12 +7887,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onContextMenuHide(callback: OnContextMenuHideCallback): WebAttribute;
 
   /**
-   * Sets whether video playback must be started by user gestures. This API is not applicable to muted videos. When this
-   * attribute is not explicitly set, users need to click the video to play it by default.
+   * Sets whether autoplay of audible videos requires a user tap. Muted video playback is not affected by this API. If
+   * this attribute is not explicitly set, a user tap is required by default.
    *
-   * @param { boolean } access - Whether video playback must be started by user gestures.<br>The value **true**
-   *     indicates that video playback must be started by user gestures, and **false** indicates the opposite.<br>If
-   *     **undefined** or **null** is passed in, the value is **false**.
+   * @param { boolean } access - Whether the autoplay of videos with audio requires a user tap.
+   *     <br>The value **true** indicates that a user tap is required, and **false** indicates that the video can be
+   *     autoplayed.
+   *     <br>If **undefined** or **null** is passed, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7267,13 +7903,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   mediaPlayGestureAccess(access: boolean): WebAttribute;
 
   /**
-   * Notify search result to host application through onSearchResultReceive.
+   * Triggered to notify the caller of the search result on the web page.
    *
-   * @param { function } callback Function Triggered when the host application call searchAllAsync.
-   *     or searchNext api on WebController and the request is valid. [since 9 - 11]
-   * @param { Callback<OnSearchResultReceiveEvent> } callback Function Triggered when the host application call
-   *     searchAllAsync.
-   *     or searchNext api on WebController and the request is valid. [since 12]
+   * @param { function } callback - Callback invoked to notify the caller of the search result on the web
+   *     page. [since 9 - 11]
+   * @param { Callback<OnSearchResultReceiveEvent> } callback - Callback invoked to notify the caller of the search
+   *     result on the web page. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7282,21 +7917,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSearchResultReceive(callback: Callback<OnSearchResultReceiveEvent>): WebAttribute;
 
   /**
-   * Notify the global scroll position of the web page
+   * Triggered to notify the global scrolling position of the web page.
    *
-   * Description:
+   * > **NOTE**
+   * >
+   * > The change of the partial scrolling position cannot trigger this callback.
+   * >
+   * > To determine whether a page is globally scrolled, print **window.pagYOffset** or **window.pagXOffset** before and
+   * > after scrolling.
+   * >
+   * > If the web page is scrolled globally, the value of **window.pagYOffset** or **window.pagXOffset** changes after
+   * > the web page is scrolled. Otherwise, the value does not change.
    *
-   * What is notified is the global scroll position of the page.
-   * Changes in the local scroll position cannot trigger this callback.
-   *
-   * Determine whether the page is globally scrolled and print window.pagYOffset
-   * or window.pagXOffset before and after scrolling.
-   *
-   * If it is global scrolling, the value of window.pagYOffset
-   * or window.pagXOffset will change before and after scrolling, and vice versa.
-   *
-   * @param { function } callback Function triggered when the web page scroll to the specified position. [since 9 - 11]
-   * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified
+   * @param { function } callback - Callback triggered when the page is scrolled to a specified position. [since 9 - 11]
+   * @param { Callback<OnScrollEvent> } callback - Callback triggered when the page is scrolled to a specified
    *     position. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7307,12 +7941,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
   /**
-   * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes, use the OnSslErrorEvent API.
+   * Triggered to notify the host application when an SSL error occurs while loading the main-frame resource.
    *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error. [since 9 - 11]
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
-   *     when the Web page receives an ssl Error. [since 12]
+   * To support errors for loading subframe resources, use the [OnSslErrorEvent]{@link WebAttribute#onSslErrorEvent}
+   * API.
+   *
+   * > **NOTE**
+   * >
+   * > - Main resource: Entry file for the browser to load web pages, which is usually an HTML document.
+   * >
+   * > - Subresource: Dependency file referenced by the main resource, which is loaded when a specific tag is
+   * > encountered during main resource parsing.
+   * >
+   * > - The application needs to call [handler.handleCancel()]{@link SslErrorHandler#handleCancel()} or
+   * > [handler.handleConfirm()]{@link SslErrorHandler#handleConfirm} to process the callback. Otherwise, resource
+   * > loading is canceled by default. The behavior of **handleConfirm()** or **handleCancel()** may be recorded to
+   * > respond to future SSL errors.
+   * >
+   * > - The application can display a custom error page or silently record the problem.
+   *
+   * @param { function } callback - Callback invoked when the web page receives an SSL error. [since 9 - 11]
+   * @param { Callback<OnSslErrorEventReceiveEvent> } callback - Callback invoked when the web page receives an SSL
+   *     error. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -7322,10 +7972,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
   /**
-   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
-   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
+   * Triggered to notify users when an SSL error occurs during the loading of main-frame or subframe resources. To
+   * handle SSL errors for loading the main-frame resources, use the [isMainFrame]{@link WebResourceRequest#isMainFrame}
+   * field to distinguish.
    *
-   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
+   * > **NOTE**
+   * >
+   * > - Main resource: Entry file for the browser to load web pages, which is usually an HTML document.
+   * >
+   * > - Subresource: Dependency file referenced by the main resource, which is loaded when a specific tag is
+   * > encountered during main resource parsing.
+   *
+   * @param { OnSslErrorEventCallback } callback - Callback invoked when an SSL error occurs during resource loading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -7335,11 +7993,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
   /**
-   * Triggered when the Web page needs ssl client certificate from the user.
+   * Triggered when an SSL client certificate request is received.
    *
-   * @param { function } callback The triggered callback when needs ssl client certificate from the user. [since 9 - 11]
-   * @param { Callback<OnClientAuthenticationEvent> } callback The triggered callback when needs ssl client certificate
-   *     from the user. [since 12]
+   * > **NOTE**
+   * >
+   * > - The **Web** component can respond with
+   * > [ClientAuthenticationHandler.confirm]{@link ClientAuthenticationHandler#confirm(authUri: string)},
+   * > [ClientAuthenticationHandler.cancel]{@link ClientAuthenticationHandler#cancel}, or
+   * > [ClientAuthenticationHandler.ignore]{@link ClientAuthenticationHandler#ignore}.
+   * >
+   * > - If **ClientAuthenticationHandler.confirm** or **ClientAuthenticationHandler.cancel** is called, the **Web**
+   * > component stores the authentication result in the memory (within the application lifecycle) and does not call
+   * > **onClientAuthenticationRequest()** again for the same host and port. If **onClientAuthenticationRequest.ignore**
+   * > is called, the **Web** component does not store the authentication result.
+   *
+   * @param { function } callback - Callback invoked when an SSL client certificate is required. [since 9 - 11]
+   * @param { Callback<OnClientAuthenticationEvent> } callback - Callback invoked when an SSL client certificate is
+   *     required. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7348,9 +8018,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page needs verify pin from the user.
+   * Triggered to notify the user of PIN verification. This API uses an asynchronous callback to return the result.
    *
-   * @param { OnVerifyPinCallback } callback - The triggered callback when needs verify pin from the user.
+   * @param { OnVerifyPinCallback } callback - Callback triggered to notify the user of PIN authentication.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -7358,21 +8028,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
 
   /**
-   * Triggered when web page requires to create a new window.
-   * If the {@link setWebController} interface is not called, the render process will be blocked.
-   * If no new window is created, it is set to null when calling the {@link setWebController} interface,
-   * informing the Web that no new window is created.
-   * New windows must not be placed to directly cover the original Web component. Additionally,
-   * their URLs―specifically the content shown in the address bar―should follow the same display
-   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where
-   * reliable visual management of URLs is not feasible, restricting the creation of new windows
-   * should be considered. It is also important to note that the origin of new window requests
-   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes.
-   * For this reason, applications must implement default defensive measures like sandbox isolation
-   * and permission controls to safeguard security.
+   * Triggered to notify the user of a new window creation request, when **multiWindowAccess** is enabled.
    *
-   * @param {  Callback<OnWindowNewEvent> } callback The web page requests the user to create a window. [since 12]
-   *     { function } callback The triggered callback when web page requires the user to create a window. [since 9 - 11]
+   * If the [setWebController]{@link ControllerHandler#setWebController} API is not called, the render process will be
+   * blocked.
+   *
+   * If no new window is created, set this parameter to **null** when invoking the
+   * [setWebController]{@link ControllerHandler#setWebController} API to notify the **Web** component that no new window
+   * is created.
+   *
+   * The new window cannot be directly overlaid on the original **Web** component, and its URL (for example, address bar
+   * ) must be clearly displayed in the same way as the main page to prevent confusion. If visible management of trusted
+   * URLs cannot be implemented, consider prohibiting the creation of new windows.
+   *
+   * Note that the source of a new window request cannot be reliably traced. The request may be initiated by a third-
+   * party iframe. By default, the application needs to take defense measures such as sandbox isolation and permission
+   * restriction to ensure security.
+   *
+   * @param {  Callback<OnWindowNewEvent> } callback - Callback invoked when the web page requests the user to create a
+   *     window. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7382,20 +8056,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowNew(callback: Callback<OnWindowNewEvent>): WebAttribute;
 
   /**
-   * Triggered when web page requires to create a new window.
-   * If the {@link setWebController} interface is not called, the render process will be blocked.
-   * If no new window is created, it is set to null when calling the {@link setWebController} interface,
-   * informing the Web that no new window is created.
-   * New windows must not be placed to directly cover the original Web component. Additionally,
-   * their URLs—specifically the content shown in the address bar—should follow the same display
-   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where
-   * reliable visual management of URLs is not feasible, restricting the creation of new windows
-   * should be considered. It is also important to note that the origin of new window requests
-   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes.
-   * For this reason, applications must implement default defensive measures like sandbox isolation
-   * and permission controls to safeguard security.
-   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user
-   *     to create a window.
+   * Triggered to notify the user of a new window creation request when
+   * [multiWindowAccess]{@link WebAttribute#multiWindowAccess} is enabled.
+   *
+   * > **NOTE**
+   * >
+   * > - If the [setWebController]{@link ControllerHandler#setWebController} API is not called, the render process will
+   * > be blocked.
+   * >
+   * > - If no new window is created, the [setWebController]{@link ControllerHandler#setWebController} API is called and
+   * > set to **null**, notifying the web page that no new window is created.
+   * >
+   * > - The new window cannot be directly overlaid on the original **Web** component, and its URL (for example, address
+   * > bar) must be clearly displayed in the same way as the main page to prevent confusion. If the URL display and
+   * > verification mechanism cannot be ensured to be reliable, you need to disable the creation of new windows.
+   * >
+   * > - The source of a new window request cannot be reliably traced. The request may be initiated by a third-party
+   * > iframe. By default, the application needs to take defense measures such as sandbox isolation and permission
+   * > restriction to ensure security.
+   *
+   * @param {  Callback<OnWindowNewExtEvent> } callback - Callback invoked when the web page requests the user to create
+   *     a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7405,10 +8086,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when this window is closed. This API works in the same way as
-   * [onWindowNew](docroot://reference/apis-arkweb/arkts-basic-components-web-events.md#onwindownew9). For security,
-   * applications should notify users that the pages they interact with are closed.
+   * [onWindowNew]{@link WebAttribute#onWindowNew}. For security, applications should notify users that the pages they
+   * interact with are closed.
    *
-   * @param { function } callback The triggered callback when web page requires the user to close a window.
+   * @param { function } callback - Callback invoked when the window is closed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7418,10 +8099,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowExit(callback: () => void): WebAttribute;
 
   /**
-   * Sets whether to enable the multi-window permission.
+   * Sets whether to enable the multi-window permission. If this attribute is not explicitly called, the permission is
+   * disabled by default.
    *
-   * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
-   *    The default value is false.
+   * Enabling the multi-window permission requires implementation of the **onWindowNew** event. For the sample code, see
+   * [onWindowNew]{@link WebAttribute#onWindowNew}.
+   *
+   * @param { boolean } multiWindow - Whether to enable the multi-window permission.
+   *     <br>The value **true** means to enable, and **false** means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7433,7 +8118,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the key event is intercepted and before it is consumed by the webview.
    *
-   * @param { function } callback Key event info.
+   * @param { function } callback - Key event that is triggered.
+   *     <br>The return value is of the Boolean type. The value **true** means to pass the **KeyEvent** to the web
+   *     kernel, and **false** means the opposite.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7443,11 +8130,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the standard font family of the web page to render HTML elements whose font style is not specified.
-   * 
+   *
    * When this attribute is not explicitly called, the default standard font family of the web page is **sans-serif**.
    *
-   * @param { string } family - Standard font family to set.<br>When **null** or **undefined** is passed in, the sans-
-   *     serif font family is **sans-serif**.
+   * @param { string } family - Standard font family to set.
+   *     <br>When **null** or **undefined** is passed in, the sans-serif font family is **sans-serif**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7457,11 +8144,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the serif font family of the web page to render HTML elements that use the **serif** font.
-   * 
+   *
    * When this attribute is not explicitly called, the default serif font family of the web page is **serif**.
    *
-   * @param { string } family - Serif font family to set.<br>When **null** or **undefined** is passed in, the sans-serif
-   *     font family is **serif**.
+   * @param { string } family - Serif font family to set.
+   *     <br>When **null** or **undefined** is passed in, the sans-serif font family is **serif**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7471,12 +8158,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the sans-serif font family of the web page to render HTML elements that use the **sans-serif** font.
-   * 
-   * When this attribute is not explicitly called, the sans-serif font family of the web page is **sans-serif** by 
+   *
+   * When this attribute is not explicitly called, the sans-serif font family of the web page is **sans-serif** by
    * default.
    *
-   * @param { string } family - Sans-serif font family to set.<br>When **null** or **undefined** is passed in, the sans-
-   *     serif font family is **sans-serif**.
+   * @param { string } family - Sans-serif font family to set.
+   *     <br>When **null** or **undefined** is passed in, the sans-serif font family is **sans-serif**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7486,11 +8173,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the fixed font family of the web page to render HTML elements that use the **monospace** font.
-   * 
+   *
    * When this attribute is not explicitly called, the default fixed font family of the web page is **monospace**.
    *
-   * @param { string } family - Fixed font family to set.<br>When **null** or **undefined** is passed in, the value is
-   *     **monospace**.
+   * @param { string } family - Fixed font family for web pages. The value is a font name string, for example, "
+   *     monospace" or "Arial".
+   *     <br>The value **monospace** is used when null or undefined is passed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7500,11 +8188,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the fantasy font family of the web page to render HTML elements that use the **fantasy** font.
-   * 
+   *
    * When this attribute is not explicitly called, the default fantasy font family of the web page is **fantasy**.
    *
-   * @param { string } family - Fantasy font family to set.<br>When **null** or **undefined** is passed in, the value is
-   *     **fantasy**.
+   * @param { string } family - Fantasy font family to set.
+   *     <br>When **null** or **undefined** is passed in, the value is **fantasy**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7514,11 +8202,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the cursive font family of the web page to render HTML elements that use the **cursive** font.
-   * 
+   *
    * When this attribute is not explicitly called, the default cursive font family of the web page is **cursive**.
    *
-   * @param { string } family - Cursive font family to set.<br>When **null** or **undefined** is passed in, the value is
-   *     **cursive**.
+   * @param { string } family - Cursive font family to set.
+   *     <br>When **null** or **undefined** is passed in, the value is **cursive**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7527,14 +8215,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   webCursiveFont(family: string): WebAttribute;
 
   /**
-   * Sets the default fixed font size for the web page. For HTML elements that use the **monospace** font and do not 
+   * Sets the default fixed font size for the web page. For HTML elements that use the **monospace** font and do not
    * specify **font-size**, the font size is rendered based on this value.
-   * 
+   *
    * When this attribute is not explicitly called, the default fixed font size is **13**.
    *
-   * @param { number } size - Default fixed font size to set, in px.<br>Value range: [-2^31, 2^31-1]. In actual
-   *     rendering, values greater than 72 px are handled as 72 px, and values less than 1 px are handled as 1 px.<br><
-   *     br>When **null** or **undefined** is passed in, the value is **13**.
+   * @param { number } size - Default fixed font size to set, in px.
+   *     <br>Value range: [-2^31, 2^31-1]. In actual rendering, values greater than 72 px are handled as 72 px, and
+   *     values less than 1 px are handled as 1 px.
+   *     <br>When **null** or **undefined** is passed in, the value is **13**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7543,14 +8232,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultFixedFontSize(size: number): WebAttribute;
 
   /**
-   * Sets the default font size for the web page. For HTML elements that use non-monospace fonts and do not specify 
+   * Sets the default font size for the web page. For HTML elements that use non-monospace fonts and do not specify
    * **font-size**, the font size is rendered based on this value.
-   * 
+   *
    * When this attribute is not explicitly called, the default font size of the web page is **16**.
    *
-   * @param { number } size - Default font size to set, in px.<br>Value range: [-2^31, 2^31-1]. In actual rendering,
-   *     values greater than 72 px are handled as 72 px, and values less than 1 px are handled as 1 px.<br>When **null**
-   *     or **undefined** is passed in, the value is **16**.
+   * @param { number } size - Default font size to set, in px.
+   *     <br>Value range: [-2^31, 2^31-1]. In actual rendering, values greater than 72 px are handled as 72 px, and
+   *     values less than 1 px are handled as 1 px.
+   *     <br>When **null** or **undefined** is passed in, the value is **16**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -7560,14 +8250,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultFontSize(size: number): WebAttribute;
 
   /**
-   * Sets the minimum font size for the web page. If the font size of HTML elements is smaller than the value set by 
+   * Sets the minimum font size for the web page. If the font size of HTML elements is smaller than the value set by
    * this API, the font size is rendered based on the value set by this API.
-   * 
+   *
    * When no attribute is explicitly called, the default minimum font size of the web page is **8**.
    *
-   * @param { number } size - Minimum font size to set, in px.<br>Value range: [-2^31, 2^31-1]. In actual rendering,
-   *     values greater than 72 px are handled as 72 px, and values less than 1 px are handled as 1 px.<br>When **null**
-   *     or **undefined** is passed in, the value is **8**.
+   * @param { number } size - Minimum font size to set, in px.
+   *     <br>Value range: [-2^31, 2^31-1]. In actual rendering, values greater than 72 px are handled as 72 px, and
+   *     values less than 1 px are handled as 1 px.
+   *     <br>When **null** or **undefined** is passed in, the value is **8**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7578,17 +8269,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the minimum logical font size for the web page.
-   * 
+   *
    * For HTML elements whose font size is not specified:
-   * 
+   *
    * 1. If the font size of the element is smaller than the value set by this API, the font size is rendered based on the API value.
    * 2. If **minLogicalFontSize** and **minFontSize** are both set, the larger value of the two will be used for elements whose font size is not specified.
-   * 
+   *
    * When this attribute is not explicitly called, the default minimum logical font size of the web page is **8**.
    *
-   * @param { number } size - Minimum logical font size to set, in px.<br>Value range: [-2^31, 2^31-1]. In actual
-   *     rendering, values greater than 72 px are handled as 72 px, and values less than 1 px are handled as 1 px.<br>
-   *     When **null** or **undefined** is passed in, the value is **18**.
+   * @param { number } size - Sets the minimum logical font size for web pages, in px.
+   *     <br>The value ranges from [-2^31, 2^31-1]. During actual rendering, values greater than 72 px are rendered as 7
+   *     2 px, and values less than 1 px are rendered as 1 px.
+   *     <br>Defaults to 8 when null or undefined is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7600,8 +8292,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets the default text encoding format for the web page. When this attribute is not explicitly called, the default
    * text encoding format of the web page is UTF-8.
    *
-   * @param { string } textEncodingFormat - Default text encoding format.<br>When **null** or **undefined** is passed in
-   *     , the value is **UTF-8**.
+   * @param { string } textEncodingFormat - Default text encoding format.
+   *     <br>When **null** or **undefined** is passed in, the value is **UTF-8**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7610,13 +8302,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
   /**
-   * Set whether the scroll bar is permanent. In the resident state,
-   * when the page size exceeds one page, the scroll bar appears and does not disappear.
+   * Sets whether the scroll bar is always visible. Under the always-visible settings, when the page size exceeds one
+   * page, the scroll bar appears and remains visible. When this attribute is not explicitly called, the scroll bar is
+   * not always visible by default.
    *
-   * Scroll bar resident is not supported in full expansion mode,
-   * that is, when layoutMode is WebLayoutMode.FIT_CONTENT mode, the parameter enabled is false.
+   * When **layoutMode** is set to **WebLayoutMode.FIT_CONTENT**, the **enabled** parameter is set to **false**.
    *
-   * @param { boolean } enabled {@code true} means show; {@code false} otherwise. default is false.
+   * > **NOTE**
+   * >
+   * > - This interface takes effect globally across all web components in the current application. When multiple web
+   * > components are set with different values, the value set for the first time will be used.
+   * >
+   * > - It is recommended that you use
+   * > [setScrollbarMode]{@link @ohos.web.webview:webview.WebviewController#setScrollbarMode()} to set the scrollbar
+   * > mode for all web components currently applied. If the setScrollbarMode interface is invoked at the same time,
+   * > the setting of the forceDisplayScrollBar interface does not take effect.
+   *
+   * @param { boolean } enabled - Whether the scroll bar is always displayed.
+   *     <br>The value **true** indicates that the scroll bar is always displayed, and **false** indicates the opposite.
+   *     <br>When layoutMode is set to WebLayoutMode.FIT_CONTENT, the enabled parameter is forcibly set to **false**,
+   *     and setting it to **true** does not take effect.
+   *     <br>If **undefined** or **null** is passed in, the attribute setting does not take effect.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7625,9 +8331,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
   /**
-   * Whether web component can load resource from network.
+   * Sets whether to block online downloads. When this attribute is not explicitly called, online resources can be
+   * loaded by default.
    *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * @param { boolean } block - Whether to allow online downloads.
+   *     <br>The value **true** means to block online downloads, and **false** means the opposite.
+   *     <br>If **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -7637,15 +8346,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   blockNetwork(block: boolean): WebAttribute;
 
   /**
-   * Set whether paint horizontal scroll bar.
+   * Sets whether to display the horizontal scrollbar, including the system default scrollbar and user-defined
+   * scrollbars. If this attribute is not explicitly called, the scrollbar is displayed by default.
    *
-   * <p><strong>API Note</strong>:<br>
-   * After controlling the horizontal scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
-   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - If an [@State](docroot://ui/state-management/arkts-state.md) decorated variable is used to control the
+   * > visibility of the horizontal scrollbar,
+   * > [controller.refresh()]{@link @ohos.web.webview:webview.WebviewController#refresh()} must be called for the
+   * > settings to take effect.
+   * >
+   * > - When the [@State](docroot://ui/state-management/arkts-state.md) decorated variable changes frequently and
+   * > dynamically, it is recommended to maintain a one-to-one correspondence between the toggle variable and the
+   * > **Web** component.
    *
-   * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
-   *     The default value is true.
+   * @param { boolean } horizontalScrollBar - Sets whether to display the horizontal scrollbar.
+   *     <br>The value **true** indicates to display it, and **false** indicates not to display it.
+   *     <br>The default value is **false** when undefined or null is passed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7655,15 +8372,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
 
   /**
-   * Set whether paint vertical scroll bar, including the system default scrollbar and user-defined scrollbar.
+   * Sets whether to display the vertical scrollbar, including the system default scrollbar and user-defined scrollbars.
+   * If this attribute is not explicitly called, the scrollbar is displayed by default.
    *
-   * <p><strong>API Note</strong>:<br>
-   * After controlling the vertical scrollbar's visibility through the @State variable, you need to call controller.refresh() to take effect.<br>
-   * When frequently changing the @State variable dynamically, it is recommended to match the toggle variable with the Web component one-to-one.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - If an @State decorated variable is used to control the vertical scrollbar visibility, **controller.refresh()**
+   * > must be called for the settings to take effect.
+   * >
+   * > - If the vertical scrollbar visibility changes frequently through an @State decorated variable, it is recommended
+   * > that the variable correspond to the **Web** component one by one.
    *
-   * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
-   *     The default value is true.
+   * @param { boolean } verticalScrollBar - Whether to display the vertical scrollbar.
+   *     <br>The value **true** means to display, and **false** means not to display.
+   *     <br>The default value is **false** when undefined or null is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7673,12 +8395,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
 
   /**
-   * Triggered when the application receive the url of an apple-touch-icon.
+   * Triggered when an apple-touch-icon URL is received.
    *
-   * @param { function } callback The triggered callback when the application receive an new url of an
-   *     apple-touch-icon. [since 9 - 11]
-   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback The triggered callback when the application receive an
-   *     new url of an apple-touch-icon. [since 12]
+   * @param { function } callback - Callback invoked when an apple-touch-icon URL is received. [since 9 - 11]
+   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback - Callback invoked when an apple-touch-icon URL is
+   *     received. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7687,12 +8408,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onTouchIconUrlReceived(callback: Callback<OnTouchIconUrlReceivedEvent>): WebAttribute;
 
   /**
-   * Triggered when the application receive a new favicon for the current web page.
+   * Triggered when this web page receives a new favicon.
    *
-   * @param { function } callback The triggered callback when the application receive a new favicon for the
-   *     current web page. [since 9 - 11]
-   * @param { Callback<OnFaviconReceivedEvent> } callback The triggered callback when the application receive a new
-   *     favicon for the current web page. [since 12]
+   * @param { function } callback - Callback invoked when the current web page receives a new favicon. [since 9 - 11]
+   * @param { Callback<OnFaviconReceivedEvent> } callback - Callback invoked when the current web page receives a new
+   *     favicon. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7703,9 +8423,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the old page is not displayed and the new page is about to be visible.
    *
-   * @param {  Callback<OnPageVisibleEvent> } callback Callback invoked when the old
-   * page is not displayed and the new page is about to be visible. [since 12]
-   *     { function } callback The triggered callback when previous page will no longer be drawn and next [since 9 - 11]
+   * @param {  Callback<OnPageVisibleEvent> } callback - Callback invoked when the old page is not displayed and the new
+   *     page is about to be visible. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7715,11 +8434,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageVisible(callback: Callback<OnPageVisibleEvent>): WebAttribute;
 
   /**
-   * Triggered when the form could be resubmitted.
+   * Triggered when the web form data can be resubmitted.
    *
-   * @param { function } callback The triggered callback to decision whether resend form data or not. [since 9 - 11]
-   * @param { Callback<OnDataResubmittedEvent> } callback The triggered callback to decision whether resend form data or
-   *     not. [since 12]
+   * @param { function } callback - Callback invoked when the web form data can be resubmitted. [since 9 - 11]
+   * @param { Callback<OnDataResubmittedEvent> } callback - Callback invoked when the web form data can be
+   *     resubmitted. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7731,9 +8450,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable pinch smooth mode for the web page. When this attribute is not explicitly called, pinch
    * smooth mode is disabled by default.
    *
-   * @param { boolean } isEnabled - Whether to enable pinch smooth mode for the web page.<br>The value **true** means to
-   *     enable pinch smooth mode, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the
-   *     value is **false**.
+   * @param { boolean } isEnabled - Whether to enable pinch smooth mode for the web page.
+   *     <br>The value **true** means to enable pinch smooth mode, and **false** means the opposite.
+   *     <br>If **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7742,41 +8461,47 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   pinchSmooth(isEnabled: boolean): WebAttribute;
 
   /**
-   * Whether the window can be open automatically through JavaScript.
-   * <p><strong>API Note</strong>:<br>
-   * This API takes effect only when {@link JavaScript} is enabled.
-   * This API opens a new window when {@link multiWindowAccess} is enabled and opens a local window
-   * when {@link multiWindowAccess} is disabled.
-   * The default value of **flag** is subject to the settings of the **persist.web.allowWindowOpenMethod.enabled** system attribute.
-   * If this attribute is not set, the default value of **flag** is **false**.
-   * To check the settings of **persist.web.allowWindowOpenMethod.enabled**,
-   * run the **hdc shell param get persist.web.allowWindowOpenMethod.enabled** command.
-   * If the attribute value is 1, it means the system attribute is enabled;
-   * If the attribute value is 0 or does not exist, it means that the system attribute has not been enabled.
-   * you can run the **hdc shell param set persist.web.allowWindowOpenMethod.enabled 1** command to enable it.
-   * </p>
+   * Sets whether to allow a new window to automatically open through JavaScript.
    *
-   * @param { boolean } flag If it is true, the window can be opened automatically through JavaScript.
-   * If it is false and user behavior, the window can be opened automatically through JavaScript.
-   * Otherwise, the window cannot be opened.
-   * The user behavior here refers to the behavior of requesting to open a new window (window. open) within 5 seconds after
-   * the user clicks or performs other operations on the web component.
-   * The default value is associated with system properties.
-   * When the system property **persist.web.allowWindowOpenMethod.enabled** is set to true, the default value is true.
-   * If the system property is not set, the default value is false.
+   * > **NOTE**
+   * >
+   * > - This API takes effect only when [javaScriptAccess]{@link WebAttribute#javaScriptAccess} is enabled.
+   * >
+   * > - This API opens a new window when [multiWindowAccess]{@link WebAttribute#multiWindowAccess} is enabled, and a
+   * > local window when it is disabled.
+   * >
+   * > - The default value of **flag** is subject to the settings of the **persist.web.allowWindowOpenMethod.enabled**
+   * > system attribute. If this attribute is not set, the default value of **flag** is **false**.
+   * >
+   * > - Run the **hdc shell param get persist.web.allowWindowOpenMethod.enabled** command to check whether the system
+   * > attribute **persist.web.allowWindowOpenMethod.enabled** is enabled. If the attribute value is **1**, the system
+   * > attribute is enabled. If the attribute value is **0** or does not exist, the system attribute is disabled. You
+   * > can run the **hdc shell param set persist.web.allowWindowOpenMethod.enabled 1** command to enable the system
+   * > attribute.
+   *
+   * @param { boolean } flag -
+   *     <br>Whether to allow a new window to automatically open through JavaScript. The value **true** means to allow a
+   *     new window to automatically open through JavaScript, and **false** means only to allow a new window to
+   *     automatically open through JavaScript using user behaviors.
+   *     <br>The user behavior here refers to a user requests to open a new window (**window.open**) within 5 seconds
+   *     after operating the **Web** component.
+   *     <br>The default value of **flag** is subject to the settings of the
+   *     **persist.web.allowWindowOpenMethod.enabled** system attribute. If this attribute is set to **true**, the
+   *     default value of **flag** is **true**. If this attribute is not set, the default value of **flag** is
+   *     **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  allowWindowOpenMethod(flag: boolean): WebAttribute;
+  allowWindowOpenMethod(flag : boolean): WebAttribute;
 
   /**
    * Triggered when the audio playback status on the web page changes.
    *
    * @param { Callback<OnAudioStateChangedEvent> } callback - Callback invoked when the audio playback status on the web
-   *     page changes. Before API 12�� use { function } as param.
+   *     page changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7822,11 +8547,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
   /**
-   * Triggered when the navigation is intercepted.
+   * Triggered when the **Web** component is about to access a URL. This API is used to determine whether to block the
+   * access.
    *
-   * @param { function } callback The triggered callback when the navigation is intercepted. [since 10 - 11]
-   * @param { Callback<OnLoadInterceptEvent, boolean> } callback The triggered callback when the navigation is
-   *     intercepted. [since 12]
+   * @param { function } callback - Callback triggered when a navigation (including iframe navigation) occurs, allowing
+   *     the application to approve or cancel it.
+   *     <br>The return value is of the Boolean type. The value **true** means to cancel the navigation, and **false**
+   *     means the opposite.
+   *     <br>If **undefined** or **null** is returned, the value is **false**. [since 10 - 11]
+   * @param { Callback<OnLoadInterceptEvent, boolean> } callback - Callback triggered when a navigation (including
+   *     iframe navigation) occurs, allowing the application to approve or cancel it.
+   *     <br>The return value is of the Boolean type. The value **true** means to cancel the navigation, and **false**
+   *     means the opposite.
+   *     <br>If **undefined** or **null** is returned, the value is **false**. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7837,9 +8570,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the controller is successfully bound to the **Web** component. The controller must be
-   * **WebviewController**. Do not call APIs related to the **Web** component before this callback event. Otherwise, a js-
-   * error exception will be thrown.
-   * @param { function } callback The triggered callback when web controller initialization success.
+   * **WebviewController**. Do not call APIs related to the **Web** component before this callback event. Otherwise, a
+   * js-error exception will be thrown.
+   *
+   * The web page has not been loaded when the callback is called. Therefore, APIs related to web page operations, such
+   * as [zoomIn]{@link @ohos.web.webview:webview.WebviewController#zoomIn},
+   * [zoomOut]{@link @ohos.web.webview:webview.WebviewController#zoomOut}, cannot be used in the callback. You can use
+   * APIs irrelevant to web page operations, such as
+   * [loadUrl]{@link @ohos.web.webview:webview.WebviewController#loadUrl},
+   * [getWebId]{@link @ohos.web.webview:webview.WebviewController#getWebId}.
+   *
+   * For details about the component lifecycle, see
+   * [Lifecycle of the Web Component](docroot://web/web-event-sequence.md).
+   *
+   * @param { function } callback - Callback invoked when the ArkWeb controller is successfully initialized.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -7849,10 +8593,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onControllerAttached(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the overscroll occurs.
+   * Triggered when the web page is overscrolled. It is used to notify the application of the overscroll offset.
    *
-   * @param { function } callback Function triggered when the overscroll occurs. [since 10 - 11]
-   * @param { Callback<OnOverScrollEvent> } callback Function triggered when the overscroll occurs. [since 12]
+   * @param { function } callback - Callback invoked when the web page is overscrolled. [since 10 - 11]
+   * @param { Callback<OnOverScrollEvent> } callback - Callback invoked when the web page is overscrolled. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -7883,9 +8627,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPdfLoadEvent(callback: Callback<OnPdfLoadEvent>): WebAttribute;
 
   /**
-   * Called when received website security risk check result.
+   * Called when the safe browsing check result is received.
    *
-   * @param { OnSafeBrowsingCheckResultCallback } callback - Function triggered when received website security risk check result.
+   * @param { OnSafeBrowsingCheckResultCallback } callback - Callback invoked when the safe browsing check result is
+   *     received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7894,13 +8639,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSafeBrowsingCheckResult(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
-   * Triggered when the website security risk check is completed.
+   * Called when the safe browsing check is complete.
    *
-   * <p><strong>API Note</strong>:<br>
-   * Unlike onSafeBrowsingCheckResult, which is only triggered when a URL has security risks, onSafeBrowsingCheckFinish
-   * is also triggered when the website security risk check is not performed or no risks are found.
-   *
-   * @param { OnSafeBrowsingCheckResultCallback } callback - Triggered when received website security risk check result.
+   * @param { OnSafeBrowsingCheckResultCallback } callback - Callback invoked when the safe browsing check result is
+   *     received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -7908,9 +8650,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSafeBrowsingCheckFinish(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
-   * Called when the load committed.
+   * Triggered when a web page redirection request is submitted.
    *
-   * @param { OnNavigationEntryCommittedCallback } callback Function Triggered when a load committed.
+   * @param { OnNavigationEntryCommittedCallback } callback - Callback invoked when a web page redirection request is
+   *     submitted.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7919,10 +8662,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNavigationEntryCommitted(callback: OnNavigationEntryCommittedCallback): WebAttribute;
 
   /**
-   * Called when tracker's cookie is prevented.
+   * Triggered when the intelligent tracking prevention feature is enabled and the tracker cookie is blocked.
    *
-   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is
-   *     prevented.
+   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback invoked when the intelligent tracking
+   *     prevention feature is enabled and the tracker cookie is blocked.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7931,18 +8674,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component.
-   * When the specified page or document starts to be loaded, the script is executed on any page whose source matches
-   * scriptRules.
+   * Injects a JavaScript script into the **Web** component. When the specified page or document starts to be loaded,
+   * the script is executed on any page whose source matches **scriptRules**. When this attribute is not explicitly
+   * called, JavaScript scripts are not injected into the **Web** component by default.
    *
-   * <p><strong>API Note</strong>:<br>
-   * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order instead of array sequence.
-   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
-   * You are not advised to use this API together with runJavaScriptOnDocumentStart.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - The script is injected after the root element (HTML Element) of the web document is created but before any
+   * > other content is loaded.
+   * >
+   * > - The scripts are executed in lexicographic order, not in the order of the array. If the original array order is
+   * > required, use the [runJavaScriptOnDocumentStart]{@link WebAttribute#runJavaScriptOnDocumentStart} API instead.
+   * >
+   * > - When scripts with identical content are injected multiple times, they are silently deduplicated without display
+   * > or notification, and the **scriptRules** from the first injection are used.
+   * >
+   * > - This API does not support [UrlRegexRule]{@link UrlRegexRule}.
+   * >
+   * > - You are advised to use [runJavaScriptOnDocumentStart]{@link WebAttribute#runJavaScriptOnDocumentStart} instead.
    *
-   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @param { Array<ScriptItem> } scripts - Script item array to be injected.
+   *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7951,16 +8703,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
-   * the script is executed on any page whose source matches scriptRules.
+   * Injects a JavaScript script into the **Web** component. When the specified page or document has been loaded, the
+   * script is executed on any page whose source matches **scriptRules**. When this attribute is not explicitly called,
+   * JavaScript scripts are not injected into the **Web** component by default.
    *
-   * <p><strong>API NOTE</strong>:<br>
-   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
-   * The script is excuted in the lexicographic order, not the array order.
-   * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
-   * <p>
+   * > **NOTE**
+   * >
+   * > - The script runs after any JavaScript code on the page, and the DOM tree has already been loaded and rendered at
+   * > that point.
+   * >
+   * > - The scripts are executed in lexicographic order, not in the order of the array.
+   * >
+   * > - When scripts with identical content are injected multiple times, they are silently deduplicated without display
+   * > or notification, and the **scriptRules** from the first injection are used.
+   * >
+   * > - This API does not support [UrlRegexRule]{@link UrlRegexRule}.
+   * >
+   * > - You are advised to use [runJavaScriptOnDocumentEnd]{@link WebAttribute#runJavaScriptOnDocumentEnd} instead.
    *
-   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @param { Array<ScriptItem> } scripts - Script item array to be injected.
+   *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7969,35 +8731,46 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Sets the web layout mode. When this attribute is not explicitly called, the web layout follows the system mode by
-   * default. For details, see [Fitting In the Page Content Layout](docroot://web/web-fit-content.md).
+   * Sets the layout mode of the **Web** component. If this attribute is not explicitly called, the **Web** layout
+   * follows the system mode (**WebLayoutMode.NONE**) by default. For common issues, see
+   * [Web Component Size Adapting to Page Content Layout](docroot://web/web-fit-content.md).
    *
    * > **NOTE**
    * >
-   * > Currently, only two web layout modes are supported: **WebLayoutMode.NONE** and **WebLayoutMode.FIT_CONTENT**.
+   * > Currently, only two **Web** layout modes are supported:
    * >
-   * > The following restrictions apply with the usage of **WebLayoutMode.FIT_CONTENT**:
+   * > - The **Web** layout follows the system mode (**WebLayoutMode.NONE**).
    * >
-   * > - If the **Web** component is wider or longer than 7680 px, specify the **RenderMode.SYNC_RENDER** mode when
-   * > creating the **Web** component; otherwise, the screen may be blank.
+   * > - The **Web** component height adapts to the frontend page height (**WebLayoutMode.FIT_CONTENT**).
    * >
-   * > - After the **Web** component is created, dynamic switching of the **layoutMode** is not supported.
+   * > The adaptive layout of the **Web** component height based on the frontend page has the following limitations:
    * >
-   * > - When the **RenderMode.ASYNC_RENDER** mode is specified, the width and height of a **Web** component cannot
-   * > exceed 7680 px.
+   * > - When **layoutMode** is set to **WebLayoutMode.FIT_CONTENT**:
    * >
-   * > - Frequent changes to the page width and height will trigger a re-layout of the **Web** component, which can
-   * > affect the user experience.
+   * > - [forceDisplayScrollBar]{@link WebAttribute#forceDisplayScrollBar} does not support persistent display.
    * >
-   * > - Waterfall web pages are not supported (pull down to the bottom to load more).
+   * > - [blankScreenDetectionConfig]{@link WebAttribute#blankScreenDetectionConfig} does not take effect.
    * >
-   * > - Width adaptation is not supported. Only height adaptation is supported.
+   * > - If the width or height of the **Web** component exceeds 7680 px, specify the **RenderMode.SYNC_RENDER** mode
+   * > when creating the **Web** component. Otherwise, the entire screen will be blank.
    * >
-   * > - Because the height is adaptive to the web page height, the component height cannot be changed by modifying the
+   * > - Dynamic switching of the **layoutMode** mode is not supported after the **Web** component is created.
+   * >
+   * > - **Web** component size specifications: When **RenderMode.ASYNC_RENDER** is specified, the width and height must
+   * > not exceed 7680 px respectively.
+   * >
+   * > - Frequent changes to the page width and height will trigger re-layout of the **Web** component, affecting the
+   * > user experience.
+   * >
+   * > - Waterfall layout web pages (loading more content when scrolling to the bottom) are not supported.
+   * >
+   * > - Width adaptation is not supported; only height adaptation is supported.
+   * >
+   * > - Because the height adapts to the web page height, you cannot modify the component height by changing the
    * > component height attribute.
    *
-   * @param { WebLayoutMode } mode - Web layout mode.<br>When **null** or **undefined** is passed in, the value is
-   *     **WebLayoutMode.NONE**.
+   * @param { WebLayoutMode } mode - Specifies the Web layout mode, which can follow the system or adaptive layout.
+   *     <br>When null or undefined is passed, `WebLayoutMode.NONE` is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -8007,24 +8780,37 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   layoutMode(mode: WebLayoutMode): WebAttribute;
 
   /**
-   * Called to setting the nested scroll options.
+   * Sets nested scrolling options.
    *
-   * <p><strong>API Note</strong>:<br>
-   * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
-   * to achieve scrolling linkage with the parent component.<br>
-   * When value is of type NestedScrollOptionsExt (four directions: up, down, left, and right), the default scrolling options
-   * for scrollUp, scrollDown, scrollLeft, and scrollRight are NestedScrollMode.SELF_FIRST.<br>
-   * When value is of type NestedScrollOptions (two directions: forward and backward), the default scrolling options for scrollForward
-   * and scrollBackward are NestedScrollMode.SELF_FIRST.<br>
-   * Supported nested scrolling containers: Grid, List, Scroll, Swiper, Tabs, WaterFlow, Refresh, bindSheet.<br>
-   * Supported nested scrolling input events: gestures, mouse, and trackpad.<br>
-   * In nested scrolling scenarios, since web scrolling to the edge will prioritize triggering the overscroll bounce effect,
-   * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - You can set the up, down, left, and right directions, or set the forward and backward nested scrolling modes to
+   * > implement scrolling linkage with the parent component.
+   * >
+   * > - Containers that support nested scrolling: [Grid]{@link ./grid}, [List]{@link ./list}, [Scroll]{@link ./scroll},
+   * > [Swiper]{@link ./swiper}, [Tabs]{@link ./tabs}, [WaterFlow]{@link ./water_flow}, [Refresh]{@link ./refresh} and
+   * > [bindSheet]{@link CommonMethod#bindSheet}.
+   * >
+   * > - Input sources that support nested scrolling: gestures, mouse device, and touchpad.
+   * >
+   * > - In nested scrolling scenarios, since the **Web** component's over-scrolling to the edge will trigger the over-
+   * > scroll bounce effect first, it is recommended that you set [overScrollMode]{@link WebAttribute#overScrollMode} to
+   * > **OverScrollMode.NEVER** to avoid undermining user experience.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling. [since 11 - 13]
-   * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
-   *     nested scrolling. [since 14]
+   * @param { NestedScrollOptions } value - Nested scrolling options.
+   *     <br> When the value is of the **NestedScrollOptions** type (forward and backward), the default nested scrolling
+   *     mode of the **scrollForward** and **scrollBackward** options is
+   *     [NestedScrollMode.SELF_FIRST]{@link NestedScrollMode}.
+   *     <br> When the value is of the **NestedScrollOptionsExt** type (up, down, left, and right), the default nested
+   *     scrolling mode of the **scrollUp**, **scrollDown**, **scrollLeft**, and **scrollRight** options is
+   *     **NestedScrollMode.SELF_FIRST**. [since 11 - 13]
+   * @param { NestedScrollOptions | NestedScrollOptionsExt } value - Nested scrolling options.
+   *     <br> When the value is of the **NestedScrollOptions** type (forward and backward), the default nested scrolling
+   *     mode of the **scrollForward** and **scrollBackward** options is
+   *     [NestedScrollMode.SELF_FIRST]{@link NestedScrollMode}.
+   *     <br> When the value is of the **NestedScrollOptionsExt** type (up, down, left, and right), the default nested
+   *     scrolling mode of the **scrollUp**, **scrollDown**, **scrollLeft**, and **scrollRight** options is
+   *     **NestedScrollMode.SELF_FIRST**. [since 14]
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8037,9 +8823,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable the same-layer rendering feature. When this method is not explicitly called, the same-layer
    * rendering feature is disabled by default.
    *
-   * @param { boolean } enabled - Whether to enable the same-layer rendering feature.<br>The value **true** means to
-   *     enable the same-layer rendering feature, and **false** means the opposite.<br>When **undefined** or **null** is
-   *     passed in, the value is **false**.
+   * > **NOTE**
+   * >
+   * > APIs such as [registerNativeEmbedRule]{@link WebAttribute#registerNativeEmbedRule} and
+   * > [nativeEmbedOptions]{@link WebAttribute#nativeEmbedOptions} take effect only when this attribute is enabled.
+   *
+   * @param { boolean } enabled - Whether to enable the same-layer rendering feature.
+   *     <br>The value **true** means to enable the same-layer rendering feature, and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8082,9 +8873,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
   /**
-   * Triggered when embed visibility changes.
+   * Triggered when the visibility of a same-layer tag (such as an **\<embed>** tag or an **\<object>** tag) on a web
+   * page changes in the viewport. Same-layer tags are invisible by default. If a tag is visible when the page is loaded
+   * for the first time, it is reported. If a tag is invisible, it is not reported. Same-layer tags are considered
+   * invisible only when they are all invisible. Partially visible or all visible tags are considered visible. To obtain
+   * the visible status change caused by the CSS attributes (including visibility, display, and size change) of the same
+   * -layer tag, configure [nativeEmbedOptions]{@link WebAttribute#nativeEmbedOptions} and set
+   * **supportCssDisplayChange** in [EmbedOptions]{@link EmbedOptions} to **true**.
    *
-   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
+   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback invoked when the visibility of a same-layer
+   *     tag changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -8117,9 +8915,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
 
   /**
-   * Called to set copy option
+   * Sets the clipboard copy scope option. If this attribute is not explicitly called, pasting across all apps on the
+   * current device is supported by default after copying.
    *
-   * @param { CopyOptions } value - copy option.The default value is CopyOptions.LocalDevice.
+   * > **NOTE**
+   * >
+   * > When this attribute is set to **CopyOptions.None**, the **enablePreviewMenu** configuration item in
+   * > [dataDetectorConfig]{@link WebAttribute#dataDetectorConfig} does not take effect. When
+   * > [enableDataDetector]{@link WebAttribute#enableDataDetector} is set to **true** and this attribute is set to
+   * > **CopyOptions.LocalDevice**, the AI menu feature is activated.
+   *
+   * @param { CopyOptions } value - Pasteboard copy options.
+   *     <br>When **undefined** or **null** is passed in, the value is **CopyOptions.None**.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8128,10 +8935,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   copyOptions(value: CopyOptions): WebAttribute;
 
   /**
-   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
-   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
+   * Triggered when the URL is about to be loaded in the current web page, allowing the host application to obtain
+   * control and determine whether to prevent the web page from loading the URL.
    *
-   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
+   * > **NOTE**
+   * >
+   * > - POST requests do not trigger this callback.
+   * >
+   * > - This callback is triggered when the iframe loads a non-HTTP(S) document. It is not triggered for HTTP(S)
+   * > documents, **about:blank**, or for any redirection that is started via **loadUrl(url: string)**.
+   * >
+   * > - Do not call **loadUrl(url: string)** with the same URL in the callback and return **true**. Doing so would
+   * > unnecessarily cancel the current loading and start an identical one. To continue loading the current request URL,
+   * > return **false** instead of calling **loadUrl(url: string)**.
+   *
+   * @param { OnOverrideUrlLoadingCallback } callback - Callback for **onOverrideUrlLoading**.
+   *     <br>Return value: boolean
+   *     <br> The value **true** means to stop loading the URL, and the value **false** means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8141,14 +8961,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
   /**
-   * Triggered when the web page's document resource error.
+   * Triggered when an error occurs during web page loading of main resources. You can use this API to customize the
+   * error display page.
    *
-   * <p><strong>API Note</strong>:<br>
-   * This only triggered for main frame.
-   * </p>
+   * > **NOTE**
+   * >
+   * > This feature takes effect only after the default error page is enabled by calling the
+   * > [setErrorPageEnabled]{@link @ohos.web.webview:webview.WebviewController#setErrorPageEnabled(enable: boolean)}
+   * > API.
+   * >
+   * > If the error code obtained through [errorPageEvent.error.getErrorCode()]{@link WebResourceError#getErrorCode} is
+   * > greater than 0, it indicates an HTTP error. If the error code is less than 0, it indicates a network error.
    *
-   * @param { OnOverrideErrorPageCallback } callback The triggered function when the
-   *                                        web page's document resource error.
+   * @param { OnOverrideErrorPageCallback } callback - Callback triggered when an error occurs during web page loading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -8165,15 +8990,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * > **NOTE**
    * >
    * > - The preconditions for automatic font sizing to take effect are as follows:
-   * > >   - The device type should be phone, tablet, wearable, or TV.
-   * > >   - The viewport width of the **Web** component is less than 980 px.
-   * > >   - The page is text-heavy: font size (px) × character count ≥ 3920.
-   * > >   - **metaViewport** is not set on the frontend, or the **metaViewport** does not contain the **width** and
+   * >
+   * > - The device type should be phone, tablet, wearable, or TV.
+   * >
+   * > - The viewport width of the **Web** component is less than 980 px.
+   * >
+   * > - The page is text-heavy: font size (px) × character count ≥ 3920.
+   * >
+   * > - **metaViewport** is not set on the frontend, or the **metaViewport** does not contain the **width** and
    * > **initial-scale** attributes.
    *
-   * @param { boolean } textAutosizing - Whether to enable automatic text resizing.<br>The value **true** means to
-   *     enable automatic text resizing, and **false** means the opposite.<br>When **undefined** or **null** is passed
-   *     in, the value is **true**.
+   * @param { boolean } textAutosizing - Whether to enable automatic text resizing.
+   *     <br>The value **true** means to enable automatic text resizing, and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8186,10 +9015,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * [application to take over web page media playback](docroot://web/app-takeovers-web-media.md). When this attribute
    * is not explicitly called, the web page media playback takeover feature is disabled by default.
    *
-   * @param { NativeMediaPlayerConfig } config - **enable**: whether to enable the feature.<br> **shouldOverlay**:
-   *     whether the image of the video player taken over by the application will overlay the web page content, if this
-   *     feature is enabled.<br>When **undefined** or **null** is passed in, the value is
-   *     **{enable: false, shouldOverlay: false}**.
+   * @param { NativeMediaPlayerConfig } config - Configuration object for the app to take over web media playback. It
+   *     contains the following attributes: enable (boolean type, whether to enable this feature, default value: false),
+   *     shouldOverlay (boolean type, whether the player view of the app taking over web video playback overlays the web
+   *     content after the feature is enabled, default value: false).
+   *     <br>If undefined or null is passed, it is equivalent to `{enable: false, shouldOverlay: false}`.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8199,14 +9029,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the rendering process does not respond. If the **Web** component cannot process the input event or
-   * navigate to a new URL within a proper time range, the web page process is considered unresponsive and the callback is
-   * triggered. If the web page process does not respond, this callback may be triggered until the web page process responds again.
-   * In this case, [onRenderProcessResponding] is triggered.
-   * You can terminate the associated rendering process through
-   * [terminateRenderProcess]{@link ./../../../@ohos.web.webview:webview.WebviewController.terminateRenderProcess}, which
-   * may affect other **Web** components in the same rendering process.
+   * navigate to a new URL within a proper time range, the web page process is considered unresponsive and the callback
+   * is triggered.
    *
-   * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
+   * If the web page process does not respond, this callback may be triggered until the web page process responds again.
+   * In this case, [onRenderProcessResponding]{@link WebAttribute#onRenderProcessResponding} is triggered.
+   *
+   * You can terminate the associated rendering process through
+   * [terminateRenderProcess]{@link @ohos.web.webview:webview.WebviewController#terminateRenderProcess}, which may
+   * affect other **Web** components in the same rendering process.
+   *
+   * @param { OnRenderProcessNotRespondingCallback } callback - Callback triggered when the rendering process does not
+   *     respond.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -8217,8 +9051,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the rendering process transitions back to a normal operating state from an unresponsive state. This
    * callback indicates that the web page was not actually frozen.
    *
-   * @param { OnRenderProcessRespondingCallback } callback Callback
-   * triggered when the rendering process transitions back to a normal operating state from an unresponsive state.
+   * @param { OnRenderProcessRespondingCallback } callback - Callback triggered when the rendering process transitions
+   *     back to a normal operating state from an unresponsive state.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -8226,18 +9060,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
 
   /**
-   * Set the custom text menu.
-   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon,
-   * and callback method.
+   * Sets the extended options of the custom context menu on selection, including the text content, icon, and callback.
    *
-   * <p><strong>API Note</strong>:<br>
-   * This interface only supports selecting plain text. When the selected content contains images and other non-text content,
-   * garbled characters will be displayed in the action information.
-   * </p>
+   * The API only supports the selection of plain text; if the selected content contains images or other non-text
+   * elements, the **action** information may display garbled content.
    *
-   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
-   *     The number of menu items, the content size of the menu, and the startIcon
-   *     icon size are consistent with the ArkUI Menu component.
+   * > **NOTE**
+   * >
+   * > When used together with [editMenuOptions]{@link WebAttribute#editMenuOptions}, this API does not take effect.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Extended options of the custom context menu on
+   *     selection.
+   *     <br>The number of menu options, menu content size, and start icon size must be the same as those of the ArkUI
+   *     [Menu]{@link ./menu} component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamiconly
@@ -8265,7 +9100,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * keyboard. (With this API, the application can determine whether to use the system's default soft keyboard, a system
    * soft keyboard with a custom Enter key, or a completely application-defined soft keyboard).
    *
-   * @param { WebKeyboardCallback } callback - Callback invoked for intercepting the soft keyboard started by the web page.
+   * @param { WebKeyboardCallback } callback - Callback invoked for intercepting the soft keyboard started by the web
+   *     page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8274,11 +9110,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
   /**
-   * Called when received Ads blocked results.
-   * If blocked results exist at the end of page loading, the first call will be triggered.
-   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   * Called after an ad is blocked on the web page to notify the user of detailed information about the blocked ad. To
+   * reduce the frequency of notifications and minimize the impact on the page loading process, only the first
+   * notification is made when the page is fully loaded. Subsequent blocking events are reported at intervals of 1
+   * second, and no notifications are sent if there is no ad blocked.
    *
-   * @param { OnAdsBlockedCallback } callback - The callback for OnAdsBlockedCallback.
+   * @param { OnAdsBlockedCallback } callback - Callback of **onAdsBlocked**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8288,12 +9125,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the custom soft keyboard avoidance mode.
-   * If the keyboard avoidance mode set in **UIContext** is [KeyboardAvoidMode.RESIZE]
-   * {@link ./../../../@ohos.arkui.UIContext:KeyboardAvoidMode}, this API does not take effect.
    *
-   * @param { WebKeyboardAvoidMode } mode - Web soft keyboard avoidance mode. In
-   * the nested scrolling scenario, the soft keyboard avoidance mode of the **Web** component is not recommended,
-   * including **RESIZE_VISUAL** and **RESIZE_CONTENT**. Default value: **WebKeyboardAvoidMode.RESIZE_CONTENT**.
+   * If the keyboard avoidance mode set in **UIContext** is
+   * [KeyboardAvoidMode.RESIZE]{@link @ohos.arkui.UIContext:KeyboardAvoidMode}, this API does not take effect.
+   *
+   * @param { WebKeyboardAvoidMode } mode - Web soft keyboard avoidance mode.
+   *     <br>In the nested scrolling scenario, the soft keyboard avoidance mode of the **Web** component is not
+   *     recommended, including **RESIZE_VISUAL** and **RESIZE_CONTENT**.
+   *     <br>Default value: **WebKeyboardAvoidMode.RESIZE_CONTENT**
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8302,25 +9141,44 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
 
   /**
-   * Set the custom text menu.
+   * Sets a custom text selection menu for the **Web** component.
    *
-   * <p><strong>API Note</strong>:<br>
-   * The onCreateMenu interface is used to modify, add, and delete menu options.If you want to hide the text menu,
-   * you need to return an empty array.<br>
-   * The onMenuItemClick interface allows you to define the callback function for menu options.This function is
-   * triggered when a menu option is clicked, and it determines whether to execute the system's default callback
-   * based on the return value. Returning true prevents the system callback from executing, while returning false
-   * continues with the system callback.<br>
-   * The editMenuOptions interface makes the selectionMenuOptions (deprecated) not work when used at the same time.
-   * </p>
+   * > **NOTE**
+   * >
+   * > This API is similar to **bindSelectionMenu**, with the following differences:
+   * >
+   * > - **editMenuOptions**: Adds extension items based on the system default menu style, with the trigger conditions
+   * > unchanged.
+   * >
+   * > - [bindSelectionMenu]{@link WebAttribute#bindSelectionMenu}: Fully customizes the menu style and trigger
+   * > conditions, as defined by the developer.
+   * >
+   * > It is not recommended to use both at the same time. Choose based on the degree of customization required.
+   * > You can use this attribute to customize a text menu.
    *
-   * @param { EditMenuOptions } editMenu - Customize text menu options.
-   *     The number of menu items, as well as the content size and icon size of the menu,
-   *     should be consistent with the ArkUI Menu component.
-   *     The system-provided id enumeration values (TextMenuItemId) in the menu are only
-   *     supported for CUT, COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH and some AI menu in the web.
-   *     The textRange parameter in the onMenuItemClick function is meaningless in the web,
-   *     and the input value is -1.
+   * You can use [onCreateMenu]{@link EditMenuOptions.onCreateMenu} to modify, add, and delete menu options. If you do
+   * not want to display the text menu, return an empty array.
+   *
+   * You can use [onMenuItemClick]{@link EditMenuOptions.onMenuItemClick} to customize the callback for menu options.
+   * This function is triggered after a menu option is clicked and determines whether to execute the default callback
+   * based on the return value. If **true** is returned, the system callback is not executed. If **false** is returned,
+   * the system callback is executed.
+   *
+   * In [onPrepareMenu<sup>20+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#properties-1), this
+   * callback is triggered after the text selection area changes and before the menu is displayed. You can modify, add,
+   * or delete menu options in the callback to dynamically update the menu.
+   *
+   * If this method is used together with
+   * [selectionMenuOptions<sup>(deprecated)</sup>]{@link WebAttribute#selectionMenuOptions}, the
+   * **selectionMenuOptions<sup> (deprecated) </sup>** method does not take effect.
+   *
+   * @param { EditMenuOptions } editMenu - Custom text menu options for the Web component.
+   *     <br>The number of menu items, the content size, and the icon size are consistent with those of the ArkUI
+   *     [Menu]{@link ./menu} component.
+   *     <br>Among the system-provided ID enum values ([TextMenuItemId]{@link TextMenuItemId}) in the menu, only CUT,
+   *     COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH, and AI_WRITER are supported in the Web component.
+   *     <br>In the onMenuItemClick function, the textRange parameter is meaningless in the Web component, and the value
+   *     passed in is -1.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
@@ -8328,13 +9186,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
 
   /**
-   * Enable or disable haptic feedback.
+   * Sets whether to enable haptic feedback for long-pressed text in the **Web** component. The
+   * **ohos.permission.VIBRATE** permission must be declared. When this attribute is not explicitly called, haptic
+   * feedback is enabled by default.
    *
-   * <p><strong>API Note</strong>:<br>
-   * Permissions need to be configured: ohos.permission.VIBRATE.
-   * </p>
-   *
-   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @param { boolean } enabled - Whether to enable vibration.
+   *     <br>The value **true** indicates that vibration is enabled, and **false** indicates the opposite.
+   *     <br>If **undefined** or **null** is passed, the default value is used, which means vibration is enabled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.0.0]
@@ -8343,12 +9201,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableHapticFeedback(enabled: boolean): WebAttribute;
 
   /**
-   * Bind to the selection menu.
+   * Sets the custom selection menu.
    *
-   * @param { WebElementType } elementType - Indicates the type of selection menu.
-   * @param { CustomBuilder } content - Indicates the content of selection menu.
-   * @param { WebResponseType } responseType - Indicates response type of selection menu.
-   * @param { SelectionMenuOptionsExt } [options] - Indicates the options of selection menu.
+   * @param { WebElementType } elementType - Menu type.
+   * @param { CustomBuilder } content - Menu content.
+   * @param { WebResponseType } responseType - Response type of the menu.
+   * @param { SelectionMenuOptionsExt } [options] - Menu options. The default configuration is used when undefined or
+   *     null is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
@@ -8357,9 +9216,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
       options?: SelectionMenuOptionsExt): WebAttribute;
 
   /**
-   * Sets whether to follow the system font weight.
+   * Sets whether the **Web** component can change the font weight according to the system settings. When this attribute
+   * is not explicitly called, the **Web** component can't change the font weight according to the system settings by
+   * default.
    *
-   * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
+   * > **NOTE**
+   * >
+   * > Currently, only front-end text elements support this capability. The **canvas** element and embedded .docx and
+   * > .pdf texts do not support this capability.
+   *
+   * @param { boolean } follow - Whether the **Web** component can change the font weight according to the system
+   *     settings.
+   *     <br>The value **true** means that the **Web** component can change the font weight according to the system
+   *     settings, and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
@@ -8367,12 +9237,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
   /**
-   * Sets whether to support an application to connect to media controller. If this attribute is not explicitly set,
-   * the application can connect to media controller by default.
+   * Sets whether to support an application to connect to media controller. If this attribute is not explicitly set, the
+   * application can connect to media controller by default.
    *
-   * @param { boolean } enabled - Whether to support an application to connect to media controller.<br>The
-   *     value **true** means to support an application to connect to media controller, and **false** means the
-   *     opposite.<br>When **undefined** or **null** is passed in, the value is **true**.
+   * @param { boolean } enabled - Whether to support an application to connect to media controller.
+   *     <br>The value **true** means to support an application to connect to media controller, and **false** means the
+   *     opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
@@ -8388,21 +9259,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * time as the segment point. When the parsing time exceeds the threshold, the parsing is interrupted and then the
    * layout and rendering operations are performed.
    *
-   * After this optimization is enabled, the ArkWeb kernel checks whether the parsing time exceeds the limit and whether
-   * the number of parsed tokens (minimum parsing unit of HTML files, such as **\<div>** and **attr="xxx"**) exceeds the
-   * threshold specified by the kernel. If yes, the ArkWeb kernel decreases the threshold. When the First Contentful
-   * Paint (FCP) of the page is triggered, the default interrupt judgment logic is restored. In this way, the web page
-   * is parsed more frequently before the FCP is triggered, thereby the first-frame content may be parsed in advance and
-   * enter a rendering phase, effectively reducing the workload of first-frame rendering, and finally advancing the FCP.
+   * After optimization is enabled, the ArkWeb kernel not only checks whether the parsing time exceeds the limit, but
+   * also additionally determines whether the number of parsed tokens (the smallest parsing units of an HTML document,
+   * such as `<div>`, `attr="xxx"`, etc.) exceeds the threshold specified by the kernel, and lowers this threshold. When
+   * the FCP (First Contentful Paint) of the page is triggered, the default interrupt judgment logic is restored. This
+   * makes the parsing operations before FCP more frequent, thereby increasing the possibility that the first-frame
+   * content is parsed and enters the rendering phase earlier, while effectively reducing the rendering workload of the
+   * first frame, ultimately advancing the FCP time.
    *
    * When the FCP of a page is triggered, the default segment parsing logic is restored. Therefore, the segment-based
    * HTML parsing optimization takes effect only for the first page loaded by each **Web** component.
    *
-   * @param { boolean} optimizeParserBudget Whether to enable segment-based HTML parsing optimization.<br>The value
-   *     **true** means to use the number of parsed records instead of the parsing time as the segment point for HTML
-   *     segment parsing, and reduce the upper limit of the number of parsed records in each segment. The value
-   *     **false** means to use the parsing time as the segment point for HTML segment parsing.<br>If **undefined** or
-   *     **null** is passed in, the value is **false**.
+   * @param { boolean} optimizeParserBudget - Whether to enable segment-based HTML parsing optimization.
+   *     <br>The value **true** means to use the number of parsed records instead of the parsing time as the segment
+   *     point for HTML segment parsing, and reduce the upper limit of the number of parsed records in each segment. The
+   *     value **false** means to use the parsing time as the segment point for HTML segment parsing.
+   *     <br>If **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
@@ -8410,22 +9282,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
   /**
-   * Injects the JavaScripts that will be run just after document object has been created.
+   * Injects a JavaScript script into the **Web** component. When the specified page or document starts to be loaded,
+   * the script is executed on any page whose source matches **scriptRules**. When this attribute is not explicitly
+   * called, JavaScript scripts are not injected into the **Web** component by default.
    *
    * > **NOTE**
    * >
-   * > - Inject the script after the root element (HTML Element) of the web page file is created, but before any other
-   * > content is loaded.
+   * > - The script is injected after the root element (HTML Element) of the web document is created but before any
+   * > other content is loaded.
    * >
-   * > - This script is executed in the array order.
+   * > - The scripts are executed in the order of the array.
    * >
-   * > - You are advised not to use this API together with
-   * > [javaScriptOnDocumentStart]{@link WebAttribute.javaScriptOnDocumentStart}.
-   * >
-   * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
-   * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
+   * > - When scripts with identical content are injected multiple times, they are silently deduplicated without display
+   * > or notification, and the **scriptRules** from the first injection are used.
    *
-   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @param { Array<ScriptItem> } scripts - Script item array to be injected.
+   *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -8434,21 +9306,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts that will be run after document has been parsed finished.
+   * Injects a JavaScript script into the **Web** component. When the specified page or document has been loaded, the
+   * script is executed on any page whose source matches **scriptRules**. When this attribute is not explicitly called,
+   * JavaScript scripts are not injected into the **Web** component by default.
    *
    * > **NOTE**
    * >
-   * > - The script runs before any JavaScript code of the page, when the DOM tree has been loaded and rendered.
+   * > - The script runs after any JavaScript code on the page, and the DOM tree has already been loaded and rendered at
+   * > that point.
    * >
-   * > - This script is executed in the array order.
+   * > - The scripts are executed in the order of the array.
    * >
-   * > - You are advised not to use this API together with
-   * > [javaScriptOnDocumentEnd]{@link WebAttribute.javaScriptOnDocumentEnd}.
-   * >
-   * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
-   * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
+   * > - When scripts with identical content are injected multiple times, they are silently deduplicated without display
+   * > or notification, and the **scriptRules** from the first injection are used.
    *
-   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @param { Array<ScriptItem> } scripts - Script item array to be injected.
+   *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 26.1.0]
@@ -8457,7 +9330,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts that will be run after head element has been parsed finished.
+   * Injects a JavaScript script into the **Web** component. When the **head** tag of the DOM tree is parsed, the script
+   * is executed on any page whose source matches **scriptRules**. When this attribute is not explicitly called,
+   * JavaScript scripts are not injected into the **Web** component by default.
    *
    * > **NOTE**
    * >
@@ -8466,7 +9341,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
    * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
    *
-   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @param { Array<ScriptItem> } scripts - Script item array to be injected.
+   *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
@@ -8475,11 +9351,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the same-layer rendering configuration. This attribute takes effect only when
-   * [enableNativeEmbedMode]{@link WebAttribute.enableNativeEmbedMode} is enabled and cannot be dynamically modified. If
+   * [enableNativeEmbedMode]{@link WebAttribute#enableNativeEmbedMode} is enabled and cannot be dynamically modified. If
    * this attribute is not explicitly called, the default value **{supportDefaultIntrinsicSize: false}** is used.
    *
-   * @param { EmbedOptions } options - Configuration options of the same-layer rendering.<br>If **undefined** or
-   *     **null** is passed in, the value **{supportDefaultIntrinsicSize: false}** is used.
+   * @param { EmbedOptions } options - Configuration options of the same-layer rendering.
+   *     <br>If **undefined** or **null** is passed in, the value **{supportDefaultIntrinsicSize: false}** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 16 dynamic
@@ -8487,10 +9363,37 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 
   /**
-   * Enable data detector.
+   * Sets whether to recognize special entities of web texts, such as emails, phone numbers, and URLs. This API depends
+   * on the text recognition capability at the bottom layer of the device. Otherwise, the setting is invalid. When this
+   * attribute is not explicitly called, the detector is disabled by default.
    *
-   * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
-   *    The default value is false.
+   * > **NOTE**
+   * >
+   * > Attributes such as [dataDetectorConfig]{@link WebAttribute#dataDetectorConfig} and
+   * > [enableSelectedDataDetector]{@link WebAttribute#enableSelectedDataDetector} take effect only when this attribute
+   * > is enabled.
+   * > If **enableDataDetector** is set to **true** and [dataDetectorConfig]{@link WebAttribute#dataDetectorConfig} is
+   * > not set, all types of entities will be recognized, and the **color** and **decoration** attributes of the
+   * > recognized entities will be changed to the following styles:
+   *
+   * <!--code_no_check-->
+   *
+   * When **enableDataDetector** is set to **true** and [copyOptions]{@link WebAttribute#copyOptions} is set to
+   * **CopyOptions.LocalDevice**, the AI menu feature is activated. In this case, after text is selected on the web
+   * page, the text selection menu can display the corresponding AI menu items, including **url** (open link), **email**
+   * (create new email), **phoneNumber** (call), **address** (navigate to the location), and **dateTime** (create new
+   * schedule reminder) from [TextMenuItemId]{@link TextMenuItemId}.
+   *
+   * When the AI menu takes effect, the corresponding option can be displayed only when the selection contains a
+   * complete AI entity. This menu item and the askAI menu item in [TextMenuItemId]{@link TextMenuItemId} do not appear
+   * at the same time.
+   *
+   * For details about the application scenario, see
+   * [Using Smart Text Data Detector](docroot://web/web-data-detector.md).
+   *
+   * @param { boolean } enable - Whether to enable web text recognition. The value **true** means to enable web text
+   *     recognition, and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the attribute setting does not take effect.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -8498,9 +9401,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableDataDetector(enable: boolean): WebAttribute;
 
   /**
-   * Data detector with config.
+   * Configures text recognition settings.
    *
-   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * This API must be used together with [enableDataDetector]{@link WebAttribute#enableDataDetector}. It takes effect
+   * only when **enableDataDetector** is set to **true**.
+   *
+   * When entities A and B overlap, the following rules are followed:
+   *
+   * 1. If A is a subset of B (A ⊂ B), then B is retained; otherwise, A is retained.
+   * 2. If A is not a subset of B (A ⊄ B) and B is not a subset of A (B ⊄ A), and if the starting point of A is earlier
+   *  than that of B (A.start < B.start), then A is retained; otherwise, B is retained.
+   *
+   * @param { TextDataDetectorConfig } config - Text recognition configuration.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -8509,11 +9421,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered to check whether a bound **Web** instance exists based on the name when a web page triggers
-   * **window.open(url, name)**. If the instance exists, it receives this callback to notify the application of displaying
-   * it on the front end. If it does not exist, the application is notified to create a new **Web** instance through
-   * [onWindowNew](docroot://reference/apis-arkweb/arkts-basic-components-web-events.md#onwindownew9).
+   * **window.open(url, name)**. If the instance exists, it receives this callback to notify the application of
+   * displaying it on the front end. If it does not exist, the application is notified to create a new **Web** instance
+   * through [onWindowNew]{@link WebAttribute#onWindowNew}.
    *
-   * @param { Callback<void> } callback Callback triggered on a new page after **window.open** is triggered on the
+   * > **NOTE**
+   * >
+   * > - Binding a **Web** instance by name: Call the **event.handler.setWebController** method in the [onWindowNew] (#
+   * > onwindownew9) callback and transfer the controller of the new **Web** instance.
+   * >
+   * > - The name must comply with the regular expression **[a-zA-Z0-9_]+**. When the name is used as the value of the
+   * > **target** attribute of the \<a> or \<form> tag, the bound **Web** instance also triggers this callback function.
+   *
+   * @param { Callback<void> } callback - Callback triggered on a new page after **window.open** is triggered on the
    *     original page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8527,7 +9447,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * is not skipped by default.
    *
    * @param { WebBypassVsyncCondition } condition - Condition for triggering the rendering process to bypass vsync
-   *     scheduling.<br> When **undefined** or **null** is passed in, the value is **NONE**.
+   *     scheduling.
+   *     <br> When **undefined** or **null** is passed in, the value is **NONE**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -8535,13 +9456,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
 
   /**
-   * Set the gesture focus acquisition mode.
-   * When users interact with the web using different gestures,
-   * this determines whether and when focus is acquired based on the configured mode.
-   * Default value: DEFAULT, where all gestures acquire focus on touch down.
+   * Sets the gesture focus mode of the **Web** component, which controls the focus response behavior of the **Web**
+   * component. If this attribute is not explicitly called, the default behavior is that any gesture causes the **Web**
+   * component to gain focus when the gesture is pressed.
    *
-   * @param { GestureFocusMode } mode - The gesture focus mode, which can be {@link GestureFocusMode}.
-   *    The default value is FocusMode.DEFAULT.
+   * @param { GestureFocusMode } mode - Gesture focus mode of the **Web** component. If **undefined** or **null** is
+   *     passed in, the value **GestureFocusMode.DEFAULT** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -8549,10 +9469,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   gestureFocusMode(mode: GestureFocusMode): WebAttribute;
 
   /**
-   * Set whether to comply with the zoom restrictions set by the<meta name="viewport">tag in the webpage.
+   * Sets whether to enable the forcible zoom functionality for the **Web** component.
    *
-   * @param { boolean } enable {@code true} means the Web will not comply with the zoom restrictions
-   *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
+   * @param { boolean } enable - Whether to comply with the zoom restriction specified by the **<meta name="viewport">**
+   *     tag on the web page.
+   *     <br>The value **true** means to not comply with the web page zoom restriction, and **false** means the
+   *     opposite.
+   *     <br>When **undefined** or **null** is passed in, the attribute setting does not take effect.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -8572,11 +9495,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets how the final state of the **Web** component's content is rendered during its width and height animation
-   * process when the component rotates. If this attribute is not explicitly called, by default, the component's
-   * content stays at the final size and always aligned with the upper left corner of the component.
+   * process when the component rotates. If this attribute is not explicitly called, by default, the component's content
+   * stays at the final size and always aligned with the upper left corner of the component.
    *
-   * @param { WebRotateEffect } effect - How the final state of the **Web** component's content is rendered during
-   *     its width and height animation process when the component rotates.
+   * @param { WebRotateEffect } effect - How the final state of the **Web** component's content is rendered during its
+   *     width and height animation process when the component rotates.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -8584,11 +9507,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   rotateRenderEffect(effect: WebRotateEffect): WebAttribute;
 
   /**
-   * Sets whether the Web supports zooming using Ctrl.
+   * Sets whether to allow zooming by pressing **Ctrl + '-/+'** or **Ctrl** + mouse wheel/touchpad.
    *
-   * @param { boolean } zoomControlAccess - {@code true} means the Web supports zooming using Ctrl,
-   *    {@code false} otherwise.
-   *    The default value is true.
+   * If this attribute is not explicitly called, zooming by pressing **Ctrl + '-/+'** or **Ctrl** + mouse wheel/touchpad
+   * is allowed by default.
+   *
+   * @param { boolean } zoomControlAccess - Whether to allow zooming through key combinations. The value **true** means
+   *     the zooming is supported, and **false** means the opposite. If null or undefined is passed, the default value
+   *     **false** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -8597,9 +9523,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Called when the **Web** component detects a blank screen.
+   *
    * > **NOTE**
    * >
-   * > - This method must be used with [blankScreenDetectionConfig]{@link web:WebAttribute.blankScreenDetectionConfig}.
+   * > - This method must be used with [blankScreenDetectionConfig]{@link WebAttribute#blankScreenDetectionConfig}.
    * > Otherwise, the blank screen detection is disabled by default, and the callback is not returned when a blank
    * > screen is detected.
    *
@@ -8614,11 +9541,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the blank screen detection configuration, such as whether to enable the detection, detection time, and
    * detection policy. When this attribute is not explicitly called, blank screen detection is disabled by default.
+   *
    * > **NOTE**
    * >
    * > - Based on the configuration of **detectConfig**,
-   * > [onDetectedBlankScreen]{@link web:WebAttribute.onDetectedBlankScreen} may be triggered when a blank screen or
-   * > near-blank screen is detected after a web page is loaded.
+   * > [onDetectedBlankScreen]{@link WebAttribute#onDetectedBlankScreen} may be triggered when a blank screen or near-
+   * > blank screen is detected after a web page is loaded.
    * >
    * > - The setting takes effect in the next navigation.
    * >
@@ -8634,11 +9562,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   blankScreenDetectionConfig(detectConfig: BlankScreenDetectionConfig): WebAttribute;
 
   /**
-   * Set whether to enable the back-to-top feature for web component when the status bar is touched.
+   * Sets whether to enable the back-to-top feature for the **Web** component when the status bar is touched. When this
+   * attribute is not explicitly called, the back-to-top feature for the status bar is enabled by default.
    *
-   * @param { boolean } backToTop {@code true} means enable the back-to-top feature,
-   *     when the status bar is touched. {@code false} otherwise. The default value is true.
-   *     True when passing in undefined and null.
+   * @param { boolean } backToTop - Whether to enable the back-to-top feature. The value **true** means to enable the
+   *     feature, and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -8646,33 +9575,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   backToTop(backToTop: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable the AI menu feature for text selection menu. After the AI menu feature is enabled, the email
-   * , phone number, website, date, and address in the selection can be identified, and the corresponding AI menu items
-   * are displayed in the text selection menu. By default, the AI menu feature is enabled.
+   * Sets whether to enable the AI menu feature for text selection menu. After the AI menu feature is enabled, the
+   * email, phone number, website, date, and address in the selection can be identified, and the corresponding AI menu
+   * items are displayed in the text selection menu. By default, the AI menu feature is enabled.
    *
-   * When the AI menu feature is enabled, the corresponding AI menu items can be displayed in the text selection menu
-   * after text is selected on the web page, including **url** (opening a link), **email** (creating an email),
-   * **phoneNumber** (calling), **address** (navigating to the address), and **dateTime** (creating an event) in
-   * [TextMenuItemId]{@link text_common:TextMenuItemId}.
+   * When the AI menu feature is enabled, after text is selected on the web page, the text selection menu can display
+   * the corresponding AI menu items, including **url** (open link), **email** (create new email), **phoneNumber** (call
+   * ), **address** (navigate to the location), and **dateTime** (create new schedule) from
+   * [TextMenuItemId]{@link TextMenuItemId}.
    *
    * When the AI menu takes effect, the corresponding option can be displayed only when the selection contains a
-   * complete AI entity. This menu item and the askAI menu item in [TextMenuItemId]{@link text_common:TextMenuItemId} do
-   * not appear at the same time.
+   * complete AI entity. This menu item and the askAI menu item in [TextMenuItemId]{@link TextMenuItemId} do not appear
+   * at the same time.
    *
    * For details about the application scenario, see
    * [Using Smart Text Data Detector](docroot://web/web-data-detector.md).
    *
-   * > **NOTE**
-   * >
-   * > If **enableSelectedDataDetector** is not set or is set to **true**, the **types** in
-   * > [dataDetectorConfig](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#datadetectorconfig20)
-   * > are used. If **dataDetectorConfig** is not set, all types are recognized by default.
-   * >
-   * > If **enableSelectedDataDetector** is set to false, the AI menu for text selection is not activated.
-   *
    * @param { boolean } enable - Whether to enable web text recognition. The value **true** means to enable web text
-   *     recognition, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the attribute is
-   *     reset to the default value.
+   *     recognition, and **false** means the opposite.
+   *     <br>If **undefined** or **null** is passed in, the attribute is reset to the default value.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -8680,10 +9601,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableSelectedDataDetector(enable: boolean): WebAttribute;
 
   /**
-   * Triggered when the first screen of the web page has been painted.
+   * Triggered when the first screen paint of a web page is complete.
    *
-   * @param { OnFirstScreenPaintCallback } callback - callback triggered to
-   *     report the info for the first screen painting of the current web page.
+   * > **NOTE**
+   * >
+   * > - First Screen Paint (FSP) records the time taken to render images, texts, and videos in the viewport. It is a
+   * > core performance metric for measuring the duration from a page's initial load to the completion of rendering.
+   * > When no visible elements within the viewport extend beyond the historical rendering area for a certain period of
+   * > time, the moment when the maximum historical rendering of elements in the viewport is achieved is regarded as the
+   * > completion time of first screen paint.
+   * >
+   * > - After the first screen is drawn, the API waits for a period of time and reports the callback when no new
+   * > rendering information needs to be processed. The callback time is different from the first screen paint
+   * > completion time.
+   * >
+   * > - If the user performs input operations or scrolls the page while rendering is still in progress, the callback
+   * > function will be reported immediately.
+   * >
+   * > - This API is used to obtain the first screen rendering time in instant loading scenarios, but it will not
+   * > deliver the expected results if used in preloading or prerendering scenarios.
+   *
+   * @param { OnFirstScreenPaintCallback } callback - Callback triggered when the first screen paint of the **Web**
+   *     component is detected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -8691,10 +9630,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFirstScreenPaint(callback: OnFirstScreenPaintCallback): WebAttribute;
 
   /**
-   * Sets whether enable auto fill or not.
+   * Sets whether to enable web page autofill. By default, this feature is enabled.
    *
-   * @param { boolean } value - Indicates the flag whether autofill is enabled.
-   *      Default value is true.true: enable, false: disable.
+   * <!--RP1-->
+   *
+   * > **NOTE**
+   * >
+   * > The autofill feature of this API depends on SmartFill service and Password Autofill Service.
+   *
+   * <!--RP1End-->
+   *
+   * @param { boolean } value - Whether to enable autofill for web pages. The value **true** means to enable autofill,
+   *     and **false** means the opposite.
+   *     <br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -8702,9 +9650,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableAutoFill(value: boolean): WebAttribute;
 
   /**
-   * Called when the text selection changes.
+   * Triggered when the text selection of the **Web** component changes. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { TextSelectionChangeCallback } callback - when the text selection changes.
+   * > **NOTE**
+   * >
+   * > - The gesture selection, mouse selection, and JS selection are supported.
+   * >
+   * > - This callback is triggered when the selection ends.
+   * >
+   * > - If the same selection is made using the same method as the previous one, this callback is not triggered. If the
+   * > same selection is made using a different method from the previous one, this callback is triggered.
+   *
+   * @param { TextSelectionChangeCallback } callback - Callback triggered when the text selection changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -8712,11 +9670,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onTextSelectionChange(callback: TextSelectionChangeCallback): WebAttribute;
 
   /**
-   * Set up web component to support AI image recognition capability.
+   * Sets whether to enable AI analysis of web page images. Currently, the image text recognition feature is supported.
+   * If this attribute is not explicitly called, this feature is enabled by default.
    *
-   * @param { boolean } enable - {@code true} means the Web AI image recognition capability,
-   *    {@code false} otherwise.
-   *    The default value is true.
+   * > **NOTE**
+   * >
+   * > When you long-press or hover the mouse over the image text, AI analyzer is triggered and the text in the image
+   * > can be selected. The specifications of images that can trigger analyzer are as follows:
+   * >
+   * > - The original width and height of the image are greater than or equal to 100 pixels.
+   * >
+   * > - For [devices](docroot://quick-start/module-configuration-file.md#devicetypes) other than 2-in-1 devices, the
+   * > image rendering width must exceed 80% of the web page width.
+   *
+   * @param { boolean } enable - Whether to enable AI analyzer for web page images. The value **true** means to enable
+   *     AI analyzer, and **false** means the opposite.
+   *     <br>If **undefined** or **null** is passed in, the value is reset to **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -8729,7 +9698,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * You can use the **startCamera**, **stopCamera**, and **closeCamera** APIs to enable, pause, and stop the camera
    * respectively. For details about how to use them, see
-   * [startCamera]{@link ./../../../@ohos.web.webview:webview.WebviewController.startCamera}.
+   * [startCamera]{@link @ohos.web.webview:webview.WebviewController#startCamera}.
    *
    * > **NOTE**
    * >
@@ -8753,7 +9722,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * You can use the **resumeMicrophone**, **pauseMicrophone**, and **stopMicrophone** APIs to resume, pause, and stop
    * the microphone. For details about how to use them, see
-   * [resumeMicrophone](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#resumemicrophone23).
+   * [resumeMicrophone]{@link @ohos.web.webview:webview.WebviewController#resumeMicrophone}.
    *
    * > **NOTE**
    * >
@@ -8785,11 +9754,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute;
 
   /**
-   * Set whether to enable the default right-click context menu.
+   * Sets whether to enable the default right-click context menu. If this method is not explicitly called, the menu is
+   * disabled by default. The default menu supports only the **CUT**, **COPY**, **PASTE**, and **SELECT_ALL** menu
+   * items.
    *
-   * @param { boolean } enable - {@code true} means the Web enable the default right-click context menu,
-   *    {@code false} otherwise.
-   *    The default value is false.
+   * > **NOTE**
+   * >
+   * > - When the [onContextMenuShow]{@link WebAttribute#onContextMenuShow} callback is set and returns **true** in the
+   * > callback, the setting of this API does not take effect.
+   * >
+   * > - The default menu items are controlled by [editMenuOptions]{@link WebAttribute#editMenuOptions}, through which
+   * > you can customize the menu options.
+   *
+   * @param { boolean } enable - Whether to enable the default right-click context menu. The value **true** means
+   *     enabled, and **false** means disabled.
+   *     <br>When **undefined** or **null** is passed, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8798,10 +9777,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableDefaultContextMenu(enable: boolean): WebAttribute;
 
   /**
-   * Enables or disables dragging for this component.
+   * Sets whether to enable the drag function. If this attribute is not explicitly called, the web page drag function is
+   * enabled by default.
    *
-   * @param { boolean } value - {@code true} to enable dragging, {@code false} to disable it.
-   *     The default value is true.
+   * @param { boolean } value - Whether to enable the web page drag function. The value **true** means enabled, and
+   *     **false** means disabled. When **undefined** or **null** is passed, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8810,9 +9790,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableDrag(value: boolean): WebAttribute;
 
   /**
-   * Sets the scrollbar layout policy.
+   * Selects the layout mode of the vertical scrollbar within the **Web** component, used to adapt to the writing
+   * direction of different languages. The **CONTENT** mode is suitable for scenarios where the web page CSS
+   * **direction** attribute needs to be followed, while the **SYSTEM** mode is suitable for scenarios in multilingual
+   * apps where the system language direction needs to be followed, such as for right-to-left languages like Arabic and
+   * Hebrew.
    *
-   * @param { ScrollbarLayoutPolicy } policy - The layout policy to apply.
+   * @param { ScrollbarLayoutPolicy } policy - Sets the layout mode of the vertical scrollbar within the **Web**
+   *     component. Options: **CONTENT** (follows the web page CSS **direction** attribute), **SYSTEM** (lays out
+   *     according to the left-to-right or right-to-left writing direction of the system language. For right-to-left
+   *     languages, the scrollbar is laid out on the left side. This applies to all nested scrollbars within the web
+   *     page).
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8821,16 +9809,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   scrollbarLayoutPolicy(policy: ScrollbarLayoutPolicy): WebAttribute;
 
   /**
-   * Enables or disables directional lock for scroll gestures in the WebView component.
+   * Sets the scroll direction lock for the **Web** component to prevent simultaneous horizontal and vertical scrolling
+   * when the user swipes diagonally, thereby improving the scrolling experience. If this method is not explicitly
+   * called, scroll direction lock is supported by default in nested scrolling scenarios. The **ALL** mode applies to
+   * all scenarios where scroll locking is needed, while the **NESTED_SCROLL** mode applies only to nested scrolling
+   * scenarios.
    *
-   * When directional lock is enabled, the scroll axis is locked based on the initial
-   * swipe vector direction. This behavior helps prevent unintended scroll direction changes
-   * during touch interactions, especially in nested scroll scenarios.
-   *
-   * @param { boolean } value - Whether to enable directional lock.
-   *     - `true`: Enables direction locking for the corresponding type category.
-   *     - `false`: Disables direction locking for the corresponding type category.
-   * @param { ScrollDirectionalLockType } type - Specifies the scenario in which directional lock is applied.
+   * @param { boolean } value - Whether to enable scroll direction lock. The value **true** means the scroll direction
+   *     is locked, and the scroll view locks the scroll axis based on the user's initial swipe direction. The value
+   *     **false** means no locking.
+   * @param { ScrollDirectionalLockType } type - Specifies the scenarios in which the **Web** component applies scroll
+   *     direction lock. **ALL** means scroll lock is supported in all scenarios, and **NESTED_SCROLL** means scroll
+   *     lock is supported in nested scrolling scenarios.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8839,10 +9829,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableScrollDirectionalLock(value: boolean, type: ScrollDirectionalLockType): WebAttribute;
 
   /**
-   * Custom AI session configuration for Web components.
-   * Used to register multiple custom AI sessions.
+   * Configures custom frontend AI sessions for the **Web** component, used to register multiple custom AI sessions.
    *
-   * @param { Array<AISessionEvent> } aiSessions - Array of AISessionEvent objects.
+   * @param { Array<AISessionEvent> } aiSessions - Array of frontend AI session configuration objects. Each object
+   *     contains an AI session type and the corresponding lifecycle callback methods. Currently, only models included
+   *     in [AISessionType]{@link AISessionType} are supported.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8851,21 +9842,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   aiSessionOptions(aiSessions: Array<AISessionEvent>): WebAttribute;
 
   /**
-  * Set the WebKeyboardAppearanceMode to determine the immersive mode for the soft keyboard.
-  *
-  * @param { WebKeyboardAppearanceMode } mode - The WebKeyboardAppearanceMode of this web
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
+   * Sets the keyboard appearance mode, which controls the appearance style of the keyboard that pops up for input boxes
+   * in the **Web** component, including immersive and non-immersive modes. If this method is not explicitly called, the
+   * system immersive mode is followed by default.
+   *
+   * @param { WebKeyboardAppearanceMode } mode - Keyboard appearance. When **undefined** or **null** is passed, the
+   *     system immersive mode is followed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
   keyboardAppearance(mode: WebKeyboardAppearanceMode): WebAttribute;
 
   /**
    * The callback is triggered when the inputmethod is attached to the IMF.
    *
    * @param { OnInputmethodAttachedCallback } callback - The triggered
-   *    callback when the inputmethod is attached to the IMF.
+   *     callback when the inputmethod is attached to the IMF.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8874,11 +9868,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInputmethodAttached(callback: OnInputmethodAttachedCallback): WebAttribute;
 
   /**
-   * Enables or disables fullscreen video overlay in the WebView component.
+   * Sets whether to enable the overlay fullscreen playback feature for the **Web** component. If this attribute is not
+   * explicitly called, this feature is disabled by default.
    *
-   * @param { boolean } enabled - {@code true} to enable the fullscreen video overlay,
-   *    {@code false} to disable it.
-   *    The default value is false.
+   * > **NOTE**
+   * >
+   * > - Currently, only videos in H.264 and H.265 decoding formats are supported.
+   * >
+   * > - Only fullscreen requests initiated by video elements are responded to.
+   *
+   * @param { boolean } enabled - Whether to enable the overlay fullscreen playback feature for the **Web** component.
+   *     <br>**true** means the feature is enabled.
+   *     <br>**false** means the feature is disabled.
+   *     <br>When **undefined** or **null** is passed, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8887,12 +9889,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableFullscreenVideoOverlay(enabled: boolean): WebAttribute;
 
   /**
-   * Set whether to enable media network proxy for Web components.
-   * When enabled, network requests for media resources are routed through the web components network stack.
-   * This attribute takes effect for HLS media, other media formats are unaffected.
+   * Sets whether to enable the media resource network request proxy feature for the **Web** component. If this
+   * attribute is not explicitly called, this feature is disabled by default.
    *
-   * @param { boolean } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
-   *     The default value is false.
+   * > **NOTE**
+   * >
+   * > - Currently, only HLS streaming media videos are supported.
+   *
+   * @param { boolean } enabled - Whether to enable the media resource network request proxy feature for the **Web**
+   *     component.
+   *     <br>**true** means the feature is enabled.
+   *     <br>**false** means the feature is disabled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -8932,7 +9939,9 @@ declare const Web: WebInterface;
 declare const WebInstance: WebAttribute;
 
 /**
- * Defines the ssl error event.
+ * Callback details triggered when an SSL error occurs during resource loading by the user, including the URL, error
+ * type, and certificate chain. It is suitable for scenarios where detailed analysis of SSL errors is required,
+ * improving security issue diagnosis and troubleshooting efficiency.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -8940,9 +9949,8 @@ declare const WebInstance: WebAttribute;
  * @since 12 dynamic
  */
 declare interface SslErrorEvent {
-
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * User operation.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8952,7 +9960,7 @@ declare interface SslErrorEvent {
   handler: SslErrorHandler;
 
   /**
-   * Error codes.
+   * Error code.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8962,7 +9970,7 @@ declare interface SslErrorEvent {
   error: SslError;
 
   /**
-   * Request url.
+   * URL.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8972,7 +9980,7 @@ declare interface SslErrorEvent {
   url: string;
 
   /**
-   * Original url.
+   * Original URL of the request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8982,7 +9990,7 @@ declare interface SslErrorEvent {
   originalUrl: string;
 
   /**
-   * Referrer.
+   * Referrer URL.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -8992,7 +10000,11 @@ declare interface SslErrorEvent {
   referrer: string;
 
   /**
-   * Whether the error is fatal.
+   * Whether the error is a fatal error. A fatal error prevents the page from loading and rendering properly (for
+   * example, certificate verification failure or protocol error), while a non-fatal error affects only the loading of
+   * some resources (for example, image loading failure).
+   *
+   * The value **true** indicates a fatal error, and **false** indicates a non-fatal error.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9001,7 +10013,9 @@ declare interface SslErrorEvent {
   isFatalError: boolean;
 
   /**
-   * Whether the request is main frame.
+   * Whether the resource is a main resource.
+   *
+   * The value **true** indicates a main resource, and **false** indicates a non-main resource.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -9011,7 +10025,7 @@ declare interface SslErrorEvent {
   isMainFrame: boolean;
 
   /**
-   * Certificate chain data in DER format.
+   * Certificate chain data.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -9021,37 +10035,18 @@ declare interface SslErrorEvent {
 }
 
 /**
- * Defines the event for PIN verification.
+ * Custom menu extension item.
  *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic
- */
-declare interface VerifyPinEvent {
-  /**
-   * Handle the result of PIN verification.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  handler: VerifyPinHandler;
-  /**
-   * The identity of the Credential.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  identity: string;
-}
-
-/**
- * Defines the menu item option.
+ * > **NOTE**
+ * >
+ * > This API is supported from API version 12 and deprecated from API version 20. You are advised to use
+ * > [editMenuOptions]{@link WebAttribute#editMenuOptions} instead.
  *
- * @interface ExpandedMenuItemOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamiconly
  * @deprecated since 20
- * @useinstead EditMenuOptions
+ * @useinstead WebAttribute#editMenuOptions
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -9077,7 +10072,8 @@ declare interface ExpandedMenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
-   * Selected text.
+   * Callback invoked when the user selects a menu extension item. The callback parameter **selectedText** contains the
+   * **plainText** field, which indicates the text content selected by the user.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9089,7 +10085,8 @@ declare interface ExpandedMenuItemOptions {
 }
 
 /**
- * Implements a **NestedScrollOptionsExt** object to set up, down, left, and right nested scrolling options.
+ * Sets the nested scrolling rules of the **Web** component, supporting scrolling options in four directions: up, down,
+ * left, and right.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -9142,7 +10139,9 @@ declare interface NestedScrollOptionsExt {
 }
 
 /**
- * Represents the same-layer rendering configuration of the **Web** component.
+ * Configuration for Web same-layer rendering. Configures Web same-layer rendering options, including support for fixed
+ * size and CSS display properties. It is suitable for scenarios where same-layer element rendering optimization is
+ * required, improving rendering compatibility and flexibility.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 16 dynamic
@@ -9161,7 +10160,7 @@ declare interface EmbedOptions {
    *
    * Default value: **false**.
    *
-   * Unit: pixels.
+   * Unit: px.
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
@@ -9188,7 +10187,6 @@ declare interface EmbedOptions {
 /**
  * Enumerates the focus modes.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
@@ -9202,8 +10200,8 @@ declare enum GestureFocusMode {
   DEFAULT = 0,
 
   /**
-   * The **Web** component applies for the focus only when it is touched and long-
-   * pressed. The swipe and zoom gestures do not apply for the focus.
+   * The **Web** component applies for the focus only when it is touched and long-pressed. The swipe and zoom gestures
+   * do not apply for the focus.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -9212,7 +10210,7 @@ declare enum GestureFocusMode {
 }
 
 /**
- * Defines the file types recommended by the web page when the file selector pulls files.
+ * Provides the file type information recommended by the file selector, including the MIME type and type array.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
@@ -9236,168 +10234,157 @@ declare interface AcceptableFileType {
 }
 
 /**
- * Enum type supplied to {@link PinVerifyResult} when VerifyPinHandler#confirm being called.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic
- */
-declare enum PinVerifyResult {
-  /**
-   * SUCCESS.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  PIN_VERIFICATION_SUCCESS = 0,
-  /**
-   * FAILED.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  PIN_VERIFICATION_FAILED = 1
-}
-
-/**
- * Enum type supplied to {@link CredentialType} when ClientAuthenticationHandler#confirm being called.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic
- */
-declare enum CredentialType {
-  /**
-   * User credential.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  CREDENTIAL_USER = 2,
-  /**
-   * Application-specific credential.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  CREDENTIAL_APP = 3,
-  /**
-   * Hardware security key credential.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  CREDENTIAL_UKEY = 4,
-}
-
-/**
- * Defines the state information of the camera before and after the callback is triggered.
+ * Defines the modes of opening a new window in the WebView, including pop-up windows, new windows, foreground tabs, and
+ * background tabs.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
-declare interface CameraCaptureStateChangeInfo {
+declare enum NavigationPolicy {
   /**
-   * Original state.
+   * Open in a new pop-up window.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  originalState: CameraCaptureState;
+  NEW_POPUP = 0,
 
   /**
-   * New state.
+   * Open in a new window.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  newState: CameraCaptureState;
+  NEW_WINDOW = 1,
+
+  /**
+   * Open in a new tab in background.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_BACKGROUND_TAB = 2,
+
+  /**
+   * Open in a new tab in foreground.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_FOREGROUND_TAB = 3
 }
 
 /**
- * Enumerates the camera capture states.
+ * Provides the feature information of the new window requested to be created by the web page, including the size and
+ * location. It is suitable for scenarios where precise control of new window attributes is required, improving window
+ * layout accuracy and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
-declare enum CameraCaptureState {
+declare interface WindowFeatures {
   /**
-   * The camera is not working.
+   * Height of the new window, in pixels.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  NONE = 0,
+  height: number;
+
   /**
-   * The camera is paused.
+   * Width of the new window, in pixels.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  PAUSED = 1,
+  width: number;
+
   /**
-   * The camera is active.
+   * X coordinate of the top-left corner of the new window, in pixels.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
-  ACTIVE = 2
+  x: number;
+
+  /**
+   * Y coordinate of the top-left corner of the new window, in pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  y: number;
 }
 
 /**
- * Defines the state information of the microphone before and after the callback is triggered.
+ * Defines the callback information triggered when the web page requests to create a window, including the window
+ * feature information and window opening method. It is suitable for scenarios where fine-grained control of new window
+ * behavior is required, improving window management customization and user experience.
  *
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 23 dynamic
  */
-declare interface MicrophoneCaptureStateChangeInfo {
+declare interface OnWindowNewExtEvent {
   /**
-   * Original state.
+   * The value **true** indicates that a dialog box is requested to be created, and the value **false** indicates that a
+   * new tab page is requested to be created.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 23 dynamic
    */
-  originalState: MicrophoneCaptureState;
+  isAlert: boolean;
 
   /**
-   * New state.
+   * Whether the creation is triggered by the user. The value **true** means that the creation is triggered by the user,
+   * and **false** means the opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 23 dynamic
    */
-  newState: MicrophoneCaptureState;
+  isUserTrigger: boolean;
+
+  /**
+   * URL to be opened in the new window.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  targetUrl: string;
+
+  /**
+   * **WebviewController** instance for setting the new window.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  handler: ControllerHandler;
+
+  /**
+   * Feature information of the new window requested to be created by the web page.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  windowFeatures: WindowFeatures;
+
+  /**
+   * Window opening mode when the web page requests a user to create a new window.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  navigationPolicy: NavigationPolicy;
 }
 
 /**
- * Enumerates the microphone capture states.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic
- */
-declare enum MicrophoneCaptureState {
-  /**
-   * The microphone is not working.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  NONE = 0,
-  /**
-   * The microphone is paused.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  PAUSED = 1,
-  /**
-   * The microphone is active.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  ACTIVE = 2
-}
-
-/**
- * Defines the layout policy for scrollbars, used with {@link scrollbarLayoutPolicy}.
+ * Defines the enumeration type for scrollbar layout mode control parameters.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -9405,7 +10392,7 @@ declare enum MicrophoneCaptureState {
  */
 declare enum ScrollbarLayoutPolicy {
   /**
-   * Adheres to W3C standards (CSS/HTML/XHTML) for scrollbar layout.
+   * The left and right layout of the scrollbar follows the CSS settings.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9414,7 +10401,7 @@ declare enum ScrollbarLayoutPolicy {
   CONTENT = 0,
 
   /**
-   * Follows the system UI conventions for scrollbar layout in the system language.
+   * The left and right layout of the scrollbar follows the system language settings.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9424,7 +10411,7 @@ declare enum ScrollbarLayoutPolicy {
 }
 
 /**
- * Enum defining the scope of directional lock behavior in the WebView, used with {@link enableScrollDirectionalLock}.
+ * Defines the scenario types for scroll direction locking.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -9432,8 +10419,7 @@ declare enum ScrollbarLayoutPolicy {
  */
 declare enum ScrollDirectionalLockType {
   /**
-   * Applies directional lock across all scroll contexts.
-   * This includes both nested and flat scroll scenarios.
+   * Scroll locking is supported in all scenarios.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9442,8 +10428,7 @@ declare enum ScrollDirectionalLockType {
   ALL = 0,
 
   /**
-   * Applies directional lock only within nested scroll scenarios.
-   * This is the default behavior in ArkWeb to improve UX in complex scroll hierarchies.
+   * Scroll locking is supported in nested scroll scenarios.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9453,15 +10438,13 @@ declare enum ScrollDirectionalLockType {
 }
 
 /**
- * Triggered when an AI session is created.
- * Allows custom model initialization and result handling.
- * Return `true` to bypass the default system behavior;
- * return `false` to proceed with the default logic.
+ * AI session creation callback function type. Allows custom model initialization and result processing.
  *
  * @param { string } id - The session task ID.
  * @param { string } params - Contextual data passed during creation.
  * @param { OnAISessionCallback } result - Callback function to notify the system of the creation result.
- * @returns { boolean } - Whether to use custom logic. `true` = use custom, `false` = proceed with default.
+ * @returns { boolean } The value **true** indicates that custom logic is used, skipping the system default behavior;
+ *     **false** indicates that the system default logic continues to be executed.
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -9469,8 +10452,7 @@ declare enum ScrollDirectionalLockType {
 type OnCreateAISession = (id: string, params: string, result: OnAISessionCallback) => boolean;
 
 /**
- * Triggered when executing an AI session action.
- * Enables custom implementation of AI model execution.
+ * AI session execution operation callback function type. Used to implement custom AI model execution.
  *
  * @param { string } id - The session task ID.
  * @param { string } params - Contextual data passed during execution (in JSON string format).
@@ -9482,8 +10464,7 @@ type OnCreateAISession = (id: string, params: string, result: OnAISessionCallbac
 type OnExecuteAIAction = (id: string, params: string, result: OnAISessionCallback) => void;
 
 /**
- * Triggered when an AI session is destroyed.
- * Used for cleaning up resources associated with custom AI models.
+ * AI session destruction callback function type. Used to clean up resources associated with the custom AI model.
  *
  * @param { string } id - The session task ID.
  * @syscap SystemCapability.Web.Webview.Core
@@ -9493,8 +10474,10 @@ type OnExecuteAIAction = (id: string, params: string, result: OnAISessionCallbac
 type OnDestroyAISession = (id: string) => void;
 
 /**
- * Custom AI session model integration for Web components.
- * Users can define custom AI session behaviors via this interface.
+ * Custom AI session configuration object, used to define the lifecycle callbacks of an AI session, including creation,
+ * execution, and destruction.
+ *
+ * <!--no_check-->
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -9502,7 +10485,7 @@ type OnDestroyAISession = (id: string) => void;
  */
 declare interface AISessionEvent {
   /**
-   * The type of AI session.
+   * AI session type.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9511,10 +10494,8 @@ declare interface AISessionEvent {
   aiSessionType: AISessionType;
 
   /**
-   * Triggered when an AI session is created.
-   * Allows custom model initialization and result handling.
-   * Return `true` to bypass the default system behavior;
-   * return `false` to proceed with the default logic.
+   * Callback function triggered when an AI session is created. Returns **true** to skip the system default behavior,
+   * and **false** to continue executing the system default logic.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9523,8 +10504,7 @@ declare interface AISessionEvent {
   onCreateAISession: OnCreateAISession;
 
   /**
-   * Triggered when executing an AI session action.
-   * Enables custom implementation of AI model execution.
+   * Callback function triggered when an AI session executes an action.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9533,8 +10513,8 @@ declare interface AISessionEvent {
   onExecuteAIAction: OnExecuteAIAction;
 
   /**
-   * Triggered when an AI session is destroyed.
-   * Used for cleaning up resources associated with custom AI models.
+   * Callback function triggered when an AI session is destroyed, used to clean up resources associated with the custom
+   * AI model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9544,7 +10524,7 @@ declare interface AISessionEvent {
 }
 
 /**
- * Enum representing the supported types of AI sessions.
+ * Defines the supported AI session types.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -9552,7 +10532,7 @@ declare interface AISessionEvent {
  */
 declare enum AISessionType {
   /**
-   * Translator model
+   * Translation model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9561,7 +10541,7 @@ declare enum AISessionType {
   TRANSLATOR = 1,
 
   /**
-   * Language detector model
+   * Language detection model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9570,7 +10550,7 @@ declare enum AISessionType {
   LANGUAGE_DETECTOR = 2,
 
   /**
-   * Summarization generator model
+   * Content summary generation model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9579,7 +10559,7 @@ declare enum AISessionType {
   SUMMARIZER = 3,
 
   /**
-   * Writing assistant model
+   * Writing assistant model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9588,7 +10568,7 @@ declare enum AISessionType {
   WRITER = 4,
 
   /**
-   * Rewriting assistant model
+   * Content rewriting assistant model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9597,7 +10577,7 @@ declare enum AISessionType {
   REWRITER = 5,
 
   /**
-   * Prompt engineering model
+   * Prompt model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9606,7 +10586,7 @@ declare enum AISessionType {
   PROMPT = 6,
 
   /**
-   * Proofreading assistant model
+   * Content proofreading assistant model.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9616,7 +10596,7 @@ declare enum AISessionType {
 }
 
 /**
- * Enum representing the result states for AI session operations.
+ * Defines the result status of AI session operations.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -9624,7 +10604,7 @@ declare enum AISessionType {
  */
 declare enum AISessionResultType {
   /**
-   * Operation completed successfully.
+   * The operation is successful.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9633,7 +10613,7 @@ declare enum AISessionResultType {
   SUCCESS = 0,
 
   /**
-   * Operation failed.
+   * The operation failed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9642,7 +10622,7 @@ declare enum AISessionResultType {
   FAILURE = 1,
 
   /**
-   * Operation is currently in progress.
+   * The operation is in progress.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -9652,8 +10632,7 @@ declare enum AISessionResultType {
 }
 
 /**
- * Callback type for AI session operations.
- * Used to report the result of session creation or execution.
+ * AI session operation result callback function type. Used to report the result of session creation or execution.
  *
  * @param { AISessionResultType } state - The current result state.
  * @param { string } content - The detailed result or response content.
