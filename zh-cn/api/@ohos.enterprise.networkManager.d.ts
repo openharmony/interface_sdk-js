@@ -1364,17 +1364,17 @@ declare namespace networkManager {
 
   /**
    * 移除设备防火墙过滤规则。适用于企业网络安全策略调整场景，例如取消某些网络访问限制、调整防火墙策略、清理过时或无效的规则，帮助企业灵活调整网络安全策略，确保网络访问控制策略与实际需求保持一致。
-   * 
+   *
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
-   * 
+   *
    * 从API version 23开始，支持[LogType]{@link networkManager.LogType}。
-   * 
+   *
    * 移除规则后如果不存在[Action]{@link networkManager.Action}为ALLOW规则后，会将[addFirewallRule]{@link networkManager.addFirewallRule}添
    * 加的默认DENY规则清空。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { FirewallRule } firewallRule - 移除防火墙过滤规则。值为空时，清空所有的防火墙规则。
+   * @param { FirewallRule } [firewallRule] - 移除防火墙过滤规则。值为空时，清空所有的防火墙规则。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1444,17 +1444,17 @@ declare namespace networkManager {
 
   /**
    * 移除设备域名过滤规则。适用于企业网络安全策略调整场景，例如取消某些域名访问限制、调整域名过滤策略、清理过时或无效的规则、解决误拦截问题，帮助企业灵活调整域名访问策略，确保网络访问控制策略符合实际需求。
-   * 
+   *
    * API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
-   * 
+   *
    * 从API version 23开始，支持[LogType]{@link networkManager.LogType}。
-   * 
+   *
    * 移除规则后如果不存在[Action]{@link networkManager.Action}为ALLOW规则后，会将
    * [addDomainFilterRule]{@link networkManager.addDomainFilterRule}添加的默认DENY规则清空。
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { DomainFilterRule } domainFilterRule - 移除域名过滤规则。值为空时，清空所有的域名规则。
+   * @param { DomainFilterRule } [domainFilterRule] - 移除域名过滤规则。值为空时，清空所有的域名规则。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
