@@ -859,7 +859,8 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { AbilityLifecycleCallback } abilityLifecycleCallback - Callback used to return the ID of the registered listener.
-   * @returns { number } Returns the number code of the callbackId.
+   * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
+   *     [ApplicationContext.unregisterAbilityLifecycleCallback]{@link ApplicationContext#unregisterAbilityLifecycleCallback}
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -877,7 +878,8 @@ declare class ApplicationContext extends Context {
    * <br>It can be called only by the main thread.
    * </p>
    *
-   * @param { number } callbackId - Event type.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
    * @param { AsyncCallback<void> } callback - Callback used to return the ID of the registered listener.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -896,7 +898,8 @@ declare class ApplicationContext extends Context {
    * <br>It can be called only by the main thread.
    * </p>
    *
-   * @param { number } callbackId - Event type.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -913,7 +916,8 @@ declare class ApplicationContext extends Context {
    * Register environment callback.
    *
    * @param { EnvironmentCallback } environmentCallback - Callback used to return the ID of the registered listener.
-   * @returns { number } Returns the number code of the callbackId.
+   * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
+   *     [ApplicationContext.unregisterEnvironmentCallback]{@link ApplicationContext#unregisterEnvironmentCallback}
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -927,7 +931,8 @@ declare class ApplicationContext extends Context {
    * Unregisters the listener for system environment changes. This API uses an asynchronous callback to return the
    * result. It can be called only on the main thread.
    *
-   * @param { number } callbackId - Event type.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
    * @param { AsyncCallback<void> } envcallback - Callback used to return the ID of the registered listener.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -942,7 +947,8 @@ declare class ApplicationContext extends Context {
    * Unregisters the listener for system environment changes. This API uses a promise to return the result. It can be
    * called only on the main thread.
    *
-   * @param { number } callbackId - Event type.
+   * @param { number } callbackId - ID returned when the
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
