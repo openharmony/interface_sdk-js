@@ -695,7 +695,7 @@ declare namespace distributedKVStore {
     /**
      * 备份数据库的名称，无长度限制，不能包含特殊字符'/'。
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -704,7 +704,7 @@ declare namespace distributedKVStore {
     /**
      * 备份数据库的路径，无长度限制。
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
