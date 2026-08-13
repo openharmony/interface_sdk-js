@@ -1249,6 +1249,8 @@ declare namespace sensor {
 
   /**
    * 订阅颜色传感器数据变化。通过回调函数异步上报颜色传感器数据，数据格式为ColorResponse对象，包含lightIntensity（光照强度）和colorTemperature（色温）两个number类型字段。
+   * <br>当开发者需要获取环境光照强度和色温信息以实现屏幕自动亮度调节、拍照色温补偿、环境光线监测等功能时，使用此接口。
+   * <br>该接口为异步回调方式，传感器数据变化时通过callback回调上报，无Promise返回值。
    *
    * @param { SensorId.COLOR } type - 传感器类型，该值固定为SensorId.COLOR。
    * @param { Callback<ColorResponse> } callback - 回调函数，异步上报的传感器数据固定为ColorResponse。
@@ -1266,6 +1268,8 @@ declare namespace sensor {
 
   /**
    * 订阅吸收比率传感器数据变化。通过回调函数异步上报SAR传感器数据，数据格式为SarResponse对象，包含absorptionRatio（吸收率）一个number类型字段。
+   * <br>当开发者需要监测设备电磁波吸收率以实现通信安全监测、辐射检测等功能时，使用此接口。
+   * <br>该接口为异步回调方式，传感器数据变化时通过callback回调上报，无Promise返回值。
    *
    * @param { SensorId.SAR } type - 传感器类型，该值固定为SensorId.SAR。
    * @param { Callback<SarResponse> } callback - 回调函数，异步上报的传感器数据固定为SarResponse。
@@ -1282,7 +1286,7 @@ declare namespace sensor {
   function on(type: SensorId.SAR, callback: Callback<SarResponse>, options?: Options): void;
 
   /**
-   * 订阅加速度传感器数据。加速度传感器用于测量设备在X、Y、Z三个方向上的加速度，包含重力加速度分量。适用于需要感知设备运动状态、实现屏幕旋转、游戏操控、计步等场景的场景。
+   * 订阅加速度传感器数据。加速度传感器用于测量设备在X、Y、Z三个方向上的加速度，包含重力加速度分量。适用于需要感知设备运动状态、实现屏幕旋转、游戏操控、计步等场景。
    * 调用后，系统会按设定频率通过callback持续上报加速度数据。
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -1367,7 +1371,7 @@ declare namespace sensor {
   function on(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>, options?: Options): void;
 
   /**
-   * 订阅重力传感器数据。重力传感器用于测量设备在X、Y、Z三个方向上受到的重力加速度分量，适用于需要分离重力分量进行运动分析的的场景，如游戏操控、运动检测。
+   * 订阅重力传感器数据。重力传感器用于测量设备在X、Y、Z三个方向上受到的重力加速度分量，适用于需要分离重力分量进行运动分析的场景，如游戏操控、运动检测。
    * 调用后，系统会按设定频率通过callback持续上报重力分量数据。
    *
    * @param { SensorId.GRAVITY } type - 传感器类型，该值固定为SensorId.GRAVITY。
@@ -1427,7 +1431,7 @@ declare namespace sensor {
    *
    * @param { SensorId.HALL } type - 传感器类型，该值固定为SensorId.HALL。
    * @param { Callback<HallResponse> } callback - 回调函数，异步上报的传感器数据固定为HallResponse。
-   * @param { Options } [options] - 可选参数列表，当霍尔事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns。
+   * @param { Options } [options] - 可选参数列表，当霍尔事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns（即200ms）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -1527,7 +1531,7 @@ declare namespace sensor {
    * 订阅方向传感器数据。方向传感器用于测量设备绕Z轴旋转的角度(alpha)、绕X轴旋转的角度(beta)和绕Y轴旋转的角度(gamma)，适用于屏幕旋转、指南针、姿态感知等场景。
    * 调用后，系统会按设定频率通过callback持续上报方向数据。调用本接口的应用或服务可以通过提示用户使用8字校准法来提高应用获取的方向传感器的精度，此传感器理论误差正负5度，具体的精度根据不同的驱动及算法实现可能存在差异。
    * 
-   * > **说明：**
+   * > **说明**：
    * >
    * > 调用本接口的应用或服务可以通过提示用户使用8字校准法来提高应用获取的方向传感器的精度，此传感器理论误差正负5度，具体的精度根据不同的驱动及算法实现可能存在差异。
    *
@@ -1547,6 +1551,10 @@ declare namespace sensor {
 
   /**
    * 订阅计步器传感器数据。计步器传感器用于统计用户的步行步数，适用于运动追踪、健康管理等场景。计步传感器数据上报有一定延迟，延迟时间由具体的实现产品决定。调用后，系统会按设定频率通过callback持续上报步数数据。
+   *
+   * > **说明**：
+   * >
+   * > 计步器传感器数据仅在设备重启时清零，不会每天清零，重启前上报的步数数据为累加值。
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - 传感器类型，该值固定为SensorId.PEDOMETER。
@@ -1587,7 +1595,7 @@ declare namespace sensor {
    *
    * @param { SensorId.PROXIMITY } type - 传感器类型，该值固定为SensorId.PROXIMITY。
    * @param { Callback<ProximityResponse> } callback - 回调函数，异步上报的传感器数据固定为ProximityResponse。
-   * @param { Options } [options] - 可选参数列表，用于设置传感器上报频率，默认值为200000000ns。当接近光事件被触发的很频繁时，该参数用于限定事件上报的频率。
+   * @param { Options } [options] - 可选参数列表，用于设置传感器上报频率，默认值为200000000ns（即200ms）。当接近光事件被触发的很频繁时，该参数用于限定事件上报的频率。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -1614,7 +1622,7 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
-   * 订阅有效运动传感器数据，用于检测用户拿起设备、明显移动或剧烈摇晃等有效运动事件。适用于需要根据用户活动状态唤醒设备、启动应用或切换模式的场景。
+   * 订阅有效运动传感器数据，用于检测用户拿起设备、明显移动或剧烈摇晃等有效运动事件。适用于需要根据用户活动状态唤醒设备、启动应用或切换模式的场景。调用后，系统会通过callback持续上报有效运动事件数据。
    *
    * @param { SensorId.SIGNIFICANT_MOTION } type - 传感器类型，该值固定为SensorId.SIGNIFICANT_MOTION。
    * @param { Callback<SignificantMotionResponse> } callback - 回调函数，异步上报的传感器数据固定为SignificantMotionResponse。
@@ -1886,6 +1894,10 @@ declare namespace sensor {
   /**
    * 获取一次计步器传感器数据。计步传感器数据上报有一定延迟，延迟时间由具体的实现产品决定。适用于仅需一次性获取当前步数的场景。调用后，callback仅触发一次，自动取消订阅。
    *
+   * > **说明**：
+   * >
+   * > 计步器传感器数据仅在设备重启时清零，不会每天清零，重启前上报的步数数据为累加值。
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Sensor type. 传感器类型，该值固定为SensorId.PEDOMETER。
    * @param { Callback<PedometerResponse> } callback - 回调函数，异步上报的传感器数据固定为PedometerResponse。
@@ -1973,9 +1985,12 @@ declare namespace sensor {
 
   /**
    * 取消订阅颜色传感器数据。调用后，颜色传感器的回调函数将不再触发。
+   * <br>当开发者不再需要颜色传感器数据时（如页面切换、应用退出），使用此接口取消订阅，以减少系统资源占用。
+   * <br>调用此接口后，之前通过sensor.on(sensor.SensorId.COLOR)注册的回调函数将不再被触发。若传入callback参数，仅取消该指定回调函数的订阅；若不传入callback参数，则取消当前SensorId.COLOR类型的所有回调函数。
+   * 需先调用sensor.on(sensor.SensorId.COLOR)订阅后，再调用此接口取消订阅。
    *
    * @param { SensorId.COLOR } type - 传感器类型，该值固定为SensorId.COLOR。
-   * @param { Callback<ColorResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<ColorResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
@@ -1987,11 +2002,13 @@ declare namespace sensor {
 
   /**
    * 取消订阅颜色传感器数据。与API version 10的off接口相比，新增sensorInfoParam参数，支持通过指定deviceId和sensorIndex来精确取消订阅某一设备上的特定传感器回调，适用于多设备场景。
+   * <br>当开发者需要取消订阅特定设备上的颜色传感器数据时（如多设备连接场景），使用此接口。不传入sensorInfoParam时，默认取消本地设备（deviceId为-1）上的回调。
+   * <br>调用此接口后，指定设备上的颜色传感器回调函数将不再被触发。若传入callback参数，仅取消该指定回调函数的订阅；若不传入callback参数，则取消指定设备上SensorId.COLOR类型的所有回调函数。
    *
    * @param { SensorId.COLOR } type - 传感器类型，该值固定为SensorId.COLOR
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex。默认值：deviceId为-1（本地设备），sensorIndex为0（默认传感器）。
    *     不传入时默认取消本地设备上的回调。
-   * @param { Callback<ColorResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅指定设备上当前类型的所有回调函数。
+   * @param { Callback<ColorResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅指定设备上当前类型的所有回调函数。
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2003,9 +2020,12 @@ declare namespace sensor {
 
   /**
    * 取消订阅吸收比率传感器数据。调用后，SAR传感器的回调函数将不再触发。
+   * <br>当开发者不再需要SAR传感器数据时（如页面切换、应用退出），使用此接口取消订阅，以减少系统资源占用。
+   * <br>调用此接口后，之前通过sensor.on(sensor.SensorId.SAR)注册的回调函数将不再被触发。若传入callback参数，仅取消该指定回调函数的订阅；若不传入callback参数，则取消当前SensorId.SAR类型的所有回调函数。
+   * 需先调用sensor.on(sensor.SensorId.SAR)订阅后，再调用此接口取消订阅。
    *
    * @param { SensorId.SAR } type - 传感器类型，该值固定为SensorId.SAR。
-   * @param { Callback<SarResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<SarResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API. [since 11]
@@ -2017,11 +2037,13 @@ declare namespace sensor {
 
   /**
    * 取消订阅吸收比率传感器数据。与API version 10的off接口相比，新增sensorInfoParam参数，支持通过指定deviceId和sensorIndex来精确取消订阅某一设备上的特定传感器回调，适用于多设备场景。
+   * <br>当开发者需要取消订阅特定设备上的SAR传感器数据时（如多设备连接场景），使用此接口。不传入sensorInfoParam时，默认取消本地设备（deviceId为-1）上的回调。
+   * <br>调用此接口后，指定设备上的SAR传感器回调函数将不再被触发。若传入callback参数，仅取消该指定回调函数的订阅；若不传入callback参数，则取消指定设备上SensorId.SAR类型的所有回调函数。
    *
    * @param { SensorId.SAR } type - 传感器类型，该值固定为SensorId.SAR。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex。默认值：deviceId为-1（本地设备），sensorIndex为0（默认传感器）。
    *     不传入时默认取消本地设备上的回调。
-   * @param { Callback<SarResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅指定设备上当前类型的所有回调函数。
+   * @param { Callback<SarResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅指定设备上当前类型的所有回调函数。
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2036,7 +2058,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - 传感器类型，该值固定为SensorId.ACCELEROMETER。
-   * @param { Callback<AccelerometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2052,7 +2074,7 @@ declare namespace sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - 传感器类型，该值固定为SensorId.ACCELEROMETER。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<AccelerometerResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2067,7 +2089,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.ACCELEROMETER_UNCALIBRATED。
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2082,7 +2104,7 @@ declare namespace sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.ACCELEROMETER_UNCALIBRATED。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2095,7 +2117,7 @@ declare namespace sensor {
    * 取消订阅环境光传感器数据。当不再需要接收环境光传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.AMBIENT_LIGHT } type - 传感器类型，该值固定为SensorId.AMBIENT_LIGHT。
-   * @param { Callback<LightResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LightResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2108,7 +2130,7 @@ declare namespace sensor {
    *
    * @param { SensorId.AMBIENT_LIGHT } type - 传感器类型，该值固定为SensorId.AMBIENT_LIGHT。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<LightResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LightResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2120,7 +2142,7 @@ declare namespace sensor {
    * 取消订阅温度传感器数据。当不再需要接收温度传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.AMBIENT_TEMPERATURE } type - 传感器类型，该值固定为SensorId.AMBIENT_TEMPERATURE。
-   * @param { Callback<AmbientTemperatureResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AmbientTemperatureResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2133,7 +2155,7 @@ declare namespace sensor {
    *
    * @param { SensorId.AMBIENT_TEMPERATURE } type - 传感器类型，该值固定为SensorId.AMBIENT_TEMPERATURE。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<AmbientTemperatureResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AmbientTemperatureResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2145,7 +2167,7 @@ declare namespace sensor {
    * 取消订阅气压计传感器数据。当不再需要接收气压计传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.BAROMETER } type - 传感器类型，该值固定为SensorId.BAROMETER。
-   * @param { Callback<BarometerResponse> } 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<BarometerResponse> } 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2158,7 +2180,7 @@ declare namespace sensor {
    *
    * @param { SensorId.BAROMETER } type - 传感器类型，该值固定为SensorId.BAROMETER。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<BarometerResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<BarometerResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2170,7 +2192,7 @@ declare namespace sensor {
    * 取消订阅重力传感器数据。当不再需要接收重力传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.GRAVITY } type - 传感器类型，该值固定为SensorId.GRAVITY。
-   * @param { Callback<GravityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GravityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2183,7 +2205,7 @@ declare namespace sensor {
    *
    * @param { SensorId.GRAVITY } type - 传感器类型，该值固定为SensorId.GRAVITY。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<GravityResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GravityResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2196,7 +2218,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - 传感器类型，该值固定为SensorId.GYROSCOPE。
-   * @param { Callback<GyroscopeResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2212,7 +2234,7 @@ declare namespace sensor {
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - 传感器类型，该值固定为SensorId.GYROSCOPE。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<GyroscopeResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2227,7 +2249,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.GYROSCOPE_UNCALIBRATED。
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2242,7 +2264,7 @@ declare namespace sensor {
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.GYROSCOPE_UNCALIBRATED。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2255,7 +2277,7 @@ declare namespace sensor {
    * 取消订阅霍尔传感器数据。当不再需要接收霍尔传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.HALL } type - 传感器类型，该值固定为SensorId.HALL。
-   * @param { Callback<HallResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HallResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2268,7 +2290,7 @@ declare namespace sensor {
    *
    * @param { SensorId.HALL } type - 传感器类型，该值固定为SensorId.HALL。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<HallResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HallResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2281,7 +2303,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - 传感器类型，该值固定为SensorId.HEART_RATE。
-   * @param { Callback<HeartRateResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HeartRateResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2296,7 +2318,7 @@ declare namespace sensor {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - 传感器类型，该值固定为SensorId.HEART_RATE。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<HeartRateResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HeartRateResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2309,7 +2331,7 @@ declare namespace sensor {
    * 取消订阅湿度传感器数据。当不再需要接收湿度传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.HUMIDITY } type - 传感器类型，该值固定为SensorId.HUMIDITY。
-   * @param { Callback<HumidityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HumidityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2322,7 +2344,7 @@ declare namespace sensor {
    *
    * @param { SensorId.HUMIDITY } type - 传感器类型，该值固定为SensorId.HUMIDITY。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<HumidityResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HumidityResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2335,7 +2357,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - 传感器类型，该值固定为SensorId.LINEAR_ACCELEROMETER。
-   * @param { Callback<LinearAccelerometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LinearAccelerometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2350,7 +2372,7 @@ declare namespace sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - 传感器类型，该值固定为SensorId.LINEAR_ACCELEROMETER。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<LinearAccelerometerResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LinearAccelerometerResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2363,7 +2385,7 @@ declare namespace sensor {
    * 取消订阅磁场传感器数据。当不再需要接收磁场传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.MAGNETIC_FIELD } type - 传感器类型，该值固定为SensorId.MAGNETIC_FIELD。
-   * @param { Callback<MagneticFieldResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2376,7 +2398,7 @@ declare namespace sensor {
    *
    * @param { SensorId.MAGNETIC_FIELD } type - 传感器类型，该值固定为SensorId.MAGNETIC_FIELD。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<MagneticFieldResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2388,7 +2410,7 @@ declare namespace sensor {
    * 取消订阅未校准的磁场传感器数据。当不再需要接收未校准磁场传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.MAGNETIC_FIELD_UNCALIBRATED。
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2401,7 +2423,7 @@ declare namespace sensor {
    *
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - 传感器类型，该值固定为SensorId.MAGNETIC_FIELD_UNCALIBRATED。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2413,7 +2435,7 @@ declare namespace sensor {
    * 取消订阅方向传感器数据。当不再需要接收方向传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.ORIENTATION } type - 传感器类型，该值固定为SensorId.ORIENTATION。
-   * @param { Callback<OrientationResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<OrientationResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2427,7 +2449,7 @@ declare namespace sensor {
    *
    * @param { SensorId.ORIENTATION } type - 传感器类型，该值固定为SensorId.ORIENTATION。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<OrientationResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<OrientationResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2441,7 +2463,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - 传感器类型，该值固定为SensorId.PEDOMETER。
-   * @param { Callback<PedometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2456,7 +2478,7 @@ declare namespace sensor {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - 传感器类型，该值固定为SensorId.PEDOMETER。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<PedometerResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2470,7 +2492,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - 传感器类型，该值固定为SensorId.PEDOMETER_DETECTION。
-   * @param { Callback<PedometerDetectionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerDetectionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2485,7 +2507,7 @@ declare namespace sensor {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - 传感器类型，该值固定为SensorId.PEDOMETER_DETECTION。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<PedometerDetectionResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerDetectionResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -2498,7 +2520,7 @@ declare namespace sensor {
    * 取消订阅接近光传感器数据。当不再需要接收接近光传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.PROXIMITY } type - 传感器类型，该值固定为SensorId.PROXIMITY。
-   * @param { Callback<ProximityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<ProximityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2511,7 +2533,7 @@ declare namespace sensor {
    *
    * @param { SensorId.PROXIMITY } type - 传感器类型，该值固定为SensorId.PROXIMITY。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<ProximityResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<ProximityResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2523,7 +2545,7 @@ declare namespace sensor {
    * 取消订阅旋转矢量传感器数据。当不再需要接收旋转矢量传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.ROTATION_VECTOR } type - 传感器类型，该值固定为SensorId.ROTATION_VECTOR。
-   * @param { Callback<RotationVectorResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<RotationVectorResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2536,7 +2558,7 @@ declare namespace sensor {
    *
    * @param { SensorId.ROTATION_VECTOR } type - 传感器类型，该值固定为SensorId.ROTATION_VECTOR。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<RotationVectorResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<RotationVectorResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2548,7 +2570,7 @@ declare namespace sensor {
    * 取消订阅有效运动传感器数据。当不再需要接收有效运动传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.SIGNIFICANT_MOTION } type - 传感器类型，该值固定为SensorId.SIGNIFICANT_MOTION。
-   * @param { Callback<SignificantMotionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<SignificantMotionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2561,7 +2583,7 @@ declare namespace sensor {
    *
    * @param { SensorId.SIGNIFICANT_MOTION } type - 传感器类型，该值固定为SensorId.SIGNIFICANT_MOTION。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<SignificantMotionResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<SignificantMotionResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2573,7 +2595,7 @@ declare namespace sensor {
    * 取消订阅佩戴检测传感器数据。当不再需要接收佩戴检测传感器数据时调用此接口取消订阅。off取消订阅必须与on订阅成对出现。
    *
    * @param { SensorId.WEAR_DETECTION } type - 传感器类型，该值固定为SensorId.WEAR_DETECTION。
-   * @param { Callback<WearDetectionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<WearDetectionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2601,7 +2623,7 @@ declare namespace sensor {
    *
    * @param { SensorId.WEAR_DETECTION } type - 传感器类型，该值固定为SensorId.WEAR_DETECTION。
    * @param { SensorInfoParam } [sensorInfoParam] - 传感器传入设置参数，可指定deviceId和sensorIndex，用于取消指定设备上指定传感器的订阅。不传入时默认取消本地设备该类型所有传感器的订阅。
-   * @param { Callback<WearDetectionResponse> } [callback] - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<WearDetectionResponse> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2611,6 +2633,12 @@ declare namespace sensor {
 
   /**
    * 监听加速度传感器的数据变化。适用于需要感知设备运动状态、实现屏幕旋转或游戏操控的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER]
+   * > {@link sensor.on(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options)}
+   * > 替代。
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - 要订阅的加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER。
@@ -2627,6 +2655,12 @@ declare namespace sensor {
   /**
    * 监听未校准加速度传感器的数据变化。适用于需要获取包含偏差校准数据的加速度原始数据的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER_UNCALIBRATED]
+   * > {@link sensor.on(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>, options?: Options)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - 要订阅的未校准加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - 注册未校准加速度传感器的回调函数，上报的数据类型为AccelerometerUncalibratedResponse。
@@ -2642,6 +2676,12 @@ declare namespace sensor {
   /**
    * 监听环境光传感器的数据变化。适用于需要感知环境光照强度的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_LIGHT]
+   * > {@link sensor.on(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - 要订阅的环境光传感器类型为SENSOR_TYPE_ID_AMBIENT_LIGHT。
    * @param { Callback<LightResponse> } callback - 注册环境光传感器的回调函数，上报的数据类型为LightResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2655,6 +2695,12 @@ declare namespace sensor {
 
   /**
    * 监听环境温度传感器的数据变化。适用于需要感知环境温度的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_TEMPERATURE]
+   * > {@link sensor.on(type: SensorId.AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>, options?: Options)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - 要订阅的环境温度传感器类型为SENSOR_TYPE_ID_AMBIENT_TEMPERATURE。
    * @param { Callback<AmbientTemperatureResponse> } callback - 注册环境温度传感器的回调函数，上报的数据类型为AmbientTemperatureResponse。
@@ -2670,6 +2716,12 @@ declare namespace sensor {
   /**
    * 监听气压计传感器的数据变化。适用于需要感知环境气压的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.BAROMETER]
+   * > {@link sensor.on(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - 要订阅的气压计传感器类型为SENSOR_TYPE_ID_BAROMETER。
    * @param { Callback<BarometerResponse> } callback - 注册气压计传感器的回调函数，上报的数据类型为BarometerResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2684,6 +2736,12 @@ declare namespace sensor {
   /**
    * 监听重力传感器的数据变化。适用于需要感知设备重力方向的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GRAVITY]
+   * > {@link sensor.on(type: SensorId.GRAVITY, callback: Callback<GravityResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - 要订阅的重力传感器类型为SENSOR_TYPE_ID_GRAVITY。
    * @param { Callback<GravityResponse> } callback - 注册重力传感器的回调函数，上报的数据类型为GravityResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2697,6 +2755,12 @@ declare namespace sensor {
 
   /**
    * 监听陀螺仪传感器的数据变化。适用于需要感知设备旋转角速度的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE]
+   * > {@link sensor.on(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>, options?: Options)}
+   * > 替代。
    *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - 要订阅的陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE。
@@ -2713,6 +2777,12 @@ declare namespace sensor {
   /**
    * 监听未校准陀螺仪传感器的数据变化。适用于需要获取包含偏差校准数据的陀螺仪原始数据的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE_UNCALIBRATED]
+   * > {@link sensor.on(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>, options?: Options)}
+   * > 替代。
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - 要订阅的未校准陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED。
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - 注册未校准陀螺仪传感器的回调函数，上报的数据类型为GyroscopeUncalibratedResponse。
@@ -2728,6 +2798,12 @@ declare namespace sensor {
   /**
    * 监听霍尔传感器的数据变化。适用于需要检测设备翻盖或磁铁状态的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HALL]
+   * > {@link sensor.on(type: SensorId.HALL, callback: Callback<HallResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - 要订阅的霍尔传感器类型为SENSOR_TYPE_ID_HALL。
    * @param { Callback<HallResponse> } callback - 注册霍尔传感器的回调函数，上报的数据类型为 HallResponse。
    * @param { Options } options - 可选参数列表，当霍尔事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2741,6 +2817,12 @@ declare namespace sensor {
 
   /**
    * 监听心率传感器的数据变化。适用于需要获取用户心率数据的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HEART_RATE]
+   * > {@link sensor.on(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>, options?: Options)}
+   * > 替代。
    *
    * @permission ohos.permission.HEALTH_DATA
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - 要订阅的心率传感器类型为SENSOR_TYPE_ID_HEART_RATE。
@@ -2757,6 +2839,12 @@ declare namespace sensor {
   /**
    * 监听湿度传感器的数据变化。适用于需要感知环境湿度的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HUMIDITY]
+   * > {@link sensor.on(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - 要订阅的湿度传感器类型为SENSOR_TYPE_ID_HUMIDITY。
    * @param { Callback<HumidityResponse> } callback - 注册湿度传感器的回调函数，上报的数据类型为HumidityResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2770,6 +2858,12 @@ declare namespace sensor {
 
   /**
    * 监听线性加速度传感器的数据变化。适用于需要获取排除重力影响的线性加速度数据的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.LINEAR_ACCELEROMETER]
+   * > {@link sensor.on(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>, options?: Options)}
+   * > 替代。
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - 要订阅的线性加速度传感器类型为SENSOR_TYPE_ID_LINEAR_ACCELERATION。
@@ -2786,6 +2880,12 @@ declare namespace sensor {
   /**
    * 监听磁场传感器的数据变化。适用于需要感知设备周围磁场强度与方向的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD]
+   * > {@link sensor.on(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - 要订阅的磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD。
    * @param { Callback<MagneticFieldResponse> } callback - 注册磁场传感器的回调函数，上报的数据类型为MagneticFieldResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2799,6 +2899,12 @@ declare namespace sensor {
 
   /**
    * 监听未校准磁场传感器的数据变化。适用于需要获取包含偏差校准数据的磁场原始数据的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD_UNCALIBRATED]
+   * > {@link sensor.on(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>, options?: Options)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - 要订阅的未校准磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED。
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 注册未校准磁场传感器的回调函数，上报的数据类型为MagneticFieldUncalibratedResponse。
@@ -2814,6 +2920,12 @@ declare namespace sensor {
   /**
    * 监听方向传感器的数据变化。适用于需要感知设备姿态方向的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ORIENTATION]
+   * > {@link sensor.on(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - 要订阅的方向传感器类型为SENSOR_TYPE_ID_ORIENTATION。
    * @param { Callback<OrientationResponse> } callback - 注册方向传感器的回调函数，上报的数据类型为OrientationResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2827,6 +2939,12 @@ declare namespace sensor {
 
   /**
    * 监听计步传感器的数据变化。适用于需要获取用户步数数据的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER]
+   * > {@link sensor.on(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>, options?: Options)}
+   * > 替代。
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - 要订阅的计步传感器类型为SENSOR_TYPE_ID_PEDOMETER。
@@ -2843,6 +2961,12 @@ declare namespace sensor {
   /**
    * 监听计步检测传感器的数据变化。适用于需要检测用户是否在行走的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER_DETECTION]
+   * > {@link sensor.on(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>, options?: Options)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - 要订阅的计步检测传感器类型为SENSOR_TYPE_ID_PEDOMETER_DETECTION。
    * @param { Callback<PedometerDetectionResponse> } callback - 注册计步检测传感器的回调函数，上报的数据类型为PedometerDetectionResponse。
@@ -2858,6 +2982,12 @@ declare namespace sensor {
   /**
    * 监听接近光传感器的数据变化。适用于需要感知设备前方是否有物体靠近的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PROXIMITY]
+   * > {@link sensor.on(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - 要订阅的接近光传感器类型为SENSOR_TYPE_ID_PROXIMITY。
    * @param { Callback<ProximityResponse> } callback - 注册接近光传感器的回调函数，上报的数据类型为ProximityResponse。
    * @param { Options } options - 可选参数列表，当接近光事件被触发的很频繁时，用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2871,6 +3001,12 @@ declare namespace sensor {
 
   /**
    * 监听旋转矢量传感器的数据变化。适用于需要感知设备三维空间旋转状态的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ROTATION_VECTOR]
+   * > {@link sensor.on(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>, options?: Options)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - 要订阅的旋转矢量传感器类型为SENSOR_TYPE_ID_ROTATION_VECTOR。
    * @param { Callback<RotationVectorResponse> } callback - 注册旋转矢量传感器的回调函数，上报的数据类型为RotationVectorResponse。
@@ -2886,6 +3022,12 @@ declare namespace sensor {
   /**
    * 监听有效运动传感器数据变化。适用于需要检测设备是否有显著运动的场景。如果多次调用该接口，仅最后一次调用生效。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.SIGNIFICANT_MOTION]
+   * > {@link sensor.on(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>, options?: Options)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - 要订阅的有效运动传感器类型为SENSOR_TYPE_ID_SIGNIFICANT_MOTION。
    * @param { Callback<SignificantMotionResponse> } callback - 注册有效运动传感器的回调函数，上报的数据类型为SignificantMotionResponse。
    * @param { Options } options - 用于设置传感器上报频率，默认值为200000000ns（即200ms）。
@@ -2899,6 +3041,12 @@ declare namespace sensor {
 
   /**
    * 监听所佩戴的检测传感器的数据变化。适用于需要检测设备是否被佩戴的场景。如果多次调用该接口，仅最后一次调用生效。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.WEAR_DETECTION]
+   * > {@link sensor.on(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - 要订阅的佩戴检测传感器类型为SENSOR_TYPE_ID_WEAR_DETECTION。
    * @param { Callback<WearDetectionResponse> } callback - 注册佩戴检测传感器的回调函数，上报的数据类型为WearDetectionResponse。
@@ -2914,6 +3062,12 @@ declare namespace sensor {
   /**
    * 监听加速度传感器的数据变化一次。适用于仅需一次性获取当前加速度数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER]
+   * > {@link sensor.once(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - 加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER。
    * @param { Callback<AccelerometerResponse> } callback - 注册一次加速度传感器的回调函数，上报的数据类型为AccelerometerResponse。
@@ -2926,6 +3080,12 @@ declare namespace sensor {
 
   /**
    * 监听未校准加速度传感器的数据变化一次。适用于仅需一次性获取当前未校准加速度数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER_UNCALIBRATED]
+   * > {@link sensor.once(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>)}
+   * > 替代。
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - 未校准加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。
@@ -2940,6 +3100,12 @@ declare namespace sensor {
   /**
    * 监听环境光传感器数据变化一次。适用于仅需一次性获取当前环境光数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_LIGHT]
+   * > {@link sensor.once(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - 环境光传感器类型为SENSOR_TYPE_ID_AMBIENT_LIGHT。
    * @param { Callback<LightResponse> } callback - 注册一次环境光传感器的回调函数，上报的数据类型为LightResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -2951,6 +3117,12 @@ declare namespace sensor {
 
   /**
    * 监听环境温度传感器数据变化一次。适用于仅需一次性获取当前环境温度数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_LIGHT]
+   * > {@link sensor.once(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - 环境温度传感器类型为SENSOR_TYPE_ID_AMBIENT_TEMPERATURE。
    * @param { Callback<AmbientTemperatureResponse> } callback - 注册一次环境温度传感器的回调函数，上报的数据类型为AmbientTemperatureResponse。
@@ -2964,6 +3136,12 @@ declare namespace sensor {
   /**
    * 监听气压计传感器数据变化一次。适用于仅需一次性获取当前气压数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.BAROMETER]
+   * > {@link sensor.once(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - 气压计传感器类型为SENSOR_TYPE_ID_BAROMETER。
    * @param { Callback<BarometerResponse> } callback - 注册一次气压计传感器的回调函数，上报的数据类型为BarometerResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -2975,6 +3153,12 @@ declare namespace sensor {
 
   /**
    * 监听重力传感器的数据变化一次。适用于仅需一次性获取当前重力数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GRAVITY]
+   * > {@link sensor.once(type: SensorId.GRAVITY, callback: Callback<GravityResponse>)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - 重力传感器类型为SENSOR_TYPE_ID_GRAVITY。
    * @param { Callback<GravityResponse> } callback - 注册一次重力传感器的回调函数，上报的数据类型为GravityResponse。
@@ -2988,6 +3172,12 @@ declare namespace sensor {
   /**
    * 监听陀螺仪传感器的数据变化一次。适用于仅需一次性获取当前陀螺仪数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE]
+   * > {@link sensor.once(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - 陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE。
    * @param { Callback<GyroscopeResponse> } callback - 注册一次陀螺仪传感器的回调函数，上报的数据类型为GyroscopeResponse。
@@ -3000,6 +3190,12 @@ declare namespace sensor {
 
   /**
    * 监听未校准陀螺仪传感器的数据变化一次。适用于仅需一次性获取当前未校准陀螺仪数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE_UNCALIBRATED]
+   * > {@link sensor.once(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>)}
+   * > 替代。
    *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - 未校准陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED。
@@ -3015,6 +3211,12 @@ declare namespace sensor {
   /**
    * 监听霍尔传感器数据变化一次。适用于仅需一次性获取当前霍尔数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HALL]
+   * > {@link sensor.once(type: SensorId.HALL, callback: Callback<HallResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - 霍尔传感器类型为SENSOR_TYPE_ID_HALL。
    * @param { Callback<HallResponse> } callback - 注册一次霍尔传感器的回调函数，上报的数据类型为HallResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3026,6 +3228,12 @@ declare namespace sensor {
 
   /**
    * 监听心率传感器数据变化一次。适用于仅需一次性获取当前心率数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HEART_RATE]
+   * > {@link sensor.once(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>)}
+   * > 替代。
    *
    * @permission ohos.permission.HEART_RATE
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - 心率传感器类型为SENSOR_TYPE_ID_HEART_RATE。
@@ -3040,6 +3248,12 @@ declare namespace sensor {
   /**
    * 监听湿度传感器数据变化一次。适用于仅需一次性获取当前湿度数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HUMIDITY]
+   * > {@link sensor.once(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - 湿度传感器类型为SENSOR_TYPE_ID_HUMIDITY。
    * @param { Callback<HumidityResponse> } callback - 注册一次湿度传感器的回调函数，上报的数据类型为HumidityResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3051,6 +3265,12 @@ declare namespace sensor {
 
   /**
    * 监听线性加速度传感器数据变化一次。适用于仅需一次性获取当前线性加速度数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.LINEAR_ACCELEROMETER]
+   * > {@link sensor.once(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>)}
+   * > 替代。
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - 线性加速度传感器类型为SENSOR_TYPE_ID_LINEAR_ACCELERATION。
@@ -3066,6 +3286,12 @@ declare namespace sensor {
   /**
    * 监听磁场传感器数据变化一次。适用于仅需一次性获取当前磁场数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD]
+   * > {@link sensor.once(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - 磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD。
    * @param { Callback<MagneticFieldResponse> } callback - 注册一次磁场传感器的回调函数，上报的数据类型为MagneticFieldResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3077,6 +3303,12 @@ declare namespace sensor {
 
   /**
    * 监听未校准磁场传感器数据变化一次。适用于仅需一次性获取当前未校准磁场数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD_UNCALIBRATED]
+   * > {@link sensor.once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - 未校准磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED。
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 注册一次未校准磁场传感器的回调函数，
@@ -3091,6 +3323,12 @@ declare namespace sensor {
   /**
    * 监听方向传感器数据变化一次。适用于仅需一次性获取当前方向数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ORIENTATION]
+   * > {@link sensor.once(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - 方向传感器类型为SENSOR_TYPE_ID_ORIENTATION。
    * @param { Callback<OrientationResponse> } callback - 注册一次方向传感器的回调函数，上报的数据类型为OrientationResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3102,6 +3340,12 @@ declare namespace sensor {
 
   /**
    * 监听计步器传感器数据变化一次。适用于仅需一次性获取当前计步数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER]
+   * > {@link sensor.once(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>)}
+   * > 替代。
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - 计步传感器类型为SENSOR_TYPE_ID_PEDOMETER。
@@ -3116,6 +3360,12 @@ declare namespace sensor {
   /**
    * 监听计步检测传感器数据变化一次。适用于仅需一次性获取当前计步检测数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER_DETECTION]
+   * > {@link sensor.once(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - 计步检测传感器类型为SENSOR_TYPE_ID_PEDOMETER_DETECTION。
    * @param { Callback<PedometerDetectionResponse> } callback - 注册一次计步检测传感器的回调函数，上报的数据类型为PedometerDetectionResponse。
@@ -3129,6 +3379,12 @@ declare namespace sensor {
   /**
    * 监听接近光传感器数据变化一次。适用于仅需一次性获取当前接近光数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PROXIMITY]
+   * > {@link sensor.once(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - 接近光传感器类型为SENSOR_TYPE_ID_PROXIMITY。
    * @param { Callback<ProximityResponse> } callback - 注册一次接近光传感器的回调函数，上报的数据类型为ProximityResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3140,6 +3396,12 @@ declare namespace sensor {
 
   /**
    * 监听旋转矢量传感器数据变化一次。适用于仅需一次性获取当前旋转矢量数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ROTATION_VECTOR]
+   * > {@link sensor.once(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - 旋转矢量传感器类型为SENSOR_TYPE_ID_ROTATION_VECTOR。
    * @param { Callback<RotationVectorResponse> } callback - 注册一次旋转矢量传感器的回调函数，上报的数据类型为RotationVectorResponse。
@@ -3153,6 +3415,12 @@ declare namespace sensor {
   /**
    * 监听有效运动传感器的数据变化一次。适用于仅需一次性获取当前有效运动数据的场景。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.SIGNIFICANT_MOTION]
+   * > {@link sensor.once(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - 有效运动传感器类型为SENSOR_TYPE_ID_SIGNIFICANT_MOTION。
    * @param { Callback<SignificantMotionResponse> } callback - 注册一次有效运动传感器的回调函数，上报的数据类型为SignificantMotionResponse。
    * @syscap SystemCapability.Sensors.Sensor
@@ -3164,6 +3432,12 @@ declare namespace sensor {
 
   /**
    * 监听所佩戴的检测传感器的数据变化一次。适用于仅需一次性获取当前佩戴检测数据的场景。
+   *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.WEAR_DETECTION]
+   * > {@link sensor.once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>)}
+   * > 替代。
    *
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - 佩戴检测传感器类型为SENSOR_TYPE_ID_WEAR_DETECTION。
    * @param { Callback<WearDetectionResponse> } callback - 注册一次穿戴检测传感器的回调函数，上报的数据类型为WearDetectionResponse。
@@ -3177,9 +3451,15 @@ declare namespace sensor {
   /**
    * 取消订阅加速度传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER]
+   * > {@link sensor.off(type: SensorId.ACCELEROMETER, callback?: Callback<AccelerometerResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - 要取消订阅的加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER。
-   * @param { Callback<AccelerometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3190,9 +3470,15 @@ declare namespace sensor {
   /**
    * 取消订阅未校准加速度传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ACCELEROMETER_UNCALIBRATED]
+   * > {@link sensor.off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - 要取消订阅的未校准加速度计传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。
-   * @param { Callback<AccelerometerUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AccelerometerUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3204,8 +3490,14 @@ declare namespace sensor {
   /**
    * 取消订阅环境光传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_LIGHT]
+   * > {@link sensor.off(type: SensorId.AMBIENT_LIGHT, callback?: Callback<LightResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - 要取消订阅的环境光传感器类型为SENSOR_TYPE_ID_AMBIENT_LIGHT。
-   * @param { Callback<LightResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LightResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3216,8 +3508,14 @@ declare namespace sensor {
   /**
    * 取消订阅环境温度传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.AMBIENT_TEMPERATURE]
+   * > {@link sensor.off(type: SensorId.AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - 要取消订阅的环境温度传感器类型为SENSOR_TYPE_ID_AMBIENT_TEMPERATURE。
-   * @param { Callback<AmbientTemperatureResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<AmbientTemperatureResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3228,8 +3526,14 @@ declare namespace sensor {
   /**
    * 取消订阅气压计传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.BAROMETER]
+   * > {@link sensor.off(type: SensorId.BAROMETER, callback?: Callback<BarometerResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - 要取消订阅的气压计传感器类型为SENSOR_TYPE_ID_BAROMETER。
-   * @param { Callback<BarometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<BarometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3240,8 +3544,14 @@ declare namespace sensor {
   /**
    * 取消订阅重力传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GRAVITY]
+   * > {@link sensor.off(type: SensorId.GRAVITY, callback?: Callback<GravityResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - 要取消订阅的重力传感器类型为SENSOR_TYPE_ID_GRAVITY。
-   * @param { Callback<GravityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GravityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3252,9 +3562,15 @@ declare namespace sensor {
   /**
    * 取消订阅陀螺仪传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE]
+   * > {@link sensor.off(type: SensorId.GYROSCOPE, callback?: Callback<GyroscopeResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - 要取消订阅的陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE。
-   * @param { Callback<GyroscopeResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3265,9 +3581,15 @@ declare namespace sensor {
   /**
    * 取消订阅未校准陀螺仪传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.GYROSCOPE_UNCALIBRATED]
+   * > {@link sensor.off(type: SensorId.GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - 要取消订阅的未校准陀螺仪传感器类型为SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED。
-   * @param { Callback<GyroscopeUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<GyroscopeUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3278,8 +3600,14 @@ declare namespace sensor {
   /**
    * 取消订阅霍尔传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HALL]
+   * > {@link sensor.off(type: SensorId.HALL, callback?: Callback<HallResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - 要取消订阅的霍尔传感器类型为SENSOR_TYPE_ID_HALL。
-   * @param { Callback<HallResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HallResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3290,9 +3618,15 @@ declare namespace sensor {
   /**
    * 取消订阅心率传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HEART_RATE]
+   * > {@link sensor.off(type: SensorId.HEART_RATE, callback?: Callback<HeartRateResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.HEALTH_DATA
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - 要取消订阅的心率传感器类型为SENSOR_TYPE_ID_HEART_RATE。
-   * @param { Callback<HeartRateResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HeartRateResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3303,8 +3637,14 @@ declare namespace sensor {
   /**
    * 取消订阅湿度传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.HUMIDITY]
+   * > {@link sensor.off(type: SensorId.HUMIDITY, callback?: Callback<HumidityResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - 要取消订阅的湿度传感器类型为SENSOR_TYPE_ID_HUMIDITY。
-   * @param { Callback<HumidityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<HumidityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3315,9 +3655,15 @@ declare namespace sensor {
   /**
    * 取消订阅线性加速度传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.LINEAR_ACCELEROMETER]
+   * > {@link sensor.off(type: SensorId.LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - 要取消订阅的线性加速度传感器类型为SENSOR_TYPE_ID_LINEAR_ACCELERATION。
-   * @param { Callback<LinearAccelerometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<LinearAccelerometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3328,8 +3674,14 @@ declare namespace sensor {
   /**
    * 取消订阅磁场传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD]
+   * > {@link sensor.off(type: SensorId.MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - 要取消订阅的磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD。
-   * @param { Callback<MagneticFieldResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3340,8 +3692,14 @@ declare namespace sensor {
   /**
    * 取消订阅未校准磁场传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.MAGNETIC_FIELD_UNCALIBRATED]
+   * > {@link sensor.off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - 要取消订阅的未校准磁场传感器类型为SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED。
-   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<MagneticFieldUncalibratedResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3352,8 +3710,14 @@ declare namespace sensor {
   /**
    * 取消订阅方向传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ORIENTATION]
+   * > {@link sensor.off(type: SensorId.ORIENTATION, callback?: Callback<OrientationResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - 要取消订阅的方向传感器类型为SENSOR_TYPE_ID_ORIENTATION。
-   * @param { Callback<OrientationResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<OrientationResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3364,9 +3728,15 @@ declare namespace sensor {
   /**
    * 取消订阅计步传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER]
+   * > {@link sensor.off(type: SensorId.PEDOMETER, callback?: Callback<PedometerResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - 要取消订阅的计步传感器类型为SENSOR_TYPE_ID_PEDOMETER。
-   * @param { Callback<PedometerResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3377,9 +3747,15 @@ declare namespace sensor {
   /**
    * 取消订阅计步检测传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PEDOMETER_DETECTION]
+   * > {@link sensor.off(type: SensorId.PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>)}
+   * > 替代。
+   *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - 要取消订阅的计步检测传感器类型为SENSOR_TYPE_ID_PEDOMETER_DETECTION。
-   * @param { Callback<PedometerDetectionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<PedometerDetectionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3390,8 +3766,14 @@ declare namespace sensor {
   /**
    * 取消订阅接近光传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.PROXIMITY]
+   * > {@link sensor.off(type: SensorId.PROXIMITY, callback?: Callback<ProximityResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - 要取消订阅的接近光传感器类型为SENSOR_TYPE_ID_PROXIMITY。
-   * @param { Callback<ProximityResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<ProximityResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3402,8 +3784,14 @@ declare namespace sensor {
   /**
    * 取消订阅旋转矢量传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.ROTATION_VECTOR]
+   * > {@link sensor.off(type: SensorId.ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - 要取消订阅的旋转矢量传感器类型为SENSOR_TYPE_ID_ROTATION_VECTOR。
-   * @param { Callback<RotationVectorResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<RotationVectorResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3414,8 +3802,14 @@ declare namespace sensor {
   /**
    * 取消订阅有效运动传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.SIGNIFICANT_MOTION]
+   * > {@link sensor.off(type: SensorId.SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - 要取消订阅的有效运动传感器类型为SENSOR_TYPE_ID_SIGNIFICANT_MOTION。
-   * @param { Callback<SignificantMotionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<SignificantMotionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3426,8 +3820,14 @@ declare namespace sensor {
   /**
    * 取消订阅佩戴检测传感器数据。off取消订阅必须与on订阅成对出现。
    *
+   * > **说明**：
+   * >
+   * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用[sensor.on.WEAR_DETECTION]
+   * > {@link sensor.off(type: SensorId.WEAR_DETECTION, callback?: Callback<WearDetectionResponse>)}
+   * > 替代。
+   *
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - 要取消订阅的佩戴检测传感器类型为SENSOR_TYPE_ID_WEAR_DETECTION。
-   * @param { Callback<WearDetectionResponse> } callback - 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
+   * @param { Callback<WearDetectionResponse> } callback - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3579,7 +3979,7 @@ declare namespace sensor {
   }
 
   /**
-   * 获取指定传感器类型的属性信息，使用Callback异步方式返回结果。
+   * 获取指定传感器类型的属性信息。使用callback异步回调。
    *
    * @param { SensorId } type - 指定传感器类型。
    * @param { AsyncCallback<Sensor> } callback - 回调函数，异步返回指定传感器的属性信息。
@@ -3595,7 +3995,7 @@ declare namespace sensor {
   function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
 
   /**
-   * 获取指定类型的传感器信息，使用Promise异步方式返回结果。
+   * 获取指定类型的传感器信息。使用Promise异步回调。
    *
    * @param { SensorId } type - 传感器类型。
    * @returns { Promise<Sensor> } 使用异步方式返回传感器信息。
@@ -3641,7 +4041,7 @@ declare namespace sensor {
   function getSingleSensorByDeviceSync(type: SensorId, deviceId?: int): Array<Sensor>;
 
   /**
-   * 获取设备上的所有传感器信息，使用Callback异步方式返回结果。
+   * 获取设备上的所有传感器信息。使用callback异步回调。如果需要同步获取传感器列表，请使用getSensorListSync。
    *
    * @param { AsyncCallback<Array<Sensor>> } callback - 回调函数，异步返回传感器属性列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3655,7 +4055,7 @@ declare namespace sensor {
   function getSensorList(callback: AsyncCallback<Array<Sensor>>): void;
 
   /**
-   * 获取设备上的所有传感器信息，使用Promise异步方式返回结果。
+   * 获取设备上的所有传感器信息。使用Promise异步回调。
    *
    * @returns { Promise<Array<Sensor>> } Promise对象，使用异步方式返回传感器属性列表。每个Sensor对象包含传感器的类型ID、名称、版本、厂商、最大范围、分辨率、功率等属性信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3681,7 +4081,7 @@ declare namespace sensor {
   function getSensorListSync(): Array<Sensor>;
 
   /**
-   * 同步获取设备的所有传感器信息。
+   * 同步获取设备的所有传感器信息。getSensorListByDeviceSync返回设备上所有传感器信息，getSingleSensorByDeviceSync返回指定单个传感器信息。
    *
    * @param { int } [deviceId] - 设备ID，默认为查询本地设备，默认值为-1，表示本地设备，设备ID需通过
    *     [getSensorList]{@link sensor.getSensorList(callback: AsyncCallback<Array<Sensor>>)}查询或者监听设备上下线接口
@@ -3729,7 +4129,7 @@ declare namespace sensor {
     z: double;
 
     /**
-     * 磁倾角，即地球磁场线与水平面的夹角。单位：degree（度）。
+     * 磁倾角，即地球磁场线与水平面的夹角。单位：°（度）。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -3738,7 +4138,7 @@ declare namespace sensor {
     geomagneticDip: double;
 
     /**
-     * 磁偏角，即地磁北方向与正北方向在水平面上的角度。单位：degree（度）。
+     * 磁偏角，即地磁北方向与正北方向在水平面上的角度。单位：°（度）。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -3774,7 +4174,7 @@ declare namespace sensor {
    */
   interface LocationOptions {
     /**
-     * 纬度。取值范围：[-90, 90]。单位：degree（度）。
+     * 纬度。取值范围：[-90, 90]。单位：°（度）。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -3783,7 +4183,7 @@ declare namespace sensor {
     latitude: double;
 
     /**
-     * 经度。取值范围：[-180, 180]。单位：degree（度）。
+     * 经度。取值范围：[-180, 180]。单位：°（度）。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -3802,7 +4202,7 @@ declare namespace sensor {
   }
 
   /**
-   * 获取地球上特定位置的地磁场，使用callback异步方式返回结果。
+   * 获取地球上特定位置的地磁场。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -3812,7 +4212,7 @@ declare namespace sensor {
    * > 替代。
    *
    * @param { LocationOptions } locationOptions - 地理位置。
-   * @param { number } timeMillis - 表示获取磁偏角的时间，单位为毫秒。
+   * @param { number } timeMillis - 表示获取磁偏角的时间，单位：ms（毫秒）。
    * @param { AsyncCallback<GeomagneticResponse> } callback - 异步返回磁场信息。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
@@ -3822,7 +4222,7 @@ declare namespace sensor {
   function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
 
   /**
-   * 获取地球上特定位置的地磁场，使用Promise异步方式返回结果。
+   * 获取地球上特定位置的地磁场。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -3831,7 +4231,7 @@ declare namespace sensor {
    * > 代。
    *
    * @param { LocationOptions } locationOptions - 地理位置。
-   * @param { number } timeMillis - 表示获取磁偏角的时间，单位为毫秒。
+   * @param { number } timeMillis - 表示获取磁偏角的时间，单位：ms（毫秒）。
    * @returns { Promise<GeomagneticResponse> } 使用异步方式返回磁场信息。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
@@ -3841,10 +4241,10 @@ declare namespace sensor {
   function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
 
   /**
-   * 获取某时刻地球上特定位置的地磁场信息，使用Callback异步方式返回结果。
+   * 获取某时刻地球上特定位置的地磁场信息。使用callback异步回调。
    *
    * @param { LocationOptions } locationOptions - 地理位置，包括经度、纬度和海拔高度。
-   * @param { long } timeMillis - 获取磁偏角的时间，unix时间戳。单位：ms（毫秒）。取值范围：正整数。
+   * @param { long } timeMillis - 获取磁偏角的时间，unix时间戳，表示自1970-01-01 00:00:00 UTC以来的毫秒数。单位：ms（毫秒）。取值范围：正整数。
    * @param { AsyncCallback<GeomagneticResponse> } callback - 回调函数，异步返回地磁场信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3857,10 +4257,10 @@ declare namespace sensor {
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>): void;
 
   /**
-   * 获取某时刻地球上特定位置的地磁场信息，使用Promise异步方式返回结果。
+   * 获取某时刻地球上特定位置的地磁场信息。使用Promise异步回调。
    *
    * @param { LocationOptions } locationOptions - 地理位置，包括经度、纬度和海拔高度。
-   * @param { long } timeMillis - 获取磁偏角的时间，unix时间戳。单位：ms（毫秒）。取值范围：正整数。
+   * @param { long } timeMillis - 获取磁偏角的时间，unix时间戳，表示自1970-01-01 00:00:00 UTC以来的毫秒数。单位：ms（毫秒）。取值范围：正整数。
    * @returns { Promise<GeomagneticResponse> } Promise对象，使用异步方式返回地磁场信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3873,7 +4273,7 @@ declare namespace sensor {
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long): Promise<GeomagneticResponse>;
 
   /**
-   * 根据气压值获取设备所在的海拔高度，使用Callback异步方式返回结果。
+   * 根据气压值获取设备所在的海拔高度。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -3881,9 +4281,9 @@ declare namespace sensor {
    * > [sensor.getDeviceAltitude]{@link sensor.getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>)}
    * > 替代。
    *
-   * @param { number } seaPressure - 表示海平面气压值，单位为hPa。
-   * @param { number } currentPressure - 表示设备所在高度的气压值，单位为hPa。
-   * @param { AsyncCallback<number> } callback - 异步返回设备所在的海拔高度，单位为米。
+   * @param { number } seaPressure - 表示海平面气压值，单位：hPa（百帕）。
+   * @param { number } currentPressure - 表示设备所在高度的气压值，单位：hPa（百帕）。
+   * @param { AsyncCallback<number> } callback - 异步返回设备所在的海拔高度，单位：m（米）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3892,16 +4292,16 @@ declare namespace sensor {
   function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
 
   /**
-   * 根据气压值获取设备所在的海拔高度，使用Promise异步方式返回结果。
+   * 根据气压值获取设备所在的海拔高度。使用Promise异步回调。
    *
    * > **说明**：
    * >
    * > 从API version 8 开始支持，从API version 9 开始废弃，建议使用
    * > [sensor.getDeviceAltitude]{@link sensor.getDeviceAltitude(seaPressure: double, currentPressure: double)}替代。
    *
-   * @param { number } seaPressure - 表示海平面气压值，单位为hPa。
-   * @param { number } currentPressure - 表示设备所在高度的气压值，单位为hPa。
-   * @returns { Promise<number> } 使用异步方式返回设备所在的海拔高度（单位：米）。
+   * @param { number } seaPressure - 表示海平面气压值，单位：hPa（百帕）。
+   * @param { number } currentPressure - 表示设备所在高度的气压值，单位：hPa（百帕）。
+   * @returns { Promise<number> } 使用异步方式返回设备所在的海拔高度，单位：m（米）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3910,11 +4310,11 @@ declare namespace sensor {
   function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
 
   /**
-   * 根据气压值获取海拔高度，使用Callback异步方式返回结果。
+   * 根据气压值获取海拔高度。使用callback异步回调。
    *
-   * @param { double } seaPressure - 海平面气压值，单位为hPa。
-   * @param { double } currentPressure - 指定的气压值，单位为hPa。
-   * @param { AsyncCallback<double> } callback - 回调函数，异步返回指定的气压值对应的海拔高度，单位为米。
+   * @param { double } seaPressure - 海平面气压值，单位：hPa（百帕）。
+   * @param { double } currentPressure - 指定的气压值，单位：hPa（百帕）。
+   * @param { AsyncCallback<double> } callback - 回调函数，异步返回指定的气压值对应的海拔高度，单位：m（米）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -3926,11 +4326,11 @@ declare namespace sensor {
   function getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>): void;
 
   /**
-   * 根据气压值获取海拔高度，使用Promise异步方式返回结果。
+   * 根据气压值获取海拔高度。使用Promise异步回调。
    *
-   * @param { double } seaPressure - 海平面气压值，单位为hPa。
-   * @param { double } currentPressure - 指定的气压值，单位为hPa。
-   * @returns { Promise<double> } Promise对象，使用异步方式返回指定的气压值对应的海拔高度，单位为米。
+   * @param { double } seaPressure - 海平面气压值，单位：hPa（百帕）。
+   * @param { double } currentPressure - 指定的气压值，单位：hPa（百帕）。
+   * @returns { Promise<double> } Promise对象，使用异步方式返回指定的气压值对应的海拔高度，单位：m（米）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -3942,7 +4342,7 @@ declare namespace sensor {
   function getDeviceAltitude(seaPressure: double, currentPressure: double): Promise<double>;
 
   /**
-   * 根据倾斜矩阵计算地磁倾斜角，使用Callback异步方式返回结果。
+   * 根据倾斜矩阵计算地磁倾斜角。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -3951,7 +4351,7 @@ declare namespace sensor {
    * > 替代。
    *
    * @param { Array<number> } inclinationMatrix - 表示倾斜矩阵。
-   * @param { AsyncCallback<number> } callback - 异步返回地磁倾斜角，单位为弧度。
+   * @param { AsyncCallback<number> } callback - 异步返回地磁倾斜角，单位：rad（弧度）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3960,7 +4360,7 @@ declare namespace sensor {
   function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
 
   /**
-   * 根据倾斜矩阵计算地磁倾斜角，使用Promise异步方式返回结果。
+   * 根据倾斜矩阵计算地磁倾斜角。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -3968,7 +4368,7 @@ declare namespace sensor {
    * > [sensor.getInclination]{@link sensor.getInclination(inclinationMatrix: Array<double>)}替代。
    *
    * @param { Array<number> } inclinationMatrix - 表示倾斜矩阵。
-   * @returns { Promise<number> } 使用异步方式返回地磁倾斜角，单位为弧度。
+   * @returns { Promise<number> } 使用异步方式返回地磁倾斜角，单位：rad（弧度）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3977,10 +4377,10 @@ declare namespace sensor {
   function getGeomagneticDip(inclinationMatrix: Array<number>): Promise<number>;
 
   /**
-   * 根据倾斜矩阵计算地磁倾角，使用Callback异步方式返回结果。
+   * 根据倾斜矩阵计算地磁倾角。使用callback异步回调。
    *
    * @param { Array<double> } inclinationMatrix - 倾斜矩阵。
-   * @param { AsyncCallback<double> } callback - 回调函数，异步返回地磁倾角，单位为弧度。
+   * @param { AsyncCallback<double> } callback - 回调函数，异步返回地磁倾角，单位：rad（弧度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -3992,10 +4392,10 @@ declare namespace sensor {
   function getInclination(inclinationMatrix: Array<double>, callback: AsyncCallback<double>): void;
 
   /**
-   * 根据倾斜矩阵计算地磁倾角，使用Promise异步方式返回结果。
+   * 根据倾斜矩阵计算地磁倾角。使用Promise异步回调。
    *
    * @param { Array<double> } inclinationMatrix - 倾斜矩阵。
-   * @returns { Promise<double> } Promise对象，使用异步方式返回地磁倾斜角，单位为弧度。
+   * @returns { Promise<double> } Promise对象，使用异步方式返回地磁倾斜角，单位：rad（弧度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -4037,11 +4437,11 @@ declare namespace sensor {
   function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
 
   /**
-   * 计算两个旋转矩阵之间的角度变化，使用Callback异步方式返回结果。
+   * 计算两个旋转矩阵之间的角度变化。使用callback异步回调。
    *
    * @param { Array<double> } currentRotationMatrix - 当前旋转矩阵。
    * @param { Array<double> } preRotationMatrix - 相对旋转矩阵。
-   * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -4054,11 +4454,11 @@ declare namespace sensor {
     callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * 得到两个旋转矩阵之间的角度变化，使用Promise异步方式返回结果。
+   * 得到两个旋转矩阵之间的角度变化。使用Promise异步回调。
    *
    * @param { Array<double> } currentRotationMatrix - 当前旋转矩阵。
    * @param { Array<double> } preRotationMatrix - 相对旋转矩阵。
-   * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -4070,7 +4470,7 @@ declare namespace sensor {
   function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>): Promise<Array<double>>;
 
   /**
-   * 将旋转矢量转换为旋转矩阵，使用Callback异步方式返回结果。
+   * 将旋转矢量转换为旋转矩阵。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -4088,7 +4488,7 @@ declare namespace sensor {
   function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * 将旋转矢量转换为旋转矩阵，使用Promise异步方式返回结果。
+   * 将旋转矢量转换为旋转矩阵。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -4105,7 +4505,7 @@ declare namespace sensor {
   function createRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
 
   /**
-   * 根据旋转矢量获取旋转矩阵，使用Callback异步方式返回结果。
+   * 根据旋转矢量获取旋转矩阵。使用callback异步回调。
    *
    * @param { Array<double> } rotationVector - 旋转矢量。
    * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回3*3旋转矩阵。
@@ -4120,7 +4520,7 @@ declare namespace sensor {
   function getRotationMatrix(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * 根据旋转矢量获取旋转矩阵，使用Promise异步方式返回结果。
+   * 根据旋转矢量获取旋转矩阵。使用Promise异步回调。
    *
    * @param { Array<double> } rotationVector - 旋转矢量。
    * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回旋转矩阵。
@@ -4162,7 +4562,7 @@ declare namespace sensor {
   }
 
   /**
-   * 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Callback异步方式返回结果。
+   * 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -4183,7 +4583,7 @@ declare namespace sensor {
     callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Promise异步方式返回结果。
+   * 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -4202,7 +4602,7 @@ declare namespace sensor {
   function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
 
   /**
-   * 根据指定坐标系映射旋转矩阵，使用Callback异步方式返回结果。
+   * 根据指定坐标系映射旋转矩阵。使用callback异步回调。
    *
    * @param { Array<double> } inRotationVector - 旋转矩阵。
    * @param { CoordinatesOptions } coordinates - 指定坐标系方向。
@@ -4219,7 +4619,7 @@ declare namespace sensor {
     callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * 根据指定坐标系映射旋转矩阵，使用Promise异步方式返回结果。
+   * 根据指定坐标系映射旋转矩阵。使用Promise异步回调。
    *
    * @param { Array<double> } inRotationVector - 旋转矩阵。
    * @param { CoordinatesOptions } coordinates - 指定坐标系方向。
@@ -4235,7 +4635,7 @@ declare namespace sensor {
   function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions): Promise<Array<double>>;
 
   /**
-   * 将旋转矢量转换为四元数，使用Callback异步方式返回结果。
+   * 将旋转矢量转换为四元数。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -4253,7 +4653,7 @@ declare namespace sensor {
   function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * 将旋转矢量转换为四元数，使用Promise异步方式返回结果。
+   * 将旋转矢量转换为四元数。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -4270,7 +4670,7 @@ declare namespace sensor {
   function createQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
 
   /**
-   * 根据旋转向量计算归一化四元数，使用Callback异步方式返回结果。
+   * 根据旋转向量计算归一化四元数。使用callback异步回调。
    *
    * @param { Array<double> } rotationVector - 旋转矢量。
    * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回归一化四元数。
@@ -4285,7 +4685,7 @@ declare namespace sensor {
   function getQuaternion(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * 根据旋转向量计算归一化四元数，使用Promise异步方式返回结果。
+   * 根据旋转向量计算归一化四元数。使用Promise异步回调。
    *
    * @param { Array<double> } rotationVector - 旋转矢量。
    * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回归一化四元数。
@@ -4300,7 +4700,7 @@ declare namespace sensor {
   function getQuaternion(rotationVector: Array<double>): Promise<Array<double>>;
 
   /**
-   * 根据旋转矩阵计算设备的方向，使用Callback异步方式返回结果。
+   * 根据旋转矩阵计算设备的方向。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -4309,7 +4709,7 @@ declare namespace sensor {
    * > 替代。
    *
    * @param { Array<number> } rotationMatrix - 表示旋转矩阵。
-   * @param { AsyncCallback<Array<number>> } callback - 异步返回围绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @param { AsyncCallback<Array<number>> } callback - 异步返回围绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -4318,7 +4718,7 @@ declare namespace sensor {
   function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * 根据旋转矩阵计算设备的方向，使用Promise异步方式返回结果。
+   * 根据旋转矩阵计算设备的方向。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -4326,7 +4726,7 @@ declare namespace sensor {
    * > [sensor.getOrientation]{@link sensor.getOrientation(rotationMatrix: Array<double>)}替代。
    *
    * @param { Array<number> } rotationMatrix - 表示旋转矩阵。
-   * @returns { Promise<Array<number>> } 使用异步方式返回围绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @returns { Promise<Array<number>> } 使用异步方式返回围绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -4335,10 +4735,10 @@ declare namespace sensor {
   function getDirection(rotationMatrix: Array<number>): Promise<Array<number>>;
 
   /**
-   * 根据旋转矩阵计算设备方向，使用Callback异步方式返回结果。
+   * 根据旋转矩阵计算设备方向。使用callback异步回调。
    *
    * @param { Array<double> } rotationMatrix - 旋转矩阵。
-   * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回围绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @param { AsyncCallback<Array<double>> } callback - 回调函数，异步返回围绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -4350,10 +4750,10 @@ declare namespace sensor {
   function getOrientation(rotationMatrix: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
-   * 根据旋转矩阵计算设备的方向，使用Promise异步方式返回结果。
+   * 根据旋转矩阵计算设备的方向。使用Promise异步回调。
    *
    * @param { Array<double> } rotationMatrix - 旋转矩阵。
-   * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回围绕z、x、y轴方向的旋转角度，单位度（°）。
+   * @returns { Promise<Array<double>> } Promise对象，使用异步方式返回围绕z、x、y轴方向的旋转角度，单位：°（度）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
@@ -4392,7 +4792,7 @@ declare namespace sensor {
   }
 
   /**
-   * 根据重力矢量和地磁矢量计算旋转矩阵，使用Callback异步方式返回结果。
+   * 根据重力矢量和地磁矢量计算旋转矩阵。使用callback异步回调。
    *
    * > **说明**：
    * >
@@ -4412,7 +4812,7 @@ declare namespace sensor {
   function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
 
   /**
-   * 根据重力矢量和地磁矢量计算旋转矩阵，使用Promise异步方式返回结果。
+   * 根据重力矢量和地磁矢量计算旋转矩阵。使用Promise异步回调。
    *
    * > **说明**：
    * >
@@ -4430,7 +4830,7 @@ declare namespace sensor {
   function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
 
   /**
-   * 根据重力矢量和地磁矢量计算旋转矩阵，使用Callback异步方式返回结果。
+   * 根据重力矢量和地磁矢量计算旋转矩阵。使用callback异步回调。
    *
    * @param { Array<double> } gravity - 重力矢量。
    * @param { Array<double> } geomagnetic - 地磁矢量。
@@ -4446,7 +4846,7 @@ declare namespace sensor {
   function getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>, callback: AsyncCallback<RotationMatrixResponse>): void;
 
   /**
-   * 根据重力矢量和地磁矢量计算旋转矩阵，使用Promise异步方式返回结果。
+   * 根据重力矢量和地磁矢量计算旋转矩阵。使用Promise异步回调。
    *
    * @param { Array<double> } gravity - 重力向量。
    * @param { Array<double> } geomagnetic - 地磁矢量。
@@ -5001,7 +5401,7 @@ declare namespace sensor {
    */
   interface OrientationResponse extends Response {
     /**
-     * 设备围绕Z轴的旋转角度，即方位角。单位：degree（度）；取值范围：[0, 360]。
+     * 设备围绕Z轴的旋转角度，即方位角。单位：°（度）；取值范围：[0, 360]。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice [since 11]
@@ -5011,7 +5411,7 @@ declare namespace sensor {
     alpha: double;
 
     /**
-     * 设备围绕X轴的旋转角度，即俯仰角。单位：degree（度）；取值范围：[-180, 180]。
+     * 设备围绕X轴的旋转角度，即俯仰角。单位：°（度）；取值范围：[-180, 180]。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice [since 11]
@@ -5021,7 +5421,7 @@ declare namespace sensor {
     beta: double;
 
     /**
-     * 设备围绕Y轴的旋转角度，即翻转角。单位：degree（度）；取值范围：[-90, 90]。
+     * 设备围绕Y轴的旋转角度，即翻转角。单位：°（度）；取值范围：[-90, 90]。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice [since 11]
@@ -5067,7 +5467,7 @@ declare namespace sensor {
     z: double;
 
     /**
-     * 旋转矢量的标量分量，描述设备相对于某个参考方向的旋转状态。单位：弧度（rad）。
+     * 旋转矢量的标量分量，描述设备相对于某个参考方向的旋转状态。单位：rad（弧度）。
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5564,7 +5964,7 @@ declare namespace sensor {
   /**
    * 监听传感器上线下线状态的变化，callback返回传感器状态事件数据。适用于需要感知传感器设备动态上下线的场景，如远程传感器连接或断开时自动更新传感器列表或订阅状态。
    *
-   * @param { 'sensorStatusChange' } type - 固定传入'sensorStatusChange', 状态监听固定参数。
+   * @param { 'sensorStatusChange' } type - 固定传入'sensorStatusChange'，状态监听固定参数。
    * @param { Callback<SensorStatusEvent> } callback - 回调函数，异步上报的传感器事件数据SensorStatusEvent。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
@@ -5576,8 +5976,8 @@ declare namespace sensor {
   /**
    * 取消监听传感器上线下线状态的变化。当不再需要感知传感器上下线状态时调用此接口取消监听。off取消监听必须与on监听成对出现。
    *
-   * @param { 'sensorStatusChange' } type - 固定传入'sensorStatusChange',状态监听固定参数。
-   * @param { Callback<SensorStatusEvent> } [callback] - sensor.on传入的回调函数，不传则取消所有监听。
+   * @param { 'sensorStatusChange' } type - 固定传入'sensorStatusChange'，状态监听固定参数。
+   * @param { Callback<SensorStatusEvent> } [callback] - 回调函数，需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
