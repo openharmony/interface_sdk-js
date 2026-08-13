@@ -4115,7 +4115,6 @@ declare namespace media {
     /**
      * Sets the playback rate. This API can be called only when the AVPlayer is in the prepared, playing, paused, or 
      * completed state. The value range is [0.125, 4.0]. You can check whether the setting takes effect through the 
-     * You can check whether the setting takes effect through the 
      * [playbackRateDone]{@link media.AVPlayer.on(type: 'playbackRateDone', callback: OnPlaybackRateDone)} event.
      * 
      * > **NOTE**
