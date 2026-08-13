@@ -520,11 +520,15 @@ declare class ApplicationContext extends Context {
   restartApp(want: Want): void;
 
   /**
-   * Preload UIExtensionAbility.
+   * 预加载指定UIExtensionAbility实例。使用Promise异步回调。
+   * 
+   * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
+   * 
+   * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { Want } want - Indicates the want of target UIExtensionAbility.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - 预加载UIExtensionAbility的want信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -693,6 +697,156 @@ declare class ApplicationContext extends Context {
    * @since 24 dynamic&static
    */
   offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
+
+  /**
+   * 注册监听应用内UIAbility的生命周期。使用callback异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { AbilityLifecycleCallback } abilityLifecycleCallback - UIAbility生命周期变化时触发的回调方法。
+   * @returns { number } 返回此次注册的callbackID，该ID用于在
+   *     [ApplicationContext.unregisterAbilityLifecycleCallback()]{@link ApplicationContext#unregisterAbilityLifecycleCallback}
+   *     方法中取消注册对应的callback。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)
+   */
+  registerAbilityLifecycleCallback(abilityLifecycleCallback: AbilityLifecycleCallback): number;
+
+  /**
+   * 取消监听应用内UIAbility的生命周期。使用callback异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
+   *     接口注册监听应用内UIAbility的生命周期时返回的ID。
+   * @param { AsyncCallback<void> } callback - 回调方法。当取消监听应用内生命周期成功，err为undefined，否则为错误对象。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * 取消监听应用内UIAbility的生命周期。使用Promise异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
+   *     接口注册监听应用内UIAbility的生命周期时返回的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+
+  /**
+   * 注册对系统环境变化的监听。使用callback异步回调。
+   * 
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { EnvironmentCallback } environmentCallback - 系统环境变化时触发的回调方法。
+   * @returns { number } 返回此次注册的callbackID，该ID用于在
+   *     [ApplicationContext.unregisterEnvironmentCallback]{@link ApplicationContext#unregisterEnvironmentCallback}
+   *     方法中取消注册对应的callback。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)
+   */
+  registerEnvironmentCallback(environmentCallback: EnvironmentCallback): number;
+
+  /**
+   * 取消对系统环境变化的监听。使用callback异步回调。
+   * 
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
+   *     接口注册监听系统环境变化时返回的ID。
+   * @param { AsyncCallback<void> } envcallback - 回调方法。当取消对系统环境变化的监听成功，err为undefined，否则为错误对象。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterEnvironmentCallback(callbackId: number, envcallback: AsyncCallback<void>): void;
+
+  /**
+   * 取消对系统环境变化的监听。使用Promise异步回调。
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
+   *     接口注册监听系统环境变化时返回的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number): Promise<void>;
+   */
+  unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+
+  /**
+   * 获取运行中的进程信息。使用Promise异步回调。
+   *
+   * @returns { Promise<Array<ProcessInformation>> } Promise对象，返回接口运行结果及有关运行进程的信息，可进行错误处理或其他自定义处理。
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(): Promise<Array<ProcessInformation>>;
+
+  /**
+   * 获取运行中的进程信息。使用callback异步回调。
+   *
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - 回调函数，返回有关运行进程的信息。
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 }
 
 export default ApplicationContext;
