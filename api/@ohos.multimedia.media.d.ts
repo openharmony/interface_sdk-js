@@ -11205,7 +11205,7 @@ declare namespace media {
      * @since 23 static
      */
     SCREEN_AND_WINDOW = 2,
-        
+
     /**
      * Show application options only.
      *
@@ -11214,7 +11214,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     APP_ONLY = 3,
- 
+
     /**
      * Show both window and application options.
      *
@@ -11223,7 +11223,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     WINDOW_AND_APP = 4,
-     
+
     /**
      * Show both screen and application options.
      *
@@ -11232,7 +11232,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     SCREEN_AND_APP = 5,
- 
+
     /**
      * Show screen, window, and application options.
      *
@@ -11452,7 +11452,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     setContentAutoRotation(enable: boolean): Promise<void>;
-	
+
     /**
      * Subscribes to screen capture state changes. An application can subscribe to only one screen capture state change 
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
@@ -12293,7 +12293,7 @@ declare namespace media {
     pauseDownloadTask(taskId?: string): void;
 
     /**
-     * Resuming Offline download of a Specified Task
+     * Resuming Offline Download of a Specified Task
      *
      * @param { string } [taskId] - Specifies the ID of an offline download task.
      *     Value constraint:If this parameter is not specified, all suspended offline download tasks are resumed..
@@ -12308,7 +12308,7 @@ declare namespace media {
     /**
      * Obtains all offline download tasks in the Task Manager. Ended download tasks are automatically cleared.
      *
-     * @returns { Array<string> } If a task exists in the task manager, the taskID array is returned. Otherwise null.
+     * @returns { Array<string> } If a task exists in the task manager, the task ID array is returned. Otherwise null.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
