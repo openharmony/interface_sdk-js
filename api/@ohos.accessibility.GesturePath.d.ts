@@ -14,38 +14,41 @@
  */
 
 /**
- * @file
+ * @file Gesture Path
  * @kit AccessibilityKit
  */
 
 import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
 
 /**
- * The **GesturePath** module provides APIs for creating gesture path information required for an accessibility 
- * application to inject gestures.
+ * GesturePath represents gesture path information.
+ * 
+ * This module is used to create gesture path information for accessibility gesture injection.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare class GesturePath {
   /**
-   * Defines a constructor used to create a **GesturePath** instance.
+   * Creates a gesture path object by passing in the total gesture duration. After creating a GesturePath instance, you 
+   * must also set the required property points.
    *
-   * @param { long } durationTime - Total gesture duration, in milliseconds.
+   * @param { long } durationTime - Total gesture duration, in ms. The value must be greater than 0.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(durationTime: long);
   /**
-   * Gesture touch point.
+   * Sequence of touch points on the gesture path, used to form the movement trajectory of the gesture. Each touch point
+   * represents a coordinate position on the path. The array length must be greater than 0.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   points: Array<GesturePoint>;
   /**
-   * Total gesture duration, in milliseconds.
+   * Total gesture duration, in ms. The value must be greater than 0.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly

@@ -14,41 +14,41 @@
  */
 
 /**
- * @file
+ * @file 手势触摸点
  * @kit AccessibilityKit
  */
 
 /**
- * GesturePoint表示手势触摸点。
+ * GesturePoint表示手势触摸点，是构成手势路径GesturePath的基本单元。
  * 
- * 本模块用于创建辅助功能注入手势所需的手势路径的触摸点信息。
+ * 本模块用于创建手势路径的触摸点信息，供辅助功能注入手势使用。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare class GesturePoint {
-    /**
-     * 构造函数。
-     *
-     * @param { double } positionX - 触摸点X坐标，单位为像素（px）。
-     * @param { double } positionY - 触摸点Y坐标，单位为像素（px）。
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 9 dynamiconly
-     * @deprecated since 12
-     */
-    constructor(positionX: double, positionY: double);
-    /**
-     * 触摸点X坐标，单位为像素（px）。
-     *
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 9 dynamiconly
-     */
-    positionX: double;
-    /**
-     * 触摸点Y坐标，单位为像素（px）。
-     *
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 9 dynamiconly
-     */
-    positionY: double;
-  }
+  /**
+   * 根据传入的X坐标和Y坐标创建GesturePoint实例。
+   *
+   * @param { double } positionX - 触摸点X坐标，单位为像素（px）。
+   * @param { double } positionY - 触摸点Y坐标，单位为像素（px）。
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9 dynamiconly
+   * @deprecated since 12
+   */
+  constructor(positionX: double, positionY: double);
+  /**
+   * 触摸点X坐标，单位为像素（px）。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9 dynamiconly
+   */
+  positionX: double;
+  /**
+   * 触摸点Y坐标，单位为像素（px）。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9 dynamiconly
+   */
+  positionY: double;
+}
