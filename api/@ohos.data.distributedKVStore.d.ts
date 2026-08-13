@@ -743,7 +743,7 @@ declare namespace distributedKVStore {
     /**
      * Specifies the file name to the backup database
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
@@ -752,7 +752,7 @@ declare namespace distributedKVStore {
     /**
      * Specifies the root directory relative to the backup database
      *
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
      * @since 24 dynamic&static
      */
