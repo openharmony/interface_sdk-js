@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 手势路径
  * @kit AccessibilityKit
  */
 
@@ -23,30 +23,30 @@ import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
 /**
  * GesturePath表示手势路径信息。
  * 
- * 本模块用于创建辅助功能注入手势所需的手势路径信息。
+ * 本模块用于创建手势路径信息，供辅助功能注入手势使用。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare class GesturePath {
   /**
-   * 构造函数。
+   * 通过传入手势总耗时创建手势路径对象。创建GesturePath实例后，还需设置必填属性points。
    *
-   * @param { long } durationTime - 手势总耗时，单位为毫秒。
+   * @param { long } durationTime - 手势总耗时，单位：ms。取值需大于0。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(durationTime: long);
   /**
-   * 手势触摸点。
+   * 手势路径上的触摸点序列，用于构成手势的移动轨迹。每个触摸点表示路径中的一个坐标位置。数组长度需大于0。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   points: Array<GesturePoint>;
   /**
-   * 手势总耗时，单位为毫秒。
+   * 手势总耗时，单位：ms。取值需大于0。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly

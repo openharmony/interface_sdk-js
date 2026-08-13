@@ -14,9 +14,9 @@
  */
 
 /**
- * AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力，能力包括成功连接无障碍服务、断开无障碍服务、处理无障碍服务事件和无障碍按键事件等。
+ * AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能扩展业务的能力。
  *
- * @file
+ * @file 辅助功能扩展能力
  * @kit AccessibilityKit
  */
 
@@ -35,6 +35,8 @@ import type {
   FocusRule as _FocusRule,
   FocusCondition as _FocusCondition,
   FocusMoveResult as _FocusMoveResult,
+  AccessibilityVirtualNode as _AccessibilityVirtualNode,
+  TouchPosition as _TouchPosition
 } from './application/AccessibilityExtensionContext';
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -48,6 +50,8 @@ import type {
   FocusRule as _FocusRule,
   FocusCondition as _FocusCondition,
   FocusMoveResult as _FocusMoveResult,
+  AccessibilityVirtualNode as _AccessibilityVirtualNode,
+  TouchPosition as _TouchPosition
 } from './application/AccessibilityExtensionContext';
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -124,7 +128,8 @@ export type Rect = _Rect;
 export type Parameter = _Parameter;
 
 /**
- * 表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext}。
+ * 表示辅助功能扩展的上下文环境，请参考
+ * [AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext:AccessibilityExtensionContext}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
@@ -159,6 +164,26 @@ export type FocusCondition = _FocusCondition;
 export type FocusMoveResult = _FocusMoveResult;
 
 /**
+ * Indicates the accessibility virtual node.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
+
+/**
+ * The touch position of an accessibility virtual node.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type TouchPosition = _TouchPosition;
+
+/**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -168,15 +193,15 @@ export type FocusMoveResult = _FocusMoveResult;
 export { AccessibilityExtensionContext };
 
 /**
- * AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力。
- * 
+ * AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能扩展业务的能力。
+ *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
  * @since 23 static
  */
 declare class AccessibilityExtensionAbility {
   /**
-   * 表示辅助扩展能力上下文。
+   * 表示辅助功能扩展的上下文环境。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
@@ -185,7 +210,7 @@ declare class AccessibilityExtensionAbility {
   context: AccessibilityExtensionContext;
 
   /**
-   * 用户启用AccessibilityExtensionAbility时，系统服务完成连接后，回调此接口，可以该方法中执行初始化业务逻辑操作。该方法可以选择性重写。
+   * 用户启用AccessibilityExtensionAbility时，系统服务完成连接后回调此接口，可在该方法中执行初始化业务逻辑操作。该方法可选择性重写。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -194,7 +219,7 @@ declare class AccessibilityExtensionAbility {
   onConnect(): void;
 
   /**
-   * 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后，回调此接口，可以该方法中执行资源回收退出业务逻辑操作。该方法可以选择性重写。
+   * 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后回调此接口，可在该方法中执行资源回收和退出业务操作。该方法可选择性重写。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -203,9 +228,9 @@ declare class AccessibilityExtensionAbility {
   onDisconnect(): void;
 
   /**
-   * 在关注的应用及事件类型对应的事件发生时回调此接口，可以在该方法中根据事件信息进行业务逻辑处理。一般情况下需要重写该方法完成业务。
+   * 当无障碍事件发生时回调此接口，可在该方法中根据事件信息进行业务逻辑处理。通常需要重写该方法。
    *
-   * @param { AccessibilityEvent } event - 无障碍事件。无返回值。
+   * @param { AccessibilityEvent } event - 无障碍事件信息。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -213,10 +238,11 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
   /**
-   * 在应用和事件发生时回调该接口，根据事件信息处理业务逻辑。通常需要重写。
+   * 当无障碍事件发生时，系统将事件分发至已连接的AccessibilityExtensionAbility并回调该接口，可根据事件信息处理业务逻辑。通常需要重写。事件类型的详细说明请参见
+   * [AccessibilityEventType]{@link @ohos.accessibility:AccessibilityEventType}。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { AccessibilityEventInfo } event - 无障碍事件
+   * @param { AccessibilityEventInfo } event - 无障碍事件信息。
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -228,10 +254,11 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
   /**
-   * 在物理按键按下时回调此方法，可以在该方法中根据业务判断是否对事件进行拦截。
+   * 在按键按下时回调此接口，可在该方法中根据业务判断是否消费事件。该方法可选择性重写。
    *
-   * @param { KeyEvent } keyEvent - 按键事件回调函数。返回true表示拦截此按键。
-   * @returns { boolean } 返回true表示此事件被消费，不会继续传递。<br>返回false表示此事件未被消费，会继续传递。
+   * @param { KeyEvent } keyEvent - 按键事件。
+   * @returns { boolean } 返回true表示此事件被消费，不会继续传递。
+   *     <br>返回false表示此事件未被消费，会继续传递。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -241,7 +268,7 @@ declare class AccessibilityExtensionAbility {
   /**
    * 连接无障碍服务成功后的回调函数。
    * 
-   * 用户启用AccessibilityExtensionAbility时，系统服务完成连接后回调该接口，在该方法中完成初始化业务逻辑操作。 该方法可以选择性重写。 无障碍服务通过该回调，通知Ability已成功连接。
+   * 用户启用AccessibilityExtensionAbility时，系统服务完成连接后回调该接口，通知Ability已成功连接。开发者可在该方法中完成初始化业务逻辑操作，该方法可选择性重写。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -257,7 +284,7 @@ declare class AccessibilityExtensionAbility {
   /**
    * 断开无障碍服务成功后的回调函数。
    * 
-   * 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后回调该接口，在该方法中执行资源回收和退出业务操作。该方法可以选择性重写。
+   * 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后回调该接口，可在该方法中执行资源回收和退出业务操作。该方法可选择性重写。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -271,11 +298,12 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityDisconnect(): void;
 
   /**
-   * 在物理按键按下时回调该方法，在该方法中根据业务判断是否消费事件。
+   * 在按键按下时回调该接口，可在该方法中根据业务判断是否消费事件。该方法可选择性重写。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @param { KeyEvent } keyEvent - 按键事件。
-   * @returns { boolean } 返回true表示此事件被消费，不会继续传递。<br>返回false表示些事件未被消费，会继续传递。
+   * @returns { boolean } 返回true表示此事件被消费，不会继续传递。
+   *     <br>返回false表示此事件未被消费，会继续传递。
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -290,14 +318,15 @@ declare class AccessibilityExtensionAbility {
 export default AccessibilityExtensionAbility;
 
 /**
- * 辅助事件信息。
+ * 无障碍事件信息。无障碍事件由系统无障碍服务在用户操作或界面变化时生成，通过eventType标识事件类别（包括无障碍事件类型、窗口变化类型、触摸浏览事件类型、手势事件类型、页面更新类型），辅助功能扩展可通过
+ * onAccessibilityEvent回调接收并处理这些事件。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare interface AccessibilityEvent {
   /**
-   * 具体事件类型。
+   * 具体事件类型，用于标识当前无障碍事件的类别。
    * 
    * EventType：无障碍事件类型；
    * 
@@ -307,7 +336,7 @@ export declare interface AccessibilityEvent {
    * 
    * GestureType：手势事件类型；
    * 
-   * PageUpdateType：页面刷新类型。
+   * PageUpdateType：页面更新类型。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -316,7 +345,7 @@ export declare interface AccessibilityEvent {
         TouchGuideType | GestureType | PageUpdateType;
 
   /**
-   * 发生事件的目标组件。
+   * 发生事件的目标元素。当无障碍事件涉及具体元素时，此属性包含该元素信息。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -324,7 +353,7 @@ export declare interface AccessibilityEvent {
   target?: AccessibilityElement;
 
   /**
-   * 事件时间戳，单位是毫秒。默认值为0。
+   * 事件时间戳，取值范围为非负整数，单位为毫秒，默认值为0。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -332,7 +361,7 @@ export declare interface AccessibilityEvent {
   timeStamp?: long;
 
   /**
-   * 主动聚焦的组件ID。默认值为0。
+   * 主动聚焦的元素ID。主动聚焦指应用通过无障碍服务主动将焦点聚焦到指定元素上，与用户手动导航聚焦不同。默认值为0。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamiconly
@@ -340,7 +369,7 @@ export declare interface AccessibilityEvent {
   elementId?: long;
 
   /**
-   * 主动播报的内容。当应用需要主动播报时根据实际场景设置播报内容，无特殊限制。
+   * 主动播报的内容。当应用需要主动播报时根据实际场景设置播报内容，无特殊限制，默认为空字符串。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamiconly
@@ -348,7 +377,7 @@ export declare interface AccessibilityEvent {
   textAnnouncedForAccessibility?: string;
 
   /**
-   * 针对TextArea、TextInput、SearchField、RichEdit组件，当文本内容有新增或删除时，携带的文本内容。根据实际场景设置，无特殊限制。
+   * 针对TextArea、TextInput、SearchField、RichEdit组件，当文本内容有新增或删除时，携带新增或删除的文本内容。根据实际场景设置，无特殊限制，默认为空字符串。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 dynamiconly
@@ -376,7 +405,7 @@ export declare interface AccessibilityEventInfo {
   eventType: AccessibilityEventType;
 
   /**
-   * 发生事件的目标组件。
+   * 发生事件的目标组件。当无障碍事件涉及具体组件时，此属性包含该组件信息。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -386,7 +415,7 @@ export declare interface AccessibilityEventInfo {
   target?: AccessibilityElement;
 
   /**
-   * 事件时间戳，单位是毫秒。默认值为0。
+   * 事件时间戳，单位为毫秒，默认值为0。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -396,7 +425,7 @@ export declare interface AccessibilityEventInfo {
   timestamp?: long;
 
   /**
-   * 针对TextArea、TextInput、SearchField、RichEdit组件， 组件文本内容有新增或删除时，新增或删除的文本内容。
+   * 针对TextArea、TextInput、SearchField、RichEdit组件，当组件文本内容发生增删变化时，此属性表示增删的具体文本内容。默认值为空字符串。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -407,7 +436,7 @@ export declare interface AccessibilityEventInfo {
 }
 
 /**
- * 手势事件类型。
+ * 手势事件类型。手势事件在用户执行特定手势操作时由无障碍服务触发，辅助功能扩展可通过onAccessibilityEvent回调接收并处理对应的手势事件。
  *
  * @unionmember { 'left' } 表示向左的手势。
  * @unionmember { 'leftThenRight' } 表示先向左再向右的手势。
@@ -448,7 +477,7 @@ export declare interface AccessibilityEventInfo {
  * @unionmember { 'fourFingerSwipeDown' } 表示四指向下滑动的手势。 [since 11]
  * @unionmember { 'fourFingerSwipeLeft' } 表示四指向左滑动的手势。 [since 11]
  * @unionmember { 'fourFingerSwipeRight' } 表示四指向右滑动的手势。 [since 11]
- * @unionmember {'oneFingerDoubleTap'} [since 26.0.0]
+ * @unionmember { 'oneFingerDoubleTap' } 表示单指双击的手势。 [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @stagemodelonly
  * @since 9 dynamiconly
@@ -465,21 +494,22 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' | 'oneFingerDoubleTap';
 
 /**
- * 页面刷新类型。
+ * 页面更新类型。页面更新事件在页面内容或状态发生变化时由无障碍服务触发，辅助功能扩展可通过onAccessibilityEvent回调接收并处理对应的页面更新事件。
  *
- * @unionmember { 'pageContentUpdate' } 表示页面内容刷新。
- * @unionmember { 'pageStateUpdate' } 表示页面状态刷新。
+ * @unionmember { 'pageContentUpdate' } 表示页面内容更新。
+ * @unionmember { 'pageStateUpdate' } 表示页面状态更新。
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
 /**
- * 触摸浏览事件类型。
+ * 触摸浏览事件类型。触摸浏览是无障碍辅助功能中的一种交互模式，用户在该模式下通过触摸探索界面元素而非直接激活。
  *
  * @unionmember { 'touchBegin' } 表示触摸浏览时开始触摸。
  * @unionmember { 'touchEnd' } 表示触摸浏览时结束触摸。
+ * @unionmember { 'touchGuideGesture' } 表示触摸浏览手势。 [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
-type TouchGuideType = 'touchBegin' | 'touchEnd';
+type TouchGuideType = 'touchBegin' | 'touchEnd' | 'touchGuideGesture';
