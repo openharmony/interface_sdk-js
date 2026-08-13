@@ -441,6 +441,15 @@ declare namespace inputDevice {
      * @since 23 dynamic&static
      */
     isLocal?: boolean;
+
+    /**
+     * Indicates the bound target displayId.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    displayId?: int;
   }
 
   /**
@@ -879,6 +888,31 @@ declare namespace inputDevice {
    * @since 23 static
    */
   function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
+
+  /**
+   * Bind input devices to a display.
+   * Only external USB and Bluetooth mice, touchpads, keyboards, and game controllers are supported.
+   * After binding, the device will be fixed to operate on the display group where the specified display is located.
+   * This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { int } inputDeviceId - ID of the specified input device.
+   *     If the input service restarts or the input device is reconnects, its ID may change.
+   * @param { int } displayId - ID of the target display.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   *     The application does not have the required permission.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @throws { BusinessError } 3900001 - The specified input device does not exist.
+   * @throws { BusinessError } 3900004 - The specified display does not exist.
+   * @throws { BusinessError } 3900005 - Unsupported input device.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function bindToDisplay(inputDeviceId: int, displayId: int): Promise<void>;
 }
 
 export default inputDevice;
