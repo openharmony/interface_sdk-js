@@ -14,30 +14,25 @@
  */
 
 /**
- * @file
+ * @file SIM卡管理
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides applications with APIs for obtaining SIM card status, card file information, and card specifications.
- * SIM cards include SIM, USIM, and CSIM cards.
+ * SIM卡管理模块提供了SIM卡管理的基础能力，包括获取指定卡槽SIM卡的ISO国家码、归属PLMN号、服务提供商名称、SIM卡状态、卡类型、是否插卡、是否激活等。
  *
- * @namespace sim
  * @syscap SystemCapability.Telephony.CoreService
  * @since 6 dynamic
  * @since 23 static
  */
 declare namespace sim {
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * 获取指定卡槽SIM卡是否激活。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking
-   * whether the SIM card in a specified slot is activated.
-   * Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回指定卡槽是否激活。<br/>- true:激活。<br/>- false：未激活。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -45,11 +40,10 @@ declare namespace sim {
   function isSimActive(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * 获取指定卡槽SIM卡是否激活。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式返回指定卡槽是否激活。<br/>- true:激活。<br/>- false：未激活。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -57,11 +51,10 @@ declare namespace sim {
   function isSimActive(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * 获取指定卡槽SIM卡是否激活。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { boolean } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } 返回指定卡槽是否激活。<br/>- true:激活。<br/>- false：未激活。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -69,13 +62,9 @@ declare namespace sim {
   function isSimActiveSync(slotId: int): boolean;
 
   /**
-   * Obtains the default card slot for the voice service.
+   * 获取默认语音业务的卡槽ID。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Indicates the callback for getting
-   * the default card slot for the voice service.
-   * Returns {@code 0} if card 1 is used as the default card slot for the voice service;
-   * returns {@code 1} if card 2 is used as the default card slot for the voice service;
-   * returns {@code -1} if no card is available for the voice service.
+   * @param { AsyncCallback<int> } callback - 回调函数。<br />- 0：卡槽1。<br />- 1：卡槽2。<br />- -1：未设置或服务不可用。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -83,11 +72,9 @@ declare namespace sim {
   function getDefaultVoiceSlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default card slot for the voice service.
+   * 获取默认语音业务的卡槽ID。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
-   * returns {@code 1} if card 2 is used as the default card slot for the voice service;
-   * returns {@code -1} if no card is available for the voice service.
+   * @returns { Promise<int> } 以Promise形式返回默认语音业务的卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。<br />- -1：未设置或服务不可用。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -95,13 +82,11 @@ declare namespace sim {
   function getDefaultVoiceSlotId(): Promise<int>;
 
   /**
-   * Checks whether your application (the caller) has been granted the operator permissions.
+   * 检查应用(调用者)是否已被授予运营商权限。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback of hasOperatorPrivileges.
-   * Returns {@code true} if your application has been granted the operator permissions; returns {@code false} otherwise.
-   * If no SIM card is inserted or the SIM card is deactivated will be return {@code false}.
+   * @param { int } slotId - 卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。 返回检查应用（调用者）是否已被授予运营商权限。<br/>- true：授权。<br/>- false：未授权（未插入SIM卡或停
+   *     用）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -115,13 +100,10 @@ declare namespace sim {
   function hasOperatorPrivileges(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether your application (the caller) has been granted the operator permissions.
+   * 检查应用(调用者)是否已被授予运营商权限。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if your application has been granted the operator permissions;
-   * returns {@code false} otherwise. If no SIM card is inserted or the SIM card is deactivated will be
-   * return {@code false}.
+   * @param { int } slotId - 卡槽ID。<br />- 0：卡槽1。<br />- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式返回检查应用(调用者)是否已被授予运营商权限。<br/>- true：授权。<br/>- false：未授权（未插入SIM卡或停用）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -135,12 +117,10 @@ declare namespace sim {
   function hasOperatorPrivileges(slotId: int): Promise<boolean>;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的ISO国家码。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined
-   * in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。返回国家码，例如：CN(中国)。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -155,12 +135,10 @@ declare namespace sim {
   function getISOCountryCodeForSim(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的ISO国家码。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
-   * returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回获取指定卡槽SIM卡的ISO国家码。例如：CN(中国)。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -175,12 +153,10 @@ declare namespace sim {
   function getISOCountryCodeForSim(slotId: int): Promise<string>;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的ISO国家码。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card
-   * is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回获取指定卡槽SIM卡的ISO国家码。例如：CN(中国)。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -188,15 +164,10 @@ declare namespace sim {
   function getISOCountryCodeForSimSync(slotId: int): string;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的归属PLMN(Public Land Mobile Network)号。使用callback异步回调。
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the PLMN number;
-   * returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。返回指定卡槽SIM卡的归属PLMN号。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -211,14 +182,10 @@ declare namespace sim {
   function getSimOperatorNumeric(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的归属PLMN(Public Land Mobile Network)号。使用Promise异步回调。
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回获取指定卡槽SIM卡的归属PLMN号。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -233,14 +200,10 @@ declare namespace sim {
   function getSimOperatorNumeric(slotId: int): Promise<string>;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的归属PLMN(Public Land Mobile Network)号。
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回获取指定卡槽SIM卡的归属PLMN号。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -248,15 +211,10 @@ declare namespace sim {
   function getSimOperatorNumericSync(slotId: int): string;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的服务提供商名称(Service Provider Name，SPN)。使用callback异步回调。
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SPN;
-   * returns an empty string if no SIM card is inserted or no EFSPN file in the SIM card.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。返回指定卡槽SIM卡的SPN。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -271,15 +229,10 @@ declare namespace sim {
   function getSimSpn(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的服务提供商名称(Service Provider Name，SPN)。使用Promise异步回调。
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the SPN; returns an empty string if no SIM card is inserted or
-   * no EFSPN file in the SIM card.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回获取指定卡槽SIM卡的SPN。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -294,15 +247,10 @@ declare namespace sim {
   function getSimSpn(slotId: int): Promise<string>;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * 获取指定卡槽SIM卡的服务提供商名称(Service Provider Name，SPN)。
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the SPN; returns an empty string if no EFSPN file is configured for the SIM card.
-   * in the SIM card.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回获取指定卡槽SIM卡的SPN。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -310,19 +258,10 @@ declare namespace sim {
   function getSimSpnSync(slotId: int): string;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * 获取指定卡槽的SIM卡状态。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<SimState> } callback - 回调函数。参考[SimState]{@link sim.SimState}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -336,19 +275,10 @@ declare namespace sim {
   function getSimState(slotId: int, callback: AsyncCallback<SimState>): void;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * 获取指定卡槽的SIM卡状态。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<SimState> } Returns one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<SimState> } 以Promise形式返回获取指定卡槽的SIM卡状态。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -362,19 +292,10 @@ declare namespace sim {
   function getSimState(slotId: int): Promise<SimState>;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * 获取指定卡槽的SIM卡状态。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { SimState } Returns one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { SimState } 返回获取指定卡槽的SIM卡状态。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -382,11 +303,10 @@ declare namespace sim {
   function getSimStateSync(slotId: int): SimState;
 
   /**
-   * Obtains the type of the SIM card installed in a specified slot.
+   * 获取指定卡槽SIM卡的卡类型。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<CardType> } callback - Indicates the callback for getting the SIM card type.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<CardType> } callback - 回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -401,11 +321,10 @@ declare namespace sim {
   function getCardType(slotId: int, callback: AsyncCallback<CardType>): void;
 
   /**
-   * Obtains the type of the SIM card installed in a specified slot.
+   * 获取指定卡槽SIM卡的卡类型。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<CardType> } Returns the SIM card type.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<CardType> } 以Promise形式返回指定卡槽SIM卡的卡类型。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -420,11 +339,10 @@ declare namespace sim {
   function getCardType(slotId: int): Promise<CardType>;
 
   /**
-   * Obtains the type of the SIM card inserted in a specified slot.
+   * 获取指定卡槽SIM卡的卡类型。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { CardType } Returns the SIM card type.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { CardType } 返回指定卡槽SIM卡的卡类型。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -734,10 +652,9 @@ declare namespace sim {
   function getSimGid1(slotId: int): Promise<string>;
 
   /**
-   * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
-   * that is, the maximum number of SIM card slots.
+   * 获取卡槽数量。
    *
-   * @returns { int } Returns the maximum number of SIM card slots.
+   * @returns { int } 卡槽数量。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -814,12 +731,10 @@ declare namespace sim {
   function isOperatorSimCard(slotId: int, operator: OperatorSimCard): boolean;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * 获取指定卡槽SIM卡是否插卡。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for hasSimCard.
-   * Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 回调返回指定卡槽是否插卡。<br/>- true:插卡。<br/>- false：未插卡。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -833,11 +748,10 @@ declare namespace sim {
   function hasSimCard(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * 获取指定卡槽SIM卡是否插卡。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<boolean> } 以Promise形式返回指定卡槽是否插卡。<br/>- true:插卡。<br/>- false：未插卡。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -851,11 +765,10 @@ declare namespace sim {
   function hasSimCard(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * 获取指定卡槽SIM卡是否插卡。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { boolean } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } 返回指定卡槽是否插卡。<br/>- true:插卡。<br/>- false：未插卡。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -863,15 +776,16 @@ declare namespace sim {
   function hasSimCardSync(slotId: int): boolean;
 
   /**
-   * Get account information of SIM card.
+   * 获取SIM卡账户信息。使用callback异步回调。
+   *
+   * > **说明：**
+   * >
+   * > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
-   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<IccAccountInfo> } callback - 回调函数。返回指定卡槽SIM卡的账户信息。
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -882,38 +796,21 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   */
-  /**
-   * Get account information of SIM card.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
-   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function getSimAccountInfo(slotId: int, callback: AsyncCallback<IccAccountInfo>): void;
 
   /**
-   * Get account information of SIM card.
+   * 获取SIM卡账户信息。使用Promise异步回调。
+   *
+   * > **说明：**
+   * >
+   * > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
-   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<IccAccountInfo> } 以Promise形式返回指定卡槽SIM卡的账户信息。
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -924,35 +821,19 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   */
-  /**
-   * Get account information of SIM card.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
-   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function getSimAccountInfo(slotId: int): Promise<IccAccountInfo>;
 
   /**
-   * Get the list of active SIM card account information.
+   * 获取激活SIM卡账户信息列表。使用callback异步回调。
+   *
+   * > **说明：**
+   * >
+   * > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
-   * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
-   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - 回调函数。返回激活SIM卡账户信息列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -967,11 +848,14 @@ declare namespace sim {
   function getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
 
   /**
-   * Get the list of active SIM card account information.
+   * 获取激活SIM卡账户信息列表。使用Promise异步回调。
+   *
+   * > **说明：**
+   * >
+   * > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
-   * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @returns { Promise<Array<IccAccountInfo>> } 以Promise形式返回激活卡槽SIM卡的账户信息列表。
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300004 - No SIM card found.
@@ -2082,7 +1966,6 @@ declare namespace sim {
    */
   function sendTerminalResponseCmd(slotId: int, cmd: string): Promise<void>;
 
-
   /**
    * Unlock SIM card.
    *
@@ -2136,12 +2019,10 @@ declare namespace sim {
   function unlockSimLock(slotId: int, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的opkey。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator key;
-   * Returns an empty string if no SIM card is inserted or no operator key matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2156,12 +2037,10 @@ declare namespace sim {
   function getOpKey(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的opkey。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the operator key;
-   * Returns an empty string if no SIM card is inserted or no operator key matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回指定卡槽中SIM卡的opkey。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2176,12 +2055,10 @@ declare namespace sim {
   function getOpKey(slotId: int): Promise<string>;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的opkey。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the operator key; returns an empty string if no SIM card is inserted or
-   * no operator key is matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回指定卡槽中SIM卡的opkey。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -2189,12 +2066,10 @@ declare namespace sim {
   function getOpKeySync(slotId: int): string;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的OpName。使用callback异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator name;
-   * Returns an empty string if no SIM card is inserted or no operator name matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2209,12 +2084,10 @@ declare namespace sim {
   function getOpName(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的OpName。使用Promise异步回调。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the operator name; returns an empty string if no SIM card is inserted or
-   * no operator name matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回指定卡槽中SIM卡的OpName。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2229,12 +2102,10 @@ declare namespace sim {
   function getOpName(slotId: int): Promise<string>;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * 获取指定卡槽中SIM卡的OpName。
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the operator name; returns an empty string if no SIM card is inserted or
-   * no operator name is matched.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回指定卡槽中SIM卡的OpName。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -2242,10 +2113,9 @@ declare namespace sim {
   function getOpNameSync(slotId: int): string;
 
   /**
-   * Obtains the default SIM ID for the voice service.
+   * 获取默认语音业务的SIM卡ID。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Returns the SIM ID of the default voice sim
-   * and SIM ID will increase from 1.
+   * @param { AsyncCallback<int> } callback - 回调函数。<br/>与SIM卡绑定，从1开始递增。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -2261,10 +2131,9 @@ declare namespace sim {
   function getDefaultVoiceSimId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default SIM ID for the voice service.
+   * 获取默认语音业务的SIM卡ID。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Returns the SIM ID of the default voice sim
-   * and SIM ID will increase from 1.
+   * @returns { Promise<int> } 以Promise形式返回默认语音业务的SIM卡ID。<br/>与SIM卡绑定，从1开始递增。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2278,17 +2147,16 @@ declare namespace sim {
   function getDefaultVoiceSimId(): Promise<int>;
 
   /**
-   * Obtains the value of dsds mode.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { AsyncCallback<DsdsMode> } callback - Indicates the callback for
    *     getting one of the following dsds mode states:
-   * <ul>
-   * <li>{@code DsdsMode#DSDS_MODE_V2}
-   * <li>{@code DsdsMode#DSDS_MODE_V3}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
-   * </ul>
+   *     <ul>
+   *     <li>{@code DsdsMode#DSDS_MODE_V2}
+   *     <li>{@code DsdsMode#DSDS_MODE_V3}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   *     </ul>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2305,17 +2173,16 @@ declare namespace sim {
   function getDsdsMode(callback: AsyncCallback<DsdsMode>): void;
 
   /**
-   * Obtains the value of dsds mode.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @returns { Promise<DsdsMode> } Returns one of the following dsds mode
    *     states:
-   * <ul>
-   * <li>{@code DsdsMode#DSDS_MODE_V2}
-   * <li>{@code DsdsMode#DSDS_MODE_V3}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
-   * </ul>
+   *     <ul>
+   *     <li>{@code DsdsMode#DSDS_MODE_V2}
+   *     <li>{@code DsdsMode#DSDS_MODE_V3}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   *     </ul>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2339,13 +2206,15 @@ declare namespace sim {
    * @param { AuthType } authType - The authentication type.
    * @param { string } authData - Ser password or other authentication information.
    * @returns { Promise<SimAuthenticationResponse> } A string the response of authentication.This value will be null in
-   * the following cases: Authentication error, incorrect MAC Authentication error, security context not supported Key
-   * freshness failure Authentication error, no memory space available Authentication error, no memory space available
-   * in EFMUK.
+   *     the following cases: Authentication error, incorrect MAC Authentication error, security context not supported
+   *     Key
+   *     freshness failure Authentication error, no memory space available Authentication error, no memory space
+   *     available
+   *     in EFMUK.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2400,9 +2269,13 @@ declare namespace sim {
   function getAllSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
   /**
-   * Obtains the SIM card label.
-   * @param { int } slotId SIM card slot ID.
-   * @param { AsyncCallback<SimLabel> } callback Callback used to return the SIM card label.
+   * 查看卡槽ID和SIM卡的对应关系：
+   *
+   * - 卡槽1对应SIM卡1或SIM卡2
+   * - 卡槽2对应SIM卡2或ESIMX
+   *
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<SimLabel> } callback - 回调函数。获取SIM卡标签信息。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2414,9 +2287,10 @@ declare namespace sim {
   function getSimLabel(slotId: int, callback: AsyncCallback<SimLabel>): void;
 
   /**
-   * 获取SIM卡标签名称
-   * @param { int } slotId 卡槽索引号
-   * @returns { Promise<SimLabel> } 返回SIM卡标签：
+   * 获取SIM卡的标签信息。使用Promise异步回调。
+   *
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<SimLabel> } 回调函数。获取SIM卡标签信息。
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2428,10 +2302,10 @@ declare namespace sim {
   function getSimLabel(slotId: int): Promise<SimLabel>;
 
   /**
-     * Obtains the SIM card label synchronously.
-   * @param { int } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
-     *     by the device.
-   * @returns { SimLabel } SIM card label.
+   * 通过传入SIM卡槽的ID，获取对应的SIM卡标签。
+   *
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { SimLabel } SIM卡标签。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
@@ -2439,16 +2313,15 @@ declare namespace sim {
   function getSimLabelSync(slotId: int): SimLabel;
 
   /**
-     * Indicates the SIM card type.
-     *
-   * @enum { int }
+   * SIM卡类型的枚举。
+   *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
    */
   export enum SimType {
     /**
-     * Indicates psim type.
+     * 实体SIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -2457,7 +2330,7 @@ declare namespace sim {
     PSIM = 0,
 
     /**
-     * Indicates esim type.
+     * 电子SIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -2467,16 +2340,16 @@ declare namespace sim {
   }
 
   /**
-   * 定义SIM卡标签信息。
-   * @interface SimLabel
+   * SIM卡标签。
+   *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
    */
   export interface SimLabel {
     /**
-     * 表示SIM卡类型。
-     * @type { SimType }
+     * 表示SIM卡类型的枚举。
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
      * @since 23 static
@@ -2484,9 +2357,8 @@ declare namespace sim {
     simType: SimType;
 
     /**
-     * 表示卡片索引。
+     * SIM卡的唯一标识索引值。
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
      * @since 23 static
@@ -2495,9 +2367,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the carrier configuration.
    *
-   * @interface OperatorConfig
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2505,9 +2375,7 @@ declare namespace sim {
    */
   export interface OperatorConfig {
     /**
-     * Indicates the field.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2516,9 +2384,7 @@ declare namespace sim {
     field: string;
 
     /**
-     * Indicates the value.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2528,18 +2394,16 @@ declare namespace sim {
   }
 
   /**
-   * Defines the ICC account information.
+   * Icc账户信息。
    *
-   * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
    */
   export interface IccAccountInfo {
     /**
-     * Indicates the sim Id for card.
+     * SIM卡ID。
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2547,10 +2411,8 @@ declare namespace sim {
     simId: int;
 
     /**
-     * Indicates the card slot index number,
-     * ranging from 0 to the maximum card slot index number supported by the device.
+     * 卡槽ID。
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2558,9 +2420,11 @@ declare namespace sim {
     slotIndex: int;
 
     /**
-     * Indicates the mark card is eSim or not.
+     * 标记卡是否是eSim。
      *
-     * @type { boolean }
+     * - true:是eSim。
+     * - false：不是eSim。
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2568,9 +2432,11 @@ declare namespace sim {
     isEsim: boolean;
 
     /**
-     * Indicates the active status for card.
+     * 卡是否被激活。
      *
-     * @type { boolean }
+     * - true:激活。
+     * - false：未激活。
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2578,9 +2444,8 @@ declare namespace sim {
     isActive: boolean;
 
     /**
-     * Indicates the iccId for card.
+     * ICCID号码。
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2588,9 +2453,8 @@ declare namespace sim {
     iccId: string;
 
     /**
-     * Indicates the display name for card.
+     * SIM卡显示名称。
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2598,9 +2462,8 @@ declare namespace sim {
     showName: string;
 
     /**
-     * Indicates the display number for card.
+     * SIM卡显示号码。
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2630,9 +2493,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the personalized lock information.
    *
-   * @interface LockStatusResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -2642,7 +2503,6 @@ declare namespace sim {
     /**
      * Indicates the current operation result.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -2653,7 +2513,6 @@ declare namespace sim {
     /**
      * Indicates the operations remaining.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -2663,9 +2522,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the contact number information.
    *
-   * @interface DiallingNumbersInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2673,9 +2530,7 @@ declare namespace sim {
    */
   export interface DiallingNumbersInfo {
     /**
-     * Indicates the tag.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2686,7 +2541,6 @@ declare namespace sim {
     /**
      * Indicates the call transfer number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2696,7 +2550,6 @@ declare namespace sim {
     /**
      * Indicates the call transfer teleNumber.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 23 static
@@ -2706,7 +2559,6 @@ declare namespace sim {
     /**
      * Indicates the record number.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2715,9 +2567,7 @@ declare namespace sim {
     recordNumber?: int;
 
     /**
-     * Indicates the PIN 2.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2727,9 +2577,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the personalized lock information.
    *
-   * @interface LockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2737,9 +2585,7 @@ declare namespace sim {
    */
   export interface LockInfo {
     /**
-     * Indicates the lock type.
      *
-     * @type { LockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2748,9 +2594,7 @@ declare namespace sim {
     lockType: LockType;
 
     /**
-     * Indicates the password.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2759,9 +2603,7 @@ declare namespace sim {
     password: string;
 
     /**
-     * Indicates the lock state.
      *
-     * @type { LockState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2771,9 +2613,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the personalized lock information.
    *
-   * @interface PersoLockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2781,9 +2621,7 @@ declare namespace sim {
    */
   export interface PersoLockInfo {
     /**
-     * Indicates the personalized lock type.
      *
-     * @type { PersoLockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2792,9 +2630,7 @@ declare namespace sim {
     lockType: PersoLockType;
 
     /**
-     * Indicates the password.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2806,7 +2642,6 @@ declare namespace sim {
   /**
    * Indicates the lock types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2835,16 +2670,15 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the SIM card types.
+   * 卡类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
    */
   export enum CardType {
     /**
-     * Icc card type: unknown type Card.
+     * 未知类型。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2853,7 +2687,7 @@ declare namespace sim {
     UNKNOWN_CARD = -1,
 
     /**
-     * Icc card type: Single sim card type.
+     * 单SIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2862,7 +2696,7 @@ declare namespace sim {
     SINGLE_MODE_SIM_CARD = 10,
 
     /**
-     * Icc card type: Single usim card type.
+     * 单USIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2871,7 +2705,7 @@ declare namespace sim {
     SINGLE_MODE_USIM_CARD = 20,
 
     /**
-     * Icc card type: Single ruim card type.
+     * 单RUIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2880,7 +2714,7 @@ declare namespace sim {
     SINGLE_MODE_RUIM_CARD = 30,
 
     /**
-     * Icc card type: Double card C+G.
+     * 双卡模式C+G。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2889,7 +2723,7 @@ declare namespace sim {
     DUAL_MODE_CG_CARD = 40,
 
     /**
-     * Icc card type: China Telecom Internal Roaming Card (Dual Mode).
+     * 中国电信内部漫游卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2898,7 +2732,7 @@ declare namespace sim {
     CT_NATIONAL_ROAMING_CARD = 41,
 
     /**
-     * Icc card type: China Unicom Dual Mode Card.
+     * 中国联通双模卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2907,7 +2741,7 @@ declare namespace sim {
     CU_DUAL_MODE_CARD = 42,
 
     /**
-     * Icc card type: China Telecom LTE Card (Dual Mode).
+     * 双模式电信LTE卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2916,7 +2750,7 @@ declare namespace sim {
     DUAL_MODE_TELECOM_LTE_CARD = 43,
 
     /**
-     * Icc card type: Double card U+G.
+     * 双模式UG卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2925,7 +2759,8 @@ declare namespace sim {
     DUAL_MODE_UG_CARD = 50,
 
     /**
-     * Icc card type: Single isim card type.
+     * 单一ISIM卡类型。
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
      * @since 23 static
@@ -2934,17 +2769,15 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the SIM card states.
+   * SIM卡状态。
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum SimState {
     /**
-     * Indicates unknown SIM card state, that is, the accurate status cannot be
-     * obtained.
+     * SIM卡状态未知，即无法获取准确的状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2953,8 +2786,7 @@ declare namespace sim {
     SIM_STATE_UNKNOWN = 0,
 
     /**
-     * Indicates that the SIM card is in the <b>not present</b> state, that is,
-     * no SIM card is inserted into the card slot.
+     * 表示SIM卡处于not present状态，即卡槽中没有插入SIM卡。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2963,9 +2795,7 @@ declare namespace sim {
     SIM_STATE_NOT_PRESENT = 1,
 
     /**
-     * Indicates that the SIM card is in the <b>locked</b> state, that is, the
-     * SIM card is locked by the personal identification number (PIN)/PIN
-     * unblocking key (PUK) or network.
+     * 表示SIM卡处于locked状态，即SIM卡被PIN、PUK或网络锁锁定。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2974,8 +2804,7 @@ declare namespace sim {
     SIM_STATE_LOCKED = 2,
 
     /**
-     * Indicates that the SIM card is in the <b>not ready</b> state, that is,
-     * the SIM card is in position but cannot work properly.
+     * 表示SIM卡处于not ready状态，即SIM卡在位但无法正常工作。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2984,8 +2813,7 @@ declare namespace sim {
     SIM_STATE_NOT_READY = 3,
 
     /**
-     * Indicates that the SIM card is in the <b>ready</b> state, that is, the
-     * SIM card is in position and is working properly.
+     * 表示SIM卡处于ready状态，即SIM卡在位且工作正常。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2994,8 +2822,7 @@ declare namespace sim {
     SIM_STATE_READY = 4,
 
     /**
-     * Indicates that the SIM card is in the <b>loaded</b> state, that is, the
-     * SIM card is in position and is working properly.
+     * 表示SIM卡处于loaded状态，即SIM卡在位且所有卡文件加载完毕。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3007,7 +2834,6 @@ declare namespace sim {
   /**
    * Indicates the lock states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3038,7 +2864,6 @@ declare namespace sim {
   /**
    * Indicates the contact types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3079,7 +2904,6 @@ declare namespace sim {
   /**
    * Indicates the personalized lock types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3188,9 +3012,7 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the carrier configuration keys.
    *
-   * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3401,7 +3223,6 @@ declare namespace sim {
   /**
    * Indicates the Dsds Mode.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3450,9 +3271,7 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the operator of SIM.
    *
-   * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3473,7 +3292,6 @@ declare namespace sim {
   /**
    * Indicates the Authentication type
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -3501,9 +3319,7 @@ declare namespace sim {
   }
 
   /**
-   * Defines the SIM card authentication response.
    *
-   * @interface SimAuthenticationResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -3513,7 +3329,6 @@ declare namespace sim {
     /**
      * Status word 1 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -3524,7 +3339,6 @@ declare namespace sim {
     /**
      * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -3533,9 +3347,7 @@ declare namespace sim {
     simStatusWord2: int;
 
     /**
-     * Indicates the response of authentication.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic

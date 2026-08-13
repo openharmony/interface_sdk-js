@@ -14,15 +14,14 @@
  */
 
 /**
- * @file eSIM Management
+ * @file eSIM卡管理
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **esim** module provides basic eSIM management capabilities, including checking whether a specified card slot
- * supports the eSIM function.
+ * eSIM卡管理模块提供了eSIM卡管理的基础能力，包括获取指定卡槽是否支持eSIM功能，如果支持则允许用户添加单个配置文件。
  *
  * @syscap SystemCapability.Telephony.CoreService.Esim
  * @since 18 dynamic
@@ -30,13 +29,10 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace eSIM {
   /**
-   * Checks whether the specified card slot supports the eSIM function.
+   * 获取指定卡槽是否支持eSIM功能。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { boolean } Whether the specified card slot supports the eSIM function. If yes, **true** is returned. If
-   *     no, **false** is returned.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } 返回指定卡槽是否支持eSIM功能，如果支持返回true，不支持返回false。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -50,12 +46,11 @@ declare namespace eSIM {
   function isSupported(slotId: int): boolean;
 
   /**
-   * Launches the download page for the user to add a single profile. This API uses a promise to return the result.
+   * 通过该接口拉起下载界面，允许用户添加单个配置文件。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN
-   * @param { DownloadableProfile } profile - Profile that can be downloaded.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
-   *     successful, and the value **false** indicates the opposite.
+   * @param { DownloadableProfile } profile - 可下载的配置文件信息。
+   * @returns { Promise<boolean> } 以Promise形式返回最终用户添加单个配置文件的结果。返回true为成功，false为失败。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -71,13 +66,11 @@ declare namespace eSIM {
   function addProfile(profile: DownloadableProfile): Promise<boolean>;
 
   /**
-   * Obtains the equipment identifier (EID) of the eUICC hardware in a specified card slot.
+   * 获取指定卡槽标识eUICC硬件的EID(Equipment Identifier，Embedded SIM识别码)。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } EID of the eUICC in the specified slot.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 返回指定卡槽标识eUICC硬件的EID。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -95,18 +88,12 @@ declare namespace eSIM {
   function getEid(slotId: int): Promise<string>;
 
   /**
-   * Obtains the OS upgrade status for the eSIM in the specified slot. This API uses a promise to return the result.
+   * 获取指定卡槽操作系统升级的状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<OsuStatus> } Promise used to return the OS upgrade status.
-   *     <br> 1. Updating.
-   *     <br>   2. Update failed.
-   *     <br>  3. Update succeeded.
-   *     <br>  4. Already the latest version.
-   *     <br> 5. Update service unavailable.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<OsuStatus> } Promise对象，返回操作系统升级的状态。<br/> 1. 正在升级。 <br/>   2. 升级失败。<br/>  3. 升级成功。<br/>  4. 当前版本是
+   *     最新版本。<br/> 5. 升级服务不可用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -124,19 +111,12 @@ declare namespace eSIM {
   function getOsuStatus(slotId: int): Promise<OsuStatus>;
 
   /**
-   * Upgrades the OS if the OS version of the eSIM in the specified slot is not the latest. This API uses a promise to
-   * return the result.
+   * 如果指定卡槽的操作系统不是最新的，则执行操作系统升级。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<OsuStatus> } Promise used to return the OS upgrade status.
-   *     <br> 1. Updating.
-   *     <br>   2. Update failed.
-   *     <br>  3. Update succeeded.
-   *     <br>  4. Already the latest version.
-   *     <br> 5. Update service unavailable.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<OsuStatus> } Promise对象，返回操作系统升级的状态。<br/> 1. 正在升级。 <br/>   2. 升级失败。<br/>  3. 升级成功。<br/>  4. 当前版本是
+   *     最新版本。<br/> 5. 升级服务不可用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -154,21 +134,15 @@ declare namespace eSIM {
   function startOsu(slotId: int): Promise<OsuStatus>;
 
   /**
-   * Obtains the metadata of the downloadable profile. This API uses a promise to return the result.
+   * 填充可下载配置文件的元数据。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { int } portIndex - Port index of the slot.
-   * @param { DownloadableProfile } profile - Downloadable profile.
-   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
-   *     switching.
-   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
-   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
-   *     is obtained.
-   * @returns { Promise<GetDownloadableProfileMetadataResult> } Promise used to return the metadata of the downloadable
-   *     profile.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { int } portIndex - 插槽的端口索引。
+   * @param { DownloadableProfile } profile - 可下载的配置文件信息。
+   * @param { boolean } forceDisableProfile - 是否可直接去激活配置文件。true表示切换配置文件时，如果需要去激活当前的配置文件，则可以直接操作。false表示如果需要去激活当前的配置文件，则会
+   *     返回错误，并得到用户授权后再继续调用该接口，执行切换配置文件操作。
+   * @returns { Promise<GetDownloadableProfileMetadataResult> } Promise对象，返回填充可下载配置文件的元数据。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -187,19 +161,14 @@ declare namespace eSIM {
                                           profile: DownloadableProfile, forceDisableProfile: boolean): Promise<GetDownloadableProfileMetadataResult>;
 
   /**
-   * Obtains the list of downloadable profiles. This API uses a promise to return the result.
+   * 获取可用的可下载配置文件列表。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { int } portIndex - Port index of the slot.
-   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
-   *     switching.
-   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
-   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
-   *     is obtained.
-   * @returns { Promise<GetDownloadableProfilesResult> } Promise used to return the list of downloadable profiles.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { int } portIndex - 插槽的端口索引。
+   * @param { boolean } forceDisableProfile - 是否可直接去激活配置文件。true表示切换配置文件时，如果需要去激活当前的配置文件，则可以直接操作。false表示如果需要去激活当前的配置文件，则会
+   *     返回错误，并得到用户授权后再继续调用该接口，执行切换配置文件操作。
+   * @returns { Promise<GetDownloadableProfilesResult> } Promise对象，返回可下载配置文件列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -218,16 +187,14 @@ declare namespace eSIM {
                                    forceDisableProfile: boolean): Promise<GetDownloadableProfilesResult>;
 
   /**
-   * Downloads a profile. This API uses a promise to return the result.
+   * 下载配置文件。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { int } portIndex - Port index of the slot.
-   * @param { DownloadableProfile } profile - Downloadable profile.
-   * @param { DownloadConfiguration } configuration - Download configuration.
-   * @returns { Promise<DownloadProfileResult> } Promise used to return the profile download result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { int } portIndex - 插槽的端口索引。
+   * @param { DownloadableProfile } profile - 可下载的配置文件信息。
+   * @param { DownloadConfiguration } configuration - 下载的配置信息。
+   * @returns { Promise<DownloadProfileResult> } Promise对象，返回下载配置文件的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -246,13 +213,11 @@ declare namespace eSIM {
                            configuration: DownloadConfiguration): Promise<DownloadProfileResult>;
 
   /**
-   * Obtains the profile information list. This API uses a promise to return the result.
+   * 获取配置文件信息列表。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<GetEuiccProfileInfoListResult> } Promise used to return the profile information list.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<GetEuiccProfileInfoListResult> } Promise对象，返回配置文件信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -270,13 +235,11 @@ declare namespace eSIM {
   function getEuiccProfileInfoList(slotId: int): Promise<GetEuiccProfileInfoListResult>;
 
   /**
-   * Obtains eUICC information. This API uses a promise to return the result.
+   * 获取eUICC信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<EuiccInfo> } Promise used to return the eUICC information.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<EuiccInfo> } Promise对象，返回eUicc信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -294,14 +257,12 @@ declare namespace eSIM {
   function getEuiccInfo(slotId: int): Promise<EuiccInfo>;
 
   /**
-   * Deletes a profile. This API uses a promise to return the result.
+   * 删除配置文件。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { string } iccid - Profile ID.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } iccid - 配置文件的ID。
+   * @returns { Promise<ResultCode> } Promise对象，返回删除配置文件的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -319,20 +280,15 @@ declare namespace eSIM {
   function deleteProfile(slotId: int, iccid: string): Promise<ResultCode>;
 
   /**
-   * Switches to the specified profile. This API uses a promise to return the result.
+   * 切换到(启用)给定的配置文件。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { int } portIndex - Port index of the slot.
-   * @param { string } iccid - Profile ID.
-   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
-   *     switching.
-   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
-   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
-   *     is obtained.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { int } portIndex - 插槽的端口索引。
+   * @param { string } iccid - 配置文件的ID。
+   * @param { boolean } forceDisableProfile - 是否可直接去激活配置文件。true表示切换配置文件时，如果需要去激活当前的配置文件，则可以直接操作。false表示如果需要去激活当前的配置文件，则会
+   *     返回错误，并得到用户授权后再继续调用该接口，执行切换配置文件操作。
+   * @returns { Promise<ResultCode> } Promise对象，返回切换配置文件的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -351,15 +307,13 @@ declare namespace eSIM {
                            forceDisableProfile: boolean): Promise<ResultCode>;
 
   /**
-   * Sets a nickname for the specified profile. This API uses a promise to return the result.
+   * 设置给定配置文件的昵称。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { string } iccid - Profile ID.
-   * @param { string } nickname - Profile nickname.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } iccid - 配置文件的ID。
+   * @param { string } nickname - 昵称。
+   * @returns { Promise<ResultCode> } Promise对象，返回设置昵称的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -377,14 +331,12 @@ declare namespace eSIM {
   function setProfileNickname(slotId: int, iccid: string, nickname: string): Promise<ResultCode>;
 
   /**
-   * Clears all specific profiles and resets the eUICC. This API uses a promise to return the result.
+   * 清除所有特定配置文件并重置eUICC。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { ResetOption } [options] - Reset options.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { ResetOption } [options] - 重置状态。
+   * @returns { Promise<ResultCode> } Promise对象，返回重置的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -402,13 +354,11 @@ declare namespace eSIM {
   function resetMemory(slotId: int, options?:ResetOption): Promise<ResultCode>;
 
   /**
-   * Restores factory settings and retains profiles. This API uses a promise to return the result.
+   * 恢复出厂设置，并保留profiles。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<ResultCode> } Promise对象，返回恢复出厂设置的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -426,14 +376,12 @@ declare namespace eSIM {
   function reserveProfilesForFactoryRestore(slotId: int): Promise<ResultCode>;
 
   /**
-   * Sets or updates the default SM-DP+ address stored in the eUICC. This API uses a promise to return the result.
+   * 设置或更新eUICC中存储的默认SM-DP+地址。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { string } address - Default SM-DP+ address.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } address - 要设置的默认SM-DP+地址。
+   * @returns { Promise<ResultCode> } Promise对象，返回设置默认SM-DP+地址的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -451,13 +399,11 @@ declare namespace eSIM {
   function setDefaultSmdpAddress(slotId: int, address: string): Promise<ResultCode>;
 
   /**
-   * Obtains the default SM-DP+ address stored in the eUICC. This API uses a promise to return the result.
+   * 获取存储在eUICC中的默认SM-DP+地址。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } Promise used to return the SM-DP+ address.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } Promise对象，返回SM-DP+地址。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -475,15 +421,13 @@ declare namespace eSIM {
   function getDefaultSmdpAddress(slotId: int): Promise<string>;
 
   /**
-   * Cancels a session. This API uses a promise to return the result.
+   * 取消会话。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { string } transactionId - Service ID.
-   * @param { CancelReason } cancelReason - Reason for canceling the session.
-   * @returns { Promise<ResultCode> } Promise used to return the operation result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { string } transactionId - 业务ID。
+   * @param { CancelReason } cancelReason - 取消会话的原因。
+   * @returns { Promise<ResultCode> } Promise对象，返回取消会话的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -501,14 +445,12 @@ declare namespace eSIM {
   function cancelSession(slotId: int, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
   /**
-   * Obtains the encrypted eSIM ID and other information required for enabling eSIM.
+   * 获取开通eSIM需要的，加密的esim id等信息。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { ContractRequestData } requestData - Information to be encrypted.
-   * @returns { Promise<string> } Promise used to return the encrypted information in the Tag-Length-Value (TLV) format.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { ContractRequestData } requestData - 用来加密的信息。
+   * @returns { Promise<string> } Promise对象，返回TLV(Tag-Length-Value)格式的，加密信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -522,14 +464,11 @@ declare namespace eSIM {
   function getContractInfo(slotId: int, requestData: ContractRequestData) : Promise<string>;
 
   /**
-   * Obtains the public key ID information supported by the phone.
+   * 获取手机支持的公钥ID信息。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } Promise used to return the public key ID information supported by the mobile phone in
-   *     the Tag-Length-Value (TLV) format.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } Promise对象，返回TLV(Tag-Length-Value)格式的，手机支持的公钥ID信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -543,7 +482,7 @@ declare namespace eSIM {
   function getSupportedPkids(slotId: int) : Promise<string>;
 
   /**
-   * Information required for encryption.
+   * 加密需要的信息。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -552,8 +491,8 @@ declare namespace eSIM {
    */
   export interface ContractRequestData {
     /**
-     * Public key.
-     *
+      * 公钥。
+      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -562,8 +501,8 @@ declare namespace eSIM {
     publicKey: string;
 
     /**
-     * Random number.
-     *
+      * 随机数。
+      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -572,8 +511,8 @@ declare namespace eSIM {
     nonce: string;
 
     /**
-     * Selected public key ID.
-     *
+      * 选择的公钥ID。
+      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -583,7 +522,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
+   * 访问规则。
    *
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -591,7 +530,7 @@ declare namespace eSIM {
    * @since 18
    */
   /**
-   * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
+   * 访问规则。
    *
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -600,7 +539,7 @@ declare namespace eSIM {
    */
   export interface AccessRule {
     /**
-     * Certificate hash hexadecimal string.
+     * 证书哈希的十六进制字符串。
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -608,7 +547,7 @@ declare namespace eSIM {
      * @since 18
      */
     /**
-     * Certificate hash hexadecimal string.
+     * 证书哈希的十六进制字符串。
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -618,7 +557,7 @@ declare namespace eSIM {
     certificateHashHexStr: string;
 
     /**
-     * The name of package.
+     * 规则适用的程序包名称。
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -626,7 +565,7 @@ declare namespace eSIM {
      * @since 18
      */
     /**
-     * The name of package.
+     * 规则适用的程序包名称。
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -636,7 +575,7 @@ declare namespace eSIM {
     packageName: string;
 
     /**
-     * The type of access.
+     * 规则的类型。
      *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -644,7 +583,7 @@ declare namespace eSIM {
      * @since 18
      */
     /**
-     * The type of access.
+     * 规则的类型。
      *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -655,7 +594,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines a downloadable profile.
+   * 可下载的配置文件。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 18 dynamic
@@ -663,7 +602,7 @@ declare namespace eSIM {
    */
   export interface DownloadableProfile {
     /**
-     * Activation code. For a profile that does not require an activation code, the value may be left empty.
+     * 激活码。对于不基于激活码的配置文件，可能为空。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
@@ -672,7 +611,7 @@ declare namespace eSIM {
     activationCode: string;
 
     /**
-     * Confirmation code.
+     * 确认码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
@@ -681,7 +620,7 @@ declare namespace eSIM {
     confirmationCode?: string;
 
     /**
-     * Carrier name.
+     * 订阅名称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
@@ -690,7 +629,7 @@ declare namespace eSIM {
     carrierName?: string;
 
     /**
-     * Access rule array.
+     * 访问规则数组。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
@@ -700,7 +639,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Obtains the metadata of the downloadable profile.
+   * 获取可下载配置文件的元数据。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -709,7 +648,7 @@ declare namespace eSIM {
    */
   export interface GetDownloadableProfileMetadataResult {
     /**
-     * Downloadable profile.
+     * 可下载的配置文件信息。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -719,7 +658,7 @@ declare namespace eSIM {
     downloadableProfile: DownloadableProfile;
 
     /**
-     * Profile policy rule type.
+     * 配置文件策略规则类型。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -729,8 +668,7 @@ declare namespace eSIM {
     pprType: int;
 
     /**
-     * Whether the profile has a policy rule. The value **true** indicates that the profile has a policy rule, and the
-     * value **false** indicates the opposite.
+     * 配置文件是否有策略规则。true表示有策略规则，false表示无策略规则。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -740,7 +678,7 @@ declare namespace eSIM {
     pprFlag: boolean;
 
     /**
-     * Profile ICCID.
+     * 配置文件的iccId。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -750,7 +688,7 @@ declare namespace eSIM {
     iccid: string;
 
     /**
-     * Service provider name.
+     * 配置文件的服务提供商名称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -760,7 +698,7 @@ declare namespace eSIM {
     serviceProviderName: string;
 
     /**
-     * Profile name.
+     * 配置文件名称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -770,7 +708,7 @@ declare namespace eSIM {
     profileName: string;
 
     /**
-     * Profile class.
+     * 配置文件类。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -780,7 +718,7 @@ declare namespace eSIM {
     profileClass: ProfileClass;
 
     /**
-     * Solvable errors.
+     * 可解决的错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -790,7 +728,7 @@ declare namespace eSIM {
     solvableErrors: SolvableErrors;
 
     /**
-     * Operation result code.
+     * 操作结果码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -801,7 +739,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Obtains the list of default downloadable profiles.
+   * 获取默认可下载配置文件的列表。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -810,7 +748,7 @@ declare namespace eSIM {
    */
   export interface GetDownloadableProfilesResult {
     /**
-     * Promise used to return the operation result.
+     * 返回操作结果码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -820,7 +758,7 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Downloadable file array.
+     * 可下载配置文件数组。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -831,7 +769,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines the profile download result.
+   * 下载配置文件的结果。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -840,7 +778,7 @@ declare namespace eSIM {
    */
   export interface DownloadProfileResult {
     /**
-     * Operation result code.
+     * 操作结果码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -850,7 +788,7 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Solvable errors.
+     * 可解决的错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -860,7 +798,7 @@ declare namespace eSIM {
     solvableErrors: SolvableErrors;
 
     /**
-     * Card ID.
+     * 获取卡ID。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -871,7 +809,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Obtains the profile information list.
+   * 获取配置文件信息列表。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -880,7 +818,7 @@ declare namespace eSIM {
    */
   export interface GetEuiccProfileInfoListResult {
     /**
-     * Promise used to return the operation result.
+     * 返回操作结果码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -890,7 +828,7 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Profile array.
+     * 配置文件数组。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -900,8 +838,7 @@ declare namespace eSIM {
     profiles: Array<EuiccProfile>;
 
     /**
-     * Whether the eUICC is removable. The value **true** indicates that the eUICC is removable, and the value **false**
-     * indicates the opposite.
+     * eUICC是否可移除。true表示可移除，false表示不可移除。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -912,7 +849,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Obtains information about the eUICC chip or device.
+   * 获取eUICC芯片/设备的相关信息。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -921,7 +858,7 @@ declare namespace eSIM {
    */
   export interface OperatorId {
     /**
-     * Mobile country code (MCC).
+     * 移动国家代码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -931,7 +868,7 @@ declare namespace eSIM {
     mcc: string;
 
     /**
-     * Network code.
+     * 网络代码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -941,7 +878,7 @@ declare namespace eSIM {
     mnc: string;
 
     /**
-     * Group ID level 1.
+     * 组ID级别1。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -951,7 +888,7 @@ declare namespace eSIM {
     gid1: string;
 
     /**
-     * Group ID level 2.
+     * 组ID级别2。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -962,7 +899,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Profile information.
+   * 配置文件信息。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -971,7 +908,7 @@ declare namespace eSIM {
    */
   export interface EuiccProfile {
     /**
-     * Profile ICCID.
+     * 配置文件的iccId。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -981,7 +918,7 @@ declare namespace eSIM {
     iccid: string;
 
     /**
-     * Profile nickname.
+     * 昵称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -991,7 +928,7 @@ declare namespace eSIM {
     nickName: string;
 
     /**
-     * Service provider name.
+     * 配置文件的服务提供商名称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1001,7 +938,7 @@ declare namespace eSIM {
     serviceProviderName: string;
 
     /**
-     * Profile name.
+     * 配置文件名称。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1011,7 +948,7 @@ declare namespace eSIM {
     profileName: string;
 
     /**
-     * Profile status.
+     * 配置文件的状态。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1021,7 +958,7 @@ declare namespace eSIM {
     state: ProfileState;
 
     /**
-     * Profile class.
+     * 配置文件类。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1031,7 +968,7 @@ declare namespace eSIM {
     profileClass: ProfileClass;
 
     /**
-     * Operation ID of the profile.
+     * 配置文件的操作ID。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1041,7 +978,7 @@ declare namespace eSIM {
     operatorId: OperatorId;
 
     /**
-     * Profile policy rules.
+     * 配置文件策略。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1051,7 +988,7 @@ declare namespace eSIM {
     policyRules: PolicyRules;
 
     /**
-     * Profile access rules.
+     * 配置文件规则。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1062,7 +999,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines the eUICC information.
+   * euicc信息。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1071,7 +1008,7 @@ declare namespace eSIM {
    */
   export interface EuiccInfo {
     /**
-     * OS version.
+     * 系统版本。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1082,7 +1019,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines the reset options.
+   * 重置状态。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1091,7 +1028,7 @@ declare namespace eSIM {
    */
   export enum ResetOption {
     /**
-     * Deletion of all operational profiles.
+     * 删除所有操作配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1101,7 +1038,7 @@ declare namespace eSIM {
     DELETE_OPERATIONAL_PROFILES = 1,
 
     /**
-     * Deletion of the downloaded test profiles.
+     * 删除所有字段加载的测试配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1111,7 +1048,7 @@ declare namespace eSIM {
     DELETE_FIELD_LOADED_TEST_PROFILES = 1 << 1,
 
     /**
-     * Resetting of the default SM-DP+ address.
+     * 重置默认SM-DP+地址。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1122,7 +1059,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines the OS upgrade status.
+   * 操作系统升级状态。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1131,7 +1068,7 @@ declare namespace eSIM {
    */
   export enum OsuStatus {
     /**
-     * Upgrading.
+     * 升级中。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1141,7 +1078,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_IN_PROGRESS = 1,
 
     /**
-     * Upgrade failed.
+     * 升级失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1151,7 +1088,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_FAILED = 2,
 
     /**
-     * Update succeeded.
+     * 升级成功。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1161,7 +1098,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_SUCCESSFUL = 3,
 
     /**
-     * Already the latest version.
+     * 当前为最新版本，无需升级 。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1171,7 +1108,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_ALREADY_LATEST = 4,
 
     /**
-     * Update service unavailable.
+     * 升级服务不可用。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1182,7 +1119,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Enumerates the result codes.
+   * 结果码。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1191,7 +1128,7 @@ declare namespace eSIM {
    */
   export enum ResultCode {
     /**
-     * Solving of the solvable errors required.
+     * 用户必须解决可解决的错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1201,7 +1138,7 @@ declare namespace eSIM {
     RESULT_SOLVABLE_ERRORS = -2,
 
     /**
-     * Disabling of the active profile required.
+     * 必须禁用活动配置文件才能执行操作。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1211,7 +1148,7 @@ declare namespace eSIM {
     RESULT_MUST_DISABLE_PROFILE = -1,
 
     /**
-     * Operation success.
+     * 成功。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1221,7 +1158,7 @@ declare namespace eSIM {
     RESULT_OK = 0,
 
     /**
-     * Failed to obtain the EID.
+     * 获取EID失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1231,7 +1168,7 @@ declare namespace eSIM {
     RESULT_GET_EID_FAILED = 201,
 
     /**
-     * Activation code changed upon user confirmation.
+     * 最终用户确认后，激活码将被更改。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1241,7 +1178,7 @@ declare namespace eSIM {
     RESULT_ACTIVATION_CODE_CHANGED = 203,
 
     /**
-     * Invalid activation code.
+     * 激活码无效。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1251,7 +1188,7 @@ declare namespace eSIM {
     RESULT_ACTIVATION_CODE_INVALID = 204,
 
     /**
-     * Invalid SM-DP+ server address.
+     * SM-DP+服务器地址非法。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1261,7 +1198,7 @@ declare namespace eSIM {
     RESULT_SMDP_ADDRESS_INVALID = 205,
 
     /**
-     * Invalid eUICC information.
+     * 无效的eUICC信息。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1271,7 +1208,7 @@ declare namespace eSIM {
     RESULT_EUICC_INFO_INVALID = 206,
 
     /**
-     * TLS handshake failed.
+     * TLS握手失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1281,7 +1218,7 @@ declare namespace eSIM {
     RESULT_TLS_HANDSHAKE_FAILED = 207,
 
     /**
-     * Certificate network connection error.
+     * 证书网络连接错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1291,7 +1228,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_IO_ERROR = 208,
 
     /**
-     * Invalid certificate address or response timeout.
+     * 证书地址无效或响应超时。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1301,7 +1238,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_RESPONSE_TIMEOUT = 209,
 
     /**
-     * Authentication failed.
+     * 鉴权失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1311,7 +1248,7 @@ declare namespace eSIM {
     RESULT_AUTHENTICATION_FAILED = 210,
 
     /**
-     * HTTP response failed.
+     * HTTP响应失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1321,7 +1258,7 @@ declare namespace eSIM {
     RESULT_RESPONSE_HTTP_FAILED = 211,
 
     /**
-     * Incorrect confirmation code.
+     * 确认码不正确。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1331,7 +1268,7 @@ declare namespace eSIM {
     RESULT_CONFIRMATION_CODE_INCORRECT = 212,
 
     /**
-     * Maximum confirmation code retries reached.
+     * 已达到最大确认码尝试次数。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1341,7 +1278,7 @@ declare namespace eSIM {
     RESULT_EXCEEDED_CONFIRMATION_CODE_TRY_LIMIT = 213,
 
     /**
-     * No downloadable profile available on the server.
+     * 服务器上没有可供下载的配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1351,7 +1288,7 @@ declare namespace eSIM {
     RESULT_NO_PROFILE_ON_SERVER = 214,
 
     /**
-     * Invalid transaction ID.
+     * 事务ID无效。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1361,7 +1298,7 @@ declare namespace eSIM {
     RESULT_TRANSACTION_ID_INVALID = 215,
 
     /**
-     * Invalid server address.
+     * 服务器地址无效。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1371,7 +1308,7 @@ declare namespace eSIM {
     RESULT_SERVER_ADDRESS_INVALID = 216,
 
     /**
-     * Failed to obtain the BPP.
+     * 获取BPP失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1381,7 +1318,7 @@ declare namespace eSIM {
     RESULT_GET_BOUND_PROFILE_PACKAGE_FAILED = 217,
 
     /**
-     * Download cancelled by the user.
+     * 最终用户取消下载。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1391,7 +1328,7 @@ declare namespace eSIM {
     RESULT_USER_CANCEL_DOWNLOAD = 218,
 
     /**
-     * Carrier server unavailable.
+     * 运营商服务器不可用。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1401,7 +1338,7 @@ declare namespace eSIM {
     RESULT_SERVER_UNAVAILABLE = 220,
 
     /**
-     * File deletion not allowed by the PPR rule.
+     * PPR禁止删除文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1411,7 +1348,7 @@ declare namespace eSIM {
     RESULT_PROFILE_NON_DELETE = 223,
 
     /**
-     * Incorrect SMDP server address.
+     * 认证响应服务器地址不匹配。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1421,7 +1358,7 @@ declare namespace eSIM {
     RESULT_SMDP_ADDRESS_INCORRECT = 226,
 
     /**
-     * Failed to parse the server authentication response.
+     * 解析服务器身份验证响应错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1431,7 +1368,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_SERVER_RESPONSE_FAILED = 228,
 
     /**
-     * Failed to parse the client authentication response.
+     * 解析客户端身份验证响应错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1441,7 +1378,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_RESPONSE_FAILED = 229,
 
     /**
-     * Failed to parse the client authentication response because the matching ID was rejected.
+     * 由于匹配ID被拒绝，解析客户端身份验证响应错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1451,7 +1388,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_MATCHING_ID_REFUSED = 231,
 
     /**
-     * Authentication stopped due to incorrect profile type.
+     * 由于配置文件类型中的错误，身份验证已停止。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1461,7 +1398,7 @@ declare namespace eSIM {
     RESULT_PROFILE_TYPE_ERROR_AUTHENTICATION_STOPPED = 233,
 
     /**
-     * Rejection cause code of the carrier server, which is 3.8.
+     * 运营商服务器拒绝原因码为3.8的错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1471,7 +1408,7 @@ declare namespace eSIM {
     RESULT_CARRIER_SERVER_REFUSED_ERRORS = 249,
 
     /**
-     * Invalid certificate.
+     * 证书无效。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1481,7 +1418,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_INVALID = 251,
 
     /**
-     * Failed to install the profile due to insufficient memory.
+     * 由于内存不足，配置文件安装失败。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1491,7 +1428,7 @@ declare namespace eSIM {
     RESULT_OUT_OF_MEMORY = 263,
 
     /**
-     * Operation not allowed by the PPR rule.
+     * PPR规则禁止此操作。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1501,7 +1438,7 @@ declare namespace eSIM {
     RESULT_PPR_FORBIDDEN = 268,
 
     /**
-     * No configuration file for deletion.
+     * 没有可删除的配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1511,7 +1448,7 @@ declare namespace eSIM {
     RESULT_NOTHING_TO_DELETE = 270,
 
     /**
-     * PPR rule mismatch.
+     * 与PPR约束不匹配。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1521,7 +1458,7 @@ declare namespace eSIM {
     RESULT_PPR_NOT_MATCH = 276,
 
     /**
-     * Session in progress.
+     * 会话正在进行。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1531,7 +1468,7 @@ declare namespace eSIM {
     RESULT_CAT_BUSY = 283,
 
     /**
-     * eSIM profile in use or invalid.
+     * 此eSIM配置文件已被使用或无效。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1541,7 +1478,7 @@ declare namespace eSIM {
     RESULT_PROFILE_EID_INVALID = 284,
 
     /**
-     * Download timeout.
+     * 下载超时。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1551,7 +1488,7 @@ declare namespace eSIM {
     RESULT_DOWNLOAD_TIMEOUT = 287,
 
     /**
-     * Other errors defined in SGP.22.
+     * SGP.22中定义的其他错误。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1562,7 +1499,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Reason for canceling the session.
+   * 取消会话的原因。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1571,7 +1508,7 @@ declare namespace eSIM {
    */
   export enum CancelReason {
     /**
-     * The user has rejected the download.
+     * 最终用户已拒绝下载。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1581,7 +1518,7 @@ declare namespace eSIM {
     CANCEL_REASON_END_USER_REJECTION = 0,
 
     /**
-     * The download has been delayed. You can restart it later.
+     * 下载已推迟，稍后可以重新启动。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1591,7 +1528,7 @@ declare namespace eSIM {
     CANCEL_REASON_POSTPONED = 1,
 
     /**
-     * The download has timed out. You can restart it later.
+     * 下载已超时，稍后可以重新启动。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1601,8 +1538,7 @@ declare namespace eSIM {
     CANCEL_REASON_TIMEOUT = 2,
 
     /**
-     * The installation cannot be performed because the authorization table or other installed profile on the eUICC does
-     * not allow its policy rules.
+     * 由于eUICC上的授权表或其他已安装的配置文件不允许其策略规则，因此无法安装。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1613,7 +1549,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Enumerates the profile states.
+   * 配置文件状态。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1622,7 +1558,7 @@ declare namespace eSIM {
    */
   export enum ProfileState {
     /**
-     * Profile status unspecified.
+     * 未设置配置文件状态。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1632,7 +1568,7 @@ declare namespace eSIM {
     PROFILE_STATE_UNSPECIFIED = -1,
 
     /**
-     * Profile disabled.
+     * 禁用配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1642,7 +1578,7 @@ declare namespace eSIM {
     PROFILE_STATE_DISABLED = 0,
 
     /**
-     * Profile enabled.
+     * 已启用配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1653,7 +1589,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Enumerates the profile classes.
+   * 配置文件类。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1662,7 +1598,7 @@ declare namespace eSIM {
    */
   export enum ProfileClass {
     /**
-     * Profile class unspecified.
+     * 未设置配置文件类。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1672,7 +1608,7 @@ declare namespace eSIM {
     PROFILE_CLASS_UNSPECIFIED = -1,
 
     /**
-     * Test profile.
+     * 测试配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1682,7 +1618,7 @@ declare namespace eSIM {
     PROFILE_CLASS_TEST = 0,
 
     /**
-     * Profile preloaded to the eUICC.
+     * 预加载在eUICC上的配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1692,7 +1628,7 @@ declare namespace eSIM {
     PROFILE_CLASS_PROVISIONING = 1,
 
     /**
-     * Profile that can be preloaded or downloaded.
+     * 可预加载或下载的操作配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1703,7 +1639,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Enumerates the profile policy rules.
+   * 配置文件的策略规则。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1712,7 +1648,7 @@ declare namespace eSIM {
    */
   export enum PolicyRules {
     /**
-     * A profile cannot be disabled after being enabled.
+     * 启用此配置文件后，将无法禁用。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1722,7 +1658,7 @@ declare namespace eSIM {
     POLICY_RULE_DISABLE_NOT_ALLOWED = 1,
 
     /**
-     * The profile cannot be deleted.
+     * 无法删除此配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1732,7 +1668,7 @@ declare namespace eSIM {
     POLICY_RULE_DELETE_NOT_ALLOWED = 1 << 1,
 
     /**
-     * A profile must be deleted immediately after being enabled.
+     * 禁用后应删除此配置文件。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1743,7 +1679,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Enumerates the solvable errors.
+   * 可解决错误码。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1752,7 +1688,7 @@ declare namespace eSIM {
    */
   export enum SolvableErrors {
     /**
-     * The user needs to enter the confirmation code during the download.
+     * 下载过程需要用户输入确认码。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1762,7 +1698,7 @@ declare namespace eSIM {
     SOLVABLE_ERROR_NEED_CONFIRMATION_CODE = 1 << 0,
 
     /**
-     * The download process requires user consent to allow the profile policy rules.
+     * 下载过程需要用户同意才能允许配置文件策略规则。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1773,7 +1709,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Defines the download configuration.
+   * 下载过程中的属性配置。
    *
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -1782,8 +1718,7 @@ declare namespace eSIM {
    */
   export interface DownloadConfiguration {
     /**
-     * Whether to enable the profile after successful download. The value **true** means to enable the default profile,
-     * and the value **false** means the opposite.
+     * 下载成功后是否启用配置文件。true表示启用，false表示不启用。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1793,12 +1728,7 @@ declare namespace eSIM {
     switchAfterDownload: boolean;
 
     /**
-     * Whether to forcibly deactivate the current profile during profile switching.
-     *
-     * **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
-     *
-     * **false**: An error is returned, and profile switching can be performed only after the user authorization is
-     * obtained.
+     * 是否可直接去激活配置文件。true表示切换配置文件时，如果需要去激活当前的配置文件，则可以直接操作。false表示如果需要去激活当前的配置文件，则会返回错误，并得到用户授权后再继续调用该接口，执行切换配置文件操作。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1808,8 +1738,7 @@ declare namespace eSIM {
     forceDisableProfile: boolean;
 
     /**
-     * Whether user authorization is obtained to implement the profile policy rule. The value **true** indicates that
-     * user authorization is obtained, and the value **false** indicates the opposite.
+     * 是否得到用户授权。true表示得到用户授权，服务提供商可实施配置文件策略规则；false表示未得到用户授权，不允许实施配置文件策略规则。
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1820,11 +1749,10 @@ declare namespace eSIM {
   }
 
   /**
-   * This API is used to obtain the remaining storage space of the eUICC hardware. This API uses a promise to return the
-   * result.
+   * 通过该接口获取eUICC硬件的剩余存储空间。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @returns { Promise<int> } Promise used to return the remaining storage space of the eUICC hardware, in KB.
+   * @returns { Promise<int> } Promise对象，返回eUICC硬件的剩余存储空间，以KB为单位。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.

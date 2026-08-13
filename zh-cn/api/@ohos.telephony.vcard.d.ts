@@ -14,7 +14,7 @@
  */
 
 /**
- * @file VCard
+ * @file VCard模块
  * @kit TelephonyKit
  */
 
@@ -24,9 +24,7 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
 import type Context from './application/BaseContext';
 
 /**
- * VCard is a file format standard for electronic business cards. It contains information such as names, addresses,
- * phone numbers, URLs, logos, and photos. The VCard module provides the VCard management functions, including importing
- * VCard files to the contact database and exporting contact data to VCard files.
+ * VCard是电子名片的文件格式标准，它可包含的信息有：姓名、地址资讯、电话号码、URL、logo、相片等。VCard模块提供了VCard能力，包括将VCard文件导入联系人数据库和将联系人数据导出为VCard文件等。
  *
  * @syscap SystemCapability.Telephony.CoreService
  * @since 11 dynamic
@@ -34,15 +32,14 @@ import type Context from './application/BaseContext';
  */
 declare namespace vcard {
   /**
-   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses an asynchronous callback to
-   * return the result.
+   * 将VCard文件导入联系人数据库。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and
    *     ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { string } filePath - URL of the vcard file (VCF).
-   * @param { int } accountId - Contact account ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context - 应用上下文。
+   * @param { string } filePath - VCF(vcard file)文件地址。
+   * @param { int } accountId - 联系人账户ID。
+   * @param { AsyncCallback<void> } callback - 回调函数，返回导入成功或失败的状态码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -59,15 +56,14 @@ declare namespace vcard {
   function importVCard(context: Context, filePath: string, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses a promise to return the
-   * result.
+   * 将VCard文件导入联系人数据库。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and
    *     ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { string } filePath - URL of the vcard file (VCF).
-   * @param { int } accountId - Contact account ID.
-   * @returns { Promise<void> } Promise used to return the operation result.
+   * @param { Context } context - 应用上下文。
+   * @param { string } filePath - VCF(vcard file)文件地址。
+   * @param { int } accountId - 联系人账户ID。
+   * @returns { Promise<void> } Promise对象，返回重置的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -84,14 +80,13 @@ declare namespace vcard {
   function importVCard(context: Context, filePath: string, accountId?: int): Promise<void>;
 
   /**
-   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses an asynchronous callback to
-   * return the result.
+   * 将VCard文件导入联系人数据库。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and
    *     ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { string } filePath - URL of the vcard file (VCF).
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context - 应用上下文。
+   * @param { string } filePath - VCF(vcard file)文件地址。
+   * @param { AsyncCallback<void> } callback - 回调函数，返回导入成功或失败的状态码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -108,13 +103,13 @@ declare namespace vcard {
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Exports contacts as a vcard file (VCF). This API uses an asynchronous callback to return the result.
+   * 将联系人导出为 VCF(vcard file)文件。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
-   * @param { VCardBuilderOptions } options - VCard version and encoding type.
-   * @param { AsyncCallback<string> } callback - Callback used to Address of the generated vcard file (VCF).
+   * @param { Context } context - 应用上下文。
+   * @param { dataSharePredicates.DataSharePredicates } predicates - 查询语句。
+   * @param { VCardBuilderOptions } options - VCard版本与编码类型。
+   * @param { AsyncCallback<string> } callback - 回调函数。生成的 VCF(vcard file)文件地址。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -131,13 +126,13 @@ declare namespace vcard {
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
   /**
-   * Exports contacts as a vcard file (VCF). This API uses a promise to return the result.
+   * 将联系人导出为 VCF(vcard file)文件。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
-   * @param { VCardBuilderOptions } options - VCard version and encoding type.
-   * @returns { Promise<string> } Promise used to return the operation result.
+   * @param { Context } context - 应用上下文。
+   * @param { dataSharePredicates.DataSharePredicates } predicates - 查询语句。
+   * @param { VCardBuilderOptions } options - VCard版本与编码类型。
+   * @returns { Promise<string> } Promise对象，返回重置的结果码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -154,12 +149,12 @@ declare namespace vcard {
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise<string>;
 
   /**
-   * Exports contacts as a vcard file (VCF). This API uses an asynchronous callback to return the result.
+   * 将联系人导出为 VCF(vcard file)文件。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Application context.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
-   * @param { AsyncCallback<string> } callback - Callback used to Address of the generated vcard file (VCF).
+   * @param { Context } context - 应用上下文。
+   * @param { dataSharePredicates.DataSharePredicates } predicates - 查询语句。
+   * @param { AsyncCallback<string> } callback - 回调函数。生成的 VCF(vcard file)文件地址。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -176,7 +171,7 @@ declare namespace vcard {
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void;
 
   /**
-   * Enumerates VCard versions.
+   * VCard版本类型。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -187,7 +182,7 @@ declare namespace vcard {
   export enum VCardType {
 
     /**
-     * VCard 2.1.
+     * VCard2.1版本。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -198,7 +193,7 @@ declare namespace vcard {
     VERSION_21 = 0,
 
     /**
-     * VCard 3.0.
+     * VCard3.0版本。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -209,7 +204,7 @@ declare namespace vcard {
     VERSION_30 = 1,
 
     /**
-     * VCard 4.0.
+     * VCard4.0版本。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -221,7 +216,7 @@ declare namespace vcard {
   }
 
   /**
-   * Defines the VCard information.
+   * VCard版本和编码信息。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -231,7 +226,7 @@ declare namespace vcard {
    */
   export interface VCardBuilderOptions {
     /**
-     * VCard version. The default value is **VERSION_21**.
+     * VCard版本类型 (默认值为VERSION_21)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use. [since 11 - 22]
@@ -241,7 +236,7 @@ declare namespace vcard {
      */
     cardType?: VCardType;
     /**
-     * VCard encoding type. The default value is **UTF-8**.
+     * VCard编码类型（默认值为'UTF-8'）。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use. [since 11 - 22]

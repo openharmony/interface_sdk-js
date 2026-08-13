@@ -14,19 +14,15 @@
  */
 
 /**
- * @file Network Search
+ * @file 网络搜索
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * The **radio** module provides basic network search management functions. Using the APIs provided by this module, you
- * can obtain the radio access technology (RAT) used in the CS and PS domains, network status, current network selection
- * mode, ISO country code of the registered network, ID of the slot in which the primary card is located, list of signal
- * strengths of the registered network for the SIM card in the specified slot, and carrier name. Besides, you can check
- * whether the current device supports New Radio \(NR\) and whether the radio service is enabled on the primary SIM
- * card. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet Switched domain.
+ * 网络搜索模块提供管理网络搜索的一些基础功能，包括获取当前接入的CS域和PS域无线接入技术、获取网络状态、获取当前选网模式、获取注册网络所在国家的ISO国家码、获取主卡所在卡槽的索引号、获取指定SIM卡槽对应的注册网络信号强度信息列表、
+ * 获取运营商名称，判断当前设备是否支持NR(New Radio)、判断主卡的Radio是否打开等。其中，CS域为电路交换域，PS为分组交换域。
  *
  * @syscap SystemCapability.Telephony.CoreService
  * @since 6 dynamic
@@ -34,21 +30,14 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace radio {
   /**
-   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. This API uses an asynchronous
-   * callback to return the result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the
-   * Packet Switched domain.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前接入的CS域和PS域无线接入技术。使用callback异步回调。其中，CS域为电路交换域，PS为分组交换域。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
    * @param { AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } callback - Callback used to
    *     return the result.  The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet
    *     Switched domain. [since 6 - 10]
-   * @param { AsyncCallback<NetworkRadioTech> } callback - Callback used to return the result.  The CS domain refers to
-   *     the Circuit Switched domain, and the PS domain refers to the Packet Switched domain. [since 11]
+   * @param { AsyncCallback<NetworkRadioTech> } callback - 回调函数。返回当前接入的CS域和PS域无线接入技术。其中，CS域为电路交换域，PS为分组交换域。 [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -63,19 +52,12 @@ declare namespace radio {
   function getRadioTech(slotId: int, callback: AsyncCallback<NetworkRadioTech>): void;
 
   /**
-   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. This API uses a promise to
-   * return the result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet
-   * Switched domain.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前接入的CS域和PS域无线接入技术。使用Promise异步回调。其中，CS域为电路交换域，PS为分组交换域。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } Promise used to return the
-   *     result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet Switched
-   *     domain. [since 6 - 10]
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } 以Promise形式返回当前接入的CS域和PS域技术。CS域为电
+   *     路交换域，PS为分组交换域。 [since 6 - 10]
    * @returns { Promise<NetworkRadioTech> } Returns the RAT of PS domain and CS domain of registered network.
    *     The values of RAT are as follows:
    *     <ul>
@@ -107,17 +89,11 @@ declare namespace radio {
   function getRadioTech(slotId: int): Promise<NetworkRadioTech>;
 
   /**
-   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. The CS domain refers to the
-   * Circuit Switched domain, and the PS domain refers to the Packet Switched domain.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前接入的CS域和PS域无线接入技术。CS域为电路交换域，PS为分组交换域。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { NetworkRadioTech } RAT used in the CS and PS domains. The CS domain refers to the Circuit Switched
-   *     domain, and the PS domain refers to the Packet Switched domain.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { NetworkRadioTech } 返回当前接入的CS域和PS域技术。CS域为电路交换域，PS为分组交换域。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -132,16 +108,11 @@ declare namespace radio {
   function getRadioTechSync(slotId: int): NetworkRadioTech;
 
   /**
-   * Obtains the network status of the SIM card in the specified slot. This API uses an asynchronous callback to return
-   * the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取网络状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<NetworkState> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<NetworkState> } callback - 回调函数。返回当前网络状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -156,16 +127,11 @@ declare namespace radio {
   function getNetworkState(slotId: int, callback: AsyncCallback<NetworkState>): void;
 
   /**
-   * Obtains the network status of the SIM card in the specified slot. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取网络状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   *     <br> If no card slot is specified, card slot 1 is used by default.
-   * @returns { Promise<NetworkState> } Promise used to return the network status.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。<br/> 未指定卡槽时，默认为卡槽1。
+   * @returns { Promise<NetworkState> } Promise对象，返回网络状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -180,12 +146,10 @@ declare namespace radio {
   function getNetworkState(slotId?: int): Promise<NetworkState>;
 
   /**
-   * Obtains the network status. This API uses an asynchronous callback to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取网络状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<NetworkState> } callback - Callback used to return the result.
+   * @param { AsyncCallback<NetworkState> } callback - 回调函数。返回当前网络状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -328,13 +292,10 @@ declare namespace radio {
   function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
 
   /**
-   * Obtains the network selection mode of the SIM card in the specified slot. This API uses an asynchronous callback to
-   * return the result.
+   * 获取当前选网模式。使用callback异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<NetworkSelectionMode> } callback - Callback used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<NetworkSelectionMode> } callback - 回调函数。返回当前选网模式。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -348,13 +309,10 @@ declare namespace radio {
   function getNetworkSelectionMode(slotId: int, callback: AsyncCallback<NetworkSelectionMode>): void;
 
   /**
-   * Obtains the network selection mode of the SIM card in the specified slot. This API uses a promise to return the
-   * result.
+   * 获取当前选网模式。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<NetworkSelectionMode> } Promise used to return the result.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<NetworkSelectionMode> } 以Promise形式返回当前选网模式。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -455,14 +413,10 @@ declare namespace radio {
   function getNetworkSearchInformation(slotId: int): Promise<NetworkSearchResult>;
 
   /**
-   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered. This API
-   * uses an asynchronous callback to return the result.
+   * 获取注册网络所在国家的ISO国家码。使用callback异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<string> } callback - Callback used to return the result. which is a country code, for
-   *     example, **CN** (China). If the device is not registered with any network, an empty string is returned.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数。返回国家码，例如：CN(中国)。如果设备没有注册任何网络，接口返回空字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -476,14 +430,10 @@ declare namespace radio {
   function getISOCountryCodeForNetwork(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered. This API
-   * uses a promise to return the result.
+   * 获取注册网络所在国家的ISO国家码。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } Promise used to return the result, which is an ISO country code, for example, **CN** (
-   *     China). If the device is not registered with any network, an empty string is returned.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回注册网络所在国家的ISO国家码，例如CN(中国)。如果设备没有注册任何网络，接口返回空字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -497,13 +447,10 @@ declare namespace radio {
   function getISOCountryCodeForNetwork(slotId: int): Promise<string>;
 
   /**
-   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered.
+   * 获取注册网络所在国家的ISO国家码。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { string } ISO country code of the network, for example, **CN** (China). If the device is not registered
-   *     with any network, an empty string is returned.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回注册网络所在国家的ISO国家码，例如CN(中国)。如果设备没有注册任何网络，接口返回空字符串。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -783,10 +730,9 @@ declare namespace radio {
   function getUniqueDeviceId(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the ID of the slot in which the primary card is located. This API uses an asynchronous callback to return
-   * the result.
+   * 获取主卡所在卡槽的索引号。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - 回调函数。返回主卡所在卡槽的索引号。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -800,9 +746,9 @@ declare namespace radio {
   function getPrimarySlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the ID of the slot in which the primary card is located. This API uses a promise to return the result.
+   * 获取主卡所在卡槽的索引号。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the result.
+   * @returns { Promise<int> } 以Promise形式返回获取设备主卡所在卡槽的索引号的结果。
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
@@ -859,14 +805,11 @@ declare namespace radio {
   function setPrimarySlotId(slotId: int): Promise<void>;
 
   /**
-   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered. This
-   * API uses an asynchronous callback to return the result.
+   * 获取指定SIM卡槽对应的注册网络信号强度信息列表。使用callback异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<Array<SignalInformation>> } callback - Callback used to return the result, which is an array
-   *     of child class objects derived from [SignalInformation]{@link radio.SignalInformation}.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<Array<SignalInformation>> } callback - 回调函数，返回从
+   *     [SignalInformation]{@link radio.SignalInformation}中派生出的子类对象的数组。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -880,14 +823,11 @@ declare namespace radio {
   function getSignalInformation(slotId: int, callback: AsyncCallback<Array<SignalInformation>>): void;
 
   /**
-   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered. This
-   * API uses a promise to return the result.
+   * 获取指定SIM卡槽对应的注册网络信号强度信息列表。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<Array<SignalInformation>> } Promise used to return the result, which is a list of child class
-   *     objects derived from [SignalInformation]{@link radio.SignalInformation}.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<Array<SignalInformation>> } 以Promise形式返回网络信号强度[SignalInformation]{@link radio.SignalInformation}
+   *     子类对象的数组。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -901,13 +841,10 @@ declare namespace radio {
   function getSignalInformation(slotId: int): Promise<Array<SignalInformation>>;
 
   /**
-   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered.
+   * 获取指定SIM卡槽对应的注册网络信号强度信息列表。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Array<SignalInformation> } Array of child class objects derived from
-   *     [SignalInformation]{@link radio.SignalInformation}.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Array<SignalInformation> } 返回网络信号强度[SignalInformation]{@link radio.SignalInformation}子类对象的数组。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -915,15 +852,13 @@ declare namespace radio {
   function getSignalInformationSync(slotId: int): Array<SignalInformation>;
 
   /**
-   * Checks whether the current device supports NR.
-   *
-   * > **NOTE**
+   * 判断当前设备是否支持NR(New Radio)。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-   * > [isNRSupported]{@link radio.isNrSupported}.
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @returns { boolean } - **true**: supported
-   *     <br>- **false**: not supported
+   * @returns { boolean } - true：支持。<br/>- false：不支持。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -932,18 +867,14 @@ declare namespace radio {
   function isNrSupported(): boolean;
 
   /**
-   * Checks whether the SIM card in the specified slot supports NR.
-   *
-   * > **NOTE**
+   * 判断当前设备是否支持NR(New Radio)。
+   * 
+   * > **说明：**
    * >
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [isNRSupported]{@link radio.isNrSupported}.
+   * > 从 API version 8开始支持，从API version 9开始废弃。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { boolean } - **true**: supported
-   *     <br>- **false**: not supported
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } - true：支持。<br/>- false：不支持。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -952,10 +883,9 @@ declare namespace radio {
   function isNrSupported(slotId: int): boolean;
 
   /**
-   * Checks whether the current device supports NR.
+   * 判断当前设备是否支持NR(New Radio)。
    *
-   * @returns { boolean } - **true**: supported
-   *     <br>- **false**: not supported
+   * @returns { boolean } - true：支持。<br/>- false：不支持。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9 dynamic
    * @since 23 static
@@ -963,13 +893,10 @@ declare namespace radio {
   function isNRSupported(): boolean;
 
   /**
-   * Checks whether the SIM card in the specified slot supports NR.
+   * 判断当前设备是否支持NR(New Radio)。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { boolean } - **true**: supported
-   *     <br>- **false**: not supported
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { boolean } - true：支持。<br/>- false：不支持。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9 dynamic
    * @since 23 static
@@ -977,18 +904,11 @@ declare namespace radio {
   function isNRSupported(slotId: int): boolean;
 
   /**
-   * Checks whether the radio service is enabled on the SIM card in the specified slot. This API uses an asynchronous
-   * callback to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 判断指定卡槽位的Radio是否打开。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   *     <br>- **true**: The radio service is enabled.
-   *     <br>- **false**: The radio service is disabled.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回指定卡槽的Radio状态。<br/>- true：Radio打开。<br/>- false：Radio关闭。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1003,20 +923,11 @@ declare namespace radio {
   function isRadioOn(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the radio service is enabled on the SIM card in the specified slot. This API uses a promise to
-   * return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 判断Radio是否打开。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2.
-   *     <br>If the slot ID is not specified, this API is defaulted to check whether the radio service is enabled on the
-   *     primary SIM card.
-   * @returns { Promise<boolean> } Promise used to return the result.
-   *     <br>- **true**: The radio service is enabled.
-   *     <br>- **false**: The radio service is disabled.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。<br/>如果不指定slotId，默认判断主卡Radio是否打开
+   * @returns { Promise<boolean> } 以Promise形式返回判断Radio是否打开的结果。<br/>- true：Radio打开。<br/>- false：Radio关闭。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1031,15 +942,10 @@ declare namespace radio {
   function isRadioOn(slotId?: int): Promise<boolean>;
 
   /**
-   * Checks whether the radio service is enabled on the primary SIM card. This API uses an asynchronous callback to
-   * return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 判断主卡的Radio是否打开。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   *     <br>- **true**: The radio service is enabled.
-   *     <br>- **false**: The radio service is disabled.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回主卡的Radio状态。<br/>- true：Radio打开。<br/>- false：Radio关闭。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1182,13 +1088,10 @@ declare namespace radio {
   function turnOffRadio(callback: AsyncCallback<void>): void;
 
   /**
-   * Obtains the carrier name of the SIM card in the specified slot. This API uses an asynchronous callback to return
-   * the result.
+   * 获取运营商名称。使用callback异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @param { AsyncCallback<string> } callback - Callback used to return the carrier name, for example, China Mobile.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @param { AsyncCallback<string> } callback - 回调函数，返回运营商名称。例如：中国移动。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1202,12 +1105,10 @@ declare namespace radio {
   function getOperatorName(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the carrier name of the SIM card in the specified slot. This API uses a promise to return the result.
+   * 获取运营商名称。使用Promise异步回调。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { Promise<string> } Promise used to return the result, for example, China Mobile.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { Promise<string> } 以Promise形式返回运营商名称。例如：中国移动。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1221,12 +1122,10 @@ declare namespace radio {
   function getOperatorName(slotId: int): Promise<string>;
 
   /**
-   * Obtains the carrier name of the SIM card in the specified slot.
+   * 获取运营商名称。
    *
-   * @param { int } slotId - Card slot ID.
-   *     <br>- **0**: card slot 1.
-   *     <br>- **1**: card slot 2
-   * @returns { string } Carrier name, for example, China Mobile.
+   * @param { int } slotId - 卡槽ID。<br/>- 0：卡槽1。<br/>- 1：卡槽2。
+   * @returns { string } 返回运营商名称。例如：中国移动。
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -1591,10 +1490,9 @@ declare namespace radio {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}
-   *     .
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
    * @param { AsyncCallback<void> } callback - The callback of setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1617,10 +1515,9 @@ declare namespace radio {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}
-   *     .
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
    * @returns { Promise<void> } The promise returned by the setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2080,7 +1977,7 @@ declare namespace radio {
   }
 
   /**
-   * Defines the radio access technology for the packet switched (PS) or circuit switched (CS) network.
+   * 网络中packet service (PS) 和 circuit service (CS) 无线接入技术。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
@@ -2088,7 +1985,7 @@ declare namespace radio {
    */
   export interface NetworkRadioTech {
     /**
-     * PS.
+     * PS无线接入技术。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11 dynamic
@@ -2097,7 +1994,7 @@ declare namespace radio {
     psRadioTech: RadioTechnology;
 
     /**
-     * CS.
+     * CS无线接入技术。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11 dynamic
@@ -2107,7 +2004,7 @@ declare namespace radio {
   }
 
   /**
-   * Enumerates radio access technologies.
+   * 无线接入技术。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2115,7 +2012,7 @@ declare namespace radio {
    */
   export enum RadioTechnology {
     /**
-     * Unknown RAT
+     * 未知无线接入技术(RAT)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2124,7 +2021,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_UNKNOWN = 0,
 
     /**
-     * Global System for Mobile Communication (GSM)
+     * 无线接入技术GSM(Global System For Mobile Communication)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2133,7 +2030,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_GSM = 1,
 
     /**
-     * Single-Carrier Radio Transmission Technology (1XRTT)
+     * 无线接入技术1XRTT(Single-Carrier Radio Transmission Technology)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2142,7 +2039,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_1XRTT = 2,
 
     /**
-     * Wideband Code Division Multiple Access (WCDMA)
+     * 无线接入技术WCDMA(Wideband Code Division Multiple Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2151,7 +2048,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_WCDMA = 3,
 
     /**
-     * High Speed Packet Access (HSPA)
+     * 无线接入技术HSPA(High Speed Packet Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2160,7 +2057,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_HSPA = 4,
 
     /**
-     * Evolved High Speed Packet Access (HSPA+)
+     * 无线接入技术HSPAP(High Speed packet access (HSPA+) )。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2169,7 +2066,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_HSPAP = 5,
 
     /**
-     * TD-SCDMA.
+     * 无线接入技术TD_SCDMA(TimeDivision-Synchronous Code Division Multiple Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2178,7 +2075,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_TD_SCDMA = 6,
 
     /**
-     * Evolution-Data Optimized (EVDO)
+     * 无线接入技术EVDO(Evolution Data Only)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2187,7 +2084,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_EVDO = 7,
 
     /**
-     * Evolved High Rate Package Data (EHRPD)
+     * 无线接入技术EHRPD(Evolved High Rate Package Data)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2196,7 +2093,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_EHRPD = 8,
 
     /**
-     * Long Term Evolution (LTE)
+     * 无线接入技术LTE(Long Term Evolution)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2205,7 +2102,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_LTE = 9,
 
     /**
-     * Long Term Evolution_Carrier Aggregation (LTE_CA)
+     * 无线接入技术LTE_CA(Long Term Evolution_Carrier Aggregation)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2214,7 +2111,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_LTE_CA = 10,
 
     /**
-     * Industrial Wireless LAN (IWLAN)
+     * 无线接入技术IWLAN(Industrial Wireless LAN)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2223,7 +2120,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_IWLAN = 11,
 
     /**
-     * New Radio (NR)
+     * 无线接入技术NR(New Radio)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2233,7 +2130,7 @@ declare namespace radio {
   }
 
   /**
-   * Defines the signal strength.
+   * 网络信号强度信息对象。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2241,7 +2138,7 @@ declare namespace radio {
    */
   export interface SignalInformation {
     /**
-     * Signal strength type.
+     * 网络信号强度类型。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2250,7 +2147,7 @@ declare namespace radio {
     signalType: NetworkType;
 
     /**
-     * Signal strength level. The value range is [0, 5]. If the value is out of range, an error is returned.
+     * 网络信号强度等级，范围为[0, 5]，超出范围返回错误。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2259,7 +2156,7 @@ declare namespace radio {
     signalLevel: int;
 
     /**
-     * Signal strength. The value range is [–140, 140]. If the value is out of range, an error is returned.
+     * 网络信号强度，范围为[-140, 140]，超出范围返回错误。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 9 dynamic
@@ -2269,7 +2166,7 @@ declare namespace radio {
   }
 
   /**
-   * Enumerates network types.
+   * 网络类型。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2277,7 +2174,7 @@ declare namespace radio {
    */
   export enum NetworkType {
     /**
-     * Unknown network.
+     * 未知网络类型。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2286,7 +2183,7 @@ declare namespace radio {
     NETWORK_TYPE_UNKNOWN = 0,
 
     /**
-     * GSM network.
+     * 网络类型为GSM(Global System For Mobile Communication)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2295,7 +2192,7 @@ declare namespace radio {
     NETWORK_TYPE_GSM = 1,
 
     /**
-     * CDMA network.
+     * 网络类型为CDMA(Code Division Multiple Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2304,7 +2201,7 @@ declare namespace radio {
     NETWORK_TYPE_CDMA = 2,
 
     /**
-     * WCDMA network.
+     * 网络类型为WCDMA(Wideband Code Division Multiple Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2313,7 +2210,7 @@ declare namespace radio {
     NETWORK_TYPE_WCDMA = 3,
 
     /**
-     * TD-SCDMA network.
+     * 网络类型为TDSCDMA(TimeDivision-Synchronous Code Division Multiple Access)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2322,7 +2219,7 @@ declare namespace radio {
     NETWORK_TYPE_TDSCDMA = 4,
 
     /**
-     * LTE network.
+     * 网络类型为LTE(Long Term Evolution)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2331,7 +2228,7 @@ declare namespace radio {
     NETWORK_TYPE_LTE = 5,
 
     /**
-     * NR network.
+     * 网络类型为NR(New Radio)。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2341,7 +2238,7 @@ declare namespace radio {
   }
 
   /**
-   * Defines the network status.
+   * 网络注册状态。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2349,7 +2246,7 @@ declare namespace radio {
    */
   export interface NetworkState {
     /**
-     * Long carrier name of the registered network.
+     * 注册网络的长运营商名称。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2358,7 +2255,7 @@ declare namespace radio {
     longOperatorName: string;
 
     /**
-     * Short carrier name of the registered network.
+     * 注册网络的短运营商名称。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2367,7 +2264,7 @@ declare namespace radio {
     shortOperatorName: string;
 
     /**
-     * PLMN code of the registered network.
+     * 注册网络的PLMN码。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2376,7 +2273,7 @@ declare namespace radio {
     plmnNumeric: string;
 
     /**
-     * Whether the user is roaming.
+     * 是否处于漫游状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2385,7 +2282,7 @@ declare namespace radio {
     isRoaming: boolean;
 
     /**
-     * Network registration status of the device.
+     * 设备的网络注册状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2394,7 +2291,7 @@ declare namespace radio {
     regState: RegState;
 
     /**
-     * RAT of the device.
+     * 设备的无线接入技术。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
@@ -2403,7 +2300,7 @@ declare namespace radio {
     cfgTech: RadioTechnology;
 
     /**
-     * NSA network registration status of the device.
+     * 设备的NSA网络注册状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2412,7 +2309,7 @@ declare namespace radio {
     nsaState: NsaState;
 
     /**
-     * CA status.
+     * CA的状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2421,7 +2318,7 @@ declare namespace radio {
     isCaActive: boolean;
 
     /**
-     * Whether only emergency calls are allowed.
+     * 此设备是否只允许拨打紧急呼叫。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2431,7 +2328,7 @@ declare namespace radio {
   }
 
   /**
-   * Defines the network registration status of the device.
+   * 网络注册状态。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2439,7 +2336,7 @@ declare namespace radio {
    */
   export enum RegState {
     /**
-     * The device cannot use any services, including data, SMS, and call services.
+     * 设备不能使用任何服务，包括数据业务、短信、通话等。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2448,7 +2345,7 @@ declare namespace radio {
     REG_STATE_NO_SERVICE = 0,
 
     /**
-     * The device can use services properly, including data, SMS, and call services.
+     * 设备可以正常使用服务，包括数据业务、短信、通话等。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2457,7 +2354,7 @@ declare namespace radio {
     REG_STATE_IN_SERVICE = 1,
 
     /**
-     * The device can use only the emergency call service.
+     * 设备只能使用紧急呼叫业务。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2466,8 +2363,7 @@ declare namespace radio {
     REG_STATE_EMERGENCY_CALL_ONLY = 2,
 
     /**
-     * The device cannot communicate with the network because the cellular radio service is disabled or the modem is
-     * powered off.
+     * 蜂窝无线电已关闭，modem下电，无法和网侧进行通信。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2477,7 +2373,7 @@ declare namespace radio {
   }
 
   /**
-   * Enumerates NSA network states.
+   * 非独立组网状态。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -2485,7 +2381,7 @@ declare namespace radio {
    */
   export enum NsaState {
     /**
-     * The device is in idle or connected state in an LTE cell that does not support NSA.
+     * 设备在不支持NSA的LTE小区下处于空闲状态或连接状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2494,7 +2390,7 @@ declare namespace radio {
     NSA_STATE_NOT_SUPPORT = 1,
 
     /**
-     * The device is in the idle state in an LTE cell that supports NSA but not NR coverage detection.
+     * 在支持NSA但不支持NR覆盖检测的LTE小区下，设备处于空闲状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2503,7 +2399,7 @@ declare namespace radio {
     NSA_STATE_NO_DETECT = 2,
 
     /**
-     * The device is connected to the LTE network in an LTE cell that supports NSA and NR coverage detection.
+     * 设备在LTE小区下连接到LTE网络支持NSA和NR覆盖检测。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2512,7 +2408,7 @@ declare namespace radio {
     NSA_STATE_CONNECTED_DETECT = 3,
 
     /**
-     * The device is in the idle state in an LTE cell that supports NSA and NR coverage detection.
+     * 支持NSA和NR覆盖检测的LTE小区下设备处于空闲状态。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2521,7 +2417,7 @@ declare namespace radio {
     NSA_STATE_IDLE_DETECT = 4,
 
     /**
-     * The device is connected to the LTE/NR network in an LTE cell that supports NSA.
+     * 设备在支持NSA的LTE小区下连接到LTE + NR网络。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2530,7 +2426,7 @@ declare namespace radio {
     NSA_STATE_DUAL_CONNECTED = 5,
 
     /**
-     * The device is idle or connected to the NG-RAN cell when being attached to the 5G Core.
+     * 设备在5GC附着时在NG-RAN小区下空闲或连接到NG-RAN小区。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2540,7 +2436,7 @@ declare namespace radio {
   }
 
   /**
-   * Defines the cell information.
+   * 小区信息。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 8 dynamic
@@ -2548,7 +2444,7 @@ declare namespace radio {
    */
   export interface CellInformation {
     /**
-     * Network type of the cell.
+     * 获取服务单元的网络类型。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
@@ -2581,7 +2477,7 @@ declare namespace radio {
     timeStamp: int;
 
     /**
-     * Signal information.
+     * 信号信息。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
@@ -3314,7 +3210,7 @@ declare namespace radio {
   }
 
   /**
-   * Enumerates network selection modes.
+   * 选网模式。
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
@@ -3322,7 +3218,7 @@ declare namespace radio {
    */
   export enum NetworkSelectionMode {
     /**
-     * Unknown network selection mode.
+     * 未知选网模式。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3331,7 +3227,7 @@ declare namespace radio {
     NETWORK_SELECTION_UNKNOWN = 0,
 
     /**
-     * Automatic network selection mode.
+     * 自动选网模式。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3340,7 +3236,7 @@ declare namespace radio {
     NETWORK_SELECTION_AUTOMATIC = 1,
 
     /**
-     * Manual network selection mode.
+     * 手动选网模式。
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3570,11 +3466,11 @@ declare namespace radio {
   }
 
   /**
-   * Determine whether the current manual network scan is in progress.
+   * 确定当前手动网络扫描是否正在进行
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<boolean> } the promise return ManualNetworkScanState.
+   * @returns { Promise<boolean> } 承诺返回 ManualNetworkScanState。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -3589,11 +3485,11 @@ declare namespace radio {
   function isManualNetworkScanning(slotId: int): Promise<boolean>;
 
   /**
-   * Stop ManualNetworkScan.
+   * 停止手动搜网
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<void> } the promise return stopManualNetworkScan.
+   * @returns { Promise<void> } 返回停止手动搜网结果
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -3608,7 +3504,7 @@ declare namespace radio {
   function stopManualNetworkScan(slotId: int): Promise<void>;
 
   /**
-   * start ManualNetworkScan , Real-time report.
+   * 启动手动网络扫描，实时报告
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number.
@@ -3628,7 +3524,7 @@ declare namespace radio {
 
 
   /**
-   * Indicates the results of manual network scan
+   * 表示手动网络扫描的结果
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
@@ -3638,7 +3534,7 @@ declare namespace radio {
   export interface NetworkSearchRealTimeResult {
 
     /**
-     * the network search results.
+     * 网络搜索结果
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
@@ -3648,7 +3544,7 @@ declare namespace radio {
     networkInfos: Array<NetworkInformation>;
 
     /**
-     * Indicates whether the network search was stop.
+     * 指示网络搜索是否已停止
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
