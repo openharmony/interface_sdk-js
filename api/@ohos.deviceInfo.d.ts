@@ -19,15 +19,13 @@
  */
 
 /**
- * The **deviceInfo** module provides terminal device information query, which cannot be configured by developers.
+ * This module provides APIs for querying terminal device information, including the device type, brand, model, system version, security patch tag, and unique device ID. It is applicable to scenarios such as device adaptation, version compatibility check, device identification, and statistical analysis, helping you quickly obtain device information for application adaptation and optimization. You cannot configure this information.
  * 
  * > **NOTE**
  * >
- * > The initial APIs of this module are supported since API version 6. Newly added APIs
- * > will be marked with a superscript to indicate their earliest API version.
- * > Some parameters whose return value is the default value are not yet available.
- * > The APIs of this module return information about device constants. You are not expected to call these APIs 
- * > frequently.
+ * > The initial APIs of this module are supported since API version 6. New APIs added in later versions are marked with superscripts to indicate their initial version.
+ * > The return values **hardwareProfile**, **incrementalVersion**, **buildType**, **buildUser**, **buildHost**, **buildTime**, and **buildRootHash** are **default**. These parameters will be configured in the official commercial version of the device.
+ * > The APIs of this module return information about device constants. It is recommended that your app call the APIs only once.
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform [since 11]
@@ -128,8 +126,6 @@ declare namespace deviceInfo {
 
   /**
    * Device manufacturer.
-   * 
-   * Example: HUAWEI
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -139,8 +135,6 @@ declare namespace deviceInfo {
 
   /**
    * Device brand.
-   * 
-   * Example: HUAWEI
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -223,7 +217,7 @@ declare namespace deviceInfo {
    * 
    * **NOTE**
    * 
-   * This API is supported since API version 6 and deprecated since API version 9.
+   * This API is supported since API version 6 and deprecated since API version 9. You are advised to use [SystemCapability](docroot://reference/syscap.md) instead.
    * 
    * Example: default
    *
@@ -234,7 +228,7 @@ declare namespace deviceInfo {
   const hardwareProfile: string;
 
   /**
-   * Device serial number (SN).
+   * Serial number of the device. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time..
    * 
    * **NOTE**
    * 
@@ -251,7 +245,7 @@ declare namespace deviceInfo {
   const serial: string;
 
   /**
-   * Bootloader version.
+   * Bootloader version, which identifies the version of the device bootloader.
    * 
    * Example: bootloader
    *
@@ -295,7 +289,7 @@ declare namespace deviceInfo {
   const displayVersion: string;
 
   /**
-   * Incremental version.
+   * Incremental version, which is the Ohos version number generated during compilation.
    * 
    * Example: default
    *
@@ -323,7 +317,7 @@ declare namespace deviceInfo {
   const osReleaseType: string;
 
   /**
-   * System version. The version number is in the format of **OpenHarmony-x.x.x.x**, where **x** is a digit.
+   * System version. The version number is in the format of **<!--RP12-->OpenHarmony-x.x.x.x**, where **x** is a placeholder for digits. <!--RP12End-->To obtain the value of a segment in the version number, you are advised to use **majorVersion**, **seniorVersion**, **featureVersion**, or **buildVersion**, which can improve efficiency. Parsing **osFullName** is not recommended.
    * 
    * Example: <!--RP10-->Openharmony-5.0.0.1<!--RP10End-->
    *
@@ -399,7 +393,7 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * Obtains the SDK Minor API version.
+   * System version. The version number is in the format of **<!--RP12-->OpenHarmony-x.x.x.x**, where **x** is a placeholder for digits. <!--RP12End-->To obtain the value of a segment in the version number, you are advised to use **majorVersion**, **seniorVersion**, **featureVersion**, or **buildVersion**, which can improve efficiency. Parsing **osFullName** is not recommended.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -410,7 +404,7 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * Obtains the SDK Patch API version.
+   * SDK patch API version. Starting from API version 26.0.0, the system API version is in the format of **sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion**.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -432,10 +426,7 @@ declare namespace deviceInfo {
   const firstApiVersion: number;
 
   /**
-   * Version ID. It consists of the following fields: **deviceType**, **manufacture**, **brand**, **productSeries**, 
-   * **osFullName**, **productModel**, **softwareModel**, **sdkApiVersion**, **incrementalVersion**, and **buildType**.
-   * 
-   * Example: wearable/HUAWEI/HUAWEI/TAS/OpenHarmony-5.0.0.1/TAS-AL00/TAS-AL00/12/default/release:nolog
+   * Version ID, which is a concatenation of **deviceType**, **manufacture**, **brand**, **productSeries**, **osFullName**, **productModel**, **softwareModel**, **sdkApiVersion**, **incrementalVersion**, and **buildType**. To obtain a specific field value, you are advised to use the corresponding field directly (such as **deviceType** and **manufacture**) instead of parsing **versionId**, facilitating efficiency improvement.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -499,7 +490,7 @@ declare namespace deviceInfo {
   const buildRootHash: string;
 
   /**
-   * Device UDID.
+   * UDID of the device. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time.
    * 
    * **NOTE**
    * 
@@ -587,7 +578,7 @@ declare namespace deviceInfo {
    * 
    * **NOTE**
    * 
-   * The data length is 37 bytes.
+   * The data length is 37 bytes (including the terminator).
    * 
    * Example: 1234a567-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    *
@@ -597,7 +588,7 @@ declare namespace deviceInfo {
   const ODID: string;
 
   /**
-   * Disk SN.
+   * Serial number of the disk. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time.
    * 
    * **NOTE**
    * 
@@ -648,8 +639,10 @@ declare namespace deviceInfo {
   }
 
   /**
-   * Device capability level.
+   * Device capability level, which is evaluated based on factors such as CPU, memory, storage read/write performance, and screen resolution.
    *
+   * Example: 0
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 19 dynamic
@@ -659,14 +652,18 @@ declare namespace deviceInfo {
     /**
      * Obtains the device CPU chipType by a string.
      *
+     * Example: xxxxx
+     * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 21 dynamic
      */
     const chipType: string;
 
     /**
-     * Obtains boot count since the device starts running
+     * Number of device reboots. If the number cannot be obtained, **-1** is returned.
      *
+     * Example: 100
+     * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 21 dynamic
      */
@@ -697,7 +694,7 @@ declare namespace deviceInfo {
  	  function apiAvailable(version: string | number): boolean;
 
   /**
-   * Obtain the device color represented by a string. If it cannot be obtained, return an empty string
+   * Device color. If the value cannot be obtained, an empty string is returned.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
