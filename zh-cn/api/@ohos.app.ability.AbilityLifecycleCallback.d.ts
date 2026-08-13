@@ -20,6 +20,12 @@
  * > **说明**
  * >
  * > 本模块接口只能监听进程内UIAbility生命周期变化。
+ * 
+ * ## 使用说明
+ * 
+ * 1. 应用创建AbilityLifecycleCallback对象，并调用ApplicationContext.on('abilityLifecycle')接口注册UIAbility生命周期变化监听。
+ * 2. 当UIAbility生命周期变化时，应用可以通过已注册的AbilityLifecycleCallback对象接收到UIAbility生命周期的变化通知。
+ * 3. 当应用不需要监听UIAbility生命周期变化时，需要通过ApplicationContext.off('abilityLifecycle')接口取消监听。
  *
  * @file
  * @kit AbilityKit
