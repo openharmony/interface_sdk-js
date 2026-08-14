@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D resource related interfaces
+ * @file 本模块提供ArkGraphics 3D中常用的基本资源类型，包括着色器、材质、网格、动画、环境或图片等用于构建3D场景的各类资源。
  * @kit ArkGraphics3D
  */
 
@@ -25,7 +25,7 @@ import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
 
 /**
- * 场景资源类型枚举.
+ * 场景资源类型枚举，对场景中的资源进行分类。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -34,7 +34,7 @@ import { Callback } from '../@ohos.base';
  */
 export enum SceneResourceType {
   /**
-   * 资源是Unknown类型.
+   * 未定义类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -43,7 +43,7 @@ export enum SceneResourceType {
   UNKNOWN = 0,
 
   /**
-   * 资源是Node类型.
+   * 节点类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -52,7 +52,7 @@ export enum SceneResourceType {
   NODE = 1,
 
   /**
-   * 资源是Environment类型.
+   * 环境类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -61,7 +61,7 @@ export enum SceneResourceType {
   ENVIRONMENT = 2,
 
   /**
-   * 资源是Material类型.
+   * 材质类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -70,7 +70,7 @@ export enum SceneResourceType {
   MATERIAL = 3,
 
   /**
-   * 资源是Mesh类型.
+   * 网格类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -79,7 +79,7 @@ export enum SceneResourceType {
   MESH = 4,
 
   /**
-   * 资源是Animation类型.
+   * 动画类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -88,7 +88,7 @@ export enum SceneResourceType {
   ANIMATION = 5,
 
   /**
-   * 资源是Shader类型.
+   * 着色器类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -97,7 +97,7 @@ export enum SceneResourceType {
   SHADER = 6,
 
   /**
-   * 资源是Image类型.
+   * 图片类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -106,7 +106,7 @@ export enum SceneResourceType {
   IMAGE = 7,
 
   /**
-   * 资源是MeshResource类型
+   * 网格资源类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -115,7 +115,7 @@ export enum SceneResourceType {
   MESH_RESOURCE = 8,
 
   /**
-   * 资源是Effect类型.
+   * 后处理特效类型。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -125,7 +125,7 @@ export enum SceneResourceType {
 }
 
 /**
- * 定义被其他3D资源扩展的场景资源.
+ * 用于表示场景中的资源。
  *
  * @interface SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -134,7 +134,7 @@ export enum SceneResourceType {
  */
 export interface SceneResource {
   /**
-   * 场景资源名称，没有特殊格式要求。
+   * 名称，没有特殊格式要求。
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -155,7 +155,7 @@ export interface SceneResource {
   readonly resourceType: SceneResourceType;
 
   /**
-   * 需要加载的场景资源URI，默认值为undefined。
+   * 需要加载的资源，默认值为undefined。
    *
    * @type { ?ResourceStr }
    * @readonly
@@ -177,7 +177,7 @@ export interface SceneResource {
 }
 
 /**
- * 着色器资源.
+ * 着色器，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Shader
@@ -187,7 +187,7 @@ export interface SceneResource {
  */
 export interface Shader extends SceneResource {
   /**
-   * 着色器输入.
+   * 着色器输入。
    * 
    * @type { Record<string, double | Vec2 | Vec3 | Vec4 | Image> }
    * @readonly
@@ -198,8 +198,8 @@ export interface Shader extends SceneResource {
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
   /**
-   * 设置着色器输入。与属性版本功能相同，但性能更优。
-   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - 着色器的输入
+   * 设置[Shader]{@link Shader}的输入，该接口性能优于直接设置inputs属性。
+   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - 一个字符串到值的映射，用于设置着色器输入。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -208,7 +208,7 @@ export interface Shader extends SceneResource {
 }
 
 /**
- * 材质类型枚举.
+ * 场景中物体材质类型枚举，定义材质的渲染方式。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -217,7 +217,7 @@ export interface Shader extends SceneResource {
  */
 export enum MaterialType {
   /**
-   * 材质类型是Shader.
+   * 材质由着色器定义。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -226,7 +226,7 @@ export enum MaterialType {
   SHADER = 1,
   
   /**
-   * 材质是基于物理的金属粗糙度材质.
+   * 采用基于物理渲染（PBR）的金属-粗糙度模型，通过金属度与粗糙度参数，模拟更真实的材质光照效果。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -235,7 +235,7 @@ export enum MaterialType {
   METALLIC_ROUGHNESS = 2,
 
   /**
-   * 材质是无光照材质.
+   * 不受光照影响的材质。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -243,7 +243,7 @@ export enum MaterialType {
   UNLIT = 3,
 
   /**
-   * 材质是遮挡材质
+   * 遮挡材质，能够遮挡场景中的其他物体但不会遮挡环境。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -251,7 +251,7 @@ export enum MaterialType {
   OCCLUSION = 4,
 
   /**
-   * 仅对阴影进行绘制，当材质开启[Blend]{@link Blend}属性，与背景融合模拟透明材质效果。
+   * 仅对阴影进行绘制，当材质开启Blend属性，与背景融合模拟透明材质效果。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -262,7 +262,7 @@ export enum MaterialType {
 }
 
 /**
- * PBR材质剔除模式枚举.
+ * 用于设置基于物理渲染（PBR）材质的剔除模式枚举。通过控制剔除物体的正面或背面几何面片，提升渲染性能和视觉效果。
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -271,7 +271,7 @@ export enum MaterialType {
  */
 export enum CullMode {
   /**
-   * 禁用剔除.
+   * 禁用剔除。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -280,7 +280,7 @@ export enum CullMode {
   NONE = 0,
 
   /**
-   * 剔除正面.
+   * 剔除正面几何面片。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -289,7 +289,7 @@ export enum CullMode {
   FRONT = 1,
 
   /**
-   * 剔除背面.
+   * 剔除背面几何面片。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -299,15 +299,15 @@ export enum CullMode {
 }
 
 /**
- * 多边形模式枚举.
- * 
+ * 控制多边形绘制模式的枚举。
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 23 dynamic&static
  */
 export enum PolygonMode {
   /**
-   * 渲染整个多边形
+   * 绘制多边形的每个面。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -315,7 +315,7 @@ export enum PolygonMode {
   FILL = 0,
 
   /**
-   * 仅渲染多边形的边（线框）
+   * 仅绘制多边形线框。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -323,8 +323,8 @@ export enum PolygonMode {
   LINE = 1,
 
   /**
-   * 仅渲染多边形的顶点
-   * 
+   * 仅绘制多边形顶点。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -332,8 +332,8 @@ export enum PolygonMode {
 }
 
 /**
- * 混合接口.
- * 
+ * 用于控制材质的透明效果。
+ *
  * @interface Blend
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -341,8 +341,8 @@ export enum PolygonMode {
  */
 export interface Blend {
   /**
-   * 控制是否启用混合
-   * 
+   * 是否启用材质的透明效果模式。true表示开启透明，false表示关闭透明。
+   *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -352,12 +352,8 @@ export interface Blend {
 }
 
 /**
- * 渲染排序层。在渲染槽中，层可以定义排序层顺序。
- * 可用值为0-63（0最先，63最后）。默认id值为32。
- * 典型用法：1. 将渲染排序层设置为对使用深度测试但未写入深度的对象进行渲染。
- * 2. 始终首先渲染角色和/或相机对象以剔除大部分视图。
- * 3. 对平面层进行排序。
- * 
+ * 定义材质物体的渲染顺序，控制不同物体在渲染管线中的绘制先后。
+ *
  * @interface RenderSort
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -365,9 +361,8 @@ export interface Blend {
  */
 export interface RenderSort {
   /**
-   * 用于在渲染槽中对子网格进行排序的排序层.
-   * 有效值为0-63.
-   * 
+   * 渲染图层id，数值越小，渲染顺序越靠前。取值范围[0, 63]，默认图层id为32。
+   *
    * @type { ?int }
    * @default 32 默认渲染排序层id。
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -377,9 +372,8 @@ export interface RenderSort {
   renderSortLayer?: int;
 
   /**
-   * 排序层内描述精细顺序的排序层顺序.
-   * 有效值为0-255.
-   * 
+   * 同一渲染图层内，不同物体的渲染顺序，数值越小，越先渲染。取值范围[0, 255]，默认值为0。
+   *
    * @type { ?int }
    * @default 0 默认渲染排序层顺序。
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -474,8 +468,8 @@ export interface Material extends SceneResource {
 }
 
 /**
- * 材质属性接口.
- * 
+ * 材质属性接口，用于定义材质所使用的纹理、属性因子及纹理采样器信息。
+ *
  * @interface MaterialProperty
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -483,8 +477,8 @@ export interface Material extends SceneResource {
  */
 export interface MaterialProperty {
   /**
-   * 要使用的纹理. 如果未定义，factor定义漫反射颜色.
-   * 
+   * 基于物理渲染（PBR）属性纹理贴图，用于表达材质的纹理信息。
+   *
    * @type { Image | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -493,8 +487,8 @@ export interface MaterialProperty {
   image: Image | null;
 
   /**
-   * 纹理系数. 默认为{1,1,1,1}，表示无效果.
-   * 
+   * 基于物理渲染（PBR）属性因子，不同属性不同含义。
+   *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -514,8 +508,8 @@ export interface MaterialProperty {
 }
 
 /**
- * 基于物理的金属粗糙度材质资源.
- * 
+ * 用于实现真实感外观的材质资源。采用基于物理渲染（PBR）的金属-粗糙度模型，通过调节金属度和粗糙度参数，可模拟金属、塑料等不同材质的表面光照与反射效果，继承自Material。
+ *
  * @extends Material
  * @interface MetallicRoughnessMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -524,9 +518,8 @@ export interface MaterialProperty {
  */
 export interface MetallicRoughnessMaterial extends Material {
   /**
-   * PBR材质的基础颜色因子.
-   * factor.xyzw的值定义rgba颜色.
-   * 
+   * 基础颜色贴图，用于表达材质在没有光照情况下所表达的颜色信息。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -535,9 +528,8 @@ export interface MetallicRoughnessMaterial extends Material {
   baseColor: MaterialProperty;
 
   /**
-   * PBR材质的法线因子.
-   * factor.x的值定义法线缩放.
-   * 
+   * 法线贴图，表达物体表面结构细节，使光照效果更真实，不改变几何结构。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -546,9 +538,11 @@ export interface MetallicRoughnessMaterial extends Material {
   normal: MaterialProperty;
 
   /**
-   * 金属粗糙度材质参数.
-   * factor.y定义粗糙度，factor.z定义金属度，factor.a定义反射率.
-   * 
+   * 金属材质参数。
+   * 粗糙度（Roughness）：表达材质因其表面细微的结构细节所导致的反光强弱程度。
+   * 金属度（Metallic）：表达材质的金属属性。
+   * 反射度（Reflectance）：材质的光反射率。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -557,9 +551,8 @@ export interface MetallicRoughnessMaterial extends Material {
   material: MaterialProperty;
 
   /**
-   * PBR材质的环境光遮蔽.
-   * factor.x定义环境光遮蔽因子.
-   * 
+   * 环境光遮蔽贴图，用于模拟环境光在物体凹陷或细节部分的遮挡效果，增强局部阴影表现，提高细节真实感。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -568,8 +561,8 @@ export interface MetallicRoughnessMaterial extends Material {
   ambientOcclusion: MaterialProperty;
 
   /**
-   * PBR材质的自发光属性.
-   * 
+   * 自发光颜色，表达材质自身作为光源向外发光的颜色信息。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -578,9 +571,8 @@ export interface MetallicRoughnessMaterial extends Material {
   emissive: MaterialProperty;
 
   /**
-   * 清漆强度.
-   * factor.x定义清漆层强度.
-   * 
+   * 透明图层，用于在材质表面叠加一层具有反光特性的透明图层，可模拟车漆、碳纤、被水打湿的表面等材质的光泽表现。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -589,9 +581,8 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoat: MaterialProperty;
 
   /**
-   * 清漆粗糙度.
-   * factor.y定义清漆层粗糙度.
-   * 
+   * 透明图层粗糙度。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -600,9 +591,8 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatRoughness: MaterialProperty;
   
   /**
-   * 清漆法线.
-   * factor.xyz定义RGB清漆法线缩放.
-   * 
+   * 透明图层法线贴图。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -611,10 +601,8 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatNormal: MaterialProperty;
 
   /**
-   * PBR材质的光泽颜色.
-   * Value of factor.xyz defines RGB sheen color,
-   * Value of factor.w defines sheen roughness.
-   * 
+   * 微纤维漫反射材质光泽，可用于表示布料和织物材料。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -623,10 +611,8 @@ export interface MetallicRoughnessMaterial extends Material {
   sheen: MaterialProperty;
 
   /**
-   * PBR材质的镜面反射颜色.
-   * Value of factor.xyz defines RGB specular color,
-   * Value of factor.w defines specular intensity.
-   * 
+   * 非金属材质的高光反射，表示传统镜面反射强度。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -636,8 +622,8 @@ export interface MetallicRoughnessMaterial extends Material {
 }
 
 /**
- * 无光照材质资源
- * 
+ * 不受光照影响的材质，其着色值只与设置的基础颜色有关，与光照条件无关，继承自Material。
+ *
  * @extends Material
  * @interface UnlitMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -645,9 +631,8 @@ export interface MetallicRoughnessMaterial extends Material {
  */
 export interface UnlitMaterial extends Material {
   /**
-   * 无光照材质的基础颜色因子.
-   * factor.xyzw的值定义rgba颜色.
-   * 
+   * 基础颜色属性，用于表达材质的基础颜色信息。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -656,9 +641,8 @@ export interface UnlitMaterial extends Material {
 }
 
 /**
- * 无光照阴影透明度材质资源。
- * 此材质继承自[Material]{@link Material}，仅绘制材质表面阴影。材质启用[Blend]{@link Blend}属性时，可与背景融合模拟透明效果。
- * 
+ * 此材质继承自Material，仅绘制材质表面阴影。材质启用Blend属性时，可与背景融合模拟透明效果。
+ *
  * @extends Material
  * @interface UnlitShadowAlphaMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -668,9 +652,8 @@ export interface UnlitMaterial extends Material {
  */
 export interface UnlitShadowAlphaMaterial extends Material {
   /**
-   * UnlitShadowAlphaMaterial的基础颜色因子.
-   * factor.xyzw的值定义rgba颜色
-   * 
+   * 基础颜色属性，用于表示透明材质表面阴影的颜色信息。
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -681,7 +664,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
 }
 
 /**
- * 着色器材质资源.
+ * 着色器材质，继承自Material。
  *
  * @extends Material
  * @interface ShaderMaterial
@@ -691,7 +674,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
  */
 export interface ShaderMaterial extends Material {
   /**
-   * 材质的颜色着色器.
+   * 着色器，默认值为undefined。
    *
    * @type { ?Shader }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -702,7 +685,7 @@ export interface ShaderMaterial extends Material {
 }
 
 /**
- * 遮挡材质资源
+ * 遮挡材质，能够遮挡场景中的其他物体但不会遮挡环境，继承自Material。
  *
  * @extends Material
  * @interface OcclusionMaterial
@@ -713,8 +696,8 @@ export interface OcclusionMaterial extends Material {
 }
 
 /**
- * 采样器过滤模式
- * 
+ * 采样器过滤模式枚举，定义纹理采样时的插值方法，用于控制纹理在缩放或变形时如何计算最终像素的颜色值。
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -722,16 +705,16 @@ export interface OcclusionMaterial extends Material {
  */
 export enum SamplerFilter {
   /**
-   * 使用最近邻过滤
-   * 
+   * 使用最近邻插值进行采样，速度快但边缘可能锯齿明显。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
    */
   NEAREST = 0,
   /**
-   * 使用线性过滤
-   * 
+   * 使用线性插值进行采样，效果更平滑但性能略低。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -740,8 +723,8 @@ export enum SamplerFilter {
 }
 
 /**
- * 采样器的寻址模式
- * 
+ * 采样器寻址模式枚举，用于控制纹理坐标超出[0, 1]范围时的处理方式。
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -749,8 +732,8 @@ export enum SamplerFilter {
  */
 export enum SamplerAddressMode {
   /**
-   * 重复
-   * 
+   * 纹理坐标超出范围时，纹理会重复平铺。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -758,8 +741,8 @@ export enum SamplerAddressMode {
   REPEAT = 0,
 
   /**
-   * 镜像重复
-   * 
+   * 纹理坐标超出范围时，纹理以镜像方式重复。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -767,8 +750,8 @@ export enum SamplerAddressMode {
   MIRRORED_REPEAT = 1,
 
   /**
-   * 钳制到边缘
-   * 
+   * 纹理坐标超出范围时，贴图边缘像素会被拉伸延伸。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -777,8 +760,8 @@ export enum SamplerAddressMode {
 }
 
 /**
- * 采样器接口
- * 
+ * 采样器接口，用于定义纹理贴图采样时的过滤方式。
+ *
  * @interface { Sampler }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -786,8 +769,8 @@ export enum SamplerAddressMode {
  */
 export interface Sampler {
   /**
-   * 放大过滤
-   * 
+   * 放大过滤模式，控制纹理贴图被放大时的采样方式，默认值为LINEAR。
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -796,8 +779,8 @@ export interface Sampler {
   magFilter?: SamplerFilter;
 
   /**
-   * 缩小过滤
-   * 
+   * 缩小过滤模式，控制纹理贴图被缩小时的采样方式，默认值为LINEAR。
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -806,8 +789,8 @@ export interface Sampler {
   minFilter?: SamplerFilter;
 
   /**
-   * Mip-map模式
-   * 
+   * mipmap过滤模式，控制纹理贴图在多层不同分辨率之间的采样方式，默认值为LINEAR。
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -816,8 +799,8 @@ export interface Sampler {
   mipMapMode?: SamplerFilter;
 
   /**
-   * U寻址模式
-   * 
+   * 纹理贴图U方向（水平）的采样方式，默认值为REPEAT。
+   *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -826,8 +809,8 @@ export interface Sampler {
   addressModeU?: SamplerAddressMode;
 
   /**
-   * V寻址模式
-   * 
+   * 纹理贴图V方向（垂直）的采样方式，默认值为REPEAT。
+   *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -837,7 +820,7 @@ export interface Sampler {
 }
 
 /**
- * 子网格资源.
+ * 子网格类型。
  *
  * @interface SubMesh
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -846,7 +829,7 @@ export interface Sampler {
  */
 export interface SubMesh {
   /**
-   * 子网格的名称.
+   * 名称，没有特殊格式要求。
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -856,7 +839,7 @@ export interface SubMesh {
   name: string;
 
   /**
-   * 子网格的材质.
+   * 材质。
    *
    * @type { Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -866,7 +849,7 @@ export interface SubMesh {
   material: Material;
 
   /**
-   * 子网格的轴对齐包围盒.
+   * 轴对齐包围盒。
    *
    * @type { Aabb }
    * @readonly
@@ -878,8 +861,8 @@ export interface SubMesh {
 }
 
 /**
- * 定义用于指定节点几何体形变目标的Morpher接口.
- * 
+ * 用于控制3D模型的形变，通过调整不同形变目标的权重，实现模型的动态变形效果。
+ *
  * @interface Morpher
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
@@ -887,8 +870,8 @@ export interface SubMesh {
  */
 export interface Morpher {
   /**
-   * 形变目标名称和权重
-   * 
+   * 用于存储所有形变目标的名称和对应的权重。权重值通常在[0.0, 1.0]范围内。
+   *
    * @type { Record<string, double> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -899,7 +882,7 @@ export interface Morpher {
 }
 
 /**
- * 网格节点拥有的网格实例
+ * 网格类型，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Mesh
@@ -909,7 +892,7 @@ export interface Morpher {
  */
 export interface Mesh extends SceneResource {
   /**
-   * 网格的子网格.
+   * 子网格数组。
    *
    * @type { SubMesh[] }
    * @readonly
@@ -920,7 +903,7 @@ export interface Mesh extends SceneResource {
   readonly subMeshes: SubMesh[];
 
   /**
-   * 网格的轴对齐包围盒.
+   * 轴对齐包围盒。
    *
    * @type { Aabb }
    * @readonly
@@ -931,7 +914,7 @@ export interface Mesh extends SceneResource {
   readonly aabb: Aabb;
 
   /**
-   * 覆盖子网格材质的材质.
+   * 材质，默认为空。
    *
    * @type { ?Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -942,9 +925,9 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * 几何节点的网络数据描述资源
- * 
- * 
+ * 网格资源，继承自SceneResource。
+ *
+ *
  * @extends SceneResource
  * @interface MeshResource
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -955,7 +938,7 @@ export interface MeshResource extends SceneResource {
 }
 
 /**
- * 动画资源.
+ * 动画类型，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Animation
@@ -965,7 +948,7 @@ export interface MeshResource extends SceneResource {
  */
 export interface Animation extends SceneResource {
   /**
-   * 动画是否启用.
+   * 动画是否启用。true表示可以播放动画，false表示不可以播放动画。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -975,8 +958,7 @@ export interface Animation extends SceneResource {
   enabled: boolean;
 
   /**
-   * 动画速度因子
-   * 负值使用给定速度因子反向播放动画
+   * 动画的播放速度因子。默认值为1.0，表示正常速度播放。如果设置为负值，动画将以反向速度播放。
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -986,7 +968,7 @@ export interface Animation extends SceneResource {
   speed?: double;
 
   /**
-   * 动画持续时间, 单位为秒.
+   * 动画持续时间，单位为秒（s），取值范围大于等于0。
    *
    * @type { double }
    * @readonly
@@ -997,7 +979,7 @@ export interface Animation extends SceneResource {
   readonly duration: double;
 
   /**
-   * 动画是否正在运行.
+   * 动画运行状态。true表示动画正在播放，false表示动画停止播放。
    *
    * @type { boolean }
    * @readonly
@@ -1008,7 +990,7 @@ export interface Animation extends SceneResource {
   readonly running: boolean;
 
   /**
-   * 动画在0~1之间的进度.
+   * 动画进度状态，取值区间为[0, 1]。
    *
    * @type { double }
    * @readonly
@@ -1021,7 +1003,7 @@ export interface Animation extends SceneResource {
   /**
    * 动画播放结束时执行的回调函数，动画播放完成或者finish操作会触发这个回调。
    *
-   * @param { Callback<void> } callback - 动画完成时调用的回调
+   * @param { Callback<void> } callback - 回调函数，返回值为空。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1029,9 +1011,9 @@ export interface Animation extends SceneResource {
   onFinished(callback: Callback<void>): void;
 
   /**
-   * 注册动画开始时的回调.
+   * 当动画开始播放时执行的回调函数，start操作以及restart操作也会触发这个回调。
    *
-   * @param { Callback<void> } callback - 动画开始时调用的回调
+   * @param { Callback<void> } callback - 回调函数，返回值为空。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1039,7 +1021,7 @@ export interface Animation extends SceneResource {
   onStarted(callback: Callback<void>): void;
 
   /**
-   * 暂停动画.
+   * 将动画暂停，动画的播放进度保持在当前状态。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1048,7 +1030,7 @@ export interface Animation extends SceneResource {
   pause(): void;
 
   /**
-   * 重新启动动画.
+   * 从动画的起点开始播放动画。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1057,9 +1039,9 @@ export interface Animation extends SceneResource {
   restart(): void;
 
   /**
-   * 将动画跳转到指定位置.
+   * 将动画进度跳转到指定位置，不改变动画的播放状态（已播放仍继续播放，已暂停仍暂停）。
    *
-   * @param { double } position - 跳转到0~1之间的位置
+   * @param { double } position - 要重新播放动画的起始位置，取值区间为[0, 1]。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1067,7 +1049,7 @@ export interface Animation extends SceneResource {
   seek(position: double): void;
 
   /**
-   * 开始动画.
+   * 基于当前进度开始播放一个动画。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1076,7 +1058,7 @@ export interface Animation extends SceneResource {
   start(): void;
 
   /**
-   * 停止动画并将位置设置到开头.
+   * 停止播放一个动画，并将动画的进度设置为0。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1085,7 +1067,7 @@ export interface Animation extends SceneResource {
   stop(): void;
 
   /**
-   * 结束动画并将位置设置到结尾.
+   * 直接跳转到动画的最后，并将动画的进度设置为1。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1095,7 +1077,7 @@ export interface Animation extends SceneResource {
 }
 
 /**
- * 环境背景类型枚举.
+ * 环境背景类型枚举，用于定义场景的背景呈现方式。
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
@@ -1103,7 +1085,7 @@ export interface Animation extends SceneResource {
  */
 export enum EnvironmentBackgroundType {
   /**
-   * 背景为空.
+   * 无背景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1112,7 +1094,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_NONE = 0,
 
   /**
-   * 背景为图像.
+   * 图片背景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1121,7 +1103,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_IMAGE = 1,
 
   /**
-   * 背景为立方体贴图.
+   * 立方体贴图背景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1130,7 +1112,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_CUBEMAP = 2,
 
   /**
-   * 背景为等距柱状投影.
+   * 等距柱状投影背景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1140,7 +1122,7 @@ export enum EnvironmentBackgroundType {
 }
 
 /**
- * 环境资源.
+ * 环境类型，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Environment
@@ -1150,7 +1132,7 @@ export enum EnvironmentBackgroundType {
  */
 export interface Environment extends SceneResource {
   /**
-   * 环境背景类型.
+   * 环境背景类型。
    *
    * @type { EnvironmentBackgroundType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1160,7 +1142,7 @@ export interface Environment extends SceneResource {
   backgroundType: EnvironmentBackgroundType;
 
   /**
-   * 环境间接漫反射因子.
+   * 间接散射系数。
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1170,7 +1152,7 @@ export interface Environment extends SceneResource {
   indirectDiffuseFactor: Vec4;
 
   /**
-   * 环境间接镜面反射因子.
+   * 间接反射系数。
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1180,7 +1162,7 @@ export interface Environment extends SceneResource {
   indirectSpecularFactor: Vec4;
 
   /**
-   * 环境贴图因子.
+   * 环境地图系数。
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1190,7 +1172,7 @@ export interface Environment extends SceneResource {
   environmentMapFactor: Vec4;
 
   /**
-   * 环境图像.
+   * 环境图片，默认为undefined。
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1200,7 +1182,7 @@ export interface Environment extends SceneResource {
   environmentImage?: Image | null;
 
   /**
-   * 环境辐射图像.
+   * 辐射图片，默认为undefined。
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1210,7 +1192,7 @@ export interface Environment extends SceneResource {
   radianceImage?: Image | null;
 
   /**
-   * 辐射系数（九个Vec3的数组）.
+   * 辐射系数，默认为undefined。
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1220,9 +1202,9 @@ export interface Environment extends SceneResource {
   irradianceCoefficients?: Vec3[];
 
   /**
-   * 环境旋转
-   * 
-   * @default Quaternion {x:0, y:0, z:0, w:1} 单位四元数（无旋转）
+   * 环境光的旋转，默认为undefined，接收参数需为归一化后的四元数。
+   * **模型约束：** 此接口仅可在Stage模型下使用。
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1231,7 +1213,7 @@ export interface Environment extends SceneResource {
 }
 
 /**
- * 图像资源.
+ * 图片类型，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Image
@@ -1241,7 +1223,7 @@ export interface Environment extends SceneResource {
  */
 export interface Image extends SceneResource {
   /**
-   * 图像宽度, 单位为像素.
+   * 图片宽度，单位为像素（px），取值范围大于0。
    *
    * @type { int }
    * @readonly
@@ -1252,7 +1234,7 @@ export interface Image extends SceneResource {
   readonly width: int;
 
   /**
-   * 图像高度, 单位为像素.
+   * 图片高度，单位为像素（px），取值范围大于0。
    *
    * @type { int }
    * @readonly
@@ -1264,7 +1246,7 @@ export interface Image extends SceneResource {
 }
 
 /**
- * 图像流资源.
+ * 流图片类型，继承自Image。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -1272,7 +1254,7 @@ export interface Image extends SceneResource {
  */
 export interface ImageStream extends Image {
   /**
-   * 图像流的surfaceId.
+   * 流ID，由数字字符组成，数字取值必须为大于0的整数。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -1282,8 +1264,8 @@ export interface ImageStream extends Image {
 }
 
 /**
- * 特效资源.
- * 
+ * 特效类型，继承自SceneResource。由createEffect接口获得。
+ *
  * @extends SceneResource
  * @interface Effect
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1292,8 +1274,8 @@ export interface ImageStream extends Image {
  */
 export interface Effect extends SceneResource {
   /**
-   * 控制特效是否启用.
-   * 
+   * 特效打开状态。true表示开启特效，false表示关闭特效。
+   *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -1302,9 +1284,8 @@ export interface Effect extends SceneResource {
   enabled: boolean;
 
   /**
-   * 特效的ID.
-   * 这是用于创建特效的ID.
-   * 
+   * 特效ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，用于特效的创建，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'。
+   *
    * @type { string }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1314,10 +1295,10 @@ export interface Effect extends SceneResource {
   readonly effectId: string;
 
   /**
-   * 获取特定特效属性的值.
+   * 获取特定特效属性的值。
    *
-   * @param { string } propertyName - 特定属性的名称
-   * @returns { Object | null | undefined } 特效属性值，如果"get"操作失败则返回null.
+   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：\n-'exposure':该属性表示图像的曝光度。\n-'vibrance': 该属性表示图像的自然饱和度。
+   * @returns { Object | null | undefined } 特效属性值。若当前Effect类型下不存在与传入的propertyName匹配的属性，则获取属性值失败，返回null；若propertyName对应的可选属性未设置，则返回undefined。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1325,11 +1306,11 @@ export interface Effect extends SceneResource {
   getPropertyValue(propertyName: string): Object | null | undefined;
 
   /**
-   * 设置特定特效属性的值
+   * 设置特定特效属性的值。
    *
-   * @param { string } propertyName - 特定属性的名称
-   * @param { Object | undefined } value - 要设置的属性值
-   * @returns { boolean } 如果"set"操作失败则返回false
+   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：\n-'exposure':该属性表示图像的曝光度。\n-'vibrance': 该属性表示图像的自然饱和度。
+   * @param { Object | undefined } value - 要设置的特效属性值。\n-'exposure'：value实际类型为number，推荐取值范围[-5, 5]。取值越大，图像越亮。\n-'vibrance'：value实际类型为number，推荐取值范围 [-1, 1]。取值越大，图像颜色越鲜艳。
+   * @returns { boolean } 返回设置特效属性值操作是否成功。true表示设置成功，false表示设置失败。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
