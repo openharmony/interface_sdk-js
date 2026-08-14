@@ -198,7 +198,6 @@
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.MiscServices.Pasteboard",
-    "SystemCapability.Applications.Settings.Core.Lite",
-    "SystemCapability.Communication.SoftBus.Core"
+    "SystemCapability.Applications.Settings.Core.Lite"
   ]
 }
