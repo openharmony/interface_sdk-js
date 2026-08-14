@@ -22,7 +22,8 @@ import type image from '@ohos.multimedia.image';
 import type { Callback } from './@ohos.base';
  
 /**
- * 本模块提供记忆链接能力调用，用于向图片加入和解析元数据信息，实现信息传递，包括编码内容传递、订阅事件和取消订阅事件。记忆链接允许系统应用获取第三方应用的编码内容，支持实时事件监听和回调机制，适用于需要在图片中存储和传递元数据的场景，可用于防伪、版权保护等场景，为开发者提供灵活的信息嵌入和解析机制。
+ * 本模块提供记忆链接能力调用，用于向图片加入和解析元数据信息，实现信息传递，包括编码内容传递、订阅事件和取消订阅事件。记忆链接允许系统应用获取第三方应用的编码内容，
+ * <br>支持实时事件监听和回调机制，适用于需要在图片中存储和传递元数据的场景，可用于防伪、版权保护等场景，为开发者提供灵活的信息嵌入和解析机制。
  *
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
@@ -31,7 +32,8 @@ import type { Callback } from './@ohos.base';
  */
 declare namespace metadataBinding {
   /**
-   * 在图片中加入信息。通过特定的编码算法将metadata信息嵌入到图片中，编码过程对图片的视觉呈现影响极小，嵌入的信息可通过decodeImage接口解析。可用于防伪、版权保护等场景。使用Promise异步回调。
+   * 在图片中加入信息。通过特定的编码算法将metadata信息嵌入到图片中，编码过程对图片的视觉呈现影响极小，嵌入的信息可通过decodeImage接口解析。可用于防伪、版权保护等场景。
+   * <br>使用Promise异步回调。
    *
    * @param { image.PixelMap } srcImage - 待编码的原始图片，用于嵌入metadata信息。
    * @param { string } metadata - 嵌入的信息。字符串编码格式建议使用UTF-8，长度不应超过128Bytes，且避免包含不可打印字符。
@@ -80,7 +82,8 @@ declare namespace metadataBinding {
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
   /**
-   * 第三方应用将需要编码的内容传递给接口服务，接口服务将内容传递给调用编码接口的系统应用或服务。本接口由第三方应用调用，供系统应用订阅获取数据。系统应用需先通过on('operationSubmitMetadata')方法订阅事件，才能接收到编码内容。
+   * 第三方应用将需要编码的内容传递给接口服务，接口服务将内容传递给调用编码接口的系统应用或服务。本接口由第三方应用调用，供系统应用订阅获取数据。
+   * <br>系统应用需先通过on('operationSubmitMetadata')方法订阅事件，才能接收到编码内容。
    *
    * @param { string } metadata - 需要编码的内容。字符串长度不超过128Bytes。
    * @throws { BusinessError } 32100001 - Internal handling failed.
@@ -92,11 +95,13 @@ declare namespace metadataBinding {
   function submitMetadata(metadata: string): void;
 
   /**
-   * 订阅系统应用请求获取编码内容的事件。当系统应用（如截图）请求获取应用的编码内容时触发该事件，应用注册回调后，事件发生时通过回调通知应用。调用on()方法订阅事件后，必须在不再需要监听事件时调用off()方法取消订阅，释放监听资源。
+   * 订阅系统应用请求获取编码内容的事件。当系统应用（如截图）请求获取应用的编码内容时触发该事件，应用注册回调后，事件发生时通过回调通知应用。调用on()方法订阅事件后，
+   * <br>必须在不再需要监听事件时调用off()方法取消订阅，释放监听资源。
    *
    * @param { string } type - 事件类型，固定传入'operationSubmitMetadata'，表示系统应用获取编码内容。
    * @param { string } bundleName - 应用包名，用于标识注册订阅事件的第三方应用。在事件发生时，系统将通过此包名识别并通知对应的注册应用。需确保传入的包名为有效的应用包名。
-   * @param { Callback<number> } callback - 回调函数，用于返回事件码。当事件值为1时表示截图事件，目前仅支持截图事件，取值范围：1（截图事件）。注意：回调函数应快速执行，避免阻塞UI线程。
+   * @param { Callback<number> } callback - 回调函数，用于返回事件码。当事件值为1时表示截图事件，目前仅支持截图事件，取值范围：1（截图事件）。注意：回调函数应快速执行，
+   *     <br>避免阻塞UI线程。
    * @throws { BusinessError } 32100001 - Internal handling failed.
    * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes:
    *     <br>1. Abnormal system capability.
@@ -113,7 +118,8 @@ declare namespace metadataBinding {
    *
    * @param { string } type - 事件类型，固定传入'operationSubmitMetadata'，表示系统应用获取编码内容。
    * @param { string } bundleName - 应用包名，标识注册应用的包名，需与订阅时传入的包名一致。
-   * @param { Callback<number> } [callback] - 回调函数，用于返回事件码。需要取消监听的回调函数，需与订阅时传入的回调函数一致。建议在订阅时保存回调函数引用，在取消订阅时使用同一引用。若不填，则取消当前监听该事件的所有回调函数。
+   * @param { Callback<number> } [callback] - 回调函数，用于返回事件码。需要取消监听的回调函数，需与订阅时传入的回调函数一致。建议在订阅时保存回调函数引用，
+   *     <br>在取消订阅时使用同一引用。若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 32100001 - Internal handling failed.
    * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes:
    *     <br> 1. Abnormal system capability.

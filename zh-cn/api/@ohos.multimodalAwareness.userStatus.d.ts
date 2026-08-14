@@ -21,7 +21,9 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * 本模块提供用户状态感知能力，包括年龄群组检测，用户手势识别、人脸位姿识别、手眼协同检测、用户吹气状态检测、用户情绪检测、用户环境音检测等功能。适用于需要感知用户状态来优化交互体验的场景，能够帮助应用提供更自然、更个性化的用户体验。模块采用订阅/回调机制，通过底层传感器数据采集、特征提取和状态判断三个阶段实现用户状态检测，开发者可根据业务需求订阅相应的检测功能。
+ * 本模块提供用户状态感知能力，包括年龄群组检测，用户手势识别、人脸位姿识别、手眼协同检测、用户吹气状态检测、用户情绪检测、用户环境音检测等功能。
+ * <br>适用于需要感知用户状态来优化交互体验的场景，能够帮助应用提供更自然、更个性化的用户体验。模块采用订阅/回调机制，通过底层传感器数据采集、
+ * <br>特征提取和状态判断三个阶段实现用户状态检测，开发者可根据业务需求订阅相应的检测功能。
  *
  * @syscap SystemCapability.MultimodalAwareness.UserStatus
  * @since 20 dynamic
@@ -123,7 +125,8 @@ declare namespace userStatus {
    * > 该接口仅在部分Phone中支持使用，当Phone设备不支持时返回33900003错误码。
    *
    * @param { string } type - 事件类型。type为“userAgeGroupDetected”，表示年龄群组检测功能。
-   * @param { Callback<UserClassification> } [callback] - 回调函数，返回检测结果。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
+   * @param { Callback<UserClassification> } [callback] - 回调函数，返回检测结果。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
@@ -162,7 +165,8 @@ declare namespace userStatus {
   /**
    * 取消订阅年龄群组检测功能。
    *
-   * @param { Callback<UserClassification> } [callback] - 回调函数，返回检测结果。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
+   * @param { Callback<UserClassification> } [callback] - 回调函数，返回检测结果。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
@@ -999,11 +1003,13 @@ declare namespace userStatus {
   }
 
   /**
-   * 订阅用户状态监控，以获取用户状态数据。调用subscribe()后，必须在使用完毕后调用unsubscribe()取消订阅以释放回调资源，未调用unsubscribe()会导致回调资源泄漏，影响应用性能。建议先调用configure()配置功能参数，再调用subscribe()开始订阅。
+   * 订阅用户状态监控，以获取用户状态数据。调用subscribe()后，必须在使用完毕后调用unsubscribe()取消订阅以释放回调资源，未调用unsubscribe()会导致回调资源泄漏，
+   * <br>影响应用性能。建议先调用configure()配置功能参数，再调用subscribe()开始订阅。
    *
    * @param { UserStatusFeature } featureId - 表示用户状态检测功能类型。
    * @param { Callback<UserStatusData> } callback - 回调函数，用于接收用户状态数据。当订阅的用户状态数据更新时会被调用。
-   * @param { DeviceInfo[] } [deviceInfo] - 表示要开启用户状态监控的设备列表。当featureId为HAND_GAZE_COORDINATION时需要输入有效且非空的deviceInfo信息，否则影响功能使用；其他featureId可省略此参数。如果输入空、undefined或null，则认为没有传入实际值。
+   * @param { DeviceInfo[] } [deviceInfo] - 表示要开启用户状态监控的设备列表。当featureId为HAND_GAZE_COORDINATION时需要输入有效且非空的deviceInfo信息，
+   *     <br>否则影响功能使用；其他featureId可省略此参数。如果输入空、undefined或null，则认为没有传入实际值。
    * @returns { number } 返回注册的回调ID。唯一标识对应回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
@@ -1025,7 +1031,8 @@ declare namespace userStatus {
     deviceInfo?: DeviceInfo[]): number;
 
   /**
-   * 取消订阅用户状态监控。与subscribe()方法成对使用，用于取消订阅回调并释放资源。必须在subscribe()之后调用，取消未订阅的featureId返回失败。建议在应用退出或不再需要监控时调用unsubscribe()。
+   * 取消订阅用户状态监控。与subscribe()方法成对使用，用于取消订阅回调并释放资源。必须在subscribe()之后调用，取消未订阅的featureId返回失败。
+   * <br>建议在应用退出或不再需要监控时调用unsubscribe()。
    *
    * @param { UserStatusFeature } featureId - 表示要取消订阅的用户状态检测功能类型。对应subscribe时传入的featureId值。
    * @param { Callback<UserStatusData> } [callback] - 表示取消指定的callback回调函数。如果输入空、undefined或null，则取消featureId订阅的所有通知事件。
@@ -1048,10 +1055,12 @@ declare namespace userStatus {
   function unsubscribe(featureId: UserStatusFeature, callback?: Callback<UserStatusData>): number;
 
   /**
-   * 配置功能参数。调用成功后，将更新指定功能的配置参数，影响后续该功能的检测行为，如检测灵敏度、采样频率、启用的检测项等。建议在subscribe()之前调用configure()配置功能参数，确保配置在订阅时生效。对于需要特定配置的功能（如USER_MOOD的实时/非实时模式），建议先configure()再subscribe()。
+   * 配置功能参数。调用成功后，将更新指定功能的配置参数，影响后续该功能的检测行为，如检测灵敏度、采样频率、启用的检测项等。建议在subscribe()之前调用configure()配置功能参数，
+   * <br>确保配置在订阅时生效。对于需要特定配置的功能（如USER_MOOD的实时/非实时模式），建议先configure()再subscribe()。
    *
    * @param { UserStatusFeature } featureId - 表示要配置的用户状态检测功能类型。
-   * @param { string } detail - 配置参数，JSON格式字符串。包含params数组，每个参数包含description（参数名）和value（参数值数组）字段。具体格式和取值参见下方detail定义说明表格。
+   * @param { string } detail - 配置参数，JSON格式字符串。包含params数组，每个参数包含description（参数名）和value（参数值数组）字段。
+   *     <br>具体格式和取值参见下方detail定义说明表格。
    * @returns { number } 返回配置执行结果。返回0表示操作成功，非零值表示操作失败。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:

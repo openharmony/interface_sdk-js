@@ -118,8 +118,8 @@ declare namespace stationary {
    *
    * @param { ActivityType } activity - 设备状态类型。
    * @param { ActivityEvent } event - 事件类型。
-   * @param { number } reportLatencyNs - 报告延时，单位：纳秒（ns），取值范围[1000000000, 3000000000]。超出范围时返回错误。建议根据业务场景选择合适的值，较小值可提高实时性但
-   *     会增加功耗，较大值可降低功耗但会降低响应速度。
+   * @param { number } reportLatencyNs - 报告延时，单位：纳秒（ns），取值范围[1000000000, 3000000000]。超出范围时返回错误。建议根据业务场景选择合适的值，
+   *     <br>较小值可提高实时性但会增加功耗，较大值可降低功耗但会降低响应速度。
    * @param { Callback<ActivityResponse> } callback - 回调函数，用于接收设备状态变化结果。
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9

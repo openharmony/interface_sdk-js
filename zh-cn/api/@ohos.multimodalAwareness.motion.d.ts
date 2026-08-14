@@ -417,7 +417,9 @@ declare namespace motion {
   }
 
   /**
-   * 订阅触控操作手感知事件。系统通过触控屏传感器采集用户触控数据，结合手势识别算法判断当前操作手是左手还是右手。适用于手势交付、单双手操作适配等场景，通过识别用户的触控操作手状态优化界面布局和交互方式。建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('operatingHandChanged')：取消订阅触控操作手感知事件。
+   * 订阅触控操作手感知事件。系统通过触控屏传感器采集用户触控数据，结合手势识别算法判断当前操作手是左手还是右手。适用于手势交付、单双手操作适配等场景，
+   * <br>通过识别用户的触控操作手状态优化界面布局和交互方式。建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。
+   * <br>相关方法：off('operatingHandChanged')：取消订阅触控操作手感知事件。
    *
    * 如果设备不支持此功能，将返回801错误码。
    *
@@ -447,8 +449,8 @@ declare namespace motion {
    * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
    * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE [since 20]
    * @param { string } type - 事件类型。固定传入'operatingHandChanged'，表示操作手状态变化。
-   * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调
-   *     函数。
+   * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
@@ -484,7 +486,8 @@ declare namespace motion {
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
   /**
-   * 订阅握持手状态变化感知事件。系统通过传感器数据，结合识别算法判断当前握持手是左手还是右手。适用于阅读应用、视频播放等需要根据用户握持手状态调整界面布局或功能的场景。建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('holdingHandChanged')：取消订阅握持手状态变化感知事件。
+   * 订阅握持手状态变化感知事件。系统通过传感器数据，结合识别算法判断当前握持手是左手还是右手。适用于阅读应用、视频播放等需要根据用户握持手状态调整界面布局或功能的场景。
+   * <br>建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('holdingHandChanged')：取消订阅握持手状态变化感知事件。
    *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { string } type - 事件类型，固定传入'holdingHandChanged'，表示握持手状态变化。
@@ -509,8 +512,8 @@ declare namespace motion {
    *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { string } type - 事件类型，固定传入'holdingHandChanged'，表示握持手状态变化。
-   * @param { Callback<HoldingHandStatus> } [callback] - 回调函数，返回握持手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函
-   *     数。
+   * @param { Callback<HoldingHandStatus> } [callback] - 回调函数，返回握持手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -548,7 +551,8 @@ declare namespace motion {
    * 取消订阅触控操作手变化事件。
    *
    * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
-   * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
+   * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -581,7 +585,8 @@ declare namespace motion {
    * 取消订阅握持手状态变化事件。
    *
    * @permission ohos.permission.DETECT_GESTURE
-   * @param { Callback<HoldingHandStatus> } [callback] - 回调函数，返回握持手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
+   * @param { Callback<HoldingHandStatus> } [callback] - 回调函数，返回握持手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。
+   *     <br>若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited

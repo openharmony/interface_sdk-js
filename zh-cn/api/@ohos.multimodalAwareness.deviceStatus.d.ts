@@ -32,7 +32,8 @@ declare namespace deviceStatus {
   /**
    * 设备静止姿态感知状态（支架态）。
    * 
-   * 设备进入支架态指设备静止，且屏幕与水平面角度处于45度-135度。折叠屏手机需处于折叠状态或者完全展开状态。系统通过传感器检测设备的运动状态和角度变化，判断设备是否满足支架态条件。
+   * 设备进入支架态指设备静止，且屏幕与水平面角度处于45度-135度。折叠屏手机需处于折叠状态或者完全展开状态。系统通过传感器检测设备的运动状态和角度变化，
+   * <br>判断设备是否满足支架态条件。
    *
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18 dynamic
@@ -126,7 +127,8 @@ declare namespace deviceStatus {
   /**
    * 获取设备的姿态数据。
    * 
-   * 姿态数据包含x、y、z三轴的姿态旋转角，即三轴的欧拉角，三轴定义与设备sensor定义相同，为右手系。姿态旋转角在ZXY旋转顺序、内旋下计算，通过传感器融合获取的四元数计算得到结果。
+   * 姿态数据包含x、y、z三轴的姿态旋转角，即三轴的欧拉角，三轴定义与设备sensor定义相同，为右手系。姿态旋转角在ZXY旋转顺序、内旋下计算，
+   * <br>通过传感器融合获取的四元数计算得到结果。
    *
    * @returns { Promise<DeviceRotationRadian> } 设备旋转弧度结果。
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
