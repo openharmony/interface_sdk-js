@@ -3596,7 +3596,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    ATTACHMENT_SIZE = 'attachment_size'
+    ATTACHMENT_SIZE = 'attachment_size',
+    /**
+     * The mode of the music master.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MUSIC_MASTER_MODE = 'music_master_mode'
   }
 
   /**
