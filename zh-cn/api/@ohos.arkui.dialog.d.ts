@@ -106,18 +106,6 @@ declare namespace dialog {
     enabled?: boolean;
 
     /**
-     * 按钮是否为默认焦点。
-     *
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 dynamic
-     */
-    defaultFocus?: boolean;
-
-    /**
      * 定义按钮是否默认响应回车/空格键。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
