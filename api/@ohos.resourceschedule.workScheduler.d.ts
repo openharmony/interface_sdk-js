@@ -653,7 +653,7 @@ declare namespace workScheduler {
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
      */
-    uid: number;
+    uid: int;
     /**
      * ID of the deferred task.
      * The value should be an integer.
@@ -663,7 +663,7 @@ declare namespace workScheduler {
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
      */
-    workId: number;
+    workId: int;
     /**
      * Set app exec interval, in milliseconds.
      * Unit:ms.
@@ -673,7 +673,7 @@ declare namespace workScheduler {
      * @stagemodelonly
      * @since 26.1.0 dynamiconly
      */
-    interval: number;
+    interval: int;
   }
 
   /**
@@ -683,7 +683,7 @@ declare namespace workScheduler {
    * @param { FrequencyInfo } info - Execution frequency information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9700003 - System service operation failed.
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavaiable.
    * @throws { BusinessError } 9700006 - Failed to check the frequency information.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
@@ -696,16 +696,17 @@ declare namespace workScheduler {
    * Reset the execution frequency.
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
-   * @param { number } uid - App uid.
+   * @param { int } uid - App uid.
+   *     <br>The value should be an integer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9700003 - System service operation failed.
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavaiable.
    * @throws { BusinessError } 9700006 - Failed to check the uid.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
    * @since 26.1.0 dynamiconly
    */
-  function resetExecFrequency(uid: number): void;
+  function resetExecFrequency(uid: int): void;
 }
 export default workScheduler;
