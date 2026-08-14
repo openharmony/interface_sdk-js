@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,12 +14,12 @@
  */
 
 /**
- * @file 定义3D基础类型
+ * @file 本模块提供ArkGraphics 3D中常用的数据类型。
  * @kit ArkGraphics3D
  */
 
 /**
- * 定义Vec2（二维向量）.
+ * 二维向量，通常用于表示2D空间中的点或方向，由x和y两个分量组成。
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +28,7 @@
  */
 export interface Vec2 {
   /**
-   * vec2的X分量.
+   * x轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -38,7 +38,7 @@ export interface Vec2 {
   x: double;
 
   /**
-   * vec2的Y分量.
+   * y轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -49,7 +49,7 @@ export interface Vec2 {
 }
 
 /**
- * 定义Vec3（三维向量）.
+ * 三维向量，通常用于表示3D空间中的点、方向或向量变换，由x、y和z三个分量组成。
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -58,7 +58,7 @@ export interface Vec2 {
  */
 export interface Vec3 {
   /**
-   * vec3的X分量.
+   * x轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -68,7 +68,7 @@ export interface Vec3 {
   x: double;
 
   /**
-   * vec3的Y分量.
+   * y轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -78,7 +78,7 @@ export interface Vec3 {
   y: double;
 
   /**
-   * vec3的Z分量.
+   * z轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -89,7 +89,7 @@ export interface Vec3 {
 }
 
 /**
- * 定义Vec4（四维向量）.
+ * 四维向量，通常用于表示4D空间中的点、方向或向量变换，由x、y、z和w四个分量组成。
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -98,7 +98,7 @@ export interface Vec3 {
  */
 export interface Vec4 {
   /**
-   * vec4的X分量.
+   * x轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -108,7 +108,7 @@ export interface Vec4 {
   x: double;
 
   /**
-   * vec4的Y分量.
+   * y轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -118,7 +118,7 @@ export interface Vec4 {
   y: double;
 
   /**
-   * vec4的Z分量.
+   * z轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -128,7 +128,7 @@ export interface Vec4 {
   z: double;
 
   /**
-   * vec4的W分量.
+   * w轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -139,7 +139,7 @@ export interface Vec4 {
 }
 
 /**
- * 表示旋转的四元数.
+ * 用于表示3D空间中旋转的数学结构。与传统的欧拉角相比，四元数在数值稳定性和避免万向节锁方面具有优势。
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -148,7 +148,7 @@ export interface Vec4 {
  */
 export interface Quaternion {
   /**
-   * 四元数的X分量.
+   * x轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -158,7 +158,7 @@ export interface Quaternion {
   x: double;
 
   /**
-   * 四元数的Y分量.
+   * y轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,7 +168,7 @@ export interface Quaternion {
   y: double;
 
   /**
-   * 四元数的Z分量.
+   * z轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -178,7 +178,7 @@ export interface Quaternion {
   z: double;
 
   /**
-   * 四元数的W分量.
+   * w轴分量，取值范围是实数。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -189,7 +189,7 @@ export interface Quaternion {
 }
 
 /**
- * 轴对齐边界盒.
+ * 轴对齐边界盒，主要用于判断空间中的物体是否重叠。
  *
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -198,7 +198,7 @@ export interface Quaternion {
  */
 export interface Aabb {
   /**
-   * AABB最小角点的坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 轴对齐边界盒的小值点，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -208,7 +208,7 @@ export interface Aabb {
   aabbMin: Vec3;
 
   /**
-   * AABB最大角点的坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 轴对齐边界盒的大值点，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -219,7 +219,7 @@ export interface Aabb {
 }
 
 /**
- * 定义颜色.
+ * 用于表示RGBA格式的颜色，包含四个分量，依次为红色、绿色、蓝色和透明度。
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -228,7 +228,7 @@ export interface Aabb {
  */
 export interface Color {
   /**
-   * 颜色的R分量.
+   * 红色分量，取值范围是[0, 1]。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -238,7 +238,7 @@ export interface Color {
   r: double;
 
   /**
-   * 颜色的G分量.
+   * 绿色分量，取值范围是[0, 1]。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -248,7 +248,7 @@ export interface Color {
   g: double;
 
   /**
-   * 颜色的B分量.
+   * 蓝色分量，取值范围是[0, 1]。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -258,7 +258,7 @@ export interface Color {
   b: double;
 
   /**
-   * 颜色的A分量.
+   * 透明度分量，取值范围是[0, 1]。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -269,7 +269,7 @@ export interface Color {
 }
 
 /**
- * 定义矩形.
+ * 用于表示平面中的矩形。
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -278,7 +278,7 @@ export interface Color {
  */
 export interface Rect {
   /**
-   * 左上角x坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 矩形左下角x轴分量，单位为世界坐标系下的场景单位（比如cm、m、km等），取值为任意实数，具体范围依赖场景坐标系设置。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -288,7 +288,7 @@ export interface Rect {
   x: double;
 
   /**
-   * 左上角y坐标, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 矩形左下角y轴分量，单位为世界坐标系下的场景单位（比如cm、m、km等），取值为任意实数，具体范围依赖场景坐标系设置。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -298,7 +298,7 @@ export interface Rect {
   y: double;
 
   /**
-   * 矩形的宽度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 矩形宽度，单位为世界坐标系下的场景单位（比如cm、m、km等），有效取值范围大于0。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -308,7 +308,7 @@ export interface Rect {
   width: double;
 
   /**
-   * 矩形的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 矩形高度，单位为世界坐标系下的场景单位（比如cm、m、km等），有效取值范围大于0。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -319,7 +319,7 @@ export interface Rect {
 }
 
 /**
- * 几何形状类型.
+ * 几何类型枚举，用于指定不同的几何类型。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -328,7 +328,7 @@ export interface Rect {
  */
 export enum GeometryType {
   /**
-   * 自定义几何形状.
+   * 自定义几何体类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -337,7 +337,7 @@ export enum GeometryType {
   CUSTOM = 0,
 
   /**
-   * 立方体.
+   * 立方体类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -346,7 +346,7 @@ export enum GeometryType {
   CUBE = 1,
 
   /**
-   * 平面.
+   * 平面类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -355,7 +355,7 @@ export enum GeometryType {
   PLANE = 2,
 
   /**
-   * 球体.
+   * 球体类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -364,7 +364,7 @@ export enum GeometryType {
   SPHERE = 3,
 
   /**
-   * 圆柱体.
+   * 圆柱体类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -373,7 +373,7 @@ export enum GeometryType {
 }
 
 /**
- * 渲染管线类型枚举.
+ * 渲染管线类型枚举。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -382,9 +382,7 @@ export enum GeometryType {
  */
 export enum RenderingPipelineType {
   /**
-   * 轻量级前向渲染管线，直接渲染到后缓冲区.
-   * 该管线只能在着色器中实现逐像素效果（例如色调映射）,
-   * 不支持复杂效果（例如光晕）.
+   * 轻量级前向渲染管线，直接渲染到后缓冲区。该管线只能在着色器中实现逐像素效果（例如色调映射），不支持复杂效果（例如光晕）。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -393,8 +391,7 @@ export enum RenderingPipelineType {
   FORWARD_LIGHTWEIGHT = 0,
   
   /**
-   * 高质量前向渲染管线.
-   * 用于复杂的视觉效果（例如光晕）.
+   * 高质量前向渲染管线，用于复杂的视觉效果（例如光晕）。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -404,7 +401,7 @@ export enum RenderingPipelineType {
 }
 
 /**
- * 定义用于网格创建的几何形状.
+ * 几何类型定义抽象类，用于解释特定几何类型的属性。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -412,7 +409,7 @@ export enum RenderingPipelineType {
  */
 export declare abstract class GeometryDefinition {
   /**
-   * 从该定义中解释几何形状的类型.
+   * 定义不同的几何类型。
    *
    * @returns { GeometryType }
    * @readonly
@@ -424,7 +421,7 @@ export declare abstract class GeometryDefinition {
 }
 
 /**
- * 定义Mat4x4（4x4矩阵）
+ * 4x4矩阵类型，可用于坐标变换。
  *
  * @typedef Mat4x4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -432,7 +429,7 @@ export declare abstract class GeometryDefinition {
  */
 export interface Mat4x4 {
   /**
-   * 矩阵的第一列
+   * 矩阵的第一列，其值是一个四维向量。
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -440,7 +437,7 @@ export interface Mat4x4 {
   x: Vec4;
 
   /**
-   * 矩阵的第二列
+   * 矩阵的第二列，其值是一个四维向量。
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -448,7 +445,7 @@ export interface Mat4x4 {
   y: Vec4;
 
   /**
-   * 矩阵的第三列
+   * 矩阵的第三列，其值是一个四维向量。
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -456,7 +453,7 @@ export interface Mat4x4 {
   z: Vec4;
 
   /**
-   * 矩阵的第四列
+   * 矩阵的第四列，其值是一个四维向量。
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -465,7 +462,7 @@ export interface Mat4x4 {
 }
 
 /**
- * 顶点序列如何构成三角形.
+ * 图元拓扑枚举，在顶点处理过程中，指定顶点的不同处理方式。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -474,7 +471,7 @@ export interface Mat4x4 {
  */
 export enum PrimitiveTopology {
   /**
-   * 顶点形成一组独立的三角形. 顶点(0, 1, 2)、(3, 4, 5)、...定义独立的三角形.
+   * 由不相交的顶点集合构成不同的三角形。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -483,7 +480,7 @@ export enum PrimitiveTopology {
   TRIANGLE_LIST = 0,
 
   /**
-   * 顶点形成三角形条带. 从第三个顶点开始，每个顶点与前两个顶点构成三角形.
+   * 每个顶点和前一个三角形的一条边构成新的三角形。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -493,7 +490,7 @@ export enum PrimitiveTopology {
 }
 
 /**
- * 阴影算法类型
+ * 阴影算法的枚举类型。
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -501,7 +498,7 @@ export enum PrimitiveTopology {
  */
 export enum ShadowAlgorithmType {
   /**
-   * PCF算法（百分比邻近过滤）
+   * 百分比邻近过滤算法。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -511,7 +508,7 @@ export enum ShadowAlgorithmType {
 }
 
 /**
- * 定义自定义几何形状的顶点数组及其数据.
+ * 自定义几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -520,7 +517,7 @@ export enum ShadowAlgorithmType {
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
-   * 如何从索引顶点形成网格三角形.
+   * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @type { ?PrimitiveTopology }
     * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
@@ -530,7 +527,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   topology?: PrimitiveTopology;
 
   /**
-   * 如何从索引顶点形成网格三角形.
+   * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @return { PrimitiveTopology | undefined }
     * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
@@ -540,7 +537,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get topology(): PrimitiveTopology | undefined;
 
   /**
-   * 如何从索引顶点形成网格三角形.
+   * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @param { PrimitiveTopology | undefined } value
     * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
@@ -550,7 +547,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set topology(value: PrimitiveTopology | undefined);
 
   /**
-   * 顶点数组.
+   * 模型的顶点数组。
    *
    * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -560,7 +557,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get vertices(): Vec3[];
 
   /**
-   * 顶点数组.
+   * 模型的顶点数组。
    *
    * @param { Vec3[] } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -570,16 +567,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set vertices(value: Vec3[]);
 
   /**
-   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
-   *
-   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
-   *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]
-   *     生成的三角形：abc、cbd
-   *
-   *     topology = PrimitiveTopology.TRIANGLE_STRIP
-   *     indices = [0, 1, 2, 3]
-   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
+   * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -589,16 +577,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   indices?: int[];
 
   /**
-   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
-   *
-   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
-   *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]
-   *     生成的三角形：abc、cbd
-   *
-   *     topology = PrimitiveTopology.TRIANGLE_STRIP
-   *     indices = [0, 1, 2, 3]
-   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
+   * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @return { int[] | undefined }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -608,16 +587,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get indices(): int[] | undefined;
 
   /**
-   * 构成三角形的顶点索引. PrimitiveTopology应用于索引定义的序列.
-   *
-   * 给定vertices = [a, b, c, d]，创建相同的一对三角形的示例:
-   *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]
-   *     生成的三角形：abc、cbd
-   *
-   *     topology = PrimitiveTopology.TRIANGLE_STRIP
-   *     indices = [0, 1, 2, 3]
-   *     生成的三角形：abc、cbd (b和c在cbd中被反转，以匹配第一个三角形的面方向)
+   * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @param { int[] | undefined } value
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
@@ -627,7 +597,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set indices(value: int[] | undefined);
 
   /**
-   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
+   * 顶点数组对应的法向量数组，默认值为undefined。
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -636,7 +606,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   normals?: Vec3[];
 
   /**
-   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
+   * 顶点数组对应的法向量数组，默认值为undefined。
    *
    * @return { Vec3[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -645,7 +615,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get normals(): Vec3[] | undefined;
 
   /**
-   * 顶点法线。如果normals不为null，则normals[N]对应vertices[N]，且generateNormals参数会被忽略。
+   * 顶点数组对应的法向量数组，默认值为undefined。
    *
    * @param { Vec3[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -654,7 +624,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set normals(value: Vec3[] | undefined);
 
   /**
-   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
+   * 顶点数组对应的UV坐标数组，默认值为undefined。
    *
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -663,7 +633,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   uvs?: Vec2[];
 
   /**
-   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
+   * 顶点数组对应的UV坐标数组，默认值为undefined。
    *
    * @return { Vec2[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -672,7 +642,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get uvs(): Vec2[] | undefined;
 
   /**
-   * 顶点纹理映射UV坐标. 如果uvs不为null，则uvs[N]对应vertices[N]
+   * 顶点数组对应的UV坐标数组，默认值为undefined。
    *
    * @param { Vec2[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -681,7 +651,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   set uvs(value: Vec2[] | undefined);
 
   /**
-   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
+   * 顶点数组对应的颜色数组，默认值为undefined。
    *
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -690,7 +660,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   colors?: Color[];
 
   /**
-   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
+   * 顶点数组对应的颜色数组，默认值为undefined。
    *
    * @return { Color[] | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -699,7 +669,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get colors(): Color[] | undefined;
 
   /**
-   * 顶点颜色. 如果colors不为null，则colors[N]对应vertices[N].
+   * 顶点数组对应的颜色数组，默认值为undefined。
    *
    * @param { Color[] | undefined } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -709,7 +679,7 @@ export declare class CustomGeometry extends GeometryDefinition {
 }
 
 /**
- * 定义长方体.
+ * 立方体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -718,7 +688,7 @@ export declare class CustomGeometry extends GeometryDefinition {
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
-   * 立方体的宽高深, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 立方体的宽、高和深度，表示立方体的大小，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -728,7 +698,7 @@ export declare class CubeGeometry extends GeometryDefinition {
   get size(): Vec3;
 
   /**
-   * 立方体的宽高深, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 立方体的宽、高和深度，表示立方体的大小，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -739,7 +709,7 @@ export declare class CubeGeometry extends GeometryDefinition {
 }
 
 /**
- * 定义平面.
+ * 平面几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -748,7 +718,7 @@ export declare class CubeGeometry extends GeometryDefinition {
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
-   * 平面的宽和长, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 平面的宽、高，表示平面的大小，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -758,7 +728,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
   get size(): Vec2;
 
   /**
-   * 平面的宽和长, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 平面的宽、高，表示平面的大小，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -769,7 +739,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
 }
 
 /**
- * 定义球体.
+ * 球体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -778,7 +748,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * 球体的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 球体半径，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -788,7 +758,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * 球体的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 球体半径，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -798,7 +768,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * 将球体按经纬度分割成若干圈和段.
+   * 在球体上以经纬度分割的段数，取值范围是大于等于3的正整数。
    *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -808,7 +778,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   get segmentCount(): int;
 
   /**
-   * 将球体按经纬度分割成若干圈和段.
+   * 在球体上以经纬度分割的段数，取值范围是大于等于3的正整数。
    *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -819,7 +789,7 @@ export declare class SphereGeometry extends GeometryDefinition {
 }
 
 /**
- * 定义圆柱体.
+ * 圆柱体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -827,7 +797,7 @@ export declare class SphereGeometry extends GeometryDefinition {
  */
 export declare class CylinderGeometry extends GeometryDefinition {
   /**
-   * 圆柱体底面的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 圆柱体的底面半径，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -836,7 +806,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * 圆柱体底面的半径, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 圆柱体的底面半径，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -845,7 +815,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * 圆柱体的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 圆柱体的高度，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -854,7 +824,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get height(): double;
 
   /**
-   * 圆柱体的高度, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 圆柱体的高度，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -863,8 +833,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set height(value: double);
 
   /**
-   * 使用正多边形近似圆柱体的圆形底面,
-   * 其中segmentCount是正多边形的边数.
+   * 圆柱体圆周方向的分段面数量，取值范围是大于等于3的正整数，若设为浮点数将自动向下取整。该数值直接影响圆柱体侧面的光滑度：数值越大，侧面包含的面片数量越多，视觉上越接近光滑曲面；数值越小，侧面会呈现明显的多边形轮廓。注意数值过大会延长几何创建耗时，还可能导致线程阻塞。
    *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -873,8 +842,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get segmentCount(): int;
 
   /**
-   * 使用正多边形近似圆柱体的圆形底面,
-   * 其中segmentCount是正多边形的边数.
+   * 圆柱体圆周方向的分段面数量，取值范围是大于等于3的正整数，若设为浮点数将自动向下取整。该数值直接影响圆柱体侧面的光滑度：数值越大，侧面包含的面片数量越多，视觉上越接近光滑曲面；数值越小，侧面会呈现明显的多边形轮廓。注意数值过大会延长几何创建耗时，还可能导致线程阻塞。
    *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -884,7 +852,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 }
 
 /**
- * 3D位置信息, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+ * 用于表示3维空间中物体的位置，是[Vec3](#vec3)类型。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -894,7 +862,7 @@ export declare class CylinderGeometry extends GeometryDefinition {
 export type Position3 = Vec3;
 
 /**
- * 3D旋转信息（欧拉角）, 单位为弧度.
+ * 用于表示3维空间中物体的旋转，是[Vec3](#vec3)类型。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -904,7 +872,7 @@ export type Position3 = Vec3;
 export type Rotation3 = Vec3;
 
 /**
- * 3D缩放信息.
+ * 用于表示3维空间中物体的缩放，是[Vec3](#vec3)类型。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
