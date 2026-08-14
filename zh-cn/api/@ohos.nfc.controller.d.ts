@@ -14,15 +14,14 @@
  */
 
 /**
- * @file Standard NFC
+ * @file 标准NFC
  * @kit ConnectivityKit
  */
 
 import { Callback } from './@ohos.base';
 
 /**
- * The **nfcController** module provides APIs for opening and closing Near-Field Communication (NFC) and reading the NFC
- * state.
+ * 本模块主要用于管理NFC状态，包括打开和关闭NFC，读取NFC的状态等。
  *
  * @syscap SystemCapability.Communication.NFC.Core
  * @atomicservice [since 12]
@@ -31,7 +30,7 @@ import { Callback } from './@ohos.base';
  */
 declare namespace nfcController {
   /**
-   * Enumerates the NFC states.
+   * 定义不同的NFC状态值。
    *
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice [since 12]
@@ -40,7 +39,7 @@ declare namespace nfcController {
    */
   enum NfcState {
     /**
-     * NFC is closed (OFF).
+     * NFC已关闭状态。
      *
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice [since 12]
@@ -50,7 +49,7 @@ declare namespace nfcController {
     STATE_OFF = 1,
 
     /**
-     * NFC is turning on.
+     * NFC正在打开状态。
      *
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice [since 12]
@@ -60,7 +59,7 @@ declare namespace nfcController {
     STATE_TURNING_ON = 2,
 
     /**
-     * NFC is open (ON).
+     * NFC已打开状态。
      *
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice [since 12]
@@ -70,7 +69,7 @@ declare namespace nfcController {
     STATE_ON = 3,
 
     /**
-     * NFC is turning off.
+     * NFC正在关闭状态。
      *
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice [since 12]
@@ -81,14 +80,9 @@ declare namespace nfcController {
   }
 
   /**
-   * Checks whether the device supports NFC.
+   * 查询设备是否有NFC能力。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [canIUse("SystemCapability.Communication.NFC.Core")](docroot://reference/common/init.md#caniuse) instead.
-   *
-   * @returns { boolean } Returns **true** if the device supports NFC; returns **false** otherwise.
+   * @returns { boolean } true: 设备具备NFC能力， false: 设备不具备NFC能力。
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -97,9 +91,9 @@ declare namespace nfcController {
   function isNfcAvailable(): boolean;
 
   /**
-   * Checks whether the device supports NFC.
+   * 查询设备是否有NFC能力。
    *
-   * @returns { boolean } Returns **true** if the device supports NFC; returns **false** otherwise.
+   * @returns { boolean } true: 设备具备NFC能力， false: 设备不具备NFC能力。
    * @syscap SystemCapability.Communication.NFC.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -107,10 +101,10 @@ declare namespace nfcController {
   function isNfcSupported(): boolean;
 
   /**
-   * Enables listening for NFC state changes. This API uses an asynchronous callback to return the result.
+   * 注册NFC开关状态事件，获取NFC状态的变化通知。使用callback异步回调。
    *
-   * @param { 'nfcStateChange' } type - Event type. The value is **nfcStateChange**.
-   * @param { Callback<NfcState> } callback - Callback used to return the NFC state.
+   * @param { 'nfcStateChange' } type - 固定填"nfcStateChange"字符串。
+   * @param { Callback<NfcState> } callback - 回调函数，返回NFC状态的枚举值。
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -127,12 +121,10 @@ declare namespace nfcController {
   function onNfcStateChange(callback: Callback<NfcState>): void;
 
   /**
-   * Unsubscribes from the NFC state changes. Upon successful unsubscription, the subscriber will not receive NFC state
-   * change notifications. This API uses an asynchronous callback to return the result.
+   * 取消NFC开关状态事件的注册，取消后NFC状态变化时，就不会再收到Callback的通知。使用callback异步回调。
    *
-   * @param { 'nfcStateChange' } type - Event type. The value is **nfcStateChange**.
-   * @param { Callback<NfcState> }  callback - Callback for the NFC state changes. This parameter can be left blank. If
-   *     this parameter is not specified, this API unregisters all callbacks for the specified event.
+   * @param { 'nfcStateChange' } type - 固定填"nfcStateChange"字符串。
+   * @param { Callback<NfcState> }  callback - NFC状态改变回调函数，可以空缺不填。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -149,15 +141,10 @@ declare namespace nfcController {
   function offNfcStateChange(callback?: Callback<NfcState>): void;
 
   /**
-   * Opens NFC.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [enableNfc]{@link nfcController.enableNfc} instead.
+   * 打开NFC开关。
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
+   * @returns { boolean } true: 打开NFC成功， false: 打开NFC失败。
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -166,7 +153,7 @@ declare namespace nfcController {
   function openNfc(): boolean;
 
   /**
-   * Enables NFC. This API can be called only by system applications.
+   * 打开NFC开关，该接口只能被系统应用调用。
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
@@ -179,15 +166,10 @@ declare namespace nfcController {
   function enableNfc(): void;
 
   /**
-   * Closes NFC.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [disableNfc]{@link nfcController.disableNfc} instead.
+   * 关闭NFC开关。
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
+   * @returns { boolean } true: 关闭NFC成功， false: 关闭NFC失败。
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -196,7 +178,7 @@ declare namespace nfcController {
   function closeNfc(): boolean;
 
   /**
-   * Disables NFC. This API can be called only by system applications.
+   * 关闭NFC开关，该接口只能被系统应用调用。
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
@@ -209,9 +191,9 @@ declare namespace nfcController {
   function disableNfc(): void;
 
   /**
-   * Checks whether NFC is open.
+   * 查询NFC是否打开。
    *
-   * @returns { boolean } Returns **true** if NFC is open; returns **false** otherwise.
+   * @returns { boolean } true: NFC是打开的， false: NFC是关闭的。
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -220,9 +202,9 @@ declare namespace nfcController {
   function isNfcOpen(): boolean;
 
   /**
-   * Obtains the NFC state.
+   * 查询NFC状态。
    *
-   * @returns { NfcState } NFC state obtained. For details, see [NfcState]{@link nfcController.NfcState}.
+   * @returns { NfcState } NFC状态值，详细请见[NfcState]{@link nfcController.NfcState}枚举值。
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice [since 12]
    * @since 7 dynamic
