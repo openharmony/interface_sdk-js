@@ -554,7 +554,7 @@ declare namespace pasteboard {
     want: Want;
     /**
      * Default type of PasteDataRecord.
-     * Modifications to this attribute are ineffective. 
+     * Modifications to this attribute are ineffective.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -601,7 +601,7 @@ declare namespace pasteboard {
     pixelMap: image.PixelMap;
     /**
      * Content of custom data.
-     * Modifications to this attribute are ineffective. 
+     * Modifications to this attribute are ineffective.
      *
      * @type { object } [since 9 - 22]
      * @type { Record<string, ArrayBuffer> } [since 23]
