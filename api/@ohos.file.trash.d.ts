@@ -129,7 +129,7 @@ declare namespace trash {
    * Lists the files and directories in the **Recently deleted** list.
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { Array<FileInfo> } Returns the next level FileInfo Object.
+   * @returns { Array<FileInfo> } List of the files and directories obtained.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
