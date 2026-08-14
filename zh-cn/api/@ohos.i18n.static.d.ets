@@ -2252,7 +2252,7 @@ declare namespace i18n {
     zoneDisplayName: string;
 
     /**
-     * 以十进制度数表示的时区城市纬度信息(°)。
+     * 时区城市纬度参考信息。
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
