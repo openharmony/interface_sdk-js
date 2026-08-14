@@ -293,7 +293,7 @@ declare namespace userStatus {
    */
   export enum UserStatusFeature {
     /**
-     * gesture recognition feature (100ms reporting interval).
+     * Gesture recognition feature (100ms reporting interval).
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -634,7 +634,7 @@ declare namespace userStatus {
 
     /**
      * User status detection result.
-     * The value range is all integers.
+     * The value `0` indicates success, and other values indicate failure.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -645,7 +645,7 @@ declare namespace userStatus {
 
     /**
      * Business error code.
-     * The value range is all integers.
+     * The value `0` indicates success, and other values indicate failure.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -666,6 +666,7 @@ declare namespace userStatus {
   export interface UserBlowData extends UserStatusData {
     /**
      * Face position relative to screen.
+     * The normalized coordinate system ranges from 0 to 640.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -676,7 +677,7 @@ declare namespace userStatus {
 
     /**
      * Blow strength level.
-     * The value range is all integers.
+     * The value must be an integer within [1,12].
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -687,7 +688,7 @@ declare namespace userStatus {
 
     /**
      * Blow direction.
-     * The value range is all integers.
+     * The value ranges from 0 to 2. 0: Not blowing, 1: Blowing from bottom mic, 2: Blowing from top mic.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -698,7 +699,8 @@ declare namespace userStatus {
 
     /**
      * User emotion level.
-     * The value range is all integers.
+     * The value ranges from 0 to 5. 0: Very happy, 1: A little happy, 2: Calm,
+     * 3: A little unhappy, 4: Angry, 5: Crying.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -718,7 +720,7 @@ declare namespace userStatus {
     isGazeStatus?: boolean;
 
     /**
-     * Gravity acceleration of user motion status.
+     * Gravity acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -728,7 +730,7 @@ declare namespace userStatus {
     gravityAcceleration?: double[];
 
     /**
-     * Linear acceleration of user motion status.
+     * Linear acceleration of user motion status, in m/s²..
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -749,7 +751,8 @@ declare namespace userStatus {
   export interface UserEmotionData extends UserStatusData {
     /**
      * User real-time emotion level.
-     * The value range is all integers.
+     * The value ranges from 0 to 5. 0: Very happy, 1: A little happy, 2: Calm,
+     * 3: A little unhappy, 4: Angry, 5: Crying.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -760,7 +763,7 @@ declare namespace userStatus {
 
     /**
      * User emotion confidence.
-     * The value range is all integers.
+     * The value ranges from 0 to 100. A larger value indicates a higher confidence.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -781,6 +784,8 @@ declare namespace userStatus {
 
     /**
      * User non-real-time emotion level.
+     * The value ranges from 0 to 5. 0: Very happy, 1: A little happy, 2: Calm,
+     * 3: A little unhappy, 4: Angry, 5: Crying.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -790,7 +795,7 @@ declare namespace userStatus {
     emotionNonRealTime ?: int[];
 
     /**
-     * Gravity acceleration of user motion status.
+     * Gravity acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -800,7 +805,7 @@ declare namespace userStatus {
     gravityAcceleration?: double[];
 
     /**
-     * Linear acceleration of user motion status.
+     * Linear acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -841,7 +846,7 @@ declare namespace userStatus {
 
     /**
      * Event type.
-     * The value range is all integers.
+     * The value ranges from 0 to 1. 0: Gaze event, 1: Ambient sound event..
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -862,6 +867,7 @@ declare namespace userStatus {
   export interface UserFacesData extends UserStatusData {
     /**
      * User visual angle.
+     * The value ranges from 0 to 90, in degrees.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -871,7 +877,7 @@ declare namespace userStatus {
     visualAngle?: double[];
 
     /**
-     * Angular velocity of user motion status.
+     * Angular velocity of user motion status, in rad/s.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -881,7 +887,7 @@ declare namespace userStatus {
     angularVelocity?: double[];
 
     /**
-     * Gravity acceleration of user motion status.
+     * Gravity acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -891,7 +897,7 @@ declare namespace userStatus {
     gravityAcceleration?: double[];
 
     /**
-     * Linear acceleration of user motion status.
+     * Linear acceleration of user motion status, in m/s².
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -902,6 +908,7 @@ declare namespace userStatus {
 
     /**
      * Azimuth of user motion status.
+     * The value ranges from 0 to 360, in degrees.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -912,7 +919,7 @@ declare namespace userStatus {
 
     /**
      * Number of faces detected.
-     * The value range is all integers.
+     * The value must be an integer within [0,3].
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -942,7 +949,8 @@ declare namespace userStatus {
     isHandExist?: boolean;
 
     /**
-     * Hand position relative to screen.
+     * Hand position relative to screen. 
+     * The normalized coordinate system ranges from 0 to 640.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -953,7 +961,7 @@ declare namespace userStatus {
 
     /**
      * User dynamic gesture type.
-     * The value range is all integers.
+     * The value ranges from 0 to 3. 0: Up, 1: Down, 2: Screen capture, 3: Release.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -964,7 +972,7 @@ declare namespace userStatus {
 
     /**
      * User static gesture type.
-     * The value range is all integers.
+     * The value ranges from 0 to 3. 0: Palm, 1: Fist, 2: Scissors, 3: Finger heart.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -975,6 +983,7 @@ declare namespace userStatus {
 
     /**
      * Angle between user gesture and screen directions.
+     * The value ranges from 0 to 90, in degrees.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -984,7 +993,7 @@ declare namespace userStatus {
     directionAngle?: double[];
 
     /**
-     * Gesture speed.
+     * Gesture speed, in frames per second (fps).
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -1005,6 +1014,7 @@ declare namespace userStatus {
   export interface UserFaceAngleData extends UserStatusData {
     /**
      * Network ID of device that user head is facing.
+     * The maximum length is 128.
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -1017,19 +1027,19 @@ declare namespace userStatus {
   /**
    * Subscribes to user status monitoring.
    *
-   * @param { UserStatusFeature } featureId - Indicates the feature to be unsubscribed to.
+   * @param { UserStatusFeature } featureId - Indicates the feature to be subscribed to.
    * @param { Callback<UserStatusData> } callback - Callback used to return user status data.
    * @param { DeviceInfo[] } [deviceInfo] - List of devices to enable user status monitoring.
    * @returns { int } Returns the registered callback ID.
-   * @throws { BusinessError } 202 - Non-system application.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
    *     <br>1. System error, such as null pointer and container-related exception.
-   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
+   *     <br>2. Node-API invocation exception, such as a invalid Node-API status.
    * @throws { BusinessError } 33900002 - Subscription failed. Possible causes:
    *     <br>1. Callback registration failed.
-   *     <br>2. Failed to bind native object to JS wrapper.
+   *     <br>2. Failed to bind the native object to the JS wrapper.
    *     <br>3. Node-API invocation exception, such as invalid Node-API status.
    *     <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
@@ -1046,11 +1056,11 @@ declare namespace userStatus {
    * @param { UserStatusFeature } featureId - Indicates the feature to be unsubscribed from.
    * @param { Callback<UserStatusData> } [callback] - Callback used to return user status data.
    * @returns { int } Returns 0 if the operation succeeds; otherwise, returns a non-zero value.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
-   *     <br>1. System error, such as null pointer and container-related exception.
+   *     <br>1. System error, such as a null pointer and container-related exception.
    *     <br>2. Node-API invocation exception, such as invalid Node-API status.
    * @throws { BusinessError } 33900003 - Unsubscription failed. Possible causes:
    *     <br>1. Callback failure.
@@ -1069,9 +1079,9 @@ declare namespace userStatus {
    * @param { UserStatusFeature } featureId - Feature to configure.
    * @param { string } detail - Detailed feature parameters in JSON format.
    * @returns { int } Returns 0 if the operation succeeds; otherwise, returns a non-zero value.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
-   *     <br>1. Invalid parameter.
+   *     <br>1. System error, such as a null pointer and container-related exception.
    *     <br>2. Node-API invocation exception, such as invalid Node-API status.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @systemapi
@@ -1085,10 +1095,10 @@ declare namespace userStatus {
    *
    * @param { UserStatusAtomicCap[] } capabilities - List of atomic capabilities to query.
    * @returns { UserStatusAtomicCap[] } Returns the list of device-supported atomic capabilities.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 33900001 - Service exception. Possible causes:
-   *     <br>1. Node-API invocation exception, such as invalid Node-API status.
-   *     <br>2. IPC request exception.
+   *     <br>1. System error, such as a null pointer and container-related exception.
+   *     <br>2. Node-API invocation exception, such as invalid Node-API status.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @systemapi
    * @stagemodelonly
