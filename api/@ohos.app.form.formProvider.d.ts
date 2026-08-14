@@ -206,7 +206,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.1.0]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.1.0]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 26.1.0]
    * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.1.0]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
@@ -235,7 +235,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.1.0]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.1.0]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 26.1.0]
    * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.1.0]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
@@ -262,7 +262,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.1.0]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.1.0]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 26.1.0]
    * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.1.0]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
