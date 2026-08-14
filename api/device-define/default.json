@@ -231,7 +231,6 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Communication.SoftBus.Core"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }
