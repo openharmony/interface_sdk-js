@@ -38,7 +38,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 declare namespace inputConsumer {
 
   /**
-   * KeyCommandTriggerType
+   * KeyCommandTriggerType.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
@@ -154,7 +154,7 @@ declare namespace inputConsumer {
 
     /**
      * Trigger type, which indicates that the conditions for triggering the callback expected by the
-     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property
+     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property 
      * is only for use in APIs that take KeyCommandCallback as the callback function and must be specified.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
