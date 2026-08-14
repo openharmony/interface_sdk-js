@@ -310,6 +310,14 @@ declare namespace hidebug {
      * @since 23 static
      */
     cpuUsage: double;
+    /**
+     * Thread name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    threadName: string;
   }
 
   /**
