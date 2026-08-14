@@ -2986,7 +2986,7 @@ declare namespace media {
     event: AVMetricsEventType;
 	
     /**
-     * Absolute timestamp when the event occurred, in ms.
+     * Absolute timestamp when the event occurred.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -2994,7 +2994,7 @@ declare namespace media {
     timeStamp: long;
 
     /**
-     * The playback progress position when the event occurs, in ms.
+     * The playback progress position when the event occurs.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -4069,8 +4069,8 @@ declare namespace media {
      * @since 9 dynamic
      * @since 23 static
      */
-	 
     videoScaleType?: VideoScaleType;
+
     /**
      * Audio privacy configuration. For more information, see {@link #audio.AudioPrivacyType}.
      * Default value: PRIVACY_TYPE_PUBLIC.
@@ -4085,7 +4085,7 @@ declare namespace media {
     /**
      * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
      * by insufficient frame rate. Default value: false, means that the slower synchronization policy will not be used.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @systemapi
      * @stagemodelonly
@@ -4093,6 +4093,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     enableStartFrameRateOpt?: boolean;
+
     /**
      * Sets the playback speed. This API can be called only when the AVPlayer is in the prepared, playing, paused, or 
      * completed state. You can check whether the speed setting takes effect by subscribing to the 
@@ -4146,7 +4147,7 @@ declare namespace media {
      *     [availableBitrates]{@link media.AVPlayer.on(type: 'availableBitrates', callback: Callback<Array<int>>)}
      *     event. If the bitrate to set is not in the list of the available bitrates, the AVPlayer selects from the list
      *     the bitrate that is closed to the bitrate to set. If the length of the available bitrate list obtained
-     *     through the event is 0, no bitrate can be set and the **bitrateDone** callback will not be triggered, in bit/s.
+     *     through the event is 0, no bitrate can be set and the **bitrateDone** callback will not be triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -4438,7 +4439,7 @@ declare namespace media {
      * @param { 'bitrateDone' } type - Event type, which is **'bitrateDone'** in this case. This event is triggered each
      *     time **setBitrate()** is called.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered. It reports the effective
-     *     bitrate, in bit/s.
+     *     bitrate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -4452,7 +4453,7 @@ declare namespace media {
      *     bitrate. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
      *     callbacks associated with the **bitrateDone** event will be unregistered. [since 12 - 18]
      * @param { Callback<int> } [callback] - Callback invoked when the event is triggered. It reports the effective
-     *     bitrate, in bit/s. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
+     *     bitrate. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
      *     callbacks associated with the **bitrateDone** event will be unregistered. [since 19]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice [since 19]
@@ -4654,7 +4655,7 @@ declare namespace media {
      * @param { function } callback - Callback invoked when the event is triggered. It returns an array that holds the
      *     available bitrates. If the array length is 0, no bitrate can be set. [since 9 - 11]
      * @param { Callback<Array<int>> } callback - Callback invoked when the event is triggered. It returns an array that
-     *     holds the available bitrates, in bit/s. If the array length is 0, no bitrate can be set. [since 12]
+     *     holds the available bitrates. If the array length is 0, no bitrate can be set. [since 12]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -4668,7 +4669,7 @@ declare namespace media {
      *
      * @param { 'availableBitrates' } type - Event type, which is **'availableBitrates'** in this case.
      * @param { Callback<Array<int>> } callback - Callback invoked when the event is triggered. It returns an array that
-     *     holds the available bitrates, in bit/s. If the array length is 0, no bitrate can be set. If this parameter is specified
+     *     holds the available bitrates. If the array length is 0, no bitrate can be set. If this parameter is specified
      *     , only the specified callback is unregistered. Otherwise, all callbacks associated with the
      *     **availableBitrates** event will be unregistered. [since 12]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -5901,7 +5902,7 @@ declare namespace media {
     BUFFERING_END = 2,
 
     /**
-     * Buffering percentage. You can use this event to monitor the buffering status, in %.
+     * Buffering percentage. You can use this event to monitor the buffering status.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -6441,7 +6442,7 @@ declare namespace media {
     enableSuperResolution?: boolean;
 
     /**
-     * set max buffering threshold for liveStreaming or avplayer while change the speed, in s.
+     * set max buffering threshold for liveStreaming or avplayer while change the speed.
      * It is recommended that the value be 2 seconds greater than the starting waterline.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -6535,7 +6536,7 @@ declare namespace media {
    */
   interface AVDataSrcDescriptor {
     /**
-     * Size of the file, -1 means the file size is unknown, in this case, in byte,
+     * Size of the file, -1 means the file size is unknown, in this case,
      * seek and setSpeed can't be executed, loop can't be set, and can't replay.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -6548,7 +6549,7 @@ declare namespace media {
     /**
      * Callback function implemented by users, which is used to fill data.
      * buffer - The buffer need to fill.
-     * length - The stream length player want to get, in byte.
+     * length - The stream length player want to get.
      * pos - The stream position player want get start, and is an optional parameter.
      * When fileSize set to -1, this parameter is not used.
      * Returns length of the data to be filled, Return -1 to indicate that the end of the stream is reached,
@@ -9344,7 +9345,7 @@ declare namespace media {
      *
      * @param { 'videoSizeChanged' } type - Event type, which is **'videoSizeChanged'** in this case.
      * @param { function } callback - Callback invoked when the event is triggered. **width** indicates the video width,
-     *     and **height** indicates the video height, in px.
+     *     and **height** indicates the video height.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -11236,7 +11237,7 @@ declare namespace media {
      * @since 23 static
      */
     SCREEN_AND_WINDOW = 2,
-        
+
     /**
      * Show application options only.
      *
@@ -11245,7 +11246,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     APP_ONLY = 3,
- 
+
     /**
      * Show both window and application options.
      *
@@ -11254,7 +11255,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     WINDOW_AND_APP = 4,
-     
+
     /**
      * Show both screen and application options.
      *
@@ -11263,7 +11264,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     SCREEN_AND_APP = 5,
- 
+
     /**
      * Show screen, window, and application options.
      *
@@ -11476,7 +11477,6 @@ declare namespace media {
      * @param { boolean } enable - Indicates whether to enable automatic rotation. The default value is **false**.
      *     A value of **true** indicates automatic rotation and the image content in the output frame remains upright.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11484,7 +11484,7 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     setContentAutoRotation(enable: boolean): Promise<void>;
-	
+
     /**
      * Subscribes to screen capture state changes. An application can subscribe to only one screen capture state change 
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
@@ -12325,7 +12325,7 @@ declare namespace media {
     pauseDownloadTask(taskId?: string): void;
 
     /**
-     * Resuming Offline download of a Specified Task
+     * Resuming Offline Download of a Specified Task
      *
      * @param { string } [taskId] - Specifies the ID of an offline download task.
      *     Value constraint:If this parameter is not specified, all suspended offline download tasks are resumed..
@@ -12340,7 +12340,7 @@ declare namespace media {
     /**
      * Obtains all offline download tasks in the Task Manager. Ended download tasks are automatically cleared.
      *
-     * @returns { Array<string> } If a task exists in the task manager, the taskID array is returned. Otherwise null.
+     * @returns { Array<string> } If a task exists in the task manager, the task ID array is returned. Otherwise null.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
