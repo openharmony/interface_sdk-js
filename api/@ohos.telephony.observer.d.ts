@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Telephony Status Observer
  * @kit TelephonyKit
  */
 
@@ -25,19 +25,18 @@ import type call from './@ohos.telephony.call';
 import type sim from './@ohos.telephony.sim';
 
 /**
- * Monitors telephony state updates of a device, including updates of the network state,
- * signal strength, call state, the data link connection state and others.
+ * The **observer** module provides event subscription management functions. You can register or unregister an observer
+ * that listens for the following events: network status change, signal status change, call status change, cellular data
+ * connection status, uplink and downlink data flow status of cellular data services, and SIM status change.
  *
- * @namespace observer
  * @syscap SystemCapability.Telephony.StateRegistry
  * @since 6 dynamic
  * @since 23 static
  */
 declare namespace observer {
   /**
-   * Describes the network registration state.
+   * Defines the network status.
    *
-   * @typedef { radio.NetworkState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -45,9 +44,8 @@ declare namespace observer {
   type NetworkState = radio.NetworkState;
 
   /**
-   * Describes the signal strength information.
+   * Defines the signal strength.
    *
-   * @typedef { radio.SignalInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -57,7 +55,6 @@ declare namespace observer {
   /**
    * Describes current cell information.
    *
-   * @typedef { radio.CellInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -66,9 +63,8 @@ declare namespace observer {
   type CellInformation = radio.CellInformation;
 
   /**
-   * Describes the cellular data link connection state.
+   * Describes the connection status of a cellular data link.
    *
-   * @typedef { data.DataConnectState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -76,9 +72,8 @@ declare namespace observer {
   type DataConnectState = data.DataConnectState;
 
   /**
-   * Describes the radio access technology.
+   * Enumerates the radio access technologies.
    *
-   * @typedef { radio.RadioTechnology }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -86,9 +81,8 @@ declare namespace observer {
   type RatType = radio.RadioTechnology;
 
   /**
-   * Describes the cellular data flow type.
+   * Defines the cellular data flow type.
    *
-   * @typedef { data.DataFlowType }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -96,9 +90,8 @@ declare namespace observer {
   type DataFlowType = data.DataFlowType;
 
   /**
-   * Indicates the states of call.
+   * Enumerates call states.
    *
-   * @typedef { call.CallState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -106,9 +99,8 @@ declare namespace observer {
   type CallState = call.CallState;
 
   /**
-   * Indicates the SIM card types.
+   * Enumerates SIM card types.
    *
-   * @typedef { sim.CardType }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -116,9 +108,8 @@ declare namespace observer {
   type CardType = sim.CardType;
 
   /**
-   * Indicates the SIM card states.
+   * SIM card state.
    *
-   * @typedef { sim.SimState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
    * @since 23 static
@@ -126,9 +117,8 @@ declare namespace observer {
   type SimState = sim.SimState;
 
   /**
-   * Indicates the states of tel call.
+   * Enumerates call states.
    *
-   * @typedef { call.TelCallState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 21 dynamic
    * @since 23 static
@@ -136,9 +126,8 @@ declare namespace observer {
   type TelCallState = call.TelCallState;
 
   /**
-   * Indicates the states of carrier call.
+   * Enumerates carrier call states.
    *
-   * @typedef { call.CCallState }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 23 dynamic&static
    */
@@ -147,7 +136,6 @@ declare namespace observer {
   /**
    * Indicates the result of network search.
    *
-   * @typedef { radio.NetworkSearchRealTimeResult }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @FaAndStageModel
@@ -156,12 +144,16 @@ declare namespace observer {
   type NetworkSearchRealTimeResult = radio.NetworkSearchRealTimeResult;
 
   /**
-   * Callback when the network state corresponding to the default sim card is updated.
+   * Registers an observer for network status change events. This API uses an asynchronous callback to return the
+   * execution result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
-   * @param { Callback<NetworkState> } callback - Indicates the callback for
-   * getting an instance of the {@code NetworkState} class.
+   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
+   *     **networkStateChange**.
+   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. For details, see
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -193,31 +185,17 @@ declare namespace observer {
   function onNetworkStateChange(callback: Callback<NetworkState>): void;
 
   /**
-   * Callback when the network state corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for network status change events of the SIM card in the specified slot. This API uses an
+   * asynchronous callback to return the execution result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<NetworkState> } callback - Indicates the callback for getting
-   * an instance of the {@code NetworkState} class.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
-   */
-  /**
-   * Callback when the network state corresponding to the monitored {@code slotId} is updated.
-   *
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<NetworkState> } callback - Indicates the callback for getting
-   * an instance of the {@code NetworkState} class.
+   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
+   *     **networkStateChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. For details, see
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -226,7 +204,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 6 dynamic
    */
   function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
@@ -250,11 +228,18 @@ declare namespace observer {
   function onNetworkStateChange(options: ObserverOptions, callback: Callback<NetworkState>): void;
 
   /**
-   * Cancel callback when the network state is updated.
+   * Unregisters the observer for network status change events. This API uses an asynchronous callback to return the
+   * execution result.
    *
-   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to unsubscribe from.
-   * @param { Callback<NetworkState> } callback - Indicates the callback for getting
-   * an instance of the {@code NetworkState} class.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'networkStateChange' } type - Network status change event. This field has a fixed value of
+   *     **networkStateChange**.
+   * @param { Callback<NetworkState> } callback - Callback used to return the network status object. which is the
+   *     [NetworkState]{@link @ohos.telephony.radio:radio.NetworkState} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -283,11 +268,13 @@ declare namespace observer {
   function offNetworkStateChange(callback?: Callback<NetworkState>): void;
 
   /**
-   * Callback when the signal strength corresponding to the default sim card is updated.
+   * Registers an observer for signal status change events. This API uses an asynchronous callback to return the
+   * execution result.
    *
-   * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
-   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link SignalInformation}.
+   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
+   *     **signalInfoChange**.
+   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
+   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -316,28 +303,14 @@ declare namespace observer {
   function onSignalInfoChange(callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
+   * Registers an observer for signal status change events of the SIM card in the specified slot. This API uses an
+   * asynchronous callback to return the execution result.
    *
-   * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link SignalInformation}.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
-   */
-  /**
-   * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
-   *
-   * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link SignalInformation}.
+   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
+   *     **signalInfoChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
+   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -345,7 +318,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 6 dynamic
    */
   function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
@@ -367,11 +340,18 @@ declare namespace observer {
   function onSignalInfoChange(options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Cancel callback when the signal strength is updated.
+   * Unregisters the observer for signal status change events. This API uses an asynchronous callback to return the
+   * execution result.
    *
-   * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to unsubscribe from.
-   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback to unsubscribe from
-   * the signalInfoChange event.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'signalInfoChange' } type - Signal status change event. This field has a fixed value of
+   *     **signalInfoChange**.
+   * @param { Callback<Array<SignalInformation>> } callback - Callback used to return the signal strength object. For
+   *     details, see [SignalInformation]{@link @ohos.telephony.radio:radio.SignalInformation}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -400,12 +380,13 @@ declare namespace observer {
   function offSignalInfoChange(callback?: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Callback when the cell information corresponding to the default sim card is updated.
+   * Registers an observer for cell information change events. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
-   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link CellInformation}.
+   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
+   *     **cellInfoChange**.
+   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -441,33 +422,14 @@ declare namespace observer {
   function onCellInfoChange(callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Callback when the cell information corresponding to a monitored {@code slotId} is updated.
+   * Registers an observer for signal status change events of the SIM card in the specified slot. This API uses an
+   * asynchronous callback to return the execution result.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link CellInformation}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  /**
-   * Callback when the cell information corresponding to a monitored {@code slotId} is updated.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
-   * an array of instances of the classes derived from {@link CellInformation}.
+   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
+   *     **cellInfoChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -478,7 +440,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
+   * @since 8 dynamic
    */
   function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
@@ -504,11 +466,17 @@ declare namespace observer {
   function onCellInfoChange(options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Cancel callback when the cell information is updated.
+   * Unregisters the observer for cell information change events. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to unsubscribe from.
-   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback to unsubscribe from
-   * the cellInfoChange event.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'cellInfoChange' } type - Cell information change event. This field has a fixed value of
+   *     **cellInfoChange**.
+   * @param { Callback<Array<CellInformation>> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -541,29 +509,15 @@ declare namespace observer {
   function offCellInfoChange(callback?: Callback<Array<CellInformation>>): void;
 
   /**
-   * Callback when the cellular data link connection state corresponding to the default sim card is updated.
+   * Registers an observer for connection status change events of the cellular data link. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to be subscribed to.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for
-   * getting the cellular data link connection state, and networkType Indicates the radio access technology
-   * for cellular data services.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
-   */
-  /**
-   * Callback when the cellular data link connection state corresponding to the default sim card is updated.
-   *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to be subscribed to.
-   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
-   * getting the cellular data link connection state, and networkType Indicates the radio access technology
-   * for cellular data services.
+   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
+   *     value of **cellularDataConnectionStateChange**.
+   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
+   *     connection status information object. For details, see
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -571,7 +525,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 7 dynamic
    */
   function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectionStateInfo>): void;
 
@@ -593,32 +547,16 @@ declare namespace observer {
   function onCellularDataConnectionStateChange(callback: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for connection status change events of the cellular data link over the SIM card in the
+   * specified slot. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for
-   * getting the cellular data link connection state, and networkType Indicates the radio access technology for
-   * cellular data services.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
-   */
-  /**
-   * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
-   *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback for
-   * getting the cellular data link connection state, and networkType Indicates the radio access technology for
-   * cellular data services.
+   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
+   *     value of **cellularDataConnectionStateChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
+   *     connection status information object. For details, see
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -626,7 +564,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 7 dynamic
    */
   function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
               callback: Callback<DataConnectionStateInfo>): void;
@@ -651,27 +589,20 @@ declare namespace observer {
               callback: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Cancel callback when the cellular data link connection state is updated.
+   * Unregisters the observer for connection status change events of the cellular data link. This API uses an
+   * asynchronous callback to return the result.
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to unsubscribe from.
-   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback to unsubscribe
-   * from the cellularDataConnectionStateChange event.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
-   */
-  /**
-   * Cancel callback when the cellular data link connection state is updated.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
    *
-   * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
-   * event to unsubscribe from.
-   * @param { Callback<DataConnectionStateInfo> } callback - Indicates the callback to unsubscribe
-   * from the cellularDataConnectionStateChange event.
+   * @param { 'cellularDataConnectionStateChange' } type - Cellular data connection status event. This field has a fixed
+   *     value of **cellularDataConnectionStateChange**.
+   * @param { Callback<DataConnectionStateInfo> } callback - Callback function used to return the cellular data
+   *     connection status information object. For details, see
+   *     [DataConnectState]{@link @ohos.telephony.data:data.DataConnectState} of **data** and
+   *     [RadioTechnology]{@link @ohos.telephony.radio:radio.RadioTechnology} of **radio**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -679,7 +610,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 7 dynamic
    */
   function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectionStateInfo>): void;
 
@@ -700,11 +631,13 @@ declare namespace observer {
   function offCellularDataConnectionStateChange(callback?: Callback<DataConnectionStateInfo>): void;
 
   /**
-   * Callback when the uplink and downlink data flow state of cellular data services
-   * corresponding to the default sim card is updated.
+   * Registers an observer for the uplink and downlink data flow status change events of the cellular data service. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
-   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
+   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
+   *     **cellularDataFlowChange**.
+   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
+   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -733,28 +666,14 @@ declare namespace observer {
   function onCellularDataFlowChange(callback: Callback<DataFlowType>): void;
 
   /**
-   * Callback when the uplink and downlink data flow state of cellular data services
-   * corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for the uplink and downlink data flow status change events of the cellular data service on
+   * the SIM card in the specified slot. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
-   */
-  /**
-   * Callback when the uplink and downlink data flow state of cellular data services
-   * corresponding to the monitored {@code slotId} is updated.
-   *
-   * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
+   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
+   *     **cellularDataFlowChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
+   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -762,7 +681,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 7 dynamic
    */
   function on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
@@ -784,11 +703,18 @@ declare namespace observer {
   function onCellularDataFlowChange(options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
   /**
-   * Cancel callback when the uplink and downlink data flow state of cellular data services is updated.
+   * Unregisters the observer for the uplink and downlink data flow status change events of the cellular data service.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to unsubscribe from.
-   * @param { Callback<DataFlowType> } callback - Indicates the callback to unsubscribe from
-   * the cellularDataFlowChange event.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'cellularDataFlowChange' } type - Cellular data flow change event. This field has a fixed value of
+   *     **cellularDataFlowChange**.
+   * @param { Callback<DataFlowType> } callback - Callback function used to return the data flow status object. For
+   *     details, see [DataFlowType]{@link @ohos.telephony.data:data.DataFlowType} in **data**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -817,25 +743,14 @@ declare namespace observer {
   function offCellularDataFlowChange(callback?: Callback<DataFlowType>): void;
 
   /**
-   * Callback when the call state corresponding to the default sim card is updated.
+   * Registers an observer for call status change events. This API uses an asynchronous callback to return the execution
+   * result.
    *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for
-   * getting the call state and the called number.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
-   */
-  /**
-   * Callback when the call state corresponding to the default sim card is updated.
-   *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
-   * getting the call state and the called number.
+   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
+   * @param { Callback<CallStateInfo> } callback - Callback function used to return the result,
+   *     <br>which is the **CallStateInfo** object. In this object:
+   *     <br>- Only **state** is accessible to third-party applications. - **number** is only accessible to system
+   *     applications.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -843,7 +758,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 6 dynamic
    */
   function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
@@ -864,28 +779,15 @@ declare namespace observer {
   function onCallStateChange(callback: Callback<CallStateInfo>): void;
 
   /**
-   * Callback when the call state corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for call status change events. This API uses an asynchronous callback to return the execution
+   * result.
    *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for
-   * getting the call state and the called number.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
-   */
-  /**
-   * Callback when the call state corresponding to the monitored {@code slotId} is updated.
-   *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<CallStateInfo> } callback - Indicates the callback for
-   * getting the call state and the called number.
+   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<CallStateInfo> } callback - Callback function used to return the call status information object.
+   *     <br>The application can obtain the **CallStateInfo** object. In this object:
+   *     <br>- Only **state** is accessible to third-party applications. - **number** is only accessible to system
+   *     applications.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -893,7 +795,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 6 dynamic
    */
   function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
@@ -915,25 +817,18 @@ declare namespace observer {
   function onCallStateChange(options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
   /**
-   * Cancel callback when the call state is updated.
+   * Unregisters the observer for call status change events. This API uses an asynchronous callback to return the
+   * execution result.
    *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to unsubscribe from.
-   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback to
-   * unsubscribe from the callStateChange event.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
-   */
-  /**
-   * Cancel callback when the call state is updated.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
    *
-   * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to unsubscribe from.
-   * @param { Callback<CallStateInfo> } callback - Indicates the callback to
-   * unsubscribe from the callStateChange event.
+   * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
+   * @param { Callback<CallStateInfo> } callback - Callback function used to return the call status information object.
+   *     For details, see [CallState]{@link @ohos.telephony.call:call.CallState}.
+   *     <br>**number**: phone number.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -941,7 +836,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 6 dynamic
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
@@ -962,12 +857,15 @@ declare namespace observer {
   function offCallStateChange(callback?: Callback<CallStateInfo>): void;
 
   /**
-   * Callback when the telCall state corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for extended call status change events. This API uses an asynchronous callback to return the
+   * execution result.
    *
-   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to be subscribed to.
-   * @param { Callback<TelCallState> } callback - Indicates the callback for
-   *     getting the telCall state.
-   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @param { 'callStateChangeEx' } type - Extended call status change event. This field has a fixed value of
+   *     **callStateChangeEx**.
+   * @param { Callback<TelCallState> } callback - Callback function used to return the call status information object.
+   *     <br>The application can obtain **TelCallState**.
+   *     <br>
+   * @param { ObserverOptions } [options] - Event subscription parameters.
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
    * @throws { BusinessError } 8800003 - System internal error.
@@ -993,11 +891,19 @@ declare namespace observer {
   function onCallStateChangeEx(callback: Callback<TelCallState>, options?: ObserverOptions): void;
 
   /**
-   * Cancel callback when the telCall state is updated.
+   * Unregisters the observer for extended call status change events. This API uses an asynchronous callback to return
+   * the execution result.
    *
-   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to unsubscribe from.
-   * @param { Callback<TelCallState> } [callback] - Indicates the callback to
-   *     unsubscribe from the callStateChangeEx event.
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'callStateChangeEx' } type - Call status change event. This field has a fixed value of
+   *     **callStateChange**.
+   * @param { Callback<TelCallState> } [callback] - Callback function used to return the call status information object.
+   *     For details, see [TelCallState]{@link @ohos.telephony.call:call.TelCallState} in **call**.
+   *     <br>
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
    * @throws { BusinessError } 8800003 - System internal error.
@@ -1022,11 +928,14 @@ declare namespace observer {
   function offCallStateChangeEx(callback?: Callback<TelCallState>): void;
 
   /**
-   * Called when the carrier call state changes.
+   * Subscribes to the carrier call state changes and obtains the call number. This method uses an asynchronous callback
+   * to return the execution result.
    *
    * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { Callback<CCallStateInfo> } callback - Indicates the callback for getting the carrier call state.
-   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @param { Callback<CCallStateInfo> } callback - Callback function used to return the call status information object.
+   *     <br>The application can obtain CCallState.
+   *     <br>
+   * @param { ObserverOptions } [options] - Event subscription parameters.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
@@ -1039,10 +948,14 @@ declare namespace observer {
   function onCCallStateChange(callback: Callback<CCallStateInfo>, options?: ObserverOptions): void;
 
   /**
-   * Unsubscribes from the callback for listening to the carrier call state.
+   * Cancels the listening on the carrier call status and obtaining of the call number by a third-party application.
+   * This method uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_CALL_FOR_DEVICES
-   * @param { Callback<CCallStateInfo> } [callback] - Indicates the callback to unsubscribe from.
+   * @param { Callback<CCallStateInfo> } [callback] - Callback function used to return the call status information
+   *     object.
+   *     <br>The application can obtain CCallState.
+   *     <br>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8800001 - Invalid parameter value.
    * @throws { BusinessError } 8800002 - Service connection failed.
@@ -1055,11 +968,16 @@ declare namespace observer {
   function offCCallStateChange(callback?: Callback<CCallStateInfo>): void;
 
   /**
-   * Callback when the sim state corresponding to the default sim card is updated.
+   * Registers an observer for SIM card status change events. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
-   * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
-   * including state Indicates the sim state, and reason Indicates the cause of the change.
+   * > **NOTE**
+   * >
+   * > The return result of this API does not contain the activation status of the SIM card. For details, see
+   * > [sim.isSimActive]{@link @ohos.telephony.sim:sim.isSimActive}.
+   *
+   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
+   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1088,26 +1006,12 @@ declare namespace observer {
   function onSimStateChange(callback: Callback<SimStateData>): void;
 
   /**
-   * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
+   * Registers an observer for status change events of the SIM card in the specified slot. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
-   * @param { object } options - Indicates the ID of the target card slot.
-   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
-   */
-  /**
-   * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
-   *
-   * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
-   * @param { ObserverOptions } options - Indicates the options for observer.
-   * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
+   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
+   * @param { ObserverOptions } options - Event subscription parameters.
+   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1115,7 +1019,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11 dynamic
+   * @since 7 dynamic
    */
   function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
@@ -1134,105 +1038,6 @@ declare namespace observer {
    * @since 23 static
    */
   function onSimStateChange(options: ObserverOptions, callback: Callback<SimStateData>): void;
-
-  /**
-   * Cancel callback when the sim state is updated.
-   *
-   * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to unsubscribe from.
-   * @param { Callback<SimStateData> } callback - Indicates the callback to unsubscribe from the simStateChange event.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7 dynamic
-   */
-  function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
-
-  /**
-   * Cancel callback when the sim state is updated.
-   *
-   * @param { Callback<SimStateData> } [callback] - Indicates the callback to unsubscribe from the simStateChange event.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 23 static
-   */
-  function offSimStateChange(callback?: Callback<SimStateData>): void;
-
-  /**
-   * Receives an ICC account change. This callback is invoked when the ICC account updates
-   * and the observer is added to monitor the updates.
-   *
-   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
-   * @param { Callback<void> } callback - including state Indicates the ICC account information,
-   * and reason Indicates the cause of the change.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 10 dynamic
-   */
-  function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
-
-  /**
-   * Receives an ICC account change. This callback is invoked when the ICC account updates
-   * and the observer is added to monitor the updates.
-   *
-   * @param { Callback<void> } callback - including state Indicates the ICC account information,
-   *     and reason Indicates the cause of the change.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 23 static
-   */
-  function onIccAccountInfoChange(callback: Callback<void>): void;
-
-  /**
-   * Cancel to receive an ICC account change.
-   *
-   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
-   * @param { Callback<void> } callback - including state Indicates the ICC account information,
-   * and reason Indicates the cause of the change.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 10 dynamic
-   */
-  function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
-
-  /**
-   * Cancel to receive an ICC account change.
-   *
-   * @param { Callback<void> } [callback] - including state Indicates the ICC account information,
-   *     and reason Indicates the cause of the change.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 23 static
-   */
-  function offIccAccountInfoChange(callback?: Callback<void>): void;
 
   /**
    * This API uses an asynchronous callback to return the result.
@@ -1263,18 +1068,129 @@ declare namespace observer {
   function offCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
 
   /**
-   * Indicates SIM card type and status.
+   * Unregisters the observer for SIM card status change events. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @interface SimStateData
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'simStateChange' } type - SIM status change event. This field has a fixed value of **simStateChange**.
+   * @param { Callback<SimStateData> } callback - Callback function used to return the SIM status data object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 7 dynamic
+   */
+  function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
+
+  /**
+   * Cancel callback when the sim state is updated.
+   *
+   * @param { Callback<SimStateData> } [callback] - Indicates the callback to unsubscribe from the simStateChange event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 23 static
+   */
+  function offSimStateChange(callback?: Callback<SimStateData>): void;
+
+  /**
+   * Registers an observer for account information change events of the SIM card. This API uses an asynchronous callback
+   * to return the result.
+   *
+   * @param { 'iccAccountInfoChange' } type - Account information change event. This field has a fixed value of
+   *     **iccAccountInfoChange**.
+   * @param { Callback<void> } callback - Callback used to return the result. If the account is successfully changed,
+   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 10 dynamic
+   */
+  function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
+
+  /**
+   * Receives an ICC account change. This callback is invoked when the ICC account updates
+   * and the observer is added to monitor the updates.
+   *
+   * @param { Callback<void> } callback - including state Indicates the ICC account information,
+   *     and reason Indicates the cause of the change.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 23 static
+   */
+  function onIccAccountInfoChange(callback: Callback<void>): void;
+
+  /**
+   * Unregisters the observer for account information change events of the SIM card. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of event. If
+   * > you do not pass the callback, you will cancel listening for all events.
+   *
+   * @param { 'iccAccountInfoChange' } type - Account information change event. This field has a fixed value of
+   *     **iccAccountInfoChange**.
+   * @param { Callback<void> } callback - Callback used to return the result. If the account is successfully changed,
+   *     the value of **err** is **undefined**. Otherwise, the value is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 10 dynamic
+   */
+  function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
+
+  /**
+   * Cancel to receive an ICC account change.
+   *
+   * @param { Callback<void> } [callback] - including state Indicates the ICC account information,
+   *     and reason Indicates the cause of the change.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 23 static
+   */
+  function offIccAccountInfoChange(callback?: Callback<void>): void;
+
+  /**
+   * Enumerates SIM card types and states.
+   *
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
    * @since 23 static
    */
   export interface SimStateData {
     /**
-     * Indicates the SIM card type.
+     * SIM card type.
      *
-     * @type { CardType }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 7 dynamic
      * @since 23 static
@@ -1282,9 +1198,8 @@ declare namespace observer {
     type: CardType;
 
     /**
-     * Indicates the SIM card states.
+     * SIM card state.
      *
-     * @type { SimState }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 7 dynamic
      * @since 23 static
@@ -1292,9 +1207,8 @@ declare namespace observer {
     state: SimState;
 
     /**
-     * Indicates the SIM card lock type.
+     * SIM card lock type.
      *
-     * @type { LockReason }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
      * @since 23 static
@@ -1303,18 +1217,16 @@ declare namespace observer {
   }
 
   /**
-   * Indicates call state and number.
+   * Defines information about the call status.
    *
-   * @interface CallStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
    * @since 23 static
    */
   export interface CallStateInfo {
     /**
-     * Indicates call state.
+     * Call type.
      *
-     * @type { CallState }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
      * @since 23 static
@@ -1322,9 +1234,8 @@ declare namespace observer {
     state: CallState;
 
     /**
-     * Indicates call number.
+     * Phone number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
      */
@@ -1333,7 +1244,6 @@ declare namespace observer {
     /**
      * Indicates call number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 static
      */
@@ -1341,26 +1251,23 @@ declare namespace observer {
   }
 
   /**
-   * Indicates carrier call state and number.
+   * Defines information about the call status.
    *
-   * @interface CCallStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 23 dynamic&static
    */
   export interface CCallStateInfo {
     /**
-     * Indicates carrier call state.
+     * Call type.
      *
-     * @type { CCallState }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 dynamic&static
      */
     state: CCallState;
 
     /**
-     * Indicates carrier call number.
+     * Phone number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 23 dynamic&static
      */
@@ -1368,18 +1275,16 @@ declare namespace observer {
   }
 
   /**
-   * Indicates cellular data connect state and technology type.
+   * Defines information about the data connection status.
    *
-   * @interface DataConnectionStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
    * @since 23 static
    */
   export interface DataConnectionStateInfo {
     /**
-     * Indicates cellular data connect state.
+     * Data connection status.
      *
-     * @type { DataConnectState }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
      * @since 23 static
@@ -1387,9 +1292,8 @@ declare namespace observer {
     state: DataConnectState;
 
     /**
-     * Indicates technology type.
+     * Network type.
      *
-     * @type { RatType }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
      * @since 23 static
@@ -1398,18 +1302,19 @@ declare namespace observer {
   }
 
   /**
-   * Indicates observer options.
+   * Defines event subscription parameters.
    *
-   * @interface ObserverOptions
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
    * @since 23 static
    */
   export interface ObserverOptions {
     /**
-     * Indicates the ID of the target card slot.
+     * Card slot ID.
      *
-     * @type { int }
+     * - **0**: card slot 1.
+     * - **1**: card slot 2.
+     *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11 dynamic
      * @since 23 static
@@ -1418,16 +1323,15 @@ declare namespace observer {
   }
 
   /**
-   * Enum for SIM card lock type.
+   * Enumerates SIM card lock types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 8 dynamic
    * @since 23 static
    */
   export enum LockReason {
     /**
-     * Indicates no SIM lock.
+     * No lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1436,7 +1340,7 @@ declare namespace observer {
     SIM_NONE = 0,
 
     /**
-     * Indicates the PIN lock.
+     * PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1445,7 +1349,7 @@ declare namespace observer {
     SIM_PIN = 1,
 
     /**
-     * Indicates the PUK lock.
+     * PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1454,7 +1358,7 @@ declare namespace observer {
     SIM_PUK = 2,
 
     /**
-     * Indicates network personalization of PIN lock(refer 3GPP TS 22.022 [33]).
+     * Network PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1463,7 +1367,7 @@ declare namespace observer {
     SIM_PN_PIN = 3,
 
     /**
-     * Indicates network personalization of PUK lock(refer 3GPP TS 22.022 [33]).
+     * Network PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1472,7 +1376,7 @@ declare namespace observer {
     SIM_PN_PUK = 4,
 
     /**
-     * Indicates network subset personalization of PIN lock(refer 3GPP TS 22.022 [33]).
+     * Subnet PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1481,7 +1385,7 @@ declare namespace observer {
     SIM_PU_PIN = 5,
 
     /**
-     * Indicates network subset personalization of PUK lock(refer 3GPP TS 22.022 [33]).
+     * Subnet PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1490,7 +1394,7 @@ declare namespace observer {
     SIM_PU_PUK = 6,
 
     /**
-     * Indicates service provider personalization of PIN lock(refer 3GPP TS 22.022 [33]).
+     * Service provider PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1499,7 +1403,7 @@ declare namespace observer {
     SIM_PP_PIN = 7,
 
     /**
-     * Indicates service provider personalization of PUK lock(refer 3GPP TS 22.022 [33]).
+     * Service provider PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1508,7 +1412,7 @@ declare namespace observer {
     SIM_PP_PUK = 8,
 
     /**
-     * Indicates corporate personalization of PIN lock(refer 3GPP TS 22.022 [33]).
+     * Organization PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1517,7 +1421,7 @@ declare namespace observer {
     SIM_PC_PIN = 9,
 
     /**
-     * Indicates corporate personalization of PUK lock(refer 3GPP TS 22.022 [33]).
+     * Organization PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1526,7 +1430,7 @@ declare namespace observer {
     SIM_PC_PUK = 10,
 
     /**
-     * Indicates SIM/USIM personalization of PIN lock(refer 3GPP TS 22.022 [33]).
+     * SIM PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1535,7 +1439,7 @@ declare namespace observer {
     SIM_SIM_PIN = 11,
 
     /**
-     * Indicates SIM/USIM personalization of PUK lock(refer 3GPP TS 22.022 [33]).
+     * SIM PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 8 dynamic
@@ -1545,11 +1449,18 @@ declare namespace observer {
   }
 
   /**
-   * Subscribe to sim active state change events using a callback-based approach as an asynchronous method.
+   * Registers an observer for SIM card activation state changes. This API uses an asynchronous callback to return the
+   * execution result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the ID of the target card slot.
-   * @param { Callback< boolean> } callback - Indicates the callback for sim active state
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2.
+   * @param { Callback< boolean> } callback - Callback function used to return whether the SIM card is activated.
+   *     <br>- **true**: activated.
+   *     <br>- **false**: not activated.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
@@ -1562,10 +1473,15 @@ declare namespace observer {
   function onGetSimActiveState(slotId: int, callback: Callback<boolean>): void;
 
   /**
-   * Cancel callback when the sim active state is updated.
+   * Unregisters an observer for SIM card activation state changes. This API uses an asynchronous callback to return the
+   * execution result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { Callback<boolean> } [callback] - Indicates the callback to unsubscribe from the simActiveStateChange event.
+   * @param { Callback<boolean> } [callback] - Callback function used to return whether the SIM card is activated.
+   *     <br>- **true**: activated.
+   *     <br>- **false**: not activated.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
