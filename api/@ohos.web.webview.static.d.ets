@@ -4026,6 +4026,21 @@ declare namespace webview {
         getSurfaceId(): string;
 
         /**
+         * Set the URL trust list for the ArkWeb.
+         * When the URL trust list has been set, only the URLs in the list can be accessed.
+         *
+         * @param { string } urlTrustList - the URL trust list in JSON format.
+         *     An empty string means that all URLs are allowed to access.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+         * <br>2. Parameter string is too long. 3.Parameter verification failed.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        setUrlTrustList(urlTrustList: string): void;
+
+        /**
          * Sets the URL trust list for the ArkWeb.
          *
          * <p><strong>API Note</strong>:<br>
@@ -4072,22 +4087,7 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 24 static
          */
-        setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
-
-        /**
-         * Set the URL trust list for the ArkWeb.
-         * When the URL trust list has been set, only the URLs in the list can be accessed.
-         *
-         * @param { string } urlTrustList - the URL trust list in JSON format.
-         *     An empty string means that all URLs are allowed to access.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Parameter string is too long. 3.Parameter verification failed.
-         * @throws { BusinessError } 17100001 - Init error.
-         *     The WebviewController must be associated with a Web component.
-         * @syscap SystemCapability.Web.Webview.Core
-         * @since 23 static
-         */
-        setUrlTrustList(urlTrustList: string): void;
+        setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void;
 
         /**
          * Sets a path list. When the file protocol accesses resources in the path list, cross-origin access to local
