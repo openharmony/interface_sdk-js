@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import { window } from '@kit.ArkUI';
+import window from './@ohos.window';
 import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * The **Picker** module encapsulates APIs such as **DocumentViewPicker**, **AudioViewPicker**, and **PhotoViewPicker** 
@@ -49,7 +49,7 @@ declare namespace picker {
   export enum PhotoViewMIMETypes {
     /**
      * Image.
-     * 
+     *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice [since 11]
      * @since 9 dynamiconly
@@ -93,7 +93,7 @@ declare namespace picker {
   class PhotoSelectOptions {
     /**
      * Media file types to select. If this parameter is not specified, **IMAGE_VIDEO_TYPE** is used by default.
-     * 
+     *
      * **Note**: This API is supported since API version 9 and deprecated since API version 18.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -128,9 +128,9 @@ declare namespace picker {
    */
   class PhotoSelectResult {
     /**
-     * URIs of the media files selected. This URI array can be used only by 
+     * URIs of the media files selected. This URI array can be used only by
      * [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
-     * . For details, see 
+     * . For details, see
      * [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -142,7 +142,7 @@ declare namespace picker {
     photoUris: Array<string>;
 
     /**
-     * Whether the selected image is the original one. The value **true** means the selected image is the original one; 
+     * Whether the selected image is the original one. The value **true** means the selected image is the original one;
      * the value **false** means the opposite.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -164,7 +164,7 @@ declare namespace picker {
    */
   class PhotoSaveOptions {
     /**
-     * File name of the image or video to save. If this parameter is not specified, the user needs to enter the file 
+     * File name of the image or video to save. If this parameter is not specified, the user needs to enter the file
      * name.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -176,8 +176,8 @@ declare namespace picker {
   }
 
   /**
-   * Provides APIs for selecting and saving images or videos. You are advised to use 
-   * [PhotoViewPicker of PhotoAccessHelper]{@link @ohos.file.photoAccessHelper:photoAccessHelper} to select a file. 
+   * Provides APIs for selecting and saving images or videos. You are advised to use
+   * [PhotoViewPicker of PhotoAccessHelper]{@link @ohos.file.photoAccessHelper:photoAccessHelper} to select a file.
    * Before using the APIs of **PhotoViewPicker**, you need to create a **PhotoViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -213,8 +213,8 @@ declare namespace picker {
     constructor(context: Context);
 
     /**
-     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to 
-     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to 
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to
+     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to
      * select.
      *
      * @param { PhotoSelectOptions } option - Options for selecting images or videos. If this parameter is not
@@ -233,8 +233,8 @@ declare namespace picker {
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
     /**
-     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous 
-     * callback to return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of 
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous
+     * callback to return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of
      * the files to select.
      *
      * @param { PhotoSelectOptions } option - Options for selecting images or videos.
@@ -252,7 +252,7 @@ declare namespace picker {
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous 
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
@@ -269,7 +269,7 @@ declare namespace picker {
     select(callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses a promise to 
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses a promise to
      * return the result. You can pass in **PhotoSaveOptions** to specify the URIs of the images or videos to save.
      *
      * @param { PhotoSaveOptions } option - Options for saving images or videos. If this parameter is not specified, a
@@ -285,8 +285,8 @@ declare namespace picker {
     save(option?: PhotoSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous 
-     * callback to return the result. You can pass in **PhotoSaveOptions** to specify the URIs of the images or videos 
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous
+     * callback to return the result. You can pass in **PhotoSaveOptions** to specify the URIs of the images or videos
      * to save.
      *
      * @param { PhotoSaveOptions } option - Options for saving images or videos.
@@ -302,12 +302,12 @@ declare namespace picker {
     save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous 
+     * Starts a **photoPicker** page for the user to save one or more images or videos. This API uses an asynchronous
      * callback to return the URIs of the images or videos to save.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos
      *     saved.
-     *     <br>**Note**: This API saves files in **Files**, not in **Gallery**. For details about how to use the 
+     *     <br>**Note**: This API saves files in **Files**, not in **Gallery**. For details about how to use the
      *     returned URIs, see [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9 dynamiconly
@@ -381,8 +381,8 @@ declare namespace picker {
 
     /**
      * Download mode.
-     * 
-     * **Note**: The directories created in DOWNLOAD mode are used only to save files. There is no access isolation 
+     *
+     * **Note**: The directories created in DOWNLOAD mode are used only to save files. There is no access isolation
      * between directories. You are advised not to save sensitive application data.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -462,6 +462,27 @@ declare namespace picker {
    * @since 9 dynamic
    */
   class DocumentSelectOptions {
+
+    /**
+     * Maximum number of files that can be selected.
+     *
+     * In API version 20 and earlier versions, a maximum of 500 files can be selected at a time.
+     * The default value is 500. Directories can be selected only on devices that have the system capability.
+     * A maximum of one directory can be selected at a time.
+     *
+     * In API version 21 and later versions, the maximum number of files that can be selected at a time is not limited.
+     * Due to system capability restrictions, if too many files are selected at a time, the functionality may be
+     * abnormal or the processing performance may be poor. It is recommended that a maximum of 10,000 files be selected
+     * at a time.
+     *
+     * In API version 23 and later versions, the maximum number of files that can be selected at a time is not limited.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
+     */
+    maxSelectNumber?: number;
     /**
      * URI of the file or directory that can be selected. It is empty by
      * default (the recently opened page is displayed).
@@ -474,18 +495,18 @@ declare namespace picker {
     defaultFilePathUri?: string;
 
     /**
-     * Suffix of the document to select. 
-     * 
-     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical 
+     * Suffix of the document to select.
+     *
+     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical
      * bar (|) in between. The first part is the description, and the second part is the document suffix.
      * If there is no "|", the option does not have the description. Each filter suffix can contain multiple suffixes,
      * separated by a comma (,). The length of the input array cannot exceed 100 characters, for example,
      * ['Images (.png, .jpg)|.png,.jpg', 'Documents|.txt', 'Videos|.mp4', '.pdf'].
-     * 
-     * By default, no filtering is performed, that is, all documents are selected. The wildcard ['All files (*.*)|.*'] 
-     * can be used on 2-in-1 devices to display all files. (Mobile phones can support this configuration since API 
+     *
+     * By default, no filtering is performed, that is, all documents are selected. The wildcard ['All files (*.*)|.*']
+     * can be used on 2-in-1 devices to display all files. (Mobile phones can support this configuration since API
      * version 17.)
-     * 
+     *
      * This parameter is available only to the devices that have the required system capability.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -494,27 +515,6 @@ declare namespace picker {
      * @since 10 dynamic
      */
     fileSuffixFilters?: Array<string>;
-
-    /**
-     * Maximum number of files that can be selected.
-     * 
-     * In API version 20 and earlier versions, a maximum of 500 files can be selected at a time.
-     * The default value is 500. Directories can be selected only on devices that have the system capability.
-     * A maximum of one directory can be selected at a time.
-     * 
-     * In API version 21 and later versions, the maximum number of files that can be selected at a time is not limited. 
-     * Due to system capability restrictions, if too many files are selected at a time, the functionality may be 
-     * abnormal or the processing performance may be poor. It is recommended that a maximum of 10,000 files be selected 
-     * at a time.
-     * 
-     * In API version 23 and later versions, the maximum number of files that can be selected at a time is not limited.
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @crossplatform [since 12]
-     * @atomicservice [since 12]
-     * @since 10 dynamic
-     */
-    maxSelectNumber?: number;
 
     /**
      * Type of the document selected by Picker. The default value is **FILE** (file type).
@@ -528,14 +528,14 @@ declare namespace picker {
 
     /**
      * Whether to start Picker.
-     * 
-     * Default value: **false**. If **authMode** is **true**, **defaultFilePathUri** is mandatory, which specifies the 
+     *
+     * Default value: **false**. If **authMode** is **true**, **defaultFilePathUri** is mandatory, which specifies the
      * URI of the file allowed to access.
-     * 
+     *
      * This parameter can be used on 2-in-1 devices but has no effect on other devices.
-     * 
+     *
      * This API can be used in atomic services since API version 12.
-     * 
+     *
      * SystemCapability.FileManagement.UserFileService.FolderSelection
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
@@ -546,11 +546,11 @@ declare namespace picker {
 
     /**
      * Whether to enable the batch authorization mode.
-     * 
-     * The value **false** (default) means to disable the batch authorization mode; the value **true** means to enable 
-     * the batch authorization mode. The **multiUriArray** parameter only takes effect when **multiAuthMode** is set to 
+     *
+     * The value **false** (default) means to disable the batch authorization mode; the value **true** means to enable
+     * the batch authorization mode. The **multiUriArray** parameter only takes effect when **multiAuthMode** is set to
      * **true**.
-     * 
+     *
      * This parameter can be used on smartphones but has no effect on other devices.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -563,7 +563,7 @@ declare namespace picker {
      * Whether to pass the URIs for batch authorization (only files are supported). This parameter is used together with
      * **multiAuthMode** and does not take effect when **multiAuthMode** is set to **false**. By default, this parameter
      * is left empty. (The files displayed on the batch authorization page are empty.)
-     * 
+     *
      * This parameter can be used on smartphones but has no effect on other devices.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -573,10 +573,10 @@ declare namespace picker {
     multiUriArray?: Array<string>;
 
     /**
-     * Whether to enable the aggregation view mode for a file management application. The default value is **DEFAULT**, 
-     * indicating that this parameter does not take effect and the aggregation view is disabled. If this parameter is 
+     * Whether to enable the aggregation view mode for a file management application. The default value is **DEFAULT**,
+     * indicating that this parameter does not take effect and the aggregation view is disabled. If this parameter is
      * set to a value other than **DEFAULT**, other parameters do not take effect.
-     * 
+     *
      * This parameter can be used on smartphones but has no effect on other devices.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -586,7 +586,7 @@ declare namespace picker {
     mergeMode?: MergeTypeMode;
 
     /**
-     * Whether to support encryption (only files are supported). The default value is **false**. If this parameter is 
+     * Whether to support encryption (only files are supported). The default value is **false**. If this parameter is
      * set to **true**, files can be encrypted on the Picker page.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -597,8 +597,8 @@ declare namespace picker {
 
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
-     * is set to specific theme color properties, such as 
-     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched 
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
@@ -640,7 +640,7 @@ declare namespace picker {
     newFileNames?: Array<string>;
 
     /**
-     * URI of the file or directory that can be selected. It is empty by 
+     * URI of the file or directory that can be selected. It is empty by
      * default (the recently opened page is displayed).
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -651,10 +651,10 @@ declare namespace picker {
     defaultFilePathUri?: string;
 
     /**
-     * Document suffix of the document to save. 
-     * 
-     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical 
-     * bar (|) in between. The first part is the description, and the second part is the document suffix. 
+     * Document suffix of the document to save.
+     *
+     * The value is a string array. Each element specifies an option, which includes at most two parts with a vertical
+     * bar (|) in between. The first part is the description, and the second part is the document suffix.
      * If there is no "|", the option does not have the description. By default, all documents are saved.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -664,8 +664,8 @@ declare namespace picker {
     fileSuffixChoices?: Array<string>;
     /**
      * Mode for starting Picker.
-     * 
-     * Default value: **DEFAULT**. If **pickerMode** is **DOWNLOAD**, the settings of **newFileNames**, 
+     *
+     * Default value: **DEFAULT**. If **pickerMode** is **DOWNLOAD**, the settings of **newFileNames**,
      * **defaultFilePathUri**, and **fileSuffixChoices** do not take effect.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -676,8 +676,8 @@ declare namespace picker {
 
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
-     * is set to specific theme color properties, such as 
-     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched 
+     * is set to specific theme color properties, such as
+     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
@@ -688,8 +688,8 @@ declare namespace picker {
     themeColor?: CustomColors;
 
     /**
-     * A Boolean value indicates whether to pre-create empty files when saving files. The default value is **true**, in 
-     * which case the Picker pre-creates empty files and returns an array of the file URIs. If it is set to **false**, 
+     * A Boolean value indicates whether to pre-create empty files when saving files. The default value is **true**, in
+     * which case the Picker pre-creates empty files and returns an array of the file URIs. If it is set to **false**,
      * no empty files are pre-created, and only an array of the file URIs is returned.
      *
      * @default true
@@ -816,11 +816,11 @@ declare namespace picker {
      * @since 23 static
      */
     isEncryptionSupported?: boolean;
-    
+
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
-     * is set to specific theme color properties, such as 
-     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched 
+     * is set to specific theme color properties, such as
+     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
@@ -849,7 +849,7 @@ declare namespace picker {
    * @stagemodelonly
    * @since 23 static
    */
-  interface DocumentSaveOptions {  
+  interface DocumentSaveOptions {
     /**
      * Name of the document to save.
      * If this parameter is not specified, the user needs to enter the the document name.
@@ -893,8 +893,8 @@ declare namespace picker {
 
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
-     * is set to specific theme color properties, such as 
-     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched 
+     * is set to specific theme color properties, such as
+     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
@@ -917,7 +917,7 @@ declare namespace picker {
   }
 
   /**
-   * Provides APIs for selecting and saving documents in different formats. Before using the APIs of 
+   * Provides APIs for selecting and saving documents in different formats. Before using the APIs of
    * **DocumentViewPicker**, you need to create a **DocumentViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -928,7 +928,7 @@ declare namespace picker {
    */
   class DocumentViewPicker {
     /**
-     * A constructor used to create a **DocumentViewPicker** instance. This constructor is not recommended due to the 
+     * A constructor used to create a **DocumentViewPicker** instance. This constructor is not recommended due to the
      * potential risk of operation failure.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -939,8 +939,8 @@ declare namespace picker {
     constructor();
 
     /**
-     * A constructor used to create a **DocumentViewPicker** instance. This constructor is recommended. For details 
-     * about how to obtain the context, see 
+     * A constructor used to create a **DocumentViewPicker** instance. This constructor is recommended. For details
+     * about how to obtain the context, see
      * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
      *
      * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
@@ -953,9 +953,9 @@ declare namespace picker {
     constructor(context: Context);
 
     /**
-     * A constructor used to create a **DocumentViewPicker** object in a window created by an application. In other 
+     * A constructor used to create a **DocumentViewPicker** object in a window created by an application. In other
      * scenarios, you are advised to use **constructor(context: Context)** to create a **DocumentViewPicker** object.
-     * 
+     *
      * > **NOTE**
      * >
      * > This method is supported on 2-in-1 devices and tablets since API version 19.
@@ -970,7 +970,7 @@ declare namespace picker {
     constructor(context: Context, window: window.Window);
 
     /**
-     * Starts a **documentPicker** page for the user to select one or more documents. This API uses a promise to return 
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses a promise to return
      * the result.
      *
      * @param { DocumentSelectOptions } option - Options for selecting documents. If this parameter is not specified,
@@ -987,7 +987,7 @@ declare namespace picker {
     select(option?: DocumentSelectOptions): Promise<Array<string>>;
 
     /**
-     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous 
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { DocumentSelectOptions } option - Options for selecting documents.
@@ -1003,7 +1003,7 @@ declare namespace picker {
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous 
+     * Starts a **documentPicker** page for the user to select one or more documents. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents selected.
@@ -1018,7 +1018,7 @@ declare namespace picker {
     select(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a **documentPicker** page for the user to save one or more documents. This API uses a promise to return 
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses a promise to return
      * the result.
      *
      * @param { DocumentSaveOptions } option - Options for saving the documents. If this parameter is not specified, a
@@ -1035,12 +1035,12 @@ declare namespace picker {
     save(option?: DocumentSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous 
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { DocumentSaveOptions } option - Options for saving the documents.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
-     *     <br>**Note**: For details about how to use the returned URIs, see 
+     *     <br>**Note**: For details about how to use the returned URIs, see
      *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform [since 12]
@@ -1051,11 +1051,11 @@ declare namespace picker {
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous 
+     * Starts a **documentPicker** page for the user to save one or more documents. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the documents saved.
-     *     <br>**Note**: For details about how to use the returned URIs, see 
+     *     <br>**Note**: For details about how to use the returned URIs, see
      *     [Using a Document URI](docroot://file-management/user-file-uri-intro.md#using-a-document-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform [since 12]
@@ -1067,12 +1067,12 @@ declare namespace picker {
 
     /**
      * Obtains the index of the file suffix type of the file saved.
-     * This method takes effect only when used with 
+     * This method takes effect only when used with
      * [save()]{@link picker.DocumentViewPicker#save(option?: DocumentSaveOptions)}.
-     * This method can be used only after [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions} is 
+     * This method can be used only after [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions} is
      * configured.
-     * The index (number) returned by this method indicates the location of the file suffix specified in 
-     * [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions}. If no file suffix is specified, 
+     * The index (number) returned by this method indicates the location of the file suffix specified in
+     * [DocumentSaveOptions.fileSuffixChoices]{@link picker.DocumentSaveOptions}. If no file suffix is specified,
      * **getSelectedIndex()** returns **-1**.
      *
      * @returns { int } Subscript (number) of the selected suffix type in
@@ -1097,9 +1097,9 @@ declare namespace picker {
   class AudioSelectOptions {
     /**
      * Maximum number of audio clips that can be selected.
-     * 
+     *
      * Default value: **1**
-     * 
+     *
      * Value range: 1 to 500
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -1117,7 +1117,7 @@ declare namespace picker {
    * @stagemodelonly
    * @since 23 static
    */
-  interface AudioSelectOptions {  
+  interface AudioSelectOptions {
     /**
      * Maximum number of audio clips that can be selected.
      * Default value: 1. Value range: 1 to 500
@@ -1155,7 +1155,7 @@ declare namespace picker {
    * @stagemodelonly
    * @since 23 static
    */
-  interface AudioSaveOptions {  
+  interface AudioSaveOptions {
     /**
      * File names of the audio clips to save.
      * If this parameter is not specified, the user needs to enter the file names.
@@ -1167,7 +1167,7 @@ declare namespace picker {
     newFileNames?: Array<string>;
   }
   /**
-   * Provides APIs for selecting and saving audio clips. Before using the APIs of **AudioViewPicker**, you need to 
+   * Provides APIs for selecting and saving audio clips. Before using the APIs of **AudioViewPicker**, you need to
    * create an **AudioViewPicker** instance.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -1178,7 +1178,7 @@ declare namespace picker {
    */
   class AudioViewPicker {
     /**
-     * A constructor used to create an **AudioViewPicker** instance. This constructor is not recommended due to the 
+     * A constructor used to create an **AudioViewPicker** instance. This constructor is not recommended due to the
      * potential risk of operation failure.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -1189,8 +1189,8 @@ declare namespace picker {
     constructor();
 
     /**
-     * A constructor used to create an **AudioViewPicker** instance. This constructor is recommended. For details about 
-     * how to obtain the context, see 
+     * A constructor used to create an **AudioViewPicker** instance. This constructor is recommended. For details about
+     * how to obtain the context, see
      * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
      *
      * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
@@ -1203,7 +1203,7 @@ declare namespace picker {
     constructor(context: Context);
 
     /**
-     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses a promise to return 
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses a promise to return
      * the result.
      *
      * @param { AudioSelectOptions } option - Options for selecting audio clips. If this parameter is not specified, the
@@ -1220,13 +1220,13 @@ declare namespace picker {
     select(option?: AudioSelectOptions): Promise<Array<string>>;
 
     /**
-     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous 
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { AudioSelectOptions } option - Options for selecting audio clips.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips
      *     selected.
-     *     <br>**Note**: For details about how to use the returned URIs, see 
+     *     <br>**Note**: For details about how to use the returned URIs, see
      *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform [since 12]
@@ -1236,13 +1236,13 @@ declare namespace picker {
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous 
+     * Starts an **audioPicker** page for the user to select one or more audio clips. This API uses an asynchronous
      * callback to return the result.
      * **System capability**: SystemCapability.FileManagement.UserFileService
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips
      *     selected.
-     *     <br>**Note**: For details about how to use the returned URIs, see 
+     *     <br>**Note**: For details about how to use the returned URIs, see
      *     [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform [since 12]
@@ -1252,7 +1252,7 @@ declare namespace picker {
     select(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or 
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
      * more audio clips. This API uses a promise to return the result.
      *
      * @param { AudioSaveOptions } option - Options for saving audio clips. If this parameter is not specified, an
@@ -1269,7 +1269,7 @@ declare namespace picker {
     save(option?: AudioSaveOptions): Promise<Array<string>>;
 
     /**
-     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or 
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
      * more audio clips. This API uses an asynchronous callback to return the result.
      *
      * @param { AudioSaveOptions } option - Options for saving audio clips.
@@ -1284,7 +1284,7 @@ declare namespace picker {
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or 
+     * Starts an **audioPicker** page (currently, a **documentPicker** page is displayed) for the user to save one or
      * more audio clips. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
