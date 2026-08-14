@@ -2771,7 +2771,7 @@ declare namespace i18n {
     latitude: double;
  
     /**
-     * 时区城市经度参考信息。
+     * 时区城市的经度信息，十进制度数(°)。
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
