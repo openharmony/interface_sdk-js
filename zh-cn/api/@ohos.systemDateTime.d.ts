@@ -80,8 +80,8 @@ declare namespace systemDateTime {
    * 设置系统时间，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - 目标时间戳(ms)。
-   * @param { AsyncCallback<void> } callback - 回调函数。
+   * @param { long } time - 目标时间戳(ms)，且必须>0。
+   * @param { AsyncCallback<void> } callback - 回调函数。设置系统时间的结果回调，设置成功时err为undefined，设置失败时err为错误对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -100,7 +100,7 @@ declare namespace systemDateTime {
    * 设置系统时间，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - 目标时间戳(ms)。
+   * @param { long } time - 目标时间戳(ms)，且必须>0。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -307,7 +307,7 @@ declare namespace systemDateTime {
    *
    * @permission ohos.permission.SET_TIME
    * @param { Date } date - 目标日期，且必须>0。
-   * @param { AsyncCallback<void> } callback - 回调函数。
+   * @param { AsyncCallback<void> } callback - 回调函数。设置系统日期的结果回调，设置成功时err为undefined，设置失败时err为错误对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:

@@ -128,9 +128,8 @@ declare namespace systemTime {
   /**
    * Obtains the time elapsed since the Unix epoch. This API uses a promise to return the result.
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>The
-   *     default value is false.<br>- **true**: The result is in nanoseconds.<br>- **false**: The result is in
-   *     milliseconds.
+   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>- **true**: The result is in nanoseconds.
+   *     <br>- **false**: The result is in milliseconds.
    * @returns { Promise<number> } Promise used to return the time elapsed since the Unix epoch.
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
@@ -216,9 +215,8 @@ declare namespace systemTime {
    * Obtains the time elapsed since system startup, including the deep sleep time. This API uses a promise to return the
    * result.
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>The
-   *     default value is false.<br>- **true**: The result is in nanoseconds.<br>- **false**: The result is in
-   *     milliseconds.
+   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>- **true**: The result is in nanoseconds.
+   *     <br>- **false**: The result is in milliseconds.
    * @returns { Promise<number> } Promise used to return the time elapsed since system startup, including the deep sleep
    *     time.
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
