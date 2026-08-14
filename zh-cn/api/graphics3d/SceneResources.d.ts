@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 本模块提供ArkGraphics 3D中常用的基本资源类型，包括着色器、材质、网格、动画、环境或图片等用于构建3D场景的各类资源。
+ * @file
  * @kit ArkGraphics3D
  */
 
