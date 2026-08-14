@@ -50,6 +50,7 @@ declare namespace reminderAgentManager {
    * @param { ReminderRequest } reminderReq - 需要发布的代理提醒实例。
    * @param { AsyncCallback<int> } callback - 回调函数。
    *     当代理提醒发布成功，err为undefined，data为当前发布提醒的id；否则为错误对象。
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
@@ -72,6 +73,7 @@ declare namespace reminderAgentManager {
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - 需要发布的代理提醒实例。
    * @returns { Promise<int> } Promise对象，返回当前发布提醒的id。
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
