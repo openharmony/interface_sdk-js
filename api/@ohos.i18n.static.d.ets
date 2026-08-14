@@ -2185,19 +2185,21 @@ declare namespace i18n {
     zoneDisplayName: string;
 
     /**
-     * Latitude of the city.
+     * Latitude info of time zone city in decimal degrees (°).
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
+     * @stagemodelonly
      * @since 26.1.0 static
      */
     latitude: double;
 
     /**
-     * Longitude of the city.
+     * Longitude info of time zone city in decimal degrees (°).
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
+     * @stagemodelonly
      * @since 26.1.0 static
      */
     longitude: double;
