@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Defines 3D post process related interfaces
+ * @file 本模块提供ArkGraphics 3D中的色调映射等图像后处理方法。
  * @kit ArkGraphics3D
  */
 
 /**
- * 色调映射类型枚举.
+ * 色调映射类型枚举。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -28,7 +28,7 @@
  */
 export enum ToneMappingType {
   /**
-   * ACES色调映射类型.
+   * ACES色调映射类型，基于Academy Color Encoding System标准，将高动态范围（HDR）图像映射到低动态范围（LDR），适用于追求电影级色彩还原的场景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -37,7 +37,7 @@ export enum ToneMappingType {
   ACES = 0,
 
   /**
-   * ACES_2020色调映射类型.
+   * ACES_2020色调映射类型，基于ACES 2020标准，提供更广的色域支持，适用于需要高色彩精度的HDR渲染场景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -46,7 +46,7 @@ export enum ToneMappingType {
   ACES_2020 = 1,
 
   /**
-   * FILMIC色调映射类型.
+   * FILMIC色调映射类型，模拟胶片曝光响应曲线，高光过渡柔和自然，适用于追求写实风格和电影质感的一般3D场景。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -56,7 +56,7 @@ export enum ToneMappingType {
 }
 
 /**
- * 定义色调映射参数.
+ * 色调映射设置。
  *
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ export enum ToneMappingType {
  */
 export interface ToneMappingSettings {
   /**
-   * 色调映射类型.
+   * 色调映射类型，默认值为undefined。
    *
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -75,7 +75,7 @@ export interface ToneMappingSettings {
   type?: ToneMappingType;
 
   /**
-   * 色调映射曝光度.
+   * 曝光度，取值大于0，默认值为undefined。
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -86,7 +86,7 @@ export interface ToneMappingSettings {
 }
 
 /**
- * 定义泛光参数.
+ * 泛光设置。当[RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
  * 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -95,7 +95,7 @@ export interface ToneMappingSettings {
  */
 export interface BloomSettings {
   /**
-   * 泛光硬阈值.
+   * 硬阈值，取值范围是非负数，默认值为1.0。
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -105,7 +105,7 @@ export interface BloomSettings {
   thresholdHard?: double;
 
   /**
-   * 泛光软阈值.
+   * 软阈值，取值范围是非负数，默认值为2.0。
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,9 +115,7 @@ export interface BloomSettings {
   thresholdSoft?: double;
 
   /**
-   * 缩放因子. 控制缩放和泛光扩散量.
-   * 减少降缩放和上缩放步骤.
-   * 取值范围0-1. 值为0.5时减半缩放步骤.
+   * 缩放因子，取值范围大于0，默认值为1.0。
    * 
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -127,7 +125,7 @@ export interface BloomSettings {
   scaleFactor?: double;
 
   /**
-   * 扩散（泛光扩散量）. (1.0 full spread / default).
+   * 扩散量，取值范围大于0，默认值为1.0。
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -138,7 +136,7 @@ export interface BloomSettings {
 }
 
 /**
- * 定义暗角参数.
+ * 边缘暗角设置。
  *
  * @typedef VignetteSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -147,8 +145,7 @@ export interface BloomSettings {
  */
 export interface VignetteSettings {
   /**
-   * 控制暗角在[0, 1]之间的圆度.
-   * 较低的值将使暗角效果更接近方形.
+   * 暗角的圆度，取值范围为[0, 1]，取值为0时暗角形状趋近矩形，取值为1时暗角形状趋近圆形，默认值为sqrt(0.5)（约0.707）。
    *
    * @type { ?double }
    * @default sqrt(0.5)
@@ -159,9 +156,7 @@ export interface VignetteSettings {
   roundness?: double;
 
   /**
-   * 控制暗边或亮边的强度.
-   * 当intensity > 0时，边缘变暗且中心变亮，创建经典暗角效果.
-   * 当intensity < 0时，中心变暗且边缘变亮，产生反向暗角效果.
+   * 作用强度，取值范围为[0, 1]，取值为0时无暗角效果，取值为1时为最大暗角强度，默认值为0.4。
    *
    * @type { ?double }
    * @default 0.4
@@ -173,7 +168,7 @@ export interface VignetteSettings {
 }
 
 /**
- * 定义色晕参数.
+ * 色晕设置。当[RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
  *
  * @typedef ColorFringeSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -182,7 +177,7 @@ export interface VignetteSettings {
  */
 export interface ColorFringeSettings {
   /**
-   * 控制色晕强度.
+   * 作用强度，取值范围为[0, 1]，默认值为0.2。
    *
    * @type { ?double }
    * @default 0.2
@@ -194,7 +189,7 @@ export interface ColorFringeSettings {
 }
 
 /**
- * 定义后处理设置.
+ * 后处理设置，用于配置相机渲染后的图像处理效果，包括色调映射、泛光、边缘暗角和色晕等，作为[Camera](js-apis-inner-scene-nodes.md#camera)的postProcess属性来使用。
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +198,7 @@ export interface ColorFringeSettings {
  */
 export interface PostProcessSettings {
   /**
-   * 后处理设置的色调映射设置.
+   * 色调映射，默认值为undefined。
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +208,7 @@ export interface PostProcessSettings {
   toneMapping?: ToneMappingSettings;
 
   /**
-   * 后处理设置的泛光设置
+   * 泛光，默认值为undefined。
    * 
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,7 +218,7 @@ export interface PostProcessSettings {
   bloom?: BloomSettings;
 
   /**
-   * 后处理设置的暗角设置
+   * 边缘暗角，默认值为undefined。
    *
    * @type { ?VignetteSettings }
    * @default 暗角默认启用
@@ -234,7 +229,7 @@ export interface PostProcessSettings {
   vignette?: VignetteSettings;
 
   /**
-   * 后处理设置的色晕设置
+   * 色晕，默认值为undefined。
    *
    * @type { ?ColorFringeSettings }
    * @default 色晕默认启用
