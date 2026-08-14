@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D node related interfaces
+ * @file 本模块提供ArkGraphics 3D中场景资源节点的类型及操作方法。SceneNode是3D场景的基础构建单元，它允许开发者通过层级结构管理场景中的对象，实现高效的场景组织与交互控制。
  * @kit ArkGraphics3D
  */
 
@@ -24,7 +24,7 @@ import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
- * 定义节点的图层掩码.
+ * 用于定义节点的图层掩码。
  *
  * @interface LayerMask
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -33,10 +33,10 @@ import { PostProcessSettings } from './ScenePostProcessSettings';
  */
 export interface LayerMask {
   /**
-   * 获取图层掩码是否启用.
+   * 获取指定图层下标图层掩码的使能状态。
    *
-   * @param { int } index - 图层掩码
-   * @returns { boolean } 图层掩码是否启用 
+   * @param { int } index - 要使能图层的下标，值域为大于等于0的整数。
+   * @returns { boolean } 返回特定下标的图层是否使能。true表示使用图层掩码，false表示不使用。 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -44,10 +44,10 @@ export interface LayerMask {
   getEnabled(index: int): boolean;
 
   /**
-   * 设置图层掩码是否启用.
+   * 将特定下标的图层掩码使能。
    *
-   * @param { int } index - 图层掩码
-   * @param { boolean } enabled - 图层掩码是否启用
+   * @param { int } index - 要使能图层的下标，值域为大于等于0的整数。
+   * @param { boolean } enabled - 要设置的使能状态。true表示使用图层掩码，false表示不使用。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -56,7 +56,7 @@ export interface LayerMask {
 }
 
 /**
- * 节点类型枚举.
+ * 节点类型枚举。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -65,7 +65,7 @@ export interface LayerMask {
  */
 export enum NodeType {
   /**
-   * 节点是空节点.
+   * 节点是空节点。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -74,7 +74,7 @@ export enum NodeType {
   NODE = 1,
 
   /**
-   * 节点是几何节点.
+   * 几何类型节点。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -83,7 +83,7 @@ export enum NodeType {
   GEOMETRY = 2,
 
   /**
-   * 节点是相机节点.
+   * 相机类型节点。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -92,7 +92,7 @@ export enum NodeType {
   CAMERA = 3,
 
   /**
-   * 节点是光源节点.
+   * 灯光类型节点。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -100,9 +100,8 @@ export enum NodeType {
    */
   LIGHT = 4,
 
-  /** 
-   * 节点是自定义类型.
-   * 通常这意味着该节点是在扩展插件中定义的类型.
+  /**
+   * 自定义类型节点，通常这意味着该节点是在扩展插件中定义的类型。
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -174,7 +173,7 @@ export interface Container<T> {
   /**
    * 获取容器中对象的数量。
    *
-   * @returns { int } 容器的数量
+   * @returns { int } 返回容器中对象个数，取值范围是非负整数。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -183,7 +182,7 @@ export interface Container<T> {
 }
 
 /**
- * 定义Node接口.
+ * 3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](js-apis-inner-scene-resources.md#sceneresource)。
  *
  * @extends SceneResource
  * @interface Node
@@ -193,7 +192,7 @@ export interface Container<T> {
  */
 export interface Node extends SceneResource {
   /**
-   * 节点位置, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 节点位置，单位为世界坐标系下的场景单位（比如cm、m、km等）。
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -203,7 +202,7 @@ export interface Node extends SceneResource {
   position: Position3;
 
   /**
-   * 节点旋转.
+   * 节点旋转角度。
    *
    * @type { Quaternion }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -213,7 +212,7 @@ export interface Node extends SceneResource {
   rotation: Quaternion;
 
   /**
-   * 节点缩放.
+   * 节点缩放。
    *
    * @type { Scale3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -223,7 +222,7 @@ export interface Node extends SceneResource {
   scale: Scale3;
 
   /**
-   * 节点可见性标志.
+   * 节点是否可见。true表示该节点可见，false表示不可见。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -233,7 +232,7 @@ export interface Node extends SceneResource {
   visible: boolean;
 
   /**
-   * 节点类型.
+   * 节点类型。
    *
    * @type { NodeType }
    * @readonly
@@ -244,7 +243,7 @@ export interface Node extends SceneResource {
   readonly nodeType: NodeType;
 
   /**
-   * 节点图层掩码.
+   * 节点的图层掩码。
    *
    * @type { LayerMask }
    * @readonly
@@ -255,7 +254,7 @@ export interface Node extends SceneResource {
   readonly layerMask: LayerMask;
 
   /**
-   * 节点路径.
+   * 节点路径。
    *
    * @type { string }
    * @readonly
@@ -266,7 +265,7 @@ export interface Node extends SceneResource {
   readonly path: string;
 
   /**
-   * 节点的父节点.
+   * 节点的父节点，不存在则为空值。
    *
    * @type { Node | null }
    * @readonly
@@ -277,10 +276,10 @@ export interface Node extends SceneResource {
   readonly parent: Node | null;
 
   /**
-   * 通过路径获取节点.
+   * 根据路径获取节点，如果获取不到则返回空。
    *
    * @param { string } path - 场景节点层次中的路径。每层之间使用'/'符号进行分割。
-   * @returns { Node | null }
+   * @returns { Node | null } 返回节点对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -288,11 +287,7 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点
-   * （如[append]{@link Container.append}、[insertAfter]{@link Container.insertAfter}、
-   * [remove]{@link Container.remove}或[clear]{@link Container.clear}）。
-   * 如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；
-   * 添加新节点才会真正增加子节点数量。
+   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如[append()](#append)、[insertAfter()](#insertafter)、[remove()](#remove)或[clear()](#clear)）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似”无效”；添加新节点才会真正增加子节点数量。
    *
    * @type { Container<Node> }
    * @readonly
@@ -304,7 +299,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * 定义Geometry接口.
+ * 几何节点类型，用于承载可渲染的网格数据，并支持可选的形变功能，继承自[Node](#node)。
  *
  * @extends Node
  * @interface Geometry
@@ -314,7 +309,7 @@ export interface Node extends SceneResource {
  */
 export interface Geometry extends Node {
   /**
-   * 节点的网格.
+   * 网格属性。
    *
    * @type { Mesh }
    * @readonly
@@ -325,7 +320,7 @@ export interface Geometry extends Node {
   readonly mesh: Mesh;
   
   /**
-   * Morpher目标定义.
+   * 可选的形变器，用于为几何体添加基于顶点的形变或动画效果。若未设置，则该几何体不支持形变功能。
    * 
    * @type { ?Morpher }
    * @readonly
@@ -337,7 +332,7 @@ export interface Geometry extends Node {
 }
 
 /**
- * 光源类型枚举.
+ * 光源类型枚举。
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -346,7 +341,7 @@ export interface Geometry extends Node {
  */
 export enum LightType {
   /**
-   * 平行光.
+   * 平行光类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -355,7 +350,7 @@ export enum LightType {
   DIRECTIONAL = 1,
 
   /**
-   * 聚光灯.
+   * 聚光灯类型。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -365,7 +360,7 @@ export enum LightType {
 }
 
 /**
- * 定义Light接口.
+ * 光源，继承自[Node](#node)。
  *
  * @extends Node
  * @interface Light
@@ -375,7 +370,7 @@ export enum LightType {
  */
 export interface Light extends Node {
   /**
-   * 光源类型.
+   * 光源类型。
    *
    * @type { LightType }
    * @readonly
@@ -386,7 +381,7 @@ export interface Light extends Node {
   readonly lightType: LightType;
 
   /**
-   * 光源颜色.
+   * 颜色。
    *
    * @type { Color }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -406,7 +401,7 @@ export interface Light extends Node {
   intensity: double;
 
   /**
-   * 是否投射阴影.
+   * 是否使能阴影。true表示添加阴影，false表示没有阴影效果。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -416,7 +411,7 @@ export interface Light extends Node {
   shadowEnabled: boolean;
 
   /**
-   * 是否启用光源.
+   * 是否使能光源。true表示使用光源，false表示不使用。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -427,14 +422,13 @@ export interface Light extends Node {
 }
 
 /**
- * 聚光灯类型，继承自[Light]{@link Light}。
- * 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。
- * 另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
+ * 聚光灯类型，继承自[Light](#light)。
  *
- * > > **注意：**
+ * 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
+ *
+ * > **注意：**
  * >
- * > 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。
- * > 当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
+ * > 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
  *
  * @extends Light
  * @interface SpotLight
@@ -444,8 +438,7 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。
-   * 设置的值必须大于等于0，小于等于outerAngle。
+   * 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。设置的值必须大于等于0，小于等于outerAngle。
    * 
    * @type { ?double }
    * @default 0
@@ -455,8 +448,7 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。
-   * 设置的值必须大于等于innerAngle，小于等于PI/2。
+   * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。设置的值必须大于等于innerAngle，小于等于PI/2。
    * 
    * @type { ?double }
     * @default PI / 4.0 π/4 弧度
@@ -467,7 +459,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * 定义平行光.
+ * 平行光类型，继承自[Light](#light)。
  *
  * @extends Light
  * @interface DirectionalLight
@@ -479,7 +471,7 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * 定义相机.
+ * 相机类型，Camera继承自[Node](#node)。
  *
  * @extends Node
  * @interface Camera
@@ -489,7 +481,7 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * 相机视场, 单位为弧度.
+   * 视场，单位为弧度（rad），取值范围为(0, π)。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -499,7 +491,7 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * 相机近平面, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 近平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于0。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -509,7 +501,7 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * 相机远平面, 单位为世界坐标系下的场景单位（例如cm、m、km等）.
+   * 远平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于nearPlane。
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -519,7 +511,7 @@ export interface Camera extends Node {
   farPlane: double;
 
   /**
-   * 相机是否启用.
+   * 是否使能相机。true表示使用相机，false表示不使用相机。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -529,7 +521,7 @@ export interface Camera extends Node {
   enabled: boolean;
 
   /**
-   * 相机的后处理设置.
+   * 后处理设置。
    *
    * @type { PostProcessSettings | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -539,7 +531,7 @@ export interface Camera extends Node {
   postProcess: PostProcessSettings | null;
 
   /**
-   * 应用于相机输出的特效.
+   * 应用于相机输出的后处理特效。
    * 
    * @type { Container<Effect> }
    * @readonly
@@ -550,8 +542,7 @@ export interface Camera extends Node {
   readonly effects: Container<Effect>;
 
   /**
-   * 背景清除颜色（环境背景会覆盖此颜色,
-   * 需要BACKGROUND_NONE才能实际生效).
+   * 将渲染目标（render target）清空后的特定颜色。
    *
    * @type { Color | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -561,7 +552,7 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * 控制是否启用MSAA.
+   * 控制MSAA是否使能。true表示使能MSAA，false表示不使能MSAA。若未设置，默认为false。
    *
    * @type { ?boolean }
    * @default false
@@ -572,8 +563,7 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * 控制渲染管线. 
-   * 请注意，如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用.
+   * 控制渲染管线。若未设置，默认使用轻量级前向渲染管线。（如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用。）
    *
    * @type { ?RenderingPipelineType }
     * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT 前向轻量级渲染管线
@@ -585,8 +575,7 @@ export interface Camera extends Node {
 
   /**
    * 从屏幕指定位置发射射线，检测并返回所有命中的3D物体信息。使用Promise异步回调。
-   * @param { Vec2 } viewPosition - 使用屏幕归一化坐标，取值范围为[0, 1]。
-   *     其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。
+   * @param { Vec2 } viewPosition - 使用屏幕归一化坐标，取值范围为[0, 1]。其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。
    * @param { RaycastParameters } params - 射线检测的配置参数（如检测范围、过滤节点等）。
    * @returns { Promise<RaycastResult[]> } - Promise对象，返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -596,16 +585,16 @@ export interface Camera extends Node {
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 
   /**
-   * 获取相机的视图矩阵.
-   * @returns { Mat4x4 } -- 相机的视图矩阵
+   * 获取相机的视图矩阵。
+   * @returns { Mat4x4 } 返回相机的视图矩阵。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
   getViewMatrix(): Mat4x4;
 
   /**
-   * 获取相机的投影矩阵.
-   * @returns { Mat4x4 } -- 相机的投影矩阵
+   * 获取相机的投影矩阵。
+   * @returns { Mat4x4 } 返回相机的投影矩阵。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
