@@ -19,7 +19,7 @@
  */
 
 /**
- * 粒子元组，表示定义一些动画参数的类型。
+ * 粒子元组，表示定义动画参数配置值对的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -46,7 +46,7 @@ declare interface VelocityOptions {
   /**
    * 表示速度大小。
    * 
-   * 默认值：[0.0,0.0]
+   * 默认值：{range:[0.0,0.0]}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -57,9 +57,9 @@ declare interface VelocityOptions {
   speed: ParticleTuple<number, number>;
 
   /**
-   * 表示速度的方向（单位为角度）。以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
+   * 表示速度的方向，单位为度（°）。以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
    * 
-   * 默认值：[0.0,0.0]
+   * 默认值：{range:[0.0,0.0]}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -88,7 +88,7 @@ declare interface AccelerationOptions<
   ACC_ANGLE_UPDATER extends ParticleUpdater
 > {
   /**
-   * 表示加速度大小。
+   * 表示加速度大小。单位：vp/s²
    * 
    * 默认值：{range:[0.0,0.0]}
    *
@@ -101,7 +101,7 @@ declare interface AccelerationOptions<
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
   /**
-   * 表示加速度方向（单位为角度）。
+   * 表示加速度方向，单位为度（°）。
    * 
    * 默认值：{range:[0.0,0.0]}
    *
@@ -148,7 +148,7 @@ interface ParticleOptions<
    * 
    * **说明**：
    * 
-   * 默认值：{ range:[Color.White,Color.White] } 。图片粒子不支持设置颜色。
+   * 默认值：{ range:[Color.White,Color.White] }。图片粒子不支持设置颜色。
    *
    * @default {range:['#FFFFFF','#FFFFFF']}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,7 +192,7 @@ interface ParticleOptions<
    * 
    * **说明**：
    * 
-   * speed表示速度大小。angle表示速度的方向（单位为角度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
+   * speed表示速度大小。angle表示速度的方向（单位：度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
    * 
    * 默认值：{ speed:[0.0,0.0],angle:[0.0,0.0] }
    *
@@ -212,7 +212,7 @@ interface ParticleOptions<
    * 
    * **说明**：
    * 
-   * speed表示加速度大小，angle表示加速度方向（单位为角度）。
+   * speed表示加速度大小，angle表示加速度方向（单位：度）。
    * 
    * 默认值：{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} }
    *
@@ -228,7 +228,7 @@ interface ParticleOptions<
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
   /**
-   * 粒子自旋角度配置。 
+   * 粒子自旋角度配置，单位为度（°）。 
    * 
    * 默认值：{range:[0.0,0.0]}
    * 
@@ -258,6 +258,8 @@ interface PointParticleParameters {
    * 粒子半径。
    * 
    * 默认值：0，小于0时取默认值0。
+   * 
+   * 取值范围：[0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -294,7 +296,7 @@ interface ImageParticleParameters {
   src: ResourceStr;
 
   /**
-   * 图像尺寸。
+   * 图像尺寸，第一个参数为图像宽度，第二个参数为图像高度。
    * 
    * 默认值：[0, 0]
    *
@@ -310,6 +312,8 @@ interface ImageParticleParameters {
 
   /**
    * 图片显示模式。
+   * 
+   * 默认值：ImageFit.Cover
    *
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -374,12 +378,12 @@ interface EmitterProperty {
    * @atomicservice
    * @since 12 dynamic
    */
-  index : number;
+  index: number;
 
   /**
    * 发射器发射速率，即每秒发射粒子的数量。
    * 
-   * 未传入时保持其当前的发射速率， 传入值小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。
+   * 未传入时保持其当前的发射速率， 传入值小于0时取默认值5。emitRate值超过5000时会严重影响性能，可能导致帧率大幅下降，建议设置参数小于5000。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -390,9 +394,9 @@ interface EmitterProperty {
   emitRate?: number;
 
   /**
-   * 发射器位置的数组，只支持number类型。
+   * 发射器位置，只支持number类型。
    * 
-   * 未传入时保持其当前的发射器位置。需传入两个有效参数，若其中一个为异常值，则position不生效。
+   * 未传入时保持其当前的发射器位置。需传入两个有效参数，若其中一个为异常值，则position不生效。当对应index的发射器形状为环形（ANNULUS）时，position不生效。
    * 
    * x、y的取值范围：(-∞, +∞)。
    *
@@ -405,9 +409,9 @@ interface EmitterProperty {
   position?: PositionT<number>;
 
   /**
-   * 发射窗口的大小，只支持number类型。
+   * 发射器的大小，只支持number类型。
    * 
-   * 未传入时保持其当前发射窗口大小。需传入两个有效参数且都大于0，若其中一个为异常值，则size不生效。
+   * 未传入时保持其当前发射器大小。需传入两个有效参数且都大于0，若其中一个为异常值，则size不生效。当对应index的发射器形状为环形（ANNULUS）时，size不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,15 +422,15 @@ interface EmitterProperty {
   size?: SizeT<number>;
 
   /**
-   * 环形发射器参数。需要对应index的发射器形状为环形才生效。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  annulusRegion?: ParticleAnnulusRegion;
+    * 环形发射器参数。需要对应index的发射器形状为环形才生效，且对于环形发射器，position和size不生效。
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 20 dynamic
+    */
+   annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -444,7 +448,7 @@ interface EmitterProperty {
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
-   * 表示粒子类型，可以选择图片或者是点。
+   * 表示粒子类型，可以选择图片或点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -471,6 +475,10 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 
   /**
    * 表示发射的粒子总数，count取值>=-1,当count为-1表示粒子总数无限大。
+   * 
+   * **说明：**
+   * 
+   * 当count为-1时发射器将持续发射粒子，如果不需要持续产生大量粒子，建议不要将count设置为-1，可能对性能造成较大影响，建议配合合理的emitRate和lifetime设置以避免性能问题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -483,7 +491,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
    * 表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1。当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。
    * 
-   * **说明**：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。
+   * **说明：**如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。
    *
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -495,8 +503,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   lifetime?: number;
 
   /**
-   * 表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取
-   * 值范围为0到正无穷。设置为负值时取默认值。
+   * 表示粒子生命周期取值范围，单位：毫秒(ms)。设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。
+   * lifetimeRange默认值为0，取值范围为0到正无穷。设置为负值时取默认值。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -521,7 +529,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   /**
    * 粒子配置。
    * 
-   * -type表示粒子类型，可以选择图片或者是点。
+   * -type表示粒子类型，可以选择图片或点。
    * 
    * -config表示对应类型的配置。
    * 
@@ -550,7 +558,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   particle: EmitterParticleOptions<PARTICLE>;
 
   /**
-   * 发射器发射速率（即每秒发射粒子数）。 默认值：5，小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。
+   * 发射器发射速率（即每秒发射粒子数）。 默认值：5，小于0时取默认值5。emitRate值超过5000时会严重影响性能，可能导致帧率大幅下降，建议设置参数小于5000。
    *
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -576,7 +584,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   shape?: ParticleEmitterShape;
 
   /**
-   * 发射器位置（距离组件左上角的位置。第一个参数为x方向上的相对偏移，第二个参数为y轴方向相对偏移。） 
+   * 发射器位置（距离组件左上角的位置。第一个参数为x方向上的相对偏移，第二个参数为y轴方向相对偏移。）。当发射器形状为环形（即shape为ParticleEmitterShape.ANNULUS）时，此属性不生效，需通过
+   * annulusRegion参数指定形状信息。 
    * 
    * 默认值：`[0.0, 0.0]`
    *
@@ -592,7 +601,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   position?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * 发射窗口的大小。第一个参数为发射器宽，第二个参数为发射器高。
+   * 发射器的大小。第一个参数为发射器宽，第二个参数为发射器高。当发射器形状为环形（即shape为ParticleEmitterShape.ANNULUS）时，此属性不生效，需通过annulusRegion参数指定形状信息。
    * 
    * 默认值：`['100%','100%']`(即发射窗口占满Particle组件)
    *
@@ -608,7 +617,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   size?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * 环形发射器参数。需要发射器形状为环形（即shape参数为ParticleEmitterShape.ANNULUS）时才生效，且对于环形发射器，形状信息必须通过annulusRegion参数指定，position和size不生效。
+   * 环形发射器参数。需要发射器形状为环形（即shape参数为ParticleEmitterShape.ANNULUS）时才生效，且对于环形发射器，形状信息必须通过annulusRegion参数指定，position和size不生效。未
+   * 设置时，发射器不使用环形区域参数。
    *
    * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -642,7 +652,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * 表示变化方式为匀速变化时，每秒的变化差值为设置区间随机生成的值。
+   * 表示变化方式为随机变化时，每秒的变化差值为设置区间随机生成的值。
    * 
    * 目标属性值为当前属性值叠加变化差值。如当前属性值为0.2，config取[0.1,1.0]:
    * 
@@ -679,7 +689,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
 }
 
 /**
- * 颜色属性变化配置。
+ * 属性变化配置。
  * 
  * > **说明：**
  * >
@@ -693,7 +703,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * 表示颜色属性变化类型。 
+   * 表示属性变化类型。 
    * 
    * 默认值：type默认为ParticleUpdater.NONE。
    *
@@ -727,7 +737,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 
 /**
- * 颜色变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
+ * 颜色变化方式为随机变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
  * 
  * > **说明：**
  * >
@@ -818,7 +828,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为
    * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]。 
    * 
-   * 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为
+   * 2、type为ParticleUpdater.RANDOM，表示随机均匀变化，则config类型为
    * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。 
    * 
    * 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为
@@ -925,7 +935,7 @@ interface ParticleColorPropertyUpdaterConfigs {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * 表示变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
+   * 表示变化方式为随机变化的时候，对每个粒子在变化区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
    *
    * @type { object } [since 10 - 17]
    * @type { ParticleColorOptions } [since 18]
@@ -994,7 +1004,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为
    * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]。 
    * 
-   * 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为
+   * 2、type为ParticleUpdater.RANDOM，表示随机均匀变化，则config类型为
    * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。 
    * 
    * 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为
@@ -1056,7 +1066,7 @@ interface ParticlePropertyAnimation<T> {
    * 
    * 单位：毫秒。
    * 
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。传入负值时取默认值0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1071,7 +1081,7 @@ interface ParticlePropertyAnimation<T> {
    * 
    * 单位：毫秒。
    * 
-   * 取值范围：[0, +∞)。
+   * 取值范围：[0, +∞)。传入负值时取默认值0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1119,7 +1129,7 @@ interface Particles<
   SPIN_UPDATER extends ParticleUpdater
 > {
   /**
-   * 粒子动画的集合。每个粒子动画（[ParticleOptions]{@link ParticleOptions}）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，详见
+   * 粒子动画的集合。每个粒子动画（[ParticleOptions]{@link ParticleOptions}）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与自旋角度，详见
    * [ParticleOptions]{@link ParticleOptions}属性说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1144,6 +1154,7 @@ interface Particles<
 /**
  * Defines the particle Interface.
  *
+ * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1152,22 +1163,20 @@ interface Particles<
  * @noninterop
  */
 interface ParticleInterface {
-
   /**
    * create a particle array.
-   * 
-   * Anonymous Object Rectification.
    *
+   * Anonymous Object Rectification.
    * @param { object } value - Particle value
    *     particles - list of ParticleOptions. [since 10 - 17]
    * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
-   *     SPIN_UPDATER> } particles - Array of particles. [since 18]
-   * @returns { ParticleAttribute } Returns the particle attribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice [since 11]
-   * @since 10 dynamic
+  *     SPIN_UPDATER> } particles - Array of particles. [since 18]
+  * @returns { ParticleAttribute } Returns the particle attribute.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform 
+  * @atomicservice [since 11]
+  * @since 10 dynamic
    */
   <
     PARTICLE extends ParticleType,
@@ -1210,7 +1219,9 @@ declare enum ParticleType {
   POINT = 'point',
 
   /**
-   * 图片粒子
+   * 图片粒子。
+   * 
+   * 图片粒子不支持设置颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1265,15 +1276,15 @@ declare enum ParticleEmitterShape {
   ELLIPSE = 'ellipse',
 
   /**
-   * 粒子发射器为环形。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  ANNULUS = 'annulus'
+    * 粒子发射器为环形。使用此形状时必须配置annulusRegion参数，且position和size参数不生效。
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 20 dynamic
+    */
+   ANNULUS = 'annulus'
 }
 
 /**
@@ -1320,7 +1331,7 @@ declare enum DistributionType {
  */
 declare enum ParticleUpdater {
   /**
-   * 无变化
+   * 无变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1331,7 +1342,7 @@ declare enum ParticleUpdater {
   NONE = 'none',
 
   /**
-   * 随机变化
+   * 随机均匀变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1342,7 +1353,7 @@ declare enum ParticleUpdater {
   RANDOM = 'random',
 
   /**
-   * 动画曲线变化
+   * 动画曲线变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1354,7 +1365,7 @@ declare enum ParticleUpdater {
 }
 
 /**
- * Defines the SizeT type.
+ * 定义Size类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1365,7 +1376,7 @@ declare enum ParticleUpdater {
 declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
 /**
- * Defines the PositionT type.
+ * 用于设置或返回组件的位置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1387,20 +1398,23 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
 
 /**
- * 除支持[通用属性]{@link common}外还支持以下属性：
+ * 除支持[通用属性]{@link ./common}外还支持以下属性：
+ * 
+ * 支持[通用事件]{@link ./common}。
  *
+ * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 11]
- * @noninterop
  * @since 10 dynamic
+ * @noninterop
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
    * 设置扰动场。
    *
-   * @param { Array<DisturbanceFieldOptions> } fields - 扰动场数组。
+   * @param { Array<DisturbanceFieldOptions> } fields - 扰动场数组。用于设置粒子运动轨迹的干扰效果，通过配置多个扰动场可对粒子施加排斥力或吸引力，改变粒子的运动轨迹。
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1411,9 +1425,10 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
   /**
-   * 支持发射器位置动态更新
+   * 支持发射器属性动态更新。通过EmitterProperty中的index指定需要更新的发射器（按初始化参数中发射器的数组索引），可动态更新发射器的发射速率、位置、大小和环形区域参数。必须先通过Particle接口创建粒子动画并配置
+   * 发射器，再通过emitter()属性动态更新对应发射器的参数，emitter()属性仅更新已有发射器的参数，不能新增发射器。
    *
-   * @param { Array<EmitterProperty> } value - 需要更新的emitter参数数组
+   * @param { Array<EmitterProperty> } value - 需要更新的发射器参数数组。
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1451,7 +1466,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
 }
 
 /**
- * Defines Particle Component.
+ * 定义Particle组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1502,9 +1517,9 @@ declare interface DisturbanceFieldOptions {
   shape?: DisturbanceFieldShape;
 
   /**
-   * 场的大小。
+   * 场的大小，单位：vp。
    * 
-   * 默认值 {width:0，height:0}。
+   * 默认值 {width:0, height:0}。
    * 
    * width和height的取值范围：[0, +∞)。
    *
@@ -1518,9 +1533,9 @@ declare interface DisturbanceFieldOptions {
   size?: SizeT<number>;
 
   /**
-   * 场的位置。
+   * 场的位置，单位：vp。
    * 
-   * 默认值{x:0，y:0}。
+   * 默认值{x:0, y:0}。
    * 
    * x、y的取值范围：(-∞, +∞)。
    *
@@ -1534,7 +1549,8 @@ declare interface DisturbanceFieldOptions {
   position?: PositionT<number>;
 
   /**
-   * 羽化值，表示场从中心点到场边缘的衰减程度，取值范围0到100的整数，如果0则表示场是一个刚体，所有范围内的粒子都被排斥在外。羽化值越大场的缓和程度越大，场范围内出现越多靠近中心点的粒子。
+   * 羽化值，表示场从中心点到场边缘的衰减程度，取值范围为0到100的整数。取值为0时表示场是一个刚体，所有范围内的粒子都被排斥在外。羽化值越大场的缓和程度越大，场范围内出现越多靠近中心点的粒子。设置为负值或大于100时取默认值，设置为
+   * 非整数时截断取整。
    * 
    * 默认值为0。
    *
@@ -1550,7 +1566,7 @@ declare interface DisturbanceFieldOptions {
   /**
    * 噪声尺度，用于控制噪声图案的整体大小，取值大于等于0。
    * 
-   * 默认值1。
+   * 默认值1。传入负值时取默认值1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1564,7 +1580,7 @@ declare interface DisturbanceFieldOptions {
   /**
    * 噪声频率，频率越大噪声越细腻，取值大于等于0。
    * 
-   * 默认值1。
+   * 默认值1。传入负值时取默认值1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1576,9 +1592,9 @@ declare interface DisturbanceFieldOptions {
   noiseFrequency?: number;
 
   /**
-   * 噪声振幅，噪声的波动的范围，振幅越大噪音之间差异越大。取值大于等于0。
+   * 噪声振幅，表示噪声值的波动范围，振幅越大波动范围越大。取值大于等于0。
    * 
-   * 默认值1。
+   * 默认值1。传入负值时取默认值1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1591,7 +1607,7 @@ declare interface DisturbanceFieldOptions {
 }
 
 /**
- * 粒子形状。
+ * 扰动场形状。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1602,7 +1618,7 @@ declare interface DisturbanceFieldOptions {
 declare enum DisturbanceFieldShape {
 
   /**
-   * 长方形。
+   * 矩形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1633,6 +1649,7 @@ declare enum DisturbanceFieldShape {
    * @since 12 dynamic
    */
   ELLIPSE = 2
+
 }
 
 /**
@@ -1656,7 +1673,7 @@ declare enum DisturbanceFieldShape {
  */
 declare interface ParticleAnnulusRegion {
   /**
-   * The coordinates of the center of the annulus
+   * 圆环的圆心坐标，组件的左上角为坐标原点。默认值：{x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
    *
    * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1667,7 +1684,7 @@ declare interface ParticleAnnulusRegion {
    */
   center?: PositionT<LengthMetrics>;
   /**
-   * The outer radius of the annulus
+   * 圆环的外圆半径。小于零或使用百分比单位时按零进行处理。当outerRadius小于innerRadius时，会将当前较小的值作为新的内圆半径，将较大的值作为新的外圆半径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1677,7 +1694,7 @@ declare interface ParticleAnnulusRegion {
    */
   outerRadius: LengthMetrics;
   /**
-   * The inner radius of the annulus
+   * 圆环的内圆半径。小于零或使用百分比单位时按零进行处理。当outerRadius小于innerRadius时，会将当前较小的值作为新的内圆半径，将较大的值作为新的外圆半径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1687,7 +1704,13 @@ declare interface ParticleAnnulusRegion {
    */
   innerRadius: LengthMetrics;
   /**
-   * The start angle of the annulus, in degree
+   * 圆环的起始角度。
+   * 
+   * 单位：度（°）
+   * 
+   * 取值范围：(-∞, +∞)
+   * 
+   * 默认值：0
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1698,7 +1721,13 @@ declare interface ParticleAnnulusRegion {
    */
   startAngle?: number;
   /**
-   * The end angle of the annulus, in degree
+   * 圆环的结束角度。
+   * 
+   * 单位：度（°）
+   * 
+   * 取值范围：(-∞, +∞)
+   * 
+   * 默认值：360
    *
    * @default 360
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1721,7 +1750,9 @@ declare interface ParticleAnnulusRegion {
  */
 declare interface FieldRegion {
   /**
-   * The shape of the field
+   * 粒子场的区域形状。
+   * 
+   * 默认值：DisturbanceFieldShape.RECT
    *
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1732,8 +1763,9 @@ declare interface FieldRegion {
    */
   shape?: DisturbanceFieldShape;
   /**
-   * The coordinates of the center position of the field. The top-left corner of the component is the origin of the
-   * coordinate system. The coordinate unit is vp.
+   * 粒子场的区域中心位置。坐标单位为vp。
+   * 
+   * 默认值：{x:0, y:0}
    *
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1744,7 +1776,17 @@ declare interface FieldRegion {
    */
   position?: PositionT<number>;
   /**
-   * The size of the field. The unit of value is vp.
+   * 粒子场的区域大小。值的单位为vp。
+   * 
+   * 默认值：{width:0, height:0}
+   * 
+   * 取值范围：
+   * 
+   * width：[0, +∞)
+   * 
+   * height：[0, +∞)
+   * 
+   * 当size的width（或height）设置为负值时取width（或height）的默认值。
    *
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1767,8 +1809,13 @@ declare interface FieldRegion {
  */
 declare interface RippleFieldOptions {
   /**
-   * The amplitude of the ripple field. The greater the amplitude, the stronger the force of the ripple field.
-   * Range of values:[0, +∞)
+   * 描述粒子波动场波的幅值。幅值越大，波动场的力越大，粒子在波动场作用下产生的位移变化越明显，波纹扩散效果越强烈。
+   * 
+   * 取值范围：[0, +∞)
+   * 
+   * 默认值：0
+   * 
+   * 设置为负值时取默认值。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1779,9 +1826,13 @@ declare interface RippleFieldOptions {
    */
   amplitude?: number;
   /**
-   * Wavelength, which is the distance over which a wave cycle changes. The larger
-   * the wavelength, the slower the wave changes with distance, and the less pronounced the wave fluctiations.
-   * Range of values:[0, +∞)
+   * 描述粒子波动场的波长，即一个波周期的变化距离。波长越大，则随距离的变化，波的变化越慢，波动越不明显，粒子受波动影响的周期变长。
+   * 
+   * 取值范围：[0, +∞)
+   * 
+   * 默认值：0
+   * 
+   * 设置为负值时取默认值。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1792,8 +1843,13 @@ declare interface RippleFieldOptions {
    */
   wavelength?: number;
   /**
-   * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
-   * motion. Range of values:[0, +∞)
+   * 描述粒子波动场的波速。波速越大，则随时间的变化，波的变化越快，波动越明显，粒子受波动影响的响应越迅速。单位：vp/s。
+   * 
+   * 取值范围：[0, +∞)
+   * 
+   * 默认值：0
+   * 
+   * 设置为负值时取默认值。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1804,8 +1860,13 @@ declare interface RippleFieldOptions {
    */
   waveSpeed?: number;
   /**
-   * The attenuation coefficient of the ripple field. The larger the attenuation coefficient, the faster the wave
-   * attenuates over time. Range of values:[0,1]
+   * 描述粒子波动场波的衰减系数。衰减系数越大，则随时间的变化，波的衰减越快，粒子受到的波动场力随时间迅速减弱，波纹扩散效果逐渐消失。
+   * 
+   * 取值范围：[0, 1]
+   * 
+   * 默认值：0.0
+   * 
+   * 设置的数值不在范围内时取默认值。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1816,8 +1877,9 @@ declare interface RippleFieldOptions {
    */
   attenuation?: number;
   /**
-   * The central point where the ripple field generates force. The top-left corner of the component is the origin of
-   * coordinates. The coordinate unit is vp.
+   * 粒子波动场产生力的中心位置。组件的左上角为坐标原点。坐标单位为vp。
+   * 
+   * 默认值：{x:0, y:0}
    *
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1828,7 +1890,9 @@ declare interface RippleFieldOptions {
    */
   center?: PositionT<number>;
   /**
-   * The region influenced by the ripple field.
+   * 粒子波动场影响的区域信息，其中区域信息包括区域形状、区域大小以及区域中心位置。
+   * 
+   * 默认值：{shape:DisturbanceFieldShape.RECT, position:{x:0, y:0}, size:{width:0, height:0}}
    *
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1851,9 +1915,9 @@ declare interface RippleFieldOptions {
  */
 declare interface VelocityFieldOptions {
   /**
-   * The velocity values in each direction of the velocity field. Particles only acquire this velocity when within
-   * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
-   * by it and do not gain this additional velocity.
+   * 粒子速度场的各方向速度值。粒子只有在速度场作用范围内时获得该速度，离开速度场范围后不受该速度场影响，不获得该额外的速度。单位：vp/s。
+   * 
+   * 默认值：{x:0, y:0}
    *
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1864,7 +1928,9 @@ declare interface VelocityFieldOptions {
    */
   velocity?: Vector2T<number>;
   /**
-   * The region influenced by the velocity field.
+   * 粒子速度场影响的区域信息，其中区域信息包括区域形状、区域大小以及区域中心位置。
+   * 
+   * 默认值：{shape:DisturbanceFieldShape.RECT, position:{x:0, y:0}, size:{width:0, height:0}}
    *
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
