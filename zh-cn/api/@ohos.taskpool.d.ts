@@ -108,9 +108,9 @@ declare namespace taskpool {
   type CallbackFunction = () => void;
 
   /**
-   * 注册带有错误码的回调函数类型。
+   * 注册接收错误对象的回调函数类型。
    *
-   * @param { Error } e - 错误信息。
+   * @param { Error } e - 错误信息对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -163,6 +163,10 @@ declare namespace taskpool {
     /**
      * 检查当前正在运行的任务是否已取消。使用此方法前，需要先创建一个**Task**对象。
      *
+     * > **说明：**
+     * >
+     * > isCanceled方法需要和taskpool.cancel方法搭配使用，如果不调用cancel方法，isCanceled方法默认返回false。
+     *
      * @returns { boolean } 如果当前正在运行的任务被取消返回**true**，否则返回**false**。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -203,6 +207,8 @@ declare namespace taskpool {
      *
      * > **说明：**
      * >
+     * > - 此接口与[setCloneList]{@link taskpool.Task#setCloneList}互斥：同一个ArrayBuffer不能同时设置在transfer列表和clone列表中。
+     * >
      * > 此接口可以设置任务池中ArrayBuffer的transfer列表，transfer列表中的ArrayBuffer对象在传输时不会复制buffer内容到工作线程，
      * > 而是转移buffer控制权至工作线程，传输后当前的ArrayBuffer失效。若ArrayBuffer为空，则不会transfer转移。
      *
@@ -220,6 +226,8 @@ declare namespace taskpool {
      * 设置任务的拷贝列表。在使用该方法前，需先构造**Task**对象。
      *
      * > **说明：**
+     * >
+     * > - 此接口与[setTransferList]{@link taskpool.Task#setTransferList}互斥：同一个ArrayBuffer不能同时设置在transfer列表和clone列表中。
      * >
      * > 该接口需搭配
      * > [@Sendable装饰器](docroot://arkts-utils/arkts-sendable.md#sendable装饰器)使用，否则会抛异常。建议开发者使用该装饰器以避免异常。
@@ -240,6 +248,8 @@ declare namespace taskpool {
      * 为任务注册回调函数，接收并处理任务池工作线程的数据。使用此方法前，需构造Task。
      *
      * > **说明：**
+     * >
+     * > 该方法与[sendData]{@link taskpool.Task.sendData}配对使用。
      * >
      * > 不支持为同一任务定义多种回调函数。如果多次赋值，只有最后一次赋值的回调函数会生效。
      *
@@ -281,7 +291,7 @@ declare namespace taskpool {
     removeDependency(...tasks: Task[]): void;
 
     /**
-     * 注册回调函数，任务入队时将调用该函数。若任务执行前未注册回调函数，将抛出异常。
+     * 注册回调函数，任务入队时将调用该函数。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -293,7 +303,7 @@ declare namespace taskpool {
     onEnqueued(callback: CallbackFunction): void;
 
     /**
-     * 注册回调函数，任务执行前将调用该函数。若任务执行前未注册回调函数，将抛出异常。
+     * 注册回调函数，任务开始执行前将调用该函数。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -305,7 +315,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * 注册一个回调函数，并在任务执行失败时调用它（周期任务不支持）。需在任务执行前注册，否则会抛异常。
+     * 注册回调函数，任务执行失败时调用该回调函数（周期任务不支持）。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunctionWithError } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -317,7 +327,7 @@ declare namespace taskpool {
     onExecutionFailed(callback: CallbackFunctionWithError): void;
 
     /**
-     * 注册一个回调函数，并在任务执行成功时调用它（周期任务不支持）。需在任务执行前注册，否则会抛异常。
+     * 注册一个回调函数，并在任务执行成功时调用它（周期任务不支持）。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -340,7 +350,8 @@ declare namespace taskpool {
     isDone(): boolean;
 
     /**
-     * 创建任务时需要传入的函数，支持的函数返回值类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
+     * 待执行的函数，必须使用[@Concurrent装饰器](../../arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰，
+     * 支持的函数返回值类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -351,7 +362,7 @@ declare namespace taskpool {
     function: Function;
 
     /**
-     * 创建任务传入函数所需的参数，支持的参数类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
+     * 创建任务传入函数所需的参数，支持的参数类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为undefined。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -373,7 +384,7 @@ declare namespace taskpool {
     name: string;
 
     /**
-     * 任务的ID。任务的标识符，系统默认提供全局唯一值，不建议修改此值。<br>
+     * 任务的ID。系统默认提供全局唯一值，不建议修改此值。<br>
      * 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -385,7 +396,7 @@ declare namespace taskpool {
     taskId: number;
 
     /**
-     * 执行任务总耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务总耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -397,7 +408,7 @@ declare namespace taskpool {
     totalDuration: number;
 
     /**
-     * 执行任务异步IO耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务异步IO耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -409,7 +420,7 @@ declare namespace taskpool {
     ioDuration: number;
 
     /**
-     * 执行任务CPU耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务CPU耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -456,8 +467,8 @@ declare namespace taskpool {
     /**
      * 将待执行的函数添加到任务组中。使用该方法前需要先构造**TaskGroup**实例。
      *
-     * @param { Function } func - 需要传入使用
-     *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰的函数。支持的返回值类型请参考
+     * @param { Function } func - 待执行的函数，必须使用
+     *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰，支持的函数返回值类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
      * @param { Object[] } args - 任务执行函数的入参，支持的参数类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
@@ -673,7 +684,7 @@ declare namespace taskpool {
    */
   class TaskInfo {
     /**
-     * 任务的ID。任务的标识符，系统默认提供全局唯一值，不建议修改此值。<br/>
+     * 任务的ID。系统默认提供全局唯一值，不建议修改此值。<br/>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -697,7 +708,7 @@ declare namespace taskpool {
     state: State;
 
     /**
-     * 任务执行至当前所用的时间，默认为0，单位为ms。当返回为0时，表示任务未执行；返回为空时，表示没有任务执行。不建议修改此值。<br/>
+     * 任务执行至当前所用的时间，默认为0，单位：ms。当返回为0时，表示任务未执行；返回为空时，表示没有任务执行。不建议修改此值。<br/>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -740,7 +751,7 @@ declare namespace taskpool {
     tid: number;
 
     /**
-     * 在当前线程上运行的任务ID列表。如果返回为空，表示当前没有任务执行。不建议修改此值。
+     * 在当前线程上运行的任务ID列表。返回为空时，代表没有任务执行。不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -750,7 +761,7 @@ declare namespace taskpool {
     taskIds?: number[];
 
     /**
-     * 当前线程的优先级。如果返回为空，表示当前没有任务执行。不建议修改此值。
+     * 当前线程的优先级。返回为空时，代表没有任务执行。 不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1041,9 +1052,9 @@ declare namespace taskpool {
   function getTaskPoolInfo(): TaskPoolInfo;
 
   /**
-   * 中止任务池中的长时任务，在长时任务执行完成后调用。中止后，执行长时任务的线程可能会被回收。
+   * 终止任务池中的长时任务，在长时任务执行完成后调用。终止后，执行长时任务的线程可能会被回收。
    *
-   * @param { LongTask } longTask - 需要中止的长时任务。
+   * @param { LongTask } longTask - 需要终止的长时任务。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1149,7 +1160,13 @@ declare namespace taskpool {
   }
 
   /**
-   * 处于等待或执行过程中的任务进行取消操作后，在catch分支里捕获到BusinessError里的补充信息。其他场景下该信息为undefined。
+   * 对处于等待或执行过程中的任务执行取消操作后，在catch分支里捕获到BusinessError里的补充信息。其他场景下该信息为undefined。
+   *
+   * > **说明：**
+   * >
+   * > 任务被取消后，有如下两种情况：
+   * > - 如果当前任务处于等待阶段，则result为undefined，error与BusinessError的message字段一致；
+   * > - 如果当前任务正在运行且有异常抛出，则result为undefined，error为抛出的异常信息；没有异常时，result为任务执行完成后的结果，error与BusinessError的message字段一致。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1278,8 +1295,8 @@ declare namespace taskpool {
   function execute(task: Task, configs: Configs): Promise<Object>;
 
   /**
-   * 将创建好的泛型任务放入taskpool的内部任务队列，不校验任务的参数类型和返回值类型。使用Promise异步回调。
-   * execute任务的校验是结合new GenericsTask一起用的，参数、返回值类型需与new GenericsTask中的类型保持一致。
+   * 将创建好的泛型任务放入taskpool的内部任务队列，使用Promise异步回调。
+   * execute任务的类型校验与GenericsTask的构造类型相关联，参数类型和返回值类型需与new GenericsTask时指定的类型保持一致。
    *
    * > **说明：**
    * >

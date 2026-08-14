@@ -147,6 +147,12 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} checks whether 
+   *     notification is enabled for the specified application.
+   * @see [cancel]{@link notificationManager.cancel(id: int,label: string,callback: AsyncCallback<void>): void} cancels a published
+   *     notification based on the notification ID and label. 
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} cancels all
+   *     notifications of this application.
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -183,6 +189,12 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} checks whether 
+   *     notification is enabled for the specified application.
+   * @see [cancel]{@link notificationManager.cancel(id: int,label?: string): Promise<void>} cancels a published
+   *     notification based on the notification ID and label. 
+   * @see [cancelAll]{@link notificationManager.cancelAll(): Promise<void>} cancels all notifications of 
+   *     this application.
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -425,6 +437,10 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest,callback: AsyncCallback<void>): void} publishes a notification.
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} cancels all notifications of this application.
+   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string,callback: AsyncCallback<void,void>): void} cancels notifications 
+   *     under a notification group of this application.
    */
   function cancel(id: int, callback: AsyncCallback<void>): void;
 
@@ -458,6 +474,10 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest,callback: AsyncCallback<void>): void} publishes a notification.
+   * @see [cancelAll]{@link notificationManager.cancelAll(callback: AsyncCallback<void>): void} cancels all notifications of this application.
+   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string,callback: AsyncCallback<void,void>): void} cancels 
+   *     notifications under a notification group of this application.
    */
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
@@ -485,6 +505,10 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest, callback: AsyncCallback<void>): void} publishes a notification.
+   * @see [cancelAll]{@link notificationManager.cancelAll(): Promise<void>} cancels all notifications of this application. 
+   * @see [cancelGroup]{@link notificationManager.cancelGroup(groupName: string): Promise<void>} cancels notifications
+   *     under a notification group of this application.
    */
   function cancel(id: int, label?: string): Promise<void>;
 
@@ -615,6 +639,9 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest, callback: AsyncCallback<void>):void} publishes a notification.
+   * @see [cancel]{@link notificationManager.cancel(id: int, label: string, callback: AsyncCallback<void>): void} cancels a published notification based 
+   *     on the notification ID and label.
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -633,6 +660,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
+   * @see [publish]{@link notificationManager.publish(request: NotificationRequest):Promise<void>} publishes a notification.
+   * @see [cancel]{@link notificationManager.cancel(id:int, label?: string): Promise<void>} cancels a notification with the specified ID.
    */
   function cancelAll(): Promise<void>;
 
@@ -702,6 +731,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} obtains a 
+   *     notification slot of a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} removes a 
+   *     notification slot of a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback<void>): void} removes all
+   *     notification slots for this application.
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
@@ -728,6 +763,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotTyp): Promise<NotificationSlot>} obtains a notification
+   *     slot of a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} removes a notification
+   *     slot of a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} removes all notificationslots 
+   *     for this application.
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -795,6 +836,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} adds a notification 
+   *     slot of a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} removes a notification slot of 
+   *     a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} removes all notification slots
+   *     for this application.
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -818,6 +865,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} adds a notification 
+   *     slot of a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} removes a notification slot of 
+   *     a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} removes all notification slots
+   *     for this application.
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
 
@@ -839,6 +892,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} adds a notification slot of a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} removes a notification 
+   *     slot of a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} removes all 
+   *     notification slots for this application.
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -860,6 +918,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} adds a notification slot of 
+   *     a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} removes a notification slot of a 
+   *     specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} removes all notification slots for 
+   *     this application.
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -882,6 +946,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} adds a notification slot of 
+   *     a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} removes a notification slot of 
+   *     a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} removes all notification 
+   *     slots for this application.
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -900,6 +970,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} adds a notification slot of 
+   *     a specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} removes a notification slot of 
+   *     a specified type for this application.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} removes all notification 
+   *     slots for this application.
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -962,6 +1038,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} adds a notification slot of 
+   *     a specified type.
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} obtains a 
+   *     notification slot of a specified type.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(callback: AsyncCallback): void} removes all notification 
+   *     slots for this application.
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -986,6 +1068,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} adds a notification slot of 
+   *     a specified type.
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,): Promise<NotificationSlot>} obtains a notification slot of a 
+   *     specified type.
+   * @see [removeAllSlots]{@link notificationManager.removeAllSlots(): Promise<void>} removes all notification 
+   *     slots for this application.
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -1008,6 +1096,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType,callback: AsyncCallback<void>): void} adds a notification slot of 
+   *     a specified type.
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType,callback: AsyncCallback<NotificationSlot>): void} obtains a notification slot of 
+   *     a specified type.
+   * @see [removeSlots]{@link notificationManager.removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void} removes all notification slots 
+   *     for this application.
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -1027,6 +1121,12 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [addSlot]{@link notificationManager.addSlot(slotType: SlotType): Promise<void>} adds a notification slot of 
+   *     a specified type.
+   * @see [getSlot]{@link notificationManager.getSlot(slotType: SlotType): Promise<NotificationSlot>} obtains a notification slot of a 
+   *     specified type.
+   * @see [removeSlot]{@link notificationManager.removeSlot(slotType: SlotType): Promise<void>} removes a notification 
+   *     slot of a specified type for this application.
    */
   function removeAllSlots(): Promise<void>;
 
@@ -1192,6 +1292,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
    * @since 23 static
+   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext): Promise<void>} requests notification 
+   *     to be enabled for this application.
    */
   function isNotificationEnabledSync(): boolean;
 
@@ -1588,6 +1690,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  sets the 
+   *     notification badge number.
    */
   function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
@@ -1605,6 +1709,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int): Promise<void>}  sets the 
+   *     notification badge number.
    */
   function getActiveNotificationCount(): Promise<long>;
 
@@ -1625,6 +1731,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int,callback: AsyncCallback<void>): void}  sets the notification 
+   *     badge number.
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1641,6 +1749,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(badgeNumber: int): Promise<void>}  sets the notification 
+   *     badge number.
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -2134,12 +2244,6 @@ declare namespace notificationManager {
   /**
    * Requests notification to be enabled for this application. This API uses an asynchronous callback to return the 
    * result.
-   * 
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>)}
-   * with context instead.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
@@ -2189,17 +2293,19 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} checks whether 
+   *     notification is enabled for a specified user.
+   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): 
+   *     Promise<NotificationSetting>} Opens the notification settings page of the application, which is presented in a semi-modal 
+   *     window and can be used to set notification switches, notification reminder methods, etc.
+   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} opens the 
+   *     notification settings page of the application, which is displayed in semi-modal mode and can be used to set the notification 
+   *     enabling and notification mode. 
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
    * Requests notification to be enabled for this application. This API uses a promise to return the result.
-   * 
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 9 and deprecated since API version 12. You are advised to use
-   * [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext)}
-   * with context instead.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2245,6 +2351,14 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(callback: AsyncCallback<boolean>): void} checks whether 
+   *     notification is enabled for a specified user.
+   * @see [openNotificationSettingsWithResult]{@link notificationManager.openNotificationSettingsWithResult(context: UIAbilityContext): 
+   *     Promise<NotificationSetting>} Opens the notification settings page of the application, which is presented in a semi-modal 
+   *     window and can be used to set notification switches, notification reminder methods, etc.
+   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} opens the 
+   *     notification settings page of the application, which is displayed in semi-modal mode and can be used to set the notification 
+   *     enabling and notification mode. 
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2317,7 +2431,6 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @deprecated since 26.0.0
-   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -2335,7 +2448,6 @@ declare namespace notificationManager {
    * @since 9 dynamic
    * @since 23 static
    * @deprecated since 26.0.0
-   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -2793,28 +2905,6 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
-   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
-   * promise to return the result.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
-   *     <br>The maximum length is 1000 and cannot be empty.
-   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
-   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
-   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
-   *     opposite. Bundles whose slot has not been created will not appear in the result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 26.0.0 dynamic&static
-   */
-  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
-
-  /**
    * Sets whether to enable the notification sync feature for devices where the application is not installed. This API
    * uses an asynchronous callback to return the result.
    *
@@ -2942,6 +3032,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
+   * @see [getActiveNotificationCount]{@link notificationManager.getActiveNotificationCount(callback: AsyncCallback<long>): void} obtains the number of
+   *     active notifications of this application.
    */
   function setBadgeNumber(badgeNumber: int, callback: AsyncCallback<void>): void;
 
@@ -2970,6 +3062,8 @@ declare namespace notificationManager {
    * @crossplatform [since 12]
    * @since 10 dynamic
    * @since 23 static
+   * @see [getActiveNotificationCount]{@link notificationManager.getActiveNotificationCount(): Promise<number>} obtains the number of
+   *     active notifications of this application.
    */
   function setBadgeNumber(badgeNumber: int): Promise<void>;
 
@@ -3242,6 +3336,10 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
    * @since 23 static
+   * @see [openNotificationSettings]{@link notificationManager.openNotificationSettings(context: UIAbilityContext): Promise<void>} opens the notification 
+   *     settings page of the application, which is displayed in semi-modal mode and can be used to set the notification enabling and notification mode. 
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} Checks whether notification is enabled for the 
+   *     specified application.
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -3542,6 +3640,12 @@ declare namespace notificationManager {
    * @stagemodelonly
    * @since 13 dynamic
    * @since 23 static
+   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext): Promise<void>} requests notification 
+   *     to be enabled for this application.
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} checks whether notification is 
+   *     enabled for the specified application.
+   * @see [getNotificationSetting]{@link notificationManager.getNotificationSetting(): Promise<NotificationSetting>} obtains the notification settings
+   *     of the application, including the switch statuses for lock screen notifications, banner notifications, desktop badges, vibration, and ringtone. 
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -3563,6 +3667,10 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
+   * @see [requestEnableNotification]{@link notificationManager.requestEnableNotification(context: UIAbilityContext): Promise<void>} requests notification 
+   *     to be enabled for this application.
+   * @see [isNotificationEnabled]{@link notificationManager.isNotificationEnabled(): Promise<boolean>} checks whether notification
+   *     is enabled for the specified application. 
    */
   function openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>;
 
@@ -4113,8 +4221,32 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [setBadgeNumber]{@link notificationManager.setBadgeNumber(budgeNumber: int): Promise<void>} sets the notification badge number.
    */
   function getBadgeNumber(): Promise<long>;
+
+  /**
+   * Snoozes a notification. The notification will be reminded again after the specified time. Each
+   * setting will trigger only one reminder, and the reminder mode will be the same as that of the
+   * notification.<br>The notification will be deleted after the setting.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - Unique ID of the notification to be snoozed.
+   * @param { long } delayTime - Interval for the snoozed notification.
+   *     <br>Unit: second.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600028 - This notification is not supported.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
 
   /**
    * Sets the enabling state of geofencing. This API uses a promise to return the result.
@@ -4169,26 +4301,26 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
-   * Snoozes a notification. The notification will be reminded again after the specified time. Each
-   * setting will trigger only one reminder, and the reminder mode will be the same as that of the
-   * notification.<br>The notification will be deleted after the setting.
+   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - Unique ID of the notification to be snoozed.
-   * @param { long } delayTime - Interval for the snoozed notification.<br>Unit: second.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
+   *     <br>The maximum length is 1000 and cannot be empty.
+   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
+   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
+   *     opposite. Bundles whose slot has not been created will not appear in the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600007 - The notification does not exist.
-   * @throws { BusinessError } 1600028 - This notification is not supported.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
+  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
 
   /**
    * Describes the switch state of notifications.
@@ -4874,6 +5006,8 @@ declare namespace notificationManager {
   }
 
   /**
+   * Do Not Disturb profile.
+   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic

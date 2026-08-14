@@ -38,7 +38,7 @@
  */
 
 /**
- * LightWeightSet可用于存储一系列值的集合，存储元素中value值唯一。
+ * LightWeightSet可用于存储一系列值，存储元素中value唯一。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -82,7 +82,7 @@ declare class LightWeightSet<T> {
    * 向容器中添加数据。若添加的元素已存在于容器中，则不会重复添加，返回false。
    *
    * @param { T } obj - 添加的成员数据。若添加的值已存在于容器中，则不会重复添加。
-   * @returns { boolean } 成功添加元素返回true，要添加的元素已存在时返回false。
+   * @returns { boolean } 成功添加元素返回true，否则返回false。
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -95,7 +95,7 @@ declare class LightWeightSet<T> {
    * 将另一个容器的所有元素添加到当前容器。若源容器中的元素已存在于当前容器中，则跳过该元素不重复添加。
    *
    * @param { LightWeightSet<T> } set - 提供添加元素的LightWeightSet。
-   * @returns { boolean } 成功添加元素返回true，否则返回false。
+   * @returns { boolean } 成功添加元素返回true，要添加的元素已存在时返回false。
    * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -137,7 +137,7 @@ declare class LightWeightSet<T> {
    * >
    * > 此接口从API version 8开始支持，从API version 12开始废弃。无替代接口。
    *
-   * @param { Object } obj - 比较对象。
+   * @param { Object } obj - 与当前容器比较元素构成是否相同的对象，可为仅含string或number的LightWeightSet或数组。
    * @returns { boolean } 当obj为仅含string或number的LightWeightSet或数组，且对象内部元素构成相同时，返回true；其他情况返回false。
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -223,7 +223,7 @@ declare class LightWeightSet<T> {
    */
   clear(): void;
   /**
-   * 通过回调函数来遍历LightWeightSet实例对象上的元素以及元素对应的下标。
+   * 通过回调函数来遍历LightWeightSet实例对象上的元素。
    * 不建议在forEach函数中使用add、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
    *
    * @param { function } callbackFn - 回调函数，用于遍历LightWeightSet实例对象上的元素及其下标。

@@ -86,8 +86,8 @@ export declare function ContentSlot(
 ): ContentSlotAttribute;
 
 /**
- * Defines ContentSlot Component.It requires call setContentSlotOptions at start of the component attribute set-up,
- * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ * Defines ContentSlot Component.It requires calling setContentSlotOptions at start of the component attribute set-up,
+ * and it requires calling applyAttributesFinish at the end of the component attribute set-up.
  *
  * @param { CustomBuilderT<ContentSlotAttribute> } style - the callback to set up ContentSlot's attributes.
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.

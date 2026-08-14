@@ -72,7 +72,8 @@ declare namespace calendarManager {
     createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
 
     /**
-     * 根据日历账户信息，创建一个Calendar对象，使用callback异步回调。
+     * 根据日历账户信息，创建一个Calendar对象，若创建的账户已存在（与CalendarAccount的name和type相同的账户已被创建），
+     * 则返回之前的Calendar对象，使用callback异步回调。
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - 日历账户信息。
@@ -152,7 +153,7 @@ declare namespace calendarManager {
     getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
     /**
-     * 获取指定Calendar对象，使用callback异步回调。
+     * 获取默认Calendar对象，默认Calendar是日历存储首次运行时创建的，若创建Event时不关注其Calendar归属，则无须通过createCalendar()创建Calendar，直接使用默认Calendar，使用callback异步回调。
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - 指定日历账户信息。

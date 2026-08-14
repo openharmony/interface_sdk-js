@@ -943,6 +943,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -953,6 +954,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -963,6 +965,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -973,6 +976,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1064,6 +1068,7 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 22 dynamic
  */
@@ -1091,6 +1096,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1108,6 +1114,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1125,6 +1132,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1142,6 +1150,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */

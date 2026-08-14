@@ -14,37 +14,22 @@
  */
 
 /**
-  * @file
-  * @kit ArkUI
+ * @file
+ * @kit ArkUI
  */
 
 import { Callback, ShadowOptions, ClickEvent, TouchEvent, PixelMap, AttributeModifier, CommonMethod, LayoutPolicy } from './common';
-import { Callback, ShadowOptions, ClickEvent, PixelMap, AttributeModifier, CommonMethod, LayoutPolicy  } from './common';
-
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
-import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
-
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
-
 import { TextBackgroundStyle } from './span';
-import { TextBackgroundStyle } from './span';
-
 import { GestureEvent } from './gesture';
-import { GestureEvent } from './gesture';
-
 import { DrawingColorFilter } from './image';
-import { DrawingColorFilter } from './image';
-
-import { LeadingMarginPlaceholder } from './richEditor';
 import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-
-import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation, LineSpacingOptions, ShaderStyle, StrokeJoinStyle  } from './textCommon';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, ShaderStyle, FontVariation, StrokeJoinStyle } from './textCommon';
+import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation, LineSpacingOptions, ShaderStyle, StrokeJoinStyle  } from './textCommon';
 /**
  * 属性字符串自定义序列化对象类型，需要开发者定义序列化和反序列化的方式。
  *
@@ -219,7 +204,7 @@ export declare class StyledString {
    *
    * @param { string } html - html格式的字符串。
    * @returns { Promise<StyledString | undefined> }
-      *     [Promise](docroot://arkts-utils/async-concurrency-overview.md#promise)对象，属性字符串。
+   *     [Promise](docroot://arkts-utils/async-concurrency-overview.md#promise)对象，属性字符串。
    * @throws { BusinessError } 170001 - Convert Error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -251,7 +236,7 @@ export declare class StyledString {
    * @param { StyledString } styledString - 属性字符串参数。
    * @param { StyledStringMarshallCallback } callback - 如何序列化[StyledStringMarshallingValue]{@link styledstringmarshallingvalue}的回调。
    * @returns { ArrayBuffer | undefined }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 23 static
@@ -264,7 +249,7 @@ export declare class StyledString {
    * @param { ArrayBuffer } buffer - 属性字符串序列化后的数据。
    * @param { StyledStringUnmarshallCallback } callback - 如何反序列化ArrayBuffer的回调。
    * @returns { Promise<StyledString | undefined> }
-      * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
@@ -281,7 +266,7 @@ export declare class StyledString {
    *
    * @param { StyledString } styledString - 属性字符串参数。
    * @returns { ArrayBuffer | undefined }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 23 static
@@ -292,7 +277,7 @@ export declare class StyledString {
    *
    * @param { ArrayBuffer } buffer - 属性字符串序列化后的数据。
    * @returns { Promise<StyledString | undefined> }
-      * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.

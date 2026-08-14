@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
  * This module provides the capabilities of managing the system pasteboard to support the copy and paste functions. You
- * can use the APIs of this module to operate pasteboard content of the plain text, HTML, URI, Want, pixel map, and
+ * can use the APIs of this module to operate pasteboard content of the plain text, HTML, URI, Want, PixelMap, and
  * other types.
  *
  * @syscap SystemCapability.MiscServices.Pasteboard
@@ -159,7 +159,7 @@ declare namespace pasteboard {
    *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @unionmember { string } The value is of the string type.
-   * @unionmember { image.PixelMap } The value is of the [image.PixelMap]{@link @ohos.multimedia.image:image} type.
+   * @unionmember { image.PixelMap } The value is of the [image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap} type.
    * @unionmember { Want } The value is of the [Want]{@link @ohos.app.ability.Want:Want} type.
    * @unionmember { ArrayBuffer } The value is of the **ArrayBuffer** type.
    * @crossplatform [since 24]
@@ -221,8 +221,8 @@ declare namespace pasteboard {
    * Creates a **PasteData** object of the specified type.
    *
    * @param { string } mimeType - Type of PasteData. The value can be a predefined MIME type listed in
-   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, WANT,
-   *     plain text, URI, and pixel map, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
+   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, Want,
+   *     plain text, URI, and PixelMap, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
    * @param { ValueType } value - Content of PasteData.
    * @returns { PasteData } **PasteData** object.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
@@ -240,7 +240,7 @@ declare namespace pasteboard {
    * Creates a **PasteData** object that contains multiple types of data.
    *
    * @param { Record<string, ValueType> } data - The key of **Record** can be the MIME type corresponding to the
-   *     PasteData, including HTML, WANT, plain text, URI, and PixelMap defined in
+   *     PasteData, including HTML, Want, plain text, URI, and PixelMap defined in
    *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants). Alternatively,
    *     the key could be a custom type, whose parameter, the length of **mimeType**,
    *     cannot exceed 1024 bytes. The value of **Record** is the data corresponding to the type specified
@@ -310,8 +310,8 @@ declare namespace pasteboard {
    * Creates a **PasteDataRecord** object of the specified type.
    *
    * @param { string } mimeType - The type of custom data. The value can be a predefined MIME type listed in
-   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, WANT,
-   *     plain text, URI, and pixel map, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
+   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, Want,
+   *     plain text, URI, and PixelMap, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
    * @param { ValueType } value - Data content of the specified type.
    * @returns { PasteDataRecord } A new paste data record of a specified type.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
@@ -516,6 +516,10 @@ declare namespace pasteboard {
   /**
    * Provides **PasteDataRecord** APIs. A **PasteDataRecord** is an abstract definition of the content in the
    * pasteboard. The pasteboard content consists of one or more plain text, HTML, URI, or Want records.
+   * After creating a PasteDataRecord, it is not supported to modify the value of the default data type of the
+   * PasteDataRecord. The correct value for the default data type should be specified when creating the PasteDataRecord.
+   * If you need to refresh the attribute value of the PasteDataRecord,
+   * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
    *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform [since 24]
@@ -525,10 +529,9 @@ declare namespace pasteboard {
    */
   interface PasteDataRecord {
     /**
-     * HTML content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * HTML content, must conform to standard HTML format.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -539,9 +542,8 @@ declare namespace pasteboard {
     htmlText: string;
     /**
      * Want content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -552,9 +554,7 @@ declare namespace pasteboard {
     want: Want;
     /**
      * Default type of PasteDataRecord.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * Modifications to this attribute are ineffective.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -565,9 +565,8 @@ declare namespace pasteboard {
     mimeType: string;
     /**
      * Plain text.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -577,10 +576,9 @@ declare namespace pasteboard {
      */
     plainText: string;
     /**
-     * URI content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * URI content, must conform to standard URI format.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -591,9 +589,8 @@ declare namespace pasteboard {
     uri: string;
     /**
      * PixelMap content.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -604,9 +601,7 @@ declare namespace pasteboard {
     pixelMap: image.PixelMap;
     /**
      * Content of custom data.
-     * This parameter is read-only and does not support assignment operations.
-     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
-     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     * Modifications to this attribute are ineffective.
      *
      * @type { object } [since 9 - 22]
      * @type { Record<string, ArrayBuffer> } [since 23]
@@ -661,7 +656,7 @@ declare namespace pasteboard {
      *
      * @param { string } type - Type of extra data. The value can be a predefined MIME type listed in
      *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants),
-     *     including HTML, WANT, plain text, URI, and pixel map, or a custom type.
+     *     including HTML, Want, plain text, URI, and PixelMap, or a custom type.
      *     The value of **mimeType** cannot exceed 1024 bytes.
      * @param { ValueType } value - Content of extra data.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
@@ -695,7 +690,6 @@ declare namespace pasteboard {
      * @param { string } type - type of PasteData, which cannot exceed 1024 bytes.
      * @returns { Promise<ValueType> } Promise used to return the data of the specified type in
      *     **PasteDataRecord**.
-     *
      *     If **PasteDataRecord** contains data of multiple types,
      *     the non-**PasteDataRecord** data of the default
      *     type can be obtained only through this API.
@@ -944,7 +938,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -996,7 +990,7 @@ declare namespace pasteboard {
      *
      * @param { string } mimeType - Type of the data to query. The value can be a predefined type listed in
      *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants),
-     *     including HTML, WANT, plain text, URI, and pixel map, or a custom type.
+     *     including HTML, Want, plain text, URI, and PixelMap, or a custom type.
      * @returns { boolean } Returns **true** if the specified data type exists; returns **false** otherwise.
      * @throws { BusinessError } 401 - Possible causes:
      *     1. Mandatory parameters are left unspecified;
@@ -1031,7 +1025,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1062,7 +1056,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1281,7 +1275,7 @@ declare namespace pasteboard {
 
   /**
    * Callback to be invoked when the pasteboard content changes.
-   * 
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform [since 24]
    * @since 22 dynamic

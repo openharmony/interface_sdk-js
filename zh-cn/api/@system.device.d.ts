@@ -22,7 +22,7 @@
  * > >
  * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
  * > >
- * > >     \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，推荐使用新接口[@ohos.deviceInfo]{@link @ohos.deviceInfo:deviceInfo}进行设备信息查
+ * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，推荐使用新接口[@ohos.deviceInfo]{@link @ohos.deviceInfo:deviceInfo}进行设备信息查
  * > 询。
  * > - 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * @file
@@ -36,7 +36,7 @@
  * 获取当前设备的信息。该接口异步读取系统设备信息，通过回调函数返回设备品牌、型号、屏幕参数等数据。
  * 
  * > **说明：**<br>
- * > > 在首页的onShow生命周期之前不建议调用device.getInfo接口。
+ * > > 在首页的onShow生命周期之前不建议调用Device.getInfo接口。
  * 
  * **系统能力：** SystemCapability.Startup.SystemInfo.Lite
  * 
@@ -210,7 +210,7 @@ export interface GetDeviceOptions {
   /**
    * 接口调用失败的回调函数，在接口调用失败时执行。data为失败时返回的错误信息对象或错误描述字符串，code为失败返回的错误码。
    * 
-   * code:200，表示返回结果中存在无法获得的信息。
+   * code:200，表示返回结果中存在无法获得的信息。建议设置此回调以处理错误情况。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly

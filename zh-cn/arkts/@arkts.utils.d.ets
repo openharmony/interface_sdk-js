@@ -33,7 +33,7 @@ declare namespace utils {
    *
    * 由于ArkTS语言支持异步操作，阻塞锁容易产生死锁问题，因此我们在ArkTS中仅支持异步锁（非阻塞式锁）。
    *
-   * 使用异步锁的方法需要标记为async，调用方需要await修饰调用，才能保证时序正确。因此会导致外层调用函数全部标记成async。
+   * 使用异步锁的方法需要标记为async，调用方需要使用await等待调用结果，才能保证时序正确。因此会导致外层调用函数全部标记成async。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
@@ -608,8 +608,8 @@ declare namespace utils {
      */
     updateCapacity(newCapacity: number): void;
     /**
-     * 返回键对应的值。如果指定的键不存在于缓存中，将调用createDefault方法；若createDefault返回非undefined值，
-     * 则将该键值对添加到缓存并返回该值；若createDefault返回undefined，则返回undefined。
+     * 返回键对应的值。如果指定的键不存在于缓存中，将调用createDefault方法；若createDefault返回非undefined值，则将该键值对添加到缓存并返回该值；若createDefault返回undefined，
+     * 则返回undefined。
      *
      * @param { K } key - 要查询的键。
      * @returns { V | undefined } 如果指定的键存在于缓存中，则返回与键关联的值；否则调用createDefault方法创建值。
@@ -743,7 +743,7 @@ declare namespace utils {
      * (missCount)表示查询值匹配失败的次数，
      * (hitRate)表示查询值匹配率。
      *
-     * @returns { string } 返回对象的字符串表示形式。
+     * @returns { string } 返回对象的字符串表示形式，包含缓存最大容量、查询匹配成功次数、查询匹配失败次数及匹配率等信息。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice

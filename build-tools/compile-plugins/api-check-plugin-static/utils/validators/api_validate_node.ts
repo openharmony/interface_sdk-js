@@ -334,7 +334,8 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
     }
 
     return (this.findParentNode(node, (parent) => {
-      return this.checkIfStatementForSdkComparison(parent, node);
+      return this.checkIfStatementForSdkComparison(parent, node) ||
+        this.checkApiAvailableVersionParts(parent, node);
     }) !== null);
   }
 
@@ -351,6 +352,23 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
     try {
 
       return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test);
+    } catch {
+      return false;
+    }
+  }
+
+  private checkApiAvailableVersionParts(ifNode: arkts.AstNode, originalNode: arkts.AstNode): boolean {
+    if (!arkts.isIfStatement(ifNode) || !ifNode.test) {
+      return false;
+    }
+
+    const isInThenBlock = this.isNodeInIfThenBlock(originalNode, ifNode);
+    if (!isInThenBlock) {
+      return false;
+    }
+
+    try {
+      return this.sdkComparisonHelper.isApiAvailableHelper(ifNode.test);
     } catch {
       return false;
     }

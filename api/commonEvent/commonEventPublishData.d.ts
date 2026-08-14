@@ -52,6 +52,7 @@ export interface CommonEventPublishData {
    * subscribers can receive the common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -63,6 +64,7 @@ export interface CommonEventPublishData {
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -139,6 +141,7 @@ export interface CommonEventPublishData {
    * by default.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */

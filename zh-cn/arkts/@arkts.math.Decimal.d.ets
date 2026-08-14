@@ -288,7 +288,7 @@ declare class Decimal {
   ceil(): Decimal;
 
   /**
-   * 返回一个新的Decimal对象，其值是将此Decimal截断为整数部分。
+   * 返回一个新的Decimal对象，其值是将参数n截断为整数部分。
    *
    * @returns { Decimal } the Decimal type
    * @syscap SystemCapability.Utils.Lang
@@ -452,7 +452,7 @@ declare class Decimal {
   exp(): Decimal;
 
   /**
-   * 返回一个对数运算后的Decimal对象，其值是以n为底的对数值。按照precision设置有效位数，按照rounding设置舍入模式。
+   * 返回一个对数运算后的Decimal对象，其值是以n为底的此Decimal的对数值。按照precision设置有效位数，按照rounding设置舍入模式。
    *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
@@ -632,7 +632,7 @@ declare class Decimal {
   atanh(): Decimal;
 
   /**
-   * Decimal的比较方法。
+   * 返回该Decimal与比较值的比较结果。
    * 1    如果此Decimal大于n的值，
    * -1    如果此Decimal小于n的值，
    * 0    如果两者的值相等，
@@ -1054,7 +1054,7 @@ declare class Decimal {
    * @param { double } decimalPlaces 转换时保留的小数点后有效位数。取值范围为[0, 1e9]的整数。
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang [since 18]
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
    * @since 12 dynamic
@@ -1106,7 +1106,7 @@ declare class Decimal {
   toFraction(maxDenominator: Value): Decimal[];
 
   /**
-   * 返回一个新的Decimal对象，此Decimal为指定值n乘以一个倍数后与原Decimal最接近的值。
+   * 返回一个新的Decimal对象，其值为指定值n的整数倍中最接近原Decimal值的值。
    *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
@@ -1122,7 +1122,7 @@ declare class Decimal {
   toNearest(n: Value): Decimal;
 
   /**
-   * 返回一个新的Decimal对象，此Decimal为指定值n乘以一个倍数后与原Decimal最接近的值，可按照rounding设置舍入模式。
+   * 返回一个新的Decimal对象，其值为指定值n的整数倍中最接近原Decimal值的值，可按照rounding设置舍入模式。
    *
    * @param { Value } n {double | string | Decimal}
    * @param { Rounding } rounding 转换时使用的舍入模式。取值范围为0到8的整数。
@@ -1312,7 +1312,7 @@ declare class Decimal {
   static abs(n: Value): Decimal;
 
   /**
-   * 返回一个新的Decimal对象，其值为使用ROUND_FLOOR将n舍入为整数的结果。
+   * 返回一个新的Decimal对象，其值为参数n向负无穷方向舍入得到的结果。
    *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
@@ -1328,7 +1328,7 @@ declare class Decimal {
   static floor(n: Value): Decimal;
 
   /**
-   * 返回一个新的Decimal对象，其值为使用ROUND_CEIL将n舍入为整数的结果。
+   * 返回一个新的Decimal对象，其值为参数n向正无穷方向舍入得到的结果。
    *
    * @param { Value } n {double | string | Decimal}
    * @returns { Decimal } the Decimal type
@@ -1360,7 +1360,7 @@ declare class Decimal {
   static trunc(n: Value): Decimal;
 
   /**
-   * 返回一个值为将n限制在min到max范围内的Decimal对象。当大于限制的最大值时返回max，小于限制的最小值时返回min，在范围内返回值不变。
+   * 返回一个值为将参数n的值限制在min到max范围内的Decimal对象，当n大于max时返回max，当n小于min时返回min，在范围内返回值不变。
    *
    * @param { Value } n {double | string | Decimal}
    * @param { Value } min {double | string | Decimal}
@@ -1517,7 +1517,7 @@ declare class Decimal {
    * 返回一个新的Decimal对象，其值为base的exponent次幂。按照precision设置有效位数，按照rounding设置舍入模式。
    *
    * @param { Value } base {double | string | Decimal} 幂运算的底数的值。
-   * @param { Value } exponent {double | string | Decimal} 幂运算的幂的值。
+   * @param { Value } exponent {double | string | Decimal} 幂运算的指数值。
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
@@ -1799,7 +1799,7 @@ declare class Decimal {
   static asinh(n: Value): Decimal;
 
   /**
-   * 返回一个新的Decimal对象，其值是n的双曲正切的倒数。按照precision设置有效位数，按照rounding设置舍入模式。
+   * 返回一个新的Decimal对象，其值是n的反双曲正切值。按照precision设置有效位数，按照rounding设置舍入模式。
    *
    * @param { Value } n {double | string | Decimal} 以弧度为单位的值。
    * @returns { Decimal } the Decimal type
@@ -1818,8 +1818,8 @@ declare class Decimal {
   /**
    * 返回一个新的Decimal对象，其值是-π到π（含边界）范围内y/x的反正切值。按照precision设置有效位数，按照rounding设置舍入模式。
    *
-   * @param { Value } y {double | string | Decimal} 除法的被除数。
-   * @param { Value } x {double | string | Decimal} 除法的除数。
+   * @param { Value } y {double | string | Decimal} y坐标值，用于计算y/x的反正切值并确定象限。
+   * @param { Value } x {double | string | Decimal} x坐标值，用于计算y/x的反正切值并确定象限。
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
@@ -1917,7 +1917,6 @@ declare class Decimal {
    * 1    如果 n > 0，
    * -1    如果 n < 0，
    * 0    如果 n 为 0，
-   * -0    如果 n 为 -0，
    * NaN  其他情况
    *
    * @param { Value } n {double | string | Decimal}

@@ -19,7 +19,7 @@
  */
 
 /**
- * 本模块提供终端设备信息查询，开发者不可配置。
+ * 本模块提供终端设备信息查询能力，支持获取设备类型、品牌、型号、系统版本、安全补丁级别、设备唯一标识等多种设备信息，适用于设备适配、版本兼容性检查、设备识别、统计分析等场景，帮助开发者快速获取设备信息进行应用适配和优化。开发者不可配置这些信息。
  * 
  * > **说明：**
  * >
@@ -228,7 +228,7 @@ declare namespace deviceInfo {
   const hardwareProfile: string;
 
   /**
-   * 设备序列号SN(Serial Number)。
+   * 设备序列号SN(Serial Number)，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。
    * 
    * **说明：**可作为设备唯一识别码。
    * 
@@ -289,7 +289,7 @@ declare namespace deviceInfo {
   /**
    * 差异版本号，是编译时生成的ohos的版本号。
    * 
-   * 示例：default
+   * 示例：6.1.1.120
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -315,11 +315,9 @@ declare namespace deviceInfo {
   const osReleaseType: string;
 
   /**
-   * 系统版本，版本格式<!--RP12-->OpenHarmony-x.x.x.x,x为数值。<!--RP12End-->
+   * 系统版本，版本格式<!--RP12-->OpenHarmony-x.x.x.x，其中x表示数字占位符。<!--RP12End-->如需获取版本号各段数值，建议直接使用majorVersion、seniorVersion、featureVersion、buildVersion字段，可提升效率，不建议解析osFullName获取。
    * 
-   * 示例：<!--RP10-->OpenHarmony-x.x.x.x，其中x表示数字占位符。<!--RP10End-->
-   *
-   * 如需获取版本号各段数值，建议直接使用majorVersion、seniorVersion、featureVersion、buildVersion字段，可提升效率，不建议解析osFullName获取。
+   * 示例：<!--RP10-->OpenHarmony-5.0.0.1<!--RP10End-->
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -385,7 +383,7 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * 系统软件Minor API版本。从API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
    * 
    * 26.0.0
    * 
@@ -491,9 +489,9 @@ declare namespace deviceInfo {
   const buildRootHash: string;
 
   /**
-   * 设备UDID。
+   * 设备UDID，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。
    * 
-   * **说明：**数据长度为65字节。可作为设备唯一识别码。
+   * **说明：**数据长度为65字节(包含结束符)。可作为设备唯一识别码。
    * 
    * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
@@ -526,7 +524,7 @@ declare namespace deviceInfo {
   const distributionOSVersion: string;
 
   /**
-   * 发行版系统api版本<!--Del-->，由发行方定义<!--DelEnd-->。
+   * 发行版系统API版本<!--Del-->，由发行方定义<!--DelEnd-->。<!--RP15--><!--RP15End-->
    * 
    * 示例：50001
    *
@@ -538,6 +536,10 @@ declare namespace deviceInfo {
   /**
    * 发行版系统api版本名称<!--Del-->，由发行方定义<!--DelEnd-->。
    *
+   * <!--RP16-->
+   * **说明**：不建议用于版本号判断。
+   * 示例：5.0.1<!--RP16End-->
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 13 dynamic
    */
@@ -584,7 +586,7 @@ declare namespace deviceInfo {
   const ODID: string;
 
   /**
-   * 硬盘序列号。
+   * 硬盘序列号，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。
    * 
    * **说明** ：该字段只能在2in1设备进行查询，其他设备查询结果为空。
    * 
@@ -635,6 +637,10 @@ declare namespace deviceInfo {
   /**
    * 描述设备能力等级，基于CPU、内存、存储读写性能和屏幕分辨率等因素综合评估。
    *
+   * **使用场景**：用于根据设备能力进行性能适配，如调整动画复杂度、选择不同质量的资源、动态控制功能特性等。
+   * 
+   * 示例：0
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 19 dynamic
@@ -642,7 +648,9 @@ declare namespace deviceInfo {
   const performanceClass: PerformanceClassLevel;
 
     /**
-     * 当前设备CPU芯片型号
+     * 当前设备CPU芯片型号。
+     * 
+     * **使用场景**：用于根据芯片型号进行性能适配、设备特性识别、兼容性检查等场景，不同芯片型号可能具有不同的GPU性能、AI加速能力等特性。
      * 
      * 示例：xxxxx
      *
@@ -652,7 +660,7 @@ declare namespace deviceInfo {
     const chipType: string;
 
     /**
-     * 当前设备重启次数，获取失败时返回-1
+     * 当前设备重启次数，获取失败时返回-1。
      * 
      * 示例：100
      *
@@ -663,11 +671,15 @@ declare namespace deviceInfo {
 
   /**
    * 检查指定的API版本在当前设备上是否可用。
-   * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
+   * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。该方法会根据输入格式和API版本范围自动选择合适的版本检查方法。
    *
-   * @param { string | number } version -  需要校验的API版本号，支持整数版本号和点分版本号。整数版本号范围：0<x<26。OpenHarmony点分版本号格式为M.S.F（如26.0.0），
-   *     M>=26,0<=S<=99,0<=F<=99。传入无效值时报错。
-   * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false则表示当前设备API版本小于入参版本号
+   * @param { string | number } version - 需要校验的API版本号，支持整数格式版本号和字符串格式版本号。
+   *     - 字符串采用M.S.F格式（如 "26.0.0","5.0.1"）：
+   *     - 对于API 26.0.0及以上版本（version >= 26.0.0）：代表OpenHarmony和发行版系统API版本。
+   *     - 对于API 26.0.0以下版本（version < 26.0.0）：代表发行版系统API版本。
+   *     - 整数格式（如 13）：代表OpenHarmony SDK API版本。（仅支持API 26以下）
+   *     M>=26,0<=S<=99,0<=F<=99。传入无效字面量时编译报错。
+   * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false代表当前设备API版本小于入参版本号，或传入的版本号格式非法、该版本不存在。
    * @syscap SystemCapability.Startup.SystemInfo
    * @FaAndStageModel
    * @crossplatform

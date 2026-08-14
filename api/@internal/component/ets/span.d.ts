@@ -259,6 +259,8 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    *
    * @param { number | FontWeight | ResourceStr } weight - the span font weight.
    * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   *     If not specified, the default values of FontWeightConfigs are used:
+   *     `enableVariableFontWeight` defaults to `false`, and `enableDeviceFontWeightCategory` defaults to `true`.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

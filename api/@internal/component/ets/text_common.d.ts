@@ -877,6 +877,24 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
+   * Obtains the position of the character nearest to the specified coordinate based on the specified encoding type.
+   *
+   * @param { number } x - X coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @param { number } y - Y coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @param { TextEncoding } [encoding] - Encoding type used for the character position. The default value is
+   *     **TextEncoding.TEXT_ENCODING_UTF8**.
+   * @returns { PositionWithAffinity | undefined } Character position. Returns **undefined** when
+   *     [LayoutManager]{@link LayoutManager} is not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCharacterPositionAtCoordinate(
+    x: number, y: number, encoding?: TextEncoding): PositionWithAffinity | undefined;
+
+  /**
    * Obtains the information about the specified line, including line metrics, text style information, and font
    * properties.
    *
@@ -927,6 +945,23 @@ declare interface LayoutManager {
   getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
 
   /**
+   * Obtains the glyph range and the actual character range based on the specified character range and encoding type.
+   *
+   * @param { TextRange } charRange - Character range of the text.
+   * @param { TextEncoding } [encoding] - Encoding type used for the character range. The default value is
+   *     **TextEncoding.TEXT_ENCODING_UTF8**.
+   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the glyph range, and the second is
+   *     the actual character range. When the returned range is invalid, the element in the range is **-1**. Returns
+   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getGlyphRangeForCharacterRange(charRange: TextRange, encoding?: TextEncoding): Array<TextRange> | undefined;
+
+  /**
    * Obtains the character range and the actual glyph range based on the specified glyph range. If a text contains two
    * Chinese characters and five letters, the glyph index range of the text is [0, 7]. A Chinese character occupies
    * three characters, so the corresponding character index range is [0, 11]. If the specified index range is [0, 11],
@@ -943,6 +978,56 @@ declare interface LayoutManager {
    * @since 24 dynamic
    */
   getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
+
+  /**
+   * Obtains the character range and the actual glyph range based on the specified glyph range and encoding type.
+   *
+   * @param { TextRange } glyphRange - Glyph range of the text.
+   * @param { TextEncoding } [encoding] - Encoding type used for the character range. The default value is
+   *     **TextEncoding.TEXT_ENCODING_UTF8**.
+   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the character range, and the second
+   *     is the actual glyph range. When the returned range is invalid, the element in the range is **-1**. Returns
+   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getCharacterRangeForGlyphRange(glyphRange: TextRange, encoding?: TextEncoding): Array<TextRange> | undefined;
+}
+
+/**
+ * Enumerates the text encoding types supported by text layout query APIs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum TextEncoding {
+  /**
+   * UTF-8 encoding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TEXT_ENCODING_UTF8 = 0,
+
+  /**
+   * UTF-16 encoding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TEXT_ENCODING_UTF16 = 1
 }
 
 /**

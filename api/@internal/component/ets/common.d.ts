@@ -779,6 +779,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -788,6 +789,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -797,6 +799,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -806,6 +809,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -893,6 +897,7 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 22 dynamic
  */
@@ -918,6 +923,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -934,6 +940,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -950,6 +957,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -966,6 +974,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -4527,6 +4536,7 @@ declare interface ScaleOptions {
    */
   centerY?: number | string;
 }
+
 /**
  * Defines the vertical align rule of relative container.
  *
@@ -4609,9 +4619,9 @@ declare interface VerticalAlignParam {
    */
   /**
    * Sets the vertical alignment relative to the anchor component.
-   * 
+   *
    * Anonymous Object Rectification
-   * 
+   *
    * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4625,6 +4635,7 @@ declare interface VerticalAlignParam {
 /**
  * Defines the horizontal align rule of relative container.
  *
+ * @interface HorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4827,6 +4838,7 @@ declare interface AlignRuleOption {
 /**
  * Defines the localized horizontal align param of relative container.
  *
+ * @interface LocalizedHorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4837,6 +4849,7 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4848,6 +4861,7 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * Horizontal alignment mode relative to the anchor component.
    *
+   * @type { HorizontalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4860,6 +4874,7 @@ declare interface LocalizedHorizontalAlignParam {
 /**
  * Defines the localized vertical align param of relative container.
  *
+ * @interface LocalizedVerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4870,6 +4885,7 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4881,6 +4897,7 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * Vertical alignment mode relative to the anchor component.
    *
+   * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4893,6 +4910,7 @@ declare interface LocalizedVerticalAlignParam {
 /**
  * Defines the Localized align rule options of relative container.
  *
+ * @interface LocalizedAlignRuleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4904,6 +4922,7 @@ declare interface LocalizedAlignRuleOptions {
    * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal 
    * direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4916,6 +4935,7 @@ declare interface LocalizedAlignRuleOptions {
    * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal 
    * direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4927,6 +4947,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Center alignment in the horizontal direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4938,6 +4959,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Top alignment in the vertical direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4949,6 +4971,7 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Bottom alignment in the vertical direction.
    *
+   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4972,6 +4995,7 @@ declare interface LocalizedAlignRuleOptions {
    * Offset of the component under the anchor constraints.
    * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
+   * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4985,6 +5009,7 @@ declare interface LocalizedAlignRuleOptions {
 /**
  * Enumerates the chain styles in relative container.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8288,6 +8313,7 @@ declare enum LayoutSafeAreaType {
 /**
  * Define the edges for expanding the safe area in layout.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -26090,6 +26116,7 @@ declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * Sub component info passed from framework when layout and measure happens.
  *
+ * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9 dynamiconly
@@ -26100,6 +26127,7 @@ declare interface LayoutChild {
   /**
    * Sub component name.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26111,6 +26139,7 @@ declare interface LayoutChild {
   /**
    * Sub component id.
    *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26122,6 +26151,7 @@ declare interface LayoutChild {
   /**
    * Sub component constraint.
    *
+   * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26133,6 +26163,7 @@ declare interface LayoutChild {
   /**
    * Sub component border info.
    *
+   * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26144,6 +26175,7 @@ declare interface LayoutChild {
   /**
    * Sub component position.
    *
+   * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly

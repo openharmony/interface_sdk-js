@@ -262,7 +262,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      */
     default onFinish(event: (() => void) | undefined): this;
     /**
-     * Called when scrolling is stoped.
+     * Called when scrolling is stopped.
      *
      * <p><strong>NOTE</strong>:
      * <br>If event is set to undefined, the current event will be unbound.

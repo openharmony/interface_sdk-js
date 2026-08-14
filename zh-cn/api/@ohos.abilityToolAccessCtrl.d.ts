@@ -59,6 +59,61 @@ declare namespace abilityToolAccessCtrl {
   }
 
   /**
+   * 远程控制交互参数
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  interface RemoteControlParams {
+    /**
+     * 防重放challenge。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    challenge?: string;
+    /**
+     * 可信设备的远程控制凭证。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    remoteControlTicket?: string;
+    /**
+     * 被控设备的设备名称。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    controlledDeviceName?: string;
+    /**
+     * 主控设备的设备名称。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    controllerDeviceName?: string;
+    /**
+     * 签名认证需要的额外信息。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    signVerifyMsg?: string;
+}
+  /**
    * 权限查询信息。
    *
    * @syscap SystemCapability.Security.Asset
@@ -100,6 +155,16 @@ declare namespace abilityToolAccessCtrl {
     ticketExpireTimeMs?: long;
 
     /**
+     * 远端设备信息。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    remoteInfo?: RemoteInfo;
+
+    /**
      * 主叫token标识。
      * 取值范围：(-∞,+∞)。
      *
@@ -119,6 +184,57 @@ declare namespace abilityToolAccessCtrl {
      * @since 26.0.0 dynamiconly
      */
     domainId?: string;
+  }
+
+  /**
+   * 远端设备信息。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  interface RemoteInfo {
+
+    /**
+     * 设备角色。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    role: Role;
+
+    /**
+     * 远端设备ID。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    remoteId: string;
+
+    /**
+     * 域ID。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    domainId: string;
+
+    /**
+     * 远程控制中的交互参数。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    remoteControlParams?: RemoteControlParams;
   }
 
   /**
@@ -306,6 +422,47 @@ declare namespace abilityToolAccessCtrl {
   }
 
   /**
+   * 远程授权包。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  interface RemoteAuthPackage {
+
+    /**
+     * 远程消息。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    remoteMessage: string;
+
+    /**
+     * 挑战值。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    challenge: string;
+
+    /**
+     * 凭据字符串。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    ticket: string;
+  }
+
+  /**
    * 用户授权结果。
    *
    * @syscap SystemCapability.Security.Asset
@@ -334,6 +491,68 @@ declare namespace abilityToolAccessCtrl {
      * @since 26.0.0 dynamiconly
      */
     permissionQuery: PermissionQuery;
+  }
+
+  /**
+   * 远程用户授权结果。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  interface RemoteUserAuthResults {
+
+    /**
+     * 授权结果列表。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    results: RemoteUserAuthItem[];
+
+    /**
+     * 权限查询信息。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    permissionQuery: PermissionQuery;
+  }
+
+  /**
+   * 远程用户授权项。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  interface RemoteUserAuthItem {
+
+    /**
+     * 权限名称。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    permission: string;
+
+    /**
+     * 授权结果。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    authResult: string;
   }
 
   /**
@@ -397,6 +616,36 @@ declare namespace abilityToolAccessCtrl {
   }
 
   /**
+   * 设备角色。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  enum Role {
+    /**
+     * 控制器设备。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    CONTROLLER = 0x01,
+
+    /**
+     * 受控设备。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    CONTROLLED = 0x02
+  }
+
+  /**
    * 操作类型。
    *
    * @syscap SystemCapability.Security.Asset
@@ -424,6 +673,36 @@ declare namespace abilityToolAccessCtrl {
      * @since 26.0.0 dynamiconly
      */
     API = 0x02
+  }
+
+  /**
+   * 远程授权状态。
+   *
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  enum RemoteGrantStatus {
+    /**
+     * 启用远程授权。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    ENABLE = 0x01,
+
+    /**
+     * 禁用远程授权。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamiconly
+     */
+    DISABLE = 0x02
   }
 
   /**
@@ -479,6 +758,147 @@ declare namespace abilityToolAccessCtrl {
    * @since 26.0.0 dynamiconly
    */
   export function grantToolPermissionsByUser(userAuthResult: UserAuthResult[]): Promise<TicketInfo[]>;
+
+  /**
+   * 生成控制器设备的授权包。
+   * 根据远程用户授权结果生成远程授权包。
+   * 生成的包可以发送到受控设备进行权限验证。
+   *
+   * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+   * @param { RemoteUserAuthResults[] } remoteUserAuthResult - 远程用户授权结果列表
+   * @returns { Promise<RemoteAuthPackage[]> } Promise用于返回${RemoteAuthPackage[]}。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010000 - Invalid parameter. OperationType and operationInfo do not match,
+   *     specified callerTokenId does not exist, etc.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function generateControllerDevicePackage(remoteUserAuthResult: RemoteUserAuthResults[]):
+    Promise<RemoteAuthPackage[]>;
+
+  /**
+   * 生成受控设备的授权包。
+   * 根据权限查询列表生成远程授权包。
+   * 生成的包可以发送到控制器设备进行权限验证。
+   *
+   * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+   * @param { PermissionQuery[] } permissionQuery - 权限查询列表。
+   * @returns { Promise<RemoteAuthPackage[]> } Promise用于返回${RemoteAuthPackage[]}。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010000 - Invalid parameter. Permission exceeds 256 characters,
+   *     specificied tokenId is invalid, etc.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function generateControlledDevicePackage(permissionQuery: PermissionQuery[]): Promise<RemoteAuthPackage[]>;
+
+  /**
+   * 验证来自控制器设备的授权包。
+   * 验证控制器设备发送的远程授权包。
+   * 它验证票证和远程设备信息，以确保授权是合法的。
+   *
+   * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+   * @param { RemoteAuthPackage[] } ticketInfo - 远程授权包列表
+   * @param { RemoteInfo } remoteInfo - 远端设备信息
+   * @returns { Promise<boolean[]> } Promise用于返回${boolean[]}。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010000 - Invalid parameter. Format of ticketInfo or remoteInfo is invalid.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function verifyControllerDevicePackage(ticketInfo: RemoteAuthPackage[], remoteInfo: RemoteInfo):
+    Promise<boolean[]>;
+
+  /**
+   * 对受控设备的授权包进行校验。
+   * 对被控设备发送的远程授权包进行校验。
+   * 它验证票证以确保授权是合法的。
+   *
+   * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+   * @param { RemoteAuthPackage[] } ticketInfo - 远程授权包列表
+   * @returns { Promise<boolean[]> } Promise用于返回${boolean[]}。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010000 - Invalid parameter. Format of ticketInfo is invalid.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function verifyControlledDevicePackage(ticketInfo: RemoteAuthPackage[]): Promise<boolean[]>;
+
+  /**
+   * 获取远程授权状态。
+   * 该功能用于查询远程授权特性的使能状态。
+   * 启用时，设备可以向远程设备授予权限；
+   * 禁用时，不允许远程授权。
+   *
+   * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+   * @returns { Promise<RemoteGrantStatus> } Promise用于返回${RemoteGrantStatus}。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function getRemoteGrantStatus(): Promise<RemoteGrantStatus>;
+
+  /**
+   * 更新远程授权状态。
+   * 该功能用于开启或关闭远程授权特性。
+   * 启用时，设备可以向远程设备授予权限；
+   * 禁用时，不允许远程授权。
+   *
+   * @permission ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS
+   * @param { RemoteGrantStatus } remoteGrantStatus - 要设置的远程授权状态
+   * @returns { Promise<void> } 不会返回任何值的Promise。
+   * @throws { BusinessError } 201 - Permission denial.
+   *     The interface caller does not have permission "ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS".
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 24010000 - Invalid parameter. RemoteGrantStatus is invalid.
+   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     resource access failure, etc.
+   * @syscap SystemCapability.Security.Asset
+   * @systemapi
+   * @FaAndStageModel
+   * @since 26.1.0 dynamiconly
+   */
+  export function updateRemoteGrantStatus(remoteGrantStatus: RemoteGrantStatus): Promise<void>;
 }
 
 export default abilityToolAccessCtrl;

@@ -251,6 +251,7 @@ declare namespace dlpPermission {
      * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -274,6 +275,7 @@ declare namespace dlpPermission {
      *     file.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -290,6 +292,7 @@ declare namespace dlpPermission {
      *
      * @returns { Promise<DLPPermissionInfo> } Promise used to return the permission information about the DLP file. The
      *     operation is successful if no error is reported.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
      *     which is available only for DLP sandbox applications.
@@ -309,6 +312,7 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<DLPPermissionInfo> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
      *     which is available only for DLP sandbox applications.
@@ -326,6 +330,7 @@ declare namespace dlpPermission {
      *     of range, error code 401 is thrown.
      * @returns { string } Original name of the DLP file obtained. For example, if the DLP file name is **test.txt.dlp**
      *     , the original file name returned is **test.txt**. The value contains up to 255 bytes.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -341,6 +346,7 @@ declare namespace dlpPermission {
      *
      * @returns { string } DLP file name extension obtained. For example, if the original file name is **test.txt**, the
      *     encrypted DLP file name is **test.txt.dlp**, and the returned extension is **.dlp**.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
@@ -359,6 +365,7 @@ declare namespace dlpPermission {
      *     will be notified when the DLP file is opened.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -381,6 +388,7 @@ declare namespace dlpPermission {
      *     callbacks for the file open event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -398,6 +406,7 @@ declare namespace dlpPermission {
      *
      * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the application is
      *     running in a sandbox; the value **false** means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -415,6 +424,7 @@ declare namespace dlpPermission {
      *     **err** is **undefined**. Otherwise, **err** is an error object. The value **true** means the application is
      *     running in a sandbox; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -430,6 +440,7 @@ declare namespace dlpPermission {
      * in the list, it can be encrypted.
      *
      * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -447,6 +458,7 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -466,6 +478,7 @@ declare namespace dlpPermission {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
      *     which is available only for DLP sandbox applications.
@@ -488,6 +501,7 @@ declare namespace dlpPermission {
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
      *     which is available only for DLP sandbox applications.
@@ -509,6 +523,7 @@ declare namespace dlpPermission {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -529,6 +544,7 @@ declare namespace dlpPermission {
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -550,6 +566,7 @@ declare namespace dlpPermission {
      * @returns { Promise<Array<RetentionSandboxInfo>> } Promise used to return the sandbox retention information
      *     obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -573,6 +590,7 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -592,6 +610,7 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -610,6 +629,7 @@ declare namespace dlpPermission {
      *
      * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed DLP files
      *     obtained.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -629,6 +649,7 @@ declare namespace dlpPermission {
      * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -680,6 +701,7 @@ declare namespace dlpPermission {
      * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
@@ -726,6 +748,7 @@ declare namespace dlpPermission {
      * @returns { Promise<GatheringPolicyType> } Promise used to return the DLP sandbox gathering policy obtained.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -744,6 +767,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -816,6 +840,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -853,6 +878,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -885,6 +911,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -918,6 +945,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -971,6 +999,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -997,6 +1026,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1267,6 +1297,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1294,6 +1325,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1315,6 +1347,7 @@ declare namespace dlpPermission {
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1339,6 +1372,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1360,6 +1394,7 @@ declare namespace dlpPermission {
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1383,6 +1418,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1407,6 +1443,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1433,6 +1470,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1459,6 +1497,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1485,6 +1524,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1509,6 +1549,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
          * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1540,6 +1581,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
          *     unspecified.
          *     2. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
          * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1570,6 +1612,7 @@ declare namespace dlpPermission {
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1596,6 +1639,7 @@ declare namespace dlpPermission {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1629,6 +1673,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1666,6 +1711,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1702,6 +1748,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1737,6 +1784,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1767,6 +1815,7 @@ declare namespace dlpPermission {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -1784,6 +1833,7 @@ declare namespace dlpPermission {
      * configurations from affecting subsequent use. This API can be called only in non-sandbox applications.
      *
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -1800,6 +1850,7 @@ declare namespace dlpPermission {
      * configuration status.
      *
      * @returns { Promise<string> } Promise used to return the result.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100018 - The application is not authorized.
@@ -1822,6 +1873,7 @@ declare namespace dlpPermission {
      * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
      *
      * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 12
@@ -1910,6 +1962,7 @@ declare namespace dlpPermission {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1944,6 +1997,7 @@ declare namespace dlpPermission {
      *     4,194,304 bytes.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1981,6 +2035,7 @@ declare namespace dlpPermission {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
@@ -2027,6 +2082,7 @@ declare namespace dlpPermission {
      * @param { EnterprisePolicy } policy - Enterprise application protection policy to be set. Access control and
      *     behavior restrictions of enterprise DLP files are implemented based on the policy.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100021 - Failed to set the enterprise policy.
@@ -2066,6 +2122,7 @@ declare namespace dlpPermission {
          * @param { Callback<string> } callback - API transferred by the SA, which is used for callback. No value range
          *     restriction is specified.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -2090,6 +2147,7 @@ declare namespace dlpPermission {
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
@@ -2110,6 +2168,7 @@ declare namespace dlpPermission {
          * @returns { number } Registration result. The unique ID of the callback is returned. The value range is
          *     [0, 2<sup>53</sup>-1].
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
          * @throws { BusinessError } 19100003 - Credential task time out.
@@ -2131,6 +2190,7 @@ declare namespace dlpPermission {
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
          * @throws { BusinessError } 19100003 - Credential task time out.

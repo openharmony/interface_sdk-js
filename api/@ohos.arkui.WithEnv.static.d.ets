@@ -68,8 +68,9 @@ export declare interface WithEnvAttribute {
      * Notify WithEnv has finished setting up its attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     applyAttributesFinish(): void;
 }

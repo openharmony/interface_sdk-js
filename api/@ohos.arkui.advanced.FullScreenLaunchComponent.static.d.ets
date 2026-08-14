@@ -54,6 +54,7 @@ type ContentBuilder = () => void;
  * > [EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}. Otherwise, the system
  * > cannot guarantee that the atomic service will function properly.
  *
+ * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */

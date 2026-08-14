@@ -229,7 +229,7 @@ export interface Event {
   readonly type: string;
 
   /**
-   * 事件创建时的时间戳（精度为毫秒），目前不支持。
+   * 事件创建时的时间戳，单位为ms，目前不支持。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -289,7 +289,7 @@ export interface ErrorEvent extends Event {
   readonly colno: number;
 
   /**
-   * 异常类型。
+   * 异常对象。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -439,7 +439,7 @@ export interface EventTarget {
   addEventListener(type: string, listener: EventListener): void;
 
   /**
-   * 分发定义在Worker的事件。
+   * 分发Worker实例上已注册的事件。
    *
    * @param { Event } event - 需要分发的事件。
    * @returns { boolean }
@@ -622,9 +622,8 @@ declare interface GlobalScope extends WorkerEventTarget {
  */
 export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   /**
-   * onmessage属性用于指定当Worker线程收到来自其宿主线程通过
-   * postMessage接口发送的消息时被调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。
+   * 回调函数，表示Worker线程收到来自其宿主线程通过postMessage接口发送的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身DedicatedWorkerGlobalScope，
+   * ev类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -634,8 +633,8 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
-   * onmessage属性用于指定当Worker线程收到一条无法被反序列化的消息时
-   * 被调用的事件处理程序，该事件处理程序在Worker线程中执行。
+   * 回调函数，表示当Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身DedicatedWorkerGlobalScope，
+   * ev类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -702,9 +701,8 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
  */
 export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
-   * 当Worker线程收到来自其宿主线程通过postMessage接口发送的消息时调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
-   * ev类型为MessageEvents，表示收到的消息数据。
+   * 回调函数。表示Worker线程收到来自其宿主线程通过postMessage或postMessageWithSharedSendable接口发送的消息时被调用的事件处理程序，处理程序在Worker线程中执行。
+   * 其中this指调用者对象本身ThreadWorkerGlobalScope，ev类型为MessageEvents，表示收到的宿主线程发送的消息数据。默认值为undefined。
    *
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -716,9 +714,8 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
   /**
-   * 当Worker线程收到一条无法被反序列化的消息时调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
-   * ev类型为MessageEvents，表示收到的消息数据。
+   * 回调函数。表示当Worker线程的Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
+   * ev类型为MessageEvents，表示收到的消息数据。默认值为undefined。
    *
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -819,6 +816,14 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
    * Worker线程通过转移对象所有权的方式向宿主线程发送插队消息，并插入到对应优先级队列的队头。
    * 除Worker线程向主线程发送的场景外，该接口与postMessage功能一致。
+   *
+   * > **说明：**
+   * >
+   * > - 如果是Worker线程向宿主线程发送插队的消息，消息能够插队并且按优先级进行发送。
+   * >
+   * > - 如果是Worker线程之间发送插队的消息，消息只能插队，没有优先级。
+   * >
+   * > - postMessage和postMessageWithSharedSendable接口向宿主线程发送消息，默认是HIGH优先级，无插队效果。
    *
    * @param { Object } message - 发送至宿主线程的数据，该数据对象必须是可序列化或可共享。
    *     支持的序列化类型请参考序列化支持类型。
@@ -933,7 +938,7 @@ declare namespace worker {
     onerror?: (err: ErrorEvent) => void;
 
     /**
-     * 回调函数。表示Worker线程生命周期内发生异常被调用的事件处理程序，处理程序在宿主线程中执行。
+     * 回调函数。表示Worker线程生命周期内发生异常被调用的事件处理程序，处理程序在宿主线程中执行。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1059,7 +1064,7 @@ declare namespace worker {
      */
     off(type: string, listener?: WorkerEventListener): void;
     /**
-     * 销毁Worker线程，终止Worker接收消息。
+     * 由宿主线程主动销毁Worker线程并停止Worker线程接收消息。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
@@ -1190,8 +1195,7 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
 
     /**
-     * 当Worker销毁时被调用的事件处理程序，处理程序在宿主线程中执行。回调函数中code类型为number，
-     * 异常退出为1，正常退出为0。默认值为undefined。
+     * 回调函数。表示Worker销毁时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中code类型为number，异常退出为1，正常退出为0。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1201,8 +1205,7 @@ declare namespace worker {
     onexit?: (code: number) => void;
 
     /**
-     * onerror属性用于指定Worker在执行过程中发生异常时被调用的事件处理程序，
-     * 该事件处理程序在宿主线程中执行。
+     * 回调函数。表示Worker在执行过程中发生异常被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中err类型为ErrorEvent，表示收到的异常数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1212,9 +1215,8 @@ declare namespace worker {
     onerror?: (err: ErrorEvent) => void;
 
     /**
-     * onmessage属性用于指定当宿主线程接收到来自其创建的Worker
-     * 通过parentPort.postMessage发送的消息时被调用的事件处理程序，
-     * 该事件处理程序在宿主线程中执行。
+     * 回调函数。表示宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为MessageEvent，
+     * 表示收到的Worker消息数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1224,8 +1226,7 @@ declare namespace worker {
     onmessage?: (event: MessageEvent) => void;
 
     /**
-     * onmessage属性用于指定当Worker收到一条无法被序列化的消息时
-     * 被调用的事件处理程序，该事件处理程序在宿主线程中执行。
+     * 回调函数。表示当Worker对象接收到一条无法被序列化的消息时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1300,7 +1301,7 @@ declare namespace worker {
     off(type: string, listener?: EventListener): void;
 
     /**
-     * 销毁Worker线程，终止Worker接收消息。
+     * 由宿主线程主动销毁Worker线程并停止Worker线程接收消息。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly

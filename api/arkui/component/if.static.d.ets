@@ -109,8 +109,8 @@ export declare function If(
 ): IfAttribute;
 
 /**
- * Defines If Component. It requires call setIfOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines If Component. It requires calling setIfOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<IfAttribute> } style - callback to set up If's attributes.
  * @param { CustomBuilder } content_ - code for the branch

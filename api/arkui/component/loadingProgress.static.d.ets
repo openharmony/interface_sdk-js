@@ -108,7 +108,8 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set LoadingProgress options.
+     * Sets the default LoadingProgress options. The default options include the default
+     * loading progress style and color settings.
      *
      * @returns { LoadingProgressAttribute } Returns the instance of the LoadingProgressAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full

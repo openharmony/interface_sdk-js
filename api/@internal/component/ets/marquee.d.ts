@@ -339,7 +339,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   onFinish(event: () => void): MarqueeAttribute;
 
   /**
-   * Called when scrolling is stoped.
+   * Called when scrolling is stopped.
    *
    * <p><strong>NOTE</strong>:
    * <br>If event is set to undefined, the current event will be unbound.

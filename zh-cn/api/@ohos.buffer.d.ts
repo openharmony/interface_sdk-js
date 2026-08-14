@@ -49,18 +49,7 @@ declare namespace buffer {
    * @since 9 dynamic
    * @since 23 static
    */
-  type BufferEncoding =
-    | 'ascii'
-    | 'utf8'
-    | 'utf-8'
-    | 'utf16le'
-    | 'ucs2'
-    | 'ucs-2'
-    | 'base64'
-    | 'base64url'
-    | 'latin1'
-    | 'binary'
-    | 'hex';
+  type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex';
   /**
    * TypedArray继承Int8Array的特性与方法。
    *
@@ -201,9 +190,9 @@ declare namespace buffer {
   ): number;
 
   /**
-   * 根据不同的编码格式，返回指定字符串的字节数。
+   * 根据不同的编码格式，返回指定数据的字节数。
    *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - 指定字符串。
+   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - 要计算字节长度的字符串或其他数据对象。
    * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。
    * @returns { int } 返回指定字符串的字节数
    * @syscap SystemCapability.Utils.Lang
@@ -220,7 +209,7 @@ declare namespace buffer {
    * 将数组中的内容复制（默认复制全部内容，或复制指定字节长度）到新的Buffer对象中并返回。
    *
    * @param { Buffer[] | Uint8Array[] } list - Buffer或Uint8Array实例数组，用于拼接合并创建新的Buffer对象。
-   * @param { int } [totalLength] - 需要复制的总字节长度，默认值为0。
+   * @param { int } [totalLength] - 需要复制的总字节长度，默认值：0。
    * @returns { Buffer } 返回新的Buffer对象。
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max.
    *     Received value is: [length]
@@ -471,11 +460,11 @@ declare namespace buffer {
     get byteOffset(): int;
 
     /**
-     * 使用value填充当前对象指定位置的数据，默认为循环填充，并返回填充后的Buffer对象。
+     * 使用value填充当前对象指定位置的数据，当value的长度小于需要填充的范围时会重复value进行填充，并返回填充后的Buffer对象。
      *
      * @param { string | Buffer | Uint8Array | number } value - 用于填充的值。[since 9 - 10]
      * @param { string | Buffer | Uint8Array | int | double | long } value - 用于填充的值。[since 11]
-     * @param { int } [offset] - 起始偏移量。默认值：0。
+     * @param { int } [offset] - 起始偏移量。取值范围：>= 0且<= Buffer.length。默认值：0。
      * @param { int } [end] - 结束偏移量（不包含结束位置）。默认值：当前对象的字节长度。
      * @param { BufferEncoding } [encoding] - 字符编码格式（value为string才有意义）。默认值：'utf8'。
      * @returns { Buffer } 返回填充后的Buffer对象。
@@ -495,7 +484,7 @@ declare namespace buffer {
     ): Buffer;
 
     /**
-     * 比较当前Buffer对象与目标Buffer对象，并返回Buffer在排序中的结果。
+     * 比较当前Buffer对象与目标Buffer或Uint8Array对象，并返回在排序中的结果。
      *
      * @param { Buffer | Uint8Array } target - 要比较的实例对象。
      * @param { number } [targetStart] - target实例中开始的偏移量。默认值：0。
@@ -521,10 +510,10 @@ declare namespace buffer {
     ): -1 | 0 | 1;
 
     /**
-     * 比较当前Buffer对象与目标Buffer对象，并返回Buffer在排序中的结果。
+     * 比较当前Buffer对象与目标Buffer或Uint8Array对象，并返回在排序中的结果。
      *
      * @param { Buffer | Uint8Array } target - 要比较的实例对象。
-     * @param { int } [targetStart] - `target`实例中开始的偏移量。默认值：0。
+     * @param { int } [targetStart] - `target`实例中开始的偏移量。取值范围：>= 0且<= target的字节长度。默认值：0。
      * @param { int } [targetEnd] - `target`实例中结束的偏移量（不包含结束位置）。默认值：目标对象的字节长度。
      * @param { int } [sourceStart] - `this`实例中开始的偏移量。默认值：0。
      * @param { int } [sourceEnd] - `this`实例中结束的偏移量（不包含结束位置）。默认值：当前对象的字节长度。
@@ -549,7 +538,7 @@ declare namespace buffer {
      * 将`this`实例中指定位置的数据复制到`target`的指定位置上，并返回复制的字节总长度。
      *
      * @param { Buffer | Uint8Array } target - 要复制到的Buffer或Uint8Array实例。
-     * @param { int } [targetStart] - `target`实例中开始写入的偏移量。默认值：0。
+     * @param { int } [targetStart] - `target`实例中开始写入的偏移量。取值范围：>= 0且<= target的字节长度。默认值：0。
      * @param { int } [sourceStart] - `this`实例中开始复制的偏移量。默认值: 0。
      * @param { int } [sourceEnd] - `this`实例中结束复制的偏移量（不包含结束位置）。默认值：当前对象的字节长度。
      * @returns { int } 复制的字节总长度。
@@ -610,9 +599,9 @@ declare namespace buffer {
     indexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
-     * 返回包含key值的迭代器。
+     * 返回一个包含字节索引（key）和字节值（value）的迭代器。
      *
-     * @returns { IterableIterator<int> } 返回一个包含key值的迭代器。
+     * @returns { IterableIterator<int> } 返回包含Buffer中每个字节值的迭代器。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -634,7 +623,7 @@ declare namespace buffer {
     values(): IterableIterator<long>;
 
     /**
-     * 返回一个包含key和value的迭代器。
+     * 返回一个包含字节索引（key）和字节值（value）的迭代器。
      *
      * @returns { IterableIterator<[number, number]> } 包含key和value的迭代器，同时两者皆为number类型。[since 9 - 10]
      * @returns { IterableIterator<[int, long]> } [since 11]
@@ -665,8 +654,8 @@ declare namespace buffer {
     /**
      * 从指定的`offset`处读取有符号的大端序64位整数。
      *
-     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。
-     * @returns { bigint } 读取出的内容。
+     * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 8。当Buffer长度小于8时无法使用此方法。
+     * @returns { bigint } 读取的有符号大端序64位整数值。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -681,7 +670,7 @@ declare namespace buffer {
      * 从指定的`offset`处读取有符号的小端序64位整数。
      *
      * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
-     * @returns { bigint } 读取出的内容。
+     * @returns { bigint } 从Buffer中读取的有符号小端序64位整数值，可用于高精度整数运算的二进制数据处理。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -696,7 +685,7 @@ declare namespace buffer {
      * 从指定的`offset`处读取无符号的大端序64位整数。
      *
      * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
-     * @returns { bigint } 读取出的内容。
+     * @returns { bigint } 从Buffer中读取的无符号大端序64位整数值。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -711,7 +700,7 @@ declare namespace buffer {
      * 从指定的`offset`处读取无符号的小端序64位整数。
      *
      * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 8，默认值：0。
-     * @returns { bigint } 读取出的内容。
+     * @returns { bigint } 从Buffer中读取的无符号小端序64位整数值。
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -890,7 +879,7 @@ declare namespace buffer {
     readIntLE(offset: int, byteLength: int): long;
 
     /**
-     * 从`offset`处读取8位无符号整型数。
+     * 从指定的`offset`处读取8位无符号整型数。
      *
      * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 1，默认值：0。
      * @returns { long } 读取出的内容。
@@ -920,7 +909,7 @@ declare namespace buffer {
     readUInt16BE(offset?: int): long;
 
     /**
-     * 从指定的`offset`处的buf读取无符号的小端序16位整数。
+     * 从指定的`offset`处读取无符号的小端序16位整数。
      *
      * @param { int } [offset] - 偏移量。取值范围：0 <= offset <= Buffer.length - 2，默认值：0。
      * @returns { long } 读取出的内容。
@@ -968,7 +957,7 @@ declare namespace buffer {
      * 从指定的`offset`处的buf读取`byteLength`个字节，并将结果解释为支持最高48位精度的无符号大端序整数。
      *
      * @param { int } offset - 偏移量。取值范围：0 <= offset <= Buffer.length - byteLength，默认值：0。
-     * @param { int } byteLength - 要读取的字节数。读取的字节数。取值范围：1 <= byteLength <= 6。
+     * @param { int } byteLength - 要读取的字节数。取值范围：1 <= byteLength <= 6。
      * @returns { long } 读取出的内容。当offset为小数时，返回undefined。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
@@ -1011,7 +1000,7 @@ declare namespace buffer {
     subarray(start?: int, end?: int): Buffer;
 
     /**
-     * 将当前对象转换为无符号的16位整数数组，并交换字节顺序。
+     * 将当前对象转换为无符号的16位整数数组，并交换字节顺序。适用于需要在大端序和小端序之间转换16位数据的场景。
      *
      * @returns { Buffer } 交换之后的Buffer对象。
      * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 16-bits
@@ -1024,7 +1013,7 @@ declare namespace buffer {
     swap16(): Buffer;
 
     /**
-     * 将当前对象转换为无符号的32位整数数组，并交换字节顺序。
+     * 将当前对象转换为无符号的32位整数数组，并交换字节顺序。适用于需要在大端序和小端序之间转换32位数据的场景。
      *
      * @returns { Buffer } 交换之后的Buffer对象。
      * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 32-bits
@@ -1037,7 +1026,7 @@ declare namespace buffer {
     swap32(): Buffer;
 
     /**
-     * 将当前对象转换为无符号的64位整数数组，并交换字节顺序。
+     * 将当前对象转换为无符号的64位整数数组，并交换字节顺序。适用于需要在大端序和小端序之间转换64位数据的场景。
      *
      * @returns { Buffer } 交换之后的Buffer对象。
      * @throws { BusinessError } 10200009 - The buffer size must be a multiple of 64-bits
@@ -1050,7 +1039,7 @@ declare namespace buffer {
     swap64(): Buffer;
 
     /**
-     * 将Buffer转为JSON并返回。
+     * 将Buffer转为JSON对象并返回，该对象包含type属性（值为'Buffer'）和data属性（值为按字节顺序排列的数组）。
      *
      * @returns { Object } JSON对象。
      * @syscap SystemCapability.Utils.Lang
@@ -1074,8 +1063,8 @@ declare namespace buffer {
     /**
      * 将当前对象中指定位置的数据转成指定编码格式的字符串并返回。
      *
-     * @param { string } [encoding] - 字符编码格式。默认值：'utf8'。
-     * @param { number } [start] - 开始位置。默认值：0。
+     * @param { string } [encoding] - 字符编码格式（`value`参数为string时才有意义）。默认值：'utf8'。
+     * @param { number } [start] - 开始位置，单位：字节。默认值：0。
      * @param { number } [end] - 结束位置。默认值：Buffer.length。
      * @returns { string } 字符串。当start >= Buffer.length或start > end时返回空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -1118,9 +1107,9 @@ declare namespace buffer {
      * 在Buffer对象的offset偏移处写入指定编码的字符串，写入的字节长度为length。
      *
      * @param { string } str - 要写入Buffer的字符串。
-     * @param { int } [offset] - 偏移量。默认值：0。
+     * @param { int } [offset] - 偏移量。取值范围：>= 0且<= Buffer.length。默认值：0。
      * @param { int } [length] - 最大字节长度。默认值：（Buffer.length - offset）。
-     * @param { string } [encoding] - 字符编码。默认值：'utf8'。
+     * @param { string } [encoding] - 字符编码，支持的格式范围为BufferEncoding。默认值：'utf8'。
      * @returns { int } 写入的字节数。
      * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <=
      *     buf.length. Received value is: [offset/length]
@@ -1263,7 +1252,7 @@ declare namespace buffer {
     /**
      * 在Buffer对象的offset偏移处写入8位有符号整型数据。
      *
-     * @param { long } value - 写入Buffer的数据。
+     * @param { long } value - 写入Buffer的数据。取值范围：-128 <= value <= 127（8位有符号整数）。
      * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 1。
      * @returns { int } 偏移量offset加上写入的字节数。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -1377,7 +1366,7 @@ declare namespace buffer {
     /**
      * 在Buffer对象的offset偏移处写入8位无符号整型数据。
      *
-     * @param { long } value - 写入Buffer的数据。
+     * @param { long } value - 写入Buffer的数据。取值范围：0 <= value <= 255（8位无符号整数）。
      * @param { int } [offset] - 偏移量。默认值：0。取值范围：0 <= offset <= Buffer.length - 1。
      * @returns { int } 偏移量offset加上写入的字节数。
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
@@ -1548,7 +1537,7 @@ declare namespace buffer {
   class Blob {
 +
     /**
-     * Blob的构造函数。
+     * 根据传入的数据源和可选配置项创建Blob对象，Blob实例将包含数据源中的内容。
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - Blob实例的数据源。
      * @param { Object } [options] - options:<br/>- endings：含义为结束符'\n'的字符串如何被输出，为'transparent'或'native'。native代表行结束符会跟随系
@@ -1562,7 +1551,7 @@ declare namespace buffer {
     constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[], options?: Object);
 
     /**
-     * Blob的构造函数。
+     * 根据传入的数据源和可选配置项创建Blob对象，Blob实例将包含数据源中的内容。
      *
      * @param { ArrayUnionType } sources - Blob实例的数据源。
      * @param { BlobOptions } [options] - options:<br/>- endings：含义为结束符'\n'的字符串如何被输出，为'transparent'或'native'。native代表行结束符会跟随系
@@ -1600,7 +1589,7 @@ declare namespace buffer {
     /**
      * 将Blob数据放入ArrayBuffer中返回，使用Promise进行异步回调。
      *
-     * @returns { Promise<ArrayBuffer> } Promise对象，返回包含Blob数据的ArrayBuffer。
+     * @returns { Promise<ArrayBuffer> } Promise对象，resolve返回包含Blob数据的ArrayBuffer，reject返回错误信息。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1627,7 +1616,7 @@ declare namespace buffer {
     /**
      * 使用utf8解码并返回字符串。使用Promise进行异步回调。
      *
-     * @returns { Promise<string> } Promise对象，返回以utf8解码后的字符串。
+     * @returns { Promise<string> } Promise对象，resolve返回以utf8解码后的字符串，reject返回错误信息。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]

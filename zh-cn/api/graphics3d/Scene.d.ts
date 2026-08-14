@@ -35,8 +35,10 @@ import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3
  */
 export interface SceneLoadParams {
   /**
-   * 资源中3D模型数据的起始偏移量
-   * 单位：字节，值必须大于等于0. 默认值：0.
+   * 3D模型数据在资源文件中的起始偏移量，单位为字节。
+   * 系统将从资源文件的该偏移位置定位并读取glb模型数据。
+   * 例如，当glb模型嵌在MP4容器文件中时，可将此参数设置为glb数据在MP4文件中的起始字节位置，使系统能够正确提取并加载模型。
+   * 取值必须大于或等于0。默认值为0，表示模型数据从文件起始位置开始。
    *
    * @default { 0 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -234,8 +236,7 @@ export interface RenderResourceFactory {
   createSampler(params:SceneResourceParameters): Promise<Sampler>
 
   /**
-   * 从资源创建新场景.
-   * 如果未提供uri，将返回空场景.
+   * 从指定的资源URI创建一个新的场景。如果不指定URI，则创建一个空场景，使用Promise异步回调。
    *
    * @param { ResourceStr } [uri] - 创建场景的资源
    * @returns { Promise<Scene> } 返回创建的场景
@@ -478,11 +479,15 @@ export interface RenderContext {
   loadPlugin(name: string): Promise<boolean>;
 
   /**
-   * 注册资源路径
+   * 注册shader等资产文件所在的路径目录及其检索名，通过检索名查找并替换shader内部关联文件的路径描述，找到对应的资产路径目录，
+   * 实现资产及其关联文件的正确加载。
    *
-   * @param { string } protocol - uri的协议
-   * @param { string } uri - 要注册的路径
-   * @returns { boolean } - 注册成功返回true，false表示协议已被注册
+   * @param { string } protocol - 要注册的路径检索名，用作shader内部关联文件路径的前缀标识，
+   *     必须是系统未预定义或未注册且非空的检索名称。
+   * @param { string } uri - 要注册的资产路径目录，与检索名对应，shader加载时会将路径中的检索名前缀替换为该目录，
+   *     必须是资产文件所在文件夹路径。
+   * @returns { boolean } - 返回资产文件路径是否注册成功。true表示注册成功；
+   *     false表示注册失败，可能原因为检索名已被注册或输入参数不可用。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -633,11 +638,11 @@ export declare class Scene {
   static getDefaultRenderContext(): RenderContext | null;
 
   /**
-   * 从ResourceStr创建新场景.
-   * 如果未提供uri，将返回空场景.
+   * 通过传入的资源路径加载资源，使用Promise异步回调。
+   * 调用后，应该在Scene使用完毕时调用[destroy]{@link destroy}释放资源，否则可能导致资源泄漏。
    *
-   * @param { ResourceStr } [uri] - 创建场景的资源
-   * @returns { Promise<Scene> } 返回创建的场景
+   * @param { ResourceStr } [uri] - 待加载的模型文件资源路径，默认值为undefined。
+   * @returns { Promise<Scene> } Promise对象，返回场景对象。
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic

@@ -14,15 +14,6 @@
  */
 
 /**
- * 定义了通知请求的数据结构，用于描述一条通知的全部信息，包括通知内容、标识、展示样式、交互行为等。
- *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- *
- */
-
-/**
  * @file Information carried when a notification is sent
  * @kit NotificationKit
  */
@@ -322,8 +313,6 @@ export interface NotificationRequest {
 
   /**
    * 通知渠道类型，默认值为OTHER_TYPES。
-   * 
-   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationSlotType替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -660,8 +649,6 @@ export interface NotificationRequest {
 
   /**
    * 创建者实例键值。
-   * 
-   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

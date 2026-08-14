@@ -19,14 +19,14 @@
  */
 
 /**
- * ÎªÓ¦ÓÃÌá¹©¶àÖÖµ÷ÊÔ¡¢µ÷ÓÅµÄ·½·¨£¬°ïÖú¿ª·¢Õß¶¨Î»ĞÔÄÜÆ¿¾±¡¢ÓÅ»¯Ó¦ÓÃĞÔÄÜ¡£Ö÷Òª¹¦ÄÜ°üÀ¨£ºÄÚ´æÊı¾İ·ÖÎö¡¢CPUÊ¹ÓÃÂÊ¼à¿Ø¡¢trace²É¼¯¡¢profiler²É¼¯¡¢VM¶Ñ¿ìÕÕ×ª´¢¡£ÓÉÓÚ¸ÃÄ£¿éµÄ½Ó¿Ú´ó¶à±È½ÏºÄ·ÑĞÔÄÜ£¬½Ó¿Úµ÷ÓÃ½ÏÎªºÄÊ±£¬ÇÒ»ùÓÚHiDebugÄ£¿é¶¨Òå£¬¸ÃÄ£¿éÄÚµÄ½Ó¿Ú½ö½¨ÒéÔÚÓ¦ÓÃµ÷ÊÔ¡¢µ÷ÓÅ½×¶ÎÊ¹ÓÃ¡£ÈôĞèÒªÔÚÆäËû³¡¾°Ê¹ÓÃÊ±£¬ÇëÈÏÕæÆÀ¹ÀËùĞèµ÷ÓÃµÄ½Ó¿Ú¶ÔÓ¦ÓÃĞÔÄÜµÄÓ°Ïì¡£
+ * ä¸ºåº”ç”¨æä¾›å¤šç§è°ƒè¯•ã€è°ƒä¼˜çš„æ–¹æ³•ï¼Œå¸®åŠ©å¼€å‘è€…å®šä½æ€§èƒ½ç“¶é¢ˆã€ä¼˜åŒ–åº”ç”¨æ€§èƒ½ã€‚ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šå†…å­˜æ•°æ®åˆ†æã€CPUä½¿ç”¨ç‡ç›‘æ§ã€traceé‡‡é›†ã€profileré‡‡é›†ã€VMå †å¿«ç…§è½¬å‚¨ã€‚ç”±äºè¯¥æ¨¡å—çš„æ¥å£å¤§å¤šæ¯”è¾ƒè€—è´¹æ€§èƒ½ï¼Œæ¥å£è°ƒç”¨è¾ƒä¸ºè€—æ—¶ï¼Œä¸”åŸºäºHiDebugæ¨¡å—å®šä¹‰ï¼Œè¯¥æ¨¡å—å†…çš„æ¥å£ä»…å»ºè®®åœ¨åº”ç”¨è°ƒè¯•ã€è°ƒä¼˜é˜¶æ®µä½¿ç”¨ã€‚è‹¥éœ€è¦åœ¨å…¶ä»–åœºæ™¯ä½¿ç”¨æ—¶ï¼Œè¯·è®¤çœŸè¯„ä¼°æ‰€éœ€è°ƒç”¨çš„æ¥å£å¯¹åº”ç”¨æ€§èƒ½çš„å½±å“ã€‚
  *
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @since 8
  */
 /**
- * ÎªÓ¦ÓÃÌá¹©¶àÖÖµ÷ÊÔ¡¢µ÷ÓÅµÄ·½·¨£¬°ïÖú¿ª·¢Õß¶¨Î»ĞÔÄÜÆ¿¾±¡¢ÓÅ»¯Ó¦ÓÃĞÔÄÜ¡£Ö÷Òª¹¦ÄÜ°üÀ¨£ºÄÚ´æÊı¾İ·ÖÎö¡¢CPUÊ¹ÓÃÂÊ¼à¿Ø¡¢trace²É¼¯¡¢profiler²É¼¯¡¢VM¶Ñ¿ìÕÕ×ª´¢¡£ÓÉÓÚ¸ÃÄ£¿éµÄ½Ó¿Ú´ó¶à±È½ÏºÄ·ÑĞÔÄÜ£¬½Ó¿Úµ÷ÓÃ½ÏÎªºÄÊ±£¬ÇÒ»ùÓÚHiDebugÄ£¿é¶¨Òå£¬¸ÃÄ£¿éÄÚµÄ½Ó¿Ú½ö½¨ÒéÔÚÓ¦ÓÃµ÷ÊÔ¡¢µ÷ÓÅ½×¶ÎÊ¹ÓÃ¡£ÈôĞèÒªÔÚÆäËû³¡¾°Ê¹ÓÃÊ±£¬ÇëÈÏÕæÆÀ¹ÀËùĞèµ÷ÓÃµÄ½Ó¿Ú¶ÔÓ¦ÓÃĞÔÄÜµÄÓ°Ïì¡£
+ * ä¸ºåº”ç”¨æä¾›å¤šç§è°ƒè¯•ã€è°ƒä¼˜çš„æ–¹æ³•ï¼Œå¸®åŠ©å¼€å‘è€…å®šä½æ€§èƒ½ç“¶é¢ˆã€ä¼˜åŒ–åº”ç”¨æ€§èƒ½ã€‚ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šå†…å­˜æ•°æ®åˆ†æã€CPUä½¿ç”¨ç‡ç›‘æ§ã€traceé‡‡é›†ã€profileré‡‡é›†ã€VMå †å¿«ç…§è½¬å‚¨ã€‚ç”±äºè¯¥æ¨¡å—çš„æ¥å£å¤§å¤šæ¯”è¾ƒè€—è´¹æ€§èƒ½ï¼Œæ¥å£è°ƒç”¨è¾ƒä¸ºè€—æ—¶ï¼Œä¸”åŸºäºHiDebugæ¨¡å—å®šä¹‰ï¼Œè¯¥æ¨¡å—å†…çš„æ¥å£ä»…å»ºè®®åœ¨åº”ç”¨è°ƒè¯•ã€è°ƒä¼˜é˜¶æ®µä½¿ç”¨ã€‚è‹¥éœ€è¦åœ¨å…¶ä»–åœºæ™¯ä½¿ç”¨æ—¶ï¼Œè¯·è®¤çœŸè¯„ä¼°æ‰€éœ€è°ƒç”¨çš„æ¥å£å¯¹åº”ç”¨æ€§èƒ½çš„å½±å“ã€‚
  *
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -36,9 +36,9 @@
  */
 declare namespace hidebug {
   /**
-   * »ñÈ¡ÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄÆÕÍ¨¿éËùÕ¼ÓÃµÄ×Ü×Ö½ÚÊı¡£
+   * è·å–å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„æ™®é€šå—æ‰€å ç”¨çš„æ€»å­—èŠ‚æ•°ã€‚
    *
-   * @returns { bigint } ÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄÆÕÍ¨¿éËùÕ¼ÓÃÄÚ´æµÄ´óĞ¡£¨º¬·ÖÅäÆ÷ÔªÊı¾İ£©£¬µ¥Î»ÎªByte¡£
+   * @returns { bigint } å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„æ™®é€šå—æ‰€å ç”¨å†…å­˜çš„å¤§å°ï¼ˆå«åˆ†é…å™¨å…ƒæ•°æ®ï¼‰ï¼Œå•ä½ä¸ºByteã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
    * @since 23 static
@@ -46,9 +46,9 @@ declare namespace hidebug {
   function getNativeHeapSize() : bigint;
 
   /**
-   * »ñÈ¡ÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄÒÑÊ¹ÓÃµÄÆÕÍ¨¿éËùÕ¼ÓÃµÄ×Ü×Ö½ÚÊı¡£
+   * è·å–å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„å·²ä½¿ç”¨çš„æ™®é€šå—æ‰€å ç”¨çš„æ€»å­—èŠ‚æ•°ã€‚
    *
-   * @returns { bigint } ·µ»ØÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄÒÑÊ¹ÓÃµÄÆÕÍ¨¿éËùÕ¼ÓÃÄÚ´æ´óĞ¡£¬µ¥Î»ÎªByte¡£
+   * @returns { bigint } è¿”å›å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„å·²ä½¿ç”¨çš„æ™®é€šå—æ‰€å ç”¨å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºByteã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
    * @since 23 static
@@ -56,9 +56,9 @@ declare namespace hidebug {
   function getNativeHeapAllocatedSize() : bigint;
 
   /**
-   * »ñÈ¡ÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄ¿ÕÏĞµÄÆÕÍ¨¿éËùÕ¼ÓÃµÄ×Ü×Ö½ÚÊı¡£
+   * è·å–å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„ç©ºé—²çš„æ™®é€šå—æ‰€å ç”¨çš„æ€»å­—èŠ‚æ•°ã€‚
    *
-   * @returns { bigint } ·µ»ØÄÚ´æ·ÖÅäÆ÷Í³¼ÆµÄ½ø³Ì³ÖÓĞµÄ¿ÕÏĞµÄÆÕÍ¨¿éËùÕ¼ÓÃÄÚ´æ´óĞ¡£¬µ¥Î»ÎªByte¡£
+   * @returns { bigint } è¿”å›å†…å­˜åˆ†é…å™¨ç»Ÿè®¡çš„è¿›ç¨‹æŒæœ‰çš„ç©ºé—²çš„æ™®é€šå—æ‰€å ç”¨å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºByteã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
    * @since 23 static
@@ -66,9 +66,9 @@ declare namespace hidebug {
   function getNativeHeapFreeSize() : bigint;
 
   /**
-   * »ñÈ¡Ó¦ÓÃ½ø³ÌÕ¼ÓÃµÄĞéÄâÄÚ´æ´óĞ¡¡£½Ó¿ÚÊµÏÖ·½Ê½£º¶ÁÈ¡/proc/{pid}/statm½ÚµãÖĞµÄsizeÖµ£¨ÄÚ´æÒ³Êı£©£¬vss = size * Ò³´óĞ¡£¨4KB/Ò³£©¡£
+   * è·å–åº”ç”¨è¿›ç¨‹å ç”¨çš„è™šæ‹Ÿå†…å­˜å¤§å°ã€‚æ¥å£å®ç°æ–¹å¼ï¼šè¯»å–/proc/{pid}/statmèŠ‚ç‚¹ä¸­çš„sizeå€¼ï¼ˆå†…å­˜é¡µæ•°ï¼‰ï¼Œvss = size * é¡µå¤§å°ï¼ˆ4KB/é¡µï¼‰ã€‚
    *
-   * @returns { bigint } ·µ»ØÓ¦ÓÃ½ø³ÌÕ¼ÓÃµÄĞéÄâÄÚ´æ´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { bigint } è¿”å›åº”ç”¨è¿›ç¨‹å ç”¨çš„è™šæ‹Ÿå†…å­˜å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 11 dynamic
    * @since 23 static
@@ -76,13 +76,13 @@ declare namespace hidebug {
   function getVss(): bigint;
 
   /**
-   * »ñÈ¡Ó¦ÓÃ½ø³ÌÊµ¼ÊÊ¹ÓÃµÄÎïÀíÄÚ´æ´óĞ¡¡£½Ó¿ÚÊµÏÖ·½Ê½£º¶ÁÈ¡/proc/{pid}/smaps_rollup½ÚµãÖĞµÄPssÓëSwapPssÖµ²¢ÇóºÍ¡£
+   * è·å–åº”ç”¨è¿›ç¨‹å®é™…ä½¿ç”¨çš„ç‰©ç†å†…å­˜å¤§å°ã€‚æ¥å£å®ç°æ–¹å¼ï¼šè¯»å–/proc/{pid}/smaps_rollupèŠ‚ç‚¹ä¸­çš„Pssä¸SwapPsså€¼å¹¶æ±‚å’Œã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ/proc/{pid}/smaps_rollupµÄ¶ÁÈ¡ºÄÊ±½Ï³¤£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÊ¹ÓÃ¸Ã½Ó¿Ú£¬¿ÉÍ¨¹ı@ohos.taskpool»ò@ohos.worker¿ªÆôÒì²½Ïß³ÌÒÔ±ÜÃâÓ¦ÓÃ³öÏÖ¿¨¶Ù¡£
+   * > ç”±äº/proc/{pid}/smaps_rollupçš„è¯»å–è€—æ—¶è¾ƒé•¿ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ä½¿ç”¨è¯¥æ¥å£ï¼Œå¯é€šè¿‡@ohos.taskpoolæˆ–@ohos.workerå¼€å¯å¼‚æ­¥çº¿ç¨‹ä»¥é¿å…åº”ç”¨å‡ºç°å¡é¡¿ã€‚
    *
-   * @returns { bigint } ·µ»ØÓ¦ÓÃ½ø³ÌÊµ¼ÊÊ¹ÓÃµÄÎïÀíÄÚ´æ´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { bigint } è¿”å›åº”ç”¨è¿›ç¨‹å®é™…ä½¿ç”¨çš„ç‰©ç†å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
    * @since 23 static
@@ -90,13 +90,13 @@ declare namespace hidebug {
   function getPss() : bigint;
 
   /**
-   * »ñÈ¡½ø³ÌµÄ¹²ÏíÔàÄÚ´æ´óĞ¡¡£½Ó¿ÚÊµÏÖ·½Ê½£º¶ÁÈ¡/proc/{pid}/smaps_rollup½ÚµãÖĞµÄShared_DirtyÖµ¡£
+   * è·å–è¿›ç¨‹çš„å…±äº«è„å†…å­˜å¤§å°ã€‚æ¥å£å®ç°æ–¹å¼ï¼šè¯»å–/proc/{pid}/smaps_rollupèŠ‚ç‚¹ä¸­çš„Shared_Dirtyå€¼ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ/proc/{pid}/smaps_rollupµÄ¶ÁÈ¡ºÄÊ±½Ï³¤£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÊ¹ÓÃ¸Ã½Ó¿Ú£¬¿ÉÍ¨¹ı@ohos.taskpool»ò@ohos.worker¿ªÆôÒì²½Ïß³ÌÒÔ±ÜÃâÓ¦ÓÃ³öÏÖ¿¨¶Ù¡£
+   * > ç”±äº/proc/{pid}/smaps_rollupçš„è¯»å–è€—æ—¶è¾ƒé•¿ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ä½¿ç”¨è¯¥æ¥å£ï¼Œå¯é€šè¿‡@ohos.taskpoolæˆ–@ohos.workerå¼€å¯å¼‚æ­¥çº¿ç¨‹ä»¥é¿å…åº”ç”¨å‡ºç°å¡é¡¿ã€‚
    *
-   * @returns { bigint } ·µ»Ø½ø³ÌµÄ¹²ÏíÔàÄÚ´æ´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { bigint } è¿”å›è¿›ç¨‹çš„å…±äº«è„å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamic
    * @since 23 static
@@ -104,13 +104,13 @@ declare namespace hidebug {
   function getSharedDirty() : bigint;
 
   /**
-   * »ñÈ¡½ø³ÌµÄË½ÓĞÔàÄÚ´æ´óĞ¡¡£¶ÁÈ¡/proc/{pid}/smaps_rollupÖĞµÄPrivate_DirtyÖµ¡£
+   * è·å–è¿›ç¨‹çš„ç§æœ‰è„å†…å­˜å¤§å°ã€‚è¯»å–/proc/{pid}/smaps_rollupä¸­çš„Private_Dirtyå€¼ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ/proc/{pid}/smaps_rollupµÄ¶ÁÈ¡ºÄÊ±½Ï³¤£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÊ¹ÓÃ¸Ã½Ó¿Ú£¬¿ÉÍ¨¹ı@ohos.taskpool»ò@ohos.worker¿ªÆôÒì²½Ïß³ÌÒÔ±ÜÃâÓ¦ÓÃ³öÏÖ¿¨¶Ù¡£
+   * > ç”±äº/proc/{pid}/smaps_rollupçš„è¯»å–è€—æ—¶è¾ƒé•¿ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ä½¿ç”¨è¯¥æ¥å£ï¼Œå¯é€šè¿‡@ohos.taskpoolæˆ–@ohos.workerå¼€å¯å¼‚æ­¥çº¿ç¨‹ä»¥é¿å…åº”ç”¨å‡ºç°å¡é¡¿ã€‚
    *
-   * @returns { bigint } ·µ»Ø½ø³ÌµÄË½ÓĞÔàÄÚ´æ´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { bigint } è¿”å›è¿›ç¨‹çš„ç§æœ‰è„å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 23 static
@@ -118,13 +118,13 @@ declare namespace hidebug {
   function getPrivateDirty() : bigint;
 
   /**
-   * »ñÈ¡½ø³ÌµÄCPUÊ¹ÓÃÂÊ¡£
+   * è·å–è¿›ç¨‹çš„CPUä½¿ç”¨ç‡ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¸Ã½Ó¿ÚÉæ¼°¿ç½ø³ÌÍ¨ĞÅ£¬ºÄÊ±½Ï³¤£¬ÎªÁË±ÜÃâÒıÈëĞÔÄÜÎÊÌâ£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÖ±½Óµ÷ÓÃ¸Ã½Ó¿Ú¡£
+   * > ç”±äºè¯¥æ¥å£æ¶‰åŠè·¨è¿›ç¨‹é€šä¿¡ï¼Œè€—æ—¶è¾ƒé•¿ï¼Œä¸ºäº†é¿å…å¼•å…¥æ€§èƒ½é—®é¢˜ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ç›´æ¥è°ƒç”¨è¯¥æ¥å£ã€‚
    *
-   * @returns { double } »ñÈ¡½ø³ÌµÄCPUÊ¹ÓÃÂÊ¡£ÈçÕ¼ÓÃÂÊÎª50%£¬Ôò·µ»Ø0.5¡£
+   * @returns { double } è·å–è¿›ç¨‹çš„CPUä½¿ç”¨ç‡ã€‚å¦‚å ç”¨ç‡ä¸º50%ï¼Œåˆ™è¿”å›0.5ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 23 static
@@ -132,9 +132,9 @@ declare namespace hidebug {
   function getCpuUsage() : double;
 
   /**
-   * Æô¶¯ĞéÄâ»úProfiling·½·¨¸ú×Ù£¬`startProfiling(filename: string)`·½·¨µÄµ÷ÓÃĞèÒªÓë`stopProfiling()`·½·¨µÄµ÷ÓÃÒ»Ò»¶ÔÓ¦£¬ÏÈ¿ªÆôºó¹Ø±Õ£¬Çë±ÜÃâÖØ¸´¿ªÆô»òÖØ¸´¹Ø±ÕµÄµ÷ÓÃ·½Ê½£¬·ñÔò»á½Ó¿Úµ÷ÓÃÒì³£¡£
+   * å¯åŠ¨è™šæ‹ŸæœºProfilingæ–¹æ³•è·Ÿè¸ªï¼Œ`startProfiling(filename: string)`æ–¹æ³•çš„è°ƒç”¨éœ€è¦ä¸`stopProfiling()`æ–¹æ³•çš„è°ƒç”¨ä¸€ä¸€å¯¹åº”ï¼Œå…ˆå¼€å¯åå…³é—­ï¼Œè¯·é¿å…é‡å¤å¼€å¯æˆ–é‡å¤å…³é—­çš„è°ƒç”¨æ–¹å¼ï¼Œå¦åˆ™ä¼šæ¥å£è°ƒç”¨å¼‚å¸¸ã€‚
    *
-   * @param { string } filename - ÓÃ»§×Ô¶¨ÒåµÄ²ÉÑù½á¹ûÊä³öµÄÎÄ¼şÃû£¬½«ÔÚÓ¦ÓÃµÄ`files`Ä¿Â¼ÏÂÉú³ÉÒÔ¸Ã²ÎÊıÃüÃûµÄjsonÎÄ¼ş¡£string³¤¶ÈµÄ×î´óÖµÎª128¡£
+   * @param { string } filename - ç”¨æˆ·è‡ªå®šä¹‰çš„é‡‡æ ·ç»“æœè¾“å‡ºçš„æ–‡ä»¶åï¼Œå°†åœ¨åº”ç”¨çš„`files`ç›®å½•ä¸‹ç”Ÿæˆä»¥è¯¥å‚æ•°å‘½åçš„jsonæ–‡ä»¶ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º128ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -143,7 +143,7 @@ declare namespace hidebug {
   function startProfiling(filename: string): void;
 
   /**
-   * Í£Ö¹ĞéÄâ»úProfiling·½·¨¸ú×Ù£¬`stopProfiling()`·½·¨µÄµ÷ÓÃĞèÒªÓë`startProfiling(filename: string)`·½·¨µÄµ÷ÓÃÒ»Ò»¶ÔÓ¦£¬ÏÈ¿ªÆôºó¹Ø±Õ£¬Çë±ÜÃâÖØ¸´¿ªÆô»òÖØ¸´¹Ø±ÕµÄµ÷ÓÃ·½Ê½£¬·ñÔò»á½Ó¿Úµ÷ÓÃÒì³£¡£
+   * åœæ­¢è™šæ‹ŸæœºProfilingæ–¹æ³•è·Ÿè¸ªï¼Œ`stopProfiling()`æ–¹æ³•çš„è°ƒç”¨éœ€è¦ä¸`startProfiling(filename: string)`æ–¹æ³•çš„è°ƒç”¨ä¸€ä¸€å¯¹åº”ï¼Œå…ˆå¼€å¯åå…³é—­ï¼Œè¯·é¿å…é‡å¤å¼€å¯æˆ–é‡å¤å…³é—­çš„è°ƒç”¨æ–¹å¼ï¼Œå¦åˆ™ä¼šæ¥å£è°ƒç”¨å¼‚å¸¸ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamiconly
@@ -153,9 +153,9 @@ declare namespace hidebug {
   function stopProfiling(): void;
 
   /**
-   * ĞéÄâ»ú¶ÑÊı¾İ×ª´¢£¬Éú³É`filename.heapsnapshot`ÎÄ¼ş¡£
+   * è™šæ‹Ÿæœºå †æ•°æ®è½¬å‚¨ï¼Œç”Ÿæˆ`filename.heapsnapshot`æ–‡ä»¶ã€‚
    *
-   * @param { string } filename - ÓÃ»§×Ô¶¨ÒåµÄĞéÄâ»ú¶Ñ×ª´¢ÎÄ¼şÃû£¬½«ÔÚÓ¦ÓÃµÄ`files`Ä¿Â¼ÏÂÉú³ÉÒÔ¸Ã²ÎÊıÃüÃûµÄheapsnapshotÎÄ¼ş¡£string³¤¶ÈµÄ×î´óÖµÎª128¡£
+   * @param { string } filename - ç”¨æˆ·è‡ªå®šä¹‰çš„è™šæ‹Ÿæœºå †è½¬å‚¨æ–‡ä»¶åï¼Œå°†åœ¨åº”ç”¨çš„`files`ç›®å½•ä¸‹ç”Ÿæˆä»¥è¯¥å‚æ•°å‘½åçš„heapsnapshotæ–‡ä»¶ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º128ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -164,9 +164,9 @@ declare namespace hidebug {
   function dumpHeapData(filename: string): void;
 
   /**
-   * Æô¶¯ĞéÄâ»úProfiling·½·¨¸ú×Ù£¬`startJsCpuProfiling(filename: string)`·½·¨µÄµ÷ÓÃĞèÒªÓë`stopJsCpuProfiling()`·½·¨µÄµ÷ÓÃÒ»Ò»¶ÔÓ¦£¬ÏÈ¿ªÆôºó¹Ø±Õ£¬Çë±ÜÃâÖØ¸´¿ªÆô»òÖØ¸´¹Ø±ÕµÄµ÷ÓÃ·½Ê½£¬·ñÔò»á½Ó¿Úµ÷ÓÃÒì³£¡£
+   * å¯åŠ¨è™šæ‹ŸæœºProfilingæ–¹æ³•è·Ÿè¸ªï¼Œ`startJsCpuProfiling(filename: string)`æ–¹æ³•çš„è°ƒç”¨éœ€è¦ä¸`stopJsCpuProfiling()`æ–¹æ³•çš„è°ƒç”¨ä¸€ä¸€å¯¹åº”ï¼Œå…ˆå¼€å¯åå…³é—­ï¼Œè¯·é¿å…é‡å¤å¼€å¯æˆ–é‡å¤å…³é—­çš„è°ƒç”¨æ–¹å¼ï¼Œå¦åˆ™ä¼šæ¥å£è°ƒç”¨å¼‚å¸¸ã€‚
    *
-   * @param { string } filename - ÓÃ»§×Ô¶¨ÒåµÄ²ÉÑù½á¹ûÊä³öµÄÎÄ¼şÃû£¬½«ÔÚÓ¦ÓÃµÄ`files`Ä¿Â¼ÏÂÉú³ÉÒÔ¸Ã²ÎÊıÃüÃûµÄjsonÎÄ¼ş¡£string³¤¶ÈµÄ×î´óÖµÎª128¡£
+   * @param { string } filename - ç”¨æˆ·è‡ªå®šä¹‰çš„é‡‡æ ·ç»“æœè¾“å‡ºçš„æ–‡ä»¶åï¼Œå°†åœ¨åº”ç”¨çš„`files`ç›®å½•ä¸‹ç”Ÿæˆä»¥è¯¥å‚æ•°å‘½åçš„jsonæ–‡ä»¶ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º128ã€‚
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
@@ -175,7 +175,7 @@ declare namespace hidebug {
   function startJsCpuProfiling(filename : string) : void;
 
   /**
-   * Í£Ö¹ĞéÄâ»úProfiling·½·¨¸ú×Ù£¬`stopJsCpuProfiling()`·½·¨µÄµ÷ÓÃĞèÒªÓë`startJsCpuProfiling(filename: string)`·½·¨µÄµ÷ÓÃÒ»Ò»¶ÔÓ¦£¬ÏÈ¿ªÆôºó¹Ø±Õ£¬Çë±ÜÃâÖØ¸´¿ªÆô»òÖØ¸´¹Ø±ÕµÄµ÷ÓÃ·½Ê½£¬·ñÔò»á½Ó¿Úµ÷ÓÃÒì³£¡£
+   * åœæ­¢è™šæ‹ŸæœºProfilingæ–¹æ³•è·Ÿè¸ªï¼Œ`stopJsCpuProfiling()`æ–¹æ³•çš„è°ƒç”¨éœ€è¦ä¸`startJsCpuProfiling(filename: string)`æ–¹æ³•çš„è°ƒç”¨ä¸€ä¸€å¯¹åº”ï¼Œå…ˆå¼€å¯åå…³é—­ï¼Œè¯·é¿å…é‡å¤å¼€å¯æˆ–é‡å¤å…³é—­çš„è°ƒç”¨æ–¹å¼ï¼Œå¦åˆ™ä¼šæ¥å£è°ƒç”¨å¼‚å¸¸ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
@@ -184,13 +184,13 @@ declare namespace hidebug {
   function stopJsCpuProfiling() : void;
 
   /**
-   * ĞéÄâ»ú¶ÑÊı¾İ×ª´¢¡£
+   * è™šæ‹Ÿæœºå †æ•°æ®è½¬å‚¨ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚĞéÄâ»ú¶Ñµ¼³ö¼«ÆäºÄÊ±£¬ÇÒ¸Ã½Ó¿ÚÎªÍ¬²½½Ó¿Ú£¬½¨Òé²»ÒªÔÚÉÏ¼Ü°æ±¾ÖĞµ÷ÓÃ¸Ã½Ó¿Ú£¬ÒÔ±ÜÃâÓ¦ÓÃ¶³ÆÁ£¬Ó°ÏìÓÃ»§ÌåÑé¡£
+   * > ç”±äºè™šæ‹Ÿæœºå †å¯¼å‡ºæå…¶è€—æ—¶ï¼Œä¸”è¯¥æ¥å£ä¸ºåŒæ­¥æ¥å£ï¼Œå»ºè®®ä¸è¦åœ¨ä¸Šæ¶ç‰ˆæœ¬ä¸­è°ƒç”¨è¯¥æ¥å£ï¼Œä»¥é¿å…åº”ç”¨å†»å±ï¼Œå½±å“ç”¨æˆ·ä½“éªŒã€‚
    *
-   * @param { string } filename - ÓÃ»§×Ô¶¨ÒåµÄĞéÄâ»ú¶ÑÊı¾İ×ª´¢Êä³öµÄÎÄ¼şÃû£¬½«ÔÚÓ¦ÓÃµÄ`files`Ä¿Â¼ÏÂÉú³ÉÒÔ¸Ã²ÎÊıÃüÃûµÄheapsnapshotÎÄ¼ş¡£string³¤¶ÈµÄ×î´óÖµÎª128×Ö½Ú¡£
+   * @param { string } filename - ç”¨æˆ·è‡ªå®šä¹‰çš„è™šæ‹Ÿæœºå †æ•°æ®è½¬å‚¨è¾“å‡ºçš„æ–‡ä»¶åï¼Œå°†åœ¨åº”ç”¨çš„`files`ç›®å½•ä¸‹ç”Ÿæˆä»¥è¯¥å‚æ•°å‘½åçš„heapsnapshotæ–‡ä»¶ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º128å­—èŠ‚ã€‚
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
@@ -199,14 +199,14 @@ declare namespace hidebug {
   function dumpJsHeapData(filename : string) : void;
 
   /**
-   * ĞéÄâ»ú¶ÑÊı¾İ×ª´¢£¬Ö§³ÖÇå³ınodeId»º´æ¡£
+   * è™šæ‹Ÿæœºå †æ•°æ®è½¬å‚¨ï¼Œæ”¯æŒæ¸…é™¤nodeIdç¼“å­˜ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚĞéÄâ»ú¶Ñµ¼³ö¼«ÆäºÄÊ±£¬ÇÒ¸Ã½Ó¿ÚÎªÍ¬²½½Ó¿Ú£¬½¨Òé²»ÒªÔÚÉÏ¼Ü°æ±¾ÖĞµ÷ÓÃ¸Ã½Ó¿Ú£¬ÒÔ±ÜÃâÓ¦ÓÃ¶³ÆÁ£¬Ó°ÏìÓÃ»§ÌåÑé¡£
+   * > ç”±äºè™šæ‹Ÿæœºå †å¯¼å‡ºæå…¶è€—æ—¶ï¼Œä¸”è¯¥æ¥å£ä¸ºåŒæ­¥æ¥å£ï¼Œå»ºè®®ä¸è¦åœ¨ä¸Šæ¶ç‰ˆæœ¬ä¸­è°ƒç”¨è¯¥æ¥å£ï¼Œä»¥é¿å…åº”ç”¨å†»å±ï¼Œå½±å“ç”¨æˆ·ä½“éªŒã€‚
    *
-   * @param { string } filename - ÓÃ»§×Ô¶¨ÒåµÄĞéÄâ»ú¶Ñ×ª´¢ÎÄ¼şÃû£¬½«ÔÚÓ¦ÓÃµÄfilesÄ¿Â¼ÏÂÉú³ÉfileName.heapsnapshot¸ñÊ½ÎÄ¼ş¡£string³¤¶ÈµÄ×î´óÖµÎª128×Ö½Ú¡£
-   * @param { boolean } [needClean] - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªÇå³ınodeId»º´æ¡£true£ºĞèÒªÇå³ı£»false£º²»ĞèÒªÇå³ı¡£
+   * @param { string } filename - ç”¨æˆ·è‡ªå®šä¹‰çš„è™šæ‹Ÿæœºå †è½¬å‚¨æ–‡ä»¶åï¼Œå°†åœ¨åº”ç”¨çš„filesç›®å½•ä¸‹ç”ŸæˆfileName.heapsnapshotæ ¼å¼æ–‡ä»¶ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º128å­—èŠ‚ã€‚
+   * @param { boolean } [needClean] - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦æ¸…é™¤nodeIdç¼“å­˜ã€‚trueï¼šéœ€è¦æ¸…é™¤ï¼›falseï¼šä¸éœ€è¦æ¸…é™¤ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
@@ -216,12 +216,12 @@ declare namespace hidebug {
   function dumpJsHeapData(filename: string, needClean: boolean): void;
 
   /**
-   * »ñÈ¡ÏµÍ³·şÎñĞÅÏ¢¡£
+   * è·å–ç³»ç»ŸæœåŠ¡ä¿¡æ¯ã€‚
    *
    * @permission ohos.permission.DUMP
-   * @param { int } serviceid - ÏµÍ³·şÎñID£¬ÓÃÓÚ±êÊ¶Òª»ñÈ¡ĞÅÏ¢µÄÏµÍ³·şÎñ¡£È¡ÖµÓÉÏµÍ³¶¨Òå£¬È¡Öµ·¶Î§[0, 255]¡£´«ÈëÎŞĞ§ÖµÊ±·µ»Ø´íÎóÂë401¡£
-   * @param { int } fd - ÎÄ¼şÃèÊö·û£¬½Ó¿Ú»áÏò¸ÃfdĞ´ÈëÊı¾İ¡£´«ÈëÎŞĞ§ÎÄ¼şÃèÊö·ûÊ±·µ»Ø´íÎóÂë401¡£
-   * @param { Array<string> } args - ÏµÍ³·şÎñµÄdump½Ó¿Ú²ÎÊıÁĞ±í¡£string³¤¶ÈµÄ×î´óÖµÎª254£¬³¬³ö²¿·Ö½«»á±»½Ø¶Ï¡£
+   * @param { int } serviceid - ç³»ç»ŸæœåŠ¡IDï¼Œç”¨äºæ ‡è¯†è¦è·å–ä¿¡æ¯çš„ç³»ç»ŸæœåŠ¡ã€‚å–å€¼ç”±ç³»ç»Ÿå®šä¹‰ï¼Œå–å€¼èŒƒå›´[0, 255]ã€‚ä¼ å…¥æ— æ•ˆå€¼æ—¶è¿”å›é”™è¯¯ç 401ã€‚
+   * @param { int } fd - æ–‡ä»¶æè¿°ç¬¦ï¼Œæ¥å£ä¼šå‘è¯¥fdå†™å…¥æ•°æ®ã€‚ä¼ å…¥æ— æ•ˆæ–‡ä»¶æè¿°ç¬¦æ—¶è¿”å›é”™è¯¯ç 401ã€‚
+   * @param { Array<string> } args - ç³»ç»ŸæœåŠ¡çš„dumpæ¥å£å‚æ•°åˆ—è¡¨ã€‚stringé•¿åº¦çš„æœ€å¤§å€¼ä¸º254ï¼Œè¶…å‡ºéƒ¨åˆ†å°†ä¼šè¢«æˆªæ–­ã€‚
    * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
    *     1.the parameter type error
    *     2.the args parameter is not string array
@@ -233,13 +233,13 @@ declare namespace hidebug {
   function getServiceDump(serviceid : int, fd : int, args : Array<string>) : void;
 
   /**
-   * »ñÈ¡ÏµÍ³µÄCPU×ÊÔ´Õ¼ÓÃÇé¿ö¡£
+   * è·å–ç³»ç»Ÿçš„CPUèµ„æºå ç”¨æƒ…å†µã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¸Ã½Ó¿ÚÉæ¼°¿ç½ø³ÌÍ¨ĞÅ£¬ºÄÊ±½Ï³¤£¬ÎªÁË±ÜÃâÒıÈëĞÔÄÜÎÊÌâ£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÖ±½Óµ÷ÓÃ¸Ã½Ó¿Ú¡£
+   * > ç”±äºè¯¥æ¥å£æ¶‰åŠè·¨è¿›ç¨‹é€šä¿¡ï¼Œè€—æ—¶è¾ƒé•¿ï¼Œä¸ºäº†é¿å…å¼•å…¥æ€§èƒ½é—®é¢˜ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ç›´æ¥è°ƒç”¨è¯¥æ¥å£ã€‚
    *
-   * @returns { double } ÏµÍ³CPU×ÊÔ´Õ¼ÓÃÇé¿ö¡£ÈçÕ¼ÓÃÂÊÎª50%£¬Ôò·µ»Ø0.5¡£
+   * @returns { double } ç³»ç»ŸCPUèµ„æºå ç”¨æƒ…å†µã€‚å¦‚å ç”¨ç‡ä¸º50%ï¼Œåˆ™è¿”å›0.5ã€‚
    * @throws { BusinessError } 11400104 - The status of the system CPU usage is abnormal.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -248,7 +248,7 @@ declare namespace hidebug {
   function getSystemCpuUsage(): double;
 
   /**
-   * Ïß³ÌµÄCPUÊ¹ÓÃÇé¿ö¡£
+   * çº¿ç¨‹çš„CPUä½¿ç”¨æƒ…å†µã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -256,7 +256,7 @@ declare namespace hidebug {
    */
   interface ThreadCpuUsage {
     /**
-     * Ïß³ÌºÅ¡£
+     * çº¿ç¨‹å·ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -264,7 +264,7 @@ declare namespace hidebug {
      */
     threadId: long;
     /**
-     * Ïß³ÌCPUÊ¹ÓÃÂÊ¡£
+     * çº¿ç¨‹CPUä½¿ç”¨ç‡ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -274,13 +274,13 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡Ó¦ÓÃÏß³ÌCPUÊ¹ÓÃÇé¿ö¡£
+   * è·å–åº”ç”¨çº¿ç¨‹CPUä½¿ç”¨æƒ…å†µã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¸Ã½Ó¿ÚÉæ¼°¿ç½ø³ÌÍ¨ĞÅ£¬ºÄÊ±½Ï³¤£¬ÎªÁË±ÜÃâÒıÈëĞÔÄÜÎÊÌâ£¬½¨Òé²»ÒªÔÚÖ÷Ïß³ÌÖĞÖ±½Óµ÷ÓÃ¸Ã½Ó¿Ú¡£
+   * > ç”±äºè¯¥æ¥å£æ¶‰åŠè·¨è¿›ç¨‹é€šä¿¡ï¼Œè€—æ—¶è¾ƒé•¿ï¼Œä¸ºäº†é¿å…å¼•å…¥æ€§èƒ½é—®é¢˜ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹ä¸­ç›´æ¥è°ƒç”¨è¯¥æ¥å£ã€‚
    *
-   * @returns { ThreadCpuUsage[] } ·µ»Øµ±Ç°Ó¦ÓÃ½ø³ÌÏÂËùÓĞThreadCpuUsageÊı×é¡£
+   * @returns { ThreadCpuUsage[] } è¿”å›å½“å‰åº”ç”¨è¿›ç¨‹ä¸‹æ‰€æœ‰ThreadCpuUsageæ•°ç»„ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -288,7 +288,7 @@ declare namespace hidebug {
   function getAppThreadCpuUsage(): ThreadCpuUsage[];
 
   /**
-   * ÃèÊöÏµÍ³ÄÚ´æĞÅÏ¢£¬°üÀ¨×ÜÄÚ´æ¡¢¿ÕÏĞÄÚ´æºÍ¿ÉÓÃÄÚ´æ¡£
+   * æè¿°ç³»ç»Ÿå†…å­˜ä¿¡æ¯ï¼ŒåŒ…æ‹¬æ€»å†…å­˜ã€ç©ºé—²å†…å­˜å’Œå¯ç”¨å†…å­˜ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -296,7 +296,7 @@ declare namespace hidebug {
    */
   interface SystemMemInfo {
     /**
-     * ÏµÍ³×ÜµÄÄÚ´æ£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/meminfo: MemTotal¡£
+     * ç³»ç»Ÿæ€»çš„å†…å­˜ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/meminfo: MemTotalã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -304,7 +304,7 @@ declare namespace hidebug {
      */
     totalMem: bigint;
     /**
-     * ÏµÍ³¿ÕÏĞµÄÄÚ´æ£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/meminfo: MemFree¡£
+     * ç³»ç»Ÿç©ºé—²çš„å†…å­˜ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/meminfo: MemFreeã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -312,7 +312,7 @@ declare namespace hidebug {
      */
     freeMem: bigint;
     /**
-     * ÏµÍ³¿ÉÓÃµÄÄÚ´æ£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/meminfo: MemAvailable¡£
+     * ç³»ç»Ÿå¯ç”¨çš„å†…å­˜ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/meminfo: MemAvailableã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -322,9 +322,9 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡ÏµÍ³ÄÚ´æĞÅÏ¢¡£¶ÁÈ¡/proc/meminfo½ÚµãµÄÊı¾İ¡£
+   * è·å–ç³»ç»Ÿå†…å­˜ä¿¡æ¯ã€‚è¯»å–/proc/meminfoèŠ‚ç‚¹çš„æ•°æ®ã€‚
    *
-   * @returns { SystemMemInfo } ÏµÍ³ÄÚ´æĞÅÏ¢¡£
+   * @returns { SystemMemInfo } ç³»ç»Ÿå†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -332,7 +332,7 @@ declare namespace hidebug {
   function getSystemMemInfo(): SystemMemInfo;
 
   /**
-   * ÃèÊöÓ¦ÓÃ½ø³ÌµÄÄÚ´æĞÅÏ¢¡£
+   * æè¿°åº”ç”¨è¿›ç¨‹çš„å†…å­˜ä¿¡æ¯ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -340,7 +340,7 @@ declare namespace hidebug {
    */
   interface NativeMemInfo {
     /**
-     * Êµ¼ÊÕ¼ÓÃµÄÎïÀíÄÚ´æ´óĞ¡(±ÈÀı·ÖÅä¹²Ïí¿âÕ¼ÓÃµÄÄÚ´æ)£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Pss + SwapPss¡£
+     * å®é™…å ç”¨çš„ç‰©ç†å†…å­˜å¤§å°(æ¯”ä¾‹åˆ†é…å…±äº«åº“å ç”¨çš„å†…å­˜)ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Pss + SwapPssã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -348,7 +348,7 @@ declare namespace hidebug {
      */
     pss: bigint;
     /**
-     * Õ¼ÓÃµÄĞéÄâÄÚ´æ´óĞ¡(°üÀ¨¹²Ïí¿âËùÕ¼ÓÃµÄÄÚ´æ)£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/statm: size * 4¡£
+     * å ç”¨çš„è™šæ‹Ÿå†…å­˜å¤§å°(åŒ…æ‹¬å…±äº«åº“æ‰€å ç”¨çš„å†…å­˜)ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/statm: size * 4ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -356,7 +356,7 @@ declare namespace hidebug {
      */
     vss: bigint;
     /**
-     * Êµ¼ÊÕ¼ÓÃµÄÎïÀíÄÚ´æ´óĞ¡(°üÀ¨¹²Ïí¿âÕ¼ÓÃ)£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Rss¡£
+     * å®é™…å ç”¨çš„ç‰©ç†å†…å­˜å¤§å°(åŒ…æ‹¬å…±äº«åº“å ç”¨)ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Rssã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -364,7 +364,7 @@ declare namespace hidebug {
      */
     rss: bigint;
     /**
-     * ¹²ÏíÔàÄÚ´æ´óĞ¡£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Shared_Dirty¡£
+     * å…±äº«è„å†…å­˜å¤§å°ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Shared_Dirtyã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -372,7 +372,7 @@ declare namespace hidebug {
      */
     sharedDirty: bigint;
     /**
-     * Ë½ÓĞÔàÄÚ´æ´óĞ¡£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Private_Dirty¡£
+     * ç§æœ‰è„å†…å­˜å¤§å°ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Private_Dirtyã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -380,7 +380,7 @@ declare namespace hidebug {
    */
     privateDirty: bigint;
     /**
-     * ¹²Ïí¾»ÄÚ´æ´óĞ¡£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Shared_Clean¡£
+     * å…±äº«å‡€å†…å­˜å¤§å°ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Shared_Cleanã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -388,7 +388,7 @@ declare namespace hidebug {
    */
     sharedClean: bigint;
     /**
-     * Ë½ÓĞ¸É¾»ÄÚ´æ´óĞ¡£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/smaps_rollup: Private_Clean¡£
+     * ç§æœ‰å¹²å‡€å†…å­˜å¤§å°ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/smaps_rollup: Private_Cleanã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -398,15 +398,15 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡Ó¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢¡£¶ÁÈ¡/proc/{pid}/smaps_rollupºÍ/proc/{pid}/statm½ÚµãµÄÊı¾İ¡£
+   * è·å–åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ã€‚è¯»å–/proc/{pid}/smaps_rollupå’Œ/proc/{pid}/statmèŠ‚ç‚¹çš„æ•°æ®ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¶ÁÈ¡/proc/{pid}/smaps_rollupºÄÊ±½Ï³¤£¬ÍÆ¼öÊ¹ÓÃÒì²½½Ó¿Úhidebug.getAppNativeMemInfoAsync£¬ÒÔ±ÜÃâÓ¦ÓÃ¶ªÖ¡»ò¿¨¶Ù¡£
+   * > ç”±äºè¯»å–/proc/{pid}/smaps_rollupè€—æ—¶è¾ƒé•¿ï¼Œæ¨èä½¿ç”¨å¼‚æ­¥æ¥å£hidebug.getAppNativeMemInfoAsyncï¼Œä»¥é¿å…åº”ç”¨ä¸¢å¸§æˆ–å¡é¡¿ã€‚
    * >
-   * > ÍÆ¼öÊ¹ÓÃhidebug.getRssInfo½Ó¿Ú»ñÈ¡Ó¦ÓÃµÄrssÊ¹ÓÃĞÅÏ¢¡£
+   * > æ¨èä½¿ç”¨hidebug.getRssInfoæ¥å£è·å–åº”ç”¨çš„rssä½¿ç”¨ä¿¡æ¯ã€‚
    *
-   * @returns { NativeMemInfo } Ó¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢¡£
+   * @returns { NativeMemInfo } åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -414,7 +414,7 @@ declare namespace hidebug {
   function getAppNativeMemInfo(): NativeMemInfo;
 
   /**
-   * Ó¦ÓÃ½ø³ÌÄÚ´æÏŞÖÆ¡£
+   * åº”ç”¨è¿›ç¨‹å†…å­˜é™åˆ¶ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -422,7 +422,7 @@ declare namespace hidebug {
    */
   interface MemoryLimit {
     /**
-     * Ó¦ÓÃ³ÌĞò½ø³Ì¿ÉÓÃµÄÎïÀíÄÚ´æÏŞÖÆ£¬ÒÔKBÎªµ¥Î»¡£
+     * åº”ç”¨ç¨‹åºè¿›ç¨‹å¯ç”¨çš„ç‰©ç†å†…å­˜é™åˆ¶ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -430,7 +430,7 @@ declare namespace hidebug {
      */
     rssLimit: bigint;
     /**
-     * ½ø³ÌµÄĞéÄâÄÚ´æÏŞÖÆ£¬ÒÔKBÎªµ¥Î»¡£
+     * è¿›ç¨‹çš„è™šæ‹Ÿå†…å­˜é™åˆ¶ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -438,7 +438,7 @@ declare namespace hidebug {
      */
     vssLimit: bigint;
     /**
-     * µ±Ç°Ïß³ÌµÄ JS VM ¶Ñ´óĞ¡ÏŞÖÆ£¬ÒÔKBÎªµ¥Î»¡£
+     * å½“å‰çº¿ç¨‹çš„ JS VM å †å¤§å°é™åˆ¶ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -446,7 +446,7 @@ declare namespace hidebug {
      */
     vmHeapLimit: bigint;
     /**
-     * µ±Ç°½ø³ÌµÄ JS ¶ÑÄÚ´æ´óĞ¡ÏŞÖÆ£¬ÒÔKBÎªµ¥Î»¡£
+     * å½“å‰è¿›ç¨‹çš„ JS å †å†…å­˜å¤§å°é™åˆ¶ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -456,9 +456,9 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡Ó¦ÓÃ³ÌĞò½ø³ÌµÄÄÚ´æÏŞÖÆ¡£
+   * è·å–åº”ç”¨ç¨‹åºè¿›ç¨‹çš„å†…å­˜é™åˆ¶ã€‚
    *
-   * @returns { MemoryLimit } Ó¦ÓÃ³ÌĞò½ø³ÌÄÚ´æÏŞÖÆ¡£
+   * @returns { MemoryLimit } åº”ç”¨ç¨‹åºè¿›ç¨‹å†…å­˜é™åˆ¶ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -466,7 +466,7 @@ declare namespace hidebug {
   function getAppMemoryLimit(): MemoryLimit;
 
   /**
-   * VMÄÚ´æĞÅÏ¢¡£
+   * VMå†…å­˜ä¿¡æ¯ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -474,7 +474,7 @@ declare namespace hidebug {
    */
   interface VMMemoryInfo {
     /**
-     * ±íÊ¾µ±Ç°ĞéÄâ»úµÄ¶Ñ×Ü´óĞ¡£¬ÒÔKBÎªµ¥Î»¡£
+     * è¡¨ç¤ºå½“å‰è™šæ‹Ÿæœºçš„å †æ€»å¤§å°ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -482,7 +482,7 @@ declare namespace hidebug {
      */
     totalHeap: bigint;
     /**
-     * ±íÊ¾µ±Ç°ĞéÄâ»úÊ¹ÓÃµÄ¶Ñ´óĞ¡£¬ÒÔKBÎªµ¥Î»¡£
+     * è¡¨ç¤ºå½“å‰è™šæ‹Ÿæœºä½¿ç”¨çš„å †å¤§å°ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -490,7 +490,7 @@ declare namespace hidebug {
      */
     heapUsed: bigint;
     /**
-     * ±íÊ¾µ±Ç°ĞéÄâ»úµÄËùÓĞÊı×é¶ÔÏó´óĞ¡£¬ÒÔKBÎªµ¥Î»¡£
+     * è¡¨ç¤ºå½“å‰è™šæ‹Ÿæœºçš„æ‰€æœ‰æ•°ç»„å¯¹è±¡å¤§å°ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -500,9 +500,9 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡VMÄÚ´æÏà¹ØĞÅÏ¢¡£
+   * è·å–VMå†…å­˜ç›¸å…³ä¿¡æ¯ã€‚
    *
-   * @returns { VMMemoryInfo } ·µ»ØVMÄÚ´æĞÅÏ¢¡£
+   * @returns { VMMemoryInfo } è¿”å›VMå†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -510,9 +510,9 @@ declare namespace hidebug {
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
   /**
-   * »ñÈ¡µ±Ç°ĞéÄâ»úÖĞArkTS¶ÔÏóËùÕ¼ÓÃµÄÄÚ´æ´óĞ¡¡£
+   * è·å–å½“å‰è™šæ‹Ÿæœºä¸­ArkTSå¯¹è±¡æ‰€å ç”¨çš„å†…å­˜å¤§å°ã€‚
    *
-   * @returns { bigint } µ±Ç°ĞéÄâ»úÖĞArkTS¶ÔÏóËùÕ¼ÓÃµÄÄÚ´æ´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { bigint } å½“å‰è™šæ‹Ÿæœºä¸­ArkTSå¯¹è±¡æ‰€å ç”¨çš„å†…å­˜å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 21 dynamic
    * @since 23 static
@@ -520,9 +520,9 @@ declare namespace hidebug {
   function getAppVMObjectUsedSize(): bigint;
 
   /**
-   * ¶ÁÈ¡/proc/{pid}/smaps_rollupºÍ/proc/{pid}/statm½ÚµãµÄÊı¾İÒÔ»ñÈ¡Ó¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢£¬Ê¹ÓÃPromiseÒì²½»Øµ÷¡£
+   * è¯»å–/proc/{pid}/smaps_rollupå’Œ/proc/{pid}/statmèŠ‚ç‚¹çš„æ•°æ®ä»¥è·å–åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ï¼Œä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒã€‚
    *
-   * @returns { Promise<NativeMemInfo> } promise¶ÔÏó£¬·µ»ØÓ¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢¡£
+   * @returns { Promise<NativeMemInfo> } promiseå¯¹è±¡ï¼Œè¿”å›åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 23 static
@@ -530,16 +530,16 @@ declare namespace hidebug {
   function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
 
   /**
-   * »ñÈ¡Ó¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢¡£Óë`getAppNativeMemInfo`½Ó¿ÚÏà±È£¬¸Ã½Ó¿ÚÊ¹ÓÃÁË»º´æ»úÖÆ£¬ÒÔÌá¸ßĞÔÄÜ¡£»º´æµÄÓĞĞ§ÆÚÎª5·ÖÖÓ¡£
+   * è·å–åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ã€‚ä¸`getAppNativeMemInfo`æ¥å£ç›¸æ¯”ï¼Œè¯¥æ¥å£ä½¿ç”¨äº†ç¼“å­˜æœºåˆ¶ï¼Œä»¥æé«˜æ€§èƒ½ã€‚ç¼“å­˜çš„æœ‰æ•ˆæœŸä¸º5åˆ†é’Ÿã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¶ÁÈ¡ /proc/{pid}/smaps_rollup ±È½ÏºÄÊ±£¬½¨Òé²»ÔÚÖ÷Ïß³ÌÖĞÊ¹ÓÃ¸Ã½Ó¿Ú¡£¿ÉÒÔÍ¨¹ı@ohos.taskpool»ò@ohos.worker¿ªÆôÒì²½Ïß³Ì£¬ÒÔ±ÜÃâÓ¦ÓÃ¿¨¶Ù¡£
+   * > ç”±äºè¯»å– /proc/{pid}/smaps_rollup æ¯”è¾ƒè€—æ—¶ï¼Œå»ºè®®ä¸åœ¨ä¸»çº¿ç¨‹ä¸­ä½¿ç”¨è¯¥æ¥å£ã€‚å¯ä»¥é€šè¿‡@ohos.taskpoolæˆ–@ohos.workerå¼€å¯å¼‚æ­¥çº¿ç¨‹ï¼Œä»¥é¿å…åº”ç”¨å¡é¡¿ã€‚
    *
-   * @param { boolean } [forceRefresh] - ÊÇ·ñĞèÒªÎŞÊÓ»º´æÓĞĞ§ĞÔ£¬Ç¿ÖÆ¸üĞÂ»º´æÖµ¡£Ä¬ÈÏÖµ£ºfalse¡£
-   *     true£ºÖ±½Ó»ñÈ¡µ±Ç°ÄÚ´æÊı¾İ²¢¸üĞÂ»º´æÖµ¡£
-   *     false£º»º´æÓĞĞ§Ê±£¬Ö±½Ó·µ»Ø»º´æÖµ£¬»º´æÊ§Ğ§Ê±»ñÈ¡µ±Ç°ÄÚ´æÊı¾İ²¢¸üĞÂ»º´æÖµ¡£
-   * @returns { NativeMemInfo } Ó¦ÓÃ½ø³ÌÄÚ´æĞÅÏ¢¡£
+   * @param { boolean } [forceRefresh] - æ˜¯å¦éœ€è¦æ— è§†ç¼“å­˜æœ‰æ•ˆæ€§ï¼Œå¼ºåˆ¶æ›´æ–°ç¼“å­˜å€¼ã€‚é»˜è®¤å€¼ï¼šfalseã€‚
+   *     trueï¼šç›´æ¥è·å–å½“å‰å†…å­˜æ•°æ®å¹¶æ›´æ–°ç¼“å­˜å€¼ã€‚
+   *     falseï¼šç¼“å­˜æœ‰æ•ˆæ—¶ï¼Œç›´æ¥è¿”å›ç¼“å­˜å€¼ï¼Œç¼“å­˜å¤±æ•ˆæ—¶è·å–å½“å‰å†…å­˜æ•°æ®å¹¶æ›´æ–°ç¼“å­˜å€¼ã€‚
+   * @returns { NativeMemInfo } åº”ç”¨è¿›ç¨‹å†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 23 static
@@ -547,7 +547,7 @@ declare namespace hidebug {
   function getAppNativeMemInfoWithCache(forceRefresh?: boolean): NativeMemInfo;
 
   /**
-   * ÃèÊö²É¼¯traceÏß³ÌµÄÀàĞÍ£¬°üÀ¨Ö÷Ïß³ÌºÍËùÓĞÏß³Ì¡£
+   * æè¿°é‡‡é›†traceçº¿ç¨‹çš„ç±»å‹ï¼ŒåŒ…æ‹¬ä¸»çº¿ç¨‹å’Œæ‰€æœ‰çº¿ç¨‹ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -555,7 +555,7 @@ declare namespace hidebug {
    */
   enum TraceFlag {
     /**
-     * Ö»²É¼¯µ±Ç°Ó¦ÓÃÖ÷Ïß³Ì¡£
+     * åªé‡‡é›†å½“å‰åº”ç”¨ä¸»çº¿ç¨‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -563,7 +563,7 @@ declare namespace hidebug {
      */
     MAIN_THREAD = 1,
     /**
-     * ²É¼¯µ±Ç°Ó¦ÓÃÏÂËùÓĞÏß³Ì¡£
+     * é‡‡é›†å½“å‰åº”ç”¨ä¸‹æ‰€æœ‰çº¿ç¨‹ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -573,11 +573,11 @@ declare namespace hidebug {
   }
 
   /**
-   * Ö§³ÖtraceÊ¹ÓÃ³¡¾°µÄ±êÇ©£¬ÓÃ»§¿ÉÍ¨¹ıhitrace×¥È¡Ö¸¶¨±êÇ©µÄtraceÄÚÈİ¡£
+   * æ”¯æŒtraceä½¿ç”¨åœºæ™¯çš„æ ‡ç­¾ï¼Œç”¨æˆ·å¯é€šè¿‡hitraceæŠ“å–æŒ‡å®šæ ‡ç­¾çš„traceå†…å®¹ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÒÔÏÂ±êÇ©Êµ¼ÊÖµÓÉÏµÍ³¶¨Òå£¬¿ÉÄÜËæ°æ±¾Éı¼¶¶ø·¢Éú¸Ä±ä£¬Îª±ÜÃâÉı¼¶ºó³öÏÖ¼æÈİĞÔÎÊÌâ£¬ÔÚÉú²úÖĞÓ¦Ö±½ÓÊ¹ÓÃ±êÇ©Ãû³Æ¶ø·Ç±êÇ©ÊıÖµ¡£
+   * > ä»¥ä¸‹æ ‡ç­¾å®é™…å€¼ç”±ç³»ç»Ÿå®šä¹‰ï¼Œå¯èƒ½éšç‰ˆæœ¬å‡çº§è€Œå‘ç”Ÿæ”¹å˜ï¼Œä¸ºé¿å…å‡çº§åå‡ºç°å…¼å®¹æ€§é—®é¢˜ï¼Œåœ¨ç”Ÿäº§ä¸­åº”ç›´æ¥ä½¿ç”¨æ ‡ç­¾åç§°è€Œéæ ‡ç­¾æ•°å€¼ã€‚
    *
    * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -586,7 +586,7 @@ declare namespace hidebug {
    */
   namespace tags {
     /**
-     * ÄÜÁ¦¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:ability¡£
+     * èƒ½åŠ›ç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:abilityã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -594,7 +594,7 @@ declare namespace hidebug {
      */
     const ABILITY_MANAGER: long;
     /**
-     * ArkUI¿ª·¢¿ò¼Ü±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:ace¡£
+     * ArkUIå¼€å‘æ¡†æ¶æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:aceã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -602,7 +602,7 @@ declare namespace hidebug {
      */
     const ARKUI: long;
     /**
-     * JSVMĞéÄâ»ú±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:ark¡£
+     * JSVMè™šæ‹Ÿæœºæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:arkã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -610,7 +610,7 @@ declare namespace hidebug {
      */
     const ARK: long;
     /**
-     * À¶ÑÀ±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:bluetooth¡£
+     * è“ç‰™æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:bluetoothã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -618,7 +618,7 @@ declare namespace hidebug {
      */
     const BLUETOOTH: long;
     /**
-     * ¹«¹²¿â×ÓÏµÍ³±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:commonlibrary¡£
+     * å…¬å…±åº“å­ç³»ç»Ÿæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:commonlibraryã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -626,7 +626,7 @@ declare namespace hidebug {
      */
     const COMMON_LIBRARY: long;
     /**
-     * ·Ö²¼Ê½Ó²¼şÉè±¸¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:devicemanager¡£
+     * åˆ†å¸ƒå¼ç¡¬ä»¶è®¾å¤‡ç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:devicemanagerã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -634,7 +634,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_HARDWARE_DEVICE_MANAGER: long;
     /**
-     * ·Ö²¼Ê½ÒôÆµ±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:daudio¡£
+     * åˆ†å¸ƒå¼éŸ³é¢‘æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:daudioã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -642,7 +642,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_AUDIO: long;
     /**
-     * ·Ö²¼Ê½Ïà»ú±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:dcamera¡£
+     * åˆ†å¸ƒå¼ç›¸æœºæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:dcameraã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -650,7 +650,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_CAMERA: long;
     /**
-     * ·Ö²¼Ê½Êı¾İ¹ÜÀíÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:distributeddatamgr¡£
+     * åˆ†å¸ƒå¼æ•°æ®ç®¡ç†æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:distributeddatamgrã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -658,7 +658,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_DATA: long;
     /**
-     * ·Ö²¼Ê½Ó²¼ş¿ò¼Ü±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:dhfwk¡£
+     * åˆ†å¸ƒå¼ç¡¬ä»¶æ¡†æ¶æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:dhfwkã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -666,7 +666,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_HARDWARE_FRAMEWORK: long;
     /**
-     * ·Ö²¼Ê½ÊäÈë±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:dinput¡£
+     * åˆ†å¸ƒå¼è¾“å…¥æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:dinputã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -674,7 +674,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_INPUT: long;
     /**
-     * ·Ö²¼Ê½ÆÁÄ»±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:dscreen¡£
+     * åˆ†å¸ƒå¼å±å¹•æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:dscreenã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -682,7 +682,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_SCREEN: long;
     /**
-     * ·Ö²¼Ê½µ÷¶ÈÆ÷±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:dsched¡£
+     * åˆ†å¸ƒå¼è°ƒåº¦å™¨æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:dschedã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -690,7 +690,7 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_SCHEDULER: long;
     /**
-     * FFRTÈÎÎñ±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:ffrt¡£
+     * FFRTä»»åŠ¡æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:ffrtã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -698,7 +698,7 @@ declare namespace hidebug {
      */
     const FFRT: long;
     /**
-     * ÎÄ¼ş¹ÜÀíÏµÍ³±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:filemanagement¡£
+     * æ–‡ä»¶ç®¡ç†ç³»ç»Ÿæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:filemanagementã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -706,7 +706,7 @@ declare namespace hidebug {
      */
     const FILE_MANAGEMENT: long;
     /**
-     * È«¾Ö×ÊÔ´¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:gresource¡£
+     * å…¨å±€èµ„æºç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:gresourceã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -714,7 +714,7 @@ declare namespace hidebug {
      */
     const GLOBAL_RESOURCE_MANAGER: long;
     /**
-     * Í¼ĞÎÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:graphic¡£
+     * å›¾å½¢æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:graphicã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -722,7 +722,7 @@ declare namespace hidebug {
      */
     const GRAPHICS: long;
     /**
-     * HDF×ÓÏµÍ³±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:hdf¡£
+     * HDFå­ç³»ç»Ÿæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:hdfã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -730,7 +730,7 @@ declare namespace hidebug {
      */
     const HDF: long;
     /**
-     * MISCÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:misc¡£
+     * MISCæ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:miscã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -738,7 +738,7 @@ declare namespace hidebug {
      */
     const MISC: long;
     /**
-     * ¶àÄ£Ì¬ÊäÈëÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:multimodalinput¡£
+     * å¤šæ¨¡æ€è¾“å…¥æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:multimodalinputã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -746,7 +746,7 @@ declare namespace hidebug {
      */
     const MULTIMODAL_INPUT: long;
     /**
-     * ÍøÂç±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:net¡£
+     * ç½‘ç»œæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:netã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -754,7 +754,7 @@ declare namespace hidebug {
      */
     const NET: long;
     /**
-     * Í¨ÖªÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:notification¡£
+     * é€šçŸ¥æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:notificationã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -762,7 +762,7 @@ declare namespace hidebug {
      */
     const NOTIFICATION: long;
     /**
-     * Nweb±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:nweb¡£
+     * Nwebæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:nwebã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -770,7 +770,7 @@ declare namespace hidebug {
      */
     const NWEB: long;
     /**
-     * OHOSÍ¨ÓÃ±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:ohos¡£
+     * OHOSé€šç”¨æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:ohosã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -778,7 +778,7 @@ declare namespace hidebug {
      */
     const OHOS: long;
     /**
-     * µçÔ´¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:power¡£
+     * ç”µæºç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:powerã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -786,7 +786,7 @@ declare namespace hidebug {
      */
     const POWER_MANAGER: long;
     /**
-     * RPC±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:rpc¡£
+     * RPCæ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:rpcã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -794,7 +794,7 @@ declare namespace hidebug {
      */
     const RPC: long;
     /**
-     * ÏµÍ³ÄÜÁ¦¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:samgr¡£
+     * ç³»ç»Ÿèƒ½åŠ›ç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:samgrã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -802,7 +802,7 @@ declare namespace hidebug {
      */
     const SAMGR: long;
     /**
-     * ´°¿Ú¹ÜÀí±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:window¡£
+     * çª—å£ç®¡ç†æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:windowã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -810,7 +810,7 @@ declare namespace hidebug {
      */
     const WINDOW_MANAGER: long;
     /**
-     * ÒôÆµÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:zaudio¡£
+     * éŸ³é¢‘æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:zaudioã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -818,7 +818,7 @@ declare namespace hidebug {
      */
     const AUDIO: long;
     /**
-     * Ïà»úÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:zcamera¡£
+     * ç›¸æœºæ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:zcameraã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -826,7 +826,7 @@ declare namespace hidebug {
      */
     const CAMERA: long;
     /**
-     * Í¼Æ¬Ä£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:zimage¡£
+     * å›¾ç‰‡æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:zimageã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -834,7 +834,7 @@ declare namespace hidebug {
      */
     const IMAGE: long;
     /**
-     * Ã½ÌåÄ£¿é±êÇ©£¬hitraceÃüÁîĞĞ¹¤¾ß¶ÔÓ¦tagName:zmedia¡£
+     * åª’ä½“æ¨¡å—æ ‡ç­¾ï¼Œhitraceå‘½ä»¤è¡Œå·¥å…·å¯¹åº”tagName:zmediaã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -844,18 +844,18 @@ declare namespace hidebug {
   }
 
   /**
-   * ¸Ã½Ó¿Ú²¹³äÁËhitrace¹¦ÄÜ£¬¿ª·¢Õß¿ÉÍ¨¹ı¸Ã½Ó¿ÚÍê³ÉÖ¸¶¨·¶Î§µÄtrace×Ô¶¯»¯²É¼¯¡£ÓÉÓÚ¸Ã½Ó¿ÚÖĞtrace²É¼¯¹ı³ÌÖĞÏûºÄµÄĞÔÄÜÓëĞèÒª²É¼¯µÄ·¶Î§³ÉÕıÏà¹Ø£¬½¨Òé¿ª·¢ÕßÔÚÊ¹ÓÃ¸Ã½Ó¿ÚÇ°£¬Í¨¹ıhitraceÃüÁî×¥È¡Ó¦ÓÃµÄtraceÈÕÖ¾£¬´ÓÖĞÉ¸Ñ¡³öËùĞètrace²É¼¯µÄ¹Ø¼ü·¶Î§£¬ÒÔÌá¸ß¸Ã½Ó¿ÚĞÔÄÜ¡£
-   * `startAppTraceCapture()`·½·¨µÄµ÷ÓÃĞèÒªÓë`stopAppTraceCapture()`·½·¨µÄµ÷ÓÃÒ»Ò»¶ÔÓ¦£¬ÖØ¸´¿ªÆôtrace²É¼¯½«µ¼ÖÂ½Ó¿Úµ÷ÓÃÒì³££¬ÓÉÓÚtrace²É¼¯¹ı³ÌÖĞ»áÏûºÄ½Ï¶àĞÔÄÜ£¬¿ª·¢ÕßÓ¦ÔÚÍê³É²É¼¯ºó¼°Ê±¹Ø±Õ¡£
-   * Ó¦ÓÃµ÷ÓÃstartAppTraceCapture½Ó¿ÚÆô¶¯²É¼¯trace£¬µ±²É¼¯µÄtrace´óĞ¡³¬¹ıÁËlimitSize£¬ÏµÍ³½«×Ô¶¯µ÷ÓÃstopAppTraceCapture½Ó¿ÚÍ£Ö¹²É¼¯¡£Òò´ËlimitSize´óĞ¡ÉèÖÃ²»µ±£¬½«µ¼ÖÂÉú³ÉtraceÊı¾İ²»×ã£¬ÎŞ·¨Âú×ã¹ÊÕÏ·ÖÎö¡£ËùÒÔÒªÇó¿ª·¢Õß¸ù¾İÊµ¼ÊÇé¿ö£¬ÆÀ¹ÀlimitSize´óĞ¡¡£
-   * ÆÀ¹À·½·¨£ºlimitSize = Ô¤ÆÚtrace²É¼¯Ê±³¤ * traceµ¥Î»Á÷Á¿¡£
-   * Ô¤ÆÚtrace²É¼¯Ê±³¤£º¿ª·¢Õß¸ù¾İ·ÖÎöµÄ¹ÊÕÏ³¡¾°×ÔĞĞ¾ö¶¨£¬µ¥Î»Ãë¡£
-   * traceµ¥Î»Á÷Á¿£ºÓ¦ÓÃÃ¿Ãë²úÉúµÄtrace´óĞ¡£¬ÏµÍ³ÍÆ¼öÖµÎª300KB/s£¬½¨Òé¿ª·¢Õß²ÉÓÃ×ÔÉíÓ¦ÓÃµÄÊµ²âÖµ£¬µ¥Î»KB/s¡£
-   * traceµ¥Î»Á÷Á¿Êµ²â·½·¨£ºlimitSizeÉèÖÃÎª×î´óÖµ500M£¬µ÷ÓÃstartAppTraceCapture½Ó¿Ú£¬ÔÚÓ¦ÓÃÉÏ²Ù×÷NÃëºó£¬µ÷ÓÃstopAppTraceCaptureÍ£Ö¹²É¼¯£¬È»ºó²é¿´trace´óĞ¡S£¨KB£©¡£ÄÇÃ´traceµ¥Î»Á÷Á¿ = S/N£¨KB/s£©¡£
+   * è¯¥æ¥å£è¡¥å……äº†hitraceåŠŸèƒ½ï¼Œå¼€å‘è€…å¯é€šè¿‡è¯¥æ¥å£å®ŒæˆæŒ‡å®šèŒƒå›´çš„traceè‡ªåŠ¨åŒ–é‡‡é›†ã€‚ç”±äºè¯¥æ¥å£ä¸­traceé‡‡é›†è¿‡ç¨‹ä¸­æ¶ˆè€—çš„æ€§èƒ½ä¸éœ€è¦é‡‡é›†çš„èŒƒå›´æˆæ­£ç›¸å…³ï¼Œå»ºè®®å¼€å‘è€…åœ¨ä½¿ç”¨è¯¥æ¥å£å‰ï¼Œé€šè¿‡hitraceå‘½ä»¤æŠ“å–åº”ç”¨çš„traceæ—¥å¿—ï¼Œä»ä¸­ç­›é€‰å‡ºæ‰€éœ€traceé‡‡é›†çš„å…³é”®èŒƒå›´ï¼Œä»¥æé«˜è¯¥æ¥å£æ€§èƒ½ã€‚
+   * `startAppTraceCapture()`æ–¹æ³•çš„è°ƒç”¨éœ€è¦ä¸`stopAppTraceCapture()`æ–¹æ³•çš„è°ƒç”¨ä¸€ä¸€å¯¹åº”ï¼Œé‡å¤å¼€å¯traceé‡‡é›†å°†å¯¼è‡´æ¥å£è°ƒç”¨å¼‚å¸¸ï¼Œç”±äºtraceé‡‡é›†è¿‡ç¨‹ä¸­ä¼šæ¶ˆè€—è¾ƒå¤šæ€§èƒ½ï¼Œå¼€å‘è€…åº”åœ¨å®Œæˆé‡‡é›†ååŠæ—¶å…³é—­ã€‚
+   * åº”ç”¨è°ƒç”¨startAppTraceCaptureæ¥å£å¯åŠ¨é‡‡é›†traceï¼Œå½“é‡‡é›†çš„traceå¤§å°è¶…è¿‡äº†limitSizeï¼Œç³»ç»Ÿå°†è‡ªåŠ¨è°ƒç”¨stopAppTraceCaptureæ¥å£åœæ­¢é‡‡é›†ã€‚å› æ­¤limitSizeå¤§å°è®¾ç½®ä¸å½“ï¼Œå°†å¯¼è‡´ç”Ÿæˆtraceæ•°æ®ä¸è¶³ï¼Œæ— æ³•æ»¡è¶³æ•…éšœåˆ†æã€‚æ‰€ä»¥è¦æ±‚å¼€å‘è€…æ ¹æ®å®é™…æƒ…å†µï¼Œè¯„ä¼°limitSizeå¤§å°ã€‚
+   * è¯„ä¼°æ–¹æ³•ï¼šlimitSize = é¢„æœŸtraceé‡‡é›†æ—¶é•¿ * traceå•ä½æµé‡ã€‚
+   * é¢„æœŸtraceé‡‡é›†æ—¶é•¿ï¼šå¼€å‘è€…æ ¹æ®åˆ†æçš„æ•…éšœåœºæ™¯è‡ªè¡Œå†³å®šï¼Œå•ä½ç§’ã€‚
+   * traceå•ä½æµé‡ï¼šåº”ç”¨æ¯ç§’äº§ç”Ÿçš„traceå¤§å°ï¼Œç³»ç»Ÿæ¨èå€¼ä¸º300KB/sï¼Œå»ºè®®å¼€å‘è€…é‡‡ç”¨è‡ªèº«åº”ç”¨çš„å®æµ‹å€¼ï¼Œå•ä½KB/sã€‚
+   * traceå•ä½æµé‡å®æµ‹æ–¹æ³•ï¼šlimitSizeè®¾ç½®ä¸ºæœ€å¤§å€¼500Mï¼Œè°ƒç”¨startAppTraceCaptureæ¥å£ï¼Œåœ¨åº”ç”¨ä¸Šæ“ä½œNç§’åï¼Œè°ƒç”¨stopAppTraceCaptureåœæ­¢é‡‡é›†ï¼Œç„¶åæŸ¥çœ‹traceå¤§å°Sï¼ˆKBï¼‰ã€‚é‚£ä¹ˆtraceå•ä½æµé‡ = S/Nï¼ˆKB/sï¼‰ã€‚
    *
-   * @param { long[] } tags - trace·¶Î§£¬ÏêÇéÇë¼ûtags¡£
-   * @param { TraceFlag } flag - ÏêÇéÇë¼ûTraceFlag¡£
-   * @param { int } limitSize - ¿ªÆôtraceÎÄ¼ş´óĞ¡ÏŞÖÆ£¬µ¥Î»ÎªByte£¬È¡Öµ·¶Î§£¨0, 500MB]¡£³¬³ö·¶Î§Ê±·µ»Ø´íÎóÂë401¡£
-   * @returns { string } ·µ»ØtraceÎÄ¼şÃûÂ·¾¶£¨½Ó¿Ú·µ»ØÕæÊµÎïÀíÂ·¾¶£¬ÈôÓ¦ÓÃÄÚĞèÒª·ÃÎÊ£¬Çë²Î¿¼Ó¦ÓÃÉ³ÏäÂ·¾¶ºÍÕæÊµÎïÀíÂ·¾¶µÄ¶ÔÓ¦¹ØÏµ½øĞĞÂ·¾¶×ª»»£©¡£
+   * @param { long[] } tags - traceèŒƒå›´ï¼Œè¯¦æƒ…è¯·è§tagsã€‚
+   * @param { TraceFlag } flag - è¯¦æƒ…è¯·è§TraceFlagã€‚
+   * @param { int } limitSize - å¼€å¯traceæ–‡ä»¶å¤§å°é™åˆ¶ï¼Œå•ä½ä¸ºByteï¼Œå–å€¼èŒƒå›´ï¼ˆ0, 500MB]ã€‚è¶…å‡ºèŒƒå›´æ—¶è¿”å›é”™è¯¯ç 401ã€‚
+   * @returns { string } è¿”å›traceæ–‡ä»¶åè·¯å¾„ï¼ˆæ¥å£è¿”å›çœŸå®ç‰©ç†è·¯å¾„ï¼Œè‹¥åº”ç”¨å†…éœ€è¦è®¿é—®ï¼Œè¯·å‚è€ƒåº”ç”¨æ²™ç®±è·¯å¾„å’ŒçœŸå®ç‰©ç†è·¯å¾„çš„å¯¹åº”å…³ç³»è¿›è¡Œè·¯å¾„è½¬æ¢ï¼‰ã€‚
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
    *     2.The parameter is not within the enumeration type
@@ -870,8 +870,8 @@ declare namespace hidebug {
   function startAppTraceCapture(tags: long[], flag: TraceFlag, limitSize: int): string;
 
   /**
-   * Í£Ö¹Ó¦ÓÃtrace²É¼¯¡£µ÷ÓÃÇ°£¬ĞèÏÈµ÷ÓÃ`startAppTraceCapture()`·½·¨¿ªÊ¼²É¼¯¡£¹Ø±ÕÇ°Î´¿ªÆô»òÖØ¸´¹Ø±Õ»áµ¼ÖÂ½Ó¿ÚÒì³£¡£
-   * µ÷ÓÃstartAppTraceCapture½Ó¿Ú£¬Èç¹ûÃ»ÓĞºÏÀí´«ÈëlimitSize²ÎÊı£¬Éú³ÉtraceµÄ´óĞ¡´óÓÚ´«ÈëµÄlimitSize´óĞ¡£¬ÏµÍ³ÄÚ²¿»á×Ô¶¯µ÷ÓÃstopAppTraceCapture£¬ÔÙ´ÎÊÖ¶¯µ÷ÓÃstopAppTraceCapture¾Í»áÅ×³ö´íÎóÂë11400105¡£
+   * åœæ­¢åº”ç”¨traceé‡‡é›†ã€‚è°ƒç”¨å‰ï¼Œéœ€å…ˆè°ƒç”¨`startAppTraceCapture()`æ–¹æ³•å¼€å§‹é‡‡é›†ã€‚å…³é—­å‰æœªå¼€å¯æˆ–é‡å¤å…³é—­ä¼šå¯¼è‡´æ¥å£å¼‚å¸¸ã€‚
+   * è°ƒç”¨startAppTraceCaptureæ¥å£ï¼Œå¦‚æœæ²¡æœ‰åˆç†ä¼ å…¥limitSizeå‚æ•°ï¼Œç”Ÿæˆtraceçš„å¤§å°å¤§äºä¼ å…¥çš„limitSizeå¤§å°ï¼Œç³»ç»Ÿå†…éƒ¨ä¼šè‡ªåŠ¨è°ƒç”¨stopAppTraceCaptureï¼Œå†æ¬¡æ‰‹åŠ¨è°ƒç”¨stopAppTraceCaptureå°±ä¼šæŠ›å‡ºé”™è¯¯ç 11400105ã€‚
    *
    * @throws { BusinessError } 11400104 - The status of the trace is abnormal
    * @throws { BusinessError } 11400105 - No capture trace running
@@ -882,7 +882,7 @@ declare namespace hidebug {
   function stopAppTraceCapture(): void;
 
   /**
-   * Ìá¹©trace²É¼¯µÄ²ÎÊıÑ¡Ïî¡£
+   * æä¾›traceé‡‡é›†çš„å‚æ•°é€‰é¡¹ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
@@ -891,7 +891,7 @@ declare namespace hidebug {
    */
   interface RequestTraceConfig {
     /**
-     * ²É¼¯traceÊä³öµÄÎÄ¼şÃûÇ°×º¡£ÎÄ¼şÃûÇ°×ºÖ»È¡×Ö·û´®Ç°20¸ö×Ö·û£¬³¬¹ı²¿·Ö½«Å×Æú¡£Ç°20¸ö×Ö·ûÖ»°üº¬´óĞ¡Ğ´×ÖÄ¸ºÍÏÂ»®Ïß£¬Èô²»·ûºÏÔòÄ¬ÈÏÎª¿Õ×Ö·û´®¡£
+     * é‡‡é›†traceè¾“å‡ºçš„æ–‡ä»¶åå‰ç¼€ã€‚æ–‡ä»¶åå‰ç¼€åªå–å­—ç¬¦ä¸²å‰20ä¸ªå­—ç¬¦ï¼Œè¶…è¿‡éƒ¨åˆ†å°†æŠ›å¼ƒã€‚å‰20ä¸ªå­—ç¬¦åªåŒ…å«å¤§å°å†™å­—æ¯å’Œä¸‹åˆ’çº¿ï¼Œè‹¥ä¸ç¬¦åˆåˆ™é»˜è®¤ä¸ºç©ºå­—ç¬¦ä¸²ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @stagemodelonly
@@ -900,7 +900,7 @@ declare namespace hidebug {
      */
     identifier: string;
     /**
-     * traceÎÄ¼şµÄ»º´æ´óĞ¡£¬ÒÔKBÎªµ¥Î»¡£ÊıÖµÎª32Î»ÎŞ·ûºÅÕûĞÍÊı×Ö£¬³¬³öÓĞĞ§·¶Î§½«µ¼ÖÂÊıÖµÒç³ö¡£È¡Öµ·¶Î§Îª[1024, 15360]£¬´«Èë²ÎÊı³¬¹ıÈ¡Öµ·¶Î§£¬²ÎÊı½«±»ÉèÖÃÎª×î½üµÄ±ß½çÖµ¡£
+     * traceæ–‡ä»¶çš„ç¼“å­˜å¤§å°ï¼Œä»¥KBä¸ºå•ä½ã€‚æ•°å€¼ä¸º32ä½æ— ç¬¦å·æ•´å‹æ•°å­—ï¼Œè¶…å‡ºæœ‰æ•ˆèŒƒå›´å°†å¯¼è‡´æ•°å€¼æº¢å‡ºã€‚å–å€¼èŒƒå›´ä¸º[1024, 15360]ï¼Œä¼ å…¥å‚æ•°è¶…è¿‡å–å€¼èŒƒå›´ï¼Œå‚æ•°å°†è¢«è®¾ç½®ä¸ºæœ€è¿‘çš„è¾¹ç•Œå€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @stagemodelonly
@@ -910,7 +910,7 @@ declare namespace hidebug {
     bufferSizeKb: int;
 
     /**
-     * trace²É¼¯Ê±³¤£¬ÒÔmsÎªµ¥Î»¡£ÊıÖµÎª32Î»ÎŞ·ûºÅÕûĞÍÊı×Ö£¬³¬³öÓĞĞ§·¶Î§½«µ¼ÖÂÊıÖµÒç³ö¡£È¡Öµ·¶Î§Îª[1000, 15000]£¬´«Èë²ÎÊı³¬¹ıÈ¡Öµ·¶Î§£¬²ÎÊı½«±»ÉèÖÃÎª×î½üµÄ±ß½çÖµ¡£
+     * traceé‡‡é›†æ—¶é•¿ï¼Œä»¥msä¸ºå•ä½ã€‚æ•°å€¼ä¸º32ä½æ— ç¬¦å·æ•´å‹æ•°å­—ï¼Œè¶…å‡ºæœ‰æ•ˆèŒƒå›´å°†å¯¼è‡´æ•°å€¼æº¢å‡ºã€‚å–å€¼èŒƒå›´ä¸º[1000, 15000]ï¼Œä¼ å…¥å‚æ•°è¶…è¿‡å–å€¼èŒƒå›´ï¼Œå‚æ•°å°†è¢«è®¾ç½®ä¸ºæœ€è¿‘çš„è¾¹ç•Œå€¼ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @stagemodelonly
@@ -920,7 +920,7 @@ declare namespace hidebug {
     durationMs: int;
 
     /**
-     * Ô¤Áô×Ö¶Î£¬¿ÉÒÔÉèÖÃÎª0¡£
+     * é¢„ç•™å­—æ®µï¼Œå¯ä»¥è®¾ç½®ä¸º0ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @stagemodelonly
@@ -931,9 +931,9 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡µ±Ç°GWP-ASanÊ£ÓàÊ¹ÄÜÌìÊı¡£
+   * è·å–å½“å‰GWP-ASanå‰©ä½™ä½¿èƒ½å¤©æ•°ã€‚
    *
-   * @returns { number } »ñÈ¡µ±Ç°GWP-ASanÊ£ÓàÊ¹ÄÜÌìÊı¡£Èôµ±Ç°Î´Ê¹ÄÜ£¬·µ»ØÖµ0¡£
+   * @returns { number } è·å–å½“å‰GWP-ASanå‰©ä½™ä½¿èƒ½å¤©æ•°ã€‚è‹¥å½“å‰æœªä½¿èƒ½ï¼Œè¿”å›å€¼0ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 22 static
@@ -941,11 +941,11 @@ declare namespace hidebug {
   function getGwpAsanGrayscaleState(): number;
 
   /**
-   * »ñÈ¡µ±Ç°½ø³ÌµÄtraceĞÅÏ¢£¬°üº¬Ó¦ÓÃtag¡¢Í¼Ïñ´°¿Útag¡¢cpuµ÷¶ÈºÍbinderÄÚºËĞÅÏ¢¡£Ê¹ÓÃPromiseÒì²½»Øµ÷¡£
-   * ²É¼¯trace·µ»ØµÄ.sysÎÄ¼şÔÚÄ¿Â¼ÏÂ×î¶à´æ´¢3·İ£¬ÊıÁ¿´óÓÚµÈÓÚ3·İÊ±ÔÙ´Îµ÷ÓÃ½Ó¿Ú»áÅ×³ö´íÎóÂë11400120¡£
+   * è·å–å½“å‰è¿›ç¨‹çš„traceä¿¡æ¯ï¼ŒåŒ…å«åº”ç”¨tagã€å›¾åƒçª—å£tagã€cpuè°ƒåº¦å’Œbinderå†…æ ¸ä¿¡æ¯ã€‚ä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒã€‚
+   * é‡‡é›†traceè¿”å›çš„.sysæ–‡ä»¶åœ¨ç›®å½•ä¸‹æœ€å¤šå­˜å‚¨3ä»½ï¼Œæ•°é‡å¤§äºç­‰äº3ä»½æ—¶å†æ¬¡è°ƒç”¨æ¥å£ä¼šæŠ›å‡ºé”™è¯¯ç 11400120ã€‚
    *
-   * @param { RequestTraceConfig } config - trace²É¼¯ÅäÖÃĞÅÏ¢¡£
-   * @returns { Promise<string> } Promise¶ÔÏó£¬·µ»ØÒÔ.sys×÷Îªºó×ºµÄtraceÎÄ¼şµÄÓ¦ÓÃÉ³ÏäÂ·¾¶¡£
+   * @param { RequestTraceConfig } config - traceé‡‡é›†é…ç½®ä¿¡æ¯ã€‚
+   * @returns { Promise<string> } Promiseå¯¹è±¡ï¼Œè¿”å›ä»¥.sysä½œä¸ºåç¼€çš„traceæ–‡ä»¶çš„åº”ç”¨æ²™ç®±è·¯å¾„ã€‚
    * @throws { BusinessError } 11400104 - Remote service exception.
    * @throws { BusinessError } 11400120 - Trace storage limit reached.
    * @throws { BusinessError } 11400302 - Resource unavailable.
@@ -957,7 +957,7 @@ declare namespace hidebug {
   function requestTrace(config: RequestTraceConfig): Promise<string>;
 
   /**
-   * ÃèÊöÓÃÓÚ´æ´¢GCÍ³¼ÆĞÅÏ¢µÄ¼üÖµ¶Ô¡£¸ÃÀàĞÍ²»Ö§³Ö¶àÏß³Ì²Ù×÷£¬Èç¹ûÓ¦ÓÃÖĞ´æÔÚ¶àÏß³ÌÍ¬Ê±·ÃÎÊ£¬Ğè¼ÓËø±£»¤¡£
+   * æè¿°ç”¨äºå­˜å‚¨GCç»Ÿè®¡ä¿¡æ¯çš„é”®å€¼å¯¹ã€‚è¯¥ç±»å‹ä¸æ”¯æŒå¤šçº¿ç¨‹æ“ä½œï¼Œå¦‚æœåº”ç”¨ä¸­å­˜åœ¨å¤šçº¿ç¨‹åŒæ—¶è®¿é—®ï¼Œéœ€åŠ é”ä¿æŠ¤ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
@@ -966,9 +966,9 @@ declare namespace hidebug {
   type GcStats = Record<string, long>;
 
   /**
-   * »ñÈ¡ÏµÍ³GCÍ³¼ÆĞÅÏ¢¡£
+   * è·å–ç³»ç»ŸGCç»Ÿè®¡ä¿¡æ¯ã€‚
    *
-   * @returns { GcStats } ÏµÍ³GCÍ³¼ÆĞÅÏ¢¡£
+   * @returns { GcStats } ç³»ç»ŸGCç»Ÿè®¡ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -976,15 +976,15 @@ declare namespace hidebug {
   function getVMRuntimeStats(): GcStats;
 
   /**
-   * ¸ù¾İ²ÎÊı»ñÈ¡Ö¸¶¨µÄÏµÍ³GCÍ³¼ÆĞÅÏ¢¡£
+   * æ ¹æ®å‚æ•°è·å–æŒ‡å®šçš„ç³»ç»ŸGCç»Ÿè®¡ä¿¡æ¯ã€‚
    *
-   * @param { string } item - ËùĞèÍ³¼ÆĞÅÏ¢µÄÀàĞÍ¡£¿É»ñÈ¡µÄÍ³¼ÆĞÅÏ¢ÀàĞÍÈçÏÂ£º
-   *     "ark.gc.gc-count"£ºµ±Ç°Ïß³ÌµÄGC´ÎÊı¡£
-   *     "ark.gc.gc-time"£ºµ±Ç°Ïß³Ì´¥·¢µÄGC×ÜºÄÊ±£¬ÒÔmsÎªµ¥Î»¡£
-   *     "ark.gc.gc-bytes-allocated"£ºµ±Ç°Ïß³ÌArkĞéÄâ»úÒÑ·ÖÅäµÄÄÚ´æ´óĞ¡£¬ÒÔBÎªµ¥Î»¡£
-   *     "ark.gc.gc-bytes-freed"£ºµ±Ç°Ïß³ÌGC³É¹¦»ØÊÕµÄÄÚ´æ£¬ÒÔBÎªµ¥Î»¡£
-   *     "ark.gc.fullgc-longtime-count"£ºµ±Ç°Ïß³Ì³¬³¤fullGC´ÎÊı¡£
-   * @returns { long } ÏµÍ³GCÍ³¼ÆĞÅÏ¢£¬¸ù¾İ´«ÈëµÄ²ÎÊı£¬·µ»ØÏàÓ¦µÄĞÅÏ¢¡£
+   * @param { string } item - æ‰€éœ€ç»Ÿè®¡ä¿¡æ¯çš„ç±»å‹ã€‚å¯è·å–çš„ç»Ÿè®¡ä¿¡æ¯ç±»å‹å¦‚ä¸‹ï¼š
+   *     "ark.gc.gc-count"ï¼šå½“å‰çº¿ç¨‹çš„GCæ¬¡æ•°ã€‚
+   *     "ark.gc.gc-time"ï¼šå½“å‰çº¿ç¨‹è§¦å‘çš„GCæ€»è€—æ—¶ï¼Œä»¥msä¸ºå•ä½ã€‚
+   *     "ark.gc.gc-bytes-allocated"ï¼šå½“å‰çº¿ç¨‹Arkè™šæ‹Ÿæœºå·²åˆ†é…çš„å†…å­˜å¤§å°ï¼Œä»¥Bä¸ºå•ä½ã€‚
+   *     "ark.gc.gc-bytes-freed"ï¼šå½“å‰çº¿ç¨‹GCæˆåŠŸå›æ”¶çš„å†…å­˜ï¼Œä»¥Bä¸ºå•ä½ã€‚
+   *     "ark.gc.fullgc-longtime-count"ï¼šå½“å‰çº¿ç¨‹è¶…é•¿fullGCæ¬¡æ•°ã€‚
+   * @returns { long } ç³»ç»ŸGCç»Ÿè®¡ä¿¡æ¯ï¼Œæ ¹æ®ä¼ å…¥çš„å‚æ•°ï¼Œè¿”å›ç›¸åº”çš„ä¿¡æ¯ã€‚
    * @throws { BusinessError } 401 - Possible causes:
    *     1. Invalid parameter, a string parameter required.
    *     2. Invalid parameter, unknown property.
@@ -995,26 +995,26 @@ declare namespace hidebug {
   function getVMRuntimeStat(item: string): long;
 
   /**
-   * ÉèÖÃÓ¦ÓÃµÄÎÄ¼şÃèÊö·ûÊıÁ¿¡¢Ïß³ÌÊıÁ¿¡¢JSÄÚ´æ»òNativeÄÚ´æ×ÊÔ´ÏŞÖÆ¡£
-   * Ö÷ÒªÓ¦ÓÃ³¡¾°ÔÚÓÚ¹¹ÔìÄÚ´æĞ¹Â©¹ÊÕÏ¡£
+   * è®¾ç½®åº”ç”¨çš„æ–‡ä»¶æè¿°ç¬¦æ•°é‡ã€çº¿ç¨‹æ•°é‡ã€JSå†…å­˜æˆ–Nativeå†…å­˜èµ„æºé™åˆ¶ã€‚
+   * ä¸»è¦åº”ç”¨åœºæ™¯åœ¨äºæ„é€ å†…å­˜æ³„æ¼æ•…éšœã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ´ò¿ªÉèÖÃÖĞµÄ¿ª·¢ÕßÑ¡Ïîºó£¬ÔÚ¿ª·¢ÕßÑ¡ÏîÁĞ±íÖĞÕÒµ½"ÏµÍ³×ÊÔ´Ğ¹Â©ÈÕÖ¾"²¢ÆôÓÃ£¬ÖØÆôÉè±¸ºó½Ó¿ÚÉúĞ§¡£
+   * > æ‰“å¼€è®¾ç½®ä¸­çš„å¼€å‘è€…é€‰é¡¹åï¼Œåœ¨å¼€å‘è€…é€‰é¡¹åˆ—è¡¨ä¸­æ‰¾åˆ°"ç³»ç»Ÿèµ„æºæ³„æ¼æ—¥å¿—"å¹¶å¯ç”¨ï¼Œé‡å¯è®¾å¤‡åæ¥å£ç”Ÿæ•ˆã€‚
    *
-   * @param { string } type - Ğ¹Â©×ÊÔ´ÀàĞÍ£¬¹²ËÄÖÖ£º
-   *     - pss_memory£¨nativeÄÚ´æ£©
-   *     - js_heap£¨js¶ÑÄÚ´æ£©
-   *     - fd£¨ÎÄ¼şÃèÊö·û£©
-   *     - thread£¨Ïß³Ì£©
-   * @param { int } value - ¶ÔÓ¦Ğ¹Â©×ÊÔ´ÀàĞÍµÄ×î´óÖµ£¬·¶Î§£º
-   *     - pss_memoryÀàĞÍ£º[1024, 4 * 1024 * 1024]£¨µ¥Î»£ºKB£©
-   *     - js_heapÀàĞÍ£º[85, 95]£¨·ÖÅä¸øJS¶ÑÄÚ´æÉÏÏŞµÄ85%~95%£©
-   *     - fdÀàĞÍ£º[10, 10000]
-   *     - threadÀàĞÍ£º[1, 1000]¡£³¬³ö·¶Î§»áµ¼ÖÂ¹¦ÄÜÊ§Ğ§¡£
-   * @param { boolean } enableDebugLog - ÊÇ·ñÆôÓÃÍâ²¿µ÷ÊÔÈÕÖ¾¡£Íâ²¿µ÷ÊÔÈÕÖ¾Çë½öÔÚ»Ò¶È°æ±¾£¨ÕıÊ½°æ±¾·¢²¼Ö®Ç°£¬ÏÈÏòÒ»Ğ¡²¿·ÖÓÃ»§ÍÆ³öµÄ²âÊÔ°æ±¾£©ÖĞÆôÓÃ£¬ÒòÎªÊÕ¼¯µ÷ÊÔÈÕÖ¾»áÕ¼ÓÃ´óÁ¿µÄcpu×ÊÔ´ºÍÄÚ´æ×ÊÔ´£¬¿ÉÄÜ»áÒıÆğÓ¦ÓÃÁ÷³©ĞÔÎÊÌâ¡£
-   *     true£ºÆôÓÃÍâ²¿µ÷ÊÔÈÕÖ¾¡£
-   *     false£º½ûÓÃÍâ²¿µ÷ÊÔÈÕÖ¾¡£
+   * @param { string } type - æ³„æ¼èµ„æºç±»å‹ï¼Œå…±å››ç§ï¼š
+   *     - pss_memoryï¼ˆnativeå†…å­˜ï¼‰
+   *     - js_heapï¼ˆjså †å†…å­˜ï¼‰
+   *     - fdï¼ˆæ–‡ä»¶æè¿°ç¬¦ï¼‰
+   *     - threadï¼ˆçº¿ç¨‹ï¼‰
+   * @param { int } value - å¯¹åº”æ³„æ¼èµ„æºç±»å‹çš„æœ€å¤§å€¼ï¼ŒèŒƒå›´ï¼š
+   *     - pss_memoryç±»å‹ï¼š[1024, 4 * 1024 * 1024]ï¼ˆå•ä½ï¼šKBï¼‰
+   *     - js_heapç±»å‹ï¼š[85, 95]ï¼ˆåˆ†é…ç»™JSå †å†…å­˜ä¸Šé™çš„85%~95%ï¼‰
+   *     - fdç±»å‹ï¼š[10, 10000]
+   *     - threadç±»å‹ï¼š[1, 1000]ã€‚è¶…å‡ºèŒƒå›´ä¼šå¯¼è‡´åŠŸèƒ½å¤±æ•ˆã€‚
+   * @param { boolean } enableDebugLog - æ˜¯å¦å¯ç”¨å¤–éƒ¨è°ƒè¯•æ—¥å¿—ã€‚å¤–éƒ¨è°ƒè¯•æ—¥å¿—è¯·ä»…åœ¨ç°åº¦ç‰ˆæœ¬ï¼ˆæ­£å¼ç‰ˆæœ¬å‘å¸ƒä¹‹å‰ï¼Œå…ˆå‘ä¸€å°éƒ¨åˆ†ç”¨æˆ·æ¨å‡ºçš„æµ‹è¯•ç‰ˆæœ¬ï¼‰ä¸­å¯ç”¨ï¼Œå› ä¸ºæ”¶é›†è°ƒè¯•æ—¥å¿—ä¼šå ç”¨å¤§é‡çš„cpuèµ„æºå’Œå†…å­˜èµ„æºï¼Œå¯èƒ½ä¼šå¼•èµ·åº”ç”¨æµç•…æ€§é—®é¢˜ã€‚
+   *     trueï¼šå¯ç”¨å¤–éƒ¨è°ƒè¯•æ—¥å¿—ã€‚
+   *     falseï¼šç¦ç”¨å¤–éƒ¨è°ƒè¯•æ—¥å¿—ã€‚
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
    *     2.The parameter is not in the specified type
@@ -1027,9 +1027,9 @@ declare namespace hidebug {
   function setAppResourceLimit(type: string, value: int, enableDebugLog: boolean): void;
 
   /**
-   * »ñÈ¡Ó¦ÓÃ½ø³ÌµÄµ÷ÊÔ×´Ì¬¡£
+   * è·å–åº”ç”¨è¿›ç¨‹çš„è°ƒè¯•çŠ¶æ€ã€‚
    *
-   * @returns { boolean } Ó¦ÓÃ½ø³ÌµÄArk²ã»òNative²ãÊÇ·ñ´¦ÓÚµ÷ÊÔ×´Ì¬¡£true£º´¦ÓÚµ÷ÊÔ×´Ì¬¡£false£ºÎ´´¦ÓÚµ÷ÊÔ×´Ì¬¡£
+   * @returns { boolean } åº”ç”¨è¿›ç¨‹çš„Arkå±‚æˆ–Nativeå±‚æ˜¯å¦å¤„äºè°ƒè¯•çŠ¶æ€ã€‚trueï¼šå¤„äºè°ƒè¯•çŠ¶æ€ã€‚falseï¼šæœªå¤„äºè°ƒè¯•çŠ¶æ€ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -1037,9 +1037,9 @@ declare namespace hidebug {
   function isDebugState(): boolean;
 
   /**
-   * »ñÈ¡Ó¦ÓÃÏÔ´æ×Ü´óĞ¡£¨gl + graph£©£¬Ê¹ÓÃPromiseÒì²½»Øµ÷¡£
+   * è·å–åº”ç”¨æ˜¾å­˜æ€»å¤§å°ï¼ˆgl + graphï¼‰ï¼Œä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒã€‚
    *
-   * @returns { Promise<int> } promise¶ÔÏó£¬·µ»ØÓ¦ÓÃÏÔ´æ×Ü´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { Promise<int> } promiseå¯¹è±¡ï¼Œè¿”å›åº”ç”¨æ˜¾å­˜æ€»å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
@@ -1049,13 +1049,13 @@ declare namespace hidebug {
   function getGraphicsMemory(): Promise<int>;
 
   /**
-   * Ê¹ÓÃÍ¬²½·½Ê½»ñÈ¡Ó¦ÓÃÏÔ´æ×Ü´óĞ¡£¨gl + graph£©¡£
+   * ä½¿ç”¨åŒæ­¥æ–¹å¼è·å–åº”ç”¨æ˜¾å­˜æ€»å¤§å°ï¼ˆgl + graphï¼‰ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÓÉÓÚ¸Ã½Ó¿ÚÉæ¼°¶à´Î¿ç½ø³ÌÍ¨ĞÅ£¬ÆäºÄÊ±¿ÉÄÜ´ïµ½Ãë¼¶¡£ÎªÁË±ÜÃâÒıÈëĞÔÄÜÎÊÌâ£¬½¨Òé²»ÒªÔÚÖ÷Ïß³Ìµ÷ÓÃ¸Ã½Ó¿Ú£¬ÍÆ¼öÊ¹ÓÃÒì²½½Ó¿Ú`getGraphicsMemory`¡£
+   * > ç”±äºè¯¥æ¥å£æ¶‰åŠå¤šæ¬¡è·¨è¿›ç¨‹é€šä¿¡ï¼Œå…¶è€—æ—¶å¯èƒ½è¾¾åˆ°ç§’çº§ã€‚ä¸ºäº†é¿å…å¼•å…¥æ€§èƒ½é—®é¢˜ï¼Œå»ºè®®ä¸è¦åœ¨ä¸»çº¿ç¨‹è°ƒç”¨è¯¥æ¥å£ï¼Œæ¨èä½¿ç”¨å¼‚æ­¥æ¥å£`getGraphicsMemory`ã€‚
    *
-   * @returns { int } Ó¦ÓÃÏÔ´æ×Ü´óĞ¡£¬µ¥Î»ÎªKB¡£
+   * @returns { int } åº”ç”¨æ˜¾å­˜æ€»å¤§å°ï¼Œå•ä½ä¸ºKBã€‚
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
@@ -1065,7 +1065,7 @@ declare namespace hidebug {
   function getGraphicsMemorySync(): int;
 
   /**
-   * ÃèÊöÓ¦ÓÃÏÔ´æÊı¾İ£¬°üÀ¨glºÍgraph²¿·Ö¡£
+   * æè¿°åº”ç”¨æ˜¾å­˜æ•°æ®ï¼ŒåŒ…æ‹¬glå’Œgraphéƒ¨åˆ†ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
@@ -1074,7 +1074,7 @@ declare namespace hidebug {
    */
   interface GraphicsMemorySummary {
     /**
-     * glÏÔ´æ´óĞ¡£¬RenderServiceäÖÈ¾½ø³Ì¼ÓÔØËùĞè×ÊÔ´Õ¼ÓÃµÄÄÚ´æ£¬ÀıÈçÍ¼Æ¬¡¢ÎÆÀíµÈ£¬ÒÔKBÎªµ¥Î»¡£
+     * glæ˜¾å­˜å¤§å°ï¼ŒRenderServiceæ¸²æŸ“è¿›ç¨‹åŠ è½½æ‰€éœ€èµ„æºå ç”¨çš„å†…å­˜ï¼Œä¾‹å¦‚å›¾ç‰‡ã€çº¹ç†ç­‰ï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1085,7 +1085,7 @@ declare namespace hidebug {
     gl: int;
 
     /**
-     * graphÏÔ´æ´óĞ¡£¬½ø³ÌÍ³¼ÆµÄDMAÄÚ´æÕ¼ÓÃ£¬°üÀ¨Ö±½ÓÍ¨¹ı½Ó¿ÚÉêÇëµÄDMA bufferºÍÍ¨¹ıallocator_hostÉêÇëµÄDMA buffer£¬ÒÔKBÎªµ¥Î»¡£
+     * graphæ˜¾å­˜å¤§å°ï¼Œè¿›ç¨‹ç»Ÿè®¡çš„DMAå†…å­˜å ç”¨ï¼ŒåŒ…æ‹¬ç›´æ¥é€šè¿‡æ¥å£ç”³è¯·çš„DMA bufferå’Œé€šè¿‡allocator_hostç”³è¯·çš„DMA bufferï¼Œä»¥KBä¸ºå•ä½ã€‚
      *
      * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1097,12 +1097,12 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡Ó¦ÓÃÏÔ´æÊı¾İ£¬Ê¹ÓÃPromise½øĞĞÒì²½»Øµ÷¡£
+   * è·å–åº”ç”¨æ˜¾å­˜æ•°æ®ï¼Œä½¿ç”¨Promiseè¿›è¡Œå¼‚æ­¥å›è°ƒã€‚
    *
-   * @param { int } [interval] ÏÔ´æÊı¾İ»º´æÖµÓĞĞ§Ê±¼ä£¬µ¥Î»ÎªÃë¡£Ä¬ÈÏÖµ£º300¡£È¡Öµ·¶Î§Îª[2-3600]¡£Èô´«ÈëÖµ³¬³öÈ¡Öµ·¶Î§Ê±£¬½«Ê¹ÓÃÄ¬ÈÏÖµ¡£
-   *     µ±ÏÔ´æÊı¾İ»º´æÖµ´æÔÚÊ±¼ä³¬¹ı¸ÃÖµÊ±£¬»ñÈ¡×îĞÂÏÔ´æÊı¾İ²¢¸üĞÂ»º´æÖµ£»·ñÔò£¬Ö±½Ó»ñÈ¡»º´æÖµ¡£
-   *     È¡Öµ·¶Î§ÎªÈ«ÌåÕûÊı¡£
-   * @returns { Promise<GraphicsMemorySummary> } promise¶ÔÏó£¬·µ»ØÓ¦ÓÃÏÔ´æÊı¾İ¡£
+   * @param { int } [interval] æ˜¾å­˜æ•°æ®ç¼“å­˜å€¼æœ‰æ•ˆæ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚é»˜è®¤å€¼ï¼š300ã€‚å–å€¼èŒƒå›´ä¸º[2-3600]ã€‚è‹¥ä¼ å…¥å€¼è¶…å‡ºå–å€¼èŒƒå›´æ—¶ï¼Œå°†ä½¿ç”¨é»˜è®¤å€¼ã€‚
+   *     å½“æ˜¾å­˜æ•°æ®ç¼“å­˜å€¼å­˜åœ¨æ—¶é—´è¶…è¿‡è¯¥å€¼æ—¶ï¼Œè·å–æœ€æ–°æ˜¾å­˜æ•°æ®å¹¶æ›´æ–°ç¼“å­˜å€¼ï¼›å¦åˆ™ï¼Œç›´æ¥è·å–ç¼“å­˜å€¼ã€‚
+   *     å–å€¼èŒƒå›´ä¸ºå…¨ä½“æ•´æ•°ã€‚
+   * @returns { Promise<GraphicsMemorySummary> } promiseå¯¹è±¡ï¼Œè¿”å›åº”ç”¨æ˜¾å­˜æ•°æ®ã€‚
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
@@ -1112,9 +1112,9 @@ declare namespace hidebug {
   function getGraphicsMemorySummary(interval?: int): Promise<GraphicsMemorySummary>;
 
   /**
-   * ×ª´¢¶Ñ¿ìÕÕµÄ²Ã¼ô¼¶±ğµÄÃ¶¾Ù¡£
-   * TRIM_LEVEL_2Ïà±ÈTRIM_LEVEL_1£¬²Ã¼ôÊ±¼ä¸ü³¤¡£¶³ÆÁµÄãĞÖµÎª6Ãë¡£Ê¹ÓÃTRIM_LEVEL_1Ê±£¬²»»á´ïµ½¸ÃãĞÖµ£»ÇĞ»»ÖÁTRIM_LEVEL_2Ê±£¬²Ã¼ôÊ±¼ä¿ÉÄÜ»á³¬¹ı6Ãë£¬´¥·¢APP_FREEZE£¨¶³ÆÁÊÂ¼ş£©£¬µ¼ÖÂÓ¦ÓÃ±»ÏµÍ³ÖÕÖ¹£¬´ËÊ±»ØÍËÖÁTRIM_LEVEL_1¼¶±ğ½øĞĞ²Ã¼ô¡£
-   * ÍÆ¼öÓÅÏÈÊ¹ÓÃTRIM_LEVEL_1È·±£Ó¦ÓÃÎÈ¶¨£¬½öÔÚĞèÒª¸ü³¹µ×²Ã¼ôÊ±³¢ÊÔTRIM_LEVEL_2¡£
+   * è½¬å‚¨å †å¿«ç…§çš„è£å‰ªçº§åˆ«çš„æšä¸¾ã€‚
+   * TRIM_LEVEL_2ç›¸æ¯”TRIM_LEVEL_1ï¼Œè£å‰ªæ—¶é—´æ›´é•¿ã€‚å†»å±çš„é˜ˆå€¼ä¸º6ç§’ã€‚ä½¿ç”¨TRIM_LEVEL_1æ—¶ï¼Œä¸ä¼šè¾¾åˆ°è¯¥é˜ˆå€¼ï¼›åˆ‡æ¢è‡³TRIM_LEVEL_2æ—¶ï¼Œè£å‰ªæ—¶é—´å¯èƒ½ä¼šè¶…è¿‡6ç§’ï¼Œè§¦å‘APP_FREEZEï¼ˆå†»å±äº‹ä»¶ï¼‰ï¼Œå¯¼è‡´åº”ç”¨è¢«ç³»ç»Ÿç»ˆæ­¢ï¼Œæ­¤æ—¶å›é€€è‡³TRIM_LEVEL_1çº§åˆ«è¿›è¡Œè£å‰ªã€‚
+   * æ¨èä¼˜å…ˆä½¿ç”¨TRIM_LEVEL_1ç¡®ä¿åº”ç”¨ç¨³å®šï¼Œä»…åœ¨éœ€è¦æ›´å½»åº•è£å‰ªæ—¶å°è¯•TRIM_LEVEL_2ã€‚
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1123,7 +1123,7 @@ declare namespace hidebug {
    */
   enum JsRawHeapTrimLevel {
     /**
-     * LEVEL 1¼¶±ğ²Ã¼ô£¬Ö÷Òª²Ã¼ô×Ö·û´®¡£
+     * LEVEL 1çº§åˆ«è£å‰ªï¼Œä¸»è¦è£å‰ªå­—ç¬¦ä¸²ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
@@ -1131,7 +1131,7 @@ declare namespace hidebug {
      */
     TRIM_LEVEL_1 = 0,
     /**
-     * LEVEL 2¼¶±ğ²Ã¼ô£¬ÔÚTRIM_LEVEL_1µÄ»ù´¡ÉÏ£¬¾«¼òÁË¶ÔÏóµØÖ·±êÊ¶µÄ´óĞ¡£¬´Ó8¸ö×Ö½Ú¼õÉÙµ½4¸ö×Ö½Ú¡£
+     * LEVEL 2çº§åˆ«è£å‰ªï¼Œåœ¨TRIM_LEVEL_1çš„åŸºç¡€ä¸Šï¼Œç²¾ç®€äº†å¯¹è±¡åœ°å€æ ‡è¯†çš„å¤§å°ï¼Œä»8ä¸ªå­—èŠ‚å‡å°‘åˆ°4ä¸ªå­—èŠ‚ã€‚
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
@@ -1141,15 +1141,15 @@ declare namespace hidebug {
   }
 
   /**
-   * ÉèÖÃµ±Ç°½ø³Ì×ª´¢ĞéÄâ»úÔ­Ê¼¶Ñ¿ìÕÕµÄ²Ã¼ô¼¶±ğ¡£Ê¹ÓÃ¸Ã½Ó¿Ú²¢´«Èë²ÎÊıTRIM_LEVEL_2£¬¿ÉÒÔÓĞĞ§¼õÉÙ¶Ñ¿ìÕÕµÄÎÄ¼ş´óĞ¡¡£
+   * è®¾ç½®å½“å‰è¿›ç¨‹è½¬å‚¨è™šæ‹ŸæœºåŸå§‹å †å¿«ç…§çš„è£å‰ªçº§åˆ«ã€‚ä½¿ç”¨è¯¥æ¥å£å¹¶ä¼ å…¥å‚æ•°TRIM_LEVEL_2ï¼Œå¯ä»¥æœ‰æ•ˆå‡å°‘å †å¿«ç…§çš„æ–‡ä»¶å¤§å°ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > Ä¬ÈÏ²Ã¼ô¼¶±ğÊÇTRIM_LEVEL_1¡£Èç¹ûÉèÖÃÁËTRIM_LEVEL_2²Ã¼ô£¬ĞèÊ¹ÓÃAPI version 20Ö®ºóµÄrawheap-translator¹¤¾ß²ÅÄÜ½«.rawheapÎÄ¼ş×ª»»Îª.heapsnapshotÎÄ¼ş£¬·ñÔò¿ÉÄÜµ¼ÖÂ×ª»»Ê§°Ü¡£
+   * > é»˜è®¤è£å‰ªçº§åˆ«æ˜¯TRIM_LEVEL_1ã€‚å¦‚æœè®¾ç½®äº†TRIM_LEVEL_2è£å‰ªï¼Œéœ€ä½¿ç”¨API version 20ä¹‹åçš„rawheap-translatorå·¥å…·æ‰èƒ½å°†.rawheapæ–‡ä»¶è½¬æ¢ä¸º.heapsnapshotæ–‡ä»¶ï¼Œå¦åˆ™å¯èƒ½å¯¼è‡´è½¬æ¢å¤±è´¥ã€‚
    * >
-   * > ¸Ã½Ó¿ÚÓ°ÏìdumpJsRawHeapDataµÄ½á¹û¡£
+   * > è¯¥æ¥å£å½±å“dumpJsRawHeapDataçš„ç»“æœã€‚
    *
-   * @param { JsRawHeapTrimLevel } level - ×ª´¢¶Ñ¿ìÕÕµÄ²Ã¼ô¼¶±ğ£¬Ä¬ÈÏÎªTRIM_LEVEL_1¡£
+   * @param { JsRawHeapTrimLevel } level - è½¬å‚¨å †å¿«ç…§çš„è£å‰ªçº§åˆ«ï¼Œé»˜è®¤ä¸ºTRIM_LEVEL_1ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 26.1.0 static
@@ -1157,16 +1157,16 @@ declare namespace hidebug {
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 
   /**
-   * Îªµ±Ç°Ïß³Ì×ª´¢ĞéÄâ»úµÄÔ­Ê¼¶Ñ¿ìÕÕ£¬²¢Éú³ÉµÄrawheap¸ñÊ½ÎÄ¼ş£¬Ê¹ÓÃPromiseÒì²½»Øµ÷Íê³É¡£¸ÃÎÄ¼ş¿ÉÍ¨¹ırawheap-translator¹¤¾ß×ª»¯Îªheapsnapshot¸ñÊ½ÎÄ¼ş½øĞĞ½âÎö¡£
+   * ä¸ºå½“å‰çº¿ç¨‹è½¬å‚¨è™šæ‹Ÿæœºçš„åŸå§‹å †å¿«ç…§ï¼Œå¹¶ç”Ÿæˆçš„rawheapæ ¼å¼æ–‡ä»¶ï¼Œä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒå®Œæˆã€‚è¯¥æ–‡ä»¶å¯é€šè¿‡rawheap-translatorå·¥å…·è½¬åŒ–ä¸ºheapsnapshotæ ¼å¼æ–‡ä»¶è¿›è¡Œè§£æã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÏµÍ³Í¨¹ı¸Ã½Ó¿Ú×ª´æ¿ìÕÕ»áÏûºÄ´óÁ¿×ÊÔ´£¬Òò´ËÑÏ¸ñÏŞÖÆÁËµ÷ÓÃÆµÂÊºÍ´ÎÊı¡£´¦ÀíÍêÉú³ÉµÄÎÄ¼şºó£¬ÇëÁ¢¼´É¾³ı¡£
+   * > ç³»ç»Ÿé€šè¿‡è¯¥æ¥å£è½¬å­˜å¿«ç…§ä¼šæ¶ˆè€—å¤§é‡èµ„æºï¼Œå› æ­¤ä¸¥æ ¼é™åˆ¶äº†è°ƒç”¨é¢‘ç‡å’Œæ¬¡æ•°ã€‚å¤„ç†å®Œç”Ÿæˆçš„æ–‡ä»¶åï¼Œè¯·ç«‹å³åˆ é™¤ã€‚
    * >
-   * > ½¨ÒéÔÚ¿ª·¢ÕßÄ£Ê½ÏÂµ÷ÓÃ¸Ã½Ó¿Ú£¬¿ÉÃâ³ıµ÷ÓÃÅä¶îÏŞÖÆ£¬µ±ÉèÖÃµÄ¿ª·¢ÕßÑ¡Ïî¿ª¹Ø´ò¿ª²¢ÖØÆôÉè±¸ºó¼´¿ÉÉúĞ§¡£
+   * > å»ºè®®åœ¨å¼€å‘è€…æ¨¡å¼ä¸‹è°ƒç”¨è¯¥æ¥å£ï¼Œå¯å…é™¤è°ƒç”¨é…é¢é™åˆ¶ï¼Œå½“è®¾ç½®çš„å¼€å‘è€…é€‰é¡¹å¼€å…³æ‰“å¼€å¹¶é‡å¯è®¾å¤‡åå³å¯ç”Ÿæ•ˆã€‚
    *
-   * @param { boolean } needGC - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªGC¡£true£ºĞèÒªGC¡£false£º²»ĞèGC¡£Ä¬ÈÏÖµ£ºtrue¡£
-   * @returns { Promise<string> } Promise¶ÔÏó£¬·µ»ØÉú³ÉµÄ¿ìÕÕÎÄ¼şÂ·¾¶¡£
+   * @param { boolean } needGC - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦GCã€‚trueï¼šéœ€è¦GCã€‚falseï¼šä¸éœ€GCã€‚é»˜è®¤å€¼ï¼štrueã€‚
+   * @returns { Promise<string> } Promiseå¯¹è±¡ï¼Œè¿”å›ç”Ÿæˆçš„å¿«ç…§æ–‡ä»¶è·¯å¾„ã€‚
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1183,17 +1183,17 @@ declare namespace hidebug {
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 
   /**
-   * Îªµ±Ç°Ïß³Ì×ª´¢ĞéÄâ»úµÄÔ­Ê¼¶Ñ¿ìÕÕ£¬²¢Ö§³ÖÇå³ınodeId»º´æ¡£Éú³ÉµÄÎÄ¼şÎªrawheap¸ñÊ½£¬Ê¹ÓÃPromiseÒì²½»Øµ÷Íê³É¡£¸ÃÎÄ¼ş¿ÉÍ¨¹ırawheap-translator¹¤¾ß×ª»¯Îªheapsnapshot¸ñÊ½ÎÄ¼ş½øĞĞ½âÎö¡£
+   * ä¸ºå½“å‰çº¿ç¨‹è½¬å‚¨è™šæ‹Ÿæœºçš„åŸå§‹å †å¿«ç…§ï¼Œå¹¶æ”¯æŒæ¸…é™¤nodeIdç¼“å­˜ã€‚ç”Ÿæˆçš„æ–‡ä»¶ä¸ºrawheapæ ¼å¼ï¼Œä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒå®Œæˆã€‚è¯¥æ–‡ä»¶å¯é€šè¿‡rawheap-translatorå·¥å…·è½¬åŒ–ä¸ºheapsnapshotæ ¼å¼æ–‡ä»¶è¿›è¡Œè§£æã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÏµÍ³Í¨¹ı¸Ã½Ó¿Ú×ª´æ¿ìÕÕ»áÏûºÄ´óÁ¿×ÊÔ´£¬Òò´ËÑÏ¸ñÏŞÖÆÁËµ÷ÓÃÆµÂÊºÍ´ÎÊı¡£´¦ÀíÍêÉú³ÉµÄÎÄ¼şºó£¬ÇëÁ¢¼´É¾³ı¡£
+   * > ç³»ç»Ÿé€šè¿‡è¯¥æ¥å£è½¬å­˜å¿«ç…§ä¼šæ¶ˆè€—å¤§é‡èµ„æºï¼Œå› æ­¤ä¸¥æ ¼é™åˆ¶äº†è°ƒç”¨é¢‘ç‡å’Œæ¬¡æ•°ã€‚å¤„ç†å®Œç”Ÿæˆçš„æ–‡ä»¶åï¼Œè¯·ç«‹å³åˆ é™¤ã€‚
    * >
-   * > ½¨ÒéÔÚ¿ª·¢ÕßÄ£Ê½ÏÂµ÷ÓÃ¸Ã½Ó¿Ú£¬¿ÉÃâ³ıµ÷ÓÃÅä¶îÏŞÖÆ£¬µ±ÉèÖÃµÄ¿ª·¢ÕßÑ¡Ïî¿ª¹Ø´ò¿ª²¢ÖØÆôÉè±¸ºó¼´¿ÉÉúĞ§¡£
+   * > å»ºè®®åœ¨å¼€å‘è€…æ¨¡å¼ä¸‹è°ƒç”¨è¯¥æ¥å£ï¼Œå¯å…é™¤è°ƒç”¨é…é¢é™åˆ¶ï¼Œå½“è®¾ç½®çš„å¼€å‘è€…é€‰é¡¹å¼€å…³æ‰“å¼€å¹¶é‡å¯è®¾å¤‡åå³å¯ç”Ÿæ•ˆã€‚
    *
-   * @param { boolean } needGC - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªGC¡£true£ºĞèÒªGC£»false£º²»ĞèÒªGC¡£
-   * @param { boolean } [needClean] - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªÇå³ınodeId¡£true£ºĞèÒªÇå³ı£»false£º²»ĞèÒªÇå³ı¡£
-   * @returns { Promise<string> } Promise¶ÔÏó£¬·µ»ØÉú³ÉµÄ¿ìÕÕÎÄ¼şÂ·¾¶¡£
+   * @param { boolean } needGC - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦GCã€‚trueï¼šéœ€è¦GCï¼›falseï¼šä¸éœ€è¦GCã€‚
+   * @param { boolean } [needClean] - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦æ¸…é™¤nodeIdã€‚trueï¼šéœ€è¦æ¸…é™¤ï¼›falseï¼šä¸éœ€è¦æ¸…é™¤ã€‚
+   * @returns { Promise<string> } Promiseå¯¹è±¡ï¼Œè¿”å›ç”Ÿæˆçš„å¿«ç…§æ–‡ä»¶è·¯å¾„ã€‚
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1211,18 +1211,18 @@ declare namespace hidebug {
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
 
   /**
-   * Îªµ±Ç°Ïß³Ì»òÆäËùÊô½ø³ÌÉú³ÉĞéÄâ»úµÄÔ­Ê¼¶Ñ¿ìÕÕ£¬²¢Ö§³ÖÇå³ınodeId»º´æ£¬Éú³ÉµÄÎÄ¼şÎªrawheap¸ñÊ½¡£Ê¹ÓÃPromiseÒì²½»Øµ÷¡£ÎÄ¼ş¿ÉÍ¨¹ırawheap-translator¹¤¾ß×ª»»Îªheapsnapshot¸ñÊ½ÎÄ¼ş½øĞĞ½âÎö¡£
+   * ä¸ºå½“å‰çº¿ç¨‹æˆ–å…¶æ‰€å±è¿›ç¨‹ç”Ÿæˆè™šæ‹Ÿæœºçš„åŸå§‹å †å¿«ç…§ï¼Œå¹¶æ”¯æŒæ¸…é™¤nodeIdç¼“å­˜ï¼Œç”Ÿæˆçš„æ–‡ä»¶ä¸ºrawheapæ ¼å¼ã€‚ä½¿ç”¨Promiseå¼‚æ­¥å›è°ƒã€‚æ–‡ä»¶å¯é€šè¿‡rawheap-translatorå·¥å…·è½¬æ¢ä¸ºheapsnapshotæ ¼å¼æ–‡ä»¶è¿›è¡Œè§£æã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÏµÍ³Í¨¹ı¸Ã½Ó¿Ú×ª´¢¿ìÕÕ»áÏûºÄ´óÁ¿×ÊÔ´£¬Òò´ËÑÏ¸ñÏŞÖÆÁËµ÷ÓÃÆµÂÊºÍ´ÎÊı¡£´¦ÀíÍêÉú³ÉµÄÎÄ¼şºó£¬ÇëÁ¢¼´É¾³ı¡£
+   * > ç³»ç»Ÿé€šè¿‡è¯¥æ¥å£è½¬å‚¨å¿«ç…§ä¼šæ¶ˆè€—å¤§é‡èµ„æºï¼Œå› æ­¤ä¸¥æ ¼é™åˆ¶äº†è°ƒç”¨é¢‘ç‡å’Œæ¬¡æ•°ã€‚å¤„ç†å®Œç”Ÿæˆçš„æ–‡ä»¶åï¼Œè¯·ç«‹å³åˆ é™¤ã€‚
    * >
-   * > ½¨ÒéÔÚ¿ª·¢ÕßÄ£Ê½ÏÂµ÷ÓÃ¸Ã½Ó¿Ú£¬¿ÉÃâ³ıµ÷ÓÃÅä¶îÏŞÖÆ£¬µ±ÉèÖÃµÄ¿ª·¢ÕßÑ¡Ïî¿ª¹Ø´ò¿ª²¢ÖØÆôÉè±¸ºó¼´¿ÉÉúĞ§¡£
+   * > å»ºè®®åœ¨å¼€å‘è€…æ¨¡å¼ä¸‹è°ƒç”¨è¯¥æ¥å£ï¼Œå¯å…é™¤è°ƒç”¨é…é¢é™åˆ¶ï¼Œå½“è®¾ç½®çš„å¼€å‘è€…é€‰é¡¹å¼€å…³æ‰“å¼€å¹¶é‡å¯è®¾å¤‡åå³å¯ç”Ÿæ•ˆã€‚
    *
-   * @param { boolean } needGC - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªGC¡£true£ºĞèÒªGC£»false£º²»ĞèÒªGC¡£
-   * @param { boolean } needClean - ×ª´¢¶Ñ¿ìÕÕÇ°ÊÇ·ñĞèÒªÇå³ınodeId¡£true£ºĞèÒªÇå³ı£»false£º²»ĞèÒªÇå³ı¡£
-   * @param { boolean } processDump - ÊÇ·ñ×ª´¢µ±Ç°Ïß³ÌËùÊô½ø³ÌµÄÔ­Ê¼¶Ñ¿ìÕÕ¡£true£º×ª´¢µ±Ç°Ïß³ÌËùÊô½ø³ÌµÄÔ­Ê¼¶Ñ¿ìÕÕ¡£
-   * @returns { Promise<Array<string>> } Promise¶ÔÏó£¬·µ»ØÉú³ÉµÄ¿ìÕÕÎÄ¼şÂ·¾¶Êı×é¡£
+   * @param { boolean } needGC - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦GCã€‚trueï¼šéœ€è¦GCï¼›falseï¼šä¸éœ€è¦GCã€‚
+   * @param { boolean } needClean - è½¬å‚¨å †å¿«ç…§å‰æ˜¯å¦éœ€è¦æ¸…é™¤nodeIdã€‚trueï¼šéœ€è¦æ¸…é™¤ï¼›falseï¼šä¸éœ€è¦æ¸…é™¤ã€‚
+   * @param { boolean } processDump - æ˜¯å¦è½¬å‚¨å½“å‰çº¿ç¨‹æ‰€å±è¿›ç¨‹çš„åŸå§‹å †å¿«ç…§ã€‚trueï¼šè½¬å‚¨å½“å‰çº¿ç¨‹æ‰€å±è¿›ç¨‹çš„åŸå§‹å †å¿«ç…§ã€‚
+   * @returns { Promise<Array<string>> } Promiseå¯¹è±¡ï¼Œè¿”å›ç”Ÿæˆçš„å¿«ç…§æ–‡ä»¶è·¯å¾„æ•°ç»„ã€‚
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1239,7 +1239,7 @@ declare namespace hidebug {
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>;
 
   /**
-   * GWP-ASanÅäÖÃÏî¡£¿ÉÓÃÓÚÅäÖÃÊÇ·ñÊ¹ÄÜ¡¢²ÉÑùÆµÂÊ£¬ÒÔ¼°×î´ó·ÖÅäµÄ²å²ÛÊı¡£
+   * GWP-ASané…ç½®é¡¹ã€‚å¯ç”¨äºé…ç½®æ˜¯å¦ä½¿èƒ½ã€é‡‡æ ·é¢‘ç‡ï¼Œä»¥åŠæœ€å¤§åˆ†é…çš„æ’æ§½æ•°ã€‚
    *
    * @interface GwpAsanOptions
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1248,7 +1248,7 @@ declare namespace hidebug {
    */
   interface GwpAsanOptions {
     /**
-     * ¿ØÖÆÊÇ·ñÃ¿´ÎÆô¶¯¶¼Ê¹ÄÜGWP-ASan¡£true£º100%Ê¹ÄÜGWP-ASan¡£false£º1/128¸ÅÂÊÊ¹ÄÜGWP-ASan¡£Ä¬ÈÏÖµ£ºfalse¡£
+     * æ§åˆ¶æ˜¯å¦æ¯æ¬¡å¯åŠ¨éƒ½ä½¿èƒ½GWP-ASanã€‚trueï¼š100%ä½¿èƒ½GWP-ASanã€‚falseï¼š1/128æ¦‚ç‡ä½¿èƒ½GWP-ASanã€‚é»˜è®¤å€¼ï¼šfalseã€‚
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1257,7 +1257,7 @@ declare namespace hidebug {
      */
     alwaysEnabled?: boolean;
     /**
-     * GWP-ASan²ÉÑùÆµÂÊ£¬Ä¬ÈÏÖµÎª2500£¬ĞèÒª´«Èë´óÓÚ0µÄÕıÕûÊı£¬Èô´«ÈëĞ¡ÊıÔòÏòÉÏÈ¡Õû¡£1/sampleRateµÄ¸ÅÂÊ¶Ô·ÖÅäµÄÄÚ´æ½øĞĞ²ÉÑù¡£½¨ÒéÖµ£º>=1000£¬¹ıĞ¡»áÏÔÖøÓ°ÏìĞÔÄÜ¡£
+     * GWP-ASané‡‡æ ·é¢‘ç‡ï¼Œé»˜è®¤å€¼ä¸º2500ï¼Œéœ€è¦ä¼ å…¥å¤§äº0çš„æ­£æ•´æ•°ï¼Œè‹¥ä¼ å…¥å°æ•°åˆ™å‘ä¸Šå–æ•´ã€‚1/sampleRateçš„æ¦‚ç‡å¯¹åˆ†é…çš„å†…å­˜è¿›è¡Œé‡‡æ ·ã€‚å»ºè®®å€¼ï¼š>=1000ï¼Œè¿‡å°ä¼šæ˜¾è‘—å½±å“æ€§èƒ½ã€‚
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1266,7 +1266,7 @@ declare namespace hidebug {
      */
     sampleRate?: int;
     /**
-     * ×î´ó·ÖÅäµÄ²å²ÛÊı£¬Ä¬ÈÏÖµÎª1000£¬ĞèÒª´«Èë´óÓÚ0µÄÕıÕûÊı£¬Èô´«ÈëĞ¡ÊıÔòÏòÉÏÈ¡Õû¡£µ±²å²ÛÓÃ¾¡Ê±£¬ĞÂ·ÖÅäµÄÄÚ´æ½«²»ÔÙÊÜ¼à¿Ø¡£ÊÍ·ÅÒÑÊ¹ÓÃµÄÄÚ´æºó£¬ÆäÕ¼ÓÃµÄ²å²Û½«×Ô¶¯¸´ÓÃ¡£½¨ÒéÖµ£º<=20000£¬¹ı´ó»á¿ÉÄÜµ¼ÖÂVMA³¬ÏŞ±ÀÀ£¡£
+     * æœ€å¤§åˆ†é…çš„æ’æ§½æ•°ï¼Œé»˜è®¤å€¼ä¸º1000ï¼Œéœ€è¦ä¼ å…¥å¤§äº0çš„æ­£æ•´æ•°ï¼Œè‹¥ä¼ å…¥å°æ•°åˆ™å‘ä¸Šå–æ•´ã€‚å½“æ’æ§½ç”¨å°½æ—¶ï¼Œæ–°åˆ†é…çš„å†…å­˜å°†ä¸å†å—ç›‘æ§ã€‚é‡Šæ”¾å·²ä½¿ç”¨çš„å†…å­˜åï¼Œå…¶å ç”¨çš„æ’æ§½å°†è‡ªåŠ¨å¤ç”¨ã€‚å»ºè®®å€¼ï¼š<=20000ï¼Œè¿‡å¤§ä¼šå¯èƒ½å¯¼è‡´VMAè¶…é™å´©æºƒã€‚
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1275,7 +1275,7 @@ declare namespace hidebug {
      */
     maxSimutaneousAllocations?: int;
     /**
-     * ÓÃÓÚ¿ØÖÆÓ¦ÓÃÒÔ100%¸ÅÂÊ¿ªÆôGWP-ASanÊ±£¬ÊÇ·ñÒÔ¿É»Ö¸´Ä£Ê½ÔËĞĞ¡£true£ºµ±GWP-ASanÒÔ100%¸ÅÂÊ¿ªÆôÊ±£¬Ó¦ÓÃÒÔ¿É»Ö¸´Ä£Ê½ÔËĞĞ¡£false£ºµ±GWP-ASanÒÔ100%¸ÅÂÊ¿ªÆôÊ±£¬Ó¦ÓÃÒÔ²»¿É»Ö¸´Ä£Ê½ÔËĞĞ¡£Ä¬ÈÏÖµ£ºfalse¡£×¢Òâ£º¸Ã²ÎÊıÖ»ÔÚ"ÒÔ100%¸ÅÂÊ¿ªÆôGWP-ASan"³¡¾°ÏÂÉúĞ§£»1/128¸ÅÂÊ¿ªÆô³¡¾°ÏÂÄ¬ÈÏÎª¿É»Ö¸´£¬²»ÊÜisRecover¿ØÖÆ¡£
+     * ç”¨äºæ§åˆ¶åº”ç”¨ä»¥100%æ¦‚ç‡å¼€å¯GWP-ASanæ—¶ï¼Œæ˜¯å¦ä»¥å¯æ¢å¤æ¨¡å¼è¿è¡Œã€‚trueï¼šå½“GWP-ASanä»¥100%æ¦‚ç‡å¼€å¯æ—¶ï¼Œåº”ç”¨ä»¥å¯æ¢å¤æ¨¡å¼è¿è¡Œã€‚falseï¼šå½“GWP-ASanä»¥100%æ¦‚ç‡å¼€å¯æ—¶ï¼Œåº”ç”¨ä»¥ä¸å¯æ¢å¤æ¨¡å¼è¿è¡Œã€‚é»˜è®¤å€¼ï¼šfalseã€‚æ³¨æ„ï¼šè¯¥å‚æ•°åªåœ¨"ä»¥100%æ¦‚ç‡å¼€å¯GWP-ASan"åœºæ™¯ä¸‹ç”Ÿæ•ˆï¼›1/128æ¦‚ç‡å¼€å¯åœºæ™¯ä¸‹é»˜è®¤ä¸ºå¯æ¢å¤ï¼Œä¸å—isRecoveræ§åˆ¶ã€‚
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1286,11 +1286,11 @@ declare namespace hidebug {
   }
 
   /**
-   * Ê¹ÄÜGWP-ASan£¬ÓÃÓÚ¼ì²â¶ÑÄÚ´æÊ¹ÓÃÖĞµÄ·Ç·¨ĞĞÎª¡£
-   * ¸Ã½Ó¿ÚÖ÷ÒªÓÃÓÚ¶¯Ì¬ÅäÖÃ²¢ÆôÓÃGWP-ASan£¬ÒÔÊÊÅäÓ¦ÓÃ×Ô¶¨ÒåµÄGWP-ASan¼ì²â²ßÂÔ¡£ÅäÖÃÔÚÓ¦ÓÃÖØĞÂÆô¶¯ºóÉúĞ§¡£
+   * ä½¿èƒ½GWP-ASanï¼Œç”¨äºæ£€æµ‹å †å†…å­˜ä½¿ç”¨ä¸­çš„éæ³•è¡Œä¸ºã€‚
+   * è¯¥æ¥å£ä¸»è¦ç”¨äºåŠ¨æ€é…ç½®å¹¶å¯ç”¨GWP-ASanï¼Œä»¥é€‚é…åº”ç”¨è‡ªå®šä¹‰çš„GWP-ASanæ£€æµ‹ç­–ç•¥ã€‚é…ç½®åœ¨åº”ç”¨é‡æ–°å¯åŠ¨åç”Ÿæ•ˆã€‚
    *
-   * @param { GwpAsanOptions } [options] - GWP-ASanÅäÖÃÏî¡£Î´ÉèÖÃÊ±£¬Ê¹ÓÃÄ¬ÈÏ²ÎÊı¡£
-   * @param { int } [duration] - GWP-ASan³ÖĞøÊ±¼ä£¬µ¥Î»ÎªÌì£¬Ä¬ÈÏÖµÎª7¡£Ğè´«Èë´óÓÚ0µÄÕıÕûÊı¡£
+   * @param { GwpAsanOptions } [options] - GWP-ASané…ç½®é¡¹ã€‚æœªè®¾ç½®æ—¶ï¼Œä½¿ç”¨é»˜è®¤å‚æ•°ã€‚
+   * @param { int } [duration] - GWP-ASanæŒç»­æ—¶é—´ï¼Œå•ä½ä¸ºå¤©ï¼Œé»˜è®¤å€¼ä¸º7ã€‚éœ€ä¼ å…¥å¤§äº0çš„æ­£æ•´æ•°ã€‚
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
@@ -1299,7 +1299,7 @@ declare namespace hidebug {
   function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: int): void;
 
   /**
-   * Í£Ö¹Ê¹ÄÜGWP-ASan¡£µ÷ÓÃ¸Ã½Ó¿Ú½«È¡Ïû×Ô¶¨ÒåÅäÖÃ£¬»Ö¸´Ä¬ÈÏ²ÎÊıGwpAsanOptions¡£
+   * åœæ­¢ä½¿èƒ½GWP-ASanã€‚è°ƒç”¨è¯¥æ¥å£å°†å–æ¶ˆè‡ªå®šä¹‰é…ç½®ï¼Œæ¢å¤é»˜è®¤å‚æ•°GwpAsanOptionsã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
@@ -1308,9 +1308,9 @@ declare namespace hidebug {
   function disableGwpAsanGrayscale(): void;
 
   /**
-   * »ñÈ¡µ±Ç°GWP-ASanÊ£ÓàÊ¹ÄÜÌìÊı¡£
+   * è·å–å½“å‰GWP-ASanå‰©ä½™ä½¿èƒ½å¤©æ•°ã€‚
    *
-   * @returns { int } »ñÈ¡µ±Ç°GWP-ASanÊ£ÓàÊ¹ÄÜÌìÊı¡£Èôµ±Ç°Î´Ê¹ÄÜ£¬·µ»ØÖµ0¡£
+   * @returns { int } è·å–å½“å‰GWP-ASanå‰©ä½™ä½¿èƒ½å¤©æ•°ã€‚è‹¥å½“å‰æœªä½¿èƒ½ï¼Œè¿”å›å€¼0ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 23 static
@@ -1318,20 +1318,20 @@ declare namespace hidebug {
   function getGwpAsanGrayscaleState(): int;
 
   /**
-   * ½«×ª´¢µÄ¶Ñ¿ìÕÕÓÉÏß³Ì¼¶¸ÄÎª½ø³Ì¼¶¡£
+   * å°†è½¬å‚¨çš„å †å¿«ç…§ç”±çº¿ç¨‹çº§æ”¹ä¸ºè¿›ç¨‹çº§ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ÒªÏë×ª´¢½ø³Ì¼¶µÄ¶Ñ¿ìÕÕ£¬µ÷ÓÃ¸Ã½Ó¿Ú²¢´«²Îtrue¡¢½ø³ÌOOMÊ±·¢ÉúµÄÊÇSharedHeap OOM£¬Á½¸öÌõ¼şÈ±Ò»²»¿É¡£
+   * > è¦æƒ³è½¬å‚¨è¿›ç¨‹çº§çš„å †å¿«ç…§ï¼Œè°ƒç”¨è¯¥æ¥å£å¹¶ä¼ å‚trueã€è¿›ç¨‹OOMæ—¶å‘ç”Ÿçš„æ˜¯SharedHeap OOMï¼Œä¸¤ä¸ªæ¡ä»¶ç¼ºä¸€ä¸å¯ã€‚
    * >
-   * > ¸Ã½Ó¿Ú²»Ó°ÏìÆäËû³¡¾°ÏÂ×ª´¢µÄ¶Ñ¿ìÕÕÄÚÈİ¡£Èç£º²»»áÓ°ÏìdumpJsRawHeapDataµÄ½á¹û¡£
+   * > è¯¥æ¥å£ä¸å½±å“å…¶ä»–åœºæ™¯ä¸‹è½¬å‚¨çš„å †å¿«ç…§å†…å®¹ã€‚å¦‚ï¼šä¸ä¼šå½±å“dumpJsRawHeapDataçš„ç»“æœã€‚
    * >
-   * > ¸Ã½Ó¿ÚÔÚÓ¦ÓÃµÄÉúÃüÖÜÆÚÄÚ¿É±»¶à´Îµ÷ÓÃ£¬µ«½ö×îºóÒ»´Îµ÷ÓÃµÄÖ´ĞĞ½á¹û»áÉúĞ§¡£
+   * > è¯¥æ¥å£åœ¨åº”ç”¨çš„ç”Ÿå‘½å‘¨æœŸå†…å¯è¢«å¤šæ¬¡è°ƒç”¨ï¼Œä½†ä»…æœ€åä¸€æ¬¡è°ƒç”¨çš„æ‰§è¡Œç»“æœä¼šç”Ÿæ•ˆã€‚
    *
-   * @param { boolean } enable - µ±½ø³Ì·¢ÉúSharedHeap OOMÊ±£¬ÏµÍ³½«ÒÀ¾İ¸Ã½ø³ÌÔÚÆäÉúÃüÖÜÆÚÖĞ×îºóÒ»´Îµ÷ÓÃ¸Ã½Ó¿ÚËù¼ÇÂ¼µÄĞÅÏ¢£¬×ª´¢ÏàÓ¦¼¶±ğµÄ¶Ñ¿ìÕÕ¡£
-   *     true£º½ø³Ì¼¶¡£
-   *     false£ºÏß³Ì¼¶¡£
-   *     Ä¬ÈÏÖµ£ºfalse¡£
+   * @param { boolean } enable - å½“è¿›ç¨‹å‘ç”ŸSharedHeap OOMæ—¶ï¼Œç³»ç»Ÿå°†ä¾æ®è¯¥è¿›ç¨‹åœ¨å…¶ç”Ÿå‘½å‘¨æœŸä¸­æœ€åä¸€æ¬¡è°ƒç”¨è¯¥æ¥å£æ‰€è®°å½•çš„ä¿¡æ¯ï¼Œè½¬å‚¨ç›¸åº”çº§åˆ«çš„å †å¿«ç…§ã€‚
+   *     trueï¼šè¿›ç¨‹çº§ã€‚
+   *     falseï¼šçº¿ç¨‹çº§ã€‚
+   *     é»˜è®¤å€¼ï¼šfalseã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
@@ -1340,7 +1340,7 @@ declare namespace hidebug {
   function setProcDumpInSharedOOM(enable: boolean): void;
 
   /**
-   * ÃèÊöÓ¦ÓÃ½ø³ÌµÄÎïÀíÄÚ´æĞÅÏ¢¡£
+   * æè¿°åº”ç”¨è¿›ç¨‹çš„ç‰©ç†å†…å­˜ä¿¡æ¯ã€‚
    *
    * @interface RssInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1351,7 +1351,7 @@ declare namespace hidebug {
   interface RssInfo {
 
     /**
-     * Êµ¼ÊÕ¼ÓÃµÄÎïÀíÄÚ´æ´óĞ¡£¨Resident Set Size£©£¬°üº¬ÄäÃûÒ³¡¢ÎÄ¼şÓ³ÉäÒ³ºÍ¹²ÏíÄÚ´æÒ³£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/status: VmRss¡£
+     * å®é™…å ç”¨çš„ç‰©ç†å†…å­˜å¤§å°ï¼ˆResident Set Sizeï¼‰ï¼ŒåŒ…å«åŒ¿åé¡µã€æ–‡ä»¶æ˜ å°„é¡µå’Œå…±äº«å†…å­˜é¡µï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/status: VmRssã€‚
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1362,7 +1362,7 @@ declare namespace hidebug {
     rss: bigint;
 
     /**
-     * »»³öµ½½»»»·ÖÇøµÄÄäÃûË½ÓĞÒ³×Ü´óĞ¡£¬ÒÔKBÎªµ¥Î»£¬¼ÆËã·½Ê½£º/proc/{pid}/status: VmSwap¡£
+     * æ¢å‡ºåˆ°äº¤æ¢åˆ†åŒºçš„åŒ¿åç§æœ‰é¡µæ€»å¤§å°ï¼Œä»¥KBä¸ºå•ä½ï¼Œè®¡ç®—æ–¹å¼ï¼š/proc/{pid}/status: VmSwapã€‚
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1374,13 +1374,13 @@ declare namespace hidebug {
   }
 
   /**
-   * »ñÈ¡Ó¦ÓÃ³ÌĞò½ø³ÌµÄÎïÀíÄÚ´æÊ¹ÓÃĞÅÏ¢¡£¶ÁÈ¡/proc/{pid}/status½ÚµãµÄÊı¾İ¡£
+   * è·å–åº”ç”¨ç¨‹åºè¿›ç¨‹çš„ç‰©ç†å†…å­˜ä½¿ç”¨ä¿¡æ¯ã€‚è¯»å–/proc/{pid}/statusèŠ‚ç‚¹çš„æ•°æ®ã€‚
    *
-   * > **×¢Òâ**
+   * > **æ³¨æ„**
    * >
-   * > ¶ÁÈ¡/proc/{pid}/statusºÄÊ±ºÜ¶Ì£¬Óëhidebug.getAppNativeMemInfo½Ó¿ÚÖĞ»ñÈ¡µÄ`rss`ÖµÏà±È´æÔÚÒ»µãÎó²î£¬µ«¸Ã½Ó¿Ú¸ü¼ÓÇáÁ¿£¬Îª±ÜÃâÓ¦ÓÃ¶ªÖ¡»ò¿¨¶ÙÍÆ¼öÊ¹ÓÃ¸Ã½Ó¿Ú¡£
+   * > è¯»å–/proc/{pid}/statusè€—æ—¶å¾ˆçŸ­ï¼Œä¸hidebug.getAppNativeMemInfoæ¥å£ä¸­è·å–çš„`rss`å€¼ç›¸æ¯”å­˜åœ¨ä¸€ç‚¹è¯¯å·®ï¼Œä½†è¯¥æ¥å£æ›´åŠ è½»é‡ï¼Œä¸ºé¿å…åº”ç”¨ä¸¢å¸§æˆ–å¡é¡¿æ¨èä½¿ç”¨è¯¥æ¥å£ã€‚
    *
-   * @returns { RssInfo } Ó¦ÓÃ½ø³ÌµÄÎïÀíÄÚ´æĞÅÏ¢¡£
+   * @returns { RssInfo } åº”ç”¨è¿›ç¨‹çš„ç‰©ç†å†…å­˜ä¿¡æ¯ã€‚
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @FaAndStageModel
    * @atomicservice
@@ -1389,9 +1389,9 @@ declare namespace hidebug {
   function getRssInfo(): RssInfo;
 
   /**
-   * Ê¹ÄÜGWP-ASan£¬ÓÃÓÚ¼ì²â¶ÑÄÚ´æÊ¹ÓÃÖĞµÄ·Ç·¨ĞĞÎª¡£
-   * @param { GwpAsanOptions } [options] - GWP-ASanÅäÖÃÏî¡£Î´ÉèÖÃÊ±£¬Ê¹ÓÃÄ¬ÈÏ²ÎÊı¡£
-   * @param { number } [duration] - GWP-ASan³ÖĞøÊ±¼ä£¬µ¥Î»ÎªÌì£¬Ä¬ÈÏÖµÎª7¡£Ğè´«Èë´óÓÚ0µÄÕıÕûÊı¡£
+   * ä½¿èƒ½GWP-ASanï¼Œç”¨äºæ£€æµ‹å †å†…å­˜ä½¿ç”¨ä¸­çš„éæ³•è¡Œä¸ºã€‚
+   * @param { GwpAsanOptions } [options] - GWP-ASané…ç½®é¡¹ã€‚æœªè®¾ç½®æ—¶ï¼Œä½¿ç”¨é»˜è®¤å‚æ•°ã€‚
+   * @param { number } [duration] - GWP-ASanæŒç»­æ—¶é—´ï¼Œå•ä½ä¸ºå¤©ï¼Œé»˜è®¤å€¼ä¸º7ã€‚éœ€ä¼ å…¥å¤§äº0çš„æ­£æ•´æ•°ã€‚
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic

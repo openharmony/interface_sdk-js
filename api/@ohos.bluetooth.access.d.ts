@@ -358,6 +358,7 @@ declare namespace access {
    * @returns { string } Return the converted 16-byte UUID string.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 22 dynamic
+   * @since 26.0.0 static
    */
   function convertUuid(uuid: string): string;
 

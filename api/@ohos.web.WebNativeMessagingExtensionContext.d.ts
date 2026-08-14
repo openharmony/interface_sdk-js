@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,22 +24,33 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 import { AbilityResult } from './ability/abilityResult';
 
 /**
- * WebNativeMessagingExtensionContext is the context of web native message extension and is inherited from
- * ExtensionContext. It provides the capability of exchanging messages with WebNativeMessagingExtension.
- * The APIs of this module can be used only in the stage model.
- * 
- * @extends ExtensionContext
+ * WebNativeMessagingExtensionContext is the runtime context of the native web message extension (
+ * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}). It inherits from
+ * ExtensionContext and provides lifecycle management, ability startup, and native message connection control
+ * capabilities for the extension ability. In an extension that inherits from WebNativeMessagingExtensionAbility,
+ * developers can obtain this context through `this.context` and then call
+ * [startAbility]{@link WebNativeMessagingExtensionContext#startAbility} to start another ability, call
+ * [startAbilityForResult]{@link WebNativeMessagingExtensionContext#startAbilityForResult} to start a UIAbility and
+ * receive the return result, call [terminateSelf]{@link WebNativeMessagingExtensionContext#terminateSelf} to terminate
+ * the current extension, or call [stopNativeConnection]{@link WebNativeMessagingExtensionContext#stopNativeConnection}
+ * to stop a specified native web message connection.
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability using a promise.
+   * Starts an ability. This API uses a promise to return the result. To obtain the return result when the started
+   * UIAbility exits, use [startAbilityForResult]{@link WebNativeMessagingExtensionContext#startAbilityForResult}.
    *
-   * @param { Want } want - Information about the ability to start.
-   * @param { StartOptions } [options] - Startup options.
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @param { Want } want - Information about the Ability to start, including bundleName, abilityName, and other
+   *     attributes, used to specify the target Ability to start.
+   * @param { StartOptions } [options] - Start options used to specify the options when starting the target UIAbility,
+   *     including but not limited to the window mode and the screen where the target UIAbility is started. This
+   *     parameter is passed when custom startup configuration is needed; if not passed, the default system startup
+   *     configuration is used.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -71,11 +81,24 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts a UIAbility. This API uses a promise to return the result when the started UIAbility exits.
    *
-   * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @returns { Promise<AbilityResult> } Returns the result of startAbility.
+   * After the UIAbility is started, the following situations may occur:
+   *
+   * - Under normal circumstances,
+   * [terminateSelfWithResult]{@link UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * can be called to terminate the UIAbility and return the result to the caller.
+   * - In abnormal cases, such as when the UIAbility is destroyed, exception information is returned to the caller, with
+   * resultCode set to -1.
+   * - Only UIAbilities of the current app can be started.
+   *
+   * @param { Want } want - Information about the UIAbility to start, including attributes such as bundleName and
+   *     abilityName, used to specify the target UIAbility.
+   * @param { StartOptions } [options] - Start options for configuring the window mode of the UIAbility. Pass this
+   *     parameter when custom start configuration is required; otherwise, the default system start configuration is
+   *     used. For details about the default values of each field, see
+   *     [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}.
+   * @returns { Promise<AbilityResult> } Promise used to return the result code and data when the started ability exits.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -93,7 +116,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    *     2. The system service failed to communicate with dependency module.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000071 - The application does not support appClone mode in multiAppMode.
-   * @throws { BusinessError } 16000072 - The application does not support appClone and multi-instance mode in 
+   * @throws { BusinessError } 16000072 - The application does not support appClone and multi-instance mode in
    *     multiAppMode.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @throws { BusinessError } 16000076 - The app instance key is invalid.
@@ -107,11 +130,13 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @since 26.0.0 dynamic
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
- 
+
   /**
-   * Destroys the current native web message extension.
+   * Destroys the current native web message extension. This method returns a promise for asynchronous processing.
+   * Calling this method automatically stops all native web message connections, so there is no need to call
+   * stopNativeConnection.
    *
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
@@ -123,11 +148,11 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   terminateSelf(): Promise<void>;
 
   /**
-   * Stops a native connection. This API uses a promise to return the result.
+   * Stops the specified native connection. This API uses a promise to return the result.
    *
-   * @param { number } connectionId - ID of the connection to stop
-   *     <br>The value range is all integers.
-   * @returns { Promise<void> } Promise that returns by the function.
+   * @param { number } connectionId - ID of the connection to stop. The value must be a positive integer and a valid
+   *     connection ID. If the connectionId value is invalid, a corresponding error code is returned.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;

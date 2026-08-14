@@ -28,12 +28,6 @@ import notification from '../@ohos.notification';
 /**
  * 提供订阅者接收到新通知、取消通知等的回调方法。
  *
- * > **说明：**
- * >
- * > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
- * > 本模块为系统接口。
- *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
@@ -474,7 +468,7 @@ export interface BadgeNumberCallbackData {
   readonly badgeNumber: int;
 
   /**
-   * 应用实例键值。从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
+   * 应用实例键值。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -497,7 +491,6 @@ export interface BadgeNumberCallbackData {
 
 /**
  * 注册应用角标使能状态变化的回调函数类型。
- * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 12 dynamic

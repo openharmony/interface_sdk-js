@@ -213,7 +213,7 @@ declare namespace screenshot {
    */
   interface Rect {
     /**
-     * Left boundary of the screen region to capture, in px. The value must be an integer.
+     * Left boundary of the screen region to capture, in px. The value must be a non-negative integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -223,7 +223,7 @@ declare namespace screenshot {
     left: long;
 
     /**
-     * Top boundary of the screen region to capture, in px. The value must be an integer.
+     * Top boundary of the screen region to capture, in px. The value must be a non-negative integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -233,7 +233,7 @@ declare namespace screenshot {
     top: long;
 
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * Width of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -243,7 +243,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * Height of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -263,7 +263,7 @@ declare namespace screenshot {
    */
   interface Size {
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * Width of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -273,7 +273,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * Height of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -294,7 +294,7 @@ declare namespace screenshot {
   interface CaptureOption {
     /**
      * ID of the [display]{@link @ohos.display:display.DisplayState} to capture. The default value is **0**. The value
-     * must be an integer greater than or equal to 0. If a non-integer is passed, a parameter error is reported.
+     * must be an integer greater than or equal to 0. If a non-integer is passed, error code 401 is reported.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice

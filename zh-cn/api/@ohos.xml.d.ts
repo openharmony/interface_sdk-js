@@ -60,9 +60,9 @@ declare namespace xml {
    */
   class XmlDynamicSerializer {
     /**
-     * XmlDynamicSerializer的构造函数。
+     * 构造并返回一个XmlDynamicSerializer对象，该对象支持动态扩容生成XML字符串，无需预先指定缓存大小。
      *
-     * @param { string } [encoding] - 编码格式，默认'utf-8'(目前仅支持'utf-8')。
+     * @param { string } [encoding] - 编码格式，默认'utf-8'（目前仅支持'utf-8'）。
      * @throws { BusinessError } 10200066 - 编码格式错误，目前仅支持utf-8。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -79,8 +79,8 @@ declare namespace xml {
      * >
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的属性名称以及添加多个同名的属性名称。
      *
-     * @param { string } name - 属性。所组成的XML长度不能超过100000，不可为空字符。
-     * @param { string } value - 属性值。所组成的XML长度不能超过100000。
+     * @param { string } name - 属性名。所组成的XML长度不能超过100000，不可为空字符。
+     * @param { string } value - 属性值。所组成的XML长度不能超过100000字符。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200063 - xml位置非法。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
@@ -99,7 +99,7 @@ declare namespace xml {
      * >
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
      *
-     * @param { string } name - 该空元素的元素名。所组成的XML长度不能超过100000。
+     * @param { string } name - 该空元素的元素名，所组成的XML长度不能超过100000。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -111,7 +111,7 @@ declare namespace xml {
     addEmptyElement(name: string): void;
 
     /**
-     * 编写带有编码的文件声明。
+     * 编写带有编码的文件声明，调用后将在XML文本中生成`<?xml version="1.0" encoding="utf-8"?>`格式的声明。
      *
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200063 - xml位置非法。
@@ -132,7 +132,7 @@ declare namespace xml {
      * >
      * > - 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
      *
-     * @param { string } name - 当前元素的元素名。所组成的XML长度不能超过100000。
+     * @param { string } name - 当前元素的元素名。所组成的XML长度不能超过100000，不可为空字符。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -165,10 +165,13 @@ declare namespace xml {
      * 
      * > **说明：**
      * >
+     * > 该接口应在[startElement]{@link xml.XmlDynamicSerializer#startElement}之前调用，为即将开启的元素设置命名空间前缀。调用顺序：
+     * > 先调用setNamespace设置命名空间，再调用startElement开启元素。
+     * >
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的前缀以及对同一个元素设置多个命名空间。
      *
-     * @param { string } prefix - 当前元素及其子元素的前缀。所组成的XML长度不能超过100000，不可为空字符。
-     * @param { string } namespace - 当前元素及其子元素的命名空间。所组成的XML长度不能超过100000，不可为空字符。
+     * @param { string } prefix - 当前元素及其子元素的前缀。所组成的XML长度不能超过100000，不可为空字符串。
+     * @param { string } namespace - 当前元素及其子元素的命名空间。所组成的XML长度不能超过100000，不可为空字符串。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -180,9 +183,9 @@ declare namespace xml {
     setNamespace(prefix: string, namespace: string): void;
 
     /**
-     * 写入注释内容。
+     * 写入注释内容，所生成的注释结构为：`<!--` + 注释内容 + `-->`。
      *
-     * @param { string } text - 当前元素的注释内容。所组成的XML长度不能超过100000。
+     * @param { string } text - 当前元素的注释内容。所组成的XML长度不能超过100000，不可为空字符。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -194,13 +197,13 @@ declare namespace xml {
     setComment(text: string): void;
 
     /**
-     * 提供在CDATA标签中添加数据的能力，所生成的CDATA标签结构为："\<!\[CDATA\[" + 所添加的数据 + "\]\]\>"。
-     * 
+     * 提供在CDATA标签中添加数据的能力，所生成的CDATA标签结构为：`<![CDATA[` + 所添加的数据 + `]]>`。
+     *
      * > **说明：**
      * >
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许在CDATA标签中添加包含"\]\]\>"字符串的数据。
      *
-     * @param { string } text - CDATA属性的内容。所组成的XML长度不能超过100000。
+     * @param { string } text - CDATA标签中的数据内容。所组成的XML长度不能超过100000。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -214,7 +217,12 @@ declare namespace xml {
     /**
      * 写入标签值。
      *
-     * @param { string } text - 标签值。所组成的XML长度不能超过100000。
+     * > **说明：**
+     * >
+     * > 该接口必须在[startElement]{@link xml.XmlDynamicSerializer#startElement}之后、
+     * > [endElement]{@link xml.XmlDynamicSerializer#endElement}之前调用，用于设置当前元素的文本内容。
+     *
+     * @param { string } text - 标签值。所组成的XML长度不能超过100000，不可为空字符。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -228,7 +236,7 @@ declare namespace xml {
     /**
      * 写入文档类型。
      *
-     * @param { string } text - DocType属性的内容。所组成的XML长度不能超过100000。
+     * @param { string } text - 文档类型声明的内容。所组成的XML长度不能超过100000。
      * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
      * @throws { BusinessError } 10200064 - 不能为空字符串。
      * @syscap SystemCapability.Utils.Lang
@@ -408,6 +416,10 @@ declare namespace xml {
     /**
      * 添加标签值，标签值将作为当前元素的文本内容，写入元素的开始标记与结束标记之间。
      *
+     * > **说明：**
+     * >
+     * > 调用该接口前必须先调用[startElement]{@link xml.XmlSerializer#startElement}接口写入元素开始标记。
+     *
      * @param { string } text - XML元素的标签文本内容。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -418,9 +430,9 @@ declare namespace xml {
     setText(text: string): void;
 
     /**
-     * 添加文档类型。
+     * 添加文档类型，调用后将在XML文本中生成`<!DOCTYPE ...>`格式的文档类型声明。
      *
-     * @param { string } text - DocType属性的内容。
+     * @param { string } text - 文档类型声明的内容。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -431,10 +443,11 @@ declare namespace xml {
   }
 
   /**
-   * 事件类型枚举。
-   * 
+   * 事件类型枚举，定义了XmlPullParser在解析XML过程中可能触发的各类事件。解析时事件按START_DOCUMENT→START_TAG→TEXT/CDSECT→END_TAG→END_DOCUMENT等顺序依次触发，
+   * 开发者可通过tokenValueCallbackFunction回调接收对应事件。
+   *
    * **ArkTS-Dyn起始版本：** 8
-   * 
+   *
    * **ArkTS-Sta起始版本：** 23
    *
    * @syscap SystemCapability.Utils.Lang
@@ -568,10 +581,10 @@ declare namespace xml {
   interface ParseInfo {
     /**
      * ArkTS-Sta: getColumnNumber(): int
-     * 
+     *
      * 获取当前列号，从1开始计数。
      *
-     * @returns { int } 返回当前列号。
+     * @returns { int } 当前元素的列号（从1开始），用于定位XML解析位置。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -588,7 +601,7 @@ declare namespace xml {
      * >
      * > 标签内的空白事件深度与标签的深度保持一致。
      *
-     * @returns { int } 返回元素的当前深度。
+     * @returns { int } 元素的嵌套深度（从0开始），用于判断XML层级结构。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -598,10 +611,10 @@ declare namespace xml {
     getDepth(): int;
     /**
      * ArkTS-Sta: getLineNumber(): int
-     * 
+     *
      * 获取当前行号，从1开始。
      *
-     * @returns { int } 返回当前行号。
+     * @returns { int } 当前元素的行号（从1开始），用于定位XML解析位置。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -612,7 +625,7 @@ declare namespace xml {
     /**
      * 获取当前元素名称。
      *
-     * @returns { string } 返回当前元素名称。
+     * @returns { string } 当前元素的名称（不包含命名空间前缀），用于标识XML元素。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -632,9 +645,9 @@ declare namespace xml {
      */
     getNamespace(): string;
     /**
-     * 获取当前元素前缀。
+     * 获取当前元素的命名空间前缀。
      *
-     * @returns { string } 返回当前元素前缀。
+     * @returns { string } 返回当前元素的命名空间前缀，如果元素没有命名空间前缀则返回空字符串。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -645,7 +658,7 @@ declare namespace xml {
     /**
      * 获取当前事件的文本内容。
      *
-     * @returns { string } 返回当前事件的文本内容。
+     * @returns { string } 当前事件的文本内容（如标签值、注释等），用于获取解析的XML数据。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -665,7 +678,7 @@ declare namespace xml {
      */
     isEmptyElementTag(): boolean;
     /**
-     * 判断当前事件是否仅包含空格字符。
+     * 判断当前事件是否只包含空格字符。
      *
      * @returns { boolean } 返回true，表示当前文本事件仅包含空格字符。返回false，表示当前文本事件包含非空格字符。
      * @syscap SystemCapability.Utils.Lang
@@ -677,10 +690,10 @@ declare namespace xml {
     isWhitespace(): boolean;
     /**
      * ArkTS-Sta: getAttributeCount(): int
-     * 
-     * 获取当前开始标记的属性数。
      *
-     * @returns { int }
+     * 当前开始标记的属性数量，用于遍历和处理XML属性。
+     *
+     * @returns { int } 当前开始标记的属性数量，用于遍历和处理XML属性。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -691,7 +704,8 @@ declare namespace xml {
   }
 
   /**
-   * XML解析选项。
+   * XML解析选项，用于配置XmlPullParser的解析行为。开发者可通过supportDoctype和ignoreNameSpace控制解析范围，通过注册回调函数（tagValueCallbackFunction、
+   * attributeValueCallbackFunction、tokenValueCallbackFunction等）接收不同类型的解析事件。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -771,10 +785,10 @@ declare namespace xml {
    * ParseOptions中attributeWithTagCallbackFunction的回调方法，三个字符串参数都是由XML解析器在解析过程中自动提取的，开发者无法直接自定义这些值。开发者只能在回调函数中通过返回值来决定如何处
    * 理这些已存在的属性。
    *
-   * @param { string } tagName - 当前属性所属XML元素的标签名。
-   * @param { string } key - 当前属性所属XML元素的名称。
-   * @param { string } value - 当前属性所属XML元素的值。
-   * @returns { boolean } 是否继续解析xml数据，true表示继续解析数据，false表示结束解析。
+   * @param { string } tagName - 标签名称。
+   * @param { string } key - 属性名称。
+   * @param { string } value - 属性的值。
+   * @returns { boolean } 是否继续解析标签名称、属性名称及属性的值。true表示继续解析，false表示停止解析。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 22]
    * @atomicservice
@@ -784,7 +798,7 @@ declare namespace xml {
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
   /**
-   * XmlPullParser接口用于解析现有的XML文件。
+   * XmlPullParser接口用于解析现有的XML文件，适用于对XML文本进行随机访问和灵活解析的场景。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -797,7 +811,7 @@ declare namespace xml {
     /**
      * 构造并返回一个XmlPullParser对象。
      *
-     * @param { ArrayBuffer | DataView } buffer - 用于解析的XML文本信息。
+     * @param { ArrayBuffer | DataView } buffer - 用于解析的XML文本数据所在的ArrayBuffer或DataView内存。
      * @param { string } [encoding] - 编码格式，默认'utf-8'（目前仅支持'utf-8'）。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -808,7 +822,7 @@ declare namespace xml {
     constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
     /**
-     * 该接口用于解析XML。
+     * 该接口用于根据指定的解析选项解析XML文本。
      *
      * @param { ParseOptions } option - XML解析选项。
      * @syscap SystemCapability.Utils.Lang
@@ -821,7 +835,7 @@ declare namespace xml {
     parse(option: ParseOptions): void;
 
     /**
-     * 解析XML。
+     * 解析XML，调用后将根据ParseOptions中配置的回调函数触发相应的解析事件，通过回调函数传递标签、属性、文本等解析信息。
      *
      * @param { ParseOptions } option - XML解析选项。
      * @syscap SystemCapability.Utils.Lang
@@ -850,8 +864,8 @@ declare namespace xml {
    */
   class XmlSAXParser {
     /**
-     * XmlSAXParser的构造函数。
-     * 
+     * 构造并返回一个XmlSAXParser对象，用于以SAX方式从可读流中流式解析XML文本。
+     *
      * > **说明：**
      * >
      * > - `inputStream`参数必须传入继承自[Readable]{@link @ohos.util.stream:stream.Readable}且实现
@@ -928,13 +942,13 @@ declare namespace xml {
     endDocument(): void;
 
     /**
-     * 当解析器在XML文本中元素开始解析时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters<sup>24+</sup>]{@link xml.XmlSAXHandler.characters}。
+     * 当解析器遇到XML元素的开始标签时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters<sup>24+</sup>]{@link xml.XmlSAXHandler.characters}。
      *
      * @param { string } elementName - 解析器回传的元素名称（不包含命名空间前缀）。例如，对于`<ns2:child>`，elementName为"child"。
-     * @param { string | undefined } namespaceURI - 解析器回传的命名空间URI。例如，对于`xmlns:ns2="http://example.com/ns2"`，namespaceURI
-     *     为`"http://example.com/ns2"`。如果元素没有命名空间则为undefined。
-     * @param { string | undefined } qName - 解析器回传的元素限定名（包含命名空间前缀）。例如，对于`<ns2:child>`，qName为"ns2:child"。如果元素没有命名空间则qName
-     *     为undefined。
+     * @param { string | undefined } namespaceURI - 解析器回传的命名空间URI。例如，对于`xmlns:ns2="http://example.com/ns2"`，
+     * namespaceURI为`"http://example.com/ns2"`。如果元素没有命名空间则为undefined。
+     * @param { string | undefined } qName - 解析器回传的元素限定名（包含命名空间前缀）。例如，对于`<ns2:child>`，qName为"ns2:child"。
+     * 如果元素没有命名空间则qName为undefined。
      * @param { Map<string,string> } attributes - 解析器回传的元素的属性映射表，键为属性名（可能包含命名空间前缀，如"ns2:attrA"），值为属性值。
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -945,13 +959,13 @@ declare namespace xml {
     startElement(elementName: string, namespaceURI: string | undefined, qName: string | undefined, attributes: Map<string,string>): void;
 
     /**
-     * 当解析器在XML文本中元素结束解析触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters<sup>24+</sup>]{@link xml.XmlSAXHandler.characters}。
+     * 当解析器遇到XML元素的结束标签时触发的回调函数。该回调函数需要开发者自行实现。具体使用示例可见[characters<sup>24+</sup>]{@link xml.XmlSAXHandler.characters}。
      *
      * @param { string } elementName - 解析器回传的元素名称（不包含命名空间前缀）。例如，对于`<ns2:child>`，elementName为"child"。
-     * @param { string | undefined } namespaceURI - 解析器回传的命名空间URI。例如，对于`xmlns:ns2="http://example.com/ns2"`，namespaceURI
-     *     为`"http://example.com/ns2"`。如果元素没有命名空间则为undefined。
-     * @param { string | undefined } qName - 解析器回传的元素限定名（包含命名空间前缀）。例如，对于`<ns2:child>`，qName为"ns2:child"。如果元素没有命名空间则qName
-     *     为undefined。
+     * @param { string | undefined } namespaceURI - 解析器回传的命名空间URI。例如，对于`xmlns:ns2="http://example.com/ns2"`，
+     * namespaceURI为`"http://example.com/ns2"`。如果元素没有命名空间则为undefined。
+     * @param { string | undefined } qName - 解析器回传的元素限定名（包含命名空间前缀）。例如，对于`<ns2:child>`，qName为"ns2:child"。
+     * 如果元素没有命名空间则qName为undefined。
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @crossplatform

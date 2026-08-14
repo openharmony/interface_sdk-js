@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -132,6 +132,7 @@ declare namespace display {
    * @param { AsyncCallback<Array<Display>> } callback - Callback used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -144,6 +145,7 @@ declare namespace display {
    * @returns { Promise<Array<Display>> } Promise used to return all the Display objects.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -155,7 +157,7 @@ declare namespace display {
    * mode. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<DisplayPhysicalResolution>> } Promise used to return all the DisplayPhysicalResolution
-   *     objects.
+   *     objects. The objects are sorted in ascending order of physical screen resolution information in the array.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -165,7 +167,7 @@ declare namespace display {
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
   /**
-   * Checks whether there is a visible privacy window on a display. The privacy window can be set by calling
+   * Checks whether there is a visible privacy window on a display. The window privacy mode can be set by calling
    * [setWindowPrivacyMode()]{@link @ohos.window:window.setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>)}. The
    * content in the privacy window cannot be captured or recorded.
    *
@@ -328,8 +330,7 @@ declare namespace display {
   function onPrivateModeChange(callback: Callback<boolean>): void;
 
   /**
-   * Unsubscribes from privacy mode changes of this display. When there is a privacy window in the foreground of the
-   * display, the display is in privacy mode, and the content in the privacy window cannot be captured or recorded.
+   * Unsubscribes from privacy mode changes of this display.
    *
    * @param { 'privateModeChange' } type - Event type. The value is fixed at **'privateModeChange'**, indicating that
    *     the privacy mode of the display is changed.
@@ -518,7 +519,7 @@ declare namespace display {
   function offFoldAngleChange(callback?: Callback<Array<double>>): void;
 
   /**
-   * Subscribes to events indicating whether the device's screen content is being captured.
+   * Subscribes to events indicating the status of the device's screen content is being captured.
    *
    * @param { 'captureStatusChange' } type - Event type. The event **'captureStatusChange'** is triggered when the
    *     screen capture status changes.
@@ -537,9 +538,9 @@ declare namespace display {
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the callback for device capture, casting, or recording status changes.
+   * Register the callback for the status of the device's screen content is being captured.
    *
-   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
+   * @param { Callback<boolean> } callback - Callback used to return the device capture, casting, or recording status.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 23 static
@@ -547,7 +548,7 @@ declare namespace display {
   function onCaptureStatusChange(callback: Callback<boolean>): void;
 
   /**
-   * Unsubscribes from events indicating whether the device's screen content is being captured.
+   * Unsubscribes from events indicating the status of the device's screen content is being captured.
    *
    * @param { 'captureStatusChange' } type - Event type. The event **'captureStatusChange'** is triggered when the
    *     screen capture status changes.
@@ -566,7 +567,7 @@ declare namespace display {
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture, casting, or recording status changes.
+   * Unregister the callback for the status of the device's screen content is being captured.
    *
    * @param { Callback<boolean> } [callback] - Unregister the callback function.
    *     If not provided, all callbacks for the given event type will be removed.
@@ -737,8 +738,8 @@ declare namespace display {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to
-   *     limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Function createVirtualScreen can not work correctly due
+   *     to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
    * @since 16 dynamic
@@ -757,7 +758,7 @@ declare namespace display {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function destroyVirtualScreen can not work correctly due
+   * @throws { BusinessError } 801 - Capability not supported. Function destroyVirtualScreen can not work correctly due
    *     to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -781,11 +782,9 @@ declare namespace display {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.function setVirtualScreenSurface can not work correctly
-   *     due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap  SystemCapability.Window.SessionManager
+   * @syscap SystemCapability.Window.SessionManager
    * @since 16 dynamic
    * @since 23 static
    */
@@ -795,9 +794,10 @@ declare namespace display {
    * Add surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
-   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
-   *     are used.
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can use the
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method to
+   *     obtain the ID of the surface corresponding to an existing surface. The maximum length for this
+   *     parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes are used.
    * @param { Rect } [surfaceRegion] - Rectangular area of the virtual screen displayed by the surface.
    *     If the virtual screen has not bound any surface via
    *     [setVirtualScreenSurface()]{@link display.setVirtualScreenSurface} or 
@@ -822,9 +822,10 @@ declare namespace display {
    * Remove surface for the virtual screen.
    *
    * @param { long } screenId - Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can specify the ID of an existing
-   *     surface. The maximum length for this parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes
-   *     are used.
+   * @param { string } surfaceId - ID of the surface bound to the virtual screen. You can use the
+   *     [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method to
+   *     obtain the ID of the surface corresponding to an existing surface. The maximum length for this
+   *     parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes are used.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
@@ -850,7 +851,7 @@ declare namespace display {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.function makeUnique can not work correctly due to limited
+   * @throws { BusinessError } 801 - Capability not supported. Function makeUnique can not work correctly due to limited
    *     device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -872,7 +873,7 @@ declare namespace display {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlocklist can not work correctly
+   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenBlocklist can not work correctly
    *     due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
@@ -894,7 +895,7 @@ declare namespace display {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlocklist
+   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenBlocklist
    *     can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
@@ -922,7 +923,8 @@ declare namespace display {
 
   /**
    * Converts global coordinates (based on the top-left corner of the primary screen) into relative coordinates (based
-   * on the top-left corner of the screen specified by **displayId**). If **displayId** is not passed, the coordinates
+   * on the top-left corner of the screen specified by **displayId**). This API supports only coordinate conversion
+   * between the primary screen and extended screen. If **displayId** is not passed, the coordinates
    * are converted relative to the screen where the global coordinates are located. If the global coordinates are not on
    * any screen, the coordinates are converted relative to the primary screen by default.
    *
@@ -948,7 +950,8 @@ declare namespace display {
    *
    * @param { long } displayId - Display ID. The value must be an integer greater than or equal to 0.
    * @returns { BrightnessInfo } Screen brightness information.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Function getBrightnessInfo can not work correctly due to
+   *     limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -979,7 +982,8 @@ declare namespace display {
    *     that the screen brightness information is changed.
    * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display ID (parameter 1)
    *     and the corresponding screen brightness information (parameter 2).
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Function on('brightnessInfoChange') can not work
+   *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -993,10 +997,11 @@ declare namespace display {
    *
    * @param { 'brightnessInfoChange' } type - Event type. The value is fixed at **'brightnessInfoChange'**, indicating
    *     that the screen brightness information is changed.
-   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the brightnessInfo status
-   *     change. If this parameter is not specified, all subscriptions to the specified event are canceled. The first
-   *     parameter indicates the display ID, and the second parameter indicates the screen brightness information.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display ID (parameter
+   *     1) and the corresponding screen brightness information (parameter 2). If this parameter is not specified, all
+   *     subscriptions to the specified event are canceled.
+   * @throws { BusinessError } 801 - Capability not supported. Function off('brightnessInfoChange') can not work
+   *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1010,7 +1015,8 @@ declare namespace display {
    *
    * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display if and
    *     corresponding brightness info.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Function onBrightnessInfoChange can not work
+   *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1023,7 +1029,8 @@ declare namespace display {
    *
    * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
    *     brightness info. If not provided, all callbacks for the given event type will be removed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Function offBrightnessInfoChange can not work
+   *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1200,6 +1207,7 @@ declare namespace display {
      * folded.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1478,6 +1486,7 @@ declare namespace display {
    * Describes the crease region of a foldable device.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 10 dynamic
    * @since 23 static
@@ -1487,6 +1496,7 @@ declare namespace display {
      * ID of the display where the crease is located.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1497,6 +1507,7 @@ declare namespace display {
      * Crease region.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1514,7 +1525,7 @@ declare namespace display {
    */
   interface BrightnessInfo {
     /**
-     * Screen brightness. The value is a floating-point number greater than 0. The default value is **500.0**.
+     * Screen brightness, in nit. The value is a floating-point number greater than 0. The default value is **500.0**.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1541,7 +1552,10 @@ declare namespace display {
      */
     readonly maxHeadroom: double;
     /**
-     * Position of the brightness bar corresponding to the current screen brightness.
+     * Position of the brightness bar corresponding to the current screen brightness. The value is a floating-point
+     * number ranging from 0.0 to 1.0. The default value is 0.0. The value 0.0 indicates the lowest screen brightness,
+     * and 1.0 indicates the highest screen brightness. The returned brightness bar position may have an error of 0.01
+     * compared with the actual brightness bar position.
      * Value range: [0.0,1.0]. Default value: 0.0.
      *
      * @readonly
@@ -1557,6 +1571,7 @@ declare namespace display {
    * Describes a rectangle on the display.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -1566,6 +1581,7 @@ declare namespace display {
      * Left boundary of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1576,6 +1592,7 @@ declare namespace display {
      * Top boundary of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1586,6 +1603,7 @@ declare namespace display {
      * Width of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1596,6 +1614,7 @@ declare namespace display {
      * Height of the rectangle, in px. The value is an integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -1801,6 +1820,7 @@ declare namespace display {
      * The value **3** indicates that the display rotates clockwise by 270��.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform [since 26.1.0]
      * @atomicservice [since 11]
      * @since 7 dynamic
      * @since 23 static
@@ -1865,7 +1885,7 @@ declare namespace display {
 
     /**
      * Physical pixel density of the display, that is, the number of pixels per inch. The
-     * value is a floating-point number, in px. Generally, the value is **160.0** or **480.0**. The actual value depends
+     * value is a floating-point number. Generally, the value is **160.0** or **480.0**. The actual value depends
      * on the optional values provided by the device in use.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2054,6 +2074,7 @@ declare namespace display {
      *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -2160,7 +2181,7 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
 
     /**
-     * Screen shape of the display. The default value is **RECTANGLE**.
+     * Screen shape of the display. The default value is **ScreenShape.RECTANGLE**.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -2197,7 +2218,7 @@ declare namespace display {
 
     /**
      * All refresh rates supported by the display, sorted in ascending order. The refresh rate is a positive integer,
-     * in Hz. The default value is empty.
+     * in Hz. The default value is empty array.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2212,7 +2233,8 @@ declare namespace display {
      * rounded corner information; otherwise, an empty array is returned. Virtual displays always return an empty array.
      *
      * @returns { Array<RoundedCorner> } Rounded corner information.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Function getRoundedCorner can not work correctly due to
+     *     limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager

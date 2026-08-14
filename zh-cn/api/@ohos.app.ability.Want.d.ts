@@ -236,7 +236,9 @@ export default class Want {
   moduleName?: string;
 
   /**
-   * 表示文件描述符，在启动场景中拉起方写入的FD，会设置到该参数中。
+   * 表示文件描述符的集合。在应用启动场景中，拉起方通过
+   * [startAbility]{@link ./application/uiAbilityContext:uiAbilityContext.startAbility}传递Want时，
+   * 需在parameters中以固定键值对形式传入文件描述符，被拉起方可通过该字段获取文件描述符，具体使用方式见“文件描述符（FD）”示例。
    * 
    * 从API version 15开始，该接口支持在原子化服务中使用。
    *

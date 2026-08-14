@@ -481,8 +481,9 @@ export declare interface DepthComponentAttribute extends CommonMethod {
    * @returns { this } Returns instance of  DepthComponentAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setDepthComponentOptions(background: ResourceStr | PixelMap, options?: DepthComponentOptions): this;
 }

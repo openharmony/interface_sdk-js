@@ -19,8 +19,8 @@
  */
 
 /**
- * HiChecker¿ÉÒÔ×÷ÎªÓ¦ÓÃ¿ª·¢½×¶ÎÊ¹ÓÃµÄ¼ì²â¹¤¾ß£¬ÓÃÓÚ¼ì²â´úÂëÔËĞĞ¹ı³ÌÖĞ²¿·ÖÒ×ºöÂÔµÄÎÊÌâ£¬ÈçÓ¦ÓÃÏß³Ì³öÏÖºÄÊ±µ÷ÓÃ¡¢Ó¦ÓÃ½ø³ÌÖĞAbility×ÊÔ´Ğ¹Â¶µÈÎÊÌâ¡£¿ª·¢Õß¿ÉÒÔÍ¨¹ıÈÕÖ¾¼ÇÂ¼»ò½ø³ÌcrashµÈĞÎÊ½²é¿´¾ßÌåÎÊÌâ²¢½øĞĞĞŞ¸Ä£¬ÌáÉıÓ¦ÓÃ
- * µÄÊ¹ÓÃÌåÑé¡£
+ * HiCheckerå¯ä»¥ä½œä¸ºåº”ç”¨å¼€å‘é˜¶æ®µä½¿ç”¨çš„æ£€æµ‹å·¥å…·ï¼Œç”¨äºæ£€æµ‹ä»£ç è¿è¡Œè¿‡ç¨‹ä¸­éƒ¨åˆ†æ˜“å¿½ç•¥çš„é—®é¢˜ï¼Œå¦‚åº”ç”¨çº¿ç¨‹å‡ºç°è€—æ—¶è°ƒç”¨ã€åº”ç”¨è¿›ç¨‹ä¸­Abilityèµ„æºæ³„éœ²ç­‰é—®é¢˜ã€‚å¼€å‘è€…å¯ä»¥é€šè¿‡æ—¥å¿—è®°å½•æˆ–è¿›ç¨‹crashç­‰å½¢å¼æŸ¥çœ‹å…·ä½“é—®é¢˜å¹¶è¿›è¡Œä¿®æ”¹ï¼Œæå‡åº”ç”¨
+ * çš„ä½¿ç”¨ä½“éªŒã€‚
  *
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 8 dynamic
@@ -28,7 +28,7 @@
  */
 declare namespace hichecker {
   /**
-   * ¸æ¾¯¹æÔò£¬µ±ÓĞ¸æ¾¯Ê±¼ÇÂ¼ÈÕÖ¾¡£
+   * å‘Šè­¦è§„åˆ™ï¼Œå½“æœ‰å‘Šè­¦æ—¶è®°å½•æ—¥å¿—ã€‚
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -38,7 +38,7 @@ declare namespace hichecker {
   const RULE_CAUTION_PRINT_LOG = 9223372036854775808n;
 
   /**
-   * ¸æ¾¯¹æÔò£¬µ±ÓĞ¸æ¾¯Ê±ÈÃÓ¦ÓÃÍË³ö¡£
+   * å‘Šè­¦è§„åˆ™ï¼Œå½“æœ‰å‘Šè­¦æ—¶è®©åº”ç”¨é€€å‡ºã€‚
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -48,7 +48,7 @@ declare namespace hichecker {
   const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n;
 
   /**
-   * ¼ì²â¹æÔò£¬¼ì²âÊÇ·ñÓĞºÄÊ±º¯Êı±»µ÷ÓÃ¡£
+   * æ£€æµ‹è§„åˆ™ï¼Œæ£€æµ‹æ˜¯å¦æœ‰è€—æ—¶å‡½æ•°è¢«è°ƒç”¨ã€‚
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -58,7 +58,7 @@ declare namespace hichecker {
   const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
 
   /**
-   * ¼ì²â¹æÔò£¬¼ì²âÊÇ·ñ·¢ÉúabilityĞ¹Â¶¡£
+   * æ£€æµ‹è§„åˆ™ï¼Œæ£€æµ‹æ˜¯å¦å‘ç”Ÿabilityæ³„éœ²ã€‚
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -68,7 +68,7 @@ declare namespace hichecker {
   const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n;
 
   /**
-   * ¼ì²â¹æÔò£¬¼ì²âarkuiĞÔÄÜ¡£
+   * æ£€æµ‹è§„åˆ™ï¼Œæ£€æµ‹arkuiæ€§èƒ½ã€‚
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -78,7 +78,7 @@ declare namespace hichecker {
   const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n;
 
   /**
-   * ¼ì²â¹æÔò£¬¼ì²âÏß³ÌÊÇ·ñµ÷ÓÃÍøÂçºÄÊ±½Ó¿Ú¡£
+   * æ£€æµ‹è§„åˆ™ï¼Œæ£€æµ‹çº¿ç¨‹æ˜¯å¦è°ƒç”¨ç½‘ç»œè€—æ—¶æ¥å£ã€‚
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -87,13 +87,13 @@ declare namespace hichecker {
   const RULE_THREAD_CHECK_NETWORK_USAGE = 2n;
 
   /**
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    * >
-   * > ´ÓAPI version 8¿ªÊ¼Ö§³Ö£¬´ÓAPI version 9¿ªÊ¼·ÏÆú£¬½¨ÒéÊ¹ÓÃ[hichecker.addCheckRule]{@link hichecker.addCheckRule}Ìæ´ú¡£
+   * > ä»API version 8å¼€å§‹æ”¯æŒï¼Œä»API version 9å¼€å§‹åºŸå¼ƒï¼Œå»ºè®®ä½¿ç”¨[hichecker.addCheckRule]{@link hichecker.addCheckRule}æ›¿ä»£ã€‚
    * 
-   * Ìí¼ÓÒ»Ìõ»ò¶àÌõ¹æÔòµ½ÏµÍ³£¬ÏµÍ³¸ù¾İÌí¼ÓµÄ¹æÔò½øĞĞ¼ì²â»ò·´À¡¡£
+   * æ·»åŠ ä¸€æ¡æˆ–å¤šæ¡è§„åˆ™åˆ°ç³»ç»Ÿï¼Œç³»ç»Ÿæ ¹æ®æ·»åŠ çš„è§„åˆ™è¿›è¡Œæ£€æµ‹æˆ–åé¦ˆã€‚
    *
-   * @param { bigint } rule - ĞèÒªÌí¼ÓµÄ¹æÔò¡£
+   * @param { bigint } rule - éœ€è¦æ·»åŠ çš„è§„åˆ™ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -102,13 +102,13 @@ declare namespace hichecker {
   function addRule(rule: bigint): void;
 
   /**
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    * >
-   * > ´ÓAPI version 8¿ªÊ¼Ö§³Ö£¬´ÓAPI version 9¿ªÊ¼·ÏÆú£¬½¨ÒéÊ¹ÓÃ[hichecker.removeCheckRule]{@link hichecker.removeCheckRule}Ìæ´ú¡£
+   * > ä»API version 8å¼€å§‹æ”¯æŒï¼Œä»API version 9å¼€å§‹åºŸå¼ƒï¼Œå»ºè®®ä½¿ç”¨[hichecker.removeCheckRule]{@link hichecker.removeCheckRule}æ›¿ä»£ã€‚
    * 
-   * É¾³ıÒ»Ìõ»ò¶àÌõ¹æÔò£¬É¾³ıµÄ¹æÔòºóĞø½«²»ÔÙÉúĞ§¡£
+   * åˆ é™¤ä¸€æ¡æˆ–å¤šæ¡è§„åˆ™ï¼Œåˆ é™¤çš„è§„åˆ™åç»­å°†ä¸å†ç”Ÿæ•ˆã€‚
    *
-   * @param { bigint } rule - ĞèÒªÉ¾³ıµÄ¹æÔò¡£
+   * @param { bigint } rule - éœ€è¦åˆ é™¤çš„è§„åˆ™ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -117,9 +117,9 @@ declare namespace hichecker {
   function removeRule(rule: bigint): void;
 
   /**
-   * »ñÈ¡µ±Ç°Ïß³Ì¹æÔò¡¢½ø³Ì¹æÔò¡¢¸æ¾¯¹æÔòµÄºÏ¼¯¡£
+   * è·å–å½“å‰çº¿ç¨‹è§„åˆ™ã€è¿›ç¨‹è§„åˆ™ã€å‘Šè­¦è§„åˆ™çš„åˆé›†ã€‚
    *
-   * @returns { bigint } µ±Ç°ÏµÍ³ÖĞÌí¼ÓµÄ¹æÔò¡£
+   * @returns { bigint } å½“å‰ç³»ç»Ÿä¸­æ·»åŠ çš„è§„åˆ™ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
    * @since 23 static
@@ -127,14 +127,14 @@ declare namespace hichecker {
   function getRule() : bigint;
 
   /**
-   * > **ËµÃ÷£º**
+   * > **è¯´æ˜ï¼š**
    * >
-   * > ´ÓAPI version 8¿ªÊ¼Ö§³Ö£¬´ÓAPI version 9¿ªÊ¼·ÏÆú£¬½¨ÒéÊ¹ÓÃ[hichecker.containsCheckRule]{@link hichecker.containsCheckRule}Ìæ´ú¡£
+   * > ä»API version 8å¼€å§‹æ”¯æŒï¼Œä»API version 9å¼€å§‹åºŸå¼ƒï¼Œå»ºè®®ä½¿ç”¨[hichecker.containsCheckRule]{@link hichecker.containsCheckRule}æ›¿ä»£ã€‚
    * 
-   * µ±Ç°ÒÑÌí¼ÓµÄ¹æÔò¼¯ÖĞÊÇ·ñ°üº¬ÁËÄ³Ò»¸öÌØ¶¨µÄ¹æÔò¡£Èç¹û´«ÈëµÄ¹æÔò¼¶±ğÎªÏß³Ì¼¶±ğ£¬Ôò½öÔÚµ±Ç°Ïß³ÌÖĞ½øĞĞ²éÑ¯¡£
+   * å½“å‰å·²æ·»åŠ çš„è§„åˆ™é›†ä¸­æ˜¯å¦åŒ…å«äº†æŸä¸€ä¸ªç‰¹å®šçš„è§„åˆ™ã€‚å¦‚æœä¼ å…¥çš„è§„åˆ™çº§åˆ«ä¸ºçº¿ç¨‹çº§åˆ«ï¼Œåˆ™ä»…åœ¨å½“å‰çº¿ç¨‹ä¸­è¿›è¡ŒæŸ¥è¯¢ã€‚
    *
-   * @param { bigint } rule - ĞèÒª²éÑ¯µÄ¹æÔò¡£
-   * @returns { boolean } ²éÑ¯½á¹û¡£true ±íÊ¾¹æÔòÒÑÌí¼Ó£»false ±íÊ¾¹æÔòÎ´Ìí¼Ó¡£
+   * @param { bigint } rule - éœ€è¦æŸ¥è¯¢çš„è§„åˆ™ã€‚
+   * @returns { boolean } æŸ¥è¯¢ç»“æœã€‚true è¡¨ç¤ºè§„åˆ™å·²æ·»åŠ ï¼›false è¡¨ç¤ºè§„åˆ™æœªæ·»åŠ ã€‚
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -143,9 +143,9 @@ declare namespace hichecker {
   function contains(rule: bigint): boolean;
 
   /**
-   * Ìí¼ÓÒ»Ìõ»ò¶àÌõ¹æÔòµ½ÏµÍ³£¬ÏµÍ³¸ù¾İÌí¼ÓµÄ¹æÔò½øĞĞ¼ì²â»ò·´À¡£¬µ±ÓĞÏàÓ¦¹æÔò´¥·¢Ê±¿ÉÔÚhilogÖĞgrep HiChecker²é¿´ÔËĞĞĞÅÏ¢¡£
+   * æ·»åŠ ä¸€æ¡æˆ–å¤šæ¡è§„åˆ™åˆ°ç³»ç»Ÿï¼Œç³»ç»Ÿæ ¹æ®æ·»åŠ çš„è§„åˆ™è¿›è¡Œæ£€æµ‹æˆ–åé¦ˆï¼Œå½“æœ‰ç›¸åº”è§„åˆ™è§¦å‘æ—¶å¯åœ¨hilogä¸­grep HiCheckeræŸ¥çœ‹è¿è¡Œä¿¡æ¯ã€‚
    *
-   * @param { bigint } rule - ĞèÒªÌí¼ÓµÄ¹æÔò¡£
+   * @param { bigint } rule - éœ€è¦æ·»åŠ çš„è§„åˆ™ã€‚
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic
@@ -154,9 +154,9 @@ declare namespace hichecker {
   function addCheckRule(rule: bigint) : void;
 
   /**
-   * É¾³ıÒ»Ìõ»ò¶àÌõ¹æÔò£¬É¾³ıµÄ¹æÔòºóĞø½«²»ÔÙÉúĞ§¡£
+   * åˆ é™¤ä¸€æ¡æˆ–å¤šæ¡è§„åˆ™ï¼Œåˆ é™¤çš„è§„åˆ™åç»­å°†ä¸å†ç”Ÿæ•ˆã€‚
    *
-   * @param { bigint } rule - ĞèÒªÉ¾³ıµÄ¹æÔò¡£
+   * @param { bigint } rule - éœ€è¦åˆ é™¤çš„è§„åˆ™ã€‚
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic
@@ -165,10 +165,10 @@ declare namespace hichecker {
   function removeCheckRule(rule: bigint) : void;
 
   /**
-   * µ±Ç°ÒÑÌí¼ÓµÄ¹æÔò¼¯ÖĞÊÇ·ñ°üº¬ÁËÄ³Ò»¸öÌØ¶¨µÄ¹æÔò¡£Èç¹û´«ÈëµÄ¹æÔò¼¶±ğÎªÏß³Ì¼¶±ğ£¬Ôò½öÔÚµ±Ç°Ïß³ÌÖĞ½øĞĞ²éÑ¯¡£
+   * å½“å‰å·²æ·»åŠ çš„è§„åˆ™é›†ä¸­æ˜¯å¦åŒ…å«äº†æŸä¸€ä¸ªç‰¹å®šçš„è§„åˆ™ã€‚å¦‚æœä¼ å…¥çš„è§„åˆ™çº§åˆ«ä¸ºçº¿ç¨‹çº§åˆ«ï¼Œåˆ™ä»…åœ¨å½“å‰çº¿ç¨‹ä¸­è¿›è¡ŒæŸ¥è¯¢ã€‚
    *
-   * @param { bigint } rule - ĞèÒª²éÑ¯µÄ¹æÔò¡£
-   * @returns { boolean } ²éÑ¯½á¹û¡£true ±íÊ¾¹æÔòÒÑÌí¼Ó£»false ±íÊ¾¹æÔòÎ´Ìí¼Ó¡£
+   * @param { bigint } rule - éœ€è¦æŸ¥è¯¢çš„è§„åˆ™ã€‚
+   * @returns { boolean } æŸ¥è¯¢ç»“æœã€‚true è¡¨ç¤ºè§„åˆ™å·²æ·»åŠ ï¼›false è¡¨ç¤ºè§„åˆ™æœªæ·»åŠ ã€‚
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 9 dynamic

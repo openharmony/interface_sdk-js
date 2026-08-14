@@ -328,9 +328,6 @@ export interface NotificationRequest {
   /**
    * Notification slot type. The default value is **OTHER_TYPES**.
    * 
-   * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use 
-   * **notificationSlotType** instead.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
    * @deprecated since 11
@@ -674,8 +671,7 @@ export interface NotificationRequest {
   readonly creatorUserId?: int;
 
   /**
-   * Creator instance key. This parameter is supported since API version 12 and deprecated since API version 15. You
-   * are advised to use **appInstanceKey** instead.
+   * Creator instance key. 
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

@@ -18,17 +18,11 @@
  * @kit ArkUI
  */
 import { Resource } from './../../../api/global/resource';
-
 import { CommonMethod, AttributeModifier } from "./common";
-import { CommonMethod, AttributeModifier } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
-import { CustomBuilder, CustomBuilderT } from './builder';
 import { FontWeightConfigs } from "./textCommon";
 
 /**
@@ -41,19 +35,19 @@ import { FontWeightConfigs } from "./textCommon";
  */
 export declare interface SymbolSpanAttribute {
   /**
-     * Called when the SymbolSpan size is set.
-     *
+   * Called when the SymbolSpan size is set.
+   *
    * @param { double | string | Resource | undefined } value - Default value is 16fp.
-     *     Passing `undefined` resets it to the default size.
+   *     Passing `undefined` resets it to the default size.
    * @returns { SymbolSpanAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   default fontSize(value: double | string | Resource | undefined): this;
   /**
-     * Called when the SymbolSpan color is set.
-     *
+   * Called when the SymbolSpan color is set.
+   *
    * @param { Array<ResourceColor> | undefined } value - Passing `undefined` resets it to the default color.
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -66,27 +60,33 @@ export declare interface SymbolSpanAttribute {
    *
    * @param { int | FontWeight | string | undefined } value - 默认值为FontWeight.Normal，设置`undefined`将恢复默认值
    * @returns { SymbolSpanAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   default fontWeight(value: int | FontWeight | string | undefined): this;
   /**
-     * 设置SymbolSpan的字体粗细。
-     *
+   * 设置SymbolSpan的字体粗细。
+   *
    * @param { int | FontWeight | ResourceStr | undefined } value - SymbolSpan字体粗细。
+   *     对于int类型，取值范围为【100,900】。当在fontWeightConfigs中enableVariableFontWeight为**false**时
+   *     ，必须是100的倍数；当为**true**时，
+   *     支持【100,900】范围内的任意整数。
+   *     默认值为**FontWeight.Normal**。传递`undefined`会将其重置为默认值。
    * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细的配置。
+   *     如果未指定，则使用FontWeightConfigs的默认值：
+   *     enableVariableFontWeight默认为**false**,enableDeviceFontWeightCategory默认为**true**。
    * @returns { SymbolSpanAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   default fontWeight(value: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
   /**
-     * Called when the SymbolSpan effect is set.
-     *
+   * Called when the SymbolSpan effect is set.
+   *
    * @param { SymbolEffectStrategy | undefined } value - The default value is SymbolEffectStrategy.NONE.
-     *     Passing `undefined` resets it to the default value.
+   *     Passing `undefined` resets it to the default value.
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -94,10 +94,10 @@ export declare interface SymbolSpanAttribute {
    */
   default effectStrategy(value: SymbolEffectStrategy | undefined): this;
   /**
-     * Called when the SymbolSpan rendering strategy is set.
-     *
+   * Called when the SymbolSpan rendering strategy is set.
+   *
    * @param { SymbolRenderingStrategy | undefined } value - The default value is 
-     *     SymbolRenderingStrategy.SINGLE. Passing `undefined` resets it to the default value.
+   *     SymbolRenderingStrategy.SINGLE. Passing `undefined` resets it to the default value.
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -109,7 +109,7 @@ export declare interface SymbolSpanAttribute {
    *
    * @param { string | undefined } value
    * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    * @test
@@ -120,7 +120,7 @@ export declare interface SymbolSpanAttribute {
    *
    * @param { string | undefined } value
    * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -141,15 +141,15 @@ export declare interface SymbolSpanAttribute {
    * @param { string } sourceLine - 源代码行。
    * @param { string } [moduleName] - 组件所属的模块。
    * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   default debugLine(sourceLine: string, moduleName?: string): this;
 
   /**
-     * 设置SymbolSpan组件选项。
-     *
+   * 设置SymbolSpan组件选项。
+   *
    * @param { Resource } value - SymbolSpan组件资源内容。
    * @returns { SymbolSpanAttribute } 返回SymbolSpan选项的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -175,7 +175,7 @@ export declare interface SymbolSpanAttribute {
  *
  * @param { Resource } value - 符号图标资源。
  * @returns { SymbolSpanAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -190,7 +190,7 @@ export declare function SymbolSpan(
  *
  * @param { CustomBuilderT<SymbolSpanAttribute> } style - SymbolSpan属性的实例。
  * @returns { SymbolSpanAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
  * @since 26.1.0 staticonly

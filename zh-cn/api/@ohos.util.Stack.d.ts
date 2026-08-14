@@ -17,7 +17,7 @@
  * Stack基于数组的数据结构实现，特点是先进后出，只能在一端进行数据的插入和删除。
  * Stack和[Queue]{@link @ohos.util.Queue}相比，Queue基于循环队列实现，在尾部增加元素在头部删除元素；而Stack只在一端进行插入和删除操作。
  * **推荐使用场景：** 一般符合先进后出的场景可以使用Stack，例如撤销/重做操作的历史记录管理、函数调用栈模拟等。
- * 文档中使用了泛型，涉及以下泛型标记符：
+ * 文档中使用了泛型，涉及以下泛型类型参数：
  *
  * - T：Type，类型
  *
@@ -71,7 +71,7 @@ declare class Stack<T> {
   get length(): int;
 
   /**
-   * 判断栈是否为空。
+   * 判断栈是否为空。为空返回true，不为空返回false。
    *
    * @returns { boolean } 为空返回true，不为空返回false。
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
@@ -152,7 +152,7 @@ declare class Stack<T> {
   /**
    * 按照从栈底到栈顶的顺序遍历Stack实例对象中每一个元素，对每个元素执行回调函数。
    *
-   * @param { StackForEachCb } callbackFn - 回调函数。
+   * @param { StackForEachCb } callbackFn - 遍历每个元素时执行的回调函数。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

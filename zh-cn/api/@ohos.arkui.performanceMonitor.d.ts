@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Performance Monitoring
+ * @file 性能监测
  * @kit ArkUI
  */
 
@@ -171,5 +171,4 @@ declare namespace performanceMonitor {
    */
   function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;
 }
-
 export default performanceMonitor;

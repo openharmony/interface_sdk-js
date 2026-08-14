@@ -14,9 +14,9 @@
  */
 
 /**
- * 本模块提供辅助应用查询能力，包括获取辅助应用列表、获取辅助应用启用状态、获取无障碍字幕配置等。
+ * 本模块提供辅助功能相关能力，包括获取辅助应用列表、获取辅助应用启用状态、获取无障碍字幕配置、发送无障碍事件、监听辅助应用状态变化等。
  *
- * @file
+ * @file 辅助功能
  * @kit AccessibilityKit
  */
 
@@ -53,9 +53,9 @@ declare namespace accessibility {
   type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all';
 
   /**
-   * 应用所支持的目标动作，需要配置参数的目标动作已在描述中标明。
+   * 应用所支持的目标动作，需要配置参数的目标动作已在下表各动作的说明列中标明。
    *
-   * @unionmember { 'accessibilityFocus' } 表示获得无障碍焦点操作。
+   * @unionmember { 'accessibilityFocus' } 表示获得无障碍焦点操作，需配置参数accessibilityFocusScene，参数值为无障碍聚焦的场景类型。
    * @unionmember { 'clearAccessibilityFocus' } 表示清除无障碍焦点操作。
    * @unionmember { 'focus' } 表示获得焦点操作。
    * @unionmember { 'clearFocus' } 表示清除焦点操作。
@@ -66,20 +66,21 @@ declare namespace accessibility {
    * @unionmember { 'copy' } 表示复制操作。
    * @unionmember { 'paste' } 表示粘贴操作。
    * @unionmember { 'select' } 表示选择操作。
-   * @unionmember { 'setText' } 表示设置文本操作，需配置参数setText。
+   * @unionmember { 'setText' } 表示设置文本操作，需配置参数setText，参数值为要设置的文本内容。
    * @unionmember { 'delete' } 表示删除操作。当前版本暂不支持。
-   * @unionmember { 'scrollForward' } 表示向前滚动操作。
-   * @unionmember { 'scrollBackward' } 表示向后滚动操作。
-   * @unionmember { 'setSelection' } 表示选择操作，需配置参数selectTextBegin、selectTextEnd、selectTextInForWard。
-   * @unionmember { 'setCursorPosition' } 表示设置光标位置操作，需配置参数offset。 [since 12]
+   * @unionmember { 'scrollForward' } 表示向前滚动操作，需配置参数scrollType，参数值为'fullScreen'或'halfScreen'。
+   * @unionmember { 'scrollBackward' } 表示向后滚动操作，需配置参数scrollType，参数值为'fullScreen'或'halfScreen'。
+   * @unionmember { 'setSelection' } 表示设置文本选择范围操作，需配置参数selectTextBegin、selectTextEnd、selectTextInForWard，参数值为选定文本的起始坐标、结
+   *     束坐标及是否向前选择。
+   * @unionmember { 'setCursorPosition' } 表示设置光标位置操作，需配置参数offset，参数值为光标的字符偏移量。 [since 12]
    * @unionmember { 'home' } 表示返回桌面操作。 [since 12]
    * @unionmember { 'back' } 表示返回上一级操作。 [since 12]
    * @unionmember { 'recentTask' } 表示打开最近任务操作。 [since 12]
    * @unionmember { 'notificationCenter' } 表示打开通知栏操作。 [since 12]
    * @unionmember { 'controlCenter' } 表示打开控制中心操作。 [since 12]
    * @unionmember { 'common' } 表示没有特定操作，用于主动聚焦、主动播报等场景。 [since 12]
-   * @unionmember { 'injectAction' } 表示注入动作，需配置参数injectActionType。 [since 26.0.0]
-   * @unionmember {'executeCustomAction'} [since 26.0.0]
+   * @unionmember { 'injectAction' } 表示注入动作，需配置参数injectActionType，参数值为注入动作类型。 [since 26.0.0]
+   * @unionmember { 'executeCustomAction' } 表示执行自定义操作，需配置参数customAction，参数值为自定义操作的名称。 [since 26.0.0]
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform [since 23]
    * @form [since 23]
@@ -113,7 +114,7 @@ declare namespace accessibility {
    * @unionmember { 'scrolling' } 表示滚动视图中有item被滚出屏幕的事件。 [since 18]
    * @unionmember { 'pageActive' } 表示页面变化的事件，值固定为'pageActive'字符串。 [since 23]
    * @unionmember { 'notificationUpdate' } 表示通知变化的事件，值固定为'notificationUpdate'字符串。 [since 26.0.0]
-   * @unionmember {'focusInvisible'} [since 26.0.0]
+   * @unionmember { 'focusInvisible' } 表示焦点变为不可见状态，值固定为'focusInvisible'字符串。 [since 26.0.0]
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform [since 23]
    * @form [since 23]
@@ -147,8 +148,8 @@ declare namespace accessibility {
    * 辅助应用状态类型。
    *
    * @unionmember { 'enable' } 表示辅助应用已启用。
-   * @unionmember { 'disable' } 辅助应用已禁用。
-   * @unionmember { 'install' } 辅助应用已安装。
+   * @unionmember { 'disable' } 表示辅助应用已禁用。
+   * @unionmember { 'install' } 表示辅助应用已安装。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform [since 23]
    * @form [since 23]
@@ -162,7 +163,7 @@ declare namespace accessibility {
    * 辅助应用能力类型。
    *
    * @unionmember { 'retrieve' } 具有检索窗口内容的能力。
-   * @unionmember { 'touchGuide' } 具有触摸探索模式的能力。
+   * @unionmember { 'touchGuide' } 具有触摸浏览模式的能力。
    * @unionmember { 'keyEventObserver' } 具有过滤按键事件的能力。
    * @unionmember { 'zoom' } 具有控制显示放大的能力，当前版本暂不支持。
    * @unionmember { 'gesture' } 具有执行手势动作的能力。
@@ -192,9 +193,9 @@ declare namespace accessibility {
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
   /**
-   * 判断是否启用了辅助应用，使用callback异步回调。
+   * 判断是否启用了辅助应用。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数，如果辅助应用已启用，则返回 true；否则返回 false。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示辅助应用已启用；返回false表示辅助应用未启用。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -203,9 +204,9 @@ declare namespace accessibility {
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 判断是否启用了辅助应用，使用Promise异步回调。
+   * 判断是否启用了辅助应用。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise对象，如果辅助应用已启用，则返回 true；否则返回 false。
+   * @returns { Promise<boolean> } Promise对象。返回true表示辅助应用已启用；返回false表示辅助应用未启用。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -214,7 +215,9 @@ declare namespace accessibility {
   function isOpenAccessibility(): Promise<boolean>;
 
   /**
-   * 查询当前系统内是否存在已开启的辅助应用。如需获取系统内辅助应用信息，推荐使用
+   * 查询当前系统内是否存在已开启的辅助应用。
+   * 
+   * 如需获取系统内辅助应用信息，推荐使用
    * [accessibility.getAccessibilityExtensionListSync]{@link accessibility.getAccessibilityExtensionListSync}。
    *
    * @returns { boolean } 表示当前系统内是否有辅助应用开启。true表示启用了一个或多个辅助应用，false表示未启用任何辅助应用。
@@ -228,9 +231,9 @@ declare namespace accessibility {
   function isOpenAccessibilitySync(): boolean;
 
   /**
-   * 判断触摸浏览模式是否开启，使用callback异步回调。
+   * 判断触摸浏览模式是否开启。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数，如果触摸浏览模式已开启，则返回 true；否则返回 false。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示触摸浏览模式已开启；返回false表示触摸浏览模式未开启。
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -239,9 +242,9 @@ declare namespace accessibility {
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 判断触摸浏览模式是否开启，使用Promise异步回调。
+   * 判断触摸浏览模式是否开启。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise对象，如果触摸浏览模式已开启，则返回 true；否则返回 false。
+   * @returns { Promise<boolean> } Promise对象。返回true表示触摸浏览模式已开启；返回false表示触摸浏览模式未开启。
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -250,7 +253,7 @@ declare namespace accessibility {
   function isOpenTouchGuide(): Promise<boolean>;
 
   /**
-   * 是否开启了触摸浏览模式。
+   * 查询触摸浏览模式是否开启。
    *
    * @returns { boolean } 表示是否开启了触摸浏览模式。true表示开启了触摸浏览，false表示未开启触摸浏览。
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
@@ -263,12 +266,12 @@ declare namespace accessibility {
   function isOpenTouchGuideSync(): boolean;
 
   /**
-   * 查询辅助应用列表，使用callback异步回调。
+   * 查询辅助应用列表。使用callback异步回调。
    *
    * @param { AbilityType } abilityType - 辅助应用的类型。
    * @param { AbilityState } stateType - 辅助应用的状态。
-   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback - 回调函数，返回辅助应用信息列表。若返回成功，err为undefined，data为辅助应用信
-   *     息列表；否则为错误对象。
+   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback - 回调函数。当查询辅助应用列表成功，err为undefined，data为辅助应用信息列表；否
+   *     则为错误对象。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -281,7 +284,7 @@ declare namespace accessibility {
   ): void;
 
   /**
-   * 查询辅助应用列表，使用Promise异步回调。
+   * 查询辅助应用列表。使用Promise异步回调。
    *
    * @param { AbilityType } abilityType - 辅助应用的类型。
    * @param { AbilityState } stateType - 辅助应用的状态。
@@ -294,7 +297,7 @@ declare namespace accessibility {
   function getAbilityLists(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
   /**
-   * 查询辅助应用列表，使用Promise异步回调。
+   * 查询辅助应用列表。使用Promise异步回调。
    *
    * @param { AbilityType } abilityType - 辅助应用的类型。
    * @param { AbilityState } stateType - 辅助应用的状态。
@@ -313,12 +316,12 @@ declare namespace accessibility {
   function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
   /**
-   * 查询辅助应用列表，使用callback异步回调。
+   * 查询辅助应用列表。使用callback异步回调。
    *
    * @param { AbilityType } abilityType - 辅助应用的类型。
    * @param { AbilityState } stateType - 辅助应用的状态。
-   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback - 回调函数，返回辅助应用信息列表。若返回成功，err为undefined，data为辅助应用信
-   *     息列表；否则为错误对象。
+   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback - 回调函数。当查询辅助应用列表成功，err为undefined，data为辅助应用信息列表；否
+   *     则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -334,6 +337,9 @@ declare namespace accessibility {
 
   /**
    * 查询当前系统内辅助应用列表，支持按条件查询。
+   * 
+   * 本接口为同步版本，与[accessibility.getAccessibilityExtensionList]{@link accessibility.getAccessibilityExtensionList}（异步版本）功能相
+   * 同，如需立即获取结果可使用本接口，如需在非阻塞场景下查询建议使用异步版本。
    *
    * @param { AbilityType } abilityType - 辅助应用的类型。
    * @param { AbilityState } stateType - 辅助应用的状态。
@@ -351,10 +357,10 @@ declare namespace accessibility {
   ): Array<AccessibilityAbilityInfo>;
 
   /**
-   * 发送无障碍事件，使用callback异步回调。
+   * 发送无障碍事件，事件将被分发到系统中已注册且匹配事件类型的辅助扩展应用进行响应。使用callback异步回调。
    *
-   * @param { EventInfo } event - 辅助事件对象。
-   * @param { AsyncCallback<void> } callback - 回调函数，如果发送无障碍事件失败，则 AsyncCallback中err有数据返回。
+   * @param { EventInfo } event - 无障碍事件对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当发送无障碍事件成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -363,7 +369,7 @@ declare namespace accessibility {
   function sendEvent(event: EventInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * 发送无障碍事件，使用Promise异步回调。
+   * 发送无障碍事件，事件将被分发到系统中已注册且匹配事件类型的辅助扩展应用进行响应。使用Promise异步回调。
    *
    * @param { EventInfo } event - 无障碍事件对象。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -375,10 +381,10 @@ declare namespace accessibility {
   function sendEvent(event: EventInfo): Promise<void>;
 
   /**
-   * 发送无障碍事件，使用callback异步回调。
+   * 发送无障碍事件，事件将被分发到系统中已注册且匹配事件类型的辅助应用进行响应。使用callback异步回调。
    *
-   * @param { EventInfo } event - 辅助事件对象。
-   * @param { AsyncCallback<void> } callback - 回调函数，如果发送无障碍事件失败，则 AsyncCallback中err有数据返回。
+   * @param { EventInfo } event - 无障碍事件对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当发送无障碍事件成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -393,7 +399,7 @@ declare namespace accessibility {
   function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * 发送无障碍事件，使用Promise异步回调。
+   * 发送无障碍事件，事件将被分发到系统中已注册且匹配事件类型的辅助扩展应用进行响应。使用Promise异步回调。
    *
    * @param { EventInfo } event - 无障碍事件对象。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -411,19 +417,21 @@ declare namespace accessibility {
   function sendAccessibilityEvent(event: EventInfo): Promise<void>;
 
   /**
-   * 监听辅助应用启用状态变化事件，使用callback异步回调。如需获取系统内辅助应用信息，推荐使用
+   * 监听辅助应用启用状态变化事件。使用callback异步回调。
+   * 
+   * 如需获取系统内辅助应用信息，推荐使用
    * [accessibility.getAccessibilityExtensionListSync]{@link accessibility.getAccessibilityExtensionListSync}。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
    * > [accessibility.off('accessibilityStateChange')]{@link accessibility.off(type: 'accessibilityStateChange', callback?: Callback<boolean>)}
    * > 取消监听，否则可能会导致崩溃。
    *
    * @param { 'accessibilityStateChange' } type - 监听的事件名，固定为‘accessibilityStateChange’，即辅助应用启用状态变化事件。
-   * @param { Callback<boolean> } callback - 回调函数，在辅助应用启用状态变化时将状态通过此函数进行通知。此状态为全局辅助应用启用状态。返回true表示已启用辅助应用，返回false表示已禁用辅助
+   * @param { Callback<boolean> } callback - 回调函数。在辅助应用启用状态变化时将状态通过此函数进行通知。此状态为全局辅助应用启用状态。返回true表示已启用辅助应用；返回false表示已禁用辅助
    *     应用。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -450,19 +458,21 @@ declare namespace accessibility {
   function onAccessibilityStateChange(callback: Callback<boolean>): void;
 
   /**
-   * 监听触摸浏览功能启用状态变化事件，使用callback异步回调。如需获取系统内辅助应用信息，推荐使用
+   * 监听触摸浏览功能启用状态变化事件。使用callback异步回调。
+   * 
+   * 如需获取系统内辅助应用信息，推荐使用
    * [accessibility.getAccessibilityExtensionListSync]{@link accessibility.getAccessibilityExtensionListSync}。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
    * > [accessibility.off('touchGuideStateChange')]{@link accessibility.off(type: 'touchGuideStateChange', callback?: Callback<boolean>)}
    * > 取消监听，否则可能会导致崩溃。
    *
    * @param { 'touchGuideStateChange' } type - 监听的事件名，固定为‘touchGuideStateChange’，即触摸浏览启用状态变化事件。
-   * @param { Callback<boolean> } callback - 回调函数，在触摸浏览启用状态变化时将状态通过此函数进行通知。返回true表示触摸浏览功能已开启，返回false表示触摸浏览功能已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在触摸浏览启用状态变化时将状态通过此函数进行通知。返回true表示触摸浏览功能已开启；返回false表示触摸浏览功能已关闭。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -488,7 +498,7 @@ declare namespace accessibility {
   function onTouchGuideStateChange(callback: Callback<boolean>): void;
 
   /**
-   * 取消监听辅助应用启用状态变化事件，使用callback异步回调。
+   * 取消监听辅助应用启用状态变化事件。使用callback异步回调。
    *
    * @param { 'accessibilityStateChange' } type - 取消监听的事件名，固定为‘accessibilityStateChange’，即辅助应用启用状态变化事件。
    * @param { Callback<boolean> } callback - 回调函数，取消指定callback对象的事件响应。需与
@@ -522,7 +532,7 @@ declare namespace accessibility {
   function offAccessibilityStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 取消监听触摸浏览启用状态变化事件，使用callback异步回调。
+   * 取消监听触摸浏览启用状态变化事件。使用callback异步回调。
    *
    * @param { 'touchGuideStateChange' } type - 取消监听的事件名，固定为‘touchGuideStateChange’，即触摸浏览启用状态变化事件。
    * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
@@ -562,7 +572,7 @@ declare namespace accessibility {
   function getCaptionsManager(): CaptionsManager;
 
   /**
-   * 字幕配置管理，在调用CaptionsManager的方法前，需要先通过 [accessibility.getCaptionsManager()]{@link accessibility.getCaptionsManager}获取 
+   * 字幕配置管理。调用CaptionsManager的方法前，先调用[accessibility.getCaptionsManager()]{@link accessibility.getCaptionsManager}获取
    * CaptionsManager实例。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
@@ -594,18 +604,18 @@ declare namespace accessibility {
     style: CaptionsStyle;
 
     /**
-     * 监听字幕配置启用状态变化事件，使用callback异步回调。
+     * 监听字幕配置启用状态变化事件。使用callback异步回调。
      * 
      * > **说明：**
      * >
      * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
      * >
-     * > - 调用此方法后，务必在对象生命周期结束前使用
+     * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
      * > [off('enableChange')]{@link accessibility.CaptionsManager.off(type: 'enableChange', callback?: Callback<boolean>)}
      * > 取消监听，否则可能会导致崩溃。
      *
      * @param { 'enableChange' } type - 监听的事件名，固定为‘enableChange’，即字幕配置启用状态变化事件。
-     * @param { Callback<boolean> } callback - 回调函数，在启用状态变化时将状态通过此函数进行通知。返回true表示字幕配置开启，返回false表示字幕配置关闭。
+     * @param { Callback<boolean> } callback - 回调函数。在启用状态变化时将状态通过此函数进行通知。返回true表示字幕配置开启；返回false表示字幕配置关闭。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
@@ -626,13 +636,13 @@ declare namespace accessibility {
     onEnableChange(callback: Callback<boolean>): void;
 
     /**
-     * 监听字幕风格变化事件，使用callback异步回调。
+     * 监听字幕风格变化事件。使用callback异步回调。
      * 
      * > **说明：**
      * >
      * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
      * >
-     * > - 调用此方法后，务必在对象生命周期结束前使用
+     * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
      * > [off('styleChange')]{@link accessibility.CaptionsManager.off(type: 'styleChange', callback?: Callback<CaptionsStyle>)}
      * > 取消监听，否则可能会导致崩溃。
      *
@@ -658,7 +668,7 @@ declare namespace accessibility {
     onStyleChange(callback: Callback<CaptionsStyle>): void;
 
     /**
-     * 取消监听字幕配置启用状态变化事件，使用callback异步回调。
+     * 取消监听字幕配置启用状态变化事件。使用callback异步回调。
      *
      * @param { 'enableChange' } type - 取消监听的事件名，固定为‘enableChange’，即字幕配置启用状态变化事件。
      * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
@@ -684,7 +694,7 @@ declare namespace accessibility {
     offEnableChange(callback?: Callback<boolean>): void;
 
     /**
-     * 取消字幕风格变化监听事件，使用callback异步回调。
+     * 取消监听字幕风格变化事件。使用callback异步回调。
      *
      * @param { 'styleChange' } type - 取消监听的事件名，固定为‘styleChange’，即字幕风格变化事件。
      * @param { Callback<CaptionsStyle> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
@@ -729,10 +739,10 @@ declare namespace accessibility {
    * 字幕字体。
    *
    * @unionmember { 'default' } 表示默认字体。
-   * @unionmember { 'monospacedSerif' } 表示等宽 Serif 字体。
-   * @unionmember { 'serif' } 表示Serif 字体。
-   * @unionmember { 'monospacedSansSerif' } 表示等宽 Sans Serif 字体。
-   * @unionmember { 'sansSerif' } 表示Sans Serif 字体。
+   * @unionmember { 'monospacedSerif' } 表示等宽Serif字体。
+   * @unionmember { 'serif' } 表示Serif字体。
+   * @unionmember { 'monospacedSansSerif' } 表示等宽Sans Serif字体。
+   * @unionmember { 'sansSerif' } 表示Sans Serif字体。
    * @unionmember { 'casual' } 表示非正式字体。
    * @unionmember { 'cursive' } 表示手写字体。
    * @unionmember { 'smallCapitals' } 表示小型大写字母字体。
@@ -777,11 +787,11 @@ declare namespace accessibility {
     /**
      * 描述字幕字体颜色。
      * 
-     * number：HEX 格式颜色，支持 rgb 或 argb。
+     * number：HEX格式颜色，支持rgb或argb。
      * 
      * string：支持 '#rrggbb', '#rrggbbaa', '#rgb', '#rgba' 格式。
      * 
-     * 例：不透明红色，number: 0xffff0000，string: '#ff0000', '#ff0000ff', '#f00', '#f00f'。
+     * 例：不透明红色，number：0xffff0000，string：'#ff0000', '#ff0000ff', '#f00', '#f00f'。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @form [since 23]
@@ -803,11 +813,11 @@ declare namespace accessibility {
     /**
      * 描述字幕背景颜色。
      * 
-     * number：HEX 格式颜色，支持 rgb 或 argb。
+     * number：HEX格式颜色，支持rgb或argb。
      * 
      * string：支持 '#rrggbb', '#rrggbbaa', '#rgb', '#rgba' 格式。
      * 
-     * 例：不透明红色，number: 0xffff0000，string: '#ff0000', '#ff0000ff', '#f00', '#f00f'。
+     * 例：不透明红色，number：0xffff0000，string：'#ff0000', '#ff0000ff', '#f00', '#f00f'。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @form [since 23]
@@ -819,11 +829,11 @@ declare namespace accessibility {
     /**
      * 描述字幕窗口颜色。
      * 
-     * number：HEX 格式颜色，支持 rgb 或 argb。
+     * number：HEX格式颜色，支持rgb或argb。
      * 
      * string：支持 '#rrggbb', '#rrggbbaa', '#rgb', '#rgba' 格式。
      * 
-     * 例：不透明红色，number: 0xffff0000，string: '#ff0000', '#ff0000ff', '#f00', '#f00f'。
+     * 例：不透明红色，number：0xffff0000，string：'#ff0000', '#ff0000ff', '#f00', '#f00f'。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @form [since 23]
@@ -858,7 +868,7 @@ declare namespace accessibility {
     readonly id: string;
 
     /**
-     * ability 名。
+     * ability名。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform [since 23]
@@ -953,7 +963,7 @@ declare namespace accessibility {
     readonly needHide: boolean;
 
     /**
-     * 扩展应用在扩展服务列表中的名称。
+     * 辅助应用在扩展服务列表中的名称。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @form [since 23]
@@ -965,7 +975,8 @@ declare namespace accessibility {
   }
 
   /**
-   * 界面变更事件。
+   * 无障碍事件信息，用于描述界面变更或交互事件，作为[sendAccessibilityEvent]{@link accessibility.sendAccessibilityEvent}的参数定义事件的类型和触发动作。发送的无障碍事
+   * 件将被系统分发到已注册且匹配事件类型的辅助应用进行响应，详见[sendAccessibilityEvent]{@link accessibility.sendAccessibilityEvent}。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform [since 23]
@@ -978,7 +989,7 @@ declare namespace accessibility {
     /**
      * 构造函数，通过JSON对象构造EventInfo实例。
      *
-     * @param { Object } jsonObject - 包含 type、bundleName 和 triggerAction 三个字段的 JSON对象，详见示例。
+     * @param { Object } jsonObject - 包含type、bundleName和triggerAction三个字段的JSON对象，详见示例。
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform [since 23]
      * @form [since 23]
@@ -1001,8 +1012,8 @@ declare namespace accessibility {
      * 构造函数，通过独立参数构造EventInfo实例。
      *
      * @param { EventType } type - 无障碍事件类型。
-     * @param { string } bundleName - 目标应用名。
-     * @param { Action } triggerAction - 触发事件的 Action。
+     * @param { string } bundleName - 目标应用的Bundle名称。
+     * @param { Action } triggerAction - 触发事件的Action。
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform [since 23]
      * @form [since 23]
@@ -1036,7 +1047,7 @@ declare namespace accessibility {
     windowUpdateType?: WindowUpdateType;
 
     /**
-     * 目标应用名；不可缺省。
+     * 目标应用的Bundle名称；不可缺省。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform [since 23]
@@ -1075,7 +1086,7 @@ declare namespace accessibility {
     pageId ?: int;
 
     /**
-     * 事件描述，根据实际场景设置，无特殊限制，默认值为空。
+     * 事件描述，由开发者根据业务需要自定义描述内容，无特殊限制，默认值为空。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @form [since 23]
@@ -1198,7 +1209,7 @@ declare namespace accessibility {
     textAnnouncedForAccessibility?: string;
 
     /**
-     * 主动播报的内容支持传入Resource类型，且只能传入string。
+     * 主动播报的内容支持传入Resource类型，且Resource只能引用string类型资源（如$r('app.string.xxx')）。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @form [since 23]
@@ -1209,7 +1220,7 @@ declare namespace accessibility {
     textResourceAnnouncedForAccessibility?: Resource;
 
     /**
-     * 主动聚焦的组件ID，默认值为空。
+     * 主动聚焦的组件ID，当应用需要主动聚焦时根据实际场景设置，默认值为空。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform [since 23]
@@ -1222,7 +1233,7 @@ declare namespace accessibility {
   }
 
   /**
-   * 是否开启了屏幕朗读模式。
+   * 查询屏幕朗读模式是否开启。
    *
    * @returns { boolean } 表示是否开启了屏幕朗读。true表示开启了屏幕朗读，false表示未开启屏幕朗读。
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
@@ -1235,18 +1246,18 @@ declare namespace accessibility {
   function isScreenReaderOpenSync(): boolean;
 
   /**
-   * 监听屏幕朗读功能启用状态变化事件，使用callback异步回调。
+   * 监听屏幕朗读模式启用状态变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
    * > [accessibility.off('screenReaderStateChange')]{@link accessibility.off(type: 'screenReaderStateChange', callback?: Callback<boolean>)}
    * > 取消监听，否则可能会导致崩溃。
    *
    * @param { 'screenReaderStateChange' } type - 监听的事件名，固定为‘screenReaderStateChange’，即屏幕朗读启用状态变化事件。
-   * @param { Callback<boolean> } callback - 回调函数，在屏幕朗读启用状态变化时将状态通过此函数进行通知。返回true表示屏幕朗读功能已开启，返回false表示屏幕朗读功能已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在屏幕朗读启用状态变化时将状态通过此函数进行通知。返回true表示屏幕朗读功能已开启；返回false表示屏幕朗读功能已关闭。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1272,7 +1283,7 @@ declare namespace accessibility {
   function onScreenReaderStateChange(callback: Callback<boolean>): void;
 
   /**
-   * 取消监听屏幕朗读启用状态变化事件，使用callback异步回调。
+   * 取消监听屏幕朗读启用状态变化事件。使用callback异步回调。
    *
    * @param { 'screenReaderStateChange' } type - 取消监听的事件名，固定为‘screenReaderStateChange’，即屏幕朗读启用状态变化事件。
    * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
@@ -1303,18 +1314,19 @@ declare namespace accessibility {
   function offScreenReaderStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 监听触摸浏览功能下的单击/双击操作模式变化事件，使用callback异步回调。
+   * 监听触摸浏览功能下的单击/双击操作模式变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
    * > [accessibility.off('touchModeChange')]{@link accessibility.off(type: 'touchModeChange', callback?: Callback<string>)}
    * > 取消监听，否则可能会导致崩溃。
    *
    * @param { 'touchModeChange' } type - 监听的事件名，固定为‘touchModeChange’，即触摸浏览功能下的单击/双击操作模式变化事件。
-   * @param { Callback<string> } callback - 回调函数，在触摸浏览功能下的单击/双击操作模式变化时将状态通过此函数进行通知。
+   * @param { Callback<string> } callback - 回调函数，在触摸浏览功能下的单击/双击操作模式变化时将操作模式通过此函数进行通知。返回'singleTouchMode'表示单击操作模式，'
+   *     doubleTouchMode'表示双击操作模式，'none'表示未开启触摸浏览功能。
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1338,7 +1350,7 @@ declare namespace accessibility {
   function onTouchModeChange(callback: Callback<string>): void;
 
   /**
-   * 取消监听触摸浏览功能下的单击/双击操作模式变化事件，使用callback异步回调。
+   * 取消监听触摸浏览功能下的单击/双击操作模式变化事件。使用callback异步回调。
    *
    * @param { 'touchModeChange' } type - 取消监听的事件名，固定为‘touchModeChange’，即触摸浏览功能下的单击/双击操作模式变化事件。
    * @param { Callback<string> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
@@ -1367,7 +1379,7 @@ declare namespace accessibility {
   function offTouchModeChange(callback?: Callback<string>): void;
 
   /**
-   * 查询触摸浏览功能下的单击/双击操作模式。
+   * 查询触摸浏览功能下的单击/双击操作模式，可用于根据当前操作模式调整应用的交互响应方式（如单击模式下直接响应点击、双击模式下需双击确认操作）。
    *
    * @returns { string } 表示当前操作模式。
    *     <br>- singleTouchMode：表示单击操作模式。
@@ -1383,17 +1395,16 @@ declare namespace accessibility {
   function getTouchModeSync(): string;
 
   /**
-   * 监听减弱动效功能启用状态变化事件。使用callback异步回调。
+   * 监听减弱动效模式启用状态变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
-   * > [accessibility.offAnimationReduceStateChange]{@link accessibility.offAnimationReduceStateChange(callback?: Callback<boolean>)}
-   * > 取消监听，否则可能会导致崩溃。
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
+   * > [accessibility.offAnimationReduceStateChange]{@link accessibility.offAnimationReduceStateChange}取消监听，否则可能会导致崩溃。
    *
-   * @param { Callback<boolean> } callback - 回调函数。返回true表示减弱动效模式已开启；返回false表示减弱动效模式已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在减弱动效模式启用状态变化时将状态通过此函数进行通知。返回true表示减弱动效模式已开启；返回false表示减弱动效模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1404,8 +1415,8 @@ declare namespace accessibility {
    * 取消监听减弱动效模式变化事件。使用callback异步回调。
    *
    * @param { Callback<boolean> } [callback] - 回调函数。取消指定callback对象的事件响应。需与
-   *     [accessibility.onAnimationReduceStateChange]{@link accessibility.onAnimationReduceStateChange(callback: Callback<boolean>)}
-   *     的callback一致。缺省时，表示注销所有已注册事件。
+   *     [accessibility.onAnimationReduceStateChange]{@link accessibility.onAnimationReduceStateChange}的callback一致。缺省时，表
+   *     示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1413,7 +1424,10 @@ declare namespace accessibility {
   function offAnimationReduceStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 使用同步方法判断减弱动效模式是否开启。
+   * 查询减弱动效模式是否开启。
+   * 
+   * 本接口为同步版本，与[accessibility.isAnimationReduceEnabled]{@link accessibility.isAnimationReduceEnabled}（异步版本）功能相同，如需立即获取结果
+   * 可使用本接口，如需在非阻塞场景下查询建议使用异步版本。
    *
    * @returns { boolean } 表示是否开启减弱动效模式。返回true表示开启减弱动效模式；返回false表示未开启减弱动效模式。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1423,7 +1437,7 @@ declare namespace accessibility {
   function isAnimationReduceEnabledSync(): boolean;
 
   /**
-   * 判断减弱动效模式是否开启。使用Promise异步回调。
+   * 查询减弱动效模式是否开启。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示减弱动效模式已开启；返回false表示减弱动效模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1433,17 +1447,16 @@ declare namespace accessibility {
   function isAnimationReduceEnabled(): Promise<boolean>;
 
   /**
-   * 监听闪烁提醒功能启用状态变化事件。使用callback异步回调。
+   * 监听闪烁提醒模式启用状态变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
-   * > [accessibility.offFlashReminderStateChange]{@link accessibility.offFlashReminderStateChange(callback?: Callback<boolean>)}
-   * > 取消监听，否则可能会导致崩溃。
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
+   * > [accessibility.offFlashReminderStateChange]{@link accessibility.offFlashReminderStateChange}取消监听，否则可能会导致崩溃。
    *
-   * @param { Callback<boolean> } callback - 回调函数。返回true表示闪烁提醒模式已开启；返回false表示闪烁提醒模式已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在闪烁提醒模式启用状态变化时将状态通过此函数进行通知。返回true表示闪烁提醒模式已开启；返回false表示闪烁提醒模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1454,8 +1467,8 @@ declare namespace accessibility {
    * 取消监听闪烁提醒模式变化事件。使用callback异步回调。
    *
    * @param { Callback<boolean> } [callback] - 回调函数。取消指定callback对象的事件响应。需与
-   *     [accessibility.onFlashReminderStateChange]{@link accessibility.onFlashReminderStateChange(callback: Callback<boolean>)}
-   *     的callback一致。缺省时，表示注销所有已注册事件。
+   *     [accessibility.onFlashReminderStateChange]{@link accessibility.onFlashReminderStateChange}的callback一致。缺省时，表示注销所
+   *     有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1463,7 +1476,10 @@ declare namespace accessibility {
   function offFlashReminderStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 使用同步方法判断闪烁提醒模式是否开启。
+   * 查询闪烁提醒模式是否开启。
+   * 
+   * 本接口为同步版本，与[accessibility.isFlashReminderEnabled]{@link accessibility.isFlashReminderEnabled}（异步版本）功能相同，如需立即获取结果可使用本
+   * 接口，如需在非阻塞场景下查询建议使用异步版本。
    *
    * @returns { boolean } 表示是否开启闪烁提醒模式。true表示开启闪烁提醒模式，false表示未开启闪烁提醒模式。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1473,7 +1489,7 @@ declare namespace accessibility {
   function isFlashReminderEnabledSync(): boolean;
 
   /**
-   * 判断闪烁提醒模式是否开启。使用Promise异步回调。
+   * 查询闪烁提醒模式是否开启。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示闪烁提醒模式已开启；返回false表示闪烁提醒模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1483,17 +1499,16 @@ declare namespace accessibility {
   function isFlashReminderEnabled(): Promise<boolean>;
 
   /**
-   * 监听单声道音频功能启用状态变化事件。使用callback异步回调。
+   * 监听单声道音频模式启用状态变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
-   * > [accessibility.offAudioMonoStateChange]{@link accessibility.offAudioMonoStateChange(callback?: Callback<boolean>)}
-   * > 取消监听，否则可能会导致崩溃。
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
+   * > [accessibility.offAudioMonoStateChange]{@link accessibility.offAudioMonoStateChange}取消监听，否则可能会导致崩溃。
    *
-   * @param { Callback<boolean> } callback - 回调函数。返回true表示单声道音频模式已开启；返回false表示单声道音频模式已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在单声道音频模式启用状态变化时将状态通过此函数进行通知。返回true表示单声道音频模式已开启；返回false表示单声道音频模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1504,8 +1519,7 @@ declare namespace accessibility {
    * 取消监听单声道音频模式变化事件。使用callback异步回调。
    *
    * @param { Callback<boolean> } [callback] - 回调函数。取消指定callback对象的事件响应。需与
-   *     [accessibility.onAudioMonoStateChange]{@link accessibility.onAudioMonoStateChange(callback: Callback<boolean>)}
-   *     的callback一致。缺省时，表示注销所有已注册事件。
+   *     [accessibility.onAudioMonoStateChange]{@link accessibility.onAudioMonoStateChange}的callback一致。缺省时，表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1513,7 +1527,10 @@ declare namespace accessibility {
   function offAudioMonoStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 使用同步方法判断单声道音频模式是否开启。
+   * 查询单声道音频模式是否开启。
+   * 
+   * 本接口为同步版本，与[accessibility.isAudioMonoEnabled]{@link accessibility.isAudioMonoEnabled}（异步版本）功能相同，如需立即获取结果可使用本接口，如需在非阻
+   * 塞场景下查询建议使用异步版本。
    *
    * @returns { boolean } 表示是否开启单声道音频模式。true表示开启单声道音频模式，false表示未开启单声道音频模式。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1523,7 +1540,7 @@ declare namespace accessibility {
   function isAudioMonoEnabledSync(): boolean;
 
   /**
-   * 判断单声道音频模式是否开启。使用Promise异步回调。
+   * 查询单声道音频模式是否开启。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示单声道音频模式已开启；返回false表示单声道音频模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1533,17 +1550,16 @@ declare namespace accessibility {
   function isAudioMonoEnabled(): Promise<boolean>;
 
   /**
-   * 监听关怀模式启用状态变化事件。使用callback异步回调。
+   * 监听系统关怀模式启用状态变化事件。使用callback异步回调。
    * 
    * > **说明：**
    * >
    * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
    * >
-   * > - 调用此方法后，务必在对象生命周期结束前使用
-   * > [accessibility.offSeniorModeStateChange]{@link accessibility.offSeniorModeStateChange(callback?: Callback<boolean>)}
-   * > 取消监听，否则可能会导致崩溃。
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
+   * > [accessibility.offSeniorModeStateChange]{@link accessibility.offSeniorModeStateChange}取消监听，否则可能会导致崩溃。
    *
-   * @param { Callback<boolean> } callback - 回调函数。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。
+   * @param { Callback<boolean> } callback - 回调函数。在系统关怀模式启用状态变化时将状态通过此函数进行通知。返回true表示系统关怀模式已开启；返回false表示系统关怀模式已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1551,11 +1567,11 @@ declare namespace accessibility {
   function onSeniorModeStateChange(callback: Callback<boolean>): void;
 
   /**
-   * 取消监听关怀模式变化事件。使用callback异步回调。
+   * 取消监听系统关怀模式变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } [callback] - 回调函数。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。取消指定callback对象的事件响应。需与
-   *     [accessibility.onSeniorModeStateChange]{@link accessibility.onSeniorModeStateChange(callback: Callback<boolean>)}
-   *     的callback一致。缺省时，表示注销所有已注册事件。
+   * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
+   *     [accessibility.onSeniorModeStateChange]{@link accessibility.onSeniorModeStateChange}的callback一致。缺省时，表示注销所有已注册事
+   *     件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1563,9 +1579,9 @@ declare namespace accessibility {
   function offSeniorModeStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * 判断关怀模式是否开启。使用Promise异步回调。
+   * 查询系统关怀模式是否开启。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise对象。返回true表示关怀模式已开启；返回false表示关怀模式已关闭。
+   * @returns { Promise<boolean> } Promise对象。返回true表示系统关怀模式已开启；返回false表示系统关怀模式已关闭。
    * @throws { BusinessError } 9300000 - System abnormality.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
@@ -1574,9 +1590,21 @@ declare namespace accessibility {
   function isSeniorModeEnabled(): Promise<boolean>;
 
   /**
-   * Register an observer for this application's senior mode state changes.
+   * 监听应用自身“长辈模式”变化事件。使用callback异步回调。
+   * 
+   * 与[accessibility.onSeniorModeStateChange]{@link accessibility.onSeniorModeStateChange}（监听系统关怀模式状态变化）对应不同作用范围，本接口仅关注应
+   * 用自身状态。
+   * 
+   * > **说明：**
+   * >
+   * > - 注册监听的callback参数应使用具名函数而非匿名函数，否则每次调用时会创建一个新的底层对象，引起内存泄漏问题。
+   * >
+   * > - 调用此方法后，务必在组件实例销毁前（如aboutToDisappear生命周期中）使用
+   * > [accessibility.offSeniorModeStateChangeForSelf]{@link accessibility.offSeniorModeStateChangeForSelf}取消监听，否则可能会导致
+   * > 崩溃。
    *
-   * @param { Callback<boolean> } callback - Asynchronous callback interface.
+   * @param { Callback<boolean> } callback - 回调函数。在应用自身“长辈模式”状态变化时将状态通过此函数进行通知。返回true表示应用自身“长辈模式”已开启；返回false表示应用自身“长辈模式”
+   *     已关闭。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1584,10 +1612,11 @@ declare namespace accessibility {
   function onSeniorModeStateChangeForSelf(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the observer for this application's senior mode state changes.
+   * 取消监听应用自身“长辈模式”变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
-   *     <br>Default behavior: Unregister all callbacks for app senior mode state changes.
+   * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与
+   *     [accessibility.onSeniorModeStateChangeForSelf]{@link accessibility.onSeniorModeStateChangeForSelf}的callback一致。
+   *     缺省时，表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1595,9 +1624,11 @@ declare namespace accessibility {
   function offSeniorModeStateChangeForSelf(callback?: Callback<boolean>): void;
 
   /**
-   * Check if this application's senior mode is enabled.
+   * 判断应用是否开启“长辈模式”。使用Promise异步回调。
+   * 
+   * 与[accessibility.isSeniorModeEnabled]{@link accessibility.isSeniorModeEnabled}（判断系统关怀模式是否开启）对应不同作用范围，本接口仅查询应用自身状态。
    *
-   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Promise对象。返回true表示应用自身“长辈模式”已开启；返回false表示应用自身“长辈模式”已关闭。
    * @throws { BusinessError } 9300000 - System abnormality.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
@@ -1606,10 +1637,10 @@ declare namespace accessibility {
   function getSeniorModeStateForSelf(): Promise<boolean>;
 
   /**
-   * Set this application's senior mode.
+   * 设置应用是否开启“长辈模式”。使用Promise异步回调。
    *
-   * @param { boolean } state - Indicates whether to enable senior mode for this application.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { boolean } state - 设置应用是否开启“长辈模式”状态，true表示开启“长辈模式”，false表示关闭“长辈模式”。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 9300000 - System abnormality.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
@@ -1660,7 +1691,7 @@ export enum AccessibilityEventType {
   TYPE_CLICK = 2,
 
   /**
-   * 表示长按点击组件。
+   * 表示长按组件。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1760,7 +1791,7 @@ export enum AccessibilityEventType {
   TYPE_ANNOUNCE_FOR_ACCESSIBILITY = 12,
 
   /**
-   * 表示主动聚焦不打断。
+   * 表示主动聚焦，且该聚焦请求不会被打断。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1770,7 +1801,7 @@ export enum AccessibilityEventType {
   TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY_NOT_INTERRUPT = 13,
 
   /**
-   * 表示主动播报不打断。
+   * 表示主动播报，且该播报不会被打断。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1830,7 +1861,7 @@ export enum AccessibilityEventType {
   TYPE_WINDOW_BOUNDS = 19,
 
   /**
-   * 表示切换窗口活动状态
+   * 表示窗口活动状态发生变化。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1890,7 +1921,7 @@ export enum AccessibilityEventType {
   TYPE_TOUCH_END = 25,
 
   /**
-   * 表示页面内容刷新。
+   * 表示页面内容更新。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1900,7 +1931,7 @@ export enum AccessibilityEventType {
   TYPE_PAGE_CONTENT_UPDATE = 26,
 
   /**
-   * 表示页面状态刷新。
+   * 表示页面状态更新。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1930,7 +1961,7 @@ export enum AccessibilityEventType {
   TYPE_PAGE_CLOSE = 29,
 
   /**
-   * 表示向左的手势。
+   * 表示向左滑动的手势。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1970,7 +2001,7 @@ export enum AccessibilityEventType {
   TYPE_SWIPE_LEFT_THEN_DOWN = 33,
 
   /**
-   * 表示向右的手势。
+   * 表示向右滑动的手势。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2010,7 +2041,7 @@ export enum AccessibilityEventType {
   TYPE_SWIPE_RIGHT_THEN_DOWN = 37,
 
   /**
-   * 表示向上的手势。
+   * 表示向上滑动的手势。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2050,7 +2081,7 @@ export enum AccessibilityEventType {
   TYPE_SWIPE_UP_THEN_DOWN = 41,
 
   /**
-   * 表示向下的手势。
+   * 表示向下滑动的手势。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2320,7 +2351,7 @@ export enum AccessibilityEventType {
   TYPE_FOUR_FINGER_SWIPE_RIGHT = 68,
 
   /**
-   * 表示页面发生变化。
+   * 表示页面活动状态发生变化。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2329,7 +2360,7 @@ export enum AccessibilityEventType {
   TYPE_PAGE_ACTIVE = 69,
 
   /**
-   * 表示通知发生变化。
+   * 表示通知内容或状态发生更新。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2339,7 +2370,7 @@ export enum AccessibilityEventType {
   TYPE_NOTIFICATION_UPDATE = 70,
 
   /**
-   * accessibility focus element is invisible type
+   * 表示焦点变为不可见状态。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2349,20 +2380,30 @@ export enum AccessibilityEventType {
   TYPE_FOCUS_INVISIBLE = 71,
 
   /**
-   * one finger double tap type
+   * 表示单指双击的手势。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  TYPE_ONE_FINGER_DOUBLE_TAP = 72
+  TYPE_ONE_FINGER_DOUBLE_TAP = 72,
+
+  /**
+   * 表示触摸浏览手势事件。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_TOUCH_GUIDE_GESTURE = 73
 }
 
 /**
  * 表示无障碍节点元素可执行的操作枚举。
  * 
- * 无障碍节点元素是指，UI界面上可执行无障碍操作的一些组件，例如：按钮、文本输入框等组件。
+ * 无障碍节点元素是指，UI界面上可执行无障碍操作的组件，例如：按钮、文本输入框等。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -2371,7 +2412,8 @@ export enum AccessibilityEventType {
  */
 export enum AccessibilityAction {
   /**
-   * 表示获得无障碍焦点。
+   * 表示获得无障碍焦点。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.accessibilityFocusScene，参数值
+   * 为无障碍聚焦的场景类型。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2421,7 +2463,7 @@ export enum AccessibilityAction {
   CLICK = 4,
 
   /**
-   * 表示长按点击组件。
+   * 表示长按组件。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2471,7 +2513,7 @@ export enum AccessibilityAction {
   SELECT = 9,
 
   /**
-   * 表示设置组件的文本。
+   * 表示设置组件的文本。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.setText，参数值为要设置的文本内容。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2481,7 +2523,8 @@ export enum AccessibilityAction {
   SET_TEXT = 10,
 
   /**
-   * 表示向前滚动组件。
+   * 表示向前滚动组件（向内容末尾方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为'
+   * fullScreen'或'halfScreen'。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2491,7 +2534,8 @@ export enum AccessibilityAction {
   SCROLL_FORWARD = 11,
 
   /**
-   * 表示向后滚动组件。
+   * 表示向后滚动组件（向内容起始方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为'
+   * fullScreen'或'halfScreen'。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2501,7 +2545,10 @@ export enum AccessibilityAction {
   SCROLL_BACKWARD = 12,
 
   /**
-   * 表示选定组件内文本范围。
+   * 表示选定组件内文本范围。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.selectTextBegin、
+   * [Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.selectTextEnd、
+   * [Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.selectTextInForWard，参数值为选定文本的起始坐标、结束坐标及是否向
+   * 前选择。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2511,7 +2558,7 @@ export enum AccessibilityAction {
   SET_SELECTION = 13,
 
   /**
-   * 表示设置组件内的光标位置。
+   * 表示设置组件内的光标位置。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.offset，参数值为光标的字符偏移量。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2521,7 +2568,9 @@ export enum AccessibilityAction {
   SET_CURSOR_POSITION = 14,
 
   /**
-   * 表示组件返回首页操作。
+   * 表示执行返回首页操作。
+   * 
+   * **使用约束：** 此操作在多屏场景下，仅在主屏幕上生效。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2541,7 +2590,7 @@ export enum AccessibilityAction {
   BACK = 16,
 
   /**
-   * 显示最近任务。
+   * 表示显示最近任务。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2551,7 +2600,7 @@ export enum AccessibilityAction {
   RECENT_TASK = 17,
 
   /**
-   * 显示通知中心。
+   * 表示显示通知中心。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2561,7 +2610,7 @@ export enum AccessibilityAction {
   NOTIFICATION_CENTER = 18,
 
   /**
-   * 显示控制中心。
+   * 表示显示控制中心。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2571,7 +2620,7 @@ export enum AccessibilityAction {
   CONTROL_CENTER = 19,
 
   /**
-   * 对局部文本进行点击操作。
+   * 表示对局部文本进行点击操作。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.spanId，参数值为超链接文本编号。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2581,7 +2630,8 @@ export enum AccessibilityAction {
   SPAN_CLICK = 20,
 
   /**
-   * 表示注入动作。
+   * 表示注入模拟用户操作的动作。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.injectActionType，参数值为注入
+   * 动作类型。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2591,7 +2641,7 @@ export enum AccessibilityAction {
   INJECT_ACTION = 21,
 
   /**
-   * Execute custom action on a component.
+   * 表示执行自定义操作。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.customAction，参数值为自定义操作的名称。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2626,7 +2676,7 @@ export enum FocusMoveResultCode {
    */
   SEARCH_SUCCESS = 0,
   /**
-   * 节点查询成功，建议下一次查询使用参数bypassSelfDescendants可更快获取结果。
+   * 节点查询成功，建议下一次查询使用参数bypassSelfDescendants以提升查询效率。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2730,7 +2780,7 @@ export enum InjectActionType {
 }
 
 /**
- * Enumeration of scenes of accessibility focus.
+ * 表示无障碍聚焦的场景参数的枚举。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -2739,7 +2789,7 @@ export enum InjectActionType {
  */
 export enum AccessibilityFocusScene {
   /**
-   * Hover to move the accessibility focus.
+   * 表示当前聚焦的场景为点击聚焦。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2748,7 +2798,7 @@ export enum AccessibilityFocusScene {
    */
   HOVER_FOCUS = 1,
   /**
-   * Swipe finger to move the accessibility focus.
+   * 表示当前聚焦的场景为滑动聚焦。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2757,7 +2807,7 @@ export enum AccessibilityFocusScene {
    */
   SWIPE_FOCUS = 2,
   /**
-   * Move the accessibility focus after scrolling the component.
+   * 表示当前聚焦的场景为滚动聚焦。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2765,4 +2815,163 @@ export enum AccessibilityFocusScene {
    * @since 26.0.0 dynamic&static
    */
   SCROLL_FOCUS = 3
+}
+
+/**
+ * 表示聚焦规则类型的枚举。
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum FocusRuleType {
+  /**
+   * 表示默认聚焦类型，不按特定类型过滤，所有节点均可作为聚焦目标。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DEFAULT = 1,
+  /**
+   * 表示按链接类型聚焦，例如网页上可点击跳转的元素。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_LINK = 2,
+  /**
+   * 表示按标题类型聚焦，例如页面中的各级标题元素。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_TITLE = 3
+}
+
+/**
+ * 表示无障碍操作虚拟节点返回结果类型的枚举。
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum OperateVirtualNodeResult {
+  /**
+   * 表示执行成功。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SUCCESS = 0,
+  /**
+   * 表示执行操作的节点不存在。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ACCESSIBILITY_ELEMENT_NOT_EXIST = 1,
+  /**
+   * 表示当前根节点不允许修改。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  CANNOT_MODIFY_ROOT_NODE = 2,
+  /**
+   * 表示无障碍节点属性为空。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ACCESSIBILITY_PROPERTY_IS_EMPTY = 3,
+  /**
+   * 表示分配虚拟节点ID失败。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ALLOCATE_ID_FAILED = 4,
+  /**
+   * 表示新增虚拟节点数组为空。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  VIRTUAL_NODE_PARAMETER_IS_EMPTY = 5,
+  /**
+   * 表示系统异常。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  INTERNAL_ERROR = 6,
+  /**
+   * 表示不支持虚拟节点操作。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  VIRTUAL_NODE_NOT_SUPPORTED = 7
+}
+
+/**
+ * 表示无障碍节点来源类型的枚举。
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum AccessibilitySourceType {
+  /**
+   * 表示默认节点类型。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DEFAULT = 1,
+  /**
+   * 表示当前节点是新增的虚拟节点。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  ADDED_FROM_ACCESSIBILITY_VIRTUAL_NODE = 2,
+  /**
+   * 表示当前节点是修改过属性的节点。
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  UPDATED_FROM_ACCESSIBILITY_VIRTUAL_NODE = 3
 }

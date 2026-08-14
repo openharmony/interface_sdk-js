@@ -20,13 +20,8 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { FontWeight } from "./enums";
-
 import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
-import { ComponentBuilder } from "./../stateManagement/runtime";
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { AttributeModifier, CommonMethod } from "./common";
-import { CustomBuilder, CustomBuilderT } from './builder';
 import { ShaderStyle, FontWeightConfigs } from "./textCommon";
 /**
  * 渲染模式的枚举值。
@@ -443,7 +438,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    *
    * @param { double | string | Resource | undefined } value
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -470,7 +465,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * [ColorMetrics](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colormetrics12)类型参数。
    *
    * @param { Array<ResourceColor> | Array<ColorMetrics> | Array<ResourceColor | ColorMetrics> | undefined } value
-      *     SymbolGlyph组件字体颜色。支持传入`ResourceColor`或`ColorMetrics`类型的数组。<br/> 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。
+   *     SymbolGlyph组件字体颜色。支持传入`ResourceColor`或`ColorMetrics`类型的数组。<br/> 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -498,7 +493,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    *     <br>半径建议使用百分比。
    *     <br>百分比是基于图标大小的百分比，建议取值范围[0, 1)。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -518,7 +513,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * @param { int | FontWeight | string | undefined } value - SymbolGlyph组件字体粗细。<br/>默认值：FontWeight.Normal<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -526,11 +521,16 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
   /**
    * 设置SymbolGlyph组件字体粗细及配置。
    *
-   * @param { int | FontWeight | ResourceStr | undefined } value - SymbolGlyph组件字体粗细。<br/>默认值：FontWeight.Normal<br/>取值
-   *     为undefined时，按默认值处理。
-   * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细配置。
+   * @param { int | FontWeight | ResourceStr | undefined } value - SymbolGlyph字体粗细。
+   *     对于int类型，取值范围为【100,900】。当在fontWeightConfigs中enableVariableFontWeight为**false**时
+   *     ，必须是100的倍数；当为**true**时，
+   *     支持【100,900】范围内的任意整数。
+   *     默认值是FontWeight.Normal。传递`undefined`会将其重置为默认值。
+   * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细的配置。
+   *     如果未指定，则使用FontWeightConfigs的默认值：
+   *     enableVariableFontWeight默认为**false**,enableDeviceFontWeightCategory默认为**true**。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -611,7 +611,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * @param { double | Resource | undefined } scale - SymbolGlyph组件最小的字体缩放倍数。<br/>取值范围：[0, 1] <br/>设置为0，缩放最小。<br/>
    *     **说明：** <br/>设置的值小于0时，按值为0处理。设置的值大于1时，按值为1处理。异常值默认不生效。<br/>取值为undefined时，不生效。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -622,7 +622,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * @param { double | Resource | undefined } scale - SymbolGlyph组件最大的字体缩放倍数。<br/>取值范围：
    *     [1, +∞)<br/>**说明：** <br/>设置的值小于1时，按值为1处理，异常值默认不生效。<br/>取值为undefined时，不生效。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -639,7 +639,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    *     <br>}
    *     <br>不支持fill、type属性和color中的ColoringStrategy枚举值。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -649,7 +649,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    *
    * @param { AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -673,7 +673,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
  *
  * @param { Resource } [value]
  * @returns { SymbolGlyphAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -688,7 +688,7 @@ export declare function SymbolGlyph(
  *
  * @param { CustomBuilderT<SymbolGlyphAttribute> } style - SymbolGlyph选项实例。
  * @returns { SymbolGlyphAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
  * @since 26.1.0 staticonly

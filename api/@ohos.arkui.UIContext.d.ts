@@ -3995,8 +3995,10 @@ export abstract class FrameCallback {
 }
 
 /**
- * Defines the context of the current ability.
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
  *
+ * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -4879,10 +4881,9 @@ export const enum ResolveStrategy {
  * @since 22 dynamic
  */
 export class ResolvedUIContext extends UIContext {
-
   /**
    * Resolving strategy of the UIContext.
-   *
+   * @type { ResolveStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6310,8 +6311,8 @@ export class UIContext {
    *     [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
    * @returns { UIContext | undefined } Context of the created UI instance, or **undefined** if creation fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. The number of parameters is incorrect.
-   *     <br> 2. Invalid parameter type of context.
+   * <br> 1. The number of parameters is incorrect.
+   * <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6366,7 +6367,7 @@ export class UIContext {
    * Set the switch for memory recycling of invisible image nodes
    *
    * @param { boolean } enabled - The switch for memory recycling.
-   *     <br>Default value: false, Passing `undefined` restores the default value.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly

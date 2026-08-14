@@ -148,7 +148,7 @@ declare class LightWeightMap<K, V> {
   get(key: K): V;
 
   /**
-   * 获取指定key所对应的value。
+   * 获取指定key所对应的value。当key为number类型且值大于INT32_MAX或小于INT32_MIN时，结果可能与预期不一致。
    *
    * @param { K } key - 指定key。
    * @returns { V | undefined } 如果存在与key关联的值则返回该值，否则返回undefined。
@@ -213,7 +213,7 @@ declare class LightWeightMap<K, V> {
   /**
    * 查找指定下标的元素键值对中key值，如果未找到则返回undefined。
    *
-   * @param { int } index - 所查找的下标。需要小于等于int32_max即2147483647。
+   * @param { int } index - 所查找的下标。需要小于等于INT32_MAX即2147483647。
    *     取值限定为整数。
    * @returns { K | undefined } 返回指定下标对应的key，如果下标超出范围则返回undefined。
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -276,7 +276,7 @@ declare class LightWeightMap<K, V> {
   remove(key: K): V;
 
   /**
-   * 删除指定key映射的元素。
+   * 删除指定key映射的元素。当key为number类型且值大于INT32_MAX或小于INT32_MIN时，结果可能与预期不一致。
    *
    * @param { K } key - 指定key。
    * @returns { V | undefined } 如果删除了元素则返回该元素的值，否则返回undefined。
@@ -340,9 +340,9 @@ declare class LightWeightMap<K, V> {
   forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, thisArg?: Object): void;
 
   /**
-   * 通过回调函数来遍历实例对象上的元素及其下标。
+   * 通过回调函数来遍历实例对象上的元素及其键值对信息。
    *
-   * @param { LightWeightMapCbFn<K, V> } callbackFn - 回调函数。
+   * @param { LightWeightMapCbFn<K, V> } callbackFn - 回调函数，用于遍历LightWeightMap实例中的元素及下标。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -401,7 +401,7 @@ declare class LightWeightMap<K, V> {
   /**
    * 获取指定下标对应键值对中的值。
    *
-   * @param { int } index - 指定下标。需要小于等于int32_max即2147483647。
+   * @param { int } index - 要删除的元素的下标位置。取值范围：[0, length-1]，需小于等于INT32_MAX即2147483647。
    *     取值限定为整数。
    * @returns { V | undefined } 返回指定下标对应的值，如果下标超出范围则返回undefined。
    * @throws { BusinessError } 10200001 - The value of index is out of range.

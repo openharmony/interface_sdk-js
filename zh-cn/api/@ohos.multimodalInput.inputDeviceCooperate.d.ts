@@ -321,7 +321,7 @@ declare namespace inputDeviceCooperate {
    * > 替代。
    *
    * @param { 'cooperation' } type - 注册类型，取值“cooperation”。
-   * @param { AsyncCallback<void> } callback - 回调函数。当取消注册成功，err为undefined，否则为错误对象。若无此参数，则取消当前应用注册的所有回调函数。
+   * @param { AsyncCallback<void> } [callback] - 回调函数。当取消注册成功，err为undefined，否则为错误对象。若无此参数，则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]

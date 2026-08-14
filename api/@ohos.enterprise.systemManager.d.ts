@@ -14,18 +14,20 @@
  */
 
 /**
- * @file
+ * @file System Management
  * @kit MDMKit
  */
 
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **systemManager** module provides system management capabilities.
+ * This module provides system management capabilities, including NTP time server settings, OTA update policy
+ * management, system update management, key event handling policies, log collection, and device activation lock
+ * management. It is suitable for enterprise device management scenarios, helping enterprise administrators uniformly
+ * manage device system configurations, update policies, and security policies, thereby improving enterprise device
+ * management efficiency and security.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
@@ -53,8 +55,7 @@ declare namespace systemManager {
     versionName: string;
 
     /**
-     * Time when the system update package is received for the first time.
-     * Unit: Seconds, The value must be an integer greater than or equal to 0.
+     * Time when the system update package is received for the first time, in seconds.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -63,7 +64,7 @@ declare namespace systemManager {
     firstReceivedTime: number;
 
     /**
-     * Type of the system update package to update.
+     * Type of the system update package to update. The value can be **normal** or **patch**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -155,7 +156,6 @@ declare namespace systemManager {
 
     /**
      * Latest update time (timestamp).
-     * Unit: Seconds, The value must be an integer greater than or equal to 0.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -164,8 +164,7 @@ declare namespace systemManager {
     latestUpdateTime?: number;
 
     /**
-     * Period for which the update is postponed.
-     * Unit: Hours, The value must be an integer greater than or equal to 0.
+     * Period for which the update is postponed, in hours.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -175,7 +174,6 @@ declare namespace systemManager {
 
     /**
      * Start time (timestamp) of the installation window.
-     * Unit: Seconds, The value must be an integer greater than or equal to 0.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -185,7 +183,6 @@ declare namespace systemManager {
 
     /**
      * End time (timestamp) of the installation window.
-     * Unit: Seconds, The value must be an integer greater than or equal to 0.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -199,7 +196,7 @@ declare namespace systemManager {
      * [systemManager.setOtaUpdatePolicy]{@link systemManager.setOtaUpdatePolicy}, the default value can be retained.
      * The current configuration can be obtained via the
      * [systemManager.getOtaUpdatePolicy]{@link systemManager.getOtaUpdatePolicy} API. After public network upgrade is
-     * disabled, you can perform intranet upgrade.<!--RP4--><!--RP4End-->
+     * disabled, you can perform intranet upgrade.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -461,7 +458,7 @@ declare namespace systemManager {
     code: number;
 
     /**
-     * Error information.
+     * Error message.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -479,7 +476,7 @@ declare namespace systemManager {
    */
   enum NearLinkProtocol {
     /**
-     * SparkLink Service Access Protocol (SSAP).<!--RP1--><!--RP1End-->
+     * SparkLink Service Access Protocol (SSAP).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -488,7 +485,7 @@ declare namespace systemManager {
     SSAP = 0,
 
     /**
-     * Data transfer protocol.<!--RP2--><!--RP2End-->
+     * Data transfer protocol.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -527,12 +524,11 @@ declare namespace systemManager {
   }
 
   /**
-   * Key code. Key codes are used to map to the actual physical keys on a device in the following scenarios:
-   * [adding a key event policy]{@link systemManager.addKeyEventPolicies},
-   * [removing a key event policy]{@link systemManager.removeKeyEventPolicies},
-   * [querying a key event policy]{@link systemManager.getKeyEventPolicies}, and
-   * [invoking the key event callback API]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onKeyEvent}
-   * .
+   * Key code. The [addKeyEventPolicies]{@link systemManager.addKeyEventPolicies},
+   * [removeKeyEventPolicies]{@link systemManager.removeKeyEventPolicies},
+   * [getKeyEventPolicies]{@link systemManager.getKeyEventPolicies}, and
+   * [onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onKeyEvent}
+   * APIs map key codes to the corresponding physical keys on the device.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -619,7 +615,7 @@ declare namespace systemManager {
     /**
      * Intercepts and forwards messages. When this policy is configured, the system intercepts the current key event and
      * does not process the event. In addition, the
-     * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onKeyEvent}
+     * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onKeyEvent}
      * callback API is used to notify the MDM app of the key event, which does not block the processing of other events.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -631,7 +627,7 @@ declare namespace systemManager {
 
   /**
    * Enumerates key events. When the
-   * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onKeyEvent}
+   * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onKeyEvent}
    * key event callback is triggered, the current key event information is transferred.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -745,7 +741,6 @@ declare namespace systemManager {
     /**
      * Time when the key action occurs. The value is a microsecond-level timestamp after the system is powered on.
      * Navigation keys do not support combination expansion, so their occurrence time is displayed as 0.
-     * The value range is all integers.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -755,13 +750,18 @@ declare namespace systemManager {
   }
 
   /**
-   * Sets the NTP server.
+   * Sets the Network Time Protocol (NTP) time server. After successful configuration, the system will use the specified
+   * NTP server for time synchronization to calibrate the system time. This API is suitable for scenarios where
+   * enterprise devices require unified time synchronization, ensuring that device time remains consistent with standard
+   * time and avoiding business issues caused by inaccurate time, such as inconsistent log timestamps and certificate
+   * validation failures.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } server - NTP server addresses separated by commas (,). For example,
-   *     **ntpserver1.com,ntpserver2.com**. The value can contain a maximum of 96 bytes (including the end character).
+   *     **ntpserver1.com,ntpserver2.com**. The value can contain a maximum of 96 bytes, including the null terminator (
+   *     **\0**).
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -775,7 +775,9 @@ declare namespace systemManager {
   function setNTPServer(admin: Want, server: string): void;
 
   /**
-   * Obtains the NTP server information.
+   * Obtains the NTP server information. This API is applicable to scenarios where you need to query the current NTP
+   * server address configured on the device, to verify whether the time synchronization configuration is correct, or to
+   * obtain the current configuration before making policy adjustments.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -794,7 +796,8 @@ declare namespace systemManager {
   function getNTPServer(admin: Want): string;
 
   /**
-   * Sets the update policy. In intranet updates, call
+   * Sets the update policy. After the setting is successful, the system performs OTA updates based on the specified
+   * policy type. Different policy types correspond to different update behaviors. In intranet updates, call
    * [systemManager.notifyUpdatePackages]{@link systemManager.notifyUpdatePackages} to notify the system of the update
    * packages and then call this API to set the upgrade policy.
    *
@@ -815,7 +818,9 @@ declare namespace systemManager {
   function setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void;
 
   /**
-   * Checks the update policy.
+   * Checks the update policy. This API is applicable to scenarios where you need to obtain the current OTA update
+   * policy configuration of the device, to verify whether the policy is correctly delivered, or to obtain the current
+   * policy configuration before making policy adjustments.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -836,7 +841,7 @@ declare namespace systemManager {
   /**
    * Notifies the system of the update packages. In intranet updates, call this API to notify the system of the update
    * packages, and then call [systemManager.setOtaUpdatePolicy]{@link systemManager.setOtaUpdatePolicy} to set the
-   * update policy.
+   * update policy. This API uses a promise to return the result.
    *
    * > **NOTE**
    * >
@@ -846,9 +851,9 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { UpdatePackageInfo } packageInfo - Information about the system update packages.<br>**Note**: The input
-   *     **UpdatePackageInfo.packages.path** must be a .zip package starting with update. If a file in other formats is
-   *     input, error code 9201004 will be reported.
+   * @param { UpdatePackageInfo } packageInfo - Information about the system update packages.
+   *     <br>**Note**: The input **UpdatePackageInfo.packages.path** must be a .zip package starting with update. If a
+   *     file in other formats is input, error code 9201004 will be reported.
    * @returns { Promise<void> } Promise that returns no value. An error object will be thrown if the operation fails.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -864,7 +869,10 @@ declare namespace systemManager {
   function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise<void>;
 
   /**
-   * Obtains the system update result.
+   * Obtains the system update result. This API uses a promise to return the result. This API is applicable to scenarios
+   * where you need to check whether a system update is successful. It helps enterprise administrators understand the
+   * device update status and handle update failures in a timely manner to ensure that the device system version meets
+   * enterprise requirements.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -884,7 +892,10 @@ declare namespace systemManager {
   function getUpdateResult(admin: Want, version: string): Promise<UpdateResult>;
 
   /**
-   * Obtains the authentication data for system update verification. This API uses a promise to return the result.
+   * Obtains the authentication data for system update verification. This API uses a promise to return the result. This
+   * API is applicable to intranet update scenarios. Enterprise administrators can use the authentication data to verify
+   * the validity and integrity of the system update package, preventing malicious update packages and improving system
+   * security.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -902,7 +913,9 @@ declare namespace systemManager {
 
   /**
    * Sets automatic unlocking upon device reboot. This setting takes effect only on devices without a screen lock
-   * password.
+   * password. This API is applicable to enterprise unattended devices or scenarios where services need to be quickly
+   * restored through a restart, avoiding device downtime caused by manual unlocking, thereby improving device operation
+   * and maintenance efficiency and service continuity.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -942,7 +955,9 @@ declare namespace systemManager {
   function getAutoUnlockAfterReboot(admin: Want): boolean;
 
   /**
-   * Checks whether the device is automatically unlocked upon reboot.
+   * Checks whether the device is automatically unlocked upon reboot. This API is applicable to scenarios where there is
+   * a need to verify whether the device reboot unlock policy is correctly configured, helping enterprise administrators
+   * confirm the status of the automatic device unlock function.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
@@ -966,16 +981,16 @@ declare namespace systemManager {
   /**
    * Adds a list of NearLink protocols that are not allowed to be used for a specified user. NearLink Kit provides a low
    * -power, high-speed short-range communication service that supports connection and data interaction between NearLink
-   * devices. <!--RP3--><!--RP3End-->This API does not take effect for system services and system applications such as
+   * devices. This API does not take effect for system services and system applications such as
    * the keyboard and stylus.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<NearLinkProtocol> } protocols - NearLink protocol list.
-   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call APIs such as
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the user ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -990,15 +1005,21 @@ declare namespace systemManager {
   function addDisallowedNearLinkProtocols(admin: Want, protocols: Array<NearLinkProtocol>, accountId: number): void;
 
   /**
-   * Removes the list of disallowed NearLink protocols for a specified user.
+   * Removes the list of disallowed NearLink protocols for a specified user. After successful removal, the specified
+   * user can use the removed NearLink protocols for communication again, restoring the corresponding protocol
+   * connection capabilities. Use cases: In enterprise device management scenarios, administrators can use this API to
+   * remove previously set NearLink protocol disabling policies, allowing users to resume communication between devices
+   * via NearLink protocols. This is suitable for scenarios where there is a need to restore NearLink communication
+   * capabilities for specific users, helping enterprise administrators flexibly adjust NearLink protocol access
+   * permissions of user devices to meet communication requirements in different business scenarios.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<NearLinkProtocol> } protocols - NearLink protocol list.
-   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call APIs such as
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the user ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1013,14 +1034,17 @@ declare namespace systemManager {
   function removeDisallowedNearLinkProtocols(admin: Want, protocols: Array<NearLinkProtocol>, accountId: number): void;
 
   /**
-   * Obtains the list of disallowed NearLink protocols for a specified user.
+   * Obtains the list of disallowed NearLink protocols for a specified user. This API is applicable to scenarios where
+   * there is a need to query the current NearLink protocol access restrictions for a user, helping enterprise
+   * administrators verify whether the policy has been correctly applied or obtain the current configuration before
+   * making policy adjustments.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call APIs such as
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the user ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @returns { Array<NearLinkProtocol> } List of disallowed NearLink protocols for a specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1058,21 +1082,24 @@ declare namespace systemManager {
   function setInstallLocalEnterpriseAppEnabled(admin: Want, isEnable: boolean): void;
 
   /**
-   * Checks whether local installation of enterprise applications is supported.
+   * Checks whether local installation of enterprise applications is supported. This API is applicable to scenarios
+   * where there is a need to verify whether the local installation of enterprise applications is enabled on the device,
+   * helping enterprise administrators confirm the policy configuration status to ensure that enterprise applications
+   * can be properly installed.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>Before API version 24, this API can
-   *     be called to check whether local installation of enterprise applications is supported. If the device has
-   *     multiple MDM applications, you can pass **admin** to query the corresponding policies. Since API version 24,
-   *     **admin** can be set to **null**. In this case, the policies that actually take effect on the device are
-   *     returned. [since 20 - 23]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     <br>Before API version 24, this API can be called to check whether local installation of enterprise
+   *     applications is supported. If the device has multiple MDM applications, you can pass **admin** to query the
+   *     corresponding policies. Since API version 24, **admin** can be set to **null**. In this case, the policies that
+   *     actually take effect on the device are returned. [since 20 - 23]
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>Before API version 24, this API can
-   *     be called to check whether local installation of enterprise applications is supported. If the device has
-   *     multiple MDM applications, you can pass **admin** to query the corresponding policies. Since API version 24,
-   *     **admin** can be set to **null**. In this case, the policies that actually take effect on the device are
-   *     returned. [since 24]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     <br>Before API version 24, this API can be called to check whether local installation of enterprise
+   *     applications is supported. If the device has multiple MDM applications, you can pass **admin** to query the
+   *     corresponding policies. Since API version 24, **admin** can be set to **null**. In this case, the policies that
+   *     actually take effect on the device are returned. [since 24]
    * @returns { boolean } Whether local installation of enterprise applications is supported. The value **true**
    *     indicates that local installation is supported, and the value **false** indicates the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1090,7 +1117,7 @@ declare namespace systemManager {
   /**
    * Adds a key event handling policy. When the system triggers a key event, if the event matches the delivered key
    * event policy, the MDM app will be notified via the
-   * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onKeyEvent}
+   * [EnterpriseAdminExtensionAbility.onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onKeyEvent}
    * callback, with the key event information of the matched policy carried in the callback.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
@@ -1098,9 +1125,9 @@ declare namespace systemManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<KeyEventPolicy> } keyPolicies - Key policy. Physical keys (power key, volume up, and volume down)
    *     and navigation keys (back, home, and recently opened) are supported. Physical keys can be combined into a
-   *     combination key, but navigation keys cannot. For details about the combination key event response, see
-   *     [Key Event Callback]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onKeyEvent}
-   *     .
+   *     combination key, but navigation keys cannot. For details about the combination key event response, see the key
+   *     event callback
+   *     [onKeyEvent]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onKeyEvent}.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
@@ -1116,7 +1143,10 @@ declare namespace systemManager {
   function addKeyEventPolicies(admin: Want, keyPolicies: Array<KeyEventPolicy>): void;
 
   /**
-   * Removes a key event handling policy.
+   * Removes a key event handling policy. After the deletion is successful, the system restores the default handling
+   * behavior for the specified key event. This API is applicable to scenarios where there is a need to restore the
+   * default key behavior, helping enterprise administrators flexibly adjust device key response policies to meet the
+   * needs of different business scenarios.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1156,7 +1186,9 @@ declare namespace systemManager {
   function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>;
 
   /**
-   * Obtains the key event handling policy.
+   * Obtains the key event handling policy. This API is applicable to scenarios where you need to query the current key
+   * event handling policy configuration. It helps enterprise administrators verify whether the policy has been
+   * correctly applied or obtain the current configuration before making policy adjustments.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
@@ -1178,7 +1210,7 @@ declare namespace systemManager {
 
   /**
    * Enables or disables the device activation lock. After the device activation lock is disabled, the Find Device
-   * function will no longer be available. This function applies only to specific devices.<!--RP5--><!--RP5End-->
+   * function will no longer be available. This function is only available on certain devices.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1186,7 +1218,7 @@ declare namespace systemManager {
    * @param { boolean } isDisabled - Whether to disable the activation lock. The value **true** indicates yes, and the
    *     value **false** indicates no.
    * @param { string } [credential] - Credential for disabling the activation lock. To disable the activation lock, you
-   *     must set this parameter to a valid credential<!--RP6--><!--RP6End-->. Leave this parameter empty when enabling
+   *     must set this parameter to a valid credential. Leave this parameter empty when enabling
    *     the activation lock.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the activation lock fails
    *     to be enabled or disabled.
@@ -1207,7 +1239,9 @@ declare namespace systemManager {
   function setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string): Promise<void>;
 
   /**
-   * Checks whether the device activation lock is disabled.
+   * Checks whether the device activation lock is disabled. This API is applicable to scenarios where you need to verify
+   * the device activation lock status. It helps enterprise administrators confirm the device's security configuration,
+   * especially when understanding the activation lock state is necessary for device transfer or recycling.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1229,9 +1263,9 @@ declare namespace systemManager {
   function isActivationLockDisabled(admin: Want): Promise<boolean>;
 
   /**
-   * Starts to collect the [fault logs]{@link @ohos.faultLogger:FaultLogger.FaultType} that have been generated and
-   * stored on the device. The fault logs, app service logs, and system run logs that are not stored on the hard disk
-   * cannot be collected.
+   * Starts to collect the fault logs of the [FaultType]{@link @ohos.faultLogger:FaultLogger.FaultType} type that have
+   * been generated and stored on the device's hard disk. The fault logs, application service logs, and system runtime
+   * logs that are not stored on the hard disk cannot be collected.
    *
    * - After the API is called, the system starts a log collection task. The API returns a response immediately after
    * the task is started. The task may fail due to system performance constraints.
@@ -1240,11 +1274,11 @@ declare namespace systemManager {
    * called before the task is complete, the error code 9201009 is returned, and other MDM apps may call the API only
    * after the task finishes.
    * - Upon task completion, the MDM app is notified via the
-   * [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onLogCollected}
+   * [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onLogCollected}
    * callback. The system mounts the collected log files to the MDM app sandbox path, enabling the MDM app to read the
    * logs within the callback.
    * - If the log collection task takes more than 5 minutes, the
-   * [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onLogCollected}
+   * [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onLogCollected}
    * callback returns a task execution failure message.
    * - After the app obtains the logs, you are advised to call
    * [systemManager.finishLogCollected]{@link systemManager.finishLogCollected} to remove the collected logs.
@@ -1274,7 +1308,7 @@ declare namespace systemManager {
    * >
    * > After the app calls [startCollectLog]{@link systemManager.startCollectLog} to initiate log collection and
    * > receives the
-   * > [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onLogCollected}
+   * > [EnterpriseAdminExtensionAbility.onLogCollected]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onLogCollected}
    * > callback, you are advised to immediately copy or process the logs, and then call this API to delete the collected
    * > logs.
    * >
@@ -1310,8 +1344,10 @@ declare namespace systemManager {
    * > A PC/2-in-1 enterprise device supports local installation of enterprise applications for the current user if any
    * > of the following conditions is met:
    * >
-   *
-   * <!--RP7--><!--RP7End-->
+   * > 1. The offline installer has been enabled by calling
+   * > [setInstallLocalEnterpriseAppEnabled]{@link systemManager.setInstallLocalEnterpriseAppEnabled}.
+   * >
+   * > 2. Local installation of enterprise applications is enabled for the current user by calling this API.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1319,12 +1355,9 @@ declare namespace systemManager {
    * @param { boolean } isEnable - Whether local installation of enterprise applications is supported. The value
    *     **true** indicates that the local installation of enterprise applications is supported, and the value **false**
    *     indicates the opposite.
-   * @param { number } accountId - Account ID.
-   *     <br>The value must be an integer greater than or equal to 0.
-   *     <br>You can call APIs such as
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback:
-   *     AsyncCallback<int>)}
-   *     to obtain the account ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1339,17 +1372,19 @@ declare namespace systemManager {
   function setInstallLocalEnterpriseAppEnabledForAccount(admin: Want, isEnable: boolean, accountId: number): void;
 
   /**
-   * Checks whether local installation of enterprise applications is supported for a specified user.
+   * Checks whether local installation of enterprise applications is supported for a specified user. This API is
+   * applicable to scenarios where there is a need to verify whether local installation of enterprise applications is
+   * enabled for a specific user, helping enterprise administrators confirm the policy configuration status and ensure
+   * that users can normally install enterprise applications.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned.
-   * @param { number } accountId - Account ID.
-   *     <br>The value must be an integer greater than or equal to 0.
-   *     <br>You can call APIs such as [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     to obtain the account ID.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     <br>If the device has multiple MDM applications, you can pass **admin** to query the corresponding policies. If
+   *     **null** is passed, the policies that actually take effect on the device are returned.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br>**accountId** can be obtained via APIs such as
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}.
    * @returns { boolean } Whether local installation of enterprise applications is supported. The value **true**
    *     indicates that local installation is supported, and the value **false** indicates the opposite. When **admin**
    *     is set to **null**, this API checks whether local installation of enterprise applications is supported.
@@ -1367,11 +1402,20 @@ declare namespace systemManager {
   function getInstallLocalEnterpriseAppEnabledForAccount(admin: Want | null, accountId: number): boolean;
 
   /**
-   * Sets the OTA update nonce enable.
+   * Sets whether to enable nonce for OTA update (nonce is enabled by default). When nonce is enabled, the system
+   * verifies the validity of the nonce during the OTA update process to prevent replay attacks and enhance system
+   * security.
+   *
+   * > **NOTE**
+   * >
+   * > To ensure system security, it is not advised to disable nonce verification unless required by specific use cases
+   * > such as intranet updates.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { boolean } isEnable - true indicates enable OTA update nonce, otherwise disable.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } isEnable - The value **true** means to enable nonce for OTA update, and the value **false**
+   *     means to disable nonce for OTA update.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1386,11 +1430,15 @@ declare namespace systemManager {
   function setOtaUpdateNonceEnable(admin: Want, isEnable: boolean): void;
 
   /**
-   * Queries whether OTA update nonce is enabled.
+   * Checks whether nonce is enabled for OTA update. This API is applicable to scenarios where you need to verify the
+   * OTA update security configuration on the device. It helps enterprise administrators confirm the status of the nonce
+   * verification feature to ensure system update security.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @returns { boolean } returns true indicates enabled OTA update nonce, otherwise disabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { boolean } The value **true** means that the nonce for OTA update is enabled, and the value **false**
+   *     means that the nonce for OTA update is disabled.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1401,6 +1449,51 @@ declare namespace systemManager {
    * @since 26.0.0
    */
   function isOtaUpdateNonceEnable(admin: Want): boolean;
+
+  /**
+   * Set the local HOTA domain of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } domain - Indicates the local HOTA domain to set. The value must comply with
+   *     domain name rules. The validation rules are as follows:
+   *     1. The length must not exceed 64 characters.
+   *     2. IP addresses and localhost are not supported.
+   *     3. The domain requires the full request root address, must start with the https://.
+   *     4. The domain must match the folllowing regular expression:
+   *        ^(?:[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}$
+   *     5. Passing an empty string means reverting the domain to its default value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200018 - This device is not an enterprise device.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function setLocalHotaDomain(admin: Want, domain: string): void;
+
+  /**
+   * Get local HOTA domain for device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @returns { string } Returns the local HOTA domain.When the interface is not supported on the
+   *     current device, return an empty string as the default value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200018 - This device is not an enterprise device.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getLocalHotaDomain(admin: Want): string;
 }
 
 export default systemManager;

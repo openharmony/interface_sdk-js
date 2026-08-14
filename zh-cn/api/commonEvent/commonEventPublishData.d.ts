@@ -44,6 +44,7 @@ export interface CommonEventPublishData {
    * 当该参数为空时，表示不限制订阅者包名，所有订阅者都可以接收该公共事件。
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -55,6 +56,7 @@ export interface CommonEventPublishData {
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -120,6 +122,7 @@ export interface CommonEventPublishData {
    * 默认为空。
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */

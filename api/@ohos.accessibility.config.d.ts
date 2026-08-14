@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Accessibility Configuration
  * @kit AccessibilityKit
  */
 
@@ -24,6 +24,10 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * The **accessibility.config** module provides APIs for configuring system accessibility features, including 
  * accessibility extension, high-contrast text, mouse buttons, and captions.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module are system APIs.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -32,10 +36,9 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace config {
   /**
-   * Whether to enable daltonization. It must be used with **daltonizationColorFilter**. The value **true** indicates 
-   * that daltonization is enabled, and **false** indicates the opposite.
-   * 
-   * Default value: **false**
+   * Indicates the color correction feature status. Used together with daltonizationColorFilter. The value **true** 
+   * indicates that color correction is enabled, and **false** indicates that it is disabled. The default value is 
+   * **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -44,10 +47,8 @@ declare namespace config {
    */
   const daltonizationState: Config<boolean>;
   /**
-   * Whether to enable mono audio. The value **true** indicates that mono audio is enabled, and **false** indicates the 
-   * opposite.
-   * 
-   * Default value: **false**
+   * Indicates the mono audio feature status. The value **true** indicates that the mono audio feature is enabled, and 
+   * **false** indicates that it is disabled. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -56,9 +57,10 @@ declare namespace config {
    */
   const audioMono: Config<boolean>;
   /**
-   * Audio balance for the left and right audio channels. The value ranges from -1.0 to 1.0.
-   * 
-   * Default value: **0.0**
+   * Indicates the configuration for left and right channel volume balance. **-1.0** indicates output from the left 
+   * channel only; **0.0** indicates balanced output from both channels; **1.0** indicates output from the right channel
+   * only. Intermediate values represent a linear ratio of the left and right channel volumes. The value ranges from -1.
+   * 0 to 1.0. The default value is **0.0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -91,7 +93,9 @@ declare namespace config {
    */
   let invertColor: Config<boolean>;
   /**
-   * Configuration of the daltonization filter.
+   * Indicates the color correction filter configuration. Used together with daltonizationState. This configuration 
+   * takes effect only when daltonizationState is set to **true**. The default value is Normal, indicating the standard 
+   * type.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -100,9 +104,9 @@ declare namespace config {
    */
   let daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
-   * Recommended duration for content display. The value ranges from 0 to 5000, in milliseconds.
-   * 
-   * Default value: **0**
+   * Indicates the content display suggested duration configuration, which is used to set the duration for which 
+   * accessibility prompts and other content remain displayed on the screen. The value ranges from 0 to 5000, in 
+   * milliseconds. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -123,9 +127,9 @@ declare namespace config {
    */
   let animationOff: Config<boolean>;
   /**
-   * Brightness discount. The value ranges from 0 to 1.0.
-   * 
-   * Default value: **0.0**
+   * Indicates the brightness discount configuration, which is used to proportionally adjust the screen display 
+   * brightness. The value ranges from 0 to 1.0, where **0** indicates no brightness discount (original brightness) and 
+   * **1.0** indicates the maximum brightness discount. The default value is **0.0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -146,11 +150,9 @@ declare namespace config {
    */
   let mouseKey: Config<boolean>;
   /**
-   * Configuration of the automatic mouse click operation. The value ranges from 0 to 5000, in milliseconds. The value 
-   * **0** indicates that the automatic mouse click is not triggered; other values indicate that the operation is 
-   * triggered when the mouse pointer is hovered for a specified period of time.
-   * 
-   * Default value: **0**
+   * Indicates the configuration for the mouse auto-click operation. The value ranges from 0 to 5000, in milliseconds. 
+   * **0** indicates that the feature is disabled, and other values indicate the duration of mouse hovering that 
+   * triggers the auto-click operation. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -159,10 +161,9 @@ declare namespace config {
    */
   let mouseAutoClick: Config<int>;
   /**
-   * Whether to enable the accessibility extension shortcut key. The value **true** indicates that the auxiliary 
-   * extension shortcut key is enabled, and **false** indicates the opposite.
-   * 
-   * Default value: **false**
+   * Indicates the accessibility extension shortcut key feature status. Used together with shortkeyTarget. The value 
+   * **true** indicates that the accessibility extension shortcut key feature is enabled, and **false** indicates that 
+   * it is disabled. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -171,7 +172,9 @@ declare namespace config {
    */
   let shortkey: Config<boolean>;
   /**
-   * Target application for the accessibility extension shortcut key. The value format is 'bundleName/abilityName'.
+   * Indicates the target configuration of the accessibility extension shortcut key. The value is the name of the 
+   * accessibility extension app, in the format 'bundleName/abilityName'. If the format is incorrect or the name is 
+   * invalid, the setting does not take effect.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -180,7 +183,9 @@ declare namespace config {
    */
   let shortkeyTarget: Config<string>;
   /**
-   * List of target applications for the accessibility shortcut keys. The value format is ['bundleName/abilityName'].
+   * Indicates the multi-target list configuration of the accessibility extension shortcut key. The value is the name of
+   * the accessibility extension app, in the format ['bundleName/abilityName']. If the format is incorrect or the name 
+   * is invalid, the setting does not take effect.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -201,7 +206,7 @@ declare namespace config {
    */
   let captions: Config<boolean>;
   /**
-   * Captions style.
+   * Indicates the configuration of the caption style.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -231,7 +236,9 @@ declare namespace config {
    */
   const ignoreRepeatClick: Config<boolean>;
   /**
-   * Interval between repeated clicks.
+   * Indicates the configuration for the interval of ignoring repeated clicks. Used together with ignoreRepeatClick. 
+   * This configuration takes effect only when ignoreRepeatClick is set to **true**. The default value is Shortest, 
+   * indicating the shortest interval.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -250,11 +257,16 @@ declare namespace config {
   const screenMagnification: Config<boolean>;
 
   /**
-   * Enables an accessibility extension ability. This API uses a promise to return the result.
+   * Enables an accessibility extension. This API must be used together with 
+   * [config.disableAbility]{@link config.disableAbility}. This API uses a promise to return the result.
+   * 
+   * Compared with [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}, this API only enables the
+   * accessibility extension without listening for connection state changes. To listen for disconnection events of the 
+   * accessibility extension, use [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { string } name - Name of the accessibility extension ability, in the format of 'bundleName/abilityName'.
-   * @param { Array<accessibility.Capability> } capability - Capability of the accessibility extension ability.
+   * @param { string } name - Name of the accessibility extension app, in the format of 'bundleName/abilityName'.
+   * @param { Array<accessibility.Capability> } capability - Capability attributes of the accessibility extension app.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -273,12 +285,18 @@ declare namespace config {
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
 
   /**
-   * Enables an accessibility extension ability. This API uses an asynchronous callback to return the result.
+   * Enables an accessibility extension. This API must be used together with 
+   * [config.disableAbility]{@link config.disableAbility}. This API uses an asynchronous callback to return the result.
+   * 
+   * Compared with [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}, this API only enables the
+   * accessibility extension without listening for connection state changes. To listen for disconnection events of the 
+   * accessibility extension, use [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { string } name - Name of the accessibility extension ability, in the format of 'bundleName/abilityName'.
-   * @param { Array<accessibility.Capability> } capability - Capability of the accessibility extension ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } name - Name of the accessibility extension app, in the format of 'bundleName/abilityName'.
+   * @param { Array<accessibility.Capability> } capability - Capability attribute of the accessibility extension app.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the accessibility extension is
+   *     enabled successfully, **err** is undefined; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -300,14 +318,17 @@ declare namespace config {
   ): void;
 
   /**
-   * Enables the auxiliary extension ability and specifies [ConnectCallback]{@link ConnectCallback} to be invoked when
-   * the state of an auxiliary extension ability changes. This API uses a promise to return the result.
+   * Enables an accessibility extension and specifies [ConnectCallback]{@link config.ConnectCallback} as the callback 
+   * for disconnection events of the accessibility extension. This API uses a promise to return the result.
+   * 
+   * When the accessibility extension process is abnormally disconnected, the onDisconnect callback of ConnectCallback 
+   * will be triggered. This API must be used together with [config.disableAbility]{@link config.disableAbility}.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name - Name of the accessibility extension ability, in the format of 'bundleName/abilityName'.
    * @param { Array<accessibility.Capability> } capability - Capabilities of the auxiliary extension ability.
-   * @param { ConnectCallback } connectCallback - Callback to be invoked when the state of an auxiliary extension
-   *     ability changes.
+   * @param { ConnectCallback } connectCallback - Callback invoked when an accessibility extension app is disconnected,
+   *     used to listen for disconnection events of the accessibility extension.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -326,10 +347,13 @@ declare namespace config {
   ): Promise<void>;
 
   /**
-   * Disables an accessibility extension ability. This API uses a promise to return the result.
+   * Disables an accessibility extension. This API must be used together with 
+   * [config.enableAbility]{@link config.enableAbility} or 
+   * [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { string } name - Name of the accessibility extension ability, in the format of 'bundleName/abilityName'.
+   * @param { string } name - Name of the accessibility extension application, in the format 'bundleName/abilityName'.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -347,11 +371,15 @@ declare namespace config {
   function disableAbility(name: string): Promise<void>;
 
   /**
-   * Disables an accessibility extension ability. This API uses an asynchronous callback to return the result.
+   * Disables an accessibility extension. This API must be used together with 
+   * [config.enableAbility]{@link config.enableAbility} or 
+   * [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback}. This API uses an asynchronous callback 
+   * to return the result.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { string } name - Name of the accessibility extension ability, in the format of 'bundleName/abilityName'.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } name - Name of the accessibility extension app, in the format of 'bundleName/abilityName'.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the accessibility extension is
+   *     disabled successfully, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -368,13 +396,17 @@ declare namespace config {
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a listener for changes in the list of enabled accessibility extension abilities. This API uses an asynchronous
-   * callback to return the result.
+   * Adds a listener for changes in the list of enabled accessibility extensions. This API uses an asynchronous callback
+   * to return the result.
+   * 
+   * This API must be used together with 
+   * [config.off('enabledAccessibilityExtensionListChange')]{@link config.off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>)}.
+   * Call off to unregister the listener when it is no longer needed to avoid resource leaks.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { 'enabledAccessibilityExtensionListChange' } type - Listening type. The value is fixed at
-   *     **'enabledAccessibilityExtensionListChange'**, indicating listening for changes in the list of enabled
-   *     accessibility extension abilities.
+   * @param { 'enabledAccessibilityExtensionListChange' } type - The parameter is fixed to '
+   *     enabledAccessibilityExtensionListChange', which specifies the event type for listening to the list change of
+   *     enabled accessibility extensions.
    * @param { Callback<void> } callback - Callback invoked when the list of enabled accessibility extension abilities
    *     changes.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -405,8 +437,12 @@ declare namespace config {
   function onEnabledAccessibilityExtensionListChange(callback: Callback<void>): void;
 
   /**
-   * Adds a listener for changes in the list of installed accessibility extension abilities. This API uses an 
-   * asynchronous callback to return the result.
+   * Adds a listener for changes in the list of installed accessibility extensions. This API uses an asynchronous 
+   * callback to return the result.
+   * 
+   * This API must be used together with 
+   * [config.off('installedAccessibilityListChange')]{@link config.off(type: 'installedAccessibilityListChange', callback?: Callback<void>)}.
+   * Call off to unregister the listener when it is no longer needed to avoid resource leaks.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'installedAccessibilityListChange' } type - Listening type. The value is fixed at
@@ -442,16 +478,17 @@ declare namespace config {
   function onInstalledAccessibilityListChange(callback: Callback<void>): void;
 
   /**
-   * Cancels a listener for changes in the list of enabled accessibility extension abilities. This API uses an 
-   * asynchronous callback to return the result.
+   * Cancels the listener for changes in the list of enabled accessibility extensions. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { 'enabledAccessibilityExtensionListChange' } type - Listening type. The value is fixed at
-   *     **'enabledAccessibilityExtensionListChange'**, indicating listening for changes in the list of enabled
-   *     accessibility extension abilities.
-   * @param { Callback<void> } callback - Callback used to unregister. The value must be the same as the value of
-   *     **callback** in **on('enabledAccessibilityExtensionListChange')**. If this parameter is not specified,
-   *     listening will be disabled for all callbacks corresponding to the specified type.
+   * @param { 'enabledAccessibilityExtensionListChange' } type - The parameter is fixed to '
+   *     enabledAccessibilityExtensionListChange', specifying that the event type to unsubscribe from is the change of
+   *     the enabled accessibility extension list.
+   * @param { Callback<void> } callback - Callback function used to cancel the event response of the specified callback
+   *     object. The value must be the same as the value of **callback** in
+   *     **on('enabledAccessibilityExtensionListChange')**. If this parameter is not specified, all registered events
+   *     will be unregistered.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -480,16 +517,16 @@ declare namespace config {
   function offEnabledAccessibilityExtensionListChange(callback?: Callback<void>): void;
 
   /**
-   * Cancels a listener for changes in the list of installed accessibility extension abilities. This API uses an 
-   * asynchronous callback to return the result.
+   * Cancels the listener for changes in the list of installed accessibility extensions. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { 'installedAccessibilityListChange' } type - Listening type. The value is fixed at
-   *     **'installedAccessibilityListChange'**, indicating listening for changes in the list of installed accessibility
-   *     extension abilities.
-   * @param { Callback<void> } callback - Callback used to unregister. The value must be the same as the value of
-   *     **callback** in **on('installedAccessibilityListChange')**. If this parameter is not specified, listening will
-   *     be disabled for all callbacks corresponding to the specified type.
+   * @param { 'installedAccessibilityListChange' } type - The value is fixed at 'installedAccessibilityListChange',
+   *     which specifies that the event type to unsubscribe from is changes in the list of installed accessibility
+   *     extensions.
+   * @param { Callback<void> } callback - Callback function used to cancel the event response of the specified callback
+   *     object. The value must be the same as the value of **callback** in **on('installedAccessibilityListChange')**.
+   *     If this parameter is not specified, all registered events will be unregistered.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -518,11 +555,13 @@ declare namespace config {
   function offInstalledAccessibilityListChange(callback?: Callback<void>): void;
 
   /**
-   * Sets the magnification state. Ensure that magnification is enabled before calling this API.
+   * Sets the enabled state of the magnification effect. The magnification effect depends on the magnification gesture 
+   * feature. This API takes effect only when the magnification gesture feature is enabled.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { boolean } state - Whether to trigger or disable the magnification feature.<br>- **true**: to trigger the
-   *     magnification feature.<br>- **false**: to disable the magnification feature.
+   * @param { boolean } state - Indicates the enabled state of the magnification effect.
+   *     <br>- **true**: indicates that the magnification effect is enabled.
+   *     <br>- **false**: indicates that the magnification effect is disabled.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -537,12 +576,12 @@ declare namespace config {
   function setMagnificationState(state: boolean): void;
 
   /**
-   * Set the senior mode state for app.
+   * Sets the senior mode state for an app. This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { Array<AppSeniorModeInfo> } appSeniorModeInfos - Indicates the list of
-   *     app package names and statuses for which the advanced mode needs to be set.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<AppSeniorModeInfo> } appSeniorModeInfos - Senior mode state information of the app to modify. Each
+   *     object in the array contains three properties: bundleName, appIndex, and seniorModeState.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -559,14 +598,14 @@ declare namespace config {
   function setSeniorModeStateForApp(appSeniorModeInfos: Array<AppSeniorModeInfo>): Promise<void>;
 
   /**
-   * Get the senior mode state for app.
+   * Queries the senior mode state of an app. This API uses a promise to return the result.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { string } bundleName - Indicates the bundle name of the application to be queried
-   *     <br>The bundle name must follow the reverse domain naming convention (e.g., "com.example.app").
-   * @param { int } [appIndex] - Indicates the index of clone app.
-   *     <br>The value must be an integer greater than or equal to 0. Default value: 0.
-   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @param { string } bundleName - Bundle name of the app whose senior mode state is to be queried.
+   * @param { int } [appIndex] - Clone index of the app bundle.
+   *     <br>Value range: an integer greater than or equal to 0. If not specified, the default value is **0**.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the senior mode
+   *     is enabled for the app, and **false** indicates that the senior mode is not enabled for the app.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -583,10 +622,22 @@ declare namespace config {
   function getSeniorModeStateForApp(bundleName: string, appIndex?: int): Promise<boolean>;
 
   /**
-   * Register an observer for anyone application's senior mode state changes.
+   * Listens for senior mode state change events of all apps. This API uses an asynchronous callback to return the 
+   * result.
+   * 
+   * > **NOTE**
+   * >
+   * > - The callback parameter for registration should use a named function instead of an anonymous function, otherwise
+   * > a new underlying object will be created each time it is called, causing memory leaks.
+   * >
+   * > - After calling this method, be sure to use 
+   * > [config.offSeniorModeStateChangeForApp]{@link config.offSeniorModeStateChangeForApp(callback?: Callback<AppSeniorModeInfo>)}
+   * > to cancel the listener before the component instance is destroyed (for example, in the aboutToDisappear lifecycle
+   * > ), otherwise crashes may occur.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<AppSeniorModeInfo> } callback - Asynchronous callback interface.
+   * @param { Callback<AppSeniorModeInfo> } callback - Callback invoked to return the modified senior mode information
+   *     of the app.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -599,10 +650,14 @@ declare namespace config {
   function onSeniorModeStateChangeForApp(callback: Callback<AppSeniorModeInfo>): void;
 
   /**
-   * Unregister the observer for application's senior mode state changes.
+   * Cancels the listener for senior mode state change events of all apps. This API uses an asynchronous callback to 
+   * return the result.
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<AppSeniorModeInfo> } [callback] - Asynchronous callback interface.
+   * @param { Callback<AppSeniorModeInfo> } [callback] - Callback function used to cancel the event response of the
+   *     specified callback object. The value must be the same as the value of **callback** in
+   *     [config.onSeniorModeStateChangeForApp]{@link config.onSeniorModeStateChangeForApp(callback: Callback<AppSeniorModeInfo>)}.
+   *     If this parameter is not specified, all registered events will be unregistered.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -615,12 +670,12 @@ declare namespace config {
   function offSeniorModeStateChangeForApp(callback?: Callback<AppSeniorModeInfo>): void;
 
   /**
-   * Enable the flash or screen to blink for flash alert.
+   * Enables the flash or screen for blinking reminders.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { BlinkingMode } mode - Indicates the mode of screen flickering or flash light flashing.
-   * @param { BlinkingScenario } scenario - Indicates the scenario that blinking is triggered.
-   * @returns { BlinkResultCode } Returns the result code.
+   * @param { BlinkingMode } mode - Blinking mode, indicating screen blinking or flash blinking.
+   * @param { BlinkingScenario } scenario - Scenario that triggers blinking.
+   * @returns { BlinkResultCode } Result code returned by the API call.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -638,12 +693,12 @@ declare namespace config {
   function startBlinking(mode: BlinkingMode, scenario: BlinkingScenario): BlinkResultCode;
 
   /**
-   * Stop the flash or screen to blink for flash alert.
+   * Stops flash blinking or screen blinking.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-   * @param { BlinkingMode } mode - Indicates the mode of screen flickering or flash light flashing.
-   * @param { BlinkingScenario } scenario - Indicates the scenario that blinking is triggered.
-   * @returns { BlinkResultCode } Returns the result code.
+   * @param { BlinkingMode } mode - Blinking mode, indicating screen blinking or flash blinking.
+   * @param { BlinkingScenario } scenario - Scenario that triggers blinking.
+   * @returns { BlinkResultCode } Result code returned by the API call.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -673,7 +728,8 @@ declare namespace config {
      * Sets the value of a property. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value - Property value to set.
+     * @param { T } value - Attribute value to set. The value type is consistent with the type of the corresponding
+     *     Config attribute.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
@@ -693,8 +749,10 @@ declare namespace config {
      * Sets the property value. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value - Property value to set.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { T } value - Attribute value to set. The value type is the same as that of the corresponding Config
+     *     attribute.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -726,7 +784,9 @@ declare namespace config {
     /**
      * Obtains the property value. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the property value.
+     * @param { AsyncCallback<T> } callback - Callback used to return the result. If the attribute is obtained
+     *     successfully, **err** is **undefined** and **data** is the attribute value; otherwise, **err** is an error
+     *     object.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -737,6 +797,9 @@ declare namespace config {
 
     /**
      * Adds a listener for property changes. This API uses an asynchronous callback to return the result.
+     * 
+     * This API must be used together with [off]{@link config.Config.off}. Call off to unregister the listener when it 
+     * is no longer needed to avoid resource leaks.
      *
      * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback - Callback invoked when the property changes.
@@ -773,11 +836,10 @@ declare namespace config {
   }
 
   /**
-   * Callback provided when the [enableAbilityWithCallback]{@link config.enableAbilityWithCallback} API is called to 
-   * enable an accessibility extension ability. This callback will be invoked when the connection to an auxiliary 
-   * extension ability is disconnected.
+   * Callback provided when enabling an accessibility extension app through the 
+   * [config.enableAbilityWithCallback]{@link config.enableAbilityWithCallback} API. The callback is invoked when the 
+   * connection to the accessibility extension app is disconnected.
    *
-   * @interface ConnectCallback
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @stagemodelonly
@@ -785,19 +847,18 @@ declare namespace config {
    */
   export interface ConnectCallback {
     /**
-     * Callback to be invoked when the connection to an auxiliary extension ability is disconnected.
+     * Callback invoked when the connection to the accessibility extension app is disconnected.
      *
-     * @type { OnDisconnectCallback }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     onDisconnect: OnDisconnectCallback;
-  }
+  }  
 
   /**
-   * Indicates the senior mode information of an application.
+   * Senior mode state information of an app.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -806,7 +867,7 @@ declare namespace config {
    */
   interface AppSeniorModeInfo {
     /**
-     * The bundle name of application.
+     * Bundle name of the app, used to identify the app, in the format of **'com.example.myapplication'**.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -815,8 +876,8 @@ declare namespace config {
      */
     bundleName: string;
     /**
-     * Indicates the index of clone app.
-     * The value must be an integer greater than or equal to 0. Default value: 0.
+     * Clone index of the app bundle. The value is an integer greater than or equal to 0. If not specified, the default 
+     * value is **0**.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -825,7 +886,7 @@ declare namespace config {
      */
     appIndex?: int;
     /**
-     * The state of senior mode for application.
+     * Senior mode enabled state of the app. The value **true** indicates enabled, and **false** indicates disabled.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -846,15 +907,15 @@ declare namespace config {
   type OnDisconnectCallback = () => void;
 
   /**
-   * Enumerates the daltonization filters.
-   * The configuration of **DaltonizationColorFilter** takes effect only when
-   * [daltonizationState]{@link daltonizationState} is set to **true**; the normal type is used when
-   * [daltonizationState]{@link daltonizationState} is set to **false**.
-   * 
-   * @unionmember { 'Normal' } Filter for normal users.
-   * @unionmember { 'Protanomaly' } Filter for protanomaly.
-   * @unionmember { 'Deuteranomaly' } Filter for deuteranomaly.
-   * @unionmember { 'Tritanomaly' } Filter for tritanomaly.
+   * The configuration takes effect when the daltonization feature is enabled (
+   * [daltonizationState]{@link config.daltonizationState} is set to **true**). When the daltonization feature is 
+   * disabled ([daltonizationState]{@link config.daltonizationState} is set to **false**), the standard type is 
+   * displayed.
+   *
+   * @unionmember { 'Normal' } Standard color vision.
+   * @unionmember { 'Protanomaly' } Red-weak color vision deficiency.
+   * @unionmember { 'Deuteranomaly' } Green-weak color vision deficiency.
+   * @unionmember { 'Tritanomaly' } Blue-weak color vision deficiency.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
@@ -863,9 +924,9 @@ declare namespace config {
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 
   /**
-   * Defines the length of time for a click.
-   * 
-   * @unionmember { 'Short' } Short (default).
+   * Click duration of different lengths.
+   *
+   * @unionmember { 'Short' } Indicates short (default).
    * @unionmember { 'Medium' } Medium.
    * @unionmember { 'Long' } Long.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -876,10 +937,11 @@ declare namespace config {
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
   /**
-   * Defines the interval between repeated clicks.
-   * The configuration of **RepeatClickInterval** takes effect when [ignoreRepeatClick]{@link ignoreRepeatClick} is set
-   * to **true**; the normal type is used when [ignoreRepeatClick]{@link ignoreRepeatClick} is set to **false**.
-   * 
+   * The configuration takes effect when the ignore repeated click feature is enabled (
+   * [ignoreRepeatClick]{@link config.ignoreRepeatClick} is set to **true**). When the ignore repeated click feature is 
+   * disabled ([ignoreRepeatClick]{@link config.ignoreRepeatClick} is set to **false**), the configuration does not take
+   * effect.
+   *
    * @unionmember { 'Shortest' } Shortest.
    * @unionmember { 'Short' } Short.
    * @unionmember { 'Medium' } Medium.
@@ -893,7 +955,7 @@ declare namespace config {
   type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 
   /**
-   * Blinking Mode Enumeration
+   * Enumerates the blinking modes.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -902,7 +964,7 @@ declare namespace config {
    */
   export enum BlinkingMode {  
     /**
-     * Indicates a single blink.
+     * Single blink.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -911,7 +973,7 @@ declare namespace config {
      */
     SINGLE_BLINK = 1,
     /**
-     * Indicates continuous blink.
+     * Continuous blink.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -922,7 +984,7 @@ declare namespace config {
   }
 
   /**
-   * Blinking Scenario Enumeration
+   * Enumerates the blinking scenarios.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -931,7 +993,7 @@ declare namespace config {
    */
   export enum BlinkingScenario {
     /**
-     * Indicates that the alarm clock triggers blinking.
+     * Blinking triggered by an alarm.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -940,7 +1002,7 @@ declare namespace config {
      */
     ALARM = 1,
     /**
-     * Indicates that the notification triggers blinking.
+     * Blinking triggered by a notification.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -949,7 +1011,7 @@ declare namespace config {
      */
     NOTIFICATION = 2,
     /**
-     * Indicates that the phone call triggers blinking.
+     * Blinking triggered by an incoming call.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -958,7 +1020,7 @@ declare namespace config {
      */
     CALL = 3,
     /**
-     * Indicates that triggers blinking for testing.
+     * Blinking triggered by a test scenario.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -969,7 +1031,7 @@ declare namespace config {
   }
 
   /**
-   * Enumerates the result codes for blinking operations.
+   * Enumerates the result codes of blinking operations.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -978,7 +1040,7 @@ declare namespace config {
    */
   export enum BlinkResultCode {
     /**
-     * Success.
+     * The blinking API is executed successfully.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -987,7 +1049,7 @@ declare namespace config {
      */
     SUCCESS = 0,
     /**
-     * Currently flashing.
+     * The device is already blinking.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -996,7 +1058,7 @@ declare namespace config {
      */
     ALREADY_FLASHING = 1,
     /**
-     * Device is in use.
+     * The device is in use.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -1005,7 +1067,7 @@ declare namespace config {
      */
     DEVICE_IN_USE = 2,
     /**
-     * Flash blinking is unsupported.
+     * The device does not support flash blinking.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -1014,7 +1076,7 @@ declare namespace config {
      */
     FLASH_BLINKING_UNSUPPORTED = 3,
     /**
-     * Screen blinking is unsupported.
+     * The device does not support screen blinking.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -1023,7 +1085,7 @@ declare namespace config {
      */
     SCREEN_BLINKING_UNSUPPORTED = 4,
     /**
-     * Feature switch is disabled.
+     * The blinking feature is not enabled.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi

@@ -10761,6 +10761,17 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     isSelectionOrderAdjustable?: boolean;
+
+    /**
+     * Picker color mode. Dark/light color mode of all content within the Picker.
+     * The default value is `PickerColorMode.AUTO`, which follows the system's dark/light color mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    pickerColorMode?: PickerColorMode;
   }
 
   /**
@@ -17127,6 +17138,47 @@ declare namespace photoAccessHelper {
      */
     AI_SEARCH_TOOL_TYPE = 14
   }
+
+  /**
+   * Enumerates the Picker color modes.
+   * 
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  export enum PickerColorMode {
+    /**
+     * Same with the system.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    AUTO = 0,
+
+    /**
+     * Light mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    LIGHT = 1,
+
+    /**
+     * Dark mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    DARK = 2
+  }
+
 
   /**
    * Configuration for invoking an analysis tool.

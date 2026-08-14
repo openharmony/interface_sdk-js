@@ -24,11 +24,9 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the RichText attribute functions.
  *
- * @extends CommonMethod<RichTextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
- * @noninterop
  */
 export declare interface RichTextAttribute extends CommonMethod {
     /**

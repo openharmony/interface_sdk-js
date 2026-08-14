@@ -17,19 +17,11 @@
  * @file
  * @kit ArkUI
  */
-
 import { ResourceColor, Length, LengthMetrics, ResourceStr, VoidCallback } from "./units";
-import { ResourceColor, Length, LengthMetrics, VoidCallback } from "./units";
-
 import { CommonMethod, AttributeModifier } from "./common";
-import { CommonMethod } from './common';
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
-import { CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Marquee初始化参数。

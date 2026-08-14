@@ -14,10 +14,10 @@
  */
 
 /**
- * The **AccessibilityExtensionAbility** module provides accessibility extension capabilities based on the 
- * ExtensionAbility framework.
+ * AccessibilityExtensionAbility provides the accessibility extension service capability based on the ExtensionAbility 
+ * framework.
  *
- * @file
+ * @file AccessibilityExtensionAbility
  * @kit AccessibilityKit
  */
 
@@ -96,8 +96,8 @@ export type FocusDirection = _FocusDirection;
 export type ElementAttributeKeys = keyof ElementAttributeValues;
 
 /**
- * Enumerates the focus types. For details, see [FocusType]{@link ./application/AccessibilityExtensionContext:FocusType}
- * .
+ * Enumerates the focus types. For details, see 
+ * [FocusType]{@link ./application/AccessibilityExtensionContext:FocusType}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamiconly
@@ -134,8 +134,8 @@ export type Rect = _Rect;
 export type Parameter = _Parameter;
 
 /**
- * Defines the context of the accessibility extension. For details, see 
- * [AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext}.
+ * Indicates the context of the accessibility extension. For details, see 
+ * [AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext:AccessibilityExtensionContext}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
@@ -198,8 +198,8 @@ export type TouchPosition = _TouchPosition;
 export { AccessibilityExtensionContext };
 
 /**
- * The **AccessibilityExtensionAbility** module provides accessibility extension capabilities based on the 
- * ExtensionAbility framework.
+ * AccessibilityExtensionAbility provides the accessibility extension service capability based on the ExtensionAbility 
+ * framework.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
@@ -207,7 +207,7 @@ export { AccessibilityExtensionContext };
  */
 declare class AccessibilityExtensionAbility {
   /**
-   * Context of the accessibility extension ability.
+   * Indicates the context of the accessibility extension.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
@@ -226,8 +226,8 @@ declare class AccessibilityExtensionAbility {
   onConnect(): void;
 
   /**
-   * Called when the **AccessibilityExtensionAbility** is disabled and disconnected from the system service. In this API
-   * , you can implement the service logic of resource release and exit. This API can be overridden as required.
+   * Called when the **AccessibilityExtensionAbility** is disabled and disconnected from the system service. In this 
+   * API, you can implement the service logic of resource release and exit. This API can be overridden as required.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -236,10 +236,10 @@ declare class AccessibilityExtensionAbility {
   onDisconnect(): void;
 
   /**
-   * Called when an event that matches the specified bundle and event type occurs. In this API, you can implement event-
-   * specific service logic. Generally, this API needs to be overridden.
+   * Called when an accessibility event occurs. In this API, you can implement event-specific service logic based on the
+   * event information. Generally, this API needs to be overridden.
    *
-   * @param { AccessibilityEvent } event - Accessibility event. No return value.
+   * @param { AccessibilityEvent } event - Accessibility event information.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -248,11 +248,11 @@ declare class AccessibilityExtensionAbility {
 
   /**
    * Called when a physical key is pressed. In this API, you can determine whether to consume the event based on the 
-   * service.
+   * service. This API can be overridden as required.
    *
-   * @param { KeyEvent } keyEvent - Key event. If **true** is returned, the key is consumed.
-   * @returns { boolean } Returns **true** if the event is consumed and will not be transferred;<br>returns **false** if
-   *     the event is not consumed and will be transferred.
+   * @param { KeyEvent } keyEvent - Key event.
+   * @returns { boolean } Returns **true** if the event is consumed and will not be transferred;
+   *     <br>returns **false** if the event is not consumed and will be transferred.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -260,9 +260,11 @@ declare class AccessibilityExtensionAbility {
   onKeyEvent(keyEvent: KeyEvent): boolean;
 
   /**
-   * Called when the AccessibilityExtensionAbility is enabled and connected to the system service.
-   * In this API, you can have the service logic initialized. This API can be overridden as required. It returns the 
-   * result to notify that the ability is successfully connected.
+   * Callback invoked when the accessibility service is successfully connected.
+   * 
+   * When the user enables AccessibilityExtensionAbility, the system service calls this API after the connection is 
+   * established to notify the ability that it has been successfully connected. You can implement service logic 
+   * initialization in this method. This API can be overridden as required.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -276,9 +278,11 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityConnect(): void;
 
   /**
-   * Called when the AccessibilityExtensionAbility is successfully disconnected from the system service.
-   * In this API, you can implement the service logic of resource release and exit. This API can be overridden as 
-   * required.
+   * Callback invoked when the accessibility service is successfully disconnected.
+   * 
+   * When the user disables AccessibilityExtensionAbility, the system service calls this API after the disconnection is 
+   * completed. You can implement resource reclamation and service exit operations in this method. This API can be 
+   * overridden as required.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -292,8 +296,10 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityDisconnect(): void;
 
   /**
-   * Called when a specified event occurs in an application. In this API, you can implement event-specific service 
-   * logic. Generally, this API needs to be overridden.
+   * When an accessibility event occurs, the system distributes the event to the connected AccessibilityExtensionAbility
+   * and calls this API. You can process service logic based on the event information. This API usually needs to be 
+   * overridden. For details about event types, see 
+   * [AccessibilityEventType]{@link @ohos.accessibility:AccessibilityEventType}.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @param { AccessibilityEventInfo } event - Accessibility event information.
@@ -308,13 +314,13 @@ declare class AccessibilityExtensionAbility {
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
   /**
-   * Called when a physical key is pressed. In this API, you can determine whether to consume the event based on the 
-   * service.
+   * Called when a key is pressed. You can determine whether to consume the event based on the service logic in this 
+   * method. This API can be overridden as required.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @param { KeyEvent } keyEvent - Key event.
-   * @returns { boolean } Returns **true** if the event is consumed and will not be transferred; returns **false**
-   *     otherwise.
+   * @returns { boolean } The value **true** indicates that the event is consumed and will not be propagated.
+   *     <br>The value **false** indicates that the event is not consumed and will continue to be propagated.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -338,7 +344,7 @@ export default AccessibilityExtensionAbility;
  */
 export declare interface AccessibilityEventInfo {
   /**
-   * Event type.
+   * Accessibility event type.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -348,7 +354,8 @@ export declare interface AccessibilityEventInfo {
   eventType: AccessibilityEventType;
 
   /**
-   * Target component where the event occurs.
+   * Target component where the event occurs. When the accessibility event involves a specific component, this property 
+   * contains the component information.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -358,7 +365,7 @@ export declare interface AccessibilityEventInfo {
   target?: AccessibilityElement;
 
   /**
-   * Timestamp of the event, in milliseconds. The default value is **0**.
+   * Event timestamp, in milliseconds. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -368,8 +375,8 @@ export declare interface AccessibilityEventInfo {
   timestamp?: long;
 
   /**
-   * Added or deleted text content carried by the **TextArea**, **TextInput**, **SearchField**, or **RichEdit** 
-   * component.
+   * For TextArea, TextInput, SearchField, and RichEdit components, when text content is added or deleted, this property
+   * indicates the specific text content added or deleted. The default value is an empty string.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -380,24 +387,27 @@ export declare interface AccessibilityEventInfo {
 }
 
 /**
- * Defines an accessibility event.
+ * Defines the accessibility event information. An accessibility event is generated by the system accessibility service 
+ * upon user operations or UI changes, with the event category identified by **eventType** (including accessibility 
+ * event types, window change types, touch exploration event types, gesture event types, and page update types). The 
+ * accessibility extension can receive and process these events through the **onAccessibilityEvent** callback.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare interface AccessibilityEvent {
   /**
-   * Event type.
+   * Specific event type, which identifies the category of the current accessibility event.
    * 
-   * **EventType**: accessibility event type.
+   * EventType: accessibility event type;
    * 
-   * **WindowUpdateType**: window update type.
+   * WindowUpdateType: window change type;
    * 
-   * **TouchGuideType**: touch guide type.
+   * TouchGuideType: touch exploration event type;
    * 
-   * **GestureType**: gesture type.
+   * GestureType: gesture event type;
    * 
-   * **PageUpdateType**: page update type.
+   * PageUpdateType: page update type.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -406,7 +416,8 @@ export declare interface AccessibilityEvent {
         TouchGuideType | GestureType | PageUpdateType;
 
   /**
-   * Target component where the event occurs.
+   * Target element on which the event occurs. When the accessibility event involves a specific element, this attribute 
+   * contains the element information.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -414,7 +425,7 @@ export declare interface AccessibilityEvent {
   target?: AccessibilityElement;
 
   /**
-   * Timestamp of the event, in milliseconds. The default value is **0**.
+   * Event timestamp, which is a non-negative integer in milliseconds. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -422,7 +433,9 @@ export declare interface AccessibilityEvent {
   timeStamp?: long;
 
   /**
-   * Component ID for auto-focusing. The default value is **0**.
+   * ID of the element that is actively focused. Active focus means that the app actively focuses on a specified element
+   * through the accessibility service, which is different from manual navigation focus by the user. The default value 
+   * is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamiconly
@@ -430,7 +443,8 @@ export declare interface AccessibilityEvent {
   elementId?: long;
 
   /**
-   * Content for auto-broadcasting. Set the broadcast content based on the actual scenario. No special restrictions.
+   * Content actively announced. When the app needs to actively announce content, set the announcement content based on 
+   * the actual scenario. There is no special restriction. The default value is an empty string.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamiconly
@@ -438,8 +452,9 @@ export declare interface AccessibilityEvent {
   textAnnouncedForAccessibility?: string;
 
   /**
-   * Added or deleted text content carried by the **TextArea**, **TextInput**, **SearchField**, or **RichEdit** 
-   * component. Set this parameter based on site requirements. No special restrictions.
+   * For TextArea, TextInput, SearchField, and RichEdit components, when text content is added or deleted, this carries 
+   * the added or deleted text content. Set based on the actual scenario. There is no special restriction. The default 
+   * value is an empty string.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 dynamiconly
@@ -448,7 +463,9 @@ export declare interface AccessibilityEvent {
 }
 
 /**
- * Enumerates gesture types.
+ * Enumerates the gesture event types. A gesture event is triggered by the accessibility service when the user performs 
+ * a specific gesture operation. The accessibility extension can receive and process the corresponding gesture event 
+ * through the **onAccessibilityEvent** callback.
  *
  * @unionmember { 'left' } Left gesture.
  * @unionmember { 'leftThenRight' } Left-then-right gesture.
@@ -489,7 +506,7 @@ export declare interface AccessibilityEvent {
  * @unionmember { 'fourFingerSwipeDown' } Four-finger swipe-down gesture. [since 11]
  * @unionmember { 'fourFingerSwipeLeft' } Four-finger swipe-left gesture. [since 11]
  * @unionmember { 'fourFingerSwipeRight' } Four-finger swipe-right gesture. [since 11]
- * @unionmember {'oneFingerDoubleTap'} [since 26.0.0]
+ * @unionmember { 'oneFingerDoubleTap' } Single-finger double-tap gesture. [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @stagemodelonly
  * @since 9 dynamiconly
@@ -506,21 +523,24 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' | 'oneFingerDoubleTap';
 
 /**
- * Enumerates the page update types.
+ * Enumerates the page update types. A page update event is triggered by the accessibility service when the page content
+ * or state changes. The accessibility extension can receive and process the corresponding page update event through the
+ * **onAccessibilityEvent** callback.
  *
- * @unionmember { 'pageContentUpdate' } Update of the page content.
- * @unionmember { 'pageStateUpdate' } Update of the page status.
+ * @unionmember { 'pageContentUpdate' } Page content updated.
+ * @unionmember { 'pageStateUpdate' } Page state updated.
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
 /**
- * Enumerates the touch guide event types.
+ * Enumerates the touch exploration event types. Touch exploration is an interaction mode in accessibility features, in 
+ * which the user explores UI elements by touch without directly activating them.
  *
  * @unionmember { 'touchBegin' } Start of touch.
  * @unionmember { 'touchEnd' } End of touch.
- * @unionmember { 'touchGuideGesture' } Event indicating the touchGuide gesture. [since 26.0.0]
+ * @unionmember { 'touchGuideGesture' } Represents a touch exploration gesture.  [since 26.0.0]
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */

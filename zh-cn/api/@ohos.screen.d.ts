@@ -976,7 +976,7 @@ declare namespace screen {
     readonly serialNumber?: string;
 
     /**
-     * 屏幕类型
+     * 屏幕类型。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -987,7 +987,7 @@ declare namespace screen {
   }
 
   /**
-   * 屏幕类型枚举
+   * 屏幕类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -996,7 +996,7 @@ declare namespace screen {
    */
   enum ScreenType {
     /**
-     * 物理集成到设备中的内置屏幕
+     * 物理集成到设备中的内置屏幕。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -1006,7 +1006,7 @@ declare namespace screen {
     BUILT_IN = 0,
 
     /**
-     * 通过有线接口连接的外部物理显示屏
+     * 通过有线接口连接的外部物理显示屏。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -1016,7 +1016,7 @@ declare namespace screen {
     EXTERNAL = 1,
 
     /**
-     * 由软件创建的虚拟显示屏，通常用于投屏、屏幕录制或多屏协作
+     * 由软件创建的虚拟显示屏，通常用于投屏、屏幕录制或多屏协作。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.

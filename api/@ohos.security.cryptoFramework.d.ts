@@ -1549,7 +1549,7 @@ declare namespace cryptoFramework {
 
     /**
      * Converts data into an asymmetric key pair. Encrypted private keys are supported. The private key password is
-     * synchronously passed to decrypt the private key. This API is synchronous.
+     * synchronously passed to decrypt the private key.
      *
      * > **NOTE**
      * > The precautions for using **convertPemKeySync** are the same as those for
