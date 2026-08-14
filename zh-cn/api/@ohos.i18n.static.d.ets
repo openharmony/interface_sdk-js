@@ -2252,6 +2252,26 @@ declare namespace i18n {
     zoneDisplayName: string;
 
     /**
+     * 时区城市纬度参考信息。
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    latitude: double;
+ 
+    /**
+     * 时区城市经度参考信息。
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    longitude: double;
+
+    /**
      * 时区ID的固定偏移量，单位为毫秒（ms）。
      *
      * @syscap SystemCapability.Global.I18n
