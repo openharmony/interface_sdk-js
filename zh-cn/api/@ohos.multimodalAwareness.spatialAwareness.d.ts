@@ -1,6 +1,6 @@
 
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,7 +22,7 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * 本模块提供对测距的感知能力。
+ * 本模块提供对测距的感知能力，支持超声信号测试。
  * @namespace spatialAwareness
  * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
  * @systemapi
@@ -127,7 +127,7 @@ declare namespace spatialAwareness {
    */
   export enum DistanceRank {
     /**
-     * 表示超短距。单位:cm，范围:[0:5]
+     * 表示超短距。单位：cm，范围：[0:5]。
      *
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -136,7 +136,7 @@ declare namespace spatialAwareness {
      */
     RANK_ULTRA_SHORT_RANGE = 'rankUltraShort',
     /**
-     * 表示短距。单位:cm，范围:(5:100]
+     * 表示短距。单位：cm，范围：(5:100]。
      *
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -145,7 +145,7 @@ declare namespace spatialAwareness {
      */
     RANK_SHORT_RANGE = 'rankShort',
     /**
-     * 表示中短距。单位:cm，范围:(100:500]
+     * 表示中短距。单位：cm，范围：(100:500]。
      *
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -154,7 +154,7 @@ declare namespace spatialAwareness {
      */
     RANK_SHORT_MEDIUM_RANGE = 'rankMediumShort',
     /**
-     * 表示中距。单位:cm，范围:(500:1000]
+     * 表示中距。单位：cm，范围：(500:1000]。
      *
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -183,7 +183,7 @@ declare namespace spatialAwareness {
      */
     rank: DistanceRank;
     /**
-     * 表示距离。
+     * 表示距离，结果≥0。
      * @type { float }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -192,7 +192,7 @@ declare namespace spatialAwareness {
      */
     distance: float;
     /**
-     * 表示置信度。
+     * 表示置信度，取值范围：[0,1]。
      * @type { float }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -201,7 +201,7 @@ declare namespace spatialAwareness {
      */
     confidence: float;
     /**
-     * 表示设备Id号。
+     * 表示设备Id号，字符串长度：[1,128]。
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -250,7 +250,7 @@ declare namespace spatialAwareness {
    */
   export interface DoorPositionResponse {
     /**
-     * 表示门锁校验码。
+     * 表示门锁校验码，结果≥0。
      * @type { int }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -268,7 +268,7 @@ declare namespace spatialAwareness {
      */
     position: PositionRelativeToDoor;
     /**
-     * 表示设备Id号。
+     * 表示设备Id号，字符串长度：[1,128]。
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -288,7 +288,7 @@ declare namespace spatialAwareness {
    */
   export interface DistanceMeasurementConfigParams {  
     /**
-     * 表示设备列表。
+     * 表示设备列表，设备唯一标识符，字符串长度取值范围：[1,128]，数组长度取值范围：[1,128]。
      * @type { string[]}
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
@@ -315,7 +315,7 @@ declare namespace spatialAwareness {
      */
     reportMode: ReportingMode;
     /**
-     * 表示结果上报频率。
+     * 表示结果上报频率，单位：Hz，取值范围：[0,999999]。
      * @type { int }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi

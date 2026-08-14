@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@
  */
 import type { Callback } from "./@ohos.base";
 /**
- * **motion**模块提供用户动作感知能力，包括用户手势和动作。
+ * **motion**本模块提供对用户手势识别、设备姿态监听等感知能力，适用于需要根据用户手势或动作进行响应的交互场景，如握持手、设备拾起等，帮助应用提供更自然的交互体验和精准的场景感知。
  *
  * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15 dynamic
@@ -62,7 +62,7 @@ declare namespace motion {
   }
 
   /**
-   * 握持手状态信息，表示握持手状态变化感知事件的结果。订阅握持手状态变化感知事件后，返回当前握持手状态信息。
+   * 握持手状态信息，表示握持手状态变化感知事件的结果。订阅事件后，返回当前握持手状态信息。
    *
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
@@ -112,7 +112,7 @@ declare namespace motion {
   }
 
   /**
-    * 拾起事件枚举。
+    * 拾取事件枚举。
     *
     * @syscap SystemCapability.MultimodalAwareness.Motion
     * @systemapi
@@ -121,7 +121,7 @@ declare namespace motion {
     */
   export enum PickupEvent {
     /**
-      * 表示检测到拾起动作（设备正在被拿起）。
+      * 表示检测到拾取动作（设备被抬起）。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -141,7 +141,7 @@ declare namespace motion {
     */
   export enum RotateEvent {
     /**
-      * 表示设备已旋转，但旋转幅度不足以改变当前方向，方向与之前保持一致。
+      * 表示设备有旋转动作，但旋转幅度不足以改变当前方向，方向保持与之前一致。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -197,7 +197,7 @@ declare namespace motion {
     */
   export enum PhysicalOrientation {
     /**
-      * 表示竖直放置。
+      * 表示竖直。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -206,7 +206,7 @@ declare namespace motion {
       */
     UPRIGHT = 0,
     /**
-      * 表示向左旋转。
+      * 表示向左。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -215,7 +215,7 @@ declare namespace motion {
       */
     LEFT = 1,
     /**
-      * 表示倒置。
+      * 表示物理方向倒置。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -224,7 +224,7 @@ declare namespace motion {
       */
     INVERTED = 2,
     /**
-      * 表示向右旋转。
+      * 表示向右。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -233,7 +233,7 @@ declare namespace motion {
       */
     RIGHT = 3,
     /**
-      * 表示屏幕朝上。
+      * 表示正面朝上。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -242,7 +242,7 @@ declare namespace motion {
       */
     FACE_UP = 4,
     /**
-      * 表示屏幕朝下。
+      * 表示正面朝下。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -253,7 +253,7 @@ declare namespace motion {
   }
 
   /**
-    * 智能算法计算得到的逻辑方向枚举。
+    * 由智能算法计算出的逻辑方向枚举。
     *
     * @syscap SystemCapability.MultimodalAwareness.Motion
     * @systemapi
@@ -271,7 +271,7 @@ declare namespace motion {
       */
     UNKNOWN = -1,
     /**
-      * 表示竖直放置。
+      * 表示竖直。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -280,7 +280,7 @@ declare namespace motion {
       */
     UPRIGHT = 0,
     /**
-      * 表示向左旋转。
+      * 表示向左。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -289,7 +289,7 @@ declare namespace motion {
       */
     LEFT = 1,
     /**
-      * 表示倒置。
+      * 表示逻辑方向倒置。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -298,7 +298,7 @@ declare namespace motion {
       */
     INVERTED = 2,
     /**
-      * 表示向右旋转。
+      * 表示向右。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -309,7 +309,7 @@ declare namespace motion {
   }
 
   /**
-   * 悬停手势动作枚举。
+   * 悬浮手动作枚举。
    *
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
@@ -318,7 +318,7 @@ declare namespace motion {
    */
   export enum HoverHandAction {
     /**
-     * 表示悬停手势进入检测区域。
+     * 表示悬浮手进入检测区域。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -327,7 +327,7 @@ declare namespace motion {
      */
     DOWN = 0,
     /**
-     * 表示悬停手势离开检测区域。
+     * 表示悬浮手离开检测区域。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -338,7 +338,7 @@ declare namespace motion {
   }
 
   /**
-    * 智能旋转传感器事件的基础数据结构。
+    * 智能旋转传感器事件的基本数据结构。该事件包含传感器检测到的物理方向和由智能算法计算得出的逻辑方向。
     *
     * @syscap SystemCapability.MultimodalAwareness.Motion
     * @systemapi
@@ -347,7 +347,7 @@ declare namespace motion {
     */
   interface SmartRotateEvent {
     /**
-      * 重力传感器上报的物理方向。
+      * 重力传感器报告的物理方向。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -356,7 +356,7 @@ declare namespace motion {
       */
     physicalOrientation: PhysicalOrientation;
     /**
-      * 智能算法调整后的逻辑方向。
+      * 智能算法调整后的逻辑方向。当智能算法无法确定方向时，该字段可能为空或不返回。
       *
       * @syscap SystemCapability.MultimodalAwareness.Motion
       * @systemapi
@@ -367,7 +367,7 @@ declare namespace motion {
   }
 
   /**
-   * 悬停手势检测区域的基础数据结构。
+   * 悬浮手矩形检测区域的基本数据结构。
    *
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
@@ -376,7 +376,7 @@ declare namespace motion {
    */
   export interface HoverHandDetectionArea {
     /**
-     * 矩形左边界。单位：px，取值范围为[-2147483648,2147483647]的整数。
+     * 矩形区域的左边界，单位为px，该参数应为整数，取值范围为：[-2147483648,2147483647]。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -386,7 +386,7 @@ declare namespace motion {
     left: int;
 
     /**
-     * 矩形上边界。单位：px，取值范围为[-2147483648,2147483647]的整数。
+     * 矩形区域的上边界，单位为px，该参数应为整数，取值范围为：[-2147483648,2147483647]。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -396,7 +396,7 @@ declare namespace motion {
     top: int;
 
     /**
-     * 矩形宽度。单位：px，取值范围为[1,2147483647]的整数。
+     * 矩形区域的宽度，单位为px，该参数应为整数，取值范围为：[1,2147483647]。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -406,7 +406,7 @@ declare namespace motion {
     width: int;
 
     /**
-     * 矩形高度。单位：px，取值范围为[1,2147483647]的整数。
+     * 矩形区域的高度，单位为px，该参数应为整数，取值范围为：[1,2147483647]。
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @systemapi
@@ -417,16 +417,16 @@ declare namespace motion {
   }
 
   /**
-   * 订阅触控操作手感知事件。调用on()订阅事件后，建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('operatingHandChanged')：取消订阅触控操作手感知事件。
+   * 订阅触控操作手感知事件。系统通过触控屏传感器采集用户触控数据，结合手势识别算法判断当前操作手是左手还是右手。适用于手势交付、单双手操作适配等场景，通过识别用户的触控操作手状态优化界面布局和交互方式。建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('operatingHandChanged')：取消订阅触控操作手感知事件。
    *
    * 如果设备不支持此功能，将返回801错误码。
    *
    * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
-   * @param { 'operatingHandChanged' } type - 事件类型。type为"operatingHandChanged"，表示操作手状态变化。
+   * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE [since 20]
+   * @param { string } type - 事件类型。固定传入'operatingHandChanged'，表示操作手状态变化。
    * @param { Callback<OperatingHandStatus> } callback - 回调函数，返回操作手状态信息。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
-   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -445,12 +445,12 @@ declare namespace motion {
    * 取消订阅触控操作手感知事件。若未调用on()就调用off()，该方法会抛出异常。相关方法：on('operatingHandChanged')：订阅触控操作手感知事件。
    *
    * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
-   * @param { 'operatingHandChanged' } type - 事件类型。type为"operatingHandChanged"，表示操作手状态变化。
+   * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE [since 20]
+   * @param { string } type - 事件类型。固定传入'operatingHandChanged'，表示操作手状态变化。
    * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调
    *     函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
-   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -465,13 +465,13 @@ declare namespace motion {
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
   /**
-   * 获取最新触控操作手状态。
+   * 获取最新触控操作手状态。该方法直接返回最新的操作手状态，无需订阅事件即可调用。
    *
    * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
+   * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE [since 20]
    * @returns { OperatingHandStatus } 返回触控操作手状态信息。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
-   *     <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
@@ -484,10 +484,10 @@ declare namespace motion {
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
   /**
-   * 订阅握持手状态变化感知事件。调用on()订阅事件后，建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('holdingHandChanged')：取消订阅握持手状态变化感知事件。
+   * 订阅握持手状态变化感知事件。系统通过传感器数据，结合识别算法判断当前握持手是左手还是右手。适用于阅读应用、视频播放等需要根据用户握持手状态调整界面布局或功能的场景。建议在使用完毕后调用off()取消订阅以释放资源，避免多余的性能功耗开销。相关方法：off('holdingHandChanged')：取消订阅握持手状态变化感知事件。
    *
    * @permission ohos.permission.DETECT_GESTURE
-   * @param { 'holdingHandChanged' } type - 事件类型，type为"holdingHandChanged"。
+   * @param { string } type - 事件类型，固定传入'holdingHandChanged'，表示握持手状态变化。
    * @param { Callback<HoldingHandStatus> } callback - 回调函数，返回握持手状态信息。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
@@ -508,7 +508,7 @@ declare namespace motion {
    * 取消订阅握持手状态变化感知事件。若未调用on()就调用off()，该方法会抛出异常。相关方法：on('holdingHandChanged')：订阅握持手状态变化感知事件。
    *
    * @permission ohos.permission.DETECT_GESTURE
-   * @param { 'holdingHandChanged' } type - 事件类型，type为"holdingHandChanged"。
+   * @param { string } type - 事件类型，固定传入'holdingHandChanged'，表示握持手状态变化。
    * @param { Callback<HoldingHandStatus> } [callback] - 回调函数，返回握持手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函
    *     数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
@@ -528,10 +528,10 @@ declare namespace motion {
   /**
    * 订阅触控操作手变化事件。
    *
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } callback - 回调函数，返回操作手状态信息。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
-   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
@@ -547,10 +547,10 @@ declare namespace motion {
   /**
    * 取消订阅触控操作手变化事件。
    *
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } [callback] - 回调函数，返回操作手状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
-   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION 或 ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
