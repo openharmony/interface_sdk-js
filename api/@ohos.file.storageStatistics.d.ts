@@ -30,16 +30,16 @@ import { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace storageStatistics {
   /**
-   * Obtains the total space of a volume in an external storage device, in bytes. This API uses an asynchronous
-   * callback to return the result.
+   * Get the total size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { string } volumeUuid - UUID of the volume.
-   * @param { AsyncCallback<long> } callback - Callback used to return the total volume space obtained.
+   * @param { string } volumeUuid - The uuid of the volume
+   * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
-   *     1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+   *     parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
@@ -52,16 +52,15 @@ declare namespace storageStatistics {
   function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the total space of a volume in an external storage device, in bytes. This API uses a promise to
-   * return the result.
+   * Get the total size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { string } volumeUuid - UUID of the volume.
-   * @returns { Promise<long> } Promise used to return the total volume space (in bytes) obtained.
+   * @param { string } volumeUuid - The uuid of the volume
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
-   *     1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+   *     parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
@@ -73,16 +72,16 @@ declare namespace storageStatistics {
    */
   function getTotalSizeOfVolume(volumeUuid: string): Promise<long>;
   /**
-   * Obtains the available space of a volume in an external storage device, in bytes. This API uses an asynchronous
-   * callback to return the result.
+   * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { string } volumeUuid - UUID of the volume.
-   * @param { AsyncCallback<long> } callback - Callback used to return the available volume space obtained.
+   * @param { string } volumeUuid - The uuid of the volume
+   * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
-   *     1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+  parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
@@ -95,16 +94,15 @@ declare namespace storageStatistics {
   function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the available space of a volume in an external storage device, in bytes. This API uses a promise to
-   * return the result.
+   * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { string } volumeUuid - UUID of the volume.
-   * @returns { Promise<long> } Promise used to return the available volume space (in bytes) obtained.
+   * @param { string } volumeUuid - The uuid of the volume
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:
-   *     1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
+   *     parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
@@ -125,8 +123,10 @@ declare namespace storageStatistics {
    */
   export interface BundleStats {
     /**
-     * Size of the application installation files, in bytes.
+     * The size of application installation data.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
      * @since 23 static
@@ -134,8 +134,10 @@ declare namespace storageStatistics {
     appSize: long;
 
     /**
-     * Size of the application cache files, in bytes.
+     * The size of application cache data.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
      * @since 23 static
@@ -143,8 +145,10 @@ declare namespace storageStatistics {
     cacheSize: long;
 
     /**
-     * Size of other files of the application, in bytes.
+     * The size of application local data, distributed data and database data.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
      * @since 23 static
@@ -227,10 +231,11 @@ declare namespace storageStatistics {
   function getCurrentBundleStats(): Promise<BundleStats>;
 
   /**
-   * Obtains the system data size, in bytes. This API uses an asynchronous callback to return the result.
+   * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { AsyncCallback<long> } callback - Callback used to return the system data size obtained.
+   * @param { AsyncCallback<long> } callback - callback
+   *     <br>Unit: Byte.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -245,10 +250,10 @@ declare namespace storageStatistics {
   function getSystemSize(callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the system data size, in bytes. This API uses a promise to return the result.
+   * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<long> } Promise used to return the system data size (in bytes) obtained.
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -272,8 +277,10 @@ declare namespace storageStatistics {
    */
   export interface StorageStats {
     /**
-     * Total space of the built-in storage, in bytes.
+     * The total size of device.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -282,8 +289,10 @@ declare namespace storageStatistics {
     total: long;
 
     /**
-     * Size of the audio data, in bytes.
+     * The size of audio file.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -292,8 +301,10 @@ declare namespace storageStatistics {
     audio: long;
 
     /**
-     * Size of the video data, in bytes.
+     * The size of video file.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -302,8 +313,10 @@ declare namespace storageStatistics {
     video: long;
 
     /**
-     * Size of the image data, in bytes.
+     * The size of image file.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -312,8 +325,10 @@ declare namespace storageStatistics {
     image: long;
 
     /**
-     * Size of files, in bytes.
+     * The size of other file.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -322,8 +337,10 @@ declare namespace storageStatistics {
     file: long;
 
     /**
-     * Size of application data, in bytes.
+     * The size of application.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
@@ -433,18 +450,28 @@ declare namespace storageStatistics {
    */
   function getTotalSize(callback: AsyncCallback<long>): void;
   /**
-   * Obtains the total size (in bytes) of the built-in storage. This API uses a promise to return the result.
+   * Get the total size.
    *
-   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
-   * @returns { Promise<long> } Promise used to return the total built-in storage space obtained.
-   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
-   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { Promise<long> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+  parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi [since 9 - 14]
-   * @publicapi [since 15]
-   * @since 9 dynamic
+   * @systemapi
+   * @since 9
+   */
+  /**
+   * Get the total size.
+   *
+   * @returns { Promise<long> } return Promise (Unit: Byte)
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @since 15 dynamic
    * @since 23 static
    */
   function getTotalSize(): Promise<long>;
@@ -467,7 +494,7 @@ declare namespace storageStatistics {
   function getTotalSizeSync(): long;
 
   /**
-   * Obtains the available space (in bytes) of the built-in storage. This API uses an asynchronous callback to return the 
+   * Obtains the available space (in bytes) of the built-in storage. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
@@ -488,18 +515,28 @@ declare namespace storageStatistics {
   function getFreeSize(callback: AsyncCallback<long>): void;
 
   /**
-   * Obtains the available space (in bytes) of the built-in storage. This API uses a promise to return the result.
+   * Get the free size.
    *
-   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
-   * @returns { Promise<long> } Promise used to return the available space of the built-in storage obtained.
-   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
-   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { Promise<long> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+  parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi [since 9 - 14]
-   * @publicapi [since 15]
-   * @since 9 dynamic
+   * @systemapi
+   * @since 9
+   */
+  /**
+   * Get the free size.
+   *
+   * @returns { Promise<long> } return Promise (Unit: Byte)
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @since 15 dynamic
    * @since 23 static
    */
   function getFreeSize(): Promise<long>;
@@ -529,7 +566,7 @@ declare namespace storageStatistics {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  export interface ExtBundleStats { 
+  export interface ExtBundleStats {
     /**
      * System application bundle name or system service name.
      *
@@ -541,8 +578,10 @@ declare namespace storageStatistics {
     businessName: string;
 
     /**
-     * Space occupied by system applications or system services, in bytes.
+     * The business size.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
@@ -565,7 +604,7 @@ declare namespace storageStatistics {
 
   /**
    * Reports the space usage of system applications or system services. This API uses a promise to return the result.
-   * 
+   *
    * > **NOTE**
    * >
    * > If the value of **flag** in **stats** is **false**, the value of **businessName** must be the bundle name of an
@@ -646,8 +685,10 @@ declare namespace storageStatistics {
      */
     path: string;
     /**
-     * Total space occupied by the path, in bytes.
+     * The size of user data dirs.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
@@ -655,8 +696,9 @@ declare namespace storageStatistics {
      */
     totalSize: long;
     /**
-     * Total number of directories and files in the path.
+     * The size of inode count.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
@@ -684,10 +726,9 @@ declare namespace storageStatistics {
   function listUserdataDirInfo(): Promise<Array<UserdataDirInfo>>;
 
   /**
-   * Obtains the total number of inode resources in the file system. Only the system data partition can be queried.
-   * This API uses a promise to return the result.
+   * Get the total inodes.
    *
-   * @returns { Promise<long> } Promise object, which returns the total number of inode resources in the file system.
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -696,10 +737,9 @@ declare namespace storageStatistics {
    */
   function getTotalInodes(): Promise<long>;
   /**
-   * Obtains the remaining inode resources of a file system. Only the system data partition can be queried.
-   * This API uses a promise to return the result.
+   * Get the free inodes.
    *
-   * @returns { Promise<long> } Promise object, which returns the remaining inode resources of the file system.
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -708,9 +748,9 @@ declare namespace storageStatistics {
    */
   function getFreeInodes(): Promise<long>;
   /**
-   * Obtaining the inode Usage of the Current Application.This API uses a promise to return the result.
+   * Get the current bundle inodes.
    *
-   * @returns { Promise<long> } Promise object, which returns the inode usage of the current application.
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - File system not supported.
    * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
@@ -720,10 +760,10 @@ declare namespace storageStatistics {
    */
   function getCurrentBundleInodes(): Promise<long>;
   /**
-   * Obtains the total size of the system data.This API uses a promise to return the result.
+   * Get the system data size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<long> } Promise object, which returns the total size of the system data, in bytes.
+   * @returns { Promise<long> } return Promise (Unit: Byte)
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
