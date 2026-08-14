@@ -1010,7 +1010,7 @@ export enum AccessibilityEventType {
    * @since 26.0.0 dynamic&static
    */
   TYPE_ONE_FINGER_DOUBLE_TAP = 72,
- 	
+
   /**
    * Event indicating the touchGuide gesture.
    *
