@@ -2257,7 +2257,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.1.0 static
      */
     latitude: double;
  
@@ -2267,7 +2267,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.1.0 static
      */
     longitude: double;
 
