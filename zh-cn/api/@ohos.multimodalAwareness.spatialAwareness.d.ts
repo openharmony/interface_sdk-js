@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -34,7 +33,7 @@ declare namespace spatialAwareness {
   /**
    * 提供输入信号的类型。接口根据输入信号类型，执行对应算法。
    *
-   * @enum { int } TechnologyType
+   * @enum { int } 测距技术类型
    * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
    * @systemapi
    * @stagemodelonly
@@ -90,7 +89,8 @@ declare namespace spatialAwareness {
 
   /**
    * 测距接口执行完成后结果的上报模式。
-   * @enum { int } ReportingMode
+   * 
+   * @enum { int } 测距结果上报方式
    * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
    * @systemapi
    * @stagemodelonly
@@ -120,6 +120,7 @@ declare namespace spatialAwareness {
   /**
    * 测距结果的距离挡位，不同的挡位对应不同的距离范围。
    *
+   * @enum { string } 表示测距距离类型
    * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
    * @systemapi
    * @stagemodelonly
@@ -214,6 +215,7 @@ declare namespace spatialAwareness {
   /**
    * 门内外识别接口返回结果中表示门内或门外位置的枚举。
    *
+   * @enum { int } 门内外识别结果的枚举
    * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
    * @systemapi
    * @stagemodelonly
@@ -289,7 +291,7 @@ declare namespace spatialAwareness {
   export interface DistanceMeasurementConfigParams {  
     /**
      * 表示设备列表，设备唯一标识符，字符串长度取值范围：[1,128]，数组长度取值范围：[1,128]。
-     * @type { string[]}
+     * @type { string[] }
      * @syscap SystemCapability.MultimodalAwareness.DistanceMeasurement
      * @systemapi
      * @stagemodelonly

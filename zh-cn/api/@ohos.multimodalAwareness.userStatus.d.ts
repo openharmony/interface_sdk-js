@@ -683,6 +683,7 @@ declare namespace userStatus {
 
     /**
      * 表示吹气方向。取值范围[0,2]。0：未吹气，1：底部麦克风，2：顶部麦克风。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -693,6 +694,7 @@ declare namespace userStatus {
 
     /**
      * 表示用户情绪级别。取值范围[0,5]。0：非常愉悦，1：有点愉悦，2：平静，3：有点不愉悦，4：大怒，5：大哭。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -743,6 +745,7 @@ declare namespace userStatus {
   export interface UserEmotionData extends UserStatusData {
     /**
      * 表示用户实时情绪级别。取值范围[0,5]。0：非常愉悦，1：有点愉悦，2：平静，3：有点不愉悦，4：大怒，5：大哭。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
@@ -753,6 +756,7 @@ declare namespace userStatus {
 
     /**
      * 表示用户情绪置信度百分比。取值范围[0,100]。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @systemapi
