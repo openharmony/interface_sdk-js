@@ -533,6 +533,7 @@ declare namespace pasteboard {
   interface PasteDataRecord {
     /**
      * HTML内容，需符合标准HTML格式。
+     * 对此属性的修改无效，如需刷新属性值，请使用[addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -542,7 +543,7 @@ declare namespace pasteboard {
      */
     htmlText: string;
     /**
-     * Want内容。
+     * Want内容。对此属性的修改无效，如需刷新属性值，请使用[addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -552,7 +553,7 @@ declare namespace pasteboard {
      */
     want: Want;
     /**
-     * 默认数据类型。
+     * 默认数据类型。对此属性的修改无效。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -562,7 +563,7 @@ declare namespace pasteboard {
      */
     mimeType: string;
     /**
-     * 纯文本内容。
+     * 纯文本内容。对此属性的修改无效，如需刷新属性值，请使用[addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -572,7 +573,7 @@ declare namespace pasteboard {
      */
     plainText: string;
     /**
-     * URI内容，需符合标准URI格式。
+     * URI内容，需符合标准URI格式。对此属性的修改无效，如需刷新属性值，请使用[addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -582,7 +583,7 @@ declare namespace pasteboard {
      */
     uri: string;
     /**
-     * PixelMap内容。
+     * PixelMap内容。对此属性的修改无效，如需刷新属性值，请使用[addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -592,7 +593,7 @@ declare namespace pasteboard {
      */
     pixelMap: image.PixelMap;
     /**
-     * 自定义数据内容。
+     * 自定义数据内容。对此属性的修改无效。
      *
      * @type { object } [since 9 - 22]
      * @type { Record<string, ArrayBuffer> } [since 23]
@@ -915,7 +916,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1004,7 +1005,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1035,7 +1036,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]

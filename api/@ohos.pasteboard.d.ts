@@ -529,7 +529,9 @@ declare namespace pasteboard {
    */
   interface PasteDataRecord {
     /**
-     * HTML content.
+     * HTML content, must conform to standard HTML format.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -540,6 +542,8 @@ declare namespace pasteboard {
     htmlText: string;
     /**
      * Want content.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -550,6 +554,7 @@ declare namespace pasteboard {
     want: Want;
     /**
      * Default type of PasteDataRecord.
+     * Modifications to this attribute are ineffective.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -560,6 +565,8 @@ declare namespace pasteboard {
     mimeType: string;
     /**
      * Plain text.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -569,7 +576,9 @@ declare namespace pasteboard {
      */
     plainText: string;
     /**
-     * URI content.
+     * URI content, must conform to standard URI format.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -580,6 +589,8 @@ declare namespace pasteboard {
     uri: string;
     /**
      * PixelMap content.
+     * Modifications to this attribute are ineffective. To refresh the attribute value,
+     * please use [addEntry]{@link PasteDataRecord.addEntry(type: string, value: ValueType)}.
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
@@ -590,6 +601,7 @@ declare namespace pasteboard {
     pixelMap: image.PixelMap;
     /**
      * Content of custom data.
+     * Modifications to this attribute are ineffective.
      *
      * @type { object } [since 9 - 22]
      * @type { Record<string, ArrayBuffer> } [since 23]
@@ -926,7 +938,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1013,7 +1025,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
@@ -1044,7 +1056,7 @@ declare namespace pasteboard {
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @crossplatform [since 24]
      * @atomicservice [since 11]
