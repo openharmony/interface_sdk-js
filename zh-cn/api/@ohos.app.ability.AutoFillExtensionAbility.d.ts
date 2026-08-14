@@ -53,7 +53,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   context: AutoFillExtensionContext;
 
   /**
-   * AutoFillExtensionAbility创建时触发回调函数。
+   * AutoFillExtensionAbility创建时触发回调函数。在此方法中可进行初始化操作，如注册监听器、加载必要资源等。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -92,7 +92,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
   /**
-   * 当收到更新请求时触发此回调函数。
+   * 当应用界面数据发生变化、需要更新已填充的内容时，系统触发此回调函数。request参数包含更新后的viewData等信息。
    *
    * @param { UpdateRequest } request - 更新请求。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -104,7 +104,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onUpdateRequest(request: UpdateRequest): void;
 
   /**
-   * 当AutoFillExtensionAbility界面内容对象销毁后调用。
+   * 当AutoFillExtensionAbility的session销毁时触发此回调。session通常在用户取消填充操作或填充任务完成后销毁。
    *
    * @param { UIExtensionContentSession } session - AutoFillExtensionAbility界面内容相关信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

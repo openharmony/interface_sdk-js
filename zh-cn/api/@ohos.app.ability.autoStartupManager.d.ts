@@ -29,7 +29,7 @@ import type AutoStartupInfo from './application/AutoStartupInfo';
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * autoStartupManager模块提供获取自身应用的开机自启状态。
+ * aautoStartupManager模块提供获取自身应用的开机自启状态以及检查设备是否支持开机自启动的能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi [since 11 - 20]

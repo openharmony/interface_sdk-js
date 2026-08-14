@@ -25,9 +25,9 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * **AtomicServiceOptions** is used as an input parameter of
- * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService} to carry arguments. It
- * inherits from [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}.
+ * **AtomicServiceOptions**可以作为
+ * [openAtomicService()]{@link ./application/UIAbilityContext:UIAbilityContext.openAtomicService}的入参，用于携带参数。继承自
+ * [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
