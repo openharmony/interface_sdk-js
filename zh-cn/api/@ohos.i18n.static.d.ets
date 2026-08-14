@@ -2252,7 +2252,7 @@ declare namespace i18n {
     zoneDisplayName: string;
 
     /**
-     * Latitude info of time zone city in decimal degrees (°).
+     * 以十进制度数表示的时区城市纬度信息(°)。
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
@@ -2262,7 +2262,7 @@ declare namespace i18n {
     latitude: double;
  
     /**
-     * Longitude info of time zone city in decimal degrees (°).
+     * 时区城市经度参考信息。
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
