@@ -508,7 +508,7 @@ export enum ShadowAlgorithmType {
 }
 
 /**
- * 自定义几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
+ * 自定义几何类型，继承自GeometryDefinition。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -520,7 +520,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @type { ?PrimitiveTopology }
-    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
+   * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    */
@@ -530,7 +530,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @return { PrimitiveTopology | undefined }
-    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
+   * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -540,7 +540,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 三角形图元的解析方式，默认值为TRIANGLE_LIST。
    *
    * @param { PrimitiveTopology | undefined } value
-    * @default PrimitiveTopology.TRIANGLE_LIST 三角形列表拓扑
+   * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -570,7 +570,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @type { ?int[] }
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    */
@@ -580,7 +580,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @return { int[] | undefined }
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -590,7 +590,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * 顶点索引数组，数组中元素的取值范围大于等于0，默认值为undefined。
    *
    * @param { int[] | undefined } value
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -679,7 +679,7 @@ export declare class CustomGeometry extends GeometryDefinition {
 }
 
 /**
- * 立方体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
+ * 立方体几何类型，继承自GeometryDefinition。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -709,7 +709,7 @@ export declare class CubeGeometry extends GeometryDefinition {
 }
 
 /**
- * 平面几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
+ * 平面几何类型，继承自GeometryDefinition。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -739,7 +739,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
 }
 
 /**
- * 球体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
+ * 球体几何类型，继承自GeometryDefinition。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -789,7 +789,11 @@ export declare class SphereGeometry extends GeometryDefinition {
 }
 
 /**
- * 圆柱体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
+ * 圆柱体几何类型，继承自GeometryDefinition。
+ *
+ * > **说明：**
+ * >
+ * > 开发者需保证参数radius，height，segmentCount设置正确，否则无法创建圆柱体并可能引发不可预期的行为。
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -852,7 +856,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
 }
 
 /**
- * 用于表示3维空间中物体的位置，是[Vec3](#vec3)类型。
+ * 用于表示3维空间中物体的位置。
+ * 类型为三维向量，单位为世界坐标系下的场景单位（比如cm、m、km等），可取任意值。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -862,7 +867,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
 export type Position3 = Vec3;
 
 /**
- * 用于表示3维空间中物体的旋转，是[Vec3](#vec3)类型。
+ * 用于表示3维空间中物体的旋转。
+ * 类型为三维向量，单位为弧度（rad），可取任意值。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -872,7 +878,8 @@ export type Position3 = Vec3;
 export type Rotation3 = Vec3;
 
 /**
- * 用于表示3维空间中物体的缩放，是[Vec3](#vec3)类型。
+ * 用于表示3维空间中物体的缩放。
+ * 类型为三维向量，可取任意值。
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D

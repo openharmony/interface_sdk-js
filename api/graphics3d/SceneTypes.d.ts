@@ -512,7 +512,7 @@ export enum ShadowAlgorithmType {
 }
 
 /**
- * A custom geometry type that inherits from [GeometryDefinition](#geometrydefinition18).
+ * A custom geometry type that inherits from GeometryDefinition.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -574,7 +574,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * Array of indices for the vertices, with values starting at 0. The default value is undefined.
    *
    * @type { ?int[] }
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    */
@@ -584,7 +584,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * Array of indices for the vertices, with values starting at 0. The default value is undefined.
    *
    * @return { int[] | undefined }
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -594,7 +594,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * Array of indices for the vertices, with values starting at 0. The default value is undefined.
    *
    * @param { int[] | undefined } value
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 static
    */
@@ -683,7 +683,7 @@ export declare class CustomGeometry extends GeometryDefinition {
 }
 
 /**
- * A cube geometry type that inherits from [GeometryDefinition](#geometrydefinition18).
+ * A cube geometry type that inherits from GeometryDefinition.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -713,7 +713,7 @@ export declare class CubeGeometry extends GeometryDefinition {
 }
 
 /**
- * A plane geometry type that inherits from [GeometryDefinition](#geometrydefinition18).
+ * A plane geometry type that inherits from GeometryDefinition.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -743,7 +743,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
 }
 
 /**
- * A sphere geometry type that inherits from [GeometryDefinition](#geometrydefinition18).
+ * A sphere geometry type that inherits from GeometryDefinition.
  *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -793,7 +793,7 @@ export declare class SphereGeometry extends GeometryDefinition {
 }
 
 /**
- * A cylinder geometry type that inherits from [GeometryDefinition](#geometrydefinition18).
+ * A cylinder geometry type that inherits from GeometryDefinition.
  *
  * > **NOTE**
  * >
@@ -863,7 +863,10 @@ export declare class CylinderGeometry extends GeometryDefinition {
 }
 
 /**
- * Position of an object in 3D space. The value is of the Vec3 type.
+ * Position of an object in 3D space.
+ * The type is a three-dimensional vector.
+ * The unit is the scene unit in the world coordinate system (such as cm, m, and km).
+ * The value can be any value.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -873,7 +876,9 @@ export declare class CylinderGeometry extends GeometryDefinition {
 export type Position3 = Vec3;
 
 /**
- * Rotation of an object in 3D space. The value is of the Vec3 type.
+ * Rotation of an object in 3D space.
+ * The type is a three-dimensional vector in the unit of radian (rad).
+ * The value can be any value.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -883,7 +888,9 @@ export type Position3 = Vec3;
 export type Rotation3 = Vec3;
 
 /**
- * Scaling of an object in 3D space. The value is of the Vec3 type.
+ * Scaling of an object in 3D space.
+ * The value is of the Vec3 type.
+ * Any 3D vector.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
