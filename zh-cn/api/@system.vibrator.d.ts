@@ -16,7 +16,7 @@
 /**
  * @system.vibrator模块提供控制设备马达振动的能力，开发者可以通过该模块触发设备执行长振动或短振动效果，为用户提供触觉反馈。主要用于闹钟、开关机振动、来电振动等需要触觉提醒的交互场景，帮助应用在关键事件发生时通过振动吸引用
  * 户注意力。
- * 适用于Lite Wearable轻量穿戴设备。对于其他设备类型，自API version 8起该模块不再维护，
+ * 适用于Lite Wearable轻量穿戴设备。对于其他设备类型，自API version 8起该模块不再维护。
  * 与[@ohos.vibrator (振动)]{@link @ohos.vibrator:vibrator}模块相比，本模块功能较为简单，不支持振动效果查询、振动器列表查询、自定义振动文件等高级功能。对于Lite Wearable设备，
  * 本模块持续维护；对于其他设备类型，从API version 8起不再维护，推荐使用[@ohos.vibrator (振动)]{@link @ohos.vibrator:vibrator}模块的
  * [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
@@ -132,7 +132,7 @@ export default class Vibrator {
    * > 替代。
    *
    * @permission ohos.permission.VIBRATE
-   * @param { VibrateOptions } options - 振动配置参数，用于指定振动模式及回调函数。不传时使用默认配置（mode默认为'long'），此时仅触发success和complete回调（无fail回调场景下）。
+   * @param { VibrateOptions } options - 振动配置参数，用于指定振动模式及回调函数。不传时使用默认配置（mode默认为'long'），此时仅触发success和complete回调（说明调用后不会触发fail回调）。
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @famodelonly
    * @since 3 dynamiconly
