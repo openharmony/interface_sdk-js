@@ -698,11 +698,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -716,11 +716,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -734,15 +734,15 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书序列化数据成功时，err为undefined，data为
      *     获取到的X.509证书序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -755,16 +755,16 @@ declare namespace cert {
      * 表示获取X.509证书序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书序列化数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -777,8 +777,8 @@ declare namespace cert {
      * 表示获取X.509证书公钥。
      *
      * @returns { cryptoFramework.PubKey } 表示X.509证书公钥对象。该对象仅用于**X509Cert**的**verify()**。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -790,15 +790,15 @@ declare namespace cert {
     /**
      * 表示校验X.509证书有效期。
      *
-     * @param { string } date - 表示日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
+     * @param { string } date - 表示日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -839,10 +839,10 @@ declare namespace cert {
      * 表示获取X.509证书序列号。
      *
      * @returns { bigint } 表示X.509证书序列号。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -860,12 +860,12 @@ declare namespace cert {
      * > - 获取的证书颁发者名称为ASCII编码，转换为字符串后，是以斜杠（/）开始，以斜杠（/）分隔相对可分辨名称的可分辨名称字符串。
      *
      * @returns { DataBlob } 表示X.509证书颁发者名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -879,14 +879,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码类型。
      * @returns { string } 表示X.509证书颁发者名称，以逗号（,）分隔。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -908,15 +908,15 @@ declare namespace cert {
      * @param { EncodingType } [encodingType] - 表示编码类型。设置该参数时，获取UTF-8格式的主体名称；
      *     不设置时，默认获取ASCII编码格式的主体名称。<br>该参数从API version 12开始可用。[since 12]
      * @returns { DataBlob } 表示X.509证书主体名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 参数类型不正确；
-     *     <br>2. 参数校验失败。[since 12]
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Incorrect parameter types;
+     *     <br>2. Parameter verification failed.[since 12]
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -928,13 +928,13 @@ declare namespace cert {
     /**
      * 表示获取X.509证书生效时间。
      *
-     * @returns { string } 表示X.509证书生效时间，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书生效时间，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -946,13 +946,13 @@ declare namespace cert {
     /**
      * 表示获取X.509证书过期时间。
      *
-     * @returns { string } 表示X.509证书过期时间，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书过期时间，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -965,12 +965,12 @@ declare namespace cert {
      * 表示获取X.509证书签名数据。
      *
      * @returns { DataBlob } 表示X.509证书签名数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -983,12 +983,12 @@ declare namespace cert {
      * 表示获取X.509证书签名算法名称。
      *
      * @returns { string } 表示X.509证书签名算法名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1001,12 +1001,12 @@ declare namespace cert {
      * 表示获取X.509证书签名算法的对象标识符（OID）。OID由国际标准化组织（ISO）分配。
      *
      * @returns { string } 表示签名算法OID。当长度超过127字节时会被截断。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1019,13 +1019,13 @@ declare namespace cert {
      * 表示获取X.509证书签名算法参数。
      *
      * @returns { DataBlob } 表示X.509证书签名算法参数。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1038,8 +1038,8 @@ declare namespace cert {
      * 表示获取X.509证书密钥用途。
      *
      * @returns { DataBlob } 表示X.509证书密钥用途。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1052,12 +1052,12 @@ declare namespace cert {
      * 表示获取X.509证书扩展密钥用途。
      *
      * @returns { DataArray } 表示X.509证书扩展密钥用途。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1086,12 +1086,12 @@ declare namespace cert {
      * > 获取到的X.509证书主体可选名称数据带字符串结束符。
      *
      * @returns { DataArray } 表示X.509证书主体可选名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1108,12 +1108,12 @@ declare namespace cert {
      * > 获取到的X.509证书颁发者可选名称数据带字符串结束符。
      *
      * @returns { DataArray } 表示X.509证书颁发者可选名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1127,16 +1127,16 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType - 表示需要获取的证书字段。
      * @returns { DataBlob } 表示X.509证书对应的字段，返回值为DER格式。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1150,12 +1150,12 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - 表示需要匹配的参数。
      * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1168,12 +1168,12 @@ declare namespace cert {
      * 获取X.509证书CRL的分发点统一资源标识符。
      *
      * @returns { DataArray } 表示X.509证书CRL的分发点统一资源标识符。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1186,12 +1186,12 @@ declare namespace cert {
      * 获取X.509证书颁发者的X.500可分辨名称。
      *
      * @returns { X500DistinguishedName } X.500可分辨对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1204,12 +1204,12 @@ declare namespace cert {
      * 获取X.509证书主体的X.500可分辨名称。
      *
      * @returns { X500DistinguishedName } X.500可分辨对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1222,12 +1222,12 @@ declare namespace cert {
      * 获取对象的字符串类型数据。
      *
      * @returns { string } 对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1241,14 +1241,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码类型。
      * @returns { string } 表示对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1261,12 +1261,12 @@ declare namespace cert {
      * 获取DER格式数据的哈希值。
      *
      * @returns { Uint8Array } DER格式数据的哈希值。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1279,12 +1279,12 @@ declare namespace cert {
      * 获取证书扩展对象。
      *
      * @returns { CertExtension } 证书扩展对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1300,13 +1300,13 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @param { AsyncCallback<X509Cert> } callback - 回调函数。当创建X.509证书对象成功时，err为undefined，data为获取到的
    *     X509Cert实例；否则为错误对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1320,13 +1320,13 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @returns { Promise<X509Cert> } Promise对象，返回创建的X509Cert实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1349,12 +1349,12 @@ declare namespace cert {
      * 获取证书扩展的序列化数据。
      *
      * @returns { EncodingBlob } 获取的证书扩展序列化数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1368,16 +1368,16 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType - 指定要获取的OID类型。
      * @returns { DataArray } 获取的证书扩展OID列表。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1392,16 +1392,16 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType - 指定要获取的扩展信息类型。
      * @param { DataBlob } oid - 指定要获取的扩展项OID。
      * @returns { DataBlob } 获取的证书扩展项数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1416,12 +1416,12 @@ declare namespace cert {
      * @returns { int } 当证书扩展中密钥用途扩展包含keyCertSign位，并且基本约束中cA字段为true时，表示证书为CA证书。
      *     如果证书不是CA证书，则返回-1；否则返回基本约束中的路径长度。
      *     如果证书是CA证书，但是基本约束中未给定路径长度，则返回-2，表示无路径长度限制。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1434,12 +1434,12 @@ declare namespace cert {
      * 判断是否存在不支持的关键扩展。
      *
      * @returns { boolean } 当存在不支持的关键扩展时，该方法返回true，否则返回false。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1455,13 +1455,13 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @param { AsyncCallback<CertExtension> } callback - 回调函数。当创建证书扩展对象成功时，err为undefined，data为获取
    *     到的CertExtension实例；否则为错误对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1475,13 +1475,13 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @returns { Promise<CertExtension> } Promise对象，返回创建的CertExtension实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -1513,15 +1513,15 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
      *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1537,15 +1537,15 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRLEntry.getEncoded()]{@link cert.X509CRLEntry.getEncoded()}替代。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1578,12 +1578,12 @@ declare namespace cert {
      * > [X509CRLEntry.getCertIssuer()]{@link cert.X509CRLEntry.getCertIssuer()}替代。
      *
      * @returns { DataBlob } 被吊销的证书的颁发者名称。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1599,13 +1599,13 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用
      * > [X509CRLEntry.getRevocationDate()]{@link cert.X509CRLEntry.getRevocationDate}替代。
      *
-     * @returns { string } 表示证书被吊销的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示证书被吊销的日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1629,15 +1629,15 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
      *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1650,15 +1650,15 @@ declare namespace cert {
      * 表示获取证书吊销条目的序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1671,12 +1671,12 @@ declare namespace cert {
      * 表示获取被吊销的证书的序列号。
      *
      * @returns { bigint } 表示证书吊销条目的序列号。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1693,13 +1693,13 @@ declare namespace cert {
      * > 获取到的被吊销证书的颁发者名称数据带字符串结束符。
      *
      * @returns { DataBlob } 表示被吊销证书的颁发者名称。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1713,15 +1713,15 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码类型。
      * @returns { string } 表示被吊销证书的颁发者名称，使用逗号分隔相对可分辨名称。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1734,12 +1734,12 @@ declare namespace cert {
      * 表示获取证书被吊销的日期。
      *
      * @returns { string } 表示证书被吊销的日期。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1752,12 +1752,12 @@ declare namespace cert {
      * 表示获取DER格式的CRL条目的扩展数据。
      *
      * @returns { DataBlob } 表示CRL条目的扩展数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1770,12 +1770,12 @@ declare namespace cert {
      * 表示判断CRL条目是否有扩展。
      *
      * @returns { boolean } 返回true则表示CRL条目有扩展，返回false则表示无扩展。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -1788,12 +1788,12 @@ declare namespace cert {
      * 获取被吊销证书的颁发者的X.500可分辨名称对象。
      *
      * @returns { X500DistinguishedName } X.500可分辨名称对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1806,12 +1806,12 @@ declare namespace cert {
      * 获取对象的字符串类型数据。
      *
      * @returns { string } 对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1824,12 +1824,12 @@ declare namespace cert {
      * 获取DER格式数据的哈希值。
      *
      * @returns { Uint8Array } DER格式数据的哈希值。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1842,12 +1842,12 @@ declare namespace cert {
      * 获取CRL条目的扩展对象。
      *
      * @returns { CertExtension } CRL条目的扩展对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1879,10 +1879,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示被检查的证书对象。
      * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1915,15 +1915,15 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书吊销列表序列化数据成功时，err为undefined，
      *     data为获取到的X.509证书吊销列表序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1939,15 +1939,15 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getEncoded()]{@link cert.X509CRL.getEncoded()}替代。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书吊销列表的序列化数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1965,11 +1965,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1987,11 +1987,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2022,12 +2022,12 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getIssuerName()]{@link cert.X509CRL.getIssuerName()}替代。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表颁发者名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2042,13 +2042,13 @@ declare namespace cert {
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getLastUpdate()]{@link cert.X509CRL.getLastUpdate}替代。
      *
-     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2063,13 +2063,13 @@ declare namespace cert {
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getNextUpdate()]{@link cert.X509CRL.getNextUpdate}替代。
      *
-     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2086,12 +2086,12 @@ declare namespace cert {
      *
      * @param { number } serialNumber - 表示证书序列号。
      * @returns { X509CrlEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2109,12 +2109,12 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示证书对象。
      * @returns { X509CrlEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2132,11 +2132,11 @@ declare namespace cert {
      *
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
      *     data为获取到的证书吊销条目列表；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2152,11 +2152,11 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts()}替代。
      *
      * @returns { Promise<Array<X509CrlEntry>> } Promise对象，返回证书吊销条目列表。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2172,12 +2172,12 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getTBSInfo()]{@link cert.X509CRL.getTBSInfo}替代。
      *
      * @returns { DataBlob } 表示证书吊销列表的tbsCertList信息。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2194,12 +2194,12 @@ declare namespace cert {
      * > [X509CRL.getSignature()]{@link cert.X509CRL.getSignature}替代。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表的签名数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2216,12 +2216,12 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgName()]{@link cert.X509CRL.getSignatureAlgName}替代。
      *
      * @returns { string } 表示X.509证书吊销列表签名的算法名。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2238,12 +2238,12 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgOid()]{@link cert.X509CRL.getSignatureAlgOid}替代。
      *
      * @returns { string } 表示X.509证书吊销列表签名算法的对象标识符OID。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2260,13 +2260,13 @@ declare namespace cert {
      * > [X509CRL.getSignatureAlgParams()]{@link cert.X509CRL.getSignatureAlgParams}替代。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表签名的算法参数。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -2286,12 +2286,12 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
    * @param { AsyncCallback<X509Crl> } callback - 回调函数。当创建X.509证书吊销列表对象成功时，err为undefined，data为获取到的
    *     X509Crl实例；否则为错误对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
    * @deprecated since 11
@@ -2309,12 +2309,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
    * @returns { Promise<X509Crl> } Promise对象，返回创建的X509Crl实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
    * @deprecated since 11
@@ -2337,10 +2337,10 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示被检查的证书对象。
      * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2366,15 +2366,15 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书吊销列表序列化数据成功时，err为undefined，
      *     data为获取到的X.509证书吊销列表序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2387,15 +2387,15 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表的序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书吊销列表的序列化数据。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2409,11 +2409,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2427,11 +2427,11 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2460,12 +2460,12 @@ declare namespace cert {
      * > 获取到的X.509证书吊销列表颁发者名称数据带字符串结束符。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表颁发者名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2479,14 +2479,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码类型。
      * @returns { string } 表示X.509证书吊销列表颁发者名称，使用逗号分隔相对可分辨名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2498,13 +2498,13 @@ declare namespace cert {
     /**
      * 表示获取X.509证书吊销列表最后一次更新日期。
      *
-     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书吊销列表最后一次更新日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2516,13 +2516,13 @@ declare namespace cert {
     /**
      * 表示获取证书吊销列表下一次更新的日期。
      *
-     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用 ASN.1 UTCTime 或 GeneralizedTime 格式。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @returns { string } 表示X.509证书吊销列表下一次更新的日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2536,12 +2536,12 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - 表示证书序列号。
      * @returns { X509CRLEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2555,12 +2555,12 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示证书对象。
      * @returns { X509CRLEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2574,11 +2574,11 @@ declare namespace cert {
      *
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
      *     data为获取到的证书吊销条目列表；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2591,11 +2591,11 @@ declare namespace cert {
      * 表示获取证书吊销条目列表。使用Promise方式返回结果。
      *
      * @returns { Promise<Array<X509CRLEntry>> } Promise对象，返回证书吊销条目列表。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2608,12 +2608,12 @@ declare namespace cert {
      * 表示获取证书吊销列表的tbsCertList信息。
      *
      * @returns { DataBlob } 表示证书吊销列表的tbsCertList信息。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2626,12 +2626,12 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表的签名数据。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表的签名数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2644,12 +2644,12 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表签名的算法名称。
      *
      * @returns { string } 表示X.509证书吊销列表签名的算法名。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2662,12 +2662,12 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表签名算法的对象标识符OID（Object Identifier）。OID是由国际标准化组织（ISO）的名称注册机构分配。
      *
      * @returns { string } 表示X.509证书吊销列表签名算法的对象标识符OID。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2680,13 +2680,13 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表签名的算法参数。
      *
      * @returns { DataBlob } 表示X.509证书吊销列表签名的算法参数。
-     * @throws { BusinessError } 801 - 不支持该操作。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2699,12 +2699,12 @@ declare namespace cert {
      * 表示获取CRL扩展的DER格式数据。
      *
      * @returns { DataBlob } 表示CRL扩展的DER格式数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2718,12 +2718,12 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - 表示需要匹配的参数。
      * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2736,12 +2736,12 @@ declare namespace cert {
      * 获取CRL颁发者的X.500可分辨名称对象。
      *
      * @returns { X500DistinguishedName } X.500可分辨名称对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2754,12 +2754,12 @@ declare namespace cert {
      * 获取对象的字符串类型数据。
      *
      * @returns { string } 对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2773,14 +2773,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码类型。
      * @returns { string } 表示对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2793,12 +2793,12 @@ declare namespace cert {
      * 获取DER格式数据的哈希值。
      *
      * @returns { Uint8Array } DER格式数据的哈希值。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2811,12 +2811,12 @@ declare namespace cert {
      * 获取CRL扩展对象。
      *
      * @returns { CertExtension } CRL扩展对象。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -2832,12 +2832,12 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
    * @param { AsyncCallback<X509CRL> } callback - 回调函数。当创建X.509证书吊销列表对象成功时，err为undefined，data为获取到的
    *     X509CRL实例；否则为错误对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -2851,12 +2851,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
    * @returns { Promise<X509CRL> } Promise对象，返回创建的X509CRL实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -3279,22 +3279,22 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @param { AsyncCallback<void> } callback - 回调函数。当校验成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030002 - 证书签名验证错误。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-     * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-     * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -3312,22 +3312,22 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030002 - 证书签名验证错误。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-     * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-     * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -3351,35 +3351,35 @@ declare namespace cert {
      * @param { X509Cert } cert - 待验证的证书。
      * @param { CertValidationParams } params - 证书验证参数。
      * @returns { Promise<CertValidationResult> } Promise对象，返回验证结果。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030002 - 证书签名验证错误。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-     * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-     * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
-     * @throws { BusinessError } 19030009 - 证书不受信任。
-     * @throws { BusinessError } 19030010 - 证书已被吊销。
-     * @throws { BusinessError } 19030011 - 未知的关键扩展。
-     * @throws { BusinessError } 19030012 - 证书主机名不匹配。
-     * @throws { BusinessError } 19030013 - 证书邮箱地址不匹配。
-     * @throws { BusinessError } 19030014 - 证书密钥用途不匹配。
-     * @throws { BusinessError } 19030015 - 无法获取证书吊销列表。
-     * @throws { BusinessError } 19030016 - 证书吊销列表尚未生效。
-     * @throws { BusinessError } 19030017 - 证书吊销列表已过期。
-     * @throws { BusinessError } 19030018 - 证书吊销列表签名验证失败。
-     * @throws { BusinessError } 19030019 - 无法获取证书吊销列表颁发者。
-     * @throws { BusinessError } 19030020 - 无法获取在线证书状态协议（OCSP）响应。
-     * @throws { BusinessError } 19030021 - OCSP响应无效。
-     * @throws { BusinessError } 19030022 - OCSP签名验证失败。
-     * @throws { BusinessError } 19030023 - OCSP证书状态未知。
-     * @throws { BusinessError } 19030024 - 网络连接超时。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
+     * @throws { BusinessError } 19030009 - Untrusted certificate.
+     * @throws { BusinessError } 19030010 - The certificate has been revoked.
+     * @throws { BusinessError } 19030011 - Unsupported critical extension.
+     * @throws { BusinessError } 19030012 - Hostname mismatch in the certificate.
+     * @throws { BusinessError } 19030013 - Email address mismatch in the certificate.
+     * @throws { BusinessError } 19030014 - Key usage mismatch in the certificate.
+     * @throws { BusinessError } 19030015 - Failed to obtain the certificate revocation list.
+     * @throws { BusinessError } 19030016 - The certificate revocation list has not taken effect.
+     * @throws { BusinessError } 19030017 - The certificate revocation list has expired.
+     * @throws { BusinessError } 19030018 - Failed to verify the signature of the certificate revocation list.
+     * @throws { BusinessError } 19030019 - Failed to find the issuer of the certificate revocation list.
+     * @throws { BusinessError } 19030020 - Failed to obtain the OCSP response.
+     * @throws { BusinessError } 19030021 - Invalid OCSP response.
+     * @throws { BusinessError } 19030022 - Failed to verify the OCSP signature.
+     * @throws { BusinessError } 19030023 - Unknown OCSP certificate status.
+     * @throws { BusinessError } 19030024 - Network connection timed out.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
      * @atomicservice
@@ -3404,17 +3404,17 @@ declare namespace cert {
    *
    * @param { string } algorithm - 表示证书链校验器算法。当前仅支持输入"PKIX"。
    * @returns { CertChainValidator } 表示证书链校验器对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 801 - 不支持该操作。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -3855,12 +3855,12 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
      * @returns { Promise<Array<X509Cert>> } Promise对象，返回匹配到的证书对象数组。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3875,12 +3875,12 @@ declare namespace cert {
      * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
      * @param { AsyncCallback<Array<X509Cert>> } callback - 回调函数。当查找证书对象成功时，err为undefined，data为获取到的
      *     匹配的证书对象数组；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3894,12 +3894,12 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数。
      * @returns { Promise<Array<X509CRL>> } Promise对象，返回匹配到的证书吊销列表对象数组。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3914,12 +3914,12 @@ declare namespace cert {
      * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数对象。
      * @param { AsyncCallback<Array<X509CRL>> } callback - 回调函数。当查找证书吊销列表成功时，err为undefined，data为获取到
      *     的匹配的证书吊销列表对象数组；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3936,11 +3936,11 @@ declare namespace cert {
    * @param { Array<X509CRL> } [options] crls - X509CRL数组。 [since 11 - 11]
    * @param { Array<X509CRL> } [crls] - X509CRL数组。
    * @returns { CertCRLCollection } 表示证书和证书吊销列表集合对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -3963,12 +3963,12 @@ declare namespace cert {
      * 获取X.509证书列表。
      *
      * @returns { Array<X509Cert> } X.509证书数组。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -3982,22 +3982,22 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - 表示校验X.509证书链的参数。
      * @returns { Promise<CertChainValidationResult> } Promise对象，返回证书链校验结果。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030002 - 证书签名验证错误。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-     * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-     * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4012,22 +4012,22 @@ declare namespace cert {
      * @param { CertChainValidationParameters } param - 表示校验X.509证书链的参数。
      * @param { AsyncCallback<CertChainValidationResult> } callback - 回调函数。当校验证书链成功时，err为undefined，
      *     data为获取到的证书链校验结果；否则为错误对象。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030002 - 证书签名验证错误。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-     * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-     * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+     * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+     * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -4040,12 +4040,12 @@ declare namespace cert {
      * 获取对象的字符串类型数据。
      *
      * @returns { string } 对象的字符串类型数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4058,12 +4058,12 @@ declare namespace cert {
      * 获取DER格式数据的哈希值。
      *
      * @returns { Uint8Array } DER格式数据的哈希值。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4078,12 +4078,12 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @returns { Promise<X509CertChain> } Promise对象，返回创建的X509CertChain实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4098,12 +4098,12 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @param { AsyncCallback<X509CertChain> } callback - 回调函数。当创建X.509证书链对象成功时，err为undefined，data为获取到的
    *     X509CertChain实例；否则为错误对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4117,12 +4117,12 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - X.509证书对象数组。
    * @returns { X509CertChain } 表示X.509证书链对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice [since 12]
@@ -4137,22 +4137,22 @@ declare namespace cert {
    * @param { CertChainBuildParameters } param - 构建证书链的参数对象。  <br>
    *     [CertChainBuildParameters]{@link cert.CertChainBuildParameters}中的maxLength要小于证书集合中证书数量。
    * @returns { Promise<CertChainBuildResult> } Promise对象，返回创建的CertChainBuildResult实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030002 - 证书签名验证错误。
-   * @throws { BusinessError } 19030003 - 证书尚未生效。
-   * @throws { BusinessError } 19030004 - 证书过期。
-   * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-   * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-   * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4320,17 +4320,17 @@ declare namespace cert {
    * @param { Uint8Array } data - DER格式的P12文件原始数据。
    * @param { Pkcs12ParsingConfig } config - P12文件的解析配置。
    * @returns { Pkcs12Data } 表示解析后的P12数据。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030008 - 私钥密码错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4345,16 +4345,16 @@ declare namespace cert {
    * @param { Uint8Array } data - DER格式的P12文件原始数据。
    * @param { string } password - 密码。
    * @returns { Promise<Pkcs12Data> } Promise对象，返回解析后的P12数据。返回的Pkcs12Data中的私钥采用PEM编码。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-   *     <br>1. 数据长度为零或过大；
-   *     <br>2. 密码长度过大。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030008 - 私钥密码错误。
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+   *     <br>1. The length of the data is zero or too large;
+   *     <br>2. The length of the password is too large.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4369,22 +4369,22 @@ declare namespace cert {
    * @param { Uint8Array } keystore - DER格式的P12文件原始数据。
    * @param { string } pwd - 密码。
    * @returns { Promise<Array<X509TrustAnchor>> } Promise对象，返回X509TrustAnchor对象数组。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030002 - 证书签名验证错误。
-   * @throws { BusinessError } 19030003 - 证书尚未生效。
-   * @throws { BusinessError } 19030004 - 证书过期。
-   * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-   * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-   * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4400,22 +4400,22 @@ declare namespace cert {
    *     常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地区）、ST（省/州）、L（市/区）。
    *     例如：/CN=example.com/O=Example/C=CN。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030002 - 证书签名验证错误。
-   * @throws { BusinessError } 19030003 - 证书尚未生效。
-   * @throws { BusinessError } 19030004 - 证书过期。
-   * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-   * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-   * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4429,22 +4429,22 @@ declare namespace cert {
    *
    * @param { Uint8Array } nameDer - DER格式的X.500可分辨名称。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030002 - 证书签名验证错误。
-   * @throws { BusinessError } 19030003 - 证书尚未生效。
-   * @throws { BusinessError } 19030004 - 证书过期。
-   * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
-   * @throws { BusinessError } 19030006 - 证书的密钥用途不含证书签名。
-   * @throws { BusinessError } 19030007 - 证书的密钥用途不含数字签名。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030002 - The certificate signature verification failed.
+   * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+   * @throws { BusinessError } 19030004 - The certificate has expired.
+   * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
+   * @throws { BusinessError } 19030006 - The key cannot be used for signing a certificate.
+   * @throws { BusinessError } 19030007 - The key cannot be used for a digital signature.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4467,12 +4467,12 @@ declare namespace cert {
      * 获取可分辨名的字符串。
      *
      * @returns { string } 可分辨名的字符串。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4486,14 +4486,14 @@ declare namespace cert {
      *
      * @param { EncodingType } encodingType - 表示编码格式。
      * @returns { string } 表示可分辨名称的字符串，使用逗号分隔相对可分辨名称。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4507,16 +4507,16 @@ declare namespace cert {
      *
      * @param { string } type - 指定类型的名称。如"CN"、"OU"等。
      * @returns { Array<string> } 相对可分辨名称的字符串数组。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -4531,14 +4531,14 @@ declare namespace cert {
      * @param { string } type - 指定类型的名称。如"CN"、"OU"等。
      * @param { EncodingType } encodingType - 表示编码格式。
      * @returns { Array<string> } 相对可分辨名称的字符串数组。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. encodingType的值不在EncodingType枚举范围内。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
      * @atomicservice
@@ -4550,12 +4550,12 @@ declare namespace cert {
      * 获取X.500可分辨名称的DER编码数据。
      *
      * @returns { EncodingBlob } X.500可分辨名称的DER编码数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5700,20 +5700,24 @@ declare namespace cert {
     /**
      * 用于为内容类型为SIGNED_DATA的CMS添加签名者信息。
      *
+     * > **说明：**
+     * >
+     * > 自签名证书不能作为签名者。
+     * 
      * @param { X509Cert } cert - 指定X.509证书。
      * @param { PrivateKeyInfo } keyInfo - 指定私钥信息。
      * @param { CmsSignerConfig } config - 指定签名者选项。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030008 - 私钥密码错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030008 - Maybe wrong password.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5728,16 +5732,16 @@ declare namespace cert {
      * <br>如果未调用addSigner接口，并且仅添加证书后，生成的CMS签名数据将只包含证书。
      *
      * @param { X509Cert } cert - 要添加的X.509证书。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5752,14 +5756,14 @@ declare namespace cert {
      * <br>该方法应在创建ENVELOPED_DATA类型的CmsGenerator后立即调用。如果未调用此方法，则默认使用AES_256_GCM作为加密算法。
      *
      * @param { CmsRecipientEncryptionAlgorithm } algorithm - 用于CMS封装数据的加密算法。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. 算法类型无效或不支持。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The type of algorithm is invalid or not supported.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5775,16 +5779,16 @@ declare namespace cert {
      *
      * @param { CmsRecipientInfo } recipientInfo - 接收者信息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. 接收者证书类型无效或不支持；
-     *     <br>2. CmsKeyAgreeRecipientInfo的digestAlgorithm无效或不支持；
-     *     <br>3. recipientInfo中无接收者信息。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The type of recipient certificate is invalid or not supported;
+     *     <br>2. The digestAlgorithm of CmsKeyAgreeRecipientInfo is invalid or not supported;
+     *     <br>3. The recipientInfo does not have any recipient info.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5799,16 +5803,16 @@ declare namespace cert {
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Promise<Uint8Array | string> } Promise对象，返回CMS消息。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5823,16 +5827,16 @@ declare namespace cert {
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Uint8Array | string } 生成的CMS消息。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数校验失败。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5847,12 +5851,12 @@ declare namespace cert {
      * <br>如果创建了类型为ENVELOPED_DATA的CmsGenerator并使用了数据分离来生成CMS封装数据，使用此方法来获取加密的内容数据。
      *
      * @returns { Promise<Uint8Array> } Promise对象，返回加密的数据内容。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -5867,16 +5871,16 @@ declare namespace cert {
    *
    * @param { CmsContentType } contentType - 指定CMS内容类型。
    * @returns { CmsGenerator } CmsGenerator对象。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6059,15 +6063,15 @@ declare namespace cert {
      * @param { Uint8Array | string } data - CMS消息内容。
      * @param { CmsFormat } cmsFormat - 指定输入的CMS格式。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据长度为零或过大；
-     *     <br>2. cmsFormat类型无效或不支持。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The length of the data is zero or too large;
+     *     <br>2. The type of the cmsFormat is invalid or not supported.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6080,12 +6084,12 @@ declare namespace cert {
      * 用于获取CMS内容类型。
      *
      * @returns { CmsContentType } 返回CMS内容类型。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6099,19 +6103,19 @@ declare namespace cert {
      *
      * @param { CmsVerificationConfig } config - CMS验签配置内容。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. config的trustCerts为空；
-     *     <br>2. config的contentData长度为零或过大；
-     *     <br>3. config的contentDataFormat无效或不支持。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-     * @throws { BusinessError } 19030003 - 证书尚未生效。
-     * @throws { BusinessError } 19030004 - 证书过期。
-     * @throws { BusinessError } 19030005 - 无法获取证书的颁发者。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The trustCerts of config is empty;
+     *     <br>2. The length of the contentData of config is zero or too large;
+     *     <br>3. The contentDataFormat of config is invalid or not supported.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
+     * @throws { BusinessError } 19030003 - The certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - The certificate has expired.
+     * @throws { BusinessError } 19030005 - Failed to obtain the certificate issuer.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6124,12 +6128,12 @@ declare namespace cert {
      * 用于从签名数据类型的CMS消息中获取内容数据。使用Promise方式返回结果。
      *
      * @returns { Promise<Uint8Array> } Promise对象，返回CMS内容数据。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6143,14 +6147,14 @@ declare namespace cert {
      *
      * @param { CmsCertType } type - 从cms中获取证书的类型。
      * @returns { Promise<Array<X509Cert>> } Promise对象，返回证书集合。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. type类型无效或不支持。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The value of type is invalid or not supported.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6164,15 +6168,15 @@ declare namespace cert {
      *
      * @param { CmsEnvelopedDecryptionConfig } config - CMS解密的配置。
      * @returns { Promise<Uint8Array> } Promise对象，返回解密结果。
-     * @throws { BusinessError } 19020001 - 内存错误。
-     * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-     *     <br>1. 内存拷贝失败；
-     *     <br>2. 系统内部出现空指针；
-     *     <br>3. 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-     *     <br>1. 私钥无效或不支持；
-     *     <br>2. 接收者证书无效或不支持。
-     * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+     * @throws { BusinessError } 19020001 - Memory malloc failed.
+     * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+     *     <br>1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system;
+     *     <br>3. Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+     *     <br>1. The private key is invalid or not supported;
+     *     <br>2. The recipient certificate is invalid or not supported.
+     * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -6186,12 +6190,12 @@ declare namespace cert {
    * 表示创建CmsParser对象。
    *
    * @returns { CmsParser } CmsParser对象。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6307,17 +6311,17 @@ declare namespace cert {
    * @param { PrivateKeyInfo } keyInfo - 包含私钥跟口令的配置参数。
    * @param { CsrGenerationConfig } config - 包含生成CSR的配置参数。
    * @returns { string | Uint8Array } 生成的CSR。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数校验失败。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
-   * @throws { BusinessError } 19030008 - 私钥密码错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
+   * @throws { BusinessError } 19030008 - Maybe wrong password.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6563,16 +6567,16 @@ declare namespace cert {
    * @param { Pkcs12Data } data - 要打包的P12数据对象。
    * @param { Pkcs12CreationConfig } config - P12的创建配置。
    * @returns { Uint8Array } 表示创建的P12，DER格式。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-   *     <br>1. 密码过短或过长；
-   *     <br>2. 私钥与证书不匹配；
-   *     <br>3. 加密算法参数无效。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+   *     <br>1. The password is too short or too long;
+   *     <br>2. The private key does not match the certificate;
+   *     <br>3. Invalid encryption algorithm parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -6587,16 +6591,16 @@ declare namespace cert {
    * @param { Pkcs12Data } data - 要打包的P12数据对象。
    * @param { Pkcs12CreationConfig } config - P12的创建配置。
    * @returns { Promise<Uint8Array> } Promise对象，返回创建的P12，DER格式。
-   * @throws { BusinessError } 19020001 - 内存错误。
-   * @throws { BusinessError } 19020002 - 运行时外部错误。可能的原因：
-   *     <br>1. 内存拷贝失败；
-   *     <br>2. 系统内部出现空指针；
-   *     <br>3. 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 19020003 - 参数检查失败。可能的原因：
-   *     <br>1. 密码过短或过长；
-   *     <br>2. 私钥与证书不匹配；
-   *     <br>3. 加密算法参数无效。
-   * @throws { BusinessError } 19030001 - 调用三方算法库API出错。
+   * @throws { BusinessError } 19020001 - Memory malloc failed.
+   * @throws { BusinessError } 19020002 - Runtime error. Possible causes:
+   *     <br>1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system;
+   *     <br>3. Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
+   *     <br>1. The password is too short or too long;
+   *     <br>2. The private key does not match the certificate;
+   *     <br>3. Invalid encryption algorithm parameters.
+   * @throws { BusinessError } 19030001 - Crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
