@@ -1,0 +1,118 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit FormKit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
+import formBindingData from './@ohos.app.form.formBindingData';
+import type Want from './@ohos.app.ability.Want';
+
+/**
+ * The **FormAgent** module provides APIs related to the widget agent. Currently, you can use the APIs to request to 
+ * publish widgets only.
+ *
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @since 11 dynamic
+ * @since 23 static
+ */
+declare namespace formAgent {
+
+  /**
+   * Requests to publish a widget to the widget host. This API uses an asynchronous callback to return the result. The 
+   * widget host is usually the home screen.
+   *
+   * @permission ohos.permission.AGENT_REQUIRE_FORM
+   * @param { Want } want - Publish request, which must contain the following fields:
+   *     <br>**bundleName**: bundle name of the target widget.
+   *     <br>**abilityName**: ability of the target widget.
+   *     <br>parameters:
+   *     <br>- **ohos.extra.param.key.form_dimension**: dimension of the target widget.
+   *     <br>- **ohos.extra.param.key.form_name**: name of the target widget.
+   *     <br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @param { AsyncCallback<string> } callback - Callback used to return the widget ID.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.1.0]
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
+   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.1.0]
+   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11 dynamic
+   * @since 23 static
+   */
+  function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
+
+  /**
+   * Requests to publish a widget to the widget host. This API uses a promise to return the result. The widget host is 
+   * usually the home screen.
+   *
+   * @permission ohos.permission.AGENT_REQUIRE_FORM
+   * @param { Want } want - Publish request, which must contain the following fields:
+   *     <br>**bundleName**: bundle name of the target widget.
+   *     <br>**abilityName**: ability of the target widget.
+   *     <br>parameters:
+   *     <br>- **ohos.extra.param.key.form_dimension**: dimension of the target widget.
+   *     <br>- **ohos.extra.param.key.form_name**: name of the target widget.
+   *     <br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @returns { Promise<string> } Promise used to return the widget ID.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.1.0]
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
+   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.1.0]
+   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11 dynamic
+   * @since 23 static
+   */
+  function requestPublishForm(want: Want): Promise<string>;
+
+  /**
+   * Updates a widget by cross bundle. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.UPDATE_FORM_CROSS_BUNDLE
+   * @param { string } formId - ID of the widget to update.
+   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - Possible cause IPC connection error. Such as the remote object dose not exist.
+   * @throws { BusinessError } 16500060 - Possible cause Service State error. Such as the form is recovering.
+   * @throws { BusinessError } 16501000 - Possible cause internal functional error. Such as virtualization failed.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form to be operated has been deleted already.
+   * @throws { BusinessError } 16501007 - The form to be operated is not trusted.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function updateFormCrossBundle(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+}
+export default formAgent;
