@@ -1676,7 +1676,7 @@ declare namespace userFileManager {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 26.0.0
-   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper
    */
   interface UserFileManager {
     /**
