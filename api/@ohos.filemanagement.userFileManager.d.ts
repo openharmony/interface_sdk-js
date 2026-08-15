@@ -66,8 +66,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.IMAGE
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.IMAGE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.IMAGE
      */
     IMAGE = 1,
     /**
@@ -77,7 +76,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.VIDEO
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.VIDEO
      */
     VIDEO,
     /**
@@ -241,7 +240,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.photoType
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.PhotoType
      */
     readonly fileType: FileType;
     /**
@@ -1298,7 +1297,7 @@ declare namespace userFileManager {
    * @systemapi
    * @since 10 dynamiconly
    * @deprecated since 26.0.0
-   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType
    */
   enum AlbumSubType {
     /**
@@ -1308,7 +1307,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.USER_GENERIC
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.USER_GENERIC
      */
     USER_GENERIC = 1,
     /**
@@ -1318,7 +1317,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.FAVORITE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.FAVORITE
      */
     FAVORITE = 1025,
     /**
@@ -1328,7 +1327,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.VIDEO
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.VIDEO
      */
     VIDEO,
     /**
@@ -1338,7 +1337,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.HIDDEN
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.HIDDEN
      */
     HIDDEN,
     /**
@@ -1348,7 +1347,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.TRASH
      */
     TRASH,
     /**
@@ -1358,7 +1357,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.SCREENSHOT
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.SCREENSHOT
      */
     SCREENSHOT,
     /**
@@ -1368,7 +1367,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.CAMERA
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.CAMERA
      */
     CAMERA,
     /**
@@ -1378,7 +1377,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.ANY
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.ANY
      */
     ANY = 2147483647
   }
@@ -1610,7 +1609,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.recoverAssets
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1625,7 +1624,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.recoverAssets
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1816,7 +1815,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @ohos.file.picker:picker.AudioViewPicker
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
@@ -2063,7 +2062,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @ohos.file.picker:picker.AudioViewPicker
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -2077,7 +2076,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @ohos.file.picker:picker.AudioViewPicker
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -2130,7 +2129,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getPhotoIndex
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.getPhotoIndex
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
     /**
@@ -2238,7 +2237,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.unregisterChange
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.unRegisterChange
      */
     off(uri: string, callback?: Callback<ChangeData>): void;
     /**
@@ -2410,7 +2409,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 26.0.0
-     * @ohos.file.picker:picker.AudioViewPicker
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DEFAULT_AUDIO_URI
   }
@@ -2516,7 +2515,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.FAVORITE
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FAVORITE
      */
     TYPE_FAVORITE,
     /**
@@ -2526,7 +2525,7 @@ declare namespace userFileManager {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 26.0.0
-     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.TRASH
      */
     TYPE_TRASH
   }
