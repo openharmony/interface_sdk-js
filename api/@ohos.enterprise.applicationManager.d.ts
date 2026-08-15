@@ -22,6 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import common from './@ohos.enterprise.common';
 import statistics from './@ohos.net.statistics';
+import formInfo from './@ohos.app.form.formInfo';
 
 /**
  * This module provides application management capabilities, including managing the application running blocklist,
@@ -293,6 +294,60 @@ declare namespace applicationManager {
      * @since 26.0.0
      */
     BACKGROUND = 5
+  }
+
+  /**
+   * Information about a form.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  interface FormInfo {
+    /**
+     * The bundle name of the application to which this form belongs.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    bundleName: string;
+
+    /**
+     * The name of the application module to which this form belongs.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    moduleName: string;
+
+    /**
+     * The ability name of the application to which this form belongs.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    abilityName: string;
+
+    /**
+     * The name of this form.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    name: string;
+
+    /**
+     * The form dimension of the template form.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    dimension: formInfo.FormDimension;
   }
 
   /**
@@ -2107,6 +2162,27 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function getApplicationWindowStates(admin: Want, bundleName: string, appIndex: number): Array<WindowStateInfo>;
+
+  /**
+   * Publishes the form to the desktop.
+   *
+   * @permission ohos.permission.ENTERPRISE_REQUEST_PUBLISH_FORM
+   * @param { FormInfo } formInfo - formInfo indicates the information of the form.
+   * @returns { string } Returns the ID of form.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201047 - Form count limit reached or insufficient home screen space to add forms.
+   * @throws { BusinessError } 9201049 - The form does not exist.
+   * @throws { BusinessError } 9201050 - The form type is not supported.
+   * @throws { BusinessError } 9201051 - Failed to add the form to the desktop.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function publishFormToDesktop(formInfo: FormInfo): string;
 }
 
 export default applicationManager;
