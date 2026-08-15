@@ -14,8 +14,8 @@
  */
 
 /**
- * @file
- * @kit AssetStoreKit
+  * @file
+  * @kit AssetStoreKit
  */
 
 /**
@@ -93,8 +93,8 @@ declare namespace asset {
   /**
    * 在指定用户空间中新增一条关键资产。使用Promise异步回调。
    * 
-   * 设置[Tag.IS_PERSISTENT]{@link @ohos.security.asset:asset.TagType}属性，需申请ohos.permission.STORE_PERSISTENT_DATA权限，申请方式请参
-   * 考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
+   * 设置[Tag.IS_PERSISTENT]{@link @ohos.security.asset:asset.TagType}属性，需申请ohos.permission.STORE_PERSISTENT_DATA权限，
+   * 申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - 用户ID。取值范围大于等于100。
@@ -128,8 +128,8 @@ declare namespace asset {
   /**
    * 新增一条关键资产，使用同步方式返回结果。
    * 
-   * 如果要设置[Tag.IS_PERSISTENT]{@link asset.TagType}属性，需要申请ohos.permission.STORE_PERSISTENT_DATA权限，申请方式请参考
-   * [声明权限](docroot://security/AccessToken/declare-permissions.md)。
+   * 如果要设置[Tag.IS_PERSISTENT]{@link asset.TagType}属性，需要申请ohos.permission.STORE_PERSISTENT_DATA权限，
+   * 申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
    *
    * @param { AssetMap } attributes - 待新增关键资产的属性集合，包括关键资产明文、访问控制属性、自定义数据等。
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
@@ -162,8 +162,9 @@ declare namespace asset {
    * @param { AssetMap } query - 待删除关键资产的搜索条件，如别名、访问控制属性、自定义数据等。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -190,8 +191,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -239,8 +241,9 @@ declare namespace asset {
    *
    * @param { AssetMap } query - 待删除关键资产的搜索条件，如别名、访问控制属性、自定义数据等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -374,15 +377,16 @@ declare namespace asset {
   function updateSync(query: AssetMap, attributesToUpdate: AssetMap): void;
 
   /**
-   * 查询的预处理，用于需要用户认证的关键资产。在用户认证成功后，应当随后调用[asset.query]{@link asset.query}和[asset.postQuery]{@link asset.postQuery}接口。使用
-   * Promise异步回调。
+   * 查询的预处理，用于需要用户认证的关键资产。在用户认证成功后，应当随后调用[asset.query]{@link asset.query}和[asset.postQuery]{@link asset.postQuery}接口。
+   * 使用Promise异步回调。
    *
    * @param { AssetMap } query - 关键资产的查询条件，如别名、访问控制属性、自定义数据等。
    * @returns { Promise<Uint8Array> } Promise对象，返回挑战值。
    *     <br>**说明：** 挑战值用于后续的用户认证。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -414,8 +418,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -443,8 +448,9 @@ declare namespace asset {
    * @returns { Uint8Array } 挑战值。
    *     <br>**说明：** 挑战值用于后续用户认证。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -466,16 +472,17 @@ declare namespace asset {
 
   /**
    * 查询一条或多条符合条件的关键资产。若查询需要用户认证的关键资产，则需要在本函数前调用[asset.preQuery]{@link asset.preQuery}接口，在本函数后调用
-   * [asset.postQuery]{@link asset.postQuery}接口，开发步骤请参考[开发指导](docroot://security/AssetStoreKit/asset-js-query-auth.md)。使
-   * 用Promise异步回调。
+   * [asset.postQuery]{@link asset.postQuery}接口，开发步骤请参考[开发指导](docroot://security/AssetStoreKit/asset-js-query-auth.md)。
+   * 使用Promise异步回调。
    * 
    * 如果未查询到符合条件的关键资产，将抛出“未找到关键资产”的异常，而非返回空的查询结果列表。
    *
    * @param { AssetMap } query - 关键资产的查询条件，如别名、访问控制属性、自定义数据等。
    * @returns { Promise<Array<AssetMap>> } Promise对象，返回查询结果列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -507,8 +514,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -538,8 +546,9 @@ declare namespace asset {
    * @param { AssetMap } query - 关键资产的查询条件，如别名、访问控制属性、自定义数据等。
    * @returns { Array<AssetMap> } 查询结果列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -921,8 +930,7 @@ declare namespace asset {
   }
 
   /**
-   * [batchAdd]{@link asset.batchAdd}、[batchUpdate]{@link asset.batchUpdate}和[batchRemove]{@link asset.batchRemove}批量操作的
-   * 结果。
+   * [batchAdd]{@link asset.batchAdd}和[batchUpdate]{@link asset.batchUpdate}批量操作的结果。
    *
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -1279,7 +1287,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 18
      */
-    WRAP_TYPE = TagType.NUMBER | 0x49,
+    WRAP_TYPE = TagType.NUMBER | 0x49
   }
 
   /**
