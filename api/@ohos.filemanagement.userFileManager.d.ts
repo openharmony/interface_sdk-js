@@ -1676,7 +1676,7 @@ declare namespace userFileManager {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 26.0.0
-   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper
    */
   interface UserFileManager {
     /**
@@ -1822,13 +1822,11 @@ declare namespace userFileManager {
      * Obtains image and video albums. This API uses an asynchronous callback to return the result.
      * 
      * This API cannot be used to obtain hidden albums. Use 
-     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode,
-     *  options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
+     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
      * 
      * This API will be deprecated. Use 
-     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions,
-     *  callback: AsyncCallback<FetchResult<Album>> )}
+     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1846,13 +1844,11 @@ declare namespace userFileManager {
      * Obtains albums. This API uses a promise to return the result.
      * 
      * This API cannot be used to obtain hidden albums. Use 
-     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode,
-     *  options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
+     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
      * 
      * This API will be deprecated. Use 
-     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions,
-     *  callback: AsyncCallback<FetchResult<Album>> )}
+     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1943,8 +1939,7 @@ declare namespace userFileManager {
      * the result.
      * 
      * This API cannot be used to obtain hidden albums. Use 
-     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode,
-     *  options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
+     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
      * 
      * Before the operation, ensure that the albums to obtain exist.
@@ -1971,8 +1966,7 @@ declare namespace userFileManager {
      * Obtains albums by type. This API uses an asynchronous callback to return the result.
      * 
      * This API cannot be used to obtain hidden albums. Use 
-     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode,
-     *  options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
+     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
      * 
      * Before the operation, ensure that the albums to obtain exist.
@@ -1993,8 +1987,7 @@ declare namespace userFileManager {
      * Obtains albums based on the specified options and album type. This API uses a promise to return the result.
      * 
      * This API cannot be used to obtain hidden albums. Use 
-     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode,
-     *  options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
+     * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
      * 
      * Before the operation, ensure that the albums to obtain exist.
@@ -2017,8 +2010,7 @@ declare namespace userFileManager {
      * Obtains the system album. This API uses an asynchronous callback to return the result.
      * 
      * This API will be deprecated. Use 
-     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions,
-     *  callback: AsyncCallback<FetchResult<Album>> )}
+     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -2036,8 +2028,7 @@ declare namespace userFileManager {
      * Obtains the private album. This API uses a promise to return the result.
      * 
      * This API will be deprecated. Use 
-     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions,
-     *  callback: AsyncCallback<FetchResult<Album>> )}
+     * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO

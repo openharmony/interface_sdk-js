@@ -9043,7 +9043,7 @@ declare namespace photoAccessHelper {
     strongAssociation: StrongAssociationType;
 
     /**
-     * Visible status of the thumbnail.
+     * Accessibility status of the thumbnail.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -10749,7 +10749,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900042 - Unknown error
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *     <br>1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
-     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
+     *     Only MOVING_PHOTO_ENABLED and MOVING_PHOTO_DISABLED are supported for configuration;
      *     <br>2. An illegal enumeration value was passed to PhotoSelectOptions.assetCompatibleAbility. [since 12]
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform [since 12]
@@ -10782,7 +10782,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900042 - Unknown error
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *     <br>1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
-     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration; [since 12]
+     *     Only MOVING_PHOTO_ENABLED and MOVING_PHOTO_DISABLED are supported for configuration; [since 12]
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform [since 12]
      * @atomicservice [since 11]
