@@ -324,7 +324,7 @@ export declare class BoidsSimWorld {
   /**
    * 当前模拟是否正在播放。true表示正在播放，false表示已经暂停。
    *
-   * @returns { boolean } 返回模拟是否正在播放
+   * @returns { boolean } true表示正在播放，false表示已经暂停。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
