@@ -287,7 +287,7 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append、insertAfter、remove或clear）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似”无效”；添加新节点才会真正增加子节点数量。
+   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append、insertAfter、remove或clear）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；添加新节点才会真正增加子节点数量。
    *
    * @type { Container<Node> }
    * @readonly
@@ -451,7 +451,7 @@ export interface SpotLight extends Light {
    * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。设置的值必须大于等于innerAngle，小于等于PI/2。
    * 
    * @type { ?double }
-    * @default PI / 4.0 π/4 弧度
+   * @default PI / 4.0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -566,7 +566,7 @@ export interface Camera extends Node {
    * 控制渲染管线。若未设置，默认使用轻量级前向渲染管线。（如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用。）
    *
    * @type { ?RenderingPipelineType }
-    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT 前向轻量级渲染管线
+   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -577,7 +577,7 @@ export interface Camera extends Node {
    * 从屏幕指定位置发射射线，检测并返回所有命中的3D物体信息。使用Promise异步回调。
    * @param { Vec2 } viewPosition - 使用屏幕归一化坐标，取值范围为[0, 1]。其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。
    * @param { RaycastParameters } params - 射线检测的配置参数（如检测范围、过滤节点等）。
-   * @returns { Promise<RaycastResult[]> } - Promise对象，返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。
+   * @returns { Promise<RaycastResult[]> } Promise对象，返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
