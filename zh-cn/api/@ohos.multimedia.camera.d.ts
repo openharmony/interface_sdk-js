@@ -2211,10 +2211,10 @@ declare namespace camera {
     on(type: 'error', camera: CameraDevice, callback: ErrorCallback): void;
 
     /**
-     * Subscribes to error events.
+     * 监听CameraInput的错误事件，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { CameraDevice } camera - Camera device.
-     * @param { ErrorCallback } callback - Callback used to get the camera input errors.
+     * @param { CameraDevice } camera - CameraDevice对象。
+     * @param { ErrorCallback } callback - 回调函数，用于获取结果。返回错误码，错误码类型CameraErrorCode。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 static
      */
@@ -2233,10 +2233,10 @@ declare namespace camera {
     off(type: 'error', camera: CameraDevice, callback?: ErrorCallback): void;
 
     /**
-     * Unsubscribes from error events.
+     * 注销监听CameraInput的错误事件。
      *
-     * @param { CameraDevice } camera - Camera device.
-     * @param { ErrorCallback } [callback] - Callback used to get the camera input errors.
+     * @param { CameraDevice } camera - CameraDevice对象。
+     * @param { ErrorCallback } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 static
      */
@@ -2262,9 +2262,9 @@ declare namespace camera {
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
-     * Subscribes to camera occlusion detection results.
+     * 监听CameraInput的镜头遮挡或脏污事件，通过注册回调函数获取结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - 回调函数，用于获取结果。返回遮挡状态。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 static
      */
@@ -2287,9 +2287,9 @@ declare namespace camera {
     off(type: 'cameraOcclusionDetection', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
-     * Unsubscribes from camera occlusion detection results.
+     * 注销监听CameraInput的镜头遮挡或脏污事件。使用callback异步回调。
      *
-     * @param { AsyncCallback<CameraOcclusionDetectionResult> } [callback] - Callback used to get detection results.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } [callback] - 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 static
      */
@@ -8699,7 +8699,7 @@ declare namespace camera {
   }
 
   /**
-   * Provides the aperture query capability.
+   * 物理光圈查询对象。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 12 - 23]
@@ -8710,9 +8710,9 @@ declare namespace camera {
    */
   interface ApertureQuery {
     /**
-     * Obtains the supported virtual apertures.
+     * 获取支持的虚拟光圈列表。
      *
-     * @returns { Array<double> } Array of virtual apertures supported.
+     * @returns { Array<double> } 支持的虚拟光圈列表。
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -8723,10 +8723,9 @@ declare namespace camera {
     getSupportedVirtualApertures(): Array<double>;
 
     /**
-     * Gets the supported physical apertures.
-     * Move to ApertureQuery interface from Aperture since 12.
+     * 获取支持的物理光圈。
      *
-     * @returns { Array<PhysicalAperture> } The array of supported physical apertures.
+     * @returns { Array<PhysicalAperture> } 支持的物理光圈数组。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 23]
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal. [since 24]
@@ -8741,7 +8740,9 @@ declare namespace camera {
   }
 
   /**
-   * Provides the APIs for aperture settings. It inherits from [ApertureQuery]{@link camera.ApertureQuery}.
+   * 物理光圈对象。
+   *
+   * Aperture继承自ApertureQuery。
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 11 - 23]
@@ -8752,9 +8753,9 @@ declare namespace camera {
    */
   interface Aperture extends ApertureQuery {
     /**
-     * Obtains the virtual aperture in use.
+     * 获取当前设置的虚拟光圈值。
      *
-     * @returns { double } Virtual aperture.
+     * @returns { double } 当前设置的虚拟光圈值。
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -8765,11 +8766,9 @@ declare namespace camera {
     getVirtualAperture(): double;
 
     /**
-     * Sets a virtual aperture. Before the setting, call
-     * [getSupportedVirtualApertures]{@link camera.ApertureQuery.getSupportedVirtualApertures} to obtain the supported
-     * virtual apertures.
+     * 设置虚拟光圈。可以先通过getSupportedVirtualApertures获取当前设备所支持的虚拟光圈列表。
      *
-     * @param { double } aperture - virtual aperture value
+     * @param { double } aperture - 虚拟光圈值，通过getSupportedVirtualApertures接口获取。
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -8780,9 +8779,9 @@ declare namespace camera {
     setVirtualAperture(aperture: double): void;
 
     /**
-     * Gets current physical aperture value.
+     * 获取当前物理光圈值。
      *
-     * @returns { double } The current physical aperture value.
+     * @returns { double } 当前物理光圈值。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 23]
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal. [since 24]
@@ -8796,10 +8795,9 @@ declare namespace camera {
     getPhysicalAperture(): double;
 
     /**
-     * Sets physical aperture value.
+     * 设置物理光圈值。需要先通过getSupportedPhysicalApertures接口获取不同焦段支持的可设置光圈值，再通过调整焦段范围，设置支持的物理光圈值。
      *
-     * @param { double } aperture - physical aperture value. The supported physical aperture range can be obtained by
-     *     calling [getSupportedPhysicalApertures]{@link camera.ApertureQuery.getSupportedPhysicalApertures}
+     * @param { double } aperture - 物理光圈值。
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 23]
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal. [since 24]
@@ -12972,7 +12970,7 @@ declare namespace camera {
    */
   interface CapturePhoto {
     /**
-     * Object of the full-quality image and the uncompressed image.
+     * 全质量图和未压缩图的对象。
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -12982,10 +12980,9 @@ declare namespace camera {
     main: ImageType;
 
     /**
-     * Releases output resources. This API uses a promise to return the result.
-     * Model constraint: This API can be used only in the stage model.
+     * 释放输出资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
