@@ -232,7 +232,7 @@ declare namespace deviceInfo {
    * 
    * **说明：**可作为设备唯一识别码。
    * 
-   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业定制应用申请) 
+   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：序列号随设备差异
    *
@@ -398,7 +398,7 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * 系统软件Patch API版本。从API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
    * 
    * 26.0.0
    * 
@@ -534,7 +534,7 @@ declare namespace deviceInfo {
   const distributionOSApiVersion: number;
 
   /**
-   * 发行版系统api版本名称<!--Del-->，由发行方定义<!--DelEnd-->。
+   * 发行版系统API版本名称<!--Del-->，由发行方定义<!--DelEnd-->。
    *
    * <!--RP16-->
    * **说明**：不建议用于版本号判断。
@@ -556,7 +556,7 @@ declare namespace deviceInfo {
   const distributionOSReleaseType: string;
 
   /**
-   * 开发者匿名设备标识符。
+   * ODID（Open Developer Identifier，开发者匿名设备标识符）。
    * 
    * **ODID值会在以下场景重新生成：**
    * 
@@ -588,7 +588,7 @@ declare namespace deviceInfo {
   /**
    * 硬盘序列号，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。
    * 
-   * **说明** ：该字段只能在2in1设备进行查询，其他设备查询结果为空。
+   * **说明** ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。
    * 
    * ohos.permission.ACCESS_DISK_PHY_INFO 
    * 
