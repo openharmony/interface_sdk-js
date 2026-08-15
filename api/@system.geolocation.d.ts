@@ -20,6 +20,7 @@
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -29,6 +30,7 @@ export interface GeolocationResponse {
   /**
    * Longitude.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -39,6 +41,7 @@ export interface GeolocationResponse {
   /**
    * Latitude.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -49,6 +52,7 @@ export interface GeolocationResponse {
   /**
    * Altitude.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -59,6 +63,7 @@ export interface GeolocationResponse {
   /**
    * Location accuracy.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -69,6 +74,7 @@ export interface GeolocationResponse {
   /**
    * Time when the location is obtained.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -80,6 +86,7 @@ export interface GeolocationResponse {
 /**
  * @permission ohos.permission.LOCATION
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -94,6 +101,7 @@ export interface GetLocationOption {
    * The value is a 32-digit positive integer.
    * If the value set is less than or equal to 0, the default value will be used.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -105,6 +113,7 @@ export interface GetLocationOption {
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -114,6 +123,7 @@ export interface GetLocationOption {
   /**
    * Called when the geographic location is obtained.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -124,6 +134,7 @@ export interface GetLocationOption {
   /**
    * Called when the location types fail to be obtained
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -134,6 +145,7 @@ export interface GetLocationOption {
   /**
    * Called when the execution is completed.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -144,6 +156,7 @@ export interface GetLocationOption {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -151,6 +164,7 @@ export interface GetLocationOption {
 export interface GetLocationTypeResponse {
   /**
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -160,6 +174,7 @@ export interface GetLocationTypeResponse {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -168,6 +183,7 @@ export interface GetLocationTypeOption {
   /**
    * Called when the location types are obtained.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -177,6 +193,7 @@ export interface GetLocationTypeOption {
   /**
    * Called when the location types fail to be obtained.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -186,6 +203,7 @@ export interface GetLocationTypeOption {
   /**
    * Called when the execution is completed.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -196,6 +214,7 @@ export interface GetLocationTypeOption {
 /**
  * @permission ohos.permission.LOCATION
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -206,6 +225,7 @@ export interface SubscribeLocationOption {
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -215,6 +235,7 @@ export interface SubscribeLocationOption {
   /**
    * Called whenever the geographical location changes.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -224,6 +245,7 @@ export interface SubscribeLocationOption {
   /**
    * Called when the listening fails.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -233,6 +255,7 @@ export interface SubscribeLocationOption {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 9
  * @reserved ["liteWearable"]
@@ -244,6 +267,7 @@ export default class Geolocation {
    * @permission ohos.permission.LOCATION
    * @param options Options.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -255,6 +279,7 @@ export default class Geolocation {
    * Obtains the location types supported by the system.
    * @param options Options.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -266,6 +291,7 @@ export default class Geolocation {
    * @permission ohos.permission.LOCATION
    * @param options Options.
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -277,6 +303,7 @@ export default class Geolocation {
    * Cancels listening to the geographical location.
    * @permission ohos.permission.LOCATION
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
@@ -288,6 +315,7 @@ export default class Geolocation {
    * Obtains the supported coordinate system types.
    * @returns A string array of the supported coordinate system types, for example, ['wgs84'].
    * @syscap SystemCapability.Location.Location.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 9
    * @reserved ["liteWearable"]
