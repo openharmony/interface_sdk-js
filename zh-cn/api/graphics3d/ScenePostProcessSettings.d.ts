@@ -221,7 +221,7 @@ export interface PostProcessSettings {
    * 边缘暗角，默认值为undefined。
    *
    * @type { ?VignetteSettings }
-   * @default 暗角默认启用
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static
@@ -232,7 +232,7 @@ export interface PostProcessSettings {
    * 色晕，默认值为undefined。
    *
    * @type { ?ColorFringeSettings }
-   * @default 色晕默认启用
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic
    * @since 23 static
