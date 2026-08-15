@@ -399,13 +399,13 @@ export declare class PickerController {
   /**
    * Sets the moving photo effect in the photo browser view.
    * This configuration only takes effect for moving photo when viewed in the photo browser.
-   * Note: Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported as values.
+   * Note: Only MOVING_PHOTO_ENABLED and MOVING_PHOTO_DISABLED are supported as values.
    *
    * @param { photoAccessHelper.MovingPhotoBadgeStateType } movingPhotoState - State of moving photo.
    * @returns { Promise<void> } Promise<void>
    * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
-   *     1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLE and
-   *     MOVING_PHOTO_DISABLE are supported for configuration;
+   *     1. An invalid enumeration value was passed. Only MOVING_PHOTO_ENABLED and
+   *     MOVING_PHOTO_DISABLED are supported for configuration;
    * @throws { BusinessError } 23800202 - Invalid call context. Possible causes:
    *     1. The API is called outside the photo browsing scenario.
    *     2. The API is called when isMovingPhotoBadgeShown is already set to true.
@@ -683,7 +683,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
-  
+    
   /**
    * Support setting background opacity.
    *
@@ -1202,7 +1202,7 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic
    */
   appAlbumFilters?: Array<string>;
-  
+    
   /**
    * Support setting background opacity.
    *
@@ -1320,7 +1320,7 @@ export declare class PickerError {
  */
 export declare class CompletedResult {
   /**
-   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets 
+   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets
    * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1944,7 +1944,7 @@ export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) =>
  * @since 23 dynamic
  */
 export type ErrorCallback = (pickerError: PickerError) => void;
-
+ 
 /**
  * The callback of onPhotoBrowserZoom event
  *
