@@ -1203,7 +1203,6 @@ export interface Environment extends SceneResource {
 
   /**
    * 环境光的旋转，默认为undefined，接收参数需为归一化后的四元数。
-   * **模型约束：** 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly

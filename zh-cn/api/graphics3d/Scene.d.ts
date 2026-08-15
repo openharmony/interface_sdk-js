@@ -170,7 +170,7 @@ export interface RaycastParameters {
 }
 
 /**
- * 用于创建可在共享RenderContext的多个场景中共享的渲染资源。
+ * 用于创建可在共享RenderContext的多个场景（[Scene]{@link Scene}）中共享的渲染资源。
  *
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D

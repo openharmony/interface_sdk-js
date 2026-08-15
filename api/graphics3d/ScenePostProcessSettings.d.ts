@@ -86,7 +86,7 @@ export interface ToneMappingSettings {
 }
 
 /**
- * Describes the settings for bloom effects. It is unavailable when [RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21) is set to **FORWARD_LIGHTWEIGHT**.
+ * Describes the settings for bloom effects. It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
 * 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -95,7 +95,7 @@ export interface ToneMappingSettings {
  */
 export interface BloomSettings {
   /**
-   * Hard threshold. The value is a non-negative number. The default value is **1.0**.
+   * Hard threshold. The value is a non-negative number. The default value is 1.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -105,7 +105,7 @@ export interface BloomSettings {
   thresholdHard?: double;
 
   /**
-   * Soft threshold. The value is a non-negative number. The default value is **2.0**.
+   * Soft threshold. The value is a non-negative number. The default value is 2.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -115,7 +115,7 @@ export interface BloomSettings {
   thresholdSoft?: double;
 
   /**
-   * Scale factor. The value must be greater than 0. The default value is **1.0**.
+   * Scale factor. The value must be greater than 0. The default value is 1.0.
    * 
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -125,7 +125,7 @@ export interface BloomSettings {
   scaleFactor?: double;
 
   /**
-   * Scatter amount. The value must be greater than 0. The default value is **1.0**.
+   * Scatter amount. The value must be greater than 0. The default value is 1.0.
    * 
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -145,7 +145,7 @@ export interface BloomSettings {
  */
 export interface VignetteSettings {
   /**
-   * Application scope. The value range is [0, 1]. When the value is **0**, the application scope is minimized. When the value is **1**, the application scope is global. The default value is **sqrt(0.5)**.
+   * Application scope. The value range is [0, 1]. When the value is 0, the application scope is minimized. When the value is 1, the application scope is global. The default value is sqrt(0.5).
    *
    * @type { ?double }
    * @default sqrt(0.5)
@@ -156,7 +156,7 @@ export interface VignetteSettings {
   roundness?: double;
 
   /**
-   * Effect strength. The value range is [0, 1]. The value **0** indicates no vignetting effect, and the value **1** indicates maximum vignetting intensity. The default value is **0.4**.
+   * Effect strength. The value range is [0, 1]. The value 0 indicates no vignetting effect, and the value 1 indicates maximum vignetting intensity. The default value is 0.4.
    *
    * @type { ?double }
    * @default 0.4
@@ -168,7 +168,7 @@ export interface VignetteSettings {
 }
 
 /**
- * Describes the settings for color fringing. It is unavailable when [RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21) is set to **FORWARD_LIGHTWEIGHT**.
+ * Describes the settings for color fringing. It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
  *
  * @typedef ColorFringeSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -177,7 +177,7 @@ export interface VignetteSettings {
  */
 export interface ColorFringeSettings {
   /**
-   * Strength of the effect. The value ranges from 0 to 1. The default value is **0.2**.
+   * Strength of the effect. The value ranges from 0 to 1. The default value is 0.2.
    *
    * @type { ?double }
    * @default 0.2
@@ -190,7 +190,7 @@ export interface ColorFringeSettings {
 
 /**
  * Post-processing settings, which are used to configure the image processing effect after camera rendering,
- * including tone mapping, bloom, vignetting, and chromatic aberration. This is used as the postProcess attribute of [Camera](js-apis-inner-scene-nodes.md#camera).
+ * including tone mapping, bloom, vignetting, and chromatic aberration. This is used as the postProcess attribute of Camera.
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D

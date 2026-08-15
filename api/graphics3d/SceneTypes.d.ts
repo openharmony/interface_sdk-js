@@ -521,7 +521,7 @@ export enum ShadowAlgorithmType {
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
-   * Parsing mode of triangle primitives. The default value is **TRIANGLE_LIST**.
+   * Parsing mode of triangle primitives. The default value is TRIANGLE_LIST.
    *
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
@@ -531,7 +531,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   topology?: PrimitiveTopology;
 
   /**
-   * Parsing mode of triangle primitives. The default value is **TRIANGLE_LIST**.
+   * Parsing mode of triangle primitives. The default value is TRIANGLE_LIST.
    *
    * @return { PrimitiveTopology | undefined }
    * @default PrimitiveTopology.TRIANGLE_LIST
@@ -541,7 +541,7 @@ export declare class CustomGeometry extends GeometryDefinition {
   get topology(): PrimitiveTopology | undefined;
 
   /**
-   * Parsing mode of triangle primitives. The default value is **TRIANGLE_LIST**.
+   * Parsing mode of triangle primitives. The default value is TRIANGLE_LIST.
    *
    * @param { PrimitiveTopology | undefined } value
    * @default PrimitiveTopology.TRIANGLE_LIST

@@ -36,7 +36,7 @@ export interface LayerMask {
    * Checks whether the mask is enabled for a layer of a given index.
    *
    * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
-   * @returns { boolean } Check result for whether the layer mask is enabled. **true** if enabled, **false** otherwise.
+   * @returns { boolean } Check result for whether the layer mask is enabled. true if enabled, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -47,7 +47,7 @@ export interface LayerMask {
    * Enables the mask of a layer of a given index.
    *
    * @param { int } index - Index of the layer. The value is an integer greater than or equal to 0.
-   * @param { boolean } enabled - Whether to enable the layer mask. **true** to enable, **false** otherwise.
+   * @param { boolean } enabled - Whether to enable the layer mask. true to enable, false otherwise.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -182,7 +182,7 @@ export interface Container<T> {
 }
 
 /**
- * The 3D scene consists of nodes in a tree hierarchy, where each node implements a **Node** interface. This class inherits from [SceneResource](js-apis-inner-scene-resources.md#sceneresource-1).
+ * The 3D scene consists of nodes in a tree hierarchy, where each node implements a Node interface. This class inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Node
@@ -222,7 +222,7 @@ export interface Node extends SceneResource {
   scale: Scale3;
 
   /**
-   * Whether a node is visible. **true** if visible, **false** otherwise.
+   * Whether a node is visible. true if visible, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -287,7 +287,7 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * Child node of the node and null if it does not exist. This is a read-only property, indicating that you cannot directly replace the entire children container. However, you can operate the child nodes using container methods like [append()](#append), [insertAfter()](#insertafter), [remove()](#remove), or [clear()](#clear). If the node being appended or inserted already exists in the container, it is removed first and then reinserted. As a result, the total number of child nodes remains unchanged, making the operation seem ineffective. The count increases only when a new node is added.
+   * Child node of the node and null if it does not exist. This is a read-only property, indicating that you cannot directly replace the entire children container. However, you can operate the child nodes using container methods like append, insertAfter, remove, or clear. If the node being appended or inserted already exists in the container, it is removed first and then reinserted. As a result, the total number of child nodes remains unchanged, making the operation seem ineffective. The count increases only when a new node is added.
    *
    * @type { Container<Node> }
    * @readonly
@@ -299,7 +299,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * Geometric node type that holds renderable mesh data and supports optional deformation features. It inherits from [Node](#node).
+ * Geometric node type that holds renderable mesh data and supports optional deformation features. It inherits from Node.
  *
  * @extends Node
  * @interface Geometry
@@ -361,7 +361,7 @@ export enum LightType {
 }
 
 /**
- * Light node, which inherits from [Node](#node).
+ * Light node, which inherits from Node.
  *
  * @extends Node
  * @interface Light
@@ -402,7 +402,7 @@ export interface Light extends Node {
   intensity: double;
 
   /**
-   * Whether the shadow effect is enabled. **true** if enabled, **false** otherwise.
+   * Whether the shadow effect is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -412,7 +412,7 @@ export interface Light extends Node {
   shadowEnabled: boolean;
 
   /**
-   * Whether the light is used. **true** if used, **false** otherwise.
+   * Whether the light is used. true if used, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -423,13 +423,13 @@ export interface Light extends Node {
 }
 
 /**
- * Spotlight, which inherits from [Light](#light).
+ * Spotlight, which inherits from Light.
  *
- * A spotlight emits a conical beam of light in a specific direction, with the intensity of the light decaying according to the angles defined by the **innerAngle** and **outerAngle** parameters. Like a point light, a spotlight's intensity also diminishes with distance from the source.
+ * A spotlight emits a conical beam of light in a specific direction, with the intensity of the light decaying according to the angles defined by the innerAngle and outerAngle parameters. Like a point light, a spotlight's intensity also diminishes with distance from the source.
  *
  * > **NOTE**
  * >
- * > Ensure that the **innerAngle** and **outerAngle** values are proper. If the value set for **outerAngle** is greater than **PI/2**, it is forcibly set to **PI/2** internally. If the value set for **outerAngle** is less than **innerAngle**, it is forcibly set to **innerAngle** internally.
+ * > Ensure that the innerAngle and outerAngle values are proper. If the value set for outerAngle is greater than PI/2, it is forcibly set to PI/2 internally. If the value set for outerAngle is less than innerAngle, it is forcibly set to innerAngle internally.
  *
  * @extends Light
  * @interface SpotLight
@@ -439,7 +439,7 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * Angle from the center of the spotlight to the start of the decay, corresponding to the semi-apex angle of the cone, within which the light intensity does not decay with angle. The unit is radian (rad), and the default value is **0**. The value must be greater than or equal to **0** and less than or equal to **outerAngle**.
+   * Angle from the center of the spotlight to the start of the decay, corresponding to the semi-apex angle of the cone, within which the light intensity does not decay with angle. The unit is radian (rad), and the default value is 0. The value must be greater than or equal to 0 and less than or equal to outerAngle.
    * 
    * @type { ?double }
    * @default 0
@@ -449,7 +449,7 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * Angle from the center of the spotlight to the end of the decay, corresponding to the semi-apex angle of the cone, beyond which there is no light intensity. The unit is radian (rad), and the default value is **PI/4**. The value must be greater than or equal to **innerAngle** and less than or equal to **PI/2**.
+   * Angle from the center of the spotlight to the end of the decay, corresponding to the semi-apex angle of the cone, beyond which there is no light intensity. The unit is radian (rad), and the default value is PI/4. The value must be greater than or equal to innerAngle and less than or equal to PI/2.
    * 
    * @type { ?double }
    * @default PI / 4.0
@@ -460,7 +460,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * Directional light, which inherits from [Light](#light).
+ * Directional light, which inherits from Light.
  *
  * @extends Light
  * @interface DirectionalLight
@@ -472,7 +472,7 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * Camera node, which inherits from [Node](#node).
+ * Camera node, which inherits from Node.
  *
  * @extends Node
  * @interface Camera
@@ -512,7 +512,7 @@ export interface Camera extends Node {
   farPlane: double;
 
   /**
-   * Whether the camera is enabled. **true** if enabled, **false** otherwise.
+   * Whether the camera is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -553,7 +553,7 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * Whether Multisample Anti-Aliasing (MSAA) is enabled. **true** if enabled, **false** otherwise. The default value is **false**.
+   * Whether Multisample Anti-Aliasing (MSAA) is enabled. true if enabled, false otherwise. The default value is false.
    *
    * @type { ?boolean }
    * @default false
@@ -564,7 +564,7 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * Rendering pipeline type. If this parameter is not set, the lightweight forward rendering pipeline is used by default. (If the **FORWARD_LIGHTWEIGHT** pipeline is selected, certain features are unavailable.)
+   * Rendering pipeline type. If this parameter is not set, the lightweight forward rendering pipeline is used by default. (If the FORWARD_LIGHTWEIGHT pipeline is selected, certain features are unavailable.)
    *
    * @type { ?RenderingPipelineType }
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT

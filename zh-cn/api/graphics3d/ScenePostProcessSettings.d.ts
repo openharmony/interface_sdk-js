@@ -86,7 +86,7 @@ export interface ToneMappingSettings {
 }
 
 /**
- * 泛光设置。当[RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
+ * 泛光设置。当RenderingPipelineType为FORWARD_LIGHTWEIGHT时，此功能不可用。
  * 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -168,7 +168,7 @@ export interface VignetteSettings {
 }
 
 /**
- * 色晕设置。当[RenderingPipelineType](js-apis-inner-scene-types.md#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
+ * 色晕设置。当RenderingPipelineType为FORWARD_LIGHTWEIGHT时，此功能不可用。
  *
  * @typedef ColorFringeSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -189,7 +189,7 @@ export interface ColorFringeSettings {
 }
 
 /**
- * 后处理设置，用于配置相机渲染后的图像处理效果，包括色调映射、泛光、边缘暗角和色晕等，作为[Camera](js-apis-inner-scene-nodes.md#camera)的postProcess属性来使用。
+ * 后处理设置，用于配置相机渲染后的图像处理效果，包括色调映射、泛光、边缘暗角和色晕等，作为Camera的postProcess属性来使用。
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D

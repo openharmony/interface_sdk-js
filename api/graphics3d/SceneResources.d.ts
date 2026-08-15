@@ -198,7 +198,7 @@ export interface Shader extends SceneResource {
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
   /**
-   * Sets the inputs for the shader. This API delivers better performance than directly setting the **inputs** property.
+   * Sets the inputs for the shader. This API delivers better performance than directly setting the inputs property.
    *
    * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - A mapping of strings to values for setting shader inputs.
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -345,7 +345,7 @@ export enum PolygonMode {
  */
 export interface Blend {
   /**
-   * Whether the transparency of the material is enabled. **true** if enabled, **false** otherwise.
+   * Whether the transparency of the material is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -378,7 +378,7 @@ export interface RenderSort {
 
   /**
    * Rendering order of different objects within the same rendering layer. A smaller value indicates an earlier rendering order.
-   * The value range is [0, 255]. The default value is **0**.
+   * The value range is [0, 255]. The default value is 0.
    *
    * @type { ?int }
    * @default 0 Default render sort layer order.
@@ -411,8 +411,8 @@ export interface Material extends SceneResource {
   readonly materialType: MaterialType;
   
   /**
-   * Whether the material receives shadows. **true** if the material receives shadows, **false** otherwise.
-   * The default is **false**.
+   * Whether the material receives shadows. true if the material receives shadows, false otherwise.
+   * The default is false.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -423,7 +423,7 @@ export interface Material extends SceneResource {
 
   /**
    * Culling mode of the material, which can be used to determine whether to cull front or back faces.
-   * The default value is **BACK**.
+   * The default value is BACK.
    *
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -434,7 +434,7 @@ export interface Material extends SceneResource {
 
   /**
    * Whether the material is transparent.
-   * The default value is **false**.
+   * The default value is false.
    *
    * @type { ?Blend }
    * @default undefined, which means that blending is disabled.
@@ -446,8 +446,8 @@ export interface Material extends SceneResource {
 
   /**
    * Threshold of the alpha channel. If the alpha of a pixel is greater than or equal to this threshold, the pixel is rendered;
-   * otherwise, the pixel is not rendered. Setting a value less than **1** enables this mode. The value range is [0, 1].
-   * The default value is **1**.
+   * otherwise, the pixel is not rendered. Setting a value less than 1 enables this mode. The value range is [0, 1].
+   * The default value is 1.
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -469,7 +469,7 @@ export interface Material extends SceneResource {
 
   /**
    * Polygon drawing mode of the model.
-   * The default value is **FILL**.
+   * The default value is FILL.
    *
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL
@@ -509,8 +509,8 @@ export interface MaterialProperty {
   factor: Vec4;
 
   /**
-   * Texture sampler, with the default value set to **LINEAR** for magnification, minification, and mipmaps,
-   * and to **REPEAT** for U, V, and W directions.
+   * Texture sampler, with the default value set to LINEAR for magnification, minification, and mipmaps,
+   * and to REPEAT for U, V, and W directions.
    *
    * @type { ?Sampler }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -788,7 +788,7 @@ export enum SamplerAddressMode {
  */
 export interface Sampler {
   /**
-   * Sampling mode when the texture is enlarged. The default value is **LINEAR**.
+   * Sampling mode when the texture is enlarged. The default value is LINEAR.
    *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -798,7 +798,7 @@ export interface Sampler {
   magFilter?: SamplerFilter;
 
   /**
-   * Sampling mode when the texture is reduced. The default value is **LINEAR**.
+   * Sampling mode when the texture is reduced. The default value is LINEAR.
    *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -808,7 +808,7 @@ export interface Sampler {
   minFilter?: SamplerFilter;
 
   /**
-   * Sampling modes between different texture resolutions. The default value is **LINEAR**.
+   * Sampling modes between different texture resolutions. The default value is LINEAR.
    *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -818,7 +818,7 @@ export interface Sampler {
   mipMapMode?: SamplerFilter;
 
   /**
-   * Sampling mode of the texture in the U (horizontal) direction. The default value is **REPEAT**.
+   * Sampling mode of the texture in the U (horizontal) direction. The default value is REPEAT.
    *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -828,7 +828,7 @@ export interface Sampler {
   addressModeU?: SamplerAddressMode;
 
   /**
-   * Sampling mode of the texture in the V (vertical) direction. The default value is **REPEAT**.
+   * Sampling mode of the texture in the V (vertical) direction. The default value is REPEAT.
    *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -968,7 +968,7 @@ export interface MeshResource extends SceneResource {
  */
 export interface Animation extends SceneResource {
   /**
-   * Whether the animation is enabled. **true** if enabled, **false** otherwise.
+   * Whether the animation is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -978,7 +978,7 @@ export interface Animation extends SceneResource {
   enabled: boolean;
 
   /**
-   * Playback speed factor of the animation. The default value is **1.0**, indicating that the animation is played at normal speed.
+   * Playback speed factor of the animation. The default value is 1.0, indicating that the animation is played at normal speed.
    * If the value is negative, the animation plays in reverse.
    *
    * @type { ?double }
@@ -1000,7 +1000,7 @@ export interface Animation extends SceneResource {
   readonly duration: double;
 
   /**
-   * Whether the animation is running. **true** if running, **false** otherwise.
+   * Whether the animation is running. true if running, false otherwise.
    *
    * @type { boolean }
    * @readonly
@@ -1022,7 +1022,7 @@ export interface Animation extends SceneResource {
   readonly progress: double;
 
   /**
-   * Called when the animation playback is complete or the **finish** API is called.
+   * Called when the animation playback is complete or the finish API is called.
    *
    * @param { Callback<void> } callback - Callback function. The return value is null.
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1032,7 +1032,7 @@ export interface Animation extends SceneResource {
   onFinished(callback: Callback<void>): void;
 
   /**
-   * Called when the animation starts to play. The start operation is triggered by calling **start** or **restart**.
+   * Called when the animation starts to play. The start operation is triggered by calling start or restart.
    *
    * @param { Callback<void> } callback - Callback function. The return value is null.
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1079,7 +1079,7 @@ export interface Animation extends SceneResource {
   start(): void;
 
   /**
-   * Stops playing the animation and sets its progress to **0** (not started).
+   * Stops playing the animation and sets its progress to 0 (not started).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1088,7 +1088,7 @@ export interface Animation extends SceneResource {
   stop(): void;
 
   /**
-   * Finishes the playing of the animation and sets its progress of **1** (finished).
+   * Finishes the playing of the animation and sets its progress of 1 (finished).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1295,7 +1295,7 @@ export interface ImageStream extends Image {
  */
 export interface Effect extends SceneResource {
   /**
-   * Enabled status of the effect. **true** if enabled, **false** otherwise.
+   * Enabled status of the effect. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1305,7 +1305,7 @@ export interface Effect extends SceneResource {
   enabled: boolean;
 
   /**
-   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX', for example, **'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'**. It is used to create an effect.
+   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX', for example, 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'. It is used to create an effect.
    *
    * @type { string }
    * @readonly
@@ -1319,7 +1319,7 @@ export interface Effect extends SceneResource {
    * Obtains the value of the specified effect property.
    *
    * @param { string } propertyName - Name of a specified effect property. Currently, the following strings are supported:<br>-'exposure': exposure level of an image.<br>-'vibrance': natural saturation of an image.
-   * @returns { Object | null | undefined } Effect property value. If the value fails to be obtained, **null** is returned.
+   * @returns { Object | null | undefined } Effect property value. If the value fails to be obtained, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1331,7 +1331,7 @@ export interface Effect extends SceneResource {
    *
    * @param { string } propertyName - Name of a specified effect property. Currently, the following strings are supported:<br>-'exposure': exposure level of an image.<br>-'vibrance': natural saturation of an image.
    * @param { Object | undefined } value - Value of the effect property to set.<br>-'exposure': The value is of the number type. The recommended value range is [-5, 5]. A larger value indicates a brighter image.<br>-'vibrance': The value is of the number type. The recommended value range is [-1, 1]. A larger value indicates more vivid image colors.
-   * @returns { boolean } Whether the operation of setting the effect property value is successful. **true** indicates that the setting is successful, and **false** indicates that the setting fails.
+   * @returns { boolean } Whether the operation of setting the effect property value is successful. true indicates that the setting is successful, and false indicates that the setting fails.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static

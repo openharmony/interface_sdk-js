@@ -28,9 +28,9 @@ import { Vec3, Quaternion } from './SceneTypes';
  * > **NOTE**
  * >
  * > A simulation frame refers to the update cycle executed at a fixed time step in the Boids simulation, similar to FixedUpdate in Unity. The default time step is 16 ms (approximately 62.5 FPS). The simulation is driven by accumulating real time and consuming it in fixed steps. The default values of some parameters below are calculated based on this time step:
- * > - **maxVelocityMag**: 0.01 / 0.016 ≈ 0.625 (m/s).
- * > - **maxAccelerationMag**: maxVelocityMag / 0.016 ≈ 39.06 (m/s²).
- * > - **maxTurnRate**: π × 0.75 × 0.016 ≈ 0.0377 (rad/simulation frame).
+ * > - maxVelocityMag: 0.01 / 0.016 ≈ 0.625 (m/s).
+ * > - maxAccelerationMag: maxVelocityMag / 0.016 ≈ 39.06 (m/s²).
+ * > - maxTurnRate: π × 0.75 × 0.016 ≈ 0.0377 (rad/simulation frame).
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi

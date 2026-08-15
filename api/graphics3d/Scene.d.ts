@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The module is the basic module of ArkGraphics 3D and provides common data types such as **SceneResourceParameters** and **SceneNodeParameters**. It also provides basic methods such as glTF model loading, scene creation, and resource creation.
+ * @file The module is the basic module of ArkGraphics 3D and provides common data types such as SceneResourceParameters and SceneNodeParameters. It also provides basic methods such as glTF model loading, scene creation, and resource creation.
  * @kit ArkGraphics3D
  */
 
@@ -48,7 +48,7 @@ export interface SceneLoadParams {
 }
 
 /**
- * Describes the scene resource parameters (**name** and **uri**), which are used to provide the name of a scene resource and the path of the resource file required in the 3D scene.
+ * Describes the scene resource parameters (name and uri), which are used to provide the name of a scene resource and the path of the resource file required in the 3D scene.
  *
  * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -172,7 +172,7 @@ export interface RaycastParameters {
 }
 
 /**
- * Creates rendering resources that can be shared in multiple scenes ([Scene](#scene-1)) that share [RenderContext](#rendercontext20).
+ * Creates rendering resources that can be shared in multiple scenes ([Scene]{@link Scene}) that share RenderContext.
  *
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D

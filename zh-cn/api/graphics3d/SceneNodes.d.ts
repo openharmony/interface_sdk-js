@@ -182,7 +182,7 @@ export interface Container<T> {
 }
 
 /**
- * 3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](js-apis-inner-scene-resources.md#sceneresource)。
+ * 3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Node
@@ -287,7 +287,7 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如[append()](#append)、[insertAfter()](#insertafter)、[remove()](#remove)或[clear()](#clear)）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似”无效”；添加新节点才会真正增加子节点数量。
+   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append、insertAfter、remove或clear）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似”无效”；添加新节点才会真正增加子节点数量。
    *
    * @type { Container<Node> }
    * @readonly
@@ -299,7 +299,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * 几何节点类型，用于承载可渲染的网格数据，并支持可选的形变功能，继承自[Node](#node)。
+ * 几何节点类型，用于承载可渲染的网格数据，并支持可选的形变功能，继承自Node。
  *
  * @extends Node
  * @interface Geometry
@@ -360,7 +360,7 @@ export enum LightType {
 }
 
 /**
- * 光源，继承自[Node](#node)。
+ * 光源，继承自Node。
  *
  * @extends Node
  * @interface Light
@@ -422,7 +422,7 @@ export interface Light extends Node {
 }
 
 /**
- * 聚光灯类型，继承自[Light](#light)。
+ * 聚光灯类型，继承自Light。
  *
  * 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
  *
@@ -459,7 +459,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * 平行光类型，继承自[Light](#light)。
+ * 平行光类型，继承自Light。
  *
  * @extends Light
  * @interface DirectionalLight
@@ -471,7 +471,7 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * 相机类型，Camera继承自[Node](#node)。
+ * 相机类型，Camera继承自Node。
  *
  * @extends Node
  * @interface Camera
