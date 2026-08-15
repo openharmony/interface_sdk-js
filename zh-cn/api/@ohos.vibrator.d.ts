@@ -77,7 +77,7 @@ declare namespace vibrator {
    * > 替代。
    *
    * @permission ohos.permission.VIBRATE
-   * @param { number } duration - 马达振动时长。单位：ms。取值范围：(0,1800000]区间的所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议
+   * @param { number } duration - 马达振动时长。单位：ms（毫秒）。取值范围：(0,1800000]区间的所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议
    *     不超过10000（10秒），以最大化用户体验。
    * @param { AsyncCallback<void> } callback - 回调函数，当马达振动成功，err为undefined，否则为错误对象。使用场景：不填写时仅触发振动不获取回调结果。
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -96,7 +96,7 @@ declare namespace vibrator {
    * > [vibrator.startVibration]{@link vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute)}替代。
    *
    * @permission ohos.permission.VIBRATE
-   * @param { number } duration - 马达振动时长。单位：ms。取值范围：(0,1800000]区间的所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议
+   * @param { number } duration - 马达振动时长。单位：ms（毫秒）。取值范围：(0,1800000]区间的所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议
    *     不超过10000（10秒），以最大化用户体验。
    * @returns { Promise<void> } Promise对象。调用成功时Promise resolve，表示振动成功启动；调用失败时Promise reject，返回错误对象包含错误码和错误信息。
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -390,9 +390,9 @@ declare namespace vibrator {
 
   /**
    * 通过设备ID和马达ID获取预置振动效果信息，用于判断该预置振动效果是否受指定设备的指定马达支持。
-   * 用于多设备多马达场景下确认指定设备的指定马达是否支持某个预置振动效果，不传param时默认查询本地设备。适用于触发振动前确认效果可用性，避免在不支持的设备或马达上触发振动效果不佳。返回EffectInfo对象，
+   * <br>用于多设备多马达场景下确认指定设备的指定马达是否支持某个预置振动效果，不传param时默认查询本地设备。适用于触发振动前确认效果可用性，避免在不支持的设备或马达上触发振动效果不佳。返回EffectInfo对象，
    * isEffectSupported字段指示是否支持该预置振动效果：返回true时可直接用于startVibration (#vibratorstartvibration9)，返回false时使用该effectId触发振动可能效果不
-   * 佳。
+   * 佳。如果需要跨设备查询预置振动效果是否支持，请使用getEffectInfoSync；如果仅查询本地设备，请使用isSupportEffect。
    *
    * @param { string } effectId - 待确认的预置振动效果ID。字符串最大长度64，超出部分截取前64个字符。使用场景：不同设备预置的振动效果可能不同，需传入具体的effectId查询是否支持。取值可参考
    *     [EffectId]{@link vibrator.EffectId}和[HapticFeedback]{@link vibrator.HapticFeedback}中定义的值。
@@ -758,7 +758,7 @@ declare namespace vibrator {
     type: 'time';
 
     /**
-     * 马达持续振动时长。单位：ms。取值范围：(0,1800000]区间内所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议不超过10000（10秒），以最大化用户
+     * 马达持续振动时长。单位：ms（毫秒）。取值范围：(0,1800000]区间内所有整数。由于实际产品厂商驱动对器件保护设计规格不同，不同设备实际最大振动时长会有差异。建议值：单次触发长振动一般建议不超过10000（10秒），以最大化用户
      * 体验。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -893,7 +893,7 @@ declare namespace vibrator {
     fd: int;
 
     /**
-     * 距文件起始位置的偏移量。单位：字节。默认值：文件起始位置（0）。取值范围：不可超出文件有效范围。使用场景：适用于振动配置文件中包含多种振动效果、需要指定从特定偏移位置开始振动的场景。不填写时默认从文件起始位置开始。
+     * 距文件起始位置的偏移量。单位：B（字节）。默认值：文件起始位置（0）。取值范围：不可超出文件有效范围。使用场景：适用于振动配置文件中包含多种振动效果、需要指定从特定偏移位置开始振动的场景。不填写时默认从文件起始位置开始。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -903,7 +903,7 @@ declare namespace vibrator {
     offset?: long;
 
     /**
-     * 资源长度。单位：字节。默认值：从偏移位置至文件结尾的长度。取值范围：不可超出文件有效范围。使用场景：适用于振动配置文件中包含多种振动效果、需要指定特定长度振动的场景。不填写时默认读取从偏移位置至文件结尾的全部内容。
+     * 资源长度。单位：B（字节）。默认值：从偏移位置至文件结尾的长度。取值范围：不可超出文件有效范围。使用场景：适用于振动配置文件中包含多种振动效果、需要指定特定长度振动的场景。不填写时默认读取从偏移位置至文件结尾的全部内容。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -954,7 +954,7 @@ declare namespace vibrator {
    */
   interface VibratorCurvePoint {
     /**
-     * 起始时间偏移。单位：ms。用于指定振动调节曲线中该调节点的时间位置。
+     * 起始时间偏移。单位：ms（毫秒）。用于指定振动调节曲线中该调节点的时间位置。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -1003,7 +1003,7 @@ declare namespace vibrator {
     eventType: VibratorEventType;
 
     /**
-     * 振动起始时间。单位：ms。取值范围：[0,1800000]区间内所有整数。用于指定振动事件在序列中的起始时间点。
+     * 振动起始时间。单位：ms（毫秒）。取值范围：[0,1800000]区间内所有整数。用于指定振动事件在序列中的起始时间点，多个事件间time值不能重叠。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -1013,7 +1013,7 @@ declare namespace vibrator {
     time: int;
 
     /**
-     * 可选参数，表示振动持续时间。单位：ms。取值范围：(0,5000]区间所有整数。默认值：短振默认48，长振默认1000。使用场景：适用于长振和短振交互反馈场景。不填写时使用对应类型的默认持续时间。
+     * 可选参数，表示振动持续时间。单位：ms（毫秒）。取值范围：(0,5000]区间所有整数。默认值：短振默认48，长振默认1000。使用场景：适用于长振和短振交互反馈场景。不填写时使用对应类型的默认持续时间。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -1076,7 +1076,7 @@ declare namespace vibrator {
    */
   interface VibratorPattern {
     /**
-     * 振动绝对起始时间。单位：ms。
+     * 振动绝对起始时间。单位：ms（毫秒）。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -1212,8 +1212,8 @@ declare namespace vibrator {
      * 用于在自定义振动序列中添加一段持续振动事件，适用于需要持续振动反馈的场景（如引擎振动、拉弓振动等）。返回VibratorPatternBuilder对象，支持链式调用addContinuousEvent或
      * addTransientEvent继续添加振动事件
      *
-     * @param { int } time - 长振事件的起始时间。单位：ms。取值范围：[0,1800000]区间内所有整数。使用场景：用于指定长振事件在振动序列中的起始时间点，多个事件间time值不能重叠。
-     * @param { int } duration - 长振事件的持续时间。单位：ms。取值范围：(0,5000]区间内所有整数。
+     * @param { int } time - 长振事件的起始时间。单位：ms（毫秒）。取值范围：[0,1800000]区间内所有整数。使用场景：用于指定长振事件在振动序列中的起始时间点，多个事件间time值不能重叠。
+     * @param { int } duration - 长振事件的持续时间。单位：ms（毫秒）。取值范围：(0,5000]区间内所有整数。
      * @param { ContinuousParam } [options] - 可选参数，用于指定长振事件的振动强度、频率、振动调节曲线和通道编号。不填时使用各参数的默认值（intensity默认100，frequency默认50，index
      *     默认0）。
      * @returns { VibratorPatternBuilder } 返回已添加连续振动事件的VibratorPatternBuilder对象。可用于继续链式调用addContinuousEvent或addTransientEvent添加
@@ -1228,10 +1228,10 @@ declare namespace vibrator {
     addContinuousEvent(time: int, duration: int, options?: ContinuousParam): VibratorPatternBuilder;
 
     /**
-     * 添加短振事件的方法, 添加后使用[build]{@link vibrator.VibratorPatternBuilder#build}方法生成
+     * 添加短振事件的方法，添加后使用[build]{@link vibrator.VibratorPatternBuilder#build}方法生成
      * [VibratorPattern]{@link vibrator.VibratorPattern}对象。适用于点击、按键等短促振动反馈场景，返回VibratorPatternBuilder对象，支持链式调用继续添加振动事件。
      *
-     * @param { int } time - 短振事件的起始时间。单位：ms。取值范围：[0,1800000]区间内所有整数。使用场景：用于指定短振事件在振动序列中的起始时间点，多个事件间time值不能重叠。
+     * @param { int } time - 短振事件的起始时间。单位：ms（毫秒）。取值范围：[0,1800000]区间内所有整数。使用场景：用于指定短振事件在振动序列中的起始时间点，多个事件间time值不能重叠。
      * @param { TransientParam } [options] - 可选参数，用于指定短振事件的振动强度、频率和通道编号。不填时使用各参数的默认值（intensity默认100，frequency默认50，index默认0）。
      * @returns { VibratorPatternBuilder } 返回已添加短振事件的VibratorPatternBuilder对象。可用于继续链式调用addContinuousEvent或addTransientEvent添加更多
      *     振动事件，最终通过[build]{@link vibrator.VibratorPatternBuilder#build}生成VibratorPattern对象。
@@ -1438,7 +1438,7 @@ declare namespace vibrator {
    * 但不会报错。需先通过[vibrator.on]{@link vibrator.on_vibratorStateChange}注册回调后才能注销。同一type重复注册同一callback不会覆盖，需先off再on。
    *
    * @param { 'vibratorStateChange' } type - 监听类型，该值固定为vibratorStateChange，表示马达上下线状态变化事件。
-   * @param { Callback<VibratorStatusEvent> } [callback] - 需要注销的回调函数。不传此参数时注销所有vibratorStateChange类型的回调。使用场景：若仅需注销特定回调则传入对应
+   * @param { Callback<VibratorStatusEvent> } [callback] - 回调函数，需要注销的回调函数。不传此参数时注销所有vibratorStateChange类型的回调。使用场景：若仅需注销特定回调则传入对应
    *     callback；若需注销全部回调则不传此参数。
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -1476,7 +1476,7 @@ declare namespace vibrator {
    */
   interface VibratorStatusEvent {
     /**
-     * 报告事件的时间戳。单位：ms。
+     * 报告事件的时间戳。单位：ms（毫秒）。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
