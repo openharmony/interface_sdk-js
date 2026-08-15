@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,10 +21,12 @@
 import { BusinessError, Callback } from './@ohos.base';
 
 /**
- * 本模块提供屏上感知能力。
+ * 本模块提供对屏上内容的感知能力，支持获取页面内容、链接、截屏等信息，识别阅读场景、短视频场景等应用场景，提供文章标题、正文等实体信息，以及点击、滚动等交互信息。
  *
  * > **说明：**
  * >
+ * > 1. 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > 2. 本模块为系统接口。
  *
  * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
  * @since 20 dynamic
@@ -145,7 +147,7 @@ declare namespace onScreen {
      */
     windowId?: int,
     /**
-     * 是否需要进行内容理解，默认为否。
+     * 是否需要进行内容理解，true表示需要，false表示不需要，默认为false。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -154,7 +156,7 @@ declare namespace onScreen {
      */
     contentUnderstand?: boolean,
     /**
-     * 是否获取复访链接，默认为否。
+     * 是否获取复访链接，true表示获取，false表示不获取，默认为false。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -163,7 +165,7 @@ declare namespace onScreen {
      */
     pageLink?: boolean,
     /**
-     * 是否只获取文本并划分段落，默认为否。
+     * 是否只获取文本并划分段落，true表示是，false表示否，默认为false。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -210,7 +212,7 @@ declare namespace onScreen {
      */
     bundleName: string,
     /**
-     * 获取到的屏上内容的场景。只有在options.contentUnderstand为true时，才会获取该属性。
+     * 获取到的屏上内容的场景。仅在options.contentUnderstand为true时，才会获取该属性。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -354,8 +356,33 @@ declare namespace onScreen {
    * 
    * 用户可通过能力项（capList）或分组 ID（groupId）使用屏上感知功能。
    * 
-   * * 逻辑关系：capList 与 groupId 互为补充必填项, 至少需提供其一，且不为空。
+   * * 逻辑关系：capList 与 groupId 互为补充必填项，至少需提供其一，且不为空。
    * * 校验规则：调用接口时，系统会单独检测capList和groupId。
+   * * 能力列表：按能力项或分组ID使用屏上感知功能，具体定义如下。
+   *   * capList支持能力列表
+   *     按具体业务场景预设的能力，可进行单一订阅或者触发，如下：
+   *     |capList支持能力列表|功能说明|
+   *     | ---- | ------ |
+   *     |Article|获取阅读场景的感知信息。|
+   *     |ShortVideo|获取短视频场景的感知信息。|
+   *     |Todo|获取待办场景的感知信息。|
+   *     |Activity|获取基础服务的感知信息。|
+   *     |UiImage|获取页面内子图信息。|
+   *     |JumpContext|高亮跳转到指定上下文。|
+   *     |QuickSnap|获取单次截屏信息。使用规格：仅在capture接口使用，capList仅传递"QuickSnap"时生效，其他使用接口均返回401错误码。|
+   *     |UiTree|获取页面内JSON树信息。起始版本：26.0.0|
+   *     |InjectEvent|注入事件。起始版本：26.0.0|
+   *     |CollectStrategy|获取屏幕采集策略。起始版本：26.0.0|
+   *
+   *   * groupId支持能力列表<br>
+   *     按业务场景预设的一组能力集合。可统一订阅业务场景，如下：
+   *     |groupId支持能力列表|对应子项能力|功能说明|
+   *     | ---- | ------ | ------|
+   *     |SmartEdge|Article|获取阅读场景的感知信息。|
+   *     |SmartEdge|ShortVideo|获取短视频场景的感知信息。|
+   *     |SmartEdge|Todo|获取待办场景的感知信息。|
+   *     |SmartEdge|Activity|获取基础服务的感知信息。|
+   *     |CeliaMemory|Article|获取阅读场景的感知信息。|
    *
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
@@ -576,7 +603,7 @@ declare namespace onScreen {
      */
     resultCode: int;
     /**
-     * 表示进入特定页面的时间戳。
+     * 表示进入特定页面的时间戳，单位：ms。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -729,7 +756,7 @@ declare namespace onScreen {
    * @param { OnscreenAwarenessCap } capability - 屏上感知能力列表。
    * @param { Callback<OnscreenAwarenessInfo[]> } callback - 回调函数，返回屏幕感知结果。返回的感知信息列表 OnscreenAwarenessInfo[] 最多同时返回2个感知信
    *     息项。
-   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表。
+   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表，不传递则使用默认参数配置。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -774,7 +801,7 @@ declare namespace onScreen {
    * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - 屏上感知能力列表，支持列表见
    *     [OnscreenAwarenessCap]{@link onScreen.OnscreenAwarenessCap}。
-   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表。
+   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表，不传递则使用默认参数配置。
    * @returns { Promise<OnscreenAwarenessInfo> } Promise对象，返回屏幕感知结果。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
@@ -797,7 +824,7 @@ declare namespace onScreen {
    * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
    * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - 屏上感知能力列表，具体见下面支持的能力列表。
-   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表。
+   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表，不传递则使用默认参数配置。
    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise对象，返回屏幕感知结果。返回的感知信息列表 OnscreenAwarenessInfo[] 最多同时返回2个感知信息项。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
@@ -815,13 +842,13 @@ declare namespace onScreen {
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo[]>;
   
   /**
-   * 主动触发屏幕行为交互，实现对界面行为的识别与行为反馈。例如：当capList能力列表为JumpContext时，点击后通过反馈信息精准跳转至指定段落并实现文字高亮。当capList能力列表为InjectEvent时，点击后执行相应
-   * 的点击事件。
+   * 主动触发屏幕行为交互，实现对界面行为的识别与行为反馈。例如：当capList能力列表为JumpContext时，点击后通过反馈信息精准跳转至指定段落并实现文字高亮。
+   * <br>当capList能力列表为InjectEvent时，点击后执行相应的点击事件。
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
    * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - 屏上感知能力列表，具体见下面支持的能力列表。
-   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表。
+   * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表，不传递则使用默认参数配置。
    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise对象，返回屏幕感知结果。返回的感知信息列表 OnscreenAwarenessInfo[] 最多同时返回2个感知信息项。
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
@@ -844,7 +871,7 @@ declare namespace onScreen {
     * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
     * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
     * @param { OnscreenAwarenessCap } capability - 屏上感知能力列表，具体见下面支持的能力列表。
-    * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表。
+    * @param { OnscreenAwarenessOptions } [options] - 屏上感知参数列表，不传此参数时，使用默认参数配置。
     * @returns { Promise<OnscreenAwarenessInfo[]> } Promise对象，返回屏幕感知结果。返回的感知信息列表 OnscreenAwarenessInfo[] 最多同时返回2个感知信息项。
     * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
     *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
@@ -884,7 +911,7 @@ declare namespace onScreen {
      */
     readingState: int;
     /**
-     * 如果屏幕无法读取，将返回相应的状态码。
+     * 如果屏幕无法读取，将返回相应的状态码，参考[CollectStrategy]{@link onScreen.CollectStrategy}。
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi

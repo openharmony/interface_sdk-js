@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,7 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * 设备状态感知框架提供设备状态感知能力，包括绝对静止和相对静止，可检测设备是否处于静止或相对静止状态，适用于需要根据设备静止状态优化应用性能、智能省电、场景识别等场景。
+ * 设备状态感知框架提供设备状态感知能力，包括绝对静止和相对静止，适用于需要根据设备静止状态优化应用性能、智能省电、场景识别等场景。
  * 
  * > **说明：**
  * >
@@ -114,12 +114,12 @@ declare namespace stationary {
   }
 
   /**
-   * 设备状态管理，订阅设备状态变化事件。当设备满足指定状态条件时，系统会触发回调函数上报状态变化事件，用于持续监听设备状态变化事件。调用on()后，必须在不使用时调用off()取消订阅，避免多余的性能功耗开销。
+   * 订阅设备状态变化事件。当设备满足指定状态条件时，系统会触发回调函数上报状态变化事件。调用on()后，必须在不使用时调用off()取消订阅，避免多余的性能功耗开销。
    *
-   * @param { ActivityType } activity - 设备状态能力类型。
+   * @param { ActivityType } activity - 设备状态类型。
    * @param { ActivityEvent } event - 事件类型。
-   * @param { number } reportLatencyNs - 报告延时，单位：纳秒（ns），取值范围[1000000000, 3000000000]。超出范围时返回错误。建议根据业务场景选择合适的值，较小值可提高实时性但
-   *     会增加功耗，较大值可降低功耗但会降低响应速度。
+   * @param { number } reportLatencyNs - 报告延时，单位：纳秒（ns），取值范围[1000000000, 3000000000]。超出范围时返回错误。建议根据业务场景选择合适的值，
+   *     <br>较小值可提高实时性但会增加功耗，较大值可降低功耗但会降低响应速度。
    * @param { Callback<ActivityResponse> } callback - 回调函数，用于接收设备状态变化结果。
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
@@ -127,9 +127,9 @@ declare namespace stationary {
   function on(activity: ActivityType, event: ActivityEvent, reportLatencyNs: number, callback: Callback<ActivityResponse>): void;
 
   /**
-   * 设备状态管理，查询设备状态。仅执行一次回调，用于一次性查询当前状态。
+   * 查询设备状态。通过callback回调返回查询结果，仅执行一次。使用callback异步回调。
    *
-   * @param { ActivityType } activity - 设备状态能力类型。
+   * @param { ActivityType } activity - 设备状态类型。
    * @param { Callback<ActivityResponse> } callback - 回调函数，用于接收设备状态查询结果。
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
@@ -137,9 +137,9 @@ declare namespace stationary {
   function once(activity: ActivityType, callback: Callback<ActivityResponse>): void;
 
   /**
-   * 设备状态管理，取消订阅设备状态服务。取消订阅后，将停止接收该状态相关的回调函数调用。调用off()时需要使用与on()相同的activity和event参数，才能正确取消对应的订阅。
+   * 取消订阅设备状态服务。取消订阅后，将停止接收该状态相关的回调函数调用。调用off()时需要使用与on()相同的activity和event参数。
    *
-   * @param { ActivityType } activity - 设备状态能力类型。
+   * @param { ActivityType } activity - 设备状态类型。
    * @param { ActivityEvent } event - 事件类型。
    * @param { Callback<ActivityResponse> } [callback] - 要移除的回调函数。未传递callback参数或传递undefined时，移除该进程下订阅该类型的所有callback。
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
