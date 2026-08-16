@@ -14,38 +14,33 @@
  */
 
 /**
- * @file Extensible Authentication
+ * @file 扩展认证
  * @kit NetworkKit
  */
 
 import { Callback } from './@ohos.base';
 /**
- * The **eap** module provides the extensible authentication mechanism to enable third-party clients to access custom 80
- * 2.1X (a port-based network access control protocol) authentication, such as Extensible Authentication Protocol (EAP)
- * authentication.
+ * 该模块提供了第三方客户端接入802.1X认证（一种基于端口的网络接入控制协议）流程的机制，支撑客户端的定制认证等功能。
  *
  * @syscap SystemCapability.Communication.NetManager.Eap
  * @since 20 dynamic
  */
 declare namespace eap {
   /**
-   * Registers a custom handler of Extensible Authentication Protocol (EAP) packets for extensible authentication. This
-   * API returns the result asynchronously through a callback.
-   *
-   * The system will encapsulate the eligible EAP packets into the callback function for enterprise applications to
-   * retrieve.
+   * 用于指定需要定制化处理的EAP报文类型和对应的处理callback。使用callback异步回调。
+   * 
+   * 系统会将符合条件的EAP报文送入callback函数中供企业应用获取。
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { int } netType - Network type. The value can be **1** or **2**.
-   *     <br>The value **1** indicates WLAN, and the value **2** indicates Ethernet.
-   * @param { int } eapCode - EAP code. The value can be any of the following:
-   *     <br>code=1 Request, code=2 Response, code=3 Success, code=4 Failure.
-   * @param { int } eapType - EAP method. The value range is [0, 255].
-   *     <br>Common values include the following: eapType=1 Identity, eapType=2 Notification, eapType=3 NAK, eapType=4
-   *     MD5-Challenge, eapType=5 OTP (One-Time Password), eapType=6 GTC (Generic Token Card), eapType=13 EAP-TLS,
-   *     eapType=21 EAP-TTLS, eapType=25 EAP-PEAP, eapType=254 Expanded Types, and eapType=255 Experimental use.
-   * @param { Callback<EapData> } callback - Callback function, which returns the packet of the specified eapCode+
-   *     eapType.
+   * @param { int } netType - 网络类型，取值为1或2。
+   *     <br>netType=1表示WLAN，netType=2表示以太网。
+   * @param { int } eapCode - 需要进行定制的EAP code，取值为1、2、3、4 。
+   *     <br>code=1 Request、 code=2 Response、 code=3 Success、 code=4 Failure。
+   * @param { int } eapType - 需要进行定制处理的EAP method类型，取值范围[0, 255]。
+   *     <br>常用取值包括：eapType=1 Identity，eapType=2 Notification，eapType=3 NAK，eapType=4 MD5-Challenge，eapType=5 OTP（One-
+   *     Time Password），eapType=6 GTC（Generic Token Card），eapType=13 EAP-TLS，eapType=21 EAP-TTLS，eapType=25 EAP-PEAP，
+   *     eapType=254 Expanded Types，eapType=255 Experimental use。
+   * @param { Callback<EapData> } callback - 回调函数，返回指定的eapCode+eapType的报文。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200006 - Invalid net type
    * @throws { BusinessError } 33200007 - Invalid eap code
@@ -58,20 +53,18 @@ declare namespace eap {
   function regCustomEapHandler(netType: int, eapCode: int, eapType: int, callback: Callback<EapData>): void;
 
   /**
-   * Unregisters the custom handler of EAP packets for extensible authentication. This API returns the result
-   * asynchronously through a callback.
+   * 用于指定需要取消定制化处理的EAP报文类型和对应的处理callback。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { int } netType - Network type. The value can be **1** or **2**.
-   *     <br>The value **1** indicates WLAN, and the value **2** indicates Ethernet.
-   * @param { int } eapCode - EAP code. The value can be any of the following:
-   *     <br>code=1 Request, code=2 Response, code=3 Success, code=4 Failure.
-   * @param { int } eapType - EAP method. The value range is [0, 255].
-   *     <br>Common values include the following: eapType=1 Identity, eapType=2 Notification, eapType=3 NAK, eapType=4
-   *     MD5-Challenge, eapType=5 OTP (One-Time Password), eapType=6 GTC (Generic Token Card), eapType=13 EAP-TLS,
-   *     eapType=21 EAP-TTLS, eapType=25 EAP-PEAP, eapType=254 Expanded Types, and eapType=255 Experimental use.
-   * @param { Callback<EapData> } callback - Callback function, which returns the packet of the specified eapCode+
-   *     eapType.
+   * @param { int } netType - 网络类型，取值为1或2。
+   *     <br>netType=1表示WLAN，netType=2表示以太网。
+   * @param { int } eapCode - 需要进行定制的EAP code，取值为1、2、3、4 。
+   *     <br>code=1 Request、 code=2 Response、 code=3 Success、 code=4 Failure。
+   * @param { int } eapType - 需要进行定制处理的EAP method类型，取值范围[0, 255]。
+   *     <br>常用取值包括：eapType=1 Identity，eapType=2 Notification，eapType=3 NAK，eapType=4 MD5-Challenge，eapType=5 OTP（One-
+   *     Time Password），eapType=6 GTC（Generic Token Card），eapType=13 EAP-TLS，eapType=21 EAP-TTLS，eapType=25 EAP-PEAP，
+   *     eapType=254 Expanded Types，eapType=255 Experimental use。
+   * @param { Callback<EapData> } callback - 回调函数，返回指定的eapCode+eapType的报文。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200006 - Invalid net type
    * @throws { BusinessError } 33200007 - Invalid eap code
@@ -84,19 +77,17 @@ declare namespace eap {
   function unregCustomEapHandler(netType:int, eapCode: int, eapType: int, callback: Callback<EapData>): void;
 
   /**
-   * Notifies the system of the extensible authentication result.
-   *
-   * > **NOTE**
+   * 该接口用于通知系统已完成该步定制化处理。
+   * 
+   * > **说明**:
    * >
-   * > - If this callback is used to process received EAP data packets, the customized portion added by the server must
-   * > be removed from the EAP data transmitted to the system.
+   * > - 若用于处理收EAP数据包(rx)时的callback，传给系统的EAP数据需要剥离服务器添加的定制部分。
    * >
-   * > - If this callback is used to process sent EAP data packets, the EAP data transmitted to the system is the EAP
-   * > data with the customized portion added by the server.
+   * > - 若用于处理发EAP数据包(tx)时的callback，传给系统的EAP数据为经过添加定制部分后的EAP数据。
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { CustomResult } result - Extensible authentication result.
-   * @param { EapData } data - EAP data.
+   * @param { CustomResult } result - 定制化判定结果。
+   * @param { EapData } data - 经过定制化的EAP数据。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200004 - Invalid result
    * @throws { BusinessError } 33200005 - Invalid size of eap data
@@ -108,12 +99,11 @@ declare namespace eap {
   function replyCustomEapData(result: CustomResult, data: EapData): void;
 
   /**
-   * Starts EAP authentication on an Ethernet NIC.
+   * 该接口用于指定一个以太网卡发起EAP认证。
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { int } netId - ID of the Ethernet NIC. If the default value **-1** is specified, the system automatically
-   *     matches the Ethernet NIC to initiate EAP authentication.
-   * @param { EthEapProfile } profile - EAP profile.
+   * @param { int } netId - 以太网卡Id。（传入默认参数-1，系统将自动匹配以太网卡发起EAP认证）
+   * @param { EthEapProfile } profile - EAP配置信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200001 - Invalid netId
    * @throws { BusinessError } 33200003 - Invalid profile
@@ -126,11 +116,10 @@ declare namespace eap {
   function startEthEap(netId: int, profile: EthEapProfile): void;
 
   /**
-   * Revokes the EAP-authenticated state of an Ethernet NIC.
+   * 该接口用于指定一个以太网卡从EAP已认证状态退出。
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { int } netId - ID of the Ethernet NIC. If the default value **-1** is specified, the system automatically
-   *     matches the Ethernet NIC to initiate EAP authentication.
+   * @param { int } netId - 以太网卡Id。（传入默认参数-1，系统将自动匹配以太网卡发起EAP认证）
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200001 - Invalid netId
    * @throws { BusinessError } 33200002 - Log off fail
@@ -143,30 +132,30 @@ declare namespace eap {
   function logOffEthEap(netId: int): void;
 
   /**
-   * Defines the EAP data.
-   *
-   * ​
+   * EAP信息。
+   * 
+   * ​**系统能力**​：SystemCapability.Communication.NetManager.Eap
    *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
    */
   interface EapData {
     /**
-     * Pseudo random number used to associate the EAP data before and after processing.
+     * 伪随机数，用于关联处理前后的EAP数据。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
      */
     msgId: int;
     /**
-     * Raw EAP data starting from the EAP header, which is not encrypted.
+     * 从EAP header开始的EAP原始数据，未加密。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
      */
     eapBuffer: Uint8Array;
     /**
-     * Data length.
+     * 数据长度。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -175,16 +164,16 @@ declare namespace eap {
   }
 
   /**
-   * Enumerates the EAP authentication results.
-   *
-   * ​
+   * 表示EAP认证处理结果的枚举。
+   * 
+   * ​**系统能力**​：SystemCapability.Communication.NetManager.Eap
    *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
    */
   enum CustomResult {
     /**
-     * The authentication process ends with a failed result.
+     * 认证流程结束，结果失败。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -192,7 +181,7 @@ declare namespace eap {
     RESULT_FAIL = 0,
 
     /**
-     * The authentication is successful, and the process proceeds to the next step.
+     * 本部分校验成功，校验下一步骤
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -200,7 +189,7 @@ declare namespace eap {
     RESULT_NEXT = 1,
 
     /**
-     * The authentication process ends with a successful result.
+     * 校验结束且成功
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -209,14 +198,14 @@ declare namespace eap {
   }
 
   /**
-   * Enumerates the EAP authentication methods.
+   * 表示EAP认证方式的枚举。
    *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
    */
   enum EapMethod {
     /**
-     * Not specified.
+     * 不指定。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -224,7 +213,7 @@ declare namespace eap {
     EAP_NONE = 0,
 
     /**
-     * PEAP.
+     * Protected extensible authentication protocol
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -232,15 +221,15 @@ declare namespace eap {
     EAP_PEAP = 1,
 
     /**
-     * TLS.
+     * Transport layer security
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
      */
     EAP_TLS = 2,
-  
+
     /**
-     * TTLS.
+     * Tunneled transport layer security
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -248,7 +237,7 @@ declare namespace eap {
     EAP_TTLS = 3,
 
     /**
-     * Password.
+     * Password
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -256,7 +245,7 @@ declare namespace eap {
     EAP_PWD = 4,
 
     /**
-     * SIM.
+     * Subscriber identity module
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -264,7 +253,7 @@ declare namespace eap {
     EAP_SIM = 5,
 
     /**
-     * AKA.
+     * Authentication and key agreement
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -272,7 +261,7 @@ declare namespace eap {
     EAP_AKA = 6,
 
     /**
-     * AKA Prime.
+     * AKA prime
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -280,7 +269,7 @@ declare namespace eap {
     EAP_AKA_PRIME = 7,
 
     /**
-     * UNAUTH TLS.
+     * Unauth TLS
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -289,14 +278,14 @@ declare namespace eap {
   }
 
   /**
-   * Enumerates the Phase 2 authentication methods.
+   * 表示第二阶段认证方式的枚举。
    *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
    */
   enum Phase2Method {
     /**
-     * Not specified.
+     * 不指定。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -304,7 +293,7 @@ declare namespace eap {
     PHASE2_NONE = 0,
 
     /**
-     * PAP.
+     * Password authentication protocol
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -312,7 +301,7 @@ declare namespace eap {
     PHASE2_PAP = 1,
 
     /**
-     * MS-CHAP.
+     * Microsoft challenge handshake authentication protocol
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -320,7 +309,7 @@ declare namespace eap {
     PHASE2_MSCHAP = 2,
 
     /**
-     * MS-CHAPv2.
+     * Microsoft challenge handshake authentication protocol version 2
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -328,7 +317,7 @@ declare namespace eap {
     PHASE2_MSCHAPV2 = 3,
 
     /**
-     * GTC.
+     * Generic token card
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -336,7 +325,7 @@ declare namespace eap {
     PHASE2_GTC = 4,
 
     /**
-     * SIM.
+     * Subscriber identity module
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -344,7 +333,7 @@ declare namespace eap {
     PHASE2_SIM = 5,
 
     /**
-     * AKA.
+     * Authentication and key agreement
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -352,7 +341,7 @@ declare namespace eap {
     PHASE2_AKA = 6,
 
     /**
-     * AKA Prime.
+     * AKA prime
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -361,14 +350,14 @@ declare namespace eap {
   }
 
   /**
-   * Represents the EAP profile information.
+   * 可扩展身份验证协议配置信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
    */
   interface EthEapProfile {
     /**
-     * EAP authentication method.
+     * AP认证方式。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -376,7 +365,7 @@ declare namespace eap {
     eapMethod: EapMethod;
 
     /**
-     * Phase 2 authentication method.
+     * 第二阶段认证方式。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -384,7 +373,7 @@ declare namespace eap {
     phase2Method: Phase2Method;
 
     /**
-     * Identity information.
+     * 身份信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -392,7 +381,7 @@ declare namespace eap {
     identity: string;
 
     /**
-     * Anonymous identity.
+     * 匿名身份。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -400,7 +389,7 @@ declare namespace eap {
     anonymousIdentity: string;
 
     /**
-     * Password.
+     * Password
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -408,7 +397,7 @@ declare namespace eap {
     password: string;
 
     /**
-     * CA certificate alias.
+     * CA证书别名。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -416,7 +405,7 @@ declare namespace eap {
     caCertAliases: string;
 
     /**
-     * CA certificate path.
+     * CA证书路径。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -424,7 +413,7 @@ declare namespace eap {
     caPath: string;
 
     /**
-     * Client certificate alias.
+     * 客户端证书别名。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -432,7 +421,7 @@ declare namespace eap {
     clientCertAliases: string;
 
     /**
-     * CA certificate content.
+     * CA证书内容。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -440,7 +429,7 @@ declare namespace eap {
     certEntry: Uint8Array;
 
     /**
-     * CA certificate password.
+     * CA证书密码。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -448,7 +437,7 @@ declare namespace eap {
     certPassword: string;
 
     /**
-     * A string to match the alternate subject.
+     * 替代主题匹配。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -456,7 +445,7 @@ declare namespace eap {
     altSubjectMatch: string;
 
     /**
-     * A string to match the domain suffix.
+     * 域后缀匹配。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -464,7 +453,7 @@ declare namespace eap {
     domainSuffixMatch: string;
 
     /**
-     * Realm for the passpoint credential.
+     * 通行证凭证的领域。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -472,7 +461,7 @@ declare namespace eap {
     realm: string;
 
     /**
-     * Public land mobile network (PLMN) of the passpoint credential provider.
+     * 公共陆地移动网的直通凭证提供商。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
@@ -480,7 +469,7 @@ declare namespace eap {
     plmn: string;
 
     /**
-     * Sub-ID of the SIM card.
+     * SIM卡的子ID。
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic

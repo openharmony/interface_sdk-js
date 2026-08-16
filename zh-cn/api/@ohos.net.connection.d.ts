@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Network Connection Management
+ * @file 网络连接管理
  * @kit NetworkKit
  */
 
@@ -25,12 +25,11 @@ import type socket from './@ohos.net.socket';
 /*** endif */
 
 /**
- * The network connection management module provides basic network management capabilities. You can obtain the default
- * active network, the list of all active networks, and network capability information.
- *
- * > **NOTE**
+ * 网络连接管理提供管理网络一些基础能力，包括获取默认激活的网络、获取所有激活网络列表、获取网络能力信息等功能。
+ * 
+ * > **说明：**
  * >
- * > Unless otherwise specified, the APIs of this module do not support concurrent calls.
+ * > 无特殊说明，接口默认不支持并发。
  *
  * @syscap SystemCapability.Communication.NetManager.Core
  * @crossplatform [since 10]
@@ -40,7 +39,7 @@ import type socket from './@ohos.net.socket';
  */
 declare namespace connection {
   /**
-   * Defines an HTTP request, which can be created using [http.createHttp]{@link @ohos.net.http:http.createHttp}.
+   * 定义一个HTTP请求，可以通过[http.createHttp]{@link @ohos.net.http:http.createHttp}创建。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -50,8 +49,8 @@ declare namespace connection {
   type HttpRequest = http.HttpRequest;
 
   /**
-   * Defines a TCPSocket object, which can be created using
-   * [socket.constructTCPSocketInstance]{@link @ohos.net.socket:socket.constructTCPSocketInstance}.
+   * 定义一个TCPSocket对象，可以通过[socket.constructTCPSocketInstance]{@link @ohos.net.socket:socket.constructTCPSocketInstance}创
+   * 建。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -60,8 +59,8 @@ declare namespace connection {
   type TCPSocket = socket.TCPSocket;
 
   /**
-   * Defines a **UDPSocket** object, which can be created using
-   * [socket.constructUDPSocketInstance]{@link @ohos.net.socket:socket.constructUDPSocketInstance}.
+   * 定义一个UDPSocket对象，可以通过[socket.constructUDPSocketInstance]{@link @ohos.net.socket:socket.constructUDPSocketInstance}创
+   * 建。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform [since 10]
@@ -70,26 +69,17 @@ declare namespace connection {
   type UDPSocket = socket.UDPSocket;
 
   /**
-   * Creates a **NetConnection** object, which can be used to listen for the network status.
-   * [netSpecifier]{@link connection.NetSpecifier} specifies the network to be listened for, and **timeout** indicates
-   * the timeout duration (ms). **netSpecifier** is a mandatory parameter for **timeout**. If neither of them is
-   * present, the default network is used.
-   *
-   * > **NOTE**
+   * 创建一个NetConnection对象，可用于监听网络状态。[netSpecifier]{@link connection.NetSpecifier}表示需要监听网络的网络特征；timeout是超时时间（单位：毫秒)；
+   * netSpecifier是timeout的必要条件，两者都没有则表示关注默认网络。
+   * 
+   * > **说明：**
    * >
-   * > To listen for the network status, after creating a **NetConnection** object, you need to call
-   * > [register]{@link connection.NetConnection.register} to register the notification of the specified network status
-   * > change.
+   * > 若需要监听网络状态，创建一个NetConnection对象后，还需调用[register]{@link connection.NetConnection.register}注册指定网络状态变化的通知。
    *
-   * @param { NetSpecifier } [netSpecifier] - Specification of the network to be listened for. If this parameter is not
-   *     specified, the default network is listened for.
-   * @param { int } [timeout] - Timeout interval for obtaining the network specified by **netSpecifier**. The input
-   *     value must be an uint32_t integer. This parameter is valid only when **netSpecifier** is present. The default
-   *     value is **0**.
-   *     <br>**Note**: If the network to be listened for does not exist, the system attempts to activate the network. If
-   *     the timeout interval is exceeded and the network status listener is registered, the **netUnavailable** event is
-   *     triggered.
-   * @returns { NetConnection } Type of the network connection object to be listened for.
+   * @param { NetSpecifier } [netSpecifier] - 需要监听网络的网络特征，缺省则表示监听默认网络。
+   * @param { int } [timeout] - 获取netSpecifier指定网络时的超时时间，传入值需为uint32_t范围内的整数，仅netSpecifier存在时生效，默认值为0。
+   *     <br>**说明**：当监听网络不存在时，会尝试激活此网络。若超过设置的超时时间，且注册了网络状态监听，则会触发netUnavailable事件。
+   * @returns { NetConnection } 需要监听的网络连接对象的类型。
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -99,29 +89,21 @@ declare namespace connection {
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: int): NetConnection;
 
   /**
-   * Obtains the network handle used by the system by default, including the network ID. This API uses an asynchronous
-   * callback to return the result.
-   *
-   * > **NOTE**
+   * 获取系统默认使用的网络句柄，包含网络ID。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Default network used by the system. The network must have the
-   * > [NET_CAPABILITY_INTERNET]{@link connection.NetCap} capability and is not a VPN network.
+   * > - 系统默认使用的网络，该网络的capabilities必须具备[NET_CAPABILITY_INTERNET]{@link connection.NetCap}且不是VPN类型的网络。
    * >
-   * > - The return value of this interface is determined by the system and is irrelevant to whether the application
-   * > specifies a network.
+   * > - 该接口的返回由系统决定，与应用是否指定网络无关。
    * >
-   * > - Generally, the priority is as follows: Ethernet (PC) | Bluetooth (watch) > Wi-Fi > Cellular. In special cases,
-   * > the actual return result prevails.
+   * > - 一般情况下优先级为：以太网（PC）|蓝牙（手表）> WIFI > 蜂窝，特殊情况以实际返回结果为准。
    * >
-   * > - [NetHandle]{@link connection.NetHandle} is the unique identifier of the network. If no network is available,
-   * > **0** is returned. It can be used by [getNetCapabilities]{@link connection.getNetCapabilities} to query more
-   * > network information.
-   * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * > - [NetHandle]{@link connection.NetHandle}为网络唯一标识，当无网络可用时，返回0。其可用于
+   * > [getNetCapabilities]{@link connection.getNetCapabilities}继续查询更多网络信息。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<NetHandle> } callback - Callback used to return the result. When the network handle of the
-   *     default activated network is successfully obtained, **error** is **undefined** and **data** is the network
-   *     handle of the default network; otherwise, **error** is an error object.
+   * @param { AsyncCallback<NetHandle> } callback - 回调函数。当成功获取默认激活网络的网络句柄时，error为undefined，data为默认网络的网络句柄；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -134,27 +116,21 @@ declare namespace connection {
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
   /**
-   * Obtains the network handle used by the system by default, including the network ID. This API uses a promise to
-   * return the result.
-   *
-   * > **NOTE**
+   * 获取系统默认使用的网络句柄，包含网络ID。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Default network used by the system. The network must have the
-   * > [NET_CAPABILITY_INTERNET]{@link connection.NetCap} capability and is not a VPN network.
+   * > - 系统默认使用的网络，该网络的capabilities必须具备[NET_CAPABILITY_INTERNET]{@link connection.NetCap}且不是VPN类型的网络。
    * >
-   * > - The return value of this interface is determined by the system and is irrelevant to whether the application
-   * > specifies a network.
+   * > - 该接口的返回由系统决定，与应用是否指定网络无关。
    * >
-   * > - Generally, the priority is as follows: Ethernet (PC) | Bluetooth (watch) > Wi-Fi > Cellular. In special cases,
-   * > the actual returned result prevails.
+   * > - 一般情况下，优先级：以太网（PC）|蓝牙（手表）> WIFI > 蜂窝，特殊情况以实际返回结果为准。
    * >
-   * > - [NetHandle]{@link connection.NetHandle} is the unique identifier of the network. If no network is available,
-   * > **0** is returned. It can be used by [getNetCapabilities]{@link connection.getNetCapabilities} to query more
-   * > network information.
-   * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * > - [NetHandle]{@link connection.NetHandle}为网络唯一标识，当无网络可用时，返回0。其可用于
+   * > [getNetCapabilities]{@link connection.getNetCapabilities}继续查询更多网络信息。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<NetHandle> } Promise used to return the network handle of the default network.
+   * @returns { Promise<NetHandle> } 以Promise形式返回默认网络的网络句柄。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -166,27 +142,21 @@ declare namespace connection {
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
-   * Obtains the network handle used by the system by default, including the network ID. This API returns the result
-   * synchronously.
-   *
-   * > **NOTE**
+   * 获取系统默认使用的网络句柄，包含网络ID。使用同步方式返回。
+   * 
+   * > **说明：**
    * >
-   * > - Default network used by the system. The network must have the
-   * > [NET_CAPABILITY_INTERNET]{@link connection.NetCap} capability and is not a VPN network.
+   * > - 系统默认使用的网络，该网络的capabilities必须具备[NET_CAPABILITY_INTERNET]{@link connection.NetCap}且不是VPN类型的网络。
    * >
-   * > - The return value of this interface is determined by the system and is irrelevant to whether the application
-   * > specifies a network.
+   * > - 该接口的返回由系统决定，与应用是否指定网络无关。
    * >
-   * > - Generally, the priority is as follows: Ethernet (PC) | Bluetooth (watch) > Wi-Fi > Cellular. In special cases,
-   * > the actual returned result prevails.
+   * > - 一般情况下，优先级：以太网（PC）|蓝牙（手表）> WIFI > 蜂窝，特殊情况以实际返回结果为准。
    * >
-   * > - [NetHandle]{@link connection.NetHandle} is the unique identifier of the network. If no network is available,
-   * > **0** is returned. It can be used by [getNetCapabilities]{@link connection.getNetCapabilities} to query more
-   * > network information.
-   * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * > - [NetHandle]{@link connection.NetHandle}为网络唯一标识，当无网络可用时，返回0。其可用于
+   * > [getNetCapabilities]{@link connection.getNetCapabilities}继续查询更多网络信息。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { NetHandle } Network handle of the default network.
+   * @returns { NetHandle } 以同步方式返回默认网络的网络句柄。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -198,17 +168,13 @@ declare namespace connection {
   function getDefaultNetSync(): NetHandle;
 
   /**
-   * Obtains the list of all connected networks. This API uses an asynchronous callback to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取所有处于连接状态的网络列表，使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<Array<NetHandle>> } callback - Callback used to return the result. If the list of all
-   *     connected networks is obtained successfully, **error** is **undefined** and **data** is the list of activated
-   *     networks. Otherwise, **error** is an error object.
-   *     <br> Note: If Wi-Fi and cellular data are both enabled, and no application specifies the use of cellular data,
-   *     only Wi-Fi is activated. In this case, only the **NetHandle** of Wi-Fi is returned. The NetHandle of Wi-Fi and
-   *     cellular data can be obtained at the same time only when a specific application enables the cellular network.
+   * @param { AsyncCallback<Array<NetHandle>> } callback - 回调函数。当成功获取所有处于连接状态的网络列表时，error为undefined，data为处于激活状态的网络列表；否则为
+   *     错误对象。
+   *     <br> **说明：** 在Wi-Fi和蜂窝数据开关均开启的情况下，若无应用指定使用蜂窝网络，则仅激活Wi-Fi网络，因此仅返回Wi-Fi的NetHandle。除非有特定应用启动蜂窝网络，才能同时获取Wi-Fi和蜂窝数据的
+   *     NetHandle。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -220,12 +186,10 @@ declare namespace connection {
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
 
   /**
-   * Obtains the list of all connected networks. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取所有处于连接状态的网络列表。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<Array<NetHandle>> } Promise used to return the list of activated networks.
+   * @returns { Promise<Array<NetHandle>> } Promise对象，返回处于激活状态的网络列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -236,12 +200,10 @@ declare namespace connection {
   function getAllNets(): Promise<Array<NetHandle>>;
 
   /**
-   * Obtains the list of all connected networks. This API returns the result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取所有处于连接状态的网络列表。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Array<NetHandle> } List of all connected networks.
+   * @returns { Array<NetHandle> } 返回所有处于连接状态的网络列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -252,17 +214,12 @@ declare namespace connection {
   function getAllNetsSync(): Array<NetHandle>;
 
   /**
-   * Obtains the connection information of the data network specified by **NetHandle**, including the NIC name, domain
-   * name, link information, route information, network address, and maximum transmission unit. This API uses an
-   * asynchronous callback to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应的网络的连接信息，包含网卡名称、域名、链路信息、路由信息、网络地址及最大传输单元。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @param { AsyncCallback<ConnectionProperties> } callback - Callback used to return the result. If the connection
-   *     properties of the network specified by **netHandle** is obtained successfully, **error** is **undefined** and
-   *     **data** is the obtained network connection information. Otherwise, **error** is an error object.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @param { AsyncCallback<ConnectionProperties> } callback - 回调函数。当成功获取netHandle对应的网络的连接信息时，error为undefined，data为获取的网络
+   *     连接信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -275,15 +232,11 @@ declare namespace connection {
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
 
   /**
-   * Obtains the connection information of the data network specified by **NetHandle**, including the NIC name, domain
-   * name, link information, route information, network address, and maximum transmission unit. This API uses a promise
-   * to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应的网络的连接信息，包含网卡名称、域名、链路信息、路由信息、网络地址及最大传输单元。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Handle of the data network.
-   * @returns { Promise<ConnectionProperties> } Promise used to return the network connection information.
+   * @param { NetHandle } netHandle - 数据网络的句柄。
+   * @returns { Promise<ConnectionProperties> } Promise对象，返回网络的连接信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -296,15 +249,11 @@ declare namespace connection {
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
 
   /**
-   * Obtains the connection information of the data network specified by **NetHandle**, including the NIC name, domain
-   * name, link information, route information, network address, and maximum transmission unit. This API returns the
-   * result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应的网络的连接信息，包含网卡名称、域名、链路信息、路由信息、网络地址及最大传输单元。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { ConnectionProperties } Network connection information.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { ConnectionProperties } 返回网络的连接信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -317,17 +266,12 @@ declare namespace connection {
   function getConnectionPropertiesSync(netHandle: NetHandle): ConnectionProperties;
 
   /**
-   * Obtains the network capability set of the data network specified by **NetHandle**, including the uplink and
-   * downlink bandwidth, specific network capabilities, and network type. This API uses an asynchronous callback to
-   * return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应网络的能力集，包含上/下行带宽、网络具体能力、网络类型。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @param { AsyncCallback<NetCapabilities> } callback - Callback used to return the result. If the capability set of
-   *     the network specified by **NetHandle** is successfully obtained, **error** is **undefined**, and **data** is
-   *     the obtained network capability set. Otherwise, **error** is an error object.
+   * @param { NetHandle } netHandle - 网络的句柄。
+   * @param { AsyncCallback<NetCapabilities> } callback - 回调函数。当成功获取netHandle对应网络的能力集时，error为undefined，data为获取到的网络能力集；否则
+   *     为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -341,14 +285,11 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
   /**
-   * Obtains the network capability set of the data network specified by **NetHandle**, including the uplink and
-   * downlink bandwidth, specific network capabilities, and network type. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应网络的能力集，包含上/下行带宽、网络具体能力、网络类型。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { Promise<NetCapabilities> } Promise used to return the network capability set.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { Promise<NetCapabilities> } Promise对象，返回网络的能力集。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -362,14 +303,11 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
   /**
-   * Obtains the network capability information of the data network specified by **NetHandle**, including the uplink and
-   * downlink bandwidth, specific network capabilities, and network type. This API returns the result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应网络的能力信息，包含上/下行带宽、网络具体能力、网络类型。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { NetCapabilities } Network capability set.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { NetCapabilities } 返回网络的能力集。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -383,17 +321,16 @@ declare namespace connection {
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
 
   /**
-   * Sets extended attributes of the network specified by **netHandle** to indicate its security level. This API uses a
-   * promise to return the result.
-   *
-   * > **NOTE**
+   * 为netHandle对应的网络设置扩展属性，标识网络的安全级别。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > Currently, this API is available only for PCs.
+   * > 该接口所需的权限目前仅支持PC设备。
    *
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Network handle.
-   * @param { string } netExtAttribute - Extended network attributes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @param { string } netExtAttribute - 需要设置的网络扩展属性。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -404,16 +341,15 @@ declare namespace connection {
   function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>;
 
   /**
-   * Sets extended attributes of the network specified by **netHandle** to indicate its security level. This API returns
-   * the result synchronously.
-   *
-   * > **NOTE**
+   * 为netHandle对应的网络设置扩展属性，标识网络的安全级别。使用同步方式返回。
+   * 
+   * > **说明：**
    * >
-   * > Currently, this API is available only for PCs.
+   * > 该接口所需的权限目前仅支持PC设备。
    *
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Network handle.
-   * @param { string } netExtAttribute - Extended network attributes.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @param { string } netExtAttribute - 需要设置的网络扩展属性。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -424,14 +360,11 @@ declare namespace connection {
   function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void;
 
   /**
-   * Obtains the extended attributes of the network specified by **netHandle** to determine its security level. This API
-   * uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应网络的扩展属性，以确定网络的安全级别。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { Promise<string> } Promise used to return the network extension attributes.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { Promise<string> } Promise对象，返回的网络扩展属性。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -442,14 +375,11 @@ declare namespace connection {
   function getNetExtAttribute(netHandle: NetHandle): Promise<string>;
 
   /**
-   * Obtains the extended attributes of the network specified by **netHandle** to determine its security level. This API
-   * returns the result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取netHandle对应网络的扩展属性，以确定网络的安全级别。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { string } Extended network attributes.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { string } 以同步方式返回的网络扩展属性。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -460,15 +390,10 @@ declare namespace connection {
   function getNetExtAttributeSync(netHandle: NetHandle): string;
 
   /**
-   * Checks whether the data traffic over the current default network is metered. For example, data traffic over Wi-Fi
-   * is not metered, whereas that over cellular networks is. This API uses an asynchronous callback to return the
-   * result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查当前默认网络上的数据流量使用是否被计费（例如：WiFi网络不会被计费，蜂窝网络会被计费）。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates that
-   *     the data traffic over the current network is metered, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回当前网络上的数据流量是否被计费。true表示会被计费，false表示不会被计费。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -479,14 +404,10 @@ declare namespace connection {
   function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the data traffic over the current default network is metered. For example, data traffic over Wi-Fi
-   * is not metered, whereas that over cellular networks is. This API uses a promise to return the result.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查当前默认网络上的数据流量使用是否被计费（例如：WiFi网络不会被计费，蜂窝网络会被计费）。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the data traffic
-   *     over the current network is metered, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回当前网络上的数据流量是否被计费。true表示会被计费，false表示不会被计费。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -496,14 +417,10 @@ declare namespace connection {
   function isDefaultNetMetered(): Promise<boolean>;
 
   /**
-   * Checks whether the data traffic over the current network is metered. For example, data traffic over Wi-Fi is not
-   * metered, whereas that over cellular networks is. This API returns the result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 检查当前网络上的数据流量使用是否被计费（例如：WiFi网络不会被计费，蜂窝网络会被计费）。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { boolean } Boolean value indicating whether data traffic over the current network is metered. The value
-   *     **true** indicates that the data traffic is metered, and the value **false** indicates the opposite.
+   * @returns { boolean } 表示当前网络上的数据流量是否被计费。true表示会被计费，false表示不会被计费。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -513,15 +430,10 @@ declare namespace connection {
   function isDefaultNetMeteredSync(): boolean;
 
   /**
-   * Checks whether there is an available network. This API uses an asynchronous callback to return the result. If there
-   * is an available network, [getDefaultNet]{@link connection.getDefaultNet} can be used to obtain the default network
-   * handle.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前是否有可用网络，使用callback异步回调。如果有可用网络，可以使用[getDefaultNet]{@link connection.getDefaultNet}获取默认网络句柄。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Callback used to return whether there is an available network. The
-   *     value **true** indicates that a network is available, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回当前是否有可用网络。true表示当前有可用网络，false表示当前没有可用网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -534,15 +446,10 @@ declare namespace connection {
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether there is an available network. This API uses a promise to return the result. If there is an
-   * available network, [getDefaultNet]{@link connection.getDefaultNet} can be used to obtain the default network
-   * handle.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前是否有可用网络。使用Promise异步回调。如果有可用网络，可以使用[getDefaultNet]{@link connection.getDefaultNet}获取默认网络句柄。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<boolean> } Promise used to return whether there is an available network. The value **true**
-   *     indicates that a network is available, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回当前是否有可用网络。true表示当前有可用网络，false表示当前没有可用网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -554,13 +461,10 @@ declare namespace connection {
   function hasDefaultNet(): Promise<boolean>;
 
   /**
-   * Checks whether there is an available network. This API returns the result synchronously.
-   *
-   * **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * 获取当前是否有可用网络。使用同步方式返回。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { boolean } Whether there is an available network. The value **true** indicates that a network is
-   *     available, and the value **false** indicates the opposite.
+   * @returns { boolean } 返回当前是否有可用网络。true表示当前有可用网络，false表示当前没有可用网络。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -571,10 +475,10 @@ declare namespace connection {
   function hasDefaultNetSync(): boolean;
 
   /**
-   * Enables the airplane mode. This API uses an asynchronous callback to return the result.
+   * 开启飞行模式，使用callback异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -588,10 +492,10 @@ declare namespace connection {
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
 
   /**
-   * Enables airplane mode. This API uses a promise to return the result.
+   * 开启飞行模式，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回值的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -604,11 +508,10 @@ declare namespace connection {
   function enableAirplaneMode(): Promise<void>;
 
   /**
-   * Disables airplane mode. This API uses an asynchronous callback to return the result.
+   * 关闭飞行模式，使用callback异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the airplane mode is disabled
-   *     successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当关闭飞行模式成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -622,10 +525,10 @@ declare namespace connection {
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
 
   /**
-   * Disables airplane mode. This API uses a promise to return the result.
+   * 关闭飞行模式，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回值的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -638,20 +541,15 @@ declare namespace connection {
   function disableAirplaneMode(): Promise<void>;
 
   /**
-   * Reports the network availability to the network management module. This API uses an asynchronous callback to return
-   * the result.
-   *
-   * > **NOTE**
+   * 向网络管理上报网络处于可用状态。使用callback方式异步回调。
+   * 
+   * > **说明：**
    * >
-   * > This API is used by the browser to connect to the portal network. After the network authentication is successful,
-   * > the browser reports the network connection success to the network management module. The network management
-   * > module then triggers network detection and updates the network status.
-   * > **Permission required**: ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * > 该接口用于浏览器连接portal网络，网络认证成功后，向网络管理上报网络连接成功，网络管理会触发网络探测，更新网络状态。
    *
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle. For details, see [NetHandle]{@link connection.NetHandle}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the network status is reported
-   *     successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { NetHandle } netHandle - 网络句柄，参考[NetHandle]{@link connection.NetHandle}。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向网络管理报告网络处于可用状态成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -663,13 +561,10 @@ declare namespace connection {
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
   /**
-   * Reports that the network is available to the network management module. This API uses a promise to return the
-   * result.
-   *
-   * **Permission required**: ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * 向网络管理报告网络处于可用状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle. For details, see [NetHandle]{@link connection.NetHandle}.
+   * @param { NetHandle } netHandle - 网络句柄，参考[NetHandle]{@link connection.NetHandle}。
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -682,15 +577,11 @@ declare namespace connection {
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
 
   /**
-   * Reports the network unavailability to the network management module. This API uses an asynchronous callback to
-   * return the result.
-   *
-   * **Permission required**: ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * 向网络管理上报网络处于不可用状态。使用callback异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle. For details, see [NetHandle]{@link connection.NetHandle}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the network status is reported
-   *     successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { NetHandle } netHandle - 网络句柄，参考[NetHandle]{@link connection.NetHandle}。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向网络管理报告网络处于不可用状态成功时，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -702,12 +593,10 @@ declare namespace connection {
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
   /**
-   * Reports the network unavailability to the network management module. This API uses a promise to return the result.
-   *
-   * **Permission required**: ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * 向网络管理上报网络处于不可用状态。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle.
+   * @param { NetHandle } netHandle - 网络句柄。
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -720,14 +609,12 @@ declare namespace connection {
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
 
   /**
-   * Obtains all IP addresses of the default network by resolving the host name. This API uses an asynchronous callback
-   * to return the result.
+   * 使用当前默认网络解析主机名以获取所有IP地址。使用callback异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Host name to resolve.
-   * @param { AsyncCallback<Array<NetAddress>> } callback - Callback used to return the result. If all IP addresses are
-   *     successfully obtained, **error** is **undefined**, and **data** is the list of all obtained IP addresses.
-   *     Otherwise, **error** is an error object.
+   * @param { string } host - 需要解析的主机名。
+   * @param { AsyncCallback<Array<NetAddress>> } callback - 回调函数。当使用默认网络解析主机名成功获取所有IP地址，error为undefined，data为获取到的所有IP地址；
+   *     否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -739,12 +626,11 @@ declare namespace connection {
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
   /**
-   * Obtains all IP addresses of the default network by resolving the host name. This API uses a promise to return the
-   * result.
+   * 使用当前默认网络解析主机名以获取所有IP地址。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Host name to resolve.
-   * @returns { Promise<Array<NetAddress>> } Promise used to return all IP addresses.
+   * @param { string } host - 需要解析的主机名。
+   * @returns { Promise<Array<NetAddress>> } Promise对象。返回所有IP地址。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -756,14 +642,12 @@ declare namespace connection {
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
   /**
-   * Performs the DNS resolution using the current default network based on the specified IP address type. This API uses
-   * a promise to return the result.
+   * 使用当前默认网络基于指定IP类型进行DNS解析。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Host name to resolve. For example, www.example.com.
-   * @param { QueryOptions } [option] - Type of the IP address to be queried. The default value is **FAMILY_TYPE_ALL**.
-   * @returns { Promise<Array<NetAddress>> } Promise used to return the queried IP address. In the command output, the
-   *     port field has a fixed value of 0.
+   * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+   * @param { QueryOptions } [option] - 需要查询的IP类型，默认值为FAMILY_TYPE_ALL。
+   * @returns { Promise<Array<NetAddress>> } Promise对象，返回查询到的IP地址。返回值中的port字段固定为0，无需关注。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -775,11 +659,9 @@ declare namespace connection {
   function getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
   /**
-   * Obtains the network handle bound to an application. This API uses an asynchronous callback to return the result.
+   * 获取App绑定的网络句柄。使用callback异步回调。
    *
-   * @param { AsyncCallback<NetHandle> } callback - Callback used to return the result. If information about the network
-   *     bound to the application is successfully obtained, **error** is **undefined** and **data** is the obtained
-   *     network information. Otherwise, **error** is an error object.
+   * @param { AsyncCallback<NetHandle> } callback - 回调函数。当成功获取App绑定的网络信息时，error为undefined，data为获取到App绑定的网络信息；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -789,9 +671,9 @@ declare namespace connection {
   function getAppNet(callback: AsyncCallback<NetHandle>): void;
 
   /**
-   * Obtains the network information bound to an application. This API uses a promise to return the result.
+   * 获取App绑定的网络信息。使用Promise异步回调。
    *
-   * @returns { Promise<NetHandle> } Promise used to return the result.
+   * @returns { Promise<NetHandle> } 以Promise形式返回App绑定的网络信息。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -800,9 +682,9 @@ declare namespace connection {
   function getAppNet(): Promise<NetHandle>;
 
   /**
-   * Obtains the network information bound to an application. This API returns the result synchronously.
+   * 获取App绑定的网络信息。使用同步方式返回。
    *
-   * @returns { NetHandle } Data network bound to the application.
+   * @returns { NetHandle } 返回App绑定的数据网络。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -811,13 +693,11 @@ declare namespace connection {
   function getAppNetSync(): NetHandle;
 
   /**
-   * Binds an application to the network specified by **netHandle**, so that the application can access the external
-   * network only through this network. This API uses an asynchronous callback to return the result.
+   * 将App绑定到特定的网络，绑定后App只能通过netHandle对应的网络访问网络。使用callback异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the application is successfully
-   *     bound to the specified network, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @param { AsyncCallback<void> } callback - 回调函数。当成功绑定App到指定网络时，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -830,13 +710,11 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
   /**
-   * Binds an application to the network specified by **netHandle**, so that the application can access the external
-   * network only through this network. This API uses a promise to return the result. This API uses a promise to return
-   * the result.
+   * 将App异步绑定到特定的网络，绑定后App只能通过netHandle对应的网络访问网络。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { NetHandle } netHandle - Network handle.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NetHandle } netHandle - 网络句柄。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -848,18 +726,11 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
-   * Set a specific interface up.
+   * 将指定的网卡接口设置为启用状态，使其可以收发网络数据包，参与网络通信；启用后的网卡接口可以被路由子系统选择用于数据传输；系统可以检测到该网络的存在并尝试建立连接，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } ifaceName - the name of the interface to set up.
-   *     <br>Value range:(0,1024]
-   *     <br>Name of the actual network adapter to be started
-   *     If the network adapter exists, try to up the network adapter.
-   *     If the network adapter does not exist or does not meet the up condition, the network adapter fails to be up.
-   *     The network adapter exists in the kernel, and the network adapter meets the up condition.
-   *     None
-   *     None
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } ifaceName - 网卡名。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -871,20 +742,16 @@ declare namespace connection {
   function setInterfaceUp(ifaceName: string): Promise<void>;
 
   /**
-   * Obtains the default HTTP proxy configuration of the network. This API uses an asynchronous callback to return the
-   * result.
-   *
-   * > **NOTE**
+   * 获取网络的默认代理配置信息。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - If the global proxy is set, the global proxy configuration is returned.
+   * > - 如果设置了全局代理，则返回全局代理配置信息。
    * >
-   * > - If [setAppNet]{@link connection.setAppNet} is used to bind the application to the network specified by
-   * > [NetHandle]{@link connection.NetHandle}, the HTTP proxy configuration of this network is returned. In other
-   * > cases, the HTTP proxy configuration of the default network is returned.
+   * > - 如果进程使用[setAppNet]{@link connection.setAppNet}绑定到指定[NetHandle]{@link connection.NetHandle}对应的网络，则返回
+   * > [NetHandle]{@link connection.NetHandle}对应网络的代理配置信息。在其它情况下，将返回默认网络的代理配置信息。
    *
-   * @param { AsyncCallback<HttpProxy> } callback - Callback used to return the result. If the global HTTP proxy
-   *     configuration of the network is obtained successfully, **error** is **undefined** and **data** is the global
-   *     HTTP proxy configuration. Otherwise, **error** is an error object.
+   * @param { AsyncCallback<HttpProxy> } callback - 回调函数。当成功获取网络的默认代理配置信息时，error为undefined，data为网络的默认代理配置信息；否则为错误对象。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -894,17 +761,16 @@ declare namespace connection {
   function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
 
   /**
-   * Obtains the default HTTP proxy configuration of the network. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 获取网络默认的代理配置信息。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - If the global proxy is set, the global proxy configuration is returned.
+   * > - 如果设置了全局代理，则返回全局代理配置信息。
    * >
-   * > - If [setAppNet]{@link connection.setAppNet} is used to bind the application to the network specified by
-   * > [NetHandle]{@link connection.NetHandle}, the HTTP proxy configuration of this network is returned. In other
-   * > cases, the HTTP proxy configuration of the default network is returned.
+   * > - 如果进程使用[setAppNet]{@link connection.setAppNet}绑定到指定[NetHandle]{@link connection.NetHandle}对应的网络，则返回
+   * > [NetHandle]{@link connection.NetHandle}对应网络的代理配置信息。在其它情况下，将返回默认网络的代理配置信息。
    *
-   * @returns { Promise<HttpProxy> } Promise used to return the result.
+   * @returns { Promise<HttpProxy> } 以Promise形式返回网络默认的代理配置信息。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -914,12 +780,9 @@ declare namespace connection {
   function getDefaultHttpProxy(): Promise<HttpProxy>;
 
   /**
-   * Obtains the global network proxy configuration information. This API uses an asynchronous callback to return the
-   * result.
+   * 获取网络的全局代理配置信息，使用callback异步回调。
    *
-   * @param { AsyncCallback<HttpProxy> } callback - Callback used to return the result. If the global HTTP proxy
-   *     configuration of the network is obtained successfully, **error** is **undefined** and **data** is the global
-   *     HTTP proxy configuration. Otherwise, **error** is an error object.
+   * @param { AsyncCallback<HttpProxy> } callback - 回调函数。当成功获取网络的全局代理配置信息时，error为undefined，data为网络的全局代理配置信息；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -932,9 +795,9 @@ declare namespace connection {
   function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
 
   /**
-   * Obtains the global network proxy configuration information. This API uses a promise to return the result.
+   * 获取网络的全局代理配置信息，使用Promise异步回调。
    *
-   * @returns { Promise<HttpProxy> } Promise used to return the result.
+   * @returns { Promise<HttpProxy> } 以Promise形式返回网络的全局代理配置信息。
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -946,15 +809,14 @@ declare namespace connection {
   function getGlobalHttpProxy(): Promise<HttpProxy>;
 
   /**
-   * Sets the application-level HTTP proxy configuration.
-   *
-   * > **NOTE**
+   * 设置应用级Http代理配置信息。
+   * 
+   * > **说明：**
    * >
-   * > If you want to use the proxy information configured by this API, set **usingProxy** in
-   * > [HttpRequestOptions]{@link @ohos.net.http:http.HttpRequestOptions} to **true** to enable proxy forwarding. This
-   * > API is used only for configuring proxy rules. It does not verify the validity of the proxy service.
+   * > 若需使用本接口所配置的代理信息，则需在[HttpRequestOptions]{@link @ohos.net.http:http.HttpRequestOptions}字段中将usingProxy设置为true以启用代理转
+   * > 发。本接口仅负责配置代理规则，不校验代理服务的有效性。
    *
-   * @param { HttpProxy } httpProxy - Application-level HTTP proxy configuration.
+   * @param { HttpProxy } httpProxy - 网络应用级Http代理配置信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid http proxy.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -964,14 +826,11 @@ declare namespace connection {
   function setAppHttpProxy(httpProxy: HttpProxy): void;
 
   /**
-   * Sets the global network HTTP proxy configuration information. This API uses an asynchronous callback to return the
-   * result.
+   * 设置网络全局Http代理配置信息，使用callback异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { HttpProxy } httpProxy - Global HTTP proxy configuration of the network.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the global HTTP proxy
-   *     configuration of the network is set successfully, **error** is **undefined**. Otherwise, **error** is an error
-   *     object.
+   * @param { HttpProxy } httpProxy - 网络全局Http代理配置信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当成功设置网络全局Http代理配置信息时，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -986,11 +845,11 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the global network HTTP proxy configuration information. This API uses a promise to return the result.
+   * 设置网络全局Http代理配置信息，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { HttpProxy } httpProxy - Global HTTP proxy configuration of the network.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { HttpProxy } httpProxy - 网络全局Http代理配置信息。
+   * @returns { Promise<void> } 无返回值的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1005,11 +864,11 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
-   * Notifies the system that global proxy re-authentication is required.
-   * Upon receiving the notification, the system will reprocess the global proxy's authentication status.
+   * 通知系统需要重新验证全局代理。
+   * 收到通知后，系统将重新处理全局代理的认证状态。
    *
    * @permission ohos.permission.INTERNET
-   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @returns { Promise<HttpProxy> } 函数返回的Promise。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -1020,15 +879,14 @@ declare namespace connection {
   function refreshGlobalHttpProxy(): Promise<HttpProxy>;
 
   /**
-   * Sets the URL of the system-level Proxy Auto Config (PAC) script.
-   *
-   * > **NOTE**
+   * 设置系统级代理自动配置（Proxy Auto Config，PAC）脚本地址。
+   * 
+   * > **说明：**
    * >
-   * > Only the script address can be set. The proxy function cannot be parsed or enabled. To set the script and enable
-   * > the proxy, call the [setPacFileUrl]{@link connection.setPacFileUrl} API.
+   * > 只支持设置脚本地址，不支持解析和启用代理功能，如需设置脚本并启用代理，则可调用[setPacFileUrl]{@link connection.setPacFileUrl}接口。
    *
    * @permission ohos.permission.SET_PAC_URL
-   * @param { string } pacUrl - URL of the PAC script. Note that this URL will not be verified by the API.
+   * @param { string } pacUrl - 需要设置的PAC脚本的地址，该接口不会对脚本地址进行校验。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1039,9 +897,9 @@ declare namespace connection {
   function setPacUrl(pacUrl: string): void;
 
   /**
-   * Obtains the URL of the system-level PAC script.
+   * 获取系统级代理自动配置（PAC）脚本地址。
    *
-   * @returns { string } URL of the PAC script. If the PAC script does not exist, error code 2100003 is reported.
+   * @returns { string } 返回PAC脚本地址。PAC脚本不存在时，抛出2100003错误码。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1050,21 +908,18 @@ declare namespace connection {
   function getPacUrl(): string;
 
   /**
-   * Sets the URL of the Proxy Auto-Configuration Script (PAC) and enables the PAC proxy capability, for example, http:/
-   * /127.0.0.1:21998/PacProxyScript.pac. You can call [findProxyForUrl]{@link connection.findProxyForUrl} to parse the
-   * URL and obtain the proxy information.
-   *
-   * > **NOTE**
+   * 设置PAC脚本（Proxy Auto-Configuration Script，代理自动配置脚本）的URL地址，并启动PAC代理能力，比如：http://127.0.0.1:21998/PacProxyScript.pac 。可通
+   * 过调用[findProxyForUrl]{@link connection.findProxyForUrl}解析URL地址来获取代理信息。
+   * 
+   * > **注意：**
    * >
-   * > 1. This API can parse scripts and enable the PAC proxy capability on **PC/2in1<sup>20+</sup>**,
-   * > **Phone<sup>23+</sup>**, **Tablet<sup>23+</sup>** and **TV<sup>23+</sup>** devices. For wearable devices, only
-   * > the script address is saved, and the PAC proxy capability is not enabled.
-   *
-   * > 2. This API does not verify the URL authenticity. If the URL is incorrect when the PAC proxy is enabled, the
-   * > proxy fails to be enabled and error code 2100002 is returned.
+   * > 1、本接口当前在PC/2in1<sup>20+</sup>、Phone<sup>23+</sup>、Tablet<sup>23+</sup>、TV<sup>23+</sup>设备上支持解析脚本并启用PAC代理能力，
+   * > Wearable设备类型上只保存脚本地址，不会启用PAC代理能力。
+   * 
+   * > 2、该接口不会校验URL真实性，在启动PAC代理时，若URL有误，则启动代理失败，返回2100002错误码。
    *
    * @permission ohos.permission.SET_PAC_URL
-   * @param { string } pacFileUrl - URL of the current PAC script.
+   * @param { string } pacFileUrl - 当前PAC脚本的URL地址。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1073,9 +928,9 @@ declare namespace connection {
   function setPacFileUrl(pacFileUrl: string): void;
 
   /**
-   * Obtains the URL of the current PAC script.
+   * 获取当前PAC脚本的URL地址。
    *
-   * @returns { string } URL of the current PAC script. If no PAC script is available, an empty string is returned.
+   * @returns { string } 当前PAC脚本的URL地址，如果没有PAC脚本则返回空字符串。
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 20 dynamic
@@ -1083,34 +938,30 @@ declare namespace connection {
   function getPacFileUrl(): string;
 
   /**
-   * Parses the specified URL proxy address based on the configured PAC script and returns the corresponding PAC proxy
-   * information.
-   *
-   * > **NOTE**
+   * 通过设置的PAC脚本，解析指定的URL代理地址，返回对应的PAC代理信息。
+   * 
+   * > **说明：**
    * >
-   * > 1. You can use [setPacFileUrl]{@link connection.setPacFileUrl} or [setPacUrl]{@link connection.setPacUrl} to set
-   * > the PAC script.
+   * > 1、可通过 [setPacFileUrl]{@link connection.setPacFileUrl} 或 [setPacUrl]{@link connection.setPacUrl} 设置PAC脚本。
+   * 
+   * > 2、如果调用本接口前未设置PAC脚本，则返回空字符串。
+   * 
+   * > 3、由于[setPacFileUrl]{@link connection.setPacFileUrl}接口支持PC/2in1<sup>20+</sup>、Phone<sup>23+</sup>、Tablet<sup>23+</
+   * > sup>、TV<sup>23+</sup>设备解析脚本并启用PAC代理能力，因此本接口支持以上设备获取PAC代理信息。 Wearable设备调用本接口功能不生效，返回空字串。
    *
-   * > 2. If no PAC script is set before this interface is called, an empty string is returned.
-   *
-   * > 3. The [setPacFileUrl]{@link connection.setPacFileUrl} API supports parsing scripts and enabling the PAC proxy
-   * > capability on PC/2in1<sup>20+</sup>, Phone<sup>23+</sup>, Tablet<sup>23+</sup> and TV<sup>23+</sup> devices.
-   * > Therefore, this API can be used to obtain the PAC proxy information on the preceding devices. For wearable
-   * > devices, this API does not take effect, and an empty string is returned.
-   *
-   * @param { string } url - URL used to search for the proxy information.
-   * @returns { string } Proxy information.
+   * @param { string } url - 要查找代理信息的URL。
+   * @returns { string } 返回代理信息。
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 20 dynamic
    */
   function findProxyForUrl(url: string): string;
 
   /**
-   * Sets the proxy mode. This API uses a promise to return the result.
+   * 设置代理模式。使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { ProxyMode } mode - Specified proxy mode.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { ProxyMode } mode - 指定的代理模式。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1120,10 +971,10 @@ declare namespace connection {
   function setProxyMode(mode: ProxyMode): Promise<void>;
 
   /**
-   * Obtains the current proxy mode. This API uses a promise to return the result.
+   * 获取当前的代理模式。使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<ProxyMode> } Promise used to return the current proxy mode.
+   * @returns { Promise<ProxyMode> } Promise对象，返回当前代理模式。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1133,20 +984,17 @@ declare namespace connection {
   function getProxyMode(): Promise<ProxyMode>;
 
   /**
-   * Adds custom DNS rules for the specified host of the current application. This API uses an asynchronous callback to
-   * return the result.
-   *
-   * > **NOTE**
+   * 为当前应用程序添加自定义host和对应的IP地址的映射。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > You can call [removeCustomDnsRule]{@link connection.removeCustomDnsRule} to delete a custom DNS rule or call
-   * > [clearCustomDnsRules]{@link connection.clearCustomDnsRules} to delete all custom DNS rules of the current
-   * > application.
+   * > 不需要时可调用[removeCustomDnsRule]{@link connection.removeCustomDnsRule}删除某一条自定义规则或调用
+   * > [clearCustomDnsRules]{@link connection.clearCustomDnsRules}删除当前应用程序的所有的自定义DNS规则 。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Name of the custom host.
-   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the mapping is added successfully,
-   *     **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { string } host - 需要自定义解析的主机名。
+   * @param { Array<string> } ip - 主机名所映射的IP地址列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当为当前应用程序添加自定义host和对应的ip地址的映射成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -1159,19 +1007,17 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds custom DNS rules for the specified host of the current application. This API uses a promise to return the
-   * result.
-   *
-   * > **NOTE**
+   * 为当前应用程序添加自定义host和对应的IP地址的映射。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > You can call [removeCustomDnsRule]{@link connection.removeCustomDnsRule} to delete a custom DNS rule or call
-   * > [clearCustomDnsRules]{@link connection.clearCustomDnsRules} to delete all custom DNS rules of the current
-   * > application.
+   * > 不需要时可调用[removeCustomDnsRule]{@link connection.removeCustomDnsRule}删除某一条自定义规则或调用
+   * > [clearCustomDnsRules]{@link connection.clearCustomDnsRules}删除当前应用程序的所有的自定义DNS规则 。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Name of the custom host.
-   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } host - 需要自定义解析的主机名。
+   * @param { Array<string> } ip - 主机名所映射的IP地址列表。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -1184,17 +1030,15 @@ declare namespace connection {
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
   /**
-   * Removes the custom DNS rules of the specified host from the current application. This API uses an asynchronous
-   * callback to return the result.
-   *
-   * > **NOTE**
+   * 删除当前应用程序中对应host的自定义DNS规则。使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > You can call [addCustomDnsRule]{@link connection.addCustomDnsRule} to add a custom rule.
+   * > 可调用[addCustomDnsRule]{@link connection.addCustomDnsRule}添加自定义规则。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Name of the host for which DNS rules are to be deleted.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DNS rules are removed
-   *     successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { string } host - 需要删除自定义DNS规则的主机名。
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除当前应用程序中对应host的自定义DNS规则成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -1207,16 +1051,15 @@ declare namespace connection {
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes the custom DNS rules of the specified host from the current application. This API uses a promise to return
-   * the result.
-   *
-   * > **NOTE**
+   * 删除当前应用程序中对应host的自定义DNS规则。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > You can call [addCustomDnsRule]{@link connection.addCustomDnsRule} to add a custom rule.
+   * > 可调用[addCustomDnsRule]{@link connection.addCustomDnsRule}添加自定义规则。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } host - Name of the host for which DNS rules are to be deleted.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } host - 需要删除自定义DNS规则的主机名。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -1229,12 +1072,10 @@ declare namespace connection {
   function removeCustomDnsRule(host: string): Promise<void>;
 
   /**
-   * Removes all custom DNS rules of the current application. This API uses an asynchronous callback to return the
-   * result.
+   * 删除当前应用程序的所有的自定义DNS规则。使用callback异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the DNS rules are removed
-   *     successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除当前应用程序的所有的自定义DNS规则成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -1246,10 +1087,10 @@ declare namespace connection {
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
 
   /**
-   * Removes all custom DNS rules of the current application. This API uses a promise to return the result.
+   * 删除当前应用程序的所有的自定义DNS规则。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1260,10 +1101,10 @@ declare namespace connection {
   function clearCustomDnsRules(): Promise<void>;
 
   /**
-   * Resets the network settings to the factory defaults. This API uses a promise to return the result.
+   * 出厂重置网络设置，使用Promise异步回调。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回值的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1276,27 +1117,21 @@ declare namespace connection {
   function factoryReset(): Promise<void>;
 
   /**
-   * Queries the UID of the application that initiates a specified network connection. This API uses a promise to return
-   * the result.
-   *
-   * > **NOTE**
+   * 用于查询发起指定网络连接的应用UID。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - This API can be called only in VPN applications.
+   * > - 该接口仅限在VPN应用中调用。
    * >
-   * > - Set the port numbers of the **local** and **remote** parameters when calling the API. If the port number is not
-   * > set or is set to 0, the API filters out a set of UIDs that meet the conditions based on other parameters and
-   * > returns a matched UID.
+   * > - 调用接口时请设置local和remote参数的端口号。若未设置端口号或将端口号设置为0，接口会基于其他参数筛选出符合条件的UID的集合，并从中返回一个匹配的UID。
    * >
-   * > - When protocol is set to PROTO_TYPE_UDP, if no UID is found based on the local and remote parameters, the UID is
-   * > filtered based on the local parameter and the matched UID is returned.
-   * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * > - protocol参数为PROTO_TYPE_UDP时，若通过local，remote参数未筛选出符合条件的UID，则仅基于local参数筛选并返回匹配的UID。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { ProtocolType } protocol - Type of a network protocol.
-   * @param { NetAddress } local - Source network address.
-   * @param { NetAddress } remote - Destination network address.
-   * @returns { Promise<int> } Promise used to return the UID of an application. If no matching UID is found, -1 is
-   *     returned.
+   * @param { ProtocolType } protocol - 网络协议的类型。
+   * @param { NetAddress } local - 源网络地址。
+   * @param { NetAddress } remote - 目标网络地址。
+   * @returns { Promise<int> } Promise对象，返回应用程序的UID。如果不存在匹配的UID则返回-1。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1308,26 +1143,21 @@ declare namespace connection {
   function getConnectOwnerUid(protocol: ProtocolType, local: NetAddress, remote: NetAddress): Promise<int>;
 
   /**
-   * Queries the UID of the application that initiates a specified network connection. This API returns the result
-   * synchronously.
-   *
-   * > **NOTE**
+   * 用于查询发起指定网络连接的应用UID。使用同步方式返回。
+   * 
+   * > **说明：**
    * >
-   * > - This API can be called only in VPN applications.
+   * > - 该接口仅限在VPN应用中调用。
    * >
-   * > - Set the port numbers of the **local** and **remote** parameters when calling the API. If the port number is not
-   * > set or is set to 0, the API filters out a set of UIDs that meet the conditions based on other parameters and
-   * > returns a matched UID.
+   * > - 调用接口时请设置local和remote参数的端口号。若未设置端口号或将端口号设置为0，接口会基于其他参数筛选出符合条件的UID的集合，并从中返回一个匹配的UID。
    * >
-   * > - When protocol is set to PROTO_TYPE_UDP, if no UID is found based on the local and remote parameters, the UID is
-   * > filtered based on the local parameter and the matched UID is returned.
-   * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+   * > - protocol参数为PROTO_TYPE_UDP时，若通过local，remote参数未筛选出符合条件的UID，则仅基于local参数筛选并返回匹配的UID。
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { ProtocolType } protocol - Type of a network protocol.
-   * @param { NetAddress } local - Source network address.
-   * @param { NetAddress } remote - Destination network address.
-   * @returns { int } UID of an application. If no matching UID is found, -1 is returned.
+   * @param { ProtocolType } protocol - 网络协议的类型。
+   * @param { NetAddress } local - 源网络地址。
+   * @param { NetAddress } remote - 目标网络地址。
+   * @returns { int } 返回应用程序的UID。如果不存在匹配的UID则返回-1。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1340,18 +1170,16 @@ declare namespace connection {
   function getConnectOwnerUidSync(protocol: ProtocolType, local: NetAddress, remote: NetAddress): int;
 
   /**
-   * Creates a virtual local area network (VLAN) with specified **vlanId** on a specified Ethernet NIC. This API uses a
-   * promise to return the result.
-   *
-   * > **NOTE**
+   * 在指定的以太网网卡上，创建一个由vlanId指定的虚拟局域网。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Currently, this API supports only the PC. For other device types, the error code 2100002 is returned when this
-   * > API is called.
+   * > - 本接口当前仅支持PC设备，其他设备类型上调用本接口返回错误码2100002。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } ifName - NIC name.
-   * @param { int } vlanId - VLAN ID. The value range is [0, 4094].
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } ifName - 网卡名。
+   * @param { int } vlanId - vlan标识符，取值范围[0,4094]。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1365,17 +1193,16 @@ declare namespace connection {
   function createVlanInterface(ifName: string, vlanId: int): Promise<void>;
 
   /**
-   * Deletes a VLAN specified by **vlanId** from a specified Ethernet NIC. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 删除指定以太网网卡上由vlanId指定的虚拟局域网。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Currently, this API supports only the PC. For other device types, the error code 2100002 is returned when this
-   * > API is called.
+   * > - 本接口当前仅支持PC设备，其他设备类型上调用本接口返回错误码2100002。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } ifName - NIC name.
-   * @param { int } vlanId - VLAN ID. The value range is [0, 4094].
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } ifName - 网卡名。
+   * @param { int } vlanId - vlan标识符，取值范围[0,4094]。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1389,19 +1216,17 @@ declare namespace connection {
   function destroyVlanInterface(ifName: string, vlanId: int): Promise<void>;
 
   /**
-   * Adds a specified IP address and subnet mask for the VLAN specified by **vlanId** on an Ethernet NIC. This API uses
-   * a promise to return the result.
-   *
-   * > **NOTE**
+   * 为以太网网卡上对应vlanId的虚拟局域网配置指定的IP地址及子网掩码。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Currently, this API supports only the PC. For other device types, the error code 2100002 is returned when this
-   * > API is called.
+   * > - 本接口当前仅支持PC设备，其他设备类型上调用本接口返回错误码2100002。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } ifName - NIC name.
-   * @param { int } vlanId - VLAN ID. The value range is [0, 4094].
-   * @param { LinkAddress } address - Network link information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } ifName - 网卡名。
+   * @param { int } vlanId - vlan标识符，取值范围[0,4094]。
+   * @param { LinkAddress } address - 链路信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1415,19 +1240,17 @@ declare namespace connection {
   function addVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
 
   /**
-   * Deletes the configured IP address and subnet mask from the VLAN specified by **vlanId** on an Ethernet NIC. This
-   * API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 从以太网网卡上对应vlanId的虚拟局域网中，删除已配置的IP地址及子网掩码。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - Currently, this API supports only the PC. For other device types, the error code 2100002 is returned when this
-   * > API is called.
+   * > - 本接口当前仅支持PC设备，其他设备类型上调用本接口返回错误码2100002。
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } ifName - NIC name.
-   * @param { int } vlanId - VLAN ID. The value range is [0, 4094].
-   * @param { LinkAddress } address - Network link information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } ifName - 网卡名。
+   * @param { int } vlanId - vlan标识符，取值范围[0,4094]。
+   * @param { LinkAddress } address - 链路信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -1442,20 +1265,16 @@ declare namespace connection {
   function deleteVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
 
   /**
-   * Obtains information about entries in the IP neighbor table of the local device, including IPv4 and IPv6 entries.
-   * Each entry contains an IP address, a MAC address, and a network adapter name. This API uses a promise to return the
-   * result.
-   *
-   * > **NOTE**
+   * 获取本地设备IP邻居表条目信息，包括IPv4和IPv6，每个条目信息包括IP地址、MAC地址、网卡名。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > This interface is used to obtain the cached data of the IP neighbor table, not the data of all connections on the
-   * > LAN.
+   * > 该接口获取IP邻居表的缓存的数据，并非局域网内所有连接的数据。
    * >
-   * > This API is used to check network exceptions and parse the mapping between IP addresses and MAC addresses.
+   * > 开发者可使用此接口排查网络异常、解析IP地址与MAC地址映射。
    *
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.GET_IP_MAC_INFO
-   * @returns { Promise<Array<NetIpMacInfo>> } Promise used to return information about entries in the IP neighbor
-   *     table.
+   * @returns { Promise<Array<NetIpMacInfo>> } Promise对象，返回ip邻居表条目信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -1465,26 +1284,21 @@ declare namespace connection {
   function getIpNeighTable(): Promise<Array<NetIpMacInfo>>;
 
   /**
-   * Converts the host name from Unicode to ASCII and controls the conversion behavior through the optional conversion
-   * process parameter (**conversionProcess**).
-   *
-   * > **NOTE**
+   * 将Unicode编码形式的主机名转换为ASCII编码形式，并可通过可选的转换流程参数（conversionProcess）控制转换行为。
+   * 
+   * > **说明：**
    * >
-   * > If **conversionProcess** is set to **NO_CONFIGURATION**, only the domain names corresponding to the Unicode
-   * > characters that have been officially allocated can be converted.
+   * > conversionProcess设置为NO_CONFIGURATION时，只能转换已正式分配含义的Unicode字符所对应的域名。
+   * 
+   * > conversionProcess设置为ALLOW_UNASSIGNED时，可以转换包含尚未分配含义的Unicode字符的域名。
+   * 
+   * > conversionProcess设置为USE_STD3_ASCII_RULES时，会在转换过程中强制按照STD-3 ASCII规则（即RFC 1123标准）对生成的ASCII域名进行检查。
+   * 
+   * > 传入参数中的数字和英文不做转码。
    *
-   * > When **conversionProcess** is set to **ALLOW_UNASSIGNED**, domain names that contain Unicode characters that have
-   * > not been assigned meanings can be converted.
-   *
-   * > If **conversionProcess** is set to **USE_STD3_ASCII_RULES**, the generated ASCII domain name is forcibly checked
-   * > based on the STD-3 ASCII rule (RFC 1123 standard) during the conversion.
-   *
-   * > Digits and English letters in the input parameters are not transcoded.
-   *
-   * @param { string } host - Host name to be converted. The length of each label (separated by dots) cannot exceed 63
-   *     bytes.
-   * @param { ConversionProcess } [flag] - Conversion flow parameter. The default value is **NO_CONFIGURATION**.
-   * @returns { string } Conversion result.
+   * @param { string } host - 要转换的主机名（host）。每个标签（点分隔的部分）长度不超过63字节。
+   * @param { ConversionProcess } [flag] - 转换流程参数，默认值为NO_CONFIGURATION。
+   * @returns { string } 返回转换结果。
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -1492,14 +1306,13 @@ declare namespace connection {
    * @since 23 dynamic
    */
   function getDnsAscii(host: string, flag?: ConversionProcess): string;
- 
+
   /**
-   * Converts host names from ASCII to Unicode using the Punycode encoding mode and uses the optional conversionProcess
-   * parameter to control the conversion behavior.
+   * 使用Punycode编码方式，将ASCII编码形式的主机名转换为Unicode编码形式，并通过可选的conversionProcess参数控制转换行为。
    *
-   * @param { string } host - Host name to be converted.
-   * @param { ConversionProcess } [flag] - Conversion flow parameter. The default value is **NO_CONFIGURATION**.
-   * @returns { string } Conversion result.
+   * @param { string } host - 要转换的主机名（host）。
+   * @param { ConversionProcess } [flag] - 转换流程参数，默认值为NO_CONFIGURATION。
+   * @returns { string } 返回转换结果。
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -1509,21 +1322,18 @@ declare namespace connection {
   function getDnsUnicode(host: string, flag?: ConversionProcess): string;
 
   /**
-   * Obtains information about all TCP and UDP ports currently listened by the system, and the PID and UID of the
-   * processes that listen for the ports. Both IPv4 and IPv6 addresses are supported.
-   *
-   * > **NOTE**
+   * 获取系统当前监听的所有TCP、UDP端口信息，以及监听端口进程的PID、UID，支持IPv4和IPv6。  
+   * 
+   * > **说明：**
    * >
-   * > This API is used to obtain information about the TCP and UDP ports currently listened by the system. The detailed
-   * > fields are as follows:
+   * > 该接口获取系统当前监听的TCP、UDP端口信息，详细字段包括：
    * >
-   * > TCP port fields: local address, local port, remote address, remote port, TCP connection status, process PID, and
-   * > process UID
+   * >   TCP端口字段：本地地址、本地端口、远端地址、远端端口、TCP连接状态、进程PID、进程UID
    * >
-   * > UDP port fields: local address, local port, process PID, and process UID
+   * >   UDP端口字段：本地地址、本地端口、进程PID 、进程UID
    *
    * @permission ohos.permission.GET_IP_MAC_INFO
-   * @returns { Promise<NetPortStatesInfo> } Promise used to return the TCP and UDP port information.
+   * @returns { Promise<NetPortStatesInfo> } Promise对象，返回系统当前监听的TCP、UDP端口信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -1534,21 +1344,18 @@ declare namespace connection {
   function getSystemNetPortStates(): Promise<NetPortStatesInfo>;
 
   /**
-   * Queries the network route tracing information. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 查询网络路由跟踪信息，使用Promise方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > To call this API, the application needs to apply for the precise location permission. <!--RP1-->According to
-   * > [Applying for Location Permissions (ArkTS)](docroot://device/location/location-permission-guidelines.md)<!--RP1
-   * > End-->, the caller needs to apply for both **ohos.permission.APPROXIMATELY_LOCATION** and
-   * > **ohos.permission.LOCATION**.
+   * > 应用调用该接口需申请精确位置权限。<!--RP1-->根据[申请位置权限开发指导](docroot://device/location/location-permission-guidelines.md)<!--RP1End-
+   * > ->，调用方需同时申请ohos.permission.APPROXIMATELY_LOCATION和ohos.permission.LOCATION。
    *
    * @permission ohos.permission.INTERNET and ohos.permission.ACCESS_NET_TRACE_INFO and
    *     ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { string } destination - Target domain name or IP address, for example, www.example.com or 8.8.8.8.
-   * @param { TraceRouteOptions } [option] - Options for route tracing. If this parameter is not specified, the default
-   *     configuration is used.
-   * @returns { Promise<TraceRouteInfo[]> } Promise used to return the array of route tracing information.
+   * @param { string } destination - 目标域名或IP地址，例如www.example.com、8.8.8.8。
+   * @param { TraceRouteOptions } [option] - 路由跟踪的选项参数，缺省则使用默认配置。
+   * @returns { Promise<TraceRouteInfo[]> } Promise对象，返回路由跟踪信息数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100003 - Internal error.
@@ -1559,22 +1366,17 @@ declare namespace connection {
   function queryTraceRoute(destination: string, option?: TraceRouteOptions): Promise<TraceRouteInfo[]>;
 
   /**
-   * Queries network probe results. If an exception (for example, network disconnection) occurs and the request fails to
-   * be sent, the API immediately returns the result without performing subsequent probe. This API uses a promise to
-   * return the result.
-   *
-   * > **NOTE**
+   * 查询网络探测结果。若出现异常（例如断网），导致发送请求失败，则接口会立即返回，不再进行后续探测。本接口使用Promise方式作为异步方法。
+   * 
+   * > **说明：**
    * >
-   * > This API is used to perform network probe on a target host for a period of time to obtain the packet loss rate
-   * > and RTT information.
+   * > 此接口用于对目标主机进行一段持续时间的网络探测，以获取丢包率和RTT信息。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } destination - Target domain name or IP address, for example, www.example.com or 8.8.8.8.
-   * @param { int } duration - Probe duration, in seconds. The value range is [1, 1000]. The probe interval is one
-   *     second. If no exception (such as network disconnection) occurs, the probe result is returned when the probe
-   *     duration expires. This field indicates the total probe duration. If the value is too large, application thread
-   *     resources may be occupied for a long time.
-   * @returns { Promise<ProbeResultInfo> } Promise used to return the probe result.
+   * @param { string } destination - 目标域名或IP地址，例如www.example.com、8.8.8.8。
+   * @param { int } duration - 探测持续时间，单位为秒，取值范围[1, 1000]。探测间隔为1秒。若未出现异常（例如断网），探测时间到期后返回探测结果。该字段表示探测持续总时长，设置过长可能导致长时间占用应用
+   *     线程资源。
+   * @returns { Promise<ProbeResultInfo> } Promise对象，返回探测结果信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100003 - Internal error.
@@ -1585,7 +1387,7 @@ declare namespace connection {
   function queryProbeResult(destination: string, duration: int): Promise<ProbeResultInfo>;
 
   /**
-   * Describes the information about the TCP and UDP ports that are currently listened for by the system.
+   * 系统当前监听的TCP、UDP端口信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -1593,7 +1395,7 @@ declare namespace connection {
    */
   export interface NetPortStatesInfo {
     /**
-     * TCP information currently listened for by the system.
+     * 系统当前监听的TCP信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1602,7 +1404,7 @@ declare namespace connection {
     tcpPortStatesInfo?: Array<TcpNetPortStatesInfo>;
 
     /**
-     * UDP information currently listened for by the system.
+     * 系统当前监听的UDP信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1612,7 +1414,7 @@ declare namespace connection {
   }
 
   /**
-   * Describes the TCP port state information.
+   * TCP端口状态信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -1620,7 +1422,7 @@ declare namespace connection {
    */
   export interface TcpNetPortStatesInfo {
     /**
-     * Local IP address of the TCP network.
+     * TCP网络本地IP地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1628,7 +1430,7 @@ declare namespace connection {
      */
     tcpLocalIp: string;
     /**
-     * Local port of the TCP network. The value range is [0, 65535].
+     * TCP网络本地端口，取值范围[0, 65535]。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1636,7 +1438,7 @@ declare namespace connection {
      */
     tcpLocalPort: int;
     /**
-     * Remote IP address of the TCP network.
+     * TCP网络远程IP地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1644,7 +1446,7 @@ declare namespace connection {
      */
     tcpRemoteIp: string;
     /**
-     * Remote port of the TCP network. The value range is [0, 65535].
+     * TCP网络远程端口，取值范围[0, 65535]。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1652,7 +1454,7 @@ declare namespace connection {
      */
     tcpRemotePort: int;
     /**
-     * UID of the user who listens for the TCP port.
+     * 监听该TCP端口的用户UID。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1660,7 +1462,7 @@ declare namespace connection {
      */
     tcpUid: int;
     /**
-     * PID of the process that listens for the TCP port.
+     * 监听该TCP端口的进程PID。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1668,7 +1470,7 @@ declare namespace connection {
      */
     tcpPid: int;
     /**
-     * TCP network status.
+     * TCP网络状态。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1678,7 +1480,7 @@ declare namespace connection {
   }
 
   /**
-   * Describes the UDP port state information.
+   * UDP端口状态信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -1686,7 +1488,7 @@ declare namespace connection {
    */
   export interface UdpNetPortStatesInfo {
     /**
-     * Local IP address of the UDP network.
+     * UDP网络本地IP地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1694,7 +1496,7 @@ declare namespace connection {
      */
     udpLocalIp: string;
     /**
-     * Local port of the UDP network. The value range is [0, 65535].
+     * UDP网络本地端口，取值范围[0, 65535]。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1702,7 +1504,7 @@ declare namespace connection {
      */
     udpLocalPort: int;
     /**
-     * UID of the user who listens for the UDP port.
+     * 监听该UDP端口的用户UID。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1710,7 +1512,7 @@ declare namespace connection {
      */
     udpUid: int;
     /**
-     * PID of the process that listens for the UDP port.
+     * 监听该UDP端口的进程PID。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1720,7 +1522,7 @@ declare namespace connection {
   }
 
   /**
-   * Enumerates TCP states.
+   * TCP状态。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -1728,7 +1530,7 @@ declare namespace connection {
    */
   export enum TcpState {
     /**
-     * The connection is established, and data can be sent and received properly.
+     * 连接已建立，可正常收发数据。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1736,7 +1538,7 @@ declare namespace connection {
      */
     TCP_ESTABLISHED = 1,
     /**
-     * The client sends SYN and waits for ACK+SYN from the server (the first step of the three-way handshake).
+     * 客户端发送SYN，等待服务端ACK+SYN（三次握手的第一步）。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1744,8 +1546,7 @@ declare namespace connection {
      */
     TCP_SYN_SENT = 2,
     /**
-     * The server receives SYN and sends ACK+SYN, and waits for ACK from the client (the second step of the three-way
-     * handshake).
+     * 服务端接收SYN并发送ACK+SYN，等待客户端ACK（三次握手的第二步）。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1753,7 +1554,7 @@ declare namespace connection {
      */
     TCP_SYN_RECV = 3,
     /**
-     * The active end sends FIN and waits for ACK from the peer end.
+     * 主动端发送FIN，等待对方ACK。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1761,7 +1562,7 @@ declare namespace connection {
      */
     TCP_FIN_WAIT1 = 4,
     /**
-     * The active end receives ACK of FIN and waits for ACK from the peer end.
+     * 主动端接收FIN的ACK，等待对方ACK。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1769,8 +1570,7 @@ declare namespace connection {
      */
     TCP_FIN_WAIT2 = 5,
     /**
-     * The active end receives FIN from the peer end and replies with ACK. After two times of the maximum segment
-     * lifetime, the connection is completely released.
+     * 主动端接收对方FIN并回复ACK，等待2倍最大报文段生存时间后彻底释放。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1778,7 +1578,7 @@ declare namespace connection {
      */
     TCP_TIME_WAIT = 6,
     /**
-     * Initial/closed state, with no connection.
+     * 初始/关闭状态，无连接。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1786,7 +1586,7 @@ declare namespace connection {
      */
     TCP_CLOSE = 7,
     /**
-     * The passive end receives FIN and sends ACK, and waits for FIN from the peer end.
+     * 被动端接收FIN并发送ACK，等待对方FIN。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1794,7 +1594,7 @@ declare namespace connection {
      */
     TCP_CLOSE_WAIT = 8,
     /**
-     * The passive end sends FIN and waits for ACK from the peer end.
+     * 被动端发送FIN后，等待对方ACK。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1802,7 +1602,7 @@ declare namespace connection {
      */
     TCP_LAST_ACK = 9,
     /**
-     * The server listens and waits for the client to connect.
+     * 服务端监听，等待客户端连接。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1810,7 +1610,7 @@ declare namespace connection {
      */
     TCP_LISTEN = 10,
     /**
-     * Both ends send FIN and wait for ACK from each other.
+     * 双方同时发送FIN，互相等待ACK。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -1820,31 +1620,28 @@ declare namespace connection {
   }
 
   /**
-   * Enumerates the parameters of the ASCII/Unicode transcoding process.
+   * ASCII/Unicode转码转换流程参数的枚举。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 23 dynamic
    */
   export enum ConversionProcess {
     /**
-     * Only domain names with assigned Unicode code points can be converted. (Unicode assigns a unique number to each
-     * character. This number is called a code point.)
+     * 仅允许转换已分配的Unicode代码点的域名（Unicode为每个字符分配一个唯一的数字，这个数字就叫做代码点）。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     NO_CONFIGURATION = 0,
     /**
-     * Allows the translation of domain names that contain unassigned Unicode code points (in a Unicode character set,
-     * not all code points are assigned characters, i.e., unassigned Unicode code points).
+     * 允许转换包含未分配Unicode代码点的域名(在Unicode字符集中，并非所有代码点都已分配字符，即未分配Unicode代码点)。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     ALLOW_UNASSIGNED = 1,
     /**
-     * During the conversion, the STD-3 ASCII rule (RFC 1123 standard) is forcibly used to check the generated ASCII
-     * domain name.
+     * 在转换过程中，强制使用STD-3 ASCII规则（即RFC 1123标准）检查生成的ASCII域名。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
@@ -1853,21 +1650,17 @@ declare namespace connection {
   }
 
   /**
-   * Represents the network connection object type.
-   *
-   * > **NOTE**
+   * 网络连接对象类型。
+   * 
+   * > **说明：**
    * >
-   * > (1) When the network transitions from unavailable to available, the **netAvailable**, **netCapabilitiesChange**,
-   * > and **netConnectionPropertiesChange** events are triggered.
+   * > （1）设备从无网络状态转变为有网络状态时，将触发netAvailable事件、netCapabilitiesChange事件和netConnectionPropertiesChange事件；
    * >
-   * > (2) If the network transitions from available to unavailable after a **netAvailable** event is received, a
-   * > **netLost** event is triggered.
+   * > （2）接收到netAvailable事件后，若设备从有网络状态转变为无网络状态，将触发netLost事件；
    * >
-   * > (3) If no **netAvailable** event is received, a **netUnavailable** event is directly triggered.
+   * > （3）若未接收到netAvailable事件，则将直接接收到netUnavailable事件；
    * >
-   * > (4) When the network transitions from Wi-Fi to cellular, a **netLost** event is first triggered to indicate that
-   * > the Wi-Fi network is lost and then a **netAvailable** event is triggered to indicate that the cellular network is
-   * > available.
+   * > （4）设备从WiFi网络切换至蜂窝网络时，将先触发netLost事件（WiFi丢失），随后触发netAvailable事件（蜂窝可用）。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 10]
@@ -1877,13 +1670,11 @@ declare namespace connection {
    */
   export interface NetConnection {
     /**
-     * Registers a listener for **netAvailable** events. Before you call this API, make sure that you have called
-     * **register** to add a listener for network status changes. When the listener is no longer needed, call
-     * **unregister** to remove it.
+     * 订阅网络可用事件。此接口需在调用register接口之前调用。若无需接收网络状态变化的回调通知，应使用unregister取消订阅默认的网络状态变化通知。
      *
-     * @param { 'netAvailable' } type - Event type. This field has a fixed value of **netAvailable**.
-     *     <br>**netAvailable**: event indicating that the data network is available.
-     * @param { Callback<NetHandle> } callback - Callback used to return the network handle.
+     * @param { 'netAvailable' } type - 订阅事件，固定为'netAvailable'。
+     *     <br>netAvailable：数据网络可用事件。
+     * @param { Callback<NetHandle> } callback - 回调函数，返回数据网络句柄。
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1892,15 +1683,12 @@ declare namespace connection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
     /**
-     * Registers a listener for **netBlockStatusChange** events. Before you call this API, make sure that you have
-     * called **register** to add a listener for network status changes. When the listener is no longer needed, call
-     * **unregister** to remove it.
+     * 订阅网络阻塞状态事件。此接口需要在调用register接口之前调用。若无需接收网络状态变化的回调通知，应使用unregister取消订阅默认的网络状态变化通知。
      *
-     * @param { 'netBlockStatusChange' } type - Event type. This field has a fixed value of **netBlockStatusChange**.
-     *     <br>**netBlockStatusChange**: event indicating a change in the network blocking status.
+     * @param { 'netBlockStatusChange' } type - 订阅事件，固定为'netBlockStatusChange'。<br/>netBlockStatusChange：网络阻塞状态事件。
      * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - Callback used to return the
      *     result. [since 8 - 10]
-     * @param { Callback<NetBlockStatusInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<NetBlockStatusInfo> } callback - 回调函数，获取网络阻塞状态信息。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
      */
@@ -1908,7 +1696,6 @@ declare namespace connection {
 
     /**
      * Registers a listener for netBlockStatusChange events.
-     *
      * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 static
@@ -1916,14 +1703,10 @@ declare namespace connection {
     onNetBlockStatusChange(callback: Callback<NetBlockStatusInfo>): void;
 
     /**
-     * Registers a listener for **netCapabilitiesChange** events. Before you call this API, make sure that you have
-     * called **register** to add a listener for network status changes. When the listener is no longer needed, call
-     * **unregister** to remove it.
+     * 订阅网络能力变化事件。此接口要在register接口调用前调用，不需要网络状态变化回调通知时，使用unregister取消订阅默认网络状态变化的通知。
      *
-     * @param { 'netCapabilitiesChange' } type - Event type. This field has a fixed value of **netCapabilitiesChange**.
-     *     <br>**netCapabilitiesChange**: event indicating that the network capabilities have changed.
-     * @param { Callback<NetCapabilityInfo> } callback - Callback used to return the network handle (**netHandle**) and
-     *     capability information (**netCap**).
+     * @param { 'netCapabilitiesChange' } type - 订阅事件，固定为'netCapabilitiesChange'。<br/>netCapabilitiesChange：网络能力变化事件。
+     * @param { Callback<NetCapabilityInfo> } callback - 回调函数，返回数据网络句柄(netHandle)和网络的能力信息(netCap)。
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1932,29 +1715,23 @@ declare namespace connection {
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
     /**
-     * Registers a listener for **netConnectionPropertiesChange** events. Before you call this API, make sure that you
-     * have called **register** to add a listener for network status changes. When the listener is no longer needed,
-     * call **unregister** to remove it.
+     * 订阅网络连接信息变化事件。此接口要在register接口调用前调用，不需要网络状态变化回调通知时，使用unregister取消订阅默认网络状态变化的通知。
      *
-     * @param { 'netConnectionPropertiesChange' } type - Event type. This field has a fixed value of
-     *     **netConnectionPropertiesChange**.
-     *     <br>**netConnectionPropertiesChange**: event indicating that network connection properties have changed.
+     * @param { 'netConnectionPropertiesChange' } type - 订阅事件，固定为'netConnectionPropertiesChange'。<br/>
+     *     netConnectionPropertiesChange：网络连接信息变化事件。
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - Callback
      *     used to return the result. [since 8 - 10]
-     * @param { Callback<NetConnectionPropertyInfo> } callback - Callback used to return the result. [since 11]
+     * @param { Callback<NetConnectionPropertyInfo> } callback - 回调函数，获取网络连接属性信息。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
     /**
-     * Registers a listener for **netLost** events. Before you call this API, make sure that you have called
-     * **register** to add a listener for network status changes. When the listener is no longer needed, call
-     * **unregister** to remove it.
+     * 订阅网络丢失事件。此接口要在register接口调用前调用，不需要网络状态变化回调通知时，使用unregister取消订阅默认网络状态变化的通知。
      *
-     * @param { 'netLost' } type - Event type. This field has a fixed value of **netLost**.
-     *     <br>**netLost**: event indicating that the network is interrupted or normally disconnected.
-     * @param { Callback<NetHandle> } callback - Callback used to return the result, which is a **netHandle** object.
+     * @param { 'netLost' } type - 订阅事件，固定为'netLost'。<br/>netLost：网络严重中断或正常断开事件。
+     * @param { Callback<NetHandle> } callback - 回调函数，数据网络句柄(netHandle)。
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1964,7 +1741,6 @@ declare namespace connection {
 
     /**
      * Registers a listener for **netLost** events.
-     *
      * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -1974,13 +1750,10 @@ declare namespace connection {
     onNetLost(callback: Callback<NetHandle>): void;
 
     /**
-     * Registers a listener for **netUnavailable** events. Before you call this API, make sure that you have called
-     * **register** to add a listener for network status changes. When the listener is no longer needed, call
-     * **unregister** to remove it.
+     * 订阅网络不可用事件。此接口要在register接口调用前调用，不需要网络状态变化回调通知时，使用unregister取消订阅默认网络状态变化的通知。
      *
-     * @param { 'netUnavailable' } type - Event type. This field has a fixed value of **netUnavailable**.
-     *     <br>**netUnavailable**: event indicating that the network is unavailable.
-     * @param { Callback<void> } callback - Callback used to return the result, which is empty.
+     * @param { 'netUnavailable' } type - 订阅事件，固定为'netUnavailable'。<br/>netUnavailable：网络不可用事件。
+     * @param { Callback<void> } callback - 回调函数，无返回结果。
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1990,7 +1763,6 @@ declare namespace connection {
 
     /**
      * Registers a listener for netUnavailable events.
-     *
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -2000,17 +1772,14 @@ declare namespace connection {
     onNetUnavailable(callback: Callback<void>): void;
 
     /**
-     * Registers a listener for network status changes. To listen for a specific type of events, call **on** to enable
-     * listening and then call **register** to register an event listener.
-     *
-     * > **NOTE**
+     * 订阅指定网络状态变化的通知。如需监听特定事件，确保调用on监听事件后再调用register进行注册。
+     * 
+     * > **注意：**
      * >
-     * > After using the **register** API, you need to call **unregister** to deregister the listener.
-     * > **Required permission**: ohos.permission.GET_NETWORK_INFO
+     * > 使用完register接口后需要及时调用unregister取消注册。
      *
      * @permission ohos.permission.GET_NETWORK_INFO
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If a listener for network status
-     *     changes is registered successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当订阅指定网络状态变化的通知成功，error为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -2026,10 +1795,9 @@ declare namespace connection {
     register(callback: AsyncCallback<void>): void;
 
     /**
-     * Unregisters the listener for network status changes.
+     * 取消订阅默认网络状态变化的通知。
      *
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If a listener for network status
-     *     changes is unregistered successfully, **error** is **undefined**. Otherwise, **error** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当取消订阅指定网络状态变化的通知成功，error为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied. [since 8 - 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -2045,7 +1813,7 @@ declare namespace connection {
   }
 
   /**
-   * Provides an instance that bears data network capabilities.
+   * 提供承载数据网络能力的实例。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice [since 11]
@@ -2054,7 +1822,7 @@ declare namespace connection {
    */
   export interface NetSpecifier {
     /**
-     * Network transmission capabilities and bearer types of the data network.
+     * 存储数据网络的传输能力和承载类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2064,9 +1832,7 @@ declare namespace connection {
     netCapabilities: NetCapabilities;
 
     /**
-     * Network identifier. The identifier of the cellular network is **slot0** for SIM card 1 and **slot1** for SIM card
-     * 2. Since API version 12, you can pass the registered WLAN hotspot to the API to specify the WLAN network to be
-     * activated.
+     * 网络标识符，蜂窝网络的标识符是"slot0"（对应SIM卡1）、"slot1"（对应SIM卡2）。从API12开始可以通过传递注册的WLAN热点信息表示应用希望激活的指定的WLAN网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2077,7 +1843,7 @@ declare namespace connection {
   }
 
   /**
-   * Provides an instance that bears data network capabilities.
+   * 提供承载数据网络能力的实例。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
@@ -2087,7 +1853,7 @@ declare namespace connection {
    */
   export interface NetCapabilityInfo {
     /**
-     * Network handle.
+     * 网络句柄。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -2098,7 +1864,7 @@ declare namespace connection {
     netHandle: NetHandle;
 
     /**
-     * Network transmission capabilities and bearer types of the data network.
+     * 存储数据网络的传输能力和承载类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -2110,10 +1876,9 @@ declare namespace connection {
   }
 
   /**
-   * Represents the network handle.
-   *
-   * Before invoking **NetHandle** APIs, call **getNetHandle** to obtain a **NetHandle** object. For example, you can
-   * call [getDefaultNet]{@link connection.getDefaultNet} to obtain the network handle of the default network.
+   * 网络句柄。
+   * 
+   * 在调用NetHandle的方法之前，需要先获取NetHandle对象。例如可通过[getDefaultNet]{@link connection.getDefaultNet}获取系统当前默认网络的网络句柄。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 10]
@@ -2123,8 +1888,7 @@ declare namespace connection {
    */
   export interface NetHandle {
     /**
-     * Network ID. The value **0** indicates that there is no default network. The other valid values must be greater
-     * than or equal to **100**.
+     * 网络ID，取值为0代表没有默认网络，其余有效取值必须大于等于100。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
@@ -2135,13 +1899,10 @@ declare namespace connection {
     netId: int;
 
     /**
-     * Binds the TCPSocket or UDPSocket to the network specified by **NetHandle**. This API uses an asynchronous
-     * callback to return the result.
+     * 将TCPSocket或UDPSocket绑定到当前NetHandle对应的网络。使用callback异步回调。
      *
-     * @param { TCPSocket | UDPSocket } socketParam - **TCPSocket** or **UDPSocket** object.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the **TCPSocket** or
-     *     **UDPSocket** object is successfully bound to the current network, **error** is **undefined**. Otherwise,
-     *     **error** is an error object.
+     * @param { TCPSocket | UDPSocket } socketParam - 待绑定的TCPSocket或UDPSocket对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当TCPSocket或UDPSocket成功绑定到当前网络，error为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -2152,11 +1913,10 @@ declare namespace connection {
     bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the TCPSocket or UDPSocket to the network specified by **NetHandle**. This API uses a promise to return the
-     * result.
+     * 将TCPSocket或UDPSocket绑定到当前NetHandle对应的网络。使用Promise异步回调。
      *
-     * @param { TCPSocket | UDPSocket } socketParam - **TCPSocket** or **UDPSocket** object.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TCPSocket | UDPSocket } socketParam - 待绑定的TCPSocket或UDPSocket对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -2167,14 +1927,12 @@ declare namespace connection {
     bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
 
     /**
-     * Obtains all IP addresses by using the network specified by **NetHandle** to resolve the host name. This API uses
-     * an asynchronous callback to return the result.
+     * 使用当前NetHandle对应的网络解析主机名获取到的所有IP地址。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } host - Host name to resolve. For example, www.example.com.
-     * @param { AsyncCallback<Array<NetAddress>> } callback - Callback used to return the result. If all IP addresses
-     *     are successfully obtained, **error** is **undefined**, and **data** is the list of all obtained IP addresses.
-     *     Otherwise, **error** is an error object.
+     * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+     * @param { AsyncCallback<Array<NetAddress>> } callback - 回调函数。当使用对应网络解析主机名成功获取所有IP地址，error为undefined，data为获取到的所有IP地
+     *     址；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -2187,12 +1945,11 @@ declare namespace connection {
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
     /**
-     * Obtains all IP addresses by using the network specified by **NetHandle** to resolve the host name. This API uses
-     * a promise to return the result.
+     * 使用当前NetHandle对应的网络解析主机名获取到的所有IP地址。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } host - Host name to resolve. For example, www.example.com.
-     * @returns { Promise<Array<NetAddress>> } Promise used to return all IP addresses.
+     * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+     * @returns { Promise<Array<NetAddress>> } Promise对象，返回所有IP地址。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -2205,14 +1962,12 @@ declare namespace connection {
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
     /**
-     * Performs DNS resolution using the network specified by **NetHandle** based on the specified IP address type. This
-     * API uses a promise to return the result.
+     * 使用当前NetHandle对应的网络基于指定IP类型进行DNS解析。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } host - Host name to resolve. For example, www.example.com.
-     * @param { QueryOptions } [option] - Type of the IP address to be queried.
-     * @returns { Promise<Array<NetAddress>> } Promise used to return the queried IP address. In the command output, the
-     *     port field has a fixed value of 0.
+     * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+     * @param { QueryOptions } [option] - 需要查询的IP类型。
+     * @returns { Promise<Array<NetAddress>> } Promise对象，返回查询到的IP地址。返回值中的port字段固定为0，无需关注。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -2224,14 +1979,12 @@ declare namespace connection {
     getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
     /**
-     * Obtains the first IP address by using the network specified by **NetHandle** to resolve the host name. This API
-     * uses an asynchronous callback to return the result.
+     * 使用当前NetHandle对应的网络解析主机名获取到的第一个IP地址。使用callback异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } host - Host name to resolve. For example, www.example.com.
-     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the first IP address is
-     *     obtained successfully, **error** is **undefined**, and **data** is the first obtained IP address. Otherwise,
-     *     **error** is an error object.
+     * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+     * @param { AsyncCallback<NetAddress> } callback - 回调函数。当使用对应网络解析主机名获取第一个IP地址成功，error为undefined，data为获取的第一个IP地址；否则为错
+     *     误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -2243,12 +1996,11 @@ declare namespace connection {
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the first IP address by using the network specified by **NetHandle** to resolve the host name. This API
-     * uses a promise to return the result.
+     * 使用当前NetHandle对应的网络解析主机名获取到的第一个IP地址。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } host - Host name to resolve. For example, www.example.com.
-     * @returns { Promise<NetAddress> } Promise used to return the first IP address.
+     * @param { string } host - 需要解析的主机名。例如："www.example.com"。
+     * @returns { Promise<NetAddress> } Promise对象，返回获取到的第一个IP地址。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -2261,7 +2013,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines the network capability set.
+   * 网络的能力集。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 10]
@@ -2271,8 +2023,7 @@ declare namespace connection {
    */
   export interface NetCapabilities {
     /**
-     * Uplink (device-to-network) bandwidth, in kbit/s. The value **0** indicates that the current network bandwidth
-     * cannot be evaluated.
+     * 上行（设备到网络）带宽，单位(kb/s)。0表示无法评估当前网络带宽。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2281,8 +2032,7 @@ declare namespace connection {
     linkUpBandwidthKbps?: int;
 
     /**
-     * Downlink (network-to-device) bandwidth, in kbit/s. The value **0** indicates that the current network bandwidth
-     * cannot be evaluated.
+     * 下行（网络到设备）带宽，单位(kb/s)。0表示无法评估当前网络带宽。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2291,7 +2041,7 @@ declare namespace connection {
     linkDownBandwidthKbps?: int;
 
     /**
-     * Network capability.
+     * 网络具体能力。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2301,7 +2051,7 @@ declare namespace connection {
     networkCap?: Array<NetCap>;
 
     /**
-     * Network type. The array contains only one network type.
+     * 网络类型。数组里面只包含了一种网络类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
@@ -2313,7 +2063,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines the network connection properties.
+   * 网络连接信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
@@ -2321,7 +2071,7 @@ declare namespace connection {
    */
   export interface NetConnectionPropertyInfo {
     /**
-     * Network handle.
+     * 网络句柄。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
@@ -2329,7 +2079,7 @@ declare namespace connection {
      */
     netHandle: NetHandle;
     /**
-     * Defines the network connection properties.
+     * 网络连接信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
@@ -2339,7 +2089,7 @@ declare namespace connection {
   }
 
   /**
-   * Obtains the network block status information.
+   * 获取网络状态信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
@@ -2347,7 +2097,7 @@ declare namespace connection {
    */
   export interface NetBlockStatusInfo {
     /**
-     * Network handle.
+     * 网络句柄。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
@@ -2355,8 +2105,7 @@ declare namespace connection {
      */
     netHandle: NetHandle;
     /**
-     * Whether the current network is blocked. The value **true** indicates that the network is congested, and the value
-     * **false** indicates the opposite.
+     * 标识当前网络是否是堵塞状态。true：标识当前网络是堵塞状态；false：标识当前网络不是堵塞状态。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
@@ -2366,14 +2115,14 @@ declare namespace connection {
   }
 
   /**
-   * Defines the type of the IP address to be queried.
+   * 需要查询的IP类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 23 dynamic
    */
   export interface QueryOptions {
     /**
-     * Type of the IP address to be queried. The default value is **FAMILY_TYPE_ALL**.
+     * 需要查询的具体IP地址类型，默认值为FAMILY_TYPE_ALL。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
@@ -2382,28 +2131,28 @@ declare namespace connection {
   }
 
   /**
-   * Indicates the type of the IP address to be queried.
+   * 需要查询的具体IP地址类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 23 dynamic
    */
   export enum FamilyType {
     /**
-     * All IPv4 and IPv6 addresses are queried.
+     * 查询所有IPv4和IPv6地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     FAMILY_TYPE_ALL = 0,
     /**
-     * Only IPv4 addresses are queried.
+     * 仅查询IPv4地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     FAMILY_TYPE_IPV4 = 1,
     /**
-     * Only IPv6 addresses are queried.
+     * 仅查询IPv6地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
@@ -2412,7 +2161,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines the network capability.
+   * 网络具体能力。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice [since 11]
@@ -2421,8 +2170,7 @@ declare namespace connection {
    */
   export enum NetCap {
     /**
-     * The network can connect to the carrier's Multimedia Messaging Service Center (MMSC) to send and receive
-     * multimedia messages.
+     * 表示网络可以访问运营商的MMSC（Multimedia Message Service，多媒体短信服务）发送和接收彩信。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2432,7 +2180,7 @@ declare namespace connection {
     NET_CAPABILITY_MMS = 0,
 
     /**
-     * The network traffic is not metered.
+     * 表示网络流量未被计费。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2442,9 +2190,8 @@ declare namespace connection {
     NET_CAPABILITY_NOT_METERED = 11,
 
     /**
-     * The network is capable of Internet access but the network connectivity is not successfully verified by the
-     * network management module. This capability is configured by the network provider. Your application can determine
-     * the network connectivity by **NET_CAPABILITY_VALIDATED** and **NET_CAPABILITY_CHECKING_CONNECTIVITY**.
+     * 表示该网络应具有访问Internet的能力，此能力由网络提供者设置，但该网络访问Internet的连通性并未被网络管理成功验证。网络连通性可以通过NET_CAPABILITY_VALIDATED和
+     * NET_CAPABILITY_CHECKING_CONNECTIVITY判断。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2454,7 +2201,7 @@ declare namespace connection {
     NET_CAPABILITY_INTERNET = 12,
 
     /**
-     * The network does not use a virtual private network (VPN).
+     * 表示网络不使用VPN（Virtual Private Network，虚拟专用网络）。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2464,14 +2211,10 @@ declare namespace connection {
     NET_CAPABILITY_NOT_VPN = 15,
 
     /**
-     * The network management module successfully connects to the Huawei Cloud address through this network. This
-     * capability is configured by the network management module.
-     *
-     * Note: If the network management module fails to connect to the Huawei Cloud address, this flag is not available
-     * in the network capability, but this does not mean a complete loss in Internet access. Note that for a newly
-     * connected network, this value may not reflect the actual verification result as network connectivity verification
-     * is in progress. Your application can use **NET_CAPABILITY_CHECKING_CONNECTIVITY**<sup>12+</sup> to check whether
-     * network connectivity verification is in progress.
+     * 表示网络管理通过该网络与华为云地址成功建立连接，此能力由网络管理模块设置。
+     * 
+     * **注意：** 网络管理可能会与华为云地址建立连接失败，导致网络能力不具备此标记位，但不完全代表该网络无法访问互联网。另外，对于新完成连接的网络，由于网络正在进行连通性验证，此值可能无法反映真实的验证结果。对此，应用可以通过
+     * NET_CAPABILITY_CHECKING_CONNECTIVITY<sup>12+</sup>检查网络是否正在检测连通性。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2480,8 +2223,7 @@ declare namespace connection {
      */
     NET_CAPABILITY_VALIDATED = 16,
     /**
-     * The network is found to have a captive portal and user login authentication is required. This capability is set
-     * by the connection management module.
+     * 表示系统发现该网络存在强制网络门户，需要用户登陆认证，该能力由网络管理模块设置。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
@@ -2491,10 +2233,8 @@ declare namespace connection {
     NET_CAPABILITY_PORTAL = 17,
 
     /**
-     * The network management module is verifying the network connectivity. This flag remains valid until the network
-     * connectivity check is complete. During this period, the value of **NET_CAPABILITY_VALIDATED** may be incorrect.
-     * After the network connectivity check is complete, this flag is cleared and your application can determine the
-     * network connectivity by checking **NET_CAPABILITY_VALIDATED**.
+     * 表示网络管理正在检验当前网络的连通性，此值会在网络连接时设置。当此值存在时，NET_CAPABILITY_VALIDATED的值不准确，连通性检测结束后不再设置，此时可以通过判断NetCap是否包含
+     * NET_CAPABILITY_VALIDATED判断连通性。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
@@ -2505,7 +2245,7 @@ declare namespace connection {
   }
 
   /**
-   * Enumerates network types.
+   * 网络类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 10]
@@ -2515,7 +2255,7 @@ declare namespace connection {
    */
   export enum NetBearType {
     /**
-     * Cellular network.
+     * 蜂窝网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
@@ -2526,7 +2266,7 @@ declare namespace connection {
     BEARER_CELLULAR = 0,
 
     /**
-     * Wi-Fi network.
+     * Wi-Fi网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 10]
@@ -2537,7 +2277,7 @@ declare namespace connection {
     BEARER_WIFI = 1,
 
     /**
-     * Bluetooth network.
+     * 蓝牙网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -2548,7 +2288,7 @@ declare namespace connection {
     BEARER_BLUETOOTH = 2,
 
     /**
-     * Ethernet network.
+     * 以太网网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2558,7 +2298,7 @@ declare namespace connection {
     BEARER_ETHERNET = 3,
 
     /**
-     * VPN.
+     * VPN网络。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
@@ -2568,7 +2308,7 @@ declare namespace connection {
   }
 
   /**
-   * Enumerates the proxy modes. This API uses a promise to return the result.
+   * 表示代理模式的枚举。使用Promise异步回调。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -2576,7 +2316,7 @@ declare namespace connection {
    */
   export enum ProxyMode {
     /**
-     * Proxy disabled.
+     * 关闭代理模式。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use. Only used for system app.
@@ -2585,7 +2325,7 @@ declare namespace connection {
     PROXY_MODE_OFF = 0,
 
     /**
-     * Auto mode.
+     * 自动代理模式。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use. Only used for system app.
@@ -2595,24 +2335,24 @@ declare namespace connection {
   }
 
   /**
-   * Socks5 DNS strategy
+   * SOCKS5代理的DNS查询策略配置信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  export enum Socks5DnsStrategy {  
+  export enum Socks5DnsStrategy {
     /**
-     * System DNS mode.
+     * 使用SOCKS5代理时，DNS解析由系统执行。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
      */
     SYSTEM_MODE = 0,
-  
+
     /**
-     * Proxy DNS mode.
+     * 使用SOCKS5代理时，DNS解析由代理服务器执行。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2622,12 +2362,11 @@ declare namespace connection {
   }
 
   /**
-   * Defines the network connection properties.
-   *
-   * > **NOTE**
+   * 网络连接信息。
+   * 
+   * > **注意：**
    * >
-   * > The values of **linkAddresses**, **routes**, and **dnses** may be empty. You need to protect the empty values.
-   * > You are advised to check whether the objects exist before using the values.
+   * > linkAddresses、routes和dnses可能为空，需要做好空值保护，建议使用前先判断对象是否存在。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
@@ -2635,7 +2374,7 @@ declare namespace connection {
    */
   export interface ConnectionProperties {
     /**
-     * Network interface card (NIC) name.
+     * 网卡名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2643,7 +2382,7 @@ declare namespace connection {
      */
     interfaceName: string;
     /**
-     * Domain name.
+     * 域名。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2651,7 +2390,7 @@ declare namespace connection {
      */
     domains: string;
     /**
-     * Network link information.
+     * 链路信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2660,7 +2399,7 @@ declare namespace connection {
     linkAddresses: Array<LinkAddress>;
 
     /**
-     * Network address. For details, see [NetAddress]{@link connection.NetAddress}.
+     * 网络地址，参考[NetAddress]{@link connection.NetAddress}。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2669,7 +2408,7 @@ declare namespace connection {
     dnses: Array<NetAddress>;
 
     /**
-     * Network route information.
+     * 路由信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2678,7 +2417,7 @@ declare namespace connection {
     routes: Array<RouteInfo>;
 
     /**
-     * Maximum transmission unit (MTU).
+     * 最大传输单元。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2687,9 +2426,7 @@ declare namespace connection {
     mtu: int;
 
     /**
-     * Whether IPv4 is available on the current network. **true**: IPv4 is available when the IPv4 address is valid and
-     * the default IPv4 route exists. **false**: IPv4 is unavailable when the IPv4 address is invalid or the default IPv
-     * 4 route does not exist.
+     * 当前网络的IPv4是否可用。true：当IPv4地址有效，且存在IPv4的默认路由时，认为IPv4可用；false：当IPv4地址无效，或者不存在IPv4的默认路由时，认为IPv4不可用。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2697,9 +2434,7 @@ declare namespace connection {
      */
     isIPv4LinkValid?: boolean;
     /**
-     * Whether IPv6 is available on the current network. **true**: IPv6 is available when the IPv6 address is valid and
-     * the default IPv6 route exists. **false**: IPv6 is unavailable when the IPv6 address is invalid or the default IPv
-     * 6 route does not exist.
+     * 当前网络的IPv6是否可用。true：当IPv6地址有效，且存在IPv6的默认路由时，认为IPv6可用；false：当IPv6地址无效，或者不存在IPv6的默认路由时，认为IPv6不可用。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2709,7 +2444,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines network route information.
+   * 网络路由信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
@@ -2717,7 +2452,7 @@ declare namespace connection {
    */
   export interface RouteInfo {
     /**
-     * NIC name.
+     * 网卡名称。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2726,14 +2461,13 @@ declare namespace connection {
 
     /**
      * Network card name.
-     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 static
      */
     iface: string;
 
     /**
-     * Destination address.
+     * 目的地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2742,7 +2476,7 @@ declare namespace connection {
     destination: LinkAddress;
 
     /**
-     * Gateway address.
+     * 网关地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2751,8 +2485,7 @@ declare namespace connection {
     gateway: NetAddress;
 
     /**
-     * Whether a gateway is present. Whether a gateway is available. The value **true** indicates that a gateway is
-     * available, and the value **false** indicates the opposite.
+     * 是否有网关。true：有网关；false：无网关。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2761,11 +2494,9 @@ declare namespace connection {
     hasGateway: boolean;
 
     /**
-     * Whether the route is the default one. Whether the route is the default route. The value **true** indicates that
-     * the route is the default route, and the value **false** indicates the opposite.
-     *
-     * Note: The IPv4 default route refers to the route whose destination address is **0.0.0.0/0**. The IPv6 default
-     * route refers to the route whose destination address is **::/0**.
+     * 是否为默认路由。true：默认路由；false：非默认路由。
+     * 
+     * **说明：** IPv4默认路由是指目的地址为0.0.0.0/0的路由；IPv6默认路由是指目的地址为::/0的路由。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2774,8 +2505,7 @@ declare namespace connection {
     isDefaultRoute: boolean;
 
     /**
-     * Whether the route is excluded. The value **true** indicates that the route is excluded, and the value **false**
-     * indicates the opposite.
+     * 是否为排除路由。true表示排除路由，false表示非排除路由，默认值为false。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 20 dynamic
@@ -2784,7 +2514,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines network link information.
+   * 网络链路信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
@@ -2792,7 +2522,7 @@ declare namespace connection {
    */
   export interface LinkAddress {
     /**
-     * Link address.
+     * 链路地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2800,7 +2530,7 @@ declare namespace connection {
      */
     address: NetAddress;
     /**
-     * Length of the link address prefix.
+     * 链路地址前缀的长度。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
@@ -2810,7 +2540,7 @@ declare namespace connection {
   }
 
   /**
-   * Defines a network address.
+   * 网络地址。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 24]
@@ -2820,7 +2550,7 @@ declare namespace connection {
    */
   export interface NetAddress {
     /**
-     * Network address.
+     * 地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 24]
@@ -2831,7 +2561,7 @@ declare namespace connection {
     address: string;
 
     /**
-     * Address family identifier. The value is **1** for IPv4 and **2** for IPv6. The default value is **1**.
+     * IPv4 = 1，IPv6 = 2，默认IPv4。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 24]
@@ -2842,7 +2572,7 @@ declare namespace connection {
     family?: int;
 
     /**
-     * Port number. The value range is [0, 65535]. The default value is **0**.
+     * 端口，取值范围[0, 65535]，默认值为0。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 24]
@@ -2854,7 +2584,7 @@ declare namespace connection {
   }
 
   /**
-   * Represents the HTTP proxy configuration.
+   * 网络代理配置信息
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform [since 24]
@@ -2864,7 +2594,7 @@ declare namespace connection {
    */
   export interface HttpProxy {
     /**
-     * Host name of the proxy server.
+     * 代理服务器主机名。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 24]
@@ -2875,7 +2605,7 @@ declare namespace connection {
     host: string;
 
     /**
-     * Host port. The value range is [0, 65535].
+     * 主机端口。取值范围[0,65535]。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform [since 24]
@@ -2886,9 +2616,9 @@ declare namespace connection {
     port: int;
 
     /**
-     * Name of the user who uses the proxy.
-     *
-     * Note: This parameter takes effect only when the password parameter is set.
+     * 使用代理的用户名。
+     * 
+     * **说明:** 需同时设置password参数才会生效。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
@@ -2897,9 +2627,9 @@ declare namespace connection {
     username?: string;
 
     /**
-     * Password of the user who uses the proxy.
-     *
-     * Note: The setting takes effect only when the username parameter is set.
+     * 使用代理的用户密码。
+     * 
+     * **说明:** 需同时设置username参数才会生效。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
@@ -2908,23 +2638,26 @@ declare namespace connection {
     password?: string;
 
     /**
-     * List of the names of hosts that do not use a proxy. Host names can be domain names, IP addresses, or wildcards.
-     * The detailed matching rules are as follows:
-     *
-     * - Domain name matching:
-     *  - Exact match: The host name of the proxy server exactly matches any host name in the list.
-     *  - Partial match: The host name of the proxy server contains any host name in the list.
-     *
-     * For example, if **ample.com** is set in the host name list, **ample.com**, **www.ample.com**, and
-     * **ample.com:80** are matched, and **www.example.com** and **ample.com.org** are not matched.
-     *
-     * - IP address matching: The host name of the proxy server exactly matches any IP address in the list.
-     * - Both the domain name and IP address are added to the list for matching.
-     * - A single asterisk (*) is the only valid wildcard. If the list contains only wildcards, the wildcards match all
-     * host names; that is, the HTTP proxy is disabled. A wildcard can only be added independently. It cannot be added
-     * to the list together with other domain names or IP addresses. Otherwise, the wildcard does not take effect.
-     * - Host names are case insensitive.
-     * - Protocol prefixes such as **http** and **https** are ignored during matching.
+     * 不使用代理的主机名列表，主机名支持域名、IP地址以及通配符形式，详细匹配规则如下：
+     * 
+     * 1、域名匹配规则：
+     * 
+     * （1）完全匹配：代理服务器主机名只要与列表中的任意一个主机名完全相同，就可以匹配。
+     * 
+     * （2）包含匹配：代理服务器主机名只要包含列表中的任意一个主机名，就可以匹配。
+     * 
+     * 例如，如果在主机名列表中设置了 “ample.com”，则  “ample.com”、“www.ample.com”、“ample.com:80”都会被匹配，而 “www.example.com”、“ample.com.org
+     * ”则不会被匹配。
+     * 
+     * 2、IP地址匹配规则：代理服务器主机名只要与列表中的任意一个IP地址完全相同，就可以匹配。
+     * 
+     * 3、域名跟IP地址可以同时添加到列表中进行匹配。
+     * 
+     * 4、单个“*”是唯一有效的通配符，当列表中只有通配符时，将与所有代理服务器主机名匹配，表示禁用代理。通配符只能单独添加，不可以与其他域名、IP地址一起添加到列表中，否则通配符将不生效。
+     * 
+     * 5、匹配规则不区分主机名大小写。
+     * 
+     * 6、匹配主机名时，不考虑http和https等协议前缀。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice [since 11]
@@ -2935,7 +2668,7 @@ declare namespace connection {
   }
 
   /**
-   * Socks5 Proxy Configuration Information.
+   * SOCKS5代理配置信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
@@ -2943,7 +2676,9 @@ declare namespace connection {
    */
   export interface Socks5Proxy {
     /**
-     * Proxy server host name.
+     * 代理服务器主机名。
+     * 
+     * **说明:** 当该项为空字符串时，视为未配置SOCKS5代理。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2952,7 +2687,9 @@ declare namespace connection {
     host: string;
 
     /**
-     * Host port.
+     * 主机端口。取值范围[0, 65535]。
+     * 
+     * **说明:** 当参数不在上述取值范围时，视为未配置SOCKS5代理。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2961,7 +2698,9 @@ declare namespace connection {
     port: int;
 
     /**
-     * Proxy username.
+     * 使用代理的用户名。
+     * 
+     * **说明:** 需同时设置password参数才会生效。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2970,7 +2709,9 @@ declare namespace connection {
     username?: string;
 
     /**
-     * Proxy password.
+     * 使用代理的用户密码。
+     * 
+     * **说明:** 需同时设置username参数才会生效。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2979,8 +2720,9 @@ declare namespace connection {
     password?: string;
 
     /**
-     * DNS resolution strategy.
-     * Determines whether the client or the proxy server resolves the domain name.
+     * 指定DNS解析由系统执行还是由代理服务器执行。
+     * 
+     * **说明:** 当此项未指定时，如果host有`socks5h://`协议前缀，则DNS解析由代理服务器执行，否则DNS解析由系统执行。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2989,7 +2731,26 @@ declare namespace connection {
     dnsStrategy?: Socks5DnsStrategy;
 
     /**
-     * Exclusion list for proxy servers.
+     * 不使用代理的主机名列表，主机名支持域名、IP地址以及通配符形式，详细匹配规则如下：
+     * 
+     * 1、域名匹配规则：
+     * 
+     * （1）完全匹配：代理服务器主机名只要与列表中的任意一个主机名完全相同，就可以匹配。
+     * 
+     * （2）包含匹配：代理服务器主机名只要包含列表中的任意一个主机名，就可以匹配。
+     * 
+     * 例如，如果在主机名列表中设置了“example.com”，则“example.com”、“www.example.com”、“example.com:80”都会被匹配，而 “www.myexample.com”、“
+     * myexample.com.org”则不会被匹配。
+     * 
+     * 2、IP地址匹配规则：代理服务器主机名只要与列表中的任意一个IP地址完全相同，就可以匹配。
+     * 
+     * 3、域名跟IP地址可以同时添加到列表中进行匹配。
+     * 
+     * 4、单个“*”是唯一有效的通配符，当列表中只有通配符时，将与所有代理服务器主机名匹配，表示禁用代理。通配符只能单独添加，不可以与其他域名、IP地址一起添加到列表中，否则通配符将不生效。
+     * 
+     * 5、匹配规则不区分主机名大小写。
+     * 
+     * 6、匹配主机名时，不考虑http、https、socks5、socks5h等协议前缀。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -2999,14 +2760,14 @@ declare namespace connection {
   }
 
   /**
-   * Defines information about entries in the IP neighbor table.
+   * IP邻居表条目信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 22 dynamic
    */
-  export interface NetIpMacInfo {  
+  export interface NetIpMacInfo {
     /**
-     * IP address information.
+     * IP地址相关信息。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
@@ -3014,7 +2775,7 @@ declare namespace connection {
     ipAddress: NetAddress;
 
     /**
-     * NIC name.
+     * 网卡名。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
@@ -3022,7 +2783,7 @@ declare namespace connection {
     iface: string;
 
     /**
-     * MAC address.
+     * MAC地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 22 dynamic
@@ -3031,38 +2792,38 @@ declare namespace connection {
   }
 
   /**
-   * Enumerates network protocol types.
+   * 网络协议类型的枚举。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 23 dynamic
    */
-  export enum ProtocolType {  
+  export enum ProtocolType {
     /**
-     * TCP network protocol.
+     * TCP网络协议。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     PROTO_TYPE_TCP = 6,
     /**
-     * UDP network protocol.
+     * UDP网络协议。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 23 dynamic
      */
     PROTO_TYPE_UDP = 17
   }
-  
+
   /**
-   * Defines the type of network probe data packets.
+   * 网络探测数据包类型。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  export enum PacketsType {  
+  export enum PacketsType {
     /**
-     * ICMP packet type.
+     * ICMP数据包类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3071,7 +2832,7 @@ declare namespace connection {
     NETCONN_PACKETS_ICMP = 0,
 
     /**
-     * UDP packet type.
+     * UDP数据包类型。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3081,15 +2842,15 @@ declare namespace connection {
   }
 
   /**
-   * Defines options for route tracing.
+   * 路由跟踪的选项。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  export interface TraceRouteOptions {  
+  export interface TraceRouteOptions {
     /**
-     * Maximum number of jumps. The value range is [1, 30]. The default value is **30**.
+     * 最大跳数，取值范围[1, 30]，默认值为30。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3098,7 +2859,7 @@ declare namespace connection {
     maxJumpNumber?: int;
 
     /**
-     * Type of the data packet used for probe. The default value is **NETCONN_PACKETS_ICMP**.
+     * 探测使用的数据包类型，默认为NETCONN_PACKETS_ICMP。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3108,15 +2869,15 @@ declare namespace connection {
   }
 
   /**
-   * Defines the route tracing information.
+   * 路由跟踪信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  export interface TraceRouteInfo {  
+  export interface TraceRouteInfo {
     /**
-     * Jump number.
+     * 跳数序号。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3125,7 +2886,7 @@ declare namespace connection {
     jumpNo: int;
 
     /**
-     * IP address to jump to.
+     * 该跳的IP地址。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3134,8 +2895,7 @@ declare namespace connection {
     address: string;
 
     /**
-     * Round-trip time (RTT), in milliseconds. Five probe packets are sent for each jump. The array elements are the
-     * minimum, average, maximum, and standard deviation of the RTTs of these probe packets, respectively.
+     * 往返时间（RTT），单位为毫秒。每一跳发送5个探测报文，数组元素依次为这些探测报文RTT中的最小值、平均值、最大值、标准差。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3145,16 +2905,15 @@ declare namespace connection {
   }
 
   /**
-   * Defines the network probe result information.
+   * 网络探测结果信息。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  export interface ProbeResultInfo {  
+  export interface ProbeResultInfo {
     /**
-     * Packet loss rate. The value range is [0, 100]. For example, 100 indicates 100% packet loss, and 50 indicates 50%
-     * packet loss.
+     * 丢包率，取值范围[0, 100]。例如，100表示100%丢包，50表示50%丢包。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
@@ -3163,10 +2922,8 @@ declare namespace connection {
     lossRate: int;
 
     /**
-     * Round-trip time (RTT), in milliseconds. Multiple probe packets are sent to the target host. The number of probe
-     * packets is determined by the **duration** parameter in the [queryProbeResult]{@link connection.queryProbeResult}
-     * API. The array elements are the minimum, average, maximum, and standard deviation of the RTTs of these probe
-     * packets, respectively.
+     * 往返时间（RTT），单位为毫秒。对目的主机发送多个探测报文，探测报文数量由[queryProbeResult]{@link connection.queryProbeResult}接口中duration参数决定。数组元素依次为
+     * 这些探测报文RTT中最小值、平均值、最大值、标准差。
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
