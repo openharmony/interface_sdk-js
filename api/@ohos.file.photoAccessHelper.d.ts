@@ -8174,27 +8174,6 @@ declare namespace photoAccessHelper {
      */
     getAlbumIdByLpath(lpath: string): Promise<int>;
 
-    /** 
-      * Convert to PhotoAsset from path of filemanagerr. 
-      * 
-      * @permission ohos.permission.WRITE_IMAGEVIDEO 
-      * @param { string }path - file path of filemanager. 
-      * @returns { Promise<PhotoAsset> } Returns successed asset. 
-      * @throws { BusinessError } 201 - Permission denied 
-      * @throws {BusinessError } 202 - Called by non-system application. 
-      * @throws {BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     <br>1. Converted an image after filtering into an asset object; 
-      *     <br>2.File to be converted is not exist; 
-      *     <br>3. Only images in the public directory of filemanager can be converted. 
-      * @throws { BusinessError } 23800301 - Internalsystem error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     convertToAsset(path: string): Promise<PhotoAsset>;
-
     /**
      * Converts the **ValuesBucket** record to a **PhotoAsset** object.
      *
@@ -8472,54 +8451,6 @@ declare namespace photoAccessHelper {
       disableModification: boolean,
       isAsyncRefreshAlbum: boolean): Promise<void>;
 
-     /** 
-      * move assets of medialibrary sandbox to directory of filemanager. 
-      * 
-      * @permission ohos.permission.WRITE_IMAGEVIDEO 
-      * @param { string[] } assets - Assets URI from medialibrary sandbox. 
-      * @param { string } target - Target directory of filemanager. 
-      * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets. 
-      *     <br>Options for bulk operations 
-      * @returns { Promise<string[]> } Return the paths to the asset 
-      * @throws { BusinessError } 201 - Permission denied 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     <br>1. Moving to the target directory is not supported; 
-      *     <br>2. Assets to be Moved does not exist; 
-      *     <br>3. Automatic renaming is not supported. 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.1.0 dynamic&static 
-      */ 
-     moveAssetsToDir(assets: string[], target: string, option?: BatchOperationOptions): Promise<string[]>; 
- 
- 
-     /** 
-      * move assets of filemanager to Album. 
-      * 
-      * @permission ohos.permission.WRITE_IMAGEVIDEO 
-      * @param { string[] } assets - Assets path from filemanager(e.g., "/Download/test.jpg"). 
-      * @param { Album } target - Target Album. 
-      * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets. 
-      * @returns { Promise<string[]> } Returns successed assets URIs. 
-      * @throws { BusinessError } 201 - Permission denied 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     <br>1. Moving to the target Album is not supported; 
-      *     <br>2. Assets to be Moved does not exist; 
-      *     <br>3. Automatic renaming is not supported. 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.1.0 dynamic&static 
-      */ 
-     moveAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>; 
-
     /**
      * clone assets to Album.
      *
@@ -8544,57 +8475,6 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     cloneToAlbum(assets: PhotoAsset[], target: Album,option?: BatchOperationOptions): Promise<PhotoAsset[]>;
-
-    /** 
-      * clone assets of medialibrary sandbox to directory of filemanager. 
-      * 
-      * @permission ohos.permission.WRITE_IMAGEVIDEO 
-      * @param { string[] } assets - Assets uri to be cloned. 
-      * @param { string } target - Target directory of filemanager. 
-      * @param { BatchOperationOptions } [option] - Optionfor performing batch operations on assets. 
-      * @returns { Promise<string[]> } Returns successed assets path. 
-      * @throws { BusinessError } 201 - Permission denied 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     <br>1. Asset to be cloned has been deleted or hidden; 
-      *     <br>2. Asset to be cloned is cloud pictures, which can not be cloned; 
-      *     <br>3. The Target Album does not exist. 
-      *     <br>4. Insufficient system space. 
-      *     <br>5. Automatic renaming is not supported. 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     cloneToDir(assets: string[], target: string, option?: BatchOperationOptions): Promise<string[]>; 
- 
- 
-     /** 
-      * clone assets of filemanager to Album. 
-      * 
-      * @permission ohos.permission.WRITE_IMAGEVIDEO 
-      * @param { string[] } assets - Assets path to be cloned. 
-      * @param { Album } target - Target Album. 
-      * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets. 
-      * @returns { Promise<string[]> } Returns successed assets URI. 
-      * @throws { BusinessError } 201 - Permission denied 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     <br>1. Asset to be cloned has been deleted or hidden; 
-      *     <br>2. Asset to be cloned is cloud pictures, which can not be cloned; 
-      *     <br>3. The Target Album does not exist. 
-      *     <br>4. Insufficient system space. 
-      *     <br>5. Automatic renaming is not supported. 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     cloneAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>; 
 
     /**
      * Whether deep storage space optimization can be performed.
@@ -12443,43 +12323,6 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic&static
      */
     setLivePhoto4dStatus(status: LivePhoto4dStatus, livephoto_4d_latest_pair?: string): void;
-
-    /**
-     * Set hidden state of asset.
-     *
-     * @param { boolean } hiddenState - Hidden status of the asset.
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     1. The asset is not exist;
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     <br>Possible causes: 1. Database corrupted.2. The filesystem is abnormal.3. The IPC request timed out.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setHiddenAttribute(hiddenState: boolean): void;
-
-    /**
-     * Set title by filemanger.
-     *
-     * @param { string } name - asset name to set.
-     *     <br> Should not contain extensions.
-     *     The file name contains 1 to 255 characters.
-     *     Invalid English characters, including:
-     *     . \ /: *? "'`< > | {} []
-     *     Name-only is not allowed. Or..
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     1. The asset is not exist;
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     <br>Possible causes:1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setTitleByFile(name: string): void;
   }
 
   /**
@@ -13089,47 +12932,6 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     resetCoverUri(): void;
-
-    /** 
-      * set hidden state of album. 
-      * 
-      * @param { boolean } hiddenState - Hidden status of the album. 
-      * @param { boolean } isInherited - Whether all child files or directories under an album inherit this setting. 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     1. The ablum is not exist; 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     setHiddenAttribute(hiddenState: boolean, isInherited:boolean):void; 
-
-     /** 
-      * set album name by filemanger. 
-      * 
-      * @param { string } name - Album name to set. 
-      *     <br>Value range:1-255 
-      *     <br>Album name parameter specifications: 
-      *     The album name contains 1 to 255 characters. 
-      *     Invalid English characters, including: 
-      *     \ /: *? "'`< > | {} [] 
-      *     It is not allowed to name only. or.. 
-      *     English characters are case insensitive. 
-      *     The album name must be unique. 
-      * @throws { BusinessError } 202 - Called by non-system application. 
-      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
-      *     1. The album is not exist; 
-      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs. 
-      *     <br>Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out. 
-      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     setAlbumNameByFile(name: string): void;
 
     /**
      * Operates album attribute.
