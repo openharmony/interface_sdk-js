@@ -177,7 +177,7 @@ export interface SceneResource {
 }
 
 /**
- * Shader resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Shader resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Shader
@@ -253,7 +253,7 @@ export enum MaterialType {
   OCCLUSION = 4,
 
   /**
-   * Draws only shadows. When the [Blend]{@link Blend} property of the material is enabled,
+   * Draws only shadows. When the Blend property of the material is enabled,
    * the material is blended with the background to simulate a transparent material effect.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -369,7 +369,7 @@ export interface RenderSort {
    * The value range is [0, 63]. The default layer ID is 32.
    * 
    * @type { ?int }
-   * @default 32 Default render sort layer id.
+   * @default 32
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -381,7 +381,7 @@ export interface RenderSort {
    * The value range is [0, 255]. The default value is 0.
    *
    * @type { ?int }
-   * @default 0 Default render sort layer order.
+   * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -390,7 +390,7 @@ export interface RenderSort {
 }
 
 /**
- * Material resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Material resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Material
@@ -437,7 +437,7 @@ export interface Material extends SceneResource {
    * The default value is false.
    *
    * @type { ?Blend }
-   * @default undefined, which means that blending is disabled.
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -523,7 +523,7 @@ export interface MaterialProperty {
 /**
  * Material resource for creating realistic appearances, using the Metallic-Roughness model based on PBR.
  * It simulates the surface lighting and reflection effects of different materials like metal and plastic
- * by adjusting metallicity and roughness parameters. It inherits from [Material]{@link Material}.
+ * by adjusting metallicity and roughness parameters. It inherits from Material.
  * 
  * @extends Material
  * @interface MetallicRoughnessMaterial
@@ -554,7 +554,10 @@ export interface MetallicRoughnessMaterial extends Material {
   normal: MaterialProperty;
 
   /**
-   * Metal material parameters.<br>**Roughness**: strength of reflection caused by the fine surface structure details of the material.<br>**Metallic**: metallic properties of the material.<br>**Reflectance**: reflectivity of the material.
+   * Metal material parameters.
+   * Roughness: strength of reflection caused by the fine surface structure details of the material.
+   * Metallic: metallic properties of the material.
+   * Reflectance: reflectivity of the material.
    *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -637,7 +640,9 @@ export interface MetallicRoughnessMaterial extends Material {
 }
 
 /**
- * Material that is not affected by lighting. The shading value of the material is related only to the base color and is irrelevant to lighting conditions. It inherits from [Material]{@link Material}.
+ * Material that is not affected by lighting.
+ * The shading value of the material is related only to the base color and is irrelevant to lighting conditions.
+ * It inherits from Material.
  *
  * @extends Material
  * @interface UnlitMaterial
@@ -656,8 +661,8 @@ export interface UnlitMaterial extends Material {
 }
 
 /**
- * This material inherits from [Material]{@link Material} and draws only the surface shadows.
- * When the [Blend]{@link Blend} property is enabled, the material can be blended with the background to simulate transparency.
+ * This material inherits from Material and draws only the surface shadows.
+ * When the Blend property is enabled, the material can be blended with the background to simulate transparency.
  * 
  * @extends Material
  * @interface UnlitShadowAlphaMaterial
@@ -680,7 +685,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
 }
 
 /**
- * Shader material, which inherits from [Material]{@link Material}.
+ * Shader material, which inherits from Material.
  *
  * @extends Material
  * @interface ShaderMaterial
@@ -701,7 +706,7 @@ export interface ShaderMaterial extends Material {
 }
 
 /**
- * Occlusion material: occludes other objects in the scene but does not occlude the environment. It is inherited from [Material]{@link Material}.
+ * Occlusion material: occludes other objects in the scene but does not occlude the environment. It is inherited from Material.
  *
  * @extends Material
  * @interface OcclusionMaterial
@@ -902,7 +907,7 @@ export interface Morpher {
 }
 
 /**
- * Mesh resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Mesh resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Mesh
@@ -945,7 +950,7 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * Mesh resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Mesh resource, which inherits from SceneResource.
  *
  *
  * @extends SceneResource
@@ -958,7 +963,7 @@ export interface MeshResource extends SceneResource {
 }
 
 /**
- * Animation resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Animation resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Animation
@@ -1143,7 +1148,7 @@ export enum EnvironmentBackgroundType {
 }
 
 /**
- * Environment resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Environment resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Environment
@@ -1225,7 +1230,7 @@ export interface Environment extends SceneResource {
   /**
    * Rotation of the ambient light. The default value is undefined. The parameter must be a normalized quaternion.
    * 
-   * @default Quaternion {x:0, y:0, z:0, w:1}
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1234,7 +1239,7 @@ export interface Environment extends SceneResource {
 }
 
 /**
- * Image resource, which inherits from [SceneResource]{@link SceneResource}.
+ * Image resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Image
@@ -1285,7 +1290,7 @@ export interface ImageStream extends Image {
 }
 
 /**
- * Effect resource, which inherits from [SceneResource]{@link SceneResource}. It is obtained from the [createEffect]{@link SceneResourceFactory.createEffect} API.
+ * Effect resource, which inherits from SceneResource. It is obtained from the createEffect API.
  *
  * @extends SceneResource
  * @interface Effect
@@ -1318,7 +1323,10 @@ export interface Effect extends SceneResource {
   /**
    * Obtains the value of the specified effect property.
    *
-   * @param { string } propertyName - Name of a specified effect property. Currently, the following strings are supported:<br>-'exposure': exposure level of an image.<br>-'vibrance': natural saturation of an image.
+   * @param { string } propertyName - Name of a specified effect property.
+   *     Currently, the following strings are supported:
+   *     -'exposure': exposure level of an image.
+   *     -'vibrance': natural saturation of an image.
    * @returns { Object | null | undefined } Effect property value. If the value fails to be obtained, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -1329,9 +1337,15 @@ export interface Effect extends SceneResource {
   /**
    * Sets the value of a specified effect property.
    *
-   * @param { string } propertyName - Name of a specified effect property. Currently, the following strings are supported:<br>-'exposure': exposure level of an image.<br>-'vibrance': natural saturation of an image.
-   * @param { Object | undefined } value - Value of the effect property to set.<br>-'exposure': The value is of the number type. The recommended value range is [-5, 5]. A larger value indicates a brighter image.<br>-'vibrance': The value is of the number type. The recommended value range is [-1, 1]. A larger value indicates more vivid image colors.
-   * @returns { boolean } Whether the operation of setting the effect property value is successful. true indicates that the setting is successful, and false indicates that the setting fails.
+   * @param { string } propertyName - Name of a specified effect property.
+   *     Currently, the following strings are supported:
+   *     -'exposure': exposure level of an image.
+   *     -'vibrance': natural saturation of an image.
+   * @param { Object | undefined } value - Value of the effect property to set.
+   *     -'exposure': The value is of the number type. The recommended value range is [-5, 5]. A larger value indicates a brighter image.
+   *     -'vibrance': The value is of the number type. The recommended value range is [-1, 1]. A larger value indicates more vivid image colors.
+   * @returns { boolean } Whether the operation of setting the effect property value is successful.
+   *     true indicates that the setting is successful, and false indicates that the setting fails.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static

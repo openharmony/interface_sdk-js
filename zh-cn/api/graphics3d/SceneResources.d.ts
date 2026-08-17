@@ -198,7 +198,7 @@ export interface Shader extends SceneResource {
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
   /**
-   * 设置[Shader]{@link Shader}的输入，该接口性能优于直接设置inputs属性。
+   * 设置Shader的输入，该接口性能优于直接设置inputs属性。
    * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - 一个字符串到值的映射，用于设置着色器输入。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -364,7 +364,7 @@ export interface RenderSort {
    * 渲染图层id，数值越小，渲染顺序越靠前。取值范围[0, 63]，默认图层id为32。
    *
    * @type { ?int }
-   * @default 32 默认渲染排序层id。
+   * @default 32
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -375,7 +375,7 @@ export interface RenderSort {
    * 同一渲染图层内，不同物体的渲染顺序，数值越小，越先渲染。取值范围[0, 255]，默认值为0。
    *
    * @type { ?int }
-   * @default 0 默认渲染排序层顺序。
+   * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -384,7 +384,7 @@ export interface RenderSort {
 }
 
 /**
- * 材质类型，继承自[SceneResource]{@link SceneResource}。
+ * 材质类型，继承自SceneResource。
  *
  * @extends SceneResource
  * @interface Material
@@ -428,7 +428,7 @@ export interface Material extends SceneResource {
    * 材质的透明效果设置，默认值为undefined，即禁用材质的透明属性。
    * 
    * @type { ?Blend }
-   * @default undefined, which means that blending is disabled.
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -460,7 +460,7 @@ export interface Material extends SceneResource {
    * 模型的多边形绘制模式，默认值为FILL。
    * 
    * @type { ?PolygonMode}
-   * @default PolygonMode.FILL 填充多边形模式
+   * @default PolygonMode.FILL
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -1204,6 +1204,7 @@ export interface Environment extends SceneResource {
   /**
    * 环境光的旋转，默认为undefined，接收参数需为归一化后的四元数。
    *
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1296,8 +1297,12 @@ export interface Effect extends SceneResource {
   /**
    * 获取特定特效属性的值。
    *
-   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：\n-'exposure':该属性表示图像的曝光度。\n-'vibrance': 该属性表示图像的自然饱和度。
-   * @returns { Object | null | undefined } 特效属性值。若当前Effect类型下不存在与传入的propertyName匹配的属性，则获取属性值失败，返回null；若propertyName对应的可选属性未设置，则返回undefined。
+   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：
+   *     -'exposure'：该属性表示图像的曝光度。
+   *     -'vibrance'：该属性表示图像的自然饱和度。
+   * @returns { Object | null | undefined } 特效属性值。
+   *     若当前Effect类型下不存在与传入的propertyName匹配的属性，则获取属性值失败，返回null；
+   *     若propertyName对应的可选属性未设置，则返回undefined。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1307,8 +1312,12 @@ export interface Effect extends SceneResource {
   /**
    * 设置特定特效属性的值。
    *
-   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：\n-'exposure':该属性表示图像的曝光度。\n-'vibrance': 该属性表示图像的自然饱和度。
-   * @param { Object | undefined } value - 要设置的特效属性值。\n-'exposure'：value实际类型为number，推荐取值范围[-5, 5]。取值越大，图像越亮。\n-'vibrance'：value实际类型为number，推荐取值范围 [-1, 1]。取值越大，图像颜色越鲜艳。
+   * @param { string } propertyName - 特定特效属性的名称。目前支持的字符串为：
+   *     -'exposure'：该属性表示图像的曝光度。
+   *     -'vibrance'：该属性表示图像的自然饱和度。
+   * @param { Object | undefined } value - 要设置的特效属性值。
+   *     'exposure'：value实际类型为number，推荐取值范围[-5, 5]。取值越大，图像越亮。
+   *     'vibrance'：value实际类型为number，推荐取值范围 [-1, 1]。取值越大，图像颜色越鲜艳。
    * @returns { boolean } 返回设置特效属性值操作是否成功。true表示设置成功，false表示设置失败。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
