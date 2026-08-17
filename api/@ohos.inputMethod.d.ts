@@ -1618,7 +1618,7 @@ declare namespace inputMethod {
      * Send message to input method.
      *
      * @param { string } msgId - the identifier of the message. Max size is 256B.
-     * @param { ?ArrayBuffer } [msgParam] - the param of the custom message. Max size is 128KB.
+     * @param { ArrayBuffer } [msgParam] - the param of the custom message. Max size is 128KB.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
@@ -1638,7 +1638,7 @@ declare namespace inputMethod {
     /**
      * Start receiving message from input method.
      *
-     * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
+     * @param { MessageHandler } [msgHandler] - optional, the handler of the custom message.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
