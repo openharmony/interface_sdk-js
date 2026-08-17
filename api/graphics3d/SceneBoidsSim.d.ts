@@ -27,7 +27,9 @@ import { Vec3, Quaternion } from './SceneTypes';
  *
  * > **NOTE**
  * >
- * > A simulation frame refers to the update cycle executed at a fixed time step in the Boids simulation, similar to FixedUpdate in Unity. The default time step is 16 ms (approximately 62.5 FPS). The simulation is driven by accumulating real time and consuming it in fixed steps. The default values of some parameters below are calculated based on this time step:
+ * > A simulation frame refers to the update cycle executed at a fixed time step in the Boids simulation, similar to FixedUpdate in Unity.
+ * > The default time step is 16 ms (approximately 62.5 FPS). The simulation is driven by accumulating real time and consuming it in fixed steps.
+ * > The default values of some parameters below are calculated based on this time step:
  * > - maxVelocityMag: 0.01 / 0.016 ≈ 0.625 (m/s).
  * > - maxAccelerationMag: maxVelocityMag / 0.016 ≈ 39.06 (m/s²).
  * > - maxTurnRate: π × 0.75 × 0.016 ≈ 0.0377 (rad/simulation frame).
@@ -273,7 +275,9 @@ export interface BoidsSimParameters {
  */
 export interface BoidsSimGravityParameters {
   /**
-   * The radius of the attraction field. Only individuals strictly within this distance are attracted (boundary force is 0). Value >= 0. Default value: 0.0.
+   * The radius of the attraction field. Only individuals strictly within this distance are attracted (boundary force is 0).
+   * Value >= 0.
+   * Default value: 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -283,7 +287,9 @@ export interface BoidsSimGravityParameters {
   radius?: double;
 
   /**
-   * The magnitude of the attraction acceleration applied to the individual, with the direction pointing toward the attraction field entity. Value >= 0. Default value: 0.0.
+   * The magnitude of the attraction acceleration applied to the individual, with the direction pointing toward the attraction field entity.
+   * Value >= 0.
+   * Default value: 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -303,7 +309,9 @@ export interface BoidsSimGravityParameters {
  */
 export interface BoidsSimRepulsionParameters {
   /**
-   * The radius of the repulsion field. Only individuals strictly within this distance are repelled (boundary force is 0). Value >= 0. Default value is 0.0.
+   * The radius of the repulsion field. Only individuals strictly within this distance are repelled (boundary force is 0).
+   * Value >= 0.
+   * Default value is 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -313,7 +321,9 @@ export interface BoidsSimRepulsionParameters {
   radius?: double;
 
   /**
-   * The magnitude of the repulsion acceleration applied to the individual, whose direction points away from the repulsion field entity. Value >= 0. Default value is 0.0.
+   * The magnitude of the repulsion acceleration applied to the individual, whose direction points away from the repulsion field entity.
+   * Value >= 0.
+   * Default value is 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi

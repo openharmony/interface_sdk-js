@@ -26,7 +26,8 @@ import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4, ShadowAlgorithmType } from './SceneTypes';
 
 /**
- * Scene load parameters object, used to specify additional configuration options when loading 3D model resources. A typical use case is loading an embedded glb model from an MP4 container file.
+ * Scene load parameters object, used to specify additional configuration options when loading 3D model resources.
+ * A typical use case is loading an embedded glb model from an MP4 container file.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -48,7 +49,8 @@ export interface SceneLoadParams {
 }
 
 /**
- * Describes the scene resource parameters (name and uri), which are used to provide the name of a scene resource and the path of the resource file required in the 3D scene.
+ * Describes the scene resource parameters (name and uri), which are used to provide the name of a scene resource
+ * and the path of the resource file required in the 3D scene.
  *
  * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -97,7 +99,9 @@ export interface SceneNodeParameters {
   name: string;
 
   /**
-   * Path in the scene node tree. It specifies the position of the created camera, light, or node in the scene node tree. Each layer is separated by a slash (/). If not provided, it is set as a child node of the root node. The default value is undefined.
+   * Path in the scene node tree. It specifies the position of the created camera, light, or node in the scene node tree.
+   * Each layer is separated by a slash (/). If not provided, it is set as a child node of the root node.
+   * The default value is undefined.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -238,9 +242,11 @@ export interface RenderResourceFactory {
   createSampler(params:SceneResourceParameters): Promise<Sampler>
 
   /**
-   * Creates a scene from the specified resource URI. If no URI is specified, an empty scene is created. This API uses a promise to return the result.
+   * Creates a scene from the specified resource URI. If no URI is specified, an empty scene is created.
+   * This API uses a promise to return the result.
    *
-   * @param { ResourceStr } [uri] - Resource path used for creating the scene. If no resource path is passed, an empty scene is created.
+   * @param { ResourceStr } [uri] - Resource path used for creating the scene.
+   *     If no resource path is passed, an empty scene is created.
    * @returns { Promise<Scene> } Promise used to return the Scene object created.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -272,7 +278,8 @@ export interface RenderResourceFactory {
  */
 export interface CameraParameters {
   /**
-   * Whether Multisample Anti-Aliasing (MSAA) is enabled for the camera. true if enabled, false otherwise. The default value is false.
+   * Whether Multisample Anti-Aliasing (MSAA) is enabled for the camera. true if enabled, false otherwise.
+   * The default value is false.
    *
    * @type { ?boolean }
    * @default false
@@ -456,7 +463,8 @@ export interface SceneComponent {
 }
 
 /** 
- * Defines the context of all rendering resources. Multiple scenes created within the same render context can share rendering resources.
+ * Defines the context of all rendering resources.
+ * Multiple scenes created within the same render context can share rendering resources.
  * 
  * @interface RenderContext
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -493,8 +501,8 @@ export interface RenderContext {
    * It allows the system to find and replace the path descriptions of related files within the shaders using the retrieval name.
    * This ensures that the correct paths for assets and their associated files are located and loaded properly.
    *
-   * @param { string } protocol - Path retrieval name to be registered, used as the prefix identifier for file paths associated internally in the shader.
-   *     Must be a non-empty retrieval name that is not predefined or registered by the system.
+   * @param { string } protocol - Path retrieval name to be registered, used as the prefix identifier for file paths
+   *     associated internally in the shader. Must be a non-empty retrieval name that is not predefined or registered by the system.
    * @param { string } uri - Directory path of the assets to be registered, which corresponds to the retrieval name.
    *     When the shader is loaded, the retrieval name prefix in the path is replaced with this directory.
    *     It must be the path to the folder containing the asset files.

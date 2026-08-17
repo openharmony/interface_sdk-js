@@ -99,7 +99,8 @@ export interface SceneNodeParameters {
   name: string;
 
   /**
-   * 场景节点层次中的路径。用于指定创建的相机、灯光或节点在场景节点层次中的放置位置。每层之间使用'/'符号进行分割。如果未提供，则将其设置为根节点的子节点。默认值为undefined。
+   * 场景节点层次中的路径。用于指定创建的相机、灯光或节点在场景节点层次中的放置位置。
+   * 每层之间使用'/'符号进行分割。如果未提供，则将其设置为根节点的子节点。默认值为undefined。
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -591,7 +592,8 @@ export declare class PCFConfig extends SoftShadowConfig {
  */
 export interface RenderConfiguration {
   /**
-   * 表示全局阴影贴图分辨率，单位为像素（px）。默认值为undefined，表示阴影贴图分辨率设置为1024 * 1024。输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。
+   * 表示全局阴影贴图分辨率，单位为像素（px）。默认值为undefined，表示阴影贴图分辨率设置为1024 * 1024。
+   * 输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。
    *
    * @type { ?Vec2 }
    * @default { 1024, 1024 }

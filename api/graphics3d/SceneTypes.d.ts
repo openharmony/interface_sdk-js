@@ -49,7 +49,8 @@ export interface Vec2 {
 }
 
 /**
- * A three-dimensional vector used to represent a point, a direction, or a vector transformation in 3D space. It consists of three components: x, y, and z.
+ * A three-dimensional vector used to represent a point, a direction, or a vector transformation in 3D space.
+ * It consists of three components: x, y, and z.
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -89,7 +90,9 @@ export interface Vec3 {
 }
 
 /**
- * A four-dimensional vector used to represent a point, a direction, or a vector transformation in 4D space. It consists of four components: x, y, z, and w. The fourth component (w) enhances normalization and convenience for various calculations and transformations.
+ * A four-dimensional vector used to represent a point, a direction, or a vector transformation in 4D space.
+ * It consists of four components: x, y, z, and w.
+ * The fourth component (w) enhances normalization and convenience for various calculations and transformations.
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -139,7 +142,8 @@ export interface Vec4 {
 }
 
 /**
- * A mathematical notation for representing spatial rotations of elements in 3D space. Compared with Euler angles, a quaternion has advantages in numerical stability and avoiding the gimbal lock problem.
+ * A mathematical notation for representing spatial rotations of elements in 3D space.
+ * Compared with Euler angles, a quaternion has advantages in numerical stability and avoiding the gimbal lock problem.
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -386,7 +390,8 @@ export enum GeometryType {
  */
 export enum RenderingPipelineType {
   /**
-   * Lightweight forward rendering pipeline that directly renders to the back buffer. It supports per-pixel effects (for example, tone mapping), but not complex effects (for example, bloom), in shaders.
+   * Lightweight forward rendering pipeline that directly renders to the back buffer.
+   * It supports per-pixel effects (for example, tone mapping), but not complex effects (for example, bloom), in shaders.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -692,7 +697,8 @@ export declare class CustomGeometry extends GeometryDefinition {
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
-   * Width, height, and depth of the cube, indicating the size of the cube. The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
+   * Width, height, and depth of the cube, indicating the size of the cube.
+   * The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
    *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -702,7 +708,8 @@ export declare class CubeGeometry extends GeometryDefinition {
   get size(): Vec3;
 
   /**
-   * Width, height, and depth of the cube, indicating the size of the cube. The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
+   * Width, height, and depth of the cube, indicating the size of the cube.
+   * The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
    *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -722,7 +729,8 @@ export declare class CubeGeometry extends GeometryDefinition {
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
-   * Width and height of the plane, indicating the size of the plane. The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
+   * Width and height of the plane, indicating the size of the plane.
+   * The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
    *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -732,7 +740,8 @@ export declare class PlaneGeometry extends GeometryDefinition {
   get size(): Vec2;
 
   /**
-   * Width and height of the plane, indicating the size of the plane. The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
+   * Width and height of the plane, indicating the size of the plane.
+   * The unit is the scene unit of the world coordinate system (such as cm, m, km, etc.).
    *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -752,7 +761,8 @@ export declare class PlaneGeometry extends GeometryDefinition {
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * Radius of the sphere, measured in the world coordinate system's units (for example, cm, m, or km). The value must be greater than 0.
+   * Radius of the sphere, measured in the world coordinate system's units (for example, cm, m, or km).
+   * The value must be greater than 0.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -762,7 +772,8 @@ export declare class SphereGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * Radius of the sphere, measured in the world coordinate system's units (for example, cm, m, or km). The value must be greater than 0.
+   * Radius of the sphere, measured in the world coordinate system's units (for example, cm, m, or km).
+   * The value must be greater than 0.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -772,7 +783,8 @@ export declare class SphereGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * Number of segments divided by longitude and latitude on the sphere. The value range is a positive integer greater than or equal to 3.
+   * Number of segments divided by longitude and latitude on the sphere.
+   * The value range is a positive integer greater than or equal to 3.
    *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -782,7 +794,8 @@ export declare class SphereGeometry extends GeometryDefinition {
   get segmentCount(): int;
 
   /**
-   * Number of segments divided by longitude and latitude on the sphere. The value range is a positive integer greater than or equal to 3.
+   * Number of segments divided by longitude and latitude on the sphere.
+   * The value range is a positive integer greater than or equal to 3.
    *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -806,7 +819,8 @@ export declare class SphereGeometry extends GeometryDefinition {
  */
 export declare class CylinderGeometry extends GeometryDefinition {
   /**
-   * Bottom radius of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.). The value range is greater than 0.
+   * Bottom radius of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value range is greater than 0.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -815,7 +829,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get radius(): double;
 
   /**
-   * Bottom radius of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.). The value range is greater than 0.
+   * Bottom radius of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value range is greater than 0.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -824,7 +839,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
   set radius(value: double);
 
   /**
-   * Height of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.). The value range is greater than 0.
+   * Height of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value range is greater than 0.
    *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -833,7 +849,8 @@ export declare class CylinderGeometry extends GeometryDefinition {
   get height(): double;
 
   /**
-   * Height of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.). The value range is greater than 0.
+   * Height of the cylinder, in scene units of the world coordinate system (such as cm, m, km, etc.).
+   * The value range is greater than 0.
    *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D

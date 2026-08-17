@@ -182,7 +182,8 @@ export interface Container<T> {
 }
 
 /**
- * The 3D scene consists of nodes in a tree hierarchy, where each node implements a Node interface. This class inherits from SceneResource.
+ * The 3D scene consists of nodes in a tree hierarchy, where each node implements a Node interface.
+ * This class inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Node
@@ -287,7 +288,12 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * Child node of the node and null if it does not exist. This is a read-only property, indicating that you cannot directly replace the entire children container. However, you can operate the child nodes using container methods like append, insertAfter, remove, or clear. If the node being appended or inserted already exists in the container, it is removed first and then reinserted. As a result, the total number of child nodes remains unchanged, making the operation seem ineffective. The count increases only when a new node is added.
+   * Child node of the node and null if it does not exist.
+   * This is a read-only property, indicating that you cannot directly replace the entire children container.
+   * However, you can operate the child nodes using container methods like append, insertAfter, remove, or clear.
+   * If the node being appended or inserted already exists in the container, it is removed first and then reinserted.
+   * As a result, the total number of child nodes remains unchanged, making the operation seem ineffective.
+   * The count increases only when a new node is added.
    *
    * @type { Container<Node> }
    * @readonly
@@ -425,11 +431,15 @@ export interface Light extends Node {
 /**
  * Spotlight, which inherits from Light.
  *
- * A spotlight emits a conical beam of light in a specific direction, with the intensity of the light decaying according to the angles defined by the innerAngle and outerAngle parameters. Like a point light, a spotlight's intensity also diminishes with distance from the source.
+ * A spotlight emits a conical beam of light in a specific direction, with the intensity of the light decaying
+ * according to the angles defined by the innerAngle and outerAngle parameters.
+ * Like a point light, a spotlight's intensity also diminishes with distance from the source.
  *
  * > **NOTE**
  * >
- * > Ensure that the innerAngle and outerAngle values are proper. If the value set for outerAngle is greater than PI/2, it is forcibly set to PI/2 internally. If the value set for outerAngle is less than innerAngle, it is forcibly set to innerAngle internally.
+ * > Ensure that the innerAngle and outerAngle values are proper.
+ * > If the value set for outerAngle is greater than PI/2, it is forcibly set to PI/2 internally.
+ * > If the value set for outerAngle is less than innerAngle, it is forcibly set to innerAngle internally.
  *
  * @extends Light
  * @interface SpotLight
@@ -439,7 +449,9 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * Angle from the center of the spotlight to the start of the decay, corresponding to the semi-apex angle of the cone, within which the light intensity does not decay with angle. The unit is radian (rad), and the default value is 0. The value must be greater than or equal to 0 and less than or equal to outerAngle.
+   * Angle from the center of the spotlight to the start of the decay, corresponding to the semi-apex angle of the cone,
+   * within which the light intensity does not decay with angle. The unit is radian (rad), and the default value is 0.
+   * The value must be greater than or equal to 0 and less than or equal to outerAngle.
    * 
    * @type { ?double }
    * @default 0
@@ -449,7 +461,9 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * Angle from the center of the spotlight to the end of the decay, corresponding to the semi-apex angle of the cone, beyond which there is no light intensity. The unit is radian (rad), and the default value is PI/4. The value must be greater than or equal to innerAngle and less than or equal to PI/2.
+   * Angle from the center of the spotlight to the end of the decay, corresponding to the semi-apex angle of the cone,
+   * beyond which there is no light intensity. The unit is radian (rad), and the default value is PI/4.
+   * The value must be greater than or equal to innerAngle and less than or equal to PI/2.
    * 
    * @type { ?double }
    * @default PI / 4.0
@@ -492,7 +506,8 @@ export interface Camera extends Node {
   fov: double;
 
   /**
-   * Near plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system. The value is greater than 0.
+   * Near plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system.
+   * The value is greater than 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -502,7 +517,8 @@ export interface Camera extends Node {
   nearPlane: double;
 
   /**
-   * Far plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system. The value is greater than that of nearPlane.
+   * Far plane. The unit is the scene unit (such as cm, m, and km) in the world coordinate system.
+   * The value is greater than that of nearPlane.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -564,7 +580,9 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * Rendering pipeline type. If this parameter is not set, the lightweight forward rendering pipeline is used by default. (If the FORWARD_LIGHTWEIGHT pipeline is selected, certain features are unavailable.)
+   * Rendering pipeline type.
+   * If this parameter is not set, the lightweight forward rendering pipeline is used by default.
+   * (If the FORWARD_LIGHTWEIGHT pipeline is selected, certain features are unavailable.)
    *
    * @type { ?RenderingPipelineType }
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
@@ -575,11 +593,15 @@ export interface Camera extends Node {
   renderingPipeline?: RenderingPipelineType;
 
   /**
-   * Casts a ray from a specific position on the screen to detect and retrieve information about all hit 3D objects. This API uses a promise to return the result.
+   * Casts a ray from a specific position on the screen to detect and retrieve information about all hit 3D objects.
+   * This API uses a promise to return the result.
    *
-   * @param { Vec2 } viewPosition - Normalized screen coordinates. The value range is [0, 1], where (0,0) corresponds to the top-left corner of the Component3D component, and (1,1) corresponds to the bottom-right corner.
+   * @param { Vec2 } viewPosition - Normalized screen coordinates.
+   *     The value range is [0, 1], where (0,0) corresponds to the top-left corner of the Component3D component,
+   *     and (1,1) corresponds to the bottom-right corner.
    * @param { RaycastParameters } params - Configuration parameters for raycasting, such as detection range and filtered nodes.
-   * @returns { Promise<RaycastResult[]> } - An array of hit objects sorted by distance (from nearest to farthest). If no objects are hit, an empty array is returned.
+   * @returns { Promise<RaycastResult[]> } - An array of hit objects sorted by distance (from nearest to farthest).
+   *     If no objects are hit, an empty array is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static

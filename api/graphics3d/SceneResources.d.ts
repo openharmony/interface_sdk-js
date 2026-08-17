@@ -167,7 +167,8 @@ export interface SceneResource {
 
 
   /**
-   * Destroys the scene resource and releases all associated resources or references. Once released, the resource can no longer be used or accessed.
+   * Destroys the scene resource and releases all associated resources or references.
+   * Once released, the resource can no longer be used or accessed.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1310,7 +1311,8 @@ export interface Effect extends SceneResource {
   enabled: boolean;
 
   /**
-   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX', for example, 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'. It is used to create an effect.
+   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+   * for example, 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'. It is used to create an effect.
    *
    * @type { string }
    * @readonly

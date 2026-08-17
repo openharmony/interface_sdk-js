@@ -145,7 +145,9 @@ export interface BloomSettings {
  */
 export interface VignetteSettings {
   /**
-   * Application scope. The value range is [0, 1]. When the value is 0, the application scope is minimized. When the value is 1, the application scope is global. The default value is sqrt(0.5).
+   * Application scope. The value range is [0, 1].
+   * When the value is 0, the application scope is minimized. When the value is 1, the application scope is global.
+   * The default value is sqrt(0.5).
    *
    * @type { ?double }
    * @default sqrt(0.5)
@@ -156,7 +158,9 @@ export interface VignetteSettings {
   roundness?: double;
 
   /**
-   * Effect strength. The value range is [0, 1]. The value 0 indicates no vignetting effect, and the value 1 indicates maximum vignetting intensity. The default value is 0.4.
+   * Effect strength. The value range is [0, 1].
+   * The value 0 indicates no vignetting effect, and the value 1 indicates maximum vignetting intensity.
+   * The default value is 0.4.
    *
    * @type { ?double }
    * @default 0.4

@@ -287,7 +287,9 @@ export interface Node extends SceneResource {
   getNodeByPath(path: string): Node | null;
 
   /**
-   * 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append、insertAfter、remove或clear）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；添加新节点才会真正增加子节点数量。
+   * 节点的子节点，不存在则为空值。
+   * 为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append、insertAfter、remove或clear）。
+   * 如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；添加新节点才会真正增加子节点数量。
    *
    * @type { Container<Node> }
    * @readonly
@@ -428,7 +430,9 @@ export interface Light extends Node {
  *
  * > **注意：**
  * >
- * > 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
+ * > 用户需要保证设置的innerAngle与outerAngle值是合理的。
+ * > 当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。
+ * > 当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
  *
  * @extends Light
  * @interface SpotLight
@@ -438,7 +442,8 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。设置的值必须大于等于0，小于等于outerAngle。
+   * 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。
+   * 设置的值必须大于等于0，小于等于outerAngle。
    * 
    * @type { ?double }
    * @default 0
@@ -448,7 +453,8 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。设置的值必须大于等于innerAngle，小于等于PI/2。
+   * 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。
+   * 设置的值必须大于等于innerAngle，小于等于PI/2。
    * 
    * @type { ?double }
    * @default PI / 4.0

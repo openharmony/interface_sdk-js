@@ -27,7 +27,8 @@ import { Vec3, Quaternion } from './SceneTypes';
  *
  * > **说明：**
  * >
- * > 模拟帧是指群组模拟中按固定时间步长执行的更新周期，类似Unity中的FixedUpdate。默认时间步长为16ms（约62.5FPS），模拟通过累积真实时间并按固定步长消耗来驱动。下文部分参数的默认值基于该时间步长计算：
+ * > 模拟帧是指群组模拟中按固定时间步长执行的更新周期，类似Unity中的FixedUpdate。默认时间步长为16ms（约62.5FPS），模拟通过累积真实时间并按固定步长消耗来驱动。
+ * > 下文部分参数的默认值基于该时间步长计算：
  * > - maxVelocityMag： 0.01 / 0.016 ≈ 0.625（m/s）。
  * > - maxAccelerationMag： maxVelocityMag / 0.016 ≈ 39.06（m/s²）。
  * > - maxTurnRate： π × 0.75 × 0.016 ≈ 0.0377（rad/模拟帧）。
@@ -69,7 +70,8 @@ export interface BoidsSimParameters {
   initialRotation?: Quaternion;
 
   /**
-   * 约束个体运动范围的轴对齐包围盒最小角点，各分量单位为m。当boundaryMinPos的任一分量大于或等于boundaryMaxPos对应分量时，该个体视为无边界约束。默认值为(0, 0, 0)。
+   * 约束个体运动范围的轴对齐包围盒最小角点，各分量单位为m。
+   * 当boundaryMinPos的任一分量大于或等于boundaryMaxPos对应分量时，该个体视为无边界约束。默认值为(0, 0, 0)。
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
