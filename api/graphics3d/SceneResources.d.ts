@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The SceneResource module provides basic resource types in 3D graphics.
+ * @file
  * @kit ArkGraphics3D
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file This module provides types and operation methods for Boids simulation animation in 3D graphics. Boids simulation animation is a computer animation method that drives individuals in a group through rules such as separation, alignment, and cohesion, making them exhibit movement characteristics similar to flocks of birds or schools of fish in nature.
+ * @file
  * @kit ArkGraphics3D
  */
 

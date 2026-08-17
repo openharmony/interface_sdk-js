@@ -14,7 +14,7 @@
  */
 
 /**
- * @file provides the data types in 3D graphics, including vectors and quaternions.
+ * @file
  * @kit ArkGraphics3D
  */
 

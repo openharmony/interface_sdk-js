@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The module is the basic module of ArkGraphics 3D and provides common data types such as SceneResourceParameters and SceneNodeParameters. It also provides basic methods such as glTF model loading, scene creation, and resource creation.
+ * @file
  * @kit ArkGraphics3D
  */
 

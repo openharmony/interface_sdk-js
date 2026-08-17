@@ -14,7 +14,7 @@
  */
 
 /**
- * @file provides image post-processing methods (for example, tone mapping) in 3D graphics.
+ * @file
  * @kit ArkGraphics3D
  */
 

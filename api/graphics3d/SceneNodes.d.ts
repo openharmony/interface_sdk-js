@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The module provides the types and operation methods of scene nodes in 3D graphics.
+ * @file
  * @kit ArkGraphics3D
  */
 
