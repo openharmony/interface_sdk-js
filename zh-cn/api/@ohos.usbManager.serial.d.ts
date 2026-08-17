@@ -260,7 +260,8 @@ declare namespace serialManager {
    *     具体值需根据设备响应速度和数据量合理设置。
    * @returns { Promise<int> } 返回实际读取到的数据长度，即成功读取的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed; 4. Optional parameters passed as undefined.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -292,7 +293,8 @@ declare namespace serialManager {
    *     具体值需根据设备响应速度和数据量合理设置。
    * @returns {int} 返回实际读取到的数据长度，即成功读取的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed; 4. Optional parameters passed as undefined.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -324,7 +326,8 @@ declare namespace serialManager {
    *     具体值需根据设备响应速度和数据量合理设置。
    * @returns { Promise<int> } Promise对象，返回实际写入的数据长度（字节数）。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed; 4. Optional parameters passed as undefined.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -356,7 +359,8 @@ declare namespace serialManager {
    *     具体值需根据设备响应速度和数据量合理设置。
    * @returns { int } 返回实际写入的数据长度，即成功写入的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed; 4. Optional parameters passed as undefined.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
