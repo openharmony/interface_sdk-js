@@ -3357,6 +3357,15 @@ declare namespace commonEventManager {
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
 
     /**
+     * This common event indicates that the data volume status has been reported.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DATA_VOLUME_STATUS_REPORT = 'usual.event.DATA_VOLUME_STATUS_REPORT',
+
+    /**
      * This common event indicates that the skill information of an application has been changed.
      *
      * To receive this common event, your application must have the ohos.permission.MANAGE_SKILL_PRIVILEGE permission.
