@@ -40,7 +40,7 @@ export interface SceneLoadParams {
    * 例如，当glb模型嵌在MP4容器文件中时，可将此参数设置为glb数据在MP4文件中的起始字节位置，使系统能够正确提取并加载模型。
    * 取值必须大于或等于0。默认值为0，表示模型数据从文件起始位置开始。
    *
-   * @default { 0 }
+   * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -181,7 +181,7 @@ export interface RenderResourceFactory {
   /**
    * 根据指定场景资源参数创建一个着色器，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 创建着色器的参数
+   * @param { SceneResourceParameters } params - 创建着色器的参数。详细.shader文件格式请参考.shader资源文件格式要求。
    * @returns { Promise<Shader> } Promise对象，返回创建的着色器对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -190,10 +190,10 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-   * 根据指定场景资源参数创建一个图片，使用Promise异步回调。
+   * 根据指定场景资源参数创建一个图像资源，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 创建图片的参数
-   * @returns { Promise<Image> } Promise对象，返回创建的图片对象。
+   * @param { SceneResourceParameters } params - 创建图像的参数。
+   * @returns { Promise<Image> } Promise对象，返回创建的图像对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -203,8 +203,8 @@ export interface RenderResourceFactory {
   /**
    * 根据指定场景资源参数创建流图片，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 创建流图片的参数
-   * @returns { Promise<ImageStream> } Promise对象，返回创建的流图片对象。
+   * @param { SceneResourceParameters } params - 创建流图片的参数。
+   * @returns { Promise<ImageStream> } Promise对象，返回创建的流图片。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -212,10 +212,10 @@ export interface RenderResourceFactory {
   createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
-   * 根据指定场景资源参数和几何体定义创建网格，使用Promise异步回调。
+   * 根据指定场景资源参数和几何体定义（GeometryDefinition）创建一个网格资源（MeshResource），使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 创建网格的参数
-   * @param { GeometryDefinition } geometry - 几何体定义
+   * @param { SceneResourceParameters } params - 创建网格资源的参数。
+   * @param { GeometryDefinition } geometry - 几何形状定义，描述要创建的网格形状。
    * @returns { Promise<MeshResource> } Promise对象，返回创建的网格资源对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -224,9 +224,9 @@ export interface RenderResourceFactory {
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
   /**
-   * 根据指定场景资源参数创建采样器，使用Promise异步回调。
+   * 根据指定场景资源参数创建一个采样器资源，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 创建采样器的参数
+   * @param { SceneResourceParameters } params - 创建采样器的参数。
    * @returns { Promise<Sampler> } Promise对象，返回创建的采样器对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -235,9 +235,9 @@ export interface RenderResourceFactory {
   createSampler(params:SceneResourceParameters): Promise<Sampler>
 
   /**
-   * 根据指定资源路径创建场景，如果不指定URI，则创建一个空场景，使用Promise异步回调。
+   * 从指定的资源URI创建一个新的场景。如果不指定URI，则创建一个空场景，使用Promise异步回调。
    *
-   * @param { ResourceStr } [uri] - 创建场景使用的资源路径，默认值为undefined。
+   * @param { ResourceStr } [uri] - 创建场景使用的资源路径，如果未传入资源路径，则默认创建一个空场景。
    * @returns { Promise<Scene> } Promise对象，返回创建的场景对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -248,8 +248,8 @@ export interface RenderResourceFactory {
   /**
    * 根据指定的资源路径和场景加载参数创建场景，使用Promise异步回调。
    *
-   * @param { ResourceStr } uri - 创建场景使用的资源路径
-   * @param { SceneLoadParams } param - 场景加载参数
+   * @param { ResourceStr } uri - 创建场景使用的资源路径。
+   * @param { SceneLoadParams } param - 场景加载参数。
    * @returns { Promise<Scene> } Promise对象，返回创建的场景对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -283,6 +283,7 @@ export interface CameraParameters {
    * 选择初始渲染管线类型，默认为轻量级前向渲染管线类型。
    *
    * @type { ?RenderingPipelineType }
+   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -323,7 +324,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据节点参数创建相机，使用Promise异步回调。
    *
-   * @param { SceneNodeParameters } params - 场景节点参数
+   * @param { SceneNodeParameters } params - 场景节点参数。
    * @returns { Promise<Camera> } Promise对象，返回相机对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -334,8 +335,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据节点参数与相机参数创建相机，使用Promise异步回调。
    *
-   * @param { SceneNodeParameters } params - 场景节点参数
-   * @param { CameraParameters } cameraParams - 相机参数
+   * @param { SceneNodeParameters } params - 场景节点参数。
+   * @param { CameraParameters } cameraParams - 相机参数。
    * @returns { Promise<Camera> } Promise对象，返回相机对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -346,8 +347,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据节点参数和灯光类型创建灯光，使用Promise异步回调。
    *
-   * @param { SceneNodeParameters } params - 场景节点参数
-   * @param { LightType } lightType - 灯光类型
+   * @param { SceneNodeParameters } params - 场景节点参数。
+   * @param { LightType } lightType - 灯光类型。
    * @returns { Promise<Light> } Promise对象，返回灯光对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -358,7 +359,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 创建节点，使用Promise异步回调。
    *
-   * @param { SceneNodeParameters } params - 场景节点参数
+   * @param { SceneNodeParameters } params - 场景节点参数。
    * @returns { Promise<Node> } Promise对象，返回节点对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -369,8 +370,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据场景资源参数和材质类型创建材质，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 场景资源参数
-   * @param { MaterialType } materialType - 材质类型
+   * @param { SceneResourceParameters } params - 场景资源参数。
+   * @param { MaterialType } materialType - 材质类型。
    * @returns { Promise<Material> } Promise对象，返回材质对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -381,7 +382,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据场景资源参数创建环境，使用Promise异步回调。
    *
-   * @param { SceneResourceParameters } params - 场景资源参数
+   * @param { SceneResourceParameters } params - 场景资源参数。
    * @returns { Promise<Environment> } Promise对象，返回环境对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -392,8 +393,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据场景节点参数和网格数据创建几何对象，使用Promise异步回调。
    *
-   * @param { SceneNodeParameters } params - 场景节点参数
-   * @param { MeshResource } mesh - 网格数据参数
+   * @param { SceneNodeParameters } params - 场景节点参数。
+   * @param { MeshResource } mesh - 网格数据参数。
    * @returns { Promise<Geometry> } Promise对象，返回几何对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -404,7 +405,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * 根据特效参数创建特效对象，使用Promise异步回调。
    *
-   * @param { EffectParameters } params - 特效参数
+   * @param { EffectParameters } params - 特效参数。
    * @returns { Promise<Effect> } Promise对象，返回特效对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -484,8 +485,8 @@ export interface RenderContext {
    *     必须是系统未预定义或未注册且非空的检索名称。
    * @param { string } uri - 要注册的资产路径目录，与检索名对应，shader加载时会将路径中的检索名前缀替换为该目录，
    *     必须是资产文件所在文件夹路径。
-   * @returns { boolean } - 返回资产文件路径是否注册成功。true表示注册成功；
-   *     false表示注册失败，可能原因为检索名已被注册或输入参数不可用。
+   * @returns { boolean } - 返回资产文件路径是否注册成功。
+   *     true表示注册成功；false表示注册失败，可能原因为检索名已被注册或输入参数不可用。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -593,6 +594,7 @@ export interface RenderConfiguration {
    * 表示全局阴影贴图分辨率，单位为像素（px）。默认值为undefined，表示阴影贴图分辨率设置为1024 * 1024。输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。
    *
    * @type { ?Vec2 }
+   * @default { 1024, 1024 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -603,6 +605,7 @@ export interface RenderConfiguration {
    * 当值为undefined或不设置该参数时，使用默认的硬阴影算法（无阴影柔化效果）。
    * 当设置为有效的SoftShadowConfig对象（如PCFConfig）时，启用对应的软阴影算法。
    *
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -651,7 +654,7 @@ export declare class Scene {
 
   /**
    * 通过传入的资源路径加载资源，使用Promise异步回调。
-   * 调用后，应该在Scene使用完毕时调用[destroy]{@link destroy}释放资源，否则可能导致资源泄漏。
+   * 调用后，应该在Scene使用完毕时调用destroy释放资源，否则可能导致资源泄漏。
    *
    * @param { ResourceStr } [uri] - 待加载的模型文件资源路径，默认值为undefined。
    * @returns { Promise<Scene> } Promise对象，返回场景对象。
@@ -665,8 +668,8 @@ export declare class Scene {
   /**
    * 根据指定的资源路径和场景加载参数加载资源，使用Promise异步回调。
    *
-   * @param { ResourceStr } uri - 待加载的模型文件资源路径
-   * @param { SceneLoadParams } param - 场景加载参数
+   * @param { ResourceStr } uri - 待加载的模型文件资源路径。
+   * @param { SceneLoadParams } param - 场景加载参数。
    * @returns { Promise<Scene> } Promise对象，返回场景对象。
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi

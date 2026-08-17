@@ -38,7 +38,7 @@ export interface SceneLoadParams {
    * The offset of the start of the 3D model data in the resource
    * Unit: byte, The value must be greater than or equal to 0. Default value: 0.
    *
-   * @default { 0 }
+   * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
    * @stagemodelonly
@@ -184,6 +184,7 @@ export interface RenderResourceFactory {
    * Creates a shader based on the scene resource parameters. This API uses a promise to return the result.
    *
    * @param { SceneResourceParameters } params - Parameters for creating the shader.
+   *     For details about the .shader file format, see Requirements on the .shader File Format.
    * @returns { Promise<Shader> } Promise used to return the Shader object created.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -601,9 +602,9 @@ export interface RenderConfiguration {
   shadowResolution?: Vec2;
 
   /**
-   * param config for soft shadow, control the algorithm type and its configuration
+   * param config for soft shadow, control the algorithm type and its configuration.
    *
-   * @default { undefined }, means that use the default hard shadow algorithm
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
