@@ -25,6 +25,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * built-in and plug-in memory cards, space occupied by different types of data, and space of application data.
  *
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+ * @crossplatform [since 26.1.0]
  * @since 8 dynamic
  * @since 23 static
  */
@@ -118,6 +119,7 @@ declare namespace storageStatistics {
    * Get the bundle statistics.
    *
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -128,6 +130,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -139,6 +142,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -150,6 +154,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -211,6 +216,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -225,6 +231,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -445,33 +452,25 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
   function getTotalSize(callback: AsyncCallback<long>): void;
   /**
-   * Get the total size.
+   * Obtains the total size (in bytes) of the built-in storage. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<long> } return Promise
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-  parameters are left unspecified;
+   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
+   * @returns { Promise<long> } Promise used to return the total built-in storage space obtained.
+   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
+   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Get the total size.
-   *
-   * @returns { Promise<long> } return Promise (Unit: Byte)
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15 dynamic
+   * @systemapi [since 9 - 14]
+   * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getTotalSize(): Promise<long>;
@@ -488,6 +487,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -509,34 +509,26 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
   function getFreeSize(callback: AsyncCallback<long>): void;
 
   /**
-   * Get the free size.
+   * Obtains the available space (in bytes) of the built-in storage. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<long> } return Promise
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-  parameters are left unspecified;
+   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
+   * @returns { Promise<long> } Promise used to return the available space of the built-in storage obtained.
+   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
+   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Get the free size.
-   *
-   * @returns { Promise<long> } return Promise (Unit: Byte)
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15 dynamic
+   * @systemapi [since 9 - 14]
+   * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getFreeSize(): Promise<long>;
@@ -553,6 +545,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -733,6 +726,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getTotalInodes(): Promise<long>;
@@ -744,6 +738,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getFreeInodes(): Promise<long>;
@@ -756,6 +751,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getCurrentBundleInodes(): Promise<long>;
