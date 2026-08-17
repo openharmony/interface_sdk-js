@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formObserver
  * @kit FormKit
  */
 
@@ -23,9 +23,12 @@ import { Callback } from './@ohos.base';
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * Interface of formObserver.
+ * formObserver模块提供了卡片监听方相关接口的能力，包括对同一用户下安装的卡片新增、删除、可见性变化事件的订阅和取消订阅，获取正在运行的卡片信息等。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块接口均为系统接口。
  *
- * @namespace formObserver
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 10 dynamic
@@ -33,13 +36,11 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 declare namespace formObserver {
   /**
-   * Listens to the event of add form.
-   * <p>You can use this method to listen to the event of add form.</p>
+   * 订阅卡片新增事件。使用callback异步回调，返回当前新增卡片的信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formAdd' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'formAdd' } type - 填写'formAdd'，表示卡片新增事件。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回当前新增卡片的信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -67,14 +68,12 @@ declare namespace formObserver {
   function onFormAdd(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Listens to the event of add form.
-   * <p>You can use this method to listen to the event of add form for a particular card host.</p>
+   * 订阅卡片新增事件。使用callback异步回调，返回指定卡片使用方应用新增卡片的信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formAdd' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'formAdd' } type - 填写'formAdd'，表示卡片新增事件。
+   * @param { string } hostBundleName - 指定订阅卡片使用方包的bundleName。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回指定卡片使用方应用新增卡片的信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -103,14 +102,15 @@ declare namespace formObserver {
   function onFormAdd(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Cancels listening to the event of add form.
-   * <p>You can use this method to cancel listening to the event of add form.</p>
+   * 取消订阅卡片新增事件。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formAdd' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
-   *                                                                    form info.
+   * @param { 'formAdd' } type - 填写'formAdd'，表示卡片新增事件。
+   * @param { string } [hostBundleName] - 指定订阅卡片使用方包的bundleName。
+   *     <br> 填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br> 缺省则取消订阅所有卡片使用方的卡片新增事件，与注册时未填写bundleName的on接口相对应。
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - 回调函数。返回当前新增卡片信息。缺省时，表示注销对应已注册事件回调。
+   *     <br> 需与对应on('formAdd')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -139,13 +139,11 @@ declare namespace formObserver {
   function offFormAdd(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Listens to the event of remove form.
-   * <p>You can use this method to listen to the event of remove form.</p>
+   * 订阅卡片删除事件。使用callback异步回调，返回当前删除卡片的信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formRemove' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'formRemove' } type - 填写'formRemove'，表示卡片删除事件。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回当前删除卡片的信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -173,14 +171,12 @@ declare namespace formObserver {
   function onFormRemove(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Listens to the event of remove form.
-   * <p>You can use this method to listen to the event of remove form for a particular card host.</p>
+   * 订阅卡片删除事件。使用callback异步回调，返回指定卡片使用方应用被删除卡片的信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formRemove' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'formRemove' } type - 填写'formRemove'，表示卡片删除事件。
+   * @param { string } hostBundleName - 指定订阅卡片使用方包的bundleName。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回指定卡片使用方应用被删除卡片的信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -209,14 +205,15 @@ declare namespace formObserver {
   function onFormRemove(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Cancels listening to the event of remove form.
-   * <p>You can use this method to cancel listening to the event of remove form.</p>
+   * 取消订阅卡片删除事件。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'formRemove' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
-   *                                                                    form info.
+   * @param { 'formRemove' } type - 填写'formRemove'，表示卡片删除事件。
+   * @param { string } [hostBundleName] - 指定订阅卡片使用方包的bundleName。
+   *     <br> 填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br> 缺省则取消订阅所有卡片使用方的卡片删除事件，与注册时未填写bundleName的on接口相对应。
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - 回调函数。返回当前删除卡片的信息。缺省时，表示注销对应已注册事件回调。
+   *     <br> 需与对应on('formRemove')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -245,13 +242,13 @@ declare namespace formObserver {
   function offFormRemove(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Listens to the event of notifyVisible type change.
-   * <p>You can use this method to listen to the event of notifyVisible type change.</p>
+   * 订阅通知卡片可见的事件。使用callback异步回调。
+   * 
+   * ​触发通知卡片可见场景为：调用[notifyVisibleForms]{@link @ohos.app.form.formHost:formHost.notifyVisibleForms}接口通知对应卡片可见性变更为可见状态。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyVisible' } type - Indicates event type.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-   *                                                                         the running form info.
+   * @param { 'notifyVisible' } type - 仅允许填写'notifyVisible'，表示订阅通知卡片可见的事件。
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - 回调函数。返回订阅该事件的卡片信息列表。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -279,14 +276,14 @@ declare namespace formObserver {
   function onNotifyVisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
-   * Listens to the event of notifyVisible type change.
-   * <p>You can use this method to listen to the event of notifyVisible type change for a particular card host.</p>
+   * 订阅通知卡片可见的事件。使用callback异步回调。
+   * 
+   * ​触发通知卡片可见场景为：调用[notifyVisibleForms]{@link @ohos.app.form.formHost:formHost.notifyVisibleForms}接口通知对应卡片可见性变更为可见状态。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyVisible' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-   *                                                                         the running form info.
+   * @param { 'notifyVisible' } type - 仅允许填写'notifyVisible'，表示订阅通知卡片可见的事件。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName，用于订阅卡片在该使用方的可见状态变更事件。
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - 回调函数。返回订阅该事件的卡片信息列表。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -322,13 +319,14 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Listens to the event of notifyInvisible type change.
-   * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
+   * 订阅通知卡片不可见的事件。使用callback异步回调。
+   * 
+   * ​触发通知卡片不可见场景为：调用[notifyInvisibleForms]{@link @ohos.app.form.formHost:formHost.notifyInvisibleForms}接口通知对应卡片可见性变更为不可
+   * 见状态。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyInvisible' } type - Indicates event type.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-   *                                                                         the running form info.
+   * @param { 'notifyInvisible' } type - 仅允许填写'notifyInvisible'，表示订阅卡片不可见的事件。
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - 回调函数。返回订阅通知卡片不可见的卡片信息列表。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -356,14 +354,15 @@ declare namespace formObserver {
   function onNotifyInvisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
-   * Listens to the event of notifyInvisible type change.
-   * <p>You can use this method to listen to the event of notifyInvisible type change for a particular card host.</p>
+   * 订阅通知卡片不可见的事件。使用callback异步回调。
+   * 
+   * ​触发通知卡片不可见场景为：调用[notifyInvisibleForms]{@link @ohos.app.form.formHost:formHost.notifyInvisibleForms}接口通知对应卡片可见性变更为不可
+   * 见状态。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyInvisible' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-   *                                                                         the running form info.
+   * @param { 'notifyInvisible' } type - 仅允许填写'notifyInvisible'，表示订阅卡片不可见的事件。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName，用于订阅卡片在该使用方的可见状态变更事件。
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - 回调函数。返回订阅通知卡片不可见的卡片信息列表。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -399,14 +398,14 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Cancels listening to the event of notifyVisible type change.
-   * <p>You can use this method to cancel listening to the event of notifyVisible type change.</p>
+   * 取消订阅通知卡片可见的事件。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyVisible' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
-   *                                                                  the running form info.
+   * @param { 'notifyVisible' } type - 仅允许填写'notifyVisible'，表示取消订阅通知卡片为可见的事件。
+   * @param { string } [hostBundleName] - 指定卡片使用方的bundleName，用于取消订阅卡片在该使用方的可见状态变更事件。
+   *     <br> 填写该参数时，与注册时填写bundleName的on接口对应。
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - 回调函数。返回取消订阅该事件的卡片信息列表。缺省时，表示注销对应已注册订阅的回调。
+   *     <br> 需与对应on('notifyVisible')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -442,14 +441,15 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Cancels listening to the event of notifyInvisible type change.
-   * <p>You can use this method to cancel listening to the event of notifyInvisible type change.</p>
+   * 取消订阅通知卡片不可见事件。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'notifyInvisible' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
-   *                                                                         the running form info.
+   * @param { 'notifyInvisible' } type - 仅允许填写'notifyInvisible'，表示卡片可见性变更为不可见。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName，用于取消订阅卡片在该使用方的不可见状态变更事件。
+   *     <br> 填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br>
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - 回调函数。返回取消订阅通知卡片不可见的卡片信息列表。缺省时，表示注销对应已注册事件
+   *     回调。<br/> 需与对应on('notifyInvisible')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -485,12 +485,13 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   * 获取设备上正在运行的所有非临时卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
-   *                                                                      RunningFormInfo.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - 回调函数。获取设备上正在运行的所有非临时卡片信息。当获取卡片信息成功时，error为
+   *     undefined，data为查询到的卡片信息。
+   * @param { string } [hostBundleName] - 指定要查询的卡片使用方名称，指定后会仅返回该卡片使用方下正在运行的非临时卡片信息。 
+   *     <br> 缺省时，返回设备上所有正在运行的非临时卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -505,13 +506,16 @@ declare namespace formObserver {
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
   /**
-   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   * 获取设备上正在运行的所有非临时卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
-   *                                                                      RunningFormInfo.
-   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - 回调函数。获取设备上正在运行的所有非临时卡片信息。当获取成功时，回调中的error为
+   *     undefined，data为查询到的卡片信息。
+   * @param { boolean } isUnusedIncluded - 表示是否包含未使用的卡片。
+   *     <br>true: 表示包含未使用的卡片。
+   *     <br>false: 表示不包含未使用的卡片。
+   * @param { string } [hostBundleName] - 指定要查询的卡片使用方名称，指定后会仅返回该卡片使用方下正在运行的非临时卡片信息。 
+   *     <br> 缺省时，返回设备上所有正在运行的非临时卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -530,11 +534,12 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   * 获取设备上正在运行的所有非临时卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
+   * @param { string } [hostBundleName] - 指定要查询的卡片使用方名称，指定后会仅返回该卡片使用方下正在运行的非临时卡片信息。 
+   *     <br> 缺省时，返回设备上所有正在运行的非临时卡片信息。
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Promise对象。返回设备上正在运行的所有非临时卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -549,12 +554,15 @@ declare namespace formObserver {
   function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
   /**
-   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   * 获取设备上正在运行的所有非临时卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
+   * @param { boolean } isUnusedIncluded - 表示是否包含未使用的卡片。
+   *     <br>true: 表示包含未使用的卡片。
+   *     <br>false: 表示不包含未使用的卡片。
+   * @param { string } [hostBundleName] - 指定要查询的卡片使用方名称，指定后会仅返回该卡片使用方下正在运行的非临时卡片信息。 
+   *     <br> 缺省时，返回设备上所有正在运行的非临时卡片信息。
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Promise对象。返回设备上正在运行的所有非临时卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -572,11 +580,11 @@ declare namespace formObserver {
   ): Promise<Array<formInfo.RunningFormInfo>>;
 
   /**
-   * Obtains the RunningFormInfo objects by FormProviderFilter.
+   * 根据提供方信息查询已添加的卡片信息列表。使用Promise异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
-   * @returns { Promise<Array<formInfo.RunningFormInfo>> } The promise returned by the function.
+   * @param { formInfo.FormProviderFilter } formProviderFilter - 卡片提供方应用信息。
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Promise对象。返回已添加的卡片信息列表。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -595,11 +603,12 @@ declare namespace formObserver {
   ): Promise<Array<formInfo.RunningFormInfo>>;
 
   /**
-   * Obtains the RunningFormInfo objects by FormProviderFilter.
+   * 根据提供方信息查询已添加的卡片信息列表。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
-   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback of getFormInstancesByFilter.
+   * @param { formInfo.FormProviderFilter } formProviderFilter - 卡片提供方应用信息。
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - 回调函数。返回已添加的卡片信息列表。error为undefined，data为查询到的卡片信
+   *     息列表；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -619,11 +628,11 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Obtains the RunningFormInfo object by formId.
+   * 根据formId查询已添加的卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } formId - Indicates the form provider formId.
-   * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<formInfo.RunningFormInfo> } Promise对象。返回已添加的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -640,12 +649,14 @@ declare namespace formObserver {
   function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 
   /**
-   * Obtains the RunningFormInfo object by formId.
+   * 根据formId查询已添加的卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } formId - Indicates the form provider formId.
-   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
-   * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } isUnusedIncluded - 表示是否包含未使用的卡片。
+   *     <br>true: 表示包含未使用的卡片。
+   *     <br>false: 表示不包含未使用的卡片。
+   * @returns { Promise<formInfo.RunningFormInfo> } Promise对象。返回已添加的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -662,11 +673,12 @@ declare namespace formObserver {
   function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
   /**
-   * Obtains the RunningFormInfo object by formId.
+   * 根据formId查询已添加的卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } formId - Indicates the form provider formId.
-   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - 回调函数。返回已添加的卡片信息。error为undefined，data为查询到的卡片信息；否则为错误对
+   *     象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -683,12 +695,15 @@ declare namespace formObserver {
   function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Obtains the RunningFormInfo object by formId.
+   * 根据卡片标识formId，查询已添加的卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } formId - Indicates the form provider formId.
-   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
-   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } isUnusedIncluded - 表示是否包含未使用的卡片。
+   *     <br>true: 表示包含未使用的卡片。
+   *     <br>false: 表示不包含未使用的卡片。
+   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - 回调函数。返回已添加的卡片信息。error为undefined，data为查询到的卡片信息；否则为错误对
+   *     象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -709,13 +724,11 @@ declare namespace formObserver {
   ): void;
 
   /**
-   * Router event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅卡片router事件。使用callback异步回调，返回触发router事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'router' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'router' } type - 填写'router'，表示订阅卡片的router事件。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发router事件的卡片信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -743,14 +756,12 @@ declare namespace formObserver {
   function onRouter(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Router event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅指定卡片使用方的卡片router事件。使用callback异步回调，返回触发router事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'router' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'router' } type - 填写'router'，表示订阅卡片的router事件。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发router事件的卡片信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -779,13 +790,16 @@ declare namespace formObserver {
   function onRouter(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Unregister form router event Listening.
+   * 取消订阅卡片router事件。使用callback异步回调，返回触发router事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'router' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
-   *                                                                    form info.
+   * @param { 'router' } type - 填写'router'，表示取消订阅卡片的router事件。
+   * @param { string } [hostBundleName] - 指定订阅卡片使用方包的bundleName。
+   *     <br>填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br>缺省则取消订阅所有卡片使用方点击router类型卡片的事件，与注册时未填写bundleName的on接口相对应。
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - 回调函数。返回触发router事件的卡片信息。缺省时，表示注销对应bundleName下已注册事
+   *     件回调。
+   *     <br>需与对应on('router')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -813,13 +827,11 @@ declare namespace formObserver {
   function offRouter(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Message event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅卡片message事件。使用callback异步回调，返回触发message事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'message' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'message' } type - 填写'message'，表示订阅卡片的message事件。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发message事件的卡片信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -847,14 +859,12 @@ declare namespace formObserver {
   function onMessage(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Message event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅指定卡片使用方的卡片message事件。使用callback异步回调，返回触发message事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'message' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'message' } type - 填写'message'，表示订阅卡片的message事件。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发message事件的卡片的信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -883,13 +893,15 @@ declare namespace formObserver {
   function onMessage(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Unregister form message event Listening.
+   * 取消订阅卡片message事件。使用callback异步回调，返回触发message事件的卡片的信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'message' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
-   *                                                                    form info.
+   * @param { 'message' } type - 填写'message'，表示取消订阅卡片的message事件。
+   * @param { string } [hostBundleName] - 指定订阅卡片使用方包的bundleName。
+   *     <br>填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br>缺省则取消订阅所有卡片使用方的message事件，与注册时未填写bundleName的on接口相对应。
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - 回调函数。返回触发message事件的卡片的信息。缺省时，表示注销对应已注册事件回调。
+   *     <br>需与对应on('message')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -917,13 +929,11 @@ declare namespace formObserver {
   function offMessage(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Call event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅卡片call事件。使用callback异步回调，返回触发call事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'call' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'call' } type - 填写'call'，表示订阅卡片的call事件。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发call事件的卡片信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -951,14 +961,12 @@ declare namespace formObserver {
   function onCall(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Call event listening in registered form.
-   * <p>This interface requires permission to receive callback.</p>
+   * 订阅指定卡片使用方的卡片call事件。使用callback异步回调，返回触发call事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'call' } type - Indicates event type.
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
-   *                                                                  form info.
+   * @param { 'call' } type - 填写'call'，表示订阅卡片的call事件。
+   * @param { string } hostBundleName - 指定卡片使用方的bundleName。
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - 回调函数。返回触发call事件的卡片信息。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -987,13 +995,15 @@ declare namespace formObserver {
   function onCall(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
-   * Unregister form call event Listening.
+   * 取消订阅卡片call事件。使用callback异步回调，返回触发call事件的卡片信息。
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { 'call' } type - Indicates event type.
-   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
-   *                                                                    form info.
+   * @param { 'call' } type - 填写'call'，表示取消订阅卡片的call事件。
+   * @param { string } [hostBundleName] - 指定订阅卡片使用方包的bundleName。
+   *     <br>填写该参数时，与注册时填写bundleName的on接口对应。
+   *     <br>缺省则取消订阅所有卡片使用方的call事件，与注册时未填写bundleName的on接口相对应。
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - 回调函数。返回触发call事件的卡片信息。缺省时，表示注销对应已注册事件回调。
+   *     <br>需与对应on('call')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.

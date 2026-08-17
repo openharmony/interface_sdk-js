@@ -14,19 +14,18 @@
  */
 
 /**
- * @file
+ * @file formInfo
  * @kit API10LessDeprecatedModules
  */
 
 import Want from './@ohos.app.ability.Want';
 
 /**
- * The **formInfo** module provides types and enums related to the widget information and state.
+ * formInfo模块提供了卡片信息和状态等相关类型和枚举。
  * 
- * > **NOTE**
- * 
- * > - This module is deprecated since API version 9. You are advised to use 
- * > [formInfo]{@link @ohos.app.form.formInfo:formInfo} instead.
+ * > **说明：**
+ * >
+ * > 从API version 9 开始废弃，
  *
  * @syscap SystemCapability.Ability.Form
  * @since 8
@@ -36,7 +35,7 @@ import Want from './@ohos.app.ability.Want';
 declare namespace formInfo {
 
   /**
-   * Widget information.
+   * 卡片信息。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -45,7 +44,7 @@ declare namespace formInfo {
    */
   interface FormInfo {
     /**
-     * Name of the bundle to which the widget belongs.
+     * 表示卡片所属包的Bundle名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -55,7 +54,7 @@ declare namespace formInfo {
     bundleName: string;
 
     /**
-     * Name of the module to which the widget belongs.
+     * 表示卡片所属模块的模块名。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -65,7 +64,7 @@ declare namespace formInfo {
     moduleName: string;
 
     /**
-     * Name of the ability to which the widget belongs.
+     * 表示卡片所属的Ability名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -75,7 +74,7 @@ declare namespace formInfo {
     abilityName: string;
 
     /**
-     * Widget name.
+     * 表示卡片名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -85,7 +84,7 @@ declare namespace formInfo {
     name: string;
 
     /**
-     * Description of the widget.
+     * 表示卡片描述。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -95,7 +94,7 @@ declare namespace formInfo {
     description: string;
 
     /**
-     * Type of the widget. Currently, only JS widgets are supported.
+     * 表示卡片类型，当前支持JS卡片。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -105,7 +104,7 @@ declare namespace formInfo {
     type: FormType;
 
     /**
-     * Component name of the JS widget.
+     * 表示JS卡片的组件名。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -115,7 +114,7 @@ declare namespace formInfo {
     jsComponentName: string;
 
     /**
-     * Color mode of the widget.
+     * 表示卡片颜色模式。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -125,10 +124,11 @@ declare namespace formInfo {
     colorMode: ColorMode;
 
     /**
-     * Whether the widget is the default one.
+     * 表示是否是默认卡片。
      * 
-     * - **true**: The widget is the default one.
-     * - **false**: The widget is not the default one.
+     * - true：默认卡片。
+     * 
+     * - false：非默认卡片。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -138,10 +138,11 @@ declare namespace formInfo {
     isDefault: boolean;
 
     /**
-     * Whether the widget is updatable.
+     * 表示卡片是否使能更新。
      * 
-     * - **true**: The widget can be updated periodically.
-     * - **false**: The widget cannot be updated periodically.
+     * - true：表示支持周期性刷新。
+     * 
+     * - false：表示不支持周期性刷新。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -151,10 +152,11 @@ declare namespace formInfo {
     updateEnabled: boolean;
 
     /**
-     * Whether to send a notification when the widget is visible.
+     * 表示卡片是否使能可见通知。
      * 
-     * - **true**: The widget provider is notified of the status change.
-     * - **false**: The widget provider is not notified of the status change.
+     * - true：通知卡片提供方可见状态变化。
+     * 
+     * - false：不通知卡片提供方可见状态变化。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -164,7 +166,7 @@ declare namespace formInfo {
     formVisibleNotify: boolean;
 
     /**
-     * Name of the associated bundle to which the widget belongs.
+     * 表示卡片所属的相关联Bundle名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -173,7 +175,7 @@ declare namespace formInfo {
     relatedBundleName: string;
 
     /**
-     * Time when the widget was updated.
+     * 表示卡片定时更新时间。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -183,7 +185,7 @@ declare namespace formInfo {
     scheduledUpdateTime: string;
 
     /**
-     * Configuration ability of the widget.
+     * 表示卡片配置ability。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -193,7 +195,7 @@ declare namespace formInfo {
     formConfigAbility: string;
 
     /**
-     * Update period of the widget.
+     * 表示卡片更新周期。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -203,7 +205,7 @@ declare namespace formInfo {
     updateDuration: number;
 
     /**
-     * Default dimension of the widget.
+     * 表示卡片默认规格。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -213,7 +215,7 @@ declare namespace formInfo {
     defaultDimension: number;
 
     /**
-     * Dimensions supported by the widget.
+     * 表示卡片支持的规格。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -223,7 +225,7 @@ declare namespace formInfo {
     supportDimensions: Array<number>;
 
     /**
-     * Custom data of the widget.
+     * 表示卡片自定义数据。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -234,7 +236,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Enumerates the widget types.
+   * 支持的卡片类型枚举。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -243,7 +245,7 @@ declare namespace formInfo {
    */
   enum FormType {
     /**
-     * JS widget.
+     * 卡片类型为JS。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -254,7 +256,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Enumerates the color modes supported by the widget.
+   * 卡片支持的颜色模式枚举。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -263,7 +265,7 @@ declare namespace formInfo {
    */
   enum ColorMode {
     /**
-     * Auto mode.
+     * 表示自动模式。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -273,7 +275,7 @@ declare namespace formInfo {
     MODE_AUTO = -1,
 
     /**
-     * Dark mode.
+     * 表示暗色。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -283,7 +285,7 @@ declare namespace formInfo {
     MODE_DARK = 0,
 
     /**
-     * Light mode.
+     * 表示亮色。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -294,7 +296,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Describes the widget state information.
+   * 卡片状态信息。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -303,7 +305,7 @@ declare namespace formInfo {
    */
   interface FormStateInfo {
     /**
-     * Widget state.
+     * 表示卡片状态。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -313,7 +315,7 @@ declare namespace formInfo {
     formState: FormState;
 
     /**
-     * Want text.
+     * 卡片的Want信息。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -324,7 +326,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Enumerates the widget states.
+   * 卡片状态枚举。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -333,7 +335,7 @@ declare namespace formInfo {
    */
   enum FormState {
     /**
-     * Unknown state.
+     * 表示未知状态。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -343,7 +345,7 @@ declare namespace formInfo {
     UNKNOWN = -1,
 
     /**
-     * Default state.
+     * 表示默认状态。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -353,7 +355,7 @@ declare namespace formInfo {
     DEFAULT = 0,
 
     /**
-     * Ready state.
+     * 表示就绪状态。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -364,7 +366,7 @@ declare namespace formInfo {
   }
 
   /**
-   * Enumerates the widget parameters.
+   * 卡片参数枚举。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -386,7 +388,7 @@ declare namespace formInfo {
     IDENTITY_KEY = 'ohos.extra.param.key.form_identity',
 
     /**
-     * Widget dimension.
+     * 卡片规格样式。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -396,7 +398,7 @@ declare namespace formInfo {
     DIMENSION_KEY = 'ohos.extra.param.key.form_dimension',
 
     /**
-     * Widget name.
+     * 卡片名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -406,7 +408,7 @@ declare namespace formInfo {
     NAME_KEY = 'ohos.extra.param.key.form_name',
 
     /**
-     * Name of the module to which the widget belongs.
+     * 卡片所属模块名称。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -416,7 +418,7 @@ declare namespace formInfo {
     MODULE_NAME_KEY = 'ohos.extra.param.key.module_name',
 
     /**
-     * Widget width.
+     * 卡片宽度。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -426,7 +428,7 @@ declare namespace formInfo {
     WIDTH_KEY = 'ohos.extra.param.key.form_width',
 
     /**
-     * Widget height.
+     * 卡片高度。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8
@@ -436,7 +438,7 @@ declare namespace formInfo {
     HEIGHT_KEY = 'ohos.extra.param.key.form_height',
 
     /**
-     * Temporary widget.
+     * 临时卡片。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8

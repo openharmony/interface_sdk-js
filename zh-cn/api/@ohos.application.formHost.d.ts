@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formHost
  * @kit API10LessDeprecatedModules
  */
 
@@ -24,9 +24,13 @@ import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * The **formHost** module provides APIs related to the widget host, which is an application that displays the widget
- * content and controls the position where the widget is displayed. You can use the APIs to delete, release, and
- * update widgets installed by the same user, and obtain widget information and status.
+ * formHost模块提供了卡片使用方相关接口的能力，包括对使用方同一用户下安装的卡片进行删除、释放、请求更新，获取信息、状态等操作。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 9 开始废弃，
+ * >
+ * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.Ability.Form
  * @systemapi
@@ -36,13 +40,11 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 declare namespace formHost {
   /**
-   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
-   * will not retain the widget information. This API uses an asynchronous callback to return the result.
+   * 删除指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务不再保留有关该卡片的信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is deleted, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除指定的卡片成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -52,12 +54,11 @@ declare namespace formHost {
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
-   * will not retain the widget information. This API uses a promise to return the result.
+   * 删除指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务不再保留有关该卡片的信息。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -67,14 +68,11 @@ declare namespace formHost {
   function deleteForm(formId: string): Promise<void>;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * still retains the widget cache and storage information. This API uses an asynchronous callback to return the 
-   * result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，但卡片管理器服务仍然保留有关该卡片的缓存信息和存储信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当释放指定的卡片成功，error为undefined；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -84,15 +82,12 @@ declare namespace formHost {
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * retains the storage information about the widget and retains or releases the cache information based on the 
-   * setting. This API uses an asynchronous callback to return the result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务保留有关该卡片的存储信息，可以选择是否保留缓存信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { boolean } isReleaseCache - Whether to release the cache.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } isReleaseCache - 是否释放缓存。
+   * @param { AsyncCallback<void> } callback - 回调函数。当释放指定的卡片成功，error为undefined；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -102,14 +97,12 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * retains the storage information about the widget and retains or releases the cache information based on the 
-   * setting. This API uses a promise to return the result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务保留有关该卡片的存储信息，可以选择是否保留缓存信息。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { boolean } [isReleaseCache] - Whether to release the cache. The default value is **false**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } [isReleaseCache] - 是否释放缓存，默认为false。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -119,12 +112,11 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
   /**
-   * Requests a widget update. This API uses an asynchronous callback to return the result.
+   * 请求卡片更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is updated,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当请求卡片更新成功，error为undefined；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -134,11 +126,11 @@ declare namespace formHost {
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests a widget update. This API uses a promise to return the result.
+   * 请求卡片更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -148,12 +140,11 @@ declare namespace formHost {
   function requestForm(formId: string): Promise<void>;
 
   /**
-   * Converts a temporary widget to a normal one. This API uses an asynchronous callback to return the result.
+   * 将指定的临时卡片转换为普通卡片。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is converted to a
-   *     normal one, **error** is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当将指定的临时卡片转换为普通卡片成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -163,11 +154,11 @@ declare namespace formHost {
   function castTempForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Converts a temporary widget to a normal one. This API uses a promise to return the result.
+   * 将指定的临时卡片转换为普通卡片。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -177,13 +168,11 @@ declare namespace formHost {
   function castTempForm(formId: string): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget visible, **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片可见成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -193,12 +182,11 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -208,14 +196,11 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget invisible, **error** is undefined; otherwise, **error** is an error
-   *     object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片不可见成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -225,12 +210,11 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -240,15 +224,11 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
-   * state and can receive updates from the widget provider. This API uses an asynchronous callback to return the 
-   * result.
+   * 向卡片框架发送通知以使指定的卡片可以更新。该方法调用成功后，卡片刷新状态设置为使能，卡片可以接收来自卡片提供方的更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget updatable, **error** is undefined; otherwise, **error** is an error
-   *     object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片可以更新成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -258,12 +238,11 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
-   * state and can receive updates from the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片可以更新。该方法调用成功后，卡片刷新状态设置为使能，卡片可以接收来自卡片提供方的更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -273,14 +252,11 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive 
-   * updates from the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可以更新。该方法调用成功后，卡片刷新状态设置为去使能，卡片不可以接收来自卡片提供方的更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget not updatable, **error** is undefined; otherwise, **error** is an error
-   *     object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片不可以更新成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -290,12 +266,11 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive
-   * updates from the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可以更新。该方法调用成功后，卡片刷新状态设置为去使能，卡片不可以接收来自卡片提供方的更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -305,10 +280,9 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Checks whether the system is ready. This API uses an asynchronous callback to return the result.
+   * 检查系统是否准备好。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the check is successful,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当检查系统是否准备好成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -318,9 +292,9 @@ declare namespace formHost {
   function isSystemReady(callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is ready. This API uses a promise to return the result.
+   * 检查系统是否准备好。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -330,13 +304,11 @@ declare namespace formHost {
   function isSystemReady(): Promise<void>;
 
   /**
-   * Obtains the widget information provided by all applications on the device. This API uses an asynchronous callback 
-   * to return the result.
+   * 获取设备上所有应用提供的卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上所有应用提供的卡片信息成功，error为undefined，data为查询到的卡片信
+   *     息；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -346,11 +318,10 @@ declare namespace formHost {
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the widget information provided by all applications on the device. This API uses a promise to return the 
-   * result.
+   * 获取设备上所有应用提供的卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -360,14 +331,12 @@ declare namespace formHost {
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the widget information provided by a given application on the device. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取设备上指定应用程序提供的卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { string } bundleName - 要查询的应用Bundle名称。
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上指定应用程序提供的卡片信息成功，error为undefined，data为查询到的卡
+   *     片信息；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -377,15 +346,13 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the widget information provided by a given application on the device. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取设备上指定应用程序提供的卡片信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } moduleName - Module name.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { string } bundleName - 要查询的应用程序Bundle名称。
+   * @param { string } moduleName - 要查询的模块名称。
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上指定应用程序提供的卡片信息成功，error为undefined，data为查询到的卡
+   *     片信息；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -399,13 +366,12 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Obtains the widget information provided by a given application on the device. This API uses a promise to return
-   * the result.
+   * 获取设备上指定应用程序提供的卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } [moduleName] - Module name.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @param { string } bundleName - 要查询的应用程序Bundle名称。
+   * @param { string } [moduleName] - 要查询的模块名称。
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -415,13 +381,11 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Deletes invalid widgets from the list. This API uses an asynchronous callback to return the result.
+   * 根据列表删除应用程序的无效卡片。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of valid widget IDs.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result. If the invalid widgets are
-   *     deleted, **error** is undefined and **data** is the number of widgets deleted; otherwise, **error** is
-   *     an error object.
+   * @param { Array<string> } formIds - 有效卡片标识列表。
+   * @param { AsyncCallback<number> } callback - 回调函数。当根据列表删除应用程序的无效卡片成功，error为undefined，data为删除的卡片个数；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -431,11 +395,11 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<number>): void;
 
   /**
-   * Deletes invalid widgets from the list. This API uses a promise to return the result.
+   * 根据列表删除应用程序的无效卡片。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of valid widget IDs.
-   * @returns { Promise<number> } Promise used to return the number of widgets deleted.
+   * @param { Array<string> } formIds - 有效卡片标识列表。
+   * @returns { Promise<number> } Promise对象。返回删除的卡片个数。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -445,14 +409,11 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>): Promise<number>;
 
   /**
-   * Obtains the widget state. This API uses an asynchronous callback to return the result.
+   * 获取卡片状态。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
-   *     bundle name, ability name, module name, widget name, and widget dimensions.
-   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback used to return the result. If the widget
-   *     state is obtained, **error** is undefined and **data** is the widget state obtained; otherwise, **error**
-   *     is an error object.
+   * @param { Want } want - 查询卡片状态时携带的want信息。需要包含bundle名、ability名、module名、卡片名、卡片规格等。
+   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - 回调函数。当获取卡片状态成功，error为undefined，data为获取到的卡片状态；否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -462,11 +423,11 @@ declare namespace formHost {
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
   /**
-   * Obtains the widget state. This API uses a promise to return the result.
+   * 获取卡片状态。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - **Want** information carried to query the widget state.
-   * @returns { Promise<formInfo.FormStateInfo> } Promise used to return the widget state obtained.
+   * @param { Want } want - 查询卡片状态时携带的want信息。
+   * @returns { Promise<formInfo.FormStateInfo> } Promise对象。返回卡片状态。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -476,16 +437,14 @@ declare namespace formHost {
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
   /**
-   * Subscribes to widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 订阅卡片卸载事件。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
-   * > is automatically uninstalled.
+   * > 卡片卸载与卡片移除不同。当应用卸载时，对应的卡片会自动卸载。
    *
-   * @param { 'formUninstall' } type - Event type. The value **'formUninstall'** indicates a widget uninstallation
-   *     event.
-   * @param { Callback<string> } callback - Callback used to return the widget ID.
+   * @param { 'formUninstall' } type - 填写'formUninstall'，表示卡片卸载事件。
+   * @param { Callback<string> } callback - 回调函数，返回卡片标识。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -495,18 +454,15 @@ declare namespace formHost {
   function on(type: 'formUninstall', callback: Callback<string>): void;
 
   /**
-   * Unsubscribes from widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 取消订阅卡片卸载事件。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
-   * > is automatically uninstalled.
+   * > 卡片卸载与卡片移除不同。当应用卸载时，对应的卡片会自动卸载。
    *
-   * @param { 'formUninstall' } type - Event type. The value **'formUninstall'** indicates a widget uninstallation
-   *     event.
-   * @param { Callback<string> } [callback] - Callback used to return the widget ID. If it is left unspecified, it
-   *     indicates the callback for all the events that have been subscribed.
-   *     <br> The value must be the same as that in **on('formUninstall')**.
+   * @param { 'formUninstall' } type - 填写'formUninstall'，表示卡片卸载事件。
+   * @param { Callback<string> } [callback] - 回调函数，返回卡片标识。缺省时，表示注销所有已注册事件回调。
+   *     <br> 需与对应on('formUninstall')的callback一致。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -516,13 +472,12 @@ declare namespace formHost {
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
   /**
-   * Instructs the widgets to make themselves visible. This API uses an asynchronous callback to return the result.
+   * 通知卡片是否可见。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isVisible - Whether to make the widgets visible.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isVisible - 是否可见。
+   * @param { AsyncCallback<void> } callback - 回调函数。当通知卡片是否可见成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -532,12 +487,12 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widgets to make themselves visible. This API uses a promise to return the result.
+   * 通知卡片是否可见。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isVisible - Whether to make the widgets visible.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isVisible - 是否可见。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -547,13 +502,12 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
   /**
-   * Instructs the widgets to enable or disable updates. This API uses an asynchronous callback to return the result.
+   * 通知卡片是否启用更新状态。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isEnableUpdate - Whether to make the widgets updatable.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isEnableUpdate - 是否使能更新。
+   * @param { AsyncCallback<void> } callback - 回调函数。当通知卡片是否启用更新状态成功，error为undefined，否则为错误对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -567,12 +521,12 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Instructs the widgets to enable or disable updates. This API uses a promise to return the result.
+   * 通知卡片是否启用更新状态。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isEnableUpdate - Whether to make the widgets updatable.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isEnableUpdate - 是否使能更新。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8

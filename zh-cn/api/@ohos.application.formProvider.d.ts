@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formProvider
  * @kit API10LessDeprecatedModules
  */
 
@@ -24,9 +24,12 @@ import formInfo from './@ohos.app.form.formInfo';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * The **FormProvider** module provides APIs related to the widget provider. You can use the APIs to update a widget, 
- * set the next refresh time for a widget, obtain widget information, and request a widget release.
+ * FormProvider模块提供了卡片提供方相关接口的能力，开发者在开发卡片时，可通过该模块提供接口实现刷新卡片，设置卡片刷新时间，获取卡片信息，请求发布卡片等。
  * 
+ * > **说明：**
+ * >
+ * > 从API version 9 开始废弃，
+ *
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
@@ -34,11 +37,11 @@ import Want from './@ohos.app.ability.Want';
  */
 declare namespace formProvider {
   /**
-   * Sets the next refresh time for a widget. This API uses an asynchronous callback to return the result.
+   * 设置指定卡片的下一次刷新时间，使用callback异步回调。
    *
-   * @param { string } formId - Widget ID.
-   * @param { number } minute - Time for the next refresh. The value must be greater than or equal to 5, in minutes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } formId - 卡片标识。
+   * @param { number } minute - 指定多久之后刷新。单位分钟，大于等于5。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -47,11 +50,11 @@ declare namespace formProvider {
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the next refresh time for a widget. This API uses a promise to return the result.
+   * 设置指定卡片的下一次刷新时间，使用Promise异步回调。
    *
-   * @param { string } formId - Widget ID.
-   * @param { number } minute - Time for the next refresh. The value must be greater than or equal to 5, in minutes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { number } minute - 指定多久之后刷新。单位分钟，大于等于5。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -60,11 +63,11 @@ declare namespace formProvider {
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
   /**
-   * Updates a widget. This API uses an asynchronous callback to return the result.
+   * 更新指定的卡片，使用callback异步回调。
    *
-   * @param { string } formId - ID of the widget to update.
-   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } formId - 请求更新的卡片标识。
+   * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -77,11 +80,11 @@ declare namespace formProvider {
   ): void;
 
   /**
-   * Updates a widget. This API uses a promise to return the result.
+   * 更新指定的卡片，使用Promise异步回调。
    *
-   * @param { string } formId - ID of the widget to update.
-   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 请求更新的卡片标识。
+   * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9

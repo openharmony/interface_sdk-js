@@ -14,23 +14,31 @@
  */
 
 /**
- * @file
+ * ###### 权限
+ * 
+ * 无
+ *
+ * @file formError
  * @kit FormKit
  */
 
 /**
- * interface of formError.
+ * formError模块提供获取卡片错误码的能力。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 9 开始不再维护，
+ * >
+ * > 当前页面仅包含本模块的系统接口，其他公共接口参见[@ohos.application.formError (FormError)]{@link formError}。
  *
- * @namespace formError
  * @syscap SystemCapability.Ability.Form
  * @since 8 dynamic
  * @since 23 static
  */
 declare namespace formError {
   /**
-   * Error of form.
+   * 枚举，卡片错误码。
    *
-   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @since 8 dynamic
    * @since 23 static
@@ -251,7 +259,9 @@ declare namespace formError {
     ERR_IN_RECOVERY = 36,
 
     /**
-     * Distributed scheduling failed
+     * 分布式调度失败。
+     * 
+     * **系统接口**: 此接口为系统接口。
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi

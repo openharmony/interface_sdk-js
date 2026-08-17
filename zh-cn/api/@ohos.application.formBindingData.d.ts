@@ -14,13 +14,16 @@
  */
 
 /**
- * @file
+ * @file 卡片数据绑定类
  * @kit API10LessDeprecatedModules
  */
 
 /**
- * The **FormBindingData** module provides APIs for widget data binding. You can use the APIs to create a 
- * **FormBindingData** object and obtain related information.
+ * 卡片数据绑定模块提供卡片数据绑定的能力。包括FormBindingData对象的创建、相关信息的描述。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 9开始废弃，
  *
  * @syscap SystemCapability.Ability.Form
  * @since 8
@@ -29,13 +32,11 @@
  */
 declare namespace formBindingData {
   /**
-   * Creates a **FormBindingData** object.
+   * 创建一个FormBindingData对象。
    *
-   * @param { Object | string } [obj] - Data to be displayed on the JS widget. The value can be an object containing multiple
-   *     key-value pairs or a string in JSON format. The image data is identified by **'formImages'**, and the content is 
-   *     multiple key-value pairs, each of which consists of an image identifier and image file descriptor. The final format 
-   *     is {'formImages': {'key1': fd1, 'key2': fd2}}.
-   * @returns { FormBindingData } **FormBindingData** object created based on the passed data.
+   * @param { Object | string } [obj] - JS卡片要展示的数据。可以是包含若干键值对的Object或者 json 格式的字符串。其中图片数据以'formImages'作为标识，内容为图片标识与图片文件描
+   *     述符的键值对{'formImages': {'key1': fd1, 'key2': fd2}}。
+   * @returns { FormBindingData } 根据传入数据创建的FormBindingData对象。
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -44,7 +45,7 @@ declare namespace formBindingData {
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
   /**
-   * Describes a **FormBindingData** object.
+   * FormBindingData提供卡片数据绑定的能力，用于存储卡片需要展示的数据。
    *
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -53,8 +54,7 @@ declare namespace formBindingData {
    */
   interface FormBindingData {
     /**
-     * Data to be displayed on the JS widget. The value can be an object containing multiple key-value pairs or a string
-     *  in JSON format.
+     * JS卡片要展示的数据。可以是包含若干键值对的Object或者 json 格式的字符串。
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8

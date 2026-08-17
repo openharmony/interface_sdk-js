@@ -14,7 +14,6 @@
  */
 
 /**
- * @file
  * @kit FormKit
  */
 
@@ -24,14 +23,10 @@ import Want from '../@ohos.app.ability.Want';
 import ExtensionContext from './ExtensionContext';
 
 /**
- * The FormExtensionContext module, inherited from 
- * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}, provides the context environment for the 
- * [FormExtensionAbility]{@link @ohos.app.form.FormExtensionAbility}.
- * You can use the APIs of this module to start a FormExtensionAbility.
+ * FormExtensionContext模块是[FormExtensionAbility]{@link @ohos.app.form.FormExtensionAbility}的上下文环境，继承自
+ * [ExtensionContext]{@link ./ExtensionContext:ExtensionContext}。
  * 
- * > **NOTE**
- * 
- * > - The APIs of this module can be used only in the stage model.
+ * FormExtensionContext模块提供FormExtensionAbility具有的接口和能力。
  *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
@@ -41,12 +36,10 @@ import ExtensionContext from './ExtensionContext';
  */
 declare class FormExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability. This API uses an asynchronous callback to return the result.
+   * 拉起一个应用的Ability。使用callback异步回调。
    *
-   * @param { Want } want - Information about the ability to start, such as the bundle name, ability name, and custom 
-   *     parameters.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is 
-   *     undefined; otherwise, **err** is an error object.
+   * @param { Want } want - 包含bundleName，abilityName以及用户自定义参数用于拉起Ability。
+   * @param { AsyncCallback<void> } callback - 回调函数。当拉起一个应用的Ability成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -63,11 +56,10 @@ declare class FormExtensionContext extends ExtensionContext {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. This API uses a promise to return the result.
+   * 拉起一个应用的Ability。使用Promise异步回调。
    *
-   * @param { Want } want - Information about the ability to start, such as the bundle name, ability name, and custom 
-   *     parameters.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Want } want - 包含bundleName，abilityName以及用户自定义参数用于拉起Ability。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -84,12 +76,11 @@ declare class FormExtensionContext extends ExtensionContext {
   startAbility(want: Want): Promise<void>;
 
   /**
-   * Connects this ability to a ServiceExtensionAbility.
+   * 将一个Ability与服务类型的Ability绑定。
    *
-   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
-   * @param { ConnectOptions } options - Callback used to return the information indicating that the connection is successful
-   *     , interrupted, or failed.
-   * @returns { long } Returns a connect ID, which will be used for the disconnection.
+   * @param { Want } want - Want类型参数，传入需要启动的ability的信息，如Ability名称，Bundle名称等。
+   * @param { ConnectOptions } options - ConnectOptions类型的回调函数，返回服务连接成功、断开或连接失败后的信息。
+   * @returns { long } 返回一个connectId，后续根据此connectId断开连接。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -112,14 +103,11 @@ declare class FormExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
-   * Disconnects this ability from a **ServiceExtensionAbility** and after the successful disconnection, sets the 
-   * **remote** object returned upon the connection to void. This API uses an asynchronous callback to return the 
-   * result.
+   * 将一个Ability与绑定的服务类型的Ability解绑，断开连接之后需要将连接成功时返回的remote对象置空，使用callback异步回调。
    *
-   * @param { long } connection - Number returned after 
-   *     [connectServiceExtensionAbility]{@link FormExtensionContext#connectServiceExtensionAbility} is called.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is disconnected, **err** is
-   *     **undefined**; otherwise, **err** is an error object.
+   * @param { long } connection - 在
+   *     [connectServiceExtensionAbility]{@link FormExtensionContext.connectServiceExtensionAbility}中返回的number。
+   * @param { AsyncCallback<void> } callback - 回调函数。当Ability与绑定的服务类型的Ability解绑成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -133,12 +121,11 @@ declare class FormExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
-   * object returned upon the connection to void. This API uses a promise to return the result. 
+   * 将一个Ability与绑定的服务类型的Ability解绑，断开连接之后需要将连接成功时返回的remote对象置空(Promise形式返回结果)。
    *
-   * @param { long } connection - Number returned after 
-   *     [connectServiceExtensionAbility]{@link FormExtensionContext#connectServiceExtensionAbility} is called.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { long } connection - 在
+   *     [connectServiceExtensionAbility]{@link FormExtensionContext.connectServiceExtensionAbility}中返回的number。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.

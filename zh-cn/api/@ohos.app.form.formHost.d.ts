@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formHost
  * @kit FormKit
  */
 
@@ -24,9 +24,11 @@ import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * The **formHost** module provides APIs related to the widget host, which is an application that displays the widget 
- * content and controls the position where the widget is displayed. You can use the APIs to delete, release, and update
- * widgets installed by the same user, and obtain widget information and status.
+ * formHost模块提供了卡片使用方相关接口的能力，包括对使用方同一用户下安装的卡片进行删除、释放、请求更新、获取卡片信息、状态等操作。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.Ability.Form
  * @systemapi
@@ -58,13 +60,11 @@ declare namespace formHost {
   function addForm(want: Want): Promise<formInfo.RunningFormInfo>;
 
   /**
-   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
-   * will not retain the widget information. This API uses an asynchronous callback to return the result.
+   * 删除指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务不再保留有关该卡片的信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is deleted, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除指定的卡片成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -82,12 +82,11 @@ declare namespace formHost {
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
-   * will not retain the widget information. This API uses a promise to return the result.
+   * 删除指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务不再保留有关该卡片的信息。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -105,14 +104,11 @@ declare namespace formHost {
   function deleteForm(formId: string): Promise<void>;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * still retains the widget cache and storage information. This API uses an asynchronous callback to return the 
-   * result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，但卡片管理器服务仍然保留有关该卡片的缓存信息和存储信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当释放指定的卡片成功，error为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -130,17 +126,14 @@ declare namespace formHost {
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * retains the storage information about the widget and retains or releases the cache information based on the 
-   * setting. This API uses an asynchronous callback to return the result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务保留有关该卡片的存储信息，可以选择是否保留缓存信息。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { boolean } isReleaseCache - Whether to release the cache.
-   *     <br>**true**: Release the cache.
-   *     <br>**false**: Not release the cache.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } isReleaseCache - 表示是否释放缓存。
+   *     <br>true: 表示释放缓存。
+   *     <br>false: 表示不释放缓存。
+   * @param { AsyncCallback<void> } callback - 回调函数。当释放指定的卡片成功，error为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -158,16 +151,14 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
-   * retains the storage information about the widget and retains or releases the cache information based on the 
-   * setting. This API uses a promise to return the result.
+   * 释放指定的卡片。调用此方法后，应用程序将无法使用该卡片，卡片管理器服务保留有关该卡片的存储信息，可以选择是否保留缓存信息。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { boolean } [isReleaseCache] - Whether to release the cache. The default value is **false**.
-   *     <br>**true**: Release the cache.
-   *     <br>**false**: Not release the cache.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } [isReleaseCache] - 表示是否释放缓存，默认为false。
+   *     <br>true: 表示释放缓存。
+   *     <br>false: 表示不释放缓存。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -185,12 +176,11 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
   /**
-   * Requests a widget update. This API uses an asynchronous callback to return the result.
+   * 请求卡片更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is updated, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当请求卡片更新成功，error为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -208,11 +198,11 @@ declare namespace formHost {
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests a widget update. This API uses a promise to return the result.
+   * 请求卡片更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -230,12 +220,12 @@ declare namespace formHost {
   function requestForm(formId: string): Promise<void>;
 
   /**
-   * Carries parameters to request a widget update. This API uses a promise to return the result.
+   * 携带参数请求卡片更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { Record<string, Object> } [wantParams] - Parameters used for the update.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { Record<string, Object> } [wantParams] - 更新参数。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -253,12 +243,11 @@ declare namespace formHost {
   function requestFormWithParams(formId: string, wantParams?: Record<string, Object>): Promise<void>;
 
   /**
-   * Converts a temporary widget to a normal one. This API uses an asynchronous callback to return the result.
+   * 将指定的临时卡片转换为普通卡片。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is converted to a
-   *     normal one, **error** is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当将指定的临时卡片转换为普通卡片成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -276,11 +265,11 @@ declare namespace formHost {
   function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Converts a temporary widget to a normal one. This API uses a promise to return the result.
+   * 将指定的临时卡片转换为普通卡片。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -298,14 +287,11 @@ declare namespace formHost {
   function castToNormalForm(formId: string): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to
-   *     the widget framework to make the widget visible, **error** is undefined; otherwise, **error** is an error
-   *     object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片可见成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -321,12 +307,11 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -342,13 +327,11 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget invisible, **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片不可见成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -364,12 +347,11 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
-   * invoked to notify the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可见。该方法调用成功后，会调用onVisibilityChange通知卡片提供方。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -385,14 +367,11 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
-   * state and can receive updates from the widget provider. This API uses an asynchronous callback to return the 
-   * result.
+   * 向卡片框架发送通知以使指定的卡片可以更新。该方法调用成功后，卡片刷新状态设置为使能，卡片可以接收来自卡片提供方的更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget updatable, **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片可以更新成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -409,12 +388,11 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
-   * state and can receive updates from the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片可以更新。该方法调用成功后，卡片刷新状态设置为使能，卡片可以接收来自卡片提供方的更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -431,14 +409,11 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive
-   * updates from the widget provider. This API uses an asynchronous callback to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可以更新。该方法调用成功后，卡片刷新状态设置为去使能，卡片不可以接收来自卡片提供方的更新。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
-   *     widget framework to make the widget not updatable, **error** is undefined; otherwise, **error** is an error
-   *     object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向卡片框架发送通知以使指定的卡片不可以更新成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -456,12 +431,11 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive 
-   * updates from the widget provider. This API uses a promise to return the result.
+   * 向卡片框架发送通知以使指定的卡片不可以更新。该方法调用成功后，卡片刷新状态设置为去使能，卡片不可以接收来自卡片提供方的更新。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -479,10 +453,9 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Checks whether the system is ready. This API uses an asynchronous callback to return the result.
+   * 检查系统是否准备好。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the check is successful,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当检查系统是否准备好成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -494,9 +467,9 @@ declare namespace formHost {
   function isSystemReady(callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is ready. This API uses a promise to return the result.
+   * 检查系统是否准备好。使用Promise异步回调。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -506,13 +479,11 @@ declare namespace formHost {
   function isSystemReady(): Promise<void>;
 
   /**
-   * Obtains the widget information provided by all applications on the device (excluding template widgets). This API 
-   * uses an asynchronous callback to return the result.
+   * 获取设备上所有应用提供的卡片信息（不包含模板卡片）。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上所有应用提供的卡片信息成功，error为undefined，data为查询到的卡片信
+   *     息；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -528,11 +499,10 @@ declare namespace formHost {
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the widget information provided by all applications on the device (excluding template widgets). This API 
-   * uses a promise to return the result.
+   * 获取设备上所有应用提供的卡片信息（不包含模板卡片）。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -546,14 +516,12 @@ declare namespace formHost {
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the widget information provided by a specified application on the device (excluding template widgets). 
-   * This API uses an asynchronous callback to return the result.
+   * 获取设备上指定应用程序提供的卡片信息（不包含模板卡片）。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { string } bundleName - 要查询的应用Bundle名称。
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上指定应用程序提供的卡片信息成功，error为undefined，data为查询到的卡
+   *     片信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -570,15 +538,13 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the widget information provided by a specified application on the device (excluding template widgets). This
-   *  API uses an asynchronous callback to return the result.
+   * 获取设备上指定应用程序提供的卡片信息（不包含模板卡片）。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } moduleName - Module name.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
-   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
-   *     is an error object.
+   * @param { string } bundleName - 要查询的应用Bundle名称。
+   * @param { string } moduleName - 要查询的模块名称。
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。当获取设备上指定应用程序提供的卡片信息成功，error为undefined，data为查询到的卡
+   *     片信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -599,13 +565,12 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Obtains the widget information provided by a specified application on the device (excluding template widgets). 
-   * This API uses a promise to return the result.
+   * 获取设备上指定应用程序提供的卡片信息（不包含模板卡片）。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } [moduleName] - Module name. By default, no value is passed.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @param { string } bundleName - 要查询的应用Bundle名称。
+   * @param { string } [moduleName] - 要查询的模块名称，缺省默认为空。
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -622,12 +587,11 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the widget information provided by a specified application on the device (excluding template widgets).
-   * This API uses a promise to return the result.
+   * 获取设备上指定应用程序提供的卡片信息（不包含模板卡片）。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.FormInfoFilter } filter - Filter criterion.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @param { formInfo.FormInfoFilter } filter - 卡片信息过滤器。
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到符合条件的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -644,12 +608,11 @@ declare namespace formHost {
   function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Deletes invalid widgets from the list. This API uses an asynchronous callback to return the result.
+   * 根据有效的卡片列表，删除应用程序不在有效列表中的卡片。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of valid widget IDs.
-   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the invalid widgets are deleted, 
-   *     **error** is undefined and **data** is the number of widgets deleted; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 有效卡片列表。
+   * @param { AsyncCallback<int> } callback - 回调函数。当根据列表删除应用程序的无效卡片成功，error为undefined，data为删除的卡片个数；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -665,11 +628,11 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<int>): void;
 
   /**
-   * Deletes invalid widgets from the list. This API uses a promise to return the result.
+   * 根据列表删除应用程序的无效卡片。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of valid widget IDs.
-   * @returns { Promise<int> } Promise used to return the number of widgets deleted.
+   * @param { Array<string> } formIds - 有效卡片标识列表。
+   * @returns { Promise<int> } Promise对象。返回删除的卡片个数。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -685,14 +648,11 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>): Promise<int>;
 
   /**
-   * Obtains the widget state. This API uses an asynchronous callback to return the result.
+   * 获取卡片状态。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
-   *     bundle name, ability name, module name, widget name, and widget dimensions.
-   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback used to return the result. If the widget
-   *     state is obtained, **error** is undefined and **data** is the widget state obtained; otherwise, **error**
-   *     is an error object.
+   * @param { Want } want - 查询卡片状态时携带的want信息。需要包含bundle名、ability名、module名、卡片名、卡片规格等。
+   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - 回调函数。当获取卡片状态成功，error为undefined，data为获取到的卡片状态；否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -709,12 +669,11 @@ declare namespace formHost {
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
   /**
-   * Obtains the widget state. This API uses a promise to return the result.
+   * 获取卡片状态。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
-   *     bundle name, ability name, module name, widget name, and widget dimensions.
-   * @returns { Promise<formInfo.FormStateInfo> } Promise used to return the widget state obtained.
+   * @param { Want } want - 查询卡片状态时携带的want信息。需要包含bundle名、ability名、module名、卡片名、卡片规格等。
+   * @returns { Promise<formInfo.FormStateInfo> } Promise对象。返回卡片状态。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -731,15 +690,14 @@ declare namespace formHost {
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
   /**
-   * Subscribes to widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 订阅卡片卸载事件。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
-   * > is automatically uninstalled.
+   * > 卡片卸载与卡片移除不同。当应用卸载时，对应的卡片会自动卸载。
    *
-   * @param { "formUninstall" } type - Event type. The value **"formUninstall"** indicates a widget uninstall event.
-   * @param { Callback<string> } callback - Callback used to return the widget ID.
+   * @param { "formUninstall" } type - 填写'formUninstall'，表示卡片卸载事件。
+   * @param { Callback<string> } callback - 回调函数，返回卡片标识。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -765,18 +723,15 @@ declare namespace formHost {
   function onFormUninstall(callback: Callback<string>): void;
 
   /**
-   * Unsubscribes from widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 取消订阅卡片卸载事件。使用callback异步回调。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
-   * > is automatically uninstalled.
+   * > 卡片卸载与卡片移除不同。当应用卸载时，对应的卡片会自动卸载。
    *
-   * @param { "formUninstall" } type - Event type. The value **"formUninstall"** indicates a widget uninstall event.
-   * @param { Callback<string> } [callback] - Callback used to return the widget ID. If it is left unspecified, it
-   *     indicates the callback for all the events that have been subscribed.
-   *     <br> To cancel the subscription with a given callback, this parameter must be set to the same value as 
-   *     **callback** in **on("formUninstall")**.
+   * @param { "formUninstall" } type - 填写'formUninstall'，表示卡片卸载事件。
+   * @param { Callback<string> } [callback] - 回调函数，返回卡片标识。缺省时，表示注销所有已注册事件回调。
+   *     <br> 需与对应on('formUninstall')的callback一致。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -802,15 +757,14 @@ declare namespace formHost {
   function offFormUninstall(callback?: Callback<string>): void;
 
   /**
-   * Instructs the widgets to make themselves visible. This API uses an asynchronous callback to return the result.
+   * 通知卡片是否可见。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isVisible - Whether the widget is visible.
-   *     <br>**true**: The widget is visible.
-   *     <br>**false**: The widget is invisible.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isVisible - 表示卡片是否可见。
+   *     <br>true: 表示卡片可见。
+   *     <br>false: 表示卡片不可见。
+   * @param { AsyncCallback<void> } callback - 回调函数。当通知卡片是否可见成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -827,14 +781,14 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Instructs the widgets to make themselves visible. This API uses a promise to return the result.
+   * 通知卡片是否可见。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isVisible - Whether the widget is visible.
-   *     <br>**true**: The widget is visible.
-   *     <br>**false**: The widget is invisible.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isVisible - 表示卡片是否可见。
+   *     <br>true: 表示卡片可见。
+   *     <br>false: 表示卡片不可见。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -851,15 +805,13 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
   /**
-   * Instructs the widgets to enable or disable updates. This API uses an asynchronous callback to return the result.
+   * 通知卡片是否启用更新状态。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isEnableUpdate - Whether the widget can be updated.
-   *     <br>**true**: The widget can be updated.
-   *     <br>**false**: The widget cannot be updated.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
-   *     **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isEnableUpdate - 表示卡片是否启用更新状态。
+   *     <br>true: 表示卡片启用更新状态。false: 表示卡片没有启用更新状态。
+   * @param { AsyncCallback<void> } callback - 回调函数。当通知卡片是否启用更新状态成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -880,14 +832,14 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Instructs the widgets to enable or disable updates. This API uses a promise to return the result.
+   * 通知卡片是否启用更新状态。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - List of widget IDs.
-   * @param { boolean } isEnableUpdate - Whether the widget can be updated.
-   *     <br>**true**: The widget can be updated.
-   *     <br>**false**: The widget cannot be updated.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识列表。
+   * @param { boolean } isEnableUpdate - 表示卡片是否启用更新状态。
+   *     <br>true: 表示卡片启用更新状态。
+   *     <br>false: 表示卡片没有启用更新状态。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -904,13 +856,12 @@ declare namespace formHost {
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 
   /**
-   * Shares a specified widget with a remote device. This API uses an asynchronous callback to return the result.
+   * 指定formId和远程设备Id进行卡片分享。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } formId - Widget ID.
-   * @param { string } deviceId - Remote device ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is shared, **error**
-   *     is undefined; otherwise, **error** is an error object.
+   * @param { string } formId - 卡片标识。
+   * @param { string } deviceId - 远程设备标识。
+   * @param { AsyncCallback<void> } callback - 回调函数。当指定formId和远程设备Id进行卡片分享成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -927,12 +878,12 @@ declare namespace formHost {
   function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Shares a specified widget with a remote device. This API uses a promise to return the result.
+   * 指定formId和远程设备Id进行卡片分享。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } formId - Widget ID.
-   * @param { string } deviceId - Remote device ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { string } deviceId - 远程设备标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -949,16 +900,14 @@ declare namespace formHost {
   function shareForm(formId: string, deviceId: string): Promise<void>;
 
   /**
-   * Notifies that the privacy protection status of the specified widgets changes. This API uses an asynchronous 
-   * callback to return the result.
+   * 通知指定卡片隐私保护状态改变。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - ID of the widgets.
-   * @param { boolean } isProtected - Whether a widget requires privacy protection.
-   *     <br>**true**: The widget requires privacy protection.
-   *     <br>**false**: The widget does not require privacy protection.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If privacy protection is set
-   *     successfully, **error** is undefined; otherwise, **error** is an error object.
+   * @param { Array<string> } formIds - 需要修改隐私保护的卡片标识列表。
+   * @param { boolean } isProtected - 表示卡片是否进行隐私保护状态。
+   *     <br>true: 表示卡片要进行隐私保护状态。
+   *     <br>false: 表示卡片不需要进行隐私保护状态。
+   * @param { AsyncCallback<void> } callback - 回调函数。当指定卡片设置隐私保护属性成功，error为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -978,15 +927,14 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Notifies that the privacy protection status of the specified widgets changes. This API uses a promise to return
-   * the result.
+   * 通知指定卡片隐私保护状态改变。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - ID of the widgets.
-   * @param { boolean } isProtected - Whether a widget requires privacy protection.
-   *     <br>**true**: The widget requires privacy protection.
-   *     <br>**false**: The widget does not require privacy protection.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 需要修改隐私保护的卡片标识列表。
+   * @param { boolean } isProtected - 表示卡片是否进行隐私保护状态。
+   *     <br>true: 表示卡片要进行隐私保护状态。
+   *     <br>false: 表示卡片不需要进行隐私保护状态。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1002,14 +950,12 @@ declare namespace formHost {
   function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 
   /**
-   * Requests data from the widget provider. This API uses an asynchronous callback to return the result.
+   * 请求卡片提供方数据。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { AsyncCallback<{ [key: string]: Object }> } callback - Callback used to return the API call result and the
-   *     shared data. [since 10 - 10]
-   * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the API call result and the 
-   *     shared data. [since 11]
+   * @param { string } formId - 卡片标识。
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - 以callback方式返回接口运行结果及卡片提供方数据。 [since 10 - 10]
+   * @param { AsyncCallback<Record<string, Object>> } callback - 以callback方式返回接口运行结果及卡片提供方数据。 [since 11]
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1028,12 +974,12 @@ declare namespace formHost {
   function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
-   * Requests data from the widget provider. This API uses a promise to return the result.
+   * 请求卡片提供方数据。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
-   * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared 
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<{ [key: string]: Object }> } 以Promise方式返回接口运行结果及卡片提供方数据。 [since 10 - 10]
+   * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared
    *     data. [since 11]
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -1051,23 +997,23 @@ declare namespace formHost {
    * @since 23 static
    */
   function acquireFormData(formId: string): Promise<Record<string, Object>>;
+
   /**
-   * Sets a router proxy for widgets and obtains the Want information required for redirection. This API uses an 
-   * asynchronous callback to return the result.
+   * 设置卡片跳转代理。使用callback异步回调，返回卡片跳转所需要Want信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Generally, for a widget added to the home screen, in the case of router-based redirection, the widget framework
-   * > checks whether the destination is proper and whether the widget has the redirection permission, and then 
-   * > triggers redirection accordingly. For a widget that is added to a widget host and has a router proxy configured, 
-   * > in the case of router-based redirection, the widget framework does not trigger redirection for the widget.
-   * > - Only one router proxy can be set for a widget. If multiple proxies are set, only the last proxy takes effect.
+   * > - 一般情况下，对于桌面添加的卡片，当卡片触发router跳转时，卡片框架会检测其跳转目的地是否合理，是否有跳转权限，然后进行应用跳转。如果卡片使用方添加了卡片，并设置了卡片跳转代理，那么卡片触发router跳转时，卡片框架不
+   * > 会再为其进行跳转操作，会把包含跳转目的地的want参数返回给卡片使用方。因此如果卡片使用方希望使用该want信息进行应用跳转，需要确保自身拥有应用跳转的权限，参考
+   * > [UIAbilityContext.startAbility()]{@link ./application/UIAbilityContext:UIAbilityContext#startAbility(want: Want, callback: AsyncCallback<void>)}
+   * > 接口。
+   * >
+   * > - 一个formId最多只能设置一个跳转代理，多次设置后，最后设置的proxy生效。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @param { Callback<Want> } proxy - Callback used to return the Want information required for redirection.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the router proxy is set, **error** is 
-   *     **undefined**; otherwise, an exception is thrown.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @param { Callback<Want> } proxy - 回调函数。返回跳转所需要的Want信息。
+   * @param { AsyncCallback<void> } callback - 回调函数，当指定卡片设置router跳转代理成功时，error为undefined；否则抛出异常。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1084,22 +1030,21 @@ declare namespace formHost {
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
 
    /**
-   * Sets a router proxy for widgets and obtains the Want information required for redirection. This API uses a promise 
-   * to return the result. This API uses a promise to return the result.
+   * 设置卡片跳转代理。使用Promise异步回调，返回卡片跳转所需要Want信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - Generally, for a widget added to the home screen, in the case of router-based redirection, the widget framework
-   * >  checks whether the destination is proper and whether the widget has the redirection permission, and then 
-   * > triggers redirection accordingly. For a widget that is added to a widget host and has a router proxy configured, 
-   * > in the case of router-based redirection, the widget framework does not trigger redirection for the widget.
+   * > - 一般情况下，对于桌面添加的卡片，当卡片触发router跳转时，卡片框架会检测其跳转目的地是否合理，是否有跳转权限，然后进行应用跳转。如果卡片使用方添加了卡片，并设置了卡片跳转代理，那么卡片触发router跳转时，卡片框架不
+   * > 会再为其进行跳转操作，会把包含跳转目的地的want参数返回给卡片使用方。因此如果卡片使用方希望使用该want信息进行应用跳转，需要确保自身拥有应用跳转的权限，参考
+   * > [UIAbilityContext.startAbility()]{@link ./application/UIAbilityContext:UIAbilityContext#startAbility(want: Want, callback: AsyncCallback<void>)}
+   * > 接口。
    * >
-   * > - Only one router proxy can be set for a widget. If multiple proxies are set, only the last proxy takes effect.
+   * > - 一个formId最多只能设置一个跳转代理，多次设置后，最后设置的proxy生效。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @param { Callback<Want> } proxy - Callback used to return the Want information required for redirection.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @param { Callback<Want> } proxy - 回调函数。返回跳转所需要的Want信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1116,12 +1061,11 @@ declare namespace formHost {
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
 
    /**
-   * Clears the router proxy set for widgets. This API uses an asynchronous callback to return the result.
+   * 清除卡片跳转代理。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the router proxy is cleared,
-   *     **error** is **undefined**; otherwise, an exception is thrown.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @param { AsyncCallback<void> } callback - 回调函数，当指定卡片清除router跳转代理成功时，error为undefined；否则抛出异常。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1138,11 +1082,11 @@ declare namespace formHost {
   function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
    /**
-   * Clears the router proxy set for widgets. This API uses a promise to return the result.
+   * 清除卡片跳转代理。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1159,11 +1103,11 @@ declare namespace formHost {
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
 
   /**
-   * Sets the result for the operation of adding a widget to the home screen.
+   * 设置卡片加桌结果。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { formInfo.PublishFormResult } result - Result of the operation.
+   * @param { string } formId - 卡片标识。
+   * @param { formInfo.PublishFormResult } result - 发布卡片加桌结果。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1181,11 +1125,11 @@ declare namespace formHost {
   function setPublishFormResult(formId: string, result: formInfo.PublishFormResult): void;
 
   /**
-   * Sets widgets to be recyclable. This API uses a promise to return the result.
+   * 设置卡片可回收。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1202,12 +1146,11 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>): Promise<void>;
 
   /**
-   * Sets widgets to be recyclable. This API uses an asynchronous callback to return the result.
+   * 设置卡片可回收。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widgets are set to be
-   *     recyclable, **error** is **undefined**; otherwise, an exception is thrown.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @param { AsyncCallback<void> } callback - 回调函数，当设置卡片可回收成功时，error为undefined；否则抛出异常。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1224,11 +1167,11 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Recycles widgets, that is, reclaiming widget memory. This API uses a promise to return the result.
+   * 立即回收卡片内存。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1245,12 +1188,11 @@ declare namespace formHost {
   function recycleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Recovers recycled widgets and updates their status to non-recyclable, or updates the status of widgets to non-
-   * recyclable if the widgets are not recycled. This API uses a promise to return the result.
+   * 恢复被回收的卡片，并将它的状态更新为不可回收，如果卡片未被回收则只更新状态为不可回收。使用Promise异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1267,12 +1209,11 @@ declare namespace formHost {
   function recoverForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Recovers widgets. This API uses an asynchronous callback to return the result.
+   * 恢复被回收的卡片，并将它的状态更新为不可回收。如果卡片未被回收，则只更新状态为不可回收。使用callback异步回调。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Array of widget IDs.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widgets are recovered,
-   *     **error** is **undefined**; otherwise, an exception is thrown.
+   * @param { Array<string> } formIds - 卡片标识数组。
+   * @param { AsyncCallback<void> } callback - 回调函数，当恢复卡片成功时，error为undefined；否则抛出异常。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1289,11 +1230,11 @@ declare namespace formHost {
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the widget location.
+   * 更新卡片位置。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { formInfo.FormLocation } location - Widget location.
+   * @param { string } formId - 卡片标识。
+   * @param { formInfo.FormLocation } location - 卡片位置。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1312,14 +1253,13 @@ declare namespace formHost {
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 
   /**
-   * Notifies the update of the widget lock state. This API uses a promise to return the result.
-   * If an application is locked, its widget will also be locked and masked in a locked style. To use the widget, you 
-   * need to enter the password set for the widget.
+   * 通知卡片管控状态更新。使用Promise异步回调。
+   * 
+   * 卡片管控状态是指，应用使能了应用锁管控，对应应用的卡片也会跟随使能应用锁管控，此时卡片页面会使用加锁的蒙板样式遮罩卡片。在管控状态下，操作和使用卡片需要输入加锁时设置的密码。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { boolean } isLocked - A Boolean value indicates whether a widget is in the locked state. The value
-   *     **true** indicates that the widget is in the locked state, and the value **false** indicates the opposite.
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } isLocked - 标识卡片是否为管控状态，true表示管控状态，false表示非管控状态。
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
@@ -1336,13 +1276,10 @@ declare namespace formHost {
   function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>;
 
   /**
-   * Subscribes to the interactive widget animation request event. This API uses an asynchronous callback to return the 
-   * result.
+   * 订阅互动卡片动效请求事件。使用callback异步回调。
    *
-   * @param { 'formOverflow' } type - Event callback. The supported event is **'formOverflow'**, indicating the
-   *     interactive widget animation request.
-   * @param { Callback<formInfo.OverflowRequest> } callback - Callback used by the widget host to process the animation
-   *     request.
+   * @param { 'formOverflow' } type - 事件回调类型，支持的事件为'formOverflow'，表示互动卡片动效请求。
+   * @param { Callback<formInfo.OverflowRequest> } callback - 回调函数，用于卡片使用方对动效请求进行处理。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -1364,14 +1301,10 @@ declare namespace formHost {
   function onFormOverflow(callback: Callback<formInfo.OverflowRequest>): void;
 
   /**
-   * Unsubscribes from the interactive widget animation request event. This API uses an asynchronous callback to return
-   *  the result.
+   * 取消订阅互动卡片动效请求事件。使用callback异步回调。
    *
-   * @param { 'formOverflow' } type - Event callback. The supported event is **'formOverflow'**, indicating the
-   *     interactive widget animation request.
-   * @param { Callback<formInfo.OverflowRequest> } [callback] - Callback function, which corresponds to the subscribed 
-   *     interactive widget animation request. By default, all registered interactive widget animation request events
-   *     are deregistered.
+   * @param { 'formOverflow' } type - 事件回调类型，支持的事件为'formOverflow'，表示互动卡片动效请求。
+   * @param { Callback<formInfo.OverflowRequest> } [callback] - 回调函数，对应已订阅互动卡片动效请求。缺省时，表示注销所有已注册互动卡片动效请求事件回调。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -1393,14 +1326,12 @@ declare namespace formHost {
   function offFormOverflow(callback?: Callback<formInfo.OverflowRequest>): void;
 
   /**
-   * Updates the size of the widget.
+   * 调整卡片尺寸。
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Widget ID.
-   * @param { formInfo.FormDimension } newDimension - Widget dimension. For example, **Dimension_1_2** indicates a
-   *     1 x 2 widget.
-   * @param { formInfo.Rect } newRect - Widget position information, including the X and Y coordinates of the widget's
-   *     top-left corner, as well as its width and height.
+   * @param { string } formId - 卡片标识。
+   * @param { formInfo.FormDimension } newDimension - 卡片尺寸，例如 Dimension_1_2，表示 1 x 2 卡片。
+   * @param { formInfo.Rect } newRect - 卡片位置信息，包括卡片左上角顶点的xy坐标和卡片的宽高。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -1414,15 +1345,11 @@ declare namespace formHost {
   function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 
   /**
-   * Subscribes to the event of switching the interactive widget state. An interactive widget can be in the active or 
-   * inactive state. In the inactive state, the interactive widget is the same as a common widget. In the active state, 
-   * the interactive widget can start the **LiveFormExtensionAbility** process developed by the widget host to
-   * implement interactive widget animations. This API uses an asynchronous callback to return the result.
+   * 订阅互动卡片状态切换请求事件。互动卡片状态分为激活态和非激活态，非激活态下，互动卡片同普通卡片一致；激活态下，互动卡片支持拉起卡片提供方所开发的LiveFormExtensionAbility进程，实现互动卡片动效。使用
+   * callback异步回调。
    *
-   * @param { 'changeSceneAnimationState' } type - Event type. The event **'changeSceneAnimationState'** is triggered
-   *     when the interactive widget state is switched.
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - Callback function, which is used by the
-   *     widget host to process the state switching request.
+   * @param { 'changeSceneAnimationState' } type - 事件回调类型，支持的事件为'changeSceneAnimationState'，表示互动卡片状态切换。
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - 回调函数，用于卡片使用方处理状态切换请求。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -1446,16 +1373,12 @@ declare namespace formHost {
   function onChangeSceneAnimationState(callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
 
   /**
-   * Unsubscribes from the event of switching the interactive widget state. An interactive widget can be in the active
-   * or inactive state. In the inactive state, the interactive widget is the same as a common widget. In the active
-   * state, the interactive widget can start the **LiveFormExtensionAbility** process developed by the widget host to
-   * implement interactive widget animations. This API uses an asynchronous callback to return the result.
+   * 取消订阅互动卡片状态切换请求事件。互动卡片状态分为激活态和非激活态，非激活态下，互动卡片同普通卡片一致；激活态下，互动卡片支持拉起卡片提供方所开发的LiveFormExtensionAbility进程，实现互动卡片动效。使用
+   * callback异步回调。
    *
-   * @param { 'changeSceneAnimationState' } type - Event type. The event **'changeSceneAnimationState'** is triggered
-   *     when the interactive widget state is switched.
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } [callback] - Callback function, which corresponds
-   *     to the request for switching the state of a subscribed interactive widget. By default, all registered 
-   *     interactive widget state switching events are deregistered.
+   * @param { 'changeSceneAnimationState' } type - 事件回调类型，支持的事件为'changeSceneAnimationState'，表示互动卡片状态切换。
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } [callback] - 回调函数，对应已订阅互动卡片状态切换请求。缺省时，表示注销所有已注册互动卡片状
+   *     态切换事件回调。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -1479,19 +1402,15 @@ declare namespace formHost {
   function offChangeSceneAnimationState(callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
 
   /**
-   * Subscribes to the event of requesting widget position and dimension. This API uses an asynchronous callback to
-   * return the result.
-   *
-   * @param { 'getFormRect' } type - Event callback type. The supported event is **'getFormRect'**, indicating
-   *     requesting widget position and dimension.
-   * @param { formInfo.GetFormRectInfoCallback } callback - Callback function used by the widget host to process the
-   *     request and return the position and dimension of the widget relative to the upper-left corner of the screen.
-   *     The unit is vp.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
+    * 订阅卡片位置尺寸查询请求事件。使用callback异步回调。
+    *
+    * @param { 'getFormRect' } type - 事件回调类型，支持的事件为'getFormRect'，表示卡片位置尺寸查询。
+    * @param { formInfo.GetFormRectInfoCallback } callback - 回调函数，卡片使用方对查询请求进行处理，返回卡片相对屏幕左上角的位置信息和卡片尺寸信息。
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 20 dynamic
+    */
    function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
 
   /**
@@ -1508,14 +1427,10 @@ declare namespace formHost {
   function onGetFormRect(callback: formInfo.GetFormRectInfoCallback): void;
 
   /**
-   * Unsubscribes from the event of requesting widget position and dimension. This API uses an asynchronous callback to 
-   * return the result.
+   * 取消订阅卡片位置尺寸查询请求事件。使用callback异步回调。
    *
-   * @param { 'getFormRect' } type - Event callback type. The supported event is **'getFormRect'**, indicating
-   *     requesting widget position and dimension.
-   * @param { formInfo.GetFormRectInfoCallback } [callback] - Callback function, corresponding to the subscribed
-   *     widget position and dimension request. By default, all registered widget position and dimension request event
-   *     callbacks are deregistered.
+   * @param { 'getFormRect' } type - 事件回调类型，支持的事件为'getFormRect'，表示卡片位置尺寸查询。
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - 回调函数，对应已订阅卡片位置尺寸查询请求。缺省时，表示注销所有已注册卡片位置、尺寸查询事件回调。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -1584,11 +1499,10 @@ declare namespace formHost {
   function offGetLiveFormStatus(callback?: formInfo.GetLiveFormStatusCallback): void;
 
   /**
-   * Obtains the template widget information provided by all applications on the device. This API uses a promise to 
-   * return the result.
+   * 获取设备上所有应用提供的模板卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1599,13 +1513,12 @@ declare namespace formHost {
   function getAllTemplateFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the template widget information provided by a specified application on the device. This API uses a 
-   * promise to return the result.
+   * 获取设备上指定应用程序提供的模板卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { string } [moduleName] - Module name. By default, no value is passed.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @param { string } bundleName - 要查询的应用Bundle名称。
+   * @param { string } [moduleName] - 要查询的模块名称，缺省默认为空。
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到的卡片信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1616,12 +1529,10 @@ declare namespace formHost {
   function getTemplateFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Subscribes to changes in the static configuration information of template widgets. This API uses an asynchronous
-   * callback to return the result.
+   * 订阅模板卡片静态配置信息变化。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.TemplateFormDetailInfoCallback } callback - Callback function used to listen for changes in
-   *     the static configuration information of template widgets.
+   * @param { formInfo.TemplateFormDetailInfoCallback } callback - 回调函数，监控模板卡片静态配置信息变化。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1633,12 +1544,10 @@ declare namespace formHost {
   function onTemplateFormDetailInfoChange(callback: formInfo.TemplateFormDetailInfoCallback): void;
 
   /**
-   * Unsubscribes from changes in the static configuration information of template widgets. This API uses an
-   * asynchronous callback to return the result.
+   * 取消订阅模板卡片静态配置信息变化。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - Callback function used to listen for changes
-   *     in the static configuration information of template widgets.
+   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - 回调函数，监控模板卡片静态配置信息变化。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1650,12 +1559,11 @@ declare namespace formHost {
   function offTemplateFormDetailInfoChange(callback?: formInfo.TemplateFormDetailInfoCallback): void;
 
   /**
-    * Obtains the list of widget IDs at a specified location on the device. This API uses a promise to return the
-    * result.
+    * 获取设备上指定卡片位置的卡片标识列表。使用Promise异步回调。
     *
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-    * @param { formInfo.FormLocation } location - Widget location.
-    * @returns { Promise<Array<string>> } Promise used to return the obtained widget ID list.
+    * @param { formInfo.FormLocation } location - 卡片位置。
+    * @returns { Promise<Array<string>> } Promise对象。返回查询到的卡片标识列表。
     * @throws { BusinessError } 201 - Permissions denied.
     * @throws { BusinessError } 202 - The application is not a system application.
     * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1667,10 +1575,10 @@ declare namespace formHost {
     */
    function getFormIdsByFormLocation(location: formInfo.FormLocation): Promise<Array<string>>;
 /**
-   * Register callback of getting the want parameters of the form.
+   * 订阅获取卡片参数事件。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.GetWantParamsCallback } callback - the callback for getting want parameters of the form.
+   * @param { formInfo.GetWantParamsCallback } callback - 回调函数，返回卡片参数信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1682,10 +1590,10 @@ declare namespace formHost {
   function onGetWantParamsCallback(callback: formInfo.GetWantParamsCallback): void;
 
   /**
-   * Unregister callback of getting the want parameters of the form.
+   * 取消订阅获取卡片参数事件。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.GetWantParamsCallback } [callback] - the callback for getting want parameters of the form.
+   * @param { formInfo.GetWantParamsCallback } [callback] - 回调函数，返回卡片参数信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1697,10 +1605,10 @@ declare namespace formHost {
   function offGetWantParamsCallback(callback?: formInfo.GetWantParamsCallback): void;
 
   /**
-   * Register the callback for updating form config.
+   * 订阅更新卡片配置事件。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.UpdateFormsConfigCallback } callback - Identifies the callback for updating form config.
+   * @param { formInfo.UpdateFormsConfigCallback } callback - 回调函数，返回卡片配置更新信息。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1711,49 +1619,49 @@ declare namespace formHost {
    */
   function onUpdateFormsConfigCallback(callback: formInfo.UpdateFormsConfigCallback): void;
 
-   /**
-    * Unregister the callback for updating form config.
-    *
-    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-    * @param { formInfo.UpdateFormsConfigCallback } [callback] - Identifies the callback for updating form config.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 16500050 - IPC connection error.
-    * @syscap SystemCapability.Ability.Form
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+  /**
+   * 取消订阅更新卡片配置事件。使用callback异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.UpdateFormsConfigCallback } [callback] - 回调函数，返回卡片配置更新信息。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   function offUpdateFormsConfigCallback(callback?: formInfo.UpdateFormsConfigCallback): void;
  
-   /**
-    * Register the callback for deleting forms.
-    *
-    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-    * @param { formInfo.DeleteFormsCallback } callback - Identifies the callback for deleting forms.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 16500050 - IPC connection error.
-    * @syscap SystemCapability.Ability.Form
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+  /**
+   * 订阅删除卡片事件。使用callback异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.DeleteFormsCallback } callback - 回调函数，返回被删除的卡片标识列表。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   function onDeleteFormsCallback(callback: formInfo.DeleteFormsCallback): void;
    
-   /**
-    * Unregister the callback for deleting forms.
-    *
-    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-    * @param { formInfo.DeleteFormsCallback } [callback] - Identifies the callback for deleting forms.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 16500050 - IPC connection error.
-    * @syscap SystemCapability.Ability.Form
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+  /**
+   * 取消订阅删除卡片事件。使用callback异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.DeleteFormsCallback } [callback] - 回调函数，返回被删除的卡片标识列表。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   function offDeleteFormsCallback(callback?: formInfo.DeleteFormsCallback): void;
 }
 export default formHost;

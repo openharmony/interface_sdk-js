@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formProvider
  * @kit FormKit
  */
 
@@ -25,7 +25,8 @@ import Want from './@ohos.app.ability.Want';
 import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
- * The **formProvider** module provides APIs to obtain widget information, update widgets, and set the update time.
+ * formProvider模块提供了获取卡片信息、更新卡片、设置卡片刷新时间等能力。该模块作为卡片提供方与卡片管理服务的桥梁，通过IPC机制与FormExtension进行通信，实现卡片的更新、信息获取等操作。适用于卡片提供方需要主动更
+ * 新卡片内容、管理卡片生命周期、获取卡片运行状态等场景，帮助开发者实现卡片的动态更新和状态管理。
  *
  * @syscap SystemCapability.Ability.Form
  * @atomicservice [since 11]
@@ -34,11 +35,11 @@ import type UIAbilityContext from './application/UIAbilityContext';
  */
 declare namespace formProvider {
   /**
-   * Sets the next refresh time for a widget. This API uses an asynchronous callback to return the result.
+   * 设置指定卡片的下一次刷新时间，使用callback异步回调。适用于需要精确控制卡片刷新时机的场景，例如定时任务等。
    *
-   * @param { string } formId - Widget ID.
-   * @param { int } minute - Time after which a widget is updated. The value is greater than or equal to 5, in minutes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } formId - 卡片标识。
+   * @param { int } minute - 指定卡片多久之后刷新，取值范围：大于等于5，单位：min。
+   * @param { AsyncCallback<void> } callback - 回调函数。设置结果的回调，成功时error为undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -56,11 +57,11 @@ declare namespace formProvider {
   function setFormNextRefreshTime(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
 /**
-   * Sets the next refresh time for a widget. This API uses a promise to return the result.
+   * 设置指定卡片的下一次刷新时间，使用Promise异步回调。适用于需要精确控制卡片刷新时机的场景，例如定时任务等。
    *
-   * @param { string } formId - Widget ID.
-   * @param { int } minute - Time after which a widget is updated. The value is greater than or equal to 5, in minutes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { int } minute - 指定卡片多久之后刷新，取值范围：大于等于5，单位：min。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -78,18 +79,16 @@ declare namespace formProvider {
   function setFormNextRefreshTime(formId: string, minute: int): Promise<void>;
 
   /**
-   * Updates a widget. This API uses an asynchronous callback to return the result.
+   * 更新指定的卡片，使用callback异步回调。适用于卡片数据变化时主动更新卡片内容的场景，例如天气数据变化、股票价格更新、任务进度更新等。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Starting from API version 20, when widget refresh data is updated via shared memory, the total size of the 
-   * > refreshed data must not exceed 10 MB, and the number of refreshed images must not exceed 20. For API version 19 
-   * > and earlier versions, the upper limit for image files is 5, with a per-image memory limit of 2 MB. Any images 
-   * > that exceed these limits will display abnormally.
+   * > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图
+   * > 片会显示异常。
    *
-   * @param { string } formId - ID of the widget to update.
-   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } formId - 请求更新的卡片标识。
+   * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。具体限制请参考上方说明。
+   * @param { AsyncCallback<void> } callback - 回调函数。更新结果的回调，成功时error为undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -110,18 +109,16 @@ declare namespace formProvider {
   ): void;
 
   /**
-   * Updates a widget. This API uses a promise to return the result.
+   * 更新指定的卡片，使用Promise异步回调。适用于卡片数据变化时主动更新卡片内容的场景，例如天气数据变化、股票价格更新、任务进度更新等。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Starting from API version 20, when widget refresh data is updated via shared memory, the total size of the 
-   * > refreshed data must not exceed 10 MB, and the number of refreshed images must not exceed 20. For API version 19 
-   * > and earlier versions, the upper limit for image files is 5, with a per-image memory limit of 2 MB. Any images 
-   * > that exceed these limits will display abnormally.
+   * > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图
+   * > 片会显示异常。
    *
-   * @param { string } formId - ID of the widget to update.
-   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 请求更新的卡片标识。
+   * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。具体限制请参考上方说明。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -138,11 +135,10 @@ declare namespace formProvider {
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
   /**
-   * Obtains the application's widget information that meets a filter criterion on the device. This API uses an 
-   * asynchronous callback to return the result.
+   * 获取设备上当前应用程序的卡片信息，并筛选符合条件的信息，使用callback异步回调。
    *
-   * @param { formInfo.FormInfoFilter } filter - Filter criterion.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the information obtained.
+   * @param { formInfo.FormInfoFilter } filter - 卡片信息过滤器。
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。返回查询到符合条件的卡片信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -156,10 +152,9 @@ declare namespace formProvider {
   function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the application's widget information on the device. This API uses an asynchronous callback to return the 
-   * result.
+   * 获取设备上当前应用程序的卡片信息，使用callback异步回调。适用于卡片管理、调试、统计等场景，例如查看应用所有卡片配置信息、统计卡片数量等。
    *
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the information obtained.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - 回调函数。返回查询到的卡片信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -173,12 +168,11 @@ declare namespace formProvider {
   function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains information about widgets that meet the criteria of the current application. This API uses a promise to 
-   * return the result.
+   * 获取设备上当前应用符合条件的卡片信息，使用Promise异步回调。
    *
-   * @param { formInfo.FormInfoFilter } [filter] - Filter criterion. By default, no value is passed, indicating that no 
-   *     filtering is performed.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @param { formInfo.FormInfoFilter } [filter] - 卡片信息过滤器，用于筛选指定条件的卡片信息。当需要获取特定模块或特定名称的卡片时传入此参数进行过滤，当需要获取所有卡片信息时可以不传此参
+   *     数。不传入时默认为空，返回所有卡片信息。
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到符合条件的卡片信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -192,14 +186,16 @@ declare namespace formProvider {
   function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Requests to publish a widget to the widget host (usually the home screen). This API uses an asynchronous callback 
-   * to return the result.
+   * 请求发布一张卡片到使用方。使用方通常为桌面，使用callback异步回调。
    *
-   * @param { Want } want - Publish request, which must contain the following fields:<br>Information about the target widget.
-   *     <br>**abilityName**: ability of the target widget.<br>**parameters**:<br>'ohos.extra.param.key.form_dimension'<br>'
-   *     ohos.extra.param.key.form_name'<br>'ohos.extra.param.key.module_name'
-   * @param { formBindingData.FormBindingData } formBindingData - Data used for creating the widget.
-   * @param { AsyncCallback<string> } callback - Callback used to return the widget ID.
+   * @param { Want } want - 发布请求，需包含以下字段。
+   *     <br>abilityName: 目标卡片ability
+   *     <br>parameters:
+   *     <br>'ohos.extra.param.key.form_dimension'
+   *     <br>'ohos.extra.param.key.form_name'
+   *     <br>'ohos.extra.param.key.module_name'
+   * @param { formBindingData.FormBindingData } formBindingData - 创建卡片的数据。
+   * @param { AsyncCallback<string> } callback - 回调函数，返回卡片标识。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -222,13 +218,15 @@ declare namespace formProvider {
   ): void;
 
   /**
-   * Requests to publish a widget to the widget host (usually the home screen). This API uses an asynchronous callback 
-   * to return the result.
+   * 请求发布一张卡片到使用方。使用方通常为桌面，使用callback异步回调。
    *
-   * @param { Want } want - Publish request, which must contain the following fields:<br>Information about the target widget.
-   *     <br>**abilityName**: ability of the target widget.<br>**parameters**:<br>'ohos.extra.param.key.form_dimension'<br>'
-   *     ohos.extra.param.key.form_name'<br>'ohos.extra.param.key.module_name'
-   * @param { AsyncCallback<string> } callback - Callback used to return the widget ID.
+   * @param { Want } want - 发布请求，需包含以下字段。
+   *     <br>abilityName: 目标卡片ability
+   *     <br>parameters:
+   *     <br>'ohos.extra.param.key.form_dimension'
+   *     <br>'ohos.extra.param.key.form_name'
+   *     <br>'ohos.extra.param.key.module_name'
+   * @param { AsyncCallback<string> } callback - 回调函数，返回卡片标识。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -247,15 +245,16 @@ declare namespace formProvider {
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
   /**
-   * Requests to publish a widget to the widget host (usually the home screen). This API uses a promise to return the 
-   * result.
+   * 请求发布一张卡片到使用方。使用方通常为桌面，使用Promise异步回调。
    *
-   * @param { Want } want - Publish request, which must contain the following fields:<br>Information about the target widget.
-   *     <br>**abilityName**: ability of the target widget.<br>**parameters**:<br>'ohos.extra.param.key.form_dimension'<br>'
-   *     ohos.extra.param.key.form_name'<br>'ohos.extra.param.key.module_name'
-   * @param { formBindingData.FormBindingData } [formBindingData] - Data used for creating the widget. By default, no value 
-   *     is passed, indicating that no data is provided.
-   * @returns { Promise<string> } Promise used to return the widget ID.
+   * @param { Want } want - 发布请求，需包含以下字段。
+   *     <br>abilityName: 目标卡片ability
+   *     <br>parameters:
+   *     <br>'ohos.extra.param.key.form_dimension'
+   *     <br>'ohos.extra.param.key.form_name'
+   *     <br>'ohos.extra.param.key.module_name'
+   * @param { formBindingData.FormBindingData } [formBindingData] - 创建卡片的数据，默认为空，不提供创建卡片数据。
+   * @returns { Promise<string> } Promise对象。返回卡片标识。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -274,11 +273,11 @@ declare namespace formProvider {
   function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 
   /**
-   * Checks whether a widget can be added to the widget host. This API uses an asynchronous callback to return the 
-   * result.
+   * 查询是否可以发布卡片到卡片使用方，使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback function that returns the query result.<br>**true**: The widget 
-   *     can be added to the widget host.<br>**false**: The widget cannot be added to the widget host.
+   * @param { AsyncCallback<boolean> } callback - 返回查询结果的回调函数。
+   *     <br>true: 表示可以发布卡片到卡片使用方。
+   *     <br>false: 表示不可以发布卡片到卡片使用方。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -292,13 +291,11 @@ declare namespace formProvider {
   function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a widget can be added to the widget host. This API uses a promise to return the result.
+   * 查询是否可以发布卡片到卡片使用方，使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise that returns whether a widget can be added to the widget host.
-   *     
-   *     **true**: The widget can be added to the widget host.
-   *     
-   *     **false**: The widget cannot be added to the widget host.
+   * @returns { Promise<boolean> } Promise对象。返回是否可以发布卡片到卡片使用方的结果。
+   *     <br>true: 表示可以发布卡片到卡片使用方。
+   *     <br>false: 表示不可以发布卡片到卡片使用方。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -310,16 +307,10 @@ declare namespace formProvider {
   function isRequestPublishFormSupported(): Promise<boolean>;
 
   /**
-   * Obtains the information of the widget that has been added to the home screen on the device. This API uses a promise
-   *  to return the result.
-   * 
-   * > **NOTE**
-   * >
-   * > This field is supported since API version 18 and deprecated since API version 20. You are advised to use 
-   * > [getPublishedRunningFormInfoById]{@link formProvider.getPublishedRunningFormInfoById} instead.
+   * 获取设备上当前应用程序已添加到桌面的指定卡片信息，使用Promise异步回调。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<formInfo.FormInfo> } Promise used to return the information obtained.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<formInfo.FormInfo> } Promise对象。返回查询到符合条件的卡片信息。
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -332,15 +323,9 @@ declare namespace formProvider {
   function getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>;
 
   /**
-   * Obtains the information of all widgets that have been added to the home screen on the device. This API uses a 
-   * promise to return the result.
-   * 
-   * > **NOTE**
-   * >
-   * > This field is supported since API version 18 and deprecated since API version 20. You are advised to use 
-   * > [getPublishedRunningFormInfos]{@link formProvider.getPublishedRunningFormInfos} instead.
+   * 获取设备上当前应用所有已添加到桌面的卡片信息，使用Promise异步回调。
    *
-   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise对象。返回查询到符合条件的卡片信息。
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -353,12 +338,10 @@ declare namespace formProvider {
   function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the information of a specified widget that has been added to the home screen. This API uses a promise to 
-   * return the result.
+   * 获取当前应用已加桌的指定卡片信息，使用Promise异步回调。适用于卡片管理、调试等场景，例如查看指定卡片的位置信息和尺寸信息。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<formInfo.RunningFormInfo> } Promise used to return the information about the widgets that meet the 
-   *     requirements, including the widget name and dimension.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<formInfo.RunningFormInfo> } Promise对象。返回符合条件的卡片信息，包括卡片名称、尺寸等。
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -372,11 +355,9 @@ declare namespace formProvider {
   function getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 
   /**
-   * Obtains information about all widgets that have been added to the home screen. This API uses a promise to return 
-   * the result.
+   * 获取所有已加桌的卡片信息，使用Promise异步回调。适用于卡片管理、批量操作、统计等场景，例如查看应用所有已添加到桌面的卡片信息、批量更新卡片状态等。
    *
-   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Promise used to return the information about widgets that meet the
-   *     requirements.
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Promise对象。返回符合条件的卡片信息。
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -388,12 +369,15 @@ declare namespace formProvider {
   function getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
   /**
-   * Opens the Widget Manager page of the current application.
+   * 打开当前应用的卡片管理页面。适用于卡片管理场景，例如预览当前应用所有可以加桌的卡片、添加卡片到负一屏或桌面等。
    *
-   * @param { Want } want - Parameter that must contain the following fields:<br>**bundleName**: bundle name of widget.<br>
-   *     **abilityName**: ability name of the widget.<br>**parameters**:<br>- **ohos.extra.param.key.form_dimension**: 
-   *     [Widget dimension]{@link @ohos.app.form.formInfo:formInfo.FormDimension}.<br>- **ohos.extra.param.key.form_name**: 
-   *     Widget name.<br>- **ohos.extra.param.key.module_name**: module name of the widget.
+   * @param { Want } want - 打开卡片管理页面的请求中的want参数，需包含以下字段。
+   *     <br>bundleName: 卡片所属应用的包名。
+   *     <br>abilityName: 卡片所属的ability名称。
+   *     <br>parameters:
+   *     <br>- ohos.extra.param.key.form_dimension: [卡片尺寸]{@link @ohos.app.form.formInfo:formInfo.FormDimension}。
+   *     <br>- ohos.extra.param.key.form_name: 卡片名称。
+   *     <br>- ohos.extra.param.key.module_name: 卡片所属的模块名称。
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -422,12 +406,14 @@ declare namespace formProvider {
   function openFormManagerCrossBundle(want: Want): void
 
   /**
-   * Opens the widget editing page.
+   * 打开卡片编辑页。适用于需要用户配置卡片参数的场景，例如设置卡片显示内容、选择数据源、配置更新频率等。
    *
-   * @param { string } abilityName - Ability name on the editing page.
-   * @param { string } formId - Widget ID.
-   * @param { boolean } [isMainPage] - Whether the page is the main editing page.<br>- **true**: The page is the main
-   *     editing page.<br>- **false**: The page is not the main editing page.<br>Default value: **true**.
+   * @param { string } abilityName - 编辑页的ability名称。
+   * @param { string } formId - 卡片标识。
+   * @param { boolean } [isMainPage] - 是否为主编辑页。
+   *     <br>- true：表示是主编辑页，适合首次配置卡片基本信息的场景。
+   *     <br>- false：表示不是主编辑页，适合进行卡片细节调整或高级配置的场景。
+   *     <br>默认值：true（通常首次编辑卡片时使用默认值即可）。
    * @throws { BusinessError } 801 - Capability not supported.function openFormEditAbility cannot work correctly due to
    *     limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -442,14 +428,11 @@ declare namespace formProvider {
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 
   /**
-   * Requests to activate a widget. This API takes effect only for 
-   * [scene-based widgets](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams-field). This API uses a 
-   * promise to return the result. An interactive widget can be in the active or inactive state. In the inactive state, 
-   * the widget is the same as a common widget. In the active state, the widget can start the 
-   * **LiveFormExtensionAbility** process developed by the widget host to implement animations.
+   * 互动卡片请求状态切换到激活态，只针对[场景动效类型互动卡片](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams标签)生效，使用Promise异
+   * 步回调。互动卡片状态分为激活态和非激活态，非激活态下，互动卡片同普通卡片一致；激活态下，互动卡片支持拉起卡片提供方所开发的LiveFormExtensionAbility进程，实现互动卡片动效。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.function activateSceneAnimation
    *     cannot work correctly due to limited device capabilities.
@@ -468,14 +451,11 @@ declare namespace formProvider {
   function activateSceneAnimation(formId: string): Promise<void>;
 
   /**
-   * Requests to deactivate a widget. This API takes effect only for 
-   * [scene-based widgets](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams-field). This API uses a 
-   * promise to return the result. An interactive widget can be in the active or inactive state. In the inactive state, 
-   * the widget is the same as a common widget. In the active state, the widget can start the 
-   * **LiveFormExtensionAbility** process developed by the widget host to implement animations.
+   * 互动卡片请求切换到非激活态，只针对[场景动效类型互动卡片](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams标签)生效，使用Promise异步
+   * 回调。互动卡片状态分为激活态和非激活态，非激活态下，互动卡片同普通卡片一致；激活态下，互动卡片支持拉起卡片提供方所开发的LiveFormExtensionAbility进程，实现互动卡片动效。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.function deactivateSceneAnimation can
    *     not work correctly due to limited device capabilities.
@@ -494,16 +474,19 @@ declare namespace formProvider {
   function deactivateSceneAnimation(formId: string): Promise<void>;
 
   /**
-   * Requests an animation. This API takes effect only for 
-   * [scene-based widgets](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams-field). This API uses a 
-   * promise to return the result.
+   * 卡片提供方发起互动卡片动效请求，只针对[场景动效类型互动卡片](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams标签)生效，使用Promise
+   * 异步回调。其中相关的方法为[cancelOverflow()]{@link formProvider.cancelOverflow}：取消互动卡片动效请求，用于取消已发起的动效。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
+   * > 1. 该接口在省电模式场景下不可使用，会报16501000错误码。
+   * >
+   * > 2. 当设备热档位进入HOT场景并且没有点击事件的场景下，该接口会报16501000错误码；当热档位进入OVERHEATED时，任何情况下都会报16501000错误码。热档位信息具体可参考
+   * > [热档位信息]{@link @ohos.thermal:thermal.ThermalLevel}。
    *
-   * @param { string } formId - Widget ID.
-   * @param { formInfo.OverflowInfo } overflowInfo - Animation request parameter information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @param { formInfo.OverflowInfo } overflowInfo - 动效请求参数信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 801 - Capability not supported.function requestOverflow can
    *     not work correctly due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -521,12 +504,18 @@ declare namespace formProvider {
   function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>;
 
   /**
-   * Cancels an animation. This API takes effect only for 
-   * [scene-based widgets](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams-field). This API uses a 
-   * promise to return the result.
+   * 卡片提供方发起取消互动卡片动效请求，只针对[场景动效类型互动卡片](docroot://form/arkts-ui-widget-configuration.md#sceneanimationparams标签)生效，使用
+   * Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 1. 该接口在省电模式场景下不可使用，会报16501000错误码。
+   * >
+   * > 2. 当设备热档位进入HOT场景并且没有点击事件的场景下，该接口会报16501000错误码；当热档位进入OVERHEATED时，任何情况下都会报16501000错误码。热档位信息具体可参考
+   * > [热档位信息]{@link @ohos.thermal:thermal.ThermalLevel}。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 801 - Capability not supported.function cancelOverflow can
    *     not work correctly due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -544,11 +533,10 @@ declare namespace formProvider {
   function cancelOverflow(formId: string): Promise<void>;
 
   /**
-   * Obtains the position and dimension of a widget. This API uses a promise to return the result.
+   * 查询卡片位置、尺寸，使用Promise异步回调。适用于需要获取卡片在屏幕上的位置和尺寸信息的场景，例如卡片动效、位置校准、布局计算等。
    *
-   * @param { string } formId - Widget ID.
-   * @returns { Promise<formInfo.Rect> } Promise used to return the position and dimension of the widget relative to the 
-   *     upper-left corner of the screen, in vp.
+   * @param { string } formId - 卡片标识。
+   * @returns { Promise<formInfo.Rect> } Promise对象，返回卡片相对屏幕左上角的位置信息和卡片尺寸信息。
    * @throws { BusinessError } 801 - Capability not supported.function getFormRect cannot work correctly
    *     due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -565,20 +553,19 @@ declare namespace formProvider {
   function getFormRect(formId: string): Promise<formInfo.Rect>;
 
   /**
-   * Reloads widgets. For widgets with the same **moduleName**, **abilityName**, and **formName** of the current 
-   * application, each widget has a different widget ID after being added to the home screen for multiple times. Widget 
-   * providers can use this API to batch update widgets that have different IDs but share the same **moduleName**, 
-   * **abilityName**, and **formName**. Invoked in the main process of the application, this API notifies the 
-   * FormExtension process to perform batch updates. It can only be called within a 
-   * [UIAbility]{@link @ohos.app.ability.UIAbility} and uses a promise to return the result.
+   * 对于当前应用中moduleName、abilityName、formName相同的卡片，每次加桌会分配不同的卡片ID。卡片提供方可通过本接口批量更新这些卡片。与reloadAllForms相比，本接口可精确指定更新特定配置的卡片，
+   * 适用于仅需更新特定卡片场景；reloadAllForms更新当前应用所有已加桌卡片，适用于全局刷新场景。本接口在应用主进程中调用，通知FormExtension进程进行批量更新，仅支持在
+   * [UIAbility]{@link @ohos.app.ability.UIAbility}中使用，使用Promise异步回调。
    *
-   * @param { UIAbilityContext } context - [UIAbility]{@link @ohos.app.ability.UIAbility} context, which is used for 
-   *     verification.
-   * @param { string } moduleName - Module name of the widget.
-   * @param { string } abilityName - Ability name of the widget.
-   * @param { string } formName - Name of the widget configured in 
-   *     [form_config.json](docroot://form/arkts-ui-widget-configuration.md#fields-in-configuration-file).
-   * @returns { Promise<int> } Promise used to return the number of widgets requested for update.
+   * @param { UIAbilityContext } context - [UIAbility]{@link @ohos.app.ability.UIAbility}的上下文，用于校验应用身份。
+   * @param { string } moduleName - 指定卡片的moduleName，需与
+   *     [form_config.json](docroot://form/arkts-ui-widget-configuration.md#配置文件字段说明)中配置的module名称一致。需与abilityName、
+   *     formName配合使用，三者必须同时匹配才能定位到对应卡片。
+   * @param { string } abilityName - 指定卡片的abilityName，需与
+   *     [form_config.json](docroot://form/arkts-ui-widget-configuration.md#配置文件字段说明)中配置的ability名称一致。
+   * @param { string } formName - 指定卡片在[form_config.json](docroot://form/arkts-ui-widget-configuration.md#配置文件字段说明)中配置的卡
+   *     片名称。
+   * @returns { Promise<int> } Promise对象。返回请求更新卡片的数量。
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -589,13 +576,11 @@ declare namespace formProvider {
   function reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, formName: string): Promise<int>;
 
   /**
-   * Reloads all widgets. Invoked in the main process of the application, this API notifies the FormExtension process to
-   *  perform batch updates of all widgets added to the current application. It can only be called within a 
-   * [UIAbility]{@link @ohos.app.ability.UIAbility} and uses a promise to return the result.
+   * 在应用主进程通过本接口可以通知FormExtension进程批量更新当前应用下已经加桌的所有卡片，仅支持在[UIAbility]{@link @ohos.app.ability.UIAbility}中调用，使用Promise异步回
+   * 调。
    *
-   * @param { UIAbilityContext } context - [UIAbility]{@link @ohos.app.ability.UIAbility} context, which is used for 
-   *     verification.
-   * @returns { Promise<int> } Promise used to return the number of widgets requested for update.
+   * @param { UIAbilityContext } context - [UIAbility]{@link @ohos.app.ability.UIAbility}的上下文，用于校验应用身份。
+   * @returns { Promise<int> } Promise对象。返回请求更新卡片的数量。
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -606,12 +591,10 @@ declare namespace formProvider {
   function reloadAllForms(context: UIAbilityContext): Promise<int>;
 
     /**
-   * Updates the static configuration information of a specified template widget on the current device. This API uses a 
-   * promise to return the result.
+   * 更新当前设备上指定的模板卡片静态配置信息。使用Promise异步回调。
    *
-   * @param { Array<formInfo.TemplateFormDetailInfo> } templateFormInfo - Static configuration information of a specified 
-   *     template widget.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<formInfo.TemplateFormDetailInfo> } templateFormInfo - 指定的模板卡片静态配置信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501013 - The system does not support the current operation.
@@ -623,12 +606,10 @@ declare namespace formProvider {
   function updateTemplateFormDetailInfo(templateFormInfo: Array<formInfo.TemplateFormDetailInfo>): Promise<void>;
 
   /**
-   * Subscribes to controls on cross-bundle widget addition to the home screen. This API uses an asynchronous callback
-   * to return the result.
+   * 订阅跨应用加桌管控。
    *
    * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
-   * @param { formInfo.PublishFormCrossBundleControlCallback } callback - Callback function used to return the control
-   *     result on cross-bundle widget addition to the home screen.
+   * @param { formInfo.PublishFormCrossBundleControlCallback } callback - 跨应用加桌管控的回调函数。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -640,12 +621,10 @@ declare namespace formProvider {
   function onPublishFormCrossBundleControl(callback: formInfo.PublishFormCrossBundleControlCallback): void;
 
   /**
-   * Unsubscribes from controls on cross-bundle widget addition to the home screen. This API uses an asynchronous 
-   * callback to return the result.
+   * 取消订阅跨应用加桌管控。
    *
    * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
-   * @param { formInfo.PublishFormCrossBundleControlCallback } [callback] - Callback function used to return the
-   *     control result on cross-bundle widget addition to the home screen.
+   * @param { formInfo.PublishFormCrossBundleControlCallback } [callback] - 跨应用加桌管控的回调函数，不传则取消所有已订阅的回调。
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -657,10 +636,12 @@ declare namespace formProvider {
   function offPublishFormCrossBundleControl(callback?: formInfo.PublishFormCrossBundleControlCallback): void;
 
   /**
-   * Closes the widget editing page.
+   * 关闭卡片编辑页。适用于卡片编辑完成或取消编辑的场景，例如用户完成参数配置后关闭编辑页、取消编辑操作等。
    *
-   * @param { boolean } [isMainPage] - Whether to close the main editing page. The value **true** means closing the main 
-   *     editing page, and **false** means closing a non-main editing page.<br>Default value: **true**.
+   * @param { boolean } [isMainPage] - 是否关闭主编辑页。
+   *     <br>- true：关闭主编辑页，适合在主编辑页完成配置后关闭的场景。
+   *     <br>- false：关闭非主编辑页，适合在多级编辑页场景下关闭当前非主编辑页的场景。
+   *     <br>默认值：true（通常关闭当前编辑页时使用默认值即可）。
    * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501015 - Cannot close the widget editing page opened by other apps.
