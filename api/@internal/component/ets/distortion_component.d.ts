@@ -44,14 +44,14 @@ declare type Vector4 = import('../api/arkui/Graphics').Vector4;
  * 
  * > **NOTE**
  * >
- * > - The coordinates of the four corners of the component can be set as follows: top-left corner: [0, 0], top-right 
- * > corner: [1, 0], bottom-left corner: [0, 1], bottom-right corner: [1, 1].
+ * > - The coordinates of the four corners of the component can be set as follows: top-left corner: { x:0, y:0 }, top-right 
+ * > corner: { x:1, y:0 }, bottom-left corner: { x:0, y:1 }, bottom-right corner: { x:1, y:1 }.
  * >
- * > - For example, if the **bottomLeft** attribute is set to **[0.5, 0.5]**, the bottom-left corner is deformed to the 
+ * > - For example, if the **bottomLeft** attribute is set to **{ x:0.5, y:0.5 }**, the bottom-left corner is deformed to the 
  * > position of the component center, and the corresponding distortion effect is generated.
  * >
  * > - When setting the coordinates of the four corners, ensure they follow spatial logic. For example, if **topLeft** 
- * > is **[0, 0.7]** and **bottomLeft** is **[0, 0.2]**, the top-left corner is lower than the bottom-left corner, which
+ * > is **{ x:0, y:0.7 }** and **bottomLeft** is **{ x:0, y:0.2 }**, the top-left corner is lower than the bottom-left corner, which
  * > violates the spatial logic and may cause rendering exceptions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,9 +63,6 @@ declare interface DistortionParam {
   /**
    * Coordinates of the top-left corner.
    * 
-   * Default value: **[0, 0]**
-   *
-   * @default [0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -75,9 +72,6 @@ declare interface DistortionParam {
   /**
    * Coordinates of the top-right corner.
    * 
-   * Default value: **[1, 0]**
-   *
-   * @default [1, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -87,9 +81,6 @@ declare interface DistortionParam {
   /**
    * Coordinates of the bottom-left corner.
    * 
-   * Default value: **[0, 1]**
-   *
-   * @default [0, 1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -99,9 +90,6 @@ declare interface DistortionParam {
   /**
    * Coordinates of the bottom-right corner.
    * 
-   * Default value: **[1, 1]**
-   *
-   * @default [1, 1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -114,14 +102,11 @@ declare interface DistortionParam {
    * The four values in **Vector4** are as follows: **x** indicates the left edge, **y** indicates the right edge, **z**
    * indicates the top edge, and **w** indicates the bottom edge.
    * 
-   * Default value: **[0, 0, 0, 0]**
-   * 
    * A positive value indicates outward distortion, and a negative value indicates inward distortion. When the absolute 
    * value of the distortion parameter reaches 1, the distortion degree is extreme.
    * 
    * Recommended value range for x, y, z, and w: **[-1, 1]**
    *
-   * @default [0, 0, 0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
