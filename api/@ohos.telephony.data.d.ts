@@ -568,7 +568,7 @@ declare namespace data {
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Telephony.CellularData
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function showSystemApnSettings(context: Context): Promise<void>;
 
