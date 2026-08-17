@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "testAll": "mocha --config test/mocha/.mocharc.jsonc",
     "testmocha": "mocha --config test/mocha/.mocharc.jsonc --grep \"testmocha\"",
-    "postinstall": "cd arkui_transformer && npm install && cd ../compile-plugins/api-check-plugin-static && npm install"
+    "postinstall": "cd arkui_transformer && npm install && cd ../compile-plugins/api-check-plugin-static && npm install && cd ../api-transform-static && npm install"
   },
   "author": "",
   "license": "ISC",
