@@ -19,6 +19,5 @@
  */
 
 import media from '@ohos.multimedia.media';
-import videoProcessing from '@ohos.multimedia.videoProcessing';
 
-export { media, videoProcessing };
+export { media };
