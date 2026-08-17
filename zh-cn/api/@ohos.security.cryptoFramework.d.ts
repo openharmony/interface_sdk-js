@@ -605,9 +605,9 @@ declare namespace cryptoFramework {
      * > RSA算法使用密钥参数生成私钥时，私钥对象支持getEncoded。
      *
      * @returns { DataBlob } 获取的密钥数据。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key [since 12]
      * @crossplatform [since 11]
@@ -621,9 +621,9 @@ declare namespace cryptoFramework {
      * 获取密钥大小，单位为bits。密钥可以是对称密钥、公钥或私钥。
      *
      * @returns { int } 密钥大小，单位为bits。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key
      * @stagemodelonly
      * @atomicservice
@@ -715,14 +715,14 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - 指定的密钥参数类型。
      * @returns { bigint | string | int } 获取的密钥参数内容。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -745,13 +745,13 @@ declare namespace cryptoFramework {
      *     <br>从API版本26.0.0开始，支持RSA密钥，format取值支持"PKCS1"和"PKCS8"。
      *     <br>从API版本26.0.0开始，支持ML-DSA和ML-KEM密钥，format取值支持"PKCS8"。
      * @returns { DataBlob } DER编码的私钥数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -767,13 +767,13 @@ declare namespace cryptoFramework {
      *     <br>自API版本26.0.0起，支持EC密钥，format取值支持"PKCS8"或"EC"。
      *     <br>自API版本26.0.0起，支持ML-DSA和ML-KEM密钥，format取值支持"PKCS8"。
      * @returns { string } PEM编码的私钥数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -788,13 +788,13 @@ declare namespace cryptoFramework {
      * @param { string } format - 指定的获取密钥字符串的编码格式。对于RSA密钥，格式可以是"PKCS8"或"PKCS1"。
      * @param { KeyEncodingConfig } config - 用于加密私钥的参数。
      * @returns { string } PEM编码的加密的私钥数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -807,9 +807,9 @@ declare namespace cryptoFramework {
      * 从私钥对象中获取公钥对象。使用Promise异步回调。
      *
      * @returns { Promise<PubKey> } Promise对象，返回公钥对象PubKey。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -825,9 +825,9 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { PubKey } 公钥对象。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -840,10 +840,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的私钥数据。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
      * @atomicservice
@@ -860,10 +860,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Uint8Array } 返回指定密钥数据项类型的私钥数据。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
      * @atomicservice
@@ -891,14 +891,14 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeySpecItem } itemType - 指定的密钥参数。
      * @returns { bigint | string | int } 获取的密钥参数内容。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 801 - 该操作不支持。 [since 12]
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 801 - This operation is not supported. [since 12]
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -921,13 +921,13 @@ declare namespace cryptoFramework {
      *     <br>从API版本26.0.0开始，支持RSA密钥，format取值支持"PKCS1"和"X509"。
      *     <br>从API版本26.0.0开始，支持ML-DSA和ML-KEM密钥，format取值支持"X509"。
      * @returns { DataBlob } DER编码的公钥数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -942,13 +942,13 @@ declare namespace cryptoFramework {
      * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，format取值支持"X509"或"PKCS1"。
      *     <br>自API版本26.0.0起，支持EC、ML-DSA和ML-KEM密钥，format取值支持"X509"。
      * @returns { string } PEM编码的公钥数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -962,10 +962,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的公钥数据。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
      * @atomicservice
@@ -982,10 +982,10 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Uint8Array } 返回指定密钥数据项类型的公钥数据。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
      * @atomicservice
@@ -1058,12 +1058,12 @@ declare namespace cryptoFramework {
      * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当生成随机数成功时，err为undefined，data为获取到的随机数；否则为
      *     错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
      * @stagemodelonly [since 9 - 11]
@@ -1080,12 +1080,12 @@ declare namespace cryptoFramework {
      *
      * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
      * @returns { Promise<DataBlob> } Promise对象，返回生成的随机数。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
      * @stagemodelonly
@@ -1105,12 +1105,12 @@ declare namespace cryptoFramework {
      *
      * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
      * @returns { DataBlob } 表示生成的随机数。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
      * @stagemodelonly [since 10 - 11]
@@ -1126,7 +1126,7 @@ declare namespace cryptoFramework {
      * 设置指定的种子。
      *
      * @param { DataBlob } seed - 设置的种子。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
      * @stagemodelonly [since 9 - 11]
@@ -1141,10 +1141,10 @@ declare namespace cryptoFramework {
     /**
      * 开启硬件熵源。将从TEE中获取安全随机数作为该随机数实例的熵源。
      *
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @stagemodelonly
      * @atomicservice
@@ -1171,7 +1171,7 @@ declare namespace cryptoFramework {
    * 创建随机数实例。
    *
    * @returns { Random } 返回Random实例。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
    * @stagemodelonly [since 9 - 11]
@@ -1200,9 +1200,9 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - 回调函数。当生成非对称密钥成功时，err为undefined，data为获取到的KeyPair；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：参数类型不正确。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes: Incorrect parameter types;
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1216,12 +1216,12 @@ declare namespace cryptoFramework {
      * 获取非对称密钥生成器随机生成的密钥。使用Promise异步回调。
      *
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1239,12 +1239,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { KeyPair } 非对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1260,13 +1260,13 @@ declare namespace cryptoFramework {
      * @param { DataBlob } priKey - 私钥材料。
      * @param { AsyncCallback<KeyPair> } callback - 回调函数。当生成非对称密钥成功时，err为undefined，data为获取到的KeyPair；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1284,13 +1284,13 @@ declare namespace cryptoFramework {
      *     加支持null。
      * @param { AsyncCallback<KeyPair> } callback - 回调函数。当生成非对称密钥成功时，err为undefined，data为获取到的KeyPair；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1306,13 +1306,13 @@ declare namespace cryptoFramework {
      * @param { DataBlob } pubKey - 公钥材料。
      * @param { DataBlob } priKey - 私钥材料。
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1329,13 +1329,13 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。API 10之前只支持DataBlob， API 10之后增
      *     加支持null。
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -1357,13 +1357,13 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } priKey - 指定私钥材料。如果私钥无需转换，请传入null。API 10前仅支持DataBlob，API 10起支持传入
      *     null。
      * @returns { KeyPair } 非对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1388,13 +1388,13 @@ declare namespace cryptoFramework {
      * @param { string | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。<br>**说明：**公钥和私钥材料不能同时为null
      *     或空字符串。
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1421,12 +1421,12 @@ declare namespace cryptoFramework {
      *     或空字符串。
      * @param { string } password - 指定口令，用于解密私钥。
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1451,13 +1451,13 @@ declare namespace cryptoFramework {
      * @param { string | null } priKey - 指定私钥材料。私钥无需转换时，请传入null。<br>**说明：**公钥和私钥材料不能同时为null或
      *     空字符串。
      * @returns { KeyPair } 非对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1482,12 +1482,12 @@ declare namespace cryptoFramework {
      * @param { string | null } priKey - 指定私钥材料。若无需转换，请传入 null。<br>注意：公钥与私钥材料不可同时为 null。
      * @param { string } password - 指定口令，用于解密私钥。
      * @returns { KeyPair } 非对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -1535,8 +1535,8 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<SymKey> } callback - 回调函数。当生成对称密钥成功时，err为undefined，data为获取到的SymKey；否则为
      *     错误对象。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
      * @crossplatform [since 11]
@@ -1552,8 +1552,8 @@ declare namespace cryptoFramework {
      * <br>目前使用OpenSSL的RAND_priv_bytes()作为底层能力生成随机密钥。
      *
      * @returns { Promise<SymKey> } Promise对象，返回对称密钥SymKey。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
      * @crossplatform [since 11]
@@ -1581,8 +1581,8 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { SymKey } 返回对称密钥SymKey。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1604,12 +1604,12 @@ declare namespace cryptoFramework {
      * @param { DataBlob } key - 指定的对称密钥材料。
      * @param { AsyncCallback<SymKey> } callback - 回调函数。当生成对称密钥成功时，err为undefined，data为获取到的SymKey；否则为
      *     错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
      * @crossplatform [since 11]
@@ -1624,12 +1624,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - 指定的密钥材料数据。
      * @returns { Promise<SymKey> } Promise对象，返回对称密钥SymKey。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
      * @crossplatform [since 11]
@@ -1654,12 +1654,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } key - 指定的对称密钥材料。
      * @returns { SymKey } 对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
@@ -1691,12 +1691,12 @@ declare namespace cryptoFramework {
    *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     一节中的“字符串参数”。
    * @returns { AsyKeyGenerator } 返回非对称密钥生成器。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
    * @crossplatform [since 11]
@@ -1716,11 +1716,11 @@ declare namespace cryptoFramework {
    *     [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)
    *     一节中的“字符串参数”。
    * @returns { SymKeyGenerator } 返回对称密钥生成器实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
    * @crossplatform [since 11]
@@ -1826,12 +1826,12 @@ declare namespace cryptoFramework {
      *
      * @param { SymKey } key - 对称密钥。
      * @param { AsyncCallback<void> } callback - 回调函数。当HMAC初始化成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1847,12 +1847,12 @@ declare namespace cryptoFramework {
      *
      * @param { SymKey } key - 对称密钥。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1871,12 +1871,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { SymKey } key - 对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
@@ -1894,12 +1894,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } input - 传入的消息。
      * @param { AsyncCallback<void> } callback - 回调函数。当HMAC更新成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1918,12 +1918,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } input - 传入的消息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1946,12 +1946,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { DataBlob } input - 传入的消息。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
@@ -1965,8 +1965,8 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当MAC计算成功时，err为undefined，data为获取到的Mac计算结果；否则为
      *     错误对象。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1980,8 +1980,8 @@ declare namespace cryptoFramework {
      * 完成MAC计算并获取MAC计算结果。使用Promise异步回调。
      *
      * @returns { Promise<DataBlob> } Promise对象，返回MAC计算结果。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -1999,13 +1999,13 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { DataBlob } 返回MAC计算结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
@@ -2018,7 +2018,7 @@ declare namespace cryptoFramework {
      * 获取Mac消息认证码的长度（字节数）。
      *
      * @returns { int } 返回Mac计算结果的字节长度。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
      * @crossplatform [since 11]
@@ -2049,11 +2049,11 @@ declare namespace cryptoFramework {
    * @param { string } algName - 指定摘要算法，支持算法请参考
    *     [HMAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    * @returns { Mac } 返回对应算法的Mac实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
    * @crossplatform [since 11]
@@ -2071,13 +2071,13 @@ declare namespace cryptoFramework {
    * @param { MacSpec } macSpec - 根据消息认证码的不同算法，指定入参参数，支持算法请参考
    *     [MAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    * @returns { Mac } 返回对应算法的Mac实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
-   * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 17630001 - 密码操作错误。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
+   * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 17630001 - Crypto operation error.
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
@@ -2108,12 +2108,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } input - 传入的消息。
      * @param { AsyncCallback<void> } callback - 回调函数。当摘要更新成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly [since 9 - 11]
@@ -2135,12 +2135,12 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } input - 传入的消息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly
@@ -2165,12 +2165,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { DataBlob } input - 传入的消息。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @FaAndStageModel
      * @crossplatform
@@ -2185,8 +2185,8 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当摘要计算成功时，err为undefined，data为获取到的摘要结果；否则为
      *     错误对象。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly [since 9 - 11]
@@ -2202,8 +2202,8 @@ declare namespace cryptoFramework {
      * 生成消息摘要。使用Promise异步回调。
      *
      * @returns { Promise<DataBlob> } Promise对象，返回摘要计算结果。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly
@@ -2222,13 +2222,13 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { DataBlob } 生成的消息摘要。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @FaAndStageModel
      * @crossplatform
@@ -2242,7 +2242,7 @@ declare namespace cryptoFramework {
      * 获取消息摘要的字节长度，单位为字节。
      *
      * @returns { int } 消息摘要长度。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly [since 9 - 11]
@@ -2277,11 +2277,11 @@ declare namespace cryptoFramework {
    * @param { string } algName - 指定摘要算法，支持算法请参考
    *     [MD消息摘要算法规格](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest-overview.md#支持的算法与规格)。
    * @returns { Md } 返回对应算法的Md实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
    * @stagemodelonly [since 9 - 11]
@@ -2536,17 +2536,17 @@ declare namespace cryptoFramework {
      * @param { Key } key - 用于加密或解密的密钥
      * @param { ParamsSpec } params - IV等算法参数
      * @param { AsyncCallback<void> } callback - 回调函数。当加解密初始化成功时，err为undefined；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 无效的opMode值；
-     *     <br>2. 无效的iv长度；
-     *     <br>3. 无效的密钥长度。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.  [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2565,17 +2565,17 @@ declare namespace cryptoFramework {
      * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。API 10之前只支持
      *     ParamsSpec， API 10之后增加支持null。
      * @param { AsyncCallback<void> } callback - 回调函数。当加解密初始化成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 无效的opMode值；
-     *     <br>2. 无效的iv长度；
-     *     <br>3. 无效的密钥长度。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length.  [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2594,17 +2594,17 @@ declare namespace cryptoFramework {
      * @param { Key } key - 用于加密或解密的密钥
      * @param { ParamsSpec } params - IV等算法参数
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 无效的opMode值；
-     *     <br>2. 无效的iv长度；
-     *     <br>3. 无效的密钥长度。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2623,17 +2623,17 @@ declare namespace cryptoFramework {
      * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。API 10之前仅支持
      *     ParamsSpec，从API 10开始增加对null的支持。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 无效的opMode值；
-     *     <br>2. 无效的iv长度；
-     *     <br>3. 无效的密钥长度。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2655,17 +2655,17 @@ declare namespace cryptoFramework {
      * @param { CryptoMode } opMode - 加密或者解密模式。
      * @param { Key } key - 指定加密或解密的密钥。
      * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 无效的opMode值；
-     *     <br>2. 无效的iv长度；
-     *     <br>3. 无效的密钥长度。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid opMode value;
+     *     <br>2. Invalid iv length;
+     *     <br>3. Invalid key length. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -2704,15 +2704,15 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 需要进行加密或解密的数据。data不能为null。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当更新加/解密数据成功时，err为undefined，data为加密或解密结果
      *     DataBlob；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2747,15 +2747,15 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 表示要加密或解密的数据。
      * @param { AsyncCallback<DataBlob | null> } callback - 回调函数。当更新加/解密数据成功时，err为undefined，data为加密或解密
      *     后的数据；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -2792,15 +2792,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 加密或者解密的数据。data不能为null。
      * @returns { Promise<DataBlob> } Promise对象，返回此次更新的加密或解密结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2834,15 +2834,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 表示要加密或解密的数据。
      * @returns { Promise<DataBlob | null> } Promise对象，返回更新的加密或解密结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -2864,15 +2864,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 加密或者解密的数据。data不能为null。
      * @returns { DataBlob } 返回此次更新的加/解密结果DataBlob。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -2889,15 +2889,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 表示要加密或解密的数据。
      * @returns { DataBlob | null } 加密时返回密文，解密时返回明文。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -2911,15 +2911,15 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 表示最终要加密或解密的数据。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当加/解密成功时，err为undefined，data为加/解密结果DataBlob；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2961,15 +2961,15 @@ declare namespace cryptoFramework {
      *     **{data: Uint8Array()}**不能传入。在API版本10之前，仅支持**DataBlob**。从API版本10开始，还支持**null**。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当加/解密成功时，err为undefined，data为加/解密结果DataBlob；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2998,15 +2998,15 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
      * @param { AsyncCallback<DataBlob | null> } callback - 回调函数。当加/解密成功时，err为undefined，data为加密或解密后的数据；
      *     否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -3019,15 +3019,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 表示最终要加密或解密的数据。
      * @returns { Promise<DataBlob> } Promise对象，返回加密或解密的数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -3072,15 +3072,15 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 要加密或解密的数据。可以为**null**，但不能为{data:Uint8Array(0)}。在API版本10之前的版本
      *     中，仅支持**DataBlob**。从API版本10开始，也支持**null**。
      * @returns { Promise<DataBlob> } Promise对象，返回剩余数据的加/解密结果DataBlob。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -3108,15 +3108,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
      * @returns { Promise<DataBlob | null> } Promise对象，返回加密或解密后的数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -3153,15 +3153,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - 待加密或解密的数据。在对称加解密中可以为**null**， 但不能传入{data: Uint8Array(0)}。
      * @returns { DataBlob } 加密或解密后的数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -3178,15 +3178,15 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
      * @returns { DataBlob | null } 加密时返回密文，解密时返回明文。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 数据过长。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The data is too long.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -3200,15 +3200,15 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - 用于指定需要设置的加解密参数。
      * @param { Uint8Array } itemValue - 用于指定加解密参数的具体值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 不支持的itemType。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Unsupported itemType. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -3223,15 +3223,15 @@ declare namespace cryptoFramework {
      *
      * @param { CipherSpecItem } itemType - 用于指定需要获取的加解密参数。
      * @returns { string | Uint8Array } 返回获取的加解密参数值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 不支持的itemType。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Unsupported itemType. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -3272,12 +3272,12 @@ declare namespace cryptoFramework {
    *     [对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)和
    *     [非对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption.md)。
    * @returns { Cipher } 返回对应算法的Cipher实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
    * @crossplatform [since 11]
@@ -3321,15 +3321,15 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - 用于Sign的初始化。
      * @param { AsyncCallback<void> } callback - 回调函数。当签名初始化成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3346,15 +3346,15 @@ declare namespace cryptoFramework {
      *
      * @param { PriKey } priKey - 用于Sign的初始化。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3375,15 +3375,15 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { PriKey } priKey - 用于Sign的初始化。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -3416,14 +3416,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 传入的消息。
      * @param { AsyncCallback<void> } callback - 回调函数。当签名更新成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3456,14 +3456,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 传入的消息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3500,14 +3500,14 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { DataBlob } data - 传入的消息。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -3522,14 +3522,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 待签名的数据。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当签名成功时，err为undefined，data为获取到的签名结果DataBlob；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3544,14 +3544,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当签名成功时，err为undefined，data为获取到的签名结果DataBlob；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3566,14 +3566,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 待签名的数据。
      * @returns { Promise<DataBlob> } Promise对象，返回签名结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3587,14 +3587,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - 传入的消息。
      * @returns { Promise<DataBlob> } Promise对象，返回签名结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3613,14 +3613,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob | null } data - 传入的消息。
      * @returns { DataBlob } 返回签名结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -3636,14 +3636,14 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数。
      * @param { int } itemValue - 用于指定签名参数的具体值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3659,16 +3659,16 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
      * @param { int | Uint8Array } itemValue - 指定签名参数的具体值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。 [since 26.0.0]
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters. [since 26.0.0]
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform
@@ -3686,12 +3686,12 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
      * @param { int | Uint8Array | boolean } itemValue - 指定签名参数的具体值。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17620004 - Invalid function call.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @crossplatform
@@ -3708,9 +3708,9 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数类型。
      * @param { boolean } itemValue - 指定签名参数的具体值。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17620004 - Invalid function call.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @atomicservice
@@ -3723,14 +3723,14 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要获取的签名参数。
      * @returns { string | int } 返回获取的签名参数值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3784,15 +3784,15 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签初始化成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3808,15 +3808,15 @@ declare namespace cryptoFramework {
      *
      * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3835,15 +3835,15 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 密钥类型不正确。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Incorrect key type. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -3878,14 +3878,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 传入的消息。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签更新成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3919,14 +3919,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } data - 传入的消息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-    * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+    * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -3963,14 +3963,14 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @param { DataBlob } data - 传入的消息。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -3985,14 +3985,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 待验签的数据。
      * @param { DataBlob } signatureData - 签名数据。
      * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示验签通过；返回false表示验签失败。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4007,14 +4007,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
      * @param { DataBlob } signatureData - 签名数据。
      * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示验签通过；返回false表示验签不通过。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4030,14 +4030,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob } data - 待验签的数据。
      * @param { DataBlob } signatureData - 签名数据。
      * @returns { Promise<boolean> } Promise对象，返回验签结果。返回true表示验签成功，返回false表示验签失败。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4052,14 +4052,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
      * @param { DataBlob } signatureData - 签名数据。
      * @returns { Promise<boolean> } Promise对象。返回true表示验签成功，返回false表示验签失败。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4079,14 +4079,14 @@ declare namespace cryptoFramework {
      * @param { DataBlob | null } data - 传入的消息。
      * @param { DataBlob } signatureData - 签名数据。
      * @returns { boolean } 同步返回值，表示验签是否通过。true为通过，false为不通过。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -4104,14 +4104,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - 签名数据。
      * @returns { Promise<DataBlob | null> } Promise对象，返回从签名中恢复的原始数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -4133,14 +4133,14 @@ declare namespace cryptoFramework {
      *
      * @param { DataBlob } signatureData - 签名数据。
      * @returns { DataBlob | null } 恢复的数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -4158,14 +4158,14 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数。
      * @param { int } itemValue - 用于指定验签参数的具体值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4183,16 +4183,16 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数类型。
      * @param { int | Uint8Array } itemValue - 指定验签参数的具体值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。 [since 26.0.0]
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
-     * @throws { BusinessError } 17620004 - 无效的函数调用。 [since 26.0.0]
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters. [since 26.0.0]
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
+     * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform
@@ -4211,12 +4211,12 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数类型。
      * @param { int | Uint8Array | boolean } itemValue - 指定验签参数的具体值。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17620004 - Invalid function call.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @crossplatform
@@ -4234,9 +4234,9 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数类型。
      * @param { boolean } itemValue - 指定验签参数的具体值。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17620004 - 无效的函数调用。
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17620004 - Invalid function call.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @atomicservice
@@ -4249,14 +4249,14 @@ declare namespace cryptoFramework {
      *
      * @param { SignSpecItem } itemType - 用于指定需要获取的验签参数。
      * @returns { string | int } 返回获取的参数值。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。 [since 26.0.0]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
      * @crossplatform [since 11]
@@ -4290,12 +4290,12 @@ declare namespace cryptoFramework {
    *     <br>支持的规格详见
    *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    * @returns { Sign } 返回对应算法的Sign实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
    * @crossplatform [since 11]
@@ -4316,12 +4316,12 @@ declare namespace cryptoFramework {
    *     <br>支持的规格详见
    *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    * @returns { Verify } 返回对应算法的Verify实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
    * @crossplatform [since 11]
@@ -4351,13 +4351,13 @@ declare namespace cryptoFramework {
      * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当密钥协商成功时，err为undefined，data为协商的共享密钥；否则为
      *     错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement [since 12]
      * @crossplatform [since 11]
@@ -4373,13 +4373,13 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - 设置密钥协商的私钥输入。
      * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
      * @returns { Promise<DataBlob> } Promise对象，返回密钥协商的共享密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement [since 12]
      * @crossplatform [since 11]
@@ -4399,13 +4399,13 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - 设置密钥协商的私钥输入。
      * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
      * @returns { DataBlob } 共享密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
      * @atomicservice
@@ -4435,12 +4435,12 @@ declare namespace cryptoFramework {
    * @param { string } algName - 指定密钥协商算法：目前仅支持ECDH，从API version 11开始，增加支持X25519和DH。<br>支持的规格详见
    *     [密钥协商规格](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)。
    * @returns { KeyAgreement } 返回对应算法的KeyAgreement实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement [since 12]
    * @crossplatform [since 11]
@@ -5507,12 +5507,12 @@ declare namespace cryptoFramework {
      *
      * @param { string } curveName - 椭圆曲线相应的NID（Name Identifier）字符串名称。
      * @returns { ECCCommonParamsSpec } 返回ECC公共密钥参数。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform
@@ -5534,12 +5534,12 @@ declare namespace cryptoFramework {
      * @param { string } curveName - 椭圆曲线的曲线名，即相应的NID（Name Identifier）。
      * @param { Uint8Array } encodedPoint - 指定的ECC椭圆曲线上的点的数据。
      * @returns { Point } 返回ECC的Point对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -5556,12 +5556,12 @@ declare namespace cryptoFramework {
      * @param { Point } point - 椭圆曲线上的Point点对象。
      * @param { string } format - 需要获取的点数据格式，当前支持"COMPRESSED"或"UNCOMPRESSED"。
      * @returns { Uint8Array } 返回指定格式的点数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -5771,13 +5771,13 @@ declare namespace cryptoFramework {
      *     <br>ffdhe2048：255 bits。<br>ffdhe3072：275 bits。<br>ffdhe4096：325 bits。<br>ffdhe6144：375 bits。
      *     <br>ffdhe8192：400 bits。
      * @returns { DHCommonParamsSpec } 返回DH公共密钥参数。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 801 - 该操作不支持。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - This operation is not supported.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform
@@ -6112,9 +6112,9 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<KeyPair> } callback - 回调函数。当生成非对称密钥成功时，err为undefined，data为获取到的KeyPair；否则
      *     为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：参数类型不正确。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes: Incorrect parameter types;
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6132,12 +6132,12 @@ declare namespace cryptoFramework {
      * 密钥对。
      *
      * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6159,12 +6159,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { KeyPair } 非对称密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -6180,9 +6180,9 @@ declare namespace cryptoFramework {
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型密钥参数创建密钥生成器，从生成的密钥对中获取指定私钥。
      *
      * @param { AsyncCallback<PriKey> } callback - 回调函数。当生成私钥成功时，err为undefined，data为获取到的私钥；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：必填参数未指定。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6199,12 +6199,12 @@ declare namespace cryptoFramework {
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的私钥。
      *
      * @returns { Promise<PriKey> } Promise对象，返回私钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6225,12 +6225,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { PriKey } 私钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -6246,9 +6246,9 @@ declare namespace cryptoFramework {
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的公钥。
      *
      * @param { AsyncCallback<PubKey> } callback - 回调函数。当生成公钥成功时，err为undefined，data为获取到的公钥；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：参数类型不正确。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes: Incorrect parameter types;
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6265,12 +6265,12 @@ declare namespace cryptoFramework {
      * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的公钥。
      *
      * @returns { Promise<PubKey> } Promise对象，返回非对称密钥的公钥PubKey。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
      * @crossplatform [since 11]
@@ -6291,12 +6291,12 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { PubKey } 公钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
@@ -6324,12 +6324,12 @@ declare namespace cryptoFramework {
    * @param { AsyKeySpec } asyKeySpec - 密钥参数。非对称密钥生成器根据指定的这些参数生成公/私钥。<br>支持的规格详见
    *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-key-generation-conversion.md)。
    * @returns { AsyKeyGeneratorBySpec } 返回AsyKeyGeneratorBySpec实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
    * @crossplatform [since 11]
@@ -6650,16 +6650,16 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - 设置密钥派生函数的参数。
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当密钥派生成功时，err为undefined，data为派生的密钥；否则为错误对象。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 参数中的密钥长度无效；
-     *     <br>2. 参数中的info长度无效；
-     *     <br>3. 参数中的keySize无效。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
      * @crossplatform
@@ -6674,16 +6674,16 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - 设置密钥派生函数的参数。
      * @returns { Promise<DataBlob> } Promise对象，返回派生的密钥。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 参数中的密钥长度无效；
-     *     <br>2. 参数中的info长度无效；
-     *     <br>3. 参数中的keySize无效。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
      * @crossplatform
@@ -6702,17 +6702,17 @@ declare namespace cryptoFramework {
      *
      * @param { KdfSpec } params - 设置密钥派生函数的参数。
      * @returns { DataBlob } 用于获取派生得到的密钥DataBlob数据。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. 参数中的密钥长度无效；
-     *     <br>2. 参数中的info长度无效；
-     *     <br>3. 参数中的keySize无效。 [since 22]
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid key length in the params;
+     *     <br>2. Invalid info length in the params;
+     *     <br>3. Invalid keySize in the params. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
@@ -6743,12 +6743,12 @@ declare namespace cryptoFramework {
    *     如"PBKDF2|SHA256"、 "HKDF|SHA256"、 "SCRYPT"和"X963KDF|SHA256"等。<br>支持的规格详见
    *     [密钥派生函数规格](docroot://security/CryptoArchitectureKit/crypto-key-derivation-overview.md)。
    * @returns { Kdf } 返回对应算法的Kdf实例。
-   * @throws { BusinessError } 401 - 非法入参。可能的原因：
-   *     <br>1. 必填参数未指定；
-   *     <br>2. 参数类型不正确；
-   *     <br>3. 参数验证失败。
-   * @throws { BusinessError } 801 - 该操作不支持。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
+   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - This operation is not supported.
+   * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
    * @crossplatform
@@ -6839,12 +6839,12 @@ declare namespace cryptoFramework {
      * @param { string } [mode] - 可选的密文转换模式，可用于指定密文参数的拼接顺序，当前仅支持默认值"C1C3C2"。为空或空字符串时使用
      *     默认值。
      * @returns { DataBlob } 返回符合国密标准的ASN.1格式的SM2密文。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -6860,12 +6860,12 @@ declare namespace cryptoFramework {
      * @param { string } [mode] - 可选的密文转换模式，可用于指定密文参数的拼接顺序，当前仅支持默认值"C1C3C2"。为空或空字符串时使用
      *     默认值。
      * @returns { SM2CipherTextSpec } 返回SM2密文参数。
-     * @throws { BusinessError } 401 - 非法入参。可能的原因：
-     *     <br>1. 必填参数未指定；
-     *     <br>2. 参数类型不正确；
-     *     <br>3. 参数验证失败。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
@@ -6927,11 +6927,11 @@ declare namespace cryptoFramework {
      *
      * @param { Uint8Array } data - ASN.1 DER编码的签名数据。
      * @returns { EccSignatureSpec } 包含r和s的数据对象。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. data参数长度为0或过大。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The length of the data parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -6945,11 +6945,11 @@ declare namespace cryptoFramework {
      *
      * @param { EccSignatureSpec } spec - （r、s）的ECC/SM2签名数据。
      * @returns { Uint8Array } ASN.1 DER编码的签名数据。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。可能的原因：
-     *     <br>1. spec参数的r或s值为0或过大。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. The r or s value of the spec parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
@@ -7045,10 +7045,10 @@ declare namespace cryptoFramework {
      * @param { PubKey } pubKey - 接收方的公钥。
      * @param { Uint8Array | null } ikme - 随机数种子，用于替代算法内部的随机数。对于ML-KEM算法，随机数种子是32字节。建议传null。
      * @returns { Promise<KemEncapResult> } Promise对象，返回KEM封装结果。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
      * @atomicservice
@@ -7066,10 +7066,10 @@ declare namespace cryptoFramework {
      * @param { PubKey } pubKey - 接收方的公钥。
      * @param { Uint8Array | null } ikme - 随机数种子，用于替代算法内部的随机数。对于ML-KEM算法，随机数种子是32字节。建议传null。
      * @returns { KemEncapResult } KEM封装结果。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
      * @atomicservice
@@ -7083,10 +7083,10 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - 接收方的私钥。
      * @param { Uint8Array } wrappedKey - KEM封装的密钥。
      * @returns { Promise<Uint8Array> } Promise对象，返回共享密钥。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
      * @atomicservice
@@ -7104,10 +7104,10 @@ declare namespace cryptoFramework {
      * @param { PriKey } priKey - 接收方的私钥。
      * @param { Uint8Array } wrappedKey - KEM封装的密钥。
      * @returns { Uint8Array } 共享密钥。
-     * @throws { BusinessError } 17620001 - 内存操作失败。
-     * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-     * @throws { BusinessError } 17620003 - 参数检查失败。
-     * @throws { BusinessError } 17630001 - 密码操作错误。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
      * @atomicservice
@@ -7121,10 +7121,10 @@ declare namespace cryptoFramework {
    *
    * @param { KemAlgNameId } algNameId - KEM的算法名称ID。
    * @returns { Kem } 返回对应算法的Kem实例。
-   * @throws { BusinessError } 17620001 - 内存操作失败。
-   * @throws { BusinessError } 17620002 - 获取Native对象失败或参数转换失败。
-   * @throws { BusinessError } 17620003 - 参数检查失败。
-   * @throws { BusinessError } 17630001 - 密码操作错误。
+   * @throws { BusinessError } 17620001 - Memory operation failed.
+   * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+   * @throws { BusinessError } 17620003 - Parameter check failed.
+   * @throws { BusinessError } 17630001 - Crypto operation error.
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
    * @atomicservice
