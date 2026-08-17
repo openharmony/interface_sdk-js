@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,9 +14,7 @@
  */
 
 /**
- USB管理
- * @file
- USB管理
+ * @file USB管理
  * @kit BasicServicesKit
  */
 
@@ -278,7 +276,7 @@ declare namespace usbManager {
    *     ，可通过英文逗号分隔多个功能。
    * @returns { int } 转换后的功能列表对应的数字掩码。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18].
+   *     call the API. [since 18]
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
@@ -709,24 +707,25 @@ declare namespace usbManager {
   function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int): Promise<int>;
 
   /**
-   * 批量传输。使用Promise异步回调。
+   * 批量传输。调用成功后完成批量数据传输，返回实际传输或接收到的数据块大小。使用Promise异步回调。与usbSubmitTransfer相比，
+   * bulkTransfer适合简单的批量传输场景，通过独立参数直接传递数据和端点，使用Promise异步返回结果；
+   * usbSubmitTransfer适合需要更灵活控制的场景，通过UsbDataTransferParams对象封装参数，支持异步callback回调，
+   * 并可通过usbCancelTransfer取消传输请求。
    * 
    * > **说明：** 
    * >
    * > 单次批量传输的传输数据总量（包括pipe、endpoint、buffer、timeout）请控制在200KB以下，数据总量过大会导致传输失败返回-1。
    * >
-   * > 在调用接口前需要通过
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * > claim通信接口。
+   * > 在调用接口前需要通过[usbManager.claimInterface]{@link usbManager.claimInterface} claim通信接口。
    *
-   * @param { USBDevicePipe } pipe - 用于确定设备，需要调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
-   * @param { USBEndpoint } endpoint - 用于确定传输的端口，需要调用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息列表以及endpoint，
-   *     address用于确定端点地址，direction用于确定端点的方向，interfaceId用于确定所属接口，当前其他属性不做处理。
-   * @param { Uint8Array } buffer - 用于写入或读取数据的缓冲区。
-   * @param { int } [timeout] - 超时时间（单位：毫秒），可选参数，指定时间内等待批量传输完成，若在指定时间内传输完成则正常返回，否则返回超时；默认为0时无限等待直到传输完成。用户按需选择。
+   * @param { USBDevicePipe } pipe - 用于确定总线地址和设备地址，需要调用[connectDevice]{@link usbManager.connectDevice}获取。
+   * @param { USBEndpoint } endpoint - 用于确定传输的端点，需要调用[getDevices]{@link usbManager.getDevices}获取设备信息列表。通过endpoint的，
+   *     address确定端点地址，direction用于确定端点的传输方向（0表示输出，128表示输入），interfaceId用于确定所属接口，当前其他属性不做处理。
+   * @param { Uint8Array } buffer - 用于写入或读取数据的缓冲区，数组长度即为缓冲区大小。用于批量传输时写入或读取数据。
+   * @param { int } [timeout] - 超时时间（单位：毫秒），可选参数，指定时间内等待批量传输完成，若在指定时间内传输完成则正常返回，否则返回超时；默认值为0，表示无限等待直到传输完成。
+   *     传入负数时抛出参数错误异常。用户按需选择。
    * @returns { Promise<int> } Promise对象，获取传输或接收到的数据块大小。失败返回其他错误码如下：
-   *     
-   *     - -1：驱动异常。
+   *     <br>- -1：驱动异常。可能原因：1、设备连接不稳定或已断开；2、USB驱动加载失败；3、内核USB模块异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -1011,7 +1010,7 @@ declare namespace usbManager {
     number: number;
 
     /**
-     * Endpoint address
+     * 端点地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 23 static
@@ -1280,7 +1279,7 @@ declare namespace usbManager {
     clazz: int;
 
     /**
-     * 设备子类。
+     * 设备子类型代码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1737,7 +1736,7 @@ declare namespace usbManager {
    */
   export enum FunctionType {
     /**
-     * 无。
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -2060,14 +2059,6 @@ declare namespace usbManager {
      * @since 23 static
      */
     TRANSFER_TYPE_INTERRUPT = 0x3,
-
-    /**
-     * Control endpoint
-     *
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    TRANSFER_TYPE_CONTROL = 0x0
   }
 
   /**
@@ -2204,43 +2195,6 @@ declare namespace usbManager {
      * @since 23 static
      */
     isoPacketCount: int;
-
-    /**
-     * The status of the transfer. Read-only, and only for use within transfer callback function.
-     *
-     * @type { UsbTransferStatus }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    status: UsbTransferStatus;
-
-    /**
-     * Actual length of data that was transferred. Read-only, and only for
-     * use within transfer callback function. Not valid for isochronous endpoint transfers.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    actualLength: number;
-
-    /**
-     * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
-     *
-     * @type { AsyncCallback<UsbDataTransferParams> }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    callback: AsyncCallback<UsbDataTransferParams>;
-
-    /**
-     * Isochronous packet descriptors, for isochronous transfers only.
-     *
-     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    isoPacketDesc: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
 
   /**

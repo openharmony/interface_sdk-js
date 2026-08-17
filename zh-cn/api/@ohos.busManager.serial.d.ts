@@ -14,9 +14,7 @@
  */
 
 /**
- 串口通信管理
- * @file
- 串口通信管理
+ * @file 串口通信管理
  * @kit BasicServicesKit
  */
 
