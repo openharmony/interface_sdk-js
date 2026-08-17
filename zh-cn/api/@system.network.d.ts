@@ -14,8 +14,8 @@
  */
 
 /**
- * @file
- * @kit NetworkKit
+  * @file
+  * @kit NetworkKit
  */
 
 /**
@@ -25,15 +25,14 @@
  */
 export interface NetworkResponse {
   /**
-   * Network type. The value can be **2G**, **3G**, **4G**, **5G**, **WiFi**, or **none**.
+   * 网络类型，可能的值有2g，3g，4g，5g，wifi，none等。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   type: string;
   /**
-   * Whether to charge by traffic. The value **true** means to charge by traffic, and the value **false** means the
-   * opposite.
+   * 是否按照流量计费。true：按照流量计费；false：不按照流量计费。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
@@ -98,7 +97,7 @@ export default class Network {
   }): void;
 
   /**
-   * Cancels listening to the network connection state.
+   * 取消监听网络连接状态。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
