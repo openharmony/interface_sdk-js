@@ -14,12 +14,20 @@
  */
 
 /**
- * @file
- * @kit BasicServicesKit
+  * @file
+  * @kit BasicServicesKit
  */
 
 /**
- * 本模块主要提供串口管理功能，包括打开和关闭设备的串口、写入和读取数据、设置和获取串口的配置参数、权限管理等。
+ * 本模块主要用于管理串口设备的访问和通信，提供打开和关闭设备、读写数据、配置参数、权限管理等功能，解决了应用与串口设备通信时的权限申请、设备配置、数据传输等问题，使用该模块可以简化串口设备访问流程，提高开发效率。
+ *
+ * **典型使用流程：**
+ * ![serialmanager](docroot://reference/figures/SerialManager.png)
+ * 
+ * **使用场景**：
+ * - **嵌入式设备通信**：与各类嵌入式设备进行数据交互，如传感器数据采集、设备状态监控等
+ * - **工业设备调试**：连接工业控制设备，进行参数配置、命令下发、日志输出等调试操作
+ * - **串口外设数据交互**：与串口外设进行数据通信，如打印机、扫描仪、调制解调器等设备的数据收发
  *
  * @syscap SystemCapability.USB.USBManager.Serial
  * @since 19 dynamic
@@ -28,9 +36,9 @@
 declare namespace serialManager {
 
   /**
-   * 查询串口设备清单，包括设备名称和对应的端口号。
+   * 查询串口设备清单，包括设备名称和对应的端口号。通常在应用启动时、设备连接后或需要检测可用串口设备时调用。
    *
-   * @returns { Readonly<SerialPort>[]} Serial port information list.
+   * @returns { Readonly<SerialPort>[]} 返回可用串口设备的列表，每个元素包含串口的端口号和设备名称等属性信息。可用于获取当前系统中的所有串口设备，以便用户选择需要进行操作的串口。
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
    * @since 23 static
@@ -38,9 +46,13 @@ declare namespace serialManager {
   function getPortList(): Readonly<SerialPort>[];
 
   /**
-   * 检查应用程序是否具有访问串口设备的权限。应用退出后再拉起时，需要重新申请授权。
+   * 检查应用是否具有访问串口设备的权限。应用退出后再拉起时，需要重新申请授权。通常在打开串口设备、执行串口操作前调用此接口检查权限状态。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
    * @returns {boolean} true表示已授权，false表示未授权。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -54,10 +66,15 @@ declare namespace serialManager {
   function hasSerialRight(portId: int): boolean;
 
   /**
-   * 请求应用程序访问串口设备的权限。应用退出自动移除对串口设备的访问权限，在应用重启后需要重新申请授权。使用Promise异步回调。
+   * 请求应用访问串口设备的权限。应用退出时自动移除对串口设备的访问权限，在应用重启后需要重新申请授权。使用Promise异步回调。通常在首次访问串口设备前、检测到无权限时调用此接口向用户申请授权，如需移除权限请调用
+   * [cancelSerialRight]{@link serialManager.cancelSerialRight}。
+   * 
+   * **前置条件：** 
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @returns { Promise<boolean>} Promise对象，true表示请求权限成功，false表示请求权限失败。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @returns { Promise<boolean>} Promise对象，返回boolean值。true表示请求权限成功，false表示请求权限失败或用户拒绝授权。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
@@ -70,13 +87,24 @@ declare namespace serialManager {
   function requestSerialRight(portId: int): Promise<boolean>;
 
   /**
-   * 为应用程序添加访问串口设备权限。
-   * serialManager.requestSerialRight会触发弹窗请求用户授权；addSerialRight不会触发弹窗，而是直接添加应用程序访问设备的权限。应用退出自动移除对串口设备的访问权限，在应用重启后需要重新申请授
-   * 权。
+   * 为应用添加访问串口设备权限。使用前需先通过[getPortList]{@link @ohos.usbManager.serial:serialManager.getPortList}获取串口列表，从中获得有效的portId。调用成
+   * 功后，应用获得对指定串口设备的访问权限，可进行打开、读写等操作；调用失败则抛出相应错误码，应用无法访问该串口设备。
+   * 
+   * **使用场景**：
+   * 
+   * - 系统应用在静默授权且无需用户确认的场景下使用，静默授权指系统应用在无需用户交互的情况下，直接通过系统接口获取串口设备访问权限的方式，如系统内部组件间通信、后台服务自动连接串口设备。系统通过检查应用权限（
+   * ohos.permission.MANAGE_USB_CONFIG）来识别是否允许静默授权，跳过用户确认环节直接授予权限。
+   * - 与requestSerialRight的区别：
+   * [serialManager.requestSerialRight]{@link @ohos.usbManager.serial:serialManager.requestSerialRight}会触发弹窗请求用户授权，适用于需要
+   * 用户明确授权的场景；addSerialRight不触发弹窗，而是直接添加应用访问设备的权限，适用于系统应用自动化管理的场景。应用退出后，系统会自动移除对串口设备的访问权限，在应用重启后需要重新申请授权。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } tokenId - 需要访问权限的tokenId。
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
+   * @param { int } tokenId - 应用访问令牌ID，标识需要访问串口设备权限的应用。可通过
+   *     [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   *     获取。
+   * @param { int} portId - 串口设备的端口号，用于唯一标识串口设备，可通过
+   *     [serialManager.getPortList]{@link @ohos.usbManager.serial:serialManager.getPortList}获取有效的端口号。需确保端口号存在否则会返回31400003错误
+   *     。
    * @throws { BusinessError } 201 Permission verification failed. The application does not have the permission required to
    *     call the API.
    * @throws { BusinessError } 202 Permission verification failed. A non-system application calls a system API.
@@ -93,9 +121,19 @@ declare namespace serialManager {
   function addSerialRight(tokenId: int, portId: int): void;
 
   /**
-   * 移除应用程序运行时访问串口设备的权限。此接口会调用close关闭已打开的串口。
+   * 移除应用运行时访问串口设备的权限。此接口会调用close关闭已打开的串口。通常在需要主动释放权限、切换访问不同设备、或出于安全考虑时调用此接口。
+   * 
+   * **前置条件：**
+   * 
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
+   * **相关方法：**
+   * - [requestSerialRight]{@link serialManager.requestSerialRight}：申请访问权限
+   * - [hasSerialRight]{@link serialManager.hasSerialRight}：检查是否有访问权限
+   *
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
@@ -109,9 +147,19 @@ declare namespace serialManager {
   function cancelSerialRight(portId: int): void;
 
   /**
-   * 打开串口设备。
+   * 打开串口设备。使用前需先通过[requestSerialRight]{@link serialManager.requestSerialRight}申请权限，使用完毕后需调用
+   * [close]{@link serialManager.close}关闭串口。调用成功后，可对该串口进行读写、配置参数等操作。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
+   * **配对调用：**
+   * - 必须与[close]{@link serialManager.close}方法配对使用
+   * - 打开串口后，使用完毕必须调用close()释放资源
+   *
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -125,9 +173,20 @@ declare namespace serialManager {
   function open(portId: int): void;
 
   /**
-   * 关闭串口。
+   * 关闭串口。需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请权限，再调用[open]{@link serialManager.open}打开串口。
+   * 通常在应用退出时、设备断开连接时、需要释放串口资源时调用此接口。关闭串口不会移除访问权限，如需移除权限请调用cancelSerialRight。
+   * 
+   * **配对调用：**
+   * - 与[open]{@link serialManager.open}方法成对使用
+   * - 打开串口后，使用完毕必须调用本方法关闭串口释放资源
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
+   *
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -140,10 +199,16 @@ declare namespace serialManager {
   function close(portId: int): void;
 
   /**
-   * 获取指定串口的配置参数。
+   * 获取指定串口的配置参数。需先调用[open]{@link serialManager.open}打开串口后才能获取配置。通常在设备初始化后、需要查看当前通信参数配置、调试串口通信问题时调用此接口。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @returns { Readonly<SerialAttribute>} 返回串口的配置参数。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @returns { Readonly<SerialAttribute>} 返回串口的配置参数对象，包含波特率、数据位、校验位、停止位等配置信息。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -156,10 +221,18 @@ declare namespace serialManager {
   function getAttribute(portId: int): Readonly<SerialAttribute>;
 
   /**
-   * 设置串口的配置参数。如果未调用该方法，使用默认配置参数（波特率：9600bps；数据位：8；校验位：0；停止位：1）。
+   * 设置指定串口的配置参数。需先调用[open]{@link serialManager.open}打开串口后才能设置配置。配置参数对象包含波特率（baudRate，必填）、数据位（dataBits，可选，默认8）、校验位（
+   * parity，可选，默认PARITY_NONE）、停止位（stopBits，可选，默认1）等配置项。通常在设备初始化时、切换通信协议时、或设备需要非默认配置参数时调用此接口。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @param { SerialAttribute} attribute - 串口参数。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @param { SerialAttribute} attribute - 串口配置参数对象，包含波特率（baudRate，必填）、数据位（dataBits，可选，默认8）、校验位（parity，可选，默认PARITY_NONE）、停止位（
+   *     stopBits，可选，默认1）。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
@@ -172,14 +245,23 @@ declare namespace serialManager {
   function setAttribute(portId: int, attribute: SerialAttribute): void;
 
   /**
-   * 从串口设备异步读取数据。使用Promise异步回调。
+   * 从串口设备异步读取数据，读取的数据将存储在buffer参数中。使用前需先调用[open]{@link serialManager.open}打开串口设备。使用Promise异步回调，返回实际读取的数据长度。适用于接收传感器上报的数
+   * 据、读取设备返回的响应数据、接收设备状态信息等场景。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @param { Uint8Array } buffer - 读取数据的缓冲区，最大长度为8192比特。
-   * @param { int } timeout - 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。
-   * @returns { Promise<int> } Promise对象，返回读取数据长度。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @param { Uint8Array } buffer - 读取数据的缓冲区，用于存储从串口设备读取的二进制数据。缓冲区大小应根据预期读取的数据量确定。读取成功后，返回值表示实际读取的数据长度。
+   * @param { int } [timeout] - 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0或不传参时，表示不等待直接返回。传入负数时抛出参数错误异常。
+   *     具体值需根据设备响应速度和数据量合理设置。
+   * @returns { Promise<int> } 返回实际读取到的数据长度，即成功读取的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -196,14 +278,23 @@ declare namespace serialManager {
   function read(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
   /**
-   * 从串口设备同步读取数据。
+   * 从串口设备同步读取数据，读取的数据将存储在buffer参数中，返回实际读取的数据长度。使用前需先调用[open]{@link serialManager.open}打开串口设备。适用于需要阻塞式等待数据、对读取顺序有严格要求、或实
+   * 时性要求不高的简单通信场景。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @param { Uint8Array } buffer - 读取数据的缓冲区，最大长度为8192比特。
-   * @param { int } timeout - 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。
-   * @returns {int} 返回读取数据长度。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @param { Uint8Array } buffer - 读取数据的缓冲区，用于存储从串口设备读取的二进制数据。缓冲区大小应根据预期读取的数据量确定。读取成功后，返回值表示实际读取的数据长度。
+   * @param { int } [timeout] - 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0或不传参时，表示不等待直接返回。传入负数时抛出参数错误异常。
+   *     具体值需根据设备响应速度和数据量合理设置。
+   * @returns {int} 返回实际读取到的数据长度，即成功读取的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -220,14 +311,23 @@ declare namespace serialManager {
   function readSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
   /**
-   * 向串口设备异步写数据，每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。使用Promise异步回调。
+   * 向串口设备异步写数据，需要先调用[open]{@link serialManager.open}打开串口后才能调用此接口。每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。使用Promise异步回调。适用于
+   * 向设备发送控制命令、下发配置参数、传输采集数据等场景。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @param { Uint8Array } buffer - 写入数据的缓冲区，最大长度为4KB。
-   * @param { int } timeout - 超时时间（单位：毫秒），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。
-   * @returns { Promise<int> } Promise对象，返回写入数据长度。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @param { Uint8Array } buffer - 写入数据的缓冲区，包含要发送到串口设备的二进制数据。每次写入的数据长度不超过4KB，超过会导致数据丢失，长数据建议分包写入。
+   * @param { int } [timeout] - 超时时间（单位：毫秒）。API在写入数据时等待缓冲区可写，在指定时间后返回。默认值0或不传参时，表示不等待直接返回。传入负数时抛出参数错误异常。
+   *     具体值需根据设备响应速度和数据量合理设置。
+   * @returns { Promise<int> } Promise对象，返回实际写入的数据长度（字节数）。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -244,14 +344,23 @@ declare namespace serialManager {
   function write(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
   /**
-   * 向串口设备同步写数据，每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。
+   * 向串口设备同步写数据，使用前需先调用[open]{@link serialManager.open}打开串口设备。每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。适用于需要阻塞式等待写入完成、发送重要指令
+   * 、或对写入顺序有严格要求的场景。
+   * 
+   * **前置条件：**
+   * - 需要先调用[getPortList]{@link serialManager.getPortList}获取端口号
+   * - 需要先调用[requestSerialRight]{@link serialManager.requestSerialRight}申请访问权限
+   * - 需要先调用[open]{@link serialManager.open}打开串口
    *
-   * @param { int} portId - 目标设备的端口号，来自[getPortList]{@link serialManager.getPortList()}获取的串口参数SerialPort。
-   * @param { Uint8Array } buffer - 写入目标缓冲区，最大长度为4KB。
-   * @param { int } timeout - 超时时间（单位：毫秒），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。
-   * @returns { int } 返回写入数据长度。
+   * @param { int} portId - 端口号，来自[getPortList]{@link serialManager.getPortList}返回的
+   *     [SerialPort]{@link serialManager.SerialPort}对象，必须使用getPortList返回的有效端口号，传入无效值时抛出错误码31400003异常。
+   * @param { Uint8Array } buffer - 写入数据的缓冲区，包含要发送到串口设备的二进制数据。每次写入的数据长度不超过4KB，超过会导致数据丢失，长数据建议分包写入。
+   * @param { int } [timeout] - 超时时间（单位：毫秒）。API在写入数据时等待缓冲区可写，在指定时间后返回。默认值0或不传参时，表示不等待直接返回。传入负数时抛出参数错误异常。
+   *     具体值需根据设备响应速度和数据量合理设置。
+   * @returns { int } 返回实际写入的数据长度，即成功写入的字节数。
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -277,7 +386,7 @@ declare namespace serialManager {
   interface SerialPort {
 
     /**
-     * 端口号。
+     * 串口端口号，用于唯一标识串口设备。该值来自getPortList返回的SerialPort对象，用于指定要操作的串口设备。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -286,14 +395,14 @@ declare namespace serialManager {
     portId: int;
 
     /**
-     * 串口设备名称。
+     * 串口设备的名称，用于显示和识别具体的串口设备。可用于在用户界面中展示设备信息，帮助用户区分不同的串口设备。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
      * @since 23 static
      */
     deviceName: string;
- }
+  }
   /**
    * 串口的配置参数。
    *
@@ -304,7 +413,7 @@ declare namespace serialManager {
   interface SerialAttribute {
 
     /**
-     * 串口波特率。
+     * 串口波特率，表示数据传输速率，单位：比特/秒
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -313,7 +422,7 @@ declare namespace serialManager {
     baudRate: BaudRates;
 
     /**
-     * 串口数据位，默认值为8位。
+     * 串口数据位，表示报文中的有效数据位数，默认值为8，单位：比特
      *
      * @default DATABIT_8
      * @syscap SystemCapability.USB.USBManager.Serial
@@ -323,9 +432,9 @@ declare namespace serialManager {
     dataBits?: DataBits;
 
     /**
-     * 串口奇偶校验，默认值为None，无奇偶校验。
+     * 串口奇偶校验，用于检测数据传输错误，默认值为PARITY_NONE（无奇偶校验）。
      *
-     * @default NONE
+     * @default PARITY_NONE
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
      * @since 23 static
@@ -333,7 +442,7 @@ declare namespace serialManager {
     parity?: Parity;
 
     /**
-     * 串口停止位，默认值为1位。
+     * 串口停止位，表示报文结束标志，默认值为1，单位：比特
      *
      * @default STOPBIT_1
      * @syscap SystemCapability.USB.USBManager.Serial
@@ -341,9 +450,9 @@ declare namespace serialManager {
      * @since 23 static
      */
     stopBits?: StopBits;
- }
+  }
   /**
-   * Enumerates the baud rates.
+   * 表示波特率的枚举，单位：比特/秒。
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -352,7 +461,7 @@ declare namespace serialManager {
   enum BaudRates {
 
     /**
-     * 传输波特率为50。
+     * 传输波特率为50比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -361,7 +470,7 @@ declare namespace serialManager {
     BAUDRATE_50 = 50,
 
     /**
-     * 传输波特率为75。
+     * 传输波特率为75比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -370,7 +479,7 @@ declare namespace serialManager {
     BAUDRATE_75 = 75,
 
     /**
-     * 传输波特率为110。
+     * 传输波特率为110比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -379,7 +488,7 @@ declare namespace serialManager {
     BAUDRATE_110 = 110,
 
     /**
-     * 传输波特率为134。
+     * 传输波特率为134比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -388,7 +497,7 @@ declare namespace serialManager {
     BAUDRATE_134 = 134,
 
     /**
-     * 传输波特率为150。
+     * 传输波特率为150比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -397,7 +506,7 @@ declare namespace serialManager {
     BAUDRATE_150 = 150,
 
     /**
-     * 传输波特率为200。
+     * 传输波特率为200比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -406,7 +515,7 @@ declare namespace serialManager {
     BAUDRATE_200 = 200,
 
     /**
-     * 传输波特率为300。
+     * 传输波特率为300比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -415,7 +524,7 @@ declare namespace serialManager {
     BAUDRATE_300 = 300,
 
     /**
-     * 传输波特率为600。
+     * 传输波特率为600比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -424,7 +533,7 @@ declare namespace serialManager {
     BAUDRATE_600 = 600,
 
     /**
-     * 传输波特率为1200。
+     * 传输波特率为1200比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -433,7 +542,7 @@ declare namespace serialManager {
     BAUDRATE_1200 = 1200,
 
     /**
-     * 传输波特率为1800。
+     * 传输波特率为1800比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -442,7 +551,7 @@ declare namespace serialManager {
     BAUDRATE_1800 = 1800,
 
     /**
-     * 传输波特率为2400。
+     * 传输波特率为2400比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -451,7 +560,7 @@ declare namespace serialManager {
     BAUDRATE_2400 = 2400,
 
     /**
-     * 传输波特率为4800。
+     * 传输波特率为4800比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -460,7 +569,7 @@ declare namespace serialManager {
     BAUDRATE_4800 = 4800,
 
     /**
-     * 传输波特率为9600。
+     * 传输波特率为9600比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -469,7 +578,7 @@ declare namespace serialManager {
     BAUDRATE_9600 = 9600,
 
     /**
-     * 传输波特率为19200。
+     * 传输波特率为19200比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -478,7 +587,7 @@ declare namespace serialManager {
     BAUDRATE_19200 = 19200,
 
     /**
-     * 传输波特率为38400。
+     * 传输波特率为38400比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -487,7 +596,7 @@ declare namespace serialManager {
     BAUDRATE_38400 = 38400,
 
     /**
-     * 传输波特率为57600。
+     * 传输波特率为57600比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -496,7 +605,7 @@ declare namespace serialManager {
     BAUDRATE_57600 = 57600,
 
     /**
-     * 传输波特率为115200。
+     * 传输波特率为115200比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -505,7 +614,7 @@ declare namespace serialManager {
     BAUDRATE_115200 = 115200,
 
     /**
-     * 传输波特率为230400。
+     * 传输波特率为230400比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -514,7 +623,7 @@ declare namespace serialManager {
     BAUDRATE_230400 = 230400,
 
     /**
-     * 传输波特率为460800。
+     * 传输波特率为460800比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -523,7 +632,7 @@ declare namespace serialManager {
     BAUDRATE_460800 = 460800,
 
     /**
-     * 传输波特率为500000。
+     * 传输波特率为500000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -532,7 +641,7 @@ declare namespace serialManager {
     BAUDRATE_500000 = 500000,
 
     /**
-     * 传输波特率为576000。
+     * 传输波特率为576000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -541,7 +650,7 @@ declare namespace serialManager {
     BAUDRATE_576000 = 576000,
 
     /**
-     * 传输波特率为921600。
+     * 传输波特率为921600比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -550,7 +659,7 @@ declare namespace serialManager {
     BAUDRATE_921600 = 921600,
 
     /**
-     * 传输波特率为1000000。
+     * 传输波特率为1000000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -559,7 +668,7 @@ declare namespace serialManager {
     BAUDRATE_1000000 = 1000000,
 
     /**
-     * 传输波特率为1152000。
+     * 传输波特率为1152000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -568,7 +677,7 @@ declare namespace serialManager {
     BAUDRATE_1152000 = 1152000,
 
     /**
-     * 传输波特率为1500000。
+     * 传输波特率为1500000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -577,7 +686,7 @@ declare namespace serialManager {
     BAUDRATE_1500000 = 1500000,
 
     /**
-     * 传输波特率为2000000。
+     * 传输波特率为2000000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -586,7 +695,7 @@ declare namespace serialManager {
     BAUDRATE_2000000 = 2000000,
 
     /**
-     * 传输波特率为2500000。
+     * 传输波特率为2500000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -595,7 +704,7 @@ declare namespace serialManager {
     BAUDRATE_2500000 = 2500000,
 
     /**
-     * 传输波特率为3000000。
+     * 传输波特率为3000000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -604,7 +713,7 @@ declare namespace serialManager {
     BAUDRATE_3000000 = 3000000,
 
     /**
-     * 传输波特率为3500000。
+     * 传输波特率为3500000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -613,16 +722,16 @@ declare namespace serialManager {
     BAUDRATE_3500000 = 3500000,
 
     /**
-     * 传输波特率为4000000。
+     * 传输波特率为4000000比特/秒。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
      * @since 23 static
      */
     BAUDRATE_4000000 = 4000000
- }
+  }
   /**
-   * Enumerates the number of data bits.
+   * 表示数据位宽的枚举，单位：比特。
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -665,9 +774,9 @@ declare namespace serialManager {
      * @since 23 static
      */
     DATABIT_5 = 5
- }
+  }
   /**
-   * Enumerates the parity check modes.
+   * 表示校验位的校验方式的枚举。
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -719,9 +828,9 @@ declare namespace serialManager {
      * @since 23 static
      */
     PARITY_SPACE = 4
- }
+  }
   /**
-   * Enumerates of the number of stop bits.
+   * 表示停止位宽的枚举，单位：比特。
    *
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19 dynamic
@@ -730,7 +839,7 @@ declare namespace serialManager {
   enum StopBits {
 
     /**
-     * 报文的有效停止位宽为1比特。
+     * 表示停止位宽为1比特。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
@@ -739,14 +848,14 @@ declare namespace serialManager {
     STOPBIT_1 = 0,
 
     /**
-     * 报文的有效停止位宽为2比特。
+     * 表示停止位宽为2比特。
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 19 dynamic
      * @since 23 static
      */
     STOPBIT_2 = 1
- }
+  }
 }
 
 export default serialManager;
