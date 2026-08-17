@@ -163,7 +163,8 @@ import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DialogPresenter, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
   MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController,
-  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext, TextSelectionClearPolicy, CustomKeyboardContinueFeature
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext, TextSelectionClearPolicy, CustomKeyboardContinueFeature,
+  BackgroundLuminanceSamplingConfigs, LuminanceSampler
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -418,5 +419,6 @@ export {
   EditableTitleBarMenuItemV2Options, EditableSaveButtonV2, EditableSaveButtonV2Options, EditableTitleBarStyleV2,
   EditableTitleBarStyleV2Options,
   MarginTypeV2, PromptOptionsV2, PromptOptionsV2Config, ExceptionPromptV2,
-  SwipeRefresherV2, CallbackParamV2, NodeParamV2, TreeControllerV2, TreeListenerV2, TreeListenerManagerV2, TreeViewV2, CustomKeyboardContinueFeature
+  SwipeRefresherV2, CallbackParamV2, NodeParamV2, TreeControllerV2, TreeListenerV2, TreeListenerManagerV2, TreeViewV2, CustomKeyboardContinueFeature,
+  BackgroundLuminanceSamplingConfigs, LuminanceSampler
 };
