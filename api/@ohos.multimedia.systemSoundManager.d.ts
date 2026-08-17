@@ -1473,7 +1473,7 @@ declare namespace systemSoundManager {
      *     In each array memeber, the first item is the tone uri, and the second item is the error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 20700007 - Prameter is invalid, e.g. the length of uriList is too long.
+     * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 20 dynamic
