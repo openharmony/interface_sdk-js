@@ -434,6 +434,15 @@ declare namespace inputDevice {
      * @since 23 dynamic&static
      */
     isLocal?: boolean;
+
+    /**
+     * 绑定的目标displayId。如果bindToDisplay接口没有调用过，则不填此值
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    displayId?: int;
   }
 
   /**
@@ -814,6 +823,30 @@ declare namespace inputDevice {
    * @since 23 static
    */
   function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
+
+  /**
+   * 将输入设备绑定到显示器。
+   * 仅支持外接USB和蓝牙的鼠标、触摸板、键盘和游戏控手柄。
+   * 绑定后，设备将固定在指定显示器所在的显示器组上操作。
+   * 该接口使用promise返回结果。
+   *
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { int } inputDeviceId - 指定输入设备的ID。
+   *     如果input service重启或输入外设重连，其ID可能会发生变化。
+   * @param { int } displayId - 目标屏幕的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - 拒绝访问。应用没有调用API所需的权限。
+   * @throws { BusinessError } 202 - 非系统应用
+   * @throws { BusinessError } 3800001 - 多模输入服务内部错误
+   * @throws { BusinessError } 3900001 - 指定的input device id不存在
+   * @throws { BusinessError } 3900004 - 指定的display id不存在
+   * @throws { BusinessError } 3900005 - 不支持此外设
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function bindToDisplay(inputDeviceId: int, displayId: int): Promise<void>;
 }
 
 export default inputDevice;
