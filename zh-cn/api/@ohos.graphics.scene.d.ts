@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 导出3D接口
+ * @file
  * @kit ArkGraphics3D
  */
 
@@ -107,7 +107,7 @@ export {
     BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
 
 /**
- * 导出SceneLoadParams
+ * 导出场景
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
  * @stagemodelonly

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D node related interfaces
+ * @file
  * @kit ArkGraphics3D
  */
 
@@ -24,7 +24,7 @@ import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
- * Defines the layer mask of the node.
+ * Defines the layer mask of a node.
  *
  * @interface LayerMask
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -56,7 +56,7 @@ export interface LayerMask {
 }
 
 /**
- * The enum of node type.
+ * Enumerates the node types.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -74,7 +74,7 @@ export enum NodeType {
   NODE = 1,
 
   /**
-   * The node is a geometry node.
+   * Geometric type node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -83,7 +83,7 @@ export enum NodeType {
   GEOMETRY = 2,
 
   /**
-   * The node is a camera node.
+   * Camera type node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -92,7 +92,7 @@ export enum NodeType {
   CAMERA = 3,
 
   /**
-   * The node is a light node.
+   * Light type node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -100,10 +100,9 @@ export enum NodeType {
    */
   LIGHT = 4,
 
-  /** 
-   * The node is of custom type.
-   * Usually this means that the node is of a type defined in an extension plugin.
-   * 
+  /**
+   * Custom node, which is usually defined in an extension plugin.
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -112,7 +111,7 @@ export enum NodeType {
 }
 
 /**
- * Defines a scene object container.
+ * Container for defining scene nodes. It provides a way to group scene nodes into a hierarchy.
  *
  * @interface Container
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -121,9 +120,9 @@ export enum NodeType {
  */
 export interface Container<T> {
   /**
-   * Append an item to the container.
+   * Appends a node to the container.
    *
-   * @param { T } item - the item append to the end of container
+   * @param { T } item - Object of the T type.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -131,10 +130,10 @@ export interface Container<T> {
   append(item: T): void;
 
   /**
-   * Insert an item.
+   * Inserts the object after the sibling node.
    *
-   * @param { T } item - the item insert to the container
-   * @param { T | null } sibling - insert after this item, insert to the head if sibling is null
+   * @param { T } item - Node to be inserted.
+   * @param { T | null } sibling - Sibling node.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -142,9 +141,9 @@ export interface Container<T> {
   insertAfter(item: T, sibling: T | null): void;
 
   /**
-   * Remove an item from Container's children.
+   * Removes a node.
    *
-   * @param { T } item - the item to be removed
+   * @param { T } item - Node to remove.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -163,7 +162,7 @@ export interface Container<T> {
   get(index: int): T | null;
 
   /**
-   * Clear all children.
+   * Clears all nodes in the container.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -184,6 +183,7 @@ export interface Container<T> {
 
 /**
  * The 3D scene consists of nodes in a tree hierarchy, where each node implements a Node interface.
+ * This class inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Node
@@ -290,8 +290,7 @@ export interface Node extends SceneResource {
   /**
    * Child node of the node and null if it does not exist.
    * This is a read-only property, indicating that you cannot directly replace the entire children container.
-   * However, you can operate the child nodes using container methods like [append]{@link Container.append},
-   * [insertAfter]{@link Container.insertAfter}, [remove]{@link Container.remove}, or [clear]{@link Container.clear}.
+   * However, you can operate the child nodes using container methods like append, insertAfter, remove, or clear.
    * If the node being appended or inserted already exists in the container, it is removed first and then reinserted.
    * As a result, the total number of child nodes remains unchanged, making the operation seem ineffective.
    * The count increases only when a new node is added.
@@ -306,7 +305,7 @@ export interface Node extends SceneResource {
 }
 
 /**
- * Geometric node type that holds renderable mesh data and supports optional deformation features.
+ * Geometric node type that holds renderable mesh data and supports optional deformation features. It inherits from Node.
  *
  * @extends Node
  * @interface Geometry
@@ -340,7 +339,7 @@ export interface Geometry extends Node {
 }
 
 /**
- * The enum of light type.
+ * Enumerates the light types.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -368,7 +367,7 @@ export enum LightType {
 }
 
 /**
- * Defines light interface.
+ * Light node, which inherits from Node.
  *
  * @extends Node
  * @interface Light
@@ -378,7 +377,7 @@ export enum LightType {
  */
 export interface Light extends Node {
   /**
-   * The type of the light.
+   * Light type.
    *
    * @type { LightType }
    * @readonly
@@ -389,7 +388,7 @@ export interface Light extends Node {
   readonly lightType: LightType;
 
   /**
-   * The color of the light.
+   * Color.
    *
    * @type { Color }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -430,10 +429,10 @@ export interface Light extends Node {
 }
 
 /**
- * Spotlight, which inherits from [Light]{@link Light}.
+ * Spotlight, which inherits from Light.
  *
- * A spotlight emits a conical beam of light in a specific direction,
- * with the intensity of the light decaying according to the angles defined by the innerAngle and outerAngle parameters.
+ * A spotlight emits a conical beam of light in a specific direction, with the intensity of the light decaying
+ * according to the angles defined by the innerAngle and outerAngle parameters.
  * Like a point light, a spotlight's intensity also diminishes with distance from the source.
  *
  * > **NOTE**
@@ -450,7 +449,9 @@ export interface Light extends Node {
  */
 export interface SpotLight extends Light {
   /**
-   * The inner angle of the spot light, the unit is radian.
+   * Angle from the center of the spotlight to the start of the decay, corresponding to the semi-apex angle of the cone,
+   * within which the light intensity does not decay with angle. The unit is radian (rad), and the default value is 0.
+   * The value must be greater than or equal to 0 and less than or equal to outerAngle.
    * 
    * @type { ?double }
    * @default 0
@@ -460,7 +461,9 @@ export interface SpotLight extends Light {
   innerAngle?: double;
 
   /**
-   * The outer angle of the spot light, the unit is radian.
+   * Angle from the center of the spotlight to the end of the decay, corresponding to the semi-apex angle of the cone,
+   * beyond which there is no light intensity. The unit is radian (rad), and the default value is PI/4.
+   * The value must be greater than or equal to innerAngle and less than or equal to PI/2.
    * 
    * @type { ?double }
    * @default PI / 4.0
@@ -471,7 +474,7 @@ export interface SpotLight extends Light {
 }
 
 /**
- * Defines directional light.
+ * Directional light, which inherits from Light.
  *
  * @extends Light
  * @interface DirectionalLight
@@ -483,7 +486,7 @@ export interface DirectionalLight extends Light {
 }
 
 /**
- * Defines camera.
+ * Camera node, which inherits from Node.
  *
  * @extends Node
  * @interface Camera
@@ -493,8 +496,7 @@ export interface DirectionalLight extends Light {
  */
 export interface Camera extends Node {
   /**
-   * Field of view. The unit is radian (rad).
-   * The value ranges from 0 to π radians.
+   * Field of view. The unit is radian (rad). The value ranges from 0 to π radians.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -567,8 +569,7 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * Whether Multisample Anti-Aliasing (MSAA) is enabled. true if enabled, false otherwise.
-   * The default value is false.
+   * Whether Multisample Anti-Aliasing (MSAA) is enabled. true if enabled, false otherwise. The default value is false.
    *
    * @type { ?boolean }
    * @default false
@@ -579,7 +580,8 @@ export interface Camera extends Node {
   msaa?: boolean;
 
   /**
-   * Rendering pipeline type. If this parameter is not set, the lightweight forward rendering pipeline is used by default.
+   * Rendering pipeline type.
+   * If this parameter is not set, the lightweight forward rendering pipeline is used by default.
    * (If the FORWARD_LIGHTWEIGHT pipeline is selected, certain features are unavailable.)
    *
    * @type { ?RenderingPipelineType }
@@ -607,16 +609,16 @@ export interface Camera extends Node {
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 
   /**
-   * Get the view matrix of this camera.
-   * @returns { Mat4x4 } -- the view matrix of this camera
+   * Obtains the view matrix of the camera.
+   * @returns { Mat4x4 } View matrix of the camera.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
   getViewMatrix(): Mat4x4;
 
   /**
-   * Get the projection matrix of this camera.
-   * @returns { Mat4x4 } -- the projection matrix of this camera
+   * Obtains the projection matrix of the camera.
+   * @returns { Mat4x4 } Projection matrix of the camera.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
