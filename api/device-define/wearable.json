@@ -197,7 +197,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
-    "SystemCapability.MiscServices.Pasteboard",
-    "SystemCapability.Applications.Settings.Core.Lite"
+    "SystemCapability.Applications.Settings.Core.Lite",
+    "SystemCapability.MiscServices.Pasteboard"
   ]
 }
