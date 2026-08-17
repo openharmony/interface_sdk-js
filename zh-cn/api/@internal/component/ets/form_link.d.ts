@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 /**
- * Defines the FormLink options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -27,24 +26,22 @@
  */
 declare interface FormLinkOptions {
   /**
-   * Action type.
+   * action的类型，支持三种预定义的类型：
    * 
-   * - **"router"**: redirection to the specified UIAbility of the widget provider.
-   * - **"message"**: custom message. If this type of action is triggered, the 
-   * [onFormEvent()]{@link @ohos.app.form.FormExtensionAbility:FormExtensionAbility.onFormEvent}
-   * lifecycle callback of the provider FormExtensionAbility is called.
-   * - **"call"**: launch of the widget provider in the background. If this type of action is triggered, the specified 
-   * UIAbility (whose launch type must be [singleton](docroot://application-models/uiability-launch-type.md#singleton)
-   * of the widget provider is started in the background, but not displayed in the foreground. This action type requires
-   *  that the widget provider should have the 
+   * - router：跳转到提供方应用的指定UIAbility。
+   * 
+   * - message：自定义消息，触发后会调用提供方FormExtensionAbility的
+   * [onFormEvent()]{@link @ohos.app.form.FormExtensionAbility:FormExtensionAbility#onFormEvent}生命周期回调。
+   * 
+   * - call：后台启动提供方应用。触发后会拉起提供方应用的指定UIAbility（仅支持launchType为
+   * [singleton](docroot://application-models/uiability-launch-type.md#singleton启动模式)的UIAbility，即启动模式为单实例的UIAbility），但不会
+   * 调度到前台。提供方应用需要具备后台运行权限(
    * [ohos.permission.KEEP_BACKGROUND_RUNNING](docroot://security/AccessToken/permissions-for-all.md#ohospermissionkeep_background_running)
-   *  permission.
+   * )。 
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * Whenever possible, avoid using the router event to refresh the widget UI.
-   * 
-   * This API can be used in ArkTS widgets since API version 10.
+   * 不推荐使用router事件刷新卡片UI。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -54,9 +51,7 @@ declare interface FormLinkOptions {
   action: string;
 
   /**
-   * Name of the target module when action is **"router"** or **"call"**.
-   * 
-   * This API can be used in ArkTS widgets since API version 10.
+   * action为router / call 类型时跳转的模块名。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -66,9 +61,7 @@ declare interface FormLinkOptions {
   moduleName?: string;
 
   /**
-   * Name of the target bundle when action is **"router"** or **"call"**.
-   * 
-   * This API can be used in ArkTS widgets since API version 10.
+   * action为router / call 类型时跳转的包名。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -78,9 +71,7 @@ declare interface FormLinkOptions {
   bundleName?: string;
 
   /**
-   * Name of the target UIAbility when action is **"router"** or **"call"**.
-   * 
-   * This API can be used in ArkTS widgets since API version 10.
+   * action为router / call 类型时跳转的UIAbility名。
    *
    * @type { string } [since 10 - 10]
    * @type { ?string } [since 11]
@@ -92,10 +83,7 @@ declare interface FormLinkOptions {
   abilityName?: string;
 
   /**
-   * URI of the target UIAbility when action is **"router"**. If both **uri** and **abilityName** are set, 
-   * **abilityName** takes precedence.
-   * 
-   * This API can be used in ArkTS widgets since API version 11.
+   * action为router 类型时跳转的UIAbility的统一资源标识符。uri和abilityName同时存在时，abilityName优先。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -105,14 +93,11 @@ declare interface FormLinkOptions {
   uri?: string;
 
   /**
-   * Additional parameters carried in the current action. The value is a key-value pair in JSON format. For the **"call"
-   * ** action type, the **method** parameter must be set and its value type must be string.
+   * 当前action携带的额外参数，内容使用JSON格式的键值对形式。call 类型时需填入参数'method'，且类型需要为string类型，用于触发UIAbility中对应的方法。 
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * Whenever possible, avoid using **params** to transfer internal state variables of widgets.
-   * 
-   * This API can be used in ArkTS widgets since API version 10.
+   * 不建议通过params传递卡片内部的状态变量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -123,7 +108,13 @@ declare interface FormLinkOptions {
 }
 
 /**
- * Defines the FormLink interface.
+ * 提供静态卡片交互组件，用于静态卡片内部和卡片提供方应用间的交互，当前支持router、message和call三种类型的事件。
+ * 
+ * > **说明：**
+ * >
+ * > - 该组件仅可以在静态卡片中使用。
+ * >
+ * > - 本文仅提供静态卡片开发指导，其他卡片相关内容请参考[卡片开发指南](docroot://form/formkit-overview.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -132,9 +123,8 @@ declare interface FormLinkOptions {
  */
 interface FormLinkInterface {
   /**
-   * Init FormLink component with options.
    *
-   * @param { FormLinkOptions } options - Widget information.
+   * @param { FormLinkOptions } options - 定义卡片信息
    * @returns { FormLinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -145,9 +135,9 @@ interface FormLinkInterface {
 }
 
 /**
- * The [universal attributes]{@link common} are supported.
+ * 支持[通用属性]{@link ./common}。
  * 
- * The [universal events]{@link common} are not supported.
+ * 不支持[通用事件]{@link ./common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -158,18 +148,21 @@ declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
 }
 
 /**
- * The **FormLink** component is provided for interactions between static widgets and widget providers. It supports 
- * three types of events: router, message, and call.
+ * 提供静态卡片交互组件，用于静态卡片内部和卡片提供方应用间的交互，当前支持router、message和call三种类型的事件。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component is supported since API version 10. Updates will be marked with a superscript to indicate their 
- * > earliest API version.
+ * > - 该组件仅可以在静态卡片中使用。
  * >
- * > - This component can be used only in static widgets.
- * >
- * > - This document covers static widget development only. For comprehensive widget development guidance, see the 
- * > [widget development guide](docroot://form/formkit-overview.md).
+ * > - 本文仅提供静态卡片开发指导，其他卡片相关内容请参考[卡片开发指南](docroot://form/formkit-overview.md)。
+ * 
+ * ###### 权限
+ * 
+ * 无
+ * 
+ * ###### 子组件
+ * 
+ * 支持单个子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form

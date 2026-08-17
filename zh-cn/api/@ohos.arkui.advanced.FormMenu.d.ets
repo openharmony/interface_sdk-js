@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2024 Huawei Device Co., Ltd.
+* Copyright (C) 2026 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -26,13 +26,12 @@ import { Builder, MenuItemOptions } from '@ohos.arkui.component';
 /*** endif */
 
 /**
- * Defines the form menu item style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
+ * @noninterop
  */
 export interface FormMenuItemStyle {
   /**
@@ -47,13 +46,12 @@ export interface FormMenuItemStyle {
 }
 
 /**
- * Defines the add form options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
+ * @noninterop
  */
 export interface AddFormOptions {
   /**
@@ -88,16 +86,15 @@ export interface AddFormOptions {
 }
 
 /**
- * Build function of AddFormMenuItem.
  *
- * @param { Want } want - The want of the form to publish.
- * @param { string } componentId - The id of the component used to get form snapshot.
- * @param { AddFormOptions } [options] - Add form options.
+ * @param { Want } want - 待发布功能组件的want信息。
+ * @param { string } componentId - 应用内功能组件ID，组件ID对应的界面与待添加的服务卡片界面相似。
+ * @param { AddFormOptions } [options] - 添加卡片选项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
+ * @noninterop
  */
 @Builder
 export declare function AddFormMenuItem(

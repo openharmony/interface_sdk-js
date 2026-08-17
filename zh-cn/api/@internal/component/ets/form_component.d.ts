@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,19 +14,12 @@
  */
 
 /**
- * The **FormComponent** is used to display widgets.
- * 
- * > **NOTE**
- * >
- * > - This component is intended for the widget host. For details about the widget provider, see 
- * > [JS Service Widget UI Components](docroot://reference/apis-arkui/js-service-widget-ui/js-service-widget-file.md).
- *
- * @file
+ * @file 系统接口
  * @kit ArkUI
  */
 
 /**
- * Enumerates widget sizes.
+ * 卡片尺寸枚举
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -34,7 +27,7 @@
  */
 declare enum FormDimension {
   /**
-   * 1 x 2 widget.
+   * 1*2 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -43,7 +36,7 @@ declare enum FormDimension {
   Dimension_1_2 = 0,
 
   /**
-   * 2 x 2 widget.
+   * 2*2 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -52,7 +45,7 @@ declare enum FormDimension {
   Dimension_2_2 = 1,
 
   /**
-   * 2 x 4 widget.
+   * 2*4 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -61,7 +54,7 @@ declare enum FormDimension {
   Dimension_2_4 = 2,
 
   /**
-   * 4 x 4 widget.
+   * 4*4 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -70,17 +63,19 @@ declare enum FormDimension {
   Dimension_4_4 = 3,
 
   /**
-   * 2 x 1 widget.
+   * 2*1 卡片 
+   * 
+   * **说明:** 该字段从API version 9开始支持，从API version 20开始废弃。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 20
    */
-  Dimension_2_1 = 4,
+  Dimension_2_1,
 
   /**
-   * 1 x 1 widget.
+   * 1*1 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -89,7 +84,7 @@ declare enum FormDimension {
   DIMENSION_1_1 = 6,
 
   /**
-   * 6 x 4 widget.
+   * 6*4 卡片
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -98,7 +93,7 @@ declare enum FormDimension {
   DIMENSION_6_4 = 7,
 
   /**
-   * 2 x 3 widget. Available for wearable devices.
+   * 2*3 卡片为穿戴设备使用
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -107,7 +102,7 @@ declare enum FormDimension {
   DIMENSION_2_3 = 8,
 
   /**
-   * 3 x 3 widget. Available for wearable devices.
+   * 3*3 卡片为穿戴设备使用
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -117,7 +112,7 @@ declare enum FormDimension {
 }
 
 /**
- * Enumerates the widget rendering modes.
+ * 卡片渲染模式枚举
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -126,7 +121,7 @@ declare enum FormDimension {
 declare enum FormRenderingMode {
 
   /**
-   * Full color mode.
+   * 全色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -135,7 +130,7 @@ declare enum FormRenderingMode {
   FULL_COLOR = 0,
 
   /**
-   * Single color mode.
+   * 单色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -145,7 +140,7 @@ declare enum FormRenderingMode {
 }
 
 /**
- * Defines the FormShape enum.
+ * 定义卡片形状枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -153,7 +148,7 @@ declare enum FormRenderingMode {
  */
 declare enum FormShape {
   /**
-   * The rect shape.
+   * 方形卡片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -162,7 +157,7 @@ declare enum FormShape {
   RECT = 1,
 
   /**
-   * The circle shape.
+   * 圆形卡片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -172,7 +167,7 @@ declare enum FormShape {
 }
 
 /**
- * Enumerates the card color modes.
+ * 卡片色彩模式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -181,7 +176,7 @@ declare enum FormShape {
  */
 enum FormColorMode {  
   /**
-   * Same with the system.
+   * 跟随系统。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -191,7 +186,7 @@ enum FormColorMode {
   MODE_AUTO = -1,
 
   /**
-   * Dark.
+   * 深色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -201,7 +196,7 @@ enum FormColorMode {
   MODE_DARK = 0,
 
   /**
-   * Light.
+   * 浅色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -212,7 +207,7 @@ enum FormColorMode {
 }
 
 /**
- * Provides the widget information.
+ * 卡片信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -220,13 +215,15 @@ enum FormColorMode {
  */
 declare interface FormInfo {
   /**
-   * Widget ID. Set this parameter to **0** for a new widget.
+   * 卡片标识（新建卡片填0）。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * Different widget hosts cannot use the same ID.
+   * 不同使用方不可使用相同id。
    * 
-   * If a widget host uses the same ID for two widgets, the one added later is displayed.
+   * 同一使用方使用相同id时，显示后添加的卡片。
+   * 
+   * id大于等于0小于2^32。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -235,7 +232,7 @@ declare interface FormInfo {
   id: number | string;
 
   /**
-   * Widget name.
+   * 卡片名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -244,7 +241,7 @@ declare interface FormInfo {
   name: string;
 
   /**
-   * Bundle name of the widget.
+   * 目标卡片包名。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -253,7 +250,7 @@ declare interface FormInfo {
   bundle: string;
 
   /**
-   * Ability name of the widget.
+   * 目标卡片Ability名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -262,7 +259,7 @@ declare interface FormInfo {
   ability: string;
 
   /**
-   * Module name of the widget.
+   * 卡片模块名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -271,9 +268,9 @@ declare interface FormInfo {
   module: string;
 
   /**
-   * Dimensions of the widget. The 2 x 2, 4 x 4, 4 x 2, and more options are available.
+   * 卡片尺寸，支持2 * 2，4 * 4，2 * 4等类型卡片。
    * 
-   * Default value: **Dimension_2_2**
+   * 默认值：Dimension_2_2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -282,10 +279,9 @@ declare interface FormInfo {
   dimension?: FormDimension;
 
   /**
-   * Whether the widget is a temporary widget. **true**: The widget is a temporary widget. **false**: The widget is not 
-   * a temporary widget.
+   * 卡片是否为临时卡片，true表示是临时卡片，false表示不是临时卡片。
    * 
-   * Default value: **false**.
+   * 默认值：false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -294,7 +290,7 @@ declare interface FormInfo {
   temporary?: boolean;
 
   /**
-   * The want of the form.
+   * 卡片传递信息的载体。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -303,17 +299,14 @@ declare interface FormInfo {
   want?: import('../api/@ohos.app.ability.Want').default;
 
   /**
-   * Widget rendering mode. Default value: **FULL_COLOR**. The options are as follows:
+   * 卡片渲染模式。取值如下，默认值为 FULL_COLOR。
    * 
-   * - **FULL_COLOR**: full color mode, where the widget framework does not change the widget effect, which means that 
-   * the widget is displayed in the effect as you set it.
-   * - **SINGLE_COLOR**: single color mode, where the widget framework sets the widget background to transparent. In 
-   * this mode you need to set the widget style based on the best practices.
+   * - FULL_COLOR：代表全色模式，卡片框架不会对卡片效果做出修改，保持和卡片开发者设置的效果不变。
+   * - SINGLE_COLOR：代表单色模式，卡片框架会把卡片背景设为透明，开发者需按最佳实践设置卡片风格。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * If the system does not support unified rendering, the widget framework does not set the widget background to 
-   * transparent in single color mode.
+   * 如果系统不支持统一渲染模式，卡片框架在单色模式下也不会把卡片背景设为透明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -322,7 +315,7 @@ declare interface FormInfo {
   renderingMode?: FormRenderingMode;
 
   /**
-   * The shape of the form.
+   * 卡片的形状。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -331,11 +324,9 @@ declare interface FormInfo {
   shape?: FormShape;
 
   /**
-   * Whether the widget is exempt from app lock. **true**: The widget is exempt from app lock management. No app lock 
-   * overlay is displayed when an app lock is applied to the host application. **false**: The widget is managed by app 
-   * lock. The app lock overlay is displayed when an app lock is applied to the host application.
+   * 卡片是否豁免应用锁，true表示卡片所属应用添加应用锁时，不受应用锁管控，不显示应用锁蒙层；false表示卡片所属应用添加应用锁时，受应用锁管控，正常展示应用锁蒙层。
    * 
-   * Default value: **false**.
+   * 默认值：false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -376,7 +367,7 @@ interface FormComponentInterface {
 }
 
 /**
- * Represents the parameters for obtaining a widget ID (**formId**) when querying or uninstalling a widget.
+ * 卡片查询或者卸载时获取formId的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -384,12 +375,11 @@ interface FormComponentInterface {
  */
 interface FormCallbackInfo {
   /**
-   * Widget ID of the number type.
+   * 卡片标识。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * If the obtained ID is **-1**, the ID is greater than or equal to 2^53. In this case, you need to use **idString** 
-   * to obtain the ID.
+   * 如果获取到的id为-1，说明id大于等于2^53，需要使用idString获取。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -398,7 +388,7 @@ interface FormCallbackInfo {
   id: number;
 
   /**
-   * Widget ID of the string type.
+   * 卡片标识。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -407,7 +397,7 @@ interface FormCallbackInfo {
   idString: string;
 
   /**
-   * Indicates whether the form is locked.
+   * 表示卡片是否被锁定，true表示卡片被锁定，false表示卡片没有被锁定。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -416,7 +406,7 @@ interface FormCallbackInfo {
   isLocked: boolean;
 }
 /**
- * Provides the widget size information.
+ * 卡片大小信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -424,7 +414,11 @@ interface FormCallbackInfo {
  */
 interface FormSize {
   /**
-   * Width of the widget, in vp.
+   * 卡片宽的尺寸，单位：vp。
+   * 
+   * **说明：**
+   * 
+   * width的取值范围大于0，小于2^53。如果不在范围内的数值卡片不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -433,7 +427,11 @@ interface FormSize {
   width: number;
 
   /**
-   * Height of the widget, in vp.
+   * 卡片高的尺寸，单位：vp。
+   * 
+   * **说明：**
+   * 
+   * height的取值范围大于0，小于2^53。如果不在范围内的数值卡片不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -443,7 +441,7 @@ interface FormSize {
 }
 
 /**
- * Provides the widget error information.
+ * 卡片错误信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -451,7 +449,7 @@ interface FormSize {
  */
 interface ErrorInformation {
   /**
-   * [Error code](docroot://reference/apis-form-kit/errorcode-form.md).
+   * [错误码](docroot://reference/apis-form-kit/errorcode-form.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -460,7 +458,7 @@ interface ErrorInformation {
   errcode: number;
 
   /**
-   * Error message.
+   * 错误信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
