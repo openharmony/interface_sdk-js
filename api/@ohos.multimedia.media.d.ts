@@ -4113,9 +4113,7 @@ declare namespace media {
     setSpeed(speed: PlaybackSpeed): void;
 
     /**
-* Set playback rate.
      * Sets the playback rate. This API can be called only when the AVPlayer is in the prepared, playing, paused, or 
-* Supported states: prepared/playing/paused/completed.
      * completed state. The value range is [0.125, 8.0], on API 24 and below, the range is [0.125, 4.0].
 * @param { double } rate - playback rate, valid range is 0.125 ~ 4.
      * You can check whether the setting takes effect through the 
@@ -4126,7 +4124,7 @@ declare namespace media {
      * > This API is not supported in live mode.
      *
      * @param { double } rate - Playback rate, which is in the range [0.125, 8.0]
-     * on API 24 and below, the range is [0.125, 4.0].
+     *     on API 24 and below, the range is [0.125, 4.0].
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
