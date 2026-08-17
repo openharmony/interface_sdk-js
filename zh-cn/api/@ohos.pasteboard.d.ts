@@ -377,6 +377,7 @@ declare namespace pasteboard {
      */
     LOCALDEVICE = 1,
     /**
+     * 表示允许跨设备在任何应用内粘贴。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice [since 11]
@@ -1200,7 +1201,7 @@ declare namespace pasteboard {
   interface GetDataParams {
     /**
      * 拷贝文件的目标路径对应的URI。
-     * 若不支持文件处理，则不需要设置此参数；若应用涉及复杂文件处理策略或需要区分文件多路径存储，建议不设置此参数，由应用自行完成文件copy处理，默认为空。
+     * 若不支持文件处理，则不需要设置此参数；若应用涉及复杂文件处理策略或需要区分文件多路径存储，建议不设置此参数，由应用自行完成文件复制处理，默认为空。
      *
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1286,7 +1287,7 @@ declare namespace pasteboard {
      * - 未取消订阅会导致回调函数持续监听剪贴板变化，可能造成内存泄漏或多次回调触发。
      * - 建议在组件/页面销毁时取消订阅。
      *
-     * @param { 'update' } type - 取值为'update'，表示系统剪贴板内容变化事件，其他值无效。
+     * @param { string } type - 取值为'update'，表示系统剪贴板内容变化事件，其他值无效。
      * @param { function } callback - 剪贴板中内容变化时触发的用户程序的回调。
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameters types.
@@ -1328,7 +1329,7 @@ declare namespace pasteboard {
      * - 必须在已订阅的情况下才能调用。
      * - 如果callback参数未填，清除本应用的所有监听回调；否则清除指定监听回调。
      *
-     * @param { 'update' } type - 取值为'update'，表示系统剪贴板内容变化事件。
+     * @param { string } type - 取值为'update'，表示系统剪贴板内容变化事件。
      * @param { function } [callback] - 剪贴板中内容变化时触发的用户程序的回调。如果此参数未填，表明清除本应用的所有监听回调，否则表示清除指定监听回调。
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameters types.
