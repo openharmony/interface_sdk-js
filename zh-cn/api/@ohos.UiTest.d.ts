@@ -3236,7 +3236,7 @@ declare class Driver {
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
   /**
-   * 在目标坐标点单击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用clickAt。使用Promise异步回调。
+   * 在目标坐标点单击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[clickAt]{@link clickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3254,7 +3254,7 @@ declare class Driver {
   click(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点双击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用doubleClickAt。使用Promise异步回调。
+   * 在目标坐标点双击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[doubleClickAt]{@link doubleClickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3272,7 +3272,7 @@ declare class Driver {
   doubleClick(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点长按。仅支持在设备默认屏幕上操作且不支持自定义长按时长，如需指定屏幕或长按时长请使用longClickAt。使用Promise异步回调。
+   * 在目标坐标点长按。仅支持在设备默认屏幕上操作且不支持自定义长按时长，如需指定屏幕或长按时长请使用[longClickAt]{@link longClickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3290,7 +3290,7 @@ declare class Driver {
   longClick(x: int, y: int): Promise<void>;
 
   /**
-   * 从起始坐标点滑向目的坐标点。仅支持在设备默认屏幕上操作，如需指定屏幕请使用swipeBetween。使用Promise异步回调。
+   * 从起始坐标点滑向目的坐标点。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[swipeBetween]{@link swipeBetween}。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3312,7 +3312,7 @@ declare class Driver {
   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
-   * 从起始坐标点拖拽至目的坐标点。仅支持在设备默认屏幕上操作，不支持自定义拖拽前长按时长，如需指定屏幕或长按时长请使用dragBetween。使用Promise异步回调。
+   * 从起始坐标点拖拽至目的坐标点。仅支持在设备默认屏幕上操作，不支持自定义拖拽前长按时长，如需指定屏幕或长按时长请使用[dragBetween]{@link dragBetween}。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3355,7 +3355,7 @@ declare class Driver {
    *     只有''属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3403,7 +3403,7 @@ declare class Driver {
    *     只有“持续时间”和“压力”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3420,8 +3420,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3441,7 +3440,7 @@ declare class Driver {
    *     只有“速度”和“压力”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3458,8 +3457,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3480,7 +3478,7 @@ declare class Driver {
    *     只有“压力”、“速度”和“持续时间”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4040,7 +4038,7 @@ declare class Driver {
    *     <br>默认值：参考TouchOptions的默认值。
    * @param { KeyOptions } [keyOptions] - 拖动期间要按的键代码的键选项。
    *     <br>默认值：参考keyOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4215,7 +4213,7 @@ declare class Driver {
    * @param { PenKeyOperationOptions } [options] - the operation options, including optional coordinate point.
    *     Default value: Refer to the default value of PenKeyOperationOption.
    *     <br>默认值：参考PenKeyOperationOption的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed. Unsupported key, mode, and operation combination.
@@ -4269,8 +4267,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回拖拽操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4291,8 +4288,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @returns { Promise<boolean> } - Promise对象。返回滑动操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4332,7 +4328,7 @@ declare class Driver {
    *
    * @param { Array<Point> } pointers - 指关节敲击屏幕坐标点的数组，数组长度取值为1或2。
    * @param { int } times - 指关节连续敲击屏幕的次数，取值为1或2。
-   * @returns { Promise<void> } - Promise对象。无返回结果。
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4354,9 +4350,8 @@ declare class Driver {
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
    *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
-   * @returns { Promise<void> } - Promise对象。无返回结果。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.

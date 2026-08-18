@@ -3174,7 +3174,7 @@ declare class Driver {
 
   /**
    * Clicks the target coordinate point. This method can be used only on the default screen of the device. To specify
-   * a screen, use {@link clickAt}. This API uses a promise to return the result.
+   * a screen, use [clickAt]{@link clickAt}. This API uses a promise to return the result.
    *
    * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than or
    *     equal to 0. If the value is out of range, error code 401 is thrown.
@@ -3195,7 +3195,7 @@ declare class Driver {
 
   /**
    * Double-clicks the target coordinate point. This method can be used only on the default screen of the device. To
-   * specify a screen, use {@link doubleClickAt}. This API uses a promise to return the result.
+   * specify a screen, use [doubleClickAt]{@link doubleClickAt}. This API uses a promise to return the result.
    *
    * @param { int } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than or
    *     equal to 0. If the value is out of range, error code 401 is thrown.

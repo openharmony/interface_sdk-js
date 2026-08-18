@@ -367,10 +367,10 @@ declare class PerfTest {
   /**
    * 运行性能测试，按配置次数迭代执行测试代码段并采集性能数据，使用Promise回调。每次迭代中，框架依次执行
    * actionCode和resetCode（若已配置），并在actionCode执行期间采集性能数据。执行完成后，可通过
-   * getMeasureResult获取采集到的测量结果数据。
+   * [getMeasureResult]{@link getMeasureResult}获取采集到的测量结果数据。
    *
    * @returns { Promise<void> }
-   * Promise对象，无返回结果。
+   * Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes:
    * 1. An exception is thrown in the callback. 2. Callback execution timed out.
@@ -404,7 +404,7 @@ declare class PerfTest {
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
 
   /**
-   * 销毁PerfTest对象，释放该对象占用的相关资源。与create方法配对使用，在PerfTest对象使用完毕后调用，
+   * 销毁PerfTest对象，释放该对象占用的相关资源。与[create]{@link create}方法配对使用，在PerfTest对象使用完毕后调用，
    * 未调用此方法可能导致资源无法释放。调用后不应再使用该PerfTest对象。
    *
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
