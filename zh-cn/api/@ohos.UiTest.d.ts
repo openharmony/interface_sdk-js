@@ -22,17 +22,17 @@
   * - [Component<sup>9+</sup>]{@link Component}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。
   * - [Driver<sup>9+</sup>]{@link Driver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
   * - [UiWindow<sup>9+</sup>]{@link UiWindow}：代表UI界面上的窗口对象，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
-  * - [By<sup></sup>]{@link By}：提供控件特征描述能力，用于控件筛选匹配查找。从API version 8开始支持，从API version 9开始废弃，建议使用
+  * - [By<sup>(deprecated)</sup>]{@link By}：提供控件特征描述能力，用于控件筛选匹配查找。从API version 8开始支持，从API version 9开始废弃，建议使用
   * [On<sup>9+</sup>]{@link On}替代。
-  * - [UiComponent<sup></sup>]{@link UiComponent}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。从API version 8开始支持，从API version
+  * - [UiComponent<sup>(deprecated)</sup>]{@link UiComponent}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。从API version 8开始支持，从API version
   * 9开始废弃，建议使用[Component<sup>9+</sup>]{@link Component}替代。
-  * - [UiDriver<sup></sup>]{@link UiDriver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。从API version 8开始支持，从API version 9开始废弃，建议使用
+  * - [UiDriver<sup>(deprecated)</sup>]{@link UiDriver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。从API version 8开始支持，从API version 9开始废弃，建议使用
   * [Driver<sup>9+</sup>]{@link Driver}替代。
   * 
   * > **说明：**
   * >
+  * > - 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
   * > - 本模块接口在<!--RP1-->[自动化测试脚本](docroot://application-test/uitest-guidelines.md)<!--RP1End-->中使用。
-  * >
   * > - 本模块接口不支持并发调用。
   * 
   * @file
@@ -3236,7 +3236,7 @@ declare class Driver {
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
   /**
-   * 在目标坐标点单击。使用Promise异步回调。
+   * 在目标坐标点单击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用clickAt。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3254,7 +3254,7 @@ declare class Driver {
   click(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点双击。使用Promise异步回调。
+   * 在目标坐标点双击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用doubleClickAt。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3272,7 +3272,7 @@ declare class Driver {
   doubleClick(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点长按。使用Promise异步回调。
+   * 在目标坐标点长按。仅支持在设备默认屏幕上操作且不支持自定义长按时长，如需指定屏幕或长按时长请使用longClickAt。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3290,7 +3290,7 @@ declare class Driver {
   longClick(x: int, y: int): Promise<void>;
 
   /**
-   * 从起始坐标点滑向目的坐标点。使用Promise异步回调。
+   * 从起始坐标点滑向目的坐标点。仅支持在设备默认屏幕上操作，如需指定屏幕请使用swipeBetween。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3312,7 +3312,7 @@ declare class Driver {
   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
-   * 从起始坐标点拖拽至目的坐标点。使用Promise异步回调。
+   * 从起始坐标点拖拽至目的坐标点。仅支持在设备默认屏幕上操作，不支持自定义拖拽前长按时长，如需指定屏幕或长按时长请使用dragBetween。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
