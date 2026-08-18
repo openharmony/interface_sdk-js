@@ -199,7 +199,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     role?: PanRole;
   }
@@ -209,7 +209,7 @@ declare namespace baseProfile {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum PanRole {
     /**
@@ -217,7 +217,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     ROLE_PANNAP = 0,
     /**
@@ -225,7 +225,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     ROLE_PANU = 1
   }

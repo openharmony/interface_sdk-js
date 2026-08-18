@@ -19,7 +19,9 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts dynamic */
 import type common from './@ohos.bluetooth.common';
+/*** endif */
 
 /**
  * Provide methods to access BAS(Battery Service)-related capabilities.
@@ -27,7 +29,7 @@ import type common from './@ohos.bluetooth.common';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 
 declare namespace bas {
@@ -37,7 +39,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type BluetoothAddress = common.BluetoothAddress;
 
@@ -50,7 +52,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function isBasSupported(): boolean;
 
@@ -73,7 +75,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getRemoteDeviceBatteryInfo(deviceId: BluetoothAddress): Promise<BatteryInfo>;
 
@@ -91,7 +93,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onBatteryChange(callback: Callback<BatteryInfo>): void;
 
@@ -109,7 +111,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offBatteryChange(callback?: Callback<BatteryInfo>): void;
 
@@ -119,7 +121,7 @@ declare namespace bas {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface BatteryInfo {
     /**
@@ -128,7 +130,7 @@ declare namespace bas {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     deviceId: BluetoothAddress;
     /**
@@ -137,7 +139,7 @@ declare namespace bas {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     batteryLevel: int;
   }
