@@ -18,7 +18,7 @@
  * @kit ConnectivityKit
  */
 import type PartnerAgentExtensionContext from './@ohos.FusionConnectivity.PartnerAgentExtensionContext';
-import type partnerAgent from './@ohos.FusionConnectivity.partnerAgent.d.ts';
+import type partnerAgent from './@ohos.FusionConnectivity.partnerAgent';
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 
 /**
@@ -28,7 +28,6 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
 
@@ -39,7 +38,6 @@ type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtensionAbilityDestroyReason;
 
@@ -51,7 +49,6 @@ type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtens
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 export default class PartnerAgentExtensionAbility extends ExtensionAbility {
 
@@ -62,7 +59,6 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   context: PartnerAgentExtensionContext;
 
@@ -74,7 +70,6 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   onDestroyWithReason(reason: PartnerAgentExtensionAbilityDestroyReason): void;
 
@@ -85,7 +80,6 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   onDeviceDiscovered(deviceAddress: PartnerDeviceAddress): void;
 }
