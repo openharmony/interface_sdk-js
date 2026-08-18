@@ -684,7 +684,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavaiable.
-   * @throws { BusinessError } 9700006 - Failed to check the frequency information.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
@@ -701,7 +701,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavaiable.
-   * @throws { BusinessError } 9700006 - Failed to check the uid.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
