@@ -1488,8 +1488,8 @@ declare interface IMonitorValue<T> {
 }
 
 /**
- * @SyncMonitor用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)，同步监听状态变量修改，
- * 使得状态变量支持深度监听。适用于需要精确监听对象嵌套属性变化、数组元素修改等深层状态变化的场景，解决了传统监听方式无法感知深层属性变化的问题，提升状态管理的精确性和开发效率。
+ * @SyncMonitor用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)，同步监听状态变量修改，使得状态变量
+ * 支持深度监听。适用于需要精确监听对象嵌套属性变化、数组元素修改等深层状态变化的场景，解决了传统监听方式无法感知深层属性变化的问题，提升状态管理的精确性和开发效率。
  *
  * 开发指南参考：[@SyncMonitor装饰器：状态变量修改同步监听](docroot://ui/state-management/arkts-new-syncmonitor.md)。
  *
@@ -1715,7 +1715,10 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
- * 定义组件复用的类装饰器。
+ * 为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用\@Reusable装饰\@Component装饰的自定义组件，实现组件复用。\@Reusable支持通过reuseId标识不同类型的可复用组件，提供
+ * aboutToReuse回调接收复用参数，并支持配置内存优化策略。该装饰器适用于列表滚动、频繁切换组件显示与隐藏等需要反复创建销毁组件的场景。
+ * 
+ * 开发指南参考：[@Reusable装饰器：组件复用](docroot://ui/state-management/arkts-reusable.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1744,10 +1747,12 @@ declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDec
 declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
- * ReuseId callback type. It is used to compute reuseId.
+ * 获取复用标识ID的回调方法。
  *
- * @returns { string }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @returns { string } 复用标识ID，由开发者指定。
+ *     <br>未指定或使用空字符串`''`作为复用标识ID时，将默认使用自定义组件名。
+ *     <br>在API版本26.0.0之前，当该回调不是显式返回字符串字面量时，实际复用标识ID将为自定义组件名，回调返回值不生效；在API版本26.0.0及以后，回调的实际返回结果将作为复用标识ID。
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
@@ -1756,7 +1761,7 @@ declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassD
 declare type ReuseIdCallback = () => string;
 
 /**
- * Defining the reusable configuration parameters.
+ * 复用选项，用于配置复用标识ID，相同复用标识ID的组件会被互相复用，提高复用匹配的精确度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1766,7 +1771,13 @@ declare type ReuseIdCallback = () => string;
  */
 declare interface ReuseOptions {
   /**
-   * Defining reuseId function. The default reuseId is the custom component name.
+   * 复用标识ID，相同复用标识ID的V2自定义组件会被互相复用。默认的复用标识ID为自定义组件名。
+   * 
+   * 在API版本26.0.0之前，当reuseId不是显式返回字符串字面量的回调方法时，实际的复用标识ID为该自定义组件的名称。例如，`Child().reuse({ reuseId: () => getReuseId() })`的实
+   * 际复用标识ID为`"Child"`。
+   * 
+   * 在API版本26.0.0及以后，支持将非显式返回字符串字面量形式的reuseId作为实际的复用标识ID。例如，`Child().reuse({ reuseId: () => getReuseId() })`的实际复用标识ID为
+   * `getReuseId()`的返回结果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26331,11 +26342,15 @@ declare class CommonMethod<T> {
   reuseId(id: string): T;
 
   /**
-   * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
+   * 为\@ReusableV2装饰的V2自定义组件设置复用选项，相同复用标识ID的组件会被互相复用，提高复用匹配的精确度。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { ReuseOptions } options - The configuration parameter for reusable custom component.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { ReuseOptions } options - 复用选项，用于配置复用标识ID，由开发者指定。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -28474,8 +28489,8 @@ declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
 declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
-* 主题。
-*
+ * 主题对象。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28510,11 +28525,18 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  */
 declare class CustomComponent extends BaseCustomComponent {
   /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
+   * 当一个可复用的自定义组件从复用缓存中重新加入到节点树时，触发aboutToReuse生命周期回调，并将组件的构造参数传递给该回调。
+   * 
+   * > **说明：**
+   * >
+   * > * [避免对@Link/@ObjectLink/@Prop等自动更新的状态变量，在aboutToReuse()中重复赋值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-component_reuse#避免对linkobjectlinkprop等自动更新的状态变量在abouttoreuse中重复赋值)。
+   * >
+   * > * 在滑动场景中，使用组件复用通常需要用该回调函数去更新组件的状态变量，因此在该回调函数中应避免耗时操作，否则会导致丢帧卡顿。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件复用回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section20815336174316)。
    *
-   * @param { object } params - Custom component init params. [since 10 - 19]
-   * @param { Record<string, Object | undefined | null> } params - Custom component init params.
+   * @param { object } params - 自定义组件的构造参数。其中key为复用时外部传入的组件成员变量名，value为复用时外部传入的对应参数值。 [since 10 - 19]
+   * @param { Record<string, Object | undefined | null> } params - 自定义组件的构造参数。其中key为复用时外部传入的组件成员变量名，value为复用时外部传入的对应参数
+   *     值。 [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28560,10 +28582,10 @@ declare class CustomComponent extends BaseCustomComponent {
  * @noninterop
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
-
   /**
-   * aboutToReuse Method for @ComponentV2, it is executed when fetching instance of custom component from RecyclePool.
-   * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
+   * 当一个状态管理V2的可复用自定义组件从复用缓存中重新加入到节点树时，触发aboutToReuse生命周期回调。在频繁调用场景下，应避免在其中执行耗时操作，否则可能导致丢帧卡顿。
+   * 
+   * 详细内容请参考[\@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28588,7 +28610,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
 declare class BaseCustomComponent extends CommonAttribute {
 
   /**
-   * 自定义弹出内容构造函数。
+   * build()函数用于定义自定义组件的声明式UI描述，自定义组件必须定义build()函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -28600,9 +28622,18 @@ declare class BaseCustomComponent extends CommonAttribute {
   build(): void;
 
   /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
+   * aboutToAppear函数在创建自定义组件的新实例后，在其build()函数执行前调用。允许在aboutToAppear函数中改变
+   * [状态变量](docroot://ui/state-management/arkts-state-management-glossary.md#state-variables状态变量)，更改将在后续执行build()函数中生效。实
+   * 现[自定义布局]{@link Layoutable}的自定义组件的aboutToAppear生命周期在布局过程中触发。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
+   * 
+   * > **说明：**
+   * >
+   * > * 在该回调函数内，建议仅执行当前节点组件的初始化逻辑，避免高耗时操作阻塞主线程。对于高耗时操作，推荐采用缓存或异步方案替代。最佳实践请参考
+   * > [UI组件性能优化-避免在自定义组件的生命周期内执行高耗时操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-component-performance-optimization#section18755173594714)。
+   * >
+   * > * 在需要频繁创建和销毁组件的场景中，将会频繁调用该回调函数。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件生命周期回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section418843713435)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -28614,9 +28645,16 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToAppear?(): void;
 
   /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
+   * aboutToDisappear函数在自定义组件析构销毁时执行。不允许在aboutToDisappear函数中改变状态变量，特别是\@Link变量的修改可能会导致应用行为不稳定。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。不建议在aboutToDisappear函数调用后再触发
+   * 例如[自定义弹窗的创建]{@link CustomDialogController#open}等逻辑，这可能会因为组件树信息丢失导致应用行为异常，例如
+   * [@Consume](docroot://ui/state-management/arkts-provide-and-consume.md)找不到对应的
+   * [@Provide](docroot://ui/state-management/arkts-provide-and-consume.md)、弹窗内白屏不显示组件等。
+   * 
+   * > **说明：**
+   * >
+   * > 在需要频繁创建和销毁组件的场景中，将会频繁调用该回调函数。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件生命周期回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section418843713435)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -28628,7 +28666,9 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
-   * aboutToRecycle Method
+   * 组件的生命周期回调，在可复用组件从节点树上被加入到复用缓存之前调用。当该组件后续从复用缓存中被重新复用时，将触发
+   * [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期回调。在频繁调用
+   * 场景下，应避免在其中执行耗时操作，否则可能导致丢帧卡顿。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28639,13 +28679,14 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
-   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在onWillApplyTheme函数中改变状态变量，更改将在后续执行build()函
-   * 数中生效。
-   *
+   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。与aboutToAppear不同，onWillApplyTheme用于基于Theme对象初
+   * 始化状态变量，aboutToAppear用于通用初始化逻辑。允许在onWillApplyTheme函数中改变状态变量，更改将在后续执行build()函数中生效。
+   * 
    * > **说明：**
+   * >
    * > 从API version 18开始，该接口支持在状态管理V2组件中使用。
    *
-   * @param { Theme } theme - 自定义组件当前生效的Theme对象。
+   * @param { Theme } theme - 自定义组件当前生效的Theme对象，可在回调中通过该对象获取主题配色等资源，用于更新组件的样式变量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28686,7 +28727,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）每次显示时触发一次，包括路由
-   * 跳转、应用进入前台等场景。
+   * 跳转、应用进入前台等场景。建议在该回调函数内避免执行高耗时操作阻塞主线程，以免影响页面显示性能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -28698,14 +28739,11 @@ declare class BaseCustomComponent extends CommonAttribute {
   /**
    * router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）每次隐藏时触发一次，包括路由
    * 跳转、应用进入后台等场景。
+   * 
    * > **说明：**
-   * > 在该回调函数内，建议避免执行高耗时操作阻塞主线程造成卡顿。对于高耗时操作例如相机资源释放，推荐使用异步方案替代。最佳实践请参考
    * >
-   * [优化应用时延问题-延迟执行资源释放操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimiza
-   * tion-cases#section8783201923819)。
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the
-   * application entering the background
+   * > 在该回调函数内，建议避免执行高耗时操作阻塞主线程造成卡顿。对于高耗时操作例如相机资源释放，推荐使用异步方案替代。最佳实践请参考
+   * > [优化应用时延问题-延迟执行资源释放操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases#section8783201923819)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -28715,11 +28753,10 @@ declare class BaseCustomComponent extends CommonAttribute {
   onPageHide?(): void;
 
   /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form
+   * onFormRecycle回调函数在卡片回收时执行，卡片提供方可以返回需要卡片管理服务代保存的数据，在卡片恢复时通过
+   * [onFormRecover](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onformrecover11)接口传给卡片提供方。
    *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+   * @returns { string } 返回卡片提供方需要卡片管理服务代保存的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28730,9 +28767,11 @@ declare class BaseCustomComponent extends CommonAttribute {
   onFormRecycle?(): string;
 
   /**
-   * onFormRecover Method, this is only for ArkTS form
+   * onFormRecover回调函数在卡片恢复时执行，卡片提供方可以拿到卡片回收时卡片管理服务代保存的数据，该数据可以通过
+   * [onFormRecycle](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onformrecycle11)卡片回收回调函数保存
+   * 到卡片管理服务。
    *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
+   * @param { string } statusData - 卡片回收时卡片管理服务代保存的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28744,10 +28783,10 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * 在router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）生效，当用户点击返回按钮时
-   * 触发。返回true表示页面自己处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值按照false处理。
+   * 触发。返回true表示页面自己处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值按照false处理。典型使用场景包括：页面有未保存的编辑内容时阻止返回以提示用户保存、弹出自定义确认对话框替代系统默
+   * 认返回行为等。
    *
-   * @returns { void | boolean } Action of the back button. The value **true** means that the page executes its own
-   *     return logic, and **false** (default) means that the default return logic is used.
+   * @returns { void | boolean } 返回按钮动作。返回true表示由页面自行处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值时按false处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -28756,8 +28795,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   onBackPress?(): void | boolean;
 
   /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
+   * pageTransition函数用于定义页面入场和页面退场的转场动效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -28841,9 +28879,8 @@ declare class BaseCustomComponent extends CommonAttribute {
   queryRouterPageInfo(): RouterPageInfo | undefined;
 
   /**
-   * The callback method after the custom component is built.
-   *
-   * Triggered when the custom component has been built.
+   * onDidBuild函数在自定义组件的build()函数执行后调用，开发者可以在这个阶段实现埋点数据上报等不影响实际UI的功能。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28866,8 +28903,11 @@ declare class BaseCustomComponent extends CommonAttribute {
   getDialogController(): PromptActionDialogController | undefined;
 
   /**
-   * 该回调仅生效于由[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的、作为[router]{@link
-   * @param { ESObject } param - 路由跳转时传递到目标页面的数据。
+   * 该回调仅生效于由[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的、作为
+   * [router]{@link @ohos.router:router}路由页面存在的自定义组件。当之前存在于路由栈中的页面，通过单实例模式
+   * [RouterMode]{@link @ohos.router:router.RouterMode}移动到栈顶时触发该回调。
+   *
+   * @param { ESObject } param - 路由跳转时传递到目标页面的数据，与router.pushUrl()中params字段传递的数据一致，数据结构由开发者自定义。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
