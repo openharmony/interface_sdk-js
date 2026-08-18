@@ -15,7 +15,7 @@
 
 /**
  剪贴板
- * @file 
+ * @file
  剪贴板
  * @kit BasicServicesKit
  */
