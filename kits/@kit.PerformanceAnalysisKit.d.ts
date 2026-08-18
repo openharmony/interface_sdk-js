@@ -30,18 +30,18 @@ import logLibrary from '@ohos.logLibrary';
 import FaultLogExtensionAbility from '@ohos.hiviewdfx.FaultLogExtensionAbility';
 import FaultLogExtensionContext from '@ohos.hiviewdfx.FaultLogExtensionContext';
 import hiRetrieval from '@ohos.hiviewdfx.hiRetrieval';
+import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
   hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-  logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext, hiRetrieval
+  logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext, hiRetrieval, jsLeakWatcher
 };
 /*** endif */
 
 /*** if arkts dynamic */
 import FaultLogger from '@ohos.faultLogger';
-import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
-  FaultLogger, jsLeakWatcher 
+  FaultLogger
 };
 /*** endif */

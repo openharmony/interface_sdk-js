@@ -18,6 +18,8 @@
  * @kit PerformanceAnalysisKit
  */
 
+import { Callback } from './@ohos.base';
+
 /**
  * This module provides the capability of monitoring whether JS objects are leaked.
  *
@@ -112,7 +114,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.1.0 static
    */
-  export declare enum MonitorObjectType {
+  export enum MonitorObjectType {
     /**
      * All component types are monitored.
      *
@@ -178,7 +180,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.1.0 static
    */
-  interface LeakWatcherConfig {
+  export interface LeakWatcherConfig {
     /**
      * Type of the monitored object.
      *

@@ -18,6 +18,8 @@
  * @kit PerformanceAnalysisKit
  */
 
+import { Callback } from './@ohos.base';
+
 /**
  * 本模块提供了监控ArkTS对象是否发生泄漏的能力，可在应用开发、测试阶段发现并定位ArkTS对象的内存泄漏问题。
  *
@@ -101,7 +103,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.1.0 static
    */
-  export declare enum MonitorObjectType {
+  export enum MonitorObjectType {
     /**
      * 监测所有组件类型。
      *
@@ -166,7 +168,7 @@ declare namespace jsLeakWatcher {
    * @since 24 dynamic
    * @since 26.1.0 static
    */
-  interface LeakWatcherConfig {
+  export interface LeakWatcherConfig {
     /**
      * 被监测对象类型。
      * 
