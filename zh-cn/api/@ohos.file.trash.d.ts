@@ -19,14 +19,16 @@
  */
 
 /**
- * The **file.trash** module provides APIs for querying, recovering, or permanently deleting the files or directories in
- * Recently deleted (trash). Currently, only local files and directories are supported.
- * You can use **delete()** of [@ohos.file.fileAccess]{@link @ohos.file.fileAccess:fileAccess} to move a file or 
- * directory to the trash.
- * 
- * > **NOTE**
+ * 该模块提供可以查询、还原或彻底删除最近删除（回收站）里的文件/文件夹的能力。当前仅支持本地文件目录。
+ * 应用可通过FileAccess的删除操作将文件/文件夹移动到回收站，
+ * 具体可参考[@ohos.file.fileAccess]{@link @ohos.file.fileAccess:fileAccess}。
+ *
+ * > **说明：**
  * >
- * > - Currently, the APIs of this module can be called only by **FileManager**.
+ * > - 当前只支持FilePicker、文件管理器调用。
+ * > - 本模块为系统接口。
+ * > - 当前只支持文件管理器调用。
+ * > - 本模块接口从API version 23开始废弃。不建议使用以下接口。
  *
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
@@ -36,7 +38,7 @@
  */
 declare namespace trash {
   /**
-   * Represents information about a file or directory in the **Recently deleted** list.
+   * 最近删除（回收站）内文件的FileInfo对象。
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
@@ -46,7 +48,7 @@ declare namespace trash {
    */
   interface FileInfo {
     /**
-     * URI of the file or directory.
+     * 回收站文件/文件夹URI。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -57,7 +59,7 @@ declare namespace trash {
     readonly uri: string;
 
     /**
-     * Path of the file or directory before being deleted.
+     * 文件/目录删除前原路径。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -68,7 +70,7 @@ declare namespace trash {
     readonly srcPath: string;
 
     /**
-     * Name of the file or directory.
+     * 文件/目录文件名。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -79,7 +81,7 @@ declare namespace trash {
     readonly fileName: string;
 
     /**
-     * Permission on the file or directory.
+     * 文件/目录权限信息。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -90,7 +92,7 @@ declare namespace trash {
     readonly mode: number;
 
     /**
-     * Size of a file or directory, in bytes.
+     * 文件/目录的大小，单位为Byte。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -101,8 +103,7 @@ declare namespace trash {
     readonly size: number;
     
     /**
-     * Time when the file or directory was last modified. It is the number of milliseconds elapsed since the Unix epoch 
-     * (00:00:00 UTC on January 1, 1970).
+     * 文件/目录的修改时间。自1970年1月1日起至目标时间的毫秒数。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -113,8 +114,7 @@ declare namespace trash {
     readonly mtime: number;
 
     /**
-     * Time when the file or directory was created. It is the number of seconds elapsed since the Unix epoch (00:00:00 
-     * UTC on January 1, 1970).
+     * 文件/目录的创建时间。自1970年1月1日起至目标时间的秒数。
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -126,10 +126,10 @@ declare namespace trash {
   }
 
   /**
-   * Lists the files and directories in the **Recently deleted** list.
+   * 查询最近删除（回收站）列表中文件/目录信息。
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @returns { Array<FileInfo> } Returns the next level FileInfo Object.
+   * @returns { Array<FileInfo> } 已获取的文件和目录列表。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -142,10 +142,10 @@ declare namespace trash {
   function listFile(): Array<FileInfo>;
 
   /**
-   * Recovers a file or directory from the trash.
+   * 将uri对应文件/目录恢复到原路径。
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - URI of the file or directory.
+   * @param { string } uri - 回收站文件/文件夹URI。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
@@ -158,10 +158,10 @@ declare namespace trash {
   function recover(uri: string): void;
 
   /**
-   * Permanently deletes a file or directory from the **Recently deleted** list.
+   * 将uri对应文件/目录从最近删除（回收站）列表中彻底删除。
    *
    * @permission ohos.permission.FILE_ACCESS_MANAGER
-   * @param { string } uri - URI of the file or directory.
+   * @param { string } uri - 回收站文件/文件夹URI。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error

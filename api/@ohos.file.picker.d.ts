@@ -677,7 +677,7 @@ declare namespace picker {
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
      * is set to specific theme color properties, such as
-     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
@@ -894,7 +894,7 @@ declare namespace picker {
     /**
      * Theme color parameter. By default, it is left empty and follows the color settings of the **FilePicker**. When it
      * is set to specific theme color properties, such as
-     * [brand, fontPrimary, compBackgroundEmphasize, and iconFourth]{@link @ohos.arkui.theme:Colors}, the launched
+     * [fontEmphasize and compBackgroundEmphasize]{@link @ohos.arkui.theme:Colors}, the launched
      * **FilePicker** will adapt to the theme color accordingly.
      * This API can be called on smartphones but has no effect on other devices.
      *
