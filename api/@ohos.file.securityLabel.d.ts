@@ -71,7 +71,7 @@ declare namespace securityLabel {
    *
    * @param { string } path - File path.
    * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the security level.
+   * @param { AsyncCallback<void> } callback - Callback used to return the security level.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -131,7 +131,7 @@ declare namespace securityLabel {
    * by default. This API uses an asynchronous callback to return the result.
    *
    * @param { string } path - File path.
-   * @param { AsyncCallback<string> } [callback] - Callback after the data security level is obtained asynchronously.
+   * @param { AsyncCallback<string> } callback - Callback after the data security level is obtained asynchronously.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists

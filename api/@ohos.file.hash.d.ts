@@ -55,7 +55,7 @@ declare namespace hash {
    * @param { string } path - Path of the file in the application sandbox.
    * @param { string } algorithm - Algorithm used to calculate the hash value. The value can be **md5**, **sha1**, or
    *     **sha256**. **sha256** is recommended for security purposes.
-   * @param { AsyncCallback<string> } [callback] - Callback used to return the hash value obtained. The hash value is a
+   * @param { AsyncCallback<string> } callback - Callback used to return the hash value obtained. The hash value is a
    *     hexadecimal string consisting of digits and uppercase letters.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error

@@ -60,7 +60,7 @@ declare namespace statfs {
    * result.
    *
    * @param { string } path - File path of the file system.
-   * @param { AsyncCallback<long> } [callback] - Callback used to return the free size obtained, in bytes.
+   * @param { AsyncCallback<long> } callback - Callback used to return the free size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -136,7 +136,7 @@ declare namespace statfs {
    * result.
    *
    * @param { string } path - File path of the file system.
-   * @param { AsyncCallback<long> } [callback] - Callback used to return the total size obtained, in bytes.
+   * @param { AsyncCallback<long> } callback - Callback used to return the total size obtained, in bytes.
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
