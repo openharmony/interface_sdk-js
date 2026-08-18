@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Error Management Module
  * @kit AbilityKit
  */
 

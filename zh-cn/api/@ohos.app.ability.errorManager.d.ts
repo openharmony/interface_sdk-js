@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 错误管理模块
  * @kit AbilityKit
  */
 
@@ -26,7 +26,8 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
 /*** endif */
 
 /**
- * ErrorManager模块提供对错误观测器的注册和注销的能力，主要是观测应用发生js crash和appfreeze等错误。
+ * ErrorManager模块提供对应用运行时各类异常的全局观测能力，包括注册和注销错误观测器，主要用于监测应用崩溃（JS_CRASH）、应用冻屏（APP_FREEZE）、未捕获的Promise异常、资源超基线等错误场景。
+ * 通过设置监听器，开发者可以实时捕获异常信息、追踪问题根源、记录关键指标，从而提高应用的稳定性监控能力，加快故障排查和定位效率，提升应用质量和用户体验。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 19]
@@ -280,6 +281,7 @@ declare namespace errorManager {
    * >
    * > 如果该回调函数执行时间超过1s，可能导致[AppRecovery]{@link @ohos.app.ability.appRecovery:appRecovery}功能不可用。通过解析hilog日志中的begin与Freeze
    * > callback execution completed两者的时间差可以计算回调函数执行时长，如果超过1秒，可以尝试采用异步处理、减少阻塞操作、优化数据结构等方法优化回调逻辑，降低执行时长。
+   * > 该接口请勿与[errorManager.setDefaultFreezeObserver]{@link errorManager.setDefaultFreezeObserver}接口混用，混用可能会导致注册的回调函数执行失败。
    *
    * @param { 'freeze' } type - 填写'freeze'，表示应用主线程freeze观测器。
    * @param { FreezeObserver } observer - 由on接口注册的freeze监听的callback。
@@ -556,11 +558,16 @@ declare namespace errorManager {
   function setDefaultResourceUsageObserver(defaultObserver?: ResourceUsageObserver): ResourceUsageObserver;
 
   /**
-   * 设置默认冻屏观测器。此函数将在通过errorManager.on注册的回调函数执行后立即执行。
-   * 可用于替代errorManager.on实现链式调用。
-   * 如果为某个模块设置空观测器，将导致调用链中断。
-   *
-   * 此API必须在主线程中调用。
+   * 发生APP_FREEZE时，支持链式回调，返回上一次注册的处理器，仅限主线程调用。
+   * 如果传入非法参数或在子线程调用，将抛出错误码并返回undefined，因此建议使用try-catch逻辑进行处理。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口请勿与
+   * > [on('freeze')]{@link errorManager.on(type: 'freeze', observer: FreezeObserver)}
+   * > 或
+   * > [off('freeze')]{@link errorManager.off(type: 'freeze', observer?: FreezeObserver)}
+   * > 接口混用。
    *
    * @param { FreezeObserver } [defaultObserver] - 默认冻屏观测器。
    * @returns { FreezeObserver } - 返回原来的默认冻屏观测器。
