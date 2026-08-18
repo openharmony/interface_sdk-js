@@ -24,7 +24,7 @@ import image from './@ohos.multimedia.image';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
 /**
- * The **userFileManager** module provides user data management capabilities, including accessing and modifying user 
+ * The **userFileManager** module provides user data management capabilities, including accessing and modifying user
  * media data.
  *
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -35,7 +35,7 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  */
 declare namespace userFileManager {
   /**
-   * Obtains a **UserFileManager** instance. This instance can be used to access and modify user media data (such as 
+   * Obtains a **UserFileManager** instance. This instance can be used to access and modify user media data (such as
    * audio and video assets, images, and documents).
    *
    * @param { Context } context - Context of the ability instance.
@@ -78,7 +78,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType.VIDEO
      */
-    VIDEO,
+    VIDEO = 2,
     /**
      * Audio.
      *
@@ -88,7 +88,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    AUDIO
+    AUDIO = 3
   }
 
   /**
@@ -110,7 +110,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSubType.DEFAULT
      */
-    DEFAULT,
+    DEFAULT = 0,
     /**
      * Screenshots and screen recording files.
      *
@@ -120,7 +120,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSubType.SCREENSHOT
      */
-    SCREENSHOT,
+    SCREENSHOT = 1,
     /**
      * Photos and videos taken by a camera.
      *
@@ -130,7 +130,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.SOURCE_GENERIC
      */
-    CAMERA
+    CAMERA = 2
   }
 
   /**
@@ -162,7 +162,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType.CLOUD
      */
-    CLOUD,
+    CLOUD = 2,
     /**
      * Stored both on a local device and the cloud.
      *
@@ -172,7 +172,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType.LOCAL_AND_CLOUD
      */
-    BOTH
+    BOTH = 3
   }
 
   /**
@@ -204,13 +204,7 @@ declare namespace userFileManager {
    * @deprecated since 26.0.0
    * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.ChangeData
    */
-  type ChangeEvent =
-    'deviceChange'
-    | 'albumChange'
-    | 'imageChange'
-    | 'audioChange'
-    | 'videoChange'
-    | 'remoteFileChange';
+  type ChangeEvent = 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange';
 
   /**
    * Provides APIs for encapsulating file asset attributes.
@@ -223,7 +217,7 @@ declare namespace userFileManager {
    */
   interface FileAsset {
     /**
-     * Media asset URI, for example, **file://media/Photo/1/IMG_datetime_0001/displayName.jpg**. For details, see 
+     * Media asset URI, for example, **file://media/Photo/1/IMG_datetime_0001/displayName.jpg**. For details, see
      * [Media File URI](docroot://file-management/user-file-uri-intro.md#media-file-uri).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -281,7 +275,7 @@ declare namespace userFileManager {
      */
     set(member: string, value: string): void;
     /**
-     * Commits the modification on the file metadata to the database. This API uses an asynchronous callback to return 
+     * Commits the modification on the file metadata to the database. This API uses an asynchronous callback to return
      * the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
@@ -307,10 +301,10 @@ declare namespace userFileManager {
     commitModify(): Promise<void>;
     /**
      * Opens this file asset. This API uses an asynchronous callback to return the result.
-     * 
+     *
      * > **NOTE**
      * >
-     * > The write operations are mutually exclusive. After a write operation is complete, you must call **close** to 
+     * > The write operations are mutually exclusive. After a write operation is complete, you must call **close** to
      * > close the file.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.WRITE_IMAGEVIDEO or
@@ -327,10 +321,10 @@ declare namespace userFileManager {
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
      * Opens this file asset. This API uses a promise to return the result.
-     * 
+     *
      * > **NOTE**
      * >
-     * > The write operations are mutually exclusive. After a write operation is complete, you must call **close** to 
+     * > The write operations are mutually exclusive. After a write operation is complete, you must call **close** to
      * > close the file.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.WRITE_IMAGEVIDEO or
@@ -437,9 +431,9 @@ declare namespace userFileManager {
     favorite(isFavorite: boolean): Promise<void>;
     /**
      * Sets a file to hidden state. This API uses an asynchronous callback to return the result.
-     * 
-     * The private files set to hidden state are located in the private album (in hidden state) and are not open to 
-     * third-party applications. After obtaining private files from the private album, users can set **hiddenState** to 
+     *
+     * The private files set to hidden state are located in the private album (in hidden state) and are not open to
+     * third-party applications. After obtaining private files from the private album, users can set **hiddenState** to
      * **false** to remove them from the private album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -457,9 +451,9 @@ declare namespace userFileManager {
     setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets this file asset to the hidden state. This API uses a promise to return the result.
-     * 
-     * The private files set to hidden state are located in the private album (in hidden state) and are not open to 
-     * third-party applications. After obtaining private files from the private album, users can set **hiddenState** to 
+     *
+     * The private files set to hidden state are located in the private album (in hidden state) and are not open to
+     * third-party applications. After obtaining private files from the private album, users can set **hiddenState** to
      * **false** to remove them from the private album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -477,7 +471,7 @@ declare namespace userFileManager {
     setHidden(hiddenState: boolean): Promise<void>;
     /**
      * Sets user comment information of an image or video. This API uses an asynchronous callback to return the result.
-     * 
+     *
      * > **NOTE**
      * >
      * > This API can only be used to set user comment information of an image or video.
@@ -488,7 +482,7 @@ declare namespace userFileManager {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -499,7 +493,7 @@ declare namespace userFileManager {
     setUserComment(userComment: string, callback: AsyncCallback<void>): void;
     /**
      * Sets user comment information of an image or video. This API uses a promise to return the result.
-     * 
+     *
      * > **NOTE**
      * >
      * > This API can only be used to set user comment information of an image or video.
@@ -508,9 +502,9 @@ declare namespace userFileManager {
      * @param { string } userComment - User comment information to set, which cannot exceed 140 characters.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -520,11 +514,11 @@ declare namespace userFileManager {
      */
     setUserComment(userComment: string): Promise<void>;
     /**
-     * Obtains the EXIF data from a JPG image and returns a JSON string. This API uses an asynchronous callback to 
+     * Obtains the EXIF data from a JPG image and returns a JSON string. This API uses an asynchronous callback to
      * return the result.
-     * 
+     *
      * For details about the EXIF tags, see [image.PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
-     * 
+     *
      * | Key Value                                   | Description             |
      * | --------------------------------------- | ----------------- |
      * | BitsPerSample | Number of bits per sample.|
@@ -562,11 +556,11 @@ declare namespace userFileManager {
      * | WhiteBalance | White balance.|
      * | FocalLengthIn35mmFilm | Focal length in 35 mm film.|
      * | ExposureBiasValue | Exposure compensation.|
-     * 
+     *
      * > **NOTE**
      * >
-     * > This API returns a JSON string that contains EXIF tags. The complete Exif information consists of all_exif and 
-     * > [ImageVideoKey]{@link userFileManager.ImageVideoKey}.USER_COMMENT. The two fields need to be passed to 
+     * > This API returns a JSON string that contains EXIF tags. The complete Exif information consists of all_exif and
+     * > [ImageVideoKey]{@link userFileManager.ImageVideoKey}.USER_COMMENT. The two fields need to be passed to
      * > **fetchColumns**.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -581,9 +575,9 @@ declare namespace userFileManager {
     getExif(callback: AsyncCallback<string>): void;
     /**
      * Obtains the EXIF data from a JPG image and returns a JSON string. This API uses a promise to return the result.
-     * 
+     *
      * For details about the EXIF tags, see [image.PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
-     * 
+     *
      * | Key Value                                   | Description             |
      * | --------------------------------------- | ----------------- |
      * | BitsPerSample | Number of bits per sample.|
@@ -621,11 +615,11 @@ declare namespace userFileManager {
      * | WhiteBalance | White balance.|
      * | FocalLengthIn35mmFilm | Focal length in 35 mm film.|
      * | ExposureBiasValue | Exposure compensation.|
-     * 
+     *
      * > **NOTE**
      * >
-     * > This API returns a JSON string that contains EXIF tags. The complete Exif information consists of all_exif and 
-     * > [ImageVideoKey]{@link userFileManager.ImageVideoKey}.USER_COMMENT. The two fields need to be passed to 
+     * > This API returns a JSON string that contains EXIF tags. The complete Exif information consists of all_exif and
+     * > [ImageVideoKey]{@link userFileManager.ImageVideoKey}.USER_COMMENT. The two fields need to be passed to
      * > **fetchColumns**.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -659,7 +653,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    URI,
+    URI = 0,
     /**
      * File name displayed.
      *
@@ -669,9 +663,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    DISPLAY_NAME,
+    DISPLAY_NAME = 1,
     /**
-     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on 
+     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on
      * January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -680,9 +674,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    DATE_ADDED,
+    DATE_ADDED = 2,
     /**
-     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed 
+     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed
      * since the Epoch time (00:00:00 UTC on January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -691,7 +685,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    DATE_MODIFIED,
+    DATE_MODIFIED = 3,
     /**
      * Title of the file.
      *
@@ -701,7 +695,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    TITLE,
+    TITLE = 4,
     /**
      * Author of the file.
      *
@@ -711,7 +705,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    ARTIST,
+    ARTIST = 5,
     /**
      * Audio album.
      *
@@ -721,7 +715,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    AUDIOALBUM,
+    AUDIOALBUM = 6,
     /**
      * Duration, in ms.
      *
@@ -731,7 +725,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    DURATION,
+    DURATION = 7,
     /**
      * Whether the file is added to favorites.
      *
@@ -741,7 +735,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
-    FAVORITE
+    FAVORITE = 8
   }
 
   /**
@@ -763,7 +757,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.URI
      */
-    URI,
+    URI = 0,
     /**
      * Type of the file.
      *
@@ -773,7 +767,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.PHOTO_TYPE
      */
-    FILE_TYPE,
+    FILE_TYPE = 1,
     /**
      * File name displayed.
      *
@@ -783,9 +777,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DISPLAY_NAME
      */
-    DISPLAY_NAME,
+    DISPLAY_NAME = 2,
     /**
-     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on 
+     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on
      * January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -794,9 +788,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_ADDED
      */
-    DATE_ADDED,
+    DATE_ADDED = 3,
     /**
-     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed 
+     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed
      * since the Epoch time (00:00:00 UTC on January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -805,7 +799,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys#DATE_MODIFIED
      */
-    DATE_MODIFIED,
+    DATE_MODIFIED = 4,
     /**
      * Title of the file.
      *
@@ -815,7 +809,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.TITLE
      */
-    TITLE,
+    TITLE = 5,
     /**
      * Duration, in ms.
      *
@@ -825,7 +819,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DURATION
      */
-    DURATION,
+    DURATION = 6,
     /**
      * Image width, in pixels.
      *
@@ -835,7 +829,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.WIDTH
      */
-    WIDTH,
+    WIDTH = 7,
     /**
      * Image height, in pixels.
      *
@@ -845,9 +839,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.HEIGHT
      */
-    HEIGHT,
+    HEIGHT = 8,
     /**
-     * Date when the file (photo) was taken. The value is the number of seconds elapsed since the Epoch time (00:00:00 
+     * Date when the file (photo) was taken. The value is the number of seconds elapsed since the Epoch time (00:00:00
      * UTC on January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -856,7 +850,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_TAKEN
      */
-    DATE_TAKEN,
+    DATE_TAKEN = 9,
     /**
      * Orientation of the image file.
      *
@@ -866,7 +860,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.ORIENTATION
      */
-    ORIENTATION,
+    ORIENTATION = 10,
     /**
      * Whether the file is added to favorites.
      *
@@ -876,7 +870,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.FAVORITE
      */
-    FAVORITE,
+    FAVORITE = 11,
     /**
      * File location type.
      *
@@ -886,9 +880,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.POSITION
      */
-    POSITION,
+    POSITION = 12,
     /**
-     * Date when the file was deleted. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on 
+     * Date when the file was deleted. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on
      * January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -897,7 +891,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_TRASHED
      */
-    DATE_TRASHED,
+    DATE_TRASHED = 13,
     /**
      * Whether the file is hidden.
      *
@@ -907,7 +901,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.HIDDEN
      */
-    HIDDEN,
+    HIDDEN = 14,
     /**
      * User comment information.
      *
@@ -917,10 +911,10 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.USER_COMMENT
      */
-    USER_COMMENT,
+    USER_COMMENT = 15,
     /**
      * Key for the Ultra Snapshot feature.
-     * 
+     *
      * This parameter is available only for the system camera, and the key value is defined by the system camera.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -929,7 +923,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.CAMERA_SHOT_KEY
      */
-    CAMERA_SHOT_KEY
+    CAMERA_SHOT_KEY = 16
   }
 
   /**
@@ -951,7 +945,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.URI
      */
-    URI,
+    URI = 0,
     /**
      * Type of the file.
      *
@@ -961,7 +955,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumType
      */
-    FILE_TYPE,
+    FILE_TYPE = 1,
     /**
      * Name of the album.
      *
@@ -971,9 +965,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.ALBUM_NAME
      */
-    ALBUM_NAME,
+    ALBUM_NAME = 2,
     /**
-     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on 
+     * Date when the file was added. The value is the number of seconds elapsed since the Epoch time (00:00:00 UTC on
      * January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -982,9 +976,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.DATE_MODIFIED
      */
-    DATE_ADDED,
+    DATE_ADDED = 3,
     /**
-     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed 
+     * Date when the file content (not the file name) was last modified. The value is the number of seconds elapsed
      * since the Epoch time (00:00:00 UTC on January 1, 1970).
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -993,7 +987,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.DATE_MODIFIED
      */
-    DATE_MODIFIED
+    DATE_MODIFIED = 4
   }
 
   /**
@@ -1008,11 +1002,11 @@ declare namespace userFileManager {
   interface FetchOptions {
     /**
      * Options for fetching files based on the attributes in columns. If this parameter is left empty, files are fetched
-     * by URI, name, and type (the specific field names vary with the file asset or album object) by default. In 
-     * addition, an error will be reported if 
+     * by URI, name, and type (the specific field names vary with the file asset or album object) by default. In
+     * addition, an error will be reported if
      * [get]{@link userFileManager.UserFileManager.getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>)}
      * is called to obtain other attributes of this object. Example:
-     * 
+     *
      * fetchColumns: ['uri', 'title']
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -1078,7 +1072,7 @@ declare namespace userFileManager {
     subType?: PhotoSubType;
     /**
      * Key for the Ultra Snapshot feature.
-     * 
+     *
      * This parameter is available only for the system camera, and the key value is defined by the system camera.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -1124,7 +1118,7 @@ declare namespace userFileManager {
      */
     isAfterLast(): boolean;
     /**
-     * Releases and invalidates the **FetchFileResult** instance. After this instance is released, the APIs in this 
+     * Releases and invalidates the **FetchFileResult** instance. After this instance is released, the APIs in this
      * instance cannot be invoked.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -1158,8 +1152,8 @@ declare namespace userFileManager {
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next file asset in the result set. This API uses an asynchronous callback to return the result.
-     * 
-     * Before using this API, you must use [isAfterLast()]{@link userFileManager.FetchResult.isAfterLast} to check 
+     *
+     * Before using this API, you must use [isAfterLast()]{@link userFileManager.FetchResult.isAfterLast} to check
      * whether the current position is the end of the result set.
      *
      * @param { AsyncCallback<T> } callback - Callback used to return the next file asset.
@@ -1172,8 +1166,8 @@ declare namespace userFileManager {
     getNextObject(callback: AsyncCallback<T>): void;
     /**
      * Obtains the next file asset in the result set. This API uses a promise to return the result.
-     * 
-     * Before using this API, you must use [isAfterLast()]{@link userFileManager.FetchResult.isAfterLast} to check 
+     *
+     * Before using this API, you must use [isAfterLast()]{@link userFileManager.FetchResult.isAfterLast} to check
      * whether the current position is the end of the result set.
      *
      * @returns { Promise<T> } Promise that returns the next object in the result set.
@@ -1329,7 +1323,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.VIDEO
      */
-    VIDEO,
+    VIDEO = 1026,
     /**
      * Hidden album.
      *
@@ -1339,7 +1333,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.HIDDEN
      */
-    HIDDEN,
+    HIDDEN = 1027,
     /**
      * Trash.
      *
@@ -1349,7 +1343,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
      */
-    TRASH,
+    TRASH = 1028,
     /**
      * Album for screenshots and screen recording files.
      *
@@ -1359,7 +1353,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.SCREENSHOT
      */
-    SCREENSHOT,
+    SCREENSHOT = 1029,
     /**
      * Album for photos and videos taken by the camera.
      *
@@ -1369,7 +1363,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.CAMERA
      */
-    CAMERA,
+    CAMERA = 1030,
     /**
      * Any album.
      *
@@ -1414,10 +1408,10 @@ declare namespace userFileManager {
     readonly albumSubType: AlbumSubType;
     /**
      * Name of the album.
-     * 
+     *
      * > **NOTE**
      * >
-     * > The user album is writable, but the system album is not writable. 
+     * > The user album is writable, but the system album is not writable.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -1459,7 +1453,7 @@ declare namespace userFileManager {
     readonly count: number;
     /**
      * URI of the cover file of the album.
-     * 
+     *
      * > **NOTE**
      * >
      * > The user album is writable, but the system album is not writable.
@@ -1513,7 +1507,7 @@ declare namespace userFileManager {
    */
   interface Album extends AbsAlbum {
     /**
-     * Commits the modification on the album attributes to the database. This API uses an asynchronous callback to 
+     * Commits the modification on the album attributes to the database. This API uses an asynchronous callback to
      * return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1538,7 +1532,7 @@ declare namespace userFileManager {
      */
     commitModify(): Promise<void>;
     /**
-     * Adds image and video assets to an album. Before the operation, ensure that the image and video assets to add and 
+     * Adds image and video assets to an album. Before the operation, ensure that the image and video assets to add and
      * the album exist. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1553,7 +1547,7 @@ declare namespace userFileManager {
      */
     addPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Adds image and video assets to an album. Before the operation, ensure that the image and video assets to add and 
+     * Adds image and video assets to an album. Before the operation, ensure that the image and video assets to add and
      * the album exist. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1568,7 +1562,7 @@ declare namespace userFileManager {
      */
     addPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
-     * Removes image and video assets from an album. The album and file resources must exist. This API uses an 
+     * Removes image and video assets from an album. The album and file resources must exist. This API uses an
      * asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1598,7 +1592,7 @@ declare namespace userFileManager {
      */
     removePhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
-     * Recovers image or video assets from the recycle bin. Before the operation, ensure that the image or video assets 
+     * Recovers image or video assets from the recycle bin. Before the operation, ensure that the image or video assets
      * exist in the recycle bin. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1613,7 +1607,7 @@ declare namespace userFileManager {
      */
     recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Recovers image or video assets from the recycle bin. Before the operation, ensure that the image or video assets 
+     * Recovers image or video assets from the recycle bin. Before the operation, ensure that the image or video assets
      * exist in the recycle bin. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1628,12 +1622,12 @@ declare namespace userFileManager {
      */
     recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
-     * Deletes image or video assets from the recycle bin. Before the operation, ensure that the image or video assets 
+     * Deletes image or video assets from the recycle bin. Before the operation, ensure that the image or video assets
      * exist in the recycle bin. This API uses an asynchronous callback to return the result.
-     * 
+     *
      * > **NOTE**
      * >
-     * > This operation is irreversible. The assets deleted cannot be restored. Exercise caution when performing this 
+     * > This operation is irreversible. The assets deleted cannot be restored. Exercise caution when performing this
      * > operation.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1648,12 +1642,12 @@ declare namespace userFileManager {
      */
     deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Deletes image or video assets from the recycle bin. Before the operation, ensure that the image or video assets 
+     * Deletes image or video assets from the recycle bin. Before the operation, ensure that the image or video assets
      * exist in the recycle bin. This API uses a promise to return the result.
-     * 
+     *
      * > **NOTE**
      * >
-     * > This operation is irreversible. The assets deleted cannot be restored. Exercise caution when performing this 
+     * > This operation is irreversible. The assets deleted cannot be restored. Exercise caution when performing this
      * > operation.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1709,7 +1703,7 @@ declare namespace userFileManager {
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
-     * Creates an image or video asset with the specified file name and URI. This API uses an asynchronous callback to 
+     * Creates an image or video asset with the specified file name and URI. This API uses an asynchronous callback to
      * return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1726,7 +1720,7 @@ declare namespace userFileManager {
      */
     createPhotoAsset(displayName: string, albumUri: string, callback: AsyncCallback<FileAsset>): void;
     /**
-     * Creates an image or video asset with the specified file name. This API uses an asynchronous callback to return 
+     * Creates an image or video asset with the specified file name. This API uses an asynchronous callback to return
      * the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1758,7 +1752,7 @@ declare namespace userFileManager {
      */
     createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
     /**
-     * Creates an image or video asset with the specified file name and options. This API uses a promise to return the 
+     * Creates an image or video asset with the specified file name and options. This API uses a promise to return the
      * result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1774,7 +1768,7 @@ declare namespace userFileManager {
      */
     createPhotoAsset(displayName: string, createOption: PhotoCreateOptions): Promise<FileAsset>;
     /**
-     * Creates an image or video asset with the specified file name and options. This API uses an asynchronous callback 
+     * Creates an image or video asset with the specified file name and options. This API uses an asynchronous callback
      * to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1820,12 +1814,12 @@ declare namespace userFileManager {
     createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
      * Obtains image and video albums. This API uses an asynchronous callback to return the result.
-     * 
-     * This API cannot be used to obtain hidden albums. Use 
+     *
+     * This API cannot be used to obtain hidden albums. Use
      * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
@@ -1842,12 +1836,12 @@ declare namespace userFileManager {
     getPhotoAlbums(options: AlbumFetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
      * Obtains albums. This API uses a promise to return the result.
-     * 
-     * This API cannot be used to obtain hidden albums. Use 
+     *
+     * This API cannot be used to obtain hidden albums. Use
      * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
@@ -1864,14 +1858,14 @@ declare namespace userFileManager {
     getPhotoAlbums(options: AlbumFetchOptions): Promise<FetchResult<Album>>;
     /**
      * Creates an album. This API uses an asynchronous callback to return the result.
-     * 
+     *
      * The album name must meet the following requirements:
-     * 
+     *
      * - The album name is a string of 1 to 255 characters.
      * - The album name cannot contain any of the following characters:
-     * 
+     *
      * . .. \ / : * ? " ' ` < > | { } [ ]
-     * 
+     *
      * - The album name is case-insensitive.
      * - Duplicate album names are not allowed.
      *
@@ -1887,14 +1881,14 @@ declare namespace userFileManager {
     createAlbum(name: string, callback: AsyncCallback<Album>): void;
     /**
      * Creates an album. This API uses a promise to return the result.
-     * 
+     *
      * The album name must meet the following requirements:
-     * 
+     *
      * - The album name is a string of 1 to 255 characters.
      * - The album name cannot contain any of the following characters:
-     * 
+     *
      * . .. \ / : * ? " ' ` < > | { } [ ]
-     * 
+     *
      * - The album name is case-insensitive.
      * - Duplicate album names are not allowed.
      *
@@ -1935,13 +1929,13 @@ declare namespace userFileManager {
      */
     deleteAlbums(albums: Array<Album>): Promise<void>;
     /**
-     * Obtains albums based on the specified options and album type. This API uses an asynchronous callback to return 
+     * Obtains albums based on the specified options and album type. This API uses an asynchronous callback to return
      * the result.
-     * 
-     * This API cannot be used to obtain hidden albums. Use 
+     *
+     * This API cannot be used to obtain hidden albums. Use
      * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
-     * 
+     *
      * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1964,11 +1958,11 @@ declare namespace userFileManager {
     ): void;
     /**
      * Obtains albums by type. This API uses an asynchronous callback to return the result.
-     * 
-     * This API cannot be used to obtain hidden albums. Use 
+     *
+     * This API cannot be used to obtain hidden albums. Use
      * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
-     * 
+     *
      * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1985,11 +1979,11 @@ declare namespace userFileManager {
     getAlbums(type: AlbumType, subType: AlbumSubType, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
      * Obtains albums based on the specified options and album type. This API uses a promise to return the result.
-     * 
-     * This API cannot be used to obtain hidden albums. Use 
+     *
+     * This API cannot be used to obtain hidden albums. Use
      * [getHiddenAlbums]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>)}
      * to obtain hidden albums.
-     * 
+     *
      * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -2008,8 +2002,8 @@ declare namespace userFileManager {
     getAlbums(type: AlbumType, subType: AlbumSubType, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
      * Obtains the system album. This API uses an asynchronous callback to return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
@@ -2026,8 +2020,8 @@ declare namespace userFileManager {
     getPrivateAlbum(type: PrivateAlbumType, callback: AsyncCallback<FetchResult<PrivateAlbum>>): void;
     /**
      * Obtains the private album. This API uses a promise to return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [getAlbums]{@link userFileManager.UserFileManager.getAlbums( type: AlbumType, subType: AlbumSubType, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>> )}
      * instead.
      *
@@ -2071,7 +2065,7 @@ declare namespace userFileManager {
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
-     * Deletes a media file. This API uses an asynchronous callback to return the result. The deleted file is moved to 
+     * Deletes a media file. This API uses an asynchronous callback to return the result. The deleted file is moved to
      * the recycle bin. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO
@@ -2114,7 +2108,7 @@ declare namespace userFileManager {
      * @param { AsyncCallback<number> } callback - Callback used to return the index obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -2136,7 +2130,7 @@ declare namespace userFileManager {
      * @returns { Promise<number> } Promise that returns the index obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -2147,8 +2141,8 @@ declare namespace userFileManager {
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
     /**
      * Subscribes to changes of the file management library. This API uses a callback to return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [on]{@link userFileManager.UserFileManager.on(uri: string, forSubUri: boolean, callback: Callback<ChangeData>)}
      * instead.
      *
@@ -2169,9 +2163,9 @@ declare namespace userFileManager {
     on(type: ChangeEvent, callback: Callback<void>): void;
     /**
      * Unsubscribes from changes of the file management library. This API uses a callback to return the result.
-     * 
-     * This API will be deprecated. Use 
-     * [off]{@link userFileManager.UserFileManager.off(uri: string, callback?: Callback<ChangeData>)} 
+     *
+     * This API will be deprecated. Use
+     * [off]{@link userFileManager.UserFileManager.off(uri: string, callback?: Callback<ChangeData>)}
      * instead.
      *
      * @param { ChangeEvent } type - Type of event to subscribe to.
@@ -2194,14 +2188,14 @@ declare namespace userFileManager {
      *
      * @param { string } uri - URI of the file asset or album, or
      *     [DefaultChangeUri]{@link userFileManager.DefaultChangeUri}.
-     * @param { boolean } forSubUri - Whether to perform fuzzy listening. 
+     * @param { boolean } forSubUri - Whether to perform fuzzy listening.
      *     <br>If **uri** is the URI of the album, the
      *     value **true** means to listen for the file change in the album; the value **false** means to listen for the
      *     album change only. If **uri** is the URI of the file asset, there is no difference whether **forSubUri** is
      *     **true** or **false**. If **uri** is **DefaultChangeUri**, the value must be **true**, otherwise, the URI
      *     cannot be found and no message can be received.
      * @param { Callback<ChangeData> } callback - Callback used to return [ChangeData]{@link userFileManager.ChangeData}
-     *     . 
+     *     .
      *     <br>Note that different callbacks can be registered for a URI. You can use
      *     [off]{@link userFileManager.UserFileManager.off(uri: string, callback?: Callback<ChangeData>)}
      *     to disable the specified callback or all callbacks for the URI.
@@ -2221,7 +2215,7 @@ declare namespace userFileManager {
      *     [DefaultChangeUri]{@link userFileManager.DefaultChangeUri}.
      * @param { Callback<ChangeData> } [callback] - Callback registered by
      *     [on]{@link userFileManager.UserFileManager.on(uri: string, forSubUri: boolean, callback: Callback<ChangeData>)}
-     *     . If this parameter is not specified, all listener callbacks registered for the URI will be unregistered. 
+     *     . If this parameter is not specified, all listener callbacks registered for the URI will be unregistered.
      *     <br>Note that the specified callback will not be invoked.
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2273,7 +2267,7 @@ declare namespace userFileManager {
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
      * Releases this **UserFileManager** instance. This API uses an asynchronous callback to return the result.
-     * 
+     *
      * Call this API when the APIs in the **UserFileManager** instance are no longer used.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -2286,7 +2280,7 @@ declare namespace userFileManager {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases this **UserFileManager** instance. This API uses a promise to return the result.
-     * 
+     *
      * Call this API when the APIs in the **UserFileManager** instance are no longer used.
      *
      * @returns { Promise<void> } Promise that returns no value.
@@ -2318,7 +2312,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ADD
      */
-    NOTIFY_ADD,
+    NOTIFY_ADD = 0,
     /**
      * A file asset or album is updated.
      *
@@ -2328,7 +2322,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_UPDATE
      */
-    NOTIFY_UPDATE,
+    NOTIFY_UPDATE = 1,
     /**
      * A file asset or album is removed.
      *
@@ -2338,7 +2332,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_REMOVE
      */
-    NOTIFY_REMOVE,
+    NOTIFY_REMOVE = 2,
     /**
      * A file asset is added to the album.
      *
@@ -2348,7 +2342,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ALBUM_ADD_ASSET
      */
-    NOTIFY_ALBUM_ADD_ASSET,
+    NOTIFY_ALBUM_ADD_ASSET = 3,
     /**
      * A file asset is removed from the album.
      *
@@ -2358,7 +2352,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ALBUM_REMOVE_ASSET
      */
-    NOTIFY_ALBUM_REMOVE_ASSET
+    NOTIFY_ALBUM_REMOVE_ASSET = 4
   }
 
   /**
@@ -2372,7 +2366,7 @@ declare namespace userFileManager {
    */
   enum DefaultChangeUri {
     /**
-     * Default **PhotoAsset** URI. The **PhotoAsset** change notifications are received based on this parameter and 
+     * Default **PhotoAsset** URI. The **PhotoAsset** change notifications are received based on this parameter and
      * **forSubUri{true}**.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2381,7 +2375,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.DefaultChangeUri.DEFAULT_PHOTO_URI
      */
-    DEFAULT_PHOTO_URI,
+    DEFAULT_PHOTO_URI = 0,
     /**
      * Default album URI. Album change notifications are received based on this parameter and **forSubUri{true}**.
      *
@@ -2391,9 +2385,9 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.DefaultChangeUri.DEFAULT_ALBUM_URI
      */
-    DEFAULT_ALBUM_URI,
+    DEFAULT_ALBUM_URI = 1,
     /**
-     * Default **AudioAsset** URI. The **AudioAsset** change notifications are received based on this parameter and 
+     * Default **AudioAsset** URI. The **AudioAsset** change notifications are received based on this parameter and
      * **forSubUri{true}**.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2402,7 +2396,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @ohos.file.picker:picker.AudioViewPicker
      */
-    DEFAULT_AUDIO_URI
+    DEFAULT_AUDIO_URI = 2
   }
 
   /**
@@ -2436,7 +2430,7 @@ declare namespace userFileManager {
      */
     uris: Array<string>;
     /**
-     * URIs of the changed files in the album. The value may be undefined. Check whether the value is undefined before 
+     * URIs of the changed files in the album. The value may be undefined. Check whether the value is undefined before
      * using it.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2475,7 +2469,7 @@ declare namespace userFileManager {
      */
     readonly networkId: string;
     /**
-     * Whether the registered device is online. The value **true** means the registered device is online; the value 
+     * Whether the registered device is online. The value **true** means the registered device is online; the value
      * **false** means the opposite.
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
@@ -2488,8 +2482,8 @@ declare namespace userFileManager {
 
   /**
    * Enumerates the system album types.
-   * 
-   * This API will be deprecated. Use [AlbumType]{@link userFileManager.AlbumType} and 
+   *
+   * This API will be deprecated. Use [AlbumType]{@link userFileManager.AlbumType} and
    * [AlbumSubType]{@link userFileManager.AlbumSubType} instead.
    *
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2508,7 +2502,7 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.FAVORITE
      */
-    TYPE_FAVORITE,
+    TYPE_FAVORITE = 0,
     /**
      * Trash.
      *
@@ -2518,12 +2512,12 @@ declare namespace userFileManager {
      * @deprecated since 26.0.0
      * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype.TRASH
      */
-    TYPE_TRASH
+    TYPE_TRASH = 1
   }
 
   /**
    * Provides APIs for managing the system albums.
-   * 
+   *
    * This API will be deprecated. Use [Album]{@link userFileManager.Album} instead.
    *
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -2534,10 +2528,10 @@ declare namespace userFileManager {
    */
   interface PrivateAlbum extends AbsAlbum {
     /**
-     * Deletes a file from the system album. Only the files in the trash can be deleted. This API uses an asynchronous 
+     * Deletes a file from the system album. Only the files in the trash can be deleted. This API uses an asynchronous
      * callback to return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [Album.deletePhotoAssets]{@link userFileManager.Album.deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>)}
      * instead.
      *
@@ -2553,10 +2547,10 @@ declare namespace userFileManager {
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
-     * Deletes a file from the system album. Only the files in the trash can be deleted. This API uses a promise to 
+     * Deletes a file from the system album. Only the files in the trash can be deleted. This API uses a promise to
      * return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [Album.deletePhotoAssets]{@link userFileManager.Album.deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>)}
      * instead.
      *
@@ -2572,10 +2566,10 @@ declare namespace userFileManager {
      */
     delete(uri: string): Promise<void>;
     /**
-     * Recovers a file in the system album. Only the files in the trash can be recovered. This API uses an asynchronous 
+     * Recovers a file in the system album. Only the files in the trash can be recovered. This API uses an asynchronous
      * callback to return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [Album.recoverPhotoAssets]{@link userFileManager.Album.recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>)}
      * instead.
      *
@@ -2591,10 +2585,10 @@ declare namespace userFileManager {
      */
     recover(uri: string, callback: AsyncCallback<void>): void;
     /**
-     * Recovers a file in the system album. Only the files in the trash can be recovered. This API uses a promise to 
+     * Recovers a file in the system album. Only the files in the trash can be recovered. This API uses a promise to
      * return the result.
-     * 
-     * This API will be deprecated. Use 
+     *
+     * This API will be deprecated. Use
      * [Album.recoverPhotoAssets]{@link userFileManager.Album.recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>)}
      * instead.
      *
