@@ -26,7 +26,7 @@
  * > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * > hardwareProfile、incrementalVersion、buildType、buildUser、buildHost、buildTime、buildRootHash等参数返回值为default，这些参数会在设备正式商用版本中配置具体值。
  * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。未特殊说明的字段，数据长度最大值为96字节。
- * > 相关错误码请参考[deviceInfo错误码]https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info
+ * > 相关错误码请参考[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform [since 11]
