@@ -43,7 +43,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_MOTION= 'SpatialMotion',
+    SPATIAL_MOTION = 'SpatialMotion',
     /**
      * 指向识别能力
      *
@@ -52,7 +52,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_POINT= 'SpatialPoint',
+    SPATIAL_POINT = 'SpatialPoint',
     /**
      * 姿体动作能力
      *
@@ -61,7 +61,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_GESTURE= 'SpatialGesture',
+    SPATIAL_GESTURE = 'SpatialGesture',
     /**
      * 实时天气能力
      *
