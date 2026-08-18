@@ -25,8 +25,6 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * 数的值，通过set可以修改系统参数的值。详细的系统参数设计原理及定义可参考[系统参数](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md)。
  * 
  * > **说明：**
- * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > - 本模块接口为系统接口。
  * >
  * > - 由于系统参数都是各个系统服务的内部信息和控制参数，每个系统参数都有各自不同的DAC（Discretionary Access Control，自主访问控制）和MAC（Mandatory Access Control，强制访问控制）访问控制权限，三方应用不能使用此类接口。
