@@ -20,8 +20,6 @@
  * @kit ArkUI
  */
 
-import { IDataSource } from '@ohos.arkui.component';
-
 import { IDataSource } from './arkui/component/lazyForEach';
 
 /**
@@ -129,4 +127,4 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
    * @since 23 static
    */
   visibleAreaChanged(minVisible: int, maxVisible: int): void;
-}
+}
