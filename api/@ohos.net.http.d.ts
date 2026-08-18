@@ -14,55 +14,36 @@
  */
 
 /**
- * @file
+ * @file Data Request
  * @kit NetworkKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
+/*** if arkts static */
+import type { RecordData } from './@ohos.base';
+/*** endif */
 import type cert from './@ohos.security.cert';
 
 /**
- * Provides http related APIs.
- * @namespace http
+ * The **http** module provides APIs for implementing HTTP data request capabilities. An application can initiate a data
+ * request over HTTP. Common HTTP methods include **GET**, **POST**, **OPTIONS**, **HEAD**, **PUT**, **DELETE**,
+ * **PATCH**, **TRACE**, and **CONNECT**.
+ *
  * @syscap SystemCapability.Communication.NetStack
- * @since 6
- */
-/**
- * Provides http related APIs.
- * @namespace http
- * @syscap SystemCapability.Communication.NetStack
- * @crossplatform
- * @since 10
- */
-/**
- * Provides http related APIs.
- * @namespace http
- * @syscap SystemCapability.Communication.NetStack
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  * @since 23 static
  */
 declare namespace http {
   /**
-   * Http Proxy Configuration Information.
+   * Defines the network proxy configuration.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 10
-   */
-  /**
-   * Http Proxy Configuration Information.
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Http Proxy Configuration Information.
-   * @typedef { connection.HttpProxy }
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   type HttpProxy = connection.HttpProxy;
@@ -72,462 +53,225 @@ declare namespace http {
    *
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type Socks5Proxy = connection.Socks5Proxy;
 
   /**
-   * A single value that can be used as a query parameter.
+   * Creates an HTTP request. You can use this API to initiate or destroy an HTTP request, or enable or disable
+   * listening for HTTP Response Header events. To initiate multiple HTTP requests, you must create an **HttpRequest**
+   * object for each HTTP request. An **HttpRequest** object corresponds to an HTTP request.
    *
-   * Serialization rules when used in {@link QueryParamObject}:
-   * - textual values: serialized as-is before URL encoding.
-   * - numeric values: converted to its string representation before URL encoding.
-   * - logical values: converted to "true" or "false" before URL encoding.
-   * - null or undefined: serialized as the key without `=` or a value (for example, `{ a: null }` -> `a`).
+   * > **NOTE**
+   * >
+   * > When the request is no longer needed, call destroy() to release resources. Otherwise, memory leaks may occur.
    *
+   * @returns { HttpRequest } An **HttpRequest** object, which contains the **request**, **requestInStream**,
+   *     **requestSync**, **enableAutoCookie**, **destroy**, **on**, and **off** methods.
    * @syscap SystemCapability.Communication.NetStack
-   * @stagemodelonly
-   * @crossplatform
-   * @since 26.0.0 dynamic&static
-   */
-  export type QueryParamValue = string | int | boolean | null | undefined;
-
-  /**
-   * A key-value object used to construct URL query parameters automatically.
-   *
-   * Each property name is treated as a query parameter key.
-   * Each property value may be either:
-   * - a single {@link QueryParamValue}, or
-   * - an array of {@link QueryParamValue}, which is expanded into repeated
-   * parameters with the same key.
-   *
-   * Serialization rules:
-   * - Keys and values are URL-encoded by the system.
-   * - A single value is serialized as one `key=value` pair.
-   * - An array value is serialized as multiple pairs using the same key.
-   * For example, `{ tag: ['a', 'b'] }` is serialized as `tag=a&tag=b`.
-   * - For array values, `undefined` and `null` elements are serialized as empty values without `=`.
-   * For example, `{ a: [1, "", undefined, null] }` is serialized as `a=1&a=&a&a`.
-   *
-   * Order semantics:
-   * - This type represents query parameters as an object, not as an ordered list
-   * of key-value pairs.
-   * - Multiple values for the same key are supported through arrays.
-   * - However, callers must not rely on preserving an exact original pair order
-   * such as `a=1&b=2&a=3`. If strict ordering or repeated-key ordering is
-   * required, use a pre-encoded query string instead of {@link QueryParamObject}.
-   *
-   * Usage notes:
-   * - Provide raw, unencoded keys and values. Do not pre-encode them.
-   * - If you need full control over the final query string format, use the `string`
-   * form of `queryParams` instead.
-   *
-   * @syscap SystemCapability.Communication.NetStack
-   * @stagemodelonly
-   * @crossplatform
-   * @since 26.0.0 dynamic&static
-   */
-  export type QueryParamObject = Record<string, QueryParamValue | QueryParamValue[]>;
-
-  /**
-   * Creates an HTTP request task.
-   * @returns { HttpRequest } the HttpRequest of the createHttp.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Creates an HTTP request task.
-   * @returns { HttpRequest } the HttpRequest of the createHttp.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an HTTP request task.
-   * @returns { HttpRequest } the HttpRequest of the createHttp.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   function createHttp(): HttpRequest;
 
   /**
-   * Enum for Address Family
-   * @enum {string}
+   * Defines the options for initiating an HTTP request.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 15 dynamic
-   */
-  export enum AddressFamily {
-    /**
-     * Default, can use addresses of all IP versions that your system allows.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 15 dynamic
-     */
-    DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
- 
-    /**
-     * ONLYV4 Uses only IPv4 addresses.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 15 dynamic
-     */
-    ONLY_V4 = 'CURL_IPRESOLVE_V4',
- 
-    /**
-     * ONLYV6 Uses only IPv6 addresses.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 15 dynamic
-     */
-    ONLY_V6 = 'CURL_IPRESOLVE_V6'
-  }
-
-  /**
-   * Specifies the type and value range of the optional parameters in the HTTP request.
-   * @interface HttpRequestOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Specifies the type and value range of the optional parameters in the HTTP request.
-   * @interface HttpRequestOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Specifies the type and value range of the optional parameters in the HTTP request.
-   * @interface HttpRequestOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface HttpRequestOptions {
     /**
-     * Request method,default is GET.
-     * @type {?RequestMethod}
+     * Request method. The default value is **GET**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Request method,default is GET.
-     * @type {?RequestMethod}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Request method,default is GET.
-     * @type {?RequestMethod}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     method?: RequestMethod;
 
     /**
-     * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     * @type {?string | Object | ArrayBuffer}
+     * Additional data for sending a request. This parameter is not used by default. Since API version 26, you are
+     * advised to use the **body** and **queryParams** parameters preferentially.
+     *
+     * **Note**: Do not add this parameter if no extra data is available. If this parameter must be added, set it to
+     * **undefined** or **null**. Do not pass the parameter as "".
+     *
+     * - If the HTTP request uses a POST, PUT, or DELETE method, this field serves as the content of the HTTP request
+     * and is encoded in UTF-8 format.
+     *
+     * Example:
+     *
+     * (1) If **content-Type** is **application/x-www-form-urlencoded**, the data in the request body must be encoded in
+     * the format of **key1=value1&key2=value2&key3=value3** after URL transcoding (**encodeURIComponent/encodeURI**)
+     * and this field is usually in the String format.
+     *
+     * (2) If **content-Type** is **text/xml**, this field is usually in the String format.
+     *
+     * (3) If **content-Type** is **application/json**, this field is usually in the Object format.
+     *
+     * (4) If **content-Type** is **application/octet-stream**, this field is usually in the ArrayBuffer format.
+     *
+     * (5) If **content-Type** is **multipart/form-data** and the content to be uploaded is a file, this field is
+     * usually in the ArrayBuffer format.
+     *
+     * The preceding information is for reference only and may vary according to the actual situation.
+     *
+     * - If the HTTP request uses the GET, OPTIONS, TRACE, or CONNECT method, this parameter serves as a supplement to
+     * HTTP request parameters. Parameters of the string type need to be encoded before being passed to the HTTP
+     * request. Parameters of the object type do not need to be precoded and will be directly concatenated to the URL.
+     * Parameters of the ArrayBuffer type will not be concatenated to the URL.
+     *
+     * @type {?string | Object | ArrayBuffer} [since 6 - 10]
+     * @type { ?(string | Object | ArrayBuffer) } [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     * @type {?string | Object | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     * @type { ?(string | Object | ArrayBuffer) }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     extraData?: string | Object | ArrayBuffer;
 
     /**
-     * The body content of the HTTP request.
+     * Type of the returned data. This parameter is not used by default. If this parameter is set, the system returns
+     * the specified type of data preferentially. If the specified type is **Object**, the value can contain a maximum
+     * of 65536 characters.
      *
-     * This parameter explicitly specifies the payload to be sent in the request body.
-     * When this field is set, the framework forces the data into the body, regardless of
-     * the HTTP request method (GET, POST, etc.).
-     *
-     * Serialization rules:
-     * - string: sent directly as the request body.
-     * - Object: serialized to a JSON string before being sent.
-     * - ArrayBuffer: sent as raw binary data without additional serialization.
-     *
-     * If both body and extraData are specified, body takes precedence, and extraData
-     * will be ignored.
-     *
-     * @type { ?(string | Object | ArrayBuffer) }
      * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    body?: string | Object | ArrayBuffer;
-
-    /**
-     * Query parameters to append to the request URL.
-     * Supports two input forms:
-     * - `string`: a pre-encoded query string provided by the caller. It is appended
-     * to the URL as-is and is not encoded again by the system.
-     * - `QueryParamObject`: a key-value object. The system encodes keys and values
-     * and serializes them into the URL query string automatically.
-     *
-     * Notes:
-     * 1. For `string`, do not include the leading `?`
-     * (for example, use `"key=value"`, not `"?key=value"`).
-     * 2. For `string`, the caller is responsible for encoding special characters.
-     * 3. For `string`, use `&` to separate multiple parameters.
-     *
-     * If both `queryParams` and `extraData` are specified, `queryParams` takes
-     * precedence for URL construction, and `extraData` will be ignored.
-     *
-     * @type { ?(string | QueryParamObject) }
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    queryParams?: string | QueryParamObject;
-
-    /**
-     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
-     * @type {?HttpDataType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
-     * @type {?HttpDataType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
-     * @type {?HttpDataType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     expectDataType?: HttpDataType;
 
     /**
-     * default is true
-     * @type {?boolean}
+     * Whether to use the cache. The value **true** indicates that the cache is preferentially read when a request is
+     * initiated, and the value **false** indicates that the cache is not used. The default value is **true**. The cache
+     * function takes effect when the process is started. The new cached data will replace the existing cached data.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * default is true
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * default is true
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     usingCache?: boolean;
 
     /**
-     * [1, 1000], default is 1.
-     * @type {?int}
+     * Priority of concurrent HTTP/HTTPS requests. A larger value indicates a higher priority. The value range is
+     * [1, 1000]. The default value is **1**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * [1, 1000], default is 1.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * [1, 1000], default is 1.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     priority?: int;
 
     /**
-     * HTTP request header. default is 'content-type': 'application/json'
-     * @type {?Object}
+     * HTTP request header. If the request method is POST, PUT, DELETE, or null, the default value is {'content-Type': '
+     * application/json'}. Otherwise, the default value is {'content-Type': 'application/x-www-form-urlencoded'}.
+     *
+     * If the header contains fields of numeric type, the maximum value must be an int64 integer.
+     *
+     * The header field supports the JSON format (as shown in
+     * [Example](docroot://reference/apis-network-kit/js-apis-http.md#example)) and the Record<string, string> format.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * HTTP request header. default is 'content-type': 'application/json'
-     * @type {?Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * HTTP request header. default is 'content-type': 'application/json'
-     * @type {?Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     header?: Object;
 
     /**
-     * Read timeout period. The default value is 60,000, in ms.
-     * @type {?int}
+     * Read timeout duration. The default value is **60000**, in ms. The input value must be an uint32_t integer.
+     *
+     * The value **0** indicates no timeout.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Read timeout period. The default value is 60,000, in ms.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Read timeout period. The default value is 60,000, in ms.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     readTimeout?: int;
 
     /**
-     * Connection timeout interval. The default value is 60,000, in ms.
-     * @type {?int}
+     * Connection timeout interval. The default value is **60000**, in ms. The input value must be an uint32_t integer.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Connection timeout interval. The default value is 60,000, in ms.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Connection timeout interval. The default value is 60,000, in ms.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     connectTimeout?: int;
 
     /**
-     * default is automatically specified by the system.
-     * @type {?HttpProtocol}
+     * Protocol. The default value is automatically specified by the system.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * default is automatically specified by the system.
-     * @type {?HttpProtocol}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * default is automatically specified by the system.
-     * @type {?HttpProtocol}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     usingProtocol?: HttpProtocol;
 
     /**
-     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
-     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
-     * @type {?boolean | HttpProxy}
+     * HTTP proxy configuration. If this item is not configured, the system proxy is used by default.
+     *
+     * - If **usingProxy** is set to **true**, the default network proxy is used. If **usingProxy** is set to **false**,
+     * no proxy is used.
+     * - If **usingProxy** is of the **HttpProxy** type, the specified network proxy is used. The HttpProxy supports the
+     * **username** and **password** fields from API version 22.
+     *
+     * @type {?boolean | HttpProxy} [since 10 - 10]
+     * @type { ?(boolean | HttpProxy) } [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
-     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
-     * @type { ?(boolean | HttpProxy) }
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
-     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
-     * @type { ?(boolean | HttpProxy) }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     usingProxy?: boolean | HttpProxy;
 
     /**
-     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
-     * @type {?string}
+     * CA certificate data. If this parameter is set and the certificate is valid, the system uses the specified CA
+     * certificate and the preset CA certificate. Otherwise, the system uses only the preset CA certificate. The CA
+     * certificate path is the sandbox mapping path, which can be obtained by using **UIAbilityContext** APIs.
+     * Currently, only **.pem** certificates are supported.
+     *
+     * The preset CA certificate is available at **\/etc/ssl/certs/cacert.pem**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     caPath?: string;
 
     /**
-     * A PEM representation of a certificate. The system will create an X.509 certificate object in the SSL process.
-     * If the caPath option is set, the caData option will be ignored.
-     * Certificate chain is not supported.
-     * Maxium length is 8000 Bytes.
-     * @type { ?string }
+     * CA certificate data. If this parameter is set and the certificate is valid, the system uses the specified CA
+     * certificate and the preset CA certificate. Otherwise, the system uses only the preset CA certificate. If both
+     * **caPath** and **caData** are set, **caData** is ignored by the system. Currently, only certificates in **.pem**
+     * format are supported. The maximum length is 8000 bytes. Only one certificate can be specified. A certificate
+     * chain is not allowed.
+     *
+     * The preset CA certificate is available at **\/etc/ssl/certs/cacert.pem**. This path is the sandbox mapping path,
+     * which can be obtained by using **UIAbilityContext** APIs.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -536,9 +280,9 @@ declare namespace http {
     caData?: string;
 
     /**
-     * Which secure communication protocol is used, TLS (by defaul) or TLCP.
-     * If TLCP is used, all TLS related options, such as caPath, caData and clientCert, are ignored.
-     * @type { ?SslType }
+     * Security communication protocol. You can use TLS (default) or TLCP. If TLCP is used, the related options (such as
+     * **caPath**, **clientCert**, and **clientEncCert**) must be set to valid values.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 20 dynamic
@@ -546,14 +290,234 @@ declare namespace http {
     sslType?: SslType;
 
     /**
-     * Support the application to pass in client certificates, allowing the server to verify the
-     * client's encryption identity.
-     * @type { ?ClientCert }
+     * Client certificate, which is used by the server to verify the client identity.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 20 dynamic
      */
     clientEncCert?: ClientCert;
+
+    /**
+     * Download start position. This field can be used only for the GET method. As stipulated in section 3.1 of RFC 723
+     * 3, servers are allowed to ignore range requests.
+     *
+     * - If the HTTP PUT method is used, do not use this option because it may conflict with other options.
+     * - The value ranges from **1** to **4294967296** (4 GB). If the value is out of this range, this field does not
+     * take effect.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     */
+    resumeFrom?: long;
+
+    /**
+     * Download end position. This field can be used only for the GET method. As stipulated in section 3.1 of RFC 7233,
+     * servers are allowed to ignore range requests.
+     *
+     * - If the HTTP PUT method is used, do not use this option because it may conflict with other options.
+     * - The value ranges from **1** to **4294967296** (4 GB). If the value is out of this range, this field does not
+     * take effect.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     */
+    resumeTo?: long;
+
+    /**
+     * Client certificate.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     * @since 23 static
+     */
+    clientCert?: ClientCert;
+
+    /**
+     * Whether to use an HTTPS server for DNS resolution.
+     *
+     * - The value must be URL-encoded in the following format: "https:// host:port/path".
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     */
+    dnsOverHttps?: string;
+
+    /**
+     * Array of DNS servers used for DNS resolution.
+     *
+     * - A maximum of three DNS servers can be set. If there are more than three DNS servers, only the first three DNS
+     * servers are used.
+     * - The DNS servers must be expressed as IPv4 or IPv6 addresses.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     */
+    dnsServers?: Array<string>;
+
+    /**
+     * Maximum number of bytes in a response.
+     *
+     * The default value is 5*1024*1024, in bytes. The maximum value is **100*1024*1024**.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     */
+    maxLimit?: int;
+
+    /**
+     * Form data list. This field is valid when **content-Type** is set to **multipart/form-data**.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @since 11 dynamic
+     * @since 23 static
+     */
+    multiFormDataList?: Array<MultiFormData>;
+
+    /**
+     * Dynamic configuration of certificate pinning. One or more certificate PINs can be specified.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12 dynamic
+     */
+    certificatePinning?: CertificatePinning | CertificatePinning[];
+
+    /**
+     * Certificate authority (CA), which is used to verify the identity of a remote server. If the parameter is not set,
+     * the default value is used. The options are as follows:
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     */
+    remoteValidation?: RemoteValidation;
+
+    /**
+     * TLS configuration.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     */
+    tlsOptions?: TlsOptions;
+
+    /**
+     * Whether to verify the server identity during a secure connection. The identity is not verified by default.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     */
+    serverAuthentication?: ServerAuthentication;
+
+    /**
+     * IP address family. You can specify an address type for domain name resolution.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 15 dynamic
+     */
+    addressFamily?: AddressFamily;
+
+    /**
+     * Used to allow the client to declare the target domain name to the server in the TLS handshake phase by
+     * configuring the server name indication (SNI). In this way, the server can select the corresponding SSL/TLS
+     * certificate based on the domain name for encrypted communication.
+     *
+     * - The default value is an empty string. The value of **sniHostName** can contain a maximum of 255 characters. If
+     * the length limit is exceeded or the value is an empty string, the setting does not take effect.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic
+     */
+    sniHostName?: string;
+
+    /**
+     * The maximum number of redirections can be specified for HttpRequest.
+     *
+     * - The default value is 30.
+     * - The value range is [0, 2147483647]. If the value is set to **0**, redirection is disabled. If the number of
+     * redirections on the server exceeds the maximum number of redirections, error code 2300047 is returned. If the
+     * value is out of the range, the default value **30** takes effect.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic
+     */
+    maxRedirects?: int;
+
+    /**
+     * Custom request method. For example, when the WebDAV extension protocol is implemented, **customMethod** has a
+     * higher priority than **method**.
+     *
+     * - The default value is an empty string. The value can contain a maximum of 128 characters. If the value exceeds 1
+     * 28 characters, the setting does not take effect.
+     * - If **customMethod** meets the WebDAV extension protocol request requirements but the server does not support
+     * the request, the server response code of the request is usually 405 or 501 (the actual result depends on the
+     * server behavior).
+     * - If **customMethod** does not meet the WebDAV extension protocol request requirements, the server response code
+     * of the request is usually 400 or 405 (the actual result depends on the server behavior).
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic
+     */
+    customMethod?: string;
+
+    /**
+     * Used to specify the network to be activated in an HTTP request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic
+     */
+    pathPreference?: PathPreference;
+
+    /**
+     * Whether to reuse the connection for an HTTP request. The default value is **true**, meaning to reuse the existing
+     * connection. The value **false** means the opposite. This field can be used together with the **inactivityMs**
+     * field to customize the connection timeout interval.
+     *
+     * - Connection reuse means that after an HTTP request is completed, the underlying TCP connection is not
+     * immediately closed. Instead, it remains in the connection pool. If subsequent HTTP requests have the same target
+     * address, the connection can be reused, reducing the overhead of TCP and TLS handshakes and improving performance.
+     *
+     * **Since**: 26.0.0
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    reuseConnections?: boolean;
+
+    /**
+     * Maximum idle time of a connection in the connection pool. If this value is exceeded, the connection is closed.
+     * The unit is ms. The default value is 118s. The system calculates the connection idle time, rounds it down to
+     * seconds, and then compares it with the configured value.
+     *
+     * - The value range is (0, 2147483647]. If a value less than or equal to 0 is passed, the system uses the default
+     * value 118s. This parameter does not take effect when **reuseConnections** is set to **false**.
+     *
+     * **Since**: 26.0.0
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    inactivityMs?: int;
+
+    /**
+     * Specifies the use of a SOCKS5 proxy. Note that this configuration takes precedence over usingProxy.
+     * It is recommended not to configure both simultaneously.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    usingSocks5Proxy?: Socks5Proxy;
 
     /**
      * Indicates whether to enable partial chain verification.
@@ -564,302 +528,87 @@ declare namespace http {
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     enablePartialChain?: boolean;
 
     /**
-     * Used to set to uploading or downloading the start bytes. The default value is 0.
-     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
-     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?long}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Used to set to uploading or downloading the start bytes. The default value is 0.
-     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
-     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?long}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    resumeFrom?: long;
-
-    /**
-     * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
-     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
-     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?long}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
-     * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
-     * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?long}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    resumeTo?: long;
-
-    /**
-     * Support the application to pass in client certificates, allowing the server to verify the client's identity.
-     * @type {?ClientCert}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Support the application to pass in client certificates, allowing the server to verify the client's identity.
-     * @type {?ClientCert}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    clientCert?: ClientCert;
-
-    /**
-     * If this parameter is set, incoming DNS resolution server URL for the DoH server to use for name resolving.
-     * The parameter must be URL-encoded in the following format: "https://host:port/path".
-     * It MUST specify an HTTPS URL.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * If this parameter is set, incoming DNS resolution server URL for the DoH server to use for name resolving.
-     * The parameter must be URL-encoded in the following format: "https://host:port/path".
-     * It MUST specify an HTTPS URL.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    dnsOverHttps?: string;
-
-    /**
-     * If this parameter is set, use the specified DNS server for DNS resolution.
-     * Multiple DNS resolution servers can be set up, with a maximum of 3 servers.
-     * Only take the first three if there are more than three.
-     * @type {?Array<string>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * If this parameter is set, use the specified DNS server for DNS resolution.
-     * Multiple DNS resolution servers can be set up, with a maximum of 3 servers.
-     * Only take the first three if there are more than three.
-     * @type {?Array<string>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    dnsServers?: Array<string>;
-
-    /**
-     * The maximum limit of the response body. The default value is 5 * 1024 * 1024, in Byte.
-     * The maximum value is 100 * 1024 *1024, in Byte.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The maximum limit of the response body. The default value is 5 * 1024 * 1024, in Byte.
-     * The maximum value is 100 * 1024 *1024, in Byte.
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    maxLimit?: int;
-
-    /**
-     * The data fields which is supported by the HTTP protocol to post
-     * forms and by the SMTP and IMAP protocols to provide
-     * the email data to send/upload.
-     * @type {?Array<MultiFormData>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The data fields which is supported by the HTTP protocol to post
-     * forms and by the SMTP and IMAP protocols to provide
-     * the email data to send/upload.
-     * @type {?Array<MultiFormData>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    multiFormDataList?: Array<MultiFormData>;
-
-    /**
-     * Certificate pinning option. If server certificate's digest does not match
-     * {@link CertificatePinning.publicKeyHash}, request will fail.
-     * @type {?(CertificatePinning | CertificatePinning[])}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 12 dynamic
-     */
-    certificatePinning?: CertificatePinning | CertificatePinning[];
-
-     /**
-      * Certificate authority(CA) which is used to verify the remote server's identification.
-      * @type {?RemoteValidation}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      */
-     remoteValidation?: RemoteValidation;
- 
-     /**
-      * TLS option.
-      * @type {?TlsOptions}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      */
-     tlsOptions?: TlsOptions;
- 
-     /**
-      * HTTP server authentication settings. No authentication by default.
-      * @type {?ServerAuthentication}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      */
-     serverAuthentication?: ServerAuthentication;
-
-    /**
-     * Address family option.
-     * @type {?AddressFamily}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 15 dynamic
-     */
-    addressFamily?: AddressFamily;
-	
-	/**
-     * Supports specifying the user custom defined http request method
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     * @since 26.0.0 static
-     */
-    customMethod?: string;
-  
-	/**
-     * Support specifying the configuration of maximum redirect count
-     * @type {?int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     * @since 26.0.0 static
-     */
-    maxRedirects?: int;
-  /**
-     * Support specifying a preferred network when making HTTP requests.
-     * If the specified network is unavailable, the default network will be selected to send the request.
+     * Request parameters appended to the URL.
      *
-     * @type { ?PathPreference }
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     * @since 26.0.0 static
-     */
-    pathPreference?: PathPreference;
-	
-    /**
-     * Support specifying an SNI domain name to include the SNI field during the TLS connection process
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     * @since 26.0.0 static
-     */
-    sniHostName?: string;
-    
-    /**
-     * Supports forbidding reuse of HTTP/HTTPS connections
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    reuseConnections?: boolean;
-
-    /**
-      * Maximum HTTP idle time (unit: ms)
-      *
-      * @type { ?int }
-      * @syscap SystemCapability.Communication.NetStack
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-    inactivityMs?: int;
-
-    /**
-     * Specifies the use of a SOCKS5 proxy. Note that this configuration takes precedence over usingProxy.
-     * It is recommend not to configure both simultaneously.
+     * - The value can be a string or a **QueryParamObject**. A string is directly appended to the URL (without repeated
+     * encoding). A **QueryParamObject** is automatically encoded and serialized by the system.
+     * - When a string is used, the leading **?** is not required. Use **&** to separate multiple parameters.
+     * - If both **queryParams** and **extraData** are configured, **queryParams** takes precedence, and the URL
+     * parameter supplementation logic in **extraData** is ignored.
+     *
+     * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @crossplatform
+     * @since 26.0.0 dynamic
      */
-    usingSocks5Proxy?: Socks5Proxy;
+    queryParams?: string | QueryParamObject;
+
+    /**
+     * HTTP request body. After this field is set, the framework preferentially sends this field as the request body.
+     *
+     * - The value can be a string, an object, or an **ArrayBuffer**. A string is sent as the original value, an object
+     * is serialized before being sent, and an **ArrayBuffer** is sent in binary format.
+     * - If both **body** and **extraData** are configured, **body** takes precedence and **extraData** will be ignored.
+     * - This field can be used with any request method to explicitly specify the request body.
+     *
+     * **Since**: 26.0.0
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic
+     */
+    body?: string | Object | ArrayBuffer;
   }
 
-   /**
-    * HTTP server authentication.
-    * @typedef ServerAuthentication
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export interface ServerAuthentication {
-     /**
-      * Credential of server.
-      * @type {Credential}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     credential: Credential;
-     /**
-      * Authentication type of server. If not set, negotiate with the server.
-      * @type {?AuthenticationType}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     authenticationType?: AuthenticationType;
-   }
- 
-   /**
-    * TlsOptions.
-    * 'system': use system tls configuration.
-    * TlsOption: tls version range, and specify cipher suite.
-    * @typedef {'system' | TlsConfig}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type TlsOptions = 'system' | TlsConfig;
- 
   /**
-   * Remote Validation Type.
-   * @unionmember { 'system' } use system validation.
-   * @unionmember { 'skip' } skip validation.
-   * @unionmember { ValidationCallback } [since 26.0.0] use custom validation.
+   * Defines HTTP server identity verification information.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
-  export type RemoteValidation = 'system' | 'skip' | ValidationCallback;
+  export interface ServerAuthentication {
+    /**
+     * Server credential. The default value is **undefined**.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    credential: Credential;
+    /**
+     * Server identity verification type. If the type is not set, negotiation with the server is required.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    authenticationType?: AuthenticationType;
+  }
+
+  /**
+   * Defines the TLS configuration.
+   *
+   * @unionmember { 'system' } TLS version of the system. This field is defaulted to **system** when the value is not
+   *     set.
+   * @unionmember { TlsConfig } Custom TLS version and cipher suites.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type TlsOptions = 'system' | TlsConfig;
 
   /**
    * X509 certificate.
@@ -877,7 +626,7 @@ declare namespace http {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface ValidationContext {  
+  export interface ValidationContext {
     /**
      * The raw data which in PEM format of certificate.
      *
@@ -914,7 +663,7 @@ declare namespace http {
      */
     ip: string;
   }
-  
+
   /**
    * Self defined remote validation.
    * This API uses a promise to return the result.
@@ -928,187 +677,520 @@ declare namespace http {
    */
   export type ValidationCallback = (context: ValidationContext) => boolean | Promise<boolean>;
 
-   /**
-    * The server's authentication type.
-    * @typedef {'basic' | 'ntlm' | 'digest'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
- 
-   /**
-    * The secure communication protocol.
-    * @typedef { 'TLS' | 'TLCP'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 20 dynamic
-    */
-   export type SslType = 'TLS' | 'TLCP';
-   
   /**
-   * HTTP request path preference.
-   * This is only a suggestion of the caller, and the system decides which path to use.
+   * Enumerates the identity verification modes of the remote server.
    *
-   * @typedef { 'auto' | 'primaryCellular' | 'secondaryCellular' }
+   * @unionmember { 'system' } Use of the system CA. This field is defaulted to **system** when the value is not set.
+   * @unionmember { 'skip' } Skipping of CA verification. This field has a fixed value of **skip**.
+   * @unionmember { ValidationCallback } use custom validation. [since 26.0.0]
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type RemoteValidation = 'system' | 'skip' | ValidationCallback;
+
+  /**
+   * Enumerates server authentication modes in a session.
+   *
+   * @unionmember { 'basic' } Basic authentication mode. This field has a fixed value of **basic**.
+   * @unionmember { 'ntlm' } NTLM authentication mode. This field has a fixed value of **ntlm**.
+   * @unionmember { 'digest' } Digest authentication mode. This field has a fixed value of **digest**.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
+
+  /**
+   * Defines the secure communications protocol.
+   *
+   * @unionmember { 'TLS' } TLS protocol. The value is fixed to **TLS**.
+   * @unionmember { 'TLCP' } TLCP protocol. The value is fixed to **TLCP**.
+   *     <br>**NOTE**
+   *     <br>(1) The certificate supports the following string specifications:
+   *     <br> - UTF8String (English character set)
+   *     <br> - PrintableString
+   *     <br>  - IA5String
+   *     <br>Supported since API Version 22:
+   *     <br> - TeletexString
+   *     <br>(2) The certificate supports the following extended specifications:
+   *     <br> - BasicConstraints (OID 2.5.29.19)
+   *     <br> - KeyUsage (OID2.5.29.15)
+   *     <br> - SubjectKeyIdentifier (OID2.5.29.14)
+   *     <br> - AuthorityKeyIdentifier (OID2.5.29.35)
+   *     <br>Supported since API Version 22:
+   *     <br> - SubjectAltName (OID 2.5.29.17)
+   *     <br> - ExtendedKeyUsage (OID 2.5.29.37)
+   *     <br>
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  export type SslType = 'TLS' | 'TLCP';
+
+  /**
+   * Enumerates the types of networks specified in an HTTP request.
+   *
+   * > **NOTE**
+   * >
+   * > It is recommended that this parameter be used in scenarios such as network concurrency.
+   *
+   * > If the specified network is not activated, the system uses the default network.
+   *
+   * @unionmember { 'auto' } Specifies the default network connection in an HTTP request.
+   * @unionmember { 'primaryCellular' } Specifies the default cellular network connection in an HTTP request when the
+   *     cellular network is activated.
+   * @unionmember { 'secondaryCellular' } Specifies the cellular network connection of the secondary SIM card in an HTTP
+   *     request when dual cellular networks are activated.
    * @syscap SystemCapability.Communication.NetStack
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   export type PathPreference = 'auto' | 'primaryCellular' | 'secondaryCellular';
-  
-   /**
-    * HTTP credential. Some server or proxy server need this.
-    * @typedef Credential
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export interface Credential {
-     /**
-      * Username of credential. Default is ''.
-      * @type {string}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     username: string;
-     /**
-      * Password of credential. Default is ''.
-      * @type {string}
-      * @syscap SystemCapability.Communication.NetStack
-      * @atomicservice
-      * @since 18 dynamic
-      * @since 23 static
-      */
-     password: string;
-   }
- 
-   /**
-    * TLS config.
-    * @typedef TlsConfig
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export interface TlsConfig {
-       /**
-        * Minimum version num of Tls protocol.
-        * @type {TlsVersion}
-        * @syscap SystemCapability.Communication.NetStack
-        * @atomicservice
-        * @since 18 dynamic
-        * @since 23 static
-        */
-       tlsVersionMin: TlsVersion;
-       /**
-        * Maximum version num of Tls protocol.
-        * @type {TlsVersion}
-        * @syscap SystemCapability.Communication.NetStack
-        * @atomicservice
-        * @since 18 dynamic
-        * @since 23 static
-        */
-       tlsVersionMax: TlsVersion;
-       /**
-        * CipherSuites, cipherSuits must match tsl version, otherswise will set all system-supported cipherSuits.
-        * @type {?CipherSuite[]}
-        * @syscap SystemCapability.Communication.NetStack
-        * @atomicservice
-        * @since 18 dynamic
-        * @since 23 static
-        */
-       cipherSuites?: CipherSuite[];
-   }
- 
-   /**
-    * Cipher suite which TLS1.3+ support.
-    * The framework has a built-in preference order, but your choice will be recorded.
-    * @typedef {'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type TlsV13SpecificCipherSuite = 'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256';
- 
-   /**
-    * Cipher suite which TLS1.2+ support.
-    * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type TlsV12SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384';
-   
-   /**
-    * Cipher suite which TLS1.0+ support.
-    * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type TlsV10SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA';
-  
+
   /**
-   * Include all cipher suite.
-   * @typedef {TlsV13CipherSuite}
+   * Defines the single-value type that can be used in **QueryParamObject**.
+   *
+   * @unionmember { string } String type.
+   * @unionmember { int } Number type, which is converted into a string before being encoded.
+   * @unionmember { boolean } Boolean type, which is converted into a string before being encoded.
+   * @unionmember { null } Null type, which is serialized in the format of only the key without the = value.
+   * @unionmember { undefined } Undefined type, which is serialized in the format of only the key without the = value.
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.0 dynamic
+   */
+  export type QueryParamValue = string | int | boolean | null | undefined;
+
+  /**
+   * Defines the key-value object type used to construct URL query parameters.
+   *
+   * > **NOTE**
+   * >
+   * > (1) The property name is used as the key of the **QueryParamObject** parameter. The corresponding property value
+   * > can be a single **QueryParamValue** or a **QueryParamValue** array.
+   *
+   * > (2) The array will be expanded into multiple parameters with the same name. For example, **{ tag: ['a', 'b'] }**
+   * > will be serialized into **tag=a&tag=b**.
+   *
+   * > (3) The key and value are automatically URL-encoded by the system. You should pass the original, unencoded
+   * > content.
+   *
+   * > (4) To strictly control the parameter sequence or repeat the key sequence, you are advised to use the **string**
+   * > of **queryParams**.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.0 dynamic
+   */
+  export type QueryParamObject = Record<string, QueryParamValue | QueryParamValue[]>;
+
+  /**
+   * Enumerates the types of HTTP interceptors.
+   *
+   * | Name  | Value|Description                                  |
+   * | ------ | --|-------------------------------------- |
+   * | INITIAL_REQUEST |'INITIAL_REQUEST' |Intercepts after the initial HTTP request is assembled.|
+   * | REDIRECTION | 'REDIRECTION' |Intercepts when a redirection response is received.|
+   * | CACHE_CHECKED | 'READ_CACHE' |Intercepts when the HTTP cache is checked and hit.|
+   * | NETWORK_CONNECT | 'CONNECT_NETWORK' |Intercepts before the network request is sent.|
+   * | FINAL_RESPONSE | 'FINAL_RESPONSE' |Intercepts when the final HTTP response is obtained.|
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export enum InterceptorType {
+    /**
+     * Intercept after the initial HTTP request is assembled.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    INITIAL_REQUEST = 'INITIAL_REQUEST',
+
+    /**
+     * Intercept when we get a redirection responsed and is going to send another request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    REDIRECTION = 'REDIRECTION',
+
+    /**
+     * Intercept after we checked the HTTP cache.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    CACHE_CHECKED = 'READ_CACHE',
+
+    /**
+     * Intercept when we perform network connection, such as TLS and TCP.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    NETWORK_CONNECT = 'CONNECT_NETWORK',
+
+    /**
+     * Intercept when we get the final HTTP response.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    FINAL_RESPONSE = 'FINAL_RESPONSE'
+  }
+
+  /**
+   * Defines HTTP request context data. The object instance is passed as a parameter in the
+   * [interceptorHandle]{@link http.HttpInterceptor.interceptorHandle} method of the interceptor. You can use this
+   * object to obtain and modify the information about the HTTP request.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export interface HttpRequestContext {
+    /**
+     * The URL of an HTTP request interceptor. It can be modified in an interceptor.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    url: string;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    header: Object;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    body: Object;
+  }
+
+  /**
+   * Specifies whether to continue to process the interceptor chain.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export type ChainContinue = boolean;
+
+  /**
+   * Defines the HTTP interceptor API, which is used to define the interception processing function.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export interface HttpInterceptor {
+    /**
+     * The type of this interceptor. It defines when this intercptor would be called.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    interceptorType: InterceptorType;
+
+    /**
+     * Intercepts the HTTP processing and modifies it as required.
+     *
+     * @param { HttpRequestContext } reqContext - the context of the target HTTP request.
+     * @param { HttpResponse } rspContext - the context of the target HTTP response.
+     * @returns { Promise<ChainContinue> } Continues the HTTP processing or stops and returns an HTTP response.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
+  }
+
+  /**
+   * Defines HTTP interceptor chain.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic
+   * @class HttpInterceptorChain
+   */
+  export class HttpInterceptorChain {
+    /**
+     * Obtains all interceptor instances in the current interceptor chain.
+     *
+     * @returns { HttpInterceptor[] } Returns all interceptor instances added by the
+     *     [addChain]{@link http.HttpInterceptorChain#addChain} method.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    public getChain(): HttpInterceptor[];
+
+    /**
+     * Adds an interceptor to the HTTP client.
+     *
+     * > **NOTE**
+     * >
+     * > An interceptor chain cannot contain interceptor instances of the same type. If interceptors of the same type
+     * > are passed in, the error code **2300802** (Duplicated interceptor type in the chain) is reported.
+     *
+     * @param { HttpInterceptor[] } chain - Interception chain composed of interceptor instances. A single interceptor
+     *     or multiple interceptors of different types can be passed in.
+     * @returns { boolean } Whether the interceptor is added successfully. The value **true** indicates that the
+     *     interceptor is successfully added, and the value **false** indicates the opposite.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300802 - Duplicated interceptor type in the chain.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    public addChain(chain: HttpInterceptor[]): boolean;
+
+    /**
+     * Adds an interceptor chain to the target HTTP request. Each HTTP request instance can have only one interceptor
+     * chain attached.
+     *
+     * > **NOTE**
+     * >
+     * > After an interceptor chain is attached to an [HttpRequest]{@link http.HttpRequest} instance, when the instance
+     * > initiates an HTTP request, interceptors of the corresponding type in the attached interceptor chain are
+     * > triggered.
+     *
+     * > For more information about how to trigger interceptors using HTTP requests, see
+     * > [HTTP Interceptor Function Code Example](docroot://network/http-request.md#http-interceptor).
+     *
+     * > The HTTP interceptor feature is supported only by
+     * > [HttpRequest.request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} APIs,
+     * > and is not supported by
+     * > [HttpRequest.requestInStream]{@link http.HttpRequest.requestInStream(url: string, callback: AsyncCallback<int>)}
+     * > APIs (streaming transmission).
+     *
+     * @param { HttpRequest } httpRequest - [HttpRequest]{@link http.HttpRequest} that initiates an HTTP request.
+     * @returns { boolean } Whether the interceptor is attached successfully. The value **true** indicates that the
+     *     interceptor is successfully added, and the value **false** indicates the opposite.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    public apply(httpRequest: HttpRequest): boolean;
+  }
+
+  /**
+   * Represents the credential used for server identity verification in a session, including the user name and password.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export interface Credential {
+    /**
+     * Username of credential. Default is ''.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    username: string;
+    /**
+     * Password of credential. Default is ''.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    password: string;
+  }
+
+  /**
+   * Defines the TLS configuration, including the version and cipher suite.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export interface TlsConfig {
+    /**
+     * Earliest TLS version.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    tlsVersionMin: TlsVersion;
+    /**
+     * Latest TLS version.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    tlsVersionMax: TlsVersion;
+    /**
+     * Array of cipher suite types. If no cipher suite type is set, all supported cipher suite types are carried by
+     * default. For details about the cipher suite types, see
+     * [TlsV13SpecificCipherSuite]{@link http.TlsV13SpecificCipherSuite},
+     * [TlsV12SpecificCipherSuite]{@link http.TlsV12SpecificCipherSuite} and
+     * [TlsV10SpecificCipherSuite]{@link http.TlsV10SpecificCipherSuite}.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 18 dynamic
+     * @since 23 static
+     */
+    cipherSuites?: CipherSuite[];
+  }
+
+  /**
+   * Enumerates cipher suites supported by TLS 1.3 or later.
+   *
+   * @unionmember { 'TLS_AES_128_GCM_SHA256' } Supported cipher suite: TLS_AES_128_GCM_SHA256. The value is a string.
+   * @unionmember { 'TLS_AES_256_GCM_SHA384' } Supported cipher suite: TLS_AES_256_GCM_SHA384. The value is a string.
+   * @unionmember { 'TLS_CHACHA20_POLY1305_SHA256' } Supported cipher suite: TLS_CHACHA20_POLY1305_SHA256. The value is
+   *     a string.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type TlsV13SpecificCipherSuite = 'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256';
+
+  /**
+   * Enumerates cipher suites supported by TLS 1.2 or later.
+   *
+   * @unionmember { 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' } Supported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128
+   *     _GCM_SHA256. The value is a string.
+   * @unionmember { 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' } Supported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA
+   *     256. The value is a string.
+   * @unionmember { 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' } Supported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256
+   *     _GCM_SHA384. The value is a string.
+   * @unionmember { 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' } Supported cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA
+   *     384. The value is a string.
+   * @unionmember { 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' } Supported cipher suite:
+   *     TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256. The value is a string.
+   * @unionmember { 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' } Supported cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20
+   *     _POLY1305_SHA256. The value is a string.
+   * @unionmember { 'TLS_RSA_WITH_AES_128_GCM_SHA256' } Supported cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256. The
+   *     value is a string.
+   * @unionmember { 'TLS_RSA_WITH_AES_256_GCM_SHA384' } Supported cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384. The
+   *     value is a string.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type TlsV12SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384';
+
+  /**
+   * Enumerates cipher suites supported by TLS 1.0 or later.
+   *
+   * @unionmember { 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' } Supported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128
+   *     _CBC_SHA. The value is a string.
+   * @unionmember { 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' } Supported cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.
+   *     The value is a string.
+   * @unionmember { 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' } Supported cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256
+   *     _CBC_SHA. The value is a string.
+   * @unionmember { 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' } Supported cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA.
+   *     The value is a string.
+   * @unionmember { 'TLS_RSA_WITH_AES_128_CBC_SHA' } Supported cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA. The value is
+   *     a string.
+   * @unionmember { 'TLS_RSA_WITH_AES_256_CBC_SHA' } Supported cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA. The value is
+   *     a string.
+   * @unionmember { 'TLS_RSA_WITH_3DES_EDE_CBC_SHA' } Supported cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA. The value
+   *     is a string.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type TlsV10SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA';
+
+  /**
+   * Declares the cipher suite.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
   export type CipherSuite = TlsV13CipherSuite;
-  
+
   /**
-   * TLS1.3 cipher suite should include TLS1.2 cipher suite.
-   * @typedef {TlsV12CipherSuite | TlsV13SpecificCipherSuite}
+   * Declares the cipher suite for TLS 1.3, which is also compatible with TLS 1.2.
+   *
+   * @unionmember { TlsV12CipherSuite } [TlsV11CipherSuite]{@link http.TlsV11CipherSuite}.
+   * @unionmember { TlsV13SpecificCipherSuite } [TlsV13SpecificCipherSuite]{@link http.TlsV13SpecificCipherSuite}.
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
   export type TlsV13CipherSuite = TlsV12CipherSuite | TlsV13SpecificCipherSuite;
-  
+
   /**
-   * TLS1.2 cipher suite should include TLS1.1 cipher suite.
-   * @typedef {TlsV11CipherSuite | TlsV12SpecificCipherSuite}
+   * Declares the cipher suite for TLS 1.2, which is also compatible with TLS 1.1.
+   *
+   * @unionmember { TlsV11CipherSuite } [TlsV11CipherSuite]{@link http.TlsV11CipherSuite}.
+   * @unionmember { TlsV12SpecificCipherSuite } [TlsV12SpecificCipherSuite]{@link http.TlsV12SpecificCipherSuite}.
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
   export type TlsV12CipherSuite = TlsV11CipherSuite | TlsV12SpecificCipherSuite;
-  
+
   /**
-   * TLS1.1 cipher suite is same as TLS1.0 cipher suite.
-   * @typedef {TlsV10CipherSuite}
+   * Declares the cipher suite for TLS 1.1, which is the same as that for TLS1.0.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
   export type TlsV11CipherSuite = TlsV10CipherSuite;
-  
+
   /**
-   * TLS1.0 cipher suite.
-   * @typedef {TlsV10SpecificCipherSuite}
+   * Declares the cipher suite for TLS 1.0.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
    */
   export type TlsV10CipherSuite = TlsV10SpecificCipherSuite;
-  
-    /**
-   * Enum for Tls version
-   * @enum {int}
+
+  /**
+   * Enumerates TLS versions.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 18 dynamic
@@ -1116,7 +1198,8 @@ declare namespace http {
    */
   export enum TlsVersion {
     /**
-     * Tls version 1.0
+     * TLS version 1.0.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
@@ -1125,7 +1208,8 @@ declare namespace http {
     TLS_V_1_0 = 4,
 
     /**
-     * Tls version 1.1
+     * TLS version 1.1.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
@@ -1134,7 +1218,8 @@ declare namespace http {
     TLS_V_1_1 = 5,
 
     /**
-     * Tls version 1.2
+     * TLS version 1.2.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
@@ -1143,7 +1228,8 @@ declare namespace http {
     TLS_V_1_2 = 6,
 
     /**
-     * Tls version 1.3
+     * TLS version 1.3.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 18 dynamic
@@ -1153,264 +1239,218 @@ declare namespace http {
   }
 
   /**
-   * Represents the properties of a form object.
-   * @interface MultiFormData
+   * Defines the type of multi-form data.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Represents the properties of a form object.
-   * @interface MultiFormData
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export interface MultiFormData {
     /**
-     * MIME name for the data field.
-     * @type {string}
+     * Data name.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * MIME name for the data field.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     name: string;
 
     /**
-     * Content type of the data field.
-     * @type {string}
+     * Data type, for example, **text/plain**, **image/png**, **image/jpeg**, **audio/mpeg**, or **video/mp4**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Content type of the data field.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     contentType: string;
 
     /**
-     * Remote file name for the data field.
-     * @type {?string}
+     * Name of the file uploaded to the server.
+     *
+     * **Note**: If this field is specified, the **filename** field is added to the request header, indicating the name
+     * of the file uploaded to the server.
+     *
+     * (1) If the data to be uploaded is a file and the file content is specified via the **data** field, the
+     * **remoteFileName** field usually needs to be set to specify the name of the file to be uploaded to the server (
+     * the actual result depends on the server). If the file path is specified via the **filePath** field, the
+     * **filename** field will be automatically added to the request header. Its default value is the file name in the
+     * **filePath** field. If a different name is required, it can also be changed via this field.
+     *
+     * (2) When the data to be uploaded is in binary format, the **remoteFileName** field must be set.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Remote file name for the data field.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     remoteFileName?: string;
 
     /**
-     * This parameter sets a mime part's body content from memory data.
-     * @type {?(string | Object | ArrayBuffer)}
+     * Form data content.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * This parameter sets a mime part's body content from memory data.
-     * @type {?(string | Object | ArrayBuffer)}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     data?: string | Object | ArrayBuffer;
 
     /**
-     * This parameter sets a mime part's body content from the file's contents.
-     * This is an alternative to curl_mime_data for setting data to a mime part.
-     * If data is empty, filePath must be set.
-     * If data has a value, filePath does not take effect.
-     * @type {?string}
+     * File path of the form data. If **data** is not specified, **filePath** must be set.
+     *
+     * **Note**: The file format supported by the file management module must be passed. You can call
+     * [access]{@link @ohos.file.fs:access} to check whether the file exists and is accessible.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * This parameter sets a mime part's body content from the file's contents.
-     * This is an alternative to curl_mime_data for setting data to a mime part.
-     * If data is empty, filePath must be set.
-     * If data has a value, filePath does not take effect.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     filePath?: string;
   }
 
   /**
-   * Enum for certificate types
-   * @enum {string}
+   * Enumerates certificate types.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Enum for certificate types
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export enum CertType {
     /**
-     * PEM format certificate
+     * PEM certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * PEM format certificate
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     PEM = 'PEM',
 
     /**
-     * DER format certificate
+     * DER certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * DER format certificate
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     DER = 'DER',
 
     /**
-     * P12 format certificate
+     * P12 certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * P12 format certificate
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     P12 = 'P12'
   }
 
   /**
-   * The clientCert field of the client certificate, which includes 4 attributes:
-   * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
-   * @interface ClientCert
+   * Enumerates IP address families of the target domain name.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
+   * @since 15 dynamic
    */
+  export enum AddressFamily {
+    /**
+     * Automatically selects the IPv4 or IPv6 address of the target domain name.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 15 dynamic
+     */
+    DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
+
+    /**
+     * Resolves only the IPv4 address of the target domain name and ignores the IPv6 address.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 15 dynamic
+     */
+    ONLY_V4 = 'CURL_IPRESOLVE_V4',
+
+    /**
+     * Resolves only the IPv6 address of the target domain name and ignores the IPv4 address.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 15 dynamic
+     */
+    ONLY_V6 = 'CURL_IPRESOLVE_V6'
+  }
+
   /**
-   * The clientCert field of the client certificate, which includes 4 attributes:
-   * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
-   * @interface ClientCert
+   * Defines the client certificate type.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export interface ClientCert {
     /**
-     * The path to the client certificate file.
-     * @type {string}
+     * Path of the certificate file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The path to the client certificate file.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     certPath: string;
 
     /**
-     * The type of the client certificate.
-     * @type {?CertType}
+     * Certificate type. The default value is **PEM**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The type of the client certificate.
-     * @type {?CertType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     certType?: CertType;
 
     /**
-     * The path of the client certificate private key file.
-     * @type {string}
+     * Path of the certificate key file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The path of the client certificate private key file.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     keyPath: string;
 
     /**
-     * Password required to use the client certificate private key.
-     * @type {?string}
+     * Password of the certificate key file. The default value is an empty string.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Password required to use the client certificate private key.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     keyPassword?: string;
   }
 
   /**
-   * Certificate pinning option.
-   * @interface CertificatePinning
+   * Defines the dynamic configuration of certificate pinning.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
    */
   interface CertificatePinning {
     /**
-     * Public key hash.
-     * @type {string}
+     * Certificate PIN of the string type.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
     publicKeyHash: string;
     /**
-     * Certificate public key hash algorithm.
-     * @type {'SHA-256'}
+     * Encryption algorithm. Currently, only SHA-256 is supported.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
@@ -1418,28 +1458,13 @@ declare namespace http {
   }
 
   /**
-   * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
-   * you must call createHttp() to create an HttpRequestTask object.</p>
-   * @interface HttpRequest
+   * Defines an HTTP request task. Before invoking APIs provided by **HttpRequest**, you must call
+   * [createHttp()]{@link http.createHttp} to create an **HttpRequestTask** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
-   * you must call createHttp() to create an HttpRequestTask object.</p>
-   * @interface HttpRequest
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
-   * you must call createHttp() to create an HttpRequestTask object.</p>
-   * @interface HttpRequest
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface HttpRequest {
@@ -1497,7 +1522,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic&static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1565,7 +1590,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic&static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1631,7 +1656,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic&static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1699,7 +1724,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestSync(url: string, options?: HttpRequestOptions): HttpResponse;
 
@@ -1741,16 +1766,15 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, callback: AsyncCallback<int>): void;
 
@@ -1795,16 +1819,15 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
@@ -1847,53 +1870,36 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
-     * @throws { BusinessError } 2300999 - Unknown error.
+     * @throws { BusinessError } 2300999 - Internal error.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain. [since 12]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted. [since 18]
      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
-     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
+     *     interceptor. [since 26.0.0]
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform [since 18]
      * @atomicservice [since 15]
      * @since 10 dynamic
-     * @since 26.1.0 static
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
 
     /**
-     * Sets whether to automatically reply with cookies.
-     * @param { boolean } enable - whether to automatically reply with cookies, default is false.
+     * Stops an HTTP request task and releases system resources.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    enableAutoCookie(enable: boolean): void;
-
-    /**
-     * Destroys an HTTP request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Destroys an HTTP request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Destroys an HTTP request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     destroy(): void;
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headerReceive" } type - Indicates Event name.
-     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
+     *
+     * @param { "headerReceive" } type - Event type. The value is **headerReceive**.
+     * @param { AsyncCallback<Object> } callback - Callback used to return the result. If the operation is successful,
+     *     **error** is **undefined**, and **data** is the received HTTP response header. Otherwise, **error** is an
+     *     error object.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
      * @deprecated since 8
@@ -1903,8 +1909,11 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headerReceive" } type - Indicates Event name.
-     * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
+     *
+     * @param { "headerReceive" } type - Event type. The value is **headerReceive**.
+     * @param { AsyncCallback<Object> } [callback] - Callback used to return the result. You can pass the callback of
+     *     the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6 dynamiconly
      * @deprecated since 8
@@ -1914,1558 +1923,804 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
+     *
+     * @param { "headersReceive" } type - Event type. The value is **headersReceive**.
+     * @param { Callback<Object> } callback - Callback used to return the HTTP response header.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 8 dynamic
-     */
-    /**
-     * Registers an observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Registers an observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     on(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
-     * Registers an observer for HTTP Response Header events.
-     * @param { Callback<Record<string, string>> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onHeadersReceive(callback: Callback<Record<string, string>>): void;
-
-    /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
+     *
+     * @param { "headersReceive" } type - Event type. The value is **headersReceive**.
+     * @param { Callback<Object> } callback - Callback used to return the result. You can pass the callback of the
+     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events. [since 8 - 10]
+     * @param { Callback<Object> } [callback] - Callback used to return the result. You can pass the callback of the
+     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events. [since 11]
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
      * @since 8 dynamic
-     */
-    /**
-     * Unregisters the observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Unregisters the observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
      */
     off(type: "headersReceive", callback?: Callback<Object>): void;
 
     /**
-     * Unregisters the observer for HTTP Response Header events.
-     * @param { Callback<Record<string, string>> } [callback] - the callback used to return the result.
+     * Registers a one-time observer for HTTP Response Header events. Once triggered, the observer will be removed. This
+     * API uses an asynchronous callback to return the result.
+     *
+     * @param { "headersReceive" } type - Event type. The value is **headersReceive**.
+     * @param { Callback<Object> } callback - Callback used to return the HTTP response header.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    offHeadersReceive(callback?: Callback<Record<string, string>>): void;
-
-    /**
-     * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
+     * @atomicservice [since 15]
      * @since 8 dynamic
-     */
-    /**
-     * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headersReceive" } type - Indicates Event name.
-     * @param { Callback<Object> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
-     * Registers a one-time observer for HTTP Response Header events.
-     * @param { Callback<Record<string, string>> } callback - the callback used to return the result.
+     * Registers an observer for events indicating receiving of HTTP streaming responses.
+     *
+     * @param { "dataReceive" } type - Event type. The value is **dataReceive**.
+     * @param { Callback<ArrayBuffer> } callback - Callback used to return the result. If the operation is successful,
+     *     **error** is **undefined**, and **data** is the received HTTP streaming data of the ArrayBuffer type.
+     *     Otherwise, **error** is an error object.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onceHeadersReceive(callback: Callback<Record<string, string>>): void;
-
-    /**
-     * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 18]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
      */
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
+     * Unregisters the observer for events indicating receiving of HTTP streaming responses.
+     *
+     * @param { "dataReceive" } type - Event type. The value is **dataReceive**.
+     * @param { Callback<ArrayBuffer> } [callback] - Callback used to return the result. You can pass the callback of
+     *     the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onDataReceive(callback: Callback<ArrayBuffer>): void;
-
-    /**
-     * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 18]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type - Indicates Event name.
-     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
      */
     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
+     * Registers an observer for events indicating completion of receiving HTTP streaming responses.
+     *
+     * @param { "dataEnd" } type - Event type. The value is **dataEnd**.
+     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, **err**
+     *     is **undefined**; otherwise, **err** is an **Error** object.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    offDataReceive(callback?: Callback<ArrayBuffer>): void;
-
-    /**
-     * Registers an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 18]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Registers an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Registers an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
      */
     on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
-     * Registers an observer for receiving HTTP Response data ends events.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Unregisters the observer for events indicating completion of receiving HTTP streaming responses.
+     *
+     * @param { "dataEnd" } type - Event type. The value is **dataEnd**.
+     * @param { Callback<void> } [callback] - Callback used to return the result. You can pass the callback of the
+     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onDataEnd(callback: Callback<void>): void;
-
-    /**
-     * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 18]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    /**
-     * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type - Indicates Event name.
-     * @param { Callback<void> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
      */
     off(type: "dataEnd", callback?: Callback<void>): void;
 
     /**
-     * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { Callback<void> } [callback] - the callback used to return the result.
+     * Registers an observer for events indicating progress of receiving HTTP streaming responses.
+     *
+     * @param { 'dataReceiveProgress' } type - Event type. The value is **dataReceiveProgress**.
+     * @param { Callback<{ receiveSize: int, totalSize: int }> } callback - Callback used to return the result. If the
+     *     operation is successful, the callback content is a
+     *     [DataReceiveProgressInfo]{@link http.DataReceiveProgressInfo} object; otherwise, the callback content is
+     *     **undefined**. [since 10 - 10]
+     * @param { Callback<DataReceiveProgressInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, the callback content is a [DataReceiveProgressInfo]{@link http.DataReceiveProgressInfo} object;
+     *     otherwise, the callback content is **undefined**. [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    offDataEnd(callback?: Callback<void>): void;
-
-    /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11 dynamic
-     */
-    /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
      */
     on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
     /**
-     * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * Unregisters the observer for events indicating progress of receiving HTTP streaming responses.
+     *
+     * @param { 'dataReceiveProgress' } type - Event type. The value is **dataReceiveProgress**.
+     * @param { Callback<{ receiveSize: int, totalSize: int }> } [callback] - Callback used to return the result. You
+     *     can pass the callback of the **on** function if you want to cancel listening for a certain type of events. If
+     *     you do not pass the callback, you will cancel listening for all events. [since 10 - 10]
+     * @param { Callback<DataReceiveProgressInfo> } callback - Callback used to return the result. You can pass the
+     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
+     *     pass the callback, you will cancel listening for all events. [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onDataReceiveProgress(callback: Callback<DataReceiveProgressInfo>): void;
-
-    /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } [callback] - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
      * @since 10 dynamic
-     */
-    /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11 dynamic
-     */
-    /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { 'dataReceiveProgress' } type - Indicates Event name.
-     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
      */
     off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
     /**
-     * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { Callback<DataReceiveProgressInfo> } [callback] - the callback used to return the result.
+     * Registers an observer for events indicating progress of sending HTTP requests.
+     *
+     * @param { 'dataSendProgress' } type - Event type. The value is **dataSendProgress**.
+     * @param { Callback<DataSendProgressInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, the callback content is a [DataSendProgressInfo]{@link http.DataSendProgressInfo} object;
+     *     otherwise, the callback content is **undefined**.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    offDataReceiveProgress(callback?: Callback<DataReceiveProgressInfo>): void;
-
-    /**
-     * Registers an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
      * @since 11 dynamic
      */
-    /**
-     * Registers an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    /**
-     * Registers an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void
+    on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void;
 
     /**
-     * Registers an observer for progress of sendSize HTTP Response data events.
-     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
+     * Unregisters the observer for events indicating progress of sending HTTP requests.
+     *
+     * @param { 'dataSendProgress' } type - Event type. The value is **dataSendProgress**.
+     * @param { Callback<DataSendProgressInfo> } [callback] - Callback used to return the result. You can pass the
+     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
+     *     pass the callback, you will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
-     */
-    onDataSendProgress(callback: Callback<DataSendProgressInfo>): void;    
-
-    /**
-     * Unregisters an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
-     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
      * @since 11 dynamic
-     */
-    /**
-     * Unregisters an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    /**
-     * Unregisters an observer for progress of sendSize HTTP Response data events.
-     * @param { 'dataSendProgress' } type - Indicates Event name.
-     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
      */
     off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void;
 
     /**
-     * Unregisters an observer for progress of sendSize HTTP Response data events.
-     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
+     * Sets whether to automatically carry and share cookies. That is, whether to automatically reuse the cookies
+     * delivered by the server among multiple requests of the same **HttpRequest** instance.
+     *
+     * > **NOTE**
+     * >
+     * > (1) The default value is **false**, indicating that cookies are not automatically carried.
+     *
+     * > (2) If the value is changed from **false** to **true**, the setting takes effect when the **request** API is
+     * > called to initiate a request, and cookies are automatically shared.
+     *
+     * > (3) If the value is changed from **true** to **false**, the cookie sharing status stored in the current
+     * > instance is cleared.
+     *
+     * @param { boolean } enable - Whether to automatically carry cookies. **true**: yes; **false**: no.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
      */
-    offDataSendProgress(callback?: Callback<DataSendProgressInfo>): void;
+    enableAutoCookie(enable: boolean): void;
   }
 
   /**
    * Defines an HTTP request method.
-   * @enum {string}
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Defines an HTTP request method.
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines an HTTP request method.
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export enum RequestMethod {
     /**
-     * OPTIONS method.
+     * Describes the communication options of the target resource.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * OPTIONS method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * OPTIONS method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     OPTIONS = "OPTIONS",
 
     /**
-     * GET method.
+     * Requests the representation of the specified resource. The GET request should only retrieve data and should not
+     * contain the request content.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * GET method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * GET method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     GET = "GET",
 
     /**
-     * HEAD method.
+     * Requests the same response (but does not have a response body) as the GET request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * HEAD method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * HEAD method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     HEAD = "HEAD",
 
     /**
-     * POST method.
+     * Submits an entity to a specified resource, which usually causes a status change on the server.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * POST method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * POST method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     POST = "POST",
 
     /**
-     * PUT method.
+     * Replaces all current representations of the target resource with the requested content.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * PUT method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PUT method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     PUT = "PUT",
 
     /**
-     * DELETE method.
+     * Deletes the specified resource.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * DELETE method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * DELETE method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     DELETE = "DELETE",
 
     /**
-     * TRACE method.
+     * Performs a message loopback test along the path to the target resource.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * TRACE method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * TRACE method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     TRACE = "TRACE",
 
     /**
-     * CONNECT method.
+     * Establishes a tunnel to the server identified by the target resource.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * CONNECT method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * CONNECT method.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     CONNECT = "CONNECT",
 
     /**
-     * PATCH method
+     * Modifies a resource partially.
+     *
+     * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @crossplatform
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PATCH = "PATCH"
   }
 
   /**
    * Enumerates the response codes for an HTTP request.
-   * @enum {int}
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Enumerates the response codes for an HTTP request.
-   * @enum {int}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates the response codes for an HTTP request.
-   * @enum {int}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export enum ResponseCode {
     /**
-     * The request was successful. Typically used for GET and POST requests.
+     * The request is successful. This return code is generally used for GET and POST requests.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The request was successful. Typically used for GET and POST requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The request was successful. Typically used for GET and POST requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     OK = 200,
 
     /**
-     * Successfully requested and created a new resource.
+     * "Created." The request has been successfully sent and a new resource is created.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Successfully requested and created a new resource.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Successfully requested and created a new resource.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    CREATED,
+    CREATED = 201,
 
     /**
-     * The request has been accepted but has not been processed completely.
+     * "Accepted." The request has been accepted for processing, but the processing has not been completed.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The request has been accepted but has not been processed completely.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The request has been accepted but has not been processed completely.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    ACCEPTED,
+    ACCEPTED = 202,
 
     /**
-     * Unauthorized information. The request was successful.
+     * "Non-Authoritative Information." The request is successful.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Unauthorized information. The request was successful.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Unauthorized information. The request was successful.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NOT_AUTHORITATIVE,
+    NOT_AUTHORITATIVE = 203,
 
     /**
-     * No content. The server successfully processed, but did not return content.
+     * "No Content." The server has successfully fulfilled the request but there is no additional content to send in the
+     * response payload body.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * No content. The server successfully processed, but did not return content.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * No content. The server successfully processed, but did not return content.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NO_CONTENT,
+    NO_CONTENT = 204,
 
     /**
-     * Reset the content.
+     * "Reset Content." The server has successfully fulfilled the request and desires that the user agent reset the
+     * content.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Reset the content.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reset the content.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    RESET,
+    RESET = 205,
 
     /**
-     * Partial content. The server successfully processed some GET requests.
+     * "Partial Content." The server has successfully fulfilled the partial GET request for a given resource.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Partial content. The server successfully processed some GET requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Partial content. The server successfully processed some GET requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    PARTIAL,
+    PARTIAL = 206,
 
     /**
-     * Multiple options.
+     * "Multiple Choices." The requested resource corresponds to any one of a set of representations.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Multiple options.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Multiple options.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     MULT_CHOICE = 300,
 
     /**
-     * <p>Permanently move. The requested resource has been permanently moved to a new URI,
-     * and the returned information will include the new URI. The browser will automatically redirect to the new URI.</p>
+     * "Moved Permanently." The requested resource has been assigned a new permanent URI and any future references to
+     * this resource will be redirected to this URI.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * <p>Permanently move. The requested resource has been permanently moved to a new URI,
-     * and the returned information will include the new URI. The browser will automatically redirect to the new URI.</p>
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * <p>Permanently move. The requested resource has been permanently moved to a new URI,
-     * and the returned information will include the new URI. The browser will automatically redirect to the new URI.</p>
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    MOVED_PERM,
+    MOVED_PERM = 301,
 
     /**
-     * Temporary movement.
+     * "Moved Temporarily." The requested resource is moved temporarily to a different URI.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Temporary movement.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Temporary movement.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    MOVED_TEMP,
+    MOVED_TEMP = 302,
 
     /**
-     * View other addresses.
+     * "See Other." The response to the request can be found under a different URI.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * View other addresses.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * View other addresses.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    SEE_OTHER,
+    SEE_OTHER = 303,
 
     /**
-     * Not modified.
+     * "Not Modified." The client has performed a conditional GET request and access is allowed, but the content has not
+     * been modified.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Not modified.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Not modified.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NOT_MODIFIED,
+    NOT_MODIFIED = 304,
 
     /**
-     * Using proxies.
+     * "Use Proxy." The requested resource can only be accessed through the proxy.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Using proxies.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Using proxies.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    USE_PROXY,
+    USE_PROXY = 305,
 
     /**
-     * The server cannot understand the syntax error error requested by the client.
+     * "Bad Request." The request could not be understood by the server due to incorrect syntax.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server cannot understand the syntax error error requested by the client.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server cannot understand the syntax error error requested by the client.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     BAD_REQUEST = 400,
 
     /**
-     * Request for user authentication.
+     * "Unauthorized." The request requires user authentication.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Request for user authentication.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Request for user authentication.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    UNAUTHORIZED,
+    UNAUTHORIZED = 401,
 
     /**
-     * Reserved for future use.
+     * "Payment Required." This code is reserved for future use.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Reserved for future use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Reserved for future use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    PAYMENT_REQUIRED,
+    PAYMENT_REQUIRED = 402,
 
     /**
-     * The server understands the request from the requesting client, but refuses to execute it.
+     * "Forbidden." The server understands the request but refuses to process it.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server understands the request from the requesting client, but refuses to execute it.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server understands the request from the requesting client, but refuses to execute it.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    FORBIDDEN,
+    FORBIDDEN = 403,
 
     /**
-     * The server was unable to find resources (web pages) based on the client's request.
+     * "Not Found." The server does not find anything matching the Request-URI.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server was unable to find resources (web pages) based on the client's request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server was unable to find resources (web pages) based on the client's request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NOT_FOUND,
+    NOT_FOUND = 404,
 
     /**
-     * The method in the client request is prohibited.
+     * "Method Not Allowed." The method specified in the request is not allowed for the resource identified by the
+     * Request-URI.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The method in the client request is prohibited.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The method in the client request is prohibited.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    BAD_METHOD,
+    BAD_METHOD = 405,
 
     /**
-     * The server is unable to complete the request based on the content characteristics requested by the client.
+     * "Not Acceptable." The server cannot fulfill the request according to the content characteristics of the request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server is unable to complete the request based on the content characteristics requested by the client.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server is unable to complete the request based on the content characteristics requested by the client.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NOT_ACCEPTABLE,
+    NOT_ACCEPTABLE = 406,
 
     /**
-     * Request authentication of the proxy's identity.
+     * "Proxy Authentication Required." The request requires user authentication with the proxy.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Request authentication of the proxy's identity.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Request authentication of the proxy's identity.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    PROXY_AUTH,
+    PROXY_AUTH = 407,
 
     /**
-     * The request took too long and timed out.
+     * "Request Timeout." The client fails to generate a request within the timeout period.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The request took too long and timed out.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The request took too long and timed out.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    CLIENT_TIMEOUT,
+    CLIENT_TIMEOUT = 408,
 
     /**
-     * <p>The server may have returned this code when completing the client's PUT request,
-     * as there was a conflict when the server was processing the request.</p>
+     * "Conflict." The request cannot be fulfilled due to a conflict with the current state of the resource. Conflicts
+     * are most likely to occur in response to a PUT request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * <p>The server may have returned this code when completing the client's PUT request,
-     * as there was a conflict when the server was processing the request.</p>
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * <p>The server may have returned this code when completing the client's PUT request,
-     * as there was a conflict when the server was processing the request.</p>
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    CONFLICT,
+    CONFLICT = 409,
 
     /**
-     * The resource requested by the client no longer exists.
+     * "Gone." The requested resource has been deleted permanently and is no longer available.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The resource requested by the client no longer exists.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The resource requested by the client no longer exists.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    GONE,
+    GONE = 410,
 
     /**
-     * The server is unable to process request information sent by the client without Content Length.
+     * "Length Required." The server refuses to process the request without a defined Content-Length.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server is unable to process request information sent by the client without Content Length.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server is unable to process request information sent by the client without Content Length.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    LENGTH_REQUIRED,
+    LENGTH_REQUIRED = 411,
 
     /**
-     * The prerequisite for requesting information from the client is incorrect.
+     * "Precondition Failed." The precondition in the request is incorrect.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The prerequisite for requesting information from the client is incorrect.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The prerequisite for requesting information from the client is incorrect.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    PRECON_FAILED,
+    PRECON_FAILED = 412,
 
     /**
-     * The request was rejected because the requested entity was too large for the server to process.
+     * "Request Entity Too Large." The server refuses to process a request because the request entity is larger than the
+     * server is able to process.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The request was rejected because the requested entity was too large for the server to process.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The request was rejected because the requested entity was too large for the server to process.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    ENTITY_TOO_LARGE,
+    ENTITY_TOO_LARGE = 413,
 
     /**
-     * The requested URI is too long (usually a URL) and the server cannot process it.
+     * "Request-URI Too Long." The Request-URI is too long for the server to process.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The requested URI is too long (usually a URL) and the server cannot process it.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The requested URI is too long (usually a URL) and the server cannot process it.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    REQ_TOO_LONG,
+    REQ_TOO_LONG = 414,
 
     /**
-     * The server is unable to process the requested format.
+     * "Unsupported Media Type." The server is unable to process the media format in the request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server is unable to process the requested format.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server is unable to process the requested format.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    UNSUPPORTED_TYPE,
+    UNSUPPORTED_TYPE = 415,
 
     /**
-     * The server cannot process the requested data range.
+     * "Range Not Satisfiable." The server cannot serve the requested ranges.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    RANGE_NOT_SATISFIABLE,
+    RANGE_NOT_SATISFIABLE = 416,
 
     /**
-     * Internal server error, unable to complete the request.
+     * "Internal Server Error." The server encounters an unexpected error that prevents it from fulfilling the request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Internal server error, unable to complete the request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Internal server error, unable to complete the request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     INTERNAL_ERROR = 500,
 
     /**
-     * The server does not support the requested functionality and cannot complete the request.
+     * "Not Implemented." The server does not support the function required to fulfill the request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server does not support the requested functionality and cannot complete the request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server does not support the requested functionality and cannot complete the request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    NOT_IMPLEMENTED,
+    NOT_IMPLEMENTED = 501,
 
     /**
-     * The server acting as a gateway or proxy received an invalid request from the remote server.
+     * "Bad Gateway." The server acting as a gateway or proxy receives an invalid response from the upstream server.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server acting as a gateway or proxy received an invalid request from the remote server.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server acting as a gateway or proxy received an invalid request from the remote server.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    BAD_GATEWAY,
+    BAD_GATEWAY = 502,
 
     /**
-     * Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     * "Service Unavailable." The server is currently unable to process the request due to a temporary overload or
+     * system maintenance.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Due to overload or system maintenance, the server is temporarily unable to process client requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Due to overload or system maintenance, the server is temporarily unable to process client requests.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    UNAVAILABLE,
+    UNAVAILABLE = 503,
 
     /**
-     * The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     * "Gateway Timeout." The server acting as a gateway or proxy does not receive requests from the remote server
+     * within the timeout period.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    GATEWAY_TIMEOUT,
+    GATEWAY_TIMEOUT = 504,
 
     /**
-     * The version of the HTTP protocol requested by the server.
+     * The server does not support the HTTP protocol version used in the client request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * The version of the HTTP protocol requested by the server.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The version of the HTTP protocol requested by the server.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
-    VERSION
+    VERSION = 505
   }
 
   /**
-   * Supported protocols.
-   * @enum {string}
+   * Enumerates HTTP protocol versions.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Supported protocols.
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Supported protocols.
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
-
   export enum HttpProtocol {
     /**
-     * Protocol http1.1
+     * HTTP1.1.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
+    HTTP1_1 = 0,
+
     /**
-     * Protocol http1.1
+     * HTTP2.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
+    HTTP2 = 1,
+
     /**
-     * Protocol http1.1
+     * HTTP3. If the system or server does not support HTTP3, the HTTP protocol of an earlier version is used.
+     *
+     * **Note**: This parameter takes effect only for HTTPS URLs. If this parameter is set to HTTP, the request will
+     * fail.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
+     * @crossplatform [since 12]
      * @since 11 dynamic
      * @since 23 static
      */
-    HTTP1_1,
-
-    /**
-     * Protocol http2
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Protocol http2
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Protocol http2
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 23 static
-     */
-    HTTP2,
-
-    /**
-     * Protocol http3 for https only.
-     * Cause error if using http only or not supporting http3 on this device.
-     * Fallback to http2 or http1.1 if needed.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Protocol http3 for https only.
-     * Cause error if using http only or not supporting http3 on this device.
-     * Fallback to http2 or http1.1 if needed.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    HTTP3
+    HTTP3 = 2
   }
 
   /**
-   * Indicates the type of the returned data.
-   * @enum {int}
+   * Enumerates HTTP data types.
+   *
+   * | Name| Value| Description    |
+   * | ------------------  | -- | ----------- |
+   * | STRING              | 0 | String type.|
+   * | OBJECT              | 1 | Object type.   |
+   * | ARRAY_BUFFER        | 2 | Binary array type.|
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Indicates the type of the returned data.
-   * @enum {int}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the type of the returned data.
-   * @enum {int}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum HttpDataType {
     /**
      * The returned type is string.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * The returned type is string.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The returned type is string.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
-    STRING,
+    STRING = 0,
 
     /**
      * The returned type is Object.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * The returned type is Object.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The returned type is Object.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     OBJECT = 1,
 
     /**
      * The returned type is ArrayBuffer.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * The returned type is ArrayBuffer.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The returned type is ArrayBuffer.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ARRAY_BUFFER = 2
@@ -3473,955 +2728,520 @@ declare namespace http {
 
   /**
    * Defines the response to an HTTP request.
-   * @interface HttpResponse
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 6
-   */
-  /**
-   * Defines the response to an HTTP request.
-   * @interface HttpResponse
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the response to an HTTP request.
-   * @interface HttpResponse
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   export interface HttpResponse {
     /**
-     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
-     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
-     * @type {string | Object | ArrayBuffer}
+     * Response content returned based on **Content-type** in the response header. If **HttpRequestOptions** does not
+     * contain the **expectDataType** field, the response content is returned according to the following rules:
+     *
+     * - application/json: string in JSON format
+     * - application/octet-stream: ArrayBuffer
+     * - image: ArrayBuffer
+     * - Others: string
+     *
+     * If **HttpRequestOptions** contains the **expectDataType** field, the response content must be of the same type as
+     * the data returned by the server.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
-     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
-     * @type {string | Object | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
-     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
-     * @type {string | Object | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     result: string | Object | ArrayBuffer;
 
     /**
-     * If the resultType is string, you can get result directly.
-     * If the resultType is Object, you can get result such as this: result['key'].
-     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
-     * @type {HttpDataType}
+     * Type of the return value.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * If the resultType is string, you can get result directly.
-     * If the resultType is Object, you can get result such as this: result['key'].
-     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
-     * @type {HttpDataType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * If the resultType is string, you can get result directly.
-     * If the resultType is Object, you can get result such as this: result['key'].
-     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
-     * @type {HttpDataType}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     resultType: HttpDataType;
 
     /**
-     * Server status code.
-     * @type {ResponseCode | int}
+     * Result code for an HTTP request. If the callback function is successfully executed, a result code defined in
+     * [ResponseCode]{@link http.ResponseCode} will be returned. Otherwise, an error code will be returned in the
+     * **err** field in **AsyncCallback**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * Server status code.
-     * @type {ResponseCode | int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Server status code.
-     * @type {ResponseCode | int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     responseCode: ResponseCode | int;
 
     /**
-     * All headers in the response from the server.
-     * @type {Object}
+     * Response header. The return value is a string in JSON format. If you want to use specific content in the
+     * response, you need to implement parsing of that content. Common fields and parsing methods are as follows:
+     *
+     * - content-type: header['content-type']
+     * - status-line: header['status-line']
+     * - date: header.date/header['date']
+     * - server: header.server/header['server']
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
-     */
-    /**
-     * All headers in the response from the server.
-     * @type {Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * All headers in the response from the server.
-     * @type {Object}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     header: Object;
 
     /**
-     * Cookies returned by the server.
-     * @type {string}
+     * Original cookies returned by the server. How to process the cookies is up to your decision.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 8
-     */
-    /**
-     * Cookies returned by the server.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Cookies returned by the server.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     cookies: string;
 
     /**
-     * The time taken of various stages of HTTP request.
-     * @type {PerformanceTiming}
+     * Time consumed in each phase of an HTTP request.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * The time taken of various stages of HTTP request.
-     * @type {PerformanceTiming}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     performanceTiming: PerformanceTiming;
 
     /**
-     * Information details of HTTP request.
+     * Detailed information about the HTTP request interaction.
      *
-     * @type { ?ConnectionExtraInfo }
      * @syscap SystemCapability.Communication.NetStack
      * @since 24 dynamic
-     * @since 26.0.0 static
      */
     connectionExtraInfo?: ConnectionExtraInfo;
   }
 
   /**
-   * Counting the time taken of various stages of HTTP request.
-   * @interface PerformanceTiming
+   * Defines the detailed information about the HTTP request interaction.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
+   * @stagemodelonly
+   * @since 24 dynamic
    */
+  export interface ConnectionExtraInfo {
+    /**
+     * HTTP version used in the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)}, for example, 'HTTP
+     * /1.0', 'HTTP/1.1', 'HTTP/2', 'HTTP/2 over TLS', 'HTTP/3', or 'Unknown/Non-HTTP'.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    networkProtocolName: string;
+
+    /**
+     * TLS version used in the request. It is returned only when the TLS protocol is used.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    tlsVersion?: TlsVersion;
+
+    /**
+     * Cipher suite used in the request. It is returned only when the TLS protocol is used.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    cipherSuite?: CipherSuite;
+
+    /**
+     * IP address of the client in the request process.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    localAddress: string;
+
+    /**
+     * IP address of the server in the request process.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    remoteAddress: string;
+
+    /**
+     * Port number of the client in the request process. The value ranges from 1 to 65535.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    localPort: int;
+
+    /**
+     * Port number of the server in the request process. The value ranges from 1 to 65535.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    remotePort: int;
+
+    /**
+     * Whether to reuse the connection in the request process. **true**: yes; **false**: no.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    isReusedConnection: boolean;
+
+    /**
+     * Whether to use a proxy in the request process. **true**: yes; **false**: no.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    isProxyConnection: boolean;
+
+    /**
+     * Whether the local cache is hit in the request process. **true**: yes; **false**: no.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    isCacheHit: boolean;
+
+    /**
+     * Number of redirections in the request process.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 24 dynamic
+     */
+    redirectCount: int;
+  }
+
   /**
-   * Counting the time taken of various stages of HTTP request.
-   * @interface PerformanceTiming
+   * Configures the timing for performance tracing, in ms.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   export interface PerformanceTiming {
     /**
-     * Time taken from startup to DNS resolution completion, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the DNS resolution is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to DNS resolution completion, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     dnsTiming: double;
 
     /**
-     * Time taken from startup to TCP connection completion, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the TCP connection is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to TCP connection completion, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     tcpTiming: double;
 
     /**
-     * Time taken from startup to TLS connection completion, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the TLS connection is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to TLS connection completion, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     tlsTiming: double;
 
     /**
-     * Time taken from startup to start sending the first byte, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the first byte is sent.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to start sending the first byte, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     firstSendTiming: double;
 
     /**
-     * Time taken from startup to receiving the first byte, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the first byte is received.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to receiving the first byte, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     firstReceiveTiming: double;
 
     /**
-     * Time taken from startup to the completion of the request, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the request is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to the completion of the request, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     totalFinishTiming: double;
 
     /**
-     * Time taken from startup to completion of all redirection steps, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when all redirection steps are complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from startup to completion of all redirection steps, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     redirectTiming: double;
 
     /**
-     * Time taken from HTTP request to header completion, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the header resolution is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from HTTP request to header completion, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     responseHeaderTiming: double;
 
     /**
-     * Time taken from HTTP Request to body completion, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when the body resolution is complete.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from HTTP Request to body completion, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     responseBodyTiming: double;
 
     /**
-     * Time taken from HTTP Request to callback to the application, in milliseconds.
-     * @type {double}
+     * Duration from the time when the
+     * [request]{@link http.HttpRequest.request(url: string, callback: AsyncCallback<HttpResponse>)} is sent to the time
+     * when a callback is returned to the application.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Time taken from HTTP Request to callback to the application, in milliseconds.
-     * @type {double}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     totalTiming: double;
   }
 
   /**
-   * This interface is used to obtain the progress information of file upload or download.
-   * @interface DataReceiveProgressInfo
+   * Defines the data receiving progress information.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * This interface is used to obtain the progress information of file upload or download.
-   * @interface DataReceiveProgressInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12
-   */
-  /**
-   * This interface is used to obtain the progress information of file upload or download.
-   * @interface DataReceiveProgressInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 15 dynamic
-   * @since 26.0.0 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 15]
+   * @since 11 dynamic
    */
   export interface DataReceiveProgressInfo {
     /**
-     * Number of data bytes received.
-     * @type { int }
+     * Amount of data that has been received, in bytes.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Number of data bytes received.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Number of data bytes received.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
+     * @since 11 dynamic
      */
     receiveSize: int;
     /**
-     * Total number of bytes to receive.
-     * @type { int }
+     * Amount of data to be received, in bytes.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Total number of bytes to receive.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Total number of bytes to receive.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
+     * @since 11 dynamic
      */
     totalSize: int;
   }
 
   /**
-   * This interface is used to monitor the progress of sending data.
-   * @interface DataSendProgressInfo
+   * Defines the data sending progress information.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * This interface is used to monitor the progress of sending data.
-   * @interface DataSendProgressInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12
-   */
-  /**
-   * This interface is used to monitor the progress of sending data.
-   * @interface DataSendProgressInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 15 dynamic
-   * @since 26.0.0 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 15]
+   * @since 11 dynamic
    */
   export interface DataSendProgressInfo {
     /**
-     * Used to specify the data size to be sent.
-     * @type { int }
+     * Amount of data to be sent each time, in bytes.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Used to specify the data size to be sent.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Used to specify the data size to be sent.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
+     * @since 11 dynamic
      */
     sendSize: int;
     /**
-     * Total number of bytes to receive.
-     * @type { int }
+     * Amount of data to be sent, in bytes.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Total number of bytes to receive.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Total number of bytes to receive.
-     * @type { int }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     * @since 26.0.0 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 15]
+     * @since 11 dynamic
      */
     totalSize: int;
   }
 
   /**
-   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { int } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
-   * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
+   * Creates an **HttpResponseCache** object that stores the response data of HTTP requests. You can call
+   * [flush]{@link http.HttpResponseCache.flush(callback: AsyncCallback<void>)} and
+   * [delete]{@link http.HttpResponseCache.delete(callback: AsyncCallback<void>)} in the object.
+   *
+   * @param { int } cacheSize - Cache size. The maximum value is 10*1024*1024 (10 MB). The maximum value is used by
+   *     default.
+   * @returns { HttpResponseCache } Object that stores the response to the HTTP request.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { int } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
-   * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { int } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
-   * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function createHttpResponseCache(cacheSize?: int): HttpResponseCache;
 
   /**
-   * Defines an object that stores the response to an HTTP request.
-   * @interface HttpResponseCache
+   * Defines an object that stores the response to an HTTP request. Before invoking APIs provided by
+   * **HttpResponseCache**, you must call [createHttpResponseCache()]{@link http.createHttpResponseCache} to create an
+   * **HttpRequestTask** object.
+   *
+   * **Usage of Keywords in the Response Header**
+   * - **`Cache-Control`**: specifies the cache policy, for example, `no-cache`, `no-store`, `max-age`, `public`, or
+   * `private`.
+   * - **`Expires`**: specifies the expiration time of a resource. The value is in the GMT format.
+   * - **`ETag`**: identifies the resource version. The client can use the `If-None-Match` request header to check
+   * whether the resource has been modified.
+   * - **`Last-Modified`**: specifies the last modification time of a resource. The client can use the
+   * `If-Modified-Since` request header to check whether a resource has been modified.
+   * - **`Vary`**: specifies the parts of the request header that affect the cached response. This field is used to
+   * distinguish different cache versions.
+   *
+   * When using these keywords, ensure that the response header is correctly configured on the server. The client
+   * determines whether to use the cached resource and how to verify whether the resource is the latest based on the
+   * response header. Correct cache policies help to improve application performance and user experience.
+   *
+   * **How to Set the Cache-Control Header**
+   * `Cache-Control` is a common header, but it is usually used on the server. It allows you to define when, how, and
+   * how long a response should be cached. The following are some common `Cache-Control` directives:
+   *
+   * - **`no-cache`**: indicates that the response can be stored in the cache, but it must be verified with the origin
+   * server before each reuse. If the resource remains unchanged, the response status code is 304 (Not Modified). In
+   * this case, the resource content is not sent, and the resource in the cache is used. If the resource has expired,
+   * the response status code is 200 and the resource content is sent.
+   * - `no-store`: indicates that resources cannot be cached. Resources must be obtained from the server for each
+   * request.
+   * - `max-age`: specifies the maximum cache duration, in seconds. For example, `Cache-Control: max-age=3600` indicates
+   * that the valid cache duration is 3,600 seconds (that is, 1 hour).
+   * - `public`: indicates that the response can be cached by any object, for example, the client that sends the request
+   * or the proxy server.
+   * - `private`: indicates that the response can be cached only by a single user and cannot be used as a shared cache (
+   * that is, the response cannot be cached by the proxy server).
+   * - `must-revalidate`: indicates that a resource must be revalidated with the origin server once it has become
+   * stable.
+   * - **`no-transform`**: indicates that the proxy server is not allowed to modify the response content.
+   * - **`proxy-revalidate`**: works in a way similar to `must-revalidate`, but applies only to shared caches.
+   * - **`s-maxage`**: works in a way similar to `max-age`, but applies only to shared caches.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Defines an object that stores the response to an HTTP request.
-   * @interface HttpResponseCache
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines an object that stores the response to an HTTP request.
-   * @interface HttpResponseCache
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   export interface HttpResponseCache {
     /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @param { AsyncCallback<void> } callback - the callback of flush.
+     * Flushes data in the cache to the file system so that the cached data can be accessed in the next HTTP request.
+     * This API uses an asynchronous callback to return the result. Cached data includes the response header (header),
+     * response body (result), cookies, request time (requestTime), and response time (responseTime).
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.  If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @param { AsyncCallback<void> } callback - the callback of flush.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @param { AsyncCallback<void> } callback - the callback of flush.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     flush(callback: AsyncCallback<void>): void;
 
     /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @returns { Promise<void> } The promise returned by the flush.
+     * Flushes data in the cache to the file system so that the cached data can be accessed in the next HTTP request.
+     * This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @returns { Promise<void> } The promise returned by the flush.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @returns { Promise<void> } The promise returned by the flush.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     flush(): Promise<void>;
 
     /**
-     * Disables a cache and deletes the data in it.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
+     * Disables the cache and deletes the data in it. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Disables a cache and deletes the data in it.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Disables a cache and deletes the data in it.
-     * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(callback: AsyncCallback<void>): void;
 
     /**
-     * Disables a cache and deletes the data in it.
-     * @returns { Promise<void> } The promise returned by the delete.
+     * Disables the cache and deletes the data in it. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Disables a cache and deletes the data in it.
-     * @returns { Promise<void> } The promise returned by the delete.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Disables a cache and deletes the data in it.
-     * @returns { Promise<void> } The promise returned by the delete.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     delete(): Promise<void>;
   }
-
-  /**
-   * Types of an HTTP interceptor.
-   * @enum { string }
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 26.0.0 static
-   */
-  export enum InterceptorType {
-    /**
-     * Intercept after the initial HTTP request is assembled.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    INITIAL_REQUEST = 'INITIAL_REQUEST',
-
-    /**
-     * Intercept when we get a redirection responsed and is going to send another request.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    REDIRECTION = 'REDIRECTION',
-
-    /**
-     * Intercept after we checked the HTTP cache.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    CACHE_CHECKED = 'READ_CACHE',
-
-    /**
-     * Intercept when we perform network connection, such as TLS and TCP.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    NETWORK_CONNECT = 'CONNECT_NETWORK',
-
-    /**
-     * Intercept when we get the final HTTP response.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    FINAL_RESPONSE = 'FINAL_RESPONSE',
-  }
-
-
-  /**
-   * The request data.
-   * @interface HttpRequestContext
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 26.0.0 static
-   */
-  export interface HttpRequestContext {
-    /**
-     * The URL of an HTTP request interceptor. It can be modified in an interceptor.
-     * @type { string }
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    url: string;
-
-    /**
-     * The header of an HTTP request interceptor. It can be modified in an interceptor.
-     * @type { Object }
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    header: Object;
-
-    /**
-     * The header of an HTTP request interceptor. It can be modified in an interceptor.
-     * @type { Object }
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    body: Object;
-  }
-
-
-  /**
-   * Whether or not to continue process of interceptor chain.
-   * @typedef { boolean }
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 26.0.0 static
-   */
-  export type ChainContinue = boolean;
-
-  /**
-   * Defines an HTTP Interceptor. User can implement this interface to define the handle function.
-   * @interface HttpInterceptor
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 26.0.0 static
-   */
-  export interface HttpInterceptor {
-    /**
-     * The type of this interceptor. It defines when this intercptor would be called.
-     * @type { InterceptorType }
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    interceptorType: InterceptorType;
-
-    /**
-     * Intercept an HTTP process and do changes as disired.
-     * @param { HttpRequestContext } reqContext - the context of the target HTTP request.
-     * @param { HttpResponse } rspContext - the context of the target HTTP response.
-     * @returns { Promise<ChainContinue> } Continue the HTTP process or terminate then return the HTTP response.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
-  }
-
-  /**
-   * Defines an HTTP Interceptor chain.
-   * @class HttpInterceptorChain
-   * @syscap SystemCapability.Communication.NetStack
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 26.0.0 static
-   */
-  export class HttpInterceptorChain {
-    /**
-     * The method to get the chain of interceptors.
-     * @returns { HttpInterceptor[] } The chain of interceptors.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    public getChain(): HttpInterceptor[];
-
-    /**
-     * Add an interceptor chain to the HTTP client.
-     * @param { HttpInterceptor[] } chain - The chain of interceptors.
-     * @returns { boolean } Whether the chain is added successfully.
-     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
-     * @throws { BusinessError } 2300802 - Duplicated interceptor type in the chain.
-     * @throws { BusinessError } 2300999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    public addChain(chain: HttpInterceptor[]): boolean;
-
-    /**
-     * Attach the chain to the target http request.
-     * Only one chain can be attached to a given request.
-     * @param { HttpRequest } httpRequest - Initiates an HTTP request to a given URL.
-     * @returns { boolean } Whether the interceptor chain is attached successfully.
-     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
-     * @throws { BusinessError } 2300999 - Internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 26.0.0 static
-     */
-    public apply(httpRequest: HttpRequest): boolean;
-  }
-
-  /**
-   * Information details of the HTTP request
-   *
-   * @interface ConnectionExtraInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @stagemodelonly
-   * @since 24 dynamic
-   * @since 26.0.0 static
-   */
-  export interface ConnectionExtraInfo {
-    /**
-     * The network protocol used to fetch the resource.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    networkProtocolName: string;
-
-    /**
-     * The tls version used to fetch the resource.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    tlsVersion?: TlsVersion;
-
-    /**
-     * The cipher suite used to fetch the resource.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    cipherSuite?: CipherSuite;
-
-    /**
-     * localAddress of the HTTP request.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    localAddress: string;
-
-    /**
-     * remoteAddress of the HTTP request.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    remoteAddress: string;
-
-    /**
-     * localPort of the HTTP request. -1 for unknown.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    localPort: int;
-
-    /**
-     * remotePort of the HTTP request. -1 for unknown.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    remotePort: int;
-
-    /**
-     * The HTTP request is a reused connection or not.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    isReusedConnection: boolean;
-
-    /**
-     * A Boolean value that indicastes whether the task used a proxy connection to fetch the resource.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    isProxyConnection: boolean;
-
-    /**
-     * A Boolean value that indicates whether the http request hit cache.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    isCacheHit: boolean;
-
-    /**
-     * The HTTP request redirect count.
-     *
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @since 24 dynamic
-     * @since 26.0.0 static
-     */
-    redirectCount: int;
-  }
 }
 
 export default http;
-

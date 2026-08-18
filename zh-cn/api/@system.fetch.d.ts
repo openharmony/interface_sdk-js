@@ -14,25 +14,25 @@
  */
 
 /**
- * @file
- * @kit NetworkKit
+  * @file
+  * @kit NetworkKit
  */
 
 /**
- * **Table 2** Mapping between responseType and data in success callback
+ * **表2** responseType与success中data关系
  *
- * | responseType | data | Description|
+ * | responseType | data | 说明 |
  * | -------- | -------- | -------- |
- * | N/A| string | When the type in the header returned by the server is **text/\***, **application/json**, **application/javascript**, or **application/xml**, the value is the text content.|
- * | text | string | Text content.|
- * | json | Object | A JSON object.|
+ * | 无 | string | 服务器返回的header中的type如果是text/\*或application/json、application/javascript、application/xml，值为文本内容。 |
+ * | text | string | 返回文本内容。 |
+ * | json | Object | 返回json格式的对象。 |
  *
  * @syscap SystemCapability.Communication.NetStack
  * @since 3
  */
 export interface FetchResponse {
   /**
-   * Server status code.
+   * 表示服务器的状态code。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
@@ -40,8 +40,7 @@ export interface FetchResponse {
   code: number;
 
   /**
-   * The type of the returned data is determined by **responseType**. For details, see the mapping between
-   * **responseType** and **data** in **success** callback.
+   * 返回数据类型由responseType确定，详见表 responseType与success中data关系。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
@@ -49,7 +48,7 @@ export interface FetchResponse {
   data: string | object;
 
   /**
-   * All headers in the response from the server.
+   * 表示服务器response的所有header。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
@@ -58,14 +57,14 @@ export interface FetchResponse {
 }
 
 /**
- * **Table 1** Mapping between data and Content-Type
+ * **表1** data与Content-Type关系
  *
- * | data | Content-Type | Description|
+ * | data | Content-Type | 说明 |
  * | -------- | -------- | -------- |
- * | string | Left unspecified| The default value of Content-Type is **text/plain**, and the value of data is used as the request body.|
- * | string | Any type| The value of data is used as the request body.|
- * | Object | Left unspecified| The default value of **Content-Type** is **application/x-www-form-urlencoded**. The **data** value is encoded based on the URL rule and appended in the request body.|
- * | Object | application/x-www-form-urlencoded | The value of data is encoded based on the URL rule and is used as the request body.|
+ * | string | 不设置 | Content-Type默认为&nbsp;text/plain，data值作为请求的body。 |
+ * | string | 任意&nbsp;Type | data值作为请求的body。 |
+ * | Object | 不设置 | Content-Type默认为application/x-www-form-urlencoded，data按照资源地址规则进行encode拼接作为请求的body。 |
+ * | Object | application/x-www-form-urlencoded | data按照资源地址规则进行encode拼接作为请求的body。 |
  *
  * @syscap SystemCapability.Communication.NetStack
  * @since 3

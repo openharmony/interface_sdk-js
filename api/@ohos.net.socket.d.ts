@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Socket Connection
  * @kit NetworkKit
  */
 
@@ -23,241 +23,166 @@ import connection from "./@ohos.net.connection";
 import type cert from './@ohos.security.cert';
 
 /**
- * Provides TCP and UDP Socket APIs.
- * @namespace socket
+ * The **socket** module implements data transfer over TCP, UDP, Web, and TLS socket connections.
+ *
+ * > **NOTE**
+ * >
+ * > You are advised to call the APIs of this module in the worker thread or taskpool to perform network-related
+ * > operations. Otherwise, the UI thread may be suspended.
+ *
  * @syscap SystemCapability.Communication.NetStack
- * @since 7
- */
-/**
- * Provides TCP and UDP Socket APIs.
- * @namespace socket
- * @syscap SystemCapability.Communication.NetStack
- * @crossplatform
- * @since 10 dynamic
+ * @crossplatform [since 10]
+ * @since 7 dynamic
  */
 declare namespace socket {
   /**
-   * Defines a network address.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 8
-   */
-  /**
    * Define a network address.
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
+   * @stagemodelonly
+   * @crossplatform [since 24]
+   * @since 8 dynamic
    */
   export import NetAddress = connection.NetAddress;
+
   /**
-   * Deposit certificate
+   * Defines the certificate raw data.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Deposit certificate
-   * @typedef { cert.EncodingBlob }
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   export type X509CertRawData = cert.EncodingBlob;
 
   /**
-   * Creates a UDPSocket object.
-   * @returns { UDPSocket } the UDPSocket of the constructUDPSocketInstance.
+   * Creates a **UDPSocket** object.
+   *
+   * @returns { UDPSocket } **UDPSocket** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Creates a UDPSocket object.
-   * @returns { UDPSocket } the UDPSocket of the constructUDPSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   function constructUDPSocketInstance(): UDPSocket;
 
   /**
-   * Creates a MulticastSocket object.
-   * @returns { MulticastSocket } the MulticastSocket of the constructMulticastSocketInstance.
+   * Creates a **MulticastSocket** object.
+   *
+   * @returns { MulticastSocket } **MulticastSocket** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Creates a MulticastSocket object.
-   * @returns { MulticastSocket } the MulticastSocket of the constructMulticastSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   function constructMulticastSocketInstance(): MulticastSocket;
 
   /**
-   * Creates a TCPSocket object.
-   * @returns { TCPSocket } the TCPSocket of the constructTCPSocketInstance.
+   * Creates a **TCPSocket** object.
+   *
+   * @returns { TCPSocket } **TCPSocket** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Creates a TCPSocket object.
-   * @returns { TCPSocket } the TCPSocket of the constructTCPSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   function constructTCPSocketInstance(): TCPSocket;
 
   /**
-   * Creates a TLSSocket object.
-   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * Creates a **TLSSocket** object.
+   *
+   * @returns { TLSSocket } **TLSSocket** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Creates a TLSSocket object.
-   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
-   * Creates a TLSSocket object with a TCPSocket object.
-   * @param { TCPSocket } tcpSocket - Parameter for creating a TLSSocket object.
-   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * Upgrades a **TCPSocket** connection to a **TLSSocket** connection.
+   *
+   * > **NOTE**
+   * >
+   * > Before calling **constructTLSSocketInstance**, ensure that a **TCPSocket** connection has been established and no
+   * > data is transmitted. After a successful upgrade, you do not need to call the **close** API for the **TCPSocket**
+   * > object.
+   *
+   * @param { TCPSocket } tcpSocket - **TCPSocket** connection to be upgraded.
+   * @returns { TLSSocket } **TLSSocket** object.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2300002 - System internal error.
    * @throws { BusinessError } 2303601 - Invalid socket FD.
    * @throws { BusinessError } 2303602 - Socket is not connected.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 12 dynamic
-   */
-  /**
-   * Creates a TLSSocket object with a TCPSocket object.
-   * @param { TCPSocket } tcpSocket - Parameter for creating a TLSSocket object.
-   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2300002 - System internal error.
-   * @throws { BusinessError } 2303601 - Invalid socket FD.
-   * @throws { BusinessError } 2303602 - Socket is not connected.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
 
   /**
-   * Creates a TCPSocketServer object.
-   * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
+   * Creates a **TCPSocketServer** object.
+   *
+   * @returns { TCPSocketServer } **TCPSocketServer** object.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Creates a TCPSocketServer object.
-   * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   function constructTCPSocketServerInstance(): TCPSocketServer;
 
   /**
-   * Creates a TLSSocketServer object.
-   * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
+   * Creates a **TLSSocketServer** object.
+   *
+   * @returns { TLSSocketServer } **TLSSocketServer** object.
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Creates a TLSSocketServer object.
-   * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   function constructTLSSocketServerInstance(): TLSSocketServer;
 
   /**
-   * Creates a LocalSocket object.
-   * @returns { LocalSocket } the LocalSocket of the constructLocalSocketInstance.
+   * Creates a **LocalSocket** object.
+   *
+   * @returns { LocalSocket } **LocalSocket** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Creates a LocalSocket object.
-   * @returns { LocalSocket } the LocalSocket of the constructLocalSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   function constructLocalSocketInstance(): LocalSocket;
 
   /**
-   * Creates a LocalSocketServer object.
-   * @returns { LocalSocketServer } the LocalSocketServer of the constructLocalSocketServerInstance.
+   * Creates a **LocalSocketServer** object.
+   *
+   * @returns { LocalSocketServer } **LocalSocketServer** object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Creates a LocalSocketServer object.
-   * @returns { LocalSocketServer } the LocalSocketServer of the constructLocalSocketServerInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   function constructLocalSocketServerInstance(): LocalSocketServer;
 
   /**
-   * Defines the parameters for sending data over the UDPSocket connection.
-   * @interface UDPSendOptions
+   * Defines the parameters for sending data over a UDP socket connection.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines the parameters for sending data over the UDPSocket connection.
-   * @interface UDPSendOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface UDPSendOptions {
     /**
      * Data to send.
-     * @type {string | ArrayBuffer}
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Data to send.
-     * @type {string | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     data: string | ArrayBuffer;
 
     /**
      * Destination address.
-     * @type {NetAddress}
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Destination address.
-     * @type {NetAddress}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     address: NetAddress;
 
     /**
-     * Set this option for the proxy feature.
-     * @type {?ProxyOptions}
+     * Proxy option. By default, no proxy is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -266,8 +191,8 @@ declare namespace socket {
   }
 
   /**
-   * Specify proxy types.
-   * @enum {number}
+   * Enumerates socket proxy types.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 18 dynamic
@@ -275,6 +200,7 @@ declare namespace socket {
   export enum ProxyTypes {
     /**
      * No proxy.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -282,7 +208,8 @@ declare namespace socket {
     NONE = 0,
 
     /**
-     * Use Socks5 proxy.
+     * SOCKS5 proxy.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -291,25 +218,25 @@ declare namespace socket {
   }
 
   /**
-   * Define parameters for the proxy connection.
-   * @interface ProxyOptions
+   * Defines the socket proxy information.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 18 dynamic
    */
   export interface ProxyOptions {
     /**
-     * Proxy types.
-     * @type {ProxyTypes}
+     * Proxy type.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
-     */  
+     */
     type: ProxyTypes;
 
     /**
-     * Proxy server address.
-     * @type {NetAddress}
+     * Proxy address.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -317,8 +244,8 @@ declare namespace socket {
     address: NetAddress;
 
     /**
-     * Specify username, if the proxy server supports user-password authentication.
-     * @type {?string}
+     * User name. This field must be specified if the user password authentication mode is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -326,8 +253,8 @@ declare namespace socket {
     username?: string;
 
     /**
-     * Specify password, if the proxy server supports user-password authentication.
-     * @type {?string}
+     * Password. This field must be specified if the user password authentication mode is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -336,2023 +263,1639 @@ declare namespace socket {
   }
 
   /**
-   * @interface ExtraOptionsBase
+   * Defines base properties of the **LocalSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * @interface ExtraOptionsBase
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface ExtraOptionsBase {
     /**
-     * Size of the receive buffer, in MBS.
-     * @type {?number}
+     * Size of the RX buffer, in bytes. The value ranges from 0 to 262144. If this parameter is left unspecified or the
+     * unspecified value exceeds the value range, the default value **8192** is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Size of the receive buffer, in MBS.
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    receiveBufferSize?: number;
+    receiveBufferSize?: int;
 
     /**
-     * Size of the send buffer, in MBS.
-     * @type {?number}
+     * Size of the TX buffer, in bytes. The value ranges from 0 to 262144. If this parameter is left unspecified or the
+     * unspecified value exceeds the value range, the default value **8192** is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Size of the send buffer, in MBS.
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    sendBufferSize?: number;
+    sendBufferSize?: int;
 
     /**
-     * Whether to reuse addresses. The default value is false.
-     * @type {?boolean}
+     * Whether to reuse addresses. The value **true** means to reuse addresses, and the value **false** means the
+     * opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether to reuse addresses. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     reuseAddress?: boolean;
 
     /**
-     * Timeout duration of the UDPSocket connection, in milliseconds.
-     * @type {?number}
+     * Timeout duration of the local socket connection, in ms.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Timeout duration of the UDPSocket connection, in milliseconds.
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    socketTimeout?: number;
+    socketTimeout?: int;
   }
 
   /**
-   * Defines other properties of the UDPSocket connection.
-   * @interface UDPExtraOptions
+   * Defines other properties of the **UDPSocket** object. This object is inherited from
+   * [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines other properties of the UDPSocket connection.
-   * @extends ExtraOptionsBase
-   * @interface UDPExtraOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface UDPExtraOptions extends ExtraOptionsBase {
     /**
-     * Whether to send broadcast messages. The default value is false.
-     * @type {?boolean}
+     * Whether to send broadcast messages. The value **true** indicates that broadcast messages can be sent, and the
+     * value **false** indicates the opposite. The default value is **false**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether to send broadcast messages. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     broadcast?: boolean;
   }
 
   /**
    * Defines the status of the socket connection.
-   * @interface SocketStateBase
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines the status of the socket connection.
-   * @interface SocketStateBase
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface SocketStateBase {
     /**
-     * Whether the connection is in the bound state.
-     * @type {boolean}
+     * Whether the connection is in the bound state. The value **true** indicates that the connection is in the bound
+     * state, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether the connection is in the bound state.
-     * @type {boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     isBound: boolean;
 
     /**
-     * Whether the connection is in the closed state.
-     * @type {boolean}
+     * Whether the connection is in the closed state. The value **true** indicates that the connection is in the closed
+     * state, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether the connection is in the closed state.
-     * @type {boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     isClose: boolean;
 
     /**
-     * Whether the connection is in the connected state.
-     * @type {boolean}
+     * Whether the connection is in the connected state. The value **true** indicates that the connection is in the
+     * connected state, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether the connection is in the connected state.
-     * @type {boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     isConnected: boolean;
   }
 
   /**
    * Defines information about the socket connection.
-   * @interface SocketRemoteInfo
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines information about the socket connection.
-   * @interface SocketRemoteInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface SocketRemoteInfo {
     /**
-     * Bound IP address.
-     * @type {string}
+     * Peer IP address.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Bound IP address.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     address: string;
 
     /**
-     * Network protocol type. The options are as follows: IPv4, IPv6.
-     * @type {'IPv4' | 'IPv6'}
+     * Network protocol type.
+     *
+     * - IPv4
+     * - IPv6
+     *
+     * The default value is **IPv4**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Network protocol type. The options are as follows: IPv4, IPv6.
-     * @type {'IPv4' | 'IPv6'}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     family: 'IPv4' | 'IPv6';
 
     /**
-     * Port number. The value ranges from 0 to 65535.
-     * @type {number}
+     * Port number. The value ranges from **0** to **65535**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Port number. The value ranges from 0 to 65535.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    port: number;
+    port: int;
 
     /**
      * Length of the server response message, in bytes.
-     * @type {number}
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Length of the server response message, in bytes.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    size: number;
+    size: int;
   }
 
   /**
-   * Defines the local socket connection information.
-   * @interface LocalSocketMessageInfo
+   * Defines the data received by the client over a local socket connection.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines the local socket connection information.
-   * @interface LocalSocketMessageInfo
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalSocketMessageInfo {
     /**
-     * Message data.
-     * @type {ArrayBuffer}
+     * Data received.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Message data.
-     * @type {ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     message: ArrayBuffer;
 
     /**
-     * Bound local socket address.
-     * @type {string}
+     * Local socket connection address.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Bound local socket address.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     address: string;
 
     /**
-     * Length of the message, in bytes.
-     * @type {number}
+     * Data length.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Length of the message, in bytes.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    size: number;
+    size: int;
   }
 
   /**
-   * Defines a local address.
-   * @interface LocalAddress
+   * Defines the address of a local socket file. When the address is passed for binding, a socket file is created at
+   * this address.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines a local address.
-   * @interface LocalAddress
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalAddress {
     /**
-     * LocalAddress address.
-     * @type {string}
+     * Address of the local socket file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * LocalAddress address.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     address: string;
   }
 
   /**
-   * Defines LocalSocket connection parameters.
-   * @interface LocalConnectOptions
+   * Defines local socket connection parameters.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines LocalSocket connection parameters.
-   * @interface LocalConnectOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalConnectOptions {
     /**
-     * Bound Local address.
-     * @type {LocalAddress}
+     * Address of the local socket file.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Bound Local address.
-     * @type {LocalAddress}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     address: LocalAddress;
 
     /**
-     * Timeout duration of the LocalSocket connection, in milliseconds.
-     * @type {?number}
+     * Timeout duration of the local socket connection, in ms. **Default value**: 0 You need to manually set this
+     * parameter for your application. The recommended value is **5000**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Timeout duration of the LocalSocket connection, in milliseconds.
-     * @type {?number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    timeout?: number;
+    timeout?: int;
   }
 
   /**
-   * Defines the parameters for sending data over the LocalSocket connection.
-   * @interface LocalSendOptions
+   * Defines the request parameters for the **LocalSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines the parameters for sending data over the LocalSocket connection.
-   * @interface LocalSendOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalSendOptions {
     /**
-     * Data to send.
-     * @type {string | ArrayBuffer}
+     * Data to be transmitted.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Data to send.
-     * @type {string | ArrayBuffer}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     data: string | ArrayBuffer;
 
     /**
-     * Character encoding format.
-     * @type {?string}
+     * Encoding format of the string.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Character encoding format.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     encoding?: string;
   }
 
   /**
-   * Defines a UDPSocket connection.
-   * @interface UDPSocket
+   * Defines a UDP socket connection. Before calling UDPSocket APIs, you need to call
+   * [socket.constructUDPSocketInstance]{@link socket.constructUDPSocketInstance} to create a **UDPSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines a UDPSocket connection.
-   * @interface UDPSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface UDPSocket {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the IP address and port number. The port number can be customized or randomly allocated by the system. This
+     * API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the IP address and port number. The port number can be customized or randomly allocated by the system. This
+     * API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Obtains the local address of a UDPSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **UDPSocket** connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a UDPSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Sends data over a UDPSocket connection.
+     * Sends data over a UDP socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * Before sending data, call
+     * [UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to bind the
+     * IP address and port. Call the API in the worker thread or taskpool thread as this operation is time-consuming.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
+     * @param { UDPSendOptions } options - Parameters for sending data over a UDP socket connection. For details, see
+     *     [UDPSendOptions]{@link socket.UDPSendOptions}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sends data over a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data over a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a UDPSocket connection.
+     * Sends data over a UDP socket connection. This API uses a promise to return the result.
+     *
+     * Before sending data, call
+     * [UDPSocket.bind()]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to bind the
+     * IP address and port. Call the API in the worker thread or taskpool thread as this operation is time-consuming.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { UDPSendOptions } options - Parameters for sending data over a UDP socket connection. For details, see
+     *     [UDPSendOptions]{@link socket.UDPSendOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sends data over a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data over a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     send(options: UDPSendOptions): Promise<void>;
 
     /**
-     * Closes a UDPSocket connection.
+     * Closes a UDP socket connection. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - the callback of close.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Closes a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a UDPSocket connection.
+     * Closes a UDP socket connection. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Closes a UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the UDPSocket connection.
+     * Obtains the status of the UDP socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}.
+     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
+     *     successful, the status of the UDP socket connection is returned. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the status of the UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the UDPSocket connection.
+     * Obtains the status of the UDP socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @returns { Promise<SocketStateBase> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the status of the UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the UDPSocket connection.
+     * Sets other properties of the **UDPSocket** object. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Optional parameters {@link UDPExtraOptions}.
-     * @param { AsyncCallback<void> }callback - the callback of setExtraOptions.
+     * @param { UDPExtraOptions } options - Other properties of the **UDPSocket** object. For details, see
+     *     [UDPExtraOptions]{@link socket.UDPExtraOptions}.
+     * @param { AsyncCallback<void> }callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets other attributes of the UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Optional parameters {@link UDPExtraOptions}.
-     * @param { AsyncCallback<void> }callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the UDPSocket connection.
+     * Sets other properties of the **UDPSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Optional parameters {@link UDPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { UDPExtraOptions } options - Other properties of the **UDPSocket** object. For details, see
+     *     [UDPExtraOptions]{@link socket.UDPExtraOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets other attributes of the UDPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { UDPExtraOptions } options - Optional parameters {@link UDPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     setExtraOptions(options: UDPExtraOptions): Promise<void>;
 
     /**
-     * Listens for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Subscribes to **message** events of the **UDPSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. [since 7 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Listens for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Listens for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Unsubscribes from **message** events of the **UDPSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
+     *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 7 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
+     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events. [since 11]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Cancels listening for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Cancels listening for message receiving events of the UDPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
-     * @param { 'listening' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Subscribes to **listening** events or **close** events of the **UDPSocket** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'listening' | 'close' } type - Event type.<br/>
+     *     <br>- **listening**: data packet message event.
+     *     <br>- **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Listens for data packet message events or close events of the UDPSocket connection.
-     * @param { 'listening' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'listening' | 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
-     * @param { 'listening' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Unsubscribes from **listening** events or **close** events of the **UDPSocket** object. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { 'listening' | 'close' } type - Event type.
+     *     <br>- **listening**: data packet message event.
+     *     <br>- **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Cancels listening for data packet message events or close events of the UDPSocket connection.
-     * @param { 'listening' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     off(type: 'listening' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the UDPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Subscribes to **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Listens for error events of the UDPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the UDPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Unsubscribes from **error** events of the **UDPSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Cancels listening for error events of the UDPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the UDPSocket.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the UDPSocket.
+     * Obtains the UDPSocket file descriptor. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after
+     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} is successfully called.
+     * >
+     * > - This API returns **-1** in abnormal cases such as bind exceptions or socket closed (for example, after close
+     * > is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
+     * > instead of directly operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
-   * Defines a UDP MulticastSocket connection.
-   * @interface MulticastSocket
+   * Defines a **MulticastSocket** connection. Before calling MulticastSocket APIs, you need to call
+   * [socket.constructMulticastSocketInstance]{@link socket.constructMulticastSocketInstance} to create a
+   * **MulticastSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines a UDP MulticastSocket connection.
-   * @extends UDPSocket
-   * @interface MulticastSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface MulticastSocket extends UDPSocket {
     /**
-     * Add the socket to the multicast group.
+     * Adds a member to a multicast group. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * >
+     * > A member in a multicast group can serve as a sender or a receiver. Data is transmitted in broadcast mode,
+     * > regardless of the client or server.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of addMembership.
+     * @param { NetAddress } multicastAddress - Destination address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Add the socket to the multicast group.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of addMembership.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @throws { BusinessError } 2301098 - Address in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Add the socket to the multicast group.
+     * Adds a member to a multicast group. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * >
+     * > A member in a multicast group can serve as a sender or a receiver. Data is transmitted in broadcast mode,
+     * > regardless of the client or server.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } multicastAddress - Destination address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Add the socket to the multicast group.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @throws { BusinessError } 2301098 - Address in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     addMembership(multicastAddress: NetAddress): Promise<void>;
 
     /**
-     * Drop the socket from the multicast group.
+     * Drops a member from a multicast group. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * >
+     * > You can drop only a member that has been added to a multicast group by using
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
+     * @param { NetAddress } multicastAddress - Destination address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Drop the socket from the multicast group.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @throws { BusinessError } 2301098 - Address in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Drop the socket from the multicast group.
+     * Drops a member from a multicast group. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The IP addresses used for multicast belong to a specific range, for example, 224.0.0.0 to 239.255.255.255.
+     * >
+     * > You can drop only a member that has been added to a multicast group by using
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } multicastAddress - Destination address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @throws { BusinessError } 2301098 - Address in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Drop the socket from the multicast group.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @throws { BusinessError } 2301098 - Address in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     dropMembership(multicastAddress: NetAddress): Promise<void>;
 
     /**
-     * Set the TTL value for socket multicast packets.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
+     * Sets the time to live (TTL) for multicast packets. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * >
+     * > The value ranges from 0 to 255. The default value is **1**.
+     * >
+     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
+     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { int } ttl - TTL value. The value is of the number type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
+    setMulticastTTL(ttl: int, callback: AsyncCallback<void>): void;
+
     /**
-     * Set the TTL value for socket multicast packets.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
+     * Sets the TTL for multicast packets. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * >
+     * > The value ranges from 0 to 255. The default value is **1**.
+     * >
+     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
+     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { int } ttl - TTL value. The value is of the number type.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
+    setMulticastTTL(ttl: int): Promise<void>;
 
     /**
-     * Set the TTL value for socket multicast packet.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Obtains the TTL for multicast packets. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * >
+     * > The value ranges from 0 to 255. The default value is **1**.
+     * >
+     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
+     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Set the TTL value for socket multicast packet.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    setMulticastTTL(ttl: number): Promise<void>;
+    getMulticastTTL(callback: AsyncCallback<int>): void;
 
     /**
-     * Get the TTL value of socket multicast packet.
-     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
+     * Obtains the TTL for multicast packets. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > TTL is used to limit the maximum number of router hops for packet transmission on a network.
+     * >
+     * > The value ranges from 0 to 255. The default value is **1**.
+     * >
+     * > If the TTL value is **1**, multicast packets can be transmitted only to the host directly connected to the
+     * > sender. If the TTL is set to a large value, multicast packets can be transmitted over a longer distance.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @returns { Promise<int> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Get the TTL value of socket multicast packet.
-     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    getMulticastTTL(callback: AsyncCallback<number>): void;
+    getMulticastTTL(): Promise<int>;
 
     /**
-     * Get the TTL value of socket multicast packet.
-     * @returns { Promise<number> } The promise returned by the function.
+     * Sets the loopback mode flag for multicast communication. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > Use this API to enable or disable the loopback mode. By default, the loopback mode is enabled.
+     * >
+     * > The value **true** indicates that the host is allowed to receive the multicast packets sent by itself, and the
+     * > value **false** indicates the opposite.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { boolean } flag - Whether to enable the loopback mode. The value **true** means to enable the loopback
+     *     mode, and the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Get the TTL value of socket multicast packet.
-     * @returns { Promise<number> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    getMulticastTTL(): Promise<number>;
-
-    /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets the loopback mode flag for multicast communication. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > Use this API to enable or disable the loopback mode. By default, the loopback mode is enabled.
+     * >
+     * > The value **true** indicates that the host is allowed to receive the multicast packets sent by itself, and the
+     * > value **false** indicates the opposite.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { boolean } flag - Whether to enable the loopback mode. The value **true** means to enable the loopback
+     *     mode, and the value **false** means the opposite.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     setLoopbackMode(flag: boolean): Promise<void>;
 
     /**
-     * Get the loopback mode of the socket.
-     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
+     * Obtains the loopback mode flag for multicast communication. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > Use this API to check whether the loopback mode is enabled.
+     * >
+     * > The value **true** indicates that the loopback mode is enabled, and the value **false** indicates the opposite.
+     * > When the loopback mode is disabled, the host does not receive the multicast packets sent by itself.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the loopback mode is enabled, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Get the loopback mode of the socket.
-     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getLoopbackMode(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Get the loopback mode of the socket.
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * Obtains the loopback mode flag for multicast communication. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > Use this API to check whether the loopback mode is enabled.
+     * >
+     * > The value **true** indicates that the loopback mode is enabled, and the value **false** indicates the opposite.
+     * > When the loopback mode is disabled, the host does not receive the multicast packets sent by itself.
+     * >
+     * > This API is effective only after
+     * > [addMembership]{@link socket.MulticastSocket.addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>)}
+     * > is called.
+     *
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the loopback
+     *     mode is enabled, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301088 - Not a socket.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Get the loopback mode of the socket.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301088 - Not a socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getLoopbackMode(): Promise<boolean>;
 
     /**
-     * Obtains the file descriptor of the MulticastSocket.
+     * Obtains the file descriptor of the MulticastSocket. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after
+     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} is successfully called.
+     * >
+     * > - This API returns **-1** in abnormal cases such as bind exceptions or socket closed (for example, after close
+     * > is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
+     * > instead of directly operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the Multicast socket.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
+     * @crossplatform [since 24]
      * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the MulticastSocket.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the Multicast socket.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @stagemodelonly
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets whether the multicast socket supports address reuse.
+     * Sets whether the multicast socket supports address reuse. This API is called in synchronous mode.
      *
-     * @param { boolean } reuse - whether the multicast socket supports address reuse.
+     * > **NOTE**
+     * >
+     * > This API is used to control whether to enable address reuse when a multicast socket is bound to a port.
+     * >
+     * > To bind an occupied port, ensure that the address reuse capability is enabled for the party that occupies the
+     * > port. In addition, the service needs to call this API before calling
+     * > [bind]{@link socket.UDPSocket.bind(address: NetAddress, callback: AsyncCallback<void>)} to enable the address
+     * > reuse capability.
+     *
+     * @param { boolean } reuse - Whether to enable address reuse. **true** to enable, **false** otherwise.
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setReuseAddress(reuse: boolean): void;
   }
 
   /**
-   * Defines a LocalSocket connection.
-   * @interface LocalSocket
+   * Defines a **LocalSocket** object. Before calling LocalSocket APIs, you need to call
+   * [socket.constructLocalSocketInstance]{@link socket.constructLocalSocketInstance} to create a **LocalSocket**
+   * object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines a LocalSocket connection.
-   * @interface LocalSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalSocket {
     /**
-     * Binds the Local address.
-     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
-     * @returns { Promise<void> } The promise returned by the function.
+     * Binds the address of a local socket file. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API explicitly binds the client to a local socket file based on the specified address.
+     * >
+     * > It is not mandatory in local socket communication.
+     *
+     * @param { LocalAddress } address - Local address. For details, see [LocalAddress]{@link socket.LocalAddress}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Binds the Local address.
-     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Insufficient permissions.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301098 - Address already in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     bind(address: LocalAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified Local address .
-     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Connects to the specified socket file. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API allows you to connect to the TCP server without first executing **localsocket.bind**.
+     *
+     * @param { LocalConnectOptions } options - Local socket connection parameters. For details, see
+     *     [LocalConnectOptions]{@link socket.LocalConnectOptions}.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301111 - Connection refused.
      * @throws { BusinessError } 2301099 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Sets up a connection to the specified Local address .
-     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301013 - Insufficient permissions.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301111 - Connection refused.
-     * @throws { BusinessError } 2301099 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     connect(options: LocalConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a LocalSocket connection.
-     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sends data over a local socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **connect** is successfully called.
+     *
+     * @param { LocalSendOptions } options - Parameters for sending data over a local socket connection. For details,
+     *     see [LocalSendOptions]{@link socket.LocalSendOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Sends data over a LocalSocket connection.
-     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301011 - Operation would block.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a LocalSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Closes a local socket connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Closes a LocalSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the LocalSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * Obtains the local socket connection status. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
+     * @returns { Promise<SocketStateBase> } Promise used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Obtains the status of the LocalSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Obtains the file descriptor of the LocalSocket connection.
-     * @returns { Promise<number> } The promise returns the file descriptor of the LocalSocket connection.
+     * Obtains the file descriptor of the **LocalSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * >
+     * > - The file descriptor is allocated by the system kernel to uniquely identify the local socket in use.
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.LocalSocket.close} method to close the socket connection, instead of directly operating
+     * > the file descriptor.
+     *
+     * @returns { Promise<int> } Promise used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * Obtains the file descriptor of the LocalSocket connection.
-     * @returns { Promise<number> } The promise returns the file descriptor of the LocalSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    getSocketFd(): Promise<number>;
+    getSocketFd(): Promise<int>;
 
     /**
-     * Sets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets the properties of the **LocalSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
+     * @param { ExtraOptionsBase } options - Other properties of the LocalSocket connection. For details, see
+     *     [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Sets other attributes of the LocalSocket connection.
-     * @param { ExtraOptionsBase } options - Optional parameters {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
     /**
-     * Gets other attributes of the LocalSocket connection.
-     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
+     * Obtains the socket properties of the **LocalSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
+     * @returns { Promise<ExtraOptionsBase> } Promise used to return the result.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Gets other attributes of the LocalSocket connection.
-     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
     /**
-     * Obtains the local address of a LocalSocket connection.
-     * @returns { Promise<string> } The promise returned by the function.
+     * Obtains the local socket address of a **LocalSocket** connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @returns { Promise<string> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a LocalSocket connection.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<string>;
 
     /**
-     * Listens for message receiving events of the LocalSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * Subscribes to **message** events of the **LocalSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for message receiving events of the LocalSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
+     * Unsubscribes from **message** events of the **LocalSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result. You can pass the
+     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
+     *     pass the callback, you will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the LocalSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for connection events of the LocalSocket connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Subscribes to **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'connect' } type - Event type.<br/>
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for connection events of the LocalSocket connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'connect', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for connection events of the LocalSocket connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Unsubscribes from **connect** events of the **LocalSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'connect' } type - Event type.<br/> 'connect': connection event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for connection events of the LocalSocket connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'connect', callback?: Callback<void>): void;
 
     /**
-     * Listens for close events of the LocalSocket connection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Subscribes to **close** events of the **LocalSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'close' } type - Event type.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for close events of the LocalSocket connection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocket connection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Unsubscribes from **close** events of the **LocalSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for close events of the LocalSocket connection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the LocalSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Subscribes to **error** events of the **LocalSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for error events of the LocalSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Unsubscribes from **error** events of the **LocalSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> 'error': error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
      */
-    /**
-     * Cancels listening for error events of the LocalSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
     off(type: 'error', callback?: ErrorCallback): void;
+
   }
 
   /**
-   * Defines the connection of the LocalSocket client and server.
-   * @interface LocalSocketConnection
+   * Defines a local socket connection, that is, the session between the local socket client and the server. Before
+   * calling LocalSocketConnection APIs, you need to obtain a **LocalSocketConnection** object.
+   *
+   * > **NOTE**
+   * >
+   * > The LocalSocketConnection client can call related APIs through the **LocalSocketConnection** object only after a
+   * > connection is successfully established between the local socket client and the server.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines the connection of the LocalSocket client and server.
-   * @interface LocalSocketConnection
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalSocketConnection {
     /**
-     * The id of a client connects to the LocalSocketServer.
-     * @type {number}
+     * ID of the session between the client and the server.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
-    /**
-     * The id of a client connects to the LocalSocketServer.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
-     */
-    clientId: number;
+    clientId: int;
 
     /**
-     * Sends data over a LocalSocketServer connection to client.
-     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sends data through a local socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be used only after the server obtains a **LocalSocketConnection** object through the **callback**
+     * > of the **connect** event.
+     *
+     * @param { LocalSendOptions } options - Parameters for sending data over a local socket connection.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301011 - Operation would block.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Sends data over a LocalSocketServer connection to client.
-     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301011 - Operation would block.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a LocalSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Closes a local socket connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Closes a LocalSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the local address of a LocalSocket client connection.
-     * @returns { Promise<string> } The promise returned by the function.
+     * Obtains the local socket address of a **LocalSocketConnection** connection. This API uses a promise to return the
+     * result.
+     *
+     * @returns { Promise<string> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a LocalSocket client connection.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<string>;
 
     /**
-     * Listens for message receiving events of the LocalSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
+     * Subscribes to **message** events of the **LocalSocketConnection** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for message receiving events of the LocalSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'message', callback: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the LocalSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
+     * Unsubscribes from **message** events of the **LocalSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<LocalSocketMessageInfo> } callback - Callback used to return the result. You can pass the
+     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
+     *     pass the callback, you will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the LocalSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<LocalSocketMessageInfo> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'message', callback?: Callback<LocalSocketMessageInfo>): void;
 
     /**
-     * Listens for close events of the LocalSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
+     * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for close events of the LocalSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LocalSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
+     * Unsubscribes from **close** events of the **LocalSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for close events of the LocalSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the LocalSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **LocalSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for error events of the LocalSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **LocalSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for error events of the LocalSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the LocalSocketConnection.
-     * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the LocalSocketConnection.
+     * Obtains the file descriptor of a LocalSocketConnection connection. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
+     * > **NOTE**
+     * >
+     * > - This method can be called only after a connection is set up.
+     * >
+     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
+     * > close API is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.LocalSocket.close} method to close the socket connection, instead of directly operating
+     * > the file descriptor.
+     *
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
-   * Defines a LocalSocket server connection.
-   * @interface LocalSocketServer
+   * Defines a local socket server connection. Before calling LocalSocketServer APIs, you need to call
+   * [socket.constructLocalSocketServerInstance]{@link socket.constructLocalSocketServerInstance} to create a
+   * **LocalSocketServer** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Defines a LocalSocket server connection.
-   * @interface LocalSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 11 dynamic
    */
   export interface LocalSocketServer {
     /**
-     * Binds the Local address.
-     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Binds the address of the local socket file. The server listens to and accepts local socket connections
+     * established over the socket. Multiple threads are used to process client data concurrently. This API uses a
+     * promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The server uses this API to complete the **bind**, **listen**, and **accept** operations. If the address of the
+     * > local socket file is passed for binding, a socket file is automatically created when this API is called.
+     *
+     * @param { LocalAddress } address - Destination address.
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303109 - Bad file number.
      * @throws { BusinessError } 2301013 - Insufficient permissions.
      * @throws { BusinessError } 2301022 - Invalid argument.
      * @throws { BusinessError } 2301098 - Address already in use.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Binds the Local address.
-     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2301013 - Insufficient permissions.
-     * @throws { BusinessError } 2301022 - Invalid argument.
-     * @throws { BusinessError } 2301098 - Address already in use.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     listen(address: LocalAddress): Promise<void>;
 
     /**
-     * Obtains the status of the LocalSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * Obtains the status of a local socket server connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<SocketStateBase> } Promise used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Obtains the status of the LocalSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the LocalSocketServer connection.
-     * @param { ExtraOptionsBase } options - Parameters of the attributes {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets the socket properties of the **LocalSocketServer** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { ExtraOptionsBase } options - Other properties of the **LocalSocketServer** object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Sets other attributes of the LocalSocketServer connection.
-     * @param { ExtraOptionsBase } options - Parameters of the attributes {@link ExtraOptionsBase}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;
 
     /**
-     * Gets other attributes of the LocalSocket connection.
-     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
+     * Obtains the socket properties of the **LocalSocketServer** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<ExtraOptionsBase> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Gets other attributes of the LocalSocket connection.
-     * @returns { Promise<ExtraOptionsBase> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 11 dynamic
      */
     getExtraOptions(): Promise<ExtraOptionsBase>;
 
     /**
-     * Obtains the local address of the LocalSocketServer connection.
-     * @returns { Promise<string> } The promise returned by the function.
+     * Obtains the local socket address of a **LocalSocketServer** connection. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<string> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of the LocalSocketServer connection.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<string>;
 
     /**
-     * Close the LocalSocketServer. Close the LocalSocketServer listening port.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Stops listening for events of the **LocalSocketServer** object and releases the port bound by
+     * [listen]{@link socket.LocalSocketServer.listen}. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API does not close existing connections. To close the connection, call the [close] (#close11-1) API of
+     * > [LocalSocketConnection] (#localsocketconnection11).
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 20 dynamic
-     */
-    /**
-     * Close the LocalSocketServer. Close the LocalSocketServer listening port.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(): Promise<void>;
 
     /**
-     * Listens for connect events of the LocalSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LocalSocketConnection> } callback - The callback of on.
+     * Subscribes to **connect** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
+     * @param { Callback<LocalSocketConnection> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for connect events of the LocalSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LocalSocketConnection> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the LocalSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LocalSocketConnection> } callback - The callback of off.
+     * Unsubscribes from **connect** events of the **LocalSocketServer** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'connect' } type - Event type.<br/> 'connect': connection event.
+     * @param { Callback<LocalSocketConnection> } callback - Callback used to return the result. You can pass the
+     *     callback of the **on** function if you want to cancel listening for a certain type of events. If you do not
+     *     pass the callback, you will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for connect events of the LocalSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LocalSocketConnection> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
 
     /**
-     * Listens for error events of the LocalSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Listens for error events of the LocalSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LocalSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **LocalSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 12]
      * @since 11 dynamic
-     */
-    /**
-     * Cancels listening for error events of the LocalSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the LocalSocketServer.
-     * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the LocalSocketServer.
+     * Obtains the file descriptor bound to the LocalSocketServer listening port. This API uses a promise to return the
+     * result.
      *
-     * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
+     * > **NOTE**
+     * >
+     * > - This method can be called only after the [listen]{@link socket.LocalSocketServer.listen} method is
+     * > successfully called.
+     * >
+     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
+     * > close is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
+     * > operating the file descriptor.
+     *
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
-   * Defines TCPSocket connection parameters.
-   * @interface TCPConnectOptions
+   * Defines TCP socket connection parameters.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines TCPSocket connection parameters.
-   * @interface TCPConnectOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface TCPConnectOptions {
     /**
      * Bound IP address and port number.
-     * @type { NetAddress }
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Bound IP address and port number.
-     * @type { NetAddress }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     address: NetAddress;
 
     /**
-     * Timeout duration of the TCPSocket connection, in milliseconds.
-     * @type { ?number }
+     * Timeout duration of the TCP socket connection, in ms. The default value is **5000**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
-    /**
-     * Timeout duration of the TCPSocket connection, in milliseconds.
-     * @type { ?number }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    timeout?: number;
+    timeout?: int;
 
     /**
-     * Set this option for the proxy feature.
-     * @type {?ProxyOptions}
+     * Proxy option. By default, no proxy is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -2361,1257 +1904,971 @@ declare namespace socket {
   }
 
   /**
-   * Defines the parameters for sending data over the TCPSocket connection.
-   * @interface TCPSendOptions
+   * Defines the parameters for sending data over a TCP socket connection.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines the parameters for sending data over the TCPSocket connection.
-   * @interface TCPSendOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface TCPSendOptions {
     /**
      * Data to send.
-     * @type { string | ArrayBuffer }
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Data to send.
-     * @type { string | ArrayBuffer }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     data: string | ArrayBuffer;
 
     /**
-     * Character encoding format.
-     * @type { ?string }
+     * Character encoding format. The options are as follows: **UTF-8**, **UTF-16BE**, **UTF-16LE**, **UTF-16**,
+     * **US-ASCII**, and **ISO-8859-1**. The default value is **UTF-8**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Character encoding format.
-     * @type { ?string }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     encoding?: string;
   }
 
   /**
-   * Defines other properties of the TCPSocket connection.
-   * @interface TCPExtraOptions
+   * Defines other properties of the **TCPSocket** object. This object is inherited from
+   * [ExtraOptionsBase]{@link socket.ExtraOptionsBase}.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines other properties of the TCPSocket connection.
-   * @extends ExtraOptionsBase
-   * @interface TCPExtraOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface TCPExtraOptions extends ExtraOptionsBase {
     /**
-     * Whether to keep the connection alive. The default value is false.
-     * @type { ?boolean }
+     * Whether to keep the connection alive. The default value is **false**. The value **true** means to keep the
+     * connection alive, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether to keep the connection alive. The default value is false.
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     keepAlive?: boolean;
 
     /**
-     * Whether to enable OOBInline. The default value is false.
-     * @type { ?boolean }
+     * Whether to enable OOBInline. The default value is **false**. The value **true** means to enable OOBInline, and
+     * the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether to enable OOBInline. The default value is false.
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     OOBInline?: boolean;
 
     /**
-     * Whether to enable no-delay on the TCPSocket connection. The default value is false.
-     * @type { ?boolean }
+     * Whether to enable no-delay on the TCP socket connection. The default value is **false**. The value **true** means
+     * to enable no-delay on the TCP socket connection, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Whether to enable no-delay on the TCPSocket connection. The default value is false.
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     TCPNoDelay?: boolean;
 
     /**
      * Socket linger.
-     * @type { ?object }
+     *
+     * - **on**: whether to enable socket linger. The value true means to enable socket linger and false means the
+     * opposite.
+     * - **linger**: linger time, in ms. The value ranges from **0** to **65535**.
+     *
+     * Specify this parameter only when **on** is set to **true**.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 7
+     * @since 7 dynamic
      */
-    /**
-     * Socket linger.
-     * @type { ?object }
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    socketLinger?: { on: boolean, linger: number };
+    socketLinger?: {on: boolean, linger: int};
 
     /**
-     * Whether to enable TCP Fast Open (TFO) on the TCPSocket connection. The default value is false.
+     * Whether to enable TCP Fast Open (TFO) in the TCP socket connection. This function allows the client to carry data
+     * during the first handshake, reducing the connection setup delay and improving the performance in high-frequency
+     * short connection scenarios. The default value is **false**. **true**: yes; **false**: no.
      *
-     * @type { ?boolean }
+     * Currently, this parameter can be configured only on the client.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
      * @since 24 dynamic
-   * @since 26.0.0 static
      */
     tcpFastOpen?: boolean;
   }
 
   /**
-   * Defines a TCPSocket connection.
-   * @interface TCPSocket
+   * Defines a TCP socket connection. Before calling TCPSocket APIs, you need to call
+   * [socket.constructTCPSocketInstance]{@link socket.constructTCPSocketInstance} to create a **TCPSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 7
-   */
-  /**
-   * Defines a TCPSocket connection.
-   * @interface TCPSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    */
   export interface TCPSocket {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds an IP address and a port number. The port number can be customized or randomly allocated by the system.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > If the bind operation fails due to a port conflict, the system will randomly allocate a port number.
+     * >
+     * > The TCP client can call **tcp.bind** to explicitly bind the IP address and port number, and then call
+     * > **tcp.connect** to connect to the server. Alternatively, the TCP client can directly call **tcp.connect** to
+     * > automatically bind the IP address and port number to connect to the server.
+     * >
+     * > If the IP address is **localhost** or **127.0.0.1**, only local loopback access is allowed; that is, the TCP
+     * > client and the server are deployed on the same device.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - Return the callback of bind.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds an IP address and a port number. The port number can be customized or randomly allocated by the system.
+     * This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > If the bind operation fails due to a port conflict, the system will randomly allocate a port number.
+     * >
+     * > The TCP client can call **tcp.bind** to explicitly bind the IP address and port number, and then call
+     * > **tcp.connect** to connect to the server. Alternatively, the TCP client can directly call **tcp.connect** to
+     * > automatically bind the IP address and port number to connect to the server.
+     * >
+     * > If the IP address is **localhost** or **127.0.0.1**, only local loopback access is allowed; that is, the TCP
+     * > client and the server are deployed on the same device.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified IP address and port number.
+     * Sets up a connection to the specified IP address and port number. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API allows you to connect to the TCP server without first executing **tcp.bind**.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
+     * @param { TCPConnectOptions } options - TCP socket connection parameters. For details, see
+     *     [TCPConnectOptions]{@link socket.TCPConnectOptions}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets up a connection to the specified IP address and port number.
+     * Sets up a connection to the specified IP address and port number. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API allows you to connect to the TCP server without first executing **tcp.bind**.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TCPConnectOptions } options - TCP socket connection parameters. For details, see
+     *     [TCPConnectOptions]{@link socket.TCPConnectOptions}.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     connect(options: TCPConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a TCPSocket connection.
+     * Sends data over a TCP socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **connect** is successfully called. Call the API in the worker thread or
+     * > taskpool thread as this operation is time-consuming.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Optional parameters {@link TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
+     * @param { TCPSendOptions } options - Parameters for sending data over a TCP socket connection. For details, see
+     *     [TCPSendOptions]{@link socket.TCPSendOptions}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sends data over a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Optional parameters {@link TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a TCPSocket connection.
+     * Sends data over a TCP socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **connect** is successfully called. Call the API in the worker thread or
+     * > taskpool thread as this operation is time-consuming.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Optional parameters {@link TCPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TCPSendOptions } options - Parameters for sending data over a TCP socket connection. For details, see
+     *     [TCPSendOptions]{@link socket.TCPSendOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sends data over a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Optional parameters {@link TCPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     send(options: TCPSendOptions): Promise<void>;
 
     /**
-     * Closes a TCPSocket connection.
+     * Closes a TCP socket connection. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - the callback of close.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Closes a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TCPSocket connection.
+     * Closes a TCP socket connection. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Closes a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the peer address of a TCPSocket connection.
+     * Obtains the remote address of a socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress. {@link NetAddress}
+     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
+     *     successful, the remote address is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the peer address of a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress. {@link NetAddress}
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the peer address of a TCPSocket connection.
+     * Obtains the remote address of a socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the peer address of a TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the status of the TCPSocket connection.
+     * Obtains the status of the TCP socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
+     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
+     *     successful, the status of the TCP socket is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the status of the TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TCPSocket connection.
+     * Obtains the status of the TCP socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @returns { Promise<SocketStateBase> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Obtains the status of the TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Obtains the file descriptor of the TCPSocket connection.
-     * @param { AsyncCallback<int> } callback - The callback returns the file descriptor of the TCPSocket connection.
+     * Obtains the file descriptor of the **TCPSocket** object. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
+     * > instead of directly operating the file descriptor.
+     *
+     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful, the
+     *     file descriptor of the socket is returned. Otherwise, **undefined** is returned.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TCPSocket connection.
-     * @param { AsyncCallback<int> } callback - The callback returns the file descriptor of the TCPSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSocketFd(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the file descriptor of the TCPSocket connection.
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCPSocket connection.
+     * Obtains the file descriptor of the **TCPSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after **bind** or **connect** is successfully called.
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.UDPSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
+     * > instead of directly operating the file descriptor.
+     *
+     * @returns { Promise<int> } Promise used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TCPSocket connection.
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCPSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets other attributes of the TCPSocket connection.
+     * Sets other properties of the **TCPSocket** object. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
+     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets other attributes of the TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the TCPSocket connection.
+     * Sets other properties of the **TCPSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** or **connect** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
+     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 7
-     */
-    /**
-     * Sets other attributes of the TCPSocket connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local address of a TCPSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TCPSocket** connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a TCPSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Subscribes to **message** events of the **TCPSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. [since 7 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Listens for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Listens for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Unsubscribes from **message** events of the **TCPSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
+     *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 7 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
+     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events. [since 11]
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the TCPSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
-
     /**
-     * Listens for connection or close events of the TCPSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Subscribes to **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'connect' | 'close' } type - Event type.<br/>
+     *     <br>- **connect**: connection event.
+     *     <br>- **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Listens for connection or close events of the TCPSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
+     * Unsubscribes from **connect** or **close** events of the **TCPSocket** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'connect' | 'close' } type - Event type.<br/>
+     *     <br>- **connect**: connection event.
+     *     <br>- **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Cancels listening for connection or close events of the TCPSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the TCPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Subscribes to **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
-     */
-    /**
-     * Listens for error events of the TCPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Unsubscribes from **error** events of the **TCPSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 7 dynamic
      */
-    /**
-     * Cancels listening for error events of the TCPSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
     off(type: 'error', callback?: ErrorCallback): void;
+
   }
 
   /**
-   * Defines a TLSSocket connection.
-   * @interface TLSSocket
+   * Defines a TLS socket connection. Before calling TLSSocket APIs, you need to call
+   * [socket.constructTLSSocketInstance]{@link socket.constructTLSSocketInstance} to create a **TLSSocket** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Defines a TLSSocket connection.
-   * @interface TLSSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   export interface TLSSocket {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the IP address and port number. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > If the **TLSSocket** object is upgraded from a **TCPSocket** object, you do not need to execute the **bind**
+     * > API.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
+     *     result of binding the local IP address and port number is returned. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the IP address and port number. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > If the **TLSSocket** object is upgraded from a **TCPSocket** object, you do not need to execute the **bind**
+     * > API.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } address - Local address. For details, see
+     *     [NetAddress](docroot://reference/apis-network-kit/js-apis-socket.md#netaddress).
+     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     bind(address: NetAddress): Promise<void>;
 
     /**
-     * Obtains the peer address of a TLSSocket connection.
-     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress.
+     * Obtains the remote address of a TLS socket connection. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
+     *     successful, the remote address is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Obtains the peer address of a TLSSocket connection.
-     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the peer address of a TLSSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the remote address of a TLS socket connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Obtains the peer address of a TLSSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the status of the TLSSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
+     * Obtains the status of the TLS socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
+     *     successful, the status of the TLS socket connection is returned. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Obtains the status of the TLSSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TLSSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * Obtains the status of the TLS socket connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<SocketStateBase> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Obtains the status of the TLSSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the TLSSocket connection.
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
+     * Sets other properties of the **TCPSocket** object after **bind** is successfully called. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
+     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
+     *     result of setting other properties of the **TCPSocket** object is returned. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sets other attributes of the TLSSocket connection.
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the TLSSocket connection.
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets other properties of the **TCPSocket** object after **bind** is successfully called. This API uses a promise
+     * to return the result.
+     *
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocket** object. For details, see
+     *     [TCPExtraOptions]{@link socket.TCPExtraOptions}.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sets other attributes of the TLSSocket connection.
-     * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local address of a TLSSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TLSSocket** connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a TLSSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Subscribes to **message** events of the **TLSSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. [since 9 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Listens for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Listens for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
+     * Unsubscribes from **message** events of the **TLSSocket** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. [since 9 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for message receiving events of the TLSSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for connection or close events of the TLSSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param {Callback<void> } callback - the callback used to return the result.
+     * Subscribes to **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @param { 'connect' | 'close' } type - Event type.<br/>
+     *     <br>- **connect**: connection event.
+     *     <br>- **close**: close event.
+     * @param {Callback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Listens for connection or close events of the TLSSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param {Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param {Callback<void> } callback - the callback used to return the result.
+     * Unsubscribes from **connect** or **close** events of the **TLSSocket** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'connect' | 'close' } type - Event type.<br/>
+     *     <br>- **connect**: connection event.
+     *     <br>- **close**: close event.
+     * @param {Callback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Cancels listening for connection or close events of the TLSSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param {Callback<void> } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the TLSSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Subscribes to **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **bind** is successfully called.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Listens for error events of the TLSSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
+     * Unsubscribes from **error** events of the **TLSSocket** object. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 10]
      * @since 9 dynamic
-     */
-    /**
-     * Cancels listening for error events of the TLSSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Returns an object representing a local certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
+     * Obtains the local digital certificate after a **TLSSocket** connection is established. This API is applicable to
+     * two-way authentication. It uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation is
+     *     successful, the local certificate is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns an object representing a local certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Returns an object representing a local certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * Obtains the local digital certificate after a **TLSSocket** connection is established. This API is applicable to
+     * two-way authentication. It uses a promise to return the result.
+     *
+     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns an object representing a local certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getCertificate(): Promise<X509CertRawData>;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
+     * Obtains the digital certificate of the server after a **TLSSocket** connection is established. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * Obtains the digital certificate of the server after a **TLSSocket** connection is established. This API uses a
+     * promise to return the result.
+     *
+     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getRemoteCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @param { AsyncCallback<string> } callback - the callback of getProtocol.
+     * Obtains the communication protocol version after a **TLSSocket** connection is established. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @param { AsyncCallback<string> } callback - the callback of getProtocol.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @returns { Promise<string> } The promise returned by the function.
+     * Obtains the communication protocol version after a **TLSSocket** connection is established. This API uses a
+     * promise to return the result.
+     *
+     * @returns { Promise<string> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getProtocol(): Promise<string>;
 
     /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
+     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocket** connection is
+     * established. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation fails, an
+     *     error message is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocket** connection is
+     * established. This API uses a promise to return the result.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @returns { Promise<Array<string>> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getCipherSuite(): Promise<Array<string>>;
 
     /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocket** connection is
+     * established. This API is applicable to two-way authentication. It uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @returns { Promise<Array<string>> } The promise returned by the function.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocket** connection is
+     * established. This API is applicable to two-way authentication. It uses a promise to return the result.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the result.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @returns { Promise<Array<string>> } The promise returned by the function.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
-     * Obtains the file descriptor of the TLSSocket connection.
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLSSocket connection.
+     * Obtains the file descriptor of the **TLSSocket** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after **bind** is successfully called.
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TLSSocket.close(callback: AsyncCallback<void>)} method to close the socket connection,
+     * > instead of directly operating the file descriptor.
+     *
+     * @returns { Promise<int> } Promise used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 16 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TLSSocket connection.
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLSSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSocketFd(): Promise<int>;
 
     /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
+     * Sets up a **TLSSocket** connection, and creates and initializes a TLS session after **bind** is successfully
+     * called. During this process, a TLS/SSL handshake is performed between the application and the server to implement
+     * data transmission. This API uses an asynchronous callback to return the result. Note that **ca** in
+     * **secureOptions** of the **options** parameter is mandatory in API version 11 or earlier. You need to enter the
+     * CA certificate of the server for certificate authentication. The certificate content starts with "-----BEGIN
+     * CERTIFICATE-----" and ends with "-----END CERTIFICATE-----". This field is optional since API version 12.
+     *
+     * @param { TLSConnectOptions } options - Parameters required for the TLS socket connection.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
@@ -3627,72 +2884,32 @@ declare namespace socket {
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets up a **TLSSocket** connection, and creates and initializes a TLS session after **bind** is successfully
+     * called. During this process, a TLS/SSL handshake is performed between the application and the server to implement
+     * data transmission. Both two-way and one-way authentication modes are supported. This API uses a promise to return
+     * the result. Note that **ca** in **secureOptions** of the **options** parameter is mandatory in API version 11 or
+     * earlier. You need to enter the CA certificate of the server for certificate authentication. The certificate
+     * content starts with "-----BEGIN CERTIFICATE-----" and ends with "-----END CERTIFICATE-----". This field is
+     * optional since API version 12.
+     *
+     * @param { TLSConnectOptions } options - Parameters required for the connection.
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
      * @throws { BusinessError } 2303109 - Bad file number.
@@ -3708,71 +2925,28 @@ declare namespace socket {
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server. [since 18]
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid. [since 18]
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server. [since 18]
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method. [since 18]
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message. [since 18]
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message. [since 18]
+     * @throws { BusinessError } 2301212 - Socks5 serialization error. [since 18]
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error. [since 18]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * Only TCP is supported.
-     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
-     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
-     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
-     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
-     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
-     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
-     * @throws { BusinessError } 2301212 - Socks5 serialization error.
-     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 18 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     connect(options: TLSConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a TLSSocket connection.
-     * @param { string } data - Parameters for sending data {@link string}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
+     * Sends a message to the server after a **TLSSocket** connection is established. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { string } data - Data content of the message to send. [since 9 - 11]
+     * @param { string | ArrayBuffer } data - Data content of the message to send. [since 12]
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -3780,42 +2954,19 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sends data over a TLSSocket connection.
-     * @param { string } data - Parameters for sending data {@link string}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data over a TLSSocket connection.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a TLSSocket connection.
-     * @param { string } data - Parameters for sending data {@link string}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sends a message to the server after a **TLSSocket** connection is established. This API uses a promise to return
+     * the result.
+     *
+     * @param { string } data - Data content of the message to send. [since 9 - 11]
+     * @param { string | ArrayBuffer } data - Data content of the message to send. [since 12]
+     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -3823,335 +2974,193 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Sends data over a TLSSocket connection.
-     * @param { string } data - Parameters for sending data {@link string}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sends data over a TLSSocket connection.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     send(data: string | ArrayBuffer): Promise<void>;
 
     /**
-     * Closes a TLSSocket connection
-     * @param { AsyncCallback<void> } callback - the callback of close.
+     * Closes a **TLSSocket** connection. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Closes a TLSSocket connection
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TLSSocket connection
-     * @returns { Promise<void> } The promise returned by the function.
+     * Closes a **TLSSocket** connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Closes a TLSSocket connection
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     close(): Promise<void>;
   }
 
   /**
-   * Defines TLS security options. The CA certificate is mandatory, and other parameters are optional.
-   * @interface TLSSecureOptions
+   * TLS security options. When **cert** (local certificate) and **key** (private key) are not empty, the two-way
+   * authentication mode is enabled. If **cert** or **key** is empty, one-way authentication is enabled.
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Defines TLS security options. The CA certificate is mandatory, and other parameters are optional.
-   * @interface TLSSecureOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   export interface TLSSecureOptions {
     /**
-     * Certificate used to verify the identity of the server
-     * @type {string | Array<string>}
+     * CA certificate of the server, which is used to authenticate the digital certificate of the server. The default
+     * value is the preset CA certificate<sup>12+</sup>. A maximum of 1000 certificates can be set.
+     *
+     * @type {string | Array<string>} [since 9 - 11]
+     * @type {?(string | Array<string>)} [since 12]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Certificate used to verify the identity of the server.
-     * @type {string | Array<string>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Certificate used to verify the identity of the server, if it is not set, use system ca.
-     * @type {?(string | Array<string>)}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     ca?: string | Array<string>;
 
     /**
-     * Certificate proving the identity of the client
-     * @type {?string}
+     * Digital certificate of the local client. An array can be passed since API version 24. A maximum of 1000
+     * certificates can be set.
+     *
+     * @type {?string} [since 9 - 23]
+     * @type {?(string | Array<string>)} [since 24]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Certificate proving the identity of the client
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
-     */
-    /**
-     * Certificate proving the identity of the client
-     * @type {?(string | Array<string>)}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     cert?: string | Array<string>;
 
     /**
-     * Private key of client certificate
-     * @type {?string}
+     * Private key of the local digital certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Private key of client certificate
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     key?: string;
 
     /**
-     * Password of the private key
-     * @type {?string}
+     * Password for reading the private key.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Password of the private key
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     password?: string;
 
     /**
-     * TLS protocol version
-     * @type {?Protocol | Array<Protocol>}
+     * TLS protocol version. The default value is **TLSv1.2**.
+     *
+     * @type {?Protocol | Array<Protocol>} [since 9 - 9]
+     * @type {?(Protocol | Array<Protocol>)} [since 10]
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * TLS protocol version
-     * @type {?(Protocol | Array<Protocol>)}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     protocols?: Protocol | Array<Protocol>;
 
     /**
-     * default is false, use local cipher.
-     * @type {?boolean}
+     * Whether to use the remote cipher suite preferentially. The value **true** means to use the remote cipher suite
+     * preferentially, and the value **false** means the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * default is false, use local cipher.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     useRemoteCipherPrefer?: boolean;
 
     /**
-     * <P>Supported signature algorithms. This string can contain summary algorithms(SHA256,MD5,etc),Public key algorithm(RSA-PSS,ECDSA,etc),
-     * Combination of the two(For example 'RSA+SHA384') or TLS v1.3 Scheme name(For example  rsa_pss_pss_sha512)</P>
-     * @type {?string}
+     * Signing algorithm used during communication. The default value is **""**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * <P>Supported signature algorithms. This string can contain summary algorithms(SHA256,MD5,etc),Public key algorithm(RSA-PSS,ECDSA,etc),
-     * Combination of the two(For example 'RSA+SHA384') or TLS v1.3 Scheme name(For example  rsa_pss_pss_sha512)</P>
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     signatureAlgorithms?: string;
 
     /**
-     * Crypto suite specification
-     * @type {?string}
+     * Cipher suite used during communication. The default value is **""**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Crypto suite specification
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     cipherSuite?: string;
 
     /**
-     * Used to set up bidirectional authentication. The default value is false.
-     * @type {?boolean}
+     * Two-way authentication. The default value is **false**. The value **true** means to enable two-way
+     * authentication, and the value **false** means the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Used to set up bidirectional authentication. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     isBidirectionalAuthentication?: boolean;
   }
 
   /**
    * Defines TLS connection options.
-   * @interface TLSConnectOptions
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Defines TLS connection options.
-   * @interface TLSConnectOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   export interface TLSConnectOptions {
     /**
      * Gateway address.
-     * @type {NetAddress}
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Gateway address.
-     * @type {NetAddress}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     address: NetAddress;
 
     /**
-     * Protocol http2TLS security related operations.
-     * @type {TLSSecureOptions}
+     * TLS security options.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Protocol http2TLS security related operations.
-     * @type {TLSSecureOptions}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     secureOptions: TLSSecureOptions;
 
     /**
-     * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
-     * @type {?Array<string>}
+     * ALPN protocol. The value range is ["spdy/1", "http/1.1"]. The default value is **[]**.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
-     * @type {?Array<string>}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     ALPNProtocols?: Array<string>;
 
     /**
-     * Skip identity verification for remote servers. The default value is false.
-     * @type {?boolean}
+     * Whether to skip certificate authentication on the server. The default value is **false**. The value **true**
+     * means to skip certificate authentication on the server, and the value **false** means the opposite.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Skip identity verification for remote servers. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     skipRemoteValidation?: boolean;
 
     /**
-     * Set this option for the proxy feature.
-     * @type {?ProxyOptions}
+     * Proxy option. By default, no proxy is used.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 18 dynamic
@@ -4159,354 +3168,255 @@ declare namespace socket {
     proxy?: ProxyOptions;
 
     /**
-     * Timeout duration of the TLSSocket connection, in milliseconds.
-     * @type {?int}
+     * Connection timeout interval, in milliseconds. The default value is **0**. The input value must be an integer
+     * ranging from 0 to 4294967295. The TLS socket connection fails after the timeout interval.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 22 dynamic
-     * @since 24 static
      */
     timeout?: int;
   }
 
   /**
    * Enumerates TLS protocol versions.
-   * @enum {string}
+   *
    * @syscap SystemCapability.Communication.NetStack
-   * @since 9
-   */
-  /**
-   * Enumerates TLS protocol versions.
-   * @enum {string}
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   export enum Protocol {
     /**
-     * Use TLSv1.2 protocol for communication.
+     * TLSv1.2.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Use TLSv1.2 protocol for communication.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     TLSv12 = "TLSv1.2",
 
     /**
-     * Use TLSv1.3 protocol for communication.
+     * TLSv1.3.
+     *
      * @syscap SystemCapability.Communication.NetStack
-     * @since 9
-     */
-    /**
-     * Use TLSv1.3 protocol for communication.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     TLSv13 = "TLSv1.3"
   }
 
   /**
-   * Defines the connection of the TCPSocket client and server.
-   * @interface TCPSocketConnection
+   * Defines a **TCPSocketConnection** object, that is, the connection between the TCPSocket client and the server.
+   * Before calling TCPSocketConnection APIs, you need to obtain a **TCPSocketConnection** object.
+   *
+   * > **NOTE**
+   * >
+   * > The TCPSocket client can call related APIs through the **TCPSocketConnection** object only after a connection is
+   * > successfully established between the TCPSocket client and the server.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Defines the connection of the TCPSocket client and server.
-   * @interface TCPSocketConnection
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   export interface TCPSocketConnection {
     /**
-     * The id of a client connects to the TCPSocketServer.
-     * @type {int}
+     * ID of the connection between the client and TCPSocketServer.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * The id of a client connects to the TCPSocketServer.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     clientId: int;
 
     /**
-     * Sends data over a TCPSocketServer connection to client.
+     * Sends data over a **TCPSocketConnection** object. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after a connection with the client is set up.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of send.
+     * @param { TCPSendOptions } options - Defines the parameters for sending data over a TCP socket connection.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sends data over a TCPSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a TCPSocketServer connection to client.
+     * Sends data over a **TCPSocketConnection** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after a connection with the client is set up.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TCPSendOptions } options - Defines the parameters for sending data over a TCP socket connection.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sends data over a TCPSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     send(options: TCPSendOptions): Promise<void>;
 
     /**
-     * Closes a TCPSocket client connection.
+     * Closes a TCP socket connection. This API uses an asynchronous callback to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - The callback of close.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Closes a TCPSocket client connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - The callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TCPSocket client connection.
+     * Closes a TCP socket connection. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Closes a TCPSocket client connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the peer address of a TCPSocketServer connection.
+     * Obtains the remote address of a socket connection. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after a connection with the client is set up.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
+     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation fails, an
+     *     error message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the peer address of a TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the peer address of a TCPSocketServer connection.
+     * Obtains the remote address of a socket connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after a connection with the client is set up.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the peer address of a TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the local address of a TCPSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TCPSocketConnection** connection. This API uses a promise to return the
+     * result.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a TCPSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
+     * Subscribes to **message** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. If the operation fails, an error message is returned. [since 10 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation fails, an
+     *     error message is returned. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Listens for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Listens for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 10 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
+     * Unsubscribes from **message** events of the **TCPSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. You can pass the callback of the **on** function if you want to cancel listening for a certain
+     *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 10 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. You can pass the callback
+     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Cancels listening for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Cancels listening for message receiving events of the TCPSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 10 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for close events of the TCPSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
+     * Subscribes to **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Listens for close events of the TCPSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TCPSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
+     * Unsubscribes from **close** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for close events of the TCPSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the TCPSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4514,9 +3424,13 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **TCPSocketConnection** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4524,49 +3438,53 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the TCPSocketConnection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TCPSocketConnection.
+     * Obtains the file descriptor of a TCPSocketConnection connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - This API can be called only after a connection with the client is set up.
+     * >
+     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
+     * > close API is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} method to close the socket
+     * > connection, instead of directly operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
-   * Defines a TCPSocket server connection.
-   * @interface TCPSocketServer
+   * Defines a TCP socket server connection. Before calling TCPSocketServer APIs, you need to call
+   * [socket.constructTCPSocketServerInstance]{@link socket.constructTCPSocketServerInstance} to create a
+   * **TCPSocketServer** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Defines a TCPSocket server connection.
-   * @interface TCPSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   export interface TCPSocketServer {
     /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system. The
+     * server listens to and accepts TCP socket connections established over the socket. Multiple threads are used to
+     * process client data concurrently. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The server uses this API to perform the **bind**, **listen**, and **accept** operations. If the **bind**
+     * > operation fails, the system randomly allocates a port number.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Network address information {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
+     * @param { NetAddress } address - Destination address.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4575,53 +3493,24 @@ declare namespace socket {
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Network address information {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
-    /** 
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Network address information {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10 dynamic
-     */
     /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system. The
+     * server listens to and accepts TCP socket connections established over the socket. Multiple threads are used to
+     * process client data concurrently. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > The server uses this API to perform the **bind**, **listen**, and **accept** operations. If the **bind**
+     * > operation fails, the system randomly allocates a port number.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Network address information {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { NetAddress } address - Destination address.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -4630,204 +3519,177 @@ declare namespace socket {
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 10 dynamic
      */
     listen(address: NetAddress): Promise<void>;
 
     /**
-     * Close the TCPSocketServer. Close the TCPSocketServer listening port.
+     * Stops listening for events of the **TCPSocketServer** object and releases the port bound by
+     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)}. If
+     * [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)} has been called
+     * for multiple times, all listening ports of the **TCPSocketServer** object are released when this API is called.
+     * This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API does not close existing connections. To close connections, call the
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} API of
+     * > [TCPSocketConnection]{@link socket.TCPSocketConnection}.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 20 dynamic
-     */
-    /**
-     * Close the TCPSocketServer. Close the TCPSocketServer listening port.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the TCPSocketServer connection.
+     * Obtains the status of a TCP socket server connection. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
+     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the status of the TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TCPSocketServer connection.
+     * Obtains the status of a TCP socket server connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @returns { Promise<SocketStateBase> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the status of the TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the TCPSocketServer connection.
+     * Sets other properties of the **TCPSocketServer** object. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocketServer** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sets other attributes of the TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the TCPSocketServer connection.
+     * Sets other properties of the **TCPSocketServer** object. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TCPExtraOptions } options - Other properties of the **TCPSocketServer** object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sets other attributes of the TCPSocketServer connection.
-     * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Obtains the local address of a TCPSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TCPSocketServer** connection. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a TCPSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for connect events of the TCPSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TCPSocketConnection> } callback - The callback of on.
+     * Subscribes to **connect** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
+     * @param { Callback<TCPSocketConnection> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Listens for connect events of the TCPSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TCPSocketConnection> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'connect', callback: Callback<TCPSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the TCPSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TCPSocketConnection> } callback - The callback of off.
+     * Unsubscribes from **connect** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
+     * @param { Callback<TCPSocketConnection> } callback - Callback used to return the result. You can pass the callback
+     *     of the **on** function if you want to cancel listening for a certain type of events. If you do not pass the
+     *     callback, you will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for connect events of the TCPSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TCPSocketConnection> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'connect', callback?: Callback<TCPSocketConnection>): void;
 
     /**
-     * Listens for error events of the TCPSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4835,9 +3697,13 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **TCPSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. You can pass the callback of the **on**
+     *     function if you want to cancel listening for a certain type of events. If you do not pass the callback, you
+     *     will cancel listening for all events.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -4845,62 +3711,64 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the TCPSocketServer.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TCPSocketServer.
+     * Obtains the file descriptor bound to the TCPSocketServer listening port. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > - This method can be called only after the
+     * > [listen]{@link socket.TCPSocketServer.listen(address: NetAddress, callback: AsyncCallback<void>)} method is
+     * > successfully called. When listen is called for multiple times, the file descriptor bound to the latest
+     * > listening port is obtained.
+     * >
+     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
+     * > close is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
+     * > operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
-   * Defines the connection of the TLSSocket client and server.
-   * @interface TLSSocketConnection
+   * Defines a **TLSSocketConnection** object, that is, the connection between the TLSSocket client and the server.
+   * Before calling TLSSocketConnection APIs, you need to obtain a **TLSSocketConnection** object.
+   *
+   * > **NOTE**
+   * >
+   * > The TLSSocket client can call related APIs through the **TLSSocketConnection** object only after a connection is
+   * > successfully established between the TLSSocket client and the server.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Defines the connection of the TLSSocket client and server.
-   * @interface TLSSocketConnection
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   export interface TLSSocketConnection {
     /**
-     * The id of a client connects to the TLSSocketServer.
-     * @type {int}
+     * ID of the connection between the client and TLSSocketServer.
+     *
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * The id of a client connects to the TLSSocketServer.
-     * @type {int}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     clientId: int;
 
     /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string } data - Parameters for sending data.
-     * @param { AsyncCallback<void> } callback - The callback of send.
+     * Sends a message to the client after a **TLSSocketServer** connection is established. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { string } data - Parameters for sending data over a TLS socket server connection. [since 10 - 11]
+     * @param { string | ArrayBuffer } data - Parameters for sending data over a TLS socket server connection. [since 12]
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -4908,42 +3776,19 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 12 dynamic
-     */
-    /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 10 dynamic
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string } data - Parameters for sending data.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sends a message to the server after a **TLSSocketServer** connection is established. This API uses a promise to
+     * return the result.
+     *
+     * @param { string } data - Parameters for sending data over a TLS socket server connection. [since 10 - 11]
+     * @param { string | ArrayBuffer } data - Parameters for sending data over a TLS socket server connection. [since 12]
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
@@ -4951,398 +3796,251 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 12 dynamic
-     */
-    /**
-     * Sends data over a TLSSocketServer connection to client.
-     * @param { string | ArrayBuffer } data - Parameters for sending data.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 10 dynamic
      */
     send(data: string | ArrayBuffer): Promise<void>;
 
     /**
-     * Closes a TLSSocket client connection.
-     * @param { AsyncCallback<void> } callback - The callback of close.
+     * Closes a **TLSSocketServer** connection. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Closes a TLSSocket client connection.
-     * @param { AsyncCallback<void> } callback - The callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a TLSSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Closes a **TLSSocketServer** connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Closes a TLSSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
+     * Obtains the remote address of a TLS socket server connection. This API uses an asynchronous callback to return
+     * the result.
+     *
+     * @param { AsyncCallback<NetAddress> } callback - Callback used to return the result. If the operation is
+     *     successful, the remote address is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the remote address of a TLS socket server connection. This API uses a promise to return the result.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getRemoteCertificate.
+     * Obtains the digital certificate of the peer end after a **TLSSocketServer** connection is established. This API
+     * uses an asynchronous callback to return the result. It applies only to the scenario where the client sends a
+     * certificate to the server.
+     *
+     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getRemoteCertificate.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * Obtains the digital certificate of the peer end after a **TLSSocketServer** connection is established. This API
+     * uses a promise to return the result. It applies only to the scenario where the client sends a certificate to the
+     * server.
+     *
+     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getRemoteCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { AsyncCallback<Array<string>> } callback - The callback of getCipherSuite.
+     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocketServer** connection is
+     * established. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation fails, an
+     *     error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { AsyncCallback<Array<string>> } callback - The callback of getCipherSuite.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * Obtains the cipher suite negotiated by both communication parties after a **TLSSocketServer** connection is
+     * established. This API uses a promise to return the result.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @returns { Promise<Array<string>> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getCipherSuite(): Promise<Array<string>>;
 
     /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { AsyncCallback<Array<string>> } callback - The callback of getSignatureAlgorithms.
+     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocketServer** connection is
+     * established. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { AsyncCallback<Array<string>> } callback - The callback of getSignatureAlgorithms.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * Obtains the signing algorithm negotiated by both communication parties after a **TLSSocketServer** connection is
+     * established. This API uses a promise to return the result.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the result.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @returns { Promise<Array<string>> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
-     * Obtains the local address of a TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TLSSocketConnection** connection. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of a TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
+     * Subscribes to **message** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. If the operation is successful, the TLS socket connection information is returned. If the
+     *     operation fails, an error message is returned. [since 10 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, the TLS socket connection information is returned. If the operation fails, an error message is
+     *     returned. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Listens for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Listens for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 10 dynamic
      */
     on(type: 'message', callback: Callback<SocketMessageInfo>): void;
 
     /**
-     * Cancels listening for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
+     * Unsubscribes from **message** events of the **TLSSocketConnection** object. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'message' } type - Event type.<br/> **message**: message receiving event.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - Callback used to return
+     *     the result. If the operation is successful, the TLS socket connection information is returned. If the
+     *     operation fails, an error message is returned. [since 10 - 10]
+     * @param { Callback<SocketMessageInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, the TLS socket connection information is returned. If the operation fails, an error message is
+     *     returned. [since 11]
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Cancels listening for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    /**
-     * Cancels listening for message receiving events of the TLSSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<SocketMessageInfo> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 10 dynamic
      */
     off(type: 'message', callback?: Callback<SocketMessageInfo>): void;
 
     /**
-     * Listens for close events of the TLSSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
+     * Subscribes to **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, no value
+     *     is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Listens for close events of the TLSSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TLSSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
+     * Unsubscribes from **close** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'close' } type - Event type.<br/> **close**: close event.
+     * @param { Callback<void> } callback - Callback used to return the result. If the operation is successful, no value
+     *     is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for close events of the TLSSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the TLSSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation is successful, no value
+     *     is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -5350,9 +4048,12 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **TLSSocketConnection** object. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation is successful, no value
+     *     is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
@@ -5360,38 +4061,40 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the TLSSocketConnection.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TLSSocketConnection.
+     * Obtains the file descriptor of a TLSSocketConnection connection. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > - Call this API only after the **TLSSocketServer** connection is successfully established.
+     * >
+     * > - This API returns **-1** in abnormal cases such as disconnection and socket closed (for example, after the
+     * > close API is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} method to close the socket
+     * > connection, instead of directly operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }
 
   /**
    * Defines the socket connection information.
-   * @interface SocketMessageInfo
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 11 dynamic
    */
   export interface SocketMessageInfo {
     /**
-     * Receive the message event.
-     * @type { ArrayBuffer }
+     * Received **message** event.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11 dynamic
@@ -5399,7 +4102,7 @@ declare namespace socket {
     message: ArrayBuffer;
     /**
      * Socket connection information.
-     * @type { SocketRemoteInfo }
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11 dynamic
@@ -5408,27 +4111,28 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TLSSocketServer server connection.
-   * @interface TLSSocketServer
+   * Defines a TLS socket server connection. Before calling TLSSocketServer APIs, you need to call
+   * [socket.constructTLSSocketServerInstance]{@link socket.constructTLSSocketServerInstance} to create a
+   * **TLSSocketServer** object.
+   *
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform [since 24]
    * @since 10 dynamic
-   */
-  /**
-   * Defines a TLSSocketServer server connection.
-   * @interface TLSSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 24 dynamic
-   * @since 26.0.0 static
    */
   export interface TLSSocketServer {
     /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
+     * Listens for client connections after **bind** is successfully called to bind the IP address and port of
+     * **TLSSocketServer**. This API uses an asynchronous callback to return the result. After a connection is
+     * established, a TLS session will be created and initialized and a certificate key will be loaded and verified.
+     *
+     * > **NOTE**
+     * >
+     * > If the IP address is set to 0.0.0.0, all local IP addresses can be listened on.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
+     * @param { TLSConnectOptions } options - Parameters required for the connection.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5442,63 +4146,20 @@ declare namespace socket {
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
-    /** 
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
-     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10 dynamic
-     */
     /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
+     * Listens for client connections after **bind** is successfully called to bind the IP address and port of
+     * **TLSSocketServer**. This API uses an asynchronous callback to return the result. After a connection is
+     * established, a TLS session will be created and initialized and a certificate key will be loaded and verified.
+     *
      * @permission ohos.permission.INTERNET
-     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { TLSConnectOptions } options - Parameters required for the connection.
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -5512,340 +4173,305 @@ declare namespace socket {
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 10 dynamic
      */
     listen(options: TLSConnectOptions): Promise<void>;
 
     /**
-     * Close the TLSSocketServer. Close the TLSSocketServer listening port.
+     * Stops listening for events of the **TLSSocketServer** object and releases the port bound by
+     * [listen]{@link socket.TCPSocketServer.listen}. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API does not close existing connections. To close the connection, call the
+     * > [close]{@link socket.TCPSocketConnection.close(callback: AsyncCallback<void>)} API of
+     * > [TLSSocketConnection]{@link socket.TLSSocketConnection}.
+     *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 20 dynamic
-     */
-    /**
-     * Close the TLSSocketServer. Close the TLSSocketServer listening port.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
+     * Obtains the status of the TLS socket server connection upon successful listening. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { AsyncCallback<SocketStateBase> } callback - Callback used to return the result. If the operation is
+     *     successful, the status of the TLS socket server connection is returned. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * Obtains the status of the TLS socket server connection upon successful listening. This API uses a promise to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<SocketStateBase> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
+     * Sets other properties of the **TLSSocketServer** object after **listen** is successfully called. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { TCPExtraOptions } options - Other properties of the **TLSSocketServer** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+     *     value is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
+     * Sets other properties of the **TLSSocketServer** object after **listen** is successfully called. This API uses a
+     * promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { TCPExtraOptions } options - Other properties of the **TLSSocketServer** object.
+     * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is
+     *     returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Returns an object representing a local certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getCertificate.
+     * Obtains the local digital certificate after a **TLSSocketServer** connection is established. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { AsyncCallback<X509CertRawData> } callback - Callback used to return the result. If the operation is
+     *     successful, the local certificate is returned. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns an object representing a local certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getCertificate.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * Returns an object representing a local certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * Obtains the local digital certificate after a **TLSSocketServer** connection is established. This API uses a
+     * promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<X509CertRawData> } Promise used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns an object representing a local certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getCertificate(): Promise<X509CertRawData>;
 
     /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @param { AsyncCallback<string> } callback - The callback of getProtocol.
+     * Obtains the communication protocol version after a **TLSSocketServer** connection is established. This API uses
+     * an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation fails, an error
+     *     message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @param { AsyncCallback<string> } callback - The callback of getProtocol.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @returns { Promise<string> } The promise returned by the function.
+     * Obtains the communication protocol version after a **TLSSocketServer** connection is established. This API uses a
+     * promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @returns { Promise<string> } Promise used to return the result. If the operation fails, an error message is
+     *     returned.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getProtocol(): Promise<string>;
 
     /**
-     * Obtains the local address of the TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * Obtains the local socket address of a **TLSSocketServer** connection. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > Call this API only after the **TLSSocketServer** connection is successfully established.
+     *
+     * @returns { Promise<NetAddress> } Promise used to return the result.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2301009 - Bad file descriptor.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 12 dynamic
-     */
-    /**
-     * Obtains the local address of the TLSSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2301009 - Bad file descriptor.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
      */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
-     * Listens for connect events of the TLSSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TLSSocketConnection> } callback - The callback of on.
+     * Subscribes to TLS socket server connection events. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
+     * @param { Callback<TLSSocketConnection> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Listens for connect events of the TLSSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TLSSocketConnection> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'connect', callback: Callback<TLSSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the TLSSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TLSSocketConnection> } callback - The callback of off.
+     * Unsubscribes from **connect** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of events.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'connect' } type - Event type.<br/> **connect**: connection event.
+     * @param { Callback<TLSSocketConnection> } callback - Callback used to return the result. If the operation fails,
+     *     an error message is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for connect events of the TLSSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<TLSSocketConnection> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'connect', callback?: Callback<TLSSocketConnection>): void;
 
     /**
-     * Listens for error events of the TLSSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
+     * Subscribes to **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Listens for error events of the TLSSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TLSSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
+     * Unsubscribes from **error** events of the **TLSSocketServer** object. This API uses an asynchronous callback to
+     * return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API can be called only after **listen** is successfully called.
+     * >
+     * > You can pass the callback of the **on** function if you want to cancel listening for a certain type of events.
+     * > If you do not pass the callback, you will cancel listening for all events.
+     *
+     * @param { 'error' } type - Event type.<br/> **error**: error event.
+     * @param { ErrorCallback } callback - Callback used to return the result. If the operation fails, an error message
+     *     is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform [since 24]
      * @since 10 dynamic
-     */
-    /**
-     * Cancels listening for error events of the TLSSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Obtains the file descriptor of the TLSSocketServer.
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 23 dynamic
-     */
-    /**
-     * Obtains the file descriptor of the TLSSocketServer.
+     * Obtains the file descriptor bound to the TLSSocketServer listening port. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > - This method can be called only after the [listen]{@link socket.TCPSocketServer.listen} method is successfully
+     * > called. When listen is called for multiple times, the file descriptor bound to the latest listening port is
+     * > obtained.
+     * >
+     * > - This API returns **-1** in abnormal cases such as listening exceptions or socket closed (for example, after
+     * > close is called).
+     * >
+     * > - The lifecycle of the file descriptor is managed by the system. The application can use the
+     * > [close]{@link socket.TCPSocketServer.close} method to close the socket connection, instead of directly
+     * > operating the file descriptor.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
+     * @returns { Promise<int> } Promise used to return the socket file descriptor.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 24 dynamic
-   * @since 26.0.0 static
+     * @crossplatform [since 24]
+     * @since 23 dynamic
      */
     getSocketFd(): Promise<int>;
   }

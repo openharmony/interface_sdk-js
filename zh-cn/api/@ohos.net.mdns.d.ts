@@ -14,7 +14,7 @@
  */
 
 /**
- * @file MDNS Management
+ * @file MDNS管理
  * @kit NetworkKit
  */
 
@@ -25,7 +25,7 @@ import connection from './@ohos.net.connection';
 import Context from './application/Context';
 
 /**
- * Multicast DNS (MDNS) provides functions such as adding, removing, discovering, and resolving local services on a LAN.
+ * MDNS即多播DNS（Multicast DNS），提供局域网内的本地服务添加、移除、发现、解析等能力。
  *
  * @syscap SystemCapability.Communication.NetManager.MDNS
  * @atomicservice [since 11]
@@ -33,7 +33,7 @@ import Context from './application/Context';
  */
 declare namespace mdns {
   /**
-   * Obtains the network address.
+   * 获取网络地址。
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice [since 12]
@@ -42,15 +42,14 @@ declare namespace mdns {
   type NetAddress = connection.NetAddress;
 
   /**
-   * Adds an MDNS service. This API uses an asynchronous callback to return the result.
+   * 添加一个MDNS服务，使用callback方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - mDNS服务的信息。
    * @param { AsyncCallback<LocalServiceInfo> } callback - Callback used to return the result. If the operation is
-   *     successful, **error** is **undefined** and **data** is the MDNS service information.
+   *     successful, **error** is **undefined** and **data** is the mDNS服务的信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -65,14 +64,13 @@ declare namespace mdns {
                            callback: AsyncCallback<LocalServiceInfo>): void;
 
   /**
-   * Adds an MDNS service. This API uses a promise to return the result.
+   * 添加一个MDNS服务，使用Promise方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
-   * @returns { Promise<LocalServiceInfo> } Promise used to return the result.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - MDNS服务的信息。
+   * @returns { Promise<LocalServiceInfo> } 以Promise形式返回添加的MDNS服务信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -86,15 +84,14 @@ declare namespace mdns {
   function addLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   /**
-   * Removes an MDNS service. This API uses an asynchronous callback to return the result.
+   * 移除一个MDNS服务，使用callback方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - MDNS服务的信息。
    * @param { AsyncCallback<LocalServiceInfo> } callback - Callback used to return the result. If the operation is
-   *     successful, **error** is **undefined** and **data** is the MDNS service information.
+   *     successful, **error** is **undefined** and **data** is the MDNS服务的信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -109,14 +106,13 @@ declare namespace mdns {
                               callback: AsyncCallback<LocalServiceInfo>): void;
 
   /**
-   * Removes an MDNS service. This API uses a promise to return the result.
+   * 移除一个MDNS服务，使用Promise方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
-   * @returns { Promise<LocalServiceInfo> } Promise used to return the result.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - MDNS服务的信息。
+   * @returns { Promise<LocalServiceInfo> } 以Promise形式返回移除的MDNS服务信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -130,15 +126,13 @@ declare namespace mdns {
   function removeLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   /**
-   * Creates a **DiscoveryService** object, which is used to discover MDNS services of the specified type.
+   * 返回一个DiscoveryService对象，该对象用于发现指定服务类型（serviceType）的MDNS服务。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { string } serviceType - MDNS service type.
-   * @returns { DiscoveryService } **DiscoveryService** object obtained based on the specified **serviceType** and
-   *     **context**.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { string } serviceType - 需要发现的MDNS服务类型。
+   * @returns { DiscoveryService } 基于指定服务类型（serviceType）和Context的发现服务对象。
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
@@ -147,15 +141,14 @@ declare namespace mdns {
   function createDiscoveryService(context: Context, serviceType: string): DiscoveryService;
 
   /**
-   * Resolves an MDNS service. This API uses an asynchronous callback to return the result.
+   * 解析一个MDNS服务，使用callback方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - MDNS服务的信息。
    * @param { AsyncCallback<LocalServiceInfo> } callback - Callback used to return the result. If the operation is
-   *     successful, **error** is **undefined** and **data** is the MDNS service information.
+   *     successful, **error** is **undefined** and **data** is the MDNS服务的信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -170,14 +163,13 @@ declare namespace mdns {
                                callback: AsyncCallback<LocalServiceInfo>): void;
 
   /**
-   * Resolves an MDNS service. This API uses a promise to return the result.
+   * 解析一个MDNS服务，使用Promise方式作为异步方法。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
-   *     <br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { LocalServiceInfo } serviceInfo - MDNS service information.
-   * @returns { Promise<LocalServiceInfo> } Promise used to return the result.
+   * @param { Context } context - 应用的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   * @param { LocalServiceInfo } serviceInfo - MDNS服务的信息。
+   * @returns { Promise<LocalServiceInfo> } 以Promise形式返回解析的MDNS服务信息。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -191,7 +183,7 @@ declare namespace mdns {
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   /**
-   * Defines a **DiscoveryService** object for discovering MDNS services of the specified type.
+   * 指定服务类型的发现服务对象。
    *
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
@@ -199,14 +191,13 @@ declare namespace mdns {
    */
   export interface DiscoveryService {
     /**
-     * Enables listening for **discoveryStart** events.
+     * 订阅开启监听mDNS服务的通知。
      *
-     * @param { 'discoveryStart' } type - Event type. This field has a fixed value of **discoveryStart**.
-     *     <br>**discoveryStart**: event of starting discovery of MDNS services on the LAN.
+     * @param { 'discoveryStart' } type - 订阅事件，固定为'discoveryStart'。
+     *     <br>discoveryStart：开始搜索局域网内的MDNS服务事件。
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - Callback used to return
      *     the MDNS service and error information. [since 10 - 10]
-     * @param { Callback<DiscoveryEventInfo> } callback - Callback used to return the MDNS service and error
-     *     information. [since 11]
+     * @param { Callback<DiscoveryEventInfo> } callback - MDNS服务的信息和事件错误信息。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -214,17 +205,16 @@ declare namespace mdns {
     on(type: 'discoveryStart', callback: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Disables listening for **discoveryStart** events.
+     * 取消开启监听MDNS服务的通知。
      *
-     * @param { 'discoveryStart' } type - Event type. This field has a fixed value of **discoveryStart**.
-     *     <br>**discoveryStart**: event of starting discovery of MDNS services on the LAN.
+     * @param { 'discoveryStart' } type - 取消订阅的事件，固定为'discoveryStart'。
+     *     <br>discoveryStart：开始搜索局域网内的MDNS服务事件。
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - Callback used to return
      *     the MDNS service and error information. You can pass the callback of the **on** function if you want to
      *     cancel listening for a certain type of events. If you do not pass the callback, you will cancel listening for
      *     all events. [since 10 - 10]
-     * @param { Callback<DiscoveryEventInfo> } callback - Callback used to return the MDNS service and error
-     *     information. You can pass the callback of the **on** function if you want to cancel listening for a certain
-     *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 11]
+     * @param { Callback<DiscoveryEventInfo> } callback - MDNS服务的信息和事件错误信息。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订
+     *     阅。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -232,14 +222,13 @@ declare namespace mdns {
     off(type: 'discoveryStart', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Enables listening for **discoveryStop** events.
+     * 订阅停止监听MDNS服务的通知。
      *
-     * @param { 'discoveryStop' } type - Event type. This field has a fixed value of **discoveryStop**.
-     *     <br>**discoveryStop**: event of stopping discovery of MDNS services on the LAN.
+     * @param { 'discoveryStop' } type - 订阅事件，固定为'discoveryStop'。
+     *     <br>discoveryStop：停止搜索局域网内的MDNS服务事件。
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - Callback used to return
      *     the MDNS service and error information. [since 10 - 10]
-     * @param { Callback<DiscoveryEventInfo> } callback - Callback used to return the MDNS service and error
-     *     information. [since 11]
+     * @param { Callback<DiscoveryEventInfo> } callback - MDNS服务的信息和事件错误信息。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -247,17 +236,16 @@ declare namespace mdns {
     on(type: 'discoveryStop', callback: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Disables listening for **discoveryStop** events.
+     * 取消订阅停止监听MDNS服务的通知。
      *
-     * @param { 'discoveryStop' } type - Event type. This field has a fixed value of **discoveryStop**.
-     *     <br>**discoveryStop**: event of stopping discovery of MDNS services on the LAN.
+     * @param { 'discoveryStop' } type - 取消订阅的事件'discoveryStop'。
+     *     <br>discoveryStop：停止搜索局域网内的MDNS服务事件。
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - Callback used to return
      *     the MDNS service and error information. You can pass the callback of the **on** function if you want to
      *     cancel listening for a certain type of events. If you do not pass the callback, you will cancel listening for
      *     all events. [since 10 - 10]
-     * @param { Callback<DiscoveryEventInfo> } callback - Callback used to return the MDNS service and error
-     *     information. You can pass the callback of the **on** function if you want to cancel listening for a certain
-     *     type of events. If you do not pass the callback, you will cancel listening for all events. [since 11]
+     * @param { Callback<DiscoveryEventInfo> } callback - MDNS服务的信息和事件错误信息。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订
+     *     阅。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -265,12 +253,11 @@ declare namespace mdns {
     off(type: 'discoveryStop', callback?: Callback<DiscoveryEventInfo>): void;
 
     /**
-     * Enables listening for **serviceFound** events.
+     * 订阅发现MDNS服务的通知。
      *
-     * @param { 'serviceFound' } type - Event type. This field has a fixed value of **serviceFound**.
-     *     <br>**serviceFound**: event indicating an MDNS service is found.
-     * @param { Callback<LocalServiceInfo> } callback - Callback used to return the MDNS service information. You need
-     *     to call **resolveLocalService** to parse the information.
+     * @param { 'serviceFound' } type - 订阅事件，固定为'serviceFound'。
+     *     <br>serviceFound：发现MDNS服务事件。
+     * @param { Callback<LocalServiceInfo> } callback - MDNS服务的信息，需调用resolveLocalService解析这个MDNS服务信息。
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -278,16 +265,14 @@ declare namespace mdns {
     on(type: 'serviceFound', callback: Callback<LocalServiceInfo>): void;
 
     /**
-     * Disables listening for **serviceFound** events.
+     * 取消订阅发现MDNS服务的通知。
      *
-     * @param { 'serviceFound' } type - Event type. This field has a fixed value of **serviceFound**.
-     *     <br>**serviceFound**: event indicating an MDNS service is found.
-     * @param { Callback<LocalServiceInfo> } callback - MDNS service information. You can pass the callback of the
-     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events. [since 10 - 10]
-     * @param { Callback<LocalServiceInfo> } [callback] - MDNS service information. You can pass the callback of the
-     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events. [since 11]
+     * @param { 'serviceFound' } type - 取消订阅的事件，固定为'serviceFound'。
+     *     <br>serviceFound：发现MDNS服务事件。
+     * @param { Callback<LocalServiceInfo> } callback - MDNS服务的信息。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订
+     *     阅。 [since 10 - 10]
+     * @param { Callback<LocalServiceInfo> } [callback] - MDNS服务的信息。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订
+     *     阅。 [since 11]
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -295,11 +280,11 @@ declare namespace mdns {
     off(type: 'serviceFound', callback?: Callback<LocalServiceInfo>): void;
 
     /**
-     * Enables listening for **serviceLost** events.
+     * 订阅移除MDNS服务的通知。
      *
-     * @param { 'serviceLost' } type - Event type. This field has a fixed value of **serviceLost**.
-     *     <br>**serviceLost**: event indicating that an MDNS service is removed.
-     * @param { Callback<LocalServiceInfo> } callback - MDNS service information.
+     * @param { 'serviceLost' } type - 订阅事件，固定为'serviceLost'。
+     *     <br>serviceLost：移除MDNS服务事件。
+     * @param { Callback<LocalServiceInfo> } callback - MDNS服务的信息。
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -307,13 +292,11 @@ declare namespace mdns {
     on(type: 'serviceLost', callback: Callback<LocalServiceInfo>): void;
 
     /**
-     * Disables listening for **serviceLost** events.
+     * 取消订阅移除MDNS服务的通知。
      *
-     * @param { 'serviceLost' } type - Event type. This field has a fixed value of **serviceLost**.
-     *     <br>**serviceLost**: event indicating that an MDNS service is removed.
-     * @param { Callback<LocalServiceInfo> } callback - MDNS service information. You can pass the callback of the
-     *     **on** function if you want to cancel listening for a certain type of events. If you do not pass the
-     *     callback, you will cancel listening for all events.
+     * @param { 'serviceLost' } type - 取消订阅的事件，固定为'serviceLost'。
+     *     <br>serviceLost：移除MDNS服务事件。
+     * @param { Callback<LocalServiceInfo> } callback - MDNS服务的信息。可以指定传入on中的callback取消对应的订阅，也可以不指定callback清空所有订阅。
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -321,7 +304,7 @@ declare namespace mdns {
     off(type: 'serviceLost', callback?: Callback<LocalServiceInfo>): void;
 
     /**
-     * Searches for MDNS services on the LAN.
+     * 开始搜索局域网内的MDNS服务。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -330,7 +313,7 @@ declare namespace mdns {
     startSearchingMDNS(): void;
 
     /**
-     * Stops searching for MDNS services on the LAN.
+     * 停止搜索局域网内的MDNS服务。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -340,7 +323,7 @@ declare namespace mdns {
   }
 
   /**
-   * MDNS service information.
+   * MDNS服务信息。
    *
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
@@ -348,8 +331,7 @@ declare namespace mdns {
    */
   export interface LocalServiceInfo {
     /**
-     * MDNS service type. The value is in the format of **_<name>.<_tcp/_udp>**, where **name** contains a maximum of 63
-     * characters excluding periods (.).
+     * MDNS服务的类型。格式：_<name>.<_tcp/_udp>，name长度小于63字符并且不能包含字符'.'。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -357,7 +339,7 @@ declare namespace mdns {
      */
     serviceType: string;
     /**
-     * MDNS service name.
+     * MDNS服务的名字。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -365,7 +347,7 @@ declare namespace mdns {
      */
     serviceName: string;
     /**
-     * Service port number. The value range is [0, 65535].
+     * MDNS服务的端口号。取值范围[0，65535]。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -373,8 +355,7 @@ declare namespace mdns {
      */
     port?: int;
     /**
-     * IP address of the device that provides the MDNS service. The IP address is not effective when an MDNS service is
-     * added or removed.
+     * MDNS服务设备的IP地址。采用设备的IP，添加服务和移除服务时候不生效。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -382,7 +363,7 @@ declare namespace mdns {
      */
     host?: NetAddress;
     /**
-     * MDNS service attribute information.
+     * MDNS服务属性信息。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -392,7 +373,7 @@ declare namespace mdns {
   }
 
   /**
-   * MDNS service attribute information.
+   * MDNS服务属性信息。
    *
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
@@ -400,7 +381,7 @@ declare namespace mdns {
    */
   export interface ServiceAttribute {
     /**
-     * MDNS service attribute key. The value contains a maximum of 9 characters.
+     * MDNS服务属性键值，键值长度应该小于9个字符。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -409,7 +390,7 @@ declare namespace mdns {
     key: string;
 
     /**
-     * MDNS service attribute value.
+     * MDNS服务属性值。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -419,7 +400,7 @@ declare namespace mdns {
   }
 
   /**
-   * Defines the MDNS service event information.
+   * 监听到的MDNS服务事件信息。
    *
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice
@@ -427,7 +408,7 @@ declare namespace mdns {
    */
   export interface DiscoveryEventInfo {
     /**
-     * MDNS service information.
+     * MDNS服务信息。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
@@ -436,7 +417,7 @@ declare namespace mdns {
     serviceInfo: LocalServiceInfo;
 
     /**
-     * MDNS error information.
+     * MDNS错误信息。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice
@@ -446,7 +427,7 @@ declare namespace mdns {
   }
 
   /**
-   * Defines the MDNS error information.
+   * MDNS错误信息。
    *
    * @syscap SystemCapability.Communication.NetManager.MDNS
    * @atomicservice [since 11]
@@ -454,7 +435,7 @@ declare namespace mdns {
    */
   export enum MdnsError {
     /**
-     * Operation failed because of an internal error.
+     * 内部错误导致操作失败。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -463,7 +444,7 @@ declare namespace mdns {
     INTERNAL_ERROR = 0,
 
     /**
-     * Operation failed because the service already exists.
+     * 服务已经存在导致操作失败。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]
@@ -472,7 +453,7 @@ declare namespace mdns {
     ALREADY_ACTIVE = 1,
 
     /**
-     * Operation failed because the number of requests exceeds the maximum value.
+     * 请求超过最大限制导致操作失败。
      *
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @atomicservice [since 11]

@@ -14,15 +14,14 @@
  */
 
 /**
- * @file Network Security
+ * @file 网络安全校验
  * @kit NetworkKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **networkSecurity** module provides the network security verification capability. Specifically, it provides APIs
- * for applications to verify the certificates in use.
+ * 本模块提供网络安全校验能力。应用可以通过证书校验API完成证书校验功能。
  *
  * @syscap SystemCapability.Communication.NetStack
  * @since 11 dynamic
@@ -30,7 +29,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace networkSecurity {
   /**
-   * Enumerates certificate types.
+   * 证书编码类型。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 11 dynamic
@@ -38,7 +37,7 @@ declare namespace networkSecurity {
    */
   export enum CertType {
     /**
-     * PEM certificate
+     * PEM格式证书。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
@@ -47,7 +46,7 @@ declare namespace networkSecurity {
     CERT_TYPE_PEM = 0,
 
     /**
-     * DER certificate.
+     * DER格式证书。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
@@ -57,7 +56,7 @@ declare namespace networkSecurity {
   }
 
   /**
-   * Defines the certificate data.
+   * 证书数据。
    *
    * @syscap SystemCapability.Communication.NetStack
    * @since 11 dynamic
@@ -65,7 +64,7 @@ declare namespace networkSecurity {
    */
   export interface CertBlob {
     /**
-     * Certificate type.
+     * 证书编码类型。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
@@ -74,7 +73,7 @@ declare namespace networkSecurity {
     type: CertType;
 
     /**
-     * Certificate data.
+     * 证书内容。
      *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
@@ -84,13 +83,11 @@ declare namespace networkSecurity {
   }
 
   /**
-   * Verifies the certificate passed by the application using the preset CA certificate and the CA certificate installed
-   * by the user in the certificate management. This API uses a promise to return the result.
+   * 系统将使用证书管理中的预置CA证书和用户安装的CA证书来校验应用传入的证书。使用Promise异步回调。
    *
-   * @param { CertBlob } cert - Certificate to be verified.
-   * @param { CertBlob } [caCert] - Custom CA certificate.
-   * @returns { Promise<int> } Promise used to return the result. The value **0** indicates that the certificate
-   *     verification is successful, and a non-0 value indicates that the verification has failed.
+   * @param { CertBlob } cert - 被校验的证书。
+   * @param { CertBlob } [caCert] - 传入自定义的CA证书。
+   * @returns { Promise<int> } 以promise形式返回一个数字，表示证书验证的结果。如果证书验证成功，则返回0； 否则验证失败。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -116,13 +113,11 @@ declare namespace networkSecurity {
   export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<int>;
 
   /**
-   * Verifies the certificate passed by the application using the preset CA certificate and the CA certificate installed
-   * by the user in the certificate management. This API returns the result synchronously.
+   * 系统将使用证书管理中的预置CA证书和用户安装的CA证书来校验应用传入的证书，使用同步方式返回。
    *
-   * @param { CertBlob } cert - Certificate to be verified.
-   * @param { CertBlob } [caCert] - Custom CA certificate.
-   * @returns { int } Certificate verification result. The value **0** indicates that the certificate verification is
-   *     successful, and a non-0 value indicates that the verification has failed.
+   * @param { CertBlob } cert - 被校验的证书。
+   * @param { CertBlob } [caCert] - 传入自定义的CA证书。
+   * @returns { int } 表示证书验证的结果。如果证书验证成功，则返回0； 否则验证失败。
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -148,13 +143,12 @@ declare namespace networkSecurity {
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
 
   /**
-   * Verifies the server certificate chain and returns a sorted chain.
+   * 验证服务器证书链并返回排序后的证书链。
    *
-   * @param { CertBlob[] } cert - Certificate chain to be verified.
-   * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @param { string } [hostname] - Hostname to be verified.
-   * @returns { Promise<CertBlob[]> } Returns a promise that resolves to the sorted certificate chain
-   *     (ordered from leaf to root) if verification succeeds.
+   * @param { CertBlob[] } cert - 要验证的证书链。
+   * @param { CertBlob } [caCert] - 入站自定义 CA 证书。
+   * @param { string } [hostname] - 要验证的主机名。
+   * @returns { Promise<CertBlob[]> } 返回一个 Promise，如果验证成功则解析为排序后的证书链（从叶子到根排序）。
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
    * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
@@ -174,12 +168,10 @@ declare namespace networkSecurity {
   export function verifyCertChain(cert: CertBlob[], caCert?: CertBlob, hostname?: string): Promise<CertBlob[]>;
 
   /**
-   * Checks whether plaintext HTTP access is allowed from the preset **network_config.json** file of the application. By
-   * default, plaintext HTTP access is allowed.
+   * 从应用预置network_config.json文件中获取整体明文HTTP是否允许信息，默认允许明文HTTP访问。
    *
    * @permission ohos.permission.INTERNET
-   * @returns { boolean } Boolean value indicating whether plaintext HTTP is allowed. The value **true** indicates that
-   *     plaintext HTTP is allowed, and the value **false** indicates the opposite. The default value is **true**.
+   * @returns { boolean } 整体明文HTTP是否允许。返回true表示允许访问明文HTTP，false表示不允许。默认返回true。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
@@ -188,14 +180,11 @@ declare namespace networkSecurity {
   export function isCleartextPermitted(): boolean;
 
   /**
-   * Checks whether host name–based plaintext HTTP access is allowed from the preset **network_config.json** file of the
-   * application. By default, plaintext HTTP access is allowed.
+   * 从应用预置network_config.json文件中获取按域名明文HTTP是否允许信息，默认允许明文HTTP访问。
    *
    * @permission ohos.permission.INTERNET
-   * @param { string } hostName - Host name.
-   * @returns { boolean } Boolean value indicating whether host name–based plaintext HTTP is allowed. The value **true**
-   *     indicates that plaintext HTTP is allowed, and the value **false** indicates the opposite. The default value is
-   *     **true**.
+   * @param { string } hostName - 需要查询的主机名。
+   * @returns { boolean } 按域名明文HTTP是否允许。返回true表示允许明文HTTP访问该主机，false表示不允许。默认返回true。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
