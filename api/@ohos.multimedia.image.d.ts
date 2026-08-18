@@ -14731,6 +14731,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform [since 10]
+     * @atomicservice [since 26.1.0]
      * @since 6 dynamic
      * @since 23 static
      */
@@ -14748,6 +14749,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform [since 10]
+     * @atomicservice [since 26.1.0]
      * @since 6 dynamic
      * @since 23 static
      */
