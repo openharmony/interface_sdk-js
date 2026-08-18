@@ -39,13 +39,22 @@ import { Callback } from './@ohos.base';
  * >
  * > 1. The preceding metrics collect performance data for a specified application process, not for the system.
  * > 2. Description of collecting the CPU data (**CPU_LOAD**//**CPU_USAGE**) and memory (**MEMORY_RSS**//**MEMORY_PSS**):
- * >    - During the test, the CPU and memory data of the specified application process is collected before and after the code segment execution. Therefore, ensure that the application process to be tested exists during the test.
+ * >    - During the test, the CPU and memory data of the specified application process is collected before
+ * >      and after the code segment execution. Therefore, ensure that the application process to be tested
+ * >      exists during the test.
  * > 3. Description of collecting the application startup latency data (**APP_START_RESPONSE_TIME**//**APP_START_COMPLETE_TIME**):
- * >    - Application startup latency data is subject to the system logging and reporting and may be different from what end users perceive. The start time is when the tap event is reported, the end time of the response latency is when the first frame is displayed on the screen after the tap, and the end time of the completion latency is when the first frame is displayed on the screen after the application is started.
- * >    - Application startup latency data can be collected in the following scenarios: tapping an application icon on the home screen, tapping an application icon on the dock bar, and tapping an application icon in the application center.
+ * >    - Application startup latency data is subject to the system logging and reporting and may be different from
+ * >      what end users perceive. The start time is when the tap event is reported, the end time of the response
+ * >      latency is when the first frame is displayed on the screen after the tap, and the end time of the
+ * >      completion latency is when the first frame is displayed on the screen after the application is started.
+ * >    - Application startup latency data can be collected in the following scenarios: tapping an application icon
+ * >      on the home screen, tapping an application icon on the dock bar, and tapping an application icon in the
+ * >      application center.
  * >    - During a test, only the first startup latency of the specified application is collected.
  * > 4. Description of collecting the page switching latency data (**PAGE_SWITCH_COMPLETE_TIME**):
- * >    - Page switching latency calculation is subject to the system logging and reporting and may be different from what end users perceive. The start time is when the tap event is reported, and the end time is when the first frame is displayed on the screen after the page switching.
+ * >    - Page switching latency calculation is subject to the system logging and reporting and may be different
+ * >      from what end users perceive. The start time is when the tap event is reported, and the end time is
+ * >      when the first frame is displayed on the screen after the page switching.
  * >    - Page switching latency data can be collected in the **Router** and **Navigation** components.
  * >    - During a test, only the first page switching latency in the specified application is collected.
  * > 5. Description of collecting the list scrolling frame rate (**LIST_SWIPE_FPS**):
@@ -106,7 +115,8 @@ declare enum PerfMetric {
   MEMORY_RSS = 3,
 
   /**
-   * Physical memory (the proportionally allocated memory occupied by shared libraries) occupied by the application process when a code segment is executed, in KB.
+   * Physical memory (the proportionally allocated memory occupied by shared libraries) occupied by the application
+   * process when a code segment is executed, in KB.
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -396,7 +406,8 @@ declare class PerfTest {
    *
    * @returns { Promise<void> }
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
-   * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes: 1. An exception is thrown in the callback. 2. Callback execution timed out.
+   * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes:
+   * 1. An exception is thrown in the callback. 2. Callback execution timed out.
    * @throws { BusinessError } 32400005 - Failed to collect metric data.
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    *

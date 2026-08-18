@@ -14,7 +14,8 @@
  */
 
 /**
-  * PerfTest提供白盒性能测试能力，供开发者在测试场景使用。支持对指定代码段或指定场景自动化执行测试，并采集耗时、CPU、内存、时延、帧率等性能数据。
+  * PerfTest提供白盒性能测试能力，供开发者在测试场景使用。支持对指定代码段或指定场景自动化执行测试，
+  * 并采集耗时、CPU、内存、时延、帧率等性能数据。
   * 
   * > **说明：**
   * >
@@ -41,19 +42,24 @@ import { Callback } from './@ohos.base';
  * >
  * > 1. 以上指标均用于采集指定应用进程的性能数据，非系统整机性能数据。
  * > 2. CPU（CPU_LOAD/CPU_USAGE）、内存（MEMORY_RSS/MEMORY_PSS）数据采集说明如下：
- * > - 测试过程中，代码段执行开始前和代码段执行结束后，会分别采集指定应用进程的CPU和内存数据，因此测试过程中需要保证被测应用进程一直存在。
+ * > - 测试过程中，代码段执行开始前和代码段执行结束后，会分别采集指定应用进程的CPU和内存数据，
+ * >   因此测试过程中需要保证被测应用进程一直存在。
  * >
  * >
  * > 3. 应用启动时延（APP_START_RESPONSE_TIME/APP_START_COMPLETE_TIME）数据采集说明如下：
- * > - 应用启动时延数据受系统打点上报限制，开始时间为点击事件上报时间点，响应时延结束时间为点击后系统响应首帧的上屏时间点（首帧显示在屏幕上的时间点），完成时延结束时间为应用启动后的首帧上屏时间点，与端到端用户感知时延存在差异。
+ * > - 应用启动时延数据受系统打点上报限制，开始时间为点击事件上报时间点，
+ * >   响应时延结束时间为点击后系统响应首帧的上屏时间点（首帧显示在屏幕上的时间点），
+ * >   完成时延结束时间为应用启动后的首帧上屏时间点，与端到端用户感知时延存在差异。
  * >
- * > - 应用启动时延数据采集支持的场景：桌面点击应用图标启动、Dock栏点击应用图标启动、应用中心点击应用图标启动。
+ * > - 应用启动时延数据采集支持的场景：桌面点击应用图标启动、Dock栏点击应用图标启动、
+ * >   应用中心点击应用图标启动。
  * >
  * > - 单次测试期间，仅第一次指定应用启动的时延数据会被采集。
  * >
  * >
  * > 4. 页面切换时延（PAGE_SWITCH_COMPLETE_TIME）数据采集说明如下：
- * > - 页面切换时延计算受系统打点上报限制，开始时间为点击事件上报时间点，完成时延结束时间为页面切换后的首帧上屏时间点，与端到端用户感知时延存在差异。
+ * > - 页面切换时延计算受系统打点上报限制，开始时间为点击事件上报时间点，
+ * >   完成时延结束时间为页面切换后的首帧上屏时间点，与端到端用户感知时延存在差异。
  * >
  * > - 页面切换时延数据采集支持的场景：Router、Navigation控件内的页面切换。
  * >
@@ -180,8 +186,10 @@ declare enum PerfMetric {
  * 
  * > **说明**
  * >
- * > 属性actionCode和resetCode的入参类型为回调函数"Callback\<boolean>"。在代码段中需要主动调用此回调函数，通知框架代码段执行完成，否则会导致代码段执行超时。
- * > > 其中，回调函数的参数为boolean类型，true代表代码段执行符合预期，false代表代码段执行不符合预期。[代码示例]{@link PerfTest.create}。
+ * > 属性actionCode和resetCode的入参类型为回调函数"Callback\<boolean>"。
+ * > 在代码段中需要主动调用此回调函数，通知框架代码段执行完成，否则会导致代码段执行超时。
+ * > 其中，回调函数的参数为boolean类型，true代表代码段执行符合预期，false代表代码段执行不符合预期。
+ * > [代码示例]{@link PerfTest.create}。
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
@@ -202,7 +210,7 @@ declare interface PerfTestStrategy {
   metrics: Array<PerfMetric>;
 
   /**
-   * 测试代码段。
+   * 测试代码段。入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -213,7 +221,10 @@ declare interface PerfTestStrategy {
   actionCode: Callback<Callback<boolean>>;
 
   /**
-   * 测试结束环境重置代码段。默认为空，框架运行时不执行此代码段。
+   * 测试结束环境重置代码段。
+   * 当测试代码段修改了全局状态（如全局变量、配置等）需要在每轮测试后重置时传入此参数。
+   * 默认为空，框架在执行测试时不执行此代码段。
+   * 入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -224,7 +235,8 @@ declare interface PerfTestStrategy {
   resetCode?: Callback<Callback<boolean>>;
 
   /**
-   * 被测应用包名。默认为""，框架运行时测试当前测试应用的性能数据。
+   * 被测应用包名，格式要求与应用的bundleName一致。当需要测试非当前应用的性能数据时，传入目标应用的包名。
+   * 默认为""，框架在执行测试时测试当前应用的性能数据。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -325,7 +337,9 @@ declare interface PerfMeasureResult {
  }
 
 /**
- * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。通过{@link create}创建实例。
+ * PerfTest类为白盒性能测试框架的总入口。
+ * 提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
+ * 通过[create]{@link create}创建实例。
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
@@ -353,12 +367,15 @@ declare class PerfTest {
   static create(strategy: PerfTestStrategy): PerfTest;
 
   /**
-   * 运行性能测试，迭代执行测试代码段并采集性能数据，使用Promise回调。
+   * 运行性能测试，按配置次数迭代执行测试代码段并采集性能数据，使用Promise回调。每次迭代中，框架依次执行
+   * actionCode和resetCode（若已配置），并在actionCode执行期间采集性能数据。执行完成后，可通过
+   * [getMeasureResult]{@link getMeasureResult}获取采集到的测量结果数据。
    *
    * @returns { Promise<void> }
-   Promise对象。无返回结果的Promise对象。
+   * Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
-   * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes: 1. An exception is thrown in the callback. 2. Callback execution timed out.
+   * @throws { BusinessError } 32400004 - Failed to execute the callback. Possible causes:
+   * 1. An exception is thrown in the callback. 2. Callback execution timed out.
    * @throws { BusinessError } 32400005 - Failed to collect metric data.
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    *
@@ -373,8 +390,9 @@ declare class PerfTest {
   /**
    * 获取指定性能指标的测量数据。需要在run()执行完成后调用，否则无法获取到有效的测量数据。
    *
-   * @param { PerfMetric } metric - 性能指标。
-   * @returns { PerfMeasureResult } - 性能指标对应测量结果数据。
+   * @param { PerfMetric } metric - 指定要查询的性能指标。
+   * @returns { PerfMeasureResult } - 指定性能指标对应的测量结果，包含各轮测量数据值及
+   * 统计值（最大值、最小值、平均值）。
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400003 - Parameter verification failed.
    * @throws { BusinessError } 32400006 - Failed to obtain the measurement result.
@@ -388,7 +406,8 @@ declare class PerfTest {
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
 
   /**
-   * 销毁PerfTest对象。
+   * 销毁PerfTest对象，释放该对象占用的相关资源。与[create]{@link create}方法配对使用，在PerfTest对象使用完毕后调用，
+   * 未调用此方法可能导致资源无法释放。调用后不应再使用该PerfTest对象。
    *
    * @throws { BusinessError } 32400002 - Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist.
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
