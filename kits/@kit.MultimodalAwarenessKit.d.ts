@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,8 +25,9 @@ import onScreen from '@ohos.multimodalAwareness.onScreen';
 import stationary from '@ohos.stationary';
 import userStatus from '@ohos.multimodalAwareness.userStatus';
 import spatialAwareness from '@ohos.multimodalAwareness.spatialAwareness';
+import carAwareness from '@ohos.multimodalAwareness.carAwareness';
 
-export { deviceStatus, metadataBinding, motion, onScreen, stationary, userStatus, spatialAwareness};
+export { deviceStatus, metadataBinding, motion, onScreen, stationary, userStatus, spatialAwareness, carAwareness};
 
 /*** if arkts static */
 import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
