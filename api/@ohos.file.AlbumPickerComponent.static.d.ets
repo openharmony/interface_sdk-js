@@ -62,15 +62,6 @@ export declare struct AlbumPickerComponent {
   onEmptyAreaClick?: EmptyAreaClickCallback;
 
   /**
-   * AlbumPickerController
-   * @type { ?AlbumPickerController }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  albumPickerController?: AlbumPickerController;
-
-  /**
    * Build function of AlbumPickerComponent
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -164,7 +155,6 @@ export declare class AlbumInfo {
    */
   public albumName?: string;
 }
-
 
 /**
  * The class for AlbumPickerController
