@@ -21,7 +21,8 @@
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * 该模块提供热管理相关的接口，包括热档位查询及注册回调等功能。
+ * 该模块提供热管理相关的接口，包括热档位查询及注册回调等功能。系统根据设备温度阈值将热状态划分为多个档位层级（参见[ThermalLevel]{@link thermal.ThermalLevel}），
+ * 当设备温度跨越档位阈值时触发回调通知，开发者可根据档位等级执行相应的业务降级策略。
  *
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8 dynamic
@@ -29,7 +30,7 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  */
 declare namespace thermal {
   /**
-   * 热档位信息。
+   * 热档位信息。热档位从COOL到ESCAPE逐级递进，各级别对应的设备状态与业务动作建议如下表所示。
    *
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamic
@@ -105,9 +106,9 @@ declare namespace thermal {
   }
 
   /**
-   * 订阅热档位变化时的回调提醒。使用callback异步回调。
+   * 订阅热档位变化时的回调提醒。使用callback异步回调。此方法需与thermal.unsubscribeThermalLevel配对使用，在不再需要监听时取消订阅。
    *
-   * @param { AsyncCallback<ThermalLevel> } callback - 回调函数，返回变化后的热档位；该参数是一个函数类型。
+   * @param { AsyncCallback<ThermalLevel> } callback - 回调函数，返回变化后的热档位。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -116,10 +117,13 @@ declare namespace thermal {
   function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
   /**
-   * 订阅热档位变化时的回调提醒。使用callback异步回调。
+   * 订阅热档位变化时的回调提醒。当设备温度跨越档位阈值导致热档位发生变化时，系统自动触发回调通知，
+   * 通过callback返回变化后的热档位等级。使用callback异步回调。此方法与thermal.unregisterThermalLevelCallback配对使用，
+   * 用于取消先前注册的热档位回调。
    *
-   * @param { Callback<ThermalLevel> } callback - 回调函数，返回变化后的热档位；该参数是一个函数类型。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @param { Callback<ThermalLevel> } callback - 回调函数，返回变化后的热档位。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
    * @since 23 static
@@ -127,9 +131,9 @@ declare namespace thermal {
   function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
   /**
-   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。
+   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。此方法与thermal.subscribeThermalLevel配对使用，用于取消先前订阅的热档位回调。
    *
-   * @param { AsyncCallback<void> } callback - 回调函数，无返回值。不填该参数则取消所有回调。
+   * @param { AsyncCallback<void> } [callback] - 回调函数，用来执行取消热档位变化回调后的资源回收等操作，无返回值。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -138,9 +142,9 @@ declare namespace thermal {
   function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
   /**
-   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。
+   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。此方法与thermal.registerThermalLevelCallback配对使用，用于取消先前注册的热档位回调。
    *
-   * @param { Callback<void> } callback - 可选参数，回调函数，无返回值。
+   * @param { Callback<void> } [callback] - 回调函数，用来执行取消热档位变化回调后的资源回收等操作，无返回值。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
@@ -151,7 +155,7 @@ declare namespace thermal {
   /**
    * 获取当前热档位信息。
    *
-   * @returns { ThermalLevel } 热档位信息。
+   * @returns { ThermalLevel } 当前设备的热档位等级，反映设备的温度状态，可用于指导业务的热控策略调整。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -160,9 +164,9 @@ declare namespace thermal {
   function getThermalLevel(): ThermalLevel;
 
   /**
-   * 获取当前热档位信息。
+   * 获取当前热档位信息。系统根据设备温度实时判定当前所处的热档位层级并返回对应等级，开发者可据此执行相应的业务降级策略。
    *
-   * @returns { ThermalLevel } 热档位信息。
+   * @returns { ThermalLevel } 当前设备的热档位等级，反映设备的温度状态，可用于指导业务的热控策略调整。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
    * @since 23 static
