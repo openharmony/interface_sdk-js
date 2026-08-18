@@ -14,16 +14,16 @@
  */
 
 /**
- * @file 
- * @kit NetworkKit
+  * @file 
+  * @kit NetworkKit
  */
 
 import ExtensionContext from './ExtensionContext';
 /**
- * **VpnExtensionContext** represents the context of **VpnExtensionAbility** and is inherited from
- * [ExtensionContext]{@link ./ExtensionContext:ExtensionContext}.
- *
- * This module provides the context required for APIs to access the resources of a **VpnExtensionAbility** object.
+ * VpnExtensionContext是VpnExtensionAbility的上下文环境，继承自
+ * [ExtensionContext]{@link ./ExtensionContext:ExtensionContext}。
+ * 
+ * VpnExtensionContext可直接作为VpnExtension的上下文环境，提供允许访问特定于VpnExtensionAbility的资源的能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
