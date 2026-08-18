@@ -14,9 +14,9 @@
  */
 
 /**
- * The **gestureEvent** module provides APIs for gesture events reported by devices.
+ * 设备上报的手势事件。
  *
- * @file Gesture Event
+ * @file 手势事件
  * @kit InputKit
  */
 
@@ -32,7 +32,7 @@ import { Touch } from './@ohos.multimodalInput.touchEvent';
 export declare interface Pinch {
 
   /**
-   * 手势事件类型。如：手势开始、手势更新、手势结束等。
+   * 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -88,7 +88,7 @@ export declare interface Rotate {
 export declare interface ThreeFingersSwipe {
 
   /**
-   * 手势事件类型。如：手势开始、手势更新、手势结束等。
+   * 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -125,7 +125,7 @@ export declare interface ThreeFingersSwipe {
 export declare interface FourFingersSwipe {
 
   /**
-   * 手势事件类型。如：手势开始、手势更新、手势结束等。
+   * 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -264,7 +264,7 @@ export declare enum TouchGestureAction {
   SWIPE_DOWN = 0,
 
   /**
-   * Multi-finger upward swipe.
+   * 多指向上滑动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -274,7 +274,7 @@ export declare enum TouchGestureAction {
   SWIPE_UP = 1,
 
   /**
-   * Multi-finger leftward swipe.
+   * 多指向左滑动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -284,7 +284,7 @@ export declare enum TouchGestureAction {
   SWIPE_LEFT = 2,
 
   /**
-   * Multi-finger rightward swipe.
+   * 多指向右滑动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -294,7 +294,7 @@ export declare enum TouchGestureAction {
   SWIPE_RIGHT = 3,
 
   /**
-   * Multi-finger pinch closed.
+   * 多指捏合。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -304,7 +304,7 @@ export declare enum TouchGestureAction {
   PINCH_CLOSED = 4,
 
   /**
-   * Multi-finger pinch opened.
+   * 多指张开。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -314,7 +314,7 @@ export declare enum TouchGestureAction {
   PINCH_OPENED = 5,
 
   /**
-   * Gesture ended.
+   * 手势结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use

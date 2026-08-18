@@ -14,7 +14,7 @@
 */
 
 /**
- * @file Screen Hopping
+ * @file 键鼠穿越
  * @kit InputKit
  */
 
@@ -22,12 +22,6 @@ import { AsyncCallback } from './@ohos.base';
 
 /**
  * 键鼠穿越功能模块，提供两台或多台设备组网协同后键鼠共享能力，实现键鼠输入设备的跨设备协同操作。
- * 
- * > **说明**
- * >
- * > - 本模块接口从API Version 10开始不再维护，从API version 23开始废弃，推荐使用新接口[@ohos.cooperate]{@link @ohos.cooperate:cooperate} (键鼠穿越)。
- * >
- * > - 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
  * @since 9 dynamiconly
@@ -38,11 +32,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 键鼠穿越事件。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用[CooperateMessage]{@link @ohos.cooperate:cooperate.CooperateMessage}替
-   * > 代。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
@@ -110,13 +99,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 开启、关闭键鼠穿越，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.prepareCooperate]{@link @ohos.cooperate:cooperate.prepareCooperate(callback: AsyncCallback<void>)}、
-   * > [cooperate.unprepareCooperate]{@link @ohos.cooperate:cooperate.unprepareCooperate(callback: AsyncCallback<void>)}
-   * > 替代。
    *
    * @param { boolean } enable - 键鼠穿越使能状态。
    * @param { AsyncCallback<void> } callback - 回调函数。当开启键鼠穿越成功，err为undefined，否则为错误对象。
@@ -133,12 +115,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 开启、关闭键鼠穿越，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.prepareCooperate]{@link @ohos.cooperate:cooperate.prepareCooperate()}、
-   * > [cooperate.unprepareCooperate]{@link @ohos.cooperate:cooperate.unprepareCooperate()}替代。
    *
    * @param { boolean } enable - 键鼠穿越使能状态。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -155,12 +131,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 启动键鼠穿越，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.activateCooperate]{@link @ohos.cooperate:cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>)}
-   * > 替代。
    *
    * @param { string } sinkDeviceDescriptor - 键鼠穿越目标设备描述符。
    * @param { number } srcInputDeviceId - 键鼠穿越待穿越外设标识符。
@@ -180,12 +150,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 启动键鼠穿越，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.activateCooperate]{@link @ohos.cooperate:cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int)}
-   * > 替代。
    *
    * @param { string } sinkDeviceDescriptor - 键鼠穿越目标设备描述符。
    * @param { number } srcInputDeviceId - 键鼠穿越待穿越外设标识符。
@@ -205,12 +169,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 停止键鼠穿越，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.deactivateCooperate]{@link @ohos.cooperate:cooperate.deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>)}
-   * > 替代。
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当停止键鼠穿越成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -226,11 +184,6 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 停止键鼠穿越，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.deactivateCooperate]{@link @ohos.cooperate:cooperate.deactivateCooperate(isUnchained: boolean)}替代。
    *
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -244,16 +197,10 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 获取键鼠穿越开关的状态，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.getCooperateSwitchState]{@link @ohos.cooperate:cooperate.getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>)}
-   * > 替代。
    *
    * @param {string} deviceDescriptor - 键鼠穿越目标设备描述符。
    * @param {AsyncCallback<{ state: boolean }>} callback - 回调函数。当获取键鼠穿越开关状态成功，err为undefined，data为键鼠穿越开关状态（true表示打开，false
-   *     表示关闭）；否则为错误对象。
+   * 表示关闭）；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -267,16 +214,9 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 获取键鼠穿越开关的状态，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.getCooperateSwitchState]{@link @ohos.cooperate:cooperate.getCooperateSwitchState(networkId: string)}替
-   * > 代。
    *
    * @param { string } deviceDescriptor - 键鼠穿越目标设备描述符。
-   * @returns { Promise<{ state: boolean }> } Promise used to return the state of the screen hopping switch. **true** if
-   *     enabled and **false** if disabled. [since 12]
+   * @returns { Promise<{ state: boolean }> } Promise对象，返回键鼠穿越开关状态。true表示键鼠穿越开关打开，false表示键鼠穿越开关关闭。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -290,16 +230,10 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 注册监听键鼠穿越状态，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.on]{@link @ohos.cooperate:cooperate.on(type: 'cooperateMessage', callback: Callback<CooperateMessage>)}
-   * > 替代。
    *
-   * @param { 'cooperation' } type - 注册类型，取值”cooperation“。
+   * @param { 'cooperation' } type - 注册类型，取值'cooperation'。
    * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback - 回调函数。当接收键鼠穿越事件成功，err为
-   *     undefined，data为键鼠穿越事件信息；否则为错误对象。
+   * undefined，data为键鼠穿越事件信息；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -313,14 +247,8 @@ declare namespace inputDeviceCooperate {
 
   /**
    * 关闭监听键鼠穿越状态，使用callback异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
-   * > [cooperate.off]{@link @ohos.cooperate:cooperate.off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>)}
-   * > 替代。
    *
-   * @param { 'cooperation' } type - 注册类型，取值“cooperation”。
+   * @param { 'cooperation' } type - 注册类型，取值'cooperation'。
    * @param { AsyncCallback<void> } [callback] - 回调函数。当取消注册成功，err为undefined，否则为错误对象。若无此参数，则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.

@@ -14,10 +14,9 @@
  */
 
 /**
- * The **mouseEvent** module provides mouse events reported by a device. It is inherited from 
- * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ * 设备上报的鼠标事件，继承自[InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}。
  *
- * @file Mouse Event
+ * @file 鼠标输入事件
  * @kit InputKit
  */
 
@@ -418,9 +417,7 @@ export declare interface MouseEvent extends InputEvent {
   pressedKeys: KeyCode[];
 
   /**
-   * 当前ctrlKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前ctrlKey是否处于按下状态。 <br>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -429,9 +426,7 @@ export declare interface MouseEvent extends InputEvent {
   ctrlKey: boolean;
 
   /**
-   * 当前altKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前altKey是否处于按下状态。 <br>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -440,9 +435,7 @@ export declare interface MouseEvent extends InputEvent {
   altKey: boolean;
 
   /**
-   * 当前shiftKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前shiftKey是否处于按下状态。 <br>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -451,9 +444,7 @@ export declare interface MouseEvent extends InputEvent {
   shiftKey: boolean;
 
   /**
-   * 当前logoKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前logoKey是否处于按下状态。 <br>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -462,9 +453,7 @@ export declare interface MouseEvent extends InputEvent {
   logoKey: boolean;
 
   /**
-   * 当前fnKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前fnKey是否处于按下状态。 <br>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -473,9 +462,7 @@ export declare interface MouseEvent extends InputEvent {
   fnKey: boolean;
 
   /**
-   * 当前capsLock是否处于使能状态。 
-   * 
-   * true表示使能状态，false表示处于未使能状态。
+   * 当前capsLock是否处于使能状态。 <br>true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -484,9 +471,7 @@ export declare interface MouseEvent extends InputEvent {
   capsLock: boolean;
 
   /**
-   * 当前numLock是否处于使能状态。 
-   * 
-   * true表示使能状态，false表示处于未使能状态。
+   * 当前numLock是否处于使能状态。 <br>true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -495,9 +480,7 @@ export declare interface MouseEvent extends InputEvent {
   numLock: boolean;
 
   /**
-   * 当前scrollLock是否处于使能状态。 
-   * 
-   * true表示使能状态，false表示处于未使能状态。
+   * 当前scrollLock是否处于使能状态。 <br>true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic

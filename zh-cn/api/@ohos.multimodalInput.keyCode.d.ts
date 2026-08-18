@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Keycode
+ * @file 键值
  * @kit InputKit
  */
 
@@ -1616,7 +1616,7 @@ export declare enum KeyCode {
   KEYCODE_PROPS = 2618,
 
   /**
-   * 撤消键。
+   * 撤销键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
