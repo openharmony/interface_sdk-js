@@ -774,6 +774,106 @@ declare namespace storageStatistics {
    * @since 24 dynamic&static
    */
   function getSystemDataSize(): Promise<long>;
+
+  /**
+   * Obtains the storage space of an application, in bytes. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } packageName - Package name of the application.
+   * @param { BundleStatsOptions } [option] - Options for obtaining the bundle statistics.
+   * @returns { Promise<BundleStats> } Promise used to return the application storage space (in bytes) obtained.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getBundleStats(packageName: string, option?: BundleStatsOptions): Promise<BundleStats>;
+
+  /**
+   * Enumerates the flags for obtaining the bundle statistics.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum GetBundleStatsFlag {
+    /**
+     * Indicates that all the data size of the bundle is obtained.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    GET_BUNDLE_WITH_ALL_SIZE = 0x00000000,
+
+    /**
+     * Indicates that the installation size is excluded from the bundle statistics.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    GET_BUNDLE_WITHOUT_INSTALL_SIZE = 0x00000001,
+
+    /**
+     * Indicates that the data size is excluded from the bundle statistics.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    GET_BUNDLE_WITHOUT_DATA_SIZE = 0x00000002,
+
+    /**
+     * Indicates that the cache size is excluded from the bundle statistics.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    GET_BUNDLE_WITHOUT_CACHE_SIZE = 0x00000004
+
+  }
+
+  /**
+   * Options for obtaining the bundle statistics.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface BundleStatsOptions {
+    /**
+     * Index of an application clone. The default value is **0**, which indicates the application itself.
+     * When an application clone is created, an index is assigned from 1 sequentially to **appIndex** of
+     * [BundleResourceInfo]{@link ./bundleManager/BundleResourceInfo:BundleResourceInfo}.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    index?: int;
+    /**
+     * Flag for obtaining the bundle statistics.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    statFlag?: GetBundleStatsFlag;
+  }
 }
 
 export default storageStatistics;
