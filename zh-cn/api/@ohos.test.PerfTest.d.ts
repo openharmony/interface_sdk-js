@@ -210,7 +210,7 @@ declare interface PerfTestStrategy {
   metrics: Array<PerfMetric>;
 
   /**
-   * 测试代码段。入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时，详见下方说明。
+   * 测试代码段。入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -221,9 +221,10 @@ declare interface PerfTestStrategy {
   actionCode: Callback<Callback<boolean>>;
 
   /**
-   * 测试结束环境重置代码段。当测试代码段修改了全局状态（如全局变量、配置等）需要在每轮测试后重置时
-   * 传入此参数。默认为空，框架在执行测试时不执行此代码段。
-   * 入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时，详见下方说明。
+   * 测试结束环境重置代码段。
+   * 当测试代码段修改了全局状态（如全局变量、配置等）需要在每轮测试后重置时传入此参数。
+   * 默认为空，框架在执行测试时不执行此代码段。
+   * 入参为回调函数，需在代码段中主动调用以通知框架执行完成，否则会导致执行超时。
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
@@ -336,8 +337,9 @@ declare interface PerfMeasureResult {
  }
 
 /**
- * PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、
- * 测量结果获取等能力。通过{@link create}创建实例。
+ * PerfTest类为白盒性能测试框架的总入口。
+ * 提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
+ * 通过[create]{@link create}创建实例。
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
