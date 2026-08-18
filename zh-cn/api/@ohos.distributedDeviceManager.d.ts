@@ -1019,7 +1019,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { object } discoverParam - 发现标识。 标识发现的目标类型。
      *     <br>discoverTargetType: 发现目标默认为设备，值为1。
-     * @param { object } filterOptions - 发现设备过滤信息。可选，默认为undefined，发现未上线设备。会携带以下key值：
+     * @param { object } [filterOptions] - 发现设备过滤信息。可选，默认为undefined，发现未上线设备。会携带以下key值：
      *     <br>availableStatus(0-1)：仅发现设备可信，值为0表示设备不可信。
      *     <br />-0：设备离线，客户端需要通过调用bindTarget绑定设备。
      *     <br />-1：设备已在线，客户端可以进行连接。
