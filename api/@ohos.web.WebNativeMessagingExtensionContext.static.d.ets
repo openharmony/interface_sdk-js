@@ -26,7 +26,6 @@ import { AbilityResult } from './ability/abilityResult';
  * ExtensionContext. It provides the capability of exchanging messages with WebNativeMessagingExtension.
  * The APIs of this module can be used only in the stage model.
  * 
- * @extends ExtensionContext
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 23 static
@@ -89,7 +88,7 @@ declare class WebNativeMessagingExtensionContext extends ExtensionContext {
      *     2. The system service failed to communicate with dependency module.
      * @throws { BusinessError } 16000055 - Installation-free timed out.
      * @throws { BusinessError } 16000071 - The application does not support appClone mode in multiAppMode.
-     * @throws { BusinessError } 16000072 - The application does not support appClone and multi-instance mode in 
+     * @throws { BusinessError } 16000072 - The application does not support appClone and multi-instance mode in
      *     multiAppMode.
      * @throws { BusinessError } 16000073 - The app clone index is invalid.
      * @throws { BusinessError } 16000076 - The app instance key is invalid.
@@ -119,7 +118,7 @@ declare class WebNativeMessagingExtensionContext extends ExtensionContext {
     /**
      * Stops a native connection. This API uses a promise to return the result.
      *
-     * @param { int } connectionId - Indicates the id of the specified connection.
+     * @param { int } connectionId - ID of the connection to stop.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - The application does not have permission to call the interface.
      * @throws { BusinessError } 16000011 - The context does not exist.

@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,16 +14,25 @@
  */
 
 /**
- * @file
- * @kit ArkWeb
+  * @file
+  * @kit ArkWeb
  */
 
 import type UIAbilityContext from './application/UIAbilityContext';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The webNativeMessagingExtensionManager module provides the capability of managing message extensions based on web
- * standards.
+ * webNativeMessagingExtensionManager模块是ArkWeb提供的Web原生消息扩展管理模块，用于在应用侧（调用方）发起并管理到
+ * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}的连接。开发者可通过
+ * [connectNative]{@link webNativeMessagingExtensionManager.connectNative}方法指定目标扩展Ability并建立连接，通过返回的连接ID与
+ * [WebExtensionConnectionCallback]{@link webNativeMessagingExtensionManager.WebExtensionConnectionCallback}监听连接建立、断开及失败
+ * 事件，也可通过[disconnectNative]{@link webNativeMessagingExtensionManager.disconnectNative}主动释放连接。该模块适用于浏览器扩展与应用通信的场景；使用前需申请
+ * [ohos.permission.WEB_NATIVE_MESSAGING](docroot://reference/apis-arkweb/security/AccessToken/restricted-permissions.md#ohospermissionweb_native_messaging)
+ * 权限，且仅在Stage模型下可用。
+ * 
+ * > **说明**
+ * >
+ * > 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
@@ -32,16 +40,15 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace webNativeMessagingExtensionManager {
   /**
-   * Represents the information about the web native message connection.
+   * 表示Web原生消息连接的连接信息。
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
    */
-
   interface ConnectionNativeInfo {
     /**
-     * Connection ID.
-     * The value range is all integers.
+     * Web原生消息扩展连接的唯一标识，由connectNative方法返回，用于标识和管理连接。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -50,7 +57,7 @@ declare namespace webNativeMessagingExtensionManager {
     connectionId: number;
 
     /**
-     * Bundle name of the web native message extension application.
+     * Web原生消息扩展应用的包名。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -59,7 +66,7 @@ declare namespace webNativeMessagingExtensionManager {
     bundleName: string;
 
     /**
-     * Source URL of the browser extension.
+     * 浏览器扩展的源URL。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -68,8 +75,7 @@ declare namespace webNativeMessagingExtensionManager {
     extensionOrigin: string;
 
     /**
-     * Process ID of the web native message extension.
-     * The value range is all integers.
+     * Web原生消息扩展的进程ID。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -78,7 +84,7 @@ declare namespace webNativeMessagingExtensionManager {
     extensionPid: number;
   }
   /**
-   * Provides the native messaging error codes.
+   * Native Messaging的错误列表。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -86,7 +92,7 @@ declare namespace webNativeMessagingExtensionManager {
    */
   export enum NmErrorCode {
     /**
-     * Permission denied due to missing ohos.permission.WEB_NATIVE_MESSAGING.
+     * 由于缺少 ohos.permission.WEB_NATIVE_MESSAGING，权限被拒绝。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -94,7 +100,7 @@ declare namespace webNativeMessagingExtensionManager {
      */
     PERMISSION_DENY = 17100203,
     /**
-     * The want content is invalid.
+     * 所需内容无效。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -102,7 +108,7 @@ declare namespace webNativeMessagingExtensionManager {
      */
     WANT_CONTENT_ERROR = 17100202,
     /**
-     * Inner error for native messaging.
+     * 原生消息的内部错误。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -112,18 +118,17 @@ declare namespace webNativeMessagingExtensionManager {
   }
 
   /**
-   * As an input parameter when connecting a web native messaging extension, it is used to receive
-   * state changes during the connection.
+   * 作为连接网络原生消息扩展时的输入参数，它用于接收连接期间的状态变化。
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
    */
-
   interface WebExtensionConnectionCallback {
     /**
-     * Called when a connection is set up.
+     * 建立连接时的回调函数。
      *
-     * @param { ConnectionNativeInfo } connection - Connection information.
+     * @param { ConnectionNativeInfo } connection - 连接信息，包含连接ID、扩展应用包名、浏览器扩展源URL和扩展进程ID等信息。
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
@@ -131,9 +136,9 @@ declare namespace webNativeMessagingExtensionManager {
     onConnect(connection: ConnectionNativeInfo): void;
 
     /**
-     * Called when a connection is interrupted.
+     * 断开连接时的回调函数。
      *
-     * @param { ConnectionNativeInfo } connection - Connection information.
+     * @param { ConnectionNativeInfo } connection - 连接信息，包含连接ID、扩展应用包名、浏览器扩展源URL和扩展进程ID等信息。
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
@@ -141,10 +146,10 @@ declare namespace webNativeMessagingExtensionManager {
     onDisconnect(connection: ConnectionNativeInfo): void;
 
     /**
-     * Called when the connection fails.
+     * 连接失败时的回调函数。
      *
-     * @param { NmErrorCode } code - Error code.
-     * @param { string } errMsg - Error message.
+     * @param { NmErrorCode } code - 错误码。
+     * @param { string } errMsg - 错误码对应信息。
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
@@ -153,13 +158,15 @@ declare namespace webNativeMessagingExtensionManager {
   }
 
   /**
-   * Connects the current ability to the specified web native message extension ability.
+   * 将当前Ability连接到指定的Web原生消息扩展Ability。
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { UIAbilityContext } context - Context of the web native message extension.
-   * @param { Want } want - Want information about the target ability.
-   * @param { WebExtensionConnectionCallback } callback - Callback object of the WebExtensionConnection status.
-   * @returns { number } Connection ID.
+   * @param { UIAbilityContext } context - 调用方UIAbility的上下文。
+   * @param { Want } want - 启动Ability的want信息，其parameters中需包含'ohos.arkweb.messageReadPipe'（读管道FD）、'
+   *     ohos.arkweb.messageWritePipe'（写管道FD）和'ohos.arkweb.extensionOrigin'（插件URI）。
+   * @param { WebExtensionConnectionCallback } callback - WebExtensionConnection状态的回调对象。
+   * @returns { number } 连接的标识ID，由[connectNative]{@link webNativeMessagingExtensionManager.connectNative}方法返回，用于唯一标识一次
+   *     Web原生消息扩展连接。连接建立后需要通过disconnectNative释放。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
@@ -168,11 +175,13 @@ declare namespace webNativeMessagingExtensionManager {
   function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): number;
 
   /**
-   * Disconnects the connection of a specified web native message extension.
+   * 断开指定Web原生消息扩展连接。
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { number } connectionId - Connection ID.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { number } connectionId - 连接的标识ID，用于标识一次Web原生消息扩展连接，由
+   *     [connectNative]{@link webNativeMessagingExtensionManager.connectNative}方法返回。建立连接后需要通过disconnectNative释放。需使用由
+   *     connectNative返回的有效连接ID。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
