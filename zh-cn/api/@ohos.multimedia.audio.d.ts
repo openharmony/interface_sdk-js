@@ -4421,7 +4421,7 @@ declare namespace audio {
     /**
      * 取消监听麦克风堵塞状态变化事件。使用callback异步回调。
      *
-     * @param { 'microphoneBlockStatusChanged' } type - 事件回调类型，支持的事件为'micBlockStatusChanged'，当取消监听音频麦克风是否被堵塞变化事件时，触发该事件。
+     * @param { 'micBlockStatusChanged' } type - 事件回调类型，支持的事件为'micBlockStatusChanged'，当取消监听音频麦克风是否被堵塞变化事件时，触发该事件。
      * @param { Callback<DeviceBlockStatusInfo> } callback - 回调函数，返回麦克风被堵塞状态和设备信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
