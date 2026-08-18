@@ -18,13 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-
-import { TextInputAttribute } from '@ohos.arkui.component';
-
-import { TextInputAttribute } from './component/textInput';
-
 import { AttributeModifier } from './component/common';
+import { TextInputAttribute } from './component/textInput';
 
 /**
 * Defines TextInput Modifier
