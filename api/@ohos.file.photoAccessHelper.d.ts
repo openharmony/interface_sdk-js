@@ -10262,7 +10262,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26 dynamic
+     * @since 26.0.0 dynamic
      * @since 26.1.0 static
      */
     preferredCompatibleMode?: PreferredCompatibleMode;
