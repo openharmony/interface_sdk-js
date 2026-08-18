@@ -15,7 +15,7 @@
 
 /**
  剪贴板
- * @file
+ * @file 
  剪贴板
  * @kit BasicServicesKit
  */
@@ -1287,7 +1287,7 @@ declare namespace pasteboard {
      * - 未取消订阅会导致回调函数持续监听剪贴板变化，可能造成内存泄漏或多次回调触发。
      * - 建议在组件/页面销毁时取消订阅。
      *
-     * @param { string } type - 取值为'update'，表示系统剪贴板内容变化事件，其他值无效。
+     * @param { 'update' } type - 取值为'update'，表示系统剪贴板内容变化事件，其他值无效。
      * @param { function } callback - 剪贴板中内容变化时触发的用户程序的回调。
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameters types.
@@ -1329,7 +1329,7 @@ declare namespace pasteboard {
      * - 必须在已订阅的情况下才能调用。
      * - 如果callback参数未填，清除本应用的所有监听回调；否则清除指定监听回调。
      *
-     * @param { string } type - 取值为'update'，表示系统剪贴板内容变化事件。
+     * @param { 'update' } type - 取值为'update'，表示系统剪贴板内容变化事件。
      * @param { function } [callback] - 剪贴板中内容变化时触发的用户程序的回调。如果此参数未填，表明清除本应用的所有监听回调，否则表示清除指定监听回调。
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameters types.
@@ -1505,6 +1505,9 @@ declare namespace pasteboard {
      * 读取系统剪贴板内容，使用callback异步回调。将剪贴板数据封装为PasteData对象返回。调用此方法后，系统将从剪贴板服务读取当前内容，通过callback返回PasteData对象。
      * 读取成功后，应用可以通过PasteData对象的方法获取具体的数据内容（如文本、HTML、URI等）。适用于需要异步读取剪贴板内容的场景，如UI响应优先、避免阻塞主线程。
      * 与[getDataSync]{@link pasteboard.SystemPasteboard.getDataSync()}相比，getData不会阻塞UI线程，适合处理大量数据或远端数据。
+     * 
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
      *
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @param { AsyncCallback<PasteData> } callback - 回调函数。当读取成功，err为undefined，data为返回的系统剪贴板数据；否则返回错误对象。
@@ -1524,6 +1527,9 @@ declare namespace pasteboard {
     /**
      * 读取系统剪贴板内容，将剪贴板数据封装为PasteData对象返回，使用Promise异步回调。适用于需要异步读取剪贴板内容的场景，如UI响应优先、避免阻塞主线程。
      * 适用于应用需要使用标准化数据结构[UnifiedData]{@link @ohos.data.unifiedDataChannel:unifiedDataChannel.UnifiedData}读取剪贴板数据的场景。
+     * 
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
      *
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @returns { Promise<PasteData> } Promise对象，返回系统剪贴板数据。
@@ -1540,8 +1546,11 @@ declare namespace pasteboard {
 
     /**
      * 读取系统剪贴板内容，此接口为同步接口。适用于应用需要在关键业务流程中同步获取剪贴板数据，或需要立即处理剪贴板内容的场景。
-     * 避免在UI线程调用此接口，以免阻塞界面；处理大量数据或远端数据时，建议使用异步接口[getData]{@link pasteboard.PasteDataRecord.getData(type: string)}。
+     * 避免在UI线程调用此接口，以免阻塞界面；处理大量数据或远端数据时，建议使用异步接口[getData]{@link pasteboard.SystemPasteboard.getData(callback: AsyncCallback<PasteData>)}。
      *
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
+     * 
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @returns { PasteData } 返回系统剪贴板数据。
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
@@ -1705,6 +1714,9 @@ declare namespace pasteboard {
      * 当应用需要与其他支持UnifiedData的应用进行数据共享，或需要处理复杂的多类型数据时，使用本接口。
      * 与[getData]{@link pasteboard.SystemPasteboard.getData(callback: AsyncCallback<PasteData>)}相比，getUnifiedData提供了更标准化的数据格式。
      *
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
+     *  
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<unifiedDataChannel.UnifiedData> } Promise对象，返回系统剪贴板数据。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1723,6 +1735,9 @@ declare namespace pasteboard {
      * 当应用需要在关键业务流程中立即获取剪贴板数据，且需要与其他支持UnifiedData的应用进行数据共享时使用。
      * 由于获取剪贴板中数据的时延受数据量大小与网络环境的影响，调用此接口可能耗时较长，建议开发者在非UI线程调用。
      *
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
+     * 
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { unifiedDataChannel.UnifiedData } 返回系统剪贴板数据。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1864,6 +1879,9 @@ declare namespace pasteboard {
      * 对于大文件拷贝操作，建议设置进度监听以跟踪拷贝进度，避免在UI线程长时间等待；建议合理设置目标路径以确保有足够的存储空间。
      * 适用于大文件粘贴场景。在此场景下，可通过此回调显示拷贝进度，或监听拷贝过程以便在必要时取消操作。
      *
+     * 应用访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
+     * [使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容的应用，可以无需申请权限。
+     * 
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { GetDataParams } params - 应用在使用剪贴板提供的文件拷贝能力的情况下需要的参数，包含目标路径、文件冲突选项、进度条类型等。
      * @returns { Promise<PasteData> } Promise对象，返回系统剪贴板数据。
