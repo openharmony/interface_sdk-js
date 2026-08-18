@@ -709,14 +709,15 @@ declare namespace onScreen {
   /**
    * Enables proactive awareness on screen content and subscribes to a screen awareness result.
    *
-   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+   * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
    * @param { Callback<OnscreenAwarenessInfo[]> } callback - Callback function, which returns the onscreen
    *     <br> awareness result. The returned onscreen awareness information list **OnscreenAwarenessInfo[]**
    *     <br> contains a maximum of two awareness information items.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -734,13 +735,14 @@ declare namespace onScreen {
   /**
    * Disables proactive awareness on screen content and unsubscribes from a screen awareness result.
    *
-   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+   * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
    * @param { Callback<OnscreenAwarenessInfo[]> } [callback] - Callback to unregister. The returned onscreen
    *     <br> awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
    *     <br> information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -755,12 +757,13 @@ declare namespace onScreen {
   /**
    * Proactively triggers screen content awareness and obtains the current screen awareness result.
    *
-   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+   * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @returns { Promise<OnscreenAwarenessInfo> } Promise used to return the onscreen awareness result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -777,7 +780,8 @@ declare namespace onScreen {
   /**
    * Proactively triggers screen content awareness to obtain page information.
    *
-   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+   * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see
    *     <br> the following supported capability list.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
@@ -785,7 +789,7 @@ declare namespace onScreen {
    *     <br>The returned onscreen awareness information list **OnscreenAwarenessInfo[]** contains a
    *     <br> maximum of two awareness information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -804,7 +808,8 @@ declare namespace onScreen {
    *     <br> example, after a link is clicked, the system accurately jumps to the specified paragraph and
    *     <br> highlights the text based on the receipt information.
    *
-   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+   * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see the following
    *     <br> supported capability list.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
@@ -812,7 +817,7 @@ declare namespace onScreen {
    *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
    *     <br> information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -829,7 +834,8 @@ declare namespace onScreen {
    /**
     * Proactively triggers screen content awareness to obtain the screen content for snapshot analysis.
     *
-    * @permission ohos.permission.GET_SCREEN_CONTENT
+    * @permission ohos.permission.GET_SCREEN_CONTENT [since 23 - 24]
+    * @permission ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS [since 26.0.0]
     * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see the following
     *     <br> supported capability list.
     * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
@@ -837,7 +843,7 @@ declare namespace onScreen {
     *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
     *     <br> information items.
     * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
     * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
     * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
     *     <br> device capabilities.
