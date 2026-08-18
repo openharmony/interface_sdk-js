@@ -146,15 +146,6 @@ export declare struct PhotoPickerComponent {
   onVideoPlayStateChanged?: VideoPlayStateChangedCallback;
 
   /**
-   * Callback when the zoom scale changes during large image browsing.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.1.0 static
-   */
-  onPhotoBrowserZoom?: PhotoBrowserZoomCallback;
-
-  /**
    * PickerController
    * @type { PickerController }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -194,28 +185,6 @@ export declare class PickerController {
    * @since 26.0.0 static
    */
   public setData(dataType: DataType, data: Object): void;
-
-  /**
-   * Add data to picker component
-   *
-   * @param { DataType } dataType - data type
-   * @param { Object } data - data
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public addData(dataType: DataType, data: Object): void;
-
-  /**
-   * Delete data to picker component
-   *
-   * @param { DataType } dataType - data type
-   * @param { Object } data - data
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public deleteData(dataType: DataType, data: Object): void;
 
   /**
    * Set max select count to picker component, include max_total_count, max_photo_count and max_video_count.
@@ -283,17 +252,6 @@ export declare class PickerController {
    */
   public saveTrustedPhotoAssets(trustedUris: string[], callback: AsyncCallback<string[]>,
     configs?: photoAccessHelper.PhotoCreationConfig[], saveMode?: SaveMode): void;
-
-
-  /**
-   * Call this method to obtain the complete data after a selection operation has finished.
-   *
-   * @returns { Promise<CompletedResult> } Promise<CompletedResult>
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public completed(): Promise<CompletedResult>;
 }
 
 /**
@@ -469,44 +427,6 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 26.0.0 static
    */
   public gridEndOffset?: int;
-
-  /**
-   * Support to set a serial number to distinguish different picker components. Default value is -1.
-   * @type { ?int }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public pickerIndex?: int;
-
-  /**
-   * Support automatically selecting the user-selected image/video on the PhotoPickerComponent
-   * at the specified picker index.
-   * @type { ?PreselectedInfo[] }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public preselectedInfos?: PreselectedInfo[];
-
-  /**
-   * Support to config special badge display.
-   * The picker component supports only one type of badge
-   * @type { ?BadgeConfig }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public badgeConfig?: BadgeConfig;
-
-  /**
-   * Context recovery information for restoring the last selection session.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public contextRecoveryInfo?: photoAccessHelper.ContextRecoveryInfo;
 }
 
 /**
@@ -570,16 +490,6 @@ export declare class BaseItemInfo {
    * @since 26.0.0 static
    */
   public duration?: int;
-
-  /**
-   * DynamicRangeType. Dynamic range type of media files.
-   *     For movingPhoto, this specifically refers to the dynamic range type of the cover image.
-   * @type { ?photoAccessHelper.DynamicRangeType }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public dynamicRangeType?: photoAccessHelper.DynamicRangeType;
 }
 
 /**
@@ -701,99 +611,6 @@ export declare class SingleLineConfig {
 }
 
 /**
- * PreselectedInfo
- *
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare class PreselectedInfo {
-  /**
-   * Uri. Uri of the media file to be automatically selected.
-   * @type { string }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public uri: string;
-
-  /**
-   * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
-   * @type { ?int }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public preselectablePickerIndex?: int;
-}
-
-/**
- * BadgeConfig
- *
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare class BadgeConfig {
-  /**
-   * The type of the special badge.
-   * @type { ?BadgeType }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public badgeType?: BadgeType;
-
-  /**
-   * The uri data of the asset that displays the badge.
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public uris?: Array<string>;
-}
-
-/**
- * CompletedResult
- *
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare class CompletedResult {
-  /**
-   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets
-   * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  photoUris: Array<string>;
-
-  /**
-   * Contextual information about the PhotoPicker's exit state.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
-
-  /**
-   * M?oving photo badge states for the selected media files in the gallery.
-   * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
-   * otherwise, it is empty.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  movingPhotoBadgeStates: Array<photoAccessHelper.MovingPhotoBadgeStateType>;
-}
-
-/**
  * DataType represents the type of the data set to picker component
  *
  * @enum { int } DataType
@@ -819,24 +636,6 @@ export declare enum DataType {
    * @since 26.0.0 static
    */
   SET_ALBUM_URI = 2,
-
-  /**
-   * SET_SELECTED_INFO. Set selected information to picker component.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  SET_SELECTED_INFO = 3,
-
-  /**
-   * SET_BADGE_CONFIGS. Set badge configs to picker component.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  SET_BADGE_CONFIGS = 4
 }
 
 /**
@@ -1230,25 +1029,6 @@ export declare enum ItemDisplayRatio {
 }
 
 /**
- * BadgeType.
- *
- * @enum { int } BadgeType
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare enum BadgeType {
-  /**
-   * BADGE_UPLOADED. Asset uploaded.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  BADGE_UPLOADED = 0
-}
-
-/**
  * The callback of onSelected event
  * @typedef { function }
  * @param { string } uri
@@ -1360,13 +1140,3 @@ export type CurrentAlbumDeletedCallback = () => void;
  * @since 26.0.0 static
  */
 export type VideoPlayStateChangedCallback = (state: VideoPlayerState) => void;
-
-/**
- * The callback of onPhotoBrowserZoom event
- *
- * @param { double } scale
- * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @stagemodelonly
- * @since 26.1.0 static
- */
-export type PhotoBrowserZoomCallback = (scale: double) => void;
