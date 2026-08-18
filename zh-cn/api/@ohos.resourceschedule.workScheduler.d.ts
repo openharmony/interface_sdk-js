@@ -669,7 +669,7 @@ declare namespace workScheduler {
    * @param { FrequencyInfo } info - 执行频率信息.
    * @throws { BusinessError } 201 - 没有权限。
    * @throws { BusinessError } 202 - 非系统应用。
-   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavaiable.
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavailable.
    * @throws { BusinessError } 9700006 - 执行频率参数检查失败。
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
