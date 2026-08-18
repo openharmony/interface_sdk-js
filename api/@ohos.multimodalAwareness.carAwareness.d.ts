@@ -43,7 +43,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_MOTION= 'SpatialMotion',
+    SPATIAL_MOTION = 'SpatialMotion',
     /**
      * spatial point specific capability
      *
@@ -52,7 +52,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_POINT= 'SpatialPoint',
+    SPATIAL_POINT = 'SpatialPoint',
     /**
      * spatial gesture specific capability
      *
@@ -61,7 +61,7 @@ declare namespace carAwareness {
      * @stagemodelonly
      * @since 26.1.0
      */
-    SPATIAL_GESTURE= 'SpatialGesture',
+    SPATIAL_GESTURE = 'SpatialGesture',
     /**
      * realtime weather specific capability
      *
@@ -355,7 +355,9 @@ declare namespace carAwareness {
   }
 
   /**
-   * Enables vehicle awareness and subscribes to vehicle awareness results. If this function is not supported, no callback will be triggered. You can use the getAllCapacityList method to obtain the supported capabilities.
+   * Enables vehicle awareness and subscribes to vehicle awareness results.
+   * If this function is not supported, no callback will be triggered.
+   * You can use the getAllCapacityList method to obtain the supported capabilities.
    *
    * @param { Capability } capability - Specific capability.
    * @param { Callback<CarAwarenessInfo[]> } callback - Callback used to return obtaining corresponding capability
