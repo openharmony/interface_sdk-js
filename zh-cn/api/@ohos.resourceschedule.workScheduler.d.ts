@@ -620,5 +620,79 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_LOW_OR_OKAY = 2
   }
+
+  /**
+   * 执行频率信息.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  export interface FrequencyInfo {
+    /**
+     * 应用uid。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    uid: int;
+    /**
+     * 延迟任务id。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    workId: int;
+    /**
+     * 执行频率。
+     * 单位为：毫秒。
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    interval: int;
+  }
+
+  /**
+   * 设置执行频率信息.
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { FrequencyInfo } info - 执行频率信息.
+   * @throws { BusinessError } 201 - 没有权限。
+   * @throws { BusinessError } 202 - 非系统应用。
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavailable.
+   * @throws { BusinessError } 9700006 - 执行频率参数检查失败。
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function setExecFrequency(info: FrequencyInfo): void;
+
+  /**
+   * 重置执行频率信息。
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { int } uid - 应用uid。
+   *     <br> 取值限定为整数。
+   * @throws { BusinessError } 201 - 没有权限。
+   * @throws { BusinessError } 202 - 非系统应用
+   * @throws { BusinessError } 9700003 - 系统服务异常。
+   * @throws { BusinessError } 9700006 - 执行频率参数检查失败。
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function resetExecFrequency(uid: int): void;
 }
 export default workScheduler;
