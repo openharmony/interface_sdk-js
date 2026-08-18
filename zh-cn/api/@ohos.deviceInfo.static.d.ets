@@ -488,6 +488,30 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get sdkApiVersion(): int;
+
+    /**
+     * 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+     *
+     * 示例: 0
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkMinorApiVersion(): int;
+
+    /**
+     * 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+     *
+     * 示例: 0
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkPatchApiVersion(): int;
     
     /**
      * 首个版本系统软件API版本。
