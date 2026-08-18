@@ -761,7 +761,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in.
-   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
+   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected).
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    *
    *     <br>1.Unrecognized discard error code.
