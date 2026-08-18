@@ -154,7 +154,9 @@ declare namespace carAwareness {
   }
 
   /**
-   * Enables spatial motion awareness and subscribes to spatial motion awareness results. If the capability is not supported, no callback will be triggered. You can obtain the supported capabilities by calling the getAllCapacityList method.
+   * Enables spatial motion awareness and subscribes to spatial motion awareness results.
+   * If the capability is not supported, no callback will be triggered.
+   * You can obtain the supported capabilities by calling the getAllCapacityList method.
    *
    * @permission ohos.permission.vehicle.MMA_SPATIALACTION
    * @param { Callback<SpatialMotionInfo> } callback - Callback for obtaining the capability data.
@@ -209,7 +211,9 @@ declare namespace carAwareness {
   }
 
   /**
-   * Enables real-time weather awareness and subscribes to real-time weather awareness results. If the capability is not supported, no callback will be triggered. You can obtain the supported capabilities by calling the getAllCapacityList method.
+   * Enables real-time weather awareness and subscribes to real-time weather awareness results.
+   * If the capability is not supported, no callback will be triggered.
+   * You can obtain the supported capabilities by calling the getAllCapacityList method.
    *
    * @permission ohos.permission.vehicle.MMA_WEATHER
    * @param { Callback<RealTimeWeatherInfo> } callback - Callback for obtaining the capability data.
@@ -267,7 +271,9 @@ declare namespace carAwareness {
   }
 
   /**
-   * Enables refueling awareness and subscribes to refueling awareness results. If this function is not supported, no callback will be triggered. You can obtain the supported capabilities by calling the getAllCapacityList method.
+   * Enables refueling awareness and subscribes to refueling awareness results.
+   * If this function is not supported, no callback will be triggered.
+   * You can obtain the supported capabilities by calling the getAllCapacityList method.
    *
    * @permission ohos.permission.vehicle.MMA_ENERGYREFILL
    * @param { Callback<RefuelingInfo> } callback - Callback for obtaining the capability data.
