@@ -28,30 +28,6 @@
  * @file
  * @kit BasicServicesKit
  */
-/**
- * # device.getInfo<sup>(deprecated)</sup>
- * 
- * getInfo(options?: GetDeviceOptions): void
- * 
- * 获取当前设备的信息。该接口异步读取系统设备信息，通过回调函数返回设备品牌、型号、屏幕参数等数据。
- * 
- * > **说明：**<br>
- * > > 在首页的onShow生命周期之前不建议调用Device.getInfo接口。
- * 
- * **系统能力：** SystemCapability.Startup.SystemInfo.Lite
- * 
- * **返回值：**
- * 
- * | 类型 | 说明 |
- * | -------- | -------- |
- * | void | 无返回值，设备信息通过回调函数返回。 |
- * 
- * **参数：**
- * 
- * | 参数名 | 类型 | 必填 | 说明 |
- * | -------- | -------- | -------- | -------- |
- * | options | [GetDeviceOptions]{@link GetDeviceOptions} | 否 | 定义设备信息获取的参数选项。省略时使用默认配置获取设备基本信息。 |
- */
 
 /**
  * 定义设备信息获取的参数选项。
@@ -133,7 +109,7 @@ export interface DeviceResponse {
   windowWidth: number;
 
   /**
-   * 可使用的窗口宽度，单位px。不同设备的可使用窗口尺寸存在差异。
+   * 可使用的窗口高度，单位px。不同设备的可使用窗口尺寸存在差异。
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
@@ -185,6 +161,29 @@ export interface DeviceResponse {
    * @reserved ["liteWearable"]
    */
   deviceType: string;
+
+  /**
+   * 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：apiVersion.sdkMinorApiVersion.sdkPatchApiVersion。该值获取失败时填充 -1，且不影响 getInfo 接口的整体返回状态。
+   *
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
+   * @famodelonly
+   * @since 26.0.0 dynamiconly
+   * @deprecated since 26.0.0
+   * @reserved ["liteWearable"]
+   */
+  sdkMinorApiVersion?: number;
+ 	 
+  /**
+   * 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：apiVersion.sdkMinorApiVersion.sdkPatchApiVersion。该值获取失败时填充 -1，且不影响 getInfo 接口的整体返回状态。
+   *
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
+   * @famodelonly
+   * @since 26.0.0 dynamiconly
+   * @deprecated since 26.0.0
+   * @reserved ["liteWearable"]
+   */
+  sdkPatchApiVersion?: number;
+
 }
 
 /**
@@ -240,9 +239,21 @@ export interface GetDeviceOptions {
  */
 export default class Device {
   /**
-   * Obtains the device information.
+   * 
+   * 获取当前设备的信息。该接口异步读取系统设备信息，通过回调函数返回设备品牌、型号、屏幕参数等数据。
+   * 
+   * > **说明：**<br>
+   * > > 在首页的onShow生命周期之前不建议调用Device.getInfo接口。
+   * 
+   * **系统能力：** SystemCapability.Startup.SystemInfo.Lite
+   * 
+   * **返回值：**
+   * 
+   * | 类型 | 说明 |
+   * | -------- | -------- |
+   * | void | 无返回值，设备信息通过回调函数返回。 |
    *
-   * @param { GetDeviceOptions } options - Options
+   * @param { GetDeviceOptions } options - 	定义设备信息获取的参数选项。省略时使用默认配置获取设备基本信息。
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6

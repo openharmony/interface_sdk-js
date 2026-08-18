@@ -55,7 +55,7 @@ declare namespace systemParameter {
  	 * > 开发者应根据具体场景选择合适的方法。
    * 
    * @param { string } key - 待查询的系统参数key。
-   * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br>def可以传undefined或自定义的任意值。
+   * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br>def可以传undefined或任意字符串类型的值。
    * @returns { string } 系统参数值。
    *     <br> 若key存在,返回设定的值。
    *     <br> 若key不存在且def有效，返回def；若未指定def或def无效(如undefined)，返回空字符串。
@@ -150,7 +150,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.systemParameterEnhance.etSync
+   * @useinstead ohos.systemParameterEnhance.setSync
    */
   function setSync(key: string, value: string): void;
 
