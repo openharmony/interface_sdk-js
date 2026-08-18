@@ -644,6 +644,48 @@ declare namespace motion {
    * @since 26.0.0 dynamic&static
    */
   function onSmartRotateChange(callback: Callback<SmartRotateEvent>): void;
+  
+  /**
+   * 取消订阅拾起传感器事件。
+   *
+   * @param { Callback<PickupEvent> } [callback] - 要注销的回调函数。若不填，则取消该拾起事件的所有回调。
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offPickupChange(callback?: Callback<PickupEvent>): void;
+
+  /**
+   * 取消订阅旋转传感器事件。
+   *
+   * @param { Callback<RotateEvent> } [callback] - 要注销的回调函数。若不填，则取消该旋转事件的所有回调。
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offRotateChange(callback?: Callback<RotateEvent>): void;
+
+  /**
+   * 取消订阅智能旋转传感器事件。
+   *
+   * @param { Callback<SmartRotateEvent> } [callback] - 要注销的回调函数。若不填，则取消该智能旋转事件的所有回调。
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSmartRotateChange(callback?: Callback<SmartRotateEvent>): void;
 
   /**
    * 订阅悬停手势事件，并立即开始5秒检测。
@@ -708,47 +750,5 @@ declare namespace motion {
    * @since 26.0.0 dynamic&static
    */
   function offHoverHandChange(callback?: Callback<HoverHandAction>): void;
-  
-  /**
-   * 取消订阅拾起传感器事件。
-   *
-   * @param { Callback<PickupEvent> } [callback] - 要注销的回调函数。若不填，则取消该拾起事件的所有回调。
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function offPickupChange(callback?: Callback<PickupEvent>): void;
-
-  /**
-   * 取消订阅旋转传感器事件。
-   *
-   * @param { Callback<RotateEvent> } [callback] - 要注销的回调函数。若不填，则取消该旋转事件的所有回调。
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function offRotateChange(callback?: Callback<RotateEvent>): void;
-
-  /**
-   * 取消订阅智能旋转传感器事件。
-   *
-   * @param { Callback<SmartRotateEvent> } [callback] - 要注销的回调函数。若不填，则取消该智能旋转事件的所有回调。
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
-   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function offSmartRotateChange(callback?: Callback<SmartRotateEvent>): void;
 }
 export default motion;
