@@ -25623,7 +25623,7 @@ declare class CommonMethod<T> {
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    * @param { CustomBuilder } builder - 配置全屏模态页面内容。builder里面的根节点需要唯一。
-   * @param { ModalTransition } type - 全屏模态页面的系统转场方式。<br/> 默认值：ModalTransition.DEFAULT。<br/>**说明：**<br /> 与transition同时设
+   * @param { ModalTransition } [type] - 全屏模态页面的系统转场方式。<br/> 默认值：ModalTransition.DEFAULT。<br/>**说明：**<br /> 与transition同时设
    *     置时，此属性不生效。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25641,7 +25641,7 @@ declare class CommonMethod<T> {
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    * @param { CustomBuilder } builder - 配置全屏模态页面内容。
-   * @param { ContentCoverOptions } options - 配置全屏模态页面的可选属性。
+   * @param { ContentCoverOptions } [options] - 配置全屏模态页面的可选属性。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -25662,7 +25662,7 @@ declare class CommonMethod<T> {
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
    *     [!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
    * @param { CustomBuilder } builder - 配置半模态页面内容。
-   * @param { SheetOptions } options - 配置半模态页面的可选属性。
+   * @param { SheetOptions } [options] - 配置半模态页面的可选属性。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
