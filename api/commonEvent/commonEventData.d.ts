@@ -59,8 +59,8 @@ export interface CommonEventData {
 
   /**
    * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in 
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} when the publisher uses 
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event. The value ranges from –2147483648 to 2147483647.
    * The default value is **0**.
    *
@@ -76,8 +76,8 @@ export interface CommonEventData {
   /**
    * Common event data received by the subscriber. The data size cannot exceed 64 KB.
    * The value of this field is the same as that of the **data** field in
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} when the publisher uses
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
@@ -90,9 +90,9 @@ export interface CommonEventData {
 
   /**
    * Additional information about the common event received by the subscriber. The value of this field is the same as 
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} 
    * when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
