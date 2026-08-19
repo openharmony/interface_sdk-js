@@ -49,7 +49,8 @@ declare namespace systemParameterEnhance {
    * @param { string } key - 待查询的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } def - def为所要获取的系统参数的默认值； <br> def为可选参数，仅当系统参数不存在时生效； <br> def可以传undefined或任意字符串值。
    * @returns { string } 系统参数值。 
-   *     <br> 若key存在,返回设定的值。 
+   *     <br> 若key存在,返回设定的值。
+   *     <br> 若key不存在且指定了def（def不为undefined），返回def。
    *     <br> 若key不存在且未指定def或def为undefined，抛异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
