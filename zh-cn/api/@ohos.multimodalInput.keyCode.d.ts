@@ -75,9 +75,9 @@ export declare enum KeyCode {
 
   /**
    * 多媒体键：播放/暂停。
-   * 
+   *
    * 与KEYCODE_PLAYPAUSE的区别为：
-   * 
+   *
    * KEYCODE_PLAYPAUSE是较早的定义，KEYCODE_MEDIA_PLAY_PAUSE为现代媒体键设备设计，常见于较新的媒体键设备。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -309,7 +309,7 @@ export declare enum KeyCode {
   KEYCODE_STAR = 2010,
 
   /**
-   * 按键'*'。
+   * 按键'#'。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -714,7 +714,7 @@ export declare enum KeyCode {
   KEYCODE_DEL = 2055,
 
   /**
-   * 按键'*'。
+   * 按键'`'。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -786,7 +786,7 @@ export declare enum KeyCode {
   KEYCODE_APOSTROPHE = 2063,
 
   /**
-   * 按键'*'。
+   * 按键'/'。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -795,7 +795,7 @@ export declare enum KeyCode {
   KEYCODE_SLASH = 2064,
 
   /**
-   * 按键'*'。
+   * 按键'@'。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1706,7 +1706,7 @@ export declare enum KeyCode {
   KEYCODE_BOOKMARKS = 2628,
 
   /**
-   * 向下翻页键。
+   * Page Down键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1715,11 +1715,8 @@ export declare enum KeyCode {
   KEYCODE_NEXT = 2629,
 
   /**
-   * 多媒体键：播放/暂停。
-   * 
-   * 与KEYCODE_MEDIA_PLAY_PAUSE的区别为：
-   * 
-   * KEYCODE_PLAYPAUSE是较早的定义，KEYCODE_MEDIA_PLAY_PAUSE为现代媒体键设备设计，常见于较新的媒体键设备。
+   * 多媒体键：播放/暂停。<br>与KEYCODE_MEDIA_PLAY_PAUSE的区别为：<br> KEYCODE_PLAYPAUSE是较早的定义，
+   * KEYCODE_MEDIA_PLAY_PAUSE为现代媒体键设备设计，常见于较新的媒体键设备。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1728,7 +1725,7 @@ export declare enum KeyCode {
   KEYCODE_PLAYPAUSE = 2630,
 
   /**
-   * 向上翻页键。
+   * Page Up键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
