@@ -3140,7 +3140,7 @@ declare namespace commonEventManager {
     /**
      * PC场景在有扩展数据磁盘场景下，表示数据盘是否为可使用的状态。在开机扩展磁盘挂载完成或者用户解锁后广播。
      *
-     * 此事件仅在PC/2in1设备上支持
+     * 此事件仅在PC/2in1设备上支持。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
