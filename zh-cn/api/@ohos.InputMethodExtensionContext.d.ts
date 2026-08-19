@@ -54,29 +54,29 @@ import { ConnectOptions } from './ability/connectOptions';
  * <br>
  * <br>本模块的`InputMethodExtensionContext`需通过`InputMethodExtensionAbility`子类实例获取，其API与InputMethodExtensionAbility生命周期回调组合使用。
  * <br>
- * <br>```javascript
- * <br>// 以下为阐述调用逻辑的伪代码
- * <br>
- * <br>// 1. 定义InputMethodExtensionAbility子类
- * <br>class InputMethodExtAbility extends InputMethodExtensionAbility {
- * <br>  onCreate(want) {
- * <br>    // 获取上下文对象
- * <br>    let context = this.context; // InputMethodExtensionContext实例
- * <br>  }
- * <br>
- * <br>  onDestroy() {
- * <br>    // 在生命周期回调中销毁自身
- * <br>    this.context.destroy();
- * <br>  }
- * <br>}
- * <br>
- * <br>// 2. 拉起目标应用（如输入法设置页面）
- * <br>let targetWant = {
- * <br>  bundleName: "com.example.settings",
- * <br>  abilityName: "SettingsAbility"
- * <br>};
- * <br>this.context.startAbility(targetWant);
- * <br>```
+ * ``` javascript
+ * // 以下为阐述调用逻辑的伪代码
+ * 
+ * // 1. 定义InputMethodExtensionAbility子类
+ * class InputMethodExtAbility extends InputMethodExtensionAbility {
+ *   onCreate(want) {
+ *     // 获取上下文对象
+ *     let context = this.context; // InputMethodExtensionContext实例
+ *   }
+ * 
+ *   onDestroy() {
+ *     // 在生命周期回调中销毁自身
+ *     this.context.destroy();
+ *   }
+ * }
+ * 
+ * // 2. 拉起目标应用（如输入法设置页面）
+ * let targetWant = {
+ *   bundleName: "com.example.settings",
+ *   abilityName: "SettingsAbility"
+ * };
+ * this.context.startAbility(targetWant);
+ * ```
  * <br>
  * <br> > **说明：**
  * <br> >
