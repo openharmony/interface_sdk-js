@@ -23540,7 +23540,7 @@ declare class CommonMethod<T> {
    *     -way binding through
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    * @param { CustomBuilder } builder - Content of the modal. The root node in **builder** must be unique.
-   * @param { ModalTransition } type - System transition mode of the modal.<br> Default value:
+   * @param { ModalTransition } [type] - System transition mode of the modal.<br> Default value:
    *     **ModalTransition.DEFAULT**.<br>**NOTE**<br> This property has no effect when it is set together with
    *     **transition**.
    * @returns { T } Current component.
@@ -23562,7 +23562,7 @@ declare class CommonMethod<T> {
    *     -way binding through
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    * @param { CustomBuilder } builder - Content of the modal.
-   * @param { ContentCoverOptions } options - Optional attributes of the modal.
+   * @param { ContentCoverOptions } [options] - Optional attributes of the modal.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23584,7 +23584,7 @@ declare class CommonMethod<T> {
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md).<br>Since API version 18, this attribute supports two
    *     -way binding through [!!](docroot://ui/state-management/arkts-new-binding.md).
    * @param { CustomBuilder } builder - Content of the sheet.
-   * @param { SheetOptions } options - Optional attributes of the sheet.
+   * @param { SheetOptions } [options] - Optional attributes of the sheet.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
