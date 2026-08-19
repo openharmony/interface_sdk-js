@@ -534,7 +534,7 @@ declare namespace inputMethodEngine {
    * Callback triggered when the size of the input method panel changes.
    *
    * @param { window.Size } size - Panel size.
-   * @param { KeyboardArea } keyboardArea - Size of the keyboard area.
+   * @param { KeyboardArea } [keyboardArea] - Size of the keyboard area.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
    * @since 23 static
@@ -753,8 +753,7 @@ declare namespace inputMethodEngine {
      * Disables listening for the input method stop event. This API uses an asynchronous callback to return the result.
      *
      * @param { 'inputStop' } type - Event type, which is **'inputStop'**.
-     * @param { function } callback - Callback to unregister. If this parameter is not specified, this API unregisters
-     *     all callbacks for the specified type.
+     * @param { function } callback - Callback to unregister. 
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
      */
@@ -2236,7 +2235,7 @@ declare namespace inputMethodEngine {
      *
      * @param { string } msgId - Identifier of the custom data to be sent to the edit box application attached to the
      *     input method application.
-     * @param { ?ArrayBuffer } [msgParam] - Message body of the custom data to be sent to the edit box application
+     * @param { ArrayBuffer } [msgParam] - Message body of the custom data to be sent to the edit box application
      *     attached to the input method application.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3195,7 +3194,7 @@ declare namespace inputMethodEngine {
      * fixed state, the height cannot exceed 70% of the screen height, and the width cannot exceed the screen width.
      * For the panel of the floating state, the height cannot exceed the screen height, and the width cannot exceed
      * the screen width.
-     * @returns { Promise<void>> } Promise that returns no value.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
