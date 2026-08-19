@@ -1744,7 +1744,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
    * @param { int } bundleFlags - Type of the bundle information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<BundleInfo> } Promise used to return the bundle information obtained.
@@ -1823,7 +1823,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
    * @param { int } appFlags - Type of the application information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<ApplicationInfo> } Promise used to return the application information.
@@ -1891,7 +1891,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { int } bundleFlags - Type of the bundle information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<BundleInfo>> } Promise used to return an array of bundle information.
@@ -1958,7 +1958,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { int } appFlags - Type of the application information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<ApplicationInfo>> } Promise used to return the array of application information obtained.
@@ -2043,7 +2043,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Want containing the bundle name to query.
    * @param { int } abilityFlags - Type of the ability information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<AbilityInfo>> } Promise used to return the array of ability information obtained.
@@ -2149,7 +2149,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Want containing the bundle name to query.
    * @param { int } abilityFlags - Type of the ability information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<AbilityInfo> } An array of ability information.
@@ -2241,7 +2241,7 @@ declare namespace bundleManager {
    * @param { Want } want - Want containing the bundle name to query.
    * @param { ExtensionAbilityType } extensionAbilityType - Type of the ExtensionAbility.
    * @param { int } extensionAbilityFlags - Type of the ExtensionAbility information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Promise used to return the array of ExtensionAbility information
@@ -2272,7 +2272,7 @@ declare namespace bundleManager {
    * @param { Want } want - Want containing the bundle name to query.
    * @param { ExtensionAbilityType } extensionAbilityType - Type of the ExtensionAbility.
    * @param { int } extensionAbilityFlags - Type of the ExtensionAbility information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information.
@@ -2304,7 +2304,7 @@ declare namespace bundleManager {
    * @param { string } extensionAbilityType - Type of the custom ExtensionAbility.
    * @param { int } extensionAbilityFlags - Information flags to be contained in the returned ExtensionAbilityInfo
    *     object.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information obtained.
@@ -2335,7 +2335,7 @@ declare namespace bundleManager {
    * @param { string } extensionAbilityType - Type of the custom ExtensionAbility.
    * @param { int } extensionAbilityFlags - Information flags to be contained in the returned ExtensionAbilityInfo
    *     object.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information obtained.
@@ -2988,7 +2988,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Want> } Promise used to return the Want object obtained.
@@ -3014,7 +3014,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS) [since 24]
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Want } Want object.
@@ -3093,7 +3093,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } abilityName - Name of the UIAbility component.
-   * @param { string } metadataName - Metadata name of the UIAbility component, that is, **name** of the **metadata**
+   * @param { string } [metadataName] - Metadata name of the UIAbility component, that is, **name** of the **metadata**
    *     tag under [abilities](docroot://quick-start/module-configuration-file.md#abilities) in the **module.json5**
    *     file. The default value is null.
    * @returns { Promise<Array<string>> } Promise used to return the array of JSON strings obtained.
@@ -3118,7 +3118,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } abilityName - Name of the UIAbility component.
-   * @param { string } metadataName - Metadata name of the UIAbility component, that is, **name** of the **metadata**
+   * @param { string } [metadataName] - Metadata name of the UIAbility component, that is, **name** of the **metadata**
    *     tag under [abilities](docroot://quick-start/module-configuration-file.md#abilities) in the **module.json5**
    *     file. The default value is null.
    * @returns { Array<string> } An array of JSON strings.
@@ -3170,7 +3170,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } extensionAbilityName - Name of the ExtensionAbility component.
-   * @param { string } metadataName - Metadata name of the ExtensionAbility component, that is, **name** of the
+   * @param { string } [metadataName] - Metadata name of the ExtensionAbility component, that is, **name** of the
    *     **metadata** tag under
    *     [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) in the
    *     **module.json5** file. The default value is null.
@@ -3195,7 +3195,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } extensionAbilityName - Name of the ExtensionAbility component.
-   * @param { string } metadataName - Metadata name of the ExtensionAbility component, that is, **name** of the
+   * @param { string } [metadataName] - Metadata name of the ExtensionAbility component, that is, **name** of the
    *     **metadata** tag under
    *     [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) in the
    *     **module.json5** file. The default value is null.
@@ -3656,7 +3656,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
@@ -3681,7 +3681,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { AppProvisionInfo } Provision profile.
@@ -3778,9 +3778,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { ProfileType } profileType - Type of the profile.
    * @param { string } bundleName - Bundle name of the application.
-   * @param { string } moduleName - Module name of the application. If this parameter is not passed in, the entry module
+   * @param { string } [moduleName] - Module name of the application. If this parameter is not passed in, the entry module
    *     is used.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0. [since 12]
    * @returns { string } JSON string of the profile.
@@ -4186,7 +4186,7 @@ declare namespace bundleManager {
    * [distribution type]{@link bundleManager.AppDistributionType}.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } appDistributionType - Application distribution type. If this parameter is not specified, a list of
+   * @param { int } [appDistributionType] - Application distribution type. If this parameter is not specified, a list of
    *     developer IDs of all applications is returned.
    * @returns { Array<string> } An array of strings.
    * @throws { BusinessError } 201 - Permission denied.
