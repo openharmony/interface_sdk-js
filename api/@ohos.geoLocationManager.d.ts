@@ -499,6 +499,48 @@ declare namespace geoLocationManager {
   function offNmeaMessage(callback?: Callback<string>): void;
 
   /**
+   * Add a geofence and subscribe geofence status changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
+   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('
+   *     gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 9 dynamic
+   */
+  function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+
+  /**
+   * Remove a geofence and unsubscribe geofence status changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION [since 9 - 24]
+   * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
+   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
+   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 9 - 24]
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.off('gnssFenceStatusChange')} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 9 dynamic
+   */
+  function off(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+
+  /**
    * Registering the callback function for listening to country code changes.
    *
    * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
@@ -4473,7 +4515,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    ACCURACY = 0x201,
+    ACCURACY,
 
     /**
      * Preferentially ensure low power consumption for locating.
@@ -4484,7 +4526,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    LOW_POWER = 0x202,
+    LOW_POWER,
 
     /**
      * Preferentially ensure that the first location is time-consuming.
@@ -4495,7 +4537,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    FIRST_FIX = 0x203
+    FIRST_FIX
   }
 
   /**
@@ -4528,7 +4570,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    NAVIGATION = 0x301,
+    NAVIGATION,
 
 
     /**
@@ -4540,7 +4582,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    TRAJECTORY_TRACKING = 0x302,
+    TRAJECTORY_TRACKING,
 
     /**
      * Car hailing scenario. High positioning precision and real-time performance are required.
@@ -4551,7 +4593,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    CAR_HAILING = 0x303,
+    CAR_HAILING,
 
     /**
      * Daily life scenarios. Low requirements on positioning precision and real-time performance.
@@ -4562,7 +4604,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    DAILY_LIFE_SERVICE = 0x304,
+    DAILY_LIFE_SERVICE,
 
     /**
      * Power saving scenarios.
@@ -4573,7 +4615,7 @@ declare namespace geoLocationManager {
      * @since 9 dynamic
      * @since 23 static
      */
-    NO_POWER = 0x305
+    NO_POWER
   }
 
   /**
