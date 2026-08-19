@@ -3358,8 +3358,7 @@ declare namespace commonEventManager {
 
     /**
      * This common event indicates whether the data disk is available for use on a PC with an extended data disk.
-     * A broadcast is sent after the extended data disk is mounted during system startup or after the user unlocks
-     * the screen.
+     * A broadcast is sent after the extended data disk is mounted during system startup or after the user logs in.
      * 
      * This event is supported only on PCs/2-in-1 devices.
      *
