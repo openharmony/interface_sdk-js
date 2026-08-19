@@ -520,25 +520,6 @@ declare namespace geoLocationManager {
   function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
   /**
-   * Add a geofence and subscribe geofence status changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
-   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.onGnssFenceStatusChange} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
-   * @syscap SystemCapability.Location.Location.Geofence
-   */
-  function onGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
-
-  /**
    * Remove a geofence and unsubscribe geofence status changed.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION [since 9 - 24]
@@ -558,22 +539,6 @@ declare namespace geoLocationManager {
    * @since 9 dynamic
    */
   function off(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
-
-  /**
-   * Remove a geofence and unsubscribe geofence status changed.
-   *
-   * @param { GeofenceRequest } request - Indicates the Geofence configuration parameters.
-   * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call ${geoLocationManager.offGnssFenceStatusChange} due to limited device capabilities.
-   * @throws { BusinessError } 3301000 - The location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301600 - Failed to operate the geofence.
-   * @syscap SystemCapability.Location.Location.Geofence
-   */
-  function offGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
 
   /**
    * Registering the callback function for listening to country code changes.
