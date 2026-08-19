@@ -14,20 +14,15 @@
  */
 
 /**
- * @file Global Shortcut Keys
+ * @file 全局快捷键
  * @kit InputKit
  */
 
 import { Callback } from './@ohos.base';
-
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
- * 全局快捷键订阅模块，用于处理组合按键的订阅，本模块也支持音量键拦截监听能力。
- * 
- * > **说明：**
- * >
- * > - 全局快捷键指由系统或应用定义的组合按键，系统快捷键指由系统定义的全局快捷键，应用快捷键指由应用定义的全局快捷键。
+ * 全局快捷键订阅模块，用于处理组合按键的订阅。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
@@ -87,9 +82,7 @@ declare namespace inputConsumer {
   interface KeyOptions {
 
     /**
-     * 前置按键集合，数量范围[0, 4]，前置按键无顺序要求。
-     * 
-     * 如组合按键Ctrl+Alt+A中，Ctrl+Alt称为前置按键。
+     * 前置按键集合，数量范围[0, 4]，前置按键无顺序要求。<br>如组合键Ctrl+Alt+A中，Ctrl+Alt称为前置按键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -99,9 +92,7 @@ declare namespace inputConsumer {
     preKeys: Array<int>;
 
     /**
-     * 最终按键，此项必填，最终按键触发上报回调函数。
-     * 
-     * 如组合按键Ctrl+Alt+A中，A称为最终按键。
+     * 最终按键，此项必填，最终按键触发上报回调函数。<br>如组合按键Ctrl+Alt+A中，A称为最终按键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -111,9 +102,7 @@ declare namespace inputConsumer {
     finalKey: int;
 
     /**
-     * 最终按键状态。
-     * 
-     * true表示按键按下，false表示按键抬起。
+     * 最终按键状态。<br>true表示按键按下，false表示按键抬起。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -123,12 +112,8 @@ declare namespace inputConsumer {
     isFinalKeyDown: boolean;
 
     /**
-     * 最终按键保持按下持续时间，单位为微秒（μs）。
-     * 
-     * 当finalKeyDownDuration为0时，立即触发回调函数。
-     * 
-     * 当finalKeyDownDuration大于0时，isFinalKeyDown为true，则最终按键按下超过设置时长后触发回调函数；isFinalKeyDown为false，则最终按键按下到抬起时间小于设置时长时触发回调函
-     * 数。
+     * 最终按键保持按下持续时间，单位为微秒（μs）。<br>当finalKeyDownDuration为0时，立即触发回调函数。<br>当finalKeyDownDuration大于0时，isFinalKeyDown为true，则最终按键按下超过设置时长后触发回调函数；
+     * isFinalKeyDown为false，则最终按键按下到抬起时间小于设置时长时触发回调函数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -148,7 +133,7 @@ declare namespace inputConsumer {
     isRepeat?: boolean;
 
     /**
-     * 触发模式。取值为PRESSED(1)、REPEAT_PRESSED(2)或ALL_RELEASED(3)。启用命令触发模式。一旦设置此值，isFinalKeyDown和isRepeat将被忽略。对于
+     * 触发模式。取值为PRESSED（1）、REPEAT_PRESSED（2）或ALL_RELEASED（3）。启用命令触发模式。一旦设置此值，isFinalKeyDown和isRepeat将被忽略。对于
      * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}
      * 接口该参数是可选参数，对于
      * [inputConsumer.onKey]{@link inputConsumer.onKey(keyOptions: KeyOptions, callback:KeyCommandCallback)}接口该参数是必填参数。
@@ -171,9 +156,7 @@ declare namespace inputConsumer {
   interface HotkeyOptions {
 
     /**
-     * 修饰键（包括 Ctrl、Shift 和 Alt）集合，数量范围[1, 4]，无顺序要求。
-     * 
-     * 例如，Ctrl+Shift+Esc中，Ctrl+Shift称为修饰键。
+     * 修饰键（包括 Ctrl、Shift 和 Alt）集合，数量范围[1, 4]，无顺序要求。<br>例如，Ctrl+Shift+Esc中，Ctrl+Shift称为修饰键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -182,9 +165,7 @@ declare namespace inputConsumer {
     preKeys: Array<int>;
 
     /**
-     * 被修饰键，除修饰键和Meta键以外的按键，详细按键介绍请参见[@ohos.multimodalInput.keyCode (键值)]{@link @ohos.multimodalInput.keyCode:KeyCode}。
-     * 
-     * 例如，Ctrl+Shift+Esc中，Esc称为被修饰键。
+     * 被修饰键，除修饰键和Meta键以外的按键，详细按键介绍请参见[@ohos.multimodalInput.keyCode (键值)]{@link @ohos.multimodalInput.keyCode:KeyCode}。<br>例如，Ctrl+Shift+Esc中，Esc称为被修饰键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -212,16 +193,12 @@ declare namespace inputConsumer {
   interface KeyPressedConfig {
 
     /**
-     * 按键键值。
-     * 
-     * **说明：** 从API version 26.0.0开始，新增支持[KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
+     * 按键键值。<br/>**说明：** 从API version 26.0.0开始，新增支持[KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
      * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode}键，非设备通用键值，使用前请判断当前设备是否支持相关按键事件上报，请参考
-     * [优先响应系统功能键开发指导](docroot://device/input/keypressed-guidelines.md)。
-     * 
+     * [优先响应系统功能键开发指导](docroot://device/input/keypressed-guidelines.md)。<br/>
      * 从API version 21开始，新增支持[KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode}键、
      * [KEYCODE_MEDIA_NEXT]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
-     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode}键。
-     * 
+     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode}键。<br/>
      * 对于API version 20及之前的版本，仅支持[KEYCODE_VOLUME_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
      * [KEYCODE_VOLUME_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode}键。
      *
@@ -233,11 +210,7 @@ declare namespace inputConsumer {
     key: int;
 
     /**
-     * 订阅指定的按键事件。
-     * 
-     * **说明：** 从API version 21开始，支持取值为1和2，取值为1表示订阅按键按下事件，取值为2表示同时订阅按键按下事件和按键抬起事件。
-     * 
-     * 对于API version 20及之前的版本，仅支持取值为1，表示订阅按键按下事件。
+     * 订阅指定的按键事件。<br/>**说明：** 从API version 21开始，支持取值为1和2，取值为1表示订阅按键按下事件，取值为2表示同时订阅按键按下事件和按键抬起事件。<br/>对于API version 20及之前的版本，仅支持取值为1，表示订阅按键按下事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16 dynamic
@@ -266,7 +239,7 @@ declare namespace inputConsumer {
   enum ShieldMode {
 
     /**
-     * 屏蔽所有系统快捷键。
+     * 值为0，表示屏蔽所有系统快捷键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -294,12 +267,11 @@ declare namespace inputConsumer {
    * > **说明：**
    * >
    * > - 支持仅订阅按键的down事件，或者同时订阅按键的down事件和up事件。
-   * >
    * > - 若需要仅订阅按键的up事件，会存在down事件被焦点窗口消费，而无up事件闭环的风险，需要排查设计实现是否合理。
    *
    * @param { 'key' } type - 事件类型，目前仅支持'key'。
    * @param { KeyOptions } keyOptions - 组合键选项。从API版本26.0.0起keyOptions中新增参数
-   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
+   * [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
    * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -327,10 +299,7 @@ declare namespace inputConsumer {
   /**
    * 订阅组合按键（按键命令模式），支持通过triggerType指定不同的触发模式。当满足条件的组合按键输入事件发生时，使用callback异步回调。
    * 
-   * 与 
-   * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}
-   * 现有接口的区别：
-   * 
+   * 与[inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}现有接口的区别：
    * - 本接口的keyOptions支持triggerType参数，可选择按键按下触发、重复按下触发、重复按下或抬起均会触发等模式。
    * - 本接口回调参数为KeyCommandCallback类型，同时接收KeyOptions和KeyEvent对象。
    * - 本接口采用事件消费机制，可通过事件消费阻止按键事件向后传递。
@@ -350,7 +319,7 @@ declare namespace inputConsumer {
    *
    * @param { 'key' } type - 事件类型，当前仅支持 'key'。
    * @param { KeyOptions } keyOptions - 组合键选项。从API版本26.0.0起keyOptions中新增参数
-   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
+   * [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
    * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -512,8 +481,8 @@ declare namespace inputConsumer {
    * 订阅按键按下事件，使用callback异步回调。若当前应用窗口为前台焦点窗口，用户按下指定按键，会触发回调。
    * 订阅成功后，该按键事件的系统默认行为将被屏蔽，即不会再触发系统级的响应，如音量调节。要恢复系统响应，请使用off方法取消订阅。
    *
-   * @param { KeyPressedConfig } options - Key consumption settings.
-   * @param { Callback<KeyEvent> } callback - Callback used to return key events.
+   * @param { KeyPressedConfig } options - 按键事件消费设置。
+   * @param { Callback<KeyEvent> } callback - 回调函数，返回按键事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.

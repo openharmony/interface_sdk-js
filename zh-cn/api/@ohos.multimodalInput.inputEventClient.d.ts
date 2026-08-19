@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Input Event Injection
+ * @file 输入事件注入
  * @kit InputKit
  */
 
@@ -26,10 +26,6 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 
 /**
  * 输入事件注入模块，提供输入按键、鼠标/触控板、触屏输入事件注入能力。
- * 
- * > **说明：**
- * >
- * > - 本模块接口为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use [since 8 - 24]
@@ -232,7 +228,7 @@ declare namespace inputEventClient {
    * 按键(包括单个按键和组合键)注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { KeyEventInfo } keyEvent - 按键注入描述信息。.
+   * @param { KeyEventInfo } keyEvent - 按键注入描述信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -248,7 +244,7 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { MouseEventData } mouseEvent - 鼠标/触控板事件注入描述信息。此参数中[Action]{@link @ohos.multimodalInput.mouseEvent:Action}属性
-   *     不支持设置为CANCEL。
+   * 不支持设置为CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -265,7 +261,7 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { TouchEventData } touchEvent - 触屏注入描述信息。此参数中[Action]{@link @ohos.multimodalInput.touchEvent:Action}属性不支持设置为
-   *     CANCEL。
+   * CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -294,11 +290,7 @@ declare namespace inputEventClient {
   function permitInjection(result: boolean): void;
 
   /**
-   * 提供模拟按键操作的功能。模拟按键操作序列必须满足以下要求：
-   * 
-   * 1. 按键只能在抬起状态下被按下，或者在该按键是最近按下的按键且未抬起的情况下被按下。
-   * 2. 按键只能在被按下后才能抬起。
-   * 3. 最多可以同时按下并保持五个按键。
+   * 提供模拟按键操作的功能。模拟按键操作序列必须满足以下要求：<br>1. 按键只能在抬起状态下被按下，或者在该按键是最近按下的按键且未抬起的情况下被按下。<br>2. 按键只能在被按下后才能抬起。<br>3. 最多可以同时按下并保持五个按键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -356,11 +348,7 @@ declare namespace inputEventClient {
   function createKeyboardController(): Promise<KeyboardController>;
 
   /**
-   * 提供模拟鼠标操作的功能。模拟鼠标操作序列必须满足以下要求：
-   * 
-   * 1. 鼠标按键只能在抬起状态下被按下。
-   * 2. 鼠标按键只能在被按下后才能抬起。
-   * 3. 有效的轴事件序列必须先调用beginAxis开始事件，然后调用零次或多次updateAxis更新事件，最后调用endAxis结束事件。
+   * 提供模拟鼠标操作的功能。模拟鼠标操作序列必须满足以下要求：<br>1. 鼠标按键只能在抬起状态下被按下。<br>2. 鼠标按键只能在被按下后才能抬起。<br>3. 有效的轴事件序列必须先调用beginAxis开始事件，然后调用零次或多次updateAxis更新事件，最后调用endAxis结束事件。<br>
    * 4. 同一时间只能有一个进行中的轴事件序列。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -532,10 +520,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * 提供模拟触控操作的功能。模拟触控操作序列必须满足以下要求：
-   * 
-   * 1. 所有触点的displayId必须相同。
-   * 2. 每个触点都必须以`touchDown()`开始，以`touchUp()`结束，中间可包含多个`touchMove()`。
+   * 提供模拟触控操作的功能。模拟触控操作序列必须满足以下要求：<br>1. 所有触点的displayId必须相同。<br>2. 每个触点都必须以`touchDown()`开始，以`touchUp()`结束，中间可包含多个`touchMove()`。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly

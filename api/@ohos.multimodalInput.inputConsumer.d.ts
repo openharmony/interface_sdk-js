@@ -19,7 +19,6 @@
  */
 
 import { Callback } from './@ohos.base';
-
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**

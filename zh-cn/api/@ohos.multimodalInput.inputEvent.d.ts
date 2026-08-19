@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Input Event
+ * @file 输入事件
  * @kit InputKit
  */
 
 /**
- * 设备上报的基本事件。
+ * 输入事件。
  *
  * @interface InputEvent [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
