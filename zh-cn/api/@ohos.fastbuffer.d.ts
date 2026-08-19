@@ -91,7 +91,7 @@ declare namespace fastbuffer {
      * 根据不同的编码格式，返回指定内容的字节数。
      *
      * @param { string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } value - 指定用于计算字节长度的内容。
-     * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+     * @param { BufferEncoding } [encoding] - 编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
      * @returns { number } 返回指定内容的字节数。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -328,9 +328,13 @@ declare namespace fastbuffer {
         /**
          * 检查FastBuffer对象是否包含`value`值。
          *
+         * 若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。
+         *
+         * 当byteOffset大于等于this.length时，返回false。当byteOffset小于等于-this.length，查找整个FastBuffer中是否存在`value`。
+         *
          * @param { string | number | FastBuffer | Uint8Array } value - 要搜索的内容。
          * @param { number } [byteOffset] - 字节偏移量。若为正数，则从0开始计算偏移量；若为负数，则从末尾开始计算偏移量。默认值：0。
-         * @param { BufferEncoding } [encoding] - 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+         * @param { BufferEncoding } [encoding] - 字符编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
          * @returns { boolean } 若FastBuffer对象包含`value`值时返回true，否则为false。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
@@ -341,9 +345,13 @@ declare namespace fastbuffer {
         /**
          * 返回当前对象中首次出现`value`的索引，如果不包含`value`，则返回-1。
          *
+         * 若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。
+         *
+         * 当byteOffset大于等于this.length时，返回-1。当byteOffset小于等于-this.length，返回整个FastBuffer中首次出现`value`的索引。
+         *
          * @param { string | number | FastBuffer | Uint8Array } value - 要查找的内容。
          * @param { number } [byteOffset] - 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：0。
-         * @param { BufferEncoding } [encoding] - 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
+         * @param { BufferEncoding } [encoding] - 字符编码格式（当`value`为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。
          * @returns { number } 返回第一次出现的位置。如果不包含`value`，则返回-1。
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
@@ -386,6 +394,10 @@ declare namespace fastbuffer {
         ]>;
         /**
          * 返回当前对象中最后一次出现`value`的索引，如果对象不包含`value`，则返回-1。
+         *
+         * 若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。
+         *
+         * 当byteOffset大于等于this.length时，返回整个FastBuffer中最后一次出现`value`的索引。当byteOffset小于等于-this.length时，返回-1。
          *
          * @param { string | number | FastBuffer | Uint8Array } value - 要搜索的内容。
          * @param { number } [byteOffset] - 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：this.length - 1。
@@ -724,7 +736,7 @@ declare namespace fastbuffer {
         /**
          * 将当前对象中指定位置的数据转成指定编码格式的字符串并返回。
          *
-         * @param { string } [encoding] - 字符编码格式。默认值：'utf8'。
+         * @param { string } [encoding] - 字符编码格式，支持的格式范围参考BufferEncoding。默认值：'utf8'。
          * @param { number } [start] - 开始位置。默认值：0。
          * @param { number } [end] - 结束位置。默认值：this.length。
          * @returns { string } 字符串。当start >= this.length或start > end时返回空字符串。

@@ -802,12 +802,12 @@ declare namespace collections {
     /**
      * 从ArkTS Array指定范围内的元素依次拷贝到目标位置。
      *
-     * @param { number } target - 目标起始位置的下标。如果传入负数，则指代
-     *     `target + array.length`位置的下标。
-     * @param { number } start - 源起始位置下标。如果传入负数，则指代
-     *     **start + array.length**位置的下标。
-     * @param { number } end - 源终止位置下标。如果传入负数，则指代 `end
-     *     + array.length`位置的下标。默认值为ArkTS Array的长度。
+     * @param { number } target - 目标起始位置的下标，如果`target < 0`，则会从`target + array.length`位置开始。
+     *     取值应为整数，当输入浮点数时会向下取整。
+     * @param { number } start - 源起始位置下标，如果`start < 0`，则会从`start + array.length`位置开始。
+     *     取值应为整数，当输入浮点数时会向下取整。拷贝过程中包含start位置下标所在的元素。
+     * @param { number } [end] - 源终止位置下标，如果`end < 0`，则会从`end + array.length`位置终止。
+     *     默认为ArkTS Array的长度。取值应为整数，当输入浮点数时会向下取整。拷贝过程中不包含end位置下标所在的元素。
      * @returns { Array<T> } 修改后的ArkTS Array。可能的原因：
      *     1. 必填参数未指定。
      *     2. 参数类型不正确。
@@ -836,7 +836,7 @@ declare namespace collections {
      * 返回ArkTS Array实例中最后一次出现指定值的索引。
      *
      * @param { T } searchElement - 要搜索的值。
-     * @param { number } fromIndex - 开始搜索的索引。默认值为ArkTS Array长度减1（即从末尾开始）。如果索引大于或等于
+     * @param { number } [fromIndex] - 开始搜索的索引。默认值为ArkTS Array长度减1（即从末尾开始）。如果索引大于或等于
      *     ArkTS Array的长度，则返回**-1**。如果传入负数，则指代
      *     **fromIndex + array.length**位置的下标。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
@@ -1329,7 +1329,7 @@ declare namespace collections {
      * 返回一个新的ArkTS ArrayBuffer对象，其包含原ArkTS ArrayBuffer指定范围的内容。
      *
      * @param { number } begin - 开始索引。如果`begin < 0`，则会从`begin + arrayBuffer.byteLength`位置开始。
-     * 如果`begin < -arrayBuffer.byteLength`，则从0开始。默认值为0。
+     * 如果`begin < -arrayBuffer.byteLength`，则从0开始。
      * @param { number } [end] - 结束索引（不包括该元素）。如果`end < 0`，则会到`end + arrayBuffer.byteLength`位置结束。
      * 如果`end > arrayBuffer.byteLength`，则截取到arrayBuffer.byteLength位置。默认为原ArkTS ArrayBuffer的长度。
      * @returns { ArrayBuffer } collections.ArrayBuffer。
@@ -1853,7 +1853,7 @@ declare namespace collections {
      * 返回ArkTS Int8Array实例中最后一次出现searchElement的索引，如果不存在，则返回-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始索引，从该位置开始往前查找。默认值为ArkTS Int8Array长度减1（即从末尾开始）。如果索引大于等于ArkTS Int8Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始索引，从该位置开始往前查找。默认值为ArkTS Int8Array长度减1（即从末尾开始）。如果索引大于等于ArkTS Int8Array的长度，
      * 则从末尾开始往前查找。如果提供的索引值是负数，则被当作距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回-1。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -2431,7 +2431,7 @@ declare namespace collections {
      * 返回ArkTS Uint8ClampedArray实例中最后一次出现searchElement的索引，如果对象不包含，则为-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 从后到前搜索的起始下标。默认值为ArkTS Uint8ClampedArray的长度减1。如果提供的下标值是负数，则被当做距离数组尾部的偏移。
+     * @param { number } [fromIndex] - 从后到前搜索的起始下标。默认值为ArkTS Uint8ClampedArray的长度减1。如果提供的下标值是负数，则被当做距离数组尾部的偏移。
      * 如果fromIndex的值导致搜索区间和数组范围没有重叠，则返回-1。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回-1。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3033,7 +3033,7 @@ declare namespace collections {
      * 返回ArkTS Uint8Array实例中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint8Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint8Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint8Array的长度，
      *     则返回**-1**。如果传入负数，则从后到前从ArkTS Uint8Array末尾开始搜索。
      * @returns { number } 该值最后一次出现的索引。如果未找到该值，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3632,7 +3632,7 @@ declare namespace collections {
      * 返回ArkTS Int16Array中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Int16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int16Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Int16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int16Array的长度，
      *     则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -4221,7 +4221,7 @@ declare namespace collections {
      * 返回ArkTS Uint16Array实例中最后一次出现searchElement的索引，如果不包含该元素，则返回-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
      *     如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -4804,7 +4804,7 @@ declare namespace collections {
      * 返回ArkTS Int32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int32Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Int32Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Int32Array末尾开始搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果未找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -5391,7 +5391,7 @@ declare namespace collections {
      * 返回ArkTS Uint32Array实例中最后一次出现给定元素的索引，如果不存在，则返回**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint32Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint32Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Uint32Array的末尾开始向前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -5960,7 +5960,7 @@ declare namespace collections {
      * 返回ArkTS Float32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Float32Array长度减1（即从末尾开始）。
      *     如果下标大于等于ArkTS Float32Array的长度，则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
