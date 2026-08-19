@@ -23,6 +23,28 @@ import lang from './@arkts.lang'
 /*** endif */
 
 /**
+ * The built-in Array type.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinArray<T> = Array<T>;
+
+/**
+ * The built-in Map type.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinMap<K, V> = Map<K, V>;
+
+/**
  * The collections module provides ArkTS containers for efficient data transfer in concurrency scenarios. The ArkTS
  * containers provide similar functionalities as their JavaScript counterparts, except that their properties cannot be
  * added or updated through `.` or `[]`.
@@ -164,6 +186,46 @@ declare namespace collections {
    */
   type ArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
+
+  /**
+   * Defines the ArkTS Array predicate function, which is used by the 'retainAll'
+   * API of the Array class to determine whether array elements meet certain test conditions.
+   *
+   * @param { ElementType } value - Element that is being processed.
+   * @returns { boolean } True if the value meets the predicate, otherwise false.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayElementPredicateFn<ElementType> = (value: ElementType) => boolean;
+
+  /**
+   * Defines the type for ArkTS Array APIs that accept either an ArkTS Array or a built-in Array.
+   *
+   * @unionmember { Array<T> } ArkTS Array.
+   * @unionmember { BuiltinArray<T> } Built-in Array.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayOrBuiltinArray<T> = Array<T> | BuiltinArray<T>;
+
+  /**
+   * Defines the type for ArkTS Map APIs that accept either an ArkTS Map or a built-in Map.
+   *
+   * @unionmember { Map<K, V> } ArkTS Map.
+   * @unionmember { BuiltinMap<K, V> } Built-in Map.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type MapOrBuiltinMap<K, V> = Map<K, V> | BuiltinMap<K, V>;
 
   /**
    * Defines the ArkTS Array reduction function, which is used by the 'reduceRight' API of the Array class.
@@ -665,6 +727,38 @@ declare namespace collections {
      */
     includes(searchElement: T, fromIndex?: number): boolean;
     /**
+     * Checks whether all elements in a specified ArkTS Array or built-in Array are contained in this ArkTS Array.
+     *
+     * @param { ArrayOrBuiltinArray<T> } elements - ArkTS Array or built-in Array whose elements are to be checked.
+     * @returns { boolean } Check result. The value **true** is returned if all elements are contained in this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: ArrayOrBuiltinArray<T>): boolean;
+    /**
+     * Retains only the elements in this ArkTS Array that are contained in the specified ArkTS Array or built-in Array, or
+     * satisfy the specified predicate.
+     *
+     * @param { ArrayOrBuiltinArray<T> | ArrayElementPredicateFn<T> } value - ArkTS Array or built-in Array
+     *     whose elements are to be retained, or predicate function used to test each element.
+     * @returns { boolean } Operation result. The value **true** is returned if any elements are removed from this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(value: ArrayOrBuiltinArray<T> | ArrayElementPredicateFn<T>): boolean;
+    /**
      * Returns the index of the first element that passes a test provided by a callback function. If none of the
      * elements pass the test, **-1** is returned.
      *
@@ -1073,6 +1167,21 @@ declare namespace collections {
      */
     clear(): void;
     /**
+     * Checks whether this ArkTS map maps one or more keys to the specified value.
+     *
+     * @param { V } value - Target value.
+     * @returns { boolean } Check result. The value **true** is returned if the value exists; otherwise, **false** is
+     *     returned.
+     * @throws { BusinessError } 10200011 - The containsValue method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsValue(value: V): boolean;
+    /**
      * Deletes a specified key from this ArkTS map.
      *
      * @param { K } key - Key to delete.
@@ -1086,6 +1195,26 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     delete(key: K): boolean;
+    /**
+     * Removes the specified key and its corresponding value from this ArkTS map.
+     *
+     * > **NOTE**
+     * >
+     * > - When **undefined** is returned, you cannot directly distinguish whether the key does not exist or the
+     * >   key exists but its value is **undefined**. Before calling this API, you can use **has** to check whether
+     * >   the key exists, so that you can distinguish the case of the returned **undefined**.
+     *
+     * @param { K } key - Target key.
+     * @returns { V | undefined } Value removed. If the key is not found, **undefined** is returned.
+     * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    remove(key: K): V | undefined;
     /**
      * Calls a callback function for each key-value pair in this ArkTS map.
      *
@@ -1125,6 +1254,41 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     has(key: K): boolean;
+    /**
+     * Adds or updates a key-value pair to this ArkTS map and returns the previous value associated with the key.
+     *
+     * > **NOTE**
+     * >
+     * > - When **undefined** is returned, you cannot directly distinguish whether the key does not exist or the
+     * >   key exists but its value is **undefined**. Before calling this API, you can use **has** to check whether
+     * >   the key exists, so that you can distinguish the case of the returned **undefined**.
+     *
+     * @param { K } key - Target key.
+     * @param { V } value - Target value.
+     * @returns { V | undefined } Previous value associated with the key. If the key is not found, **undefined** is
+     *     returned.
+     * @throws { BusinessError } 10200011 - The put method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    put(key: K, value: V): V | undefined;
+    /**
+     * Updates this ArkTS map with key-value pairs from the specified map.
+     *
+     * @param { MapOrBuiltinMap<K, V> } from - Map that provides key-value pairs.
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: MapOrBuiltinMap<K, V>): void;
     /**
      * Adds or updates a key-value pair to this ArkTS map.
      *
