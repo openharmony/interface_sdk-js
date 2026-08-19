@@ -25,7 +25,8 @@
  * >
  * > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * > hardwareProfile、incrementalVersion、buildType、buildUser、buildHost、buildTime、buildRootHash等参数返回值为default，这些参数会在设备正式商用版本中配置具体值。
- * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。
+ * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。未特殊说明的字段，数据长度最大值为96字节。
+ * > 相关错误码请参考[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform [since 11]
@@ -232,7 +233,7 @@ declare namespace deviceInfo {
    * 
    * **说明：**可作为设备唯一识别码。
    * 
-   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
+   * 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：序列号随设备差异
    *
@@ -493,7 +494,7 @@ declare namespace deviceInfo {
    * 
    * **说明：**数据长度为65字节(包含结束符)。可作为设备唯一识别码。
    * 
-   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
+   * 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412
    *
@@ -590,7 +591,7 @@ declare namespace deviceInfo {
    * 
    * **说明** ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。
    * 
-   * ohos.permission.ACCESS_DISK_PHY_INFO 
+   * 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO (该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：2502EM400567
    *
@@ -609,7 +610,7 @@ declare namespace deviceInfo {
    */
   export enum PerformanceClassLevel {
     /**
-     * 表示设备能力定级为高。
+     * 值为0,表示设备能力定级为高。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
@@ -617,7 +618,7 @@ declare namespace deviceInfo {
      */
     CLASS_LEVEL_HIGH,
     /**
-     * 表示设备能力定级为中。
+     * 值为1,表示设备能力定级为中。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
@@ -625,7 +626,7 @@ declare namespace deviceInfo {
      */
     CLASS_LEVEL_MEDIUM,
     /**
-     * 表示设备能力定级为低。
+     * 值为2,表示设备能力定级为低。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
