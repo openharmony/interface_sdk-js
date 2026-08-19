@@ -23389,7 +23389,7 @@ declare class CommonMethod<T> {
    *
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
    *     action: () => void }[] | CustomBuilder } content - Indicates the content of menu. [since 7 - 10]
-   * @param { MenuOptions } options - Indicates the options of menu.
+   * @param { MenuOptions } [options] - Indicates the options of menu.
    * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu. [since 11]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23404,7 +23404,7 @@ declare class CommonMethod<T> {
    *
    * @param { boolean } isShow true means display menu, false means hide menu, default is false.
    * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
-   * @param { MenuOptions } options - Indicates the options of menu.
+   * @param { MenuOptions } [options] - Indicates the options of menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23421,7 +23421,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder } content - Indicates the content of context menu.
    * @param { ResponseType } responseType - Indicates response type of context menu, Long pressing with a mouse device
    *     is not supported.
-   * @param { ContextMenuOptions } options - Indicates the options of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
