@@ -14335,7 +14335,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -14405,7 +14405,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -14481,7 +14481,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The window is not created.
+     *     Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
