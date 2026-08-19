@@ -7032,7 +7032,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *     1. The window is not created or destroyed;
+     *     1. The window is not created;
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -8346,7 +8346,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
+     *     Possible cause: 1. The window is not created;
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
