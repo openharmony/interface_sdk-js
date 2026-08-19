@@ -3357,7 +3357,11 @@ declare namespace commonEventManager {
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
 
     /**
-     * This common event indicates that the data volume status has been reported.
+     * This common event indicates weather the data disk is available for use on a PC with an extended data disk.
+     * A broadcast is sent after the extended data disk is mounted during system startup or after the user unlocks
+     * the screen
+     * 
+     * This event is supported only on PCs/2-in-1 devices
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
