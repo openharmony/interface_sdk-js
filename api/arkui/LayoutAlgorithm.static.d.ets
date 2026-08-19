@@ -73,12 +73,11 @@ export declare class CustomLayoutAlgorithm implements LayoutAlgorithm {
 /**
  * ColumnLayoutAlgorithm constructor options.
  *
- * @interface ColumnLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-interface ColumnLayoutAlgorithmOptions {
+export declare interface ColumnLayoutAlgorithmOptions {
     /**
      * Vertical layout element space.
      *
@@ -181,12 +180,11 @@ export declare class ColumnLayoutAlgorithm implements LayoutAlgorithm {
 /**
  * RowLayoutAlgorithm constructor options.
  *
- * @interface RowLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-interface RowLayoutAlgorithmOptions {
+export declare interface RowLayoutAlgorithmOptions {
     /**
      * Horizontal layout element spacing.
      *
@@ -289,12 +287,11 @@ export declare class RowLayoutAlgorithm implements LayoutAlgorithm {
 /**
  * StackLayoutAlgorithm constructor options.
  *
- * @interface StackLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-interface StackLayoutAlgorithmOptions {
+export declare interface StackLayoutAlgorithmOptions {
     /**
      * Defines the align rules of child components in stack layout algorithm.
      *
@@ -340,12 +337,11 @@ export declare class StackLayoutAlgorithm implements LayoutAlgorithm {
 /**
  * GridLayoutAlgorithm constructor options.
  *
- * @interface GridLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
-interface GridLayoutAlgorithmOptions {
+export declare interface GridLayoutAlgorithmOptions {
     /**
      * This parameter specifies the number of columns in the current grid layout.
      *
