@@ -241,7 +241,7 @@ declare namespace defaultAppManager {
    *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @returns { Promise<BundleInfo> } Promise used to return the default application.
@@ -271,7 +271,7 @@ declare namespace defaultAppManager {
    *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @returns { BundleInfo } Bundle information of the default application.
@@ -362,7 +362,7 @@ declare namespace defaultAppManager {
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
    * @param { ElementName } elementName - Information about the element to be set as the default application.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @returns { Promise<void> } Promise that returns no value.
@@ -393,7 +393,7 @@ declare namespace defaultAppManager {
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
    * @param { ElementName } elementName - Information about the element to be set as the default application.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @throws { BusinessError } 201 - Permission denied.
@@ -507,7 +507,7 @@ declare namespace defaultAppManager {
    *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @returns { Promise<void> } Promise that returns no value.
@@ -536,7 +536,7 @@ declare namespace defaultAppManager {
    *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
    *     complies with the media type format, or a value defined by
    *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller.
    * @throws { BusinessError } 201 - Permission denied.

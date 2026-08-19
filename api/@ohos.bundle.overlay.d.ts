@@ -274,7 +274,7 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name of the application.
-   * @param { string } moduleName - Name of the module with the overlay feature. By default, no value is passed, and the
+   * @param { string } [moduleName] - Name of the module with the overlay feature. By default, no value is passed, and the
    *     API obtains the information of all modules with the overlay feature in that application.
    * @returns { Promise<Array<OverlayModuleInfo>> } Promise used to return the result, which is an array of
    *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects.
@@ -356,7 +356,7 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - Bundle name of the application.
-   * @param { string } moduleName - Name of the target module. By default, no value is passed, and the API obtains the
+   * @param { string } [moduleName] - Name of the target module. By default, no value is passed, and the API obtains the
    *     information associated with all modules in that application.
    * @returns { Promise<Array<OverlayModuleInfo>> } Promise used to return the result, which is an array of
    *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects.
