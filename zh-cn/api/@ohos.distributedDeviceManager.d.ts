@@ -21,7 +21,9 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * 本模块提供分布式设备管理能力。
+ * 本模块提供分布式设备管理能力，包括设备的发现、认证、状态监听和信息查询等功能。设备管理基于设备信任模型，
+ * 通过发现周边设备并进行认证绑定来建立可信连接，已认证的可信设备可用于分布式业务。
+ * 
  * 应用可调用接口实现如下功能：
  * 
  * - 注册和解除注册设备上下线变化监听。
@@ -29,6 +31,10 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * - 认证和取消认证设备。
  * - 查询可信设备列表。
  * - 查询本地设备信息，包括设备名称，设备类型和设备标识等。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * @since 10 dynamic
@@ -72,7 +78,7 @@ declare namespace distributedDeviceManager {
     deviceType: string;
 
     /**
-     * 设备网络标识。
+     * 设备网络标识。未提供时默认为空字符串。
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
@@ -837,10 +843,11 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * 创建一个设备管理实例。设备管理实例是分布式设备管理方法的调用入口。用于获取可信设备和本地设备的相关信息。
+   * 创建一个设备管理实例，是分布式设备管理方法的调用入口。该实例用于获取可信设备列表以及本地设备的名称、
+   * 类型、标识和网络标识等信息。当设备管理实例不再使用时，应调用releaseDeviceManager释放该实例，避免资源泄漏。
    *
-   * @param { string } bundleName - 指示应用程序的Bundle名称。长度范围1~255字符。
-   * @returns { DeviceManager } 返回设备管理器对象实例。
+   * @param { string } bundleName - 指示应用的Bundle名称。长度范围1~255字符，超出范围时返回错误码401。
+   * @returns { DeviceManager } 返回设备管理器对象实例，用于获取可信设备列表以及本地设备的名称、类型、标识和网络标识等信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter type;
@@ -854,7 +861,7 @@ declare namespace distributedDeviceManager {
   /**
    * 设备管理实例不再使用后，通过该方法释放DeviceManager实例。
    *
-   * @param { DeviceManager } deviceManager - 设备管理器对象实例。
+   * @param { DeviceManager } deviceManager - 通过createDeviceManager创建的设备管理器对象实例。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -867,7 +874,8 @@ declare namespace distributedDeviceManager {
   function releaseDeviceManager(deviceManager: DeviceManager): void;
 
   /**
-   * 设备管理实例，用于获取可信设备和本地设备的相关信息。在调用DeviceManager的方法前，需要先通过createDeviceManager构建一个DeviceManager实例dmInstance。
+   * 设备管理实例，是分布式设备管理方法的调用入口，提供设备发现、设备认证、状态监听和信息查询等能力。
+   * 在调用DeviceManager的方法前，需要先通过createDeviceManager构建一个DeviceManager实例dmInstance。
    *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
@@ -876,10 +884,12 @@ declare namespace distributedDeviceManager {
   interface DeviceManager {
 
     /**
-     * 同步获取所有可信设备列表。
+     * 同步获取所有在线可信设备。调用前需先通过createDeviceManager创建DeviceManager实例。
+     * 与getAvailableDeviceList的区别在于：本方法为同步调用，直接返回结果；getAvailableDeviceList为异步调用，通过callback
+     * 或Promise返回结果。建议在需要阻塞等待结果的场景使用本方法，在不希望阻塞线程的场景使用getAvailableDeviceList。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Array<DeviceBasicInfo> } 返回可信设备列表。
+     * @returns { Array<DeviceBasicInfo> } 返回可信设备列表，包含设备标识、名称、类型和网络标识等信息。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -890,10 +900,13 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceListSync(): Array<DeviceBasicInfo>;
 
     /**
-     * 获取所有可信设备列表。使用callback异步回调。
+     * 获取所有在线可信设备。调用前需先通过createDeviceManager创建DeviceManager实例。使用callback异步回调。
+     * 与getAvailableDeviceListSync的区别在于：本方法为异步调用，通过callback返回结果；getAvailableDeviceListSync为同步调用，
+     * 直接返回结果。建议在不希望阻塞线程的场景使用本方法，在需要阻塞等待结果的场景使用getAvailableDeviceListSync。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - 获取所有可信设备列表的回调，返回设备信息。
+     * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - 回调函数。当获取可信设备列表成功时，err为undefined，
+     *     data为获取到的可信设备列表；失败时，err为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -904,10 +917,12 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceList(callback: AsyncCallback<Array<DeviceBasicInfo>>): void;
 
     /**
-     * 获取所有可信设备列表。使用Promise异步回调。
+     * 获取所有在线可信设备。调用前需先通过createDeviceManager创建DeviceManager实例。使用Promise异步回调。
+     * 与getAvailableDeviceListSync的区别在于：本方法为异步调用，通过Promise返回结果；getAvailableDeviceListSync为同步调用，
+     * 直接返回结果。建议在不希望阻塞线程的场景使用本方法，在需要阻塞等待结果的场景使用getAvailableDeviceListSync。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<Array<DeviceBasicInfo>> } Promise实例，用于获取异步返回结果。
+     * @returns { Promise<Array<DeviceBasicInfo>> } Promise对象，resolve时返回分布式设备基本信息列表，reject时返回错误信息。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -921,7 +936,7 @@ declare namespace distributedDeviceManager {
      * 获取本地设备网络标识。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } 返回本地设备网络标识。
+     * @returns { string } 返回本地设备网络标识，即设备在分布式网络中的唯一标识字符串。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -935,7 +950,7 @@ declare namespace distributedDeviceManager {
      * 获取本地设备名称。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } 返回本地设备名称。
+     * @returns { string } 返回本地设备名称，可用于设备的展示与识别。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -963,7 +978,7 @@ declare namespace distributedDeviceManager {
      * 获取本地设备id，实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } 返回本地设备id。
+     * @returns { string } 返回本地设备ID，实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -977,8 +992,10 @@ declare namespace distributedDeviceManager {
      * 通过指定设备的网络标识获取该设备名称。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } networkId - 设备的网络标识。长度范围1~255字符。
-     * @returns { string } 返回指定设备名称。
+     * @param { string } networkId - 设备的网络标识，可从可信设备列表（getAvailableDeviceListSync或
+     *     getAvailableDeviceList返回的DeviceBasicInfo）中获取。注意：若获取到的networkId为空字符串，不可用于本接口调用。
+     *     长度范围1~255字符，超出范围时返回错误码401。
+     * @returns { string } 返回指定设备名称，可用于设备的展示与识别。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -997,7 +1014,9 @@ declare namespace distributedDeviceManager {
      * 通过指定设备的网络标识获取该设备类型。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } networkId - 设备的网络标识。长度范围1~255字符。
+     * @param { string } networkId - 设备的网络标识，可从可信设备列表（getAvailableDeviceListSync或
+     *     getAvailableDeviceList返回的DeviceBasicInfo）中获取。注意：若获取到的networkId为空字符串，不可用于本接口调用。
+     *     长度范围1~255字符，超出范围时返回错误码401。
      * @returns { int } <!--RP2-->返回指定设备类型。<!--RP2End-->
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
@@ -1014,7 +1033,9 @@ declare namespace distributedDeviceManager {
     getDeviceType(networkId: string): int;
 
     /**
-     * 发现周边设备。发现状态持续两分钟，超过两分钟，会停止发现，最大发现数量99个。wifi场景要求同局域网。
+     * 发现周边设备，用于在需要建立分布式连接前搜索可用设备。发现状态持续两分钟，超时后自动停止，最大发现数量为99个。使用WiFi进行
+     * 设备发现时，要求发现方与被发现方处于同一局域网内。调用本方法前，需先通过on('discoverSuccess')注册设备发现成功回调以接收
+     * 发现的设备信息，并通过on('discoverFailure')注册设备发现失败回调以接收失败通知。发现完成后可调用stopDiscovering停止发现。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { object } discoverParam - 发现标识。 标识发现的目标类型。
@@ -1045,7 +1066,9 @@ declare namespace distributedDeviceManager {
     startDiscovering(discoverParam: { [key: string]: Object; }, filterOptions?: { [key: string]: Object; }): void;
 
     /**
-     * 发现周边设备。发现状态持续两分钟，超过两分钟，会停止发现，最大发现数量99个。wifi场景要求同局域网。
+     * 发现周边设备，用于在需要建立分布式连接前搜索可用设备。发现状态持续两分钟，超时后自动停止，最大发现数量为99个。使用WiFi进行
+     * 设备发现时，要求发现方与被发现方处于同一局域网内。调用本方法前，需先通过on('discoverSuccess')注册设备发现成功回调以接收
+     * 发现的设备信息，并通过on('discoverFailure')注册设备发现失败回调以接收失败通知。发现完成后可调用stopDiscovering停止发现。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Record<string, int | string> } discoverParam - 发现标识。 标识发现的目标类型。
@@ -1073,7 +1096,8 @@ declare namespace distributedDeviceManager {
     startDiscovering(discoverParam: Record<string, int | string>, filterOptions?: Record<string, int | string>): void;
 
     /**
-     * 停止发现周边设备。
+     * 停止发现周边设备。与startDiscovering方法配合使用，用于在发现超时（两分钟）前手动停止设备发现。
+     * 需在调用startDiscovering之后调用。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
@@ -1086,10 +1110,13 @@ declare namespace distributedDeviceManager {
     stopDiscovering(): void;
 
     /**
-     * 认证设备。使用callback异步回调。
+     * 认证设备，将发现的不可信设备通过认证流程绑定为可信设备。认证过程中，系统会根据bindParam中指定的认证类型发起认证请求，
+     * 认证成功后设备将加入可信设备列表，可通过getAvailableDeviceListSync查询。当不再需要与目标设备进行分布式业务时，
+     * 可调用unbindTarget解除绑定。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - 设备标识。长度范围1~255字符。
+     * @param { string } deviceId - 设备标识，可从设备发现结果（startDiscovering的discoverSuccess回调返回的
+     *     DeviceBasicInfo）中获取。长度范围1~255字符，超出范围时返回错误码401。
      * @param { object } bindParam - 认证参数。由开发者自行决定传入的键值对。默认会携带以下key值：
      *     <br>bindType 此值是绑定的类型，必填。
      *     <br />-1：PIN码。
@@ -1097,7 +1124,8 @@ declare namespace distributedDeviceManager {
      *     <br>appName 尝试绑定目标的应用程序名称。
      *     <br>appOperation 应用程序要绑定目标的原因。
      *     <br>customDescription 操作的详细说明。
-     * @param { AsyncCallback<{deviceId: string;}> } callback - 认证结果回调。
+     * @param { AsyncCallback<BindTargetResult> } callback - 认证结果回调。当认证成功时，
+     *     err为undefined，data为包含deviceId的对象；当认证失败时，err为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter type;
@@ -1113,10 +1141,13 @@ declare namespace distributedDeviceManager {
     bindTarget(deviceId: string, bindParam: { [key: string]: Object; }, callback: AsyncCallback<{deviceId: string;}>): void;
 
     /**
-     * 认证设备。使用callback异步回调。
+     * 认证设备，将发现的不可信设备通过认证流程绑定为可信设备。认证过程中，系统会根据bindParam中指定的认证类型发起认证请求，
+     * 认证成功后设备将加入可信设备列表，可通过getAvailableDeviceListSync查询。当不再需要与目标设备进行分布式业务时，
+     * 可调用unbindTarget解除绑定。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - 设备标识。长度范围1~255字符。
+     * @param { string } deviceId - 设备标识，可从设备发现结果（startDiscovering的discoverSuccess回调返回的
+     *     DeviceBasicInfo）中获取。长度范围1~255字符，超出范围时返回错误码401。
      * @param { Record<string, int | string> } bindParam - 认证参数。由开发者自行决定传入的键值对。
      *     默认会携带以下key值：
      *     <br>bindType 此值是绑定的类型，必填。
@@ -1125,7 +1156,8 @@ declare namespace distributedDeviceManager {
      *     <br>appName 尝试绑定目标的应用程序名称。
      *     <br>appOperation 应用程序要绑定目标的原因。
      *     <br>customDescription 操作的详细说明。
-     * @param { AsyncCallback<BindTargetResult> } callback - 认证结果回调。
+     * @param { AsyncCallback<BindTargetResult> } callback - 认证结果回调。当认证成功时，
+     *     err为undefined，data为包含deviceId的对象；当认证失败时，err为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -1136,10 +1168,14 @@ declare namespace distributedDeviceManager {
     bindTarget(deviceId: string, bindParam: Record<string, int | string>, callback: AsyncCallback<BindTargetResult>): void;
 
     /**
-     * 解除认证设备。
+     * 解除认证设备，用于在不再需要与目标设备进行分布式业务时，解除与该设备的认证关系。与bindTarget方法配合使用，
+     * 仅能解除已通过bindTarget认证绑定的可信设备。解除后设备将从可信设备列表中移除，
+     * 可通过getAvailableDeviceListSync或getAvailableDeviceList查询确认。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } deviceId - 设备标识。长度范围1~255字符。
+     * @param { string } deviceId - 设备标识，仅支持已通过bindTarget认证绑定的可信设备，可从可信设备列表
+     *     （getAvailableDeviceListSync或getAvailableDeviceList返回的DeviceBasicInfo）中获取。
+     *     长度范围1~255字符，超出范围时返回错误码401。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter type;
@@ -1182,11 +1218,12 @@ declare namespace distributedDeviceManager {
     replyUiAction(action: int, actionResult: string): void;
 
     /**
-     * 注册设备状态回调，以便在设备状态发生变化时根据应用捆绑包名通知应用。使用callback异步回调。
+     * 注册设备状态回调，以便在设备状态发生变化时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'deviceStateChange' } type - 注册设备状态回调，固定为deviceStateChange。
-     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - 指示要注册的设备状态回调，返回设备状态和设备信息。
+     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - 指示要注册的设备状态回调，
+     *     返回设备状态和设备信息。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1200,7 +1237,7 @@ declare namespace distributedDeviceManager {
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void;
 
     /**
-     * 注册设备状态回调，以便在设备状态发生变化时根据应用捆绑包名通知应用。使用callback异步回调。
+     * 注册设备状态回调，以便在设备状态发生变化时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DeviceStateChangeResult> } callback
@@ -1215,9 +1252,9 @@ declare namespace distributedDeviceManager {
      * 取消注册设备状态回调。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceStateChange' } type - 根据应用程序的包名取消注册设备状态回调，固定为deviceStateChange。
-     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - 指示要取消注册的设备状态回调，返回设备状态和设备信
-     *     息。
+     * @param { 'deviceStateChange' } type - 取消注册设备状态回调，固定为deviceStateChange。
+     * @param { Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> } callback - 指示要取消注册的设备
+     *     状态回调，返回设备状态和设备信息。如果指定该参数则取消对应callback，否则取消所有已注册的deviceStateChange回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1234,8 +1271,8 @@ declare namespace distributedDeviceManager {
      * 取消注册设备状态回调。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<DeviceStateChangeResult> } [callback]
-     *     指示要取消注册的设备状态回调，返回设备状态和设备信息。
+     * @param { Callback<DeviceStateChangeResult> } [callback] - 指示要取消注册的设备状态回调，返回设备状态和设备信息。
+     *     如果指定该参数则取消对应callback，否则取消所有已注册的deviceStateChange回调。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1244,7 +1281,8 @@ declare namespace distributedDeviceManager {
     offDeviceStateChange(callback?: Callback<DeviceStateChangeResult>): void;
 
     /**
-     * 注册发现设备成功回调监听。使用callback异步回调。
+     * 注册发现设备成功回调。使用callback异步回调。此回调在调用startDiscovering发现到周边设备时触发，
+     * 返回发现的设备信息（DeviceBasicInfo）。需在调用startDiscovering之前注册此回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverSuccess' } type - 注册设备发现回调，以便在发现周边设备时通知应用程序，固定为discoverSuccess。
@@ -1262,7 +1300,8 @@ declare namespace distributedDeviceManager {
     on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): void;
 
     /**
-     * 注册发现设备成功回调监听。使用callback异步回调。
+     * 注册发现设备成功回调。使用callback异步回调。此回调在调用startDiscovering发现到周边设备时触发，
+     * 返回发现的设备信息（DeviceBasicInfo）。需在调用startDiscovering之前注册此回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DiscoverySuccessResult> } callback - 注册设备发现的回调方法。
@@ -1304,11 +1343,11 @@ declare namespace distributedDeviceManager {
     offDiscoverSuccess(callback?: Callback<DiscoverySuccessResult>): void;
 
     /**
-     * 注册设备名称变更回调，以便在设备名称改变时通知应用程序。使用callback异步回调。
+     * 注册设备名称变更回调，以便在设备名称改变时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'deviceNameChange' } type - 注册设备名称改变回调，以便在设备名称改变时通知应用程序，固定为deviceNameChange。
-     * @param { Callback<{ deviceName: string; }> } callback - 注册设备名称改变的回调方法。
+     * @param { Callback<{ deviceName: string; }> } callback - 注册设备名称改变的回调方法，返回变更后的设备名称。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1322,10 +1361,10 @@ declare namespace distributedDeviceManager {
     on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void;
 
     /**
-     * 注册设备名称变更回调，以便在设备名称改变时通知应用程序。使用callback异步回调。
+     * 注册设备名称变更回调，以便在设备名称改变时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<DeviceNameChangeResult> } callback - 注册设备名称改变的回调方法。
+     * @param { Callback<DeviceNameChangeResult> } callback - 注册设备名称改变的回调方法，返回变更后的设备名称。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1339,6 +1378,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'deviceNameChange' } type - 取消注册设备名称改变回调，固定为deviceNameChange。
      * @param { Callback<{ deviceName: string; }> } callback - 指示要取消注册设备名称改变的回调方法。
+     *     如果指定该参数则取消对应callback，否则取消所有已注册的deviceNameChange回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1356,6 +1396,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DeviceNameChangeResult> } [callback] - 指示要取消注册设备名称改变的回调方法。
+     *     如果指定该参数则取消对应callback，否则取消所有已注册的deviceNameChange回调。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1364,11 +1405,13 @@ declare namespace distributedDeviceManager {
     offDeviceNameChange(callback?: Callback<DeviceNameChangeResult>): void;
 
     /**
-     * 注册设备发现失败回调监听。使用callback异步回调。
+     * 注册设备发现失败回调。使用callback异步回调。此回调在调用startDiscovering发现设备失败时触发，
+     * 返回失败原因。需在调用startDiscovering之前注册此回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverFailure' } type - 注册设备发现失败回调，以便在发现周边设备失败时通知应用程序，固定为discoverFailure。
-     * @param { Callback<{ reason: int; }> } callback - 注册设备发现失败的回调方法。
+     * @param { Callback<{ reason: int; }> } callback - 指示要取消注册的设备发现失败回调。
+     *     如果指定该参数则取消对应callback，否则取消所有已注册的discoverFailure回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1382,7 +1425,8 @@ declare namespace distributedDeviceManager {
     on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void;
 
     /**
-     * 注册设备发现失败回调监听。使用callback异步回调。
+     * 注册设备发现失败回调。使用callback异步回调。此回调在调用startDiscovering发现设备失败时触发，
+     * 返回失败原因。需在调用startDiscovering之前注册此回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DiscoveryFailureResult> } callback
@@ -1399,7 +1443,8 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverFailure' } type - 取消注册设备发现失败回调，固定为discoverFailure。
-     * @param { Callback<{ reason: int; }> } callback - 指示要取消注册的设备发现失败回调。
+     * @param { Callback<{ reason: int; }> } callback - 指示要取消注册的设备发现失败回调。如果指定该参数则取消对应callback，
+     *     否则取消所有已注册的discoverFailure回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1416,8 +1461,8 @@ declare namespace distributedDeviceManager {
      * 取消注册设备发现失败回调。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<DiscoveryFailureResult> } [callback]
-     *     指示要取消注册的设备发现失败回调。
+     * @param { Callback<DiscoveryFailureResult> } [callback] - 指示要取消注册的设备发现失败回调。如果指定该参数则取消
+     *     对应callback，否则取消所有已注册的discoverFailure回调。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1426,11 +1471,12 @@ declare namespace distributedDeviceManager {
     offDiscoverFailure(callback?: Callback<DiscoveryFailureResult>): void;
 
     /**
-     * 注册设备管理服务死亡回调，以便在服务死亡时通知应用程序。使用callback异步回调。
+     * 注册设备管理服务死亡回调，以便在服务死亡时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'serviceDie' } type - 注册serviceDie回调，以便在devicemanager服务异常终止时通知应用程序，固定为serviceDie。
-     * @param { Callback<{}> } callback - 注册serviceDie的回调方法。
+     * @param { Callback<{}> } callback - 注册serviceDie的回调方法，当设备管理服务异常终止时触发该回调通知应用。
+     *     如果不传入callback参数，则不会注册回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1444,10 +1490,11 @@ declare namespace distributedDeviceManager {
     on(type: 'serviceDie', callback?: Callback<{}>): void;
 
     /**
-     * 注册设备管理服务死亡回调，以便在服务死亡时通知应用程序。使用callback异步回调。
+     * 注册设备管理服务死亡回调，以便在服务死亡时通知应用。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ServiceDieData> } callback - 注册serviceDie的回调方法。
+     * @param { Callback<ServiceDieData> } callback - 注册serviceDie的回调方法，当设备管理服务异常终止时触发该回调通知应用。
+     *     如果不传入callback参数，则不会注册回调。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1459,8 +1506,9 @@ declare namespace distributedDeviceManager {
      * 取消注册设备管理服务死亡回调。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serviceDie' } type - 取消注册serviceDie回调，以便在devicemanager服务异常终止时通知应用程序，固定为serviceDie。
-     * @param { Callback<{}> } callback - 取消注册serviceDie的回调方法。
+     * @param { 'serviceDie' } type - 取消注册serviceDie回调，固定为serviceDie。
+     * @param { Callback<{}> } callback - 指示要取消注册的serviceDie回调。如果指定该参数则取消对应callback，
+     *     否则取消所有已注册的serviceDie回调。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1477,7 +1525,8 @@ declare namespace distributedDeviceManager {
      * 取消注册设备管理服务死亡回调。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ServiceDieData> } [callback] - 取消注册serviceDie的回调方法。
+     * @param { Callback<ServiceDieData> } [callback] - 指示要取消注册的serviceDie回调。如果指定该参数则取消对应callback，
+     *     否则取消所有已注册的serviceDie回调。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
