@@ -9357,7 +9357,7 @@ declare namespace window {
      *
      * @param { 'subWindowClose' } type - Event type. The value is fixed at **'subWindowClose'**, indicating the child
      *     window close event.
-     * @param { Callback<void> } callback - Callback invoked when the close button in the top-right corner of the child
+     * @param { Callback<void> } [callback] - Callback invoked when the close button in the top-right corner of the child
      *     window is clicked. It does not return any parameter. The return value of the internal logic of the callback
      *     function determines whether to continue to close the child window. If **true** of the Boolean type is
      *     returned, the child window is not closed. If **false** or other non-Boolean types are returned, the child
@@ -9380,7 +9380,7 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     * @param { Callback<void> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -9451,7 +9451,7 @@ declare namespace window {
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at **'windowWillClose'**, indicating the
      *     window close event.
-     * @param { Callback<void, Promise<boolean>> } callback - Callback invoked when the close button in the top-right
+     * @param { Callback<void, Promise<boolean>> } [callback] - Callback invoked when the close button in the top-right
      *     corner of the window is clicked. It does not return any parameter. The internal logic of the callback
      *     function requires a return value of the Promise<boolean> type. In the returned Promise function,
      *     **resolve(true)** means not to close the window, and **resolve(false)** or **reject** means to continue to
@@ -12181,7 +12181,7 @@ declare namespace window {
      *     scenario.
      * @param { boolean } isMinimizeButtonVisible - Whether to show the minimize button. **true** to show, **false**
      *     otherwise.
-     * @param { boolean } isCloseButtonVisible - Whether to show the close button. **true** to show, **false**
+     * @param { boolean } [isCloseButtonVisible] - Whether to show the close button. **true** to show, **false**
      *     otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
@@ -12422,7 +12422,7 @@ declare namespace window {
      * @param { 'windowTitleButtonRectChange' } type - Event type. The value is fixed at
      *     **'windowTitleButtonRectChange'**, indicating that the change event of the rectangle that holds the minimize,
      *     maximize, and close buttons.
-     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle. If a value is passed
+     * @param { Callback<TitleButtonRect> } [callback] - Callback used to return the new rectangle. If a value is passed
      *     in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified
      *     event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -14263,7 +14263,7 @@ declare namespace window {
      *
      * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage
      *     close event.
-     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to
+     * @param { Callback<void> } [callback] Callback function requires a boolean return value to determine whether to
      *     close the current main window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
