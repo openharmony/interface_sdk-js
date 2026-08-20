@@ -26,6 +26,28 @@
  * @since 24 dynamic&static
  */
 declare namespace hyperSnapManager {
+    export enum HyperSnapErrorType{
+        CREATE_SNAPSHOT = 0,
+        FORK_FROM_SNAPSHOT = 1
+    }
+
+    export enum HyperSnapErrorCode {
+        ERR_OK = 0,
+        ERR_SYSTEM_INNER = 1,
+        ERR_SNAPSHOT_EXIST = 2,
+        ERR_PROCESS_IS_RUNNING = 3,
+        ERR_SNAPSHOT_PROCESS_IS_DIED = 4,
+        ERR_SNAPSHOT_IS_INTERRUPTED = 5,
+        ERR_EXISTS_ILLEGAL_BINDER = 6,
+        ERR_LAST_PROCESS_NOT_FULLY_EXITED = 7
+    }
+
+    export interface HyperSnapErrorInfo {
+        code: HyperSnapErrorCode;
+        msg: string;
+        occurTimeStamp: string;
+    }
+
     /**
      * Enables or disables the Hyper Snap performance optimization for the application.
      * 
@@ -73,6 +95,8 @@ declare namespace hyperSnapManager {
      * @since 24 dynamic&static
      */
     function requestRebuildHyperSnap(): void;
+
+    function getLastError(errType: HyperSnapErrorType) : Promise<HyperSnapErrorInfo>;
 }
 
 export default hyperSnapManager;
