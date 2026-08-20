@@ -534,7 +534,7 @@ declare namespace screen {
    *     point numbers are rounded down.
    * @param { MultiScreenMode } secondaryScreenMode - Display mode of the secondary screen.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -553,7 +553,7 @@ declare namespace screen {
    * @param { MultiScreenPositionOptions } mainScreenOptions - Position of the primary screen.
    * @param { MultiScreenPositionOptions } secondaryScreenOptions - Position of the secondary screen.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -578,7 +578,6 @@ declare namespace screen {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -1194,7 +1193,7 @@ declare namespace screen {
   }
 
   /**
-   * The parameter of setting orientation
+   * The parameters for setting orientation
    *
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -1340,7 +1339,6 @@ declare namespace screen {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
@@ -1357,11 +1355,10 @@ declare namespace screen {
    *     otherwise, error code 401 is returned.
    * @returns { Promise<Array<long>> } Promise used to return the independent screen IDs, where each ID is an integer
    *     greater than 0.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
