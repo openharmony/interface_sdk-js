@@ -309,7 +309,7 @@ declare namespace i18n {
      * OHOS::EventFwk::CommonEventSupport::COMMON_EVENT_LOCALE_CHANGED，具体可参考
      * [系统语言与区域](docroot://internationalization/i18n-system-language-region.md#开发步骤)。
      *
-     * @returns { Intl.Locale } the locale object currently used by the system.
+     * @returns { Intl.Locale } 系统区域对象。
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
