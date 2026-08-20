@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Standard NFC Tags
+ * @file 标准NFC-Tag
  * @kit ConnectivityKit
  */
 
@@ -36,28 +36,19 @@ import Want from './@ohos.app.ability.Want';
 import type { ElementName } from './bundleManager/ElementName';
 
 /**
- * The **tag** module provides APIs for operating and managing NFC tags. The following tag read modes are available:
- *
- * Background mode: The device reads the tag by using NFC without starting any application, and then searches for
- * applications based on the tag type. If only one application is matched, the card reading page of that application
- * will be started. If multiple applications are matched, an application selector will be started, asking the user to
- * select an application. Background mode does not involve tag-related APIs. For details, see
- * [nfc-tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md#accessing-an-nfc-tag-without-starting-an-application).
- *
- * Foreground mode: A foreground application has priority to read the NFC tag discovered.
- *
- * > **NOTE**
+ * 本模块主要用于操作及管理NFC Tag，提供后台读卡和前台应用优先分发两种读卡模式。
+ * 后台读卡是指不需要打开应用程序，电子设备通过NFC读取标签卡片后，根据标签卡片的类型匹配到一个或多个应用程序。如果仅匹配到一个，则直接拉起应用程序的读卡页面；如果是多个则弹出应用选择器，让用户选择指定的读卡应用。后台读卡不涉及tag相
+ * 关接口，示例参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md#后台读取标签)。
+ * 前台读卡是指提前打开应用程序，并进入对应的NFC读卡页面后读卡，只会把读到的标签卡片信息分发给前台应用程序。
+ * 
+ * > **说明：**
  * >
- * > 2. Since API version 26.0.0, it is more accurate to determine whether a device supports NFC by calling both
- * > [canIUse("SystemCapability.Communication.NFC.Tag")](docroot://reference/common/init.md#caniuse) and
- * > [nfcController.isNfcSupported]{@link @ohos.nfc.controller:nfcController.isNfcSupported}. If the device does not
- * > support NFC, the application stability may be affected. For details, see
- * > [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * > 2. 从API版本26.0.0开始请使用[canIUse("SystemCapability.Communication.NFC.Tag")](docroot://reference/common/init.md#caniuse)
+ * > && [nfcController.isNfcSupported]{@link @ohos.nfc.controller:nfcController.isNfcSupported}共同判断设备是否支持NFC能力更加准确，否则可能导
+ * > 致应用运行稳定性问题，参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  * >
- * > 3. If an error is reported while importing the tag module editor, the capabilities of a specific device model may
- * > exceed the capability set defined for the default device. To use these capabilities, configure a custom SysCap by
- * > following instructions in
- * > [SystemCapability](https://developer.huawei.com/consumer/en/doc/harmonyos-references/syscap).
+ * > 3. 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考
+ * > [syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -66,7 +57,7 @@ import type { ElementName } from './bundleManager/ElementName';
  */
 declare namespace tag {
   /**
-   * NFC-A (ISO 14443-3A).
+   * NFC-A (ISO 14443-3A)技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -75,8 +66,8 @@ declare namespace tag {
   const NFC_A = 1;
 
   /**
-   * Indicates an NFC-A tag.
-   * The value should be an integer.
+   * NFC-A标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -86,7 +77,7 @@ declare namespace tag {
   const NFC_A: int;
 
   /**
-   * NFC-B (ISO 14443-3B).
+   * NFC-B (ISO 14443-3B)技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -95,8 +86,8 @@ declare namespace tag {
   const NFC_B = 2;
 
   /**
-   * Indicates an NFC-B tag.
-   * The value should be an integer.
+   * NFC-B标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -106,7 +97,7 @@ declare namespace tag {
   const NFC_B: int;
 
   /**
-   * ISO-DEP (ISO 14443-4).
+   * ISO-DEP (ISO 14443-4)技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -115,8 +106,8 @@ declare namespace tag {
   const ISO_DEP = 3;
 
   /**
-   * Indicates an ISO_DEP tag.
-   * The value should be an integer.
+   * ISO_DEP标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -126,7 +117,7 @@ declare namespace tag {
   const ISO_DEP: int;
 
   /**
-   * NFC-F (JIS 6319-4).
+   * NFC-F (JIS 6319-4)技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -135,8 +126,8 @@ declare namespace tag {
   const NFC_F = 4;
 
   /**
-   * Indicates an NFC-F tag.
-   * The value should be an integer.
+   * NFC-F标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -146,7 +137,7 @@ declare namespace tag {
   const NFC_F: int;
 
   /**
-   * NFC-V (ISO 15693).
+   * NFC-V (ISO 15693)技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -155,8 +146,8 @@ declare namespace tag {
   const NFC_V = 5;
 
   /**
-   * Indicates an NFC-V tag.
-   * The value should be an integer.
+   * NFC-V标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -166,7 +157,7 @@ declare namespace tag {
   const NFC_V: int;
 
   /**
-   * NDEF.
+   * NDEF技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -175,8 +166,8 @@ declare namespace tag {
   const NDEF = 6;
 
   /**
-   * Indicates an NDEF tag.
-   * The value should be an integer.
+   * NDEF标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -186,7 +177,7 @@ declare namespace tag {
   const NDEF: int;
 
   /**
-   * NDEF formattable.
+   * 可以格式化的NDEF技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -195,8 +186,8 @@ declare namespace tag {
   const NDEF_FORMATABLE = 7;
 
   /**
-   * Indicates an NDEF Formatable tag.
-   * The value should be an integer.
+   * NDEF Formatable标记。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -206,7 +197,7 @@ declare namespace tag {
   const NDEF_FORMATABLE: int;
 
   /**
-   * MIFARE Classic.
+   * MIFARE Classic技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -215,8 +206,8 @@ declare namespace tag {
   const MIFARE_CLASSIC = 8;
 
   /**
-   * Indicates an MIFARE CLASSIC tag.
-   * The value should be an integer.
+   * MIFARE经典标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -226,7 +217,7 @@ declare namespace tag {
   const MIFARE_CLASSIC: int;
 
   /**
-   * MIFARE Ultralight.
+   * MIFARE Ultralight技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -235,8 +226,8 @@ declare namespace tag {
   const MIFARE_ULTRALIGHT = 9;
 
   /**
-   * Indicates an MIFARE ULTRALIGHT tag.
-   * The value should be an integer.
+   * MIFARE ULTRALIGHT标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -246,7 +237,7 @@ declare namespace tag {
   const MIFARE_ULTRALIGHT: int;
 
   /**
-   * Enumerates the TNF types. For details, see *NFCForum-TS-NDEF_1.0*.
+   * NDEF Record的TNF(Type Name Field)类型值，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -326,7 +317,7 @@ declare namespace tag {
   }
 
   /**
-   * Enumerates the NFC Forum tag types.
+   * NFC Forum标准里面Tag类型的定义。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -335,7 +326,7 @@ declare namespace tag {
    */
   enum NfcForumType {
     /**
-     * NFC Forum tag type 1.
+     * NFC论坛类型1。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -345,7 +336,7 @@ declare namespace tag {
     NFC_FORUM_TYPE_1 = 1,
 
     /**
-     * NFC Forum tag type 2.
+     * NFC论坛类型2。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -355,7 +346,7 @@ declare namespace tag {
     NFC_FORUM_TYPE_2 = 2,
 
     /**
-     * NFC Forum tag type 3.
+     * NFC论坛类型3。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -365,7 +356,7 @@ declare namespace tag {
     NFC_FORUM_TYPE_3 = 3,
 
     /**
-     * NFC Forum tag type 4.
+     * NFC论坛类型4。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -375,7 +366,7 @@ declare namespace tag {
     NFC_FORUM_TYPE_4 = 4,
 
     /**
-     * MIFARE Classic.
+     * MIFARE Classic类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -386,7 +377,7 @@ declare namespace tag {
   }
 
   /**
-   * NDEF record of the text type. For details, see **NFCForum-TS-NDEF_1.0**.
+   * 文本类型的NDEF Record，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -396,7 +387,7 @@ declare namespace tag {
   const RTD_TEXT: int[];
 
   /**
-   * NDEF record of the URI type. For details, see **NFCForum-TS-NDEF_1.0**.
+   * URI类型的NDEF Record，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -406,7 +397,7 @@ declare namespace tag {
   const RTD_URI: int[];
 
   /**
-   * Enumerates the MIFARE Classic tag types.
+   * MIFARE Classic标签类型的定义。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -415,7 +406,7 @@ declare namespace tag {
    */
   enum MifareClassicType {
     /**
-     * Unknown type.
+     * 未知的MIFARE类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -425,7 +416,7 @@ declare namespace tag {
     TYPE_UNKNOWN = 0,
 
     /**
-     * MIFARE Classic.
+     * MIFARE Classic类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -435,7 +426,7 @@ declare namespace tag {
     TYPE_CLASSIC = 1,
 
     /**
-     * MIFARE Plus.
+     * MIFARE Plus类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -445,7 +436,7 @@ declare namespace tag {
     TYPE_PLUS = 2,
 
     /**
-     * MIFARE Pro.
+     * MIFARE Pro类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -456,7 +447,7 @@ declare namespace tag {
   }
 
   /**
-   * Enumerates the sizes of a MIFARE Classic tag.
+   * MIFARE Classic标签存储大小的定义。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -465,7 +456,7 @@ declare namespace tag {
    */
   enum MifareClassicSize {
     /**
-     * Each tag has 5 sectors, and each sector has 4 blocks.
+     * 每个标签5个扇区，每个扇区4个块。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -475,7 +466,7 @@ declare namespace tag {
     MC_SIZE_MINI = 320,
 
     /**
-     * Each tag has 16 sectors, and each sector has 4 blocks.
+     * 每个标签16个扇区，每个扇区4个块。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -485,7 +476,7 @@ declare namespace tag {
     MC_SIZE_1K = 1024,
 
     /**
-     * Each tag has 32 sectors, and each sector has 4 blocks.
+     * 每个标签32个扇区，每个扇区4个块。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -495,7 +486,7 @@ declare namespace tag {
     MC_SIZE_2K = 2048,
 
     /**
-     * Each tag has 40 sectors, and each sector has 4 blocks.
+     * 每个标签40个扇区，每个扇区4个块。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -506,7 +497,7 @@ declare namespace tag {
   }
 
   /**
-   * Enumerates the MIFARE Ultralight tag types.
+   * MIFARE Ultralight标签类型的定义。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -515,7 +506,7 @@ declare namespace tag {
    */
   enum MifareUltralightType {
     /**
-     * Unknown type.
+     * 未知的MIFARE类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -525,7 +516,7 @@ declare namespace tag {
     TYPE_UNKNOWN = 0,
 
     /**
-     * MIFARE Ultralight.
+     * MIFARE Ultralight类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -535,7 +526,7 @@ declare namespace tag {
     TYPE_ULTRALIGHT = 1,
 
     /**
-     * MIFARE Ultralight C.
+     * MIFARE UltralightC 类型。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -546,16 +537,10 @@ declare namespace tag {
   }
 
   /**
-   * Obtains an **NfcATag** object, which allows access to the tags that use the NFC-A technology.
+   * 获取NFC A类型Tag对象，通过该对象可访问NfcA技术类型的Tag。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tag.getNfcA]{@link tag.getNfcA} instead.
-   *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcATag } **NfcATag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcATag } NFC A类型Tag对象。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -564,11 +549,10 @@ declare namespace tag {
   function getNfcATag(tagInfo: TagInfo): NfcATag;
 
   /**
-   * Obtains an **NfcATag** object, which allows access to the tags that use the NFC-A technology.
+   * 获取NFC A类型Tag对象，通过该对象可访问NfcA技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcATag } **NfcATag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcATag } NFC A类型Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -583,16 +567,10 @@ declare namespace tag {
   function getNfcA(tagInfo: TagInfo): NfcATag;
 
   /**
-   * Obtains an **NfcBTag** object, which allows access to the tags that use the NFC-B technology.
+   * 获取NFC B类型Tag对象，通过该对象可访问NfcB技术类型的Tag。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tag.getNfcB]{@link tag.getNfcB} instead.
-   *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcBTag } **NfcBTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcBTag } NFC B类型Tag对象。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -601,11 +579,10 @@ declare namespace tag {
   function getNfcBTag(tagInfo: TagInfo): NfcBTag;
 
   /**
-   * Obtains an **NfcBTag** object, which allows access to the tags that use the NFC-B technology.
+   * 获取NFC B类型Tag对象，通过该对象可访问NfcB技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcBTag } **NfcBTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcBTag } NFC B类型Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -620,16 +597,10 @@ declare namespace tag {
   function getNfcB(tagInfo: TagInfo): NfcBTag;
 
   /**
-   * Obtains an **NfcFTag** object, which allows access to the tags that use the NFC-F technology.
+   * 获取NFC F类型Tag对象，通过该对象可访问NfcF技术类型的Tag。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tag.getNfcF]{@link tag.getNfcF} instead.
-   *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcFTag } **NfcFTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcFTag } NFC F类型Tag对象。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -638,11 +609,10 @@ declare namespace tag {
   function getNfcFTag(tagInfo: TagInfo): NfcFTag;
 
   /**
-   * Obtains an **NfcFTag** object, which allows access to the tags that use the NFC-F technology.
+   * 获取NFC F类型Tag对象，通过该对象可访问NfcF技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcFTag } **NfcFTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcFTag } NFC F类型Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -657,16 +627,10 @@ declare namespace tag {
   function getNfcF(tagInfo: TagInfo): NfcFTag;
 
   /**
-   * Obtains an **NfcVTag** object, which allows access to the tags that use the NFC-V technology.
+   * 获取NFC V类型Tag对象，通过该对象可访问NfcV技术类型的Tag。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tag.getNfcV]{@link tag.getNfcV} instead.
-   *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcVTag } **NfcVTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcVTag } NFC V类型Tag对象。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -675,11 +639,10 @@ declare namespace tag {
   function getNfcVTag(tagInfo: TagInfo): NfcVTag;
 
   /**
-   * Obtains an **NfcVTag** object, which allows access to the tags that use the NFC-V technology.
+   * 获取NFC V类型Tag对象，通过该对象可访问NfcV技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NfcVTag } **NfcVTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NfcVTag } NFC V类型Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -694,11 +657,10 @@ declare namespace tag {
   function getNfcV(tagInfo: TagInfo): NfcVTag;
 
   /**
-   * Obtains an **IsoDepTag** object, which allows access to the tags that use the IsoDep technology.
+   * 获取IsoDep类型Tag对象，通过该对象可访问支持IsoDep技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { IsoDepTag } **IsoDepTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { IsoDepTag } IsoDep类型Tag对象，通过该对象访问IsoDep类型的相关接口。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -713,11 +675,10 @@ declare namespace tag {
   function getIsoDep(tagInfo: TagInfo): IsoDepTag;
 
   /**
-   * Obtains an **NdefTag** object, which allows access to NFC Data Exchange Format (NDEF) tags.
+   * 获取NDEF类型Tag对象，通过该对象可访问支持NDEF技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { NdefTag } **NdefTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { NdefTag } NDEF类型Tag对象，通过该对象访问NDEF类型的相关接口。
    * @throws { BusinessError } 401 - The parameter check failed.  Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -732,11 +693,10 @@ declare namespace tag {
   function getNdef(tagInfo: TagInfo): NdefTag;
 
   /**
-   * Obtains a **MifareClassicTag** object, which allows access to the tags that use MIFARE Classic.
+   * 获取MIFARE Classic类型Tag对象，通过该对象访问支持MIFARE Classic技术类型的Tag。
    *
-   * @param { TagInfo } tagInfo - Tag information, including the tag technology type and related parameters, obtained
-   *     from [tag.getTagInfo(want: Want)]{@link tag.getTagInfo}.
-   * @returns { MifareClassicTag } **MifareClassicTag** object obtained.
+   * @param { TagInfo } tagInfo - 包含Tag技术类型和相关参数，从[tag.getTagInfo(want: Want)]{@link tag.getTagInfo}获取。
+   * @returns { MifareClassicTag } MIFARE Classic类型Tag对象，通过该对象访问MIFARE Classic类型的相关接口。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -751,10 +711,10 @@ declare namespace tag {
   function getMifareClassic(tagInfo: TagInfo): MifareClassicTag;
 
   /**
-   * Obtains a **MifareUltralightTag** object, which allows access to the tags that use MIFARE Ultralight.
+   * 获取MIFARE Ultralight类型Tag对象，通过该对象可访问支持MIFARE Ultralight技术类型的Tag。
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
-   * @returns { MifareUltralightTag } **MifareUltralightTag** object obtained.
+   * @returns { MifareUltralightTag } MIFARE Ultralight类型Tag对象，通过该对象访问MIFARE Ultralight类型的相关接口。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -769,10 +729,10 @@ declare namespace tag {
   function getMifareUltralight(tagInfo: TagInfo): MifareUltralightTag;
 
   /**
-   * Obtains an **NdefFormatableTag** object, which allows access to the tags that are NDEF formattable.
+   * 获取NDEF Formatable类型Tag对象，通过该对象可访问支持NDEF Formatable技术类型的Tag。
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
-   * @returns { NdefFormatableTag } **NdefFormatableTag** object obtained.
+   * @returns { NdefFormatableTag } NDEF Formatable类型Tag对象，通过该对象访问NDEF Formatable类型的相关接口。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -787,12 +747,10 @@ declare namespace tag {
   function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag;
 
   /**
-   * Obtains **TagInfo** from **Want**, which is initialized by the NFC service and contains the attributes required by
-   * **TagInfo**.
+   * 从Want中获取TagInfo，Want是被NFC服务初始化，包含了TagInfo所需的属性值。
    *
-   * @param { Want } want - Data obtained from the parameters of the **onCreate** entry function when an ability is
-   *     dispatched.
-   * @returns { TagInfo } **TagInfo** object obtained.
+   * @param { Want } want - 分发Ability时，在系统onCreate入口函数的参数中获取。
+   * @returns { TagInfo } TagInfo对象，用于获取不同技术类型的Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -806,24 +764,19 @@ declare namespace tag {
   function getTagInfo(want: Want): TagInfo;
 
   /**
-   * Registers a listener for the NFC tag read event so that the tag can be preferentially dispatched to a foreground
-   * application. You can set the supported NFC tag technologies in **discTech**. The [TagInfo]{@link tag.TagInfo} read
-   * is returned through a callback. This API can be called only by an application running in the foreground. It must be
-   * used with [tag.unregisterForegroundDispatch]{@link tag.unregisterForegroundDispatch} in pairs. The registered
-   * callback must be unregistered before the tag reading page exits the foreground or is destroyed. This API uses an
-   * asynchronous callback to return the result.
+   * 注册对NFC Tag读卡事件的监听，实现前台应用优先分发的目的。通过discTech设置支持的读卡技术类型，通过callback方式获取读取到Tag的[TagInfo]{@link tag.TagInfo}信息。应用必须在前台才能
+   * 调用。需要与取消监听接口[tag.unregisterForegroundDispatch]{@link tag.unregisterForegroundDispatch}成对使用。如果已注册事件监听，需要在页面退出前台或页面销毁
+   * 前调用取消注册。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It cannot be empty
-   *     and must contain at least **bundleName** and **abilityName**.
-   * @param { int[] } discTech - NFC tag technologies supported by the foreground application. It cannot be empty. At
-   *     least one NFC tag technology must be specified. Each number indicates the constant value of an NFC tag
-   *     technology. The tag technologies are polled based on the specified value, which contains one or more of
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
+   * @param { int[] } discTech - 前台应用指定的NFC读卡技术类型，不可以为空，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含 
    *     [NFC_A]{@link NFC_A},
    *     [NFC_B]{@link NFC_B},
-   *     [NFC_F]{@link NFC_F}, and
-   *     [NFC_V]{@link NFC_V}, only.
-   * @param { AsyncCallback<TagInfo> } callback - Callback used to return the tag information read. It cannot be empty.
+   *     [NFC_F]{@link NFC_F},
+   *     [NFC_V]{@link NFC_V},
+   *     [SKIP_NDEF]{@link SKIP_NDEF}）中的一种或多种。
+   * @param { AsyncCallback<TagInfo> } callback - 前台读卡监听回调函数，返回读到的Tag信息，不可以为空。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -840,13 +793,10 @@ declare namespace tag {
   function registerForegroundDispatch(elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
-   * Unregisters the listener for the NFC tag read event. If the listener is unregistered, the NFC tag discovered will
-   * not be dispatched to foreground applications. The registered callback must be unregistered before the tag reading
-   * page exits the foreground or is destroyed.
+   * 取消注册对NFC Tag读卡事件的监听，退出前台应用优先分发。如果已注册事件监听，需要在页面退出前台或页面销毁前调用取消注册。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It cannot be empty
-   *     and must contain at least **bundleName** and **abilityName**.
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -862,30 +812,26 @@ declare namespace tag {
   function unregisterForegroundDispatch(elementName: ElementName): void;
 
   /**
-   * Subscribes to the NFC tag read event to implement dispatch of the tag to a foreground application preferentially.
-   * The device enters the reader mode and disables card emulation. You can set the supported NFC tag technologies in
-   * **discTech**. The [TagInfo]{@link tag.TagInfo} read is returned through a callback. This API must be used with
-   * [tag.off]{@link tag.off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>)} in pairs.
-   * If the NFC reader mode is enabled by **tag.on**,
-   * [tag.off]{@link tag.off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>)} must be
-   * called when the application page exits the foreground or is destroyed. This API uses an asynchronous callback to
-   * return the result. This API and
+   * 订阅NFC Tag读卡事件，实现前台应用优先分发。设备会进入读卡器模式，同时关闭卡模拟。通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的[TagInfo]{@link tag.TagInfo}信
+   * 息。需要与取消读卡器模式的
+   * [tag.off]{@link tag.off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>)}成对使用，如果已通过
+   * on进行设置，需要在页面退出前台或页面销毁时调用
+   * [tag.off]{@link tag.off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>)}。使用
+   * callback异步回调。与注册读卡器模式的
    * [tag.on]{@link tag.on( type: 'readerModeWithInterval', elementName: ElementName, discTech: int[], callback: Callback<TagInfo>, interval: int )}
-   * are mutually exclusive.
+   * 互斥使用。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'readerMode' } type - Event type, which has a fixed value of **readerMode**.
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It cannot be empty
-   *     and must contain at least **bundleName** and **abilityName**.
-   * @param { int[] } discTech - NFC tag technologies supported by the foreground application. It cannot be empty. At
-   *     least one NFC tag technology must be specified. Each number indicates the constant value of an NFC tag
-   *     technology. The tag technologies are polled based on the specified value, which contains one or more of
+   * @param { 'readerMode' } type - 要注册的回调类型，固定填"readerMode"字符串。
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
+   * @param { int[] } discTech - 前台应用指定的NFC读卡技术类型，不可以为空，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含
    *     [NFC_A]{@link NFC_A},
    *     [NFC_B]{@link NFC_B},
    *     [NFC_F]{@link NFC_F},
-   *     [NFC_V]{@link NFC_V}, and
-   *     [SKIP_NDEF]{@link SKIP_NDEF} only.
-   * @param { AsyncCallback<TagInfo> } callback - Callback used to return the tag information read. It cannot be empty.
+   *     [NFC_V]{@link NFC_V},
+   *     [SKIP_NDEF]{@link SKIP_NDEF}）中的一种或多种。
+   *     。
+   * @param { AsyncCallback<TagInfo> } callback - 读卡器模式监听回调函数，返回读到的Tag信息，不可以为空。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -923,17 +869,14 @@ declare namespace tag {
   function onReaderMode(elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
-   * Unsubscribes from the NFC tag card read event. The device exits the reader mode and resumes card emulation. If the
-   * NFC reader mode is enabled by
-   * [tag.on]{@link tag.on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>)},
-   * this API must be used when the application page exits the foreground or is destroyed.
+   * 取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过
+   * [tag.on]{@link tag.on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>)}
+   * 设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'readerMode' } type - Event type, which has a fixed value of **readerMode**.
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It cannot be empty
-   *     and must contain at least **bundleName** and **abilityName**.
-   * @param { AsyncCallback<TagInfo> } [callback] - Callback to unregister. If this parameter is not set, this API
-   *     unregisters the tag reading callback for the specified **type**.
+   * @param { 'readerMode' } type - 要注销的回调类型，固定填"readerMode"字符串。
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
+   * @param { AsyncCallback<TagInfo> } [callback] - 前台读卡监听回调函数，返回读到的Tag信息。不填该参数则取消订阅该type对应的读卡回调。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -968,40 +911,30 @@ declare namespace tag {
   function offReaderMode(elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
   /**
-   * Subscribes to the NFC tag read event so that the tag can be preferentially dispatched to a foreground application.
-   * You can also set the interval for detecting whether a card is present. This API uses an asynchronous callback to
-   * return the result.
-   *
-   *
-   * - The device enters the reader mode and disables card emulation.
-   * - You can set the supported NFC tag technologies in **discTech** and set the interval for detecting whether a card
-   * is present. The callback returns [TagInfo]{@link tag.TagInfo} read.
-   * - This API must be used with
-   * [tag.off]{@link tag.off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>)} in
-   * pairs. If the NFC reader mode is enabled by **tag.on**,
-   * [tag.off]{@link tag.off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>)}
-   * must be called when the application page exits the foreground or is destroyed.
-   * - This API and
+   * 订阅NFC Tag读卡事件，实现前台应用优先分发，并支持卡在位检测间隔设置。使用callback异步回调。
+   * 
+   * - 设备会进入读卡器模式，同时关闭卡模拟。
+   * - 通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的[TagInfo]{@link tag.TagInfo}信息，通过interval设置卡在位检测间隔。
+   * - 需要与取消读卡器模式的
+   * [tag.off]{@link tag.off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>)}成对使
+   * 用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用
+   * [tag.off]{@link tag.off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>)}。
+   * - 与注册读卡器模式的
    * [tag.on]{@link tag.on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>)}
-   * are mutually exclusive.
+   * 互斥使用。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'readerModeWithInterval' } type - Event type, which has a fixed value of **readerModeWithInterval**.
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It must contain at
-   *     least **bundleName** and **abilityName**.
-   * @param { int[] } discTech - NFC tag technologies supported by the foreground application. At least one NFC tag
-   *     technology must be specified. Each number indicates the constant value of an NFC tag technology. The tag
-   *     technologies are polled based on the specified value, which contains one or more of
+   * @param { 'readerModeWithInterval' } type - 要注册的回调类型，固定填"readerModeWithInterval"字符串。
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。
+   * @param { int[] } discTech - 前台应用指定的NFC读卡技术类型，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含
    *     [NFC_A]{@link NFC_A},
    *     [NFC_B]{@link NFC_B},
    *     [NFC_F]{@link NFC_F},
-   *     [NFC_V]{@link NFC_V}, and
-   *     [SKIP_NDEF]{@link SKIP_NDEF} only.
-   * @param { Callback<TagInfo> } callback - Callback used to listen for the card reader mode, which returns the tag
-   *     information read.
-   * @param { int } interval - Interval for checking whether a card is present, in milliseconds. The recommended value
-   *     range is 100 to 2000. If a negative value is passed, the value does not take effect. The system uses the
-   *     default interval (150 ms).
+   *     [NFC_V]{@link NFC_V},
+   *     [SKIP_NDEF]{@link SKIP_NDEF}）中的一种或多种。
+   *     。
+   * @param { Callback<TagInfo> } callback - 读卡器模式监听回调函数，返回读到的Tag信息。
+   * @param { int } interval - 设置卡在位检测间隔，单位为ms。推荐范围100-2000，若传入负值则不生效，系统会使用默认卡在位间隔（150ms）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
@@ -1043,18 +976,16 @@ declare namespace tag {
   ): void;
 
   /**
-   * Unsubscribes from the NFC tag card read event. The device exits the reader mode and resumes card emulation. If the
-   * NFC reader mode is enabled by
-   * [tag.on]{@link tag.on( type: 'readerModeWithInterval', elementName: ElementName, discTech: int[], callback: Callback<TagInfo>, interval: int )},
-   * this API must be used when the application page exits the foreground or is destroyed. This API uses an asynchronous
-   * callback to return the result.
+   * 取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过
+   * [tag.on]{@link tag.on( type: 'readerModeWithInterval', elementName: ElementName, discTech: int[], callback: Callback<TagInfo>, interval: int )}
+   * 设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用
+   * [tag.off]{@link tag.off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback<TagInfo>)}进行取
+   * 消。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'readerModeWithInterval' } type - Event type, which has a fixed value of **readerModeWithInterval**.
-   * @param { ElementName } elementName - Information about the tag reading page of the application. It must contain at
-   *     least **bundleName** and **abilityName**.
-   * @param { Callback<TagInfo> } [callback] - Callback to unregister. If this parameter is not set, this API
-   *     unregisters the tag reading callback for the specified **type**.
+   * @param { 'readerModeWithInterval' } type - 要注销的回调类型，固定填"readerModeWithInterval"字符串。
+   * @param { ElementName } elementName - 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。
+   * @param { Callback<TagInfo> } [callback] - 前台读卡监听回调函数，返回读到的Tag信息。不填该参数则取消订阅该type对应的读卡回调。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
@@ -1081,9 +1012,7 @@ declare namespace tag {
   function offReaderModeWithInterval(elementName: ElementName, callback?: Callback<TagInfo>): void;
 
   /**
-   * Before a card with tags is read or written, **[TagInfo]{@link tag.TagInfo}** must be obtained to determine the tag
-   * technologies supported by the card. In this way, the application can invoke the correct API to communicate with the
-   * card.
+   * 在对相关Tag类型卡片进行读写之前，必须先获取[TagInfo]{@link tag.TagInfo}相关属性值，以确认设备读取到的Tag卡片支持哪些技术类型。这样Tag应用程序才能调用正确的接口和所读取到的Tag卡片进行通信。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1092,7 +1021,7 @@ declare namespace tag {
    */
   export interface TagInfo {
     /**
-     * Tag unique identifier (UID), which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+     * 标签的uid，每个number值是十六进制表示，范围是0x00~0xFF。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1103,7 +1032,7 @@ declare namespace tag {
     uid: int[];
 
     /**
-     * Supported tag technologies. Each number is a constant indicating the supported technology.
+     * 支持的技术类型，每个number值表示所支持技术类型的常量值。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1114,7 +1043,9 @@ declare namespace tag {
     technology: int[];
 
     /**
-     * Extended attribute value of the tag technology.
+     * 标签所支持技术的扩展属性值。
+     * 
+     * **系统接口：** 此接口为系统接口。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1125,7 +1056,9 @@ declare namespace tag {
     extrasData: PacMap[];
 
     /**
-     * ID allocated when the tag is discovered.
+     * 标签发现时分配的ID值。
+     * 
+     * **系统接口：** 此接口为系统接口。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1136,7 +1069,9 @@ declare namespace tag {
     tagRfDiscId: int;
 
     /**
-     * Remote object of the NFC service process used for interface communication between the client and the service.
+     * NFC服务进程的远端对象，用于客户端和服务之间的接口通信。
+     * 
+     * **系统接口：** 此接口为系统接口。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1147,10 +1082,9 @@ declare namespace tag {
     remoteTagService: rpc.RemoteObject;
 
     /**
-     * Supported profiles.
-     *
-     * Note: This parameter is supported since API version 7 and deprecated since API version 9. Use
-     * **[tag.TagInfo#technology]{@link tag.TagInfo}** instead.
+     * 支持的技术类型。
+     * 
+     * **说明：** 从API version 7开始支持，从API version 9开始废弃，使用[tag.TagInfo#technology]{@link tag.TagInfo}替代。
      *
      * @permission ohos.permission.NFC_TAG
      * @syscap SystemCapability.Communication.NFC.Tag
@@ -1162,7 +1096,7 @@ declare namespace tag {
   }
 
   /**
-   * Defines an NDEF record. For details, see *NFCForum-TS-NDEF_1.0*.
+   * NDEF标签Record属性的定义，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1171,7 +1105,7 @@ declare namespace tag {
    */
   export interface NdefRecord {
     /**
-     * Type name field (TNF) of the NDEF record.
+     * NDEF Record的TNF(Type Name Field)。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -1181,8 +1115,7 @@ declare namespace tag {
     tnf: int;
 
     /**
-     * Record type definition (RTD) of the NDEF record. It consists of hexadecimal numbers ranging from **0x00** to
-     * **0xFF**.
+     * NDEF Record的RTD(Record Type Definition)类型值，每个number十六进制表示，范围是0x00~0xFF。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -1192,7 +1125,7 @@ declare namespace tag {
     rtdType: int[];
 
     /**
-     * NDEF record ID, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+     * NDEF Record的ID，每个number十六进制表示，范围是0x00~0xFF。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -1202,7 +1135,7 @@ declare namespace tag {
     id: int[];
 
     /**
-     * NDEF payload, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+     * NDEF Record的PAYLOAD，每个number十六进制表示，范围是0x00~0xFF。
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice [since 12]
@@ -1222,10 +1155,10 @@ declare namespace tag {
    */
   namespace ndef {
     /**
-     * Creates an NDEF record based on the specified URI.
+     * 根据输入的URI，构建NDEF标签的Record数据对象。
      *
-     * @param { string } uri - Data to write to the NDEF record.
-     * @returns { NdefRecord } NDEF record created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { string } uri - 写入到NDEF Record里面的数据内容。
+     * @returns { NdefRecord } NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1238,13 +1171,11 @@ declare namespace tag {
     function makeUriRecord(uri: string): NdefRecord;
 
     /**
-     * Creates an NDEF record based on the specified text data and language type.
+     * 根据输入的文本数据和语言类型，构建NDEF标签的Record。
      *
-     * @param { string } text - Text to write to the NDEF record. The length must be less than the capacity of the NFC
-     *     tag to be written.
-     * @param { string } locale - Locale of the text in the record. The length must be less than the capacity of the NFC
-     *     tag to be written.
-     * @returns { NdefRecord } NDEF record created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { string } text - 写入到NDEF Record里面的文本数据内容。长度小于待写入的NFC标签容量。
+     * @param { string } locale - Record中记录文本的语言类型。长度小于待写入的NFC标签容量。
+     * @returns { NdefRecord } NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1257,12 +1188,11 @@ declare namespace tag {
     function makeTextRecord(text: string, locale: string): NdefRecord;
 
     /**
-     * Creates an NDEF record based on the specified MIME data and type.
+     * 根据输入的MIME数据和类型，构建NDEF标签的Record。
      *
-     * @param { string } mimeType - MIME type that complies with RFC rules, for example, **text/plain** or
-     *     **image/jpeg**.
-     * @param { int[] } mimeData - MIME data, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
-     * @returns { NdefRecord } NDEF record created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { string } mimeType - 符合RFC规则的MIME类型，比如"text/plain"或"image/jpeg"。
+     * @param { int[] } mimeData - MIME数据内容，每个number十六进制表示，范围是0x00~0xFF。
+     * @returns { NdefRecord } NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1275,14 +1205,12 @@ declare namespace tag {
     function makeMimeRecord(mimeType: string, mimeData: int[]): NdefRecord;
 
     /**
-     * Creates an NDEF record based on application-specific data.
+     * 根据应用程序特定的外部数据，构建NDEF标签的Record。
      *
-     * @param { string } domainName - Bundle name of the application or domain name of the organization that releases
-     *     the applications.
-     * @param { string } type - Type of the application data.
-     * @param { int[] } externalData - Application data, which consists of hexadecimal numbers ranging from **0x00** to
-     *     **0xFF**.
-     * @returns { NdefRecord } NDEF record created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { string } domainName - 外部数据发布组织的域名，一般是应用程序的包名。
+     * @param { string } type - 外部数据的指定类型。
+     * @param { int[] } externalData - 外部数据内容，每个number十六进制表示，范围是0x00~0xFF。
+     * @returns { NdefRecord } NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1294,12 +1222,10 @@ declare namespace tag {
      */
     function makeExternalRecord(domainName: string, type: string, externalData: int[]): NdefRecord;
     /**
-     * Creates an NDEF message from raw byte data. The data must comply with the NDEF record format. Otherwise, the NDEF
-     * record list contained in the **NdefMessage** object will be empty.
+     * 使用原始字节数据创建NDEF标签的Message。该数据必须符合NDEF Record数据格式，如果不符合格式，则返回的NdefMessage数据对象，所包含的NDEF Record列表会为空。
      *
-     * @param { int[] } data - Raw byte data, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
-     *     The data must comply with the NDEF record format.
-     * @returns { NdefMessage } NDEF message created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { int[] } data - 原始字节，每个number十六进制表示，范围是0x00~0xFF。要求必须满足NDEF Record的格式。
+     * @returns { NdefMessage } NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1312,7 +1238,6 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with raw bytes.
-     *
      * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1325,11 +1250,10 @@ declare namespace tag {
     function createNdefMessageByData(data: int[]): NdefMessage;
 
     /**
-     * Creates an NDEF message from the NDEF records list.
+     * 使用NDEF Records列表，创建NDEF Message。
      *
-     * @param { NdefRecord[] } ndefRecords - NDEF record list used to create the NDEF message. For details, see
-     *     *NFCForum-TS-NDEF_1.0*.
-     * @returns { NdefMessage } NDEF message created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { NdefRecord[] } ndefRecords - NDEF标签的Record列表，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
+     * @returns { NdefMessage } NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1342,7 +1266,6 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with record list.
-     *
      * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1355,11 +1278,10 @@ declare namespace tag {
     function createNdefMessageByRecords(ndefRecords: NdefRecord[]): NdefMessage;
 
     /**
-     * Converts an NDEF message to bytes.
+     * 把输入的NDEF消息数据对象，转换为字节格式的数据。
      *
-     * @param { NdefMessage } ndefMessage - NDEF message to convert.
-     * @returns { int[] } NDEF message in bytes, which consists of hexadecimal numbers ranging from **0x00** to
-     *     **0xFF**.
+     * @param { NdefMessage } ndefMessage - NDEF消息数据对象。
+     * @returns { int[] } NDEF消息数据对象，所转换成的字节格式的数据。每个number十六进制表示，范围是0x00~0xFF。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1372,10 +1294,10 @@ declare namespace tag {
     function messageToBytes(ndefMessage: NdefMessage): int[];
 
     /**
-     * Creates an NDEF record based on the specified application bundle name.
+     * 根据OpenHarmony应用的bundlename，构建NDEF标签的Record。
      *
-     * @param { string } bundleName - Application bundle name.
-     * @returns { NdefRecord } NDEF record created. For details, see *NFCForum-TS-NDEF_1.0*.
+     * @param { string } bundleName - 要创建标签的应用包名。
+     * @returns { NdefRecord } NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1389,7 +1311,7 @@ declare namespace tag {
   }
 
   /**
-   * Obtains an **NfcATag** object.
+   * 获取NfcATag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1399,7 +1321,7 @@ declare namespace tag {
   export type NfcATag = _NfcATag;
 
   /**
-   * Obtains an **NfcBTag** object.
+   * 获取NfcBTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1409,7 +1331,7 @@ declare namespace tag {
   export type NfcBTag = _NfcBTag;
 
   /**
-   * Obtains an **NfcFTag** object.
+   * 获取NfcFTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1419,7 +1341,7 @@ declare namespace tag {
   export type NfcFTag = _NfcFTag;
 
   /**
-   * Obtains an **NfcVTag** object.
+   * 获取NfcVTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1429,7 +1351,7 @@ declare namespace tag {
   export type NfcVTag = _NfcVTag;
 
   /**
-   * Obtains an **IsoDepTag** object.
+   * 获取IsoDepTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1439,7 +1361,7 @@ declare namespace tag {
   export type IsoDepTag = _IsoDepTag;
 
   /**
-   * Obtains an **NdefTag** object.
+   * 获取NdefTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1449,7 +1371,7 @@ declare namespace tag {
   export type NdefTag = _NdefTag;
 
   /**
-   * Obtains a **MifareClassicTag** object.
+   * 获取MifareClassicTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1459,7 +1381,7 @@ declare namespace tag {
   export type MifareClassicTag = _MifareClassicTag;
 
   /**
-   * Obtains a **MifareUltralightTag** object.
+   * 获取MifareUltralightTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1469,7 +1391,7 @@ declare namespace tag {
   export type MifareUltralightTag = _MifareUltralightTag;
 
   /**
-   * Obtains a **NdefFormatableTag** object.
+   * 获取NdefFormatableTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1479,7 +1401,7 @@ declare namespace tag {
   export type NdefFormatableTag = _NdefFormatableTag;
 
   /**
-   * Obtains an **NdefMessage** object.
+   * 获取NdefMessage。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -1489,8 +1411,8 @@ declare namespace tag {
   export type NdefMessage = _NdefMessage;
 
   /**
-   * Obtains a **TagSession** object.
-   *
+   * 获取TagSession。
+   * 
    * <!--no_check-->
    *
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -1501,7 +1423,7 @@ declare namespace tag {
   export type TagSession = _TagSession;
 
   /**
-   * BARCODE technology.
+   * BARCODE技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -1510,8 +1432,8 @@ declare namespace tag {
   const NFC_BARCODE = 10;
 
   /**
-   * Indicates an NfcBarcode tag.
-   * The value should be an integer.
+   * NfcBarcode标签。
+   * 取值限定为整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -1521,7 +1443,7 @@ declare namespace tag {
   const NFC_BARCODE: int;
 
   /**
-   * Obtains a **BarcodeTag** object.
+   * 获取BarcodeTag。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -1531,10 +1453,10 @@ declare namespace tag {
   export type BarcodeTag = _BarcodeTag;
 
   /**
-   * Obtains a **BarcodeTag** object, which allows access to the tags in the BarcodeTag format.
+   * 获取BarcodeTag类型Tag对象，通过该对象可访问BarcodeTag技术类型的Tag。
    *
    * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
-   * @returns { BarcodeTag } **BarcodeTag** object obtained.
+   * @returns { BarcodeTag } BarcodeTag类型Tag对象。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1549,7 +1471,7 @@ declare namespace tag {
   function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
 
   /**
-   * Method used to skip the NDEF check.
+   * 跳过NDEF检查的技术。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
@@ -1559,8 +1481,8 @@ declare namespace tag {
   const SKIP_NDEF = 11;
 
   /**
-   * Skip NDEF when app is reading a card in the foreground.
-   * The value range is all integers.
+   * 当应用在前台读卡时，跳过NDEF。
+   * 取值范围为全体整数。
    *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly

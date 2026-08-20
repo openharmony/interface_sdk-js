@@ -14,37 +14,36 @@
  */
 
 /**
- * @file SE Management
+ * @file 安全单元的通道管理
  * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * The **secureElement** module provides APIs for managing secure elements (SEs). SEs include the Embedded SE (eSE) and
- * SIM on a device. The SE service mentioned in this topic is an **SEService** instance. For details, see
- * [createService]{@link omapi.createService}.
+ * 本模块主要用于操作及管理安全单元（SecureElement，简称SE），电子设备上可能存在的安全单元有eSE（Embedded SE）和SIM卡。文档中出现的SE服务为SEService实例，参见
+ * [createService]{@link omapi.createService}。
+ *
+ * 对于文档中出现以下类型说明：
+ *
+ * | 类型    | 说明                                           |
+ * | ------- | ---------------------------------------------- |
+ * | Reader  | 此类的实例表示该设备支持的SE，如果支持eSE、SIM和SIM2，则返回3个实例，其中SIM2从API version 22开始支持。 |
+ * | Session | 此类的实例表示在某个SE Reader实例上创建连接会话。 |
+ * | Channel | 此类的实例表示在某个Session实例上创建通道，可能为基础通道或逻辑通道。   |
  *
  * @syscap SystemCapability.Communication.SecureElement
  * @since 10 dynamic
  */
 declare namespace omapi {
   /**
-   * Creates an **SEService** instance for connecting to all available SEs in the system. The connection is time-
-   * consuming. Therefore, this API supports only the asynchronous mode. This API uses an asynchronous callback to
-   * return the result.
+   * 建立一个可用于连接到系统中所有可用SE的新连接（服务）。连接过程较为耗时，所以此方法仅提供异步方式进行的。使用callback异步回调。
    *
-   * The returned **SEService** instance is available only when **true** is returned by the specified callback or
-   * [isConnected]{@link omapi.SEService.isConnected}.
+   * 仅当指定的回调或者当[isConnected]{@link omapi.SEService.isConnected}方法返回true时，该返回SEService对象是可用的。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 10 and deprecated since API version 12. Use
-   * > [createService]{@link omapi.createService} instead.
-   *
-   * @param { 'serviceState' } type - Type of the SE service to create. It has a fixed value of **'serviceState'**.
-   * @param { Callback<ServiceState> } callback - Callback used to return the SE service state.
-   * @returns { SEService } **SEService** instance created.
+   * @param { 'serviceState' } type - 固定填'serviceState' 。
+   * @param { Callback<ServiceState> } callback - 返回SE服务状态的回调 。
+   * @returns { SEService } SE服务实例。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -58,12 +57,11 @@ declare namespace omapi {
   function newSEService(type: 'serviceState', callback: Callback<ServiceState>): SEService;
 
   /**
-   * Creates an **SEService** instance for connecting to all available SEs in the system. The connection is time-
-   * consuming. Therefore, only asynchronous APIs are provided. This API uses a promise to return the result.
+   * 建立一个可用于连接到系统中所有可用SE的新连接（服务）。连接过程较为耗时，所以此方法仅提供异步方式。使用Promise异步回调。
    *
-   * The **SEService** object is available only when [isConnected]{@link omapi.SEService.isConnected} returns **true**.
+   * 仅当[isConnected]{@link omapi.SEService.isConnected}方法返回true时，该返回SEService对象是可用的。
    *
-   * @returns { Promise<SEService> } Promise used to return the **SEService** instance created.
+   * @returns { Promise<SEService> } 以Promise形式异步返回可用的SE服务实例。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 12 dynamic
@@ -71,17 +69,16 @@ declare namespace omapi {
   function createService(): Promise<SEService>;
 
   /**
-   * **SEService** indicates the connection service used to connect to all available SEs in the system. You can use
-   * [createService]{@link omapi.createService} to create an **SEService** instance.
+   * SEService表示可用于连接到系统中所有可用SE的连接（服务），通过[createService]{@link omapi.createService}获取SEService实例。
    *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface SEService {
     /**
-     * Obtains available SE readers, which include all the SEs on the device.
+     * 返回可用SE Reader的数组，包含该设备上支持的所有的安全单元。
      *
-     * @returns { Reader[] } Available readers obtained.
+     * @returns { Reader[] } 返回可用Reader对象数组。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -89,9 +86,9 @@ declare namespace omapi {
     getReaders(): Reader[];
 
     /**
-     * Checks whether this SE service is connected.
+     * 检查SE服务是否已连接。
      *
-     * @returns { boolean } **true** if the SE service is connected; **false** otherwise.
+     * @returns { boolean } true: SE服务状态已连接，false: SE服务状态已断开。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -99,8 +96,7 @@ declare namespace omapi {
     isConnected(): boolean;
 
     /**
-     * Releases all SE resources allocated to this SE service. After that,
-     * [isConnected]{@link omapi.SEService.isConnected} returns **false**.
+     * 释放该Service分配的所有SE资源。此后[isConnected]{@link omapi.SEService.isConnected}将返回false。
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
@@ -109,9 +105,9 @@ declare namespace omapi {
     shutdown(): void;
 
     /**
-     * Obtains the version of the Open Mobile API (OMAPI) specification used.
+     * 返回此实现所基于的Open Mobile API规范的版本号。
      *
-     * @returns { string } OMAPI version obtained. For example, **3.3** indicates Open Mobile API Specification v3.3.
+     * @returns { string } OMA版本号（例如，“3.3”表示Open Mobile API规范版本3.3）
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -120,19 +116,17 @@ declare namespace omapi {
   }
 
   /**
-   * Obtains the SE supported by the device. If eSE, SIM, and SIM2 are supported, three instances will be returned. SIM2
-   * is supported since API version 22. You can use [SEService.getReaders]{@link omapi.SEService.getReaders} to obtain a
-   * **Reader** instance.
+   * Reader的实例表示该设备支持的SE，如果支持eSE、SIM和SIM2，则返回3个实例，其中SIM2从API version 22开始支持。通过
+   * [SEService.getReaders]{@link omapi.SEService.getReaders}获取Reader实例。
    *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Reader {
     /**
-     * Obtains the name of this reader. The name is **SIM** for a SIM reader, **SIM2** for a SIM2 reader, and **eSE**
-     * for an eSE.
+     * 返回此Reader的名称。如果此读卡器是SIM Reader，则其名称必须为“SIM”。如果此读卡器是SIM2 Reader，则其名称必须为“SIM2”。如果读卡器是eSE，则其名称须为“eSE”。
      *
-     * @returns { string } [Reader]{@link omapi.Reader} name obtained.
+     * @returns { string } [Reader]{@link omapi.Reader}名称。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -140,9 +134,9 @@ declare namespace omapi {
     getName(): string;
 
     /**
-     * Checks whether the SE corresponding to this reader is available.
+     * 检查当前Reader所对应的安全单元是否可用。
      *
-     * @returns { boolean } **true** if the SE is available; **false** otherwise.
+     * @returns { boolean } true: 安全单元可用， false: 安全单元不可用。
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
@@ -151,9 +145,9 @@ declare namespace omapi {
     isSecureElementPresent(): boolean;
 
     /**
-     * Opens a session to connect to an SE in this reader. Multiple sessions can be opened on a reader at the same time.
+     * 在SE Reader实例上创建连接会话，返回Session实例。在一个Reader上可能同时打开多个会话。
      *
-     * @returns { Session } Session instance opened.
+     * @returns { Session } 连接会话Session实例。
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -163,7 +157,7 @@ declare namespace omapi {
     openSession(): Session;
 
     /**
-     * Closes all sessions opened on this reader. All channels opened by these sessions will be closed.
+     * 关闭在此Reader上打开的所有Session。所有这些Session打开的所有Channel都将关闭。
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -174,17 +168,16 @@ declare namespace omapi {
   }
 
   /**
-   * A **Session** instance indicates a session created on an SE **Reader** instance. You can use
-   * [Reader.openSession]{@link omapi.Reader.openSession} to obtain a **Session** instance.
+   * Session的实例表示在某个SE Reader实例上创建连接会话。通过[Reader.openSession]{@link omapi.Reader.openSession}获取Session实例。
    *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Session {
     /**
-     * Obtains the reader that provides this session.
+     * 获取提供此Session的Reader实例。
      *
-     * @returns { Reader } Reader instance obtained.
+     * @returns { Reader } 返回此Session的Reader实例。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -192,10 +185,9 @@ declare namespace omapi {
     getReader(): Reader;
 
     /**
-     * Obtains the Answer to Reset (ATR) of this SE. If the ATR of this SE is not available, an empty array will be
-     * returned.
+     * 获取该SE的ATR。如果该SE的ATR不可用，则应返回空数组。
      *
-     * @returns { number[] } ATR if the SE has an available ATR; an empty array otherwise.
+     * @returns { number[] } 返回SE的ATR，SE的ATR不可用时，返回空的数组。
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
@@ -204,7 +196,7 @@ declare namespace omapi {
     getATR(): number[];
 
     /**
-     * Closes the session with the SE. All channels opened by this session will be closed.
+     * 关闭与SE的当前会话连接。这将关闭此Session打开的所有Channel。
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -214,7 +206,6 @@ declare namespace omapi {
     close(): void;
 
     /**
-     * Check if this session is closed.
      *
      * @returns { boolean } True if the session is closed, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -224,7 +215,7 @@ declare namespace omapi {
     isClosed(): boolean;
 
     /**
-     * Closes all channels opened on this session.
+     * 关闭此Session上打开的所有Channel。
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -234,13 +225,10 @@ declare namespace omapi {
     closeChannels(): void;
 
     /**
-     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
-     * the result.
+     * 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用Promise异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @returns { Promise<Channel> } Promise used to return the basic channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @returns { Promise<Channel> } 以Promise形式异步返回可用的基础Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -258,13 +246,10 @@ declare namespace omapi {
     openBasicChannel(aid: number[]): Promise<Channel>;
 
     /**
-     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
-     * callback to return the result.
+     * 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { AsyncCallback<Channel> } callback - Callback used to return the basic channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { AsyncCallback<Channel> } callback - 以callback形式异步返回可用的基础Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -282,14 +267,11 @@ declare namespace omapi {
     openBasicChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
     /**
-     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
-     * the result.
+     * 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用Promise异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
-     * @returns { Promise<Channel> } Promise used to return the basic channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { number } p2 - 在该Channel上执行的SELECT APDU的P2参数。
+     * @returns { Promise<Channel> } 以Promise形式异步返回可用的基础Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -307,14 +289,11 @@ declare namespace omapi {
     openBasicChannel(aid: number[], p2: number): Promise<Channel>;
 
     /**
-     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
-     * callback to return the result.
+     * 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - Callback used to return the basic channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { number } p2 - 此Channel上执行SELECT APDU命令的P2参数。
+     * @param { AsyncCallback<Channel> } callback - 以callback形式异步返回可用的基础Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -332,12 +311,9 @@ declare namespace omapi {
     openBasicChannel(aid: number[], p2: number, callback: AsyncCallback<Channel>): void;
 
     /**
-     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
-     * the result.
+     * 打开逻辑通道，参考[ISO 7816-4]协议，返回逻辑Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用Promise异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
      * @returns {  Promise<Channel> } Promise used to return the logical channel instance obtained.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -358,13 +334,10 @@ declare namespace omapi {
     openLogicalChannel(aid: number[]): Promise<Channel>;
 
     /**
-     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
-     * callback to return the result.
+     * 打开逻辑通道，参考[ISO 7816-4]协议，返回逻辑Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { AsyncCallback<Channel> } callback - Callback used to return the logical channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { AsyncCallback<Channel> } callback - 以callback形式异步返回可用的逻辑Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -384,14 +357,11 @@ declare namespace omapi {
     openLogicalChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
     /**
-     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
-     * the result.
+     * 打开逻辑通道，参考[ISO 7816-4]协议，返回逻辑Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用Promise异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
-     * @returns { Promise<Channel> } Promise used to return the logical channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { number } p2 - 此Channel上执行SELECT APDU命令的P2参数。
+     * @returns { Promise<Channel> } 以Promise形式异步返回可用的逻辑Channel实例对象。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -411,14 +381,11 @@ declare namespace omapi {
     openLogicalChannel(aid: number[], p2: number): Promise<Channel>;
 
     /**
-     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
-     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
-     * callback to return the result.
+     * 打开逻辑通道，参考[ISO 7816-4]协议，返回Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
      *
-     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
-     *     Applet is to be selected.
-     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - Callback used to return the logical channel instance obtained.
+     * @param { number[] } aid - 在此Channel上选择的Applet的AID或如果没有Applet被选择时空的数组。
+     * @param { number } p2 - 此Channel上执行SELECT APDU命令的P2参数。
+     * @param { AsyncCallback<Channel> } callback - 以callback形式异步返回可用的逻辑Channel对象实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -439,18 +406,18 @@ declare namespace omapi {
   }
 
   /**
-   * A **Channel** instance indicates a channel set up by a **Session** instance. The channel can be a basic channel or
-   * a logical channel. You can use [Session.openBasicChannel]{@link omapi.Session.openBasicChannel(aid: number[])} or
-   * [Session.openLogicalChannel]{@link omapi.Session.openLogicalChannel(aid: number[])} to obtain a channel instance.
+   * Channel的实例表示在某个Session实例上创建通道，可能为基础通道或逻辑通道。通过
+   * [Session.openBasicChannel]{@link omapi.Session.openBasicChannel(aid: number[])}或
+   * [Session.openLogicalChannel]{@link omapi.Session.openLogicalChannel(aid: number[])}获取Channel实例。
    *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Channel {
     /**
-     * Obtains the session used to open this channel.
+     * 获取打开该Channel的Session对象。
      *
-     * @returns { Session } Session instance obtained.
+     * @returns { Session } 该Channel绑定的Session 对象。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -458,7 +425,7 @@ declare namespace omapi {
     getSession(): Session;
 
     /**
-     * Closes this channel.
+     * 关闭Channel。
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
@@ -467,9 +434,9 @@ declare namespace omapi {
     close(): void;
 
     /**
-     * Checks whether this channel is a basic channel.
+     * 检查该Channel是否为基础Channel。
      *
-     * @returns { boolean } **true** if the channel is a basic channel; **false** otherwise.
+     * @returns { boolean } true: 该Channel是基础Channel, false：该Channel逻辑Channel 。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -477,9 +444,9 @@ declare namespace omapi {
     isBasicChannel(): boolean;
 
     /**
-     * Checks whether this channel is closed.
+     * 检查该Channel是否已被关闭。
      *
-     * @returns { boolean } **true** if the channel is closed; **false** otherwise.
+     * @returns { boolean } true: Channel是关闭的，false: 不是关闭的。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -487,9 +454,9 @@ declare namespace omapi {
     isClosed(): boolean;
 
     /**
-     * Obtains the response data including the status word of **SELECT Applet**.
+     * 获取SELECT Applet时的响应数据，包含状态字。
      *
-     * @returns { number[] } Response data including the status word obtained.
+     * @returns { number[] } SELECT Applet时的响应数据，包含状态字。
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -497,11 +464,10 @@ declare namespace omapi {
     getSelectResponse(): number[];
 
     /**
-     * Transmits APDU data (as per ISO/IEC 7816) to the SE. This API uses a promise to return the result.
+     * 向SE发送APDU数据，数据符合ISO/IEC 7816规范。使用Promise异步回调。
      *
-     * @param { number[] } command - APDU data to send.
-     * @returns { Promise<number[]> } Promise used to return the response received, in a number array. If the chip captures
-     *     an exception, an all zero value is returned.
+     * @param { number[] } command - 需要发送到SE的APDU数据。
+     * @returns { Promise<number[]> } 以Promise形式异步返回接收到的响应APDU数据，number数组。若芯片捕获异常则返回全0。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -517,11 +483,10 @@ declare namespace omapi {
     transmit(command: number[]): Promise<number[]>;
 
     /**
-     * Transmits APDU data (as per ISO/IEC 7816) to the SE. This API uses an asynchronous callback to return the result.
+     * 向SE发送APDU数据，数据符合ISO/IEC 7816规范。使用callback异步回调。
      *
-     * @param { number[] } command - APDU data to send.
-     * @param { AsyncCallback<number[]> } callback - Callback used to return the response received, in a number array. If
-     *     the chip captures an exception, an all zero value is returned.
+     * @param { number[] } command - 需要发送到SE的APDU数据。
+     * @param { AsyncCallback<number[]> } callback - 返回接收到的响应APDU数据，number数组。若芯片捕获异常则返回全0。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -538,14 +503,14 @@ declare namespace omapi {
   }
 
   /**
-   * Enumerates the SE service states.
+   * 定义不同的SE服务状态值。
    *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   enum ServiceState {
     /**
-     * The SE service is disconnected.
+     * SE服务状态已断开。
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -553,7 +518,7 @@ declare namespace omapi {
     DISCONNECTED = 0,
 
     /**
-     * The SE service is connected.
+     * SE服务状态已连接。
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -562,11 +527,10 @@ declare namespace omapi {
   }
 
   /**
-   * Disables listening for service status change events.
+   * 取消订阅服务状态更改事件。
    *
-   * @param { 'stateChanged' } type - Event type. It has a fixed value of **stateChanged**.
-   * @param { Callback<ServiceState> } callback - Callback invoked to return the SE service status. If this parameter is
-   *     left empty, all callbacks corresponding to the type will be unsubscribed.
+   * @param { 'stateChanged' } type - 取消订阅监听的事件类型，固定填'stateChanged' 。
+   * @param { Callback<ServiceState> } callback - 返回SE服务状态的回调。不填则取消订阅该type对应的所有回调。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 18 dynamic
@@ -574,13 +538,12 @@ declare namespace omapi {
   function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
 
   /**
-   * Enables listening for service status change events.
+   * 注册监听服务状态变化事件。
    *
-   * Call this API to register a callback after you use [omapi.newSEService]{@link omapi.newSEService} or
-   * [omapi.createService]{@link omapi.createService} to create a service.
+   * 调用[omapi.newSEService]{@link omapi.newSEService}或[omapi.createService]{@link omapi.createService}创建服务成功后再用on接口注册回调。
    *
-   * @param { 'stateChanged' } type - Event type. It has a fixed value of **stateChanged**.
-   * @param { Callback<ServiceState> } callback - Callback used to return the SE service state.
+   * @param { 'stateChanged' } type - 订阅监听的事件类型，固定填'stateChanged' 。
+   * @param { Callback<ServiceState> } callback - 返回SE服务状态的回调 。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 18 dynamic
