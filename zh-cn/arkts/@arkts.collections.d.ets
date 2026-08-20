@@ -23,6 +23,28 @@ import lang from './@arkts.lang'
 /*** endif */
 
 /**
+ * 内建Array类型。
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinArray<T> = Array<T>;
+
+/**
+ * 内建Map类型。
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinMap<K, V> = Map<K, V>;
+
+/**
  * 本模块提供的ArkTS容器集，可以用于并发场景下的高性能数据传递。功能与JavaScript内建的对应容器类似，但ArkTS容器实例无法通过`"."`或者`"[]"`添加或更新属性。
  * ArkTS容器在多个并发实例间传递时，其默认行为是引用传递，支持多个并发实例可以同时操作同一个容器实例。另外，也支持拷贝传递，即每个并发实例持有一个ArkTS容器实例。
  * ArkTS容器并不是线程安全的，内部使用了fail-fast（快速失败）机制：当检测多个并发实例同时对容器进行结构性改变时，会触发异常。因此，在多线程读写容器时，容器使用方需要使用ArkTS提供的异步锁机制保证ArkTS容器的安全访问。
@@ -157,6 +179,45 @@ declare namespace collections {
    */
   type ArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
+
+  /**
+   * ArkTS Array判定函数类型，被Array类的'retainAll'接口使用，用来判断数组元素是否满足测试条件。
+   *
+   * @param { ElementType } value - 当前正在处理的元素。
+   * @returns { boolean } 判定函数的结果，若当前元素满足判定函数则为真，否则为假。
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayElementPredicateFn<ElementType> = (value: ElementType) => boolean;
+
+  /**
+   * ArkTS Array接口参数类型，表示ArkTS Array或内建Array。
+   *
+   * @unionmember { Array<T> } ArkTS Array.
+   * @unionmember { BuiltinArray<T> } 内建Array.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayOrBuiltinArray<T> = Array<T> | BuiltinArray<T>;
+
+  /**
+   * ArkTS Map接口参数类型，表示ArkTS Map或内建Map。
+   *
+   * @unionmember { Map<K, V> } ArkTS Map.
+   * @unionmember { BuiltinMap<K, V> } 内建Map.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type MapOrBuiltinMap<K, V> = Map<K, V> | BuiltinMap<K, V>;
 
   /**
    * ArkTS Array归约函数类型，被Array类的'reduceRight'接口使用。
@@ -649,6 +710,37 @@ declare namespace collections {
      */
     includes(searchElement: T, fromIndex?: number): boolean;
     /**
+     * 检查指定ArkTS Array或内建Array中的所有元素是否均包含在此ArkTS Array中。
+     *
+     * @param { ArrayOrBuiltinArray<T> } elements - 要检查的ArkTS Array或内建Array。
+     * @returns { boolean } 检查结果。如果指定的所有元素均包含在此Array中，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: ArrayOrBuiltinArray<T>): boolean;
+    /**
+     * 仅保留此ArkTS Array中包含在指定ArkTS Array或内建Array中的元素，或满足指定判定函数的元素。
+     *
+     * @param { ArrayOrBuiltinArray<T> | ArrayElementPredicateFn<T> } value - 允许
+     *     保留元素的ArkTS Array或内建Array，或用于测试每个元素的判定函数。
+     * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(value: ArrayOrBuiltinArray<T> | ArrayElementPredicateFn<T>): boolean;
+    /**
      * 返回通过回调函数测试的第一个元素的索引，如果所有元素都不满足，则返回**-1**。
      *
      * @param { function } predicate - 一个接受三个参数的函数，用于筛选元素。返回值为
@@ -1052,6 +1144,21 @@ declare namespace collections {
      */
     clear(): void;
     /**
+     * 判断该Map中是否存在一个或多个键映射到指定值。
+     *
+     * @param { V } value - 指定值。
+     * @returns { boolean } 检查结果。如果存在指定值，则返回**true**；否则返回
+     *     **false**。
+     * @throws { BusinessError } 10200011 - The containsValue method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsValue(value: V): boolean;
+    /**
      * 删除该Map中指定键对应的元素。
      *
      * @param { K } key - 待删除元素的键。
@@ -1065,6 +1172,25 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     delete(key: K): boolean;
+    /**
+     * 删除该Map中的指定键及其对应值。
+     *
+     * > **NOTE**
+     * >
+     * > - 返回**undefined**时无法直接区分是键不存在还是键存在但值为**undefined**，可在使用本接口前先使用
+     * >   **has**接口判断键是否存在，进而区分返回的**undefined**所属情况。
+     *
+     * @param { K } key - 指定键。
+     * @returns { V | undefined } 被删除的值。如果键在Map对象中找不到，则返回**undefined**。
+     * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    remove(key: K): V | undefined;
     /**
      * 按插入顺序对该Map中的每个键值对执行一次回调函数。
      *
@@ -1104,6 +1230,39 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     has(key: K): boolean;
+    /**
+     * 向该Map添加或更新一个指定的键值对，并返回该键之前关联的值。
+     *
+     * > **NOTE**
+     * >
+     * > - 返回**undefined**时无法直接区分是键不存在还是键存在但值为**undefined**，可在使用本接口前先使用
+     * >   **has**接口判断键是否存在，进而区分返回的**undefined**所属情况。
+     *
+     * @param { K } key - 添加或更新指定元素的键。
+     * @param { V } value - 添加或更新指定元素的值。
+     * @returns { V | undefined } 该键之前关联的值。如果键在Map对象中找不到，则返回**undefined**。
+     * @throws { BusinessError } 10200011 - The put method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    put(key: K, value: V): V | undefined;
+    /**
+     * 使用指定Map中的键值对更新该Map。
+     *
+     * @param { MapOrBuiltinMap<K, V> } from - 提供键值对的Map。
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: MapOrBuiltinMap<K, V>): void;
     /**
      * 向该Map添加或更新一个指定的键值对。
      *
