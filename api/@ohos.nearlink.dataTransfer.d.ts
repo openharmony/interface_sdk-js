@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file NearLink Data Transfer Capability
  * @kit ConnectivityKit
  */
 
@@ -22,30 +22,32 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods to operate and manage data transfer of NearLink.
+ * This module provides the NearLink data transfer capability, including port channel management, connection management,
+ * data sending and receiving, and connection status query and subscription.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace dataTransfer {
   /**
-   * Indicates the connection state.
+   * Enumerates the connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
   /**
-   * Creates a NearLink listening port that can receive data by UUID.
+   * Registers a port channel. A port channel can be used to connect to a remote device only after being registered. If
+   * the port channel is no longer needed after use, call [dataTransfer.destroyPort]{@link dataTransfer.destroyPort} to
+   * destroy it.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } uuid - Indicates application service UUID.
-   *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-   *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-   *     <br>NearLink standard UUIDs not allowed.
+   * @param { string } uuid - NearLink service UUID, which is a string of 36 characters. The value consists of 32
+   *     hexadecimal digits and four hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates
+   *     a 128-bit ID. The value cannot be set to a standard NearLink UUID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -56,18 +58,17 @@ declare namespace dataTransfer {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function createPort(uuid: string): void;
 
   /**
-   * Destroys a listen port and releases related resources by UUID.
+   * Destroys the port channel.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } uuid - Indicates application service UUID.
-   *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-   *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-   *     <br>NearLink standard UUIDs not allowed.
+   * @param { string } uuid - NearLink service UUID, which is a string of 36 characters. The value consists of 32
+   *     hexadecimal digits and four hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates
+   *     a 128-bit ID. The value cannot be set to a standard NearLink UUID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -77,16 +78,16 @@ declare namespace dataTransfer {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function destroyPort(uuid: string): void;
 
   /**
-   * Connects to a server. If the connection is successful, data can be sent to the server.
+   * Connects to a remote device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionParams } params - Indicates the connection params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionParams } params - Connection parameters of the port.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -96,16 +97,18 @@ declare namespace dataTransfer {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function connect(params: ConnectionParams): Promise<void>;
 
   /**
-   * Disconnects or stops an ongoing connection to a server.
+   * Disconnects from the remote device. This method is called to disconnect from the remote device after it is
+   * successfully connected using [dataTransfer.connect]{@link dataTransfer.connect}. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionParams } params - Indicates the connection params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionParams } params - Connection parameters of the port.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -115,88 +118,100 @@ declare namespace dataTransfer {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function disconnect(params: ConnectionParams): Promise<void>;
 
   /**
-   * Subscribes to the connection state change event.
+   * Subscribes to the connection state change event of the port channel. This API uses an asynchronous callback to
+   * return the result.
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
    *
-   * @param { Callback<ConnectionResult> } callback - Callback used to listen for the state change event.
+   * @param { Callback<ConnectionResult> } callback - Callback used to return the negotiation result of port connection
+   *     parameters with a remote device.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onConnectionStateChanged(callback: Callback<ConnectionResult>): void;
 
   /**
-   * Unsubscribes from the connection state change event.
+   * Unsubscribes from the connection state change event of the port channel. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { Callback<ConnectionResult> } [callback] - Callback used to listen for the state change event.
+   * @param { Callback<ConnectionResult> } [callback] - Callback used to return the result of port connection parameter
+   *     negotiation with a remote device.
+   *     <br>If this parameter is set, the current callback is unregistered. If this parameter is not specified, all
+   *     callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offConnectionStateChanged(callback?: Callback<ConnectionResult>): void;
 
   /**
-   * Writes data by address and UUID.
+   * Sends data to a remote device using the device address and UUID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { DataParams } params - Indicates the send data params.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { DataParams } params - Parameters for sending data, including the remote device address, service UUID, and
+   *     data packet to send.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
-   * @throws { BusinessError } 36100023 - Write data congestion.
+   * @throws { BusinessError } 36100023 - Data transmission congested.
    * @throws { BusinessError } 36100041 - Invalid address.
    * @throws { BusinessError } 36100043 - Invalid UUID.
    * @throws { BusinessError } 36100044 - NearLink standard UUID not allowed.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function writeData(params: DataParams): Promise<void>;
 
   /**
-   * Subscribes to the event reported when data is read from the port.
+   * Subscribes to the port channel data receiving event. This API uses an asynchronous callback to return the result.
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+   * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
    *
-   * @param { Callback<DataParams> } callback - Callback used to listen for the port read event.
+   * @param { Callback<DataParams> } callback - Callback used to return the parameters for data received by the port
+   *     channel.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onReadData(callback: Callback<DataParams>): void;
 
   /**
-   * Unsubscribes from the event reported when data is read from the port.
+   * Unsubscribes from the port channel data receiving event. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { Callback<DataParams> } [callback] - Callback used to listen for the port read event.
+   * @param { Callback<DataParams> } [callback] - Callback used to return the parameters for data received by the port
+   *     channel.
+   *     <br>If this parameter is set, the current callback is unregistered. If this parameter is not specified, all
+   *     callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offReadData(callback?: Callback<DataParams>): void;
 
   /**
-   * Obtains the connection status for data transfer.
+   * Obtains the port channel connection state with a remote device.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ConnectionStateParams } params - Parameters used to obtain the connection status.
-   * @returns { ConnectionState } Returns the connection status for data transfer.
+   * @param { ConnectionStateParams } params - Connection parameters of the port.
+   * @returns { ConnectionState } NearLink port channel connection state with a remote device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -206,187 +221,181 @@ declare namespace dataTransfer {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getConnectionState(params: ConnectionStateParams): ConnectionState;
 
   /**
-   * Describes the parameters for connection.
+   * Defines the parameters for initiating a port connection.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ConnectionParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:),
-     * for example, 11:22:33:AA:BB:FF.
+     * NearLink address of a remote device. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     uuid: string;
     /**
-     * Data transfer mode. The basic transfer mode is used by default
-     * Default value: BASIC.
+     * Data transfer mode with a remote device. The default value is **BASIC**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     transferMode?: TransferMode;
   }
 
   /**
-   * Describes the parameters for Data.
+   * Defines the parameters for port data sending and receiving.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface DataParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * NearLink address of a remote device. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     uuid: string;
     /**
-     * Indicates the data buffer.
+     * Data packet. When this parameter is used in [dataTransfer.writeData]{@link dataTransfer.writeData}, it indicates
+     * the data to be sent. When the parameter is used in
+     * [dataTransfer.onReadData]{@link dataTransfer.onReadData(callback: Callback<DataParams>)}, it indicates the
+     * received data.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     data: ArrayBuffer;
   }
 
   /**
-   * Describes the parameters for connection result.
+   * Represents the result of port connection parameter negotiation with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ConnectionResult {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * NearLink address of a remote device. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Indicates the service UUID.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     uuid: string;
     /**
-     * Indicates the maximum channel data length.
-     * Unit: Bytes, The value must be an integer within [0,65535].
+     * Negotiated packet size of data to be sent and received, in bytes. The value range is [0, 65535].
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     mtu: int;
     /**
-     * Connection state.
+     * Connection state with a remote device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: ConnectionState;
   }
 
   /**
-   * Describes the parameters required for obtaining the connection status.
+   * Defines the parameters for obtaining the port channel connection state.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ConnectionStateParams {
     /**
-     * Indicates the connected device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * NearLink address of a remote device. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Indicates the service uuid.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     uuid: string;
   }
 
   /**
-   * Indicates the data transfer mode.
+   * Enumerates the data transfer modes with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum TransferMode {
     /**
-     * Basic data transfer mode.
+     * Basic mode, without a data retransfer mechanism. This mode is applicable to services sensitive to latency and
+     * throughput.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     BASIC = 0,
     /**
-     * Reliable data transfer mode.
+     * Reliable mode, with a data retransfer mechanism. This mode is applicable to services that require high data
+     * integrity.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     RELIABLE = 1
   }

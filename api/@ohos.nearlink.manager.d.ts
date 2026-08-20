@@ -14,33 +14,35 @@
  */
 
 /**
- * @file
+ * @file Basic NearLink Management Capability
  * @kit ConnectivityKit
  */
 
 import type { Callback } from '@ohos.base';
 
 /**
- * Provides methods to manage NearLink devices.
+ * This module provides basic NearLink management capabilities, including enabling or disabling NearLink, obtaining the
+ * MAC address of the local device, and setting the connection mode.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace manager {
 
   /**
-   * Check whether the current device supports NearLink.
+   * Checks whether the current device supports NearLink.
    *
-   * @returns { boolean } Return whether the NearLink is supported.
+   * @returns { boolean } Whether the current device supports NearLink. The value **true** indicates that the device
+   *     supports NearLink, and **false** indicates the opposite.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function isNearLinkSupported(): boolean;
 
   /**
-   * Turns on NearLink.
+   * Enables NearLink.
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
    * @throws { BusinessError } 201 - Permission denied.
@@ -51,12 +53,12 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function enable(): void;
 
   /**
-   * Turns off NearLink.
+   * Disables NearLink.
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
    * @throws { BusinessError } 201 - Permission denied.
@@ -66,27 +68,27 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function disable(): void;
 
   /**
-   * Gets the NearLink state.
+   * Queries the NearLink status.
    *
-   * @returns { NearlinkState } Returns the NearLink state.
+   * @returns { NearlinkState } NearLink status.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getState(): NearlinkState;
 
   /**
-   * Gets the MAC address of the local device.
+   * Queries the MAC address of the local device.
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.GET_NEARLINK_LOCAL_MAC
-   * @returns { string } The local MAC address. For example, "11:22:33:AA:BB:FF".
+   * @returns { string } Local MAC address, for example, **'11:22:33:AA:BB:FF'**.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -95,50 +97,48 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getLocalAddress(): string;
 
   /**
-   * Gets the local device's name.
+   * Queries the NearLink name on the local device.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { string } Returns the device's name.
+   * @returns { string } NearLink name on the local device. The value contains a maximum of 30 characters.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getLocalName(): string;
 
   /**
-   * Gets the list of devices that have been paired with the current device.
-   * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-   * Otherwise, a random device address is returned.
+   * Obtains the devices paired with the current device.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { string[] } Returns a list of paired devices' address in MAC format (e.g., "11:22:33:AA:BB:FF").
+   * @returns { string[] } List of paired device addresses.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getPairedDevices(): string[];
 
   /**
-   * Sets the NearLink connection mode for a device.
+   * Sets the connection mode. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-   * @param { ConnectionMode } mode - Indicates the NearLink connection mode to be set.
-   * @param { int } duration - Indicates the duration in seconds for the setting mode. A value of 0 means unlimited.
-   *     <br>Unit: Seconds, The value must be an integer greater than or equal to 0.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionMode } mode - Connection mode to be set.
+   * @param { int } duration - Duration of the mode to set, in seconds.  The value **0** indicates no time limit.
+   *     <br>The value should be an integer.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -148,15 +148,15 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function setConnectionMode(mode: ConnectionMode, duration: int): Promise<void>;
 
   /**
-   * Restores NearLink settings.
+   * Restores a device to its factory settings. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_NEARLINK
-   * @returns { Promise<void> } Returns the promise object.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -164,101 +164,103 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function factoryReset(): Promise<void>;
 
   /**
-   * Subscribes to state change events.
+   * Subscribes to the NearLink status change event. This API uses an asynchronous callback to return the result.
    *
-   * @param { Callback<NearlinkState> } callback - Callback used to listen for the state change event.
+   * @param { Callback<NearlinkState> } callback - Callback used to return the NearLink status.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onStateChange(callback: Callback<NearlinkState>): void;
 
   /**
-   * Unsubscribes from state change events.
+   * Unsubscribes from the NearLink status change event. This API uses an asynchronous callback to return the result.
    *
-   * @param { Callback<NearlinkState> } [callback] - Callback used to listen for the state change event.
+   * @param { Callback<NearlinkState> } [callback] - Callback used to return the NearLink status.
+   *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+   *     all callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offStateChange(callback?: Callback<NearlinkState>): void;
 
   /**
-   * The enum of NearLink state.
+   * Enumerated the NearLink statuses.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum NearlinkState {
     /**
-     * Indicates that NearLink is turning on.
+     * NearLink is being turned on.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_TURNING_ON = 0,
     /**
-     * Indicates that NearLink is on and ready for use.
+     * NearLink is turned on.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_ON = 1,
     /**
-     * Indicates that NearLink is turning off.
+     * NearLink is being turned off.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_TURNING_OFF = 2,
     /**
-     * Indicates that NearLink has turned off.
+     * NearLink is turned off.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_OFF = 3
   }
 
   /**
-   * The enum of connection mode.
+   * Enumerates the connection modes.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum ConnectionMode {
     /**
-     * Indicates that the device is not connectable.
+     * The device cannot be connected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     SLE_MODE_UNCONNECTABLE = 0,
     /**
-     * Indicates that the device is connectable.
+     * The device can be connected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     SLE_MODE_CONNECTABLE = 1
   }

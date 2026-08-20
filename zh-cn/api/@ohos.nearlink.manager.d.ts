@@ -14,33 +14,33 @@
  */
 
 /**
- * @file
+ * @file 星闪基础管理能力
  * @kit ConnectivityKit
  */
 
 import type { Callback } from '@ohos.base';
 
 /**
- * 提供管理星闪设备的方法。
+ * 本模块提供了星闪基础管理能力，包括打开/关闭星闪、获取本机MAC地址、设置连接模式等能力。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace manager {
 
   /**
-   * 检查当前设备是否支持星闪。
+   * 查询当前设备是否支持星闪服务。
    *
-   * @returns { boolean } 返回是否支持星闪。
+   * @returns { boolean } 表示当前设备是否支持星闪。返回true：设备支持星闪。返回false：设备不支持星闪。
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function isNearLinkSupported(): boolean;
 
   /**
-   * 开启星闪。
+   * 打开星闪。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
    * @throws { BusinessError } 201 - Permission denied.
@@ -51,7 +51,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function enable(): void;
 
@@ -66,27 +66,27 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function disable(): void;
 
   /**
-   * 获取星闪状态。
+   * 查询星闪开关状态。
    *
-   * @returns { NearlinkState } 返回NearLink状态。
+   * @returns { NearlinkState } 表示星闪开关状态。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getState(): NearlinkState;
 
   /**
-   * 获取本端设备的MAC地址。
+   * 查询本机MAC地址。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.GET_NEARLINK_LOCAL_MAC
-   * @returns { string } 本地MAC地址。例如，“11:22:33:AA:BB:FF”。
+   * @returns { string } 表示本地MAC地址。例如'11:22:33:AA:BB:FF'。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -95,49 +95,48 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getLocalAddress(): string;
 
   /**
-   * 获取本地设备的名称。
+   * 查询本机星闪名称。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { string } 返回设备的名称。
+   * @returns { string } 表示星闪设备本地名称。最大长度为30个字符。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getLocalName(): string;
 
   /**
-   * 获取已与当前设备配对的设备列表。
-   * 如果用户有ohos.permission.GET_NEARLINK_PEER_MAC权限，则返回真实设备地址。否则，返回随机的设备地址
+   * 获取与当前设备配对的设备列表。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { string[] } Returns a list of paired devices' address in MAC format (e.g., "11:22:33:AA:BB:FF").
+   * @returns { string[] } 配对设备地址的列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getPairedDevices(): string[];
 
   /**
-   * 设置设备的NearLink连接模式。
+   * 设置连接模式。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-   * @param { ConnectionMode } mode - 需要设置的NearLink连接模式
-   * @param { int } duration - 表示设置连接模式的持续时间（以秒为单位）。值为0表示无限制
-   *     <br>单位为： 秒，取值应为≥0的整数。
-   * @returns { Promise<void> } 返回promise对象。
+   * @param { ConnectionMode } mode - 表示要设置的连接模式。
+   * @param { int } duration - 表示设置模式的持续时间，单位为s，取值范围为大于等于0的整数，若为0则表示无限制。
+   *     <br>取值限定为整数。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -147,15 +146,15 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function setConnectionMode(mode: ConnectionMode, duration: int): Promise<void>;
 
   /**
-   * 恢复星闪设置。
+   * 恢复出厂设置。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_NEARLINK
-   * @returns { Promise<void> } 返回promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -163,56 +162,57 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function factoryReset(): Promise<void>;
 
   /**
-   * 订阅状态变更事件。
+   * 订阅星闪开关状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<NearlinkState> } callback - 用于监听状态改变事件的回调
+   * @param { Callback<NearlinkState> } callback - 回调函数，返回星闪的开关状态。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onStateChange(callback: Callback<NearlinkState>): void;
 
   /**
-   * 取消订阅状态变更事件。
+   * 取消订阅星闪开关状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<NearlinkState> } [callback] - 用于监听状态改变事件的回调
+   * @param { Callback<NearlinkState> } [callback] - 回调函数，返回星闪的开关状态。
+   *     <br>填写该参数则取消当前callback订阅。不填写该参数则取消该事件对应的所有回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offStateChange(callback?: Callback<NearlinkState>): void;
 
   /**
-   * 星闪状态的枚举。
+   * 星闪的开关状态，为枚举值。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum NearlinkState {
     /**
-     * 表示星闪正在开启。
+     * 表示星闪正在打开。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_TURNING_ON = 0,
     /**
-     * 表示星闪已开启，可供使用。
+     * 表示星闪已打开。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_ON = 1,
     /**
@@ -220,7 +220,7 @@ declare namespace manager {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_TURNING_OFF = 2,
     /**
@@ -228,36 +228,36 @@ declare namespace manager {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_OFF = 3
   }
 
   /**
-   * 连接模式的枚举。
+   * 连接模式的枚举值。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum ConnectionMode {
     /**
-     * 表示设备不可连接。
+     * 表示该设备不可连接。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     SLE_MODE_UNCONNECTABLE = 0,
     /**
-     * 表示设备是可连接的。
+     * 表示该设备可连接。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     SLE_MODE_CONNECTABLE = 1
   }
