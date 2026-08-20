@@ -14,124 +14,125 @@
  */
 
 /**
- * @file
+ * @file NearLink Common Constants
  * @kit ConnectivityKit
  */
 
 /**
- * The definition of nearlinkConstant.
+ * This module provides definitions of common constants for NearLink communication, including the device pairing status,
+ * device connection status, and device type.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace nearlinkConstant {
   /**
-   * The enum of pairing state.
+   * Enumerates the pairing states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum PairingState {
     /**
-     * Indicates that the pairing state is none.
+     * Not paired.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_STATE_NONE = 1,
     /**
-     * Indicates that the pairing state is pairing.
+     * Pairing.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_STATE_PAIRING = 2,
     /**
-     * Indicates that the pairing state is paired.
+     * Paired.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_STATE_PAIRED = 3
   }
 
   /**
-   * The enum of connection state.
+   * Enumerates the connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum ConnectionState {
     /**
-     * The current profile is being connected.
+     * Connecting.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_CONNECTING = 0,
     /**
-     * The current device is connected.
+     * Connected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_CONNECTED = 1,
     /**
-     * The current device is being disconnected.
+     * Disconnecting.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_DISCONNECTING = 2,
     /**
-     * The current device is disconnected.
+     * Disconnected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_DISCONNECTED = 3
   }
 
   /**
-   * The enum of device class.
+   * Enumerates the device types.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum DeviceClass {
     /**
-     * Invalid device class. Missing device class information.
+     * Invalid device type. The device type information is missing.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_INVALID_CLASS = -1,
     /**
-     * Unclassified device.
+     * Uncategorized device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_UNCATEGORIZED = 0x000100,
     /**
-     * General phone.
+     * Phone.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_PHONE = 0x000200,
     /**
@@ -139,15 +140,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMARTPHONE = 0x000201,
     /**
-     * General computer.
+     * Computer.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_COMPUTER = 0x000300,
     /**
@@ -155,7 +156,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_LAPTOP = 0x000301,
     /**
@@ -163,7 +164,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_TABLET = 0x000302,
     /**
@@ -171,7 +172,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ALL_IN_ONE_COMPUTER = 0x000303,
     /**
@@ -179,15 +180,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_MINI_PC = 0x000304,
     /**
-     * General watch.
+     * Watch.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_WATCH = 0x000400,
     /**
@@ -195,15 +196,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_WATCH = 0x000401,
     /**
-     * General human interface device.
+     * Human-machine interface.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_HUMAN_INTERFACE = 0x000500,
     /**
@@ -211,7 +212,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_KEYBOARD = 0x000501,
     /**
@@ -219,7 +220,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_MOUSE = 0x000502,
     /**
@@ -227,15 +228,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_HANDLE = 0x000503,
     /**
-     * Stylus pen.
+     * Stylus.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_STYLUS = 0x000504,
     /**
@@ -243,15 +244,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_TOUCHPAD = 0x000505,
     /**
-     * General audio playback device.
+     * Audio player.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_AUDIO_PLAYBACK = 0x000600,
     /**
@@ -259,23 +260,23 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_SPEAKER = 0x000601,
     /**
-     * Echo Wall.
+     * Echo device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ECHO_WALL = 0x000602,
     /**
-     * General audio capture device.
+     * Audio recorder.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_AUDIO_CAPTURE = 0x000700,
     /**
@@ -283,31 +284,31 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_KARAOKE_MICROPHONE = 0x000701,
     /**
-     * Lapel Microphone.
+     * Wearable microphone.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_LAPEL_MICROPHONE = 0x000702,
     /**
-     * General wearable audio device.
+     * Wearable audio device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_WEARABLE_AUDIO = 0x000800,
     /**
-     * In-ear earphone.
+     * In-ear headphones.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_IN_EAR_EARPHONE = 0x000801,
     /**
@@ -315,39 +316,39 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_HEADSET = 0x000802,
     /**
-     * Over-ear headphone.
+     * Over-ear headphones.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_OVER_EAR_HEADPHONE = 0x000803,
     /**
-     * Neck-worn earphone.
+     * Neckband earphones.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_NECKBAND_EARPHONE = 0x000804,
     /**
-     * General personal care.
+     * Personal care.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_PERSONAL_CARE = 0x000900,
     /**
-     * Intelligent toothbrush.
+     * Smart toothbrush.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_INTELLIGENT_TOOTHBRUSH = 0x000901,
     /**
@@ -355,23 +356,23 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_CUP = 0x000902,
     /**
-     * Intelligent shaver.
+     * Smart shaver.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_INTELLIGENT_SHAVER = 0x000903,
     /**
-     * General HVAC.
+     * HVAC.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_HVAC = 0x000A00,
     /**
@@ -379,7 +380,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_AIR_PURIFIER = 0x000A01,
     /**
@@ -387,7 +388,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_HUMIDIFIER = 0x000A02,
     /**
@@ -395,15 +396,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_AIR_CIRCULATION_FAN = 0x000A03,
     /**
-     * General electric riding.
+     * Electric cycling tool.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ELECTRIC_RIDE = 0x000B00,
     /**
@@ -411,7 +412,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ELECTRIC_SCOOTER = 0x000B01,
     /**
@@ -419,15 +420,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ELECTRIC_BICYCLE = 0x000B02,
     /**
-     * General light fitting.
+     * Light fittings.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_LIGHT_FITTING = 0x000C00,
     /**
@@ -435,15 +436,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_TABLE_LAMP = 0x000C01,
     /**
-     * General remote control.
+     * Remote control device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_REMOTE_CONTROL = 0x000D00,
     /**
@@ -451,15 +452,15 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_TV_REMOTE_CONTROL = 0x000D01,
     /**
-     * General imaging device.
+     * Imaging device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_IMAGING = 0x000E00,
     /**
@@ -467,7 +468,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_TV = 0x000E01,
     /**
@@ -475,23 +476,23 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_IP_CAMERA = 0x000E02,
     /**
-     * Screen caster.
+     * Projector.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SCREEN_CASTER = 0x000E03,
     /**
-     * General network device.
+     * Network device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_NETWORKING = 0x000F00,
     /**
@@ -499,23 +500,23 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_IOT_GATEWAY = 0x000F01,
     /**
-     * General access control.
+     * Access control device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_ACCESS_CONTROL = 0x001000,
     /**
-     * Intelligent Lock.
+     * Smart lock.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_INTELLIGENT_LOCK = 0x001001,
     /**
@@ -523,7 +524,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_SMART_KEY = 0x001002,
     /**
@@ -531,7 +532,7 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_VEHICLE_KEY = 0x001003,
     /**
@@ -539,142 +540,145 @@ declare namespace nearlinkConstant {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DEVICE_VEHICLE_LOCK = 0x001004
   }
 
   /**
-   * ACB connection status enumeration.
+   * Enumerates the logical link connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum AcbState {
     /**
-     * ACB disconnected.
+     * Disconnected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DISCONNECTED = 0,
     /**
-     * ACB connected.
+     * Connected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTED = 1,
     /**
-     * ACB encrypted.
+     * Connected, with link encrypted.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     ENCRYPTED = 2
   }
 
   /**
-   * The enum of connection interval values.
+   * Enumerates the connection intervals. A smaller interval indicates a lower latency, higher throughput, but higher
+   * power consumption. A larger interval indicates lower power consumption but higher latency. The high-speed mode is
+   * suitable for scenarios that require high throughput and low latency, while the low-speed mode is suitable for
+   * scenarios that are sensitive to power consumption.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum ConnectionInterval {
     /**
-     * Connection interval 4.5ms.
+     * Connection interval of 4.5 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     HIGH_SPEED_INTERVAL_4_5 = 0,
     /**
-     * Connection interval 4.875ms.
+     * Connection interval of 4.875 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     HIGH_SPEED_INTERVAL_4_875 = 1,
     /**
-     * Connection interval 11.25ms.
+     * Connection interval of 11.25 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     MID_SPEED_INTERVAL_11_25 = 2,
     /**
-     * Connection interval 15ms.
+     * Connection interval of 15 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     MID_SPEED_INTERVAL_15 = 3,
     /**
-     * Connection interval 50ms.
+     * Connection interval of 50 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     MID_SPEED_INTERVAL_50 = 4,
     /**
-     * Connection interval 100ms.
+     * Connection interval of 100 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     LOW_SPEED_INTERVAL_100 = 5,
     /**
-     * Connection interval 150ms.
+     * Connection interval of 150 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     LOW_SPEED_INTERVAL_150 = 6,
     /**
-     * Connection interval 200ms.
+     * Connection interval of 200 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     LOW_SPEED_INTERVAL_200 = 7,
     /**
-     * Connection interval 300ms.
+     * Connection interval of 300 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     LOW_SPEED_INTERVAL_300 = 8,
     /**
-     * Connection interval 500ms.
+     * Connection interval of 500 ms.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     LOW_SPEED_INTERVAL_500 = 9
   }

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file NearLink SSAP Connection Capability
  * @kit ConnectivityKit
  */
 
@@ -22,30 +22,30 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods to operate or manage service of NearLink.
+ * This module provides the SparkLink Service Access Protocol (SSAP) connection capability, including creating and
+ * connecting to a client, calling server methods, reading and writing descriptors, and subscribing to event
+ * notifications.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace ssap {
   /**
-   * Indicates the connection state.
+   * Enumerates the connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
   /**
-   * Creates a SSAP client instance.
+   * Creates an SSAP client instance.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } address - Indicates the device address of a server
-   *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
-   *     for example, 11:22:33:AA:BB:FF.
-   * @returns { Client } Returns a SSAP client instance {@code Client}.
+   * @param { string } address - Address of the remote server device. The address format is **11:22:33:AA:BB:FF**.
+   * @returns { Client } SSAP client instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -53,64 +53,71 @@ declare namespace ssap {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function createClient(address: string): Client;
 
   /**
-   * Creates a SSAP server instance.
+   * Creates an SSAP server instance.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { Server } Returns a SSAP server instance {@code Server}.
+   * @returns { Server } SSAP server instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function createServer(): Server;
 
   /**
-   * Manages SSAP client. Before calling a SSAP client method,
-   * you must use {@link createClient} to create a ssap client instance.
+   * Represents a SSAP client class. It provides APIs for connecting to and transmitting data with the server.
+   *
+   * Before using the methods of this class, use the [ssap.createClient]{@link ssap.createClient} method to construct an
+   * instance of this class.
+   *
+   * An app only needs to create one [Client]{@link ssap.Client} instance for a remote device. Repeated creation will
+   * increase unnecessary resource overhead.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Client {
     /**
-     * Connects to the server.
+     * Initiates a connection to the server. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     connect(): Promise<void>;
 
     /**
-     * Disconnects from or stops an ongoing connection to a server.
+     * Initiates a disconnection to the server, disconnecting an existing connection or terminating a connection being
+     * established. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     disconnect(): Promise<void>;
 
     /**
-     * Closes the client.
+     * Closes the client and disconnects from the remote server. To terminate the current connection while retaining the
+     * instance, use the [disconnect]{@link ssap.Client.disconnect} method.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @throws { BusinessError } 201 - Permission denied.
@@ -118,30 +125,30 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     close(): void;
 
     /**
-     * Starts discovering all services on server.
+     * Obtains the list of services supported by the server. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<Service[]> } Returns the service list of the server.
+     * @returns { Promise<Service[]> } Promise used to return the result. The list of services supported by the server.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getServices(): Promise<Service[]>;
 
     /**
-     * Reads the property of a server.
+     * Reads a server attribute. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to read.
-     * @returns { Promise<Property> } Promise used to return the property value.
+     * @param { Property } property - Server attribute.
+     * @returns { Promise<Property> } Promise used to return the server attribute.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -149,17 +156,17 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     readProperty(property: Property): Promise<Property>;
 
     /**
-     * Writes the property of a server.
+     * Writes a property to the server. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to write.
-     * @param { PropertyWriteType } writeType - Indicates the write type.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { Property } property - Server attribute.
+     * @param { PropertyWriteType } writeType - Write type, which supports two modes: with and without server response.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -167,16 +174,19 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>;
 
     /**
-     * Reads the descriptor of a server.
+     * Reads a server descriptor. This API can be used only after a connection is established by calling
+     * [connect]{@link ssap.Client.connect}. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { PropertyDescriptor } descriptor - Indicates the descriptor to read.
-     * @returns { Promise<PropertyDescriptor> } Promise used to return the descriptor value.
+     * @param { PropertyDescriptor } descriptor - Server property descriptor. The value must correspond to the
+     *     descriptor in the service on a remote device obtained during service discovery.
+     * @returns { Promise<PropertyDescriptor> } Promise used to return the **PropertyDescriptor** object read from the
+     *     server.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -186,21 +196,22 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     readDescriptor(descriptor: PropertyDescriptor): Promise<PropertyDescriptor>;
 
     /**
-     * Writes the descriptor of a server.
+     * Rewrites the server descriptor. This API uses a promise to return the result.
      *
-     * This method does not support writing client property configuration descriptors. To write client property
-     * configuration descriptors, call [setPropertyNotification]{@link setPropertyNotification} or
-     * [setPropertyIndication]{@link setPropertyIndication} instead.
+     * This API does not support writing the client property configuration descriptor (**CLIENT_PROPERTY_CONFIG**). To
+     * configure the client property notification or indication, use
+     * [setPropertyNotification]{@link ssap.Client.setPropertyNotification} or
+     * [setPropertyIndication]{@link ssap.Client.setPropertyIndication}
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { PropertyDescriptor } descriptor - Indicates the descriptor to write.
-     *     <br>The descriptor type should not be CLIENT_PROPERTY_CONFIG.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { PropertyDescriptor } descriptor - Server property descriptor. The value must correspond to the
+     *     descriptor in the service on a remote device obtained during service discovery.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -210,17 +221,20 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     writeDescriptor(descriptor: PropertyDescriptor): Promise<void>;
 
     /**
-     * Enables or disables notification of a property when value changed.
+     * Sets a [Property]{@link ssap.Property} change notification. This method can only be used after a connection is
+     * successfully established by calling [connect]{@link ssap.Client.connect}.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Property } property - Indicates the property to set notification strategy.
-     * @param { boolean } enable - Specifies whether to enable notification of the property.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { Property } property - Property from the server. This property must support the **NOTIFY** operation.
+     *     That is, **operation** contains **NOTIFY**. For details, see [Operation]{@link ssap.Operation}.
+     * @param { boolean } enable - Whether to enable notification. **true**: enables notification. **false**: disables
+     *     notification.
+     * @returns { Promise<void> } Promise used to return the result. No return value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID in property.
@@ -228,17 +242,19 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setPropertyNotification(property: Property, enable: boolean): Promise<void>;
 
     /**
-     * Enables or disables indication of a property when value changed.
+     * Enables or disables indication for property value change. When the property value changes, the server proactively
+     * sends a notification to the client. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @param { Property } property - Indicates the property to indicate.
-     * @param { boolean } enable - Specifies whether to enable indication of the property.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { Property } property - Property from the server.
+     * @param { boolean } enable - Whether to enable indication for property value changes. **true**: enables
+     *     indication. **false**: disables indication.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -249,33 +265,36 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setPropertyIndication(property: Property, enable: boolean): Promise<void>;
 
     /**
-     * Negotiate the MTU size with server.
-     * The negotiation result needs to be obtained by subscribing to MTU event.
+     * Initiates an MTU negotiation request. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { int } mtu - The maximum transmission unit.
-     *     <br>Unit: byte. Recommended value range: [22, 1024].
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { int } mtu - MTU parameter.  The default value is **251**.
+     *     <br>Unit: byte. Value range: [22, 1024],.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestMtuSize(mtu: int): Promise<void>;
 
     /**
-     * Calls the method of a server.
+     * Describes the method for calling the server. For example, in a device control scenario, the client can call the
+     * configuration method provided by the server to remotely set device parameters or trigger specific operations.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Method } method - Indicates the Method to call.
-     * @returns { Promise<Method> } Promise used to return the Method result.
+     * @param { Method } method - Method for calling the server. The value must correspond to the method in the service
+     *     on a remote device obtained during service discovery.
+     * @returns { Promise<Method> } Promise used to return the **Method** object corresponding to the calling result.
+     *     The **result** field is the return value after the server method is executed.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -285,119 +304,134 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     callMethod(method: Method): Promise<Method>;
 
     /**
-     * Subscribe property value changed event.
+     * Subscribes to the property change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<Property> } callback - Callback used to listen for the property value changed event.
+     * @param { Callback<Property> } callback - Callback used to return the Property of the service.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onPropertyChange(callback: Callback<Property>): void;
 
     /**
-     * Unsubscribe property value changed event.
+     * Unsubscribes from the property change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { Callback<Property> } [callback] - Callback used to listen for the property value changed event.
+     * @param { Callback<Property> } [callback] - Callback used to return the property from the server.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offPropertyChange(callback?: Callback<Property>): void;
 
     /**
-     * Subscribes to event notifications.
+     * Subscribes to event notification events. For example, in a device status monitoring scenario, the client
+     * subscribes to events to receive status change notifications (such as device alarms and data updates) pushed by
+     * the server in real time. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to system applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<Event> } callback - Callback used to listen for the event notified event.
+     * @param { Callback<Event> } callback - Callback used to return the **Event** object of the service.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onEventNotify(callback: Callback<Event>): void;
 
     /**
-     * Unsubscribes from event notifications.
+     * Unsubscribes from event notification events. This API uses an asynchronous callback to return the result.
      *
-     * @param { Callback<Event> } [callback] - Callback used to listen for the event notified event.
+     * @param { Callback<Event> } [callback] - Callback used to return the **Event** object of the service.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not set, all
+     *     callbacks corresponding to the type are unsubscribed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offEventNotify(callback?: Callback<Event>): void;
 
     /**
-     * Subscribes to client connection state changed events.
+     * Subscribes to the connection status change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<ConnectionChangeState> } callback -
-     *     Callback used to listen for the SSAP connection state changed event.
+     * @param { Callback<ConnectionChangeState> } callback - Callback used to return the connection status reporting
+     *     parameters.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
     /**
-     * Unsubscribes from client connection state changed events.
+     * Unsubscribes from the connection status change event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { Callback<ConnectionChangeState> } [callback] -
-     *     Callback used to listen for the SSAP connection state changed event.
+     * @param { Callback<ConnectionChangeState> } [callback] - Callback used to return the connection status reporting
+     *     parameters.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
     /**
-     * Subscribes to MTU changed events.
+     * Subscribes to the MTU change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } callback - Callback used to return the MTU after negotiation.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onMtuChange(callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from MTU changed events.
+     * Unsubscribes from the MTU change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } [callback] - Callback used to return the MTU after negotiation.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offMtuChange(callback?: Callback<int>): void;
   }
 
   /**
-   * Manages SSAP server. Before calling a SSAP server method,
-   * you must use {@link createServer} to create a SSAP server instance.
+   * Represents a SSAP server class, which provides APIs for connecting to and exchanging data with the client.
+   *
+   * Before using the methods of this class, you need to call [ssap.createServer]{@link ssap.createServer} to create an
+   * instance of this class.
+   *
+   * An app only needs to create one [Server]{@link ssap.Server} instance. Repeated creation will increase unnecessary
+   * resource overhead.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Server {
     /**
-     * Adds a SSAP service.
+     * Adds a service on the server.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Service } service - ssap service need to be added and registered.
+     * @param { Service } service - Service provided by the server. Multiple services can be added, identified by their
+     *     UUIDs.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID.
@@ -405,18 +439,17 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     addService(service: Service): void;
 
     /**
-     * Removes a specific SSAP service.
+     * Removes a service from the server.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { string } serviceUuid - Specific SSAP service to be removed
-     *     <br>The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-), for example,
-     *     FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     *     <br>NearLink standard UUIDs are not allowed.
+     * @param { string } serviceUuid - NearLink service UUID, which is a string of 36 characters. The value consists of
+     *     32 hexadecimal digits and four hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which
+     *     indicates a 128-bit ID. The value cannot be set to a standard NearLink UUID.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100043 - Invalid UUID.
@@ -424,12 +457,12 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     removeService(serviceUuid: string): void;
 
     /**
-     * Closes this {@code Server} object and unregisters its callbacks.
+     * Closes the server and unregisters the callback.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @throws { BusinessError } 201 - Permission denied.
@@ -437,19 +470,17 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     close(): void;
 
     /**
-     * Notifies the client that the value of a property on the server has changed.
+     * Notifies the client of property value updates. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { string } address - Indicates the device address.
-     *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
-     *     for example, 11:22:33:AA:BB:FF.
-     * @param { Property } property - Indicates the property to notify.
-     * @returns { Promise<void> } Returns the promise object.
+     * @param { string } address - Client device address. The address format is **11:22:33:AA:BB:FF**.
+     * @param { Property } property - Property whose value changes.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100041 - Invalid address.
@@ -458,674 +489,664 @@ declare namespace ssap {
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     notifyPropertyChanged(address: string, property: Property): Promise<void>;
 
     /**
-     * Responds to read or write requests from the client.
+     * Responds to read or write requests from the client. After receiving a request reported by
+     * [ssap.onPropertyRead]{@link ssap.Server.onPropertyRead(callback: Callback<PropertyReadRequest>)} or
+     * [ssap.onPropertyWrite]{@link ssap.Server.onPropertyWrite(callback: Callback<PropertyWriteRequest>)}, call this
+     * API to send data to the corresponding client.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { ServerResponse } response - Indicates the response.
+     * @param { ServerResponse } response - Response data for the client.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100041 - Invalid address.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     sendResponse(response: ServerResponse): void;
 
     /**
-     * Subscribes to server connection state changed events.
+     * Subscribes to the connection status change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<ConnectionChangeState> } callback -
-     *     Callback used to listen for the SSAP connection state changed event.
+     * @param { Callback<ConnectionChangeState> } callback - Callback used to return the connection status reporting
+     *     parameters.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
     /**
-     * Unsubscribes from server connection state changed events.
+     * Unsubscribes from the connection status change event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { Callback<ConnectionChangeState> } [callback] -
-     *     Callback used to listen for the SSAP connection state changed event.
+     * @param { Callback<ConnectionChangeState> } [callback] - Callback used to return the connection status reporting
+     *     parameters.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
     /**
-     * Subscribes to property read events from the client.
+     * Subscribes to the client property read request event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<PropertyReadRequest> } callback - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyReadRequest> } callback - Callback used to return the property read request parameters
+     *     of the client.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onPropertyRead(callback: Callback<PropertyReadRequest>): void;
 
     /**
-     * Unsubscribes from property read events from the client.
+     * Unsubscribes from the client property read request event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { Callback<PropertyReadRequest> } [callback] - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyReadRequest> } [callback] - Callback used to return the property read request
+     *     parameters of the client.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offPropertyRead(callback?: Callback<PropertyReadRequest>): void;
 
     /**
-     * Subscribes to property write events from the client.
+     * Subscribes to the client property write request event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<PropertyWriteRequest> } callback - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyWriteRequest> } callback - Callback used to return the property write request
+     *     parameters of the client.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onPropertyWrite(callback: Callback<PropertyWriteRequest>): void;
 
     /**
-     * Unsubscribes from property write events from the client.
+     * Unsubscribes from the client property write request event. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { Callback<PropertyWriteRequest> } [callback] - Callback used to listen for the property operation event.
+     * @param { Callback<PropertyWriteRequest> } [callback] - Callback used to return the property write request
+     *     parameters of the client. If this parameter is specified, the current callback is unsubscribed. If this
+     *     parameter is not specified, all callbacks corresponding to the event are unsubscribed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offPropertyWrite(callback?: Callback<PropertyWriteRequest>): void;
 
     /**
-     * Subscribes to MTU changed events.
+     * Subscribes to the MTU change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<int> } callback - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } callback - Callback used to return the MTU after negotiation.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onMtuChange(callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from MTU changed events.
+     * Unsubscribes from the MTU change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { Callback<int> } [callback] - Callback used to listen for the MTU changed event.
+     * @param { Callback<int> } [callback] - Callback used to return the MTU after negotiation.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks corresponding to the event are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offMtuChange(callback?: Callback<int>): void;
   }
 
   /**
-   * Describes the SSAP service.
+   * Represents the NearLink service.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Service {
     /**
-     * The UUID of the service.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The properties belong to this service.
+     * Properties of a service.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     properties: Property[];
     /**
-     * The methods belong to this service.
-     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
+     * Methods of a service. If this field is not specified, the service does not provide any method.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     methods?: Method[];
     /**
-     * The events belong to this service.
-     * <br>This field is not supported in [addService]{@link ssap.Server.addService} method.
+     * Events of a service. If this field is not specified, the service does not provide any event.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     events?: Event[];
   }
 
   /**
-   * Describes the SSAP property.
+   * Represents a service Property.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Property {
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit identifier.
+     * Standard NearLink UUIDs are not allowed.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of a Property instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Property UUID, in the same format as **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     propertyUuid: string;
     /**
-     * The value of a Property instance.
+     * Data value of a property.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     value: ArrayBuffer;
     /**
-     * The list of {@link propertyDescriptor} contained in the property.
+     * Descriptors of the current property. By default, this field is not used if not set.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     descriptors?: PropertyDescriptor[];
     /**
-     * Indications specify how data values and descriptor values are accessed {@link Operation}.
-     * The value is the OR operation of enumerated values.
-     * The value should be an integer. Default value: 3(READABLE | WRITE_NO_RESPONSE).
+     * Operation modes supported by the property. The default value is **READABLE|WRITE_NO_RESPONSE**, indicating that
+     * the property is readable and writable and no response is required. To enable a property to support an operation,
+     * you need to assign a value to this field, for example, **READABLE | WRITE_NO_RESPONSE | NOTIFY**. The value range
+     * is [0, 15]. For details about the operation corresponding to each bit, see [Operation]{@link ssap.Operation}.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     operation?: int;
   }
 
   /**
-   * Describes the SSAP method.
+   * Represents a method of the service.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Method {
     /**
-     * The UUID of the {@link Service} instance to which the method belongs
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of a method instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Method UUID. The data format is the same as that of **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     methodUuid: string;
     /**
-     * The parameter of a method instance.
+     * Method parameters. The data format is defined by the specific service. By default, this field is not used if not
+     * set.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     parameter?: ArrayBuffer;
     /**
-     * The result of a method instance.
+     * Return value of the method. The data format is defined by the specific service. By default, this field is not
+     * used if not set.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     result?: ArrayBuffer;
   }
 
   /**
-   * Describes the SSAP event.
+   * Represents a service event.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface Event {
     /**
-     * The UUID of the {@link Service} instance to which the event belongs
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of a event instance.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Event UUID. The data format is the same as that of **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     eventUuid: string;
     /**
-     * The parameter of a event instance.
+     * Event parameters. The data format is defined by the specific service. By default, this field is not used if not
+     * set.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     parameter?: ArrayBuffer;
   }
 
   /**
-   * Describes the SSAP descriptor for property.
+   * Defines the descriptor of a property.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface PropertyDescriptor {
     /**
-     * The UUID of the {@link Service} instance which the master property of descriptor belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of the {@link Property} instance which the propertyDescriptor belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Property UUID, in the same format as **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     propertyUuid: string;
     /**
-     * The value of the propertyDescriptor instance.
+     * Data value of a descriptor.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     value: ArrayBuffer;
     /**
-     * The type of the propertyDescriptor instance.
+     * Descriptor type of a property.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     descriptorType: PropertyDescriptorType;
     /**
-     * Indicates whether the descriptor is writable.
-     * Default value: true.
+     * Whether a descriptor is writable. The value **true** indicates the descriptor is writable, and the value
+     * **false** indicates the opposite. The default value is **true**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     isWriteable?: boolean;
   }
 
   /**
-   * Describes the parameters of the SSAP client's property read request.
+   * Represents the Property read request parameter of the client.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface PropertyReadRequest {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Client device address. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of the Property instance which client request to read.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Property UUID, in the same format as **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     propertyUuid: string;
     /**
-     * The request ID.
+     * Request ID. The value range is [0, 65535]. The response sent by the server must carry this ID so that the client
+     * can associate the request with the response.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestId: int;
   }
 
   /**
-   * Describes the parameters of the SSAP client's property write request.
+   * Define a client property write request.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface PropertyWriteRequest {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Client device address. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * The UUID of the {@link Service} instance which the property belongs to.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * NearLink service UUID, which is a string of 36 characters. The value consists of 32 hexadecimal digits and four
+     * hyphens (-), for example, **FFFFFFFF-1234-5678-ABCD-000000001234**, which indicates a 128-bit ID. The value
+     * cannot be set to a standard NearLink UUID.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     serviceUuid: string;
     /**
-     * The UUID of the Property instance which client request to write.
-     * The length must be 36, The value consists of 36 hexadecimal digits and hyphens (-),
-     * for example, FFFFFFFF-1234-5678-ABCD-000000001234, indicating a 128-bit identifier.
-     * <br>NearLink standard UUIDs are not allowed.
+     * Property UUID, in the same format as **serviceUuid**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     propertyUuid: string;
     /**
-     * Indicates the data to be written.
+     * Value written by the client.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     value: ArrayBuffer;
     /**
-     * The request ID.
+     * Write request ID of the client. This ID must be carried in the response returned by the server. The value range
+     * is [0, 65535].
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestId: int;
     /**
-     * The write type for this request.
+     * Property write type of the client.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     writeType: PropertyWriteType;
   }
 
   /**
-   * Describes the parameters of a response send by the server to a specified read or write request.
+   * Defines a response to a client request.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ServerResponse {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Client device address. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * The request ID.
-     * The value range is all integers.
+     * Request ID. The value range is [0, 65535]. The ID must be the same as the value of **requestId** in the received
+     * [PropertyReadRequest]{@link ssap.PropertyReadRequest} or [PropertyWriteRequest]{@link ssap.PropertyWriteRequest},
+     * which is used to associate the request with the response.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     requestId: int;
     /**
-     * Indicates the response data.
+     * Data value of the response.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     value: ArrayBuffer;
   }
 
   /**
-   * Describes SSAP connection state.
+   * Defines the connection status reporting parameters.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ConnectionChangeState {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Remote device address. The address format is **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Connection state.
+     * Connection status with a remote device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: ConnectionState;
   }
 
   /**
-   * The enum of property descriptor type.
+   * Enumerates the property descriptor types.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum PropertyDescriptorType {
     /**
-     * Property description descriptor.
+     * Property.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PROPERTY = 1,
     /**
-     * Client property configuration descriptor.
+     * Property configuration on the client.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CLIENT_PROPERTY_CONFIG = 2,
     /**
-     * Server property configuration descriptor.
+     * Property configuration on the server.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     SERVER_PROPERTY_CONFIG = 3,
     /**
-     * Property format descriptor.
+     * Property format.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PROPERTY_FORMAT = 4,
     /**
-     * Vendor-defined.
+     * Vendor-defined field.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     TYPE_VENDOR = 255
   }
 
   /**
-   * Enum of property operation indication.
+   * Enumerates the operation types supported by a property.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum Operation {
     /**
-     * When this bit is set, the property value can be read.
+     * Data is readable.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     READABLE = 0x01,
     /**
-     * When this bit is set, the property value can be written without response after writing.
+     * Write requests without responses are supported.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     WRITE_NO_RESPONSE = 0x02,
     /**
-     * When this bit is set, the property value can be written, and a response is generated for the client.
+     * Write requests with responses are supported.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     WRITE_WITH_RESPONSE = 0x04,
     /**
-     * When this bit is set, the property value is delivered to the client via notification.
+     * Notifications are supported.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     NOTIFY = 0x08
   }
 
   /**
-   * The enum of property write type.
+   * Enumerates the write types supported by a property.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum PropertyWriteType {
     /**
-     * Writes property and waits for response.
+     * Property write request that requires a response from the server.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     WRITE = 1,
     /**
-     * Writes property without response.
+     * Property write request that does not require a response from the server.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     WRITE_NO_RESPONSE = 2
   }

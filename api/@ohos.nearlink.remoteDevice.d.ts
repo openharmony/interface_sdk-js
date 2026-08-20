@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file NearLink Remote Device Connection Capability
  * @kit ConnectivityKit
  */
 
@@ -22,71 +22,71 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides interaction methods such as pairing and connection with remote devices.
+ * This module provides the capabilities of connecting to and managing NearLink remote devices, including connecting to
+ * and disconnecting from remote devices, pairing with a trusted device and confirmation, adjusting the connection
+ * interval, and subscribing to pairing requests.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace remoteDevice {
   /**
-   * Indicates the pairing state.
+   * Enumerates the pairing statuses with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type PairingState = nearlinkConstant.PairingState;
 
   /**
-   * Indicates the connection state.
+   * Enumerates the connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
   /**
-   * Indicates the device class.
+   * Enumerates the device types.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type DeviceClass = nearlinkConstant.DeviceClass;
 
   /**
-   * Indicates the ACB(Asynchronous Connection-Oriented Bidirectional) connection status.
+   * Enumerates the logical link connection states with a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type AcbState = nearlinkConstant.AcbState;
 
   /**
-   * Indicates the connection interval.
+   * Enumerates the connection intervals.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   type ConnectionInterval = nearlinkConstant.ConnectionInterval;
 
   /**
-   * Creates a remote device instance.
+   * Creates a **RemoteDevice** instance.
    *
-   * @param { string } address - Indicates the device address.
-   *     <br>The length must be 17, The value consists of hexadecimal digits and colons (:),
-   *     for example, 11:22:33:AA:BB:FF.
-   * @returns { RemoteDevice } Returns a near link remote device instance.
+   * @param { string } address - Address of a remote device. The address format is **11:22:33:AA:BB:FF**.
+   * @returns { RemoteDevice } **RemoteDevice** instance.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100041 - Invalid address.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function createRemoteDevice(address: string): RemoteDevice;
 
@@ -103,7 +103,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onPairingRequest(callback: Callback<PairingRequestParam>): void;
 
@@ -116,122 +116,143 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offPairingRequest(callback?: Callback<PairingRequestParam>): void;
 
   /**
-   * Subscribes to NearLink pairing state change events.
+   * Subscribes to pairing status change events. This API uses an asynchronous callback to return the result.
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback returns the real device address; otherwise, a random device address is returned.
+   * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
    *
-   * @param { Callback<PairingStateParam> } callback - Callback function used to listen for the pairing state event.
+   * @param { Callback<PairingStateParam> } callback - Callback used to return the result of the pairing status change
+   *     event.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onPairingStateChange(callback: Callback<PairingStateParam>): void;
 
   /**
-   * Unsubscribes from NearLink pairing state change events.
+   * Unsubscribes from pairing status change events. This API uses an asynchronous callback to return the result.
    *
-   * @param { Callback<PairingStateParam> } [callback] - Callback function used to listen for the pairing state event.
+   * @param { Callback<PairingStateParam> } [callback] - Callback used to return the result of the pairing status change
+   *     event.
+   *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+   *     all callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offPairingStateChange(callback?: Callback<PairingStateParam>): void;
 
   /**
-   * Subscribes to NearLink connection state change events.
+   * Subscribes to the connection status change event. This API uses an asynchronous callback to return the result.
+   * Unlike [remoteDevice.onAcbStateChange]{@link remoteDevice.onAcbStateChange(callback: Callback<AcbStateParam>)}
+   * which listens for the connection status change at the logical link level, this API listens for the connection
+   * status change at the device level.
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback returns the real device address; otherwise, a random device address is returned.
+   * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
    *
-   * @param { Callback<ConnectionStateParam> } callback - Callback used to listen for the connection state changed event.
+   * @param { Callback<ConnectionStateParam> } callback - Callback used to return the result of the connection status
+   *     change event.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onConnectionStateChange(callback: Callback<ConnectionStateParam>): void;
 
   /**
-   * Unsubscribes from NearLink connection state change events.
+   * Unsubscribes from the connection status change event. This API uses an asynchronous callback to return the result.
    *
-   * @param { Callback<ConnectionStateParam> } [callback] - Callback used to listen for the connection state changed event.
+   * @param { Callback<ConnectionStateParam> } [callback] - Callback used to return the result of the connection status
+   *     change event.
+   *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+   *     all callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offConnectionStateChange(callback?: Callback<ConnectionStateParam>): void;
 
   /**
-   * Subscribes to the NearLink ACB connection status change event.
+   * Subscribes to the logical link connection status change event. This API uses an asynchronous callback to return the
+   * result. This API is applicable when corresponding processing needs to be triggered when a logical link is
+   * established or disconnected, for example, checking whether the link is ready before data transfer or clearing
+   * resources after disconnection. Unlike
+   * [remoteDevice.onConnectionStateChange]{@link remoteDevice.onConnectionStateChange(callback: Callback<ConnectionStateParam>)}
+   * which listens for the connection status change at the device level, this API listens for the connection status
+   * change at the logical link level.
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback returns the real device address; otherwise, a random device address is returned.
+   * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
    *
-   * @param { Callback<AcbStateParam> } callback - Callback of the event to be listened to.
+   * @param { Callback<AcbStateParam> } callback - Callback used to return the result of the logical link connection
+   *     status change event.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onAcbStateChange(callback: Callback<AcbStateParam>): void;
 
   /**
-   * Unsubscribes from the NearLink ACB connection status change event.
+   * Unsubscribes from the logical link connection status change event. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { Callback<AcbStateParam> } [callback] - Callback of the event to be listened to.
+   * @param { Callback<AcbStateParam> } [callback] - Callback used to return the result of the logical link connection
+   *     status change event.
+   *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+   *     all callbacks corresponding to the event are unregistered.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offAcbStateChange(callback?: Callback<AcbStateParam>): void;
 
   /**
-   * Remote device operation methods.
+   * Provides the method for operating on a remote device. Before using this method, you need to call
+   * [remoteDevice.createRemoteDevice]{@link remoteDevice.createRemoteDevice} to create a
+   * [RemoteDevice]{@link remoteDevice.RemoteDevice} instance. You need to create only one instance for a device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface RemoteDevice {
     /**
-     * Initiate pairing to remote NearLink device.
+     * Initiates pairing with a remote device. This API uses a promise to return the result. After the pairing is
+     * initiated, different types of dialog boxes will be displayed based on the input and output capability IDs of the
+     * local and remote devices, for example, whether the devices have the display and keyboard input capabilities. The
+     * user will need to confirm the pairing.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     startPairing(): Promise<void>;
 
     /**
-     * Starts pairing with a credible remote NearLink device.
-     * This interface does not trigger a dialog box and does not require user authorization.
+     * Initiates pairing with a trusted remote device without a dialog box. This API uses a promise to return the
+     * result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -239,15 +260,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     startCrediblePairing(): Promise<void>;
 
     /**
-     * Remove a paired remote device.
+     * Removes a paired device. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -255,15 +276,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     removePairedDevice(): Promise<void>;
 
     /**
-     * Cancel an in-progress pairing request.
+     * Cancels the ongoing pairing request. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { Promise<void> } Returns the promise object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -271,17 +292,16 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     cancelDevicePairing(): Promise<void>;
 
     /**
-     * Set the passcode during pairing if the pairing type is passcode
+     * Sets the pairing passcode. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @param { string } passcode - The passcode entered by the user. It must be a 6-digit number
-     *     <br>The length must be 6, Six digits within 10.
-     * @returns { Promise<void> } The promise object is returned.
+     * @param { string } passcode - Pairing passcode entered by the user, which must be a six-digit number.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -290,16 +310,16 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setPairingPasscode(passcode: string): Promise<void>;
 
     /**
-     * Set the confirmation to a pairing request.
+     * Sets the pairing confirmation. You can obtain the pairing request of the peer device using
+     * [remoteDevice.onPairingRequest](docroot://reference/apis-connectivity-kit/js-apis-nearlink-remote-device-sys.md#remotedeviceonpairingrequest).
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @param { boolean } accept - Set this parameter to true if the pairing request is accepted.
-     *     Otherwise, set it to false.
+     * @param { boolean } accept - Pairing confirmation. **true**: Accept the pairing. **false**: Reject the pairing.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -307,15 +327,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setPairingConfirmation(accept: boolean): void;
 
     /**
-     * Connect all allowed profiles.
+     * Initiates a connection request to a remote device. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { Promise<void> } Returns the result of connecting to profiles as a Promise.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -323,15 +343,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     connect(): Promise<void>;
 
     /**
-     * Disconnect all connected profiles.
+     * Disconnects from the remote device. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { Promise<void> } Returns the result of connecting to profiles as a Promise.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -339,63 +359,65 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     disconnect(): Promise<void>;
 
     /**
-     * Gets the pairing state.
+     * Obtains the pairing status with a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { PairingState } Returns the pairing state.
+     * @returns { PairingState } Pairing status with a remote device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getPairingState(): PairingState;
 
     /**
-     * Gets the name of the NearLink device.
+     * Obtains the name of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { string } Returns the device name.
+     * @returns { string } Remote device name. The value contains a maximum of 30 characters.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getDeviceName(): string;
 
     /**
-     * Gets the type of the NearLink device.
+     * Obtains the type of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { DeviceClass } Indicates the type of the NearLink device.
+     * @returns { DeviceClass } Remote device type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getDeviceClass(): DeviceClass;
 
     /**
-     * Gets the profile connection state.
+     * Obtains the connection status between the local and remote devices. Unlike
+     * [getAcbState]{@link remoteDevice.RemoteDevice.getAcbState} which obtains the connection status at the logical
+     * link (ACB) level, this API obtains the connection status at the device level.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { ConnectionState } Returns the connection state.
+     * @returns { ConnectionState } Connection status between the local and remote devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getConnectionState(): ConnectionState;
 
@@ -403,8 +425,8 @@ declare namespace remoteDevice {
      * Sets the alias of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @param { string } alias - The alias of a remote device
-     *     <br>The maximum length is 64 and cannot be empty.
+     * @param { string } alias - Alias of the remote device. The value can contain a maximum of 64 characters and cannot
+     *     be empty.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -413,15 +435,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setDeviceAlias(alias: string): void;
 
     /**
-     * Gets the alias of a remote device.
+     * Obtains the alias of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-     * @returns { string } Returns the alias of a remote device.
+     * @returns { string } Alias of the remote device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -429,57 +451,61 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getDeviceAlias(): string;
 
     /**
-     * Gets the ACB connection state.
+     * Obtains the logical link connection status with a remote device. This method is applicable when you need to check
+     * whether a logical link is ready, for example, checking the logical link status before data transfer or message
+     * communication. Unlike [getConnectionState]{@link remoteDevice.RemoteDevice.getConnectionState} which obtains the
+     * connection status at the device level, this API obtains the connection status at the logical link (ACB) level.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { AcbState } Returns the ACB connection state.
+     * @returns { AcbState } Logical link connection state with a remote device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getAcbState(): AcbState;
 
     /**
-     * Obtains the model information of a remote device.
+     * Obtains the model of a remote device.
      *
-     * @returns { DeviceModel } Returns the remote device's model information.
+     * @returns { DeviceModel } Model of the remote device.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getDeviceModel(): DeviceModel;
 
     /**
-     * Obtains the remote device information.
+     * Obtains the information of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { DeviceInformation } Returns the remote device information.
+     * @returns { DeviceInformation } Information of a remote device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getDeviceInformation(): DeviceInformation;
 
     /**
-     * Gets the RSSI value of a remote device.
+     * Obtains the received signal strength indicator (RSSI) of a remote device. This API uses a promise to return the
+     * result.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<int> } Returns promise object of RSSI value.
+     * @returns { Promise<int> } Promise used to return the RSSI value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -487,15 +513,15 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getRssiValue(): Promise<int>;
 
     /**
-     * Sets the connection interval with a remote device.
+     * Sets the interval for connecting to a remote device.
      *
      * @permission ohos.permission.MANAGE_NEARLINK
-     * @param { ConnectionInterval } interval - The connection interval to set.
+     * @param { ConnectionInterval } interval - Connection interval to be set.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -503,7 +529,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setConnectionInterval(interval: ConnectionInterval): void;
   }
@@ -513,7 +539,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface PairingStateParam {
     /**
@@ -522,7 +548,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
@@ -530,7 +556,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     preState: PairingState;
     /**
@@ -538,7 +564,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: PairingState;
     /**
@@ -546,7 +572,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     reason: PairingReason;
     /**
@@ -555,7 +581,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     reasonMsg?: string;
   }
@@ -565,7 +591,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum PairingReason {
     /**
@@ -573,7 +599,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_SUCCESS = 0,
     /**
@@ -581,7 +607,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_FAILURE = 1,
     /**
@@ -589,7 +615,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_ACB_CONNECTION_FAIL = 2,
     /**
@@ -597,7 +623,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_EXCEED_ACB_MAX = 3,
     /**
@@ -605,7 +631,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_REMOTE_CANCELED = 4,
     /**
@@ -613,7 +639,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_LOCAL_CANCELED = 5,
     /**
@@ -621,7 +647,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_REASON_AUTH_FAIL = 6
   }
@@ -631,7 +657,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface PairingRequestParam {
     /**
@@ -640,7 +666,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
@@ -648,7 +674,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     passkey: string;
     /**
@@ -656,41 +682,43 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     pairingType: PairingType;
   }
 
   /**
-   * Enum for the pairing type.
+   * Enumerates the NearLink pairing types.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum PairingType {
     /**
-     * Without passkey, the user needs to accept or reject the pairing request.
+     * Pairing type that does not require a passkey. Users do not need to check the pairing code.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     NO_PASSKEY_CONFIRMATION = 0,
     /**
-     * The user needs to enter the passcode displayed on the peer device.
+     * Pairing type with passcode authentication. Users need to enter the pairing code displayed on one device into the
+     * other device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_TYPE_PASSCODE = 1,
     /**
-     * The user needs to compare the number displayed on both devices.
+     * Pairing type with authentication based on digit comparison. Users must ensure that the pairing codes on both
+     * devices are the same.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     PAIRING_TYPE_NUMBER_COMPARE = 2
   }
@@ -700,7 +728,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface ConnectionStateParam {
     /**
@@ -709,7 +737,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
@@ -717,7 +745,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     preState: ConnectionState;
     /**
@@ -725,7 +753,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: ConnectionState;
     /**
@@ -733,7 +761,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     connectionReason: ConnectionReason;
     /**
@@ -742,7 +770,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     reasonMsg?: string;
   }
@@ -752,7 +780,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum ConnectionReason {
     /**
@@ -760,7 +788,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_SUCCESS = 0,
     /**
@@ -768,7 +796,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_FAILURE = 1,
     /**
@@ -776,7 +804,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_LOCAL_DISCONNECT = 2,
     /**
@@ -784,7 +812,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_REMOTE_DISCONNECT = 3,
     /**
@@ -792,7 +820,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_FAIL_ACB_CONNECTION = 4,
     /**
@@ -800,7 +828,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_FAIL_SERVICE_DISCOVERY = 5,
     /**
@@ -808,7 +836,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_FAIL_NO_AVAILABLE_SERVICE = 6,
     /**
@@ -816,75 +844,75 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTION_FAIL_CONNECTION_NUM_LIMITED = 7
   }
 
   /**
-   * ACB connection status parameter.
+   * Represents the result of the logical link connection status change event.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface AcbStateParam {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Device address, indicating that the logical link connection status with the device changes. The address format is
+     * **11:22:33:AA:BB:FF**.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
 
     /**
-     * ACB connection status.
+     * Current logical link connection status.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: AcbState;
   }
 
   /**
-   * Describes the remote device's model information.
+   * Describes the model of a remote device.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface DeviceModel {
     /**
-     * The model ID of the remote device.
+     * Model ID of the remote device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     modelId: string;
 
     /**
-     * The sub-model ID of the remote device.
+     * Sub-model ID of the remote device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     subModelId: string;
 
     /**
-     * The icon ID of the remote device.
+     * Icon ID of the remote device.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     iconId: string;
   }
@@ -894,7 +922,7 @@ declare namespace remoteDevice {
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface DeviceInformation {
     /**
@@ -903,7 +931,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     manufacturerData: string;
 
@@ -913,7 +941,7 @@ declare namespace remoteDevice {
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     modelData: string;
   }
