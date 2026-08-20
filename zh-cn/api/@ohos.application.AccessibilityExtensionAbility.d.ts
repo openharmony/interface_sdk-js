@@ -118,7 +118,7 @@ export type WindowType = _WindowType;
 export type Rect = _Rect;
 
 /**
- * Indicates executeAction parameter.
+ * 无障碍节点元素执行特定操作时，为操作提供具体设置的参数值，请参考[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -137,7 +137,7 @@ export type Parameter = _Parameter;
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 
 /**
- * Indicates the rule of the search focus.
+ * 表示查找可聚焦节点时，如何判断起始节点及其子节点的聚焦能力，请参考[FocusRule]{@link ./application/AccessibilityExtensionContext:FocusRule}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -146,7 +146,7 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
 export type FocusRule = _FocusRule;
 
 /**
- * Indicates the condition of the search focus.
+ * 表示查询可聚焦节点方式，请参考[FocusCondition]{@link ./application/AccessibilityExtensionContext:FocusCondition}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -155,7 +155,7 @@ export type FocusRule = _FocusRule;
 export type FocusCondition = _FocusCondition;
 
 /**
- * Indicates focus move result.
+ * 查询无障碍节点返回值类型，请参考[FocusMoveResult]{@link ./application/AccessibilityExtensionContext:FocusMoveResult}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -164,7 +164,7 @@ export type FocusCondition = _FocusCondition;
 export type FocusMoveResult = _FocusMoveResult;
 
 /**
- * Indicates the accessibility virtual node.
+ * 无障碍虚拟节点，请参考[AccessibilityVirtualNode]{@link ./application/AccessibilityExtensionContext:AccessibilityVirtualNode}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -174,7 +174,7 @@ export type FocusMoveResult = _FocusMoveResult;
 export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
 
 /**
- * The touch position of an accessibility virtual node.
+ * 触摸点击位置，请参考[TouchPosition]{@link ./application/AccessibilityExtensionContext:TouchPosition}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -184,7 +184,8 @@ export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
 export type TouchPosition = _TouchPosition;
 
 /**
- * The accessibility extension context. Used to configure, query information, and inject gestures.
+ * 辅助功能扩展的上下文环境，请参考
+ * [AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext:AccessibilityExtensionContext}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 23 static
@@ -193,7 +194,10 @@ export type TouchPosition = _TouchPosition;
 export { AccessibilityExtensionContext };
 
 /**
- * AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能扩展业务的能力。
+ * AccessibilityExtensionAbility基于ExtensionAbility框架，提供无障碍扩展业务的能力，包括连接无障碍服务、断开无障碍服务、处理无障碍事件和处理无障碍按键事件等。
+ * 
+ * **生命周期流程：** onAccessibilityConnect（连接回调，用于初始化）→ onAccessibilityEventInfo/onAccessibilityKeyEvent（处理无障碍事件和按键事件）→ 
+ * onAccessibilityDisconnect（断开回调，用于资源回收）。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic

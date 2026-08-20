@@ -14,18 +14,7 @@
  */
 
 /**
- * ###### 使用说明
- * 
- * 使用AccessibilityExtensionContext功能前，通过AccessibilityExtensionAbility子类实例获取AccessibilityExtensionContext实例。
- * 
- * ```ts
- * import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
- * class EntryAbility extends AccessibilityExtensionAbility {
- *   onConnect(): void {
- *     let axContext = this.context; 
- *   } 
- * }
- * ```
+ * 辅助功能扩展上下文模块提供上下文环境，支持辅助应用配置关注的信息类型、查询节点信息、手势注入等。
  *
  * @file 辅助功能扩展上下文
  * @kit AccessibilityKit
@@ -47,6 +36,19 @@ import type Want from '../@ohos.app.ability.Want';
  * AccessibilityExtensionContext是AccessibilityExtensionAbility上下文环境，继承自ExtensionContext。
  * 
  * 辅助功能扩展上下文模块提供辅助功能扩展的相关能力，包括配置关注信息类型、查询节点信息、手势注入等。
+ * 
+ * ###### 使用说明
+ * 
+ * 使用AccessibilityExtensionContext功能前，通过AccessibilityExtensionAbility子类实例获取AccessibilityExtensionContext实例。
+ * 
+ * ```ts
+ * import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
+ * class EntryAbility extends AccessibilityExtensionAbility {
+ *   onConnect(): void {
+ *     let axContext = this.context; 
+ *   } 
+ * }
+ * ```
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
@@ -395,10 +397,10 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   on(type: 'preDisconnect', callback: Callback<void>): void;
 
   /**
-   * Register accessibilityExtensionAbility disconnect callback.
+   * 向无障碍服务注册回调函数，在无障碍服务关闭该无障碍扩展服务前会执行该回调函数。使用callback异步回调。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { Callback<void> } callback Indicates the callback function.
+   * @param { Callback<void> } callback - 回调函数，在无障碍扩展服务即将关闭时回调。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -426,10 +428,11 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   off(type: 'preDisconnect', callback?: Callback<void>): void;
 
   /**
-   * Unregister accessibilityExtensionAbility disconnect callback.
+   * 取消已经向无障碍服务注册的预关闭回调函数，无障碍服务关闭该扩展服务前不再执行该回调。使用callback异步回调。
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { Callback<void> } [callback] Indicates the callback function.
+   * @param { Callback<void> } [callback] - 回调函数，取消指定无障碍扩展服务即将关闭时的回调。需与
+   *     [onPreDisconnect]{@link AccessibilityExtensionContext#onPreDisconnect}的callback一致。缺省时，表示注销所有已注册事件。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -576,9 +579,8 @@ export default AccessibilityExtensionContext;
  * 无障碍节点元素，提供查询父/子元素、按内容或焦点方向查找元素、执行无障碍操作等能力，适用于无障碍辅助应用需要与界面节点交互和操作的场景。
  * 
  * 调用AccessibilityElement的方法前，先通过
- * [AccessibilityExtensionContext.getFocusElement()]{@link AccessibilityExtensionContext#getFocusElement(isAccessibilityFocus?: boolean)}
- * 或
- * [AccessibilityExtensionContext.getWindowRootElement()]{@link AccessibilityExtensionContext#getWindowRootElement(windowId?: int)}
+ * [AccessibilityExtensionContext.getAccessibilityFocusedElement()]{@link AccessibilityExtensionContext.getAccessibilityFocusedElement}
+ * 或[AccessibilityExtensionContext.getRootInActiveWindow()]{@link AccessibilityExtensionContext.getRootInActiveWindow}
  * 获取AccessibilityElement实例。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1601,10 +1603,10 @@ export declare interface AccessibilityElement {
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Find elements that match the condition.
+   * 根据节点配置的accessibilityTextHint无障碍文本类型查询所有节点元素。使用Promise异步回调。
    *
-   * @param { string } condition Indicates the specific content to be queried.
-   * @returns { Promise<Array<AccessibilityElement>> }
+   * @param { string } condition - 表示查找的条件。
+   * @returns { Promise<Array<AccessibilityElement>> } Promise对象，返回满足指定查询关键字的所有节点元素。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1631,10 +1633,10 @@ export declare interface AccessibilityElement {
   findElement(type: 'elementId', condition: long): Promise<AccessibilityElement>;
 
   /**
-   * Find elements that match the condition.
+   * 根据elementId查询当前活动窗口下的节点元素。使用Promise异步回调。
    *
-   * @param { long } condition Indicates the specific content to be queried.
-   * @returns { Promise<AccessibilityElement> }
+   * @param { long } condition - 表示要查询的节点元素的elementId。
+   * @returns { Promise<AccessibilityElement> } Promise对象，返回满足指定查询条件的节点元素。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2341,7 +2343,7 @@ export interface ElementAttributeValues {
    */
   customActions?: Array<string>;
   /**
-   * Indicates the source of this element.
+   * 组件来源类型，用于区分默认组件和新增、修改的虚拟组件。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2810,8 +2812,8 @@ export declare class Parameter {
    */
   spanId?: string;
   /**
-   * 执行[AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SCROLL_FORWARD或SCROLL_BACKWARD时配置，组件滚动类型。'
-   * fullScreen'表示全屏滚动；'halfScreen'表示半屏滚动。
+   * 执行[AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SCROLL_FORWARD或SCROLL_BACKWARD时配置，组件滚动类型。
+   * 'fullScreen'表示全屏滚动；'halfScreen'表示半屏滚动。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

@@ -14,19 +14,8 @@
  */
 
 /**
- * ###### Usage
- * 
- * Before using AccessibilityExtensionContext, obtain an AccessibilityExtensionContext instance through an 
- * AccessibilityExtensionAbility subclass instance.
- * 
- * ```ts
- * import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
- * class EntryAbility extends AccessibilityExtensionAbility {
- *   onConnect(): void {
- *     let axContext = this.context; 
- *   } 
- * }
- * ```
+ * The Accessibility Extension Context module provides a context environment, supporting accessibility apps in 
+ * configuring information types of interest, querying node information, gesture injection, and more.
  *
  * @file Provides accessibility extension context
  * @kit AccessibilityKit
@@ -49,6 +38,20 @@ import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
  * 
  * The Accessibility Extension Context module provides capabilities related to the accessibility extension, including 
  * configuring concerned information types, querying node information, and gesture injection.
+ * 
+ * ###### Usage
+ * 
+ * Before using AccessibilityExtensionContext, obtain an AccessibilityExtensionContext instance through an 
+ * AccessibilityExtensionAbility subclass instance.
+ * 
+ * ```ts
+ * import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
+ * class EntryAbility extends AccessibilityExtensionAbility {
+ *   onConnect(): void {
+ *     let axContext = this.context; 
+ *   } 
+ * }
+ * ```
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
@@ -629,9 +632,9 @@ export default AccessibilityExtensionContext;
  * accessibility app needs to interact with and operate on UI nodes.
  * 
  * Before calling methods of AccessibilityElement, obtain an AccessibilityElement instance through 
- * [AccessibilityExtensionContext.getFocusElement()]{@link AccessibilityExtensionContext#getFocusElement(isAccessibilityFocus?: boolean)}
+ * [AccessibilityExtensionContext.getAccessibilityFocusedElement()]{@link AccessibilityExtensionContext.getAccessibilityFocusedElement}
  * or 
- * [AccessibilityExtensionContext.getWindowRootElement()]{@link AccessibilityExtensionContext#getWindowRootElement(windowId?: int)}.
+ * [AccessibilityExtensionContext.getRootInActiveWindow()]{@link AccessibilityExtensionContext.getRootInActiveWindow}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @stagemodelonly
@@ -2755,7 +2758,8 @@ export interface ElementAttributeValues {
    */
   customActions?: Array<string>;
   /**
-   * Indicates the source of this element.
+   * Source type of the component, used to distinguish default components from newly added or modified virtual 
+   * components.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

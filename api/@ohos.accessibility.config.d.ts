@@ -24,10 +24,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * The **accessibility.config** module provides APIs for configuring system accessibility features, including 
  * accessibility extension, high-contrast text, mouse buttons, and captions.
- * 
- * > **NOTE**
- * >
- * > - The APIs of this module are system APIs.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -907,6 +903,8 @@ declare namespace config {
   type OnDisconnectCallback = () => void;
 
   /**
+   * Color correction filters for different types of color vision deficiency.
+   * 
    * The configuration takes effect when the daltonization feature is enabled (
    * [daltonizationState]{@link config.daltonizationState} is set to **true**). When the daltonization feature is 
    * disabled ([daltonizationState]{@link config.daltonizationState} is set to **false**), the standard type is 
@@ -937,6 +935,8 @@ declare namespace config {
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
   /**
+   * Ignore repeated clicks at different time intervals.
+   * 
    * The configuration takes effect when the ignore repeated click feature is enabled (
    * [ignoreRepeatClick]{@link config.ignoreRepeatClick} is set to **true**). When the ignore repeated click feature is 
    * disabled ([ignoreRepeatClick]{@link config.ignoreRepeatClick} is set to **false**), the configuration does not take

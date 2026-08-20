@@ -14,6 +14,10 @@
  */
 
 /**
+ * GesturePath represents gesture path information.
+ * 
+ * This module is used to create gesture path information for accessibility gesture injection.
+ * 
  * @file Gesture Path
  * @kit AccessibilityKit
  */
@@ -21,9 +25,8 @@
 import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
 
 /**
- * GesturePath represents gesture path information.
- * 
- * This module is used to create gesture path information for accessibility gesture injection.
+ * Represents gesture path information, used to simulate user touch gestures (such as tap, swipe, etc.) in 
+ * accessibility services.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
