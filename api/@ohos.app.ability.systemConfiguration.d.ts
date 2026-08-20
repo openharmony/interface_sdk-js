@@ -145,7 +145,7 @@ declare namespace systemConfiguration {
    * System configuration updated callback.
    *
    * @typedef UpdatedCallback
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
