@@ -11286,13 +11286,13 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * add a watermark for the AVTranscoder. This API uses a promise to return the result.
-     * App can add up to 5 watermarks.
-     * This API can be called only before the prepared state.
+     * 为视频转码添加水印。使用Promise异步回调。
+     * 应用最多可以添加5个水印。
+     * 此接口只能在prepared状态之前调用。
      *
-     * @param { image.PixelMap } watermark - : Watermark image.
-     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
-     * @returns { Promise<int> } Promise that returns the watermark id.
+     * @param { image.PixelMap } watermark - : 水印图像。
+     * @param { WatermarkConfiguration } config - : 水印配置参数。
+     * @returns { Promise<int> } Promise对象，返回添加的水印ID。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
