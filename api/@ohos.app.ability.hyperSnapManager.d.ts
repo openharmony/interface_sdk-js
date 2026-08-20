@@ -26,7 +26,7 @@
  * @since 24 dynamic&static
  */
 declare namespace hyperSnapManager {
-    export enum HyperSnapErrorType{
+    export enum HyperSnapErrorType {
         CREATE_SNAPSHOT = 0,
         FORK_FROM_SNAPSHOT = 1
     }
