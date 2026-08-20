@@ -22,6 +22,17 @@
  * 运行进程信息，可以通过appManager中
  * [getProcessRunningInfos]{@link ./../@ohos.application.appManager:appManager.getProcessRunningInfos()}方法来获取运行进程信息。
  *
+ * > **说明：**
+ * >
+ * > - 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > - 从API version 8开始支持，从API version 9开始废弃。建议使用ProcessInformation替代。
+ * 
+ * ## 导入模块
+ * 
+ * ```ts
+ * import appManager from '@ohos.application.appManager';
+ * ```
+ * 
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 8 dynamiconly
  * @deprecated since 9
@@ -31,7 +42,6 @@ export interface ProcessRunningInfo {
   /**
    * 进程ID。
    *
-   * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -42,7 +52,6 @@ export interface ProcessRunningInfo {
   /**
    * 应用程序的UID。
    *
-   * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -53,7 +62,6 @@ export interface ProcessRunningInfo {
   /**
    * 进程名称。
    *
-   * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -64,7 +72,6 @@ export interface ProcessRunningInfo {
   /**
    * 进程中所有运行的Bundle名称。
    *
-   * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8 dynamiconly
    * @deprecated since 9

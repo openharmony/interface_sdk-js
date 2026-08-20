@@ -34,7 +34,7 @@ declare class ChildProcess {
   /**
    * 子进程的入口方法，通过[childProcessManager]{@link @ohos.app.ability.childProcessManager:childProcessManager}启动子进程后调用。
    *
-   * @param { ChildProcessArgs } [args] - 传递到子进程的参数。
+   * @param { ChildProcessArgs } [args] - 传递到子进程的参数。参数为可选，不传或传null时使用默认配置启动。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
