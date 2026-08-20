@@ -82,9 +82,9 @@ declare namespace systemParameterEnhance {
   function get(key: string, callback: AsyncCallback<string>): void;
 
   /**
-   * 获取系统参数Key对应的值，使用callback异步回调。
+   * 获取系统参数key对应的值，使用callback异步回调。
    *
-   * @param { string } key - 待查询的系统参数Key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
+   * @param { string } key - 待查询的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } def - def为所要获取的系统参数的默认值，仅当系统参数不存在时生效； <br> def可以传任意字符串值。
    * @param { AsyncCallback<string> } callback - 回调函数，异步获取系统参数值。成功时err为undefined，data为系统参数值；失败时err为错误对象，data为undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
