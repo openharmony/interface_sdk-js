@@ -15,66 +15,74 @@
 
 /**
  * @file
+ * @kit AbilityKit
  */
 
 /**
- * A utility class used for handling objects that use the DataAbilityHelper scheme.
+ * The DataUriUtils module provides APIs to process URI objects. You can use the APIs to attach an ID to the end of a
+ * given URI and obtain, delete, or update the ID attached to the end of a given URI.
  *
- * @namespace dataUriUtils
+ * > **NOTE**
+ * >
+ * > The APIs of this module are supported since API version 7 and deprecated since API version 9. You are advised to
+ * > use [@ohos.app.ability.dataUriUtils]{@link @ohos.app.ability.dataUriUtils:dataUriUtils} instead. Newly added APIs
+ * > will be marked with a superscript to indicate their earliest API version.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils
+ * @useinstead @ohos.app.ability.dataUriUtils:dataUriUtils
  */
 declare namespace dataUriUtils {
   /**
-   * Obtains the ID attached to the end of the path component of the given uri.
+   * Obtains the ID attached to the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri object from which the ID is to be obtained.
-   * @returns { number } Returns the ID attached to the end of the path component;
+   * @param { string } uri - Target URI object.
+   * @returns { number } ID obtained.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#getId
+   * @useinstead @ohos.app.ability.dataUriUtils:dataUriUtils.getId
    */
   function getId(uri: string): number;
 
   /**
-   * Attaches the given ID to the end of the path component of the given uri.
+   * Attaches an ID to the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri string from which the ID is to be obtained.
-   * @param { number } id - Indicates the ID to attach.
-   * @returns { string } Returns the uri object with the given ID attached.
+   * @param { string } uri - Target URI object.
+   * @param { number } id - ID to be attached.
+   * @returns { string } URI object with the ID attached.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#attachId
+   * @useinstead @ohos.app.ability.dataUriUtils:dataUriUtils.attachId
    */
   function attachId(uri: string, id: number): string;
 
   /**
-   * Deletes the ID from the end of the path component of the given uri.
+   * Deletes the ID from the end of a given URI.
    *
-   * @param { string } uri - Indicates the uri object from which the ID is to be deleted.
-   * @returns { string } Returns the uri object with the ID deleted.
+   * @param { string } uri - URI object from which the ID is to be deleted.
+   * @returns { string } URI object with the ID deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#deleteId
+   * @useinstead @ohos.app.ability.dataUriUtils:dataUriUtils.deleteId
    */
   function deleteId(uri: string): string;
 
   /**
-   * Updates the ID in the specified uri
+   * Updates the ID in a given URI.
    *
-   * @param { string } uri - Indicates the uri object to be updated.
-   * @param { number } id - Indicates the new ID.
-   * @returns { string } Returns the updated uri object.
+   * @param { string } uri - Target URI object.
+   * @param { number } id - New ID.
+   * @returns { string } URI object with the new ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#updateId
+   * @useinstead @ohos.app.ability.dataUriUtils:dataUriUtils.updateId
    */
   function updateId(uri: string, id: number): string;
 }
+
 export default dataUriUtils;
