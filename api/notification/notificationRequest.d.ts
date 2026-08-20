@@ -436,7 +436,7 @@ export interface NotificationRequest {
    * 
    * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
    * which is passed to the application when the user taps a notification. This field can be obtained via the 
-   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
+   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback)}
    * API call.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -1123,7 +1123,7 @@ export interface UnifiedGroupInfo {
 export interface GroupInfo {
   /**
    * Whether to use the **smallIcon** field in 
-   * [NotificationRequest](@link ./notification/notificationRequest:NotificationRequest) as the group icon displayed
+   * [NotificationRequest]{@link ./notificationRequestd:NotificationRequest} as the group icon displayed
    * after notifications are grouped. Whether to use the **smallIcon** field as the group icon when the notification
    * is the latest one in the notification group and the **smallIcon** field is passed. The default value is **false**.
    * - **true**: yes.

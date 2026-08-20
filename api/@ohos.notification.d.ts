@@ -1084,7 +1084,7 @@ declare namespace notification {
    * return the result.
    *
    * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link notification.requestEnableNotification(callback: AsyncCallback<void>)} when the
+   *     [NotificationRequest]{@link notification.requestEnableNotification} when the
    *     notification is published.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.Notification
@@ -1278,7 +1278,7 @@ declare namespace notification {
 
   /**
    * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
+   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification.
    * This API uses an asynchronous callback to return the result.
    *
    * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
@@ -1292,7 +1292,7 @@ declare namespace notification {
 
   /**
    * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
+   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification.
    * This API uses a promise to return the result.
    *
    * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
