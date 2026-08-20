@@ -14,28 +14,30 @@
  */
 
 /**
- * @file
+ * @file CDSM Capability
  * @kit ConnectivityKit
  */
 
 import type { Callback } from '@ohos.base';
 
 /**
- * Provides methods related to nearlink CDSM(Coordinated Devices Set Management).
+ * This module provides the coordinated devices set management (CDSM) capability for NearLink, including querying and
+ * subscribing to the coordinated devices set information of NearLink.
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamic
  */
 declare namespace cdsm {
   /**
    * Creates a CDSM client instance.
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { string } address - Indicates the address of CDSM server.
-   *     <br>The length must be 17. Value constraint: The value consists of hexadecimal digits and colons (:),
-   *     for example, 11:22:33:AA:BB:FF.
-   * @returns { CdsmClient } Returns a CDSM client instance.
+   * @param { string } address - Address of a member device in the paired and connected coordinated devices set. The
+   *     address format is **11:22:33:AA:BB:FF**. The address must contain six segments, each segment is a string of two
+   *     hexadecimal characters, and the segments are separated by colons (:).
+   * @returns { CdsmClient } **CdsmClient** instance used to query and subscribe to the CDSM information of a remote
+   *     device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -44,125 +46,135 @@ declare namespace cdsm {
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function createCdsmClient(address: string): CdsmClient;
 
   /**
-   * Manages a CDSM client instance. Before invoking any CDSM client method,
-   * you must use {@link createCdsmClient} to create a CDSM client instance.
+   * Defines a CDSM client class, which provides APIs for obtaining the CDSM information of a remote device.
+   *
+   * - Before using the methods of this class, call [cdsm.createCdsmClient]{@link cdsm.createCdsmClient} to construct an
+   * instance of this class.
+   *
+   * This class is applicable to scenarios where you need to obtain the member devices and connection status changes of
+   * a group of NearLink devices (CDSM) and perform service coordination accordingly. For example, after a phone is
+   * paired with earphones, the phone can use the CDSM to query the left and right earphones and detect their connection
+   * status changes.
+   *
+   * An app only needs to create one [CdsmClient]{@link cdsm.CdsmClient} instance for a remote device. Repeated creation
+   * will increase unnecessary resource overhead.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface CdsmClient {
     /**
-     * Gets the coordinated devices set information.
+     * Queries information about the coordinated devices set of a remote device.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { CdsmInfo } Returns the coordinated devices set information.
+     * @returns { CdsmInfo } Information about the coordinated devices set of a remote device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 36100003 - NearLink disabled.
      * @throws { BusinessError } 36100099 - Operation failed.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     getCdsmInfo(): CdsmInfo;
 
     /**
-     * Subscribes to coordinated devices set information change event.
+     * Subscribes to the CDSM information change event. This API uses an asynchronous callback to return the result.
      *
-     * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-     * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-     * the callback returns the real device address; otherwise, a random device address is returned.
+     * The app must have the **ohos.permission.ACCESS_NEARLINK** permission to receive this event.
      *
-     * @param { Callback<CdsmInfo> } callback - Callback used to listen for the coordinated devices set information.
+     * @param { Callback<CdsmInfo> } callback - Callback used to return the CDSM information.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     onCdsmInfoChange(callback: Callback<CdsmInfo>): void;
 
     /**
-     * Unsubscribes from coordinated devices set information change event.
+     * Unsubscribes from the CDSM information change event. This API uses an asynchronous callback to return the result.
      *
-     * @param { Callback<CdsmInfo> } [callback] - Callback used to listen for the coordinated devices set information.
+     * @param { Callback<CdsmInfo> } [callback] - Callback used to return the CDSM information.
+     *     <br>If this parameter is specified, the current callback is unregistered. If this parameter is not specified,
+     *     all callbacks used to listen for CDSM information change events are unregistered.
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     offCdsmInfoChange(callback?: Callback<CdsmInfo>): void;
   }
 
   /**
-   * Describes the coordinated devices set information.
+   * Represents the CDSM information.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface CdsmInfo {
     /**
-     * Indicates the members of coordinated devices set.
+     * Array of member device information in the coordinated devices set. Each element in the array contains the device
+     * address and connection status.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     members: CdsmMemberInfo[];
   }
 
   /**
-   * Describes the member information of coordinated devices set.
+   * Represents the information about member devices in the coordinated devices set.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface CdsmMemberInfo {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * Member device address.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     address: string;
     /**
-     * Member's connection state.
+     * Member device connection state.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: CdsmConnectionState;
   }
 
   /**
-   * The enum of member's connection state.
+   * Enumerates the connection states of member devices in a coordinated device set.
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum CdsmConnectionState {
     /**
-     * The member is disconnected.
+     * Disconnected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     DISCONNECTED = 0,
     /**
-     * The member is connected.
+     * Connected.
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CONNECTED = 1
   }
