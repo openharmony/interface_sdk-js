@@ -164,6 +164,7 @@ declare namespace dialogRequest {
    * 用于设置模态弹框请求结果的callback接口。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
