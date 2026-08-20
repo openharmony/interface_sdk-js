@@ -37,7 +37,8 @@ import { Callback } from '@ohos.base';
   AnnotationTargets.TYPE,
   AnnotationTargets.PARAMETER,
   AnnotationTargets.TYPE_ALIAS,
-  AnnotationTargets.LAMBDA
+  AnnotationTargets.LAMBDA,
+  AnnotationTargets.INTERFACE_METHOD
 ])
 export declare @interface Builder {}
 
