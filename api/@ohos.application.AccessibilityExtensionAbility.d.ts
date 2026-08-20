@@ -124,7 +124,8 @@ export type WindowType = _WindowType;
 export type Rect = _Rect;
 
 /**
- * Indicates executeAction parameter.
+ * Provides parameter values for specific settings when an accessibility node element performs a specific action. For 
+ * details, see [Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -143,7 +144,8 @@ export type Parameter = _Parameter;
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 
 /**
- * Indicates the rule of the search focus.
+ * Describes how to determine the focus capability of the starting node and its child nodes when searching for 
+ * focusable nodes. For details, see [FocusRule]{@link ./application/AccessibilityExtensionContext:FocusRule}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -152,7 +154,8 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
 export type FocusRule = _FocusRule;
 
 /**
- * Indicates the condition of the search focus.
+ * Describes the method for querying focusable nodes. For details, see 
+ * [FocusCondition]{@link ./application/AccessibilityExtensionContext:FocusCondition}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -161,7 +164,8 @@ export type FocusRule = _FocusRule;
 export type FocusCondition = _FocusCondition;
 
 /**
- * Indicates focus move result.
+ * Return value type of the accessibility node query. For details, see 
+ * [FocusMoveResult]{@link ./application/AccessibilityExtensionContext:FocusMoveResult}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -170,7 +174,8 @@ export type FocusCondition = _FocusCondition;
 export type FocusMoveResult = _FocusMoveResult;
 
 /**
- * Indicates the accessibility virtual node.
+ * Defines an accessibility virtual node. For details, see 
+ * [AccessibilityVirtualNode]{@link ./application/AccessibilityExtensionContext:AccessibilityVirtualNode}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -180,7 +185,8 @@ export type FocusMoveResult = _FocusMoveResult;
 export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
 
 /**
- * The touch position of an accessibility virtual node.
+ * Touch tap position. For details, see 
+ * [TouchPosition]{@link ./application/AccessibilityExtensionContext:TouchPosition}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -190,16 +196,23 @@ export type AccessibilityVirtualNode = _AccessibilityVirtualNode;
 export type TouchPosition = _TouchPosition;
 
 /**
- * The accessibility extension context. Used to configure, query information, and inject gestures.
+ * The accessibility extension context. For details, see 
+ * [AccessibilityExtensionContext]{@link ./application/AccessibilityExtensionContext:AccessibilityExtensionContext}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 23 static
  */
+
 export { AccessibilityExtensionContext };
 
 /**
- * AccessibilityExtensionAbility provides the accessibility extension service capability based on the ExtensionAbility 
- * framework.
+ * AccessibilityExtensionAbility provides accessibility extension capabilities based on the ExtensionAbility framework, 
+ * including connecting to and disconnecting from accessibility services, processing accessibility events, and 
+ * processing accessibility key events.
+ * 
+ * **Lifecycle flow:** onAccessibilityConnect (connection callback, used for initialization) → 
+ * onAccessibilityEventInfo/onAccessibilityKeyEvent (processing accessibility events and key events) → 
+ * onAccessibilityDisconnect (disconnection callback, used for resource reclamation).
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic

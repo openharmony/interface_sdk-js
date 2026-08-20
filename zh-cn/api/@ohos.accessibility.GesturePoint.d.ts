@@ -14,14 +14,16 @@
  */
 
 /**
+ * GesturePoint表示手势触摸点，是构成手势路径GesturePath的基本单元。
+ * 
+ * 本模块用于创建手势路径的触摸点信息，供辅助功能注入手势使用。
+ * 
  * @file 手势触摸点
  * @kit AccessibilityKit
  */
 
 /**
- * GesturePoint表示手势触摸点，是构成手势路径GesturePath的基本单元。
- * 
- * 本模块用于创建手势路径的触摸点信息，供辅助功能注入手势使用。
+ * 表示手势触摸点，是构成GesturePath路径节点的基本单元，用于定义辅助功能注入手势轨迹中的触摸位置。详细使用方式请参见[GesturePath]{@link @ohos.accessibility.GesturePath}。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
