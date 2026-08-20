@@ -31,6 +31,16 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * [getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()}来获取运行进程信息
  * 。
  *
+ * > **说明：**
+ * > 
+ * > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * 
+ * ## 导入模块
+ * 
+ * ```ts
+ * import { appManager } from '@kit.AbilityKit';
+ * ```
+ * 
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -41,7 +51,6 @@ export interface ProcessInformation {
   /**
    * 进程ID。
    *
-   * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice [since 11]
@@ -53,7 +62,6 @@ export interface ProcessInformation {
   /**
    * 应用程序的UID。
    *
-   * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -64,7 +72,6 @@ export interface ProcessInformation {
   /**
    * 进程名称。
    *
-   * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice [since 11]
@@ -76,7 +83,6 @@ export interface ProcessInformation {
   /**
    * 进程中所有运行的Bundle名称。
    *
-   * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice [since 11]
@@ -106,7 +112,7 @@ export interface ProcessInformation {
   bundleType: bundleManager.BundleType;
 
   /**
-   * 分身应用索引。
+   * 分身应用索引，用于标识不同的分身应用实例。0表示主应用，正整数表示对应的分身实例索引。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice

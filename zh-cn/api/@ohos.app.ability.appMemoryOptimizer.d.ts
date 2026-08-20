@@ -20,6 +20,7 @@
 
 /**
  * appMemoryOptimizer提供应用内存优化的能力，包括释放指定文件的文件页缓存、释放指定模块的文件页缓存等。
+ * 例如，应用进入后台或设备内存紧张时，调用evictFilePages释放已加载文件的文件页缓存，可降低应用自身的内存占用。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
