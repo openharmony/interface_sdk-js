@@ -452,7 +452,7 @@ export interface NotificationRequest {
    * 
    * - **ohos.notificationManager.wantUri**: **uri** field in the [Want]{@link @ohos.app.ability.Want:Want} object, 
    * which is passed to the application when the user taps a notification. This field can be obtained via the 
-   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>)}
+   * [getActiveNotifications]{@link @ohos.notification:notification.getActiveNotifications(callback)}
    * API call.
    *
    * @syscap SystemCapability.Notification.Notification
