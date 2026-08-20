@@ -200,7 +200,8 @@ declare namespace serialManager {
    *     result without waiting.
    * @returns { Promise<int> } Promise used to return the length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -227,7 +228,8 @@ declare namespace serialManager {
    *     result without waiting.
    * @returns {int} Length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -257,7 +259,8 @@ declare namespace serialManager {
    *     writable.
    * @returns { Promise<int> } Promise used to return the length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
@@ -286,7 +289,8 @@ declare namespace serialManager {
    *     writable.
    * @returns { int } Length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed;
+   *     4. Optional parameters passed as undefined.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
