@@ -377,7 +377,7 @@ declare namespace pasteboard {
      */
     LOCALDEVICE = 1,
     /**
-     * 表示允许跨设备在任何应用内粘贴。
+     * 表示允许在任何应用内粘贴。
      *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice [since 11]
