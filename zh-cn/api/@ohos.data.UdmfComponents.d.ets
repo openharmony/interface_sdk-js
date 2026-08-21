@@ -28,6 +28,10 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  * - 社交应用分享内容展示
  * - 即时通讯消息卡片
  * - 内容推荐卡片
+ *
+ * ###### 子组件
+ *
+ * 无
  */
 /**
  * 内容卡片类型枚举，提供了大、中、小三种尺寸。
