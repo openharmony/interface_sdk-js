@@ -14,14 +14,20 @@
  */
 
 /**
- * @file
+ * @file Input Method Subtype
  * @kit IMEKit
  */
 
 /**
- * The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes. The input 
- * method subtype allows the input method to switch to a specific mode or language, for example, the Chinese or English 
- * keyboard.
+ * 
+ * @brief The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes.
+ * The input method subtype allows the input method to switch to a specific mode or language, for example,
+ * the Chinese or English keyboard.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> >The initial APIs of this module are supported since API version 9.
+ * Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 9 dynamic
@@ -29,7 +35,7 @@
  */
 export default interface InputMethodSubtype {
   /**
-   * Optional. Label of the input method subtype.
+   * @brief Optional. Label of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -38,7 +44,7 @@ export default interface InputMethodSubtype {
   readonly label?: string;
 
   /**
-   * Optional. Label ID of the input method subtype.
+   * @brief Optional. Label ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -47,7 +53,7 @@ export default interface InputMethodSubtype {
   readonly labelId?: double;
 
   /**
-   * Mandatory. Bundle name of the application to which the input method subtype belongs.
+   * @brief Mandatory. Bundle name of the application to which the input method subtype belongs.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -56,7 +62,7 @@ export default interface InputMethodSubtype {
   readonly name: string;
 
   /**
-   * Mandatory. ID of the input method subtype.
+   * @brief Mandatory. ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -65,7 +71,7 @@ export default interface InputMethodSubtype {
   readonly id: string;
 
   /**
-   * Optional. Mode of the input method subtype, including **upper** (uppercase) and **lower** (lowercase).
+   * @brief Optional. Mode of the input method subtype, including **upper** (uppercase) and **lower** (lowercase).
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -74,7 +80,7 @@ export default interface InputMethodSubtype {
   readonly mode?: 'upper' | 'lower';
 
   /**
-   * Mandatory. Locale of the input method subtype.
+   * @brief Mandatory. Locale of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -83,7 +89,7 @@ export default interface InputMethodSubtype {
   readonly locale: string;
 
   /**
-   * Mandatory. Language of the input method subtype.
+   * @brief Mandatory. Language of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -92,7 +98,7 @@ export default interface InputMethodSubtype {
   readonly language: string;
 
   /**
-   * Optional. Icon of the input method subtype. It can be obtained by using **iconId**. This parameter is reserved.
+   * @brief Optional. Icon of the input method subtype. It can be obtained by using **iconId**. This parameter is reserved.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -101,7 +107,7 @@ export default interface InputMethodSubtype {
   readonly icon?: string;
 
   /**
-   * Optional. Icon ID of the input method subtype.
+   * @brief Optional. Icon ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -110,12 +116,12 @@ export default interface InputMethodSubtype {
   readonly iconId?: double;
 
   /**
-   * Mandatory. Extra information of the input method subtype.
-   * 
-   * **NOTE**
-   * 
-   * - This parameter is optional since API version 10.
-   * - This parameter is reserved and currently has no specific meaning.
+   * @brief Extra information of the input method subtype.
+   * <br>
+   * <br> **NOTE**
+   * <br> 
+   * <br> - This parameter is optional since API version 10.
+   * <br> - This parameter is reserved and currently has no specific meaning.
    *
    * @type { object } [since 9 - 9]
    * @type { ?object } [since 10]

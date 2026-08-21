@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file InputMethodExtensionAbility
  * @kit IMEKit
  */
 
@@ -22,12 +22,13 @@ import Want from './@ohos.app.ability.Want';
 import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContext';
 
 /**
- * The **InputMethodExtensionAbility** module provides APIs for developing input methods and managing the lifecycle of 
+ * @brief The **InputMethodExtensionAbility** module provides APIs for developing input methods and managing the lifecycle of
  * input method extensions.
- * 
- * > **NOTE**
- * >
- * > - The APIs of this module can be used only in the stage model.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> > The initial APIs of this module are supported since API version 9. Newly added APIs will be marked with a superscript to
+ * indicate their earliest API version. The APIs of this module can be used only in the stage model.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @stagemodelonly
@@ -36,7 +37,7 @@ import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContex
  */
 declare class InputMethodExtensionAbility {
   /**
-   * Context of the **InputMethodExtension**, which is inherited from **ExtensionContext**.
+   * @brief Context of the **InputMethodExtension**, which is inherited from **ExtensionContext**.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -46,7 +47,7 @@ declare class InputMethodExtensionAbility {
   context: InputMethodExtensionContext;
 
   /**
-   * Called when the **InputMethodExtensionAbility** is started to implement initialization.
+   * @brief Called when the **InputMethodExtensionAbility** is started to implement initialization.
    *
    * @param { Want } want - Information related to the **InputMethodExtensionAbility**, including the ability name and
    *     bundle name.
@@ -58,7 +59,7 @@ declare class InputMethodExtensionAbility {
   onCreate(want: Want): void;
 
   /**
-   * Called when this **InputMethodExtensionAbility** is destroyed to clear resources.
+   * @brief Called when this **InputMethodExtensionAbility** is destroyed to clear resources.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly

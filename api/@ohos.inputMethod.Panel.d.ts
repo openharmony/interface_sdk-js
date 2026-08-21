@@ -14,14 +14,19 @@
  */
 
 /**
- * The **inputMethod.Panel** module provides APIs for managing the attributes of the input method panel.
+ * @brief The **inputMethod.Panel** module provides APIs for managing the attributes of the input method panel.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> >The initial APIs of this module are supported since API version 11.
+ *  Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @file
+ * @file Input Method Panel
  * @kit IMEKit
  */
 
 /**
- * Defines the attributes of the input method panel.
+ * @brief Defines the attributes of the input method panel.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -29,7 +34,7 @@
  */
 export interface PanelInfo {
   /**
-   * Type of the input method panel.
+   * @brief Type of the input method panel.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -38,10 +43,10 @@ export interface PanelInfo {
   type: PanelType;
 
   /**
-   * State type of the input method panel.
-   * 
-   * - The default value is **FLAG_FIXED**.
-   * - Currently, this parameter is used to describe the state type of the soft keyboard.
+   * @brief State type of the input method panel.
+   * <br>
+   * <br>- The default value is **FLAG_FIXED**.
+   * <br>- Currently, this parameter is used to describe the state type of the soft keyboard.
    *
    * @default FLG_FIXED
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -52,11 +57,11 @@ export interface PanelInfo {
 }
 
 /**
- * Enumerates the state types of the input method panel.
- * 
- * > **NOTE**
- * >
- * > Currently, only the **SOFT_KEYBOARD** panel is supported.
+ * @brief Enumerates the state types of the input method panel.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> > Currently, only the **SOFT_KEYBOARD** panel is supported.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -64,7 +69,7 @@ export interface PanelInfo {
  */
 export enum PanelFlag {
   /**
-   * Fixed state type.
+   * @brief Fixed state type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -73,7 +78,7 @@ export enum PanelFlag {
   FLAG_FIXED = 0,
 
   /**
-   * Floating state type.
+   * @brief Floating state type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -82,10 +87,10 @@ export enum PanelFlag {
   FLAG_FLOATING,
 
   /**
-   * Candidate state type.
-   * 
-   * - When in the candidate state type, the input method panel is a window displaying candidates based on user input.
-   * - The input method service does not proactively control the visibility of the candidate panel. You need to control 
+   * @brief Candidate state type.
+   * <br>
+   * <br>- When in the candidate state type, the input method panel is a window displaying candidates based on user input.
+   * <br>- The input method service does not proactively control the visibility of the candidate panel. You need to control 
    * the visibility on your own.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -96,7 +101,7 @@ export enum PanelFlag {
 }
 
 /**
- * Enumerates the types of the input method panel.
+ * @brief Enumerates the types of the input method panel.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -104,7 +109,7 @@ export enum PanelFlag {
  */
 export enum PanelType {
   /**
-   * Soft keyboard.
+   * @brief Soft keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -113,7 +118,7 @@ export enum PanelType {
   SOFT_KEYBOARD = 0,
 
   /**
-   * Status bar.
+   * @brief Status bar.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
