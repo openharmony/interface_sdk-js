@@ -3363,6 +3363,7 @@ declare namespace commonEventManager {
      * This event is supported only on PCs/2-in-1 devices.
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */

@@ -3143,6 +3143,7 @@ declare namespace commonEventManager {
      * 此事件仅在PC/2in1设备上支持。
      *
      * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
