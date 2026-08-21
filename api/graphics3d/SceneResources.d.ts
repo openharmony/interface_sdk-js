@@ -1281,7 +1281,7 @@ export interface Image extends SceneResource {
  */
 export interface ImageStream extends Image {
   /**
-   * The surfaceId of the imageStream.
+   * The surfaceId of the ImageStream.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly

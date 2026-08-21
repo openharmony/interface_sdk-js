@@ -499,7 +499,7 @@ export enum PrimitiveTopology {
 }
 
 /**
- * the type of shadow algorithm
+ * Enumerates the types of shadow algorithms.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly

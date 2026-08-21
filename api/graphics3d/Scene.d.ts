@@ -418,7 +418,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * Creates an effect object based on the effect parameters. This API uses a promise to return the result.
    *
    * @param { EffectParameters } params - Effect parameters.
-   * @returns { Promise<Effect> } Promise used to return the Environment object created.
+   * @returns { Promise<Effect> } Promise used to return the Effect object created.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -516,15 +516,16 @@ export interface RenderContext {
 }
 
 /**
- * param config for soft shadow, control the algorithm type and its configuration
- * 
+ * Abstract base class for soft shadow configuration.
+ * It defines the interface for controlling the shadow algorithm type and its parameters.
+ *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
  */
 export declare abstract class SoftShadowConfig {
   /**
-   * type of shadow shading algorithms
+   * The shadow algorithm type.
    *
    * @returns { ShadowAlgorithmType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -535,7 +536,7 @@ export declare abstract class SoftShadowConfig {
 }
 
 /**
- * param config for pcf soft shadow
+ * Configuration class for soft shadows using the Percentage-Closer Filtering (PCF) algorithm.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @stagemodelonly
@@ -603,7 +604,7 @@ export interface RenderConfiguration {
    * if the input value is less than or equal to 0, the input will be ignored, and the original configuration will be retained.
    *
    * @type { ?Vec2 }
-   * @default { 1024, 1024 }
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */

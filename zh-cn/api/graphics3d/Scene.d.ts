@@ -596,7 +596,7 @@ export interface RenderConfiguration {
    * 输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。
    *
    * @type { ?Vec2 }
-   * @default { 1024, 1024 }
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
