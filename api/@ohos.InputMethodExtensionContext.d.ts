@@ -14,7 +14,22 @@
  */
 
 /**
- * @file
+ * ###### Usage
+ * 
+ * @brief Before using the **InputMethodExtensionContext** module, you must define a child class that inherits from 
+ * **InputMethodExtensionAbility**.
+ * <br>
+ * <br>```ts
+ * <br>import { InputMethodExtensionAbility, InputMethodExtensionContext } from '@kit.IMEKit';
+ * <br>import { Want } from '@kit.AbilityKit';
+ * <br>class InputMethodExtAbility extends InputMethodExtensionAbility {
+ * <br>  onCreate(want: Want): void {
+ * <br>    console.info('onCreate, want:' + want.abilityName);
+ * <br>  }
+ * <br>}
+ * <br>```
+ *
+ * @file InputMethodExtensionContext
  * @kit IMEKit
  */
 
@@ -24,13 +39,14 @@ import ExtensionContext from './application/ExtensionContext';
 import { ConnectOptions } from './ability/connectOptions';
 
 /**
- * The **InputMethodExtensionContext** module, inherited from **ExtensionContext**, provides context for 
+ * @brief The **InputMethodExtensionContext** module, inherited from **ExtensionContext**, provides context for 
  * **InputMethodExtension** abilities. You can use the APIs of this module to start, terminate, connect, and disconnect 
  * abilities.
- * 
- * > **NOTE**
- * >
- * > - The APIs of this module can be used only in the stage model.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> > The initial APIs of this module are supported since API version 9. Newly added APIs will be marked with a superscript to
+ * indicate their earliest API version. The APIs of this module can be used only in the stage model.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @stagemodelonly
@@ -39,7 +55,7 @@ import { ConnectOptions } from './ability/connectOptions';
  */
 declare class InputMethodExtensionContext extends ExtensionContext {
   /**
-   * Destroys this input method. This API uses an asynchronous callback to return the result.
+   * @brief Destroys this input method. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
@@ -51,7 +67,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this input method. This API uses a promise to return the result.
+   * @brief Destroys this input method. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -62,7 +78,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(): Promise<void>;
 
   /**
-   * Destroys this input method extension. This API uses an asynchronous callback to return the result.
+   * @brief Destroys this input method extension. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
@@ -76,7 +92,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this input method extension. This API uses a promise to return the result.
+   * @brief Destroys this input method extension. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -89,7 +105,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(): Promise<void>;
 
   /**
-   * Starts an ability. This API uses a promise to return the result.
+   * @brief Starts an ability. This API uses a promise to return the result.
    *
    * @param { Want } want - Want information, including the ability name and bundle name of the target application.
    * @returns { Promise<void> } Promise that returns no value.
@@ -122,7 +138,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbility(want: Want): Promise<void>;
 
   /**
-   * Starts an ability with a specified account. This API uses an asynchronous callback to return the result.
+   * @brief Starts an ability with a specified account. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Want information about the target ability.
@@ -158,7 +174,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability with a specified account. This API uses a promise to return the result.
+   * @brief Starts an ability with a specified account. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Want information about the target ability.
@@ -193,7 +209,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
   /**
-   * Connects this ability to a ServiceExtensionAbility.
+   * @brief Connects this ability to a ServiceExtensionAbility.
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
    * @param { ConnectOptions } options - Callback used to return the information indicating that the connection is
@@ -221,7 +237,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * Connects to a ServiceExtensionAbility with a specified account.
+   * @brief Connects to a ServiceExtensionAbility with a specified account.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Want information about the target ability.
@@ -251,7 +267,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbilityWithAccount(want: Want, accountId: number): number;
 
   /**
-   * Connects this ability to a ServiceExtensionAbility.
+   * @brief Connects this ability to a ServiceExtensionAbility.
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
    * @param { ConnectOptions } options - Callback used to return the information indicating that the connection is
@@ -279,7 +295,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * @brief Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
    * object returned upon the connection to void. This API uses an asynchronous callback to return the result.
    *
    * @param { number } connection - Number returned after **connectServiceExtensionAbility** is called.
@@ -299,7 +315,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * @brief Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
    * object returned upon the connection to void. This API uses a promise to return the result.
    *
    * @param { number } connection - Number returned after **connectServiceExtensionAbility** is called.
@@ -318,7 +334,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * @brief Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
    * object returned upon the connection to void. This API can be called only on the main thread.  This API uses an
    * asynchronous callback to return the result.
    *
@@ -339,7 +355,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
+   * @brief Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote
    * object returned upon the connection to void. This API can be called only on the main thread. This API uses a
    * promise to return the result.
    *
