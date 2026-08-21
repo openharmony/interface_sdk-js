@@ -604,7 +604,7 @@ export interface RenderConfiguration {
    * if the input value is less than or equal to 0, the input will be ignored, and the original configuration will be retained.
    *
    * @type { ?Vec2 }
-   * @default { x: 1024, y: 1024 }
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
