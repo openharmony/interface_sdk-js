@@ -15893,6 +15893,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     release(): Promise<void>;
+
+    /**
+     * 设置ImageReceiver实例的内存名称。使用同步形式返回结果。
+     *
+     * 仅支持可见ASCII字符。空格、换行符、制表符及其他控制字符将被过滤。若过滤后的结果全部为数字，将自动添加前缀"ImageReceiver:"。name的长度不能超过256字节。
+     *
+     * @param { string } name - 要设置的内存名称。
+     *     <br>最大长度为256。
+     * @throws { BusinessError } 7900201 - 参数无效。可能原因：
+     *     <ol><li>name为空。</li>
+     *     <li>过滤后name中无可视字符。</li>
+     *     <li>name的长度超过256字节。</li>
+     *     <li>请确保name参数包含可见ASCII字符。</li></ol>
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    setMemoryName(name: string): void;
   }
 
   /**
