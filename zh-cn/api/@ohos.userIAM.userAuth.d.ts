@@ -1458,8 +1458,8 @@ declare namespace userAuth {
     userId?: int;
 
     /**
-     * 是否跳过已冻结的认证方式自动切换至其它方式的认证。若无可切换的认证方式则关闭控件，返回认证冻结错误码。
-     * 
+     * 是否跳过已冻结的认证方式自动切换至其他方式的认证。若无可切换的认证方式则关闭控件，返回认证冻结错误码。
+     *
      * - true：生物认证冻结时，跳过倒计时界面直接切换到其他方式的认证（如从冻结的指纹切换到PIN）。适用于希望快速完成认证的场景。
      * - false（默认）：不跳过，用户需要等待冻结倒计时结束后才能继续尝试该认证方式或手动切换。
      *
@@ -1536,7 +1536,7 @@ declare namespace userAuth {
     uiContext?: Context;
 
     /**
-     * 应用窗口对象。用于以模应用弹窗方式显示身份认证对话框，适用于需要通过窗口对象控制认证对话框显示的场景。如果已提供此参数，则uiContext将被忽略。
+     * 应用窗口对象。用于以模应用弹窗方式显示身份认证对话框，适用于需要通过窗口对象控制认证对话框显示的场景。如果已提供此参数，则uiContext将被忽略；若不传入此参数，则认证界面的显示由uiContext控制。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1838,13 +1838,13 @@ declare namespace userAuth {
 
     /**
      * 取消订阅用户身份认证的结果。该接口常用于以下场景：页面销毁或组件卸载时取消订阅；不再需要监听认证结果时释放资源。
-     * 
+     *
      * > **说明：**
      * >
      * > 需要使用已经成功订阅事件的[UserAuthInstance]{@link userAuth.UserAuthInstance}对象调用该接口进行取消订阅。
      *
      * @param { 'result' } type - 订阅事件类型，表明该事件用来返回认证结果。
-     * @param { IAuthCallback } callback - 认证接口的回调函数，用于返回认证结果。当不传该参数时默认值为调用
+     * @param { IAuthCallback } [callback] - 认证接口的回调函数，用于返回认证结果。当不传该参数时默认值为调用
      *     [on('result')]{@link userAuth.UserAuthInstance.on(type: 'result', callback: IAuthCallback)}接口时传递的参数值。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified.
@@ -2369,8 +2369,9 @@ declare namespace userAuth {
   /**
    * 获取远程认证页面参数的回调函数类型。该类型用于远程认证场景，在需要获取远程认证界面的配置参数时，系统会调用此回调函数。
    *
-   * @param { Uint8Array } challenge - 随机挑战值，可用于防重放攻击。最大长度为32字节，可传Uint8Array([])。建议使用
+   * @param { Uint8Array } challenge - 随机挑战值，可用于防重放攻击。字节，可传Uint8Array([])。建议使用
    *     [加解密算法库框架]{@link @ohos.security.cryptoFramework:cryptoFramework}生成的随机数作为挑战值，以增强安全性。
+   *     <br>最大长度为32。
    * @returns { WidgetParam } 用户认证界面配置参数。包含认证界面的标题、导航按钮文本等配置信息。
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -2423,7 +2424,7 @@ declare namespace userAuth {
 
   /**
    * 注册远程认证回调。该接口用于在远程认证场景下注册回调接口，注册后系统可通过回调获取远程认证所需的页面参数，并在认证完成后接收认证结果。不允许重复注册，在不使用时应调用
-   * [unregisterRemoteAuthCallback]{@link userAuth.registerRemoteAuthCallback}取消注册，避免回调无法释放。
+   * [unregisterRemoteAuthCallback]{@link userAuth.unregisterRemoteAuthCallback}取消注册，避免回调无法释放。
    *
    * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
    * @param { IRemoteAuthCallback } callback - 远程认证回调接口。包含获取认证页面参数和返回认证结果的回调函数。
