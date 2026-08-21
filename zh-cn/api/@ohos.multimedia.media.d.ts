@@ -337,6 +337,191 @@ declare namespace media {
   }
 
   /**
+   * 创建一个与播放器实例关联的广告播放控制器。使用Promise异步回调。
+   *
+   * @param { AVPlayer } player - 已创建的播放器实例。
+   * @returns { Promise<AVAdsController | undefined> } Promise对象。成功时返回广告播放控制器实例，失败时返回undefined。
+   * @throws { BusinessError } 5400108 - The player object corresponding to player does not exist or is invalid.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createAVAdsController(player: AVPlayer): Promise<AVAdsController | undefined>;
+
+  /**
+   * 广告媒体资源加载失败事件回调方法。
+   *
+   * @param { string } adsId - 加载失败的广告资源ID。
+   * @param { BusinessError } reason - 加载失败的原因。
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAdsEventLoadingErrorHandle = (adsId: string, reason: BusinessError) => void;
+
+  /**
+   * 广告内容播放开始事件回调方法。
+   *
+   * @param { string } adsId - 正在播放的广告资源ID。
+   * @param { int } duration - 广告的播放时长，单位为毫秒。
+   *     <br>取值限定为整数。
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAdsEventAdsStartedHandle = (adsId: string, duration: int) => void;
+
+  /**
+   * 广告内容控制接口
+   *
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AVAdsController {  
+    /**
+     * 向广告控制器添加广告媒体源，指定广告在主媒体资源播放进度中的插入位置。使用Promise异步回调。
+     *
+     * @param { MediaSource } src - 要插入到主内容中播放的媒体源。
+     * @param { int } start - 广告媒体源在主媒体资源播放进度中的插入位置，从主媒体资源开始播放时计算。
+     *     <br>Unit: 单位为毫秒（ms）。
+     * @returns { Promise<string> } Promise对象，返回添加到广告控制器中的媒体源ID，removeAdsMediaSource接口可用该ID移除对应的广告源。
+     * @throws { BusinessError } 5400108 - Insert a media asset whose start value exceeds the value of the main content.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addAdsMediaSource(src: MediaSource, start: int): Promise<string>;
+
+    /**
+     * 移除广告控制器中指定的广告媒体源。如果该广告正在播放，则等广告播放完后再移除。例如，当广告内容失效或用户购买免广告权益后，可调用此接口移除已添加的广告。
+     *
+     * @param { string } id - 广告媒体源ID，由addAdsMediaSource接口返回。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the AdsController.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    removeAdsMediaSource(id: string): void;
+
+    /**
+     * S跳过当前正在播放的广告内容。跳过后将立即恢复主内容的播放，并触发onAdsListenerAdsSkipped的回调。例如，当用户点击播放器上的“跳过广告”按钮时，可调用此接口跳过当前广告并继续播放主内容。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    skipCurrentAdsMediaSource(): void;
+
+    /**
+     * 禁用当前会话中剩余的广告内容播放，后续尚未播放的广告将不再播放。例如，当用户购买了免广告权益或通过内容审核机制判定不应展示广告时，可调用此接口禁用后续所有广告。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    disableAllAdsMediaSource(): void;
+
+    /**
+     * 释放AVAdsController对象。释放后已注册的回调将不再触发，应在AVPlayer释放前调用此方法释放广告控制器。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    release(): void;
+
+    /**
+     * 注册广告内容加载失败时的事件处理函数。
+     *
+     * @param { OnAdsEventLoadingErrorHandle } callback - 广告内容加载失败的处理函数。
+     *     由使用方实现。
+     *     <br>第一个参数用于传递广告ID，第二个参数用于传递失败原因。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsEventListenerLoadingError(callback: OnAdsEventLoadingErrorHandle): void;
+
+    /**
+     * 注册新广告内容播放时触发的事件处理函数。
+     *
+     * @param { OnAdsEventAdsStartedHandle } callback - 广告内容开始播放时的处理函数。
+     *     常用于从主内容播放界面切换到广告播放界面的场景。
+     *     <br>第一个参数表示正在播放的广告ID，第二个参数表示广告的时长，单位为毫秒（ms）。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsStarted(callback: OnAdsEventAdsStartedHandle): void;
+
+    /**
+     * 注册广告被跳过时触发的事件处理函数。
+     *
+     * @param { Callback<string> } callback - 广告跳过的处理函数。常用于恢复主内容播放。参数为被跳过的广告ID。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsSkipped(callback: Callback<string>): void;
+
+    /**
+     * 注册广告内容播放完成时触发的事件处理函数。
+     *
+     * @param { Callback<string> } callback - 广告播放完成的处理函数。常用于恢复主内容播放。参数为播放完成的广告ID。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsCompleted(callback: Callback<string>): void;
+
+    /**
+     * 取消注册广告内容加载失败时的事件处理函数。
+     *
+     * @param { OnAdsEventLoadingErrorHandle } [callback] - 广告内容加载失败的处理函数。
+     *     <br>传入指定回调时，仅取消订阅该回调；不传入该参数时，默认取消订阅该事件的所有回调函数。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsEventListenerLoadingError(callback?: OnAdsEventLoadingErrorHandle): void;
+
+    /**
+     * 取消注册新广告内容播放时触发的事件处理函数。
+     *
+     * @param { OnAdsEventAdsStartedHandle } [callback] - 广告内容开始播放时的处理函数。
+     *     常用于从主内容播放界面切换到广告播放界面的场景。
+     *     <br>传入指定回调时，仅取消订阅该回调；不传入该参数时，默认取消订阅该事件的所有回调函数。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsStarted(callback?: OnAdsEventAdsStartedHandle): void;
+
+    /**
+     * 取消注册广告被跳过时触发的事件处理函数。
+     *
+     * @param { Callback<string> } [callback] - 广告跳过的处理函数。
+     *     <br>传入指定回调时，仅取消订阅该回调；不传入该参数时，默认取消订阅该事件的所有回调函数。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsSkipped(callback?: Callback<string>): void;
+
+    /**
+     * 取消注册广告内容播放完成时触发的事件处理函数。
+     *
+     * @param { Callback<string> } [callback] - 广告播放完成的处理函数。
+     *     <br>传入指定回调时，仅取消订阅该回调；不传入该参数时默认取消订阅该事件的所有回调函数。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsCompleted(callback?: Callback<string>): void;
+  }
+
+  /**
    * 异步方式创建视频播放实例，使用callback异步回调。
    * 
    * > **说明：**
@@ -5514,6 +5699,7 @@ declare namespace media {
    * 
    * > **说明：**
    * >
+   * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
    * > - 本Interface首批接口从API version 18开始支持。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -5559,7 +5745,7 @@ declare namespace media {
     respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
 
     /**
-     * The interface for application used to send requested data to AVPlayer.
+     * 用于应用程序向播放器发送数据。
      *
      * @param { long } uuid - ID for the resource handle.
      * @param { long } offset - Offset of the current media data relative to the start of the resource.
@@ -11579,6 +11765,242 @@ declare namespace media {
      * @since 23 static
      */
     readonly isSystemScreenRecorderWorking: boolean;
+  }
+
+  /**
+   * 根据指定目录路径创建一个媒体源对象。使用Promise异步回调。
+   *
+   * @param { string } path - 用于创建媒体源的目录路径信息。
+   * @returns { Promise<MediaSource | undefined> } Promise对象。成功时返回MediaSource实例，失败时返回undefined。
+   * @throws { BusinessError } 5411007 - The directory specified by the path parameter does not exist or inaccessible.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createMediaSourceWithDirectory(path: string): Promise< MediaSource | undefined>;
+
+  /**
+   * 创建一个离线下载任务管理器实例。使用Promise异步回调。
+   *
+   * @returns { Promise<AVDownloaderManager> } Promise对象。返回离线下载任务管理器实例。
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createAVDownloaderManager(): Promise<AVDownloaderManager>;
+
+  /**
+   * 离线下载任务状态枚举。
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type AVDownloadTaskState = 'init' | 'queued' | 'running' | 'completed' | 'paused' | 'removing' | 'error';
+
+  /**
+   * 离线下载任务状态变化事件回调方法。
+   *
+   * @param { string } taskId - 状态变化的离线下载任务ID。
+   * @param { AVDownloadTaskState } status - 任务的新状态。
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAVDownloadTaskStateHandle = (taskId: string, state: AVDownloadTaskState) => void;
+
+  /**
+   * 离线下载任务进度变化事件回调方法。当下载进度相比上次变化超过1%，且距上次触发时间超过500ms时，触发该事件。
+   *
+   * @param { string } taskId - 离线下载任务ID。
+   * @param { double } status - 下载进度值。取值范围：[0.0, 1.0]，若值为-1，表示资源大小未知。
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAVDownloadProgressChangeHandle = (taskId: string, progress: double) => void;
+
+  /**
+   * 离线下载任务管理接口，用于管理媒体资源的离线下载任务，包括创建、暂停、恢复、移除下载任务以及监听下载状态和进度变化事件。
+   *
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AVDownloaderManager {
+
+    /**
+     * 设置是否允许在蜂窝网络环境下进行下载。默认情况下仅在Wi-Fi环境下进行下载。如果设置不允许在蜂窝网络下载，但网络环境为蜂窝网络环境时，下载任务将暂停等待Wi-Fi环境可用后继续。
+     *
+     * @param { boolean } value - 	是否允许在蜂窝网络环境下进行下载。true：允许在蜂窝网络环境下下载。- false：不允许在蜂窝网络环境下下载（默认）。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    allowsCellularAccess(value: boolean): void;
+
+    /**
+     * 设置HTTP请求的网络超时时间。超时后下载任务将失败。
+     *
+     * @param { int } timeout - 	超时时间，单位为毫秒。
+     *     <br>取值限定为整数。
+     *     <br>如果值大于0，表示超时时间，取值范围(0, +∞)。
+     *     <br>如果值小于等于0，表示无超时限制，建议根据业务场景设置合理的超时时间以避免任务长时间挂起。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setRequestTimeout(timeout: int): void;
+
+    /**
+     * 根据媒体源创建一个离线下载任务。默认情况下，下载任务仅在Wi-Fi环境下进行，如需在蜂窝网络环境下下载，请先设置allowsCellularAccess为true。
+     *
+     * @param { MediaSource } source - 	媒体资源描述，至少包含资源URL。
+     *     <br>值不能为null。
+     * @returns { string } 成功添加的离线下载任务ID。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addAVDownloadTask(source: MediaSource): string;
+
+    /**
+     * 从离线下载管理器中移除离线下载任务，移除后该任务将停止下载并从管理器中删除。
+     *
+     * @param { string } [taskId] - 要移除的离线下载任务ID。
+     *     <br>默认值：不指定此参数时，移除所有离线下载任务。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    removeDownloadTask(taskId?: string): void;
+
+    /**
+     * 暂停指定离线下载任务，已下载的部分数据将保留，恢复后可从断点继续下载。
+     *
+     * @param { string } [taskId] - 要暂停的离线下载任务ID。
+     *     <br>默认值：不指定此参数时，暂停所有下载任务。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pauseDownloadTask(taskId?: string): void;
+
+    /**
+     * 恢复指定离线下载任务，从上次暂停的断点处继续下载。
+     *
+     * @param { string } [taskId] - 要恢复的离线下载任务ID，任务需处于已暂停状态。
+     *     <br>默认值：不指定此参数时，恢复所有已暂停的离线下载任务。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the offline download task manager.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    resumeDownloadTask(taskId?: string): void;
+
+    /**
+     * 获取离线下载管理器中的当前所有离线下载任务。
+     *
+     * @returns { Array<string> } 若任务管理器中存在任务，返回任务ID数组；否则返回空数组。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDownloadTasks(): Array<string>;
+
+    /**
+     * 获取指定离线下载任务的缓存目录。
+     *
+     * @param { string } taskId - 要查询缓存目录的离线下载任务ID。取值应为当前管理器中已存在的任务ID。
+     * @returns { string } 离线下载任务的缓存目录在磁盘上的路径。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getTaskCacheDirectory(taskId: string): string;
+
+    /**
+     * 获取指定离线下载任务的状态。状态类型详见AVDownloadTaskState。
+     *
+     * @param { string } taskId - 要查询状态的离线下载任务ID。取值应为当前管理器中已存在的任务ID。
+     * @returns { AVDownloadTaskState } 指定任务的下载状态。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getTaskStatus(taskId: string): AVDownloadTaskState;
+
+    /**
+     * 获取指定离线下载任务的下载进度。
+     *
+     * @param { string } taskId - 要查询进度的离线下载任务ID。取值应为当前管理器中已存在的任务ID。
+     * @returns { double } 下载进度比例值。
+     *     <br>取值范围：[0.0, 1.0]，若返回值为-1，表示资源大小未知。
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the manager, an error is returned.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getTaskProgress(taskId: string): double;
+
+    /**
+     * 注册离线下载任务状态变化的事件监听函数。
+     *
+     * @param { OnAVDownloadTaskStateHandle } callback - 状态变化事件的处理函数。由应用实现。
+     *     <br>第一个参数为状态变化的任务ID，第二个参数为任务的新状态。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onStatusChange(callback: OnAVDownloadTaskStateHandle): void;
+
+    /**
+     * 注册离线下载任务进度变化的事件监听函数。当下载进度相比上次变化超过1%，且距上次触发时间超过500ms时，触发该事件。
+     *
+     * @param { OnAVDownloadProgressChangeHandle } callback - 进度变化事件的处理函数。由应用实现。
+     *     <br>第一个参数为下载任务ID，第二个参数为下载进度值。
+     *     <br>进度值取值范围为-1或[0.0, 1.0]。-1表示资源大小未知。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onProgressChange(callback: OnAVDownloadProgressChangeHandle): void;
+
+    /**
+     * 取消注册离线下载任务状态变化的事件监听函数。
+     *
+     * @param { OnAVDownloadTaskStateHandle } [callback] - 状态变化事件的处理函数，必须是通过onStatusChange注册过的处理函数。
+     *     <br>默认值：不指定此参数时，取消注册该事件的所有处理函数。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offStatusChange(callback?: OnAVDownloadTaskStateHandle): void;
+
+    /**
+     * 取消注册离线下载任务进度变化的事件监听函数。
+     *
+     * @param { OnAVDownloadProgressChangeHandle } [callback] - 进度变化事件的处理函数，必须是通过onProgressChange注册过的处理函数。
+     *     <br>默认值：不指定此参数时，取消注册该事件的所有处理函数。
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offProgressChange(callback?: OnAVDownloadProgressChangeHandle): void;
+
+    /**
+     * 释放AVDownloaderManager对象使用的资源。调用此方法后，所有下载任务将被停止并移除，不可再通过该实例管理下载任务。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    release(): void;
   }
 }
 export default media;
