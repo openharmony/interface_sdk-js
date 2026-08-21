@@ -195,7 +195,7 @@ declare namespace serialManager {
    * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
    *     returned by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for reading data, with a maximum length of 8192 bytes.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
+   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
    *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the
    *     result without waiting.
    * @returns { Promise<int> } Promise used to return the length of the data read.
@@ -223,7 +223,7 @@ declare namespace serialManager {
    * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
    *     returned by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for reading data, with a maximum length of 8192 bytes.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
+   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. If the API has no data in the buffer of the target port, it
    *     returns the result after waiting for the specified time. The default value **0** indicates that the API returns the
    *     result without waiting.
    * @returns {int} Length of the data read.
@@ -253,7 +253,7 @@ declare namespace serialManager {
    * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
    *     returned by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Buffer for writing data, with a maximum length of 4 KB.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
+   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
    *     specified time. If yes, the API is processed properly; otherwise, a timeout message is returned after the specified
    *     time. The default value **0** indicates that the API returns the result immediately when the target port is not
    *     writable.
@@ -283,7 +283,7 @@ declare namespace serialManager {
    * @param { int} portId - Port number of the target device, which is obtained from the serial port parameter SerialPort
    *     returned by [getPortList]{@link serialManager.getPortList()}.
    * @param { Uint8Array } buffer - Destination buffer for writing data, with a maximum length of 4 KB.
-   * @param { int } timeout - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
+   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. Whether the buffer of the target port is writable within the
    *     specified time. If yes, the API is processed properly; otherwise, a timeout message is returned after the specified
    *     time. The default value **0** indicates that the API returns the result immediately when the target port is not
    *     writable.
