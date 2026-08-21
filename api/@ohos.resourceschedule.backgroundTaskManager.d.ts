@@ -1691,7 +1691,7 @@ declare namespace backgroundTaskManager {
     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
     * @param { 'continuousTaskCancel' } type - Cancels a continuous task. The value is fixed at
     *     **'continuousTaskCancel'**.
-    * @param { Callback<ContinuousTaskCancelInfo> } callback - Callback for which listening is cancelled. If this
+    * @param { Callback<ContinuousTaskCancelInfo> } [callback] - Callback for which listening is cancelled. If this
     *     parameter is left unspecified, all registered callbacks are cancelled.
     * @throws { BusinessError } 201 - Permission denied.
     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
