@@ -114,7 +114,7 @@ declare namespace errorManager {
    * 仅在主线程中使用。使用线程出错时，将抛出错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'loopObserver' } type - 填写'loopObserver'，表示应用主线程观测器。
-   * @param { LoopObserver } observer - 应用主线程观测器标志。
+   * @param { LoopObserver } [observer] - 应用主线程观测器标志。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
    * @throws { BusinessError } 16200001 - 请在主线程中调用。
@@ -246,7 +246,7 @@ declare namespace errorManager {
    * 如果传入的回调不在通过on方法注册的回调队列中，将抛出16300004错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'globalUnhandledRejectionDetected'} type - 填写'globalUnhandledRejectionDetected'，表示注册被拒绝promise监听器。
-   * @param { GlobalObserver } observer - 由on接口注册的被拒绝promise的callback。建议使用该参数，缺省时默认清除所有通过on注册的相同env的callback，否则删除指定
+   * @param { GlobalObserver } [observer] - 由on接口注册的被拒绝promise的callback。建议使用该参数，缺省时默认清除所有通过on注册的相同env的callback，否则删除指定
    *     callback。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
@@ -265,7 +265,7 @@ declare namespace errorManager {
    * [errorManager.on('globalUnhandledRejectionDetected')]{@link errorManager.on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver)}
    * 的入参监听当前应用主线程事件处理事件。
    *
-   * @param { 'GlobalError'} reason - 有关异常事件名字、消息、错误堆栈信息、异常线程名称和类型的对象。
+   * @param { GlobalError } reason - 有关异常事件名字、消息、错误堆栈信息、异常线程名称和类型的对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18 dynamiconly
@@ -482,7 +482,7 @@ declare namespace errorManager {
    * 如果传入的回调与通过on方法注册回调不一致，将抛出16300004错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'freeze' } type - 填写'freeze'，表示应用主线程freeze观测器。
-   * @param { FreezeObserver } observer - 由on接口注册的freeze监听的callback。建议使用该参数，如果参数不填会直接清空callback，否则删除指定的callback。
+   * @param { FreezeObserver } [observer] - 由on接口注册的freeze监听的callback。建议使用该参数，如果参数不填会直接清空callback，否则删除指定的callback。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
    * @throws { BusinessError } 16300004 - 观测器不存在。
@@ -512,7 +512,7 @@ declare namespace errorManager {
    * 如果传入的回调不在通过on方法注册的回调队列中，将抛出16300004错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'globalErrorOccurred'} type - 填写'globalErrorOccurred'，表示错误观测器。
-   * @param { GlobalObserver } observer - 由on方法注册的callback。建议使用该参数，缺省时默认清除所有通过on注册的相同env的callback，否则删除指定callback。
+   * @param { GlobalObserver } [observer] - 由on方法注册的callback。建议使用该参数，缺省时默认清除所有通过on注册的相同env的callback，否则删除指定callback。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
    * @throws { BusinessError } 16200001 - 调用者无效。
