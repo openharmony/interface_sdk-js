@@ -129,7 +129,7 @@ declare namespace errorManager {
    *
    * @param { 'loopObserver' } type - Event type. It is fixed at **'loopObserver'**, indicating an observer for the
    *     message processing duration of the main thread.
-   * @param { LoopObserver } observer - Observer to unregister.
+   * @param { LoopObserver } [observer] - Observer to unregister.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -273,7 +273,7 @@ declare namespace errorManager {
    *
    * @param { 'globalUnhandledRejectionDetected'} type - Event type. It is fixed at
    *     **'globalUnhandledRejectionDetected'**, indicating an observer for the promise rejection.
-   * @param { GlobalObserver } observer - Observer registered by the **on** API. You are advised to use this parameter.
+   * @param { GlobalObserver } [observer] - Observer registered by the **on** API. You are advised to use this parameter.
    *     If omitted, all observers registered with the same environment through **on** are unregistered by default.
    *     Otherwise, the specified observer is unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -293,7 +293,7 @@ declare namespace errorManager {
    * [errorManager.on('globalUnhandledRejectionDetected')]{@link errorManager.on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver)}
    * to monitor event processing on the main thread of the current application.
    *
-   * @param { 'GlobalError'} reason - Object related to the exception event name, message, error stack information,
+   * @param { GlobalError } reason - Object related to the exception event name, message, error stack information,
    *     exception thread name, and exception thread type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -525,7 +525,7 @@ declare namespace errorManager {
    *
    * @param { 'freeze' } type - Event type. It is fixed at **'freeze'**, indicating an observer for the freeze event of
    *     the main thread.
-   * @param { FreezeObserver } observer - Observer to unregister. You are advised to use this parameter. If omitted, all
+   * @param { FreezeObserver } [observer] - Observer to unregister. You are advised to use this parameter. If omitted, all
    *     observers registered with the same environment through **on** are unregistered by default. Otherwise, the
    *     specified observer is unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -558,7 +558,7 @@ declare namespace errorManager {
    * thrown. Therefore, you are advised to handle this using **try-catch** logic.
    *
    * @param { 'globalErrorOccurred'} type - Event type. It is fixed at **'globalErrorOccurred'**.
-   * @param { GlobalObserver } observer - Observer registered by the **on** API. You are advised to use this parameter.
+   * @param { GlobalObserver } [observer] - Observer registered by the **on** API. You are advised to use this parameter.
    *     If omitted, all observers registered with the same environment through **on** are unregistered by default.
    *     Otherwise, the specified observer is unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
