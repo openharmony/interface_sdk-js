@@ -24703,7 +24703,7 @@ declare class CommonMethod<T> {
    *     **ComponentContent** is recommended. [since 10 - 11]
    * @param { string | CustomBuilder | ComponentContent } value - 遮罩文本内容或自定义组件构造函数。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自
    *     定义组件中。通过CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在一定的性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 12]
-   * @param { OverlayOptions } options - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
+   * @param { OverlayOptions } [options] - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
    *     [Alignment]{@link Alignment}, <br/>offset?: {x?: number, y?: number}<br/>} [since 12]
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -2215,7 +2215,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
   /**
    * 点击手势处理器的构造函数。
    *
-   * @param { TapGestureHandlerOptions } options - 点击手势处理器配置参数。
+   * @param { TapGestureHandlerOptions } [options] - 点击手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2328,7 +2328,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
   /**
    * 长按手势处理器的构造函数。
    *
-   * @param { LongPressGestureHandlerOptions } options - 长按手势处理器配置参数。
+   * @param { LongPressGestureHandlerOptions } [options] - 长按手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2487,7 +2487,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
   /**
    * 滑动手势处理器的构造函数。
    *
-   * @param { PanGestureHandlerOptions } options - 滑动手势处理器配置参数。
+   * @param { PanGestureHandlerOptions } [options] - 滑动手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2634,7 +2634,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
   /**
    * 快滑手势处理器的构造函数。
    *
-   * @param { SwipeGestureHandlerOptions } options - 快滑手势处理器配置参数。
+   * @param { SwipeGestureHandlerOptions } [options] - 快滑手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2717,7 +2717,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
   /**
    * 捏合手势处理器的构造函数。
    *
-   * @param { PinchGestureHandlerOptions } options - 捏合手势处理器配置参数。
+   * @param { PinchGestureHandlerOptions } [options] - 捏合手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2853,7 +2853,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
   /**
    * 旋转手势处理器的构造函数。
    *
-   * @param { RotationGestureHandlerOptions } options - 旋转手势处理器配置参数。
+   * @param { RotationGestureHandlerOptions } [options] - 旋转手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2983,7 +2983,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
   /**
    * 手势组处理器的构造函数。
    *
-   * @param { GestureGroupGestureHandlerOptions } options - 手势组处理器配置参数。
+   * @param { GestureGroupGestureHandlerOptions } [options] - 手势组处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

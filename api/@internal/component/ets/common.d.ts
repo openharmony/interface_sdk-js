@@ -22769,7 +22769,7 @@ declare class CommonMethod<T> {
    *     keyboard navigation. Using **CustomBuilder** will cause the overlay content to be destroyed and recreated on
    *     page refresh, which may incur performance overhead. For scenarios with frequent page updates, using
    *     **ComponentContent** is recommended. [since 12]
-   * @param { OverlayOptions } options - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than
+   * @param { OverlayOptions } [options] - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than
    *     API version 12, **options** is defined as follows:<br>{<br>align?: [Alignment]{@link Alignment}, <br>offset?: {
    *     x?: number, y?: number}<br>} [since 12]
    * @returns { T } Current component.
