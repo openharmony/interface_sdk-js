@@ -162,7 +162,6 @@ declare namespace fileUri {
      * @returns { string } URI in a serialized string.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly   
-     * @crossplatform [since 26.1.0]
      * @since 23 static
      */
     toString(): string;
