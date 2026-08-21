@@ -40,7 +40,7 @@ import { ResourceColor, Dimension, Component } from '@ohos.arkui.component';
 @Component
 export declare struct UserAuthIcon {
   /**
-   * 用户认证相关参数。包含挑战值(challenge)、认证类型列表(authType)、认证可信等级(authTrustLevel)等配置。挑战值用于防重放攻击，认证类型指定可用的认证方式（如人脸、指纹、PIN），认证可信等级决定认
+   * 用户认证相关参数。包含挑战值（challenge）、认证类型列表（authType）、认证可信等级（authTrustLevel）等配置。挑战值用于防重放攻击，认证类型指定可用的认证方式（如人脸、指纹、PIN），认证可信等级决定认
    * 证的安全强度。
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -50,7 +50,7 @@ export declare struct UserAuthIcon {
   authParam: userAuth.AuthParam;
 
   /**
-     * 用户认证界面配置相关参数。包含认证界面标题(title)、导航按钮文本(navigationButtonText)等配置，用于自定义认证弹窗的显示内容。
+     * 用户认证界面配置相关参数。包含认证界面标题（title）、导航按钮文本（navigationButtonText）等配置，用于自定义认证弹窗的显示内容。
      *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
@@ -79,7 +79,7 @@ export declare struct UserAuthIcon {
   iconColor?: ResourceColor;
 
   /**
-   * 认证结果回调。用户完成认证后触发此回调，回调参数包含认证结果码(result)、认证令牌(token)、认证类型(authType)等信息。应用需在此回调中处理认证结果，如认证通过时获取token用于后续安全操作，认证失败时提示用
+   * 认证结果回调。用户完成认证后触发此回调，回调参数包含认证结果码（result）、认证令牌（token）、认证类型（authType）等信息。应用需在此回调中处理认证结果，如认证通过时获取token用于后续安全操作，认证失败时提示用
    * 户重新尝试。
      * 
      * **注意：** 应用需申请`ohos.permission.ACCESS_BIOMETRIC`权限，否则应用将仅展示图标，无法正常拉起身份认证控件。
