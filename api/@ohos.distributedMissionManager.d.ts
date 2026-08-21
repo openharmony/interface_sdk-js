@@ -332,11 +332,11 @@ declare namespace distributedMissionManager {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300502 - Failed to get the missionInfo of the specified missionId.
-   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free isnot
+   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is not
    *     supported.
    * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
    *     supported, try again with freeInstall flag.
-   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continuedis
+   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued is
    *     located or the target device to be continued.
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -361,11 +361,11 @@ declare namespace distributedMissionManager {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
    * @throws { BusinessError } 16300502 - Failed to get the missionInfo of the specified missionId.
-   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free isnot
+   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is not
    *     supported.
    * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
    *     supported, try again with freeInstall flag.
-   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continuedis
+   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued is
    *     located or the target device to be continued.
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -389,11 +389,11 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
-   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free isnot
+   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is not
    *     supported.
    * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
    *     supported, try again with freeInstall flag.
-   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continuedis
+   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued is
    *     located or the target device to be continued.
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @throws { BusinessError } 16300507 - Failed to get the missionInfo of the specified bundle name.
@@ -417,11 +417,11 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16300501 - The system ability work abnormally.
-   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free isnot
+   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is not
    *     supported.
    * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
    *     supported, try again with freeInstall flag.
-   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continuedis
+   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued is
    *     located or the target device to be continued.
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @throws { BusinessError } 16300507 - Failed to get the missionInfo of the specified bundle name.

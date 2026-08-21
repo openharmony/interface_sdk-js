@@ -21,7 +21,7 @@
 /**
  * 作为
  * [startSyncRemoteMissions]{@link @ohos.distributedMissionManager:distributedMissionManager.startSyncRemoteMissions(parameter: MissionParameter, callback: AsyncCallback<void>)}
- * 的入参，表示同步时所需参数的枚举。
+ * 的入参，表示同步远端设备任务列表时所需的参数对象，包含deviceId、fixConflict和tag等字段。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
@@ -31,7 +31,7 @@
  */
 export interface MissionParameter {
   /**
-   * 表示设备ID。
+   * 同步目标设备的ID。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -43,7 +43,7 @@ export interface MissionParameter {
   deviceId: string;
 
   /**
-   * 表示是否存在版本冲突，true表示存在冲突，false表示不存在冲突。
+   * 是否处理版本冲突，true表示处理冲突，false表示不处理冲突。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -55,7 +55,7 @@ export interface MissionParameter {
   fixConflict: boolean;
 
   /**
-   * 表示任务的标签，0表示默认标签。
+   * 表示任务的标签，取值为非负整数，0表示默认标签，用于标识和区分不同的同步任务。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission

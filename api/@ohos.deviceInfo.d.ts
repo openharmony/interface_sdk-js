@@ -395,6 +395,10 @@ declare namespace deviceInfo {
   /**
    * System version. The version number is in the format of **<!--RP12-->OpenHarmony-x.x.x.x**, where **x** is a placeholder for digits. <!--RP12End-->To obtain the value of a segment in the version number, you are advised to use **majorVersion**, **seniorVersion**, **featureVersion**, or **buildVersion**, which can improve efficiency. Parsing **osFullName** is not recommended.
    *
+   * Example:
+   * If the system API version is 26.0.2, sdkMinorApiVersion is 0.
+   * If the system API version is 26.1.2, sdkMinorApiVersion is 1.
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
    * @crossplatform
@@ -406,6 +410,10 @@ declare namespace deviceInfo {
   /**
    * SDK patch API version. Starting from API version 26.0.0, the system API version is in the format of **sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion**.
    *
+   * Example:
+   * If the system API version is 26.2.0, sdkPatchApiVersion is 0.
+   * If the system API version is 26.2.1, sdkPatchApiVersion is 1.
+   * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
    * @crossplatform

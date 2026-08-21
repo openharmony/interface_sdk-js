@@ -19,7 +19,7 @@
  */
 
 /**
- * 表示发起Mission迁移时所需参数的枚举，迁移Mission详见：
+ * 表示发起Mission迁移时所需参数的接口对象，迁移Mission详见：
  * [continueMission接口]{@link @ohos.distributedMissionManager:distributedMissionManager.continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>)}
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -30,7 +30,7 @@
  */
 export interface ContinueDeviceInfo {
   /**
-   * 表示任务迁移源设备ID。
+   * 表示Mission迁移源设备ID。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -40,7 +40,7 @@ export interface ContinueDeviceInfo {
    */
   srcDeviceId: string;
   /**
-   * 表示任务迁移目标设备ID。
+   * 表示Mission迁移目标设备ID。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -50,7 +50,7 @@ export interface ContinueDeviceInfo {
    */
   dstDeviceId: string;
   /**
-   * 表示任务ID。
+   * 表示Mission迁移任务ID。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -60,7 +60,7 @@ export interface ContinueDeviceInfo {
    */
   missionId: int;
   /**
-   * 表示扩展参数。
+   * 表示Mission迁移扩展参数，用于传递任务迁移时的自定义信息。可以包含开发者自定义的键值对，用于标识迁移场景或携带迁移相关的配置信息。
    *
    * @type { object } [since 9 - 10]
    * @type { Record<string, Object> } [since 11]
