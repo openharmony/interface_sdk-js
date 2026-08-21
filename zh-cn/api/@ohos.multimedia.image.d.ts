@@ -3665,6 +3665,16 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
     sizeLimit?: PackingSizeLimit;
+
+    /**
+     * 编码时为C2PA数据预留的空间大小，单位为字节。默认值为0，表示不添加预留空间。
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    c2paDataSize?: int;
   }
 
   /**
