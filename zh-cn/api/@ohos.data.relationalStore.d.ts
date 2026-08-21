@@ -1328,6 +1328,7 @@ declare namespace relationalStore {
    * 描述订阅类型。请使用枚举名称而非枚举值。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1365,6 +1366,7 @@ declare namespace relationalStore {
      * 订阅本地数据更改详情。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1375,6 +1377,7 @@ declare namespace relationalStore {
    * 描述数据变更类型的枚举。请使用枚举名称而非枚举值。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1384,6 +1387,7 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1404,6 +1408,7 @@ declare namespace relationalStore {
    * 记录端云同步过程详情。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1412,6 +1417,7 @@ declare namespace relationalStore {
      * 表示发生变化的表的名称。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1421,6 +1427,7 @@ declare namespace relationalStore {
      * 表示发生变化的数据的类型，数据或者资产附件发生变化。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1430,6 +1437,7 @@ declare namespace relationalStore {
      * 记录插入数据的位置，如果该表的主键是string类型，该值是主键的值，否则该值表示插入数据的行号。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1439,6 +1447,7 @@ declare namespace relationalStore {
      * 记录更新数据的位置，如果该表的主键是string类型，该值是主键的值，否则该值表示更新数据的行号。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1448,6 +1457,7 @@ declare namespace relationalStore {
      * 记录删除数据的位置，如果该表的主键是string类型，该值是主键的值，否则该值表示删除数据的行号。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -7600,6 +7610,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
@@ -7784,6 +7795,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform [since 26.1.0]
      * @since 10 dynamic
      */
     off(
