@@ -14,124 +14,7 @@
  */
 
 /**
- * ###### HCE and AID Declaration
- * 
- * Before developing an application related to HCE, you must declare NFC-related attributes in the **module.json5** 
- * file.
- * 
- * ```json5
- * // Applicable to devices other than lite wearables
- * {
- *   "module": {
- *     // Other declared attributes
- *     "abilities": [
- *       {
- *         // Other declared attributes
- *         "skills": [
- *           {
- *             "actions": [
- *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
- *             ]
- *           }
- *         ],
- *         "metadata": [
- *           {
- *             "name": "payment-aid",
- *             "value": "your payment aid"
- *           },
- *           {
- *             "name": "other-aid",
- *             "value": "your other aid"
- *           }
- *         ]
- *       }
- *     ],
- *     "requestPermissions": [
- *       {
- *         "name": "ohos.permission.NFC_CARD_EMULATION",
- *         // Set reason to card_emulation_reason.
- *         "reason": "$string:card_emulation_reason"
- *       }
- *     ]
- *   }
- * }
- * ```
- * 
- * ```json5
- * // Applicable to lite wearables
- * {
- *   "module": {
- *     // Other declared attributes
- *     "abilities": [
- *       {
- *         // Other declared attributes
- *         "metaData": {
- *           "customizeData": [
- *             {
- *               "name": "paymentAid",
- *               "value": "A0000000041012"
- *             },
- *             {
- *               "name": "otherAid",
- *               "value": "A0000000041010"
- *             }
- *           ]
- *         },
- *         "skills": [
- *           {
- *             "entities": [
- *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
- *             ],
- *             "actions": [
- *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
- *             ]
- *           }
- *         ]
- *       }
- *     ],
- *     "reqPermissions": [
- *       {
- *         "name": "ohos.permission.NFC_CARD_EMULATION",
- *         // Set reason to card_emulation_reason.
- *         "reason": "$string:card_emulation_reason",
- *         "usedScene":{
- *           "ability":[
- *             "FormAbility"
- *           ],
- *           "when":"always"
- *         }
- *       },
- *       {
- *         "name": "ohos.permission.NFC_TAG",
- *         // Set reason to card_emulation_reason.
- *         "reason": "$string:card_emulation_reason",
- *         "usedScene":{
- *           "ability":[
- *             "FormAbility"
- *           ],
- *           "when":"always"
- *         }
- *       }
- *     ]
- *   }
- * }
- * ```
- * 
- * > **NOTE**
- * >
- * > 1. The **actions** field must contain **ohos.nfc.cardemulation.action.HOST_APDU_SERVICE** and cannot be changed.
- * >
- * > 2. When declaring an AID (in compliance with ISO/IEC 7816-4), ensure that **name** is set to **payment-aid** or 
- * > **other-aid**. Incorrect setting will cause a parsing failure.
- * >
- * > 3. The **name** field of **requestPermissions** must be **ohos.permission.NFC_CARD_EMULATION** and cannot be 
- * > changed.
- * >
- * > 4. Lite wearables support only the [FA Model](docroot://application-models/ability-terminology.md#fa-model), with 
- * > attribute configurations and API invocation methods differing from those of other device types. Refer to the 
- * > example code for detailed implementations.
- *
- * @file Standard NFC Card Emulation
+ * @file 标准NFC-cardEmulation
  * @kit ConnectivityKit
  */
 
@@ -140,11 +23,23 @@ import { ElementName } from './bundleManager/ElementName';
 import type { AbilityInfo } from './bundleManager/AbilityInfo';
 
 /**
- * The **cardEmulation** module implements Near-Field Communication (NFC) card emulation. You can use the APIs provided
- * by this module to determine the card emulation type supported and implement Host Card Emulation (HCE).
- *
- * HCE provides card emulation that does not depend on a secure element. It allows an application to emulate a card and
- * communicate with an NFC card reader through the NFC service.
+ * 本模块主要提供NFC卡模拟业务，包括判断支持哪种卡模拟类型，HCE卡模拟的业务实现等。
+ * 
+ * HCE(Host Card Emulation)，称为基于主机的卡模拟，表示不依赖安全单元芯片，应用程序模拟NFC卡片，可以通过NFC服务和NFC读卡器通信。
+ * 
+ * HCE卡模拟和AID列表的声明定义
+ * 
+ * 开发HCE卡模拟相关应用时，需要在应用的属性配置文件中，声明与NFC相关的属性值，比如，在module.json5文件中，声明下面属性值：
+ * 
+ * > **注意：**
+ * >
+ * > 1. 声明"actions"字段的内容填写，必须包含"ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"，不能更改。
+ * >
+ * > 2. 声明aid（参考ISO/IEC 7816-4规范）时，name必须为payment-aid或者other-aid。填写错误会造成解析失败。
+ * >
+ * > 3. 声明权限时"requestPermissions"中的"name"字段的内容填写，必须是"ohos.permission.NFC_CARD_EMULATION"，不能更改。
+ * >
+ * > 4. 轻量级智能穿戴产品不同于其他设备，仅支持[FA模型](docroot://application-models/ability-terminology.md#fa模型)，属性配置和接口调用方式与其他设备有所区别，详见示例。
  *
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @FaAndStageModel
@@ -154,12 +49,7 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  */
 declare namespace cardEmulation {
   /**
-   * Enumerates the NFC card emulation types.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 6 and deprecated since API version 9. Use
-   * > [hasHceCapability]{@link cardEmulation.hasHceCapability} instead.
+   * 定义不同的NFC卡模拟类型。
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @stagemodelonly
@@ -169,7 +59,7 @@ declare namespace cardEmulation {
    */
   enum FeatureType {
     /**
-     * HCE.
+     * HCE 卡模拟。
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -180,7 +70,7 @@ declare namespace cardEmulation {
     HCE = 0,
 
     /**
-     * Subscriber identity module (SIM) card emulation.
+     * SIM 卡模拟。
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -191,7 +81,7 @@ declare namespace cardEmulation {
     UICC = 1,
 
     /**
-     * Embedded Secure Element (eSE) emulation.
+     * ESE 卡模拟。
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -203,7 +93,7 @@ declare namespace cardEmulation {
   }
 
   /**
-   * Enumerates the types of services used by the card emulation application.
+   * 定义卡模拟应用所使用的业务类型，是支付类型，还是其他类型。
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
@@ -213,7 +103,7 @@ declare namespace cardEmulation {
    */
   enum CardType {
     /**
-     * Payment service.
+     * 卡模拟应用所使用的业务是支付类型。
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
@@ -224,7 +114,7 @@ declare namespace cardEmulation {
     PAYMENT = "payment",
 
     /**
-     * Other services.
+     * 卡模拟应用所使用的业务是其他类型。
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
@@ -236,16 +126,10 @@ declare namespace cardEmulation {
   }
 
   /**
-   * Checks whether a certain type of card emulation is supported.
+   * 是否支持某种类型的卡模拟。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 6 and deprecated since API version 9. Use
-   * > [hasHceCapability]{@link cardEmulation.hasHceCapability} instead.
-   *
-   * @param { number } feature - Card emulation type to check. For details, see
-   *     [FeatureType]{@link cardEmulation.FeatureType}.
-   * @returns { boolean } Returns **true** if the card emulation type is supported; returns **false** otherwise.
+   * @param { number } feature - 卡模拟类型值，详细请见[FeatureType]{@link cardEmulation.FeatureType}枚举值。
+   * @returns { boolean } true: 支持该类型卡模拟， false: 不支持该类型卡模拟。
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @stagemodelonly
    * @since 6 dynamiconly
@@ -255,10 +139,10 @@ declare namespace cardEmulation {
   function isSupported(feature: number): boolean;
 
   /**
-   * Checks whether the device supports HCE.
+   * 判断设备是否支持HCE卡模拟功能。
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @returns { boolean } Returns **true** if HCE is supported; returns **false** otherwise.
+   * @returns { boolean } true: 支持HCE， false: 不支持HCE。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
@@ -270,15 +154,12 @@ declare namespace cardEmulation {
   function hasHceCapability(): boolean;
 
   /**
-   * Checks whether an application is the default application of the specified service type.
+   * 判断指定的应用是否为指定业务类型的默认应用。
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
-   *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
-   * @param { CardType } type - Card emulation service type. Currently, only the default payment application can be
-   *     queried.
-   * @returns { boolean } Returns **true** if the application is the default payment application; returns **false**
-   *     otherwise.
+   * @param { ElementName } elementName - 所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
+   * @param { CardType } type - 卡模拟业务类型。目前只支持默认支付应用查询。
+   * @returns { boolean } true: 是默认支付应用， false: 不是默认支付应用。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -294,12 +175,11 @@ declare namespace cardEmulation {
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
   /**
-   * Obtains all payment services. If an application declares the support for the HCE feature and **payment-aid**, the
-   * application is contained in the payment service list. For details, see
-   * [HCE and AID Declaration](docroot://reference/apis-connectivity-kit/js-apis-cardEmulation.md#hce-and-aid-declaration).
+   * 获取所有支付类型的服务列表。如果应用程序声明支持HCE功能，并且声明了"payment-aid"，则会包含在列表里面，参考
+   * [HCE卡模拟和AID列表的声明定义](docroot://reference/apis-connectivity-kit/js-apis-cardEmulation.md#hce卡模拟和aid列表的声明定义)。
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @returns { AbilityInfo[] } List of payment services obtained.
+   * @returns { AbilityInfo[] } 返回所有支付类型的服务。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -312,8 +192,7 @@ declare namespace cardEmulation {
   function getPaymentServices(): AbilityInfo[];
 
   /**
-   * Provides APIs for implementing HCE, including receiving Application Protocol Data Units (APDUs) from the peer card
-   * reader and sending a response. Before using HCE-related APIs, check whether the device supports HCE.
+   * 提供HCE卡模拟的实现，主要包括接收对端读卡设备的APDU数据，并响应APDU数据到对端读卡设备。使用HCE相关接口前，必须先判断设备是否支持HCE卡模拟能力。
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
@@ -323,17 +202,11 @@ declare namespace cardEmulation {
    */
   export class HceService {
     /**
-     * Starts HCE, including enabling this application to run in the foreground preferentially and dynamically
-     * registering the AID list.
-     *
-     * > **NOTE**
-     * >
-     * > This API is supported since API version 8 and deprecated since API version 9. Use
-     * > [start]{@link cardEmulation.HceService#start} instead.
+     * 启动HCE业务功能。包括设置当前应用为前台优先，动态注册AID列表。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { string[] } aidList - List of AIDs to register.
-     * @returns { boolean } Returns **true** if HCE is started or has been started; returns **false** otherwise.
+     * @param { string[] } aidList - 动态注册卡模拟的AID列表。
+     * @returns { boolean } true: 启动HCE功能或HCE已启动， false: 启动失败。
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
      * @since 8 dynamiconly
@@ -343,13 +216,11 @@ declare namespace cardEmulation {
     startHCE(aidList: string[]): boolean;
 
     /**
-     * Starts HCE, including enabling this application to run in the foreground preferentially and dynamically
-     * registering the AID list.
+     * 启动HCE业务功能。包括设置当前应用为前台优先，动态注册AID列表。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
-     *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
-     * @param { string[] } aidList - List of AIDs to register. This parameter can be left empty.
+     * @param { ElementName } elementName - 所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
+     * @param { string[] } aidList - 动态注册卡模拟的AID列表，允许为空。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -366,16 +237,10 @@ declare namespace cardEmulation {
     start(elementName: ElementName, aidList: string[]): void;
 
     /**
-     * Stops HCE, including exiting the current application from the foreground, releasing the dynamically registered
-     * AID list, and canceling the subscription of **hceCmd**.
-     *
-     * > **NOTE**
-     * >
-     * > This API is supported since API version 8 and deprecated since API version 9. Use
-     * > [stop]{@link cardEmulation.HceService#stop} instead.
+     * 停止HCE业务功能。包括退出当前应用前台优先，释放动态注册的AID列表，释放hceCmd的订阅。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @returns { boolean } **true** if HCE is stopped or disabled; **false** otherwise.
+     * @returns { boolean } true: 禁用HCE功能或HCE已禁用，false: 禁用失败。
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
      * @since 8 dynamiconly
@@ -385,13 +250,10 @@ declare namespace cardEmulation {
     stopHCE(): boolean;
 
     /**
-     * Stops HCE, including canceling the subscription of APDU data, exiting this application from the foreground, and
-     * releasing the dynamically registered AID list. The application needs to call this API in **onDestroy** of the HCE
-     * page.
+     * 停止HCE业务功能。包括取消APDU数据接收的订阅，退出当前应用前台优先，释放动态注册的AID列表。应用程序需要在HCE卡模拟页面的onDestroy函数里调用该接口。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
-     *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
+     * @param { ElementName } elementName - 所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -408,13 +270,11 @@ declare namespace cardEmulation {
     stop(elementName: ElementName): void;
 
     /**
-     * Subscribes to events indicating receiving of APDUs from the peer card reader. The application needs to call this
-     * API in **onCreate()** of the HCE page. This API uses an asynchronous callback to return the result.
+     * 订阅回调，用于接收对端读卡设备发送的APDU数据，应用程序需要在HCE卡模拟页面的onCreate函数里面调用该订阅函数。使用callback异步回调。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type - Event type. It has a fixed value of **hceCmd**.
-     * @param { AsyncCallback<int[]> } callback - Event callback used to return the data array that complies with the
-     *     APDU. Each number is represented in hexadecimal notation, with values ranging from 0x00 to 0xFF.
+     * @param { 'hceCmd' } type - 要订阅的回调类型，固定填"hceCmd"字符串。
+     * @param { AsyncCallback<int[]> } callback - 回调函数，返回的是符合APDU协议的数据，每个number十六进制表示，范围是0x00~0xFF。
      * @throws { BusinessError } 201 - Permission denied. [since 12]
      * @throws { BusinessError } 401 - Invalid parameter. [since 12]
      * @throws { BusinessError } 801 - Capability not supported. [since 12]
@@ -443,16 +303,10 @@ declare namespace cardEmulation {
     onHceCmd(callback: AsyncCallback<int[]>): void;
 
     /**
-     * Sends a response to the peer card reader.
-     *
-     * > **NOTE**
-     * >
-     * > This API is supported since API version 8 and deprecated since API version 9. Use
-     * > [transmit]{@link cardEmulation.HceService#transmit(response: int[])} instead.
+     * 发送APDU数据到对端读卡设备。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } responseApdu - Response APDU sent to the peer card reader. The value consists of hexadecimal
-     *     numbers ranging from **0x00** to **0xFF**.
+     * @param { number[] } responseApdu - 发送到对端读卡设备的符合APDU协议的数据，每个number十六进制表示，范围是0x00~0xFF。
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
      * @since 8 dynamiconly
@@ -462,14 +316,13 @@ declare namespace cardEmulation {
     sendResponse(responseApdu: number[]): void;
 
     /**
-     * Transmits an APDU to the peer card reader. This API uses a promise to return the result. The application calls
-     * this API only after receiving an APDU sent by the card reader via
-     * [on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}.
+     * 发送APDU数据到对端读卡设备，使用Promise异步回调。应用程序必须在
+     * [on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}收到读卡设备发送的APDU数据后，才调用该接口响应数
+     * 据。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response - Response APDU sent to the peer card reader. The value consists of hexadecimal numbers
-     *     ranging from **0x00** to **0xFF**.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int[] } response - 发送到对端读卡设备的符合APDU协议的数据，每个number十六进制表示，范围是0x00~0xFF。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -486,15 +339,12 @@ declare namespace cardEmulation {
     transmit(response: int[]): Promise<void>;
 
     /**
-     * Sends APDU data to the peer card reader. The application can call this API only after receiving an APDU sent by
-     * the card reader via [on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}. This
-     * API uses an asynchronous callback to return the result.
+     * 发送APDU数据到对端读卡设备，应用程序必须在[on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}收到读
+     * 卡设备发送的APDU数据后，才调用该接口响应数据。使用Callback异步回调。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response - Response APDU sent to the peer card reader. The value consists of hexadecimal numbers
-     *     ranging from **0x00** to **0xFF**.
-     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-     *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+     * @param { int[] } response - 发送到对端读卡设备的符合APDU协议的数据，每个number十六进制表示，范围是0x00~0xFF。
+     * @param { AsyncCallback<void> } callback - 回调函数。当发送APDU数据成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -511,14 +361,11 @@ declare namespace cardEmulation {
     transmit(response: int[], callback: AsyncCallback<void>): void;
 
     /**
-     * Unsubscribes from events indicating receiving of APDUs from the peer card reader. This API uses an asynchronous
-     * callback to return the result.
+     * 取消APDU数据接收的订阅。使用callback异步回调。
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type - Event type. It has a fixed value of **hceCmd**.
-     * @param { AsyncCallback<int[]> } callback - Event callback. Each number is represented in hexadecimal notation,
-     *     with values ranging from 0x00 to 0xFF. If this parameter is not set, this API unregisters the callback for
-     *     the specified **type**.
+     * @param { 'hceCmd' } type - 要取消订阅的事件类型，固定填"hceCmd"字符串。
+     * @param { AsyncCallback<int[]> } callback - 回调函数，返回的每个number十六进制表示，范围是0x00~0xFF。不填该参数则取消订阅该type对应的回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation

@@ -14,17 +14,14 @@
  */
 
 /**
- * The **nfctech** module provides APIs for reading and writing tags that use different Near-Field Communication (NFC) 
- * technologies.
- * 
- * > **NOTE**
- * >
- * > If an error is reported while importing the tag module editor, the capabilities of a specific device model may 
- * > exceed the capability set defined for the default device. To use these capabilities, configure a custom SysCap by 
- * > following instructions in 
- * > [SystemCapability](https://developer.huawei.com/consumer/en/doc/harmonyos-references/syscap).
+ * 本模块主要用于采用不同Nfc技术的Tag的读写操作。
  *
- * @file Standard NFC Technologies
+ * > **注意：**
+ * >
+ * > 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考
+ * > [syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
+ *
+ * @file 标准NFC-Tag Nfc 技术
  * @kit ConnectivityKit
  */
 
@@ -33,16 +30,13 @@ import { TagSession } from './tagSession';
 import { AsyncCallback, Callback } from '../@ohos.base';
 
 /**
- * Provides APIs to access NFC-A (ISO 14443-3A) properties and perform I/O operations on a tag. This class inherits from
- * **[TagSession]{@link ./tagSession:TagSession}**.
+ * NfcATag 提供 NFC-A(ISO 14443-3A)技术的属性和I/O操作的访问，继承自[TagSession]{@link ./tagSession:TagSession}。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NfcATag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NfcATag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NfcATag**.
+ * 以下是NfcATag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -51,9 +45,9 @@ import { AsyncCallback, Callback } from '../@ohos.base';
  */
 export interface NfcATag extends TagSession {
   /**
-   * Obtains the SAK value of this NFC-A tag.
+   * 获取NFC-A标签的SAK值。
    *
-   * @returns { int } SAK value obtained. The SAK is a hexadecimal number ranging from **0x00** to **0xFF**.
+   * @returns { int } NfcA 标签的SAK值，十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -62,10 +56,9 @@ export interface NfcATag extends TagSession {
   getSak(): int;
 
   /**
-   * Obtains the ATQA value of this NFC-A tag.
+   * 获取NFC-A标签的Atqa值。
    *
-   * @returns { int[] } ATQA value obtained. Each number of the ATQA is a hexadecimal number ranging from **0x00** to
-   *     **0xFF**.
+   * @returns { int[] } NfcA 标签的Atqa值，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -75,16 +68,13 @@ export interface NfcATag extends TagSession {
 }
 
 /**
- * Provides APIs to access NFC-B (ISO 14443-3B) properties and perform I/O operations on a tag. This class inherits from
- * **TagSession**.
+ * NfcBTag 提供对NFC-B(ISO 14443-3B)技术的属性和I/O操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类，提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NfcBTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NfcBTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NfcBTag**.
+ * 以下是NfcBTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -93,10 +83,9 @@ export interface NfcATag extends TagSession {
  */
 export interface NfcBTag extends TagSession {
   /**
-   * Obtains the application data of this NFC-B tag.
+   * 获取标签的应用程序数据。
    *
-   * @returns { int[] } Application data obtained, which consists of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**.
+   * @returns { int[] } NfcB 标签的应用程序数据，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -105,10 +94,9 @@ export interface NfcBTag extends TagSession {
   getRespAppData(): int[];
 
   /**
-   * Obtains the protocol information of this NFC-B tag.
+   * 获取标签的协议信息。
    *
-   * @returns { int[] } Protocol information obtained, which consists of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**.
+   * @returns { int[] } NfcB 标签的协议信息，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -118,16 +106,13 @@ export interface NfcBTag extends TagSession {
 }
 
 /**
- * Provides APIs to access NFC-F (JIS 6319-4) properties and perform I/O operations on a tag. This class inherits from
- * **TagSession**.
+ * NfcFTag 提供对NFC-F(JIS 6319-4)技术的属性和I/O操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NfcFTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NfcFTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NfcFTag**.
+ * 以下是NfcFTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -136,9 +121,9 @@ export interface NfcBTag extends TagSession {
  */
 export interface NfcFTag extends TagSession {
   /**
-   * Obtains the system code from this NFC-F tag.
+   * 从标签实例获取系统代码。
    *
-   * @returns { int[] } System code obtained, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @returns { int[] } NfcF 标签的系统代码，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -147,10 +132,9 @@ export interface NfcFTag extends TagSession {
   getSystemCode(): int[];
 
   /**
-   * Obtains the PMm (consisting of the IC code and manufacturer parameters) information from this NFC-F tag.
+   * 从标签实例获取PMm（由IC代码和制造商参数组成）。
    *
-   * @returns { int[] } PMm information obtained, which consists of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**.
+   * @returns { int[] } NfcF 标签的PMm信息，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -160,16 +144,13 @@ export interface NfcFTag extends TagSession {
 }
 
 /**
- * Provides APIs to access NFC-V (ISO 15693) properties and perform I/O operations on a tag. This class inherits from
- * **TagSession**.
+ * NfcVTag 提供对NFC-V(ISO 15693)技术的属性和I/O操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NfcVTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NfcVTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NfcVTag**.
+ * 以下是NfcVTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -178,9 +159,9 @@ export interface NfcFTag extends TagSession {
  */
 export interface NfcVTag extends TagSession {
   /**
-   * Obtains the response flags from this NFC-V tag.
+   * 从标签实例获取响应标志。
    *
-   * @returns { int } Response flags obtained, which consist of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @returns { int } NfcV 标签的响应标志，十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -189,9 +170,9 @@ export interface NfcVTag extends TagSession {
   getResponseFlags(): int;
 
   /**
-   * Obtains the data storage format identifier (DSFID) from this NFC-V tag.
+   * 从标签实例获取数据存储格式标识符（DSFID）。
    *
-   * @returns { int } DSFID obtained, which consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @returns { int } NfcV 标签的数据存储格式标识符，十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 7 dynamic
@@ -201,16 +182,13 @@ export interface NfcVTag extends TagSession {
 }
 
 /**
- * Provides APIs to access ISO-DEP (ISO 14443-4) properties and I/O operations on a tag. This class inherits from
- * **TagSession**.
+ * IsoDepTag 提供对ISO-DEP(ISO 14443-4)技术的属性和I/O操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **IsoDepTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * IsoDepTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **IsoDepTag**.
+ * 以下是IsoDepTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -219,11 +197,9 @@ export interface NfcVTag extends TagSession {
  */
 export interface IsoDepTag extends TagSession {
   /**
-   * Obtains the historical bytes for the given tag. This API applies only to the IsoDep tags that use the NFC-A
-   * technology.
+   * 获取标签的历史字节，针对基于NfcA通信技术的IsoDep卡片。
    *
-   * @returns { int[] } Historical bytes obtained, which consist of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**. If the IsoDep tag uses the NFC-B technology, **null** will be returned.
+   * @returns { int[] } IsoDepTag 标签的历史字节，每个number十六进制表示，范围是0x00~0xFF。如果该IsoDep类型Tag是基于NfcB技术的，则该返回值为空。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -232,11 +208,9 @@ export interface IsoDepTag extends TagSession {
   getHistoricalBytes(): int[];
 
   /**
-   * Obtains the higher-layer response bytes for the given tag. This API applies only to the IsoDep tags that use the
-   * NFC-B technology.
+   * 获取标签的更高层响应字节，针对基于NfcB通信技术的IsoDep卡片。
    *
-   * @returns { int[] } Higher-layer response bytes obtained, which consist of hexadecimal numbers ranging from **0x00**
-   *     to **0xFF**. If the IsoDep tag uses the NFC-A technology, **null** will be returned.
+   * @returns { int[] } IsoDepTag 标签的更高层响应字节，每个number十六进制表示，范围是0x00~0xFF。如果该IsoDep类型Tag是基于NfcA技术的，则该返回值为空。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -245,11 +219,10 @@ export interface IsoDepTag extends TagSession {
   getHiLayerResponse(): int[];
 
   /**
-   * Checks whether extended APDUs are supported. This API uses a promise to return the result.
+   * 检查是否支持扩展的APDU，使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that extended APDUs
-   *     are supported, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回true表示支持；返回false表示不支持。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -265,11 +238,10 @@ export interface IsoDepTag extends TagSession {
   isExtendedApduSupported(): Promise<boolean>;
 
   /**
-   * Checks whether extended APDUs are supported. This API uses an asynchronous callback to return the result.
+   * 检查是否支持扩展的APDU。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the operation result. The value **true**
-   *     indicates that extended APDUs are supported, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - 回调函数，true: 支持， false: 不支持。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -286,7 +258,6 @@ export interface IsoDepTag extends TagSession {
 }
 
 /**
- * Provides methods for Message of NDEF.
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -295,9 +266,9 @@ export interface IsoDepTag extends TagSession {
  */
 export interface NdefMessage {
   /**
-   * Obtains all NDEF records.
+   * 获取NDEF消息中的所有记录。
    *
-   * @returns { tag.NdefRecord[] } List of NDEF records obtained. For details, see *NFCForum-TS-NDEF_1.0*.
+   * @returns { tag.NdefRecord[] } NDEF标签的Record列表，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -307,15 +278,13 @@ export interface NdefMessage {
 }
 
 /**
- * Provides APIs to access the tags in the NFC Data Exchange Format (NDEF). This class inherits from **TagSession**.
+ * 提供对已格式化为NDEF的NFC标签的数据和操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类，提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NdefTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NdefTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NdefTag**.
+ * 以下是NdefTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -324,9 +293,9 @@ export interface NdefMessage {
  */
 export interface NdefTag extends TagSession {
   /**
-   * Obtains the NDEF tag type.
+   * 获取NDEF标签的类型。
    *
-   * @returns { tag.NfcForumType } NDEF tag type obtained. It can be NFC FORUM TYPE 1, 2, 3, or 4.
+   * @returns { tag.NfcForumType } NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -335,9 +304,9 @@ export interface NdefTag extends TagSession {
   getNdefTagType(): tag.NfcForumType;
 
   /**
-   * Obtains the NDEF message from this NDEF tag.
+   * 获取发现NDEF标签时，从标签读取的Message。
    *
-   * @returns { NdefMessage } NDEF message created. For details, see *NFCForum-TS-NDEF_1.0*.
+   * @returns { NdefMessage } NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -346,11 +315,9 @@ export interface NdefTag extends TagSession {
   getNdefMessage(): NdefMessage;
 
   /**
-   * Check whether this NDEF tag is writable. Before calling the data write API, check whether the write operation is
-   * supported.
+   * 检查NDEF标签是否可写。在调用写数据接口前，需要先判断是否支持写操作。
    *
-   * @returns { boolean } Promise used to return the result. If the tag is writable, **true** is returned; otherwise,
-   *     **false** is returned.
+   * @returns { boolean } 检查结果，true: 可写， false: 不可写。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -359,10 +326,10 @@ export interface NdefTag extends TagSession {
   isNdefWritable(): boolean;
 
   /**
-   * Reads the NDEF message from the NDEF tag. This API uses a promise to return the result.
+   * 读取标签上的NDEF消息。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<NdefMessage> } Promise used to return the **Message** object read from the NDEF tag.
+   * @returns { Promise<NdefMessage> } Promise对象。返回从NDEF标签中读取到的Message数据对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -378,10 +345,10 @@ export interface NdefTag extends TagSession {
   readNdef(): Promise<NdefMessage>;
 
   /**
-   * Reads the NDEF message from the NDEF tag. This API uses an asynchronous callback to return the result.
+   * 读取标签上的NDEF消息。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<NdefMessage> } callback - Callback used to return the NDEF message read.
+   * @param { AsyncCallback<NdefMessage> } callback - 回调函数，返回从NDEF标签中读取到的Message信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -397,11 +364,11 @@ export interface NdefTag extends TagSession {
   readNdef(callback: AsyncCallback<NdefMessage>): void;
 
   /**
-   * Writes a **Message** object to the NDEF tag. This API uses a promise to return the result.
+   * 将NDEF Message数据对象写入标签。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } msg - NDEF message to write.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NdefMessage } msg - NDEF Message数据对象。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -417,12 +384,11 @@ export interface NdefTag extends TagSession {
   writeNdef(msg: NdefMessage): Promise<void>;
 
   /**
-   * Writes a **Message** object to the NDEF tag. This API uses an asynchronous callback to return the result.
+   * 将NDEF Message数据对象写入此标签。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } msg - NDEF message to write.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { NdefMessage } msg - NDEF Message数据对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当NDEF Message数据对象写入成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -438,10 +404,10 @@ export interface NdefTag extends TagSession {
   writeNdef(msg: NdefMessage, callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether this NDEF tag can be set to read-only.
+   * 检查NDEF标签是否可以设置为只读。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } Returns **true** if the tag can be set to read-only; returns **false** otherwise.
+   * @returns { boolean } true: NDEF标签可设置为只读， false: NDEF标签不可设置为只读。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -452,10 +418,10 @@ export interface NdefTag extends TagSession {
   canSetReadOnly(): boolean;
 
   /**
-   * Sets the NDEF tag to read-only. This API uses a promise to return the result.
+   * 将NDEF标签设置为只读。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -471,11 +437,10 @@ export interface NdefTag extends TagSession {
   setReadOnly(): Promise<void>;
 
   /**
-   * Sets the NDEF tag to read-only. This API uses an asynchronous callback to return the result.
+   * 将NDEF标签设置为只读。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当NDEF标签设置为只读成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -491,10 +456,10 @@ export interface NdefTag extends TagSession {
   setReadOnly(callback: AsyncCallback<void>): void;
 
   /**
-   * Converts an NFC Forum Type tag to a string defined in the NFC Forum.
+   * 将NFC论坛类型，转换为NFC论坛中定义的字符串描述。
    *
-   * @param { tag.NfcForumType } type - NDEF tag type. It can be NFC FORUM type 1, 2, 3, or 4.
-   * @returns { string } Byte array obtained.
+   * @param { tag.NfcForumType } type - NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。
+   * @returns { string } NFC论坛类型的字符串描述。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -508,16 +473,13 @@ export interface NdefTag extends TagSession {
 }
 
 /**
- * Provides APIs to access MIFARE Classic properties and perform I/O operations on a tag. This class inherits from
- * [TagSession]{@link ./tagSession:TagSession}.
+ * MifareClassicTag提供对MIFARE Classic属性和I/O操作的访问，继承自[TagSession]{@link ./tagSession:TagSession}。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain a **MifareClassicTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * MifareClassicTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **MifareClassicTag**.
+ * 以下是MifareClassicTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -526,15 +488,13 @@ export interface NdefTag extends TagSession {
  */
 export interface MifareClassicTag extends TagSession {
   /**
-   * Authenticates a sector using a key. The sector can be accessed only after the authentication is successful. This
-   * API uses a promise to return the result.
+   * 使用密钥对扇区进行身份验证，只有身份验证成功的扇区可以进行操作。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } sectorIndex - Index of the sector to authenticate. The sector indexes start from **0**.
-   * @param { int[] } key - Key (6 bytes) used for sector authentication.
-   * @param { boolean } isKeyA - Whether the key is key A. The value **true** indicates key A, and **false** indicates
-   *     key B.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } sectorIndex - 待验证的扇区索引，从0开始。
+   * @param { int[] } key - 用于扇区验证的密钥（6字节）。
+   * @param { boolean } isKeyA - isKeyA标志。true 表示KeyA，false 表示KeyB。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -550,16 +510,13 @@ export interface MifareClassicTag extends TagSession {
   authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean): Promise<void>;
 
   /**
-   * Authenticates a sector using a key. The sector can be accessed only after the authentication is successful. This
-   * API uses an asynchronous callback to return the result.
+   * 使用密钥对扇区进行身份验证，只有身份验证成功的扇区可以进行操作。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } sectorIndex - Index of the sector to authenticate. The sector indexes start from **0**.
-   * @param { int[] } key - Key (6 bytes) used for sector authentication.
-   * @param { boolean } isKeyA - Whether the key is key A. The value **true** indicates key A, and **false** indicates
-   *     key B.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } sectorIndex - 待验证的扇区索引，从0开始。
+   * @param { int[] } key - 用于扇区验证的密钥（6字节）。
+   * @param { boolean } isKeyA - isKeyA标志。true 表示KeyA，false 表示KeyB。
+   * @param { AsyncCallback<void> } callback - 回调函数。当身份验证成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -575,11 +532,11 @@ export interface MifareClassicTag extends TagSession {
   authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Reads a block (16 bytes) on this tag. This API uses a promise to return the result.
+   * 读取标签中一个块存储的内容，一个块大小为16字节。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to read. The block indexes start from **0**.
-   * @returns { Promise<int[]> } Promise used to return the read block data.
+   * @param { int } blockIndex - 要读取的块索引，从0开始。
+   * @returns { Promise<int[]> } Promise对象。返回读取的块数据。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -595,11 +552,11 @@ export interface MifareClassicTag extends TagSession {
   readSingleBlock(blockIndex: int): Promise<int[]>;
 
   /**
-   * Reads a block (16 bytes) on this tag. This API uses an asynchronous callback to return the result.
+   * 读取标签中一个块存储的内容，一个块大小为16字节。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to read. The block indexes start from **0**.
-   * @param { AsyncCallback<int[]> } callback - Callback used to return the block data read.
+   * @param { int } blockIndex - 要读取的块索引，从0开始。
+   * @param { AsyncCallback<int[]> } callback - 以callback形式异步返回读取到的块数据。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -615,12 +572,12 @@ export interface MifareClassicTag extends TagSession {
   readSingleBlock(blockIndex: int, callback: AsyncCallback<int[]>): void;
 
   /**
-   * Writes data to a block on this tag. This API uses a promise to return the result.
+   * 向标签中一个块存储写入内容，一个块大小为16字节。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to write. The block indexes start from **0**.
-   * @param { int[] } data - 16-byte data to write.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } blockIndex - 要写入的块索引，从0开始。
+   * @param { int[] } data - 要写入的数据，大小必须是16个字节。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -636,13 +593,12 @@ export interface MifareClassicTag extends TagSession {
   writeSingleBlock(blockIndex: int, data: int[]): Promise<void>;
 
   /**
-   * Writes data to a block on this tag. This API uses an asynchronous callback to return the result.
+   * 向标签中一个块存储写入内容，一个块大小为16字节。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to write. The block indexes start from **0**.
-   * @param { int[] } data - 16-byte data to write.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } blockIndex - 要写入的块索引，从0开始。
+   * @param { int[] } data - 要写入的数据，大小必须是16个字节。
+   * @param { AsyncCallback<void> } callback - 回调函数。当向块存储写入内容成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -658,13 +614,12 @@ export interface MifareClassicTag extends TagSession {
   writeSingleBlock(blockIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
   /**
-   * Increments a block with the specified value and saves the result in a buffer for internal transmission. This API
-   * uses a promise to return the result.
+   * 对指定块的内容，增加指定的数值，并将结果存储在内部传输缓冲器中。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to increment. The block indexes start from **0**.
-   * @param { int } value - Block data to increment. The value cannot be a negative number.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } blockIndex - 要指定增加的块索引，从0开始。
+   * @param { int } value - 要指定增加的数据，非负数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -680,14 +635,12 @@ export interface MifareClassicTag extends TagSession {
   incrementBlock(blockIndex: int, value: int): Promise<void>;
 
   /**
-   * Increments a block with the specified value and saves the result in a buffer for internal transmission. This API
-   * uses an asynchronous callback to return the result.
+   * 对指定块的内容，增加指定的数值，并将结果存储在内部传输缓冲器中。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to increment. The block indexes start from **0**.
-   * @param { int } value - Block data to increment. The value cannot be a negative number.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } blockIndex - 要被运算的块索引，从0开始。
+   * @param { int } value - 要增加的数值，非负数。
+   * @param { AsyncCallback<void> } callback - 回调函数。当对块增加指定数值成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -703,13 +656,12 @@ export interface MifareClassicTag extends TagSession {
   incrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Decrements a block with the specified value and saves the result in a buffer for internal transmission. This API
-   * uses a promise to return the result. This API uses a promise to return the result.
+   * 对指定块的内容，减少指定的数值，并将结果存储在内部传输缓冲器中。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to increment. The block indexes start from **0**.
-   * @param { int } value - Block data to decrement. The value cannot be a negative number.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } blockIndex - 要被运算的块索引，从0开始。
+   * @param { int } value - 要减少的数值，非负数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -725,13 +677,12 @@ export interface MifareClassicTag extends TagSession {
   decrementBlock(blockIndex: int, value: int): Promise<void>;
 
   /**
-   * Decrements a block with the specified value. This API uses an asynchronous callback to return the result.
+   * 对指定块的内容，减少指定的数值。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the block to increment. The block indexes start from **0**.
-   * @param { int } value - Block data to decrement. The value cannot be a negative number.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } blockIndex - 要被运算的块索引，从0开始。
+   * @param { int } value - 要减少的数值，非负数。
+   * @param { AsyncCallback<void> } callback - 回调函数。当对块减少指定数值成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -747,11 +698,11 @@ export interface MifareClassicTag extends TagSession {
   decrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Transfers data from the temporary register to a block. This API uses a promise to return the result.
+   * 将临时寄存器的值转移到指定的块。使用Promise异步异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the destination block. The value starts form **0**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } blockIndex - 被操作的块的索引，从0开始。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -767,12 +718,11 @@ export interface MifareClassicTag extends TagSession {
   transferToBlock(blockIndex: int): Promise<void>;
 
   /**
-   * Transfers data from the temporary register to a block. This API uses an asynchronous callback to return the result.
+   * 将临时寄存器的值转移到指定的块。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the destination block. The value starts form **0**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } blockIndex - 被操作的块的索引，从0开始。
+   * @param { AsyncCallback<void> } callback - 回调函数。当临时寄存器的值转移到指定块成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -788,11 +738,11 @@ export interface MifareClassicTag extends TagSession {
   transferToBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Restores data in the temporary register from a block. This API uses a promise to return the result.
+   * 将指定块的值复制到临时寄存器。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the destination block. The value starts form **0**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } blockIndex - 被操作的块的索引，从0开始。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -808,12 +758,11 @@ export interface MifareClassicTag extends TagSession {
   restoreFromBlock(blockIndex: int): Promise<void>;
 
   /**
-   * Restores data in the temporary register from a block. This API uses an asynchronous callback to return the result.
+   * 将指定块的值复制到临时寄存器。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } blockIndex - Index of the destination block. The value starts form **0**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } blockIndex - 被操作的块的索引，从0开始。
+   * @param { AsyncCallback<void> } callback - 回调函数。当复制指定块内容到临时寄存器成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -829,9 +778,9 @@ export interface MifareClassicTag extends TagSession {
   restoreFromBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Obtains the number of sectors in this MIFARE Classic tag.
+   * 获取MIFARE Classic标签中的扇区数。
    *
-   * @returns { int } Number of sectors obtained.
+   * @returns { int } 标签中的扇区数量。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -840,10 +789,10 @@ export interface MifareClassicTag extends TagSession {
   getSectorCount(): int;
 
   /**
-   * Obtains the number of blocks in a sector.
+   * 获取指定扇区中的块数。
    *
-   * @param { int } sectorIndex - Index of the target sector. The sector indexes start from **0**.
-   * @returns { int } Number of blocks obtained.
+   * @param { int } sectorIndex - 扇区序号，从0开始。
+   * @returns { int } 该扇区内的块数量。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -856,9 +805,9 @@ export interface MifareClassicTag extends TagSession {
   getBlockCountInSector(sectorIndex: int): int;
 
   /**
-   * Obtains the type of this MIFARE Classic tag.
+   * 获取MIFARE Classic标签的类型。
    *
-   * @returns { tag.MifareClassicType } Type of the MIFARE Classic tag obtained.
+   * @returns { tag.MifareClassicType } MifareClassic标签的类型。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -867,10 +816,9 @@ export interface MifareClassicTag extends TagSession {
   getType(): tag.MifareClassicType;
 
   /**
-   * Obtains the size of this tag. For details, see [MifareClassicSize]{@link @ohos.nfc.tag:tag.MifareClassicSize}.
+   * 获取标签的存储空间大小，具体请参见[MifareClassicSize]{@link @ohos.nfc.tag:tag.MifareClassicSize}。
    *
-   * @returns { int } Tag size obtained, in bytes. For details, see
-   *     [MifareClassicSize]{@link @ohos.nfc.tag:tag.MifareClassicSize}.
+   * @returns { int } 标签的大小，单位为字节，请参见[MifareClassicSize]{@link @ohos.nfc.tag:tag.MifareClassicSize}。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -879,9 +827,9 @@ export interface MifareClassicTag extends TagSession {
   getTagSize(): int;
 
   /**
-   * Checks whether it is an emulated tag.
+   * 检查标签是不是被模拟的。
    *
-   * @returns { boolean } Returns **true** if the tag is an emulated tag; returns **false** otherwise.
+   * @returns { boolean } 检查结果，true: 是；false：否。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -890,10 +838,10 @@ export interface MifareClassicTag extends TagSession {
   isEmulatedTag(): boolean;
 
   /**
-   * Obtains the index of the first block in a sector.
+   * 获取特定扇区的第一个块的序号。
    *
-   * @param { int } sectorIndex - Index of the target sector. The sector indexes start from **0**.
-   * @returns { int } Index of the first block obtained.
+   * @param { int } sectorIndex - 扇区序号，从0开始。
+   * @returns { int } 该扇区内的第一个块的序号，从0开始。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -906,10 +854,10 @@ export interface MifareClassicTag extends TagSession {
   getBlockIndex(sectorIndex: int): int;
 
   /**
-   * Obtains the index of the sector that holds the specified block.
+   * 获取包含指定块号的扇区序号。
    *
-   * @param { int } blockIndex - Index of the block. The block indexes start from **0**.
-   * @returns { int } Index of the sector obtained. The sector indexes start from **0**.
+   * @param { int } blockIndex - 块序号，从0开始。
+   * @returns { int } 扇区序号，从0开始。
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -923,16 +871,13 @@ export interface MifareClassicTag extends TagSession {
 }
 
 /**
- * Provides APIs to access MIFARE Ultralight properties and perform I/O operations on a tag. This class inherits from
- * **TagSession**.
+ * MifareUltralightTag 提供对MIFARE Ultralight属性和I/O操作的访问，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain a **MifareUltralightTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * MifareUltralightTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **MifareUltralightTag**.
+ * 以下是MifareUltralightTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -941,11 +886,11 @@ export interface MifareClassicTag extends TagSession {
  */
 export interface MifareUltralightTag extends TagSession {
   /**
-   * Reads four pages of data (16 bytes in total) from the tag. This API uses a promise to return the result.
+   * 读取标签的4页数据，共16字节的数据。每个页面数据大小为4字节。使用Promise异步回调
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } pageIndex - Index of the first page to read. The page indexes start from **0**.
-   * @returns { Promise<int[]> } Promise used to return the data read.
+   * @param { int } pageIndex - 要读取页面的索引，从0开始。
+   * @returns { Promise<int[]> } Promise对象。以Promise形式返回读取的4页的数据，共16字节。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -961,12 +906,11 @@ export interface MifareUltralightTag extends TagSession {
   readMultiplePages(pageIndex: int): Promise<int[]>;
 
   /**
-   * Reads four pages of data (16 bytes in total) from the tag. This API uses an asynchronous callback to return the
-   * result.
+   * 读取标签的4页数据，共16字节的数据。每个页面数据大小为4字节。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } pageIndex - Index of the first page to read. The page indexes start from **0**.
-   * @param { AsyncCallback<int[]> } callback - Callback used to return the data (16 bytes in size) read.
+   * @param { int } pageIndex - 要读取页面的索引，从0开始。
+   * @param { AsyncCallback<int[]> } callback - 以callback形式异步返回页操作结果。返回读取到的数据，共16字节。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -982,12 +926,12 @@ export interface MifareUltralightTag extends TagSession {
   readMultiplePages(pageIndex: int, callback: AsyncCallback<int[]>): void;
 
   /**
-   * Writes one page (4 bytes) of data to this tag. This API uses a promise to return the result.
+   * 写入一页数据，数据大小为4字节。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } pageIndex - Index of the page to write. The page indexes start from **0**.
-   * @param { int[] } data - 4-byte data to write.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } pageIndex - 要写入页面的索引，从0开始。
+   * @param { int[] } data - 要写入页面的数据内容，必须是4个字节大小。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1003,13 +947,12 @@ export interface MifareUltralightTag extends TagSession {
   writeSinglePage(pageIndex: int, data: int[]): Promise<void>;
 
   /**
-   * Writes one page (4 bytes) of data to this tag. This API uses an asynchronous callback to return the result.
+   * 写入一页数据，数据大小为4字节。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } pageIndex - Index of the page to write. The page indexes start from **0**.
-   * @param { int[] } data - 4-byte data to write.
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { int } pageIndex - 要写入页面的索引，从0开始。
+   * @param { int[] } data - 要写入页面的数据内容，必须是4个字节大小。
+   * @param { AsyncCallback<void> } callback - 回调函数。当写入数据成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1025,9 +968,9 @@ export interface MifareUltralightTag extends TagSession {
   writeSinglePage(pageIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
   /**
-   * Obtains the type of this MIFARE Ultralight tag.
+   * 获取MIFARE Ultralight标签的类型。
    *
-   * @returns { tag.MifareUltralightType } Type of the MIFARE Ultralight tag obtained.
+   * @returns { tag.MifareUltralightType } MIFARE Ultralight标签的类型。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -1037,15 +980,13 @@ export interface MifareUltralightTag extends TagSession {
 }
 
 /**
- * Provides APIs for formatting NDEF formattable tags. This class inherits from **TagSession**.
+ * NdefFormatableTag为NDEF Formattable的标签提供格式化操作，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag 技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain an **NdefFormatableTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * NdefFormatableTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **NdefFormatableTag**.
+ * 以下是NdefFormatableTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -1054,12 +995,11 @@ export interface MifareUltralightTag extends TagSession {
  */
 export interface NdefFormatableTag extends TagSession {
   /**
-   * Formats this tag as an NDEF tag, and writes an NDEF message to it. This API uses a promise to return the result.
+   * 将标签格式化为NDEF标签，将NDEF消息写入NDEF标签。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } message - NDEF message to write. If this parameter is **null**, the tag is formatted only (
-   *     no data will be written).
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NdefMessage } message - 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1075,14 +1015,11 @@ export interface NdefFormatableTag extends TagSession {
   format(message: NdefMessage): Promise<void>;
 
   /**
-   * Formats this tag as an NDEF tag, and writes an NDEF message to it. This API uses an asynchronous callback to return
-   * the result.
+   * 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } message - NDEF message to write when the formatting is successful. If this parameter is
-   *     **null**, the tag is formatted only (no data will be written).
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { NdefMessage } message - 格式化成功时要写入的Ndef消息。可以为null，为null时仅格式化标签，不写入内容。
+   * @param { AsyncCallback<void> } callback - 回调函数。当NDEF消息写入标签成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1098,13 +1035,11 @@ export interface NdefFormatableTag extends TagSession {
   format(message: NdefMessage, callback: AsyncCallback<void>): void;
 
   /**
-   * Formats this tag as an NDEF tag, writes an NDEF message to it, and then sets the tag to read-only. This API uses a
-   * promise to return the result.
+   * 将标签格式化为NDEF标签，将NDEF消息写入NDEF标签，之后将标签设置为只读。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } message - NDEF message to write. If this parameter is **null**, the tag is formatted only (
-   *     no data will be written).
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { NdefMessage } message - 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1120,14 +1055,11 @@ export interface NdefFormatableTag extends TagSession {
   formatReadOnly(message: NdefMessage): Promise<void>;
 
   /**
-   * Formats this tag as an NDEF tag, writes an NDEF message to the NDEF tag, and then sets the tag to read-only. This
-   * API uses an asynchronous callback to return the result.
+   * 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签，之后将标签设置为只读。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { NdefMessage } message - NDEF message to write. If this parameter is **null**, the tag is formatted only (
-   *     no data will be written).
-   * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
-   *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { NdefMessage } message - 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。
+   * @param { AsyncCallback<void> } callback - 回调函数。当NDEF消息写入NDEF标签成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -1144,16 +1076,13 @@ export interface NdefFormatableTag extends TagSession {
 }
 
 /**
- * Provides the capability of reading barcode label attributes and accessing I/O operations. It is inherited from
- * **TagSession**.
+ * BarcodeTag提供读取条形码标签的属性和访问I/O操作的能力，继承自TagSession。
  *
- * **TagSession** is the base class of all NFC tag technologies. It provides common interfaces for establishing
- * connections and transferring data. For more details, see [TagSession]{@link ./tagSession:TagSession}.
+ * TagSession是所有NFC Tag 技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession]{@link ./tagSession:TagSession}。
  *
- * For details about how to obtain a **BarcodeTag** object, see
- * [NFC Tag Read/Write Development](docroot://connectivity/nfc/nfc-tag-access-guide.md).
+ * BarcodeTag获取方式请参考[nfc-tag开发指南](docroot://connectivity/nfc/nfc-tag-access-guide.md)。
  *
- * The following describes the unique APIs of **BarcodeTag**.
+ * 以下是BarcodeTag的独有接口。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
@@ -1162,10 +1091,10 @@ export interface NdefFormatableTag extends TagSession {
  */
 export interface BarcodeTag extends TagSession {
   /**
-   * Obtains a complete barcode tag. This API uses a promise to return the result.
+   * 获取读到的Barcode类型的完整Tag。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<ArrayBuffer> } Promise used to return the barcode tag read.
+   * @returns { Promise<ArrayBuffer> } Promise对象。返回BarCode类型的 tag。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100204 - The tag I/O operation failed.

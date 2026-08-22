@@ -14,31 +14,25 @@
  */
 
 /**
- * @file Active Tags
+ * @file 有源标签
  * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * The **connectedTag** module provides APIs for using active tags. You can use the APIs to initialize the active tag
- * chip and read and write active tags.
+ * 本模块提供有源标签的使用，包括初始化有源标签芯片、读取有源标签内容、写入内容到有源标签等。
  *
  * @syscap SystemCapability.Communication.ConnectedTag
  * @since 8 dynamic
  */
 declare namespace connectedTag {
   /**
-   * Initializes the active tag chip.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [initialize]{@link connectedTag.initialize} instead.
+   * 初始化有源标签芯片。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } **true**: The initialization is successful.
-   *     <br>**false**: The initialization fails.
+   * @returns { boolean } true：初始化成功。 
+   *     <br>false：初始化失败。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -47,7 +41,7 @@ declare namespace connectedTag {
   function init(): boolean;
 
   /**
-   * Initializes the active tag chip.
+   * 初始化有源标签芯片。对有源标签进行读写操作前需调用本接口初始化一次，若想再次初始化需先调用[uninitialize]{@link connectedTag.uninitialize}。
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -59,16 +53,11 @@ declare namespace connectedTag {
   function initialize(): void;
 
   /**
-   * Uninitializes the active tag resources.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [uninitialize]{@link connectedTag.uninitialize} instead.
+   * 卸载有源标签芯片资源。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } **true**: The uninstallation is successful.
-   *     <br>**false**: The uninstallation fails.
+   * @returns { boolean } true：卸载操作成功。 
+   *     <br>false：卸载操作失败。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -77,7 +66,7 @@ declare namespace connectedTag {
   function uninit(): boolean;
 
   /**
-   * Uninitializes the active tag resources.
+   * 卸载有源标签芯片资源。
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -89,15 +78,10 @@ declare namespace connectedTag {
   function uninitialize(): void;
 
   /**
-   * Reads the content of this active tag. This API uses a promise to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [uninitialize]{@link connectedTag.uninitialize} instead.
+   * 读取有源标签内容。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<string> } Promise used to return the content of the active tag.
+   * @returns { Promise<string> } Promise对象，返回读取有源标签内容的列表。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -106,15 +90,10 @@ declare namespace connectedTag {
   function readNdefTag(): Promise<string>;
 
   /**
-   * Reads the content of this active tag. This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [uninitialize]{@link connectedTag.uninitialize} instead.
+   * 读取有源标签内容，使用AsyncCallback方式作为异步方法。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<string> } callback - Callback used to return the active tag content obtained.
+   * @param { AsyncCallback<string> } callback - 回调函数。当读取成功时data为读取到有源标签的内容；否则为err错误对象。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -123,10 +102,10 @@ declare namespace connectedTag {
   function readNdefTag(callback: AsyncCallback<string>): void;
 
   /**
-   * Reads the content of this active tag. This API uses a promise to return the result.
+   * 读取有源标签内容。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<number[]> } Promise used to return the content of the active tag.
+   * @returns { Promise<number[]> } Promise对象，返回读取有源标签内容的列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
@@ -136,10 +115,10 @@ declare namespace connectedTag {
   function read(): Promise<number[]>;
 
   /**
-   * Reads the content of this active tag. This API uses an asynchronous callback to return the result.
+   * 读取有源标签内容，使用AsyncCallback方式作为异步方法。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<number[]> } callback - Callback used to return the active tag content obtained.
+   * @param { AsyncCallback<number[]> } callback - 回调函数。当读取成功时data为读取到有源标签的内容；否则为err错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
@@ -149,16 +128,11 @@ declare namespace connectedTag {
   function read(callback: AsyncCallback<number[]>): void;
 
   /**
-   * Writes data to this active tag. This API uses a promise to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [connectedTag.write]{@link connectedTag.write} instead.
+   * 写入内容到有源标签。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { string } data - Data to be written to the active tag. The maximum length is 1024 bytes.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } data - 有源标签内容, 最大长度为1024个字节。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -167,16 +141,11 @@ declare namespace connectedTag {
   function writeNdefTag(data: string): Promise<void>;
 
   /**
-   * Writes data to this active tag. This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [connectedTag.write]{@link connectedTag.write} instead.
+   * 写入内容到有源标签，使用AsyncCallback方式作为异步方法。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { string } data - Data to be written to the active tag. The maximum length is 1024 bytes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the active tag content obtained.
+   * @param { string } data - 有源标签内容, 最大长度为1024个字节。
+   * @param { AsyncCallback<void> } callback - 回调函数。当写入标签成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -185,12 +154,11 @@ declare namespace connectedTag {
   function writeNdefTag(data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Writes data to this active tag. This API uses a promise to return the result.
+   * 写入内容到有源标签。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data - Data to be written to the active tag. The value is a hexadecimal number ranging from 0x00
-   *     to 0xFF.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number[] } data - 有源标签内容, 由十六进制数字组成。范围：0x00至0xFF。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -204,12 +172,11 @@ declare namespace connectedTag {
   function write(data: number[]): Promise<void>;
 
   /**
-   * Writes data to this active tag. This API uses an asynchronous callback to return the result.
+   * 写入内容到有源标签，使用AsyncCallback方式作为异步方法。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data - Data to be written to the active tag. The value is a hexadecimal number ranging from 0x00
-   *     to 0xFF.
-   * @param { AsyncCallback<void> } callback - Callback used to return the active tag content obtained.
+   * @param { number[] } data - 有源标签内容, 由十六进制数字组成。范围：0x00至0xFF。
+   * @param { AsyncCallback<void> } callback - 回调函数。当写入标签成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -223,37 +190,36 @@ declare namespace connectedTag {
   function write(data: number[], callback: AsyncCallback<void>): void;
 
   /**
-   * Registers the NFC field strength state events.
+   * 注册NFC场强状态事件。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param {'notify'} type - Event type. This parameter has a fixed value of **notify**.
-   * @param { Callback<number> } callback - Callback used to return the [NfcRfType]{@link connectedTag.NfcRfType}.
+   * @param {'notify'} type - 固定填"notify"字符串。
+   * @param { Callback<number> } callback - 回调函数。注册成功的返回值参见[NfcRfType]{@link connectedTag.NfcRfType}。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
   function on(type: "notify", callback: Callback<number>): void;
 
   /**
-   * Unregisters the NFC field strength state events.
+   * 取消NFC场强状态事件的注册。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'notify' } type - Event type. This parameter has a fixed value of **notify**.
-   * @param { Callback<number> } [callback] - Callback used to return the field strength state. If this parameter is not
-   *     specified, all callbacks associated with the specified event will be unregistered.
+   * @param { 'notify' } type - 固定填"notify"字符串。
+   * @param { Callback<number> } [callback] - 状态改变回调函数。如果callback不填，将“去注册”该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
   function off(type: "notify", callback?:Callback<number>): void;
 
   /**
-   * Enumerates the NFC field strength states.
+   * 表示NFC场强状态的枚举。
    *
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
   enum NfcRfType {
     /**
-     * NFC exit.
+     * NFC离场事件。
      *
      * @syscap SystemCapability.Communication.ConnectedTag
      * @since 8 dynamic
@@ -261,7 +227,7 @@ declare namespace connectedTag {
     NFC_RF_LEAVE = 0,
 
     /**
-     * NFC entry.
+     * NFC进场事件。
      *
      * @syscap SystemCapability.Communication.ConnectedTag
      * @since 8 dynamic

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Standard NFC Tag Session
+ * @file 标准NFC-Tag TagSession
  * @kit ConnectivityKit
  */
 
@@ -22,14 +22,12 @@ import tag from '../@ohos.nfc.tag';
 import { AsyncCallback } from '../@ohos.base';
 
 /**
- * The **tagSession** module provides common APIs for establishing connections and transferring data.
+ * 本模块是对NFC TagSession的使用说明。
  *
- * > **NOTE**
+ * > **注意：**
  * >
- * > If an error is reported while importing the tag module editor, the capabilities of a specific device model may
- * > exceed the capability set defined for the default device. To use these capabilities, configure a custom SysCap by
- * > following instructions in
- * > [SystemCapability](https://developer.huawei.com/consumer/en/doc/harmonyos-references/syscap).
+ * > 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考
+ * > [syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
  *
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice [since 12]
@@ -38,15 +36,10 @@ import { AsyncCallback } from '../@ohos.base';
  */
 export interface TagSession {
   /**
-   * Obtains the **tagInfo** object provided by the NFC service when the tag is dispatched.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tag.getTagInfo]{@link @ohos.nfc.tag:tag.getTagInfo} instead.
+   * 获取该Tag被分发时，NFC服务所提供的Tag数据对象。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { tag.TagInfo } **Taginfo** object obtained.
+   * @returns { tag.TagInfo } NFC服务所提供的Tag数据对象。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -55,15 +48,10 @@ export interface TagSession {
   getTagInfo(): tag.TagInfo;
 
   /**
-   * Connects to this tag. Call this API to set up a connection before reading data from or writing data to a tag.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.connect]{@link TagSession.connect} instead.
+   * 和标签建立连接。在从标签读取数据或将数据写入标签之前，必须调用此方法。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
+   * @returns { boolean } 连接建立成功返回true，失败返回false。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -72,7 +60,7 @@ export interface TagSession {
   connectTag(): boolean;
 
   /**
-   * Connects to this tag. Call this API to set up a connection before reading data from or writing data to a tag.
+   * 和标签建立连接。在从标签读取数据或将数据写入标签之前，必须调用此方法。
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -86,12 +74,7 @@ export interface TagSession {
   connect(): void;
 
   /**
-   * Resets the connection to this tag.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.resetConnection]{@link TagSession.resetConnection} instead.
+   * 重置与标签的连接。
    *
    * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -102,7 +85,7 @@ export interface TagSession {
   reset(): void;
 
   /**
-   * Resets the connection to this tag.
+   * 重置与标签的连接。
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -116,14 +99,9 @@ export interface TagSession {
   resetConnection(): void;
 
   /**
-   * Checks whether the tag is connected.
+   * 检查是否已与标签建立连接。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.isConnected]{@link TagSession.isConnected} instead.
-   *
-   * @returns { boolean } Returns **true** if the tag is connected; returns **false** otherwise.
+   * @returns { boolean } 已建立连接返回 true，未建立连接返回false。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -132,10 +110,9 @@ export interface TagSession {
   isTagConnected(): boolean;
 
   /**
-   * Checks whether the tag is connected. If you receive a message indicating that the tag has not been connected, call
-   * [tagSession.connect]{@link TagSession.connect} to connect the tag.
+   * 检查是否已与标签建立连接。如果返回未连接，则需要先调用[tagSession.connect]{@link TagSession.connect}建立连接。
    *
-   * @returns { boolean } Returns **true** if the tag is connected; returns **false** otherwise.
+   * @returns { boolean } 已建立连接返回 true，未建立连接返回false。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice [since 12]
@@ -145,16 +122,11 @@ export interface TagSession {
   isConnected(): boolean;
 
   /**
-   * Sets the maximum time allowed for sending data to this tag, in ms.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.setTimeout]{@link TagSession.setTimeout} instead.
+   * 设置发送数据到Tag的等待超时时间，单位是毫秒。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } timeout - Timeout period to set, in milliseconds. The value cannot be a negative number.
-   * @returns { boolean } Returns **true** if the timeout period is set successfully; returns **false** otherwise.
+   * @param { number } timeout - 超时时间，单位毫秒，非负值。
+   * @returns { boolean } 设置超时时间成功返回true，设置失败返回false。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -163,10 +135,10 @@ export interface TagSession {
   setSendDataTimeout(timeout: number): boolean;
 
   /**
-   * Sets the maximum time allowed for sending data to this tag, in ms.
+   * 设置发送数据到Tag的等待超时时间，单位是毫秒。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int } timeout - Timeout period to set, in milliseconds. The value cannot be a negative number.
+   * @param { int } timeout - 超时时间，单位毫秒，非负值。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -182,15 +154,10 @@ export interface TagSession {
   setTimeout(timeout: int): void;
 
   /**
-   * Obtains the timeout period for sending data to this tag, in milliseconds.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.getTimeout]{@link TagSession.getTimeout} instead.
+   * 查询发送数据到Tag的等待超时时间，单位是毫秒。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Timeout period obtained, in milliseconds. The value cannot be a negative number.
+   * @returns { number } 发送数据到Tag的等待超时时间，单位是毫秒，非负数。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -199,10 +166,10 @@ export interface TagSession {
   getSendDataTimeout(): number;
 
   /**
-   * Obtains the timeout period for sending data to this tag, in milliseconds.
+   * 查询发送数据到Tag的等待超时时间，单位是毫秒。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { int } Timeout period obtained, in milliseconds. The value cannot be a negative number.
+   * @returns { int } 发送数据到Tag的等待超时时间，单位是毫秒，非负数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
@@ -214,18 +181,11 @@ export interface TagSession {
   getTimeout(): int;
 
   /**
-   * Sends data to the tag. This API uses a promise to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.transmit]{@link TagSession.transmit(data: int[])} instead.
+   * 发送指令到Tag上。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**.
-   * @returns { Promise<number[]> } Promise used to return the response from the tag. The response consists of
-   *     hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @param { number[] } data - 要发送的指令。每个number十六进制表示，范围是0x00~0xFF。
+   * @returns { Promise<number[]> } Promise对象，返回对端Tag对指令的响应数据，每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -234,18 +194,11 @@ export interface TagSession {
   sendData(data: number[]): Promise<number[]>;
 
   /**
-   * Sends data to the tag. This API uses an asynchronous callback to return the result.
-   *
-   * > **NOTE**
-   * >
-   * > This parameter is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.transmit]{@link TagSession.transmit(data: int[], callback: AsyncCallback<int[]>)} instead.
+   * 发送指令到Tag上。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to
-   *     **0xFF**.
-   * @param { AsyncCallback<number[]> } callback - Callback used to return the response from the tag. The response
-   *     consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @param { number[] } data - 要发送的指令。每个number十六进制表示，范围是0x00~0xFF。
+   * @param { AsyncCallback<number[]> } callback - 回调函数，返回响应数据。每个number十六进制表示，范围是0x00~0xFF。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -254,12 +207,11 @@ export interface TagSession {
   sendData(data: number[], callback: AsyncCallback<number[]>): void;
 
   /**
-   * Sends data to the tag. This API uses a promise to return the result.
+   * 发送指令到Tag上。使用Promise异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
-   * @returns { Promise<int[]> } Promise used to return the response from the tag. The response consists of hexadecimal
-   *     numbers ranging from **0x00** to **0xFF**.
+   * @param { int[] } data - 要发送的指令。每个number十六进制表示，范围是0x00~0xFF。
+   * @returns { Promise<int[]> } Promise对象，返回对端Tag对指令的响应数据，每个number十六进制表示，范围是0x00~0xFF。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -276,12 +228,11 @@ export interface TagSession {
   transmit(data: int[]): Promise<int[]>;
 
   /**
-   * Sends data to the tag. This API uses an asynchronous callback to return the result.
+   * 发送指令到Tag上。使用callback异步回调。
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { int[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
-   * @param { AsyncCallback<int[]> } callback - Callback used to return the response from the tag. The response consists
-   *     of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @param { int[] } data - 要发送的指令。每个number十六进制表示，范围是0x00~0xFF。
+   * @param { AsyncCallback<int[]> } callback - 回调函数，返回响应数据。每个number十六进制表示，范围是0x00~0xFF。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -298,15 +249,10 @@ export interface TagSession {
   transmit(data: int[], callback: AsyncCallback<int[]>): void;
 
   /**
-   * Obtains the maximum length of the data that can be sent to this tag.
-   *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 7 and deprecated since API version 9. Use
-   * > [tagSession.getMaxTransmitSize]{@link TagSession.getMaxTransmitSize} instead.
+   * 查询可以发送到标签的最大数据长度。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Maximum data length obtained. The value cannot be a negative number.
+   * @returns { number } 可以发送到标签的最大数据长度，非负数。
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -315,10 +261,10 @@ export interface TagSession {
   getMaxSendLength(): number;
 
   /**
-   * Obtains the maximum length of the data that can be sent to this tag.
+   * 查询可以发送到标签的最大数据长度。
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { int } Maximum data length obtained. The value cannot be a negative number.
+   * @returns { int } 可以发送到标签的最大数据长度，非负数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
