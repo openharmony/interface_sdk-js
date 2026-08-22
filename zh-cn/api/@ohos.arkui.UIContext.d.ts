@@ -4544,8 +4544,8 @@ export class ResolvedUIContext extends UIContext {
 * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
 * >
 * > - 以下API需要通过对应的UIContext实例调用。获取UIContext分为三种方式，第一种是使用ohos.window中的
-* > [getUIContext()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10)方法获取UIContext实例，第二种是通过自定
-* > 义组件内置方法[getUIContext()](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-api.md#getuicontext)获取UIContext
+* > [getUIContext()]{@link UIContext#getUIContext}方法获取UIContext实例，第二种是通过自定
+* > 义组件内置方法[getUIContext()]{@link UIContext#getUIContext}获取UIContext
 * > 实例，第三种是通过UIContext类的静态方法如[getCallingScopeUIContext]{@link UIContext#getCallingScopeUIContext}获取UIContext实例。本文中
 * > UIContext对象以uiContext表示。
 *
@@ -4663,9 +4663,9 @@ export class UIContext {
 
   /**
    * 判断UIContext对象对应的UI实例是否有效。使用
-   * [getUIContext](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10)方法获取UIContext对象。后端UI实例存在时，
+   * [getUIContext]{@link getUIContext}方法获取UIContext对象。后端UI实例存在时，
    * 该UI实例有效。通过new UIContext()创建的UIContext对象无对应的UI实例；多次
-   * [loadContent](docroot://reference/apis-arkui/arkts-apis-window-Window.md#loadcontent9)后，旧的UI实例会失效。多窗口应用场景，当窗口关闭后，该窗
+   * [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}后，旧的UI实例会失效。多窗口应用场景，当窗口关闭后，该窗
    * 口的UI实例失效。总而言之，当UIContext对象没有对应的后端UI实例时，该对象是无效的。
    *
    * @returns { boolean } 返回UIContext对象对应的UI实例是否有效。true表示有效，false表示无效。
@@ -4951,16 +4951,16 @@ export class UIContext {
    * >
    * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
    * >
-   * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动
+   * > - 如果在[aboutToAppear]{@link BaseCustomComponent#aboutToAppear}中调用动
    * > 画，自定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
    * >
-   * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)
+   * > - 执行[aboutToDisappear]{@link BaseCustomComponent#aboutToDisappear}
    * > 时，组件即将销毁，不能在aboutToDisappear里面做动画。
    * >
    * > - 在组件出现和消失时，可以通过[组件内转场]{@link common}添加动画效果。
    * >
    * > - 组件内转场不支持的属性，可以参考[显式动画]{@link common}中的
-   * > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用animateTo实现动画执行结束后组件消失的效
+   * > [示例2]{@link ./common}，使用animateTo实现动画执行结束后组件消失的效
    * > 果。
    * >
    * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，
@@ -5437,7 +5437,7 @@ export class UIContext {
    * > **说明：**
    * >
    * > 1. getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    * >
    * > 2. UI实例未创建时，[像素单位]{@link common}中的vp2px接口使用默认屏幕的虚拟像素比进行转换。在该场景下，开发者使用UIContext接口替换时，可参考
@@ -5463,7 +5463,7 @@ export class UIContext {
    * > **说明：**
    * >
    * > 1. getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    * >
    * > 2. UI实例未创建时，[像素单位]{@link common}中的px2vp接口使用默认屏幕的虚拟像素比进行转换。在该场景下，开发者使用UIContext接口替换时，可参考
@@ -5486,13 +5486,13 @@ export class UIContext {
    *
    * 像素密度：当前窗口生效的像素密度值，即虚拟屏幕的密度[VirtualScreenConfig]{@link @ohos.display:display.VirtualScreenConfig}.density。
    *
-   * 字体缩放比例：系统设置的字体缩放系数，对应 [Configuration.fontScale](docroot://reference/apis-arkui/arkui-ts/ts-types.md#configuration)。
+   * 字体缩放比例：系统设置的字体缩放系数，对应 [Configuration.fontScale]{@link Configuration#fontScale}。
    *
    *
    * > **说明：**
    * >
    * > getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    *
    * @param { number } value
@@ -5512,13 +5512,13 @@ export class UIContext {
    *
    * 像素密度：当前窗口生效的像素密度值，即虚拟屏幕的密度[VirtualScreenConfig]{@link @ohos.display:display.VirtualScreenConfig}.density。
    *
-   * 字体缩放比例：系统设置的字体缩放系数，对应 [Configuration.fontScale](docroot://reference/apis-arkui/arkui-ts/ts-types.md#configuration)。
+   * 字体缩放比例：系统设置的字体缩放系数，对应 [Configuration.fontScale]{@link Configuration#fontScale}。
    *
    *
    * > **说明：**
    * >
    * > getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    *
    * @param { number } value
@@ -5539,7 +5539,7 @@ export class UIContext {
    * > **说明：**
    * >
    * > getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    *
    * @param { number } value
@@ -5560,7 +5560,7 @@ export class UIContext {
    * > **说明：**
    * >
    * > getUIContext需在windowStage.
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)之后调用，确保UIContext初始化完成后
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}之后调用，确保UIContext初始化完成后
    * > 调用此接口，否则无法返回准确结果。
    *
    * @param { number } value
@@ -6241,7 +6241,7 @@ export const enum MarqueeDynamicSyncSceneType {
  * TextMenuController用于控制文本选择菜单的行为，支持设置菜单显示选项（如优先使用独立窗口显示）、屏蔽系统服务菜单项或指定菜单项，适用于需要自定义文本选择菜单显示方式或限制特定菜单功能的应用场景，如在特定业务场景下禁用翻译、搜索等功能。
  *
  * > **说明**
- * > - setMenuOptions接口为非静态API，需先使用UIContext中的[getTextMenuController()](arkts-apis-uicontext-uicontext.md#gettextmenucontroller16)方法获取TextMenuController实例，再通过此实例调用对应方法。disableSystemServiceMenuItems和disableMenuItems为静态方法，可直接通过TextMenuController类调用。
+ * > - setMenuOptions接口为非静态API，需先使用UIContext中的[getTextMenuController()]{@link UIContext#getTextMenuController}方法获取TextMenuController实例，再通过此实例调用对应方法。disableSystemServiceMenuItems和disableMenuItems为静态方法，可直接通过TextMenuController类调用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

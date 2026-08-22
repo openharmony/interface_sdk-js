@@ -209,7 +209,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 * > - 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。
 * >
 * > - ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置
-* > [opacity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-opacity.md#opacity18)属性不生效。
+* > [opacity]{@link CommonMethod#opacity}属性不生效。
 *
 * **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
 *

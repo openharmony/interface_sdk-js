@@ -175,9 +175,9 @@ interface GridContainerInterface {
 }
 
 /**
- * 支持[通用属性]{@link ./common}和Column组件的[属性方法](docroot://reference/apis-arkui/arkui-ts/ts-container-column.md#属性)。
+ * 支持[通用属性]{@link CommonMethod}和Column组件的[属性方法]{@link ColumnAttribute}。
  * 
- * 支持[通用事件]{@link ./common}。
+ * 支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly

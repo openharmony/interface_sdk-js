@@ -1441,7 +1441,7 @@ interface NavigationInterface {
   /**
    * 绑定路由栈到Navigation组件，指定一个NavDestination作为Navigation的导航页（主页），适用于使用[NavPathStack]{@link NavPathStack}配合
    * [navDestination]{@link NavigationAttribute#navDestination}属性或者系统路由表进行页面路由。使用示例参考
-   * [示例16（Navigation使用NavDestination作为导航页）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#示例16navigation使用navdestination作为导航页)。
+   * [示例16（Navigation使用NavDestination作为导航页）]{@link ./nav_destination}。
    *
    * @param { NavPathStack } pathInfos - 路由栈信息。
    * @param { HomePathInfo } homeDestination - 主页NavDestination信息。
@@ -2494,7 +2494,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *     br/>工具栏所有选项均分底部工具栏，在每个均分内容区布局文本和图标。<br/>竖屏模式最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。横屏模式时，如果为
    *     [Split]{@link NavigationMode}模式，仍按照竖屏模式显示，如果为[Stack]{@link NavigationMode}模式需配合menus属性的Array<
    *     [NavigationMenuItem]{@link NavigationMenuItem}>使用，底部工具栏会自动隐藏，同时底部工具栏所有选项移动至页面右上角菜单。<br/>使用
-   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)写法为用户自定义工具栏选项，不具备以上功能。
+   *     [CustomBuilder]{@link CustomBuilder}写法为用户自定义工具栏选项，不具备以上功能。
    * @param { NavigationToolbarOptions } [options] - 工具栏选项。 包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、是否隐藏工具栏的文本、工具栏更多图标的
    *     菜单选项。 [since 11]
    * @returns { NavigationAttribute }
@@ -2654,7 +2654,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * > **说明：**
    * >
    * > 1. 不建议混合使用systemBarStyle属性和window设置状态栏样式的相关接口，例如：
-   * > [setWindowSystemBarProperties](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowsystembarproperties9)。
+   * > [setWindowSystemBarProperties]{@link setWindowSystemBarProperties}。
    * >
    * >
    * > 2. 初次设置Navigation/NavDestination的systemBarStyle属性时，会备份当前状态栏样式用于后续的恢复场景。

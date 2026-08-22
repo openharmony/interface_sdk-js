@@ -60,7 +60,7 @@ export declare interface PolylineOptions {
  */
 export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
-     * 设置折线经过坐标点列表，支持[attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)动态设置属性方法。
+     * 设置折线经过坐标点列表，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
      *
      * @param { Array<ShapePoint> | undefined } value - 折线经过坐标点列表。使用时传入一个二维数组，每个子数组表示一个顶点的[x, y]坐标。
      *     <br/>默认值：[]（空数组）<br/>默认单位：vp <br/>异常值undefined和null按照默认值处理。

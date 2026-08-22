@@ -1926,9 +1926,9 @@ export declare interface AccessibilityActionOptions {
    * 
    * 不支持的组件配置不生效。
    * 
-   * 当前支持组件：[slider]{@link ../../@internal/component/ets/slider}，用于slider组件聚焦后通过手势上下扫动触发slider组件的滑动操作。滑动距离：scrollStep*
-   * [step](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions)。取值范围：
-   * [1, ([max](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions) - [min](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions))/[step](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions)]，
+   * 当前支持组件：[slider]{@link ./slider}，用于slider组件聚焦后通过手势上下扫动触发slider组件的滑动操作。滑动距离：scrollStep*
+   * [step]{@link .slider.SliderOptions}。取值范围：
+   * [1, ([max]{@link .slider.SliderOptions} - [min]{@link .slider.SliderOptions})/[step]{@link .slider.SliderOptions}]，
    * 默认值为1。超出取值范围时取默认值1；在取值范围内，scrollStep为非整数时向下取整。
    *
    * @type { ?int }
@@ -2009,7 +2009,7 @@ export type ResponsiveFillType = PresetFillType;
 /**
  * 定义一个适用于[WaterFlow]{@link ../../@internal/component/ets/water_flow}、[Grid]{@link ../../@internal/component/ets/grid}、
  * [List]{@link ../../@internal/component/ets/list}、[Swiper]{@link ../../@internal/component/ets/swiper}和
- * [LazyVWaterFlowLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazyvwaterflowlayout.md)组件的响应式布局策略。
+ * [LazyVWaterFlowLayout]{@link CommonMethod#LazyVWaterFlowLayout}组件的响应式布局策略。
  * LazyVWaterFlowLayout组件从API版本26.0.0开始支持。
  *
  * @interface ItemFillPolicy

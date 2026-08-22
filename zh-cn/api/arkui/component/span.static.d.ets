@@ -62,7 +62,7 @@ export declare interface TextBackgroundStyle {
  */
 export declare interface BaseSpan extends CommonMethod {
   /**
-   * 设置文本背景样式。作为[ContainerSpan](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-containerspan.md)的子组件时可以继承
+   * 设置文本背景样式。作为[ContainerSpan]{@link ContainerSpan}的子组件时可以继承
    * 它的此属性值，优先使用其自身的此属性。
    *
    * @param { TextBackgroundStyle | undefined } style - 文本背景样式。<br />默认值：<br />{<br />  color: Color.Transparent,<br /
@@ -78,9 +78,9 @@ export declare interface BaseSpan extends CommonMethod {
    *
    * @param { LengthMetrics | undefined } value - 设置Span基线的偏移量，设置该值为百分比时，按默认值显示。<br/>正数内容向上偏移，负数向下偏移。<br/>默认值：0<br/>在
    *     ImageSpan中，设置为非0时，
-   *     [verticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-imagespan.md#verticalalign)将固定为
+   *     [verticalAlign]{@link verticalAlign}将固定为
    *     ImageSpanAlignment.BASELINE对齐；设置为0时，要使基线对齐策略生效，需同时设置
-   *     [verticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-imagespan.md#verticalalign)为
+   *     [verticalAlign]{@link verticalAlign}为
    *     ImageSpanAlignment.BASELINE。<br/>取值undefined时，按默认值处理。
    * @returns { T } 返回当前Span的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,9 +103,9 @@ export declare interface SpanAttribute {
    * 设置文本样式。
    *
    * @param { Font | undefined } value - 文本样式，包括字体大小、字体粗细、字体族和字体风格。<br/>默认值：
-   *     [Font](docroot://reference/apis-arkui/arkui-ts/ts-types.md#font) <br/>取值undefined时，按默认值处理。
+   *     [Font]{@link Font} <br/>取值undefined时，按默认值处理。
    * @param { FontConfigs } [fontConfigs] - 字体配置。默认值继承
-   *     [FontConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontconfigs24)。
+   *     [FontConfigs]{@link FontConfigs}。
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -150,7 +150,7 @@ export declare interface SpanAttribute {
    *     字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举
    *     值。设置过大可能会在不同字体下有截断。<br/>默认值：FontWeight.Normal <br/>取值undefined时，按默认值处理。
    * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细配置。默认值继承
-   *     [FontWeightConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontweightconfigs24)。
+   *     [FontWeightConfigs]{@link FontWeightConfigs}。
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -204,7 +204,7 @@ export declare interface SpanAttribute {
    * 设置值不大于0时，不限制文本行高，自适应字体大小。
    *
    * @param { Length | undefined } value - 文本行高。 <br/> number类型时单位为
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。设置string类型时，支持number类型取值的字符串形式，可以附带单位，
+   *     [fp]{@link Length}。设置string类型时，支持number类型取值的字符串形式，可以附带单位，
    *     例如"10"、"10fp"。<br/>取值为undefined时，使用默认行高高度。
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -216,7 +216,7 @@ export declare interface SpanAttribute {
    * 设置文字阴影效果。该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段, 不支持智能取色模式。
    *
    * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - 文字阴影效果。<br/>默认值继承
-   *     [ShadowOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadowoptions)
+   *     [ShadowOptions]{@link CommonMethod#ShadowOptions}
    *     <br/>取值为undefined时，按默认值处理。
    * @returns { SpanAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -225,7 +225,7 @@ export declare interface SpanAttribute {
    */
   default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
   /**
-   * 设置文本背景样式。作为[ContainerSpan](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-containerspan.md)的子组件时可以继承
+   * 设置文本背景样式。作为[ContainerSpan]{@link ContainerSpan}的子组件时可以继承
    * 它的此属性值，优先使用其自身的此属性。
    *
    * @param { TextBackgroundStyle | undefined } style - 文本背景样式。<br />默认值：<br />{<br />  color: Color.Transparent,<br /
@@ -241,9 +241,9 @@ export declare interface SpanAttribute {
    *
    * @param { LengthMetrics | undefined } value - 设置Span基线的偏移量，设置该值为百分比时，按默认值显示。<br/>正数内容向上偏移，负数向下偏移。<br/>默认值：0<br/>在
    *     ImageSpan中，设置为非0时，
-   *     [verticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-imagespan.md#verticalalign)将固定为
+   *     [verticalAlign]{@link verticalAlign}将固定为
    *     ImageSpanAlignment.BASELINE对齐；设置为0时，要使基线对齐策略生效，需同时设置
-   *     [verticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-imagespan.md#verticalalign)为
+   *     [verticalAlign]{@link verticalAlign}为
    *     ImageSpanAlignment.BASELINE。<br/>取值undefined时，按默认值处理。
    * @returns { SpanAttribute } 返回当前Span的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -317,7 +317,7 @@ export declare interface SpanAttribute {
    *
    * @param { Array<FontVariation> | undefined } fontVariations - 可变字体的属性数组，数组成员为可变字体的各种属性。<br/>设置为undefined时的效果等同于未设置
    *     fontVariations属性时的效果。<br/>fontVariations属性的优先级高于
-   *     [fontWeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-span.md#fontweight24)。
+   *     [fontWeight]{@link fontWeight}。
    * @returns { SpanAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

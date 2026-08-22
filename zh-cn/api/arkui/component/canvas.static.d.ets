@@ -153,7 +153,7 @@ export declare class CanvasGradient {
    * @param { string | ColorMetrics } color - 设置渐变填充的颜色。<br>可以使用
    *     [colorWithSpace](docroot://reference/apis-arkui/js-apis-arkui-graphics.md#colorwithspace20)
    *     方法构造指定色域属性
-   *     [ColorSpace](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#colorspace20)
+   *     [ColorSpace]{@link ColorSpace}
    *     为SRGB或DISPLAY_P3的颜色。每个渐变ColorMetrics的色域属性应当统一，
    *     设置不同色域的属性时将抛出异常，错误码：103701。<br>
    *     设置null和undefined无效，忽略本次断点值。
@@ -595,7 +595,7 @@ export declare class ImageBitmap {
    *     当类型为[PixelMap](docroot://apis-image-kit/arkts-apis-image-PixelMap.md)时，
    *     图片的数据源支持PixelMap对象。
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，
-   *     配置方法同[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *     配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *     <br>异常值undefined、NaN和Infinity按默认值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -619,7 +619,7 @@ export declare class ImageBitmap {
    *     图片的数据源支持PixelMap对象。<br>
    *     当类型为Resource时，图片的数据源支持Resource对象。
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，
-   *     配置方法同[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *     配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *     <br>异常值undefined、NaN和Infinity按默认值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -672,7 +672,7 @@ export declare class ImageData {
    * @param { Uint8ClampedArray } [data] - 一维数组，保存了相应的颜色数据，数据值范围为0到255。
    *     <br>传入异常值undefined时，data为undefined。<br>默认值：值全为0的一维数组
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageData对象的单位模式，配置后无法动态更改，
-   *     配置方法同[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *     配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *     <br>异常值undefined、NaN和Infinity按默认值处理。<br>默认值：DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

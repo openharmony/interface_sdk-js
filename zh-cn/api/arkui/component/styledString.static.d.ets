@@ -170,8 +170,8 @@ export declare class StyledString {
    * h5>、\<h6>、\、\、\<li>。支持将标签中的style属性样式转换成对应的属性字符串样式。
    *
    * 使用方法参考
-   * [示例12（fromHtml和toHtml互相转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)
-   * 和[示例18（fromHtml转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例18fromhtml转换)。
+   * [示例12（fromHtml和toHtml互相转换）]{@link ./styledString}
+   * 和[示例18（fromHtml转换）]{@link ./styledString}。
    *
    * | 标签名称 | 说明                   |
    * | ------------- | ---------------------------- |
@@ -217,7 +217,7 @@ export declare class StyledString {
    * 、StyledStringKey.IMAGE。
    *
    * 使用方法参考
-   * [示例12（fromHtml和toHtml互相转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)。
+   * [示例12（fromHtml和toHtml互相转换）]{@link ./styledString}。
    *
    * @param { StyledString } styledString - 属性字符串。
    * @returns { string } HTML格式字符串。
@@ -389,7 +389,7 @@ export declare interface LeadingMarginSpanDrawInfo {
   /**
    * 当前行相对于组件的水平偏移。direction为RTL时，返回当前行右侧与组件右边缘的距离。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * 取值范围：大于等于0。
    *
@@ -402,7 +402,7 @@ export declare interface LeadingMarginSpanDrawInfo {
   /**
    * 行顶与组件上边缘的距离。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * 取值范围：大于等于0。
    *
@@ -415,7 +415,7 @@ export declare interface LeadingMarginSpanDrawInfo {
   /**
    * 行底与组件上边缘的距离。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * 取值范围：大于等于0。
    *
@@ -428,7 +428,7 @@ export declare interface LeadingMarginSpanDrawInfo {
   /**
    * 当前行的基线与组件上边缘的距离。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * 取值范围：大于等于0。
    *
@@ -519,7 +519,7 @@ export declare class TextStyle {
   /**
    * 获取属性字符串的文本字体大小。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -555,7 +555,7 @@ export declare class TextStyle {
   /**
    * 获取属性字符串的文本描边宽度。
    *
-   * 默认返回0，单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * 默认返回0，单位为[vp]{@link Length}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -640,7 +640,7 @@ export declare interface TextStyleInterface {
    *
    * 如果LengthMetrics的unit值是PERCENT，当前设置不生效，处理为16fp。
    *
-   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[fp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -701,7 +701,7 @@ export declare interface TextStyleInterface {
    */
   strokeColor?: ResourceColor;
   /**
-   * 字体配置。默认值继承[FontConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontconfigs24)。
+   * 字体配置。默认值继承[FontConfigs]{@link FontConfigs}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -885,7 +885,7 @@ export declare class BaselineOffsetStyle {
   /**
    * 获取属性字符串的文本基线偏移量。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -913,7 +913,7 @@ export declare class LetterSpacingStyle {
   /**
    * 获取属性字符串的文本字符间距。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1074,9 +1074,9 @@ export declare class ParagraphStyle {
   /**
    * 获取属性字符串文本段落在垂直方向的对齐方式。
    *
-   * 一个段落下使用同一字号必须同时设置行高[lineHeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#lineheight)或者
+   * 一个段落下使用同一字号必须同时设置行高[lineHeight]{@link lineHeight}或者
    * 同一个段落不同字号文本混排时才有效果差异，否则设置了该属性任意枚举值和未设置该属性都是一样的排版效果。属性字符串[TextStyle]{@link TextStyle}中的SuperscriptStyle上下角标样式仅在
-   * [TextVerticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textverticalalign20)属性值为
+   * [TextVerticalAlign]{@link TextVerticalAlign}属性值为
    * TextVerticalAlign.BASELINE时生效，其余垂直对齐方式下上下角标文本和普通文本表现一致，无上下角标效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1335,11 +1335,11 @@ export declare class LineHeightStyle {
    * > **说明：**
    * >
    * > - lineHeightMultiple与lineHeight或
-   * > [LineSpacingStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#linespacingstyle)同时设置
+   * > [LineSpacingStyle]{@link LineSpacingStyle}同时设置
    * > 时，仅lineHeightMultiple生效，行高为该行最高字体高度与倍数的乘积。
    * >
    * > - lineHeightMultiple小于0或undefined时不生效，使用lineHeight和
-   * > [LineSpacingStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#linespacingstyle)设置行高和
+   * > [LineSpacingStyle]{@link LineSpacingStyle}设置行高和
    * > 行间距。
    * >
    * > - lineHeightMultiple等于0时等效于设置为1。
@@ -1354,7 +1354,7 @@ export declare class LineHeightStyle {
   /**
    * 获取属性字符串的文本行高。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1397,7 +1397,7 @@ export declare class LineSpacingStyle {
    *
    * 取值范围：[0, +∞)
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1550,7 +1550,7 @@ export declare class MutableStyledString extends StyledString {
   /**
    * 清除指定范围内容的指定类型样式。
    *
-   * 被清空样式类型对象属性使用的是对应[Text](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md)组件属性的设置值，若Text组件未设置值，
+   * 被清空样式类型对象属性使用的是对应[Text]{@link Text}组件属性的设置值，若Text组件未设置值，
    * 则使用对应Text组件属性的默认值。
    *
    * 当属性字符串中包含图片时，同样生效。
@@ -1570,7 +1570,7 @@ export declare class MutableStyledString extends StyledString {
   /**
    * 清除指定范围内容的所有样式。
    *
-   * 被清空样式类型对象属性使用的是对应[Text](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md)组件属性的设置值，若Text组件未设置值，
+   * 被清空样式类型对象属性使用的是对应[Text]{@link Text}组件属性的设置值，若Text组件未设置值，
    * 则使用对应Text组件属性的默认值。
    *
    * 当属性字符串中包含图片时，同样生效。
@@ -1589,7 +1589,7 @@ export declare class MutableStyledString extends StyledString {
   /**
    * 清除属性字符串对象的所有样式。
    *
-   * 被清空样式类型对象属性使用的是对应[Text](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md)组件属性的设置值，若Text组件未设置值，
+   * 被清空样式类型对象属性使用的是对应[Text]{@link Text}组件属性的设置值，若Text组件未设置值，
    * 则使用对应Text组件属性的默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1645,7 +1645,7 @@ export declare class MutableStyledString extends StyledString {
  */
 export declare enum StyledStringKey {
   /**
-   * 字体样式键。[TextStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#textstyle)所属键。
+   * 字体样式键。[TextStyle]{@link TextStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1653,7 +1653,7 @@ export declare enum StyledStringKey {
    */
   FONT = 0,
   /**
-   * 文本装饰线样式键。[DecorationStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#decorationstyle)
+   * 文本装饰线样式键。[DecorationStyle]{@link DecorationStyle}
    * 所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1663,7 +1663,7 @@ export declare enum StyledStringKey {
   DECORATION = 1,
   /**
    * 文本基线偏移量样式键。
-   * [BaselineOffsetStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#baselineoffsetstyle)所
+   * [BaselineOffsetStyle]{@link BaselineOffsetStyle}所
    * 属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1673,7 +1673,7 @@ export declare enum StyledStringKey {
   BASELINE_OFFSET = 2,
   /**
    * 文本字符间距样式键。
-   * [LetterSpacingStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#letterspacingstyle)所属
+   * [LetterSpacingStyle]{@link LetterSpacingStyle}所属
    * 键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1682,7 +1682,7 @@ export declare enum StyledStringKey {
    */
   LETTER_SPACING = 3,
   /**
-   * 文本阴影样式键。[TextShadowStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#textshadowstyle)所
+   * 文本阴影样式键。[TextShadowStyle]{@link TextShadowStyle}所
    * 属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1691,7 +1691,7 @@ export declare enum StyledStringKey {
    */
   TEXT_SHADOW = 4,
   /**
-   * 文本行高样式键。[LineHeightStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#lineheightstyle)所
+   * 文本行高样式键。[LineHeightStyle]{@link LineHeightStyle}所
    * 属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1701,7 +1701,7 @@ export declare enum StyledStringKey {
   LINE_HEIGHT = 5,
   /**
    * 文本背景色样式键。
-   * [BackgroundColorStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#backgroundcolorstyle14)
+   * [BackgroundColorStyle]{@link BackgroundColorStyle}
    * 所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1710,7 +1710,7 @@ export declare enum StyledStringKey {
    */
   BACKGROUND_COLOR = 6,
   /**
-   * 超链接样式键。[UrlStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#urlstyle14)所属键。
+   * 超链接样式键。[UrlStyle]{@link UrlStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1719,7 +1719,7 @@ export declare enum StyledStringKey {
   URL = 7,
   /**
    * 文本行间距样式键。
-   * [LineSpacingStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#linespacingstyle)所属键。
+   * [LineSpacingStyle]{@link LineSpacingStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1727,7 +1727,7 @@ export declare enum StyledStringKey {
    */
   LINE_SPACING = 8,
   /**
-   * 事件手势键。[GestureStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#gesturestyle)所属键。
+   * 事件手势键。[GestureStyle]{@link GestureStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1735,7 +1735,7 @@ export declare enum StyledStringKey {
    */
   GESTURE = 100,
   /**
-   * 段落样式键。[ParagraphStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#paragraphstyle)所属键。
+   * 段落样式键。[ParagraphStyle]{@link ParagraphStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1743,7 +1743,7 @@ export declare enum StyledStringKey {
    */
   PARAGRAPH_STYLE = 200,
   /**
-   * 图片键。[ImageAttachment](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#imageattachment)所属键。
+   * 图片键。[ImageAttachment]{@link ImageAttachment}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1751,7 +1751,7 @@ export declare enum StyledStringKey {
    */
   IMAGE = 300,
   /**
-   * 自定义绘制Span键。[CustomSpan](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#customspan)所属键。
+   * 自定义绘制Span键。[CustomSpan]{@link CustomSpan}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1759,7 +1759,7 @@ export declare enum StyledStringKey {
    */
   CUSTOM_SPAN = 400,
   /**
-   * UserDataSpan键。[UserDataSpan](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#userdataspan)所
+   * UserDataSpan键。[UserDataSpan]{@link UserDataSpan}所
    * 属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1780,7 +1780,7 @@ export declare class ImageAttachment {
    * 图片对象的构造函数。
    *
    * @param { AttachmentType | undefined } value - PixelMap类型或
-   *     [ResourceStr](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcestr)类型图片设置项。
+   *     [ResourceStr]{@link ResourceStr}类型图片设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1858,7 +1858,7 @@ export declare class ImageAttachment {
   readonly colorFilter?: ColorFilterType;
 
   /**
-   * 获取属性字符串是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 获取属性字符串是否开启[SVG标签解析能力增强功能]{@link ./image}。
    *
    * true：支持SVG解析新能力；false：保持原有SVG解析能力。
    *
@@ -1933,7 +1933,7 @@ export declare interface ResourceImageAttachmentOptions {
    */
   colorFilter?: ColorFilterType;
   /**
-   * 控制是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 控制是否开启[SVG标签解析能力增强功能]{@link ./image}。
    *
    * true：支持SVG解析新能力；false：保持原有SVG解析能力。
    *
@@ -2021,7 +2021,7 @@ export declare interface ImageAttachmentInterface {
   colorFilter?: ColorFilterType;
 }
 /**
- * 图片设置项类型，用于设置属性字符串PixelMap类型或[ResourceStr](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcestr)类型图片。
+ * 图片设置项类型，用于设置属性字符串PixelMap类型或[ResourceStr]{@link ResourceStr}类型图片。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2049,7 +2049,7 @@ export declare interface ImageAttachmentLayoutStyle {
    *
    * 默认值：0
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2061,7 +2061,7 @@ export declare interface ImageAttachmentLayoutStyle {
    *
    * 默认值：0
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2073,7 +2073,7 @@ export declare interface ImageAttachmentLayoutStyle {
    *
    * 默认值：0
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2092,7 +2092,7 @@ export declare interface CustomSpanMetrics {
   /**
    * 自定义绘制Span的宽。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2103,7 +2103,7 @@ export declare interface CustomSpanMetrics {
   /**
    * 自定义绘制Span的高。
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2122,7 +2122,7 @@ export declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于挂载组件的偏移。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2132,7 +2132,7 @@ export declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于Text组件的上边距。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2142,7 +2142,7 @@ export declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于Text组件的下边距。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2152,7 +2152,7 @@ export declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span的所在行的基线偏移量。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2171,7 +2171,7 @@ export declare interface CustomSpanMeasureInfo {
   /**
    * 设置文本字体大小。
    *
-   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[fp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

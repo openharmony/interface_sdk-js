@@ -112,7 +112,7 @@ interface AlphabetIndexerOptions {
 *
 * > **说明：**
 * >
-* >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback](#enablehapticfeedback12)的说明配置振动权限。
+* >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback]{@link AlphabetIndexerAttribute#enableHapticFeedback}的说明配置振动权限。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -268,7 +268,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * 从API版本26.0.0开始，如果[popupBackground]{@link AlphabetIndexerAttribute#popupBackground}
    * [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle}均未被主动调用或
    * 参数value传入undefined，高档、中档算力设备默认显示为沉浸式材质
-   * [ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)的THIN样式，低档算力设备默认显示为白色背景。
+   * [ImmersiveStyle]{@link @ohos.arkui.uiMaterial.ImmersiveStyle}的THIN样式，低档算力设备默认显示为白色背景。
    *
    * @param { ResourceColor } value - 提示弹窗背景颜色。<br/>弹窗的背景模糊材质效果会对背景色产生影响，可通过设置
    *     [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle}属性值为NONE关闭背景模糊材质效果。<br/>
@@ -461,7 +461,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback): AlphabetIndexerAttribute;
 
   /**
-   * 设置选中项索引值。与[AlphabetIndexerOptions](#alphabetindexeroptions18对象说明)中的selected同时设置时，该属性的优先级更高。
+   * 设置选中项索引值。与[AlphabetIndexerOptions]{@link AlphabetIndexerOptions}中的selected同时设置时，该属性的优先级更高。
    *
    * 从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    *
@@ -546,7 +546,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * 设置提示弹窗的背景模糊材质。API版本26.0.0之前版本，未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。从API版本26.0.0开始，
    * [popupBackground]{@link AlphabetIndexerAttribute#popupBackground}和popupBackgroundBlurStyle均未被主动调用或者传入undefined时，在高档
-   * 、中档算力设备默认显示为沉浸式材质[ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)的THIN样式，低档
+   * 、中档算力设备默认显示为沉浸式材质[ImmersiveStyle]{@link @ohos.arkui.uiMaterial.ImmersiveStyle}的THIN样式，低档
    * 算力设备默认显示为白色背景。
    *
    * @param { BlurStyle } value - 设置提示弹窗的背景模糊材质。<br/>弹窗的背景模糊材质效果会对背景色
@@ -594,7 +594,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 *
 * > **说明：**
 * >
-* > >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback](#enablehapticfeedback12)的说明配置振动权限。
+* > >  从API version 12开始，触控反馈默认开启；使用前请按[enableHapticFeedback]{@link AlphabetIndexerAttribute#enableHapticFeedback}的说明配置振动权限。
 *
 * ###### 子组件
 *

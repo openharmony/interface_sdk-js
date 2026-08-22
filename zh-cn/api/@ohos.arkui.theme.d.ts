@@ -21,7 +21,7 @@
  */
 /**
  * 当前生效的主题风格对象，可从
- * [onWillApplyTheme](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onwillapplytheme12)中获取。
+ * [onWillApplyTheme]{@link onWillApplyTheme}中获取。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -774,7 +774,7 @@ export declare class ThemeControl {
   /**
      * 将用户自定义Theme设置应用级默认主题，以实现应用风格跟随Theme切换。若在页面中使用此接口设置应用级默认主题，需确保该接口在页面build前执行。若在UIAbility中使用此接口设置应用级默认主题，需确保该接口在
      * onWindowStageCreate阶段里windowStage.
-     * [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)接口调用完成的回调函数中执行。详细代码可参考
+     * [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}接口调用完成的回调函数中执行。详细代码可参考
      * [设置应用内组件自定义主题色](docroot://ui/theme_skinning.md#设置应用内组件自定义主题色)。
      *
    * @param { CustomTheme } theme

@@ -286,7 +286,7 @@ declare interface SearchOptions {
    *
    * **说明：**
    *
-   * icon的数据源支持[使用相对路径显示图片](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例25使用相对路径显示图片)和网络图片。
+   * icon的数据源支持[使用相对路径显示图片]{@link ./image}和网络图片。
    *
    * - 支持的图片格式包括png、jpg、bmp、svg、gif、pixelmap和heif。
    *
@@ -529,9 +529,9 @@ interface CancelButtonSymbolOptions {
 declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
  *
- * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -663,7 +663,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
    *
    * @param { Dimension } value - 首行文本缩进。
-   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[vp]{@link Length}
    *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1043,7 +1043,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * minFontSize小于或等于0时，自适应字号不生效，此时按照[textFont]{@link SearchAttribute#textFont}属性里面size的取值生效，未设置时按照其默认值生效。
    *
    * @param { number | string | Resource } value - 文本最小显示字号。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1064,7 +1064,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 置时按照其默认值生效。
    *
    * @param { number | string | Resource } value - 文本最大显示字号。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1177,7 +1177,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 对每个字符生效，包括行尾字符。
    *
    * @param { number | string | Resource } value - 文本字符间距。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

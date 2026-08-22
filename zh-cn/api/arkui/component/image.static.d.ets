@@ -237,7 +237,7 @@ export declare enum ImageRotateOrientation {
      * 读取图片携带的EXIF元数据作为显示方向，支持旋转和镜像。
      * 
      * [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}和
-     * [DrawableDescriptor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#drawabledescriptor10)
+     * [DrawableDescriptor]{@link DrawableDescriptor}
      * 类型
      * 的图片不包含头信息，调用该接口时图片显示效果不变化。
      * 
@@ -700,7 +700,7 @@ export declare interface ImageAttribute extends CommonMethod {
   /**
      * 设置填充颜色，设置后填充颜色会覆盖在图片上。仅对svg图源生效，设置后会替换svg图片中所有可绘制元素的填充颜色。
      * 如需对png图片进行修改颜色，可以使用
-     * [colorFilter](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#colorfilter9)。
+     * [colorFilter]{@link colorFilter}。
      * 如果想重置填充颜色可以传入[ColorContent]{@link ColorContent}类型。
      * 支持通过传入[ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}类型设置P3色域颜色值，
      * 可在支持高色域的设备上获得更丰富的色彩表现。
@@ -793,7 +793,7 @@ export declare interface ImageAttribute extends CommonMethod {
   /**
      * 设置图片的渲染模式。SVG类型图源不支持该属性。
      * 
-     * 设置[ColorFilter](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#colorfilter9)时，
+     * 设置[ColorFilter]{@link ColorFilter}时，
      * 该属性设置不生效。
      * 
      * 当组件的参数类型为
@@ -910,7 +910,7 @@ export declare interface ImageAttribute extends CommonMethod {
    * @param { ColorFilter | DrawingColorFilter | undefined } value -  图像颜色的滤镜值。<br/>
      *     [ColorFilter]{@link ColorFilter}、[DrawingColorFilter]{@link DrawingColorFilter}类型及SVG图源的相关说明，
      *     请参考
-     *     [colorFilter](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#colorfilter9)的接口说明。
+     *     [colorFilter]{@link colorFilter}的接口说明。
      *     [ResourceColor]{@link ResourceColor}类型的输入颜色值，默认按照[DrawingColorFilter]{@link DrawingColorFilter}.
      *     [createBlendModeColorFilter]{@link @ohos.graphics.drawing:drawing.ColorFilter.createBlendModeColorFilter}的
      *     SRC_ATOP模式进行绘制。<br/>当传入undefined时，图片显示无滤镜效果。 [since 26.0.0]
@@ -930,7 +930,7 @@ export declare interface ImageAttribute extends CommonMethod {
    * @param { ColorFilter | DrawingColorFilter | ResourceColor | undefined } value - 图像颜色的滤镜值。<br/>
      *     [ColorFilter]{@link ColorFilter}、[DrawingColorFilter]{@link DrawingColorFilter}类型及SVG图源的相关说明，
      *     请参考
-     *     [colorFilter](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#colorfilter9)的接口说明。
+     *     [colorFilter]{@link colorFilter}的接口说明。
      *     [ResourceColor]{@link ResourceColor}类型的输入颜色值，默认按照[DrawingColorFilter]{@link DrawingColorFilter}.
      *     [createBlendModeColorFilter]{@link @ohos.graphics.drawing:drawing.ColorFilter.createBlendModeColorFilter}的
      *     SRC_ATOP模式进行绘制。<br/>当传入undefined时，图片显示无滤镜效果。 [since 26.0.0]
@@ -1050,7 +1050,7 @@ export declare interface ImageAttribute extends CommonMethod {
      * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能。<!--RP3--><!--RP3End-->
      * 
      * 不能和[overlay]{@link CommonMethod#overlay}属性同时使用，两者同时设置时overlay中
-     * [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)属性将失效。
+     * [CustomBuilder]{@link CustomBuilder}属性将失效。
      * 该特性依赖设备能力。
      * 
      * 分析图像要求是静态非矢量图，即svg、gif等图像类型不支持分析，支持传入
@@ -1173,7 +1173,7 @@ export declare interface ImageAttribute extends CommonMethod {
   default orientation(orientation: ImageRotateOrientation | undefined): this;
 
   /**
-     * 开启或关闭[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)，
+     * 开启或关闭[SVG标签解析能力增强功能]{@link ./image}，
      * 开启后相关SVG图片显示效果会有变化。
      * 
      * Image组件创建后，不支持动态修改该属性的值。

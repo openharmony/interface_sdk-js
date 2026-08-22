@@ -491,9 +491,9 @@ declare class CanvasPath {
  * > Path2D对象不支持重置已设置的路径，如需新路径可重新创建一个空的Path2D对象。
  * >
  * > Path2D对象的方法无法对
- * > [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
  * > 和
- * > [OffscreenCanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-offscreencanvasrenderingcontext2d.md)
+ * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
  * > 对象中设置的路径生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -536,7 +536,7 @@ declare class Path2D extends CanvasPath {
   /**
    * 构造二维变换矩阵对象，默认值是属性全为0的矩阵，支持配置Matrix2D对象的单位模式。
    *
-   * @param { LengthMetricsUnit } [unit] - 用来配置Matrix2D对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D]{@link ./canvas}
+   * @param { LengthMetricsUnit } [unit] - 用来配置Matrix2D对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D]{@link Canvas}
    *     。
    *     <br>默认值：DEFAULT
    *     <br>异常值NaN和Infinity按默认值处理。
@@ -568,7 +568,7 @@ declare class Path2D extends CanvasPath {
    * @param { Path2D } path - 路径对象。
    * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值NaN和Infinity按默认值处理。
    *    <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -584,7 +584,7 @@ declare class Path2D extends CanvasPath {
    * 使用符合SVG路径描述规范的路径字符串构造Path2D对象。
    *
    * @param { string } d - 符合SVG路径描述规范的路径字符串，格式参考
-   *    [SVG路径描述规范](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)，
+   *    [SVG路径描述规范]{@link ./path}，
    *    异常值按无效值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -599,11 +599,11 @@ declare class Path2D extends CanvasPath {
    * 使用符合SVG路径描述规范的路径字符串构造Path2D对象，支持配置Path2D对象的单位模式。
    *
    * @param { string } description - 符合SVG路径描述规范的路径字符串，格式参考
-   *    [SVG路径描述规范](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)，
+   *    [SVG路径描述规范]{@link ./path}，
    *    异常值按无效值处理。
    * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值NaN和Infinity按默认值处理。
    *    <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -618,7 +618,7 @@ declare class Path2D extends CanvasPath {
 
 /**
  * 一个Object对象，使用
- * [createPattern](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#createpattern)
+ * [createPattern]{@link createPattern}
  * 方法创建，通过指定图像和重复方式创建图片填充的模板。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -857,7 +857,7 @@ declare class ImageBitmap {
    * 
    * > **说明：**
    * >
-   * > - 必须与[constructor()](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-imagebitmap.md#constructor)方法配对
+   * > - 必须与[constructor()]{@link ImageBitmap#constructor}方法配对
    * > 使用，创建ImageBitmap对象后，应在使用完毕时调用close()释放资源。未调用close()可能导致图形资源泄漏，影响应用性能。
    * >
    * > - 建议在Canvas绘制完成后调用，如在[onReady]{@link CanvasAttribute#onReady(event: VoidCallback)}回调的最后调用close()。
@@ -910,7 +910,7 @@ declare class ImageBitmap {
    *    以及`file://data/storage`路径前缀的字符串。
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值undefined、NaN和Infinity按默认值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -939,7 +939,7 @@ declare class ImageBitmap {
    * @param { PixelMap } data - 图片的数据源支持PixelMap对象。
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1010,7 +1010,7 @@ declare class ImageData {
    *
    * > **说明：**
    * >
-   * > 可使用[px2vp](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#px2vp12)
+   * > 可使用[px2vp]{@link UIContext#px2vp}
    * > 接口进行单位转换。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1054,7 +1054,7 @@ declare class ImageData {
    *    <br/>默认值：值全为0的一维数组。
    * @param { LengthMetricsUnit } [unit] - 用来配置ImageData对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值undefined、NaN和Infinity按默认值处理。
    *    <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1090,7 +1090,7 @@ declare class RenderingContextSettings {
    * **说明：**
    * 
    * 绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，如需修改文本抗锯齿效果，请使用
-   * [antialias<sup>24+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-common-property.md#antialias24)
+   * [antialias<sup>24+</sup>]{@link RenderingContextSettings#antialias}
    * 接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1111,7 +1111,7 @@ declare class RenderingContextSettings {
    *     <br>默认值：false
    *     <br>**说明：**
    *     <br>绘制文本默认开启抗锯齿效果，RenderingContextSettings的antialias无法影响绘制文本的抗锯齿效果，如需修改文本抗锯齿效果，请使用
-   *     [antialias<sup>24+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-common-property.md#antialias24)
+   *     [antialias<sup>24+</sup>]{@link RenderingContextSettings#antialias}
    *     接口。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1432,9 +1432,9 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * 指定绘制的填充色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
    *
-   * - 类型为string时，表示设置填充区域的颜色，颜色格式参考[ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中string类型说明。
+   * - 类型为string时，表示设置填充区域的颜色，颜色格式参考[ResourceColor]{@link ./units.ResourceColor}中string类型说明。
    *
-   * - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考[ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中number类型说明。
+   * - 类型为number时，表示设置填充区域的颜色，不支持设置全透明色，颜色格式参考[ResourceColor]{@link ./units.ResourceColor}中number类型说明。
    *
    * - 类型为[CanvasGradient]{@link ./canvasgradient}时，表示渐变对象，使用[createLinearGradient]{@link ./createlineargradient}方法创建。
    *
@@ -1458,9 +1458,9 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * 设置线条的颜色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
    *
-   * - 类型为string时，表示设置线条使用的颜色，颜色格式参考[ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中string类型说明。
+   * - 类型为string时，表示设置线条使用的颜色，颜色格式参考[ResourceColor]{@link ./units.ResourceColor}中string类型说明。
    *
-   * - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考[ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中number类型说明。
+   * - 类型为number时，表示设置线条使用的颜色，不支持设置全透明色，颜色格式参考[ResourceColor]{@link ./units.ResourceColor}中number类型说明。
    *
    * - 类型为[CanvasGradient]{@link ./canvasgradient}时，表示渐变对象，使用[createLinearGradient]{@link ./createlineargradient}方法创建。
    *
@@ -1904,7 +1904,7 @@ declare class CanvasRenderer extends CanvasPath {
    * 设置绘制阴影时的阴影颜色，此属性为只写属性，可通过赋值语句设置其值，
    * 但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
    *
-   * 颜色格式参考[ResourceColor](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resourcecolor)中string类型说明。
+   * 颜色格式参考[ResourceColor]{@link ./units.ResourceColor}中string类型说明。
    *
    * 默认值：透明黑色
    *
@@ -2059,7 +2059,7 @@ declare class CanvasRenderer extends CanvasPath {
    * 从API version 20开始，支持通过该接口设置注册过的自定义字体（DevEco Studio的预览器不支持显示自定义字体）。
    * 自定义字体注册有以下两种方式。
    * 一种是通过ArkUI的异步接口
-   * this.uiContext.getFont().[registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont)
+   * this.uiContext.getFont().[registerFont]{@link Font#registerFont}
    * 注册，调用后立即绘制可能会导致自定义字体不生效。
    * 另一种是直接调用字体引擎的
    * fontCollection.[loadFontSync](docroot://reference/apis-arkgraphics2d/js-apis-graphics-text.md#loadfontsync)
@@ -2422,7 +2422,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
   /**
    * 配置并启动AI分析功能，使用Promise异步回调。使用前需先设置
-   * [enableAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md#enableanalyzer12)为true，启用图像
+   * [enableAnalyzer]{@link enableAnalyzer}为true，启用图像
    * AI分析能力。
    * 
    * 该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，避免出现画面和分析内容不一致的情况。
@@ -2510,7 +2510,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > 当CanvasRenderingContext2D对象和Canvas组件发生绑定时，会触发'onAttach'回调，
    * > 表示可以获取到[canvas](#canvas13)。
    * > 避免在'onAttach'中执行绘制方法，应保证Canvas组件已经
-   * > [onReady](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md)
+   * > [onReady]{@link onReady}
    * > 再进行绘制。
    * > 触发'onAttach'回调的一般场景：
    * > 1、Canvas组件创建时绑定CanvasRenderingContext2D对象；
@@ -2609,7 +2609,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * 
    * > **说明：**
    * >
-   * > - 从该接口获取的CanvasRenderingContext2D对象不允许作为参数创建[Canvas]{@link ./canvas}组件，否则会导致应用崩溃。
+   * > - 从该接口获取的CanvasRenderingContext2D对象不允许作为参数创建[Canvas]{@link Canvas}组件，否则会导致应用崩溃。
    * >
    * > - 当入参的DrawingRenderingContext对象未绑定Canvas组件时，将返回错误码。
    *
@@ -2638,13 +2638,13 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * >
  * > OffscreenCanvasRenderingContext2D无法在ServiceExtensionAbility中使用，
  * > ServiceExtensionAbility中建议使用
- * > [Drawing模块](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
+ * > [Drawing模块]{@link @ohos.graphics.drawing}
  * > 进行离屏绘制。
  * >
  * > beginPath、moveTo、lineTo、closePath、bezierCurveTo、quadraticCurveTo、arc、arcTo、ellipse、rect和
  * > roundRect接口只能对OffscreenCanvasRenderingContext2D中的路径生效，无法对
- * > [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
- * > 和[Path2D](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-path2d.md)
+ * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
+ * > 和[Path2D]{@link Path2D}
  * > 对象中设置的路径生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2732,7 +2732,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *    <br>默认值：null。
    * @param { LengthMetricsUnit } [unit] - 用来配置OffscreenCanvasRenderingContext2D对象的单位模式，
    *    配置后无法动态更改，配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值undefined、NaN和Infinity按默认值处理。
    *    <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2748,8 +2748,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
 /**
  * OffscreenCanvas组件用于绘制自定义图形。
  *
- * 使用[Canvas](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvas.md)组件或
- * [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)
+ * 使用[Canvas]{@link Canvas}组件或
+ * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
  * 对象时，渲染、动画和用户交互通常发生在应用程序的主线程上，与画布动画和渲染相关的计算可能会影响
  * 应用程序性能。OffscreenCanvas提供了一个可以在屏幕外渲染的画布，这样可以在单独的线程中运行一些任务，
  * 从而避免影响应用程序主线程性能。
@@ -2757,7 +2757,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * > **说明：**
  * >
  * > OffscreenCanvas无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用
- * > [Drawing模块](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
+ * > [Drawing模块]{@link @ohos.graphics.drawing}
  * > 进行离屏绘制。
  *
  * ## 子组件
@@ -2863,7 +2863,7 @@ declare class OffscreenCanvas {
    *    <br>默认单位为vp。
    * @param { LengthMetricsUnit } [unit] - 用来配置OffscreenCanvas对象的单位模式，配置后无法动态更改，
    *    配置方法同
-   *    [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *    <br>异常值NaN和Infinity按默认值处理。
    *    <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2964,7 +2964,7 @@ declare class DrawingRenderingContext {
    *
    * @param { LengthMetricsUnit } [unit] - 用来配置DrawingRenderingContext对象的单位模式，配置后无法更改，
    *     配置方法同
-   *     [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *     <br>异常值undefined、NaN和Infinity按默认值处理。
    *     <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3040,8 +3040,8 @@ interface CanvasInterface {
    * 括组件被其他组件或是其他窗口遮挡导致不可见的场景。
    *
    * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - CanvasRenderingContext2D: 不支持多个Canvas共用一个
-   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link ./canvas}对象。DrawingRenderingContext: 不支持多个
-   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link ./canvas}对象。
+   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link Canvas}对象。DrawingRenderingContext: 不支持多个
+   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link Canvas}对象。
    *     <br>异常值null和undefined按未设置context处理。
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3061,8 +3061,8 @@ interface CanvasInterface {
    * 括组件被其他组件或是其他窗口遮挡导致不可见的场景。
    *
    * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - CanvasRenderingContext2D: 不支持多个Canvas共用一个
-   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link ./canvas}对象。DrawingRenderingContext: 不支持多个
-   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link ./canvas}对象。
+   *     CanvasRenderingContext2D对象，具体描述见[CanvasRenderingContext2D]{@link Canvas}对象。DrawingRenderingContext: 不支持多个
+   *     Canvas共用一个DrawingRenderingContext对象，具体描述见[DrawingRenderingContext]{@link Canvas}对象。
    *     <br>异常值null和undefined按未设置context处理。
    * @param { ImageAIOptions } imageAIOptions - 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。
    *     <br>异常值null和undefined按[ImageAIOptions]{@link ImageAIOptions}的默认值处理，默认取值为{ type:
@@ -3083,7 +3083,7 @@ interface CanvasInterface {
    * >
    * > - 使用本接口创建的Canvas组件将在
    * > [onReady<sup>23+</sup>]{@link CanvasAttribute#onReady(event: Callback<DrawingRenderingContext | undefined> | undefined)}
-   * > 回调的入参中返回一个[DrawingRenderingContext<sup>12+</sup>]{@link ./canvas}对象，可用于在该Canvas组件上进行绘制。
+   * > 回调的入参中返回一个[DrawingRenderingContext<sup>12+</sup>]{@link Canvas}对象，可用于在该Canvas组件上进行绘制。
    * >
    * > - 使用本接口创建的Canvas组件在组件不可见时将不响应绘制指令。
    * >
@@ -3105,7 +3105,7 @@ interface CanvasInterface {
  * 
  * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
  * 
- * 需要搭配[CanvasRenderingContext2D]{@link ./canvas}中的
+ * 需要搭配[CanvasRenderingContext2D]{@link Canvas}中的
  * [startImageAnalyzer]{@link CanvasRenderingContext2D.startImageAnalyzer}和
  * [stopImageAnalyzer]{@link CanvasRenderingContext2D.stopImageAnalyzer}一起使用。
  * 
@@ -3167,9 +3167,9 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier]{@link CommonMethod#attributeModifier}
    * 动态设置属性方法。
    *
-   * 需要搭配[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)中的
-   * [StartImageAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#startimageanalyzer12)和
-   * [StopImageAnalyzer](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md#stopimageanalyzer12)
+   * 需要搭配[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}中的
+   * [StartImageAnalyzer]{@link StartImageAnalyzer}和
+   * [StopImageAnalyzer]{@link StopImageAnalyzer}
    * 一起使用。
    *
    * 不能和[overlay]{@link CommonMethod#overlay}属性同时使用，

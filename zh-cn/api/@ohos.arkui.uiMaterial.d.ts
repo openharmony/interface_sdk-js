@@ -21,7 +21,7 @@
 
 /**
  * 本模块提供系统材质的接口定义。不同的系统材质对应不同的UI效果，包括背景色
- * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、边框颜色
+ * [backgroundColor]{@link CommonMethod#backgroundColor}、边框颜色
  * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
  * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}效果。
  *
@@ -51,7 +51,7 @@ declare namespace uiMaterial {
   enum MaterialType {
     /**
      * 无系统材质效果。对应的效果为背景色
-     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)为
+     * [backgroundColor]{@link CommonMethod#backgroundColor}为
      * 透明色，边框颜色[borderColor]{@link CommonMethod#borderColor}为透明色，边框宽度[borderWidth]{@link CommonMethod#borderWidth}为0，无阴影
      * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}。
      * 
@@ -68,7 +68,7 @@ declare namespace uiMaterial {
      * 半透明系统材质效果。对应的效果为：
      * 
      * 背景色
-     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)：
+     * [backgroundColor]{@link CommonMethod#backgroundColor}：
      * 浅色模式为"#f2f1f3f5"，深色模式为"#f2303131"。
      * 
      * 边框颜色[borderColor]{@link CommonMethod#borderColor}为混合10%的透明度的theme.colors.compForegroundPrimary的
@@ -472,7 +472,7 @@ declare namespace uiMaterial {
    * 
    * 沉浸式材质根据设备算力有分档表现，设备算力的高、中、低档由设备厂商决定，定义在系统配置文件中。在高档和中档算力设备上，影响材质层滤镜效果和阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}效果。在低档算力设备上，影响背景色
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、边框
+   * [backgroundColor]{@link CommonMethod#backgroundColor}、边框
    * 颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}效果。且同一材质的效果，会受到设置应用中沉浸光感配置项的影响，不同强弱程度的沉浸光感配置
    * 下，材质的参数和效果存在差异。

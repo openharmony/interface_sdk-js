@@ -264,11 +264,11 @@ declare enum WaterFlowLayoutMode {
    *
    * 1. 无动画跳转到较远的位置时，会以目标位置为基准，向前或向后布局FlowItem。这之后如果滑回跳转前的位置，内容的布局效果可能和之前不一致。这个效果会导致跳转后回滑到顶部时，顶部节点可能不对齐。
    *  2. 使用SLIDING_WINDOW布局模式并设置[WaterFlowSections]{@link WaterFlowSections}分组时，滚动动画结束后，若视窗内包含分组起始位置，且检测到该分组在视窗内的列或行起始位置未对齐，或分组起始FlowItem与分组起始索引不一致，WaterFlow会重新计算布局以校正分组内容位置。
-   *  3. 使用SLIDING_WINDOW布局模式调用[backToTop](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#backtotop15)回到顶部操作时，若回顶动画结束后仍未到达顶部，WaterFlow会执行一次无动画的顶部校正，使内容重新对齐到起始位置。
+   *  3. 使用SLIDING_WINDOW布局模式调用[backToTop]{@link CommonMethod#backToTop}回到顶部操作时，若回顶动画结束后仍未到达顶部，WaterFlow会执行一次无动画的顶部校正，使内容重新对齐到起始位置。
    *  4. [scroller]{@link WaterFlowOptions}的[currentOffset]{@link Scroller#currentOffset}或[offset]{@link Scroller#offset}接口返回的总偏移量在触发跳转或数据更新后不准确，在回滑到顶部时会重新校准，从API version 23开始，新增offset接口。
    *  5. 如果在同一帧内调用跳转（如无动画的[scrollToIndex]{@link Scroller#scrollToIndex}、[scrollEdge]{@link Scroller#scrollEdge}）和输入偏移量（如滑动手势或滚动动画），两者都会生效。
    *  6. 调用无动画的[scrollToIndex]{@link Scroller#scrollToIndex}进行跳转，如果跳转到较远位置（超过视窗内的FlowItem数量的位置）时，移动窗口模式对总偏移量进行估算。
-   *  7. 仅在API version 18及以上版本中支持滚动条[scrollBar](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbar11)显示。低于此版本时，设置滚动条将不显示。
+   *  7. 仅在API version 18及以上版本中支持滚动条[scrollBar]{@link CommonMethod#scrollBar}显示。低于此版本时，设置滚动条将不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -373,7 +373,7 @@ declare interface WaterFlowOptions {
 declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
 
   /**
-   * 设置[onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件的回调。
+   * 设置[onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -387,7 +387,7 @@ declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * 设置[onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)事件的回调。
+   * 设置[onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}事件的回调。
    *
    * > **说明：**
    * >
@@ -469,10 +469,10 @@ interface WaterFlowInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+ * 除支持[通用属性]{@link CommonMethod}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还
  * 支持以下属性：
  *
- * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
+ * 除支持[通用事件]{@link CommonMethod}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
  * 支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -668,7 +668,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * 设置预加载的FlowItem数量，并配置是否显示预加载节点。
    *
    * 配合[clip]{@link CommonMethod#clip(value: boolean)}或
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节点。
    *
    * 只在[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了virtualScroll开关的
    * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)中生效，超出显示及缓存范围的FlowItem会被释放。

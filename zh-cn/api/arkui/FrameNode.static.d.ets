@@ -177,7 +177,7 @@ export declare interface InteractionEventBindingInfo {
 
   /**
    * 是否以注册节点事件（
-   * [registerNodeEvent](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#registernodeevent)
+   * [registerNodeEvent](docroot://reference/apis-arkui/c-pis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#registernodeevent)
    * ）的方式绑定事件。
    *
    * true表示以注册节点事件的方式绑定事件，false表示没有以注册节点事件的方式绑定事件。

@@ -105,7 +105,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * > 不支持[通用属性]](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。若需设置通用属性，
  * > 应使用[Text]{@link ./text}进行设置，或改用[属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
  * >
- * > [通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)只支持点击事件
+ * > [通用事件]{@link CommonMethod}只支持点击事件
  * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
  * > [onHover]{@link CommonMethod#onHover}。
  *
@@ -310,7 +310,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { number | string } value - Letter spacing.<br>Unit: [fp]{@link common}<br>The [Resource]{@link Resource}
    *     type is supported since API version 20. [since 7 - 19]
    * @param { number | ResourceStr } value - 文本字符间距。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   *     <br>单位：[fp]{@link Length} 
    *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 20]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -390,7 +390,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
  * > 不支持[通用属性]](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。若需设置通用属性，
  * > 应使用[Text]{@link ./text}进行设置，或改用[属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
  * >
- * > [通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)只支持点击事件
+ * > [通用事件]{@link CommonMethod}只支持点击事件
  * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
  * > [onHover]{@link CommonMethod#onHover}。
  * 

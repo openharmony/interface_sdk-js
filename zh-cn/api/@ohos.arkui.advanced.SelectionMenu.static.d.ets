@@ -75,7 +75,7 @@ export interface EditorMenuOptions {
 /**
  * 扩展下拉菜单。
  * 
- * 继承于[MenuItemOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-menuitem.md#menuitemoptions)。
+ * 继承于[MenuItemOptions]{@link MenuItemOptions}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -204,7 +204,7 @@ export interface SelectionMenuOptions {
    * 
    * 点击自定义文本选择菜单内置粘贴功能选项后，空白处粘贴或者选中文本替换粘贴均是保留被复制文本的样式。
    * 
-   * 当富文本组件[RichEditor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md)的copyOptions属性设置为
+   * 当富文本组件[RichEditor]{@link RichEditor}的copyOptions属性设置为
    * `CopyOptions.None`时，内置的复制剪切功能不会被限制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -286,8 +286,8 @@ export interface SelectionMenuOptions {
 
 /**
  * 入参为空时，文本选择菜单组件SelectionMenu内容区大小及组件大小为零。表现例如，富文本组件
- * [RichEditor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md)使用
- * [bindSelectionMenu](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md#bindselectionmenu)接口绑定一
+ * [RichEditor]{@link RichEditor}使用
+ * [bindSelectionMenu]{@link bindSelectionMenu}接口绑定一
  * 个SelectionMenu的右键菜单，则右键富文本组件区域时无任何菜单弹出。
  *
  * @param { SelectionMenuOptions } options - 文本选择菜单可选项。

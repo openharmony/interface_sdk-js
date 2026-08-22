@@ -636,9 +636,9 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * 支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)，不支持文本通用属性，仅支持以下特有属性。
+ * 支持[通用属性]{@link CommonMethod}，不支持文本通用属性，仅支持以下特有属性。
  * 
- * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ * 支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -660,7 +660,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    *
    * @param { number | string | Resource } value - SymbolGlyph组件字体大小。
    *     <br>取值范围：[0, +∞)
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    *     <br>不支持设置百分比字符串。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -868,7 +868,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * 设置SymbolGlyph组件的阴影效果。未通过该接口设置时，默认阴影效果为{radius：0,color：Color.Black,offsetX：0,offsetY：0}。
    *
    * @param { Optional<ShadowOptions> } shadow - SymbolGlyph组件的阴影效果。
-   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[vp]{@link Length}
    *     <br>不支持fill、type属性和color中的ColoringStrategy枚举值。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

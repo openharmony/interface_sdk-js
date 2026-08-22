@@ -101,13 +101,13 @@ declare type OnGetStartIndexByIndexCallback = (targetIndex: int) => StartLineInf
 /**
 * Grid布局选项。其中，irregularIndexes和onGetIrregularSizeByIndex可对仅设置rowsTemplate或columnsTemplate的Grid使用，可以指定一个index数组，并为其中的
 * index对应的GridItem设置其占据的行数与列数，使用方法参见
-* [示例3](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)；onGetRectByIndex可对同时设置
+* [示例3]{@link ./grid}；onGetRectByIndex可对同时设置
 * rowsTemplate和columnsTemplate的Grid使用，为指定的index对应的GridItem设置位置和大小，使用方法参见
-* [示例1](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)。
+* [示例1]{@link ./grid}。
 *
 * 为提高Grid在跳转、列数变化等场景的性能，应该尽量使用GridLayoutOptions。即使Grid中没有任何特殊的跨行跨列节点，也可以通过使用'Grid(this.scroller, {regularSize: [1, 1]})
 * '的方式提高跳转性能。参考<!--RP1-->
-* [使用GridLayoutOptions提升Grid性能](docroot://performance/grid_optimization.md#使用gridlayoutoptions提升grid性能)<!--RP1End-->。
+* [使用GridLayoutOptions提升Grid性能]{@link ./grid}<!--RP1End-->。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -387,7 +387,7 @@ declare interface ComputedBarAttribute {
 declare interface UIGridEvent extends UIScrollableCommonEvent {
 
   /**
-   * 设置[onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件的回调。
+   * 设置[onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -401,7 +401,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * 设置[onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)事件的回调。
+   * 设置[onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -443,7 +443,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
 declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
 
 /**
-* 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+* 除支持[通用属性]{@link CommonMethod}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还
 * 支持以下属性：
 *
 * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
@@ -693,7 +693,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    *
    * 设置缓存后，会在Grid显示区域沿主轴方向的前后两侧分别预加载cachedCount个网格行/列。垂直滚动时，上下两侧分别预加载cachedCount行；水平滚动时，左右两侧分别预加载cachedCount列。配合裁剪
    * [clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节点。
    *
    * @param { number } count - 预加载的GridItem的数量。<br/>默认值：垂直滚动时为一个屏幕内可显示的行数，水平滚动时为一个屏幕内可显示的列数，最大值为16。<br/>取值范围：
    *     [0, +∞)，设置为小于0的值时，按1处理。<br/>通过状态变量单独更新count值时，Grid组件不会触发布局更新，缓存节点数量仅会在下次布局时更新。
@@ -872,7 +872,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * API版本26.0.0开始，可以使用[ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)、
    * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)、
    * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md)的
-   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口实现该效果，参考
+   * [onMove]{@link CommonMethod#onMove}接口实现该效果，参考
    * [示例22（使用OnMove进行拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例22使用onmove进行拖拽)。它同时支持跨行跨列的
    * GridItem的拖拽，但需注意Grid必须是可滚动的。
    *

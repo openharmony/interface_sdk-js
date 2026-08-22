@@ -365,9 +365,7 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default menuAlign(alignType: MenuAlignType | undefined, offset?: Offset | undefined): this;
     /**
-     * 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。与
-     * [optionWidth](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-select copy.md#optionwidth11)<sup>11+</
-     * sup>相比，width参数新增了对undefined类型的支持。
+     * 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。
      * 
      * 当设置为异常值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。
      *
@@ -380,9 +378,7 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default optionWidth(value: Dimension | OptionWidthMode | undefined): this;
     /**
-     * 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。与
-     * [optionHeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-select copy.md#optionheight11)<sup>11+
-     * </sup>相比，height参数新增了对undefined类型的支持。
+     * 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。
      * 
      * 当设置为异常值或零时，属性不生效。
      * 
@@ -397,9 +393,7 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default optionHeight(value: Dimension | undefined): this;
     /**
-     * 设置下拉菜单的背景色。与
-     * [menuBackgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-select copy.md#menubackgroundcolor11)
-     * <sup>11+</sup>相比，resColor参数新增了对undefined类型的支持。
+     * 设置下拉菜单的背景色。
      *
      * @param { ResourceColor | undefined } value - 下拉菜单的背景色。<br/>当resColor的值为undefined时，默认值为Color.Transparent。
      * @returns { SelectAttribute } the attribute of the select.

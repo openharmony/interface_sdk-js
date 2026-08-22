@@ -41,7 +41,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 export interface IconOptions {
 
   /**
-   * 图标图片或图片地址引用请参考[Image](docroot://reference/apis-arkui-static/arkui-ts/ts-basic-components-image.md#image-1)。
+   * 图标图片或图片地址引用请参考[Image]{@link ./image}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,7 +501,7 @@ export interface IconItemOptions {
    *
    * Chip大小是ChipSize.NORMAL时，suffix默认值：{width: 24,height: 24}。</br> 如果想动态修改size，那么必须在引入
    * [IconGroupSuffix]{@link IconGroupSuffix}时，使用
-   * [SymbolGlyphModifier](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-attribute-symbolglyphmodifier.md#symbolglyphmodifier)
+   * [SymbolGlyphModifier]{@link CommonMethod#SymbolGlyphModifier}
    * 类型。
    *
    * 值为undefined时，按默认值处理。

@@ -78,7 +78,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * 默认值：ProgressType.Linear
    * 
    * **说明：** 不同的type需分别对应相应的[style]{@link ProgressAttribute#style}属性设置，详细映射关系参考
-   * [ProgressStyleMap](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-progress.md#progressstylemap10)。
+   * [ProgressStyleMap]{@link ProgressStyleMap}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -780,9 +780,9 @@ interface ProgressInterface {
 }
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
  *
- * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ * 支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -843,7 +843,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    *
    * @param { Style } value - 组件的样式。
    *     <br>**说明：** 不同的type需分别对应相应的style属性设置，详细映射关系参考
-   *     [ProgressStyleMap](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-progress.md#progressstylemap10)。
+   *     [ProgressStyleMap]{@link ProgressStyleMap}。
    *     <br>- CapsuleStyleOptions：设置Capsule的样式。
    *     <br>- RingStyleOptions：设置Ring的样式。
    *     <br>- LinearStyleOptions：设置Linear的样式。

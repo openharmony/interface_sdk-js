@@ -879,8 +879,8 @@ declare namespace promptAction {
      * 自定义弹窗控制器，继承自[CommonController](#commoncontroller18)。
      *
      * DialogController可作为UIContext弹出自定义弹窗的成员变量，具体用法可看
-     * [openCustomDialogWithController](arkts-apis-uicontext-promptaction.md#opencustomdialogwithcontroller18)和
-     * [presentCustomDialog](arkts-apis-uicontext-promptaction.md#presentcustomdialog18)示例。
+     * [openCustomDialogWithController]{@link PromptAction#openCustomDialogWithController}和
+     * [presentCustomDialog]{@link PromptAction#presentCustomDialog}示例。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1821,14 +1821,14 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showToast](arkts-apis-uicontext-promptaction.md#showtoast)替代。
-     *      showToast需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     *      [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showToast]{@link PromptAction#showToast}替代。
+     *      showToast需先通过[UIContext]{@link UIContext}中的
+     *      [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      *      然后通过该对象进行调用。且直接使用showToast可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     *      [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     *      [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     *      [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     *      [PromptAction]{@link PromptAction}对象。
      * >
      * > - Toast样式单一，不支持内容的自定义，具体支持能力请参考[ShowToastOptions](#showtoastoptions)提供的接口。
      *
@@ -1858,7 +1858,7 @@ declare namespace promptAction {
     * >
     * > - 直接使用openToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用UIContext中的getPromptAction方法获
     * > 取到PromptAction对象，再通过该对象调用
-    * > [openToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#opentoast18)实现。
+    * > [openToast]{@link PromptAction#openToast}实现。
      *
      * @param { ShowToastOptions } options - Toast选项，用于配置Toast的显示内容和样式。
      * @returns { Promise<number> } 返回即时反馈的id，可供closeToast使用。
@@ -1882,7 +1882,7 @@ declare namespace promptAction {
      * > 直接使用closeToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用
      *   UIContext中的getPromptAction方法获取
      * > 到PromptAction对象，再通过该对象调用
-     * > [closeToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#closetoast18)实现。
+     * > [closeToast]{@link PromptAction#closeToast}实现。
      *
      * @param { number } toastId - openToast返回的id，用于标识要关闭的Toast实例。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1903,14 +1903,14 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog](arkts-apis-uicontext-promptaction.md#showdialog)替代。
-     * showDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog]{@link PromptAction#showDialog}替代。
+     * showDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      * 然后通过该对象进行调用。且直接使用showDialog可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ShowDialogOptions } options - 页面显示对话框信息描述。
      * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功时，err为undefined，
@@ -1934,14 +1934,14 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog](arkts-apis-uicontext-promptaction.md#showdialog-1)替代。
-     * showDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog]{@link PromptAction#showDialog}替代。
+     * showDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      * 然后通过该对象进行调用。且直接使用showDialog可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ShowDialogOptions } options - 对话框选项。
      * @returns { Promise<ShowDialogSuccessResponse> } Promise对象，返回对话框的响应结果。
@@ -1968,15 +1968,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[openCustomDialog](arkts-apis-uicontext-promptaction.md#opencustomdialog12-1)替代。
-     * openCustomDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用openCustomDialog可能导致
+     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[openCustomDialog]{@link PromptAction#openCustomDialog}替代。
+     * openCustomDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用openCustomDialog可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 12开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 12开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { CustomDialogOptions } options - 自定义弹窗的内容。 
      *      <br>**说明：** 如果BaseDialogOptions中的[isModal](js-apis-promptAction.md#basedialogoptions11)与
@@ -2002,15 +2002,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[closeCustomDialog](arkts-apis-uicontext-promptaction.md#closecustomdialog12-1)替代。
-     * closeCustomDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用closeCustomDialog可能导致
+     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[closeCustomDialog]{@link PromptAction#closeCustomDialog}替代。
+     * closeCustomDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用closeCustomDialog可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 12开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 12开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { number } dialogId - openCustomDialog返回的对话框id。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2032,15 +2032,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu11)替代。
-     * showActionMenu需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu]{@link PromptAction#showActionMenu}替代。
+     * showActionMenu需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 11开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 11开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ActionMenuOptions } options - 操作菜单选项。
      * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功时，err为undefined，
@@ -2064,15 +2064,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu)替代。
-     * showActionMenu需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu]{@link PromptAction#showActionMenu}替代。
+     * showActionMenu需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ActionMenuOptions } options - 操作菜单选项。
      * @returns { Promise<ActionMenuSuccessResponse> } Promise对象，返回菜单的响应结果。

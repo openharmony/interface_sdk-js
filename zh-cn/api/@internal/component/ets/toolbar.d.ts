@@ -75,11 +75,11 @@ interface ToolBarItemOptions {
 }
 
 /**
- * 可以使用**ToolBarItem**组件，通过[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性向标题栏中添加toolbar item。
+ * 可以使用**ToolBarItem**组件，通过[toolbar]{@link CommonMethod#toolbar}通用属性向标题栏中添加toolbar item。
  *
  * > **说明**
  * >
- * > 该组件通常与[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性一起使用。
+ * > 该组件通常与[toolbar]{@link CommonMethod#toolbar}通用属性一起使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -88,7 +88,7 @@ interface ToolBarItemOptions {
  */
 interface ToolBarItemInterface {
   /**
-   * 默认在标题栏对应分栏开头位置创建工具栏项，分栏位置由绑定该[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)属性的组件所在分栏位置而定。
+   * 默认在标题栏对应分栏开头位置创建工具栏项，分栏位置由绑定该[toolbar]{@link CommonMethod#toolbar}属性的组件所在分栏位置而定。
    *
    * @param { ToolBarItemOptions } [options] - **ToolBarItem**的可选参数，包括[ToolBarItemPlacement]{@link ToolBarItemPlacement}类型的**placement**参数。<br>默认值：**placement: ToolBarItemPlacement.TOP_BAR_LEADING**
    * @returns { ToolBarItemAttribute }
@@ -111,11 +111,11 @@ interface ToolBarItemInterface {
 declare class ToolBarItemAttribute {}
 
 /**
- * 可以使用**ToolBarItem**组件，通过[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性向标题栏中添加toolbar item。
+ * 可以使用**ToolBarItem**组件，通过[toolbar]{@link CommonMethod#toolbar}通用属性向标题栏中添加toolbar item。
  *
  * > **说明**
  * >
- * > 该组件通常与[toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar)通用属性一起使用。
+ * > 该组件通常与[toolbar]{@link CommonMethod#toolbar}通用属性一起使用。
  *
  * ###### 子组件
  *

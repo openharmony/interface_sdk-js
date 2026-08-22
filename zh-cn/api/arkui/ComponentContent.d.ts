@@ -114,7 +114,7 @@ export class ComponentContent<T extends Object> extends Content {
    *
    * @param { Object } [param] - 用于复用ComponentContent的参数。该参数将直接用于ComponentContent中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则
    *     会导致未定义行为。调用此方法将同步触发内部自定义组件的
-   *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期回调，并
+   *     [aboutToReuse]{@link aboutToReuse}生命周期回调，并
    *     将该参数作为回调的入参。默认值为undefined，此时ComponentContent中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -266,7 +266,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    *
    * @param { Object } [param] - 用于复用[ReactiveComponentContent]{@link ReactiveComponentContent}的参数。该参数将直接用于
    *     ReactiveComponentContent中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则会导致未定义行为。调用此方法将同步触发内部自定义组件的
-   *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期回调，并
+   *     [aboutToReuse]{@link aboutToReuse}生命周期回调，并
    *     将该参数作为回调的入参。默认值为undefined，此时ReactiveComponentContent中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

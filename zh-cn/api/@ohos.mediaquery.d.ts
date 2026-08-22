@@ -120,11 +120,11 @@ declare namespace mediaquery {
    * > **说明：** 
    * >
    * > -matchMediaSync需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getMediaQuery](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmediaquery)方法获取
+   * > [getMediaQuery]{@link UIContext#getMediaQuery}方法获取
    * > [MediaQuery]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getMediaQuery](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmediaquery)方法获取当前UI上下文关联的
+   * > [getMediaQuery]{@link UIContext#getMediaQuery}方法获取当前UI上下文关联的
    * > [MediaQuery]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { string } condition - 媒体事件的匹配条件，具体可参考[媒体查询语法规则](docroot://ui/arkts-layout-development-media-query.md#语法规则)。

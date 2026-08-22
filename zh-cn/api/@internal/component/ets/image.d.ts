@@ -464,13 +464,13 @@ interface ImageInterface {
    *     <br>1. PixelMap格式为像素图，常用于图片编辑的场景。
    *     <br>2. ResourceStr包含Resource和string格式。
    *     <br>string格式可用于加载网络图片和本地图片。当
-   *     [使用相对路径显示图片](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例25使用相对路径显示图片)时，不支持跨包/跨模块调用该
+   *     [使用相对路径显示图片]{@link ./image}时，不支持跨包/跨模块调用该
    *     Image组件，建议使用Resource格式来管理需全局使用的图片资源。
    *     <br>从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resource目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中
    *     buildOption > resOptions > copyCodeResource > enable 设置为true。
    *     <br>- 支持`Base64`字符串。
    *     <br>- 传入的字符串为https网络图片地址时，建议参考
-   *     [示例2（下载与显示静态网络图片）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例2下载与显示静态网络图片)。
+   *     [示例2（下载与显示静态网络图片）]{@link ./image}。
    *     <br>- 支持file://路径前缀的字符串，应用沙箱URI：file://<bundleName>/<sandboxPath>。应用沙箱路径URI构造可参考
    *     [constructor]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}。沙箱路径需要使用
    *     [fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath}方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包
@@ -496,7 +496,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src - 图片的数据源，支持本地图片和网络图片，引用方式请参考
    *     [加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
    *     <br>PixelMap、ResourceStr和DrawableDescriptor的使用请参考
-   *     [Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)的src参数说明。
+   *     [Image]{@link ./image}的src参数说明。
    *     <br> 传入[ImageContent]{@link ImageContent}类型，指定图像内容。
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。
    * @returns { ImageAttribute }
@@ -530,7 +530,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src - 图片的数据源，支持本地图片和网络图片，引用方式请参考
    *     [加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
    *     <br>PixelMap、ResourceStr和DrawableDescriptor的使用请参考
-   *     [Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)的src参数说明。
+   *     [Image]{@link ./image}的src参数说明。
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。
    * @param { ImageAIOptions } imageAIOptions - 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。
    * @returns { ImageAttribute }
@@ -1580,7 +1580,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能。<!--RP3--><!--RP3End-->
    *
    * 不能和[overlay]{@link CommonMethod#overlay}属性同时使用，两者同时设置时overlay中
-   * [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)属性将失效。该特性依赖设备能力。
+   * [CustomBuilder]{@link CustomBuilder}属性将失效。该特性依赖设备能力。
    *
    * 分析图像要求是静态非矢量图，即svg、gif等图像类型不支持分析，支持传入[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}进行分析，目前仅支持
    * [RGBA_8888]{@link @ohos.multimedia.image:image.PixelMapFormat}类型，使用方式见
@@ -1700,7 +1700,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   orientation(orientation: ImageRotateOrientation) : ImageAttribute;
 
   /**
-   * 开启或关闭[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)，开启后相关SVG图片显示效果会有变化。
+   * 开启或关闭[SVG标签解析能力增强功能]{@link ./image}，开启后相关SVG图片显示效果会有变化。
    *
    * Image组件创建后，不支持动态修改该属性的值。
    *

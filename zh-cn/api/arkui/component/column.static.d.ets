@@ -27,7 +27,7 @@ import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
  * | --- | --- |
  * | string | 表示值类型为字符串，可取任意值。 |
  * | double | 表示类型为数字，可取任意值。 |
- * | [Resource](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resource) | 表示值为资源引用类型，取值为从系统资源或者应用资源中引入的数据值。 |
+ * | [Resource]{@link ./units.Resource} | 表示值为资源引用类型，取值为从系统资源或者应用资源中引入的数据值。 |
  *
  * @typedef { string | double | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -47,7 +47,7 @@ export interface ColumnOptions {
     /**
      * 纵向布局元素垂直方向间距。<br>
      * space为负数或者
-     * [justifyContent](docroot://reference/apis-arkui/arkui-ts/ts-container-column.md#justifycontent8)
+     * [justifyContent]{@link CommonMethod#justifyContent}
      * 设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，space不生效。<br>
      * 默认值：0<br>
      * 非法值：按默认值处理。<br>
@@ -119,7 +119,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > Column布局时若子组件不设置
-     * > [flexShrink](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md#flexshrink)
+     * > [flexShrink]{@link CommonMethod#flexShrink}
      * > 则默认不会压缩子组件，即所有子组件主轴大小累加可超过容器主轴，
      * > 此时FlexAlign.Center和FlexAlign.End会失效。
      *

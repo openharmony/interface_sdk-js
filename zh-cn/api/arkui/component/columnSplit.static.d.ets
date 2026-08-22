@@ -32,7 +32,7 @@ export interface ColumnSplitDividerStyle {
      * 子组件与其上方分割线的距离。<br>
      * 默认值：0vp<br>
      * 非法值：按默认值处理，此时
-     * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
+     * [getInspectorByKey()]{@link getInspectorByKey}
      * 接口获取到的属性值为undefined。
      *
      * @type { ?Dimension }
@@ -46,7 +46,7 @@ export interface ColumnSplitDividerStyle {
      * 子组件与其下方分割线的距离。<br>
      * 默认值：0vp<br>
      * 非法值：按默认值处理，此时
-     * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
+     * [getInspectorByKey()]{@link getInspectorByKey}
      * 接口获取到的属性值为undefined。
      *
      * @type { ?Dimension }
@@ -128,23 +128,23 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
  * 初始化后，动态修改子组件的高度不生效，分割线位置保持不变，可通过拖动相邻分割线改变子组件高度。
  *
  * 初始化后，动态修改
- * [margin](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#margin)、
- * [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border)、
- * [padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)
+ * [margin]{@link CommonMethod#margin}、
+ * [border]{@link CommonMethod#border}、
+ * [padding]{@link CommonMethod#padding}
  * 通用属性导致子组件尺寸大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的高度。
  *
  * > **说明：**
  * >
  * > ColumnSplit组件
- * > [形状裁剪](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md)
+ * > [形状裁剪]{@link ./common}
  * > 的默认值为true。
  * >
- * > 与[RowSplit](docroot://reference/apis-arkui/arkui-ts/ts-container-rowsplit.md)相同，
+ * > 与[RowSplit]{@link ./rowSplit}相同，
  * > ColumnSplit的分割线可调整上下两侧子组件的高度，
  * > 子组件的高度调整范围受其最大最小高度限制。
  * >
- * > 支持[clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)、
- * > [margin](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#margin)
+ * > 支持[clip]{@link CommonMethod#clip}、
+ * > [margin]{@link CommonMethod#margin}
  * > 等通用属性，未设置clip属性时，其默认值为true。
  *
  * @param { CustomBuilder } [content_] - 定义子组件的Builder函数。

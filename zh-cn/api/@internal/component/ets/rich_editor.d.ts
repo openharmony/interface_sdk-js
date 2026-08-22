@@ -1066,7 +1066,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * 文本描边宽度。
    * 
-   * 单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * 单位为[vp]{@link Length}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1561,7 +1561,7 @@ declare interface RichEditorGesture {
   onClick?: Callback<ClickEvent>;
 
   /**
-   * [GestureEvent](docroot://reference/apis-arkui/arkui-ts/ts-gesture-common.md#gestureevent对象说明)为用户长按事件。
+   * [GestureEvent]{@link GestureEvent}为用户长按事件。
    * 
    * 长按完成时回调事件。
    *
@@ -1577,7 +1577,7 @@ declare interface RichEditorGesture {
 
   /**
    * 双击事件回调函数，在用户双击操作完成时触发。回调参数为
-   * [GestureEvent](docroot://reference/apis-arkui/arkui-ts/ts-gesture-common.md#gestureevent对象说明)对象，包含手势事件信息。
+   * [GestureEvent]{@link GestureEvent}对象，包含手势事件信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

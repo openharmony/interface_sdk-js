@@ -884,8 +884,8 @@ declare class CustomEnvKey<S> {
 
 /**
  * 定义可写的系统环境变量Key集合，用于通过@Env装饰器获取对应的系统环境变量。可通过
- * [WithEnv](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md)中的
- * [env](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md#env)方法设置局部环境变量值以影响后代组件渲染，具体示例请参见
+ * [WithEnv]{@link CommonMethod#WithEnv}中的
+ * [env]{@link CommonMethod#env}方法设置局部环境变量值以影响后代组件渲染，具体示例请参见
  * [示例2（设置局部布局方向）](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md#示例2设置局部布局方向)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4139,7 +4139,7 @@ interface ICurve {
  */
 declare interface MotionPathOptions {
   /**
-   * 位移动画的运动路径，使用[svg路径字符串](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)。path中支持使用
+   * 位移动画的运动路径，使用[svg路径字符串]{@link PathOptions#commands}。path中支持使用
    * start和end进行起点和终点的替代，如：'Mstart.x start.y L50 50 Lend.x end.y Z'，更多说明请参考
    * [绘制路径](docroot://ui/ui-js-components-svg-path.md)。
    * 
@@ -4239,7 +4239,7 @@ declare interface sharedTransitionOptions {
    * 推荐以Curve或ICurve形式指定。
    * 
    * 当类型为string时，为动画插值曲线，取值参考
-   * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+   * [AnimateParam]{@link AnimateParam}的curve参数。
    * 
    * 默认值：Curve.Linear
    *
@@ -6185,7 +6185,7 @@ declare interface RotateAngleOptions {
  * > **说明：**
  * >
  * > 1. 当使用TransitionOptions类型的入参指定转场效果时，**必须**配合
- * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)使用才有动画效果，动效时长、曲线、延时跟随
+ * > [animateTo]{@link UIContext#animateTo}使用才有动画效果，动效时长、曲线、延时跟随
  * > animateTo中的配置。
  * >
  * > 2. 当使用TransitionOptions作为入参，且不指定除type外的任何参数时，此时相当于指定了透明度的转场效果。例如，指定{type: TransitionType.Insert}相当于指定了{type: 
@@ -7052,19 +7052,19 @@ declare interface DragItemInfo {
  * 
  * >
  * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
- * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)来明确UI的执行上下文。
+ * > [animateTo]{@link UIContext#animateTo}来明确UI的执行上下文。
  * >
  * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
  * >
- * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动画，自
+ * > - 如果在[aboutToAppear]{@link aboutToAppear}中调用动画，自
  * > 定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
  * >
- * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)时，
+ * > - 执行[aboutToDisappear]{@link aboutToDisappear}时，
  * > 组件即将销毁，不能在aboutToDisappear里面做动画。
  * >
  * > - 在组件出现和消失时，可以通过[组件内转场]{@link common}添加动画效果。
  * >
- * > - 组件内转场不支持的属性，可以参考[示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用
+ * > - 组件内转场不支持的属性，可以参考[示例2]{@link CommonMethod}，使用
  * > animateTo实现动画执行结束后组件消失的效果。
  * >
  * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，具体
@@ -8930,7 +8930,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -8949,7 +8949,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -8969,7 +8969,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -8990,7 +8990,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -9115,7 +9115,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9132,7 +9132,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9150,7 +9150,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9169,7 +9169,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9191,7 +9191,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9208,7 +9208,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9226,7 +9226,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9245,7 +9245,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -14965,7 +14965,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 1. 半模态显示期间mode属性不支持动态切换，两种模式的显示层级完全不同，无法做到显示期间同一个半模态从一个层级变换到另一个层级。建议在使用时明确诉求固定mode值。 
    *  2. 设置SheetMode.EMBEDDED时不支持设置UIContext属性，两者对应的半模态显示层级效果互相冲突。
-   * 3. 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
+   * 3. 使用[openBindSheet]{@link UIContext#openBindSheet}启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
    *
    * @default SheetMode.OVERLAY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15044,7 +15044,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * **说明：**
    * 
-   * 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动的半模态页面，不支持设置、更
+   * 使用[openBindSheet]{@link UIContext#openBindSheet}启动的半模态页面，不支持设置、更
    * 新该属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15260,7 +15260,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 悬浮效果只在控制条显示的场景生效，且控制条不占位。
    * 
-   * title传入[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)时enableFloatingDragBar始终为
+   * title传入[CustomBuilder]{@link CustomBuilder}时enableFloatingDragBar始终为
    * false。
    *
    * @default false
@@ -15308,10 +15308,10 @@ declare interface SheetOptions extends BindOptions {
    * 默认值：undefined，会清除由该接口设置的材质效果。 
    * 
    * **说明**: 不同系统材质对应不同的属性影响效果，该接口影响背景色
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、边框
+   * [backgroundColor]{@link CommonMethod#backgroundColor}、边框
    * 颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。使用示例请参考
-   * [示例10（半模态设置系统材质）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sheet-transition.md#示例10半模态设置系统材质)。
+   * [示例10（半模态设置系统材质）]{@link CommonMethod}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15706,8 +15706,8 @@ declare interface PopupBorderLinearGradient {
  * 配置弹出气泡的参数。使用[UIContext]{@link @ohos.arkui.UIContext}中的
  * [getPromptAction()]{@link @ohos.arkui.UIContext#getPromptAction}方法获取到
  * [PromptAction]{@link @ohos.arkui.UIContext#PromptAction}对象，再通过该对象调用
- * [openPopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#openpopup18)和
- * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)时传入的options参数。
+ * [openPopup]{@link PromptAction#openPopup}和
+ * [updatePopup]{@link PromptAction#updatePopup}时传入的options参数。
  *
  * @interface PopupCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15785,7 +15785,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15831,7 +15831,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -15990,7 +15990,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -16011,7 +16011,7 @@ declare interface PopupCommonOptions {
    * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
    * 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。
    * 
-   * 4.不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 4.不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16031,7 +16031,7 @@ declare interface PopupCommonOptions {
    * **说明：**
    * 
    * 1. 在onWillDismiss回调中，不能再做onWillDismiss拦截。
-   * 2. 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 2. 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16174,7 +16174,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -17070,7 +17070,7 @@ declare interface PopupOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -17157,7 +17157,7 @@ declare interface CustomPopupOptions {
    * 
    * 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用position属性，如果使用将导致气泡不显示。
    * 2. builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。
-   * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build)方法里。
+   * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build]{@link build}方法里。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -17688,7 +17688,7 @@ declare interface CustomPopupOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -18706,7 +18706,7 @@ declare interface ContextMenuOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -19746,7 +19746,7 @@ declare interface ClickEffect {
 }
 
 /**
- * [fadingEdge](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#fadingedge14)属性边缘渐隐参数对象。
+ * [fadingEdge]{@link CommonMethod#fadingEdge}属性边缘渐隐参数对象。
  *
  * @typedef FadingEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19772,7 +19772,7 @@ declare interface FadingEdgeOptions {
 }
 
 /**
- * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19780,7 +19780,7 @@ declare interface FadingEdgeOptions {
  * @since 10
  */
 /**
- * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19789,7 +19789,7 @@ declare interface FadingEdgeOptions {
  * @since 11 dynamic
  */
 /**
- * [nestedScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#nestedscroll11)属性参数对象。
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20905,7 +20905,7 @@ declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.
 *
 * > **说明：**
 * >
-* > 背景图片的同步加载可能会带来潜在性能问题，详情可见[Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)中说明。
+* > 背景图片的同步加载可能会带来潜在性能问题，详情可见[Image]{@link ./image}中说明。
 *
  * @interface BackgroundImageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22025,7 +22025,7 @@ declare class CommonMethod<T> {
    *
    * @param { BlurStyle } value - 内容模糊样式。
    * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。默认值请参考
-   *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions)。
+   *     [ForegroundBlurStyleOptions]{@link CommonMethod#ForegroundBlurStyleOptions}。
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24581,7 +24581,7 @@ declare class CommonMethod<T> {
    *    returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
    *    once set, the latter will be used in place of the former. Using
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
+   *    [CustomBuilder]{@link CustomBuilder} requires offline rendering
    *    and may increase performance overhead and latency. In light of this, you are advised to use
    *    [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
    *    an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
@@ -24597,7 +24597,7 @@ declare class CommonMethod<T> {
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
+   *    [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
    *    推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。<br/> 当传入类
    *    型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截图
    *    作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。 [since 12]
@@ -25036,7 +25036,7 @@ declare class CommonMethod<T> {
    * > **说明：**
    * >
    * > - 仅设置edgeLight不会产生边缘流光效果，需结合
-   * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)更改position参数达到流光效果。可参考
+   * > [animateTo]{@link UIContext#animateTo}更改position参数达到流光效果。可参考
    * > [示例4（设置组件边缘流光效果）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect-sys.md#示例4设置组件边缘流光效果)。
    * >
    * >
@@ -26669,12 +26669,12 @@ declare class CommonMethod<T> {
    * 设置组件的系统材质。不同系统材质对应不同的属性影响效果，该接口可以影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边
    * 框颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}、材质层滤镜效果，影响的属性与设备算力档位相关，参考
-   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。使用示例请参考
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.ImmersiveMaterial}。使用示例请参考
    * [示例1（设置沉浸式系统材质）](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#示例1设置沉浸式系统材质)。
    *
    * @param { SystemUiMaterial | undefined } material - 组件的系统材质对象。设置为undefined时恢复为无材质的效果，若同时设置了材质对象影响的通用属性，会恢复至对应通用属性设置的
    *     值，冲突的属性由材质对象决定，参考
-   *     [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。
+   *     [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.ImmersiveMaterial}。
    * @returns { T }
    返回当前组件。
    * @systemapi
@@ -26690,7 +26690,7 @@ declare class CommonMethod<T> {
    *
    * @param { SystemUiMaterial | undefined } material - 组件的系统材质对象。设置为undefined时恢复为无材质的效果，若同时设置了材质对象影响的通用属性，会恢复至对应通用属性设置的
    *     值，冲突的属性由材质对象决定，参考
-   *     [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。
+   *     [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.ImmersiveMaterial}。
    * @returns { T }
    返回当前组件。
    * @stagemodelonly
@@ -28667,7 +28667,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * 组件的生命周期回调，在可复用组件从节点树上被加入到复用缓存之前调用。当该组件后续从复用缓存中被重新复用时，将触发
-   * [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期回调。在频繁调用
+   * [aboutToReuse]{@link aboutToReuse}生命周期回调。在频繁调用
    * 场景下，应避免在其中执行耗时操作，否则可能导致丢帧卡顿。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28754,7 +28754,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * onFormRecycle回调函数在卡片回收时执行，卡片提供方可以返回需要卡片管理服务代保存的数据，在卡片恢复时通过
-   * [onFormRecover](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onformrecover11)接口传给卡片提供方。
+   * [onFormRecover]{@link onFormRecover}接口传给卡片提供方。
    *
    * @returns { string } 返回卡片提供方需要卡片管理服务代保存的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28768,7 +28768,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * onFormRecover回调函数在卡片恢复时执行，卡片提供方可以拿到卡片回收时卡片管理服务代保存的数据，该数据可以通过
-   * [onFormRecycle](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onformrecycle11)卡片回收回调函数保存
+   * [onFormRecycle]{@link onFormRecycle}卡片回收回调函数保存
    * 到卡片管理服务。
    *
    * @param { string } statusData - 卡片回收时卡片管理服务代保存的数据。
@@ -29464,9 +29464,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 
   /**
    * 设置滚动条的边距。边距是在滚动条避让滚动组件圆角区域距离的基础上计算的，如果滚动条区域小于滚动条的最小长度，则不显示滚动条。如果设置了本属性，则
-   * [autoAdjustScrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#autoadjustscrollbarmargin)
+   * [autoAdjustScrollBarMargin]{@link CommonMethod#autoAdjustScrollBarMargin}
    * 的自动调整边距功能不生效。应注意确保
-   * [scrollBarHeight](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarheight)与本属性的设定
+   * [scrollBarHeight]{@link CommonMethod#scrollBarHeight}与本属性的设定
    * 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
    *
    * @param { ScrollBarMargin } margin - 滚动条起始、末尾边距。
@@ -29485,13 +29485,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    *
    * 打开滚动条自动边距调整后，滚动条滚动方向上会避让组件[padding]{@link CommonMethod#padding}、
    * [safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
-   * [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
-   * /[contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)区
+   * [contentStartOffset]{@link CommonMethod#contentStartOffset}
+   * /[contentEndOffset]{@link CommonMethod#contentEndOffset}区
    * 域。如果设置了
-   * [scrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarmargin20)属性，则自
+   * [scrollBarMargin]{@link CommonMethod#scrollBarMargin}属性，则自
    * 动调整边距不生效。当[padding]{@link CommonMethod#padding}、[safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
-   * [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
-   * 、[contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)在水
+   * [contentStartOffset]{@link CommonMethod#contentStartOffset}
+   * 、[contentEndOffset]{@link CommonMethod#contentEndOffset}在水
    * 平方向上的总和大于组件的宽度，或在垂直方向上的总和大于组件的高度时，滚动条不显示。
    *
    * @param { boolean | undefined } enable - 是否自动调整边距。
@@ -29587,7 +29587,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * 设置是否支持滚动手势。
    *
    * @param { boolean } value - 是否支持手指或鼠标滚动手势。设置为true时支持，设置为false时不支持，但不影响控制器[Scroller]{@link Scroller}的滚动接口和
-   *     [backToTop](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#backtotop15)属性。<br/>默认值：
+   *     [backToTop]{@link CommonMethod#backToTop}属性。<br/>默认值：
    *     true
    * @returns { T }
    *    返回当前滚动组件。
@@ -29688,7 +29688,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 
   /**
    * 滚动事件回调，滚动组件滚动前触发。与
-   * [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)的对比：
+   * [onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}的对比：
    * onWillScroll在滚动发生前触发，可通过返回值指定将要滚动的偏移量，适用于需要拦截或自定义滚动行为的场景；onDidScroll在滚动发生时触发，返回当前帧的实际滚动偏移量和滑动状态，适用于仅需监听滚动过程的场景。两者可同
    * 时使用。
    *
@@ -29785,7 +29785,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * > - 如果惯性动效通过[fling]{@link Scroller#fling}方法触发，则onWillStartFling不触发。
    * >
    * > - 惯性动效的触发场景参考
-   * > [flingSpeedLimit](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#flingspeedlimit11)方法的
+   * > [flingSpeedLimit]{@link CommonMethod#flingSpeedLimit}方法的
    * > 说明。
    *
    * @param { VoidCallback } handler - 滚动组件将要开始惯性动效时触发的回调。
@@ -29933,7 +29933,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * 设置表冠响应事件灵敏度。
    *
-   * 组件收到[表冠事件]{@link ./common}的前提是该组件获焦，焦点控制可以通过[focusable]{@link CommonMethod#focusable}、
+   * 组件收到[表冠事件]{@link CommonMethod}的前提是该组件获焦，焦点控制可以通过[focusable]{@link CommonMethod#focusable}、
    * [defaultFocus]{@link CommonMethod#defaultFocus}、[focusOnTouch]{@link CommonMethod#focusOnTouch}进行管理。
    *
    * @param { Optional<CrownSensitivity> } sensitivity - 表冠响应灵敏度。CrownSensitivity.LOW表示低灵敏度，滚动响应较慢；
@@ -29952,7 +29952,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * 设置滚动组件是否支持点击状态栏回到顶部。
    *
    * 支持当前页面的滚动组件收到点击状态栏事件后，通过动画回到顶部。点击状态栏后，后台应用的滚动组件不受影响，不做回到顶部的动作。本属性不受
-   * [enableScrollInteraction](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#enablescrollinteraction11)
+   * [enableScrollInteraction]{@link CommonMethod#enableScrollInteraction}
    * 设置的影响。
    *
    * @param { boolean } backToTop - 设置滚动组件是否支持点击状态栏回到顶部。设置为true支持点击状态栏通过动画回到顶部，设置为false不支持点击状态栏回到顶部。<br/>默认值：<br/>API
@@ -29975,7 +29975,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * > **说明：**
    * >
    * > 应确保scrollBarHeight与
-   * > [scrollBarMargin](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarmargin20)的设定
+   * > [scrollBarMargin]{@link CommonMethod#scrollBarMargin}的设定
    * > 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
    *
    * @param { LengthMetrics | undefined } height - 滚动条滑轨高度。<br/>值必须大于等于0。设置为undefined或小于0时，自适应滚动组件高度，儿童智能表则恢复至默认值37vp。设置
@@ -30111,9 +30111,9 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
- * 懒加载布局容器[LazyColumnLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazycolumnlayout.md)、
+ * 懒加载布局容器[LazyColumnLayout]{@link LazyColumnLayout}、
  * [LazyVGridLayout]{@link ./lazy_grid_layout}、
- * [LazyVWaterFlowLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazyvwaterflowlayout.md)所显示的子组件索引发生变化时的回调
+ * [LazyVWaterFlowLayout]{@link LazyVWaterFlowLayout}所显示的子组件索引发生变化时的回调
  * 类型。
  *
  * > **说明：**
@@ -30237,7 +30237,7 @@ declare class DynamicNode<T> {
   /**
    * 拖拽排序数据移动回调。当父容器组件为[List]{@link ./list}或[Grid]{@link ./grid}，并且ForEach/LazyForEach/Repeat每次迭代都生成一个ListItem或GridItem组
    * 件时才生效。调用后开启拖拽排序功能；拖拽排序离手后，如果数据位置发生变化，将触发handler回调，上报数据移动起始索引号和目标索引号。需要在回调中修改数据源，并确保数据仅顺序发生变化，才能正常执行落位动画。与
-   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)相比，新增eventHandler参
+   * [onMove]{@link CommonMethod#onMove}相比，新增eventHandler参
    * 数，可监听长按、开始拖拽、经过其他组件、拖拽结束等拖拽阶段事件。
    *
    * @param { Optional<OnMoveHandler> } handler
@@ -30254,7 +30254,7 @@ declare class DynamicNode<T> {
 }
 
 /**
- * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#edgeeffect11)属性参数对象。
+ * [edgeEffect]{@link CommonMethod#edgeEffect}属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30263,7 +30263,7 @@ declare class DynamicNode<T> {
  * @since 11
  */
 /**
- * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#edgeeffect11)属性参数对象。
+ * [edgeEffect]{@link CommonMethod#edgeEffect}属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30892,7 +30892,7 @@ declare interface KeyframeState {
    * 推荐以Curve或ICurve形式指定。
    * 
    * 当类型为string时，为动画插值曲线，取值参考
-   * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+   * [AnimateParam]{@link AnimateParam}的curve参数。
    * 
    * 默认值：Curve.EaseInOut
    * 
@@ -31225,7 +31225,7 @@ declare interface UICommonEvent {
 declare interface UIScrollableCommonEvent extends UICommonEvent {
 
   /**
-   * 设置[onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)事件的回调。
+   * 设置[onReachStart]{@link UIScrollableCommonEvent#onReachStart}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -31239,7 +31239,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachStart(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件的回调。
+   * 设置[onReachEnd]{@link UIScrollableCommonEvent#onReachEnd}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -31253,7 +31253,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachEnd(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onScrollStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onscrollstart11)事件的回调。
+   * 设置[onScrollStart]{@link UIScrollableCommonEvent#onScrollStart}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -31267,7 +31267,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStart(callback: Callback<void> | undefined): void;
 
   /**
-   * 设置[onScrollStop](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onscrollstop11)事件的回调。
+   * 设置[onScrollStop]{@link UIScrollableCommonEvent#onScrollStop}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *

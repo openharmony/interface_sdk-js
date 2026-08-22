@@ -192,7 +192,7 @@ declare class StyledString {
    * >、\<h6>、\、\、\<li>。支持将标签中的style属性样式转换成对应的属性字符串样式。
    * 
    * 使用方法参考
-   * [示例12（fromHtml和toHtml互相转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)
+   * [示例12（fromHtml和toHtml互相转换）]{@link StyledString}
    * 和[示例18（fromHtml转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例18fromhtml转换)。
    * 
    * | 标签名称 | 说明                   |
@@ -245,7 +245,7 @@ declare class StyledString {
    * StyledStringKey.LETTER_SPACING、StyledStringKey.TEXT_SHADOW、StyledStringKey.LINE_HEIGHT、StyledStringKey.IMAGE。
    * 
    * 使用方法参考
-   * [示例12（fromHtml和toHtml互相转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)。
+   * [示例12（fromHtml和toHtml互相转换）]{@link StyledString}。
    *
    * @param { StyledString } styledString - 要转换成HTML格式字符串的属性字符串对象。
    * @returns { string } HTML格式字符串。
@@ -506,7 +506,7 @@ declare class TextStyle {
   /**
    * 获取属性字符串的文本字体大小。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   * 单位：[vp]{@link Length} 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -560,7 +560,7 @@ declare class TextStyle {
   /**
    * 获取属性字符串的文本描边宽度。
    * 
-   * 默认返回0，单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * 默认返回0，单位为[vp]{@link Length}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -666,7 +666,7 @@ declare interface TextStyleInterface {
    * 
    * 如果LengthMetrics的unit值是PERCENT，当前设置不生效，处理为16fp。
    * 
-   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   * 单位：[fp]{@link Length} 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1004,7 +1004,7 @@ declare class BaselineOffsetStyle {
   /**
    * 获取属性字符串的文本基线偏移量。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1041,7 +1041,7 @@ declare class LetterSpacingStyle {
   /**
    * 获取属性字符串的文本字符间距。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1263,7 +1263,7 @@ declare class ParagraphStyle {
   readonly textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * 获取属性字符串文本段落的首行文本缩进。单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 获取属性字符串文本段落的首行文本缩进。单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1328,7 +1328,7 @@ declare class ParagraphStyle {
   /**
    * 获取属性字符串文本段落的段落间距。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1377,7 +1377,7 @@ declare class ParagraphStyle {
   /**
    * 获取属性字符串文本段落的文本尾部缩进距离。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   * 单位：[vp]{@link Length} 
    * 
    * 取值范围：[0, INT32_MAX]
    * 
@@ -1625,7 +1625,7 @@ declare class LineHeightStyle {
   /**
    * 获取属性字符串的文本行高。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1681,7 +1681,7 @@ declare class LineSpacingStyle {
    * 
    * 取值范围：[0, +∞)
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2263,7 +2263,7 @@ declare class ImageAttachment {
   readonly colorFilter?: ColorFilterType;
 
   /**
-   * 获取属性字符串是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 获取属性字符串是否开启[SVG标签解析能力增强功能]{@link ./image}。
    * 
    * true：支持SVG解析新能力；false：保持原有SVG解析能力。
    * 
@@ -2376,7 +2376,7 @@ declare interface ResourceImageAttachmentOptions {
   syncLoad?: boolean;
 
   /**
-   * 获取属性字符串是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 获取属性字符串是否开启[SVG标签解析能力增强功能]{@link ./image}。
    * 
    * true：支持SVG解析新能力；false：保持原有SVG解析能力。
    * 
@@ -2515,7 +2515,7 @@ declare interface ImageAttachmentLayoutStyle {
    * 
    * 默认值：0
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2530,7 +2530,7 @@ declare interface ImageAttachmentLayoutStyle {
    * 
    * 默认值：0
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2545,7 +2545,7 @@ declare interface ImageAttachmentLayoutStyle {
    * 
    * 默认值：0
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2569,7 +2569,7 @@ declare interface CustomSpanMetrics {
   /**
    * 自定义绘制Span的宽。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2585,7 +2585,7 @@ declare interface CustomSpanMetrics {
    * 
    * 默认值：不传入时默认取Text组件的fontSize值作为CustomSpan的高度。
    * 
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2609,7 +2609,7 @@ declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于挂载组件的偏移。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2622,7 +2622,7 @@ declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于Text组件的上边距。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2635,7 +2635,7 @@ declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span相对于Text组件的下边距。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2648,7 +2648,7 @@ declare interface CustomSpanDrawInfo {
   /**
    * 自定义绘制Span的所在行的基线偏移量。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2672,7 +2672,7 @@ declare interface CustomSpanMeasureInfo {
   /**
    * 设置文本字体大小。
    * 
-   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[fp]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2686,7 +2686,7 @@ declare interface CustomSpanMeasureInfo {
    * 
    * 默认值：使用自身宽度。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2724,7 +2724,7 @@ declare interface LeadingMarginSpanDrawInfo {
   /**
    * 当前行相对于组件的水平偏移。direction为RTL时，返回当前行右侧与组件右边缘的距离。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * 取值范围：大于等于0。
    *
@@ -2739,7 +2739,7 @@ declare interface LeadingMarginSpanDrawInfo {
   /**
    * 行顶与组件上边缘的距离。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * 取值范围：大于等于0。
    *
@@ -2754,7 +2754,7 @@ declare interface LeadingMarginSpanDrawInfo {
   /**
    * 行底与组件上边缘的距离。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * 取值范围：大于等于0。
    *
@@ -2769,7 +2769,7 @@ declare interface LeadingMarginSpanDrawInfo {
   /**
    * 当前行的基线与组件上边缘的距离。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * 取值范围：大于等于0。
    *
