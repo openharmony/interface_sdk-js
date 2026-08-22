@@ -2786,6 +2786,54 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     AV_METRICS_EVENT_STALLING = 1,
+
+    /**
+     * 表示音画不同步的指标事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LIP_ASYNC = 2,
+
+    /**
+     * 表示加载速率变化超过10%的事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LOADINGRATE_CHANGE = 3,
+
+    /**
+     * 表示加载数据请求错误的事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LOADING_ERROR = 4,
+
+    /**
+     * 表示播放内容切换的事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_CONTENT_CHANGED = 5,
+
+    /**
+     * 表示播放内容不连续的事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_CONTENT_DISCONTINUITY = 6,
+
+    /**
+     * 表示音频状态变化的事件。
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_AUDIO_ABNORMAL = 7
   }
 
   /**
