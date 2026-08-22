@@ -284,6 +284,16 @@ export interface HapModuleInfo {
    * @since 23 static
    */
   readonly codePath: string;
+
+   /**
+   * Indicates the physical installation path of the module.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly codePhysicalPath?: string;
 }
 
 /**

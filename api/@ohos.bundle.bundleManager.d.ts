@@ -45,8 +45,8 @@ import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundle
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
-  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo,
-  AppClonePreference as _AppClonePreference } from './bundleManager/BundleInfo';
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo, AppClonePreference as _AppClonePreference,
+  BundleExtensionPolicyInfo as _BundleExtensionPolicyInfo} from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -1649,6 +1649,35 @@ declare namespace bundleManager {
   }
 
   /**
+   * Each bit of this ApplicationReservedFlag value identifies relevant information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum ApplicationReservedFlag {  
+    /**
+     * Indicates that the application is an encrypted application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ENCRYPTED_APPLICATION = 0x00000001,
+    /**
+     * Indicates that the encrypted key for the application exists.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ENCRYPTED_KEY_EXISTED = 0x00000002
+  }
+
+  /**
    * Define the enumeration of device mode distribution policies, which is used to specify how an application
    * is distributed on a device.
    *
@@ -1739,6 +1768,35 @@ declare namespace bundleManager {
      * @since 26.1.0 dynamic&static
      */
     FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8
+  }
+
+  /**
+   * App sandbox policy for dual-mode (2in1/tablet) scenarios.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum AppSandboxPolicy {
+    /**
+     * Shared sandbox (default)
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARED_SANDBOX = 0,
+    /**
+     * Isolated sandbox
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ISOLATED_SANDBOX = 1
   }
 
   /**
@@ -4812,6 +4870,27 @@ declare namespace bundleManager {
     policies: Array<DeviceModeDistributionPolicy>): Promise<void>;
 
   /**
+   * Obtains the bundle extension policy information of a specified application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } userId - User ID, which can be obtained by calling getOsAccountLocalId. The value
+   *     is greater than or equal to 0.
+   *     <br>The value should be an integer.
+   * @returns { BundleExtensionPolicyInfo } The bundle extension policy information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getBundleExtensionPolicyInfo(bundleName: string, userId: int): BundleExtensionPolicyInfo;
+
+  /**
    * Defines the application information.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -5303,6 +5382,26 @@ declare namespace bundleManager {
    * @since 26.0.0 static
    */
   export type AlternateIconInfo = _AlternateIconInfo;
+
+  /**
+   * Describes the bundle extension policy information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  export type BundleExtensionPolicyInfo = _BundleInfo.BundleExtensionPolicyInfo;
+ 
+  /**
+   * Describes the bundle extension policy information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  export type BundleExtensionPolicyInfo = _BundleExtensionPolicyInfo;
 }
 
 export default bundleManager;
