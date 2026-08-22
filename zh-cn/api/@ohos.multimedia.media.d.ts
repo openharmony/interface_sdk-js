@@ -10614,7 +10614,16 @@ declare namespace media {
      * @since 18 dynamic
      * @since 23 static
      */
-    AUDIO_AMR_WB = 'audio/amr-wb'
+    AUDIO_AMR_WB = 'audio/amr-wb',
+
+	  /**
+ 	   * 表示音频/RAW类型。
+ 	   *
+ 	   * @syscap SystemCapability.Multimedia.Media.Core
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic&static
+ 	   */
+ 	  AUDIO_RAW = 'audio/raw'
   }
 
   /**
