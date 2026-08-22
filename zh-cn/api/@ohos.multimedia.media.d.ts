@@ -10959,11 +10959,49 @@ declare namespace media {
      * @since 22 dynamic
      * @since 23 static
      */
-    SCREEN_AND_WINDOW = 2
+    SCREEN_AND_WINDOW = 2,
+
+    /**
+     * 仅显示应用模式。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    APP_ONLY = 3,
+
+    /**
+     * 同时显示窗口和应用模式。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WINDOW_AND_APP = 4,
+
+    /**
+     * 同时显示屏幕和应用模式。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREEN_AND_APP = 5,
+
+    /**
+     * 同时显示屏幕、窗口和应用模式。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREEN_WINDOW_AND_APP = 6
   }
 
   /**
-   * 屏幕录制管理类，用于进行屏幕录制。在调用AVScreenCaptureRecorder的方法前，需要先通过
+   * 屏幕录制管理类，用于进行屏幕录制，支持录屏初始化、开始/暂停/恢复/停止录制、添加水印、隐私窗口豁免、麦克风开关控制、
+   * Picker模式选择和内容自动旋转等功能。适用于需要在应用内完成屏幕录制流程控制的场景，可帮助开发者灵活管理录屏生命周期、
+   * 保护用户隐私并自定义录制输出。在调用AVScreenCaptureRecorder的方法前，需要先通过
    * [createAVScreenCaptureRecorder()]{@link @ohos.multimedia.media:media.createAVScreenCaptureRecorder()}创建一个
    * AVScreenCaptureRecorder实例。
    * 
@@ -10992,7 +11030,7 @@ declare namespace media {
     init(config: AVScreenCaptureRecordConfig): Promise<void>;
 
     /**
-     * 开始录屏，在使用前需要先调用[init]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.init}接口。使用Promise异步回调。
+     * 开始录屏，在使用前需要先调用[init]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.init()}接口。使用Promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
@@ -11130,6 +11168,47 @@ declare namespace media {
      * @since 23 static
      */
     release(): Promise<void>;
+
+    /**
+     * 在录制的视频中添加自定义水印图像。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > - 应用最多可添加5个水印。
+     * >
+     * > - 需在[startRecording]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.startRecording()}接口调用前调用addWatermark接口。
+     *
+     * @param { image.PixelMap } watermark - : 水印图像，取值原则：PixelMap对象不能为空。支持透明度设置。图像格式和尺寸要求请参考
+     * @param { WatermarkConfiguration } config - : 配置视频录制水印的相关参数。各字段取值范围请参考WatermarkConfiguration定义。
+     *    需在调用startRecording接口前设置。
+     * @returns { Promise<int> } Promise对象，返回所添加水印的编号ID表示添加水印成功，失败时返回错误码。
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
+
+    /**
+     * 设置捕获的屏幕内容是否自动旋转以保持图像直立。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > - 需在[startRecording]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.startRecording()}接口调用前调用此接口。
+     *
+     * @param { boolean } enable - 表示是否启用自动旋转，默认值为false。true表示启用自动旋转，输出帧中的图像内容将自动保持直立。
+     *     false表示不启用自动旋转，输出帧中的图像内容将不自动保持直立。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setContentAutoRotation(enable: boolean): Promise<void>;
 
     /**
      * 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
