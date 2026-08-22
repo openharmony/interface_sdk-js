@@ -1530,7 +1530,7 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **PasteData** object from the pasteboard. This API uses a promise to return the result.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
@@ -1717,7 +1717,7 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **PasteData** object from the system pasteboard. This API uses a promise to return the result.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
@@ -1736,7 +1736,7 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **UnifiedData** object from the system pasteboard. This API returns the result synchronously.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
@@ -1787,7 +1787,7 @@ declare namespace pasteboard {
 
     /**
      * Sets pasteable range of PasteData for application.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
@@ -1811,7 +1811,7 @@ declare namespace pasteboard {
 
     /**
      * Deletes the global pasteable range of the application.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
@@ -1876,7 +1876,7 @@ declare namespace pasteboard {
     /**
      * Obtains the PasteData from the system pasteboard with system progress.
      * This API uses a promise to return the result. Folders cannot be copied.
-     * 
+     *
      * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
      * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
