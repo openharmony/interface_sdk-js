@@ -365,7 +365,7 @@ declare namespace pasteboard {
      */
     LOCALDEVICE = 1,
     /**
-     * Paste is allowed in any application across devices.
+     * Paste is allowed in any application.
      *
      * This API is deprecated since API version 12 without any alternative API or method.
      *
@@ -1510,6 +1510,9 @@ declare namespace pasteboard {
     /**
      * Obtains a **PasteData** object from the pasteboard. This API uses an asynchronous callback to return the result.
      *
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @param { AsyncCallback<PasteData> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1527,7 +1530,10 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **PasteData** object from the pasteboard. This API uses a promise to return the result.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @returns { Promise<PasteData> } Promise used to return the system PasteData.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
@@ -1543,7 +1549,14 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **PasteData** object from the pasteboard. This API returns the result synchronously.
-     *
+     * This API is used to obtain pasteboard data synchronously in key service processes or process pasteboard data immediately.
+     * 
+     * Do not call this API on the UI thread to prevent blocking the UI. Use the asynchronous API
+     * [getData]{@link pasteboard.SystemPasteboard.getData(callback: AsyncCallback<PasteData>)} to process a large amount of data or remote data.
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @returns { PasteData } Data in the system pasteboard.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
@@ -1704,7 +1717,10 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **PasteData** object from the system pasteboard. This API uses a promise to return the result.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<unifiedDataChannel.UnifiedData> } Promise used to return the system PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1720,7 +1736,10 @@ declare namespace pasteboard {
 
     /**
      * Obtains a **UnifiedData** object from the system pasteboard. This API returns the result synchronously.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { unifiedDataChannel.UnifiedData } Data in the system pasteboard.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1768,7 +1787,10 @@ declare namespace pasteboard {
 
     /**
      * Sets pasteable range of PasteData for application.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @param { ShareOption } shareOptions - Pasteable range. Only **pasteboard.ShareOption.INAPP** is allowed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1789,7 +1811,10 @@ declare namespace pasteboard {
 
     /**
      * Deletes the global pasteable range of the application.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12 - 13]
@@ -1851,7 +1876,10 @@ declare namespace pasteboard {
     /**
      * Obtains the PasteData from the system pasteboard with system progress.
      * This API uses a promise to return the result. Folders cannot be copied.
-     *
+     * 
+     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
+     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
+     * 
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { GetDataParams } params - Parameters required when an application obtains the Data from the
      * system pasteboard, including the destination path, file conflict options, and progress indicator types.
