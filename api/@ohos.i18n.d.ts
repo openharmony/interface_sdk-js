@@ -238,8 +238,8 @@ declare namespace i18n {
 
     /**
      * Obtains the current system language. To listen for system language changes, enable listening for
-     * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
-     * . For details, see
+     * [COMMON_EVENT_LOCALE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_LOCALE_CHANGED}.
+     * For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
      * @returns { string } Language ID.
@@ -273,8 +273,8 @@ declare namespace i18n {
 
     /**
      * Obtains the current system country/region. To listen for system region changes, enable listening for
-     * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
-     * . For details, see
+     * [COMMON_EVENT_LOCALE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_LOCALE_CHANGED}.
+     * For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
      * @returns { string } Country/region ID.
@@ -320,7 +320,7 @@ declare namespace i18n {
 
     /**
      * Obtains the current system locale. To listen for system locale changes, enable listening for
-     * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
+     * [COMMON_EVENT_LOCALE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_LOCALE_CHANGED}
      * . For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
@@ -352,7 +352,7 @@ declare namespace i18n {
 
     /**
      * Checks whether the 24-hour clock is used. To listen for system time format changes, enable listening for
-     * [COMMON_EVENT_TIME_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_time_changed)
+     * [COMMON_EVENT_TIME_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_TIME_CHANGED}
      * . For details, see [User Preference](docroot://internationalization/i18n-user-preferences.md#how-to-develop).
      *
      * @returns { boolean } Whether the 24-hour clock is used. The value **true** indicates that the 24-hour clock is
