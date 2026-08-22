@@ -25,7 +25,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 11 dynamic
- * @since 26.0.0 static
  */
 declare namespace wearDetection {
   /**
@@ -45,7 +44,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function enableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -66,7 +64,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function enableWearDetection(deviceId: string): Promise<void>;
 
@@ -87,7 +84,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function disableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -108,7 +104,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function disableWearDetection(deviceId: string): Promise<void>;
 
@@ -129,7 +124,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function isWearDetectionSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -150,7 +144,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function isWearDetectionSupported(deviceId: string): Promise<boolean>;
 
@@ -171,7 +164,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function isWearDetectionEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -192,7 +184,6 @@ declare namespace wearDetection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function isWearDetectionEnabled(deviceId: string): Promise<boolean>;
 }

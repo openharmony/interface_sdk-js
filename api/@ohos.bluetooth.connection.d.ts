@@ -20,7 +20,9 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type constant from './@ohos.bluetooth.constant';
+/*** if arkts dynamic */
 import type common from './@ohos.bluetooth.common';
+/*** endif */
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -96,7 +98,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 26.0.0 static
    */
   type BluetoothAddress = common.BluetoothAddress;
 
@@ -183,7 +184,6 @@ declare namespace connection {
    * @stagemodelonly
    * @crossplatform
    * @since 21 dynamic
-   * @since 23 static
    */
   function pairDevice(deviceId: BluetoothAddress): Promise<void>;
 
@@ -257,7 +257,6 @@ declare namespace connection {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   function pairDeviceOutOfBand(transport: BluetoothTransport, p192Data: OobData | null,
     p256Data: OobData | null): Promise<void>;
@@ -282,7 +281,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function startPairOutOfBand(deviceId: string, transport: BluetoothTransport, p192Data?: OobData,
     p256Data?: OobData): Promise<void>;
@@ -452,7 +451,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 26.0.0 static
    */
   function getRemoteDeviceTransport(deviceId: string): BluetoothTransport;
 
@@ -598,7 +596,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 26.0.0 static
    * @deprecated since 12
    */
   function setLocalName(name: string): void;
@@ -1055,7 +1052,6 @@ declare namespace connection {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   function generateLocalOobData(transport: BluetoothTransport): Promise<OobData>;
 
@@ -1077,7 +1073,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 24 dynamic
-   * @since 26.0.0 static
    */
   function getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): string;
 
@@ -1094,7 +1089,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function setCarKeyDfxData(deviceId: string, action: CarKeyActionType): void;
 
@@ -1110,7 +1105,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getCarKeyDfxData(): string;
 
@@ -1478,7 +1473,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   function onScanModeChange(callback: Callback<ScanMode>): void;
 
@@ -1493,7 +1487,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   function offScanModeChange(callback?: Callback<ScanMode>): void;
 
@@ -1512,7 +1505,7 @@ declare namespace connection {
    *     Detailed error messages can be used to assist in locating the problem.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function onAclStateChange(callback: Callback<AclStateResult>): void;
 
@@ -1531,7 +1524,7 @@ declare namespace connection {
    *     Detailed error messages can be used to assist in locating the problem.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function offAclStateChange(callback?: Callback<AclStateResult>): void;
 
@@ -1580,7 +1573,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     causeMessage?: string;
   }
@@ -1699,7 +1692,6 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 26.0.0 static
      */
     TRANSPORT_DUAL = 2,
     /**
@@ -1708,7 +1700,6 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 26.0.0 static
      */
     TRANSPORT_UNKNOWN = 3
   }
@@ -2657,7 +2648,6 @@ declare namespace connection {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   interface OobData {
     /**
@@ -2667,7 +2657,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     deviceId: BluetoothAddress;
     /**
@@ -2677,7 +2666,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     confirmationHash: Uint8Array;
     /**
@@ -2687,7 +2675,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     randomizerHash?: Uint8Array;
     /**
@@ -2697,7 +2684,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     deviceName?: string;
     /**
@@ -2707,7 +2693,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     deviceRole?: DeviceRole;
   }
@@ -2718,7 +2703,6 @@ declare namespace connection {
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   enum DeviceRole {
     /**
@@ -2728,7 +2712,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     DEVICE_ROLE_PERIPHERAL_ONLY = 0,
     /**
@@ -2738,7 +2721,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     DEVICE_ROLE_CENTRAL_ONLY = 1,
     /**
@@ -2748,7 +2730,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     DEVICE_ROLE_BOTH_PREFER_PERIPHERAL = 2,
     /**
@@ -2758,7 +2739,6 @@ declare namespace connection {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     DEVICE_ROLE_BOTH_PREFER_CENTRAL = 3
   }
@@ -2769,7 +2749,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   enum CarKeyActionType {
     /**
@@ -2778,7 +2758,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CAR_KEY_ACTION_ADD = 0,
     /**
@@ -2787,7 +2767,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     CAR_KEY_ACTION_DELETE = 1
   }
@@ -2798,7 +2778,6 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 24 dynamic
-   * @since 26.0.0 static
    */
   enum HashAlgorithmType {
     /**
@@ -2807,7 +2786,6 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.0.0 static
      */
     HASH_ALGORITHM_SHA256 = 0
   }
@@ -2817,7 +2795,7 @@ declare namespace connection {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   interface AclStateResult {
     /**
@@ -2825,7 +2803,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     deviceId: string;
     /**
@@ -2833,7 +2811,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     state: AclState;
   }
@@ -2843,7 +2821,7 @@ declare namespace connection {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   export enum AclState {
     /**
@@ -2851,7 +2829,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_CONNECTED = 0,
     /**
@@ -2859,7 +2837,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     STATE_DISCONNECTED = 1
   }
