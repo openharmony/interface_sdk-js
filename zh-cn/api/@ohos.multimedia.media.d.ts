@@ -3509,7 +3509,7 @@ declare namespace media {
      * 清空播放列表中的所有项目，当前正在播放的媒体将会立即终止。使用Promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 5400102 - operation not allowed . Returned via promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed . Returned via promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
      * @atomicservice
