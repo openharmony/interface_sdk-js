@@ -166,8 +166,8 @@ declare namespace fileIO {
  * 检查当前进程是否可访问某文件，使用Promise异步回调。
  *
  * @param { string } path - 待访问文件的应用沙箱路径。
- * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>-?0：确认文件是否存在。<br/>-?1：确认当前进程
- *     是否具有可执行权限。<br/>-?2：确认当前进程是否具有写权限。<br/>-?4：确认当前进程是否具有读权限。
+ * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>- 0：确认文件是否存在。<br/>- 1：确认当前进程
+ *     是否具有可执行权限。<br/>- 2：确认当前进程是否具有写权限。<br/>- 4：确认当前进程是否具有读权限。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -194,8 +194,8 @@ declare function access(path: string, callback: AsyncCallback<void>): void;
  * 检查当前进程是否可访问某文件，使用callback异步回调。
  *
  * @param { string } path - 待访问文件的应用沙箱路径。
- * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>-?0：确认文件是否存在。<br/>-?1：确认当前进程
- *     是否具有可执行权限。<br/>-?2：确认当前进程是否具有写权限。<br/>-?4：确认当前进程是否具有读权限。
+ * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>- 0：确认文件是否存在。<br/>- 1：确认当前进程
+ *     是否具有可执行权限。<br/>- 2：确认当前进程是否具有写权限。<br/>- 4：确认当前进程是否具有读权限。
  * @param { AsyncCallback<void> } [callback] - 异步检查当前进程是否可访问某文件之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -208,8 +208,8 @@ declare function access(path: string, mode: number, callback: AsyncCallback<void
  * 以同步方法检查当前进程是否可访问某文件。
  *
  * @param { string } path - 待访问文件的应用沙箱路径。
- * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>-?0：确认文件是否存在。<br/>-?1：确认当前进程
- *     是否具有可执行权限。<br/>-?2：确认当前进程是否具有写权限。<br/>-?4：确认当前进程是否具有读权限。
+ * @param { number } [mode] - 访问文件时的选项，可给定如下选项，以按位或的方式使用多个选项，默认给定0。<br/>确认当前进程是否具有对应权限：<br/>- 0：确认文件是否存在。<br/>- 1：确认当前进程
+ *     是否具有可执行权限。<br/>- 2：确认当前进程是否具有写权限。<br/>- 4：确认当前进程是否具有读权限。
  * @throws { TypedError | Error } access fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -318,9 +318,9 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * 基于文件路径打开文件流，使用Promise异步回调。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - -r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @returns { Promise<Stream> } Promise对象。返回文件流的结果。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -334,9 +334,9 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  * 基于文件路径打开文件流，使用callback异步回调。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @param { AsyncCallback<Stream> } [callback] - 异步打开文件流之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -349,9 +349,9 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * 以同步方法基于文件路径打开文件流。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @returns { Stream } 返回文件流的结果。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -403,9 +403,9 @@ declare function chownSync(path: string, uid: number, gid: number): void;
  * 改变文件权限，使用Promise异步回调。
  *
  * @param { string } path - 所需变更权限的文件的应用沙箱路径。
- * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有
- *     者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/
- *     >-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用
+ * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有
+ *     者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/
+ *     >- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用
  *     户具有可执行权限。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { TypedError } Parameter check failed
@@ -419,10 +419,10 @@ declare function chmod(path: string, mode: number): Promise<void>;
  * 改变文件权限，使用callback异步回调。
  *
  * @param { string } path - 所需变更权限的文件的应用沙箱路径。
- * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有
- *     者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/
- *     >-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用
- *     户具有可执行权限。
+ * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>
+ *     - 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>
+ *     - 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>
+ *     - 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @param { AsyncCallback<void> } [callback] - 异步改变文件权限之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -434,10 +434,10 @@ declare function chmod(path: string, mode: number, callback: AsyncCallback<void>
  * 以同步方法改变文件权限。
  *
  * @param { string } path - 所需变更权限的文件的应用沙箱路径。
- * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有
- *     者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/
- *     >-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用
- *     户具有可执行权限。
+ * @param { number } mode - 改变文件权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>
+ *     - 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>
+ *     - 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>
+ *     - 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @throws { TypedError | Error } chmod fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
@@ -648,9 +648,9 @@ declare function fchownSync(fd: number, uid: number, gid: number): void;
  * 基于文件描述符改变文件权限，使用Promise异步回调。
  *
  * @param { number } fd - 待改变文件的文件描述符。
- * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?
- *     0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有
- *     写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0
+ * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>
+ *     - 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有
+ *     写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0
  *     o001：其余用户具有可执行权限。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { TypedError } Parameter check failed
@@ -664,9 +664,9 @@ declare function fchmod(fd: number, mode: number): Promise<void>;
  * 基于文件描述符改变文件权限，使用callback异步回调。
  *
  * @param { number } fd - 待改变文件的文件描述符。
- * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?
- *     0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有
- *     写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0
+ * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 
+ *     0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有
+ *     写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0
  *     o001：其余用户具有可执行权限。
  * @param { AsyncCallback<void> } [callback] - 异步改变文件权限之后的回调。
  * @throws { TypedError } Parameter check failed
@@ -679,9 +679,9 @@ declare function fchmod(fd: number, mode: number, callback: AsyncCallback<void>)
  * 以同步方法基于文件描述符改变文件权限。
  *
  * @param { number } fd - 待改变文件的文件描述符。
- * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?
- *     0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有
- *     写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0
+ * @param { number } mode - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 
+ *     0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有
+ *     写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0
  *     o001：其余用户具有可执行权限。
  * @throws { TypedError | Error } fchmod fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -693,9 +693,9 @@ declare function fchmodSync(fd: number, mode: number): void;
  * 基于文件描述符打开文件流，使用Promise异步回调。
  *
  * @param { number } fd - 待打开文件的文件描述符。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @returns { Promise<Stream> } Promise对象。返回文件流的结果。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -709,9 +709,9 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  * 基于文件描述符打开文件流，使用callback异步回调。
  *
  * @param { number } fd - 待打开文件的文件描述符。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @param { AsyncCallback<Stream> } [callback] - 异步打开文件流之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -724,9 +724,9 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * 以同步方法基于文件描述符打开文件流。
  *
  * @param { number } fd - 待打开文件的文件描述符。
- * @param { string } mode - -?r：打开只读文件，该文件必须存在。<br/>-?r+：打开可读写的文件，该文件必须存在。<br/>-?w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
- *     建立该文件。<br/>-?w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>-?a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
- *     文件尾，即文件原先的内容会被保留。<br/>-?a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
+ * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
+ *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
+ *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
  * @returns { Stream } 返回文件流的结果。
  * @throws { TypedError | Error } open fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -739,7 +739,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * 计算文件的哈希值，使用Promise异步回调。
  *
  * @param { string } path - 待计算哈希值文件的应用沙箱路径。
- * @param { string } algorithm - 哈希计算采用的算法。可选?"md5"、"sha1"?或?"sha256"。建议采用安全强度更高的?"sha256"。
+ * @param { string } algorithm - 哈希计算采用的算法。可选"md5"、"sha1"或"sha256"。建议采用安全强度更高的"sha256"。
  * @returns { Promise<string> } Promise对象。返回文件的哈希值。表示为十六进制数字串，所有字母均大写。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -753,7 +753,7 @@ declare function hash(path: string, algorithm: string): Promise<string>;
  * 计算文件的哈希值，使用callback异步回调。
  *
  * @param { string } path - 待计算哈希值文件的应用沙箱路径。
- * @param { string } algorithm - 哈希计算采用的算法。可选?"md5"、"sha1"?或?"sha256"。建议采用安全强度更高的?"sha256"。
+ * @param { string } algorithm - 哈希计算采用的算法。可选"md5"、"sha1"或"sha256"。建议采用安全强度更高的"sha256"。
  * @param { AsyncCallback<string> } [callback] - 异步计算文件哈希操作之后的回调函数（其中给定文件哈希值表示为十六进制数字串，所有字母均大写）。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -842,10 +842,10 @@ declare function lstatSync(path: string): Stat;
  * 创建目录，使用Promise异步回调。
  *
  * @param { string } path - 待创建目录的应用沙箱路径。
- * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>-?0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>-?0o7
- *     00：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行
- *     权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?
- *     0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。
+ * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>- 0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>- 0o7
+ *     00：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行
+ *     权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 
+ *     0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -872,10 +872,10 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * 创建目录，使用callback异步回调。
  *
  * @param { string } path - 待创建目录的应用沙箱路径。
- * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>-?0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>-?0o7
- *     00：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行
- *     权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?
- *     0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。
+ * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>- 0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>- 0o7
+ *     00：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行
+ *     权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 
+ *     0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @param { AsyncCallback<void> } [callback] - 异步创建目录操作完成之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -888,10 +888,10 @@ declare function mkdir(path: string, mode: number, callback: AsyncCallback<void>
  * 以同步方法创建目录。
  *
  * @param { string } path - 待创建目录的应用沙箱路径。
- * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>-?0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>-?0o7
- *     00：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行
- *     权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?
- *     0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。
+ * @param { number } [mode] - 创建目录的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o775。<br/>- 0o775：所有者具有读、写及可执行权限，其余用户具有读及可执行权限。<br/>- 0o7
+ *     00：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行
+ *     权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 
+ *     0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @throws { TypedError | Error } mkdir fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
@@ -940,15 +940,15 @@ declare function mkdtempSync(prefix: string): string;
  * 打开文件，使用Promise异步回调。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>-?0o0：只读打开。<br/>-?0o1：只写打开。<br/>-?0o2：读写打开。<br/>同时，也可
- *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>-?0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数?mode。<br/>-?0o200：如果追加了0o100选项，且文件已经存在，则出错
- *     。<br/>-?0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>-?0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>-?0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
- *     ，则本次打开及后续?IO?进行非阻塞操作。<br/>-?0o200000：如果path不指向目录，则出错。<br/>-?0o400000：如果path指向符号链接，则出错。<br/>-?0o4010000：以同步IO的方式打开
+ * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>- 0o0：只读打开。<br/>- 0o1：只写打开。<br/>- 0o2：读写打开。<br/>同时，也可
+ *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- 0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数mode。<br/>- 0o200：如果追加了0o100选项，且文件已经存在，则出错
+ *     。<br/>- 0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>- 0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>- 0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
+ *     ，则本次打开及后续IO进行非阻塞操作。<br/>- 0o200000：如果path不指向目录，则出错。<br/>- 0o400000：如果path指向符号链接，则出错。<br/>- 0o4010000：以同步IO的方式打开
  *     文件。
- * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>-?0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>-?0
- *     o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可
- *     执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>
- *     -?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。
+ * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>- 0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>- 0
+ *     o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可
+ *     执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>
+ *     - 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @returns { Promise<number> } Promise对象。返回打开文件的文件描述符。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -975,10 +975,10 @@ declare function open(path: string, callback: AsyncCallback<number>): void;
  * 打开文件，使用callback异步回调。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>-?0o0：只读打开。<br/>-?0o1：只写打开。<br/>-?0o2：读写打开。<br/>同时，也可
- *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>-?0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数?mode。<br/>-?0o200：如果追加了0o100选项，且文件已经存在，则出错
- *     。<br/>-?0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>-?0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>-?0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
- *     ，则本次打开及后续?IO?进行非阻塞操作。<br/>-?0o200000：如果path不指向目录，则出错。<br/>-?0o400000：如果path指向符号链接，则出错。<br/>-?0o4010000：以同步IO的方式打开
+ * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>- 0o0：只读打开。<br/>- 0o1：只写打开。<br/>- 0o2：读写打开。<br/>同时，也可
+ *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- 0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数mode。<br/>- 0o200：如果追加了0o100选项，且文件已经存在，则出错
+ *     。<br/>- 0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>- 0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>- 0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
+ *     ，则本次打开及后续IO进行非阻塞操作。<br/>- 0o200000：如果path不指向目录，则出错。<br/>- 0o400000：如果path指向符号链接，则出错。<br/>- 0o4010000：以同步IO的方式打开
  *     文件。
  * @param { AsyncCallback<number> } [callback] - 异步打开文件之后的回调，返回打开文件的文件描述符。
  * @throws { TypedError } Parameter check failed
@@ -993,15 +993,15 @@ declare function open(path: string, flags: number, callback: AsyncCallback<numbe
  * 打开文件，使用callback异步回调。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>-?0o0：只读打开。<br/>-?0o1：只写打开。<br/>-?0o2：读写打开。<br/>同时，也可
- *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>-?0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数?mode。<br/>-?0o200：如果追加了0o100选项，且文件已经存在，则出错
- *     。<br/>-?0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>-?0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>-?0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
- *     ，则本次打开及后续?IO?进行非阻塞操作。<br/>-?0o200000：如果path不指向目录，则出错。<br/>-?0o400000：如果path指向符号链接，则出错。<br/>-?0o4010000：以同步IO的方式打开
+ * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>- 0o0：只读打开。<br/>- 0o1：只写打开。<br/>- 0o2：读写打开。<br/>同时，也可
+ *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- 0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数mode。<br/>- 0o200：如果追加了0o100选项，且文件已经存在，则出错
+ *     。<br/>- 0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>- 0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>- 0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
+ *     ，则本次打开及后续IO进行非阻塞操作。<br/>- 0o200000：如果path不指向目录，则出错。<br/>- 0o400000：如果path指向符号链接，则出错。<br/>- 0o4010000：以同步IO的方式打开
  *     文件。
- * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>-?0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>-?0
- *     o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可
- *     执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>
- *     -?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。
+ * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>- 0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>- 0
+ *     o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可
+ *     执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>
+ *     - 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。
  * @param { AsyncCallback<number> } [callback] - 异步打开文件之后的回调，返回打开文件的文件描述符。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1014,15 +1014,15 @@ declare function open(path: string, flags: number, mode: number, callback: Async
  * 以同步方法打开文件。
  *
  * @param { string } path - 待打开文件的应用沙箱路径。
- * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>-?0o0：只读打开。<br/>-?0o1：只写打开。<br/>-?0o2：读写打开。<br/>同时，也可
- *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>-?0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数?mode。<br/>-?0o200：如果追加了0o100选项，且文件已经存在，则出错
- *     。<br/>-?0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>-?0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>-?0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
- *     ，则本次打开及后续?IO?进行非阻塞操作。<br/>-?0o200000：如果path不指向目录，则出错。<br/>-?0o400000：如果path指向符号链接，则出错。<br/>-?0o4010000：以同步IO的方式打开
+ * @param { number } [flags] - 打开文件的选项，必须指定如下选项中的一个，默认以只读方式打开：<br/>- 0o0：只读打开。<br/>- 0o1：只写打开。<br/>- 0o2：读写打开。<br/>同时，也可
+ *     给定如下选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- 0o100：若文件不存在，则创建文件。使用该选项时必须指定第三个参数mode。<br/>- 0o200：如果追加了0o100选项，且文件已经存在，
+ *     则出错。<br/>- 0o1000：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>- 0o2000：以追加方式打开，后续写将追加到文件末尾。<br/>- 0o4000：如果path指向FIFO、块特殊文件或字符特殊文件
+ *     ，则本次打开及后续IO进行非阻塞操作。<br/>- 0o200000：如果path不指向目录，则出错。<br/>- 0o400000：如果path指向符号链接，则出错。<br/>- 0o4010000：以同步IO的方式打开
  *     文件。
- * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>-?0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>-?0
- *     o640：所有者具有读、写权限，所有用户组具有读权限。<br/>-?0o700：所有者具有读、写及可执行权限。<br/>-?0o400：所有者具有读权限。<br/>-?0o200：所有者具有写权限。<br/>-?0o100：所
- *     有者具有可执行权限。<br/>-?0o070：所有用户组具有读、写及可执行权限。<br/>-?0o040：所有用户组具有读权限。<br/>-?0o020：所有用户组具有写权限。<br/>-?0o010：所有用户组具有可执行权限
- *     。<br/>-?0o007：其余用户具有读、写及可执行权限。<br/>-?0o004：其余用户具有读权限。<br/>-?0o002：其余用户具有写权限。<br/>-?0o001：其余用户具有可执行权限。<br/>创建出的文件权
+ * @param { number } [mode] - 若创建文件，则指定文件的权限，可给定如下权限，以按位或的方式追加权限，默认给定0o660。<br/>- 0o660：所有者具有读、写权限，所有用户组具有读、写权限。<br/>- 0
+ *     o640：所有者具有读、写权限，所有用户组具有读权限。<br/>- 0o700：所有者具有读、写及可执行权限。<br/>- 0o400：所有者具有读权限。<br/>- 0o200：所有者具有写权限。<br/>- 0o100：所
+ *     有者具有可执行权限。<br/>- 0o070：所有用户组具有读、写及可执行权限。<br/>- 0o040：所有用户组具有读权限。<br/>- 0o020：所有用户组具有写权限。<br/>- 0o010：所有用户组具有可执行权限
+ *     。<br/>- 0o007：其余用户具有读、写及可执行权限。<br/>- 0o004：其余用户具有读权限。<br/>- 0o002：其余用户具有写权限。<br/>- 0o001：其余用户具有可执行权限。<br/>创建出的文件权
  *     限受umask影响，umask随进程启动确定，其修改当前不开放。
  * @returns { number } 打开文件的文件描述符。
  * @throws { TypedError | Error } open fail
@@ -1073,9 +1073,9 @@ declare function opendirSync(path: string): Dir;
  * 基于文本方式读取文件（即直接读取文件的文本内容），使用Promise异步回调。
  *
  * @param { string } filePath - 待读取文件的应用沙箱路径。
- * @param { object } [options] - 支持如下选项：<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>-?length，number
- *     类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?encoding，string类型，当数据是?string?类型时有效，表示数据的编码方式，默认?'utf-8'，仅支持?'utf-
- *     8'。
+ * @param { object } [options] - 支持如下选项：<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length，number
+ *     类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>
+ *     - encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'，仅支持 'utf-8'。
  * @returns { Promise<string> } Promise对象。返回读取文件的内容。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1096,8 +1096,9 @@ declare function readText(
  * 基于文本方式读取文件（即直接读取文件的文本内容），使用callback异步回调。
  *
  * @param { string } filePath - 待读取文件的应用沙箱路径。
- * @param { object } [options] - 支持如下选项：<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>-?length，number
- *     类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?encoding，string类型，表示数据的编码方式，默认?'utf-8'，仅支持?'utf-8'。
+ * @param { object } [options] - 支持如下选项：<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>
+ *     - length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>
+ *     - encoding，string类型，表示数据的编码方式，默认 'utf-8'，仅支持 'utf-8'。
  * @param { AsyncCallback<string> } [callback] - 回调函数，返回读取文件的内容。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1119,8 +1120,8 @@ declare function readText(
  * 以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
  *
  * @param { string } filePath - 待读取文件的应用沙箱路径。
- * @param { object } [options] - 支持如下选项：<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>-?length，number
- *     类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?encoding，string类型，当数据是?string?类型时有效，表示数据的编码方式，默认?'utf-8'，仅支持?'utf-
+ * @param { object } [options] - 支持如下选项：<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length，number
+ *     类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'，仅支持 'utf-
  *     8'。
  * @returns { string } 返回读取文件的内容。
  * @throws { TypedError } Parameter check failed
@@ -1143,9 +1144,9 @@ declare function readTextSync(
  *
  * @param { number } fd - 待读取文件的文件描述符。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>-?
- *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>-?position，number类型，表示期望读取文件的位置。可选，默认从当前位置开始读，单位为Byte。<
- *     br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>- 
+ *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>- position，number类型，表示期望读取文件的位置。
+ *     可选，默认从当前位置开始读，单位为Byte。<br/>约束：offset+length<=buffer.size。
  * @returns { Promise<ReadOut> } Promise对象。返回读取的结果。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1182,9 +1183,9 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<R
  *
  * @param { number } fd - 待读取文件的文件描述符。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，单位为Byte，即相对于缓冲区首地址的偏移。可选，默认为0。<br/>-?
- *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<
- *     br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，单位为Byte，即相对于缓冲区首地址的偏移。可选，默认为0。<br/>- 
+ *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。
+ *     可选，默认从当前位置开始读。<br/>约束：offset+length<=buffer.size。
  * @param { AsyncCallback<ReadOut> } [callback] - 异步读取数据之后的回调。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1207,9 +1208,9 @@ declare function read(
  *
  * @param { number } fd - 待读取文件的文件描述符。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>-?
- *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>-?position，number类型，表示期望读取文件的位置。可选，默认从当前位置开始读，单位为Byte。<
- *     br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>- 
+ *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>- position，number类型，表示期望读取文件的位置。
+ *     可选，默认从当前位置开始读，单位为Byte。<br/>约束：offset+length<=buffer.size。
  * @returns { number } 实际读取的长度，单位为Byte。
  * @throws { TypedError | Error } read fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1470,9 +1471,9 @@ declare function unlinkSync(path: string): void;
  *
  * @param { number } fd - 待写入文件的文件描述符。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-?
- *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- 
+ *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>约束：offset+length<=buffer.size。
  * @returns { Promise<number> } Promise对象。返回实际写入的长度，单位为Byte。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1510,9 +1511,9 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  *
  * @param { number } fd - 待写入文件的文件描述符。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-?
- *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- 
+ *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>约束：offset+length<=buffer.size。
  * @param { AsyncCallback<number> } [callback] - 异步将数据写入完成后执行的回调函数。返回实际写入的长度，单位为Byte。
  * @throws { TypedError } Parameter check failed
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1536,9 +1537,9 @@ declare function write(
  *
  * @param { number } fd - 待写入文件的文件描述符。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-?
- *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+ * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- 
+ *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>约束：offset+length<=buffer.size。
  * @returns { number } 实际写入的长度，单位为Byte。
  * @throws { TypedError | Error } write fail
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1561,7 +1562,7 @@ declare function writeSync(
  * 监听文件或者目录的变化，使用callback异步回调。
  *
  * @param { string } filename - 待监视文件的应用沙箱路径。
- * @param { number } events - -?1:?监听文件或者目录是否发生重命名。<br/>-?2：监听文件或者目录内容的是否修改。<br/>-?3：两者都有。
+ * @param { number } events - - 1:?监听文件或者目录是否发生重命名。<br/>- 2：监听文件或者目录内容的是否修改。<br/>- 3：两者都有。
  * @param { AsyncCallback<number> } [callback] - 每发生变化一次，调用一次此函数。
  * @returns { Watcher } Promise对象。返回文件变化监听的实例。
  * @throws { TypedError | Error } watch fail
@@ -1766,27 +1767,27 @@ declare interface Stat {
    */
   readonly ino: number;
   /**
-   * 表示文件类型及权限，其首?4?位表示文件类型，后?12?位表示权限。各特征位的含义如下：
-   * -?0o170000：可用于获取文件类型的掩码。
-   * -?0o140000：文件是套接字。
-   * -?0o120000：文件是符号链接。
-   * -?0o100000：文件是一般文件。
-   * -?0o060000：文件属于块设备。
-   * -?0o040000：文件是目录。
-   * -?0o020000：文件是字符设备。
-   * -?0o010000：文件是命名管道，即FIFO。
-   * -?0o0700：可用于获取用户权限的掩码。
-   * -?0o0400：用户读，对于普通文件，所有者可读取文件；对于目录，所有者可读取目录项。
-   * -?0o0200：用户写，对于普通文件，所有者可写入文件；对于目录，所有者可创建/删除目录项。
-   * -?0o0100：用户执行，对于普通文件，所有者可执行文件；对于目录，所有者可在目录中搜索给定路径名。
-   * -?0o0070：可用于获取用户组权限的掩码。
-   * -?0o0040：用户组读，对于普通文件，所有用户组可读取文件；对于目录，所有用户组可读取目录项。
-   * -?0o0020：用户组写，对于普通文件，所有用户组可写入文件；对于目录，所有用户组可创建/删除目录项。
-   * -?0o0010：用户组执行，对于普通文件，所有用户组可执行文件；对于目录，所有用户组是否可在目录中搜索给定路径名。
-   * -?0o0007：可用于获取其他用户权限的掩码。
-   * -?0o0004：其他读，对于普通文件，其余用户可读取文件；对于目录，其他用户组可读取目录项。
-   * -?0o0002：其他写，对于普通文件，其余用户可写入文件；对于目录，其他用户组可创建/删除目录项。
-   * -?0o0001：其他执行，对于普通文件，其余用户可执行文件；对于目录，其他用户组可在目录中搜索给定路径名。
+   * 表示文件类型及权限，其首4位表示文件类型，后12位表示权限。各特征位的含义如下：
+   * - 0o170000：可用于获取文件类型的掩码。
+   * - 0o140000：文件是套接字。
+   * - 0o120000：文件是符号链接。
+   * - 0o100000：文件是一般文件。
+   * - 0o060000：文件属于块设备。
+   * - 0o040000：文件是目录。
+   * - 0o020000：文件是字符设备。
+   * - 0o010000：文件是命名管道，即FIFO。
+   * - 0o0700：可用于获取用户权限的掩码。
+   * - 0o0400：用户读，对于普通文件，所有者可读取文件；对于目录，所有者可读取目录项。
+   * - 0o0200：用户写，对于普通文件，所有者可写入文件；对于目录，所有者可创建/删除目录项。
+   * - 0o0100：用户执行，对于普通文件，所有者可执行文件；对于目录，所有者可在目录中搜索给定路径名。
+   * - 0o0070：可用于获取用户组权限的掩码。
+   * - 0o0040：用户组读，对于普通文件，所有用户组可读取文件；对于目录，所有用户组可读取目录项。
+   * - 0o0020：用户组写，对于普通文件，所有用户组可写入文件；对于目录，所有用户组可创建/删除目录项。
+   * - 0o0010：用户组执行，对于普通文件，所有用户组可执行文件；对于目录，所有用户组是否可在目录中搜索给定路径名。
+   * - 0o0007：可用于获取其他用户权限的掩码。
+   * - 0o0004：其他读，对于普通文件，其余用户可读取文件；对于目录，其他用户组可读取目录项。
+   * - 0o0002：其他写，对于普通文件，其余用户可写入文件；对于目录，其他用户组可创建/删除目录项。
+   * - 0o0001：其他执行，对于普通文件，其余用户可执行文件；对于目录，其他用户组可在目录中搜索给定路径名。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -1905,7 +1906,7 @@ declare interface Stat {
   /**
    * 用于判断文件是否是命名管道（有时也称为FIFO）。命名管道通常用于进程间通信。
    *
-   * @returns { boolean } 表示文件是否是?FIFO。true为是，false为不是。
+   * @returns { boolean } 表示文件是否是FIFO。true为是，false为不是。
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
    * @deprecated since 9
@@ -2023,9 +2024,10 @@ declare interface Stream {
    * 将数据写入流文件，使用Promise异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
-   *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-
-   *     ?encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+   *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。
+   *     可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>
+   *     约束：offset+length<=buffer.size。
    * @returns { Promise<number> } Promise对象。返回实际写入的长度，单位为Byte。
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2061,9 +2063,9 @@ declare interface Stream {
    * 将数据写入流文件，使用callback异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
-   *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-
-   *     ?encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+   *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-
+   *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>约束：offset+length<=buffer.size。
    * @param { AsyncCallback<number> } [callback] - 异步写入完成后执行的回调函数，返回实际写入的长度，单位为Byte。
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2085,9 +2087,9 @@ declare interface Stream {
    * 以同步方法将数据写入流文件。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>-?length，
-   *     number类型，表示期望写入数据的长度。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>-?
-   *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认?'utf-8'。仅支持?'utf-8'。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入数据的位置相对于数据首地址的偏移，单位为Byte。可选，默认为0。<br/>- length，
+   *     number类型，表示期望写入数据的长度。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- 
+   *     encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认 'utf-8'。仅支持 'utf-8'。<br/>约束：offset+length<=buffer.size。
    * @returns { number } 实际写入的长度，单位为Byte。
    * @throws { TypedError | Error } write fail
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2108,9 +2110,9 @@ declare interface Stream {
    * 从流文件读取数据，使用Promise异步回调。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>-?
-   *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>-?position，number类型，表示期望读取文件的位置。可选，默认从当前位置开始读，单位为Byte
-   *     。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>- 
+   *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>- position，number类型，表示期望读取文件的位置。
+   *     可选，默认从当前位置开始读，单位为Byte。<br/>约束：offset+length<=buffer.size。
    * @returns { Promise<ReadOut> } Promise对象。返回读取的结果。
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2144,9 +2146,9 @@ declare interface Stream {
    * 从流文件读取数据，使用callback异步回调。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>-?
-   *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读
-   *     。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>- 
+   *     length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度减去偏移长度。<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。
+   *     可选，默认从当前位置开始读。<br/>约束：offset+length<=buffer.size。
    * @param { AsyncCallback<ReadOut> } [callback] - 异步从流文件读取数据之后的回调。
    * @throws { TypedError } Parameter check failed
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2167,9 +2169,9 @@ declare interface Stream {
    * 以同步方法从流文件读取数据。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - 支持如下选项：<br/>-?offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>-?
-   *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>-?position，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读
-   *     。<br/>约束：offset+length<=buffer.size。
+   * @param { object } [options] - 支持如下选项：<br/>- offset，number类型，表示将数据读取到缓冲区的位置，即相对于缓冲区首地址的偏移，单位为Byte。可选，默认为0。<br/>- 
+   *     length，number类型，表示期望读取数据的长度。可选，默认缓冲区长度减去偏移长度，单位为Byte。<br/>- position，number类型，表示期望读取文件的位置，单位为Byte。
+   *     可选，默认从当前位置开始读。<br/>约束：offset+length<=buffer.size。
    * @returns { number } 实际读取的长度，单位为Byte。
    * @throws { TypedError | Error } read fail
    * @syscap SystemCapability.FileManagement.File.FileIO
