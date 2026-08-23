@@ -1787,9 +1787,6 @@ declare namespace pasteboard {
 
     /**
      * Sets pasteable range of PasteData for application.
-     *
-     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
-     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @param { ShareOption } shareOptions - Pasteable range. Only **pasteboard.ShareOption.INAPP** is allowed.
@@ -1811,9 +1808,6 @@ declare namespace pasteboard {
 
     /**
      * Deletes the global pasteable range of the application.
-     *
-     * While most applications must [request permissions to access the pasteboard](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md),
-     * those using [PasteButton](docroot://security/AccessToken/pastebutton.md) can access the pasteboard content without permission requests.
      * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
