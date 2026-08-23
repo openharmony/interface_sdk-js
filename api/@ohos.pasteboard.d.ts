@@ -1787,7 +1787,7 @@ declare namespace pasteboard {
 
     /**
      * Sets pasteable range of PasteData for application.
-     * 
+     *
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @param { ShareOption } shareOptions - Pasteable range. Only **pasteboard.ShareOption.INAPP** is allowed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1808,7 +1808,7 @@ declare namespace pasteboard {
 
     /**
      * Deletes the global pasteable range of the application.
-     * 
+     *
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12 - 13]
