@@ -3275,7 +3275,7 @@ declare namespace cert {
      *
      * <br>由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X.509证书的
      * [checkValidityWithDate]{@link cert.X509Cert.checkValidityWithDate}方法进行检查。详见
-     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)。
+     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#证书规格)。
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @param { AsyncCallback<void> } callback - 回调函数。当校验成功时，err为undefined，否则为错误对象。
@@ -3308,7 +3308,7 @@ declare namespace cert {
      *
      * <br>由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X.509证书的
      * [checkValidityWithDate]{@link cert.X509Cert.checkValidityWithDate}方法进行检查。详见
-     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)。
+     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#证书规格)。
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @returns { Promise<void> } Promise对象，无返回结果。
