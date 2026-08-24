@@ -122,8 +122,49 @@ declare namespace sendableImage {
    * 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release]{@link sendableImage.PixelMap.release}方法及时释放内存。释放时应确保该实例的所有异步方法均执行完
    * 成，且后续不再使用该实例。
    *
+   * 从API version 10开始支持SVG标签，使用版本为(SVG) 1.1, SVG标签需设置width和height。SVG文件可添加XML声明，应以**<?xml**开头，当前支持的标签列表有：
+   * 
+   * - a
+   * - circle
+   * - clipPath
+   * - defs
+   * - ellipse
+   * - feBlend
+   * - feColorMatrix
+   * - feComposite
+   * - feDiffuseLighting
+   * - feDisplacementMap
+   * - feDistantLight
+   * - feFlood
+   * - feGaussianBlur
+   * - feImage
+   * - feMorphology
+   * - feOffset
+   * - fePointLight
+   * - feSpecularLighting
+   * - feSpotLight
+   * - feTurbulence
+   * - filter
+   * - g
+   * - image
+   * - line
+   * - linearGradient
+   * - mask
+   * - path
+   * - pattern
+   * - polygon
+   * - polyline
+   * - radialGradient
+   * - rect
+   * - stop
+   * - svg
+   * - text
+   * - textPath
+   * - tspan
+   * - use
+   *
    * @param { string } uri - 图片路径，当前仅支持应用沙箱路径。</br>当前支持格式有：.jpg .png .gif .bmp .webp .dng
-   *     [SVG](docroot://reference/apis-image-kit/arkts-apis-image-f.md#svg标签说明) .ico。
+   *     .SVG .ico。
    * @returns { ImageSource } 返回ImageSource类实例，失败时返回undefined。
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform

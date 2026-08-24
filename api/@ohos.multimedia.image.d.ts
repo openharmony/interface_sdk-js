@@ -24,86 +24,77 @@ import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
 
 /**
- * # SVG Tags
- * 
- * The SVG tags are supported since API version 10. The used version is (SVG) 1.1, and the width and height of the SVG 
- * tag must be set. An XML declaration can be added to an SVG file and start with **<?xml**. The following tags are 
- * supported:
- * 
- * - a
- * - circle
- * - clipPath
- * - defs
- * - ellipse
- * - feBlend
- * - feColorMatrix
- * - feComposite
- * - feDiffuseLighting
- * - feDisplacementMap
- * - feDistantLight
- * - feFlood
- * - feGaussianBlur
- * - feImage
- * - feMorphology
- * - feOffset
- * - fePointLight
- * - feSpecularLighting
- * - feSpotLight
- * - feTurbulence
- * - filter
- * - g
- * - image
- * - line
- * - linearGradient
- * - mask
- * - path
- * - pattern
- * - polygon
- * - polyline
- * - radialGradient
- * - rect
- * - stop
- * - svg
- * - text
- * - textPath
- * - tspan
- * - use
- */
-/**
  * The module provides capabilities for image decoding, encoding, editing, metadata processing, and image receiving.
  * This module contains the following classes:
  * 
  * - [ImageSource]{@link @ohos.multimedia.image:image.ImageSource}: provides the capabilities of obtaining 
  * [image information]{@link @ohos.multimedia.image:image.ImageInfo}, decoding images to PixelMaps or Pictures, and 
  * reading and modifying [image properties]{@link @ohos.multimedia.image:image.PropertyKey}. 
- * [Supported image formats for decoding]{@link @ohos.multimedia.image: image.ImageSource#supportedFormats}
+ * [Supported image formats for decoding]{@link image.ImageSource#supportedFormats}
  * include png, jpeg, bmp, gif, webp, dng, and heic<sup>12+</sup>.
+ * 
  * - [ImagePacker]{@link @ohos.multimedia.image:image.ImagePacker}: provides the capability of encoding images into
  * compressed data streams or files. Encoding requires the ImageSource, PixelMap, or Picture of an image as the input. 
- * [Supported image formats for encoding]{@link @ohos.multimedia.image: image.ImagePacker#supportedFormats}
+ * [Supported image formats for encoding]{@link @ohos.multimedia.image:image.ImagePacker#supportedFormats}
  * include jpeg, webp, png, heic<sup>12+</sup>, and gif<sup>18+</sup>.
- * - [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}: contains pixel data and 
+ * 
+ * - [PixelMap]{@link image.PixelMap}: contains pixel data and 
  * [image information]{@link @ohos.multimedia.image:image.ImageInfo}. It can be used for reading/writing pixel data and 
  * performing operations such as cropping, scaling, translating, rotating, and mirroring. It can also be directly passed
  * to the [Image component]{@link Image} for display. Additionally, it provides APIs for 
  * obtaining and setting the color gamut and HDR metadata of images.
- * - [Picture]{@link @ohos.multimedia.image:image.Picture}: a multi-picture object composed of a main picture,
+ * 
+ * - [Picture]{@link image.Picture}: a multi-picture object composed of a main picture,
  * auxiliary pictures, and metadata. The main picture contains the primary image information; auxiliary pictures store
  * additional information related to the main picture; metadata stores other information related to the image.
  * Picture provides methods for obtaining the main picture, compositing HDR images, obtaining and setting auxiliary
  * pictures, and obtaining and setting metadata.
+ * 
  * - [AuxiliaryPicture]{@link @ohos.multimedia.image:image.AuxiliaryPicture}: used to display special information
  * alongside the main picture, enriching the overall content of the image. The supported types of auxiliary pictures
  * can be found in [AuxiliaryPictureType]{@link @ohos.multimedia.image:image.AuxiliaryPictureType}.
- * - [Metadata]{@link @ohos.multimedia.image:image.Metadata}: used to store image metadata. The supported metadata types
- * can be found in [MetadataType]{@link @ohos.multimedia.image:image.MetadataType}. It includes Exif metadata and
- * watermark cropping metadata, both stored in Key-Value pairs. The keys for Exif metadata can be found in
- * [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}, and the keys for watermark cropping metadata can be
- * found in [FragmentPropertyKey]{@link @ohos.multimedia.image:image.FragmentMapPropertyKey}.
+ * 
+ * - [Metadata]{@link image.Metadata}: stores image metadata in key-value format. The supported
+ * metadata types can be found in [MetadataType]{@link image.MetadataType}, including Exif metadata, fragment map
+ * metadata, and HEIF sequence image metadata. For details about the keys of Exif metadata, fragment map metadata, and
+ * HEIF sequence image metadata, see [PropertyKey]{@link image.PropertyKey},
+ * [FragmentMapPropertyKey]{@link image.FragmentMapPropertyKey}, and
+ * [HeifsPropertyKey]{@link image.HeifsPropertyKey}, respectively.
+ * 
+ * - [ExifMetadata]{@link image.ExifMetadata}: stores Exif metadata of images in key-value format. For details about
+ * the keys of Exif metadata, see [PropertyKey]{@link image.PropertyKey}.
+ * 
+ * - [MakerNoteHuaweiMetadata]{@link image.MakerNoteHuaweiMetadata}: stores photo metadata defined by Huawei cameras 
+ * in key-value format. For details about keys of HUAWEI camera-defined photo metadata, see
+ * [PropertyKey]{@link image.PropertyKey}.
+ * 
+ * - [HeifsMetadata]{@link image.MakerNoteHuaweiMetadata}: stores HEIF sequence image metadata of images in key-value
+ * format. For details about keys of HEIF sequence image metadata, see [HeifsPropertyKey]{@link image.HeifsPropertyKey}.
+ * 
+ * - [WebPMetadata]{@link image.WebPMetadata}: stores WebP image metadata in key-value format. For details about keys
+ * in WebP image metadata, see [WebPPropertyKey]{@link image.WebPPropertyKey}.
+ * 
+ * - [GifMetadata]{@link image.GifMetadata}: stores GIF image metadata in key-value format. For details about keys in
+ * GIF image metadata, see [GifPropertyKey]{@link image.GifPropertyKey}.
+ * 
+ * - [JfifMetadata]{@link image.JfifMetadata}: stores JFIF image metadata in key-value format. For details about keys
+ * in JFIF image metadata, see [JfifPropertyKey]{@link image.JfifPropertyKey}.
+ * 
+ * - [TiffMetadata]{@link image.TiffMetadata}: stores TIFF image metadata in key-value format. For details about keys
+ * in TIFF image metadata, see [TiffPropertyKey]{@link image.TiffPropertyKey}.
+ * 
+ * - [PngMetadata]{@link image.PngMetadata}: stores PNG image metadata in key-value format. For details about keys in
+ * PNG image metadata, see [PngPropertyKey]{@link image.PngPropertyKey}.
+ * 
+ * - [AvisMetadata]{@link image.AvisMetadata}: stores AVIS image metadata in key-value format. For details about keys
+ * in AVIS image metadata, see [AvisPropertyKey]{@link image.AvisPropertyKey}.
+ * 
  * - [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}: acts as a consumer of images, used for receiving
  * and reading images from a surface.
+ * 
  * - [ImageCreator]{@link @ohos.multimedia.image:image.ImageCreator}: acts as a producer of images, used for writing
  * images into a surface.
+ * 
  * - [Image]{@link @ohos.multimedia.image:image.Image}: used by ImageReceiver and ImageCreator for transferring image
  * objects, with the actual content determined by the producer. For example, the Image object provided by
  * a camera preview stream contains YUV data, whereas the Image object provided by a camera photo contains a JPEG file.
@@ -4960,11 +4951,53 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
    * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
    * finished and the instance is no longer needed.
+   * 
+   * The SVG tags are supported since API version 10. The used version is (SVG) 1.1, and the width and height of the SVG 
+   * tag must be set. An XML declaration can be added to an SVG file and start with **<?xml**. The following tags are 
+   * supported:
+   * 
+   * - a
+   * - circle
+   * - clipPath
+   * - defs
+   * - ellipse
+   * - feBlend
+   * - feColorMatrix
+   * - feComposite
+   * - feDiffuseLighting
+   * - feDisplacementMap
+   * - feDistantLight
+   * - feFlood
+   * - feGaussianBlur
+   * - feImage
+   * - feMorphology
+   * - feOffset
+   * - fePointLight
+   * - feSpecularLighting
+   * - feSpotLight
+   * - feTurbulence
+   * - filter
+   * - g
+   * - image
+   * - line
+   * - linearGradient
+   * - mask
+   * - path
+   * - pattern
+   * - polygon
+   * - polyline
+   * - radialGradient
+   * - rect
+   * - stop
+   * - svg
+   * - text
+   * - textPath
+   * - tspan
+   * - use
    *
    * @param { string } uri - Image path. Currently, only the application sandbox path is supported.
    *     <br>The following formats are supported: .jpg, .png, .gif, .bmp, .webp, .dng, .heic<sup>12+</sup> 
-   *     (depending on the hardware), [.svg<sup>10+</sup>]{@link @ohos.multimedia.image:image.Functions#SVG Tags}, and
-   *     .ico<sup>11+</sup>.
+   *     (depending on the hardware), .svg<sup>10+</sup>, and .ico<sup>11+</sup>.
    * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform [since 10]
@@ -4991,11 +5024,53 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
    * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
    * finished and the instance is no longer needed.
+   * 
+   * The SVG tags are supported since API version 10. The used version is (SVG) 1.1, and the width and height of the SVG 
+   * tag must be set. An XML declaration can be added to an SVG file and start with **<?xml**. The following tags are 
+   * supported:
+   * 
+   * - a
+   * - circle
+   * - clipPath
+   * - defs
+   * - ellipse
+   * - feBlend
+   * - feColorMatrix
+   * - feComposite
+   * - feDiffuseLighting
+   * - feDisplacementMap
+   * - feDistantLight
+   * - feFlood
+   * - feGaussianBlur
+   * - feImage
+   * - feMorphology
+   * - feOffset
+   * - fePointLight
+   * - feSpecularLighting
+   * - feSpotLight
+   * - feTurbulence
+   * - filter
+   * - g
+   * - image
+   * - line
+   * - linearGradient
+   * - mask
+   * - path
+   * - pattern
+   * - polygon
+   * - polyline
+   * - radialGradient
+   * - rect
+   * - stop
+   * - svg
+   * - text
+   * - textPath
+   * - tspan
+   * - use
    *
    * @param { string } uri - Image path. Currently, only the application sandbox path is supported.
    *     <br>The following formats are supported: .jpg, .png, .gif, .bmp, .webp, .dng, .heic<sup>12+</sup> (depending on
-   *     the hardware), [.svg<sup>10+</sup>]{@link @ohos.multimedia.image:image.Functions#SVG Tags}, and
-   *     .ico<sup>11+</sup>.
+   *     the hardware), .svg<sup>10+</sup> and .ico<sup>11+</sup>.
    * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
    *     size.
    * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
@@ -8970,6 +9045,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * Enumerates the properties available for the metadata of a TIFF image.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the return value type, see [TiffMetadata]{@link TiffMetadata}.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -9213,6 +9292,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * Enumerates the properties available for the metadata of a PNG image.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the return value type, see [PngMetadata]{@link image.PngMetadata}.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -13377,6 +13460,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
  	 * Enumerates the properties available for the metadata of a Avis image.
+   * 
+   * > **NOTE**
+   * >
+   * > For detail about the return value type, see [AvisMetadata]{@link image.AvisMetadata}. 
  	 *
  	 * @syscap SystemCapability.Multimedia.Image.Core
  	 * @stagemodelonly
@@ -14914,6 +15001,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - **ISOSpeedRatings**: If its value is **0** or **65535**, the recommended exposure index is used first. If the
      * > recommended exposure index does not exist, the standard output sensitivity, ISO speed, and exposure index are 
      * > used in sequence.
+     * >
+     * > This API supports reading metadata in the following formats:
+     * >
+     * > - Since API version 24, DNG metadata can be read. For details about the properties, see
+     * > [DngPropertyKey]{@link image.DngPropertyKey}.
+     * >
+     * > - Since API version 24, HEIFS metadata can be read. For details about the properties, see
+     * > [HeifsPropertyKey]{@link image.HeifsPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, PNG metadata can be read. For details about the properties, see
+     * > [PngPropertyKey]{@link image.PngPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, JFIF metadata can be read. For details about the properties, see
+     * > [JfifPropertyKey]{@link image.JfifPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, TIFF metadata can be read. For details about the properties, see
+     * > [TiffPropertyKey]{@link image.TiffPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, GIF metadata can be read. For details about the properties, see
+     * > [GifPropertyKey]{@link image.GifPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, XMP metadata of JPEG, PNG, GIF, DNG, and TIFF images can be read. For details about
+     * > how to operate XMP metadata, see [XMPMetadata]{@link image.XMPMetadata}.
+     * >
+     * > - Since API version 26.0.0, AVIS metadata can be read. For details about the properties, see [AvisPropertyKey]{@link image.AvisPropertyKey}.
      *
      * @param { string[] } [propertyKeys] - Array of properties names. If **propertyKeys** is not specified, all
      *     supported metadata is returned.
@@ -14950,7 +15062,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - This API applies only to images that are in JPEG, PNG, or HEIF format and contain the Exif information. 
      * > Before modifying properties, use the **supportedFormats** property to check whether the device supports Exif 
      * > information read/write in HEIF format.
-     *
+     * >
+     * > - Since API version 26.0.0, XMP metadata of JPEG, PNG, and GIF images can be read. For details about how to
+     * > operate XMP metadata, see [XMPMetadata]{@link image.XMPMetadata}.
+     * >
+     * > - When calling the **writeImageMetadata** API to modify the **Exif** field, ensure that the corresponding
+     * > image file has write permission. Otherwise, the field modification will fail.
+     * 
      * @param { ImageMetadata } imageMetadata - Image metadata set. If all property values in **imageMetadata** are
      *     empty, all Exif metadata is cleared.
      * @returns { Promise<void> } Promise that returns no value.
@@ -14993,7 +15111,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - **HEIFS_METADATA** applies to HEIFS images.
      * >
      * > - If the input **MetadataType** does not match the image format, error code **7700102** will be returned.
-     *
+     * >
+     * > - Since API version 24, DNG metadata can be read. For details about the properties, see
+     * > [DngPropertyKey]{@link image.DngPropertyKey}.
+     * >
+     * > - Since API version 24, HEIFS metadata can be read. For details about the properties, see
+     * > [HeifsPropertyKey]{@link image.HeifsPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, PNG metadata can be read. For details about the properties, see
+     * > [PngPropertyKey]{@link image.PngPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, JFIF metadata can be read. For details about the properties, see
+     * > [JfifPropertyKey]{@link image.JfifPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, TIFF metadata can be read. For details about the properties, see
+     * > [TiffPropertyKey]{@link image.TiffPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, GIF metadata can be read. For details about the properties, see
+     * > [GifPropertyKey]{@link image.GifPropertyKey}.
+     * >
+     * > - Since API version 26.0.0, XMP metadata of JPEG, PNG, GIF, DNG, and TIFF images can be read. For details
+     * > about how to operate XMP metadata, see [XMPMetadata]{@link image.XMPMetadata}.
+     * >
+     * > - Since API version 26.0.0, AVIS metadata can be read. For details about the properties, see
+     * > [AvisPropertyKey]{@link image.AvisPropertyKey}.
+     * 
      * @param { MetadataType[] } [metadataTypes] - Metadata type array. If this parameter is left empty, all supported
      *     metadata is obtained.
      * @param { int }[index] - Image frame number for metadata retrieval. The default value is **0**.
