@@ -30,6 +30,14 @@ import { Callback } from './@ohos.base';
 declare namespace jsLeakWatcher {
   /**
    * 使能ArkTS对象泄漏检测，默认关闭。开启后会收集泄漏信息，可能增加性能开销。
+   * 
+   * 推荐的完整调用流程：enable() → watch() → check() → dump()
+   * 
+   * 使用场景：
+   * 
+   * - 应用开发调试阶段，用于检测和定位内存泄漏问题。
+   * - 应用测试阶段，用于验证应用的内存管理是否正常。
+   * - 对内存使用有严格要求的应用，需要持续监控内存状态。
    *
    * @param { boolean } isEnable - 是否使能jsLeakWatcher。true：使能jsLeakWatcher；false：不使能jsLeakWatcher。
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -40,8 +48,15 @@ declare namespace jsLeakWatcher {
 
   /**
    * 注册待检测泄漏的对象。
+   * 
+   * 使用场景：
+   * 
+   * - 在创建可能发生泄漏的关键对象后（如自定义组件、Window等），立即注册进行监控。
+   * - 对应用生命周期中的重要对象进行注册，以便及时发现泄漏。
+   * - 在特定功能模块中使用到的对象，如XComponent、NodeContainer等，注册以监控其释放情况。
    *
-   * @param { object } obj - 需要检测的对象。<br>**说明**：可传入任何非null的ArkTS对象，不支持undefined和基本类型。
+   * @param { object } obj - 需要检测的对象。
+   *     <br>**说明**：可传入任何非null的ArkTS对象，不支持undefined和基本类型。
    * @param { string } msg - 自定义对象信息。
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
@@ -63,7 +78,8 @@ declare namespace jsLeakWatcher {
   /**
    * 导出泄漏列表和虚拟机内存快照。
    *
-   * @param { string } filePath - 导出信息生成的文件存放的路径。<br>**说明**：从API version 24开始，进程生命周期内，仅保留最新的一份快照信息。
+   * @param { string } filePath - 导出信息生成的文件存放的路径。
+   *     <br>**说明**：从API version 24开始，进程生命周期内，仅保留最新的一份快照信息。
    * @returns { Array<string> } 导出结果。分别为文件名后缀为.jsleaklist的泄漏列表和文件名后缀为.heapsnapshot虚拟机内存快照文件。
    *     <br>**说明**：dump成功，返回泄漏列表文件路径和虚拟机内存快照路径；dump失败，返回空数组。
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -76,12 +92,20 @@ declare namespace jsLeakWatcher {
    * 使能ArkTS对象泄漏检测。
    * 
    * 此接口通过一次调用即可检测ArkTS对象的内存泄漏，比之前需要调用四个函数（enable、watch、check、dump）的方法更加简洁。
+   * 
+   * 使用场景：
+   * 
+   * - 对内存使用有严格要求的应用，需要持续监控内存泄漏情况。
+   * - 监控使用XComponent、NodeContainer、Window、CustomComponent、Ability等组件的应用是否发生泄漏。
+   * - 应用开发调试和测试阶段，快速发现内存泄漏问题。
+   * - 长时间运行的应用，需要定期检测内存泄漏。
    *
    * @param { boolean } isEnabled - 是否使能ArkTS对象内存泄漏检测功能。true：开启ArkTS内存泄漏检测功能；false：关闭ArkTS内存泄漏检测功能。
-   * @param { Array<string> } configs - 配置项，数组中每个元素为监测具体对象的类型。<br>可配置项包括：XComponent，NodeContainer，Window，CustomComponent
-   *     和Ability。<br>**说明**：传入空数组代表监测以上全部对象。
-   * @param { Callback<Array<string>> } callback - 回调函数，用于接收jsLeakWatcher.enableLeakWatcher接口返回的内存泄漏文件列表和虚拟机内存快照文件。<br>回调函数中传入一个数组
-   *     对象，索引0为泄漏列表文件名，后缀为.jsleaklist；索引1为虚拟机内存快照文件名，后缀为.rawheap。
+   * @param { Array<string> } configs - 配置项，数组中每个元素为监测具体对象的类型。
+   *     <br>可配置项包括：XComponent，NodeContainer，Window，CustomComponent和Ability。
+   *     <br>**说明**：传入空数组代表监测以上全部对象。
+   * @param { Callback<Array<string>> } callback - 回调函数，用于接收jsLeakWatcher.enableLeakWatcher接口返回的内存泄漏文件列表和虚拟机内存快照文件。
+   *     <br>回调函数中传入一个数组对象，索引0为泄漏列表文件名，后缀为.jsleaklist；索引1为虚拟机内存快照文件名，后缀为.rawheap。
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -171,7 +195,7 @@ declare namespace jsLeakWatcher {
   export interface LeakWatcherConfig {
     /**
      * 被监测对象类型。
-     * 
+     *
      * 默认监测所有组件类型。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -182,11 +206,11 @@ declare namespace jsLeakWatcher {
     monitorObjectTypes: MonitorObjectType;
     /**
      * 被监测泄漏对象ID列表。
-     * 
+     *
      * 只作用于自定义组件，不会影响其他组件类型的监测。
-     * 
+     *
      * 例如：白名单中设置的对象类名ID与自定义ID列表存在相同值时，生效自定义ID列表参数。
-     * 
+     *
      * 默认为空数组。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -200,7 +224,7 @@ declare namespace jsLeakWatcher {
      * 
      * 默认为90000ms。
      * 
-     * 如果应用输入的自定义检测间隔时间小于默认值，JSLeakWatcher强制将间隔设置为默认值。
+     * 如果应用输入的自定义检测间隔时间小于默认值，jsLeakWatcher强制将间隔设置为默认值。
      * 
      * 当前jsLeakWatcher泄漏检测性能开销较大，会导致应用卡顿，建议增大该参数，减少卡顿频率。
      * 
@@ -213,13 +237,11 @@ declare namespace jsLeakWatcher {
      */
     checkInterval?: int;
     /**
-     * 应用在前台泄漏个数达到设定值触发dump，取值范围为[0, +∞)。
-     * 
+     * 应用在前台泄漏个数达到设定值触发dump。
+     *
      * GC/Dump阶段，大于等于5时触发Dump。
-     * 
+     *
      * 阈值默认为5。
-     * 
-     * 传入不在取值范围内的值时将使用默认值。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -228,13 +250,11 @@ declare namespace jsLeakWatcher {
      */
     fgLeakCountThreshold?: int;
     /**
-     * 应用在后台泄漏个数达到设定值触发dump，取值范围为[0, +∞)。
-     * 
+     * 应用在后台泄漏个数达到设定值触发dump。
+     *
      * GC/Dump阶段，大于等于1时触发Dump。
-     * 
+     *
      * 阈值默认为1。
-     * 
-     * 传入不在取值范围内的值时将使用默认值。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -243,11 +263,9 @@ declare namespace jsLeakWatcher {
      */
     bgLeakCountThreshold?: int;
     /**
-     * 最大dump保存个数，取值范围为(0, 10]，避免磁盘空间占满，超过则删除时间戳最小的rawheap、jsleaklist文件。
-     * 
+     * 最大dump保存个数，避免磁盘空间占满，超过则删除时间戳最小的rawheap、jsleaklist文件。
+     *
      * 默认保存10个rawheap、10个jsleaklist文件。
-     * 
-     * 传入不在取值范围内的值时将使用默认值。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -256,15 +274,13 @@ declare namespace jsLeakWatcher {
      */
     maxStoredHeapDumps?: int;
     /**
-     * 延迟执行dump，保证GC能调度且执行完再执行dump，延迟间隔小于等于泄漏检测间隔时间，单位：ms，取值范围为[0, +∞)。
-     * 
+     * 延迟执行dump，保证GC能调度且执行完再执行dump，延迟间隔小于等于泄漏检测间隔时间，单位：ms。
+     *
      * 设置延迟时长超过泄漏间隔时长则默认与泄漏间隔时长保持一致。
-     * 
+     *
      * 若无新增泄漏对象将不会触发dump。
-     * 
+     *
      * GC结束后默认延迟5秒执行dump。
-     * 
-     * 传入不在取值范围内的值时将使用默认值。
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -295,16 +311,25 @@ declare namespace jsLeakWatcher {
    * 使能ArkTS对象泄漏检测。
    * 
    * 此接口通过一次调用即可检测ArkTS对象的内存泄漏，比之前需要调用四个函数（enable、watch、check、dump）的方法更加简洁；通过configs可配置项参数，自定义设置监测项各属性，相比较之前极大提升了泄漏检测性能。
-   *
-   * > **注意**
+   * 
+   * > **注意：**
    * >
    * > 当前jsLeakWatcher泄漏检测性能开销较大，会导致应用卡顿，建议增大检测间隔时间，减少卡顿频率。
+   * > 使用场景：
+   * 
+   * - 对性能要求较高的应用，需要通过配置检测间隔、阈值等参数来平衡检测精度和性能开销。
+   * - 大型应用或复杂应用，需要精细控制泄漏检测的参数，如检测间隔、泄漏阈值、最大dump数量等。
+   * - 使用特定组件（如CustomComponent、Window、Ability等）的应用，需要针对性监控这些组件的泄漏。
+   * - 对内存管理有严格要求的应用，需要设置过滤规则排除某些不需要监控的对象。
+   * - 长时间运行或需要持续监控的应用，需要合理设置检测间隔和最大保存数量。
    *
-   * @param { boolean } isEnabled - 是否使能ArkTS对象内存泄漏检测功能。<br>true：开启ArkTS内存泄漏检测功能。<br>false：关闭ArkTS内存泄漏检测功能。
-   * @param { LeakWatcherConfig } configs - LeakWatcherConfig对象类型，对象中包含多个用于内存泄漏监测的可配置属性。<br>**说明**：对象中参数类型传入空值或假值代表该属性设置
-   *     为默认值。
-   * @param { Callback<Array<string>> } callback - 回调函数，用于接收泄漏检测的导出文件路径。<br>回调函数中传入一个数组
-   *     对象，索引0为泄漏列表文件名，后缀为.jsleaklist；索引1为虚拟机内存快照文件名，后缀为.rawheap。
+   * @param { boolean } isEnabled - 是否使能ArkTS对象内存泄漏检测功能。
+   *     <br>true：开启ArkTS内存泄漏检测功能。
+   *     <br>false：关闭ArkTS内存泄漏检测功能。
+   * @param { LeakWatcherConfig } configs - LeakWatcherConfig对象类型，对象中包含多个用于内存泄漏监测的可配置属性。
+   *     <br>**说明**：对象中参数类型传入空值或假值代表该属性设置为默认值。
+   * @param { Callback<Array<string>> } callback - 回调函数，用于接收泄漏检测的导出文件路径。回调函数中传入一个数组对象，索引0为泄漏列表文件名，后缀为.jsleaklist；索引1为虚拟机
+   *     内存快照文件名，后缀为.rawheap。
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -319,5 +344,4 @@ declare namespace jsLeakWatcher {
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void;
 }
-
 export default jsLeakWatcher;

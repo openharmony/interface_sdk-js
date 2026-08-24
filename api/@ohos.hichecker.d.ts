@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -93,7 +93,7 @@ declare namespace hichecker {
    */
   const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n;
 
-    /**
+  /**
    * Caution rule, which is programmed to detect whether ability leakage has occurred.
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -121,7 +121,7 @@ declare namespace hichecker {
   const RULE_CHECK_ARKUI_PERFORMANCE: bigint;
 
   /**
-   * The thread rule check network usage.
+   * Caution rule, which is programmed to detect whether the thread invokes a time-consuming network API.
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -212,5 +212,4 @@ declare namespace hichecker {
    */
   function containsCheckRule(rule: bigint) : boolean;
 }
-
 export default hichecker;

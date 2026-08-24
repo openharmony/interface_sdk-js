@@ -14,24 +14,18 @@
 */
 
 /**
- * @file
- * @kit PerformanceAnalysisKit
+  * @file
+  * @kit PerformanceAnalysisKit
  */
 
 /**
- * 为应用提供多种调试、调优的方法，帮助开发者定位性能瓶颈、优化应用性能。主要功能包括：内存数据分析、CPU使用率监控、trace采集、profiler采集、VM堆快照转储。由于该模块的接口大多比较耗费性能，接口调用较为耗时，且基于HiDebug模块定义，该模块内的接口仅建议在应用调试、调优阶段使用。若需要在其他场景使用时，请认真评估所需调用的接口对应用性能的影响。
- *
- * @namespace hidebug
- * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
- * @since 8
- */
-/**
- * 为应用提供多种调试、调优的方法，帮助开发者定位性能瓶颈、优化应用性能。主要功能包括：内存数据分析、CPU使用率监控、trace采集、profiler采集、VM堆快照转储。由于该模块的接口大多比较耗费性能，接口调用较为耗时，且基于HiDebug模块定义，该模块内的接口仅建议在应用调试、调优阶段使用。若需要在其他场景使用时，请认真评估所需调用的接口对应用性能的影响。
+ * 为应用提供多种调试、调优的方法，帮助开发者定位性能瓶颈、优化应用性能。主要功能包括：内存数据分析、CPU使用率监控、trace采集、profiler采集、VM堆快照转储。由于该模块的接口大多比较耗费性能，接口调用较为耗时，且基于
+ * HiDebug模块定义，该模块内的接口仅建议在应用调试、调优阶段使用。若需要在其他场景使用时，请认真评估所需调用的接口对应用性能的影响。
  *
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @atomicservice
- * @since 12 dynamic
+ * @since 8 dynamic
  * @since 23 static
  */
 declare namespace hidebug {
@@ -78,9 +72,10 @@ declare namespace hidebug {
   /**
    * 获取应用进程实际使用的物理内存大小。接口实现方式：读取/proc/{pid}/smaps_rollup节点中的Pss与SwapPss值并求和。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过@ohos.taskpool或@ohos.worker开启异步线程以避免应用出现卡顿。
+   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程以避免应用出现卡顿。
    *
    * @returns { bigint } 返回应用进程实际使用的物理内存大小，单位为KB。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -92,9 +87,10 @@ declare namespace hidebug {
   /**
    * 获取进程的共享脏内存大小。接口实现方式：读取/proc/{pid}/smaps_rollup节点中的Shared_Dirty值。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过@ohos.taskpool或@ohos.worker开启异步线程以避免应用出现卡顿。
+   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程以避免应用出现卡顿。
    *
    * @returns { bigint } 返回进程的共享脏内存大小，单位为KB。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -106,9 +102,10 @@ declare namespace hidebug {
   /**
    * 获取进程的私有脏内存大小。读取/proc/{pid}/smaps_rollup中的Private_Dirty值。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过@ohos.taskpool或@ohos.worker开启异步线程以避免应用出现卡顿。
+   * > 由于/proc/{pid}/smaps_rollup的读取耗时较长，建议不要在主线程中使用该接口，可通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程以避免应用出现卡顿。
    *
    * @returns { bigint } 返回进程的私有脏内存大小，单位为KB。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -120,7 +117,7 @@ declare namespace hidebug {
   /**
    * 获取进程的CPU使用率。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。
    *
@@ -132,7 +129,11 @@ declare namespace hidebug {
   function getCpuUsage() : double;
 
   /**
-   * 启动虚拟机Profiling方法跟踪，`startProfiling(filename: string)`方法的调用需要与`stopProfiling()`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，否则会接口调用异常。
+   * > **说明**：
+   * >
+   * > 从API version 8支持，从API version 9开始废弃，
+   * > 启动虚拟机Profiling方法跟踪，`startProfiling(filename: string)`方法的调用需要与`stopProfiling()`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，
+   * > 否则会接口调用异常。
    *
    * @param { string } filename - 用户自定义的采样结果输出的文件名，将在应用的`files`目录下生成以该参数命名的json文件。string长度的最大值为128。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -143,7 +144,11 @@ declare namespace hidebug {
   function startProfiling(filename: string): void;
 
   /**
-   * 停止虚拟机Profiling方法跟踪，`stopProfiling()`方法的调用需要与`startProfiling(filename: string)`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，否则会接口调用异常。
+   * > **说明**：
+   * >
+   * > 从API version 8支持，从API version 9开始废弃，
+   * > 停止虚拟机Profiling方法跟踪，`stopProfiling()`方法的调用需要与`startProfiling(filename: string)`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，
+   * > 否则会接口调用异常。
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamiconly
@@ -153,18 +158,22 @@ declare namespace hidebug {
   function stopProfiling(): void;
 
   /**
-   * 虚拟机堆数据转储，生成`filename.heapsnapshot`文件。
+   * > **说明**：
+   * >
+   * > 从API version 8支持，从API version 9开始废弃，
+   * > 虚拟机堆数据转储，生成`filename.heapsnapshot`文件。
    *
    * @param { string } filename - 用户自定义的虚拟机堆转储文件名，将在应用的`files`目录下生成以该参数命名的heapsnapshot文件。string长度的最大值为128。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead hidebug.dumpJsHeapData(filename : string)
+   * @useinstead hidebug.dumpJsHeapData
    */
   function dumpHeapData(filename: string): void;
 
   /**
-   * 启动虚拟机Profiling方法跟踪，`startJsCpuProfiling(filename: string)`方法的调用需要与`stopJsCpuProfiling()`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，否则会接口调用异常。
+   * 启动虚拟机Profiling方法跟踪，`startJsCpuProfiling(filename: string)`方法的调用需要与`stopJsCpuProfiling()`方法的调用一一对应，先开启后关闭，请避免重复开启或重复
+   * 关闭的调用方式，否则会接口调用异常。
    *
    * @param { string } filename - 用户自定义的采样结果输出的文件名，将在应用的`files`目录下生成以该参数命名的json文件。string长度的最大值为128。
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
@@ -175,7 +184,8 @@ declare namespace hidebug {
   function startJsCpuProfiling(filename : string) : void;
 
   /**
-   * 停止虚拟机Profiling方法跟踪，`stopJsCpuProfiling()`方法的调用需要与`startJsCpuProfiling(filename: string)`方法的调用一一对应，先开启后关闭，请避免重复开启或重复关闭的调用方式，否则会接口调用异常。
+   * 停止虚拟机Profiling方法跟踪，`stopJsCpuProfiling()`方法的调用需要与`startJsCpuProfiling(filename: string)`方法的调用一一对应，先开启后关闭，请避免重复开启或重复
+   * 关闭的调用方式，否则会接口调用异常。
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
@@ -186,7 +196,7 @@ declare namespace hidebug {
   /**
    * 虚拟机堆数据转储。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于虚拟机堆导出极其耗时，且该接口为同步接口，建议不要在上架版本中调用该接口，以避免应用冻屏，影响用户体验。
    *
@@ -201,19 +211,19 @@ declare namespace hidebug {
   /**
    * 虚拟机堆数据转储，支持清除nodeId缓存。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于虚拟机堆导出极其耗时，且该接口为同步接口，建议不要在上架版本中调用该接口，以避免应用冻屏，影响用户体验。
    *
    * @param { string } filename - 用户自定义的虚拟机堆转储文件名，将在应用的files目录下生成fileName.heapsnapshot格式文件。string长度的最大值为128字节。
-   * @param { boolean } [needClean] - 转储堆快照前是否需要清除nodeId缓存。true：需要清除；false：不需要清除。
+   * @param { boolean } needClean - 转储堆快照前是否需要清除nodeId缓存。true：需要清除；false：不需要清除。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic
    * @since 26.1.0 static
    */
-  function dumpJsHeapData(filename: string, needClean: boolean): void;
+  function dumpJsHeapData(filename : string, needClean : boolean) : void;
 
   /**
    * 获取系统服务信息。
@@ -235,7 +245,7 @@ declare namespace hidebug {
   /**
    * 获取系统的CPU资源占用情况。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。
    *
@@ -276,7 +286,7 @@ declare namespace hidebug {
   /**
    * 获取应用线程CPU使用情况。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。
    *
@@ -296,7 +306,7 @@ declare namespace hidebug {
    */
   interface SystemMemInfo {
     /**
-     * 系统总的内存，以KB为单位，计算方式：/proc/meminfo: MemTotal。
+     * 系统总的内存，以KB为单位，计算方式：/proc/meminfo: MemTotal
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -304,7 +314,7 @@ declare namespace hidebug {
      */
     totalMem: bigint;
     /**
-     * 系统空闲的内存，以KB为单位，计算方式：/proc/meminfo: MemFree。
+     * 系统空闲的内存，以KB为单位，计算方式：/proc/meminfo: MemFree
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -312,12 +322,12 @@ declare namespace hidebug {
      */
     freeMem: bigint;
     /**
-     * 系统可用的内存，以KB为单位，计算方式：/proc/meminfo: MemAvailable。
+     * 系统可用的内存，以KB为单位，计算方式：/proc/meminfo: MemAvailable
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12 dynamic
-   * @since 23 static
-   */
+     * @since 12 dynamic
+     * @since 23 static
+     */
     availableMem: bigint;
   }
 
@@ -340,7 +350,6 @@ declare namespace hidebug {
    */
   interface NativeMemInfo {
     /**
-     * 实际占用的物理内存大小(比例分配共享库占用的内存)，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Pss + SwapPss。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -348,7 +357,6 @@ declare namespace hidebug {
      */
     pss: bigint;
     /**
-     * 占用的虚拟内存大小(包括共享库所占用的内存)，以KB为单位，计算方式：/proc/{pid}/statm: size * 4。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -356,7 +364,6 @@ declare namespace hidebug {
      */
     vss: bigint;
     /**
-     * 实际占用的物理内存大小(包括共享库占用)，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Rss。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -364,7 +371,6 @@ declare namespace hidebug {
      */
     rss: bigint;
     /**
-     * 共享脏内存大小，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Shared_Dirty。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -372,39 +378,37 @@ declare namespace hidebug {
      */
     sharedDirty: bigint;
     /**
-     * 私有脏内存大小，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Private_Dirty。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
-   * @since 23 static
-   */
+     * @since 23 static
+     */
     privateDirty: bigint;
     /**
-     * 共享净内存大小，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Shared_Clean。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12 dynamic
-   * @since 23 static
-   */
+     * @since 12 dynamic
+     * @since 23 static
+     */
     sharedClean: bigint;
     /**
-     * 私有干净内存大小，以KB为单位，计算方式：/proc/{pid}/smaps_rollup: Private_Clean。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12 dynamic
-   * @since 23 static
-   */
+     * @since 12 dynamic
+     * @since 23 static
+     */
     privateClean: bigint;
   }
 
   /**
    * 获取应用进程内存信息。读取/proc/{pid}/smaps_rollup和/proc/{pid}/statm节点的数据。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 由于读取/proc/{pid}/smaps_rollup耗时较长，推荐使用异步接口hidebug.getAppNativeMemInfoAsync，以避免应用丢帧或卡顿。
+   * > 由于读取/proc/{pid}/smaps_rollup耗时较长，推荐使用异步接口
+   * > [hidebug.getAppNativeMemInfoAsync]{@link hidebug.getAppNativeMemInfoAsync}，以避免应用丢帧或卡顿。
    * >
-   * > 推荐使用hidebug.getRssInfo接口获取应用的rss使用信息。
+   * > 推荐使用[hidebug.getRssInfo]{@link hidebug.getRssInfo}接口获取应用的rss使用信息
    *
    * @returns { NativeMemInfo } 应用进程内存信息。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -422,7 +426,6 @@ declare namespace hidebug {
    */
   interface MemoryLimit {
     /**
-     * 应用程序进程可用的物理内存限制，以KB为单位。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -430,7 +433,6 @@ declare namespace hidebug {
      */
     rssLimit: bigint;
     /**
-     * 进程的虚拟内存限制，以KB为单位。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -438,7 +440,6 @@ declare namespace hidebug {
      */
     vssLimit: bigint;
     /**
-     * 当前线程的 JS VM 堆大小限制，以KB为单位。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12 dynamic
@@ -446,12 +447,11 @@ declare namespace hidebug {
      */
     vmHeapLimit: bigint;
     /**
-     * 当前进程的 JS 堆内存大小限制，以KB为单位。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12 dynamic
-   * @since 23 static
-   */
+     * @since 12 dynamic
+     * @since 23 static
+     */
     vmTotalHeapSize: bigint;
   }
 
@@ -532,13 +532,13 @@ declare namespace hidebug {
   /**
    * 获取应用进程内存信息。与`getAppNativeMemInfo`接口相比，该接口使用了缓存机制，以提高性能。缓存的有效期为5分钟。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 由于读取 /proc/{pid}/smaps_rollup 比较耗时，建议不在主线程中使用该接口。可以通过@ohos.taskpool或@ohos.worker开启异步线程，以避免应用卡顿。
+   * > 由于读取 `/proc/{pid}/smaps_rollup` 比较耗时，建议不在主线程中使用该接口。可以通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程，以避免应用卡顿。
    *
-   * @param { boolean } [forceRefresh] - 是否需要无视缓存有效性，强制更新缓存值。默认值：false。
-   *     true：直接获取当前内存数据并更新缓存值。
-   *     false：缓存有效时，直接返回缓存值，缓存失效时获取当前内存数据并更新缓存值。
+   * @param { boolean } [forceRefresh] - 是否需要无视缓存有效性，强制更新缓存值。默认值：false。</br>true：直接获取当前内存数据并更新缓存值。</br>false：缓存有效时，直接返回缓
+   *     存值，缓存失效时获取当前内存数据并更新缓存值。
    * @returns { NativeMemInfo } 应用进程内存信息。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
@@ -573,13 +573,7 @@ declare namespace hidebug {
   }
 
   /**
-   * 支持trace使用场景的标签，用户可通过hitrace抓取指定标签的trace内容。
    *
-   * > **注意**
-   * >
-   * > 以下标签实际值由系统定义，可能随版本升级而发生改变，为避免升级后出现兼容性问题，在生产中应直接使用标签名称而非标签数值。
-   *
-   * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12 dynamic
    * @since 23 static
@@ -844,18 +838,29 @@ declare namespace hidebug {
   }
 
   /**
-   * 该接口补充了hitrace功能，开发者可通过该接口完成指定范围的trace自动化采集。由于该接口中trace采集过程中消耗的性能与需要采集的范围成正相关，建议开发者在使用该接口前，通过hitrace命令抓取应用的trace日志，从中筛选出所需trace采集的关键范围，以提高该接口性能。
-   * `startAppTraceCapture()`方法的调用需要与`stopAppTraceCapture()`方法的调用一一对应，重复开启trace采集将导致接口调用异常，由于trace采集过程中会消耗较多性能，开发者应在完成采集后及时关闭。
-   * 应用调用startAppTraceCapture接口启动采集trace，当采集的trace大小超过了limitSize，系统将自动调用stopAppTraceCapture接口停止采集。因此limitSize大小设置不当，将导致生成trace数据不足，无法满足故障分析。所以要求开发者根据实际情况，评估limitSize大小。
-   * 评估方法：limitSize = 预期trace采集时长 * trace单位流量。
-   * 预期trace采集时长：开发者根据分析的故障场景自行决定，单位秒。
-   * trace单位流量：应用每秒产生的trace大小，系统推荐值为300KB/s，建议开发者采用自身应用的实测值，单位KB/s。
-   * trace单位流量实测方法：limitSize设置为最大值500M，调用startAppTraceCapture接口，在应用上操作N秒后，调用stopAppTraceCapture停止采集，然后查看trace大小S（KB）。那么trace单位流量 = S/N（KB/s）。
+   * 该接口补充了[hitrace](docroot://dfx/hitrace.md)功能，开发者可通过该接口完成指定范围的trace自动化采集。由于该接口中trace采集过程中消耗的性能与需要采集的范围成正相关，建议开发者在使用该接
+   * 口前，通过hitrace命令抓取应用的trace日志，从中筛选出所需trace采集的关键范围，以提高该接口性能。
    *
-   * @param { long[] } tags - trace范围，详情请见tags。
-   * @param { TraceFlag } flag - 详情请见TraceFlag。
+   * `startAppTraceCapture()`方法的调用需要与'[stopAppTraceCapture()]{@link hidebug.stopAppTraceCapture}'方法的调用一一对应，重复开启trace采集将导
+   * 致接口调用异常，由于trace采集过程中会消耗较多性能，开发者应在完成采集后及时关闭。
+   *
+   * 应用调用startAppTraceCapture接口启动采集trace，当采集的trace大小超过了limitSize，系统将自动调用stopAppTraceCapture接口停止采集。因此limitSize大小设置不当，将导致生
+   * 成trace数据不足，无法满足故障分析。所以要求开发者根据实际情况，评估limitSize大小。
+   *
+   * 评估方法：limitSize = 预期trace采集时长 * trace单位流量。
+   *
+   * 预期trace采集时长：开发者根据分析的故障场景自行决定，单位秒。
+   *
+   * trace单位流量：应用每秒产生的trace大小，系统推荐值为300KB/s，建议开发者采用自身应用的实测值，单位KB/s。
+   *
+   * trace单位流量实测方法：limitSize设置为最大值500M，调用startAppTraceCapture接口，在应用上操作N秒后，调用stopAppTraceCapture停止采集，然后查看trace大小S（KB）。那么
+   * trace单位流量 = S/N（KB/s）。
+   *
+   * @param { long[] } tags - trace范围，详情请见[tags]{@link hidebug.tags}。
+   * @param { TraceFlag } flag - 详情请见[TraceFlag]{@link hidebug.TraceFlag}。
    * @param { int } limitSize - 开启trace文件大小限制，单位为Byte，取值范围（0, 500MB]。超出范围时返回错误码401。
-   * @returns { string } 返回trace文件名路径（接口返回真实物理路径，若应用内需要访问，请参考应用沙箱路径和真实物理路径的对应关系进行路径转换）。
+   * @returns { string } 返回trace文件名路径（接口返回真实物理路径，若应用内需要访问，请参考
+   *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)进行路径转换）。
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
    *     2.The parameter is not within the enumeration type
@@ -870,8 +875,10 @@ declare namespace hidebug {
   function startAppTraceCapture(tags: long[], flag: TraceFlag, limitSize: int): string;
 
   /**
-   * 停止应用trace采集。调用前，需先调用`startAppTraceCapture()`方法开始采集。关闭前未开启或重复关闭会导致接口异常。
-   * 调用startAppTraceCapture接口，如果没有合理传入limitSize参数，生成trace的大小大于传入的limitSize大小，系统内部会自动调用stopAppTraceCapture，再次手动调用stopAppTraceCapture就会抛出错误码11400105。
+   * 停止应用trace采集。调用前，需先调用'[startAppTraceCapture()]{@link hidebug.startAppTraceCapture}'方法开始采集。关闭前未开启或重复关闭会导致接口异常。
+   *
+   * 调用startAppTraceCapture接口，如果没有合理传入limitSize参数，生成trace的大小大于传入的limitSize大小，系统内部会自动调用stopAppTraceCapture，再次手动调用
+   * stopAppTraceCapture就会抛出错误码11400105。
    *
    * @throws { BusinessError } 11400104 - The status of the trace is abnormal
    * @throws { BusinessError } 11400105 - No capture trace running
@@ -931,18 +938,11 @@ declare namespace hidebug {
   }
 
   /**
-   * 获取当前GWP-ASan剩余使能天数。
-   *
-   * @returns { number } 获取当前GWP-ASan剩余使能天数。若当前未使能，返回值0。
-   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20 dynamic
-   * @since 22 static
-   */
-  function getGwpAsanGrayscaleState(): number;
-
-  /**
    * 获取当前进程的trace信息，包含应用tag、图像窗口tag、cpu调度和binder内核信息。使用Promise异步回调。
+   *
    * 采集trace返回的.sys文件在目录下最多存储3份，数量大于等于3份时再次调用接口会抛出错误码11400120。
+   *
+   * 接口不支持在[输入法应用](docroot://inputmethod/ime-kit-intro.md)中使用。
    *
    * @param { RequestTraceConfig } config - trace采集配置信息。
    * @returns { Promise<string> } Promise对象，返回以.sys作为后缀的trace文件的应用沙箱路径。
@@ -966,7 +966,7 @@ declare namespace hidebug {
   type GcStats = Record<string, long>;
 
   /**
-   * 获取系统GC统计信息。
+   * 获取系统[GC](docroot://arkts-utils/gc-introduction.md)统计信息。
    *
    * @returns { GcStats } 系统GC统计信息。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -976,14 +976,11 @@ declare namespace hidebug {
   function getVMRuntimeStats(): GcStats;
 
   /**
-   * 根据参数获取指定的系统GC统计信息。
+   * 根据参数获取指定的系统[GC](docroot://arkts-utils/gc-introduction.md)统计信息。
    *
-   * @param { string } item - 所需统计信息的类型。可获取的统计信息类型如下：
-   *     "ark.gc.gc-count"：当前线程的GC次数。
-   *     "ark.gc.gc-time"：当前线程触发的GC总耗时，以ms为单位。
-   *     "ark.gc.gc-bytes-allocated"：当前线程Ark虚拟机已分配的内存大小，以B为单位。
-   *     "ark.gc.gc-bytes-freed"：当前线程GC成功回收的内存，以B为单位。
-   *     "ark.gc.fullgc-longtime-count"：当前线程超长fullGC次数。
+   * @param { string } item - 所需统计信息的类型。可获取的统计信息类型如下：<br/>"ark.gc.gc-count"：当前线程的GC次数。<br/>"ark.gc.gc-time"：当前线程触发的GC总耗
+   *     时，以ms为单位。<br/>"ark.gc.gc-bytes-allocated"：当前线程Ark虚拟机已分配的内存大小，以B为单位。<br/>"ark.gc.gc-bytes-freed"：当前线程GC成功回收的内存，以
+   *     B为单位。<br/> "ark.gc.fullgc-longtime-count "：当前线程超长fullGC次数。
    * @returns { long } 系统GC统计信息，根据传入的参数，返回相应的信息。
    * @throws { BusinessError } 401 - Possible causes:
    *     1. Invalid parameter, a string parameter required.
@@ -996,25 +993,20 @@ declare namespace hidebug {
 
   /**
    * 设置应用的文件描述符数量、线程数量、JS内存或Native内存资源限制。
-   * 主要应用场景在于构造内存泄漏故障。
    *
-   * > **注意**
+   * 主要应用场景在于构造内存泄漏故障，参见[订阅资源泄漏事件（ArkTS）](docroot://dfx/hiappevent-watcher-resourceleak-events-arkts.md)、
+   * [订阅资源泄漏事件（C/C++）](docroot://dfx/hiappevent-watcher-resourceleak-events-ndk.md)。
+   *
+   * > **注意**：
    * >
-   * > 打开设置中的开发者选项后，在开发者选项列表中找到"系统资源泄漏日志"并启用，重启设备后接口生效。
+   * > 打开设置中的开发者选项后，在开发者选项列表中找到“系统资源泄漏日志”并启用，重启设备后接口生效。
    *
-   * @param { string } type - 泄漏资源类型，共四种：
-   *     - pss_memory（native内存）
-   *     - js_heap（js堆内存）
-   *     - fd（文件描述符）
-   *     - thread（线程）
-   * @param { int } value - 对应泄漏资源类型的最大值，范围：
-   *     - pss_memory类型：[1024, 4 * 1024 * 1024]（单位：KB）
-   *     - js_heap类型：[85, 95]（分配给JS堆内存上限的85%~95%）
-   *     - fd类型：[10, 10000]
-   *     - thread类型：[1, 1000]。超出范围会导致功能失效。
-   * @param { boolean } enableDebugLog - 是否启用外部调试日志。外部调试日志请仅在灰度版本（正式版本发布之前，先向一小部分用户推出的测试版本）中启用，因为收集调试日志会占用大量的cpu资源和内存资源，可能会引起应用流畅性问题。
-   *     true：启用外部调试日志。
-   *     false：禁用外部调试日志。
+   * @param { string } type - 泄漏资源类型，共四种：<br/>- pss_memory（native内存）<br/>- js_heap（js堆内存）<br/>- fd（文件描述符）<br/>- thread（线
+   *     程）
+   * @param { int } value - 对应泄漏资源类型的最大值，范围：<br/>- pss_memory类型：`[1024, 4 * 1024 * 1024]`（单位：KB）<br/>- js_heap类型：
+   *     `[85, 95]`（分配给JS堆内存上限的85%~95%）<br/>- fd类型：`[10, 10000]`<br/>- thread类型：`[1, 1000]`。超出范围会导致功能失效。
+   * @param { boolean } enableDebugLog - 是否启用外部调试日志。外部调试日志请仅在灰度版本（正式版本发布之前，先向一小部分用户推出的测试版本）中启用，因为收集调试日志会占用大量的cpu资源和内存资源，
+   *     可能会引起应用流畅性问题。<br/>true：启用外部调试日志。<br/>false：禁用外部调试日志。
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
    *     2.The parameter is not in the specified type
@@ -1051,7 +1043,7 @@ declare namespace hidebug {
   /**
    * 使用同步方式获取应用显存总大小（gl + graph）。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 由于该接口涉及多次跨进程通信，其耗时可能达到秒级。为了避免引入性能问题，建议不要在主线程调用该接口，推荐使用异步接口`getGraphicsMemory`。
    *
@@ -1076,7 +1068,6 @@ declare namespace hidebug {
     /**
      * gl显存大小，RenderService渲染进程加载所需资源占用的内存，例如图片、纹理等，以KB为单位。
      *
-     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
      * @since 21 dynamic
@@ -1087,7 +1078,6 @@ declare namespace hidebug {
     /**
      * graph显存大小，进程统计的DMA内存占用，包括直接通过接口申请的DMA buffer和通过allocator_host申请的DMA buffer，以KB为单位。
      *
-     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
      * @since 21 dynamic
@@ -1099,9 +1089,8 @@ declare namespace hidebug {
   /**
    * 获取应用显存数据，使用Promise进行异步回调。
    *
-   * @param { int } [interval] 显存数据缓存值有效时间，单位为秒。默认值：300。取值范围为[2-3600]。若传入值超出取值范围时，将使用默认值。
-   *     当显存数据缓存值存在时间超过该值时，获取最新显存数据并更新缓存值；否则，直接获取缓存值。
-   *     取值范围为全体整数。
+   * @param { int } [interval] - 显存数据缓存值有效时间，单位为秒。默认值：300。取值范围为[2-3600]。若传入值超出取值范围时，将使用默认值。<br/>当显存数据缓存值存在时间超过该值时，获取最新显存
+   *     数据并更新缓存值；否则，直接获取缓存值。
    * @returns { Promise<GraphicsMemorySummary> } promise对象，返回应用显存数据。
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1113,10 +1102,12 @@ declare namespace hidebug {
 
   /**
    * 转储堆快照的裁剪级别的枚举。
-   * TRIM_LEVEL_2相比TRIM_LEVEL_1，裁剪时间更长。冻屏的阈值为6秒。使用TRIM_LEVEL_1时，不会达到该阈值；切换至TRIM_LEVEL_2时，裁剪时间可能会超过6秒，触发APP_FREEZE（冻屏事件），导致应用被系统终止，此时回退至TRIM_LEVEL_1级别进行裁剪。
+   *
+   * TRIM_LEVEL_2相比TRIM_LEVEL_1，裁剪时间更长。冻屏的阈值为6秒。使用TRIM_LEVEL_1时，不会达到该阈值；切换至TRIM_LEVEL_2时，裁剪时间可能会超过6秒，触发APP_FREEZE（冻屏事件），
+   * 导致应用被系统终止，此时回退至TRIM_LEVEL_1级别进行裁剪。
+   *
    * 推荐优先使用TRIM_LEVEL_1确保应用稳定，仅在需要更彻底裁剪时尝试TRIM_LEVEL_2。
    *
-   * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 26.1.0 static
@@ -1143,11 +1134,12 @@ declare namespace hidebug {
   /**
    * 设置当前进程转储虚拟机原始堆快照的裁剪级别。使用该接口并传入参数TRIM_LEVEL_2，可以有效减少堆快照的文件大小。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的rawheap-translator工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
+   * > 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的
+   * > [rawheap-translator](docroot://tools/rawheap-translator.md)工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
    * >
-   * > 该接口影响dumpJsRawHeapData的结果。
+   * > 该接口影响[dumpJsRawHeapData]{@link hidebug.dumpJsRawHeapData}的结果。
    *
    * @param { JsRawHeapTrimLevel } level - 转储堆快照的裁剪级别，默认为TRIM_LEVEL_1。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1157,16 +1149,18 @@ declare namespace hidebug {
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 
   /**
-   * 为当前线程转储虚拟机的原始堆快照，并生成的rawheap格式文件，使用Promise异步回调完成。该文件可通过rawheap-translator工具转化为heapsnapshot格式文件进行解析。
+   * 为当前线程转储虚拟机的原始堆快照，并生成的rawheap格式文件，使用Promise异步回调完成。该文件可通过
+   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转化为heapsnapshot格式文件进行解析。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 系统通过该接口转存快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
+   * > 系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
    * >
    * > 建议在开发者模式下调用该接口，可免除调用配额限制，当设置的开发者选项开关打开并重启设备后即可生效。
    *
    * @param { boolean } needGC - 转储堆快照前是否需要GC。true：需要GC。false：不需GC。默认值：true。
-   * @returns { Promise<string> } Promise对象，返回生成的快照文件路径。
+   * @returns { Promise<string> } Promise对象，返回生成的快照文件路径（
+   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1183,17 +1177,19 @@ declare namespace hidebug {
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 
   /**
-   * 为当前线程转储虚拟机的原始堆快照，并支持清除nodeId缓存。生成的文件为rawheap格式，使用Promise异步回调完成。该文件可通过rawheap-translator工具转化为heapsnapshot格式文件进行解析。
+   * 为当前线程转储虚拟机的原始堆快照，并支持清除nodeId缓存。生成的文件为rawheap格式，使用Promise异步回调完成。该文件可通过
+   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转化为heapsnapshot格式文件进行解析。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 系统通过该接口转存快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
+   * > 系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
    * >
    * > 建议在开发者模式下调用该接口，可免除调用配额限制，当设置的开发者选项开关打开并重启设备后即可生效。
    *
    * @param { boolean } needGC - 转储堆快照前是否需要GC。true：需要GC；false：不需要GC。
-   * @param { boolean } [needClean] - 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。
-   * @returns { Promise<string> } Promise对象，返回生成的快照文件路径。
+   * @param { boolean } needClean - 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。
+   * @returns { Promise<string> } Promise对象，返回生成的快照文件路径（
+   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1211,9 +1207,10 @@ declare namespace hidebug {
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
 
   /**
-   * 为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过rawheap-translator工具转换为heapsnapshot格式文件进行解析。
+   * 为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过
+   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转换为heapsnapshot格式文件进行解析。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
    * >
@@ -1222,7 +1219,8 @@ declare namespace hidebug {
    * @param { boolean } needGC - 转储堆快照前是否需要GC。true：需要GC；false：不需要GC。
    * @param { boolean } needClean - 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。
    * @param { boolean } processDump - 是否转储当前线程所属进程的原始堆快照。true：转储当前线程所属进程的原始堆快照。
-   * @returns { Promise<Array<string>> } Promise对象，返回生成的快照文件路径数组。
+   * @returns { Promise<Array<string>> } Promise对象，返回生成的快照文件路径数组（
+   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1234,50 +1232,68 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>;
 
   /**
    * GWP-ASan配置项。可用于配置是否使能、采样频率，以及最大分配的插槽数。
    *
-   * @interface GwpAsanOptions
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
    * @since 23 static
    */
   interface GwpAsanOptions {
     /**
-     * 控制是否每次启动都使能GWP-ASan。true：100%使能GWP-ASan。false：1/128概率使能GWP-ASan。默认值：false。
+     * true：100%使能GWP-ASan。
      *
-     * @type { ?boolean }
+     * false：1/128概率使能GWP-ASan。
+     *
+     * 默认值：false。
+     *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
      * @since 23 static
      */
     alwaysEnabled?: boolean;
     /**
-     * GWP-ASan采样频率，默认值为2500，需要传入大于0的正整数，若传入小数则向上取整。1/sampleRate的概率对分配的内存进行采样。建议值：>=1000，过小会显著影响性能。
+     * GWP-ASan采样频率，默认值为2500，需要传入大于0的正整数，若传入小数则向上取整。
      *
-     * @type { ?int }
+     * 1/sampleRate的概率对分配的内存进行采样。
+     *
+     * 建议值：>=1000，过小会显著影响性能。
+     *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
      * @since 23 static
      */
     sampleRate?: int;
     /**
-     * 最大分配的插槽数，默认值为1000，需要传入大于0的正整数，若传入小数则向上取整。当插槽用尽时，新分配的内存将不再受监控。释放已使用的内存后，其占用的插槽将自动复用。建议值：<=20000，过大会可能导致VMA超限崩溃。
+     * 最大分配的插槽数，默认值为1000，需要传入大于0的正整数，若传入小数则向上取整。
      *
-     * @type { ?int }
+     * 当插槽用尽时，新分配的内存将不再受监控。
+     *
+     * 释放已使用的内存后，其占用的插槽将自动复用，以便于后续内存的监控。
+     *
+     * 建议值：<=20000，过大会可能导致VMA超限崩溃。
+     *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
      * @since 23 static
      */
     maxSimutaneousAllocations?: int;
     /**
-     * 用于控制应用以100%概率开启GWP-ASan时，是否以可恢复模式运行。true：当GWP-ASan以100%概率开启时，应用以可恢复模式运行。false：当GWP-ASan以100%概率开启时，应用以不可恢复模式运行。默认值：false。注意：该参数只在"以100%概率开启GWP-ASan"场景下生效；1/128概率开启场景下默认为可恢复，不受isRecover控制。
+     * 用于控制应用以100%概率开启GWP-ASan时，是否以可恢复模式运行。
      *
-     * @type { ?boolean }
+     * true：当GWP-ASan以100%概率开启时，应用以可恢复模式运行。在该模式下，系统检测到地址越界故障后，避免因检测机制本身导致进程崩溃；但对于已造成非法内存访问的错误，应用仍可能发生崩溃。
+     *
+     * false：当GWP-ASan以100%概率开启时，应用以不可恢复模式运行。
+     *
+     * 默认值：false。
+     *
+     * 注意：该参数只在“以100%概率开启GWP-ASan”场景下生效；1/128概率开启场景下默认为可恢复，不受isRecover控制。
+     *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -1287,7 +1303,20 @@ declare namespace hidebug {
 
   /**
    * 使能GWP-ASan，用于检测堆内存使用中的非法行为。
+   *
    * 该接口主要用于动态配置并启用GWP-ASan，以适配应用自定义的GWP-ASan检测策略。配置在应用重新启动后生效。
+   *
+   * 更多关于GWP-ASan的说明，请参见
+   * [使用GWP-ASan检测内存错误](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-gwpasan-detection)。
+   *
+   * > **说明**：
+   * >
+   * > 1. 若设备运行期间通过本接口设置的GWP-ASan应用数量超过配额限制，调用该接口将会失败并抛出错误码。请使用try-catch捕获异常，以避免应用异常退出。
+   * >
+   * > 2. 设备重启后，本接口设置的GWP-ASan参数将会失效。
+   * >
+   * > 3. 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。可以通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程，以避免应用卡顿。
    *
    * @param { GwpAsanOptions } [options] - GWP-ASan配置项。未设置时，使用默认参数。
    * @param { int } [duration] - GWP-ASan持续时间，单位为天，默认值为7。需传入大于0的正整数。
@@ -1299,7 +1328,12 @@ declare namespace hidebug {
   function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: int): void;
 
   /**
-   * 停止使能GWP-ASan。调用该接口将取消自定义配置，恢复默认参数GwpAsanOptions。
+   * 停止使能GWP-ASan。调用该接口将取消自定义配置，恢复默认参数[GwpAsanOptions]{@link hidebug.GwpAsanOptions}。
+   *
+   * > **说明**：
+   * >
+   * > 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。可以通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程，以避免应用卡顿。
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
@@ -1309,6 +1343,11 @@ declare namespace hidebug {
 
   /**
    * 获取当前GWP-ASan剩余使能天数。
+   *
+   * > **说明**：
+   * >
+   * > 由于该接口涉及跨进程通信，耗时较长，为了避免引入性能问题，建议不要在主线程中直接调用该接口。可以通过[@ohos.taskpool]{@link @ohos.taskpool:taskpool}或
+   * > [@ohos.worker]{@link @ohos.worker}开启异步线程，以避免应用卡顿。
    *
    * @returns { int } 获取当前GWP-ASan剩余使能天数。若当前未使能，返回值0。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1320,18 +1359,16 @@ declare namespace hidebug {
   /**
    * 将转储的堆快照由线程级改为进程级。
    *
-   * > **注意**
+   * > **注意**：
    * >
    * > 要想转储进程级的堆快照，调用该接口并传参true、进程OOM时发生的是SharedHeap OOM，两个条件缺一不可。
    * >
-   * > 该接口不影响其他场景下转储的堆快照内容。如：不会影响dumpJsRawHeapData的结果。
+   * > 该接口不影响其他场景下转储的堆快照内容。如：不会影响[dumpJsRawHeapData]{@link hidebug.dumpJsRawHeapData}的结果。
    * >
    * > 该接口在应用的生命周期内可被多次调用，但仅最后一次调用的执行结果会生效。
    *
-   * @param { boolean } enable - 当进程发生SharedHeap OOM时，系统将依据该进程在其生命周期中最后一次调用该接口所记录的信息，转储相应级别的堆快照。
-   *     true：进程级。
-   *     false：线程级。
-   *     默认值：false。
+   * @param { boolean } enable - 当进程发生SharedHeap OOM时，系统将依据该进程在其生命周期中最后一次调用该接口所记录的信息，转储相应级别的堆快照。<br/>true：进程级。<br/>
+   *     false：线程级。<br/> 默认值：false。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
@@ -1342,7 +1379,6 @@ declare namespace hidebug {
   /**
    * 描述应用进程的物理内存信息。
    *
-   * @interface RssInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @FaAndStageModel
    * @atomicservice
@@ -1353,7 +1389,6 @@ declare namespace hidebug {
     /**
      * 实际占用的物理内存大小（Resident Set Size），包含匿名页、文件映射页和共享内存页，以KB为单位，计算方式：/proc/{pid}/status: VmRss。
      *
-     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @FaAndStageModel
      * @atomicservice
@@ -1362,9 +1397,8 @@ declare namespace hidebug {
     rss: bigint;
 
     /**
-     * 换出到交换分区的匿名私有页总大小，以KB为单位，计算方式：/proc/{pid}/status: VmSwap。
+     * 换出到交换分区的匿名私有页总大小，以KB为单位，计算方式：/proc/{pid}/status: VmSwap
      *
-     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @FaAndStageModel
      * @atomicservice
@@ -1376,9 +1410,10 @@ declare namespace hidebug {
   /**
    * 获取应用程序进程的物理内存使用信息。读取/proc/{pid}/status节点的数据。
    *
-   * > **注意**
+   * > **注意**：
    * >
-   * > 读取/proc/{pid}/status耗时很短，与hidebug.getAppNativeMemInfo接口中获取的`rss`值相比存在一点误差，但该接口更加轻量，为避免应用丢帧或卡顿推荐使用该接口。
+   * > 读取/proc/{pid}/status耗时很短，与[hidebug.getAppNativeMemInfo]{@link hidebug.getAppNativeMemInfo}接口中获取的`rss`值相比存在一点误差，但该
+   * > 接口更加轻量，为避免应用丢帧或卡顿推荐使用该接口。
    *
    * @returns { RssInfo } 应用进程的物理内存信息。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1387,17 +1422,5 @@ declare namespace hidebug {
    * @since 24 dynamic&static
    */
   function getRssInfo(): RssInfo;
-
-  /**
-   * 使能GWP-ASan，用于检测堆内存使用中的非法行为。
-   * @param { GwpAsanOptions } [options] - GWP-ASan配置项。未设置时，使用默认参数。
-   * @param { number } [duration] - GWP-ASan持续时间，单位为天，默认值为7。需传入大于0的正整数。
-   * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
-   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20 dynamic
-   * @since 22 static
-   */
-  function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: number): void;
 }
-
 export default hidebug;

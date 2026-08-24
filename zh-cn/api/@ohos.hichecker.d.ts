@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,57 +28,99 @@
  */
 declare namespace hichecker {
   /**
-   * 告警规则，当有告警时记录日志。
+   * The caution rule print log.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CAUTION_PRINT_LOG = 9223372036854775808n;
 
   /**
-   * 告警规则，当有告警时让应用退出。
+   * 警告规则打印日志。
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CAUTION_PRINT_LOG: bigint;
+
+  /**
+   * The caution rule trigger crash.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n;
 
   /**
-   * 检测规则，检测是否有耗时函数被调用。
+   * 警告规则触发崩溃。
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CAUTION_TRIGGER_CRASH: bigint;
+
+  /**
+   * The thread rule check slow process.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
 
   /**
-   * 检测规则，检测是否发生ability泄露。
+   * 线程规则检查慢进程。
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_THREAD_CHECK_SLOW_PROCESS: bigint;
+
+  /**
+   * The process rule check ability connection leak.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n;
 
   /**
-   * 检测规则，检测arkui性能。
+   * 进程规则检查能力连接泄漏。
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK: bigint;
+
+  /**
+   * The process rule check ability Arkui performance
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 11 dynamic
-   * @since 23 static
    */
   const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n;
 
   /**
+   * 流程规则检查能力Arkui性能
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CHECK_ARKUI_PERFORMANCE: bigint;
+
+  /**
    * 检测规则，检测线程是否调用网络耗时接口。
+   * 
+   * **起始版本**: 26.0.0
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -176,5 +218,4 @@ declare namespace hichecker {
    */
   function containsCheckRule(rule: bigint) : boolean;
 }
-
 export default hichecker;
