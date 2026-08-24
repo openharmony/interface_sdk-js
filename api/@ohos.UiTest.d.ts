@@ -5103,7 +5103,7 @@ declare namespace ON {
   /**
    * Specifies the description attribute of the target component.
    *
-   * @param { string } val - the description value.
+   * @param { string } val - Description of the component.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
@@ -5137,7 +5137,7 @@ declare namespace ON {
   /**
    * Specifies the hint attribute of the target component.
    *
-   * @param { string } val - the hint value.
+   * @param { string } val - The specified hint text of the component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
@@ -5154,7 +5154,7 @@ declare namespace ON {
    * >
    * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not take effect.
    *
-   * @param { string } text - the original text value.
+   * @param { string } text - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
