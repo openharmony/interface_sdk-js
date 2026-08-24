@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Font Management
  * @kit LocalizationKit
  */
 
