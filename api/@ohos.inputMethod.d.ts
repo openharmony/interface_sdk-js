@@ -38,7 +38,7 @@ import { PanelInfo } from './@ohos.inputMethod.Panel';
 /*** endif */
 
 /**
- * @brief The **inputMethod** module is oriented to common foreground applications (third-party applications and
+ * The **inputMethod** module is oriented to common foreground applications (third-party applications and
  * system applications such as Notes, Messaging, and Settings). It provides input method control and 
  * management capabilities, including displaying or hiding the soft keyboard, switching between input methods,
  * and obtaining the list of all input methods.
@@ -54,7 +54,7 @@ import { PanelInfo } from './@ohos.inputMethod.Panel';
  */
 declare namespace inputMethod {
   /**
-   * @brief Keyboard max number. Max value is 128.
+   * Keyboard max number. Max value is 128.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -63,7 +63,7 @@ declare namespace inputMethod {
   const MAX_TYPE_NUM: int;
 
   /**
-   * @brief Obtains an [InputMethodSetting]{@link inputMethod.InputMethodSetting} instance.
+   * Obtains an [InputMethodSetting]{@link inputMethod.InputMethodSetting} instance.
    *
    * @returns { InputMethodSetting } **InputMethodSetting** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -74,7 +74,7 @@ declare namespace inputMethod {
   function getInputMethodSetting(): InputMethodSetting;
 
   /**
-   * @brief Obtains an [InputMethodController]{@link inputMethod.InputMethodController} instance.
+   * Obtains an [InputMethodController]{@link inputMethod.InputMethodController} instance.
    *
    * @returns { InputMethodController } Current **InputMethodController** instance.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -85,7 +85,7 @@ declare namespace inputMethod {
   function getInputMethodController(): InputMethodController;
 
   /**
-   * @brief Obtains an [InputMethodSetting]{@link inputMethod.InputMethodSetting} instance.
+   * Obtains an [InputMethodSetting]{@link inputMethod.InputMethodSetting} instance.
    *
    * @returns { InputMethodSetting } **InputMethodSetting** instance.
    * @throws { BusinessError } 12800007 - input method setter error. Possible cause:
@@ -97,7 +97,7 @@ declare namespace inputMethod {
   function getSetting(): InputMethodSetting;
 
   /**
-   * @brief Obtains an [InputMethodController]{@link inputMethod.InputMethodController} instance.
+   * Obtains an [InputMethodController]{@link inputMethod.InputMethodController} instance.
    *
    * @returns { InputMethodController } **InputMethodController** instance.
    * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
@@ -109,7 +109,7 @@ declare namespace inputMethod {
   function getController(): InputMethodController;
 
   /**
-   * @brief Obtains the default input method.
+   * Obtains the default input method.
    *
    * @returns { InputMethodProperty } Default input method.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -121,7 +121,7 @@ declare namespace inputMethod {
   function getDefaultInputMethod(): InputMethodProperty;
 
   /**
-   * @brief Get the default input method of a specified user.
+   * Get the default input method of a specified user.
    *
    * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -142,7 +142,7 @@ declare namespace inputMethod {
   function getDefaultInputMethod(userId?: int): InputMethodProperty;
 
   /**
-   * @brief Obtains the information about the input method configuration page ability.
+   * Obtains the information about the input method configuration page ability.
    *
    * @returns { ElementName } Element name of the input method configuration page ability.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -154,7 +154,7 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(): ElementName;
 
   /**
-   * @brief Get the system input method config ability of a specified user.
+   * Get the system input method config ability of a specified user.
    *
    * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -175,7 +175,7 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(userId?: int): ElementName;
 
   /**
-   * @brief Switches to another input method. This API uses an asynchronous callback to return the result.
+   * Switches to another input method. This API uses an asynchronous callback to return the result.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -201,7 +201,7 @@ declare namespace inputMethod {
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
   /**
-   * @brief Switches to another input method. This API uses a promise to return the result.
+   * Switches to another input method. This API uses a promise to return the result.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -227,7 +227,7 @@ declare namespace inputMethod {
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
   /**
-   * @brief Obtains the current input method. This API returns the result synchronously.
+   * Obtains the current input method. This API returns the result synchronously.
    *
    * @returns { InputMethodProperty } **InputmethodProperty** instance of the current input method.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -237,7 +237,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(): InputMethodProperty;
 
   /**
-   * @brief Get the current input method of a specified user.
+   * Get the current input method of a specified user.
    *
    * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -258,7 +258,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(userId?: int): InputMethodProperty;
 
   /**
-   * @brief Switches to another subtype of this input method. This API uses an asynchronous callback to return the result.
+   * Switches to another subtype of this input method. This API uses an asynchronous callback to return the result.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -287,7 +287,7 @@ declare namespace inputMethod {
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
-   * @brief Switches to another subtype of this input method. This API uses a promise to return the result.
+   * Switches to another subtype of this input method. This API uses a promise to return the result.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -316,7 +316,7 @@ declare namespace inputMethod {
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
   /**
-   * @brief Obtains the current input method subtype.
+   * Obtains the current input method subtype.
    *
    * @returns { InputMethodSubtype } Current input method subtype.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -326,7 +326,7 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
   /**
-   * @brief Get the current input method subtype of a specified user.
+   * Get the current input method subtype of a specified user.
    *
    * @param { int } [userId] - the user ID. If not provided:
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -347,7 +347,7 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(userId?: int): InputMethodSubtype;
 
   /**
-   * @brief Switches to a specified subtype of a specified input method. This API uses an asynchronous callback to return the 
+   * Switches to a specified subtype of a specified input method. This API uses an asynchronous callback to return the 
    * result.
    * <br> 
    * <br> > **NOTE**
@@ -379,7 +379,7 @@ declare namespace inputMethod {
   ): void;
 
   /**
-   * @brief Switches to a specified subtype of a specified input method. This API uses a promise to return the result.
+   * Switches to a specified subtype of a specified input method. This API uses a promise to return the result.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -409,7 +409,7 @@ declare namespace inputMethod {
   ): Promise<boolean>;
 
   /**
-   * @brief Switches to another input method. This API uses a promise to return the result.
+   * Switches to another input method. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { string } bundleName - Bundle name of the target input method.
@@ -430,7 +430,7 @@ declare namespace inputMethod {
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
-   * @brief Switch input method and subtype of a specified user.
+   * Switch input method and subtype of a specified user.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { string } bundleName - indicates the bundle name of the target input method.
@@ -457,7 +457,7 @@ declare namespace inputMethod {
   function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
 
   /**
-   * @brief Enables or disables the simple keyboard.
+   * Enables or disables the simple keyboard.
    *
    * @param { boolean } enable - Whether to enable the simple keyboard. The value **true** means that the simple
    *     keyboard is enabled; the value **false** means the opposite.
@@ -472,7 +472,7 @@ declare namespace inputMethod {
   function setSimpleKeyboardEnabled(enable: boolean): void;
   
   /**
-   * @brief Subscribes to attachment failure events. This API uses an asynchronous callback to return the result.
+   * Subscribes to attachment failure events. This API uses an asynchronous callback to return the result.
    *
    * @param { Callback<AttachFailureReason> } callback - Callback used to return the reason for attachment failure. This
    *     callback is only invoked when the attachment failure is triggered by the registrant's process.
@@ -495,7 +495,7 @@ declare namespace inputMethod {
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
   /**
-   * @brief The callback of 'imeChange' event.
+   * The callback of 'imeChange' event.
    *
    * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
    * @param { InputMethodSubtype } inputMethodSubtype - the subtype of current inputmethod.
@@ -519,7 +519,7 @@ declare namespace inputMethod {
       (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, userId: int) => void;
 
   /**
-   * @brief The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
+   * The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
    *
    * @param { int } length - the length of text.
    * @returns { string } represents the text in edit box.
@@ -529,7 +529,7 @@ declare namespace inputMethod {
   export type GetTextCallback = (length: int) => string;
 
   /**
-   * @brief The callback of 'getTextIndexAtCursor' event.
+   * The callback of 'getTextIndexAtCursor' event.
    *
    * @returns { int } represents theindex number of text at cursor.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -538,7 +538,7 @@ declare namespace inputMethod {
   export type GetTextIndexAtCursorCallback = () => int;
 
   /**
-   * @brief In the following API examples, you must first use [getSetting]{@link inputMethod.getSetting} to obtain an 
+   * In the following API examples, you must first use [getSetting]{@link inputMethod.getSetting} to obtain an 
    * **InputMethodSetting** instance, and then call the APIs using the obtained instance.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -561,7 +561,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief Disables listening for the input method and subtype change event. This API uses an asynchronous callback to 
+     * Disables listening for the input method and subtype change event. This API uses an asynchronous callback to 
      * return the result.
      *
      * @param { 'imeChange' } type - Listening type. The value is fixed at **'imeChange'**.
@@ -575,7 +575,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief Subscribes to the soft keyboard show event of the 
+     * Subscribes to the soft keyboard show event of the 
      * [input method panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel} in the fixed state. This API uses an 
      * asynchronous callback to return the result.
      *
@@ -590,7 +590,7 @@ declare namespace inputMethod {
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief Unsubscribes from the soft keyboard show event of the 
+     * Unsubscribes from the soft keyboard show event of the 
      * [input method panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel} in the fixed state.
      *
      * @param { 'imeShow' } type - Event type, which is **'imeShow'**.
@@ -603,7 +603,7 @@ declare namespace inputMethod {
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief Subscribes to the soft keyboard hide event of the 
+     * Subscribes to the soft keyboard hide event of the 
      * [input method panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel} in the fixed state. This API uses an 
      * asynchronous callback to return the result.
      *
@@ -618,7 +618,7 @@ declare namespace inputMethod {
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief Unsubscribes from the soft keyboard hide event of the 
+     * Unsubscribes from the soft keyboard hide event of the 
      * [input method panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel} in the fixed state.
      *
      * @param { 'imeHide' } type - Event type, which is **'imeHide'**.
@@ -631,7 +631,7 @@ declare namespace inputMethod {
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief Checks whether the input method panel of a specified type is shown.
+     * Checks whether the input method panel of a specified type is shown.
      *
      * @param { PanelInfo } panelInfo - Information about the input method panel.
      * @returns { boolean } Whether the input method panel is shown.
@@ -650,7 +650,7 @@ declare namespace inputMethod {
     isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
-     * @brief Checks whether the input method panel of a specified type is shown on a specified screen.
+     * Checks whether the input method panel of a specified type is shown on a specified screen.
      *
      * @param { PanelInfo } panelInfo - Information about the input method panel.
      * @param { long } displayId - Display ID.
@@ -668,7 +668,7 @@ declare namespace inputMethod {
     isPanelShown(panelInfo: PanelInfo, displayId: long): boolean;
 
     /**
-     * @brief Obtains all subtypes of a specified input method. This API uses an asynchronous callback to return the result.
+     * Obtains all subtypes of a specified input method. This API uses an asynchronous callback to return the result.
      *
      * @param { InputMethodProperty } inputMethodProperty - Input method.
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - Callback used to return all subtypes of the
@@ -688,7 +688,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief Obtains all subtypes of a specified input method. This API uses a promise to return the result.
+     * Obtains all subtypes of a specified input method. This API uses a promise to return the result.
      *
      * @param { InputMethodProperty } inputMethodProperty - Input method.
      * @returns { Promise<Array<InputMethodSubtype>> } Promise used to return all subtypes of the specified input
@@ -705,7 +705,7 @@ declare namespace inputMethod {
     listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array<InputMethodSubtype>>;
 
     /**
-     * @brief Obtains all subtypes of this input method. This API uses an asynchronous callback to return the result.
+     * Obtains all subtypes of this input method. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - Callback used to return all subtypes of the
      *     current input method.
@@ -719,7 +719,7 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
     /**
-     * @brief Obtains all subtypes of this input method. This API uses a promise to return the result.
+     * Obtains all subtypes of this input method. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<InputMethodSubtype>> } Promise used to return all subtypes of the current input method.
      * @throws { BusinessError } 12800001 - bundle manager error.
@@ -732,7 +732,7 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
     /**
-     * @brief Get subtypes of a specified input method of a specified user.
+     * Get subtypes of a specified input method of a specified user.
      *
      * @param { string } bundleName - the bundle name of the specified input method.
      * @param { int } [userId] - the user ID. If not provided:
@@ -755,7 +755,7 @@ declare namespace inputMethod {
     getInputMethodSubtypes(bundleName: string, userId?: int): Array<InputMethodSubtype>;
 
     /**
-     * @brief Obtains a list of activated or deactivated input methods. This API uses an asynchronous callback to return the 
+     * Obtains a list of activated or deactivated input methods. This API uses an asynchronous callback to return the 
      * result.
      * <br>
      * <br> > **NOTE**
@@ -782,7 +782,7 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief Obtains a list of activated or deactivated input methods. This API uses a promise to return the result.
+     * Obtains a list of activated or deactivated input methods. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -808,7 +808,7 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief Obtains a list of activated or deactivated input methods. This API returns the result synchronously.
+     * Obtains a list of activated or deactivated input methods. This API returns the result synchronously.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -833,7 +833,7 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
     /**
-     * @brief List enabled or disabled input methods sync of a specified user.
+     * List enabled or disabled input methods sync of a specified user.
      *
      * @param { boolean } enable - If true, collect enabled input methods.
      *     If false, collect disabled input methods.
@@ -857,7 +857,7 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean, userId?: int): Array<InputMethodProperty>;
 
     /**
-     * @brief Obtains a list of all input methods. This API uses an asynchronous callback to return the result.
+     * Obtains a list of all input methods. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - Callback used to return a list of all input
      *     methods.
@@ -871,7 +871,7 @@ declare namespace inputMethod {
     getAllInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief Obtains a list of all input methods. This API uses a promise to return the result.
+     * Obtains a list of all input methods. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<InputMethodProperty>> } Promise used to return a list of all input methods.
      * @throws { BusinessError } 12800001 - bundle manager error.
@@ -884,7 +884,7 @@ declare namespace inputMethod {
     getAllInputMethods(): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief Obtains a list of all input methods. This API returns the result synchronously.
+     * Obtains a list of all input methods. This API returns the result synchronously.
      *
      * @returns { Array<InputMethodProperty> } List of all input methods.
      * @throws { BusinessError } 12800001 - bundle manager error.
@@ -897,7 +897,7 @@ declare namespace inputMethod {
     getAllInputMethodsSync(): Array<InputMethodProperty>;
 
     /**
-     * @brief Get all input methods sync of a specified user.
+     * Get all input methods sync of a specified user.
      *
      * @param { int } [userId] - the user ID. If not provided:
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
@@ -919,7 +919,7 @@ declare namespace inputMethod {
     getAllInputMethodsSync(userId?: int): Array<InputMethodProperty>;
 
     /**
-     * @brief Obtains a list of installed input methods. This API uses an asynchronous callback to return the result.
+     * Obtains a list of installed input methods. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - Callback used to return the list of installed
      *     input methods.
@@ -931,7 +931,7 @@ declare namespace inputMethod {
     listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief Obtains a list of installed input methods. This API uses a promise to return the result.
+     * Obtains a list of installed input methods. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<InputMethodProperty>> } Promise used to return the list of installed input methods.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -942,7 +942,7 @@ declare namespace inputMethod {
     listInputMethod(): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief Displays a dialog box for selecting an input method. This API uses an asynchronous callback to return the result.
+     * Displays a dialog box for selecting an input method. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
@@ -956,7 +956,7 @@ declare namespace inputMethod {
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief Displays a dialog box for selecting an input method. This API uses a promise to return the result.
+     * Displays a dialog box for selecting an input method. This API uses a promise to return the result.
      *
      * @returns { Promise<boolean> } Promise used to return the result. If the operation is successful, **err** is
      *     **undefined** and **data** is **true**. Otherwise, **err** is an error object.
@@ -970,7 +970,7 @@ declare namespace inputMethod {
     showOptionalInputMethods(): Promise<boolean>;
 
     /**
-     * @brief Displays a dialog box for selecting an input method. This API uses an asynchronous callback to return the result.
+     * Displays a dialog box for selecting an input method. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
@@ -982,7 +982,7 @@ declare namespace inputMethod {
     displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Displays a dialog box for selecting an input method. This API uses a promise to return the result.
+     * Displays a dialog box for selecting an input method. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -993,7 +993,7 @@ declare namespace inputMethod {
     displayOptionalInputMethod(): Promise<void>;
 
     /**
-     * @brief Obtains the input method state. This API uses a promise to return the result.
+     * Obtains the input method state. This API uses a promise to return the result.
      *
      * @returns { Promise<EnabledState> } Promise used to return the result. **EnabledState.DISABLED** indicates that
      *     the input method is disabled, **EnabledState.BASIC_MODE** indicates that the input method is in basic mode,
@@ -1008,7 +1008,7 @@ declare namespace inputMethod {
     getInputMethodState(): Promise<EnabledState>;
 
     /**
-     * @brief Enables or disables an input method. This API uses a promise to return the result.
+     * Enables or disables an input method. This API uses a promise to return the result.
      * <br>
      * <br>**Example**
      * <br>
@@ -1055,7 +1055,7 @@ declare namespace inputMethod {
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
     /**
-     * @brief Change the enabled state of an input method of a specified user.
+     * Change the enabled state of an input method of a specified user.
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { string } bundleName - Indicates the bundle name of the input method.
@@ -1085,7 +1085,7 @@ declare namespace inputMethod {
       bundleName: string, extensionName: string, enabledState: EnabledState, userId?: int): Promise<void>;
 
     /**
-     * @brief Subscribe input method or subtype change.
+     * Subscribe input method or subtype change.
      *
      * @param { ImeChangeCallback } callback - the callback called when the current input method changes.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1094,7 +1094,7 @@ declare namespace inputMethod {
     onImeChange(callback: ImeChangeCallback): void;
 
     /**
-     * @brief Unsubscribe input method or subtype change.
+     * Unsubscribe input method or subtype change.
      *
      * @param { ImeChangeCallback } [callback] - the callback called when the current input method changes,
      *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
@@ -1104,7 +1104,7 @@ declare namespace inputMethod {
     offImeChange(callback?: ImeChangeCallback): void;
 
     /**
-     * @brief Subscribe to the input method change event.
+     * Subscribe to the input method change event.
      *
      * @param { ImeChangeWithUserIdCallback } callback - the callback called when the current input method changes.
      * @throws { BusinessError } 202 - not system application.
@@ -1116,7 +1116,7 @@ declare namespace inputMethod {
     onImeChangeWithUserId(callback: ImeChangeWithUserIdCallback): void;
 
     /**
-     * @brief Unsubscribe from the input method change event.
+     * Unsubscribe from the input method change event.
      *
      * @param { ImeChangeWithUserIdCallback } [callback] - the callback called when the current input method changes,
      *     when the subscriber unsubscribes all callbacks, this parameter can be left blank.
@@ -1129,7 +1129,7 @@ declare namespace inputMethod {
     offImeChangeWithUserId(callback?: ImeChangeWithUserIdCallback): void;
 
     /**
-     * @brief Subscribes to input window show events.
+     * Subscribes to input window show events.
      *
      * @param { Callback<Array<InputWindowInfo>> } callback - the callback called when input method shows.
      * @throws { BusinessError } 202 - not system application.
@@ -1141,7 +1141,7 @@ declare namespace inputMethod {
     onImeShow(callback: Callback<Array<InputWindowInfo>>):void;
 
     /**
-     * @brief Unsubscribe input window show event.
+     * Unsubscribe input window show event.
      *
      * @param { Callback<Array<InputWindowInfo>> } [callback] - the callback called when input method shows,
      *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
@@ -1153,7 +1153,7 @@ declare namespace inputMethod {
     offImeShow(callback?: Callback<Array<InputWindowInfo>>):void;
 
     /**
-     * @brief Subscribes to input window hidden events.
+     * Subscribes to input window hidden events.
      *
      * @param { Callback<Array<InputWindowInfo>>} callback - the callback called when input method hides.
      * @throws { BusinessError } 202 - not system application.
@@ -1164,7 +1164,7 @@ declare namespace inputMethod {
     onImeHide(callback: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * @brief Unsubscribe input window hide event.
+     * Unsubscribe input window hide event.
      *
      * @param { Callback<Array<InputWindowInfo>> } [callback] - the callback called when input method hides,
      *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
@@ -1175,7 +1175,7 @@ declare namespace inputMethod {
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * @brief Obtains the default input method capabilities. To optimize performance, the returned **InputMethodProperty** 
+     * Obtains the default input method capabilities. To optimize performance, the returned **InputMethodProperty** 
      * object ensures that only the `name` and `id` attributes that uniquely identify the input method capability are 
      * correct. Other attributes may be empty.
      * <br>
@@ -1203,7 +1203,7 @@ declare namespace inputMethod {
     getDefaultInputMethodAbility(): InputMethodProperty;
 
     /**
-     * @brief Obtains the cursor information of a specified user. If the edit box does not notify the input method service of 
+     * Obtains the cursor information of a specified user. If the edit box does not notify the input method service of 
      * the cursor information, all attribute values returned are **0**.
      * <br>
      * <br>**Example**
@@ -1245,7 +1245,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief In the following API examples, you must first use [getController]{@link inputMethod.getController} to obtain an 
+   * In the following API examples, you must first use [getController]{@link inputMethod.getController} to obtain an 
    * **InputMethodController** instance, and then call the APIs using the obtained instance.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1254,7 +1254,7 @@ declare namespace inputMethod {
    */
   interface InputMethodController {
     /**
-     * @brief Attaches a self-drawing component to the input method. This API uses an asynchronous callback to return the 
+     * Attaches a self-drawing component to the input method. This API uses an asynchronous callback to return the 
      * result.
      * <br>
      * <br> > **NOTE**
@@ -1290,7 +1290,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
     /**
-     * @brief Attaches a self-drawing component to the input method. This API uses a promise to return the result.
+     * Attaches a self-drawing component to the input method. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1324,7 +1324,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
     /**
-     * @brief Attaches a self-drawing component to the input method. This API uses a promise to return the result.
+     * Attaches a self-drawing component to the input method. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1359,7 +1359,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
-     * @brief Attaches a self-drawing component to the input method. This API uses a promise to return the result.
+     * Attaches a self-drawing component to the input method. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1384,7 +1384,7 @@ declare namespace inputMethod {
     attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>;
 
     /**
-     * @brief Discards the text that is being typed. This API uses a promise to return the result.
+     * Discards the text that is being typed. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1403,7 +1403,7 @@ declare namespace inputMethod {
     discardTypingText(): Promise<void>;
 
     /**
-     * @brief Enters the text editing mode. This API uses an asynchronous callback to return the result.
+     * Enters the text editing mode. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1424,7 +1424,7 @@ declare namespace inputMethod {
      */
     showTextInput(callback: AsyncCallback<void>): void;
     /**
-     * @brief Enters the text editing mode. This API uses a promise to return the result.
+     * Enters the text editing mode. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1444,7 +1444,7 @@ declare namespace inputMethod {
      */
     showTextInput(): Promise<void>;
     /**
-     * @brief Enters the text editing mode. This API uses a promise to return the result.
+     * Enters the text editing mode. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1465,7 +1465,7 @@ declare namespace inputMethod {
      */
     showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
-     * @brief Exits the text editing mode. This API uses an asynchronous callback to return the result.
+     * Exits the text editing mode. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1490,7 +1490,7 @@ declare namespace inputMethod {
     hideTextInput(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Exits the text editing mode. This API uses a promise to return the result.
+     * Exits the text editing mode. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1514,7 +1514,7 @@ declare namespace inputMethod {
     hideTextInput(): Promise<void>;
 
     /**
-     * @brief Detaches the self-drawing component from the input method. This API uses an asynchronous callback to return the 
+     * Detaches the self-drawing component from the input method. This API uses an asynchronous callback to return the 
      * result.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -1531,7 +1531,7 @@ declare namespace inputMethod {
     detach(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Detaches the self-drawing component from the input method. This API uses a promise to return the result.
+     * Detaches the self-drawing component from the input method. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
@@ -1546,7 +1546,7 @@ declare namespace inputMethod {
     detach(): Promise<void>;
 
     /**
-     * @brief Sets the window to be avoided by the input method. This API uses an asynchronous callback to return the result.
+     * Sets the window to be avoided by the input method. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1571,7 +1571,7 @@ declare namespace inputMethod {
     setCallingWindow(windowId: int, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Sets the window to be avoided by the input method. This API uses a promise to return the result.
+     * Sets the window to be avoided by the input method. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1595,7 +1595,7 @@ declare namespace inputMethod {
     setCallingWindow(windowId: int): Promise<void>;
 
     /**
-     * @brief Updates the cursor information in this edit box. This API can be called to notify the input method of the cursor 
+     * Updates the cursor information in this edit box. This API can be called to notify the input method of the cursor 
      * changes. This API uses an asynchronous callback to return the result.
      *
      * @param { CursorInfo } cursorInfo - Cursor information.
@@ -1616,7 +1616,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Updates the cursor information in this edit box. This API can be called to notify the input method of the cursor 
+     * Updates the cursor information in this edit box. This API can be called to notify the input method of the cursor 
      * changes. This API uses a promise to return the result.
      *
      * @param { CursorInfo } cursorInfo - Cursor information.
@@ -1636,7 +1636,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo): Promise<void>;
 
     /**
-     * @brief Updates the information about the selected text in this edit box, to notify the input method when the selected 
+     * Updates the information about the selected text in this edit box, to notify the input method when the selected 
      * text content or text range changes. This API uses an asynchronous callback to return the result.
      *
      * @param { string } text - All input text.
@@ -1659,7 +1659,7 @@ declare namespace inputMethod {
     changeSelection(text: string, start: int, end: int, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Updates the information about the selected text in this edit box, to notify the input method when the selected 
+     * Updates the information about the selected text in this edit box, to notify the input method when the selected 
      * text content or text range changes. This API uses a promise to return the result.
      *
      * @param { string } text - All input text.
@@ -1681,7 +1681,7 @@ declare namespace inputMethod {
     changeSelection(text: string, start: int, end: int): Promise<void>;
 
     /**
-     * @brief Updates the attribute information of this edit box. This API uses an asynchronous callback to return the result.
+     * Updates the attribute information of this edit box. This API uses an asynchronous callback to return the result.
      *
      * @param { InputAttribute } attribute - Attribute information.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -1701,7 +1701,7 @@ declare namespace inputMethod {
     updateAttribute(attribute: InputAttribute, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Updates the attribute information of this edit box. This API uses a promise to return the result.
+     * Updates the attribute information of this edit box. This API uses a promise to return the result.
      *
      * @param { InputAttribute } attribute - Attribute information.
      * @returns { Promise<void> } Promise that returns no value.
@@ -1719,7 +1719,7 @@ declare namespace inputMethod {
      */
     updateAttribute(attribute: InputAttribute): Promise<void>;
     /**
-     * @brief Ends this input session. This API uses an asynchronous callback to return the result.
+     * Ends this input session. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1740,7 +1740,7 @@ declare namespace inputMethod {
     stopInputSession(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief Ends this input session. This API uses a promise to return the result.
+     * Ends this input session. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1761,7 +1761,7 @@ declare namespace inputMethod {
     stopInputSession(): Promise<boolean>;
 
     /**
-     * @brief Ends this input session. This API uses an asynchronous callback to return the result.
+     * Ends this input session. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1778,7 +1778,7 @@ declare namespace inputMethod {
     stopInput(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief Ends this input session. This API uses a promise to return the result.
+     * Ends this input session. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1795,7 +1795,7 @@ declare namespace inputMethod {
     stopInput(): Promise<boolean>;
 
     /**
-     * @brief Shows the soft keyboard. This API uses an asynchronous callback to return the result.
+     * Shows the soft keyboard. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1818,7 +1818,7 @@ declare namespace inputMethod {
     showSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Shows the soft keyboard. This API uses a promise to return the result.
+     * Shows the soft keyboard. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1840,7 +1840,7 @@ declare namespace inputMethod {
     showSoftKeyboard(): Promise<void>;
 
     /**
-     * @brief Shows the soft keyboard on a specified screen. This API uses a promise to return the result.
+     * Shows the soft keyboard on a specified screen. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1865,7 +1865,7 @@ declare namespace inputMethod {
     showSoftKeyboard(displayId: long): Promise<void>;
 
     /**
-     * @brief Hides the soft keyboard. This API uses an asynchronous callback to return the result.
+     * Hides the soft keyboard. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1888,7 +1888,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief Hides the soft keyboard. This API uses a promise to return the result.
+     * Hides the soft keyboard. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1910,7 +1910,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(): Promise<void>;
 
     /**
-     * @brief Hides the soft keyboard on a specified screen. This API uses a promise to return the result.
+     * Hides the soft keyboard on a specified screen. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1935,7 +1935,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(displayId: long): Promise<void>;
 
     /**
-     * @brief Sends the custom communication to the input method application. This API uses a promise to return the result.
+     * Sends the custom communication to the input method application. This API uses a promise to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1963,7 +1963,7 @@ declare namespace inputMethod {
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
     /**
-     * @brief Registers or unregisters MessageHandler.
+     * Registers or unregisters MessageHandler.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -1990,7 +1990,7 @@ declare namespace inputMethod {
     recvMessage(msgHandler?: MessageHandler): void;
 
     /**
-     * @brief Enables listening for the select-by-range event. This API uses an asynchronous callback to return the result.
+     * Enables listening for the select-by-range event. This API uses an asynchronous callback to return the result.
      *
      * @param { 'selectByRange' } type - Listening type. The value is fixed at **'selectByRange'**.
      * @param { Callback<Range> } callback - Callback used to return the range of the text to be selected.
@@ -2003,7 +2003,7 @@ declare namespace inputMethod {
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
     /**
-     * @brief Disables listening for the select-by-range event. This API uses an asynchronous callback to return the result.
+     * Disables listening for the select-by-range event. This API uses an asynchronous callback to return the result.
      *
      * @param { 'selectByRange' } type - Listening type. The value is fixed at **'selectByRange'**.
      * @param { Callback<Range> } [callback] - Callback used for disable listening, which must be the same as that
@@ -2016,7 +2016,7 @@ declare namespace inputMethod {
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
     /**
-     * @brief Enables listening for the select-by-cursor-movement event. This API uses an asynchronous callback to return the 
+     * Enables listening for the select-by-cursor-movement event. This API uses an asynchronous callback to return the 
      * result.
      *
      * @param { 'selectByMovement' } type - Listening type. The value is fixed at **'selectByMovement'**.
@@ -2030,7 +2030,7 @@ declare namespace inputMethod {
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
     /**
-     * @brief Disables listening for the select-by-cursor-movement event. This API uses an asynchronous callback to return the 
+     * Disables listening for the select-by-cursor-movement event. This API uses an asynchronous callback to return the 
      * result.
      *
      * @param { 'selectByMovement' } type - Listening type. The value is fixed at **'selectByMovement'**.
@@ -2044,7 +2044,7 @@ declare namespace inputMethod {
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
     /**
-     * @brief Enables listening for the text insertion event of the input method. This API uses an asynchronous callback to 
+     * Enables listening for the text insertion event of the input method. This API uses an asynchronous callback to 
      * return the result.
      *
      * @param { 'insertText' } type - Listening type. The value is fixed at **'insertText'**.
@@ -2060,7 +2060,7 @@ declare namespace inputMethod {
     on(type: 'insertText', callback: (text: string) => void): void;
 
     /**
-     * @brief Disables listening for the text insertion event of the input method.
+     * Disables listening for the text insertion event of the input method.
      *
      * @param { 'insertText' } type - Listening type. The value is fixed at **'insertText'**.
      * @param { function } [callback] - Callback used for disable listening, which must be the same as that passed by
@@ -2073,7 +2073,7 @@ declare namespace inputMethod {
     off(type: 'insertText', callback?: (text: string) => void): void;
 
     /**
-     * @brief Enables listening for the leftward delete event. This API uses an asynchronous callback to return the result.
+     * Enables listening for the leftward delete event. This API uses an asynchronous callback to return the result.
      *
      * @param { 'deleteLeft' } type - Listening type. The value is fixed at **'deleteLeft'**.
      * @param { function } callback - Callback used to return the length of the text to be deleted leftward.
@@ -2088,7 +2088,7 @@ declare namespace inputMethod {
     on(type: 'deleteLeft', callback: (length: number) => void): void;
 
     /**
-     * @brief Disables listening for the leftward delete event.
+     * Disables listening for the leftward delete event.
      *
      * @param { 'deleteLeft' } type - Listening type. The value is fixed at **'deleteLeft'**.
      * @param { function } [callback] - Callback used for disable listening, which must be the same as that passed by
@@ -2101,7 +2101,7 @@ declare namespace inputMethod {
     off(type: 'deleteLeft', callback?: (length: number) => void): void;
 
     /**
-     * @brief Enables listening for the rightward delete event. This API uses an asynchronous callback to return the result.
+     * Enables listening for the rightward delete event. This API uses an asynchronous callback to return the result.
      *
      * @param { 'deleteRight' } type - Listening type. The value is fixed at **'deleteRight'**.
      * @param { function } callback - Callback used to return the length of the text to be deleted rightward.
@@ -2116,7 +2116,7 @@ declare namespace inputMethod {
     on(type: 'deleteRight', callback: (length: number) => void): void;
 
     /**
-     * @brief Disables listening for the rightward delete event.
+     * Disables listening for the rightward delete event.
      *
      * @param { 'deleteRight' } type - Listening type. The value is fixed at `deleteRight`.
      * @param { function } [callback] - Callback used for disable listening, which must be the same as that passed by
@@ -2129,7 +2129,7 @@ declare namespace inputMethod {
     off(type: 'deleteRight', callback?: (length: number) => void): void;
 
     /**
-     * @brief Enables listening for the soft keyboard status event of the input method. This API uses an asynchronous callback 
+     * Enables listening for the soft keyboard status event of the input method. This API uses an asynchronous callback 
      * to return the result.
      *
      * @param { 'sendKeyboardStatus' } type - Listening type. The value is fixed at **'sendKeyboardStatus'**.
@@ -2144,7 +2144,7 @@ declare namespace inputMethod {
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
-     * @brief Disables listening for the input method soft keyboard status event of the input method.
+     * Disables listening for the input method soft keyboard status event of the input method.
      *
      * @param { 'sendKeyboardStatus' } type - Listening type. The value is fixed at **'sendKeyboardStatus'**.
      * @param { function } [callback] - Callback used for disable listening. If this parameter is not specified,
@@ -2155,7 +2155,7 @@ declare namespace inputMethod {
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
-     * @brief Enables listening for the function key sending event of the input method. This API uses an asynchronous callback 
+     * Enables listening for the function key sending event of the input method. This API uses an asynchronous callback 
      * to return the result.
      *
      * @param { 'sendFunctionKey' } type - Listening type. The value is fixed at **'sendFunctionKey'**.
@@ -2171,7 +2171,7 @@ declare namespace inputMethod {
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
     /**
-     * @brief Disables listening for the function key sending event of the input method.
+     * Disables listening for the function key sending event of the input method.
      *
      * @param { 'sendFunctionKey' } type - Listening type. The value is fixed at **'sendFunctionKey'**.
      * @param { function } [callback] - Callback used for disable listening, which must be the same as that passed by
@@ -2184,7 +2184,7 @@ declare namespace inputMethod {
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
     /**
-     * @brief Enables listening for the cursor movement event of the input method. This API uses an asynchronous callback to 
+     * Enables listening for the cursor movement event of the input method. This API uses an asynchronous callback to 
      * return the result.
      *
      * @param { 'moveCursor' } type - Listening type. The value is fixed at **'moveCursor'**.
@@ -2200,7 +2200,7 @@ declare namespace inputMethod {
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
     /**
-     * @brief Disables listening for the cursor movement event of the input method.
+     * Disables listening for the cursor movement event of the input method.
      *
      * @param { 'moveCursor' } type - Listening type. The value is fixed at **'moveCursor'**.
      * @param { function } [callback] - Callback used for disable listening, which must be the same as that passed by
@@ -2213,7 +2213,7 @@ declare namespace inputMethod {
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
     /**
-     * @brief Enables listening for the extended action handling event of the input method. This API uses an asynchronous 
+     * Enables listening for the extended action handling event of the input method. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'handleExtendAction' } type - Listening type. The value is fixed at **'handleExtendAction'**.
@@ -2228,7 +2228,7 @@ declare namespace inputMethod {
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
     /**
-     * @brief Disables listening for the extended action handling event of the input method. This API uses an asynchronous 
+     * Disables listening for the extended action handling event of the input method. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'handleExtendAction' } type - Listening type. The value is fixed at **'handleExtendAction'**.
@@ -2242,7 +2242,7 @@ declare namespace inputMethod {
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
     /**
-     * @brief Enables listening for the event of obtaining the length of text deleted leftward. This API uses an asynchronous 
+     * Enables listening for the event of obtaining the length of text deleted leftward. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'getLeftTextOfCursor' } type - Listening type. The value is fixed at **'getLeftTextOfCursor'**.
@@ -2256,7 +2256,7 @@ declare namespace inputMethod {
     on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void;
 
     /**
-     * @brief Disables listening for the event of obtaining the length of text deleted leftward. This API uses an asynchronous 
+     * Disables listening for the event of obtaining the length of text deleted leftward. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'getLeftTextOfCursor' } type - Listening type. The value is fixed at **'getLeftTextOfCursor'**.
@@ -2270,7 +2270,7 @@ declare namespace inputMethod {
     off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
 
     /**
-     * @brief Enables listening for the event of obtaining the length of text deleted rightward. This API uses an asynchronous 
+     * Enables listening for the event of obtaining the length of text deleted rightward. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'getRightTextOfCursor' } type - Listening type. The value is fixed at **'getRightTextOfCursor'**.
@@ -2284,7 +2284,7 @@ declare namespace inputMethod {
     on(type: 'getRightTextOfCursor', callback: (length: number) => string): void;
 
     /**
-     * @brief Disables listening for the event of obtaining the length of text deleted rightward. This API uses an asynchronous
+     * Disables listening for the event of obtaining the length of text deleted rightward. This API uses an asynchronous
      * callback to return the result.
      *
      * @param { 'getRightTextOfCursor' } type - Listening type. The value is fixed at **'getRightTextOfCursor'**.
@@ -2298,7 +2298,7 @@ declare namespace inputMethod {
     off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
 
     /**
-     * @brief Enables listening for the event of obtaining the index of text at the cursor. This API uses an asynchronous 
+     * Enables listening for the event of obtaining the index of text at the cursor. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'getTextIndexAtCursor' } type - Listening type. The value is fixed at **'getTextIndexAtCursor'**.
@@ -2312,7 +2312,7 @@ declare namespace inputMethod {
     on(type: 'getTextIndexAtCursor', callback: () => number): void;
 
     /**
-     * @brief Disables listening for the event of obtaining the index of text at the cursor. This API uses an asynchronous 
+     * Disables listening for the event of obtaining the index of text at the cursor. This API uses an asynchronous 
      * callback to return the result.
      *
      * @param { 'getTextIndexAtCursor' } type - Listening type. The value is fixed at **'getTextIndexAtCursor'**.
@@ -2326,7 +2326,7 @@ declare namespace inputMethod {
     off(type: 'getTextIndexAtCursor', callback?: () => number): void;
 
     /**
-     * @brief Subscribes to the event for text preview operations in an input method application. This API uses an asynchronous
+     * Subscribes to the event for text preview operations in an input method application. This API uses an asynchronous
      * callback to return the result.
      * <br>
      * <br> > **NOTE**
@@ -2347,7 +2347,7 @@ declare namespace inputMethod {
     on(type: 'setPreviewText', callback: SetPreviewTextCallback): void;
 
     /**
-     * @brief Unsubscribes from the event for text preview operations in an input method application. This API uses an 
+     * Unsubscribes from the event for text preview operations in an input method application. This API uses an 
      * asynchronous callback to return the result.
      *
      * @param { 'setPreviewText' } type - Event type, which is **'setPreviewText'**.
@@ -2361,7 +2361,7 @@ declare namespace inputMethod {
     off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void;
 
     /**
-     * @brief Subscribes to the event of finishing text preview. This API uses an asynchronous callback to return the result.
+     * Subscribes to the event of finishing text preview. This API uses an asynchronous callback to return the result.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -2381,7 +2381,7 @@ declare namespace inputMethod {
     on(type: 'finishTextPreview', callback: Callback<void>): void;
 
     /**
-     * @brief Unsubscribes from the event of finishing text preview. This API uses an asynchronous callback to return the 
+     * Unsubscribes from the event of finishing text preview. This API uses an asynchronous callback to return the 
      * result.
      *
      * @param { 'finishTextPreview' } type - Event type, which is **'finishTextPreview'**.
@@ -2395,7 +2395,7 @@ declare namespace inputMethod {
     off(type: 'finishTextPreview', callback?: Callback<void>): void;
 
     /**
-     * @brief Register a callback and when IME sends select event with range of selection,
+     * Register a callback and when IME sends select event with range of selection,
      * the callback will be invoked.
      *
      * @param { Callback<Range> } callback - the callback called when the input method selects text by range.
@@ -2406,7 +2406,7 @@ declare namespace inputMethod {
      */
     onSelectByRange(callback: Callback<Range>): void;
     /**
-     * @brief Unregister the callback of selectedByRange.
+     * Unregister the callback of selectedByRange.
      *
      * @param { Callback<Range> } [callback] - the callback called when the input method selects text by range.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2415,7 +2415,7 @@ declare namespace inputMethod {
     offSelectByRange(callback?: Callback<Range>): void;
 
     /**
-     * @brief Register a callback and when IME sends select event witch movement of cursor,
+     * Register a callback and when IME sends select event witch movement of cursor,
      * the callback will be invoked.
      *
      * @param { Callback<Movement> } callback - the callback called when the input method selects text by movement.
@@ -2426,7 +2426,7 @@ declare namespace inputMethod {
      */
     onSelectByMovement(callback: Callback<Movement>): void;
     /**
-     * @brief Unregister the callback of selectedByMovement.
+     * Unregister the callback of selectedByMovement.
      *
      * @param { Callback<Movement> } [callback] - the callback called when the input method selects text by movement.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2435,7 +2435,7 @@ declare namespace inputMethod {
     offSelectByMovement(callback?: Callback<Movement>): void;
 
    /**
-     * @brief Register a callback and when IME sends insert text event, the callback will be invoked.
+     * Register a callback and when IME sends insert text event, the callback will be invoked.
      *
      * @param { Callback<string> } callback - the callback called when the input method inserts text.
      *     Subscribers are expected to process the inserted text and update changes in editor by
@@ -2446,7 +2446,7 @@ declare namespace inputMethod {
      */
     onInsertText(callback: Callback<string>): void;
   /**
-     * @brief Unregister the callback of insertText.
+     * Unregister the callback of insertText.
      *
      * @param { Callback<string> } [callback] - the callback called when the input method inserts text.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2455,7 +2455,7 @@ declare namespace inputMethod {
     offInsertText(callback?: Callback<string>): void;
 
    /**
-     * @brief Register a callback and when IME sends delete left event with length,
+     * Register a callback and when IME sends delete left event with length,
      * the callback will be invoked.
      *
      * @param { Callback<int> } callback - the callback called when the input method deletes text
@@ -2468,7 +2468,7 @@ declare namespace inputMethod {
      */
     onDeleteLeft(callback: Callback<int>): void;
    /**
-     * @brief Unregister the callback of deleteLeft.
+     * Unregister the callback of deleteLeft.
      *
      * @param { Callback<int> } [callback] - the callback called when the input method deletes text
      *     to the left of the cursor.
@@ -2478,7 +2478,7 @@ declare namespace inputMethod {
     offDeleteLeft(callback?: Callback<int>): void;
 
     /**
-     * @brief Register a callback and when IME sends delete right event with length,
+     * Register a callback and when IME sends delete right event with length,
      * the callback will beinvoked.
      *
      * @param { Callback<int> } callback - the callback called whenthe input method deletes text
@@ -2491,7 +2491,7 @@ declare namespace inputMethod {
      */
     onDeleteRight(callback: Callback<int>): void;
   /**
-     * @brief Unregister the callback of deleteRight.
+     * Unregister the callback of deleteRight.
      *
      * @param { Callback<int> } [callback] - the callback called when the input method deletes text
      *     to the right of the cursor.
@@ -2501,7 +2501,7 @@ declare namespace inputMethod {
     offDeleteRight(callback?: Callback<int>): void;
 
     /**
-     * @brief Register a callback and when IME sends keyboard status, the callback will be invoked.
+     * Register a callback and when IME sends keyboard status, the callback will be invoked.
      *
      * @param { Callback<KeyboardStatus> } callback - the callback called when the input method send keyboard's status.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2510,7 +2510,7 @@ declare namespace inputMethod {
      */
     onSendKeyboardStatus(callback: Callback<KeyboardStatus>): void;
    /**
-     * @brief Unregister the callback of sendKeyboardStatus.
+     * Unregister the callback of sendKeyboardStatus.
      *
      * @param { Callback<KeyboardStatus> } [callback] - the callback called when the inputmethod send
      *     keyboard's status.
@@ -2520,7 +2520,7 @@ declare namespace inputMethod {
     offSendKeyboardStatus(callback?: Callback<KeyboardStatus>): void;
 
    /**
-     * @brief Register a callback and whenIME sends functionKey, the callback will be invoked.
+     * Register a callback and whenIME sends functionKey, the callback will be invoked.
      *
      * @param { Callback<FunctionKey> } callback - the callback called when the input method send function key.
      *     The functionKey is provided for this callback. Subscribers are expected to complete the
@@ -2531,7 +2531,7 @@ declare namespace inputMethod {
      */
     onSendFunctionKey(callback: Callback<FunctionKey>): void;
     /**
-     * @brief Unregister the callback of sendFunctionKey.
+     * Unregister the callback of sendFunctionKey.
      *
      * @param { Callback<FunctionKey> } [callback] - the callback called when the input method send function key.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2540,7 +2540,7 @@ declare namespace inputMethod {
     offSendFunctionKey(callback?: Callback<FunctionKey>): void;
 
     /**
-     * @brief Register a callback and when IME sends move cursor, the callback will be invoked.
+     * Register a callback and when IME sends move cursor, the callback will be invoked.
      *
      * @param { Callback<Direction> } callback - the callback called when the input method moves cursor.
      *     The direction of cursor is provided for this callback. Subscribers are expected to move the cursor and
@@ -2551,7 +2551,7 @@ declare namespace inputMethod {
      */
     onMoveCursor(callback: Callback<Direction>): void;
   /**
-     * @brief Unregister the callback of moveCursor.
+     * Unregister the callback of moveCursor.
      *
      * @param { Callback<Direction> } [callback] - the callback called when the input method moves cursor.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2560,7 +2560,7 @@ declare namespace inputMethod {
     offMoveCursor(callback?: Callback<Direction>): void;
 
   /**
-     * @brief Register a callback and when IME sends extend action code, the callback will be invoked.
+     * Register a callback and when IME sends extend action code, the callback will be invoked.
      *
      * @param { Callback<ExtendAction> } callback - the callback called when the input method sends extend action.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2569,7 +2569,7 @@ declare namespace inputMethod {
      */
     onHandleExtendAction(callback: Callback<ExtendAction>): void;
   /**
-     * @brief Unregister the callback of handleExtendAction.
+     * Unregister the callback of handleExtendAction.
      *
      * @param { Callback<ExtendAction> } [callback] - the callback called when the input method sends extend action.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2578,7 +2578,7 @@ declare namespace inputMethod {
     offHandleExtendAction(callback?: Callback<ExtendAction>): void;
 
   /**
-     * @brief Register a callback and when input method ability gets left text of cursor, the callback will be invoked.
+     * Register a callback and when input method ability gets left text of cursor, the callback will be invoked.
      *
      * @param { GetTextCallback } callback - the callback called when the input method gets text to the left
      *     of the cursor. The callback must be a synchronization method and will block the input method application.
@@ -2588,7 +2588,7 @@ declare namespace inputMethod {
      */
     onGetLeftTextOfCursor(callback: GetTextCallback): void;
    /**
-     * @brief Unregister the callback of getLeftTextofCursor event.
+     * Unregister the callback of getLeftTextofCursor event.
      *
      * @param { GetTextCallback } [callback] - the callback called when the input method gets text to the left
      *     of the cursor. The callback must be a synchronization method and will block the input method application.
@@ -2598,7 +2598,7 @@ declare namespace inputMethod {
     offGetLeftTextOfCursor(callback?: GetTextCallback): void;
 
    /**
-     * @brief Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
+     * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
      *
      * @param { GetTextCallback } callback - the callback called when the input method gets text to the right
      *     of the cursor. The callback must be a synchronization method and will block the input method application.
@@ -2608,7 +2608,7 @@ declare namespace inputMethod {
      */
     onGetRightTextOfCursor(callback: GetTextCallback): void;
    /**
-     * @brief Unregister the callback of getRightTextOfCursor event.
+     * Unregister the callback of getRightTextOfCursor event.
      *
      * @param { GetTextCallback } [callback] - the callback called when the input method gets text to the right
      *     of the cursor. The callback must be a synchronization method and will block the input method application.
@@ -2618,7 +2618,7 @@ declare namespace inputMethod {
     offGetRightTextOfCursor(callback?: GetTextCallback): void;
 
    /**
-     * @brief Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
+     * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
      *
      * @param { GetTextIndexAtCursorCallback } callback - the callback called when input method the gets cursor index.
      *     The callback must be a synchronization method, and should return the text index at the cursor.
@@ -2628,7 +2628,7 @@ declare namespace inputMethod {
      */
     onGetTextIndexAtCursor(callback: GetTextIndexAtCursorCallback): void;
    /**
-     * @brief Unregister the callback of getTextIndexAtCursor.
+     * Unregister the callback of getTextIndexAtCursor.
      *
      * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2638,7 +2638,7 @@ declare namespace inputMethod {
     offGetTextIndexAtCursor(callback?:GetTextIndexAtCursorCallback): void;
 
    /**
-     * @brief <p>Subscribe 'setPreviewText' event.</p>
+     * <p>Subscribe 'setPreviewText' event.</p>
      * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
      *
      * @param { SetPreviewTextCallback } callback - the callback called when the input method setspreview text.
@@ -2647,7 +2647,7 @@ declare namespace inputMethod {
      */
     onSetPreviewText(callback: SetPreviewTextCallback): void;
    /**
-     * @brief Unsubscribe 'setPreviewText' event.
+     * Unsubscribe 'setPreviewText' event.
      *
      * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
      *     sets preview text.
@@ -2658,7 +2658,7 @@ declare namespace inputMethod {
     offSetPreviewText(callback?:SetPreviewTextCallback): void;
 
    /**
-     * @brief <p>Subscribe 'finishTextPreview' event.</p>
+     * <p>Subscribe 'finishTextPreview' event.</p>
      * <br><p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
      *
      * @param { Callback<void> } callback - the callback called when the input method finishes text preview.
@@ -2667,7 +2667,7 @@ declare namespace inputMethod {
      */
     onFinishTextPreview(callback: Callback<void>): void;
     /**
-     * @brief Unsubscribe 'finishTextPreview' event.
+     * Unsubscribe 'finishTextPreview' event.
      *
      * @param { Callback<void> } [callback] - optional, the callback called when the input method finishes text preview.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2677,7 +2677,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the input method application attributes.
+   * Describes the input method application attributes.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -2685,7 +2685,7 @@ declare namespace inputMethod {
    */
   interface InputMethodProperty {
     /**
-     * @brief Name of the input method package. Mandatory.
+     * Name of the input method package. Mandatory.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
@@ -2695,7 +2695,7 @@ declare namespace inputMethod {
     readonly packageName: string;
 
     /**
-     * @brief Unique ID of the input method. Mandatory.
+     * Unique ID of the input method. Mandatory.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
@@ -2705,7 +2705,7 @@ declare namespace inputMethod {
     readonly methodId: string;
 
     /**
-     * @brief Mandatory. Name of the input method package.
+     * Mandatory. Name of the input method package.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
@@ -2714,7 +2714,7 @@ declare namespace inputMethod {
     readonly name: string;
 
     /**
-     * @brief Mandatory. Unique identifier of an input method extension in an app. **id** and **name** form a globally unique 
+     * Mandatory. Unique identifier of an input method extension in an app. **id** and **name** form a globally unique 
      * identifier of the input method extension.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2724,7 +2724,7 @@ declare namespace inputMethod {
     readonly id: string;
 
     /**
-     * @brief Optional.
+     * Optional.
      * <br> 
      * <br>- When **InputMethodProperty** is used as the input parameter of an API for switching or querying, you do not 
      * need to set this field. You can use name and ID to uniquely specify an input method extension.
@@ -2741,7 +2741,7 @@ declare namespace inputMethod {
     readonly label?: string;
 
     /**
-     * @brief Optional.
+     * Optional.
      * <br>
      * <br>- When **InputMethodProperty** is used as the input parameter of an API for switching or querying, you do not 
      * need to set this field. You can use name and ID to uniquely specify an input method extension.
@@ -2756,7 +2756,7 @@ declare namespace inputMethod {
     readonly labelId?: long;
 
     /**
-     * @brief Optional.
+     * Optional.
      * <br>
      * <br>- When **InputMethodProperty** is used as the input parameter of an API for switching or querying, you do not 
      * need to set this field. You can use name and ID to uniquely specify an input method extension.
@@ -2771,7 +2771,7 @@ declare namespace inputMethod {
     readonly icon?: string;
 
     /**
-     * @brief Optional.
+     * Optional.
      * <br>
      * <br>- When **InputMethodProperty** is used as the input parameter of an API for switching or querying, you do not 
      * need to set this field. You can use name and ID to uniquely specify an input method extension.
@@ -2786,7 +2786,7 @@ declare namespace inputMethod {
     readonly iconId?: long;
 
     /**
-     * @brief Optional.
+     * Optional.
      * <br>
      * <br>- When **InputMethodProperty** is used as the input parameter of an API for switching or querying, you do not 
      * need to set this field. You can use name and ID to uniquely specify an input method extension.
@@ -2801,7 +2801,7 @@ declare namespace inputMethod {
     readonly enabledState?: EnabledState;
 
     /**
-     * @brief Extra information about the input method. This parameter is reserved and currently has no specific meaning.
+     * Extra information about the input method. This parameter is reserved and currently has no specific meaning.
      * <br>
      * <br>- API version 10 and later: optional
      * <br>- API version 9: mandatory
@@ -2816,7 +2816,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enumerates the directions of cursor movement of the input method.
+   * Enumerates the directions of cursor movement of the input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2824,7 +2824,7 @@ declare namespace inputMethod {
    */
   export enum Direction {
     /**
-     * @brief Upward.
+     * Upward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2833,7 +2833,7 @@ declare namespace inputMethod {
     CURSOR_UP = 1,
 
     /**
-     * @brief Downward.
+     * Downward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2842,7 +2842,7 @@ declare namespace inputMethod {
     CURSOR_DOWN,
 
     /**
-     * @brief Leftward.
+     * Leftward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2851,7 +2851,7 @@ declare namespace inputMethod {
     CURSOR_LEFT,
 
     /**
-     * @brief Rightward.
+     * Rightward.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2861,7 +2861,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the range of the selected text.
+   * Describes the range of the selected text.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2869,7 +2869,7 @@ declare namespace inputMethod {
    */
   export interface Range {
     /**
-     * @brief Index of the first selected character in the text box. The value is an integer greater than or equal to 0, and 
+     * Index of the first selected character in the text box. The value is an integer greater than or equal to 0, and 
      * cannot exceed the actual text length.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2879,7 +2879,7 @@ declare namespace inputMethod {
     start: int;
 
     /**
-     * @brief Index of the last selected character in the text box. The value is an integer greater than or equal to 0, and 
+     * Index of the last selected character in the text box. The value is an integer greater than or equal to 0, and 
      * cannot exceed the actual text length. The **end** value must be greater than the **start** value.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2890,7 +2890,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the direction in which the cursor moves when the text is selected.
+   * Describes the direction in which the cursor moves when the text is selected.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2898,7 +2898,7 @@ declare namespace inputMethod {
    */
   export interface Movement {
     /**
-     * @brief Direction in which the cursor moves when the text is selected.
+     * Direction in which the cursor moves when the text is selected.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2908,7 +2908,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enumerates the text input types.
+   * Enumerates the text input types.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2916,7 +2916,7 @@ declare namespace inputMethod {
    */
   export enum TextInputType {
     /**
-     * @brief None.
+     * None.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2925,7 +2925,7 @@ declare namespace inputMethod {
     NONE = -1,
 
     /**
-     * @brief Text.
+     * Text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2934,7 +2934,7 @@ declare namespace inputMethod {
     TEXT = 0,
 
     /**
-     * @brief Multi-line.
+     * Multi-line.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2943,7 +2943,7 @@ declare namespace inputMethod {
     MULTILINE,
 
     /**
-     * @brief Number.
+     * Number.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2952,7 +2952,7 @@ declare namespace inputMethod {
     NUMBER,
 
     /**
-     * @brief Phone number.
+     * Phone number.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2961,7 +2961,7 @@ declare namespace inputMethod {
     PHONE,
 
     /**
-     * @brief Date.
+     * Date.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2970,7 +2970,7 @@ declare namespace inputMethod {
     DATETIME,
 
     /**
-     * @brief Email address.
+     * Email address.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2979,7 +2979,7 @@ declare namespace inputMethod {
     EMAIL_ADDRESS,
 
     /**
-     * @brief URL.
+     * URL.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2988,7 +2988,7 @@ declare namespace inputMethod {
     URL,
 
     /**
-     * @brief Password.
+     * Password.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2997,7 +2997,7 @@ declare namespace inputMethod {
     VISIBLE_PASSWORD,
 
     /**
-     * @brief Numeric password.
+     * Numeric password.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
@@ -3006,7 +3006,7 @@ declare namespace inputMethod {
     NUMBER_PASSWORD,
 
     /**
-     * @brief Lock screen password.
+     * Lock screen password.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3015,7 +3015,7 @@ declare namespace inputMethod {
     SCREEN_LOCK_PASSWORD,
 
     /**
-     * @brief Username.
+     * Username.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3024,7 +3024,7 @@ declare namespace inputMethod {
     USER_NAME,
 
     /**
-     * @brief New password.
+     * New password.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3033,7 +3033,7 @@ declare namespace inputMethod {
     NEW_PASSWORD,
 
     /**
-     * @brief Number with a decimal point.
+     * Number with a decimal point.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3042,7 +3042,7 @@ declare namespace inputMethod {
     NUMBER_DECIMAL,
 
     /**
-     * @brief Verification code.
+     * Verification code.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3052,7 +3052,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enumerates the function types represented by the Enter key of the input method.
+   * Enumerates the function types represented by the Enter key of the input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3060,7 +3060,7 @@ declare namespace inputMethod {
    */
   export enum EnterKeyType {
     /**
-     * @brief Not specified.
+     * Not specified.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3069,7 +3069,7 @@ declare namespace inputMethod {
     UNSPECIFIED = 0,
 
     /**
-     * @brief None.
+     * None.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3078,7 +3078,7 @@ declare namespace inputMethod {
     NONE,
 
     /**
-     * @brief Go.
+     * Go.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3087,7 +3087,7 @@ declare namespace inputMethod {
     GO,
 
     /**
-     * @brief Search.
+     * Search.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3096,7 +3096,7 @@ declare namespace inputMethod {
     SEARCH,
 
     /**
-     * @brief Send.
+     * Send.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3105,7 +3105,7 @@ declare namespace inputMethod {
     SEND,
 
     /**
-     * @brief Next.
+     * Next.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3114,7 +3114,7 @@ declare namespace inputMethod {
     NEXT,
 
     /**
-     * @brief Done.
+     * Done.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3123,7 +3123,7 @@ declare namespace inputMethod {
     DONE,
 
     /**
-     * @brief Previous.
+     * Previous.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3132,7 +3132,7 @@ declare namespace inputMethod {
     PREVIOUS,
 
     /**
-     * @brief Line break.
+     * Line break.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
@@ -3142,7 +3142,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enumerates the soft keyboard states of the input method.
+   * Enumerates the soft keyboard states of the input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3150,7 +3150,7 @@ declare namespace inputMethod {
    */
   export enum KeyboardStatus {
     /**
-     * @brief None.
+     * None.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3159,7 +3159,7 @@ declare namespace inputMethod {
     NONE = 0,
 
     /**
-     * @brief Hidden.
+     * Hidden.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3168,7 +3168,7 @@ declare namespace inputMethod {
     HIDE = 1,
 
     /**
-     * @brief Shown.
+     * Shown.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3178,7 +3178,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the attributes of the edit box, including the text input type and Enter key function type.
+   * Describes the attributes of the edit box, including the text input type and Enter key function type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3186,7 +3186,7 @@ declare namespace inputMethod {
    */
   export interface InputAttribute {
     /**
-     * @brief Enumerates the text input types.
+     * Enumerates the text input types.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3195,7 +3195,7 @@ declare namespace inputMethod {
     textInputType: TextInputType;
 
     /**
-     * @brief Function type represented by the Enter key.
+     * Function type represented by the Enter key.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3204,7 +3204,7 @@ declare namespace inputMethod {
     enterKeyType: EnterKeyType;
 
     /**
-     * @brief Placeholder information set for the edit box.
+     * Placeholder information set for the edit box.
      * <br>
      * <br>- When placeholder information is set for the edit box, the length cannot exceed 255 characters (a placeholder 
      * longer than 255 characters will be automatically truncated to 255 characters). It is used to prompt or guide 
@@ -3222,7 +3222,7 @@ declare namespace inputMethod {
     placeholder?: string;
 
     /**
-     * @brief Whether the editor supports consuming key events.
+     * Whether the editor supports consuming key events.
      *
      * @default false
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3232,7 +3232,7 @@ declare namespace inputMethod {
     consumeKeyEvents?: boolean;
 
     /**
-     * @brief Ability name set for the edit box.
+     * Ability name set for the edit box.
      * <br>
      * <br>- If the ability name is set for the edit box, the length cannot exceed 127 characters. (A name longer than 127 
      * characters will be automatically truncated to 127 characters.)
@@ -3249,7 +3249,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the type of the input method function key.
+   * Describes the type of the input method function key.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3257,7 +3257,7 @@ declare namespace inputMethod {
    */
   export interface FunctionKey {
     /**
-     * @brief Function type represented by the Enter key of the input method.
+     * Function type represented by the Enter key of the input method.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3267,7 +3267,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Represents the cursor information.
+   * Represents the cursor information.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3275,7 +3275,7 @@ declare namespace inputMethod {
    */
   export interface CursorInfo {
     /**
-     * @brief Horizontal coordinate of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum 
+     * Horizontal coordinate of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum 
      * value is the width of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3285,7 +3285,7 @@ declare namespace inputMethod {
     left: double;
 
     /**
-     * @brief Vertical coordinate of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum 
+     * Vertical coordinate of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum 
      * value is the height of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3295,7 +3295,7 @@ declare namespace inputMethod {
     top: double;
 
     /**
-     * @brief Width of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum value is the 
+     * Width of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum value is the 
      * width of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3305,7 +3305,7 @@ declare namespace inputMethod {
     width: double;
 
     /**
-     * @brief Height of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum value is the 
+     * Height of the cursor, in px. The value must be an integer. The minimum value is 0 and the maximum value is the 
      * height of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3315,7 +3315,7 @@ declare namespace inputMethod {
     height: double;
 
     /**
-     * @brief ID of the monitor where the cursor is located.
+     * ID of the monitor where the cursor is located.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
@@ -3325,7 +3325,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the configuration of the edit box.
+   * Describes the configuration of the edit box.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3333,7 +3333,7 @@ declare namespace inputMethod {
    */
   export interface TextConfig {
     /**
-     * @brief Edit box attribute.
+     * Edit box attribute.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3342,7 +3342,7 @@ declare namespace inputMethod {
     inputAttribute: InputAttribute;
 
     /**
-     * @brief Cursor information.
+     * Cursor information.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3351,7 +3351,7 @@ declare namespace inputMethod {
     cursorInfo?: CursorInfo;
 
     /**
-     * @brief Text selection range.
+     * Text selection range.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3360,7 +3360,7 @@ declare namespace inputMethod {
     selection?: Range;
 
     /**
-     * @brief ID of the window where the edit box is located. The value must be an integer.
+     * ID of the window where the edit box is located. The value must be an integer.
      * <br>
      * <br>You are advised to call [getWindowProperties]{@link @ohos.window:window.Window.getWindowProperties} to obtain the
      * window ID.
@@ -3372,7 +3372,7 @@ declare namespace inputMethod {
     windowId?: int;
 
     /**
-     * @brief Whether the edit box is new. The value **true** means the edit box is new; the value **false** means the 
+     * Whether the edit box is new. The value **true** means the edit box is new; the value **false** means the 
      * opposite.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3382,7 +3382,7 @@ declare namespace inputMethod {
     newEditBox?: boolean;
 
     /**
-     * @brief Whether to capitalize the first letter in the edit box. If it is not set or is set to an invalid value, the first
+     * Whether to capitalize the first letter in the edit box. If it is not set or is set to an invalid value, the first
      * letter is not capitalized by default.
      *
      * @default CapitalizeMode.NONE
@@ -3394,7 +3394,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the type of the extended edit action on the text box.
+   * Describes the type of the extended edit action on the text box.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3402,7 +3402,7 @@ declare namespace inputMethod {
    */
   export enum ExtendAction {
     /**
-     * @brief Select all.
+     * Select all.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3411,7 +3411,7 @@ declare namespace inputMethod {
     SELECT_ALL = 0,
 
     /**
-     * @brief Cut.
+     * Cut.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3420,7 +3420,7 @@ declare namespace inputMethod {
     CUT = 3,
 
     /**
-     * @brief Copy.
+     * Copy.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3429,7 +3429,7 @@ declare namespace inputMethod {
     COPY = 4,
 
     /**
-     * @brief Paste.
+     * Paste.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3439,7 +3439,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Describes the window information of the input method keyboard.
+   * Describes the window information of the input method keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3447,7 +3447,7 @@ declare namespace inputMethod {
    */
   export interface InputWindowInfo {
     /**
-     * @brief Name of the input method keyboard window.
+     * Name of the input method keyboard window.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3456,7 +3456,7 @@ declare namespace inputMethod {
     name: string;
 
     /**
-     * @brief Horizontal coordinate of the upper left corner of the input method keyboard window, in px. The value must be an 
+     * Horizontal coordinate of the upper left corner of the input method keyboard window, in px. The value must be an 
      * integer. The minimum value is 0 and the maximum value is the width of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3466,7 +3466,7 @@ declare namespace inputMethod {
     left: int;
 
     /**
-     * @brief Vertical coordinate of the upper left corner of the input method keyboard window, in px. The value must be an 
+     * Vertical coordinate of the upper left corner of the input method keyboard window, in px. The value must be an 
      * integer. The minimum value is 0 and the maximum value is the height of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3476,7 +3476,7 @@ declare namespace inputMethod {
     top: int;
 
     /**
-     * @brief Width of the input method keyboard window, in px. The value must be an integer. The minimum value is 0 and the 
+     * Width of the input method keyboard window, in px. The value must be an integer. The minimum value is 0 and the 
      * maximum value is the width of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3486,7 +3486,7 @@ declare namespace inputMethod {
     width: long;
 
     /**
-     * @brief Height of the input method keyboard window, in px. The value must be an integer. The minimum value is 0 and the 
+     * Height of the input method keyboard window, in px. The value must be an integer. The minimum value is 0 and the 
      * maximum value is the height of the current screen.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3496,7 +3496,7 @@ declare namespace inputMethod {
     height: long;
 
     /**
-     * @brief ID of the display where the soft keyboard window is located.
+     * ID of the display where the soft keyboard window is located.
      * <br>
      * <br>**Model restriction**: This parameter can be used only in the stage model.
      *
@@ -3507,7 +3507,7 @@ declare namespace inputMethod {
     displayId?: long;
 
     /**
-     * @brief Indicates the ID of the user whose input window is shown.
+     * Indicates the ID of the user whose input window is shown.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -3518,7 +3518,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Callback function on receiving a custom message.
+   * Callback function on receiving a custom message.
    *
    * @param { string } msgId - the identifier of the message.
    * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
@@ -3528,7 +3528,7 @@ declare namespace inputMethod {
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
   /**
-   * @brief Represents a custom communication object.
+   * Represents a custom communication object.
    * <br>
    * <br> > **NOTE**
    * <br> >
@@ -3550,7 +3550,7 @@ declare namespace inputMethod {
    */
   interface MessageHandler {
     /**
-     * @brief Receives custom data sent by the input method application.
+     * Receives custom data sent by the input method application.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -3566,7 +3566,7 @@ declare namespace inputMethod {
     onMessage: OnMessageCallback;
 
     /**
-     * @brief Listens for MessageHandler termination.
+     * Listens for MessageHandler termination.
      * <br>
      * <br> > **NOTE**
      * <br> >
@@ -3582,7 +3582,7 @@ declare namespace inputMethod {
     onTerminated: Callback<void>;
 
     /**
-     * @brief This method is called when a custom message is received.
+     * This method is called when a custom message is received.
      *
      * @param { string } msgId - the identifier of the message.
      * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
@@ -3592,7 +3592,7 @@ declare namespace inputMethod {
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;	
 
     /**
-     * @brief This method is called when a new message handler is set.
+     * This method is called when a new message handler is set.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3601,7 +3601,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Indicates whether the input method is enabled.
+   * Indicates whether the input method is enabled.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -3609,7 +3609,7 @@ declare namespace inputMethod {
    */
   export enum EnabledState {
     /**
-     * @brief Disabled.
+     * Disabled.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3618,7 +3618,7 @@ declare namespace inputMethod {
     DISABLED = 0,
 
     /**
-     * @brief Basic mode.
+     * Basic mode.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3627,7 +3627,7 @@ declare namespace inputMethod {
     BASIC_MODE,
 
     /**
-     * @brief Full experience mode.
+     * Full experience mode.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3637,7 +3637,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enumerates the reasons for requesting the keyboard.
+   * Enumerates the reasons for requesting the keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -3645,7 +3645,7 @@ declare namespace inputMethod {
    */
   export enum RequestKeyboardReason {
     /**
-     * @brief The keyboard request is triggered for no reason.
+     * The keyboard request is triggered for no reason.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3653,7 +3653,7 @@ declare namespace inputMethod {
      */
     NONE = 0,
     /**
-     * @brief The keyboard request is triggered by a mouse operation.
+     * The keyboard request is triggered by a mouse operation.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3661,7 +3661,7 @@ declare namespace inputMethod {
      */
     MOUSE = 1,
     /**
-     * @brief The keyboard request is triggered by a touch operation.
+     * The keyboard request is triggered by a touch operation.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3669,7 +3669,7 @@ declare namespace inputMethod {
      */
     TOUCH = 2,
     /**
-     * @brief The keyboard request is triggered by other reasons.
+     * The keyboard request is triggered by other reasons.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
@@ -3679,7 +3679,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Callback triggered when the input method framework needs to display the text preview.
+   * Callback triggered when the input method framework needs to display the text preview.
    *
    * @param { string } text - Text preview.
    * @param { Range } range - Describes the range of the selected text.
@@ -3690,7 +3690,7 @@ declare namespace inputMethod {
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
 
  /**
-   * @brief Enumerates the modes of capitalizing the first letter of a text.
+   * Enumerates the modes of capitalizing the first letter of a text.
    * <br>
    * | Name| Value| Description|
    * | -------- | -- | -------- |
@@ -3705,7 +3705,7 @@ declare namespace inputMethod {
    */
   export enum CapitalizeMode {
     /**
-     * @brief Capitalize nothing.
+     * Capitalize nothing.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3714,7 +3714,7 @@ declare namespace inputMethod {
     NONE = 0,
 
     /**
-     * @brief Capitalize the first letter of each sentence.
+     * Capitalize the first letter of each sentence.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3723,7 +3723,7 @@ declare namespace inputMethod {
     SENTENCES,
 
     /**
-     * @brief Capitalize the first letter of each word.
+     * Capitalize the first letter of each word.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3732,7 +3732,7 @@ declare namespace inputMethod {
     WORDS,
 
     /**
-     * @brief Capitalize each letter.
+     * Capitalize each letter.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3742,7 +3742,7 @@ declare namespace inputMethod {
   }
   
   /**
-   * @brief Enumerates the reasons for attachment failure.
+   * Enumerates the reasons for attachment failure.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 22 dynamic
@@ -3750,7 +3750,7 @@ declare namespace inputMethod {
    */
   export enum AttachFailureReason {
     /**
-     * @brief The caller does not belong to the application of the focused window.
+     * The caller does not belong to the application of the focused window.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
@@ -3759,7 +3759,7 @@ declare namespace inputMethod {
     CALLER_NOT_FOCUSED = 0,
 
     /**
-     * @brief The input method application is abnormal.
+     * The input method application is abnormal.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
@@ -3768,7 +3768,7 @@ declare namespace inputMethod {
     IME_ABNORMAL,
 
     /**
-     * @brief The input method framework service is abnormal.
+     * The input method framework service is abnormal.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
@@ -3777,7 +3777,7 @@ declare namespace inputMethod {
     SERVICE_ABNORMAL
   }
   /**
-   * @brief Defines additional options for binding an input method.
+   * Defines additional options for binding an input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -3785,7 +3785,7 @@ declare namespace inputMethod {
    */
   export interface AttachOptions {
     /**
-     * @brief Whether to start the input method keyboard after the self-drawing component is attached to the input method.
+     * Whether to start the input method keyboard after the self-drawing component is attached to the input method.
      * <br>
      * <br>- **true** means to start the input method keyboard.
      * <br>- **false** means not to start the input method keyboard.
@@ -3797,7 +3797,7 @@ declare namespace inputMethod {
      */
     showKeyboard?: boolean;
     /**
-     * @brief Reason for requesting the keyboard.
+     * Reason for requesting the keyboard.
      *
      * @default RequestKeyboardReason.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework

@@ -20,7 +20,7 @@
 
 /**
  * 
- * @brief The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes.
+ * The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes.
  * The input method subtype allows the input method to switch to a specific mode or language, for example,
  * the Chinese or English keyboard.
  * <br>
@@ -35,7 +35,7 @@
  */
 export default interface InputMethodSubtype {
   /**
-   * @brief Optional. Label of the input method subtype.
+   * Optional. Label of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -44,7 +44,7 @@ export default interface InputMethodSubtype {
   readonly label?: string;
 
   /**
-   * @brief Optional. Label ID of the input method subtype.
+   * Optional. Label ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -53,7 +53,7 @@ export default interface InputMethodSubtype {
   readonly labelId?: double;
 
   /**
-   * @brief Mandatory. Bundle name of the application to which the input method subtype belongs.
+   * Mandatory. Bundle name of the application to which the input method subtype belongs.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -62,7 +62,7 @@ export default interface InputMethodSubtype {
   readonly name: string;
 
   /**
-   * @brief Mandatory. ID of the input method subtype.
+   * Mandatory. ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -71,7 +71,7 @@ export default interface InputMethodSubtype {
   readonly id: string;
 
   /**
-   * @brief Optional. Mode of the input method subtype, including **upper** (uppercase) and **lower** (lowercase).
+   * Optional. Mode of the input method subtype, including **upper** (uppercase) and **lower** (lowercase).
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -80,7 +80,7 @@ export default interface InputMethodSubtype {
   readonly mode?: 'upper' | 'lower';
 
   /**
-   * @brief Mandatory. Locale of the input method subtype.
+   * Mandatory. Locale of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -89,7 +89,7 @@ export default interface InputMethodSubtype {
   readonly locale: string;
 
   /**
-   * @brief Mandatory. Language of the input method subtype.
+   * Mandatory. Language of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -98,7 +98,7 @@ export default interface InputMethodSubtype {
   readonly language: string;
 
   /**
-   * @brief Optional. Icon of the input method subtype. It can be obtained by using **iconId**. This parameter is reserved.
+   * Optional. Icon of the input method subtype. It can be obtained by using **iconId**. This parameter is reserved.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -107,7 +107,7 @@ export default interface InputMethodSubtype {
   readonly icon?: string;
 
   /**
-   * @brief Optional. Icon ID of the input method subtype.
+   * Optional. Icon ID of the input method subtype.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -116,7 +116,7 @@ export default interface InputMethodSubtype {
   readonly iconId?: double;
 
   /**
-   * @brief Extra information of the input method subtype.
+   * Extra information of the input method subtype.
    * <br>
    * <br> **NOTE**
    * <br> 

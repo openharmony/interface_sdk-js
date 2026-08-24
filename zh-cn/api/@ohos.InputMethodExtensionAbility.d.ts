@@ -106,7 +106,7 @@
   */
  declare class InputMethodExtensionAbility {
    /**
-    * @brief InputMethodExtensionAbility的上下文环境，继承于ExtensionContext。
+    * InputMethodExtensionAbility的上下文环境，继承于ExtensionContext。
     *
     * @syscap SystemCapability.MiscServices.InputMethodFramework
     * @stagemodelonly
@@ -116,7 +116,7 @@
    context: InputMethodExtensionContext;
  
    /**
-    * @brief 生命周期回调，在拉起输入法Extension时调用，用于初始化输入法应用。
+    * 生命周期回调，在拉起输入法Extension时调用，用于初始化输入法应用。
     * <br>
     * <br>- 含义/功能：系统拉起输入法ExtensionAbility时触发的初始化回调。开发者在该回调中完成输入法应用的所有关键初始化工作，包括获取核心能力对象、创建输入法面板、订阅事件等。
     * <br>- 使用场景：当系统根据module.json5配置拉起输入法ExtensionAbility时自动触发。这是输入法应用初始化的唯一入口，所有关键对象的获取和面板创建必须在此回调中完成。
@@ -132,7 +132,7 @@
    onCreate(want: Want): void;
  
    /**
-    * @brief 生命周期回调，在销毁输入法应用时调用，用于资源清理。
+    * 生命周期回调，在销毁输入法应用时调用，用于资源清理。
     * <br>
     * <br>- 含义/功能：系统销毁输入法ExtensionAbility时触发的清理回调。开发者在该回调中释放面板、取消事件订阅等资源清理工作。
     * <br>-  使用场景：当系统主动销毁输入法ExtensionAbility（如系统回收资源、用户切换到其他输入法）或开发者主动调用`context.destroy()`触发销毁时自动触发。
