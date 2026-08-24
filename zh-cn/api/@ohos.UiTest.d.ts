@@ -4695,12 +4695,11 @@ declare const ON: On;
  */
 declare namespace ON {
   /**
-   * Specifies the text for the target Component.
+   * 指定目标控件文本属性，支持多种匹配模式，返回 On 对象自身。
    *
-   * @param { string } txt - the text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件文本属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4708,10 +4707,10 @@ declare namespace ON {
   export function text(txt: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the id of the target Component.
+   * 指定目标控件id属性，返回 On 对象自身。
    *
-   * @param { string } id - the id value.
-   * @returns { On } this {@link On} object.
+   * @param { string } id - 指定控件的id值。
+   * @returns { On } - 返回指定目标控件id属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4719,10 +4718,10 @@ declare namespace ON {
   export function id(id: string): On;
 
   /**
-   * Specifies the type of the target Component.
+   * 指定目标控件的控件类型属性，返回 On 对象自身。
    *
-   * @param { string } tp - The type value.
-   * @returns { On } this {@link On} object.
+   * @param { string } tp - 指定控件类型。
+   * @returns { On } - 返回指定目标控件的控件类型属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4730,10 +4729,10 @@ declare namespace ON {
   export function type(tp: string): On;
 
   /**
-   * Specifies the clickable status of the target Component.
+   * 指定目标控件的可点击状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the clickable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。
+   * @returns { On } - 返回指定目标控件的可点击状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4741,10 +4740,10 @@ declare namespace ON {
   export function clickable(b?: boolean): On;
 
   /**
-   * Specifies the longClickable status of the target Component.
+   * 指定目标控件的可长按点击状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。
+   * @returns { On } - 返回指定目标控件的可长按点击状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4752,10 +4751,10 @@ declare namespace ON {
   export function longClickable(b?: boolean): On;
 
   /**
-   * Specifies the scrollable status of the target Component.
+   * 指定目标控件的可滑动状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the scrollable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。
+   * @returns { On } - 返回指定目标控件的可滑动状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4763,10 +4762,10 @@ declare namespace ON {
   export function scrollable(b?: boolean): On;
 
   /**
-   * Specifies the enabled status of the target Component.
+   * 指定目标控件的使能状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the enabled status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。
+   * @returns { On } - 返回指定目标控件的使能状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4774,10 +4773,10 @@ declare namespace ON {
   export function enabled(b?: boolean): On;
 
   /**
-   * Specifies the focused status of the target Component.
+   * 指定目标控件的获焦状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the focused status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。
+   * @returns { On } - 返回指定目标控件的获焦状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4785,10 +4784,10 @@ declare namespace ON {
   export function focused(b?: boolean): On;
 
   /**
-   * Specifies the selected status of the target Component.
+   * 指定目标控件的被选中状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the - selected status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。
+   * @returns { On } - 返回指定目标控件的被选中状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4796,10 +4795,10 @@ declare namespace ON {
   export function selected(b?: boolean): On;
 
   /**
-   * Specifies the checked status of the target Component.
+   * 指定目标控件的被勾选状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。
+   * @returns { On } - 返回指定目标控件的被勾选状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4807,10 +4806,10 @@ declare namespace ON {
   export function checked(b?: boolean): On;
 
   /**
-   * Specifies the checkable status of the target Component.
+   * 指定目标控件能否被勾选状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。
+   * @returns { On } - 返回指定目标控件能否被勾选状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4851,10 +4850,10 @@ declare namespace ON {
   export function within(on: On): On;
 
   /**
-   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   * 指定目标控件位于给出的应用窗口内，返回 On 对象自身。
    *
-   * @param { string } bundleName - the bundleName of the specified window.
-   * @returns { On } this {@link On} object.
+   * @param { string } bundleName - 应用窗口的包名。
+   * @returns { On } - 返回指定目标控件位于给出的应用窗口内的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4862,10 +4861,10 @@ declare namespace ON {
   export function inWindow(bundleName: string): On;
 
   /**
-   * Specifies the displayId to which the target Component belongs.
+   * 获取指定屏幕内的控件对象，返回 On 对象自身。
    *
-   * @param { int } displayId - the Id of the specified display.
-   * @returns { On } this {@link On} object.
+   * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
+   * @returns { On } - 返回指定控件所属屏幕的 {@link On} 对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4874,48 +4873,44 @@ declare namespace ON {
   export function belongingDisplay(displayId: int): On;
 
   /**
-   * Specifies the description for the target Component.
+   * 指定目标控件的描述属性，支持多种匹配模式，返回 On 对象自身。
    *
-   * @param { string } val - the description value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value,set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } val - 控件的描述属性。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件description属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function description(val: string, pattern?: MatchPattern): On;
   /**
-   * Specifies the id of the target Component.
+   * 指定目标控件id属性和匹配模式，返回 On 对象自身。
    *
-   * @param { string } id - the id value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } id - 指定控件的id值。
+   * @param { MatchPattern } pattern - 指定的文本匹配模式。
+   * @returns { On } - 返回指定目标控件id属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function id(id: string, pattern: MatchPattern): On;
   /**
-   * Specifies the type of the target Component.
+   * 指定目标控件的控件类型属性和匹配模式，返回 On 对象自身。
    *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } tp - 指定控件类型。
+   * @param { MatchPattern } pattern - 指定的文本匹配模式。
+   * @returns { On } - 返回指定目标控件的控件类型属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function type(tp: string, pattern: MatchPattern): On;
   /**
-   * Specifies the hint for the target Component.
+   * 获取指定提示文本的控件对象，返回 On 对象自身。
    *
-   * @param { string } val - the hint value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } val - 指定控件提示文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定提示文本控件的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4923,16 +4918,17 @@ declare namespace ON {
   export function hint(val: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the original text for the target Component.
-   * If the accessibility property [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to 'no' or 'no-hide-descendants',
-   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can 
-   * use this method to achieve it;
-   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   * 指定控件的文本内容和文本匹配模式，返回 On 对象自身。
    *
-   * @param { string } text - the original text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * > **说明**
+   * >
+   * > 如果控件的无障碍属性
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
+   * > 设置为'no'或'no-hide-descendants'，可以使用本接口指定目标控件的文本属性用于查找控件，使用[On.text()]{@link On#text}接口不生效。
+   *
+   * @param { string } text - 指定控件文本，用于匹配目标控件文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件文本属性的 {@link On} 对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
