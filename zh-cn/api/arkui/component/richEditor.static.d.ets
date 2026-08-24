@@ -91,7 +91,7 @@ export declare enum RichEditorSpanType {
      */
     MIXED = 2,
     /**
-     * Span类型为BuilderSpan。
+     * Span类型为自定义布局。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -99,7 +99,7 @@ export declare enum RichEditorSpanType {
      */
     BUILDER = 3,
     /**
-     * 默认类型，不指定Span类型时生效。
+     * 注册此类型的菜单，但未注册TEXT、IMAGE、MIXED、BUILDER菜单时，文字类型、图像类型、图文混合类型、自定义布局类型都会触发并显示此类型对应的菜单。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -165,7 +165,7 @@ export declare enum RichEditorResponseType {
      */
     SELECT = 2,
     /**
-     * 默认类型，不指定Span类型时生效。
+     * 注册此响应类型的菜单，但未注册RIGHT_CLICK、LONG_PRESS、SELECT响应类型的菜单时，通过鼠标右键、长按、鼠标选中都会触发菜单弹出。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -212,13 +212,15 @@ export declare interface RichEditorTextStyle {
     /**
      * 文本颜色。
      *
+     * 默认值：$r('sys.color.font_primary')。当[shaderStyle]{@link RichEditorParagraphStyle}同时设置时，shaderStyle优先级高于fontColor。
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     fontColor?: ResourceColor;
     /**
-     * 字体大小，默认单位为fp。
+     * 设置字体大小，Length为number类型时，使用fp单位。number类型取值范围：(0, +∞)。设置为0或负值时，按默认值处理。字体默认大小为16fp。不支持设置百分比字符串。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -228,6 +230,8 @@ export declare interface RichEditorTextStyle {
     /**
      * 字体样式。
      *
+     * 默认值：FontStyle.Normal。
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -236,13 +240,19 @@ export declare interface RichEditorTextStyle {
     /**
      * 字体粗细。
      *
+     * number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。超出范围时按默认值400生效。
+     *
+     * string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"分别对应FontWeight中相应的枚举值。
+     *
+     * 默认值：FontWeight.Normal。
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     fontWeight?: int | FontWeight | string;
     /**
-     * 字体列表。
+     * 设置字体列表，当前支持'HarmonyOS Sans'字体和[注册自定义字体]{@link @ohos.font:font}。默认字体:'HarmonyOS Sans'。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -250,7 +260,15 @@ export declare interface RichEditorTextStyle {
      */
     fontFamily?: ResourceStr;
     /**
-     * 文本装饰线样式信息。
+     * 设置文本装饰线的样式、颜色和粗细。
+     *
+     * type默认值：TextDecorationType.None
+     *
+     * color默认值：跟随字体颜色。
+     *
+     * style默认值：TextDecorationStyle.SOLID
+     *
+     * thicknessScale默认值：1.0
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -258,11 +276,15 @@ export declare interface RichEditorTextStyle {
      */
     decoration?: DecorationStyleInterface;
     /**
-     * 文字阴影效果。
-     * 
+     * 设置文字阴影效果。
+     *
+     * 默认值：undefined，不设置文字阴影效果。
+     *
+     * 该接口支持以数组形式入参，实现多重文字阴影。
+     *
      * **说明：**
-     * 
-     * 仅支持查询阴影模糊半径、颜色和偏移量。
+     *
+     * 仅支持设置阴影模糊半径、颜色和偏移量，不支持智能取色。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -270,7 +292,7 @@ export declare interface RichEditorTextStyle {
      */
     textShadow?: ShadowOptions | Array<ShadowOptions>;
     /**
-     * 文本字符间距，默认单位为fp。
+     * 设置文本字符间距，默认单位为fp。默认值：0。当取值为负值时，文字会发生压缩。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -278,7 +300,12 @@ export declare interface RichEditorTextStyle {
      */
     letterSpacing?: double | string;
     /**
-     * 文本行高，默认单位为fp。
+     * 设置文本的文本行高。
+     *
+     * 默认值：不设置时自适应字体大小。
+     *
+     * number类型取值范围：(0, +∞)，设置值不大于0时，不限制文本行高，自适应字体大小。number类型时单位为fp，不支持设置百分比字符串。
+     * 当lineHeight设置值小于当前字号下文本渲染出的实际高度时，[fallbackLineSpacing]{@link RichEditorAttribute#fallbackLineSpacing}属性将生效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -298,7 +325,22 @@ export declare interface RichEditorTextStyle {
      */
     halfLeading?: boolean;
     /**
-     * 文字特性效果。
+     * 设置文字特性效果，比如数字等宽的特性。如果未设置，默认为变宽数字。设置无效字符保持默认。
+     *
+     * 格式为：normal | <feature-tag-value>
+     *
+     * <feature-tag-value>的格式为：<string> [ <integer> | on | off ]
+     *
+     * <feature-tag-value>的个数可以有多个，中间用','隔开。
+     *
+     * 例如，使用等宽时钟数字的输入格式为："ss01" on。
+     *
+     * Font Feature当前支持的属性见[fontFeature]{@link TextAttribute#fontFeature}属性列表。
+     *
+     * 设置 Font Feature 属性，Font Feature 是 OpenType 字体的高级排版能力，如支持连字、数字等宽等特性，一般用在自定义字体中，其能力需要字体本身支持。
+     *
+     * 更多 Font Feature 能力介绍可参考
+     * https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop 和 https://sparanoid.com/lab/opentype-features/
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -307,6 +349,13 @@ export declare interface RichEditorTextStyle {
     fontFeature?: string;
     /**
      * 文本背景样式。
+     *
+     * 默认值：
+     *
+     * {
+     * color: Color.Transparent,
+     * radius: 0
+     * }
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -318,11 +367,13 @@ export declare interface RichEditorTextStyle {
      * 
      * 值小于0时为实体字，大于0时为轮廓字，等于0时无描边效果。
      * 
-     * 默认值：0vp。
+     * 默认值：0。
      * 
-     * 单位：LengthMetrics类型时跟随LengthMetrics，number或double类型时是vp。
+     * 单位：LengthMetrics类型时跟随LengthMetrics，number类型时是vp。
      * 
      * 取值范围：(-∞, +∞)
+     *
+     * 与[shaderStyle]{@link RichEditorParagraphStyle}同时设置时，shaderStyle不生效。
      * 
      * **模型约束：** 此接口仅可在Stage模型下使用。
      *
@@ -373,7 +424,7 @@ export declare interface LeadingMarginPlaceholder {
      */
     pixelMap: PixelMap;
     /**
-     * 图片大小，不支持设置百分比。
+     * 图片大小，默认单位为vp。不支持设置百分比。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -413,7 +464,8 @@ export declare interface RichEditorParagraphStyle {
      */
     textVerticalAlign?: TextVerticalAlign;
     /**
-     * 设置文本段落缩进，当段落仅存在ImageSpan或BuilderSpan时，此属性值不生效。参数为Dimension类型时，不支持以Percentage形式设置。默认值：{"size":["0.00px","0.00px"]}
+     * 设置文本段落缩进，当段落仅存在ImageSpan或BuilderSpan时，此属性值不生效。参数为Dimension类型时，不支持以Percentage形式设置，
+     * 默认单位为vp。默认值：{"size":["0.00px","0.00px"]}
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -423,7 +475,7 @@ export declare interface RichEditorParagraphStyle {
     /**
      * 设置断行规则。 
      * 
-     * 默认值：WordBreak.BREAK_WORD
+     * 默认值：WordBreak.BREAK_WORD。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -447,6 +499,8 @@ export declare interface RichEditorParagraphStyle {
      * 
      * 单位：fp
      * 
+     * 取值范围：[0, +∞)。传入负值时，按默认值处理。
+     * 
      * 段落间距默认大小为0。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -455,7 +509,7 @@ export declare interface RichEditorParagraphStyle {
      */
     paragraphSpacing?: double;
     /**
-     * 设置文本书写方向。
+     * 设置文本方向。
      * 
      * 默认值：TextDirection.DEFAULT
      *
@@ -467,8 +521,10 @@ export declare interface RichEditorParagraphStyle {
     /**
      * 设置文本着色器效果。
      * 
-     * 该接口与[RichEditorTextStyle]{@link RichEditorTextStyleResult}中的strokeWidth同时设置时，该接口不生效，shaderStyle的优先级高于
-     * [RichEditorTextStyle]{@link RichEditorTextStyleResult}的fontColor。
+     * 默认值：undefined，不设置着色器效果。
+     * 
+     * 该接口与[RichEditorTextStyle]{@link RichEditorTextStyle}中的strokeWidth同时设置时，该接口不生效，shaderStyle的优先级高于
+     * [RichEditorTextStyle]{@link RichEditorTextStyle}的fontColor。
      * 
      * **模型约束：** 此接口仅可在Stage模型下使用。
      *
@@ -488,6 +544,8 @@ export declare interface RichEditorParagraphStyle {
 export declare interface PasteEvent {
     /**
      * 阻止系统默认粘贴事件。
+     *
+     * 省略时，执行系统默认粘贴行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -512,7 +570,7 @@ export declare interface RichEditorTextSpan {
      */
     spanPosition: RichEditorSpanPosition;
     /**
-     * 文本Span内容或Symbol的id。
+     * 文本Span内容。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -539,6 +597,8 @@ export interface RichEditorLayoutStyle {
     /**
      * 外边距类型，用于描述组件不同方向的外边距。
      * 
+     * 默认值：四个方向外边距均为0。
+     * 
      * 参数为Dimension类型时，四个方向外边距同时生效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -548,6 +608,8 @@ export interface RichEditorLayoutStyle {
     margin?: Dimension | Margin;
     /**
      * 圆角类型，用于描述组件边框圆角半径。
+     * 
+     * 默认值：圆角半径为0。
      * 
      * 参数为Dimension类型时，不支持以Percentage形式设置。
      *
@@ -566,8 +628,8 @@ export interface RichEditorLayoutStyle {
  */
 export declare interface RichEditorImageSpanStyle {
     /**
-     * 图片的宽度和高度，单位为px。默认值：size的默认值与objectFit的值有关，不同的objectFit值对应的size默认值也不同。objectFit的值为Cover时，图片高度为组件高度减去组件上下内边距，图片宽度为组
-     * 件宽度减去组件左右内边距。
+     * 图片宽度和高度，默认单位为vp。默认值：与objectFit的值相关，不同的objectFit值有不同的默认尺寸。objectFit的值为Cover时，
+     * 图片高度为组件高度减去组件上下内边距，宽度为组件宽度减去组件左右内边距。不支持以Percentage形式设置。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -580,6 +642,8 @@ export declare interface RichEditorImageSpanStyle {
     /**
      * 图片垂直对齐方式。
      *
+     * 默认值：ImageSpanAlignment.BOTTOM
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -588,13 +652,14 @@ export declare interface RichEditorImageSpanStyle {
     /**
      * 图片缩放类型。
      *
+     * 默认值：ImageFit.Cover。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     objectFit?: ImageFit;
     /**
-     * 图片布局风格。
+     * 图片布局样式。默认值：{"borderRadius":"","margin":""}
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -611,7 +676,9 @@ export declare interface RichEditorImageSpanStyle {
  */
 export declare interface RichEditorSymbolSpanStyle {
     /**
-     * SymbolSpan组件大小，默认单位为fp。
+     * 设置SymbolSpan组件大小，默认单位为fp。
+     * 
+     * number类型取值范围：(0, +∞)，设置为0时显示默认字体大小。
      * 
      * 默认值：跟随主题。
      *
@@ -621,7 +688,7 @@ export declare interface RichEditorSymbolSpanStyle {
      */
     fontSize?: double | string | Resource;
     /**
-     * SymbolSpan组件颜色。
+     * 设置SymbolSpan组件颜色。
      * 
      * 默认值：不同渲染策略下默认值不同。
      *
@@ -631,7 +698,7 @@ export declare interface RichEditorSymbolSpanStyle {
      */
     fontColor?: Array<ResourceColor>;
     /**
-     * SymbolSpan组件粗细。
+     * 设置SymbolSpan组件粗细。
      * 
      * number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。
      * 
@@ -645,7 +712,7 @@ export declare interface RichEditorSymbolSpanStyle {
      */
     fontWeight?: int | FontWeight | string;
     /**
-     * SymbolSpan组件动效策略。
+     * 设置SymbolSpan组件动效策略。
      * 
      * 默认值：SymbolEffectStrategy.NONE。
      *
@@ -655,7 +722,7 @@ export declare interface RichEditorSymbolSpanStyle {
      */
     effectStrategy?: SymbolEffectStrategy;
     /**
-     * SymbolSpan组件渲染策略。
+     * 设置SymbolSpan组件渲染策略。
      * 
      * 默认值：SymbolRenderingStrategy.SINGLE。
      *
@@ -979,7 +1046,9 @@ export declare interface RichEditorTextSpanResult {
      */
     symbolSpanStyle?: RichEditorSymbolSpanStyle;
     /**
-     * 组件SymbolSpan内容。
+     * SymbolSpan资源内容。
+     * 
+     * 默认值：undefined。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -988,6 +1057,8 @@ export declare interface RichEditorTextSpanResult {
     valueResource?: Resource;
     /**
      * 段落样式。
+     * 
+     * 省略时，使用系统默认段落样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -995,7 +1066,7 @@ export declare interface RichEditorTextSpanResult {
      */
     paragraphStyle?: RichEditorParagraphStyle;
     /**
-     * 插入的预上屏文本内容。
+     * 文本Span预上屏内容。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1005,7 +1076,9 @@ export declare interface RichEditorTextSpanResult {
     /**
      * url信息。
      * 
-     * 默认值：undefined
+     * 默认值：undefined。
+     * 
+     * 当需要为文本设置超链接样式时传入此参数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1050,7 +1123,7 @@ export declare interface RichEditorImageSpanStyleResult {
      */
     objectFit: ImageFit;
     /**
-     * 图片布局风格。
+     * 图片布局样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1099,7 +1172,7 @@ export declare interface RichEditorImageSpanResult {
      */
     imageStyle: RichEditorImageSpanStyleResult;
     /**
-     * 文本Span内容里有效内容的起始和结束位置。
+     * Span里图片的起始和结束位置。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1152,7 +1225,7 @@ export declare interface RichEditorImageSpan {
  */
 export declare interface RichEditorRange {
     /**
-     * 需要更新样式的文本起始位置，省略或者设置负值时表示从0开始。
+     * 文本的起始位置，省略或者设置负值时表示从0开始。
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1161,7 +1234,7 @@ export declare interface RichEditorRange {
      */
     start?: int;
     /**
-     * 需要更新样式的文本结束位置，省略或者超出文本范围时表示无穷大。
+     * 文本的结束位置，省略或者超出文本范围时表示无穷大。
      *
      * @default text length
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1201,7 +1274,8 @@ export declare interface RichEditorGesture {
      */
     onLongPress?: Callback<GestureEvent>;
     /**
-     * 双击完成时触发手势事件。
+     * 双击事件回调函数，在用户双击操作完成时触发。回调参数为
+     * [GestureEvent]{@link GestureEvent}对象，包含手势事件信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -1229,7 +1303,7 @@ export declare interface RichEditorTextSpanOptions {
      */
     offset?: int;
     /**
-     * 文本Span样式信息。
+     * 文本样式信息。当需要设置文本的颜色、字体大小、粗细等自定义样式时传入此参数。省略时，使用系统默认文本信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1237,7 +1311,7 @@ export declare interface RichEditorTextSpanOptions {
      */
     style?: RichEditorTextStyle;
     /**
-     * 段落样式。
+     * 段落样式。当需要设置文本的对齐方式、缩进、断行规则等段落级排版属性时传入此参数。不传入时，使用系统默认段落样式（左对齐、无缩进、按单词断行）。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1245,7 +1319,7 @@ export declare interface RichEditorTextSpanOptions {
      */
     paragraphStyle?: RichEditorParagraphStyle;
     /**
-     * 行为触发回调。省略时，仅使用系统默认行为。
+     * 行为触发回调。当需要自定义文本Span的点击或长按交互行为时传入此参数；省略时，仅使用系统默认行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1299,7 +1373,7 @@ export declare interface RichEditorImageSpanOptions {
      */
     offset?: int;
     /**
-     * 图片样式。
+     * 图片样式信息。当需要自定义图片的大小、垂直对齐方式、缩放类型等样式时传入此参数；省略时，使用系统默认图片样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1315,7 +1389,7 @@ export declare interface RichEditorImageSpanOptions {
      */
     gesture?: RichEditorGesture;
     /**
-     * 鼠标悬停触发回调。省略时，不执行相关行为。
+     * 鼠标悬停触发回调。省略时，不执行鼠标悬停回调行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1324,7 +1398,7 @@ export declare interface RichEditorImageSpanOptions {
     onHover?: OnHoverCallback;
 }
 /**
- * 设置builder的偏移位置和样式。
+ * 设置builder插入的偏移位置和样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1332,7 +1406,7 @@ export declare interface RichEditorImageSpanOptions {
  */
 export declare interface RichEditorBuilderSpanOptions {
     /**
-     * 添加builder的位置。省略或者为异常值时，添加到所有内容的最后。
+     * 添加builder的位置。取值范围：[0, 所有内容长度]。省略或当值小于0或大于所有内容长度时，添加到所有内容最后面。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1340,7 +1414,9 @@ export declare interface RichEditorBuilderSpanOptions {
      */
     offset?: int;
     /**
-     * 添加builder单独拖拽时的背板背景颜色。不配置或者异常值时，颜色按系统默认配置。
+     * 设置BuilderSpan单独拖拽时的背板颜色。未配置或传入无效颜色值时，按默认值处理。
+     * 
+     * 默认值：跟随系统主题拖拽背板色。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -1349,7 +1425,7 @@ export declare interface RichEditorBuilderSpanOptions {
      */
     dragBackgroundColor?: ColorMetrics;
     /**
-     * 添加builder单独拖拽时是否需要投影。不配置或者异常值时，默认需要投影。true表示需要投影，false表示不需要投影。<br/>
+     * 设置BuilderSpan单独拖拽时是否需要投影。true表示需要投影，false表示不需要投影。未配置或传入无效值时，按默认值处理。<br/>
      * 默认值： true
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1378,7 +1454,7 @@ export declare interface RichEditorBuilderSpanOptions {
  */
 export declare interface PlaceholderStyle {
     /**
-     * 设置placeholder文本样式。
+     * 设置提示文本样式。
      * 
      * 默认值遵循主题设置。
      *
@@ -1388,7 +1464,7 @@ export declare interface PlaceholderStyle {
      */
     font?: Font;
     /**
-     * 设置placeholder文本颜色。
+     * 设置提示文本颜色。
      * 
      * 默认值遵循主题设置。
      *
@@ -1416,7 +1492,7 @@ export declare interface RichEditorSpanStyleOptions extends RichEditorRange {
  * 
  * > **说明：**
  * >
- * > 接口作用的范围：设定的区间所涉及的段落。
+ * > 接口作用的范围：设定的区间所覆盖的段落，即区间起始位置和结束位置所在的段落及其之间的所有段落。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1443,7 +1519,7 @@ export declare interface RichEditorParagraphStyleOptions extends RichEditorRange
  */
 export declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanStyleOptions {
     /**
-     * 文本Span样式信息。
+     * 文本样式。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1491,7 +1567,7 @@ export declare interface RichEditorUpdateImageSpanStyleOptions extends RichEdito
  */
 export declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
     /**
-     * 组件样式。
+     * SymbolSpan的样式信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1508,7 +1584,7 @@ export declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEdit
  */
 export declare interface RichEditorSymbolSpanOptions {
     /**
-     * 添加组件的位置。省略时，添加到所有内容的最后。
+     * 添加SymbolSpan的位置。省略时，添加到所有内容的最后。
      * 
      * 如果值小于0，添加到所有内容的最前面；如果值大于所有内容的长度，添加到所有内容的最后面。
      *
@@ -1518,7 +1594,7 @@ export declare interface RichEditorSymbolSpanOptions {
      */
     offset?: int;
     /**
-     * 组件样式信息。省略时，使用系统默认样式信息。
+     * SymbolSpan样式信息。当需要自定义SymbolSpan的颜色、大小、粗细、渲染策略等样式时传入此参数；省略时，使用系统默认样式信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1580,6 +1656,8 @@ export declare interface RichEditorInsertValue {
     insertValue: string;
     /**
      * 插入的预上屏文本内容。
+     * 
+     * 默认值：空字符串。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1669,7 +1747,9 @@ export declare interface RichEditorChangeValue {
      */
     replacedSymbolSpans: Array<RichEditorTextSpanResult>;
     /**
-     * 组件内容变化的原因。<br/>**系统接口：** 此接口为系统接口。<br>
+     * 组件内容变化的原因，用于标识触发内容变化的操作类型（如用户输入、粘贴、剪切等），需通过注册onWillChange回调获取。
+     * 开发者可根据changeReason的值在onWillChange回调中针对不同变化原因做出相应处理决策。
+     * 字段缺省值为undefined。<br/>**系统接口：** 此接口为系统接口。<br>
      * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1722,7 +1802,7 @@ export declare interface RichEditorStyledStringOptions {
  */
 export declare interface SelectionMenuOptions {
     /**
-     * 自定义选择菜单弹出时回调。
+     * 自定义选择菜单弹出时回调。若需在菜单弹出时执行自定义逻辑（如记录用户操作、动态调整菜单内容），可传入此参数；不传入则无额外回调触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1730,7 +1810,7 @@ export declare interface SelectionMenuOptions {
      */
     onAppear?: MenuOnAppearCallback;
     /**
-     * 自定义选择菜单关闭时回调。
+     * 自定义选择菜单关闭时回调。若需在菜单关闭时执行自定义逻辑（如恢复界面状态、清理临时数据），可传入此参数；不传入则无额外回调触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1739,6 +1819,8 @@ export declare interface SelectionMenuOptions {
     onDisappear?: VoidCallback;
     /**
      * 自定义选择菜单类型。
+     * 
+     * 默认值：MenuType.SELECTION_MENU。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1746,7 +1828,7 @@ export declare interface SelectionMenuOptions {
      */
     menuType?: MenuType;
     /**
-     * 自定义选择菜单显示时回调。
+     * 自定义选择菜单显示时回调。若需在菜单显示时执行自定义逻辑，可传入此参数；不传入则无回调触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1754,7 +1836,7 @@ export declare interface SelectionMenuOptions {
      */
     onMenuShow?: MenuCallback;
     /**
-     * 自定义选择菜单隐藏时回调。
+     * 自定义选择菜单隐藏时回调。若需在菜单隐藏时执行自定义逻辑，可传入此参数；不传入则无回调触发。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1762,7 +1844,11 @@ export declare interface SelectionMenuOptions {
      */
     onMenuHide?: MenuCallback;
     /**
-     * 预览菜单的选项。
+     * 预览菜单的选项。该参数只在RichEditor中生效。
+     * 
+     * 从API版本26.0.0开始，该参数在Text组件中也生效。
+     * 
+     * 不传入时，预览菜单使用默认配置。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1783,7 +1869,7 @@ export declare interface PreviewMenuOptions {
      * 
      * 默认值：HapticFeedbackMode.DISABLED，菜单弹出时不振动。
      * 
-     * **说明：** 仅当应用具备ohos.permission.VIBRATE权限，且用户启用了触感反馈时才会生效。
+     * **说明：** 仅当应用具备ohos.permission.VIBRATE权限，用户已启用触感反馈，且系统硬件支持时才会生效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1812,6 +1898,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     getCaretOffset(): int | undefined;
     /**
      * 设置光标位置。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口返回false，设置不成功。
      *
      * @param { int } offset - 光标偏移位置。超出所有内容范围时，设置失败。
      * @returns { boolean | undefined } 光标是否设置成功。<br/>true表示光标位置设置成功，false表示未成功。<br/>返回undefined时表示controller未与组件绑定。
@@ -1822,6 +1910,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     setCaretOffset(offset: int): boolean | undefined;
     /**
      * 关闭自定义选择菜单或系统默认选择菜单。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1831,7 +1921,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     /**
      * 获取用户预设的文本样式。
      *
-     * @returns { RichEditorTextStyle | undefined } 用户预设样式。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { RichEditorTextStyle | undefined } 用户预设的文本输入样式对象，包含字体颜色、大小、粗细等样式属性，可用于查询当前组件的输入文本样式配置。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1839,8 +1930,10 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     getTypingStyle(): RichEditorTextStyle | undefined;
     /**
      * 设置用户预设的文本样式。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
-     * @param { RichEditorTextStyle } value - 预设样式。
+     * @param { RichEditorTextStyle } value - 预设的文本输入样式，包含字体颜色、大小、粗细等属性，用于设置后续输入文本的默认样式。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1848,6 +1941,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     setTypingStyle(value: RichEditorTextStyle): void;
     /**
      * 设置用户预设的段落样式。仅在组件内容为空或组件末尾换行后，输入文本生效。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @param { RichEditorParagraphStyle | undefined } style - 预设段落样式。<br/>取值为undefined时，与上一段落的段落样式一致。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1856,15 +1951,16 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      */
     setTypingParagraphStyle(style: RichEditorParagraphStyle | undefined): void;
     /**
-     * 支持设置组件内的内容选中，选中部分背板高亮。
+     * 设置组件内的内容选中，选中部分背板高亮。
      * 
      * selectionStart和selectionEnd均为-1时表示全选，均为0时可以清空选中区。
      * 
      * 未获焦时调用该接口不产生选中效果。
      * 
-     * 从API version 12开始，在2in1设备中，无论options取何值，调用setSelection接口都不会弹出菜单，此外，如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
+     * 从API version 12开始，在PC/2in1设备（可通过deviceInfo.deviceType获取设备类型进行判断）中，无论options取何值，调用setSelection接口都不会弹出菜单；
+     * 如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
      * 
-     * 在非2in1设备中，options取值为MenuPolicy.DEFAULT时，遵循以下规则：
+     * 在非PC/2in1设备中，options取值为MenuPolicy.DEFAULT时，遵循以下规则：
      * 
      * 1. 组件内有手柄菜单时，接口调用后不关闭菜单，并且调整菜单位置。
      * 
@@ -1874,17 +1970,19 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      *
      * @param { int } selectionStart - 选中开始位置。
      * @param { int } selectionEnd - 选中结束位置。
-     * @param { SelectionOptions } [options] - 选择项配置。<br/>缺省时，按照
-     *     [SelectionOptions]{@link ./../../@internal/component/ets/common:SelectionOptions}中的默认值处理。
+     * @param { SelectionOptions } [options] - 选择项配置，用于控制选中操作时的菜单弹出策略。
+     *     <br>当需要自定义菜单弹出行为（如强制显示或隐藏菜单）时传入此参数；
+     *     <br>省略时默认使用MenuPolicy.DEFAULT，遵循系统默认菜单弹出策略。
+     *     <br>各MenuPolicy取值的适用场景请参考SelectionOptions对象说明。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     setSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
-     * 获取当前富文本的编辑状态。
+     * 获取当前富文本的编辑状态。当controller未绑定组件或绑定controller的组件被释放时，返回false。
      *
-     * @returns { boolean | undefined } true为编辑态，false为非编辑态。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { boolean | undefined } true表示编辑态，false表示非编辑态。<br/>返回undefined时表示controller未与组件绑定。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1892,6 +1990,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     isEditing(): boolean | undefined;
     /**
      * 退出编辑态。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1901,7 +2001,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     /**
      * 获取布局管理器对象。
      *
-     * @returns { LayoutManager | undefined } 布局管理器对象。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { LayoutManager | undefined } 布局管理器对象，可用于获取组件内容的布局位置等信息。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1910,14 +2011,15 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     /**
      * 获取预上屏信息。
      *
-     * @returns { PreviewText | undefined } 预上屏信息。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { PreviewText | undefined } 预上屏文本信息，包含输入法预显示的候选文本内容及起始位置。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getPreviewText(): PreviewText | undefined;
     /**
-     * 返回当前光标与RichEditor组件的相对位置。如果光标不闪烁，返回undefined。
+     * 返回当前光标与RichEditor组件的相对位置。如果光标不闪烁或controller未绑定组件，返回undefined。
      *
      * @returns { RectResult | undefined } 当前光标与RichEditor的相对位置。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1927,17 +2029,18 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     getCaretRect(): RectResult | undefined;
 
     /**
-     * 将可视区外的文本滚动到可视区内。
+     * 将指定范围内的内容滚动到可视区域。
      *
-     * @param { TextRange } [range] - 可视范围。
-     *     如果参数无效，该方法将不产生效果。
+     * @param { TextRange } [range] - 滚动到可视区域的内容范围，包括内容起始位置和终止位置。
+     *     <br>起始位置应小于等于结束位置，否则接口调用无效。起始位置小于0视为0，结束位置大于全文长度视为全文长度。
+     *     <br>未指定范围时，默认为全部内容。未指定起始位置，默认起始位置为0；未指定结束位置，默认结束位置为全文长度。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 26.0.0 static
      */
     scrollToVisible(range?: TextRange): void;
 
     /**
-     * 提供删除字符能力。没有内容被选中时，删除当前光标位置前的1个字符。有内容被选中时，删除选中内容。
+     * 删除光标前字符或选中内容。没有内容被选中时，删除当前光标位置前的1个字符；有内容被选中时，删除选中内容。
      * 
      * 该接口不支持预上屏场景使用。
      *
@@ -1974,7 +2077,7 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
  */
 export declare class RichEditorController extends RichEditorBaseController {
     /**
-     * 添加文本内容，如果组件光标闪烁，插入后光标位置更新为新插入文本的后面。
+     * 添加文本内容。如果组件光标闪烁，插入后光标位置更新为新插入文本的后面。
      *
      * @param { ResourceStr } content - 文本内容。 <br>从API version 20开始，支持Resource类型。
      * @param { RichEditorTextSpanOptions } [options] - 文本选项。<br/>缺省时，按照
@@ -1986,21 +2089,23 @@ export declare class RichEditorController extends RichEditorBaseController {
      */
     addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): int | undefined;
     /**
-     * 添加图片内容，如果组件光标闪烁，插入后光标位置更新为新插入图片的后面。
+     * 添加图片内容。如果组件光标闪烁，插入后光标位置更新为新插入图片的后面。
      * 
      * 该接口为同步接口，在弱网环境下，直接添加网络图片可能会阻塞UI线程造成冻屏问题。不建议直接添加网络图片。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @param { PixelMap | ResourceStr } value - 图片内容。
-     * @param { RichEditorImageSpanOptions } [options] - 图片选项。<br/>缺省时，按照
-     *     [RichEditorImageSpanOptions]{@link RichEditorImageSpanOptions}中的默认值生效。
-     * @returns { int | undefined } 添加完成的ImageSpan所在的位置。<br/>返回undefined时表示controller未与组件绑定。
+     * @param { RichEditorImageSpanOptions } [options] - 图片选项。
+     *     <br>当需要设置图片样式、偏移位置或段落样式时传入此参数；不传入时，图片将使用默认样式插入到内容末尾。
+     * @returns { int | undefined } 添加完成的ImageSpan在所有Span中的索引位置。<br/>返回undefined时表示controller未与组件绑定。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): int | undefined;
     /**
-     * 添加用户自定义布局Span。
+     * 在RichEditor中添加用户自定义布局（BuilderSpan）。
      * 
      * > **说明：**
      * >
@@ -2027,6 +2132,10 @@ export declare class RichEditorController extends RichEditorBaseController {
      * > - builder的手势相关事件机制与通用手势事件相同，如果builder中未设置透传，则仅有builder中的子组件响应。
      * >
      * > - 如果组件光标闪烁，插入后光标位置更新为新插入builder的后面。
+     * > - 对[addBuilderSpan]{@link RichEditorController.addBuilderSpan}的节点文本，
+     * > [enableDataDetector]{@link RichEditorAttribute.enableDataDetector}、
+     * > [dataDetectorConfig]{@link RichEditorAttribute.dataDetectorConfig}、
+     * > [enableSelectedDataDetector]{@link RichEditorAttribute.enableSelectedDataDetector}功能不会生效。
      * 
      * 通用属性仅支持[size]{@link CommonMethod#size}、
      * [padding]{@link CommonMethod#padding}、
@@ -2069,24 +2178,23 @@ export declare class RichEditorController extends RichEditorBaseController {
      * [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect}
      * 。
      *
-     * @param { CustomBuilder } value - 自定义组件。
-     * @param { RichEditorBuilderSpanOptions } [options] - builder选项。<br/>缺省时，按照
-     *     [RichEditorBuilderSpanOptions]{@link RichEditorBuilderSpanOptions}中的默认值生效。
-     * @returns { int | undefined } 添加完成的builderSpan所在的位置。
+     * @param { CustomBuilder } value - 自定义布局内容，用于在RichEditor中创建BuilderSpan占位组件。
+     * @param { RichEditorBuilderSpanOptions } [options] - builder选项。当需要设置builder的偏移位置或无障碍属性时传入此参数；省略时，builder添加到所有内容末尾。
+     * @returns { int | undefined } 添加完成的builderSpan在所有Span中的索引位置。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): int | undefined;
     /**
-     * 在Richeditor中添加SymbolSpan，如果组件光标闪烁，插入后光标位置更新为新插入Symbol的后面。
+     * 在RichEditor中添加图标小符号（SymbolSpan）。如果组件光标闪烁，插入后光标位置更新为新插入SymbolSpan的后面。
      * 
-     * 暂不支持手势、复制、拖拽处理。
+     * SymbolSpan暂不支持手势、复制操作和拖拽处理。
      *
-     * @param { Resource } value - 组件内容。
-     * @param { RichEditorSymbolSpanOptions } [options] - 组件选项。<br/>缺省时，按照
-     *     [RichEditorSymbolSpanOptions]{@link RichEditorSymbolSpanOptions}中的默认值生效。
-     * @returns { int | undefined } 添加完成的SymbolSpan所在的位置。
+     * @param { Resource } value - SymbolSpan图标资源引用，用于指定系统预置或自定义的Symbol图标。
+     * @param { RichEditorSymbolSpanOptions } [options] - symbol选项。当需要设置SymbolSpan的偏移位置或样式时传入此参数；
+     *     不传入时，SymbolSpan将使用默认样式插入到内容末尾。
+     * @returns { int | undefined } 添加完成的SymbolSpan在所有Span中的索引位置。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2098,6 +2206,8 @@ export declare class RichEditorController extends RichEditorBaseController {
      * 若只更新了一个Span的部分内容，则会根据更新部分、未更新部分将该Span拆分为多个Span。
      * 
      * 使用该接口更新文本、图片或SymbolSpan样式时默认不会关闭自定义文本选择菜单。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions |
      *     RichEditorUpdateSymbolSpanStyleOptions } value - 文本、图片或SymbolSpan的样式选项信息。
@@ -2118,6 +2228,8 @@ export declare class RichEditorController extends RichEditorBaseController {
     updateParagraphStyle(value: RichEditorParagraphStyleOptions): void;
     /**
      * 删除指定范围内的文本和图片。
+     * 
+     * 当controller未绑定组件或绑定controller的组件被释放时，该接口调用无效。
      *
      * @param { RichEditorRange } [value] - 删除范围。省略时，删除所有文本和图片。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2128,28 +2240,31 @@ export declare class RichEditorController extends RichEditorBaseController {
     /**
      * 获取span信息。
      *
-     * @param { RichEditorRange } [value] - 需要获取span范围。<br/>缺省时，获取所有span信息。
-     * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined } 文本和图片Span信息。<br/>返回undefined
-     *     时表示controller未与组件绑定。
+     * @param { RichEditorRange } [value] - 需要获取span的范围。<br/>缺省时，获取所有span信息。
+     * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined } 指定范围内的文本和图片Span详细信息，
+     *     包含各Span的位置、内容、样式等属性，可用于查询和操作组件内的文本与图片内容。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult> | undefined;
     /**
-     * 获取指定范围的段落。
+     * 获取指定范围的段落信息。
      *
      * @param { RichEditorRange } [value] - 需要获取段落的范围。<br/>缺省时，获取所有段落信息。
-     * @returns { Array<RichEditorParagraphResult> | undefined } 选中段落的信息。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { Array<RichEditorParagraphResult> | undefined } 选中范围内的段落信息，包含各段落的样式和起始结束位置，
+     *     可用于查询段落排版属性或进行段落样式更新。<br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult> | undefined;
     /**
-     * 获取选中内容。未选中时，返回光标所在span信息。
+     * 获取选中内容的范围和span信息。未选中时，返回光标所在span信息。
      *
-     * @returns { RichEditorSelection | undefined } 选中内容信息。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { RichEditorSelection | undefined } 选中区域起始/结束位置及选中文本和图片的详细信息。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2159,7 +2274,8 @@ export declare class RichEditorController extends RichEditorBaseController {
      * 将属性字符串转换为span信息。
      *
      * @param { StyledString } value - 转换前的属性字符串。
-     * @returns { Array<RichEditorSpan> | undefined } 文本和图片Span信息。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { Array<RichEditorSpan> | undefined } 将属性字符串解析后得到的文本和图片Span信息，可用于查询属性字符串中各Span的内容、样式和位置。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @throws { BusinessError } 401 - 参数检查失败。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2167,10 +2283,11 @@ export declare class RichEditorController extends RichEditorBaseController {
      */
     fromStyledString(value: StyledString): Array<RichEditorSpan> | undefined;
     /**
-     * 将给定范围的组件内容转换成属性字符串。
+     * 将给定范围的组件内容转换成属性字符串，SymbolSpan和BuilderSpan不支持转换。
      *
      * @param { RichEditorRange } value - 需要获取的范围。
-     * @returns { StyledString | undefined } 转换后的属性字符串。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { StyledString | undefined } 组件指定范围内容转换后的属性字符串，可用于跨组件传递富文本内容或进行样式编辑操作。
+     *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @throws { BusinessError } 401 - 参数检查失败。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2207,6 +2324,11 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
     implements StyledStringController {
     /**
      * 设置富文本组件显示的属性字符串。
+     * > **说明：**
+     * >
+     * > - 调用该接口时，会全量替换富文本组件的StyledString，并重新渲染。
+     * >
+     * > - 当内容超过组件本身区域时，组件会自动向上滚动内容直到末尾处可见。
      *
      * @param { StyledString } styledString - 属性字符串。<br/>**说明：** <br/>StyledString的子类
      *     [MutableStyledString]{@link ./../../@internal/component/ets/styled_string:MutableStyledString}也可以作为入参值。
@@ -2218,7 +2340,7 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
     /**
      * 获取富文本组件显示的属性字符串。
      *
-     * @returns { MutableStyledString | undefined } 富文本组件显示的属性字符串。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { MutableStyledString | undefined } 富文本组件显示的属性字符串。<br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2227,14 +2349,14 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
     /**
      * 获取富文本当前的选中区域范围。
      *
-     * @returns { RichEditorRange | undefined } 选中区域范围。<br/>返回undefined时表示controller未与组件绑定。
+     * @returns { RichEditorRange | undefined } 选中区域范围。<br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     getSelection(): RichEditorRange | undefined;
     /**
-     * 注册文本内容变化回调，该回调会在后端程序导致文本内容变更时触发。
+     * 注册文本内容变化回调，该回调仅在后端程序导致文本内容变更时触发，调用[setStyledString]{@link RichEditorStyledStringController#setStyledString}时不会触发。
      *
      * @param { StyledStringChangedListener } listener - 文本内容变化回调监听器。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2261,7 +2383,7 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
  */
 export declare interface RichEditorAttribute extends CommonMethod {
     /**
-     * 富文本组件初始化完成后触发回调。
+     * 富文本组件初始化完成后触发回调。初始化完成后组件可正常响应输入和交互。
      *
      * @param { VoidCallback | undefined } callback - 订阅富文本组件初始化完成的回调。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute }
@@ -2302,6 +2424,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 输入法输入内容前触发回调。
      * 
+     * 可用于需要拦截输入内容的场景，如过滤敏感词、限制输入格式、实时校验输入合法性等。
+     *
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建的RichEditor组件不支持该回调。
      *
      * @param { Callback<RichEditorInsertValue, boolean> | undefined } callback -
@@ -2369,7 +2493,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default onDeleteComplete(callback: VoidCallback | undefined): this;
     /**
-     * 设置组件是否支持文本内容可复制粘贴。
+     * 设置组件是否支持复制和粘贴文本内容。
      * 
      * 从API version 20开始，RichEditor组件在执行复制或剪切操作时，会将HTML格式的内容添加到剪贴板中。
      * 
@@ -2380,6 +2504,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * copyOptions不为CopyOptions.None时，长按组件内容，会弹出文本选择菜单。如果通过bindSelectionMenu等方式自定义文本选择菜单，则会弹出自定义的菜单。
      * 
      * 设置copyOptions为CopyOptions.None时，禁用复制、剪切、翻译、分享、搜索、帮写功能，且不支持拖拽操作。
+     * 同时
+     * [enableDataDetector]{@link RichEditorAttribute#enableDataDetector}的实体识别菜单和
+     * [enableSelectedDataDetector]{@link RichEditorAttribute#enableSelectedDataDetector}的AI菜单功能将受限。
      *
      * @param { CopyOptions | undefined } value - 组件支持文本内容是否可复制粘贴。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
      *     CopyOptions.LocalDevice
@@ -2390,7 +2517,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default copyOptions(value: CopyOptions | undefined): this;
     /**
-     * 设置自定义选择菜单。自定义菜单超长时，建议内部嵌套[Scroll]{@link ./../../@internal/component/ets/scroll}组件使用，避免键盘被遮挡。
+     * 设置自定义选择菜单。支持自定义菜单风格和触发条件，适合需要深度自定义菜单的场景。自定义菜单超长时，建议内部嵌套
+     * [Scroll]{@link ./../../@internal/component/ets/scroll}组件使用，避免键盘被遮挡。
      *
      * @param { RichEditorSpanType | undefined } spanType - 菜单的类型。<br/>取值为undefined时，按照默认值处理。<br/>默认值：<br/>
      *     RichEditorSpanType.TEXT
@@ -2412,7 +2540,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 
      * 当设置自定义键盘时，输入框激活后不会打开系统输入法，而是加载指定的自定义组件。
      * 
-     * 自定义键盘的高度可以通过自定义组件根节点的height属性设置，宽度不可设置，使用系统默认值。
+     * 自定义键盘的高度可以通过自定义组件根节点的height属性设置，宽度不可设置，使用系统默认键盘宽度。
      * 
      * 自定义键盘无法获取焦点，但是会拦截手势事件。
      * 
@@ -2438,7 +2566,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined,
                            options?: KeyboardOptions | undefined): this;
     /**
-     * 粘贴时，触发回调。开发者可以通过该方法，覆盖系统默认行为，实现图文的粘贴。
+     * 粘贴完成前，触发回调。开发者可以通过该方法，覆盖系统默认行为，实现图文的粘贴。
      *
      * @param { PasteEventCallback | undefined } callback - 订阅粘贴时的回调。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
@@ -2448,9 +2576,10 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default onPaste(callback: PasteEventCallback | undefined): this;
     /**
-     * 设置是否进行文本特殊实体识别。
+     * 设置是否进行文本特殊实体识别，识别的类型包括电话号码、邮箱地址、网址链接、日期、地址等。具体识别类型可通过
+     * [dataDetectorConfig]{@link RichEditorAttribute#dataDetectorConfig}属性配置。
      * 
-     * 该接口依赖设备底层应具有文本识别能力，否则设置不会生效。
+     * 该接口依赖设备系统具备文本实体识别能力，否则设置不会生效。
      * 
      * 当enableDataDetector设置为true且未指定[dataDetectorConfig]{@link RichEditorAttribute.dataDetectorConfig}属性时，系统将默认识别所有类型的实
      * 体，并将这些实体的color和decoration更改为预设样式：
@@ -2463,8 +2592,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 
      * <!--RP1--><!--RP1End-->
      *
-     * @param { boolean | undefined } enable - 使能文本识别。<br/>true表示使能文本特殊实体识别，false表示不使能文本特殊实体识别。<br/>取值为undefined时，按照默认值处
-     *     理。<br/>默认值： false
+     * @param { boolean | undefined } enable - 是否启用文本识别。<br/>true表示启用文本特殊实体识别，false表示不启用文本特殊实体识别。
+     *     <br/>取值为undefined时，按照默认值处理。<br/>默认值： false
      * @returns { RichEditorAttribute } 富文本编辑器的属性。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2474,13 +2603,15 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置是否开启预上屏功能。
      * 
+     * 开启后，组件内显示输入法输入过程中的拼音、笔画字符。
+     *
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
      * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
-     * @param { boolean | undefined } enable - 使能预上屏功能。<br/>true表示开启，false表示不开启。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
+     * @param { boolean | undefined } enable - 是否启用预上屏功能。<br/>true表示启用，false表示不启用。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
      *     true
      * @returns { RichEditorAttribute } 富文本编辑器的属性。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2489,7 +2620,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default enablePreviewText(enable: boolean | undefined): this;
     /**
-     * 设置文本识别配置。
+     * 设置文本特殊实体识别配置，可配置识别类型、实体显示样式，并可选择是否开启长按预览功能。
      * 
      * 需配合[enableDataDetector]{@link RichEditorAttribute.enableDataDetector}一起使用，设置enableDataDetector为true时，
      * dataDetectorConfig的配置才能生效。
@@ -2512,7 +2643,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 设置是否启用文本选择的AI菜单功能。启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
      * 
      * AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括
-     * [TextMenuItemId]{@link ./../../@internal/component/ets/text_common:TextMenuItemId}中的url（打开连接）、email（新建邮件）、
+     * [TextMenuItemId]{@link ./../../@internal/component/ets/text_common:TextMenuItemId}中的url（打开链接）、email（新建邮件）、
      * phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
      * 
      * AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与
@@ -2522,8 +2653,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 
      * 该接口依赖设备底层具有文本识别能力，否则设置不会生效。
      *
-     * @param { boolean | undefined } enable - 是否启用选择文本识别。<br/>true表示启用选择文本识别；false表示不启用选择文本识别。<br/>传入undefined或null时属性重
-     *     置为启用选择文本识别。
+     * @param { boolean | undefined } enable - 是否启用文本选择AI菜单功能，true表示启用，false表示不启用。
+     *     <br/>默认值：true。<br/>设置为undefined或null时，取默认值。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2532,6 +2663,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default enableSelectedDataDetector(enable: boolean | undefined): this;
     /**
      * 设置无输入时的提示文本。
+     * 
+     * 设置后，组件无内容时显示提示文本，用户开始输入内容后提示文本自动消失。
      * 
      * > **说明：**
      * >
@@ -2560,7 +2693,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置文本选中的底板颜色。如果未设置不透明度，默认为20%不透明度。
      *
-     * @param { ResourceColor | undefined } value - 文本选中的底板颜色。<br/>取值为undefined时，按照默认值处理。<br/>默认值：'#33FFFFFF'
+     * @param { ResourceColor | undefined } value - 文本选中的底板颜色。<br/>取值为undefined时，按照默认值处理。<br/>默认为20%不透明度。
      * @returns { RichEditorAttribute } 富文本编辑器的属性。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2570,7 +2703,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 组件内容的编辑状态发生变化时触发该回调函数。
      *
-     * @param { Callback<boolean> | undefined } callback - true表示编辑态，false表示非编辑态。<br/>取值为undefined时，无回调。
+     * @param { Callback<boolean> | undefined } callback - 编辑状态变化时触发的回调。
+     *     <br>true表示编辑态，false表示非编辑态。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute } returns 富文本编辑器的属性。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2579,6 +2713,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default onEditingChange(callback: Callback<boolean> | undefined): this;
     /**
      * 设置软键盘输入法回车键类型。
+     * 
+     * 设置后，软键盘回车键的图标和触发行为将根据指定类型变化，不同EnterKeyType对应不同的回车键样式。
      *
      * @param { EnterKeyType | undefined } value - 软键盘输入法回车键类型。<br/>取值为undefined时，按照默认值处理。<br/>默认为EnterKeyType.NEW_LINE。
      * @returns { RichEditorAttribute }
@@ -2590,7 +2726,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 按下软键盘输入法回车键时触发该回调。
      *
-     * @param { SubmitCallback | undefined } callback - 订阅事件的回调。<br/>取值为undefined时，无回调。
+     * @param { SubmitCallback | undefined } callback - 按下软键盘回车键时的回调，用于接收回车键类型和提交事件信息。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2600,6 +2736,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 在组件执行增删操作前，触发回调。
      * 
+     * 与[onDidChange]{@link RichEditorAttribute#onDidChange}形成will/did时序模式：onWillChange在增删操作前触发，onDidChange在增删操作后触发；
+     * onWillChange返回false时，组件不执行增删操作，onDidChange不会触发。两者可同时使用。
+     * 
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建的RichEditor组件不支持该回调。
      * 
      * > **说明：**
@@ -2608,7 +2747,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
-     * @param { Callback<RichEditorChangeValue, boolean> | undefined } callback - 文本内容即将变化时触发的函数。
+     * @param { Callback<RichEditorChangeValue, boolean> | undefined } callback - 文本内容即将变化时触发的函数。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2626,7 +2765,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
-     * @param { OnDidChangeCallback | undefined } callback - 内容变化后触发的函数。
+     * @param { OnDidChangeCallback | undefined } callback - 内容变化后触发的函数。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2638,7 +2777,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建的RichEditor组件，默认支持图文的剪切。
      *
-     * @param { Callback<CutEvent> | undefined } callback - 剪切事件前调用。
+     * @param { Callback<CutEvent> | undefined } callback - 定义用户剪切事件。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2658,14 +2797,20 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default onCopy(callback: Callback<CopyEvent> | undefined): this;
     /**
-     * 在组件绑定输入法前，触发回调。使用callback异步回调。
-     * 
-     * 调用[IMEClient]{@link ./../../@internal/component/ets/text_common:IMEClient}的
-     * [setExtraConfig]{@link ./../../@internal/component/ets/text_common:IMEClient.setExtraConfig}方法设置输入法扩展信息。在绑定输入法成功后
-     * ，输入法会收到扩展信息，输入法可以依据此信息实现自定义功能。
+     * 在组件绑定输入法前，触发回调。
      *
-     * @param { Callback<IMEClient> | undefined } callback - 在组件绑定输入法前触发的回调。<br>值为undefined时清除已绑定的回调事件。<br/>取值为undefined
-     *     时，无回调。
+     * 适用于需要定制输入法行为的场景，如设置输入法扩展配置以实现特定输入模式、自定义输入法功能等。
+     *
+     * 调用[IMEClient]{@link IMEClient}的[setExtraConfig]{@link IMEClient.setExtraConfig}方法设置输入法扩展信息。在绑定输入法成功后，
+     * 输入法会收到扩展信息，输入法可以依据此信息实现自定义功能。
+     * 
+     * <!--Del-->
+     * 
+     * 从API版本26.0.0开始，在输入框将要绑定输入法前，可以通过`UIContext`的系统接口
+     * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig}设置键盘的样式。<!--DelEnd-->
+     *
+     * @param { Callback<IMEClient> | undefined } callback - 在组件绑定输入法前触发的回调。
+     *     <br>值为undefined时清除已绑定的回调事件。<br/>取值为undefined时，无回调。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2674,21 +2819,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
     /**
      * 设置系统默认菜单的扩展项，允许配置扩展项的文本内容、图标和回调方法。
-     * 
-     * 调用
-     * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20)或
-     * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
-     * 接口屏蔽文本选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法
-     * [onCreateMenu]{@link ./../../@internal/component/ets/text_common:EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
-     * 
-     * > **说明：**
-     * >
-     * > 从API version 18开始，该接口支持在
-     * > [attributeModifier]{@link CommonMethod#attributeModifier}
-     * > 中调用。
+     *
+     * 与[bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}的区别：editMenuOptions在系统默认菜单风格基础上添加扩展项，触发条件不变，
+     * 适合仅需扩展菜单项的场景；bindSelectionMenu完全自定义菜单风格和触发条件，适合需要深度自定义菜单的场景。
+     *
+     * 调用[disableMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableMenuItems}或
+     * [disableSystemServiceMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableSystemServiceMenuItems}接口屏蔽文本
+     * 选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法[onCreateMenu]{@link EditMenuOptions.onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
      *
      * @param { EditMenuOptions | undefined } editMenu - 扩展菜单选项。<br/>取值为undefined时，按照
-     *     [EditMenuOptions]{@link ./../../@internal/component/ets/text_common:EditMenuOptions}中的默认值处理。
+     *     [editMenuOptions]{@link editMenuOptions}中的默认值处理。
      * @returns { RichEditorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2715,8 +2855,10 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
-     * @param { boolean | undefined } isEnabled - 是否支持触控反馈。<br/>true表示开启触控反馈，false表示不开启触控反馈。<br/>取值为undefined时，按照默认值处理。<
-     *     br/>默认值：true。<br/>设置为true后是否生效，还取决于系统的硬件是否支持。
+     * @param { boolean | undefined } isEnabled - 控制触感反馈的开关。<br/>true表示开启触感反馈，false表示关闭触感反馈。<br/>取值为undefined时，按照默认值处理。<
+     *     br/>默认值：true。<br/>**说明：**
+     *     <br>触感反馈需应用具备ohos.permission.VIBRATE权限，用户已启用触感反馈，且系统硬件支持时才会生效。
+     *     <br>不同设备品类对振动硬件的支持情况存在差异，无振动硬件的设备品类上触感反馈功能不可用。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2724,7 +2866,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
-     * 设置RichEditor滚动条的显示模式。
+     * RichEditor滚动条的显示模式。
      * 
      * > **说明：**
      * >
@@ -2732,7 +2874,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
-     * @param { BarState | undefined } state - 输入框滚动条的显示模式。<br/>取值为undefined时，按照默认值处理。<br/>默认值：BarState.Auto
+     * @param { BarState | undefined } state - RichEditor滚动条的显示模式。<br/>取值为undefined时，按照默认值处理。<br/>默认值：BarState.Auto
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2740,10 +2882,12 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default barState(state: BarState | undefined): this;
     /**
-     * 设置组件内容的最大长度。当内容（包含文本、图片、Symbol和Builder）的总长度达到此值时，将无法继续添加内容。
+     * 设置组件内容的最大长度。
      *
-     * @param { int | undefined } maxLength - 文本的最大输入字符数。<br/>默认值：Infinity，可以无限输入，支持undefined类型。<br/>**说明：** <br/>当不设置该属
-     *     性或设置为undefined或设置异常值时，取默认值，设置小数时，取整数部分。
+     * @param { int | undefined } maxLength - 内容的最大输入长度。当内容（包含文本、图片、Symbol和Builder）的总长度达到此值时，将无法继续添加内容。
+     *     <br/>默认值：Infinity，可以无限输入，支持undefined类型。
+     *     <br/>**说明：** <br/>取值范围：[0, +∞)。当不设置该属性或设置为undefined或负数时，取默认值Infinity；设置为0时，无法输入内容；
+     *     设置小数时，取整数部分。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2751,10 +2895,10 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default maxLength(maxLength: int | undefined): this;
     /**
-     * 设置富文本可显示的最大行数。maxLines为可显示行数，当设置maxLines时，超出内容可滚动显示。同时设置组件高度和最大行数，组件高度优先生效。
+     * 设置组件可显示的最大行数。
      *
      * @param { int | undefined } maxLines - 设置富文本可显示的最大行数。<br/>maxLines为可显示行数，当设置maxLines时，超出内容可滚动显示。<br/>同时设置组件高度和最大行数
-     *     ，组件高度优先生效。<br/>取值为undefined时，按照默认值处理。<br/>默认值：Infinity，可以无限输入。 <br/>取值范围：(0, +∞)
+     *     ，组件高度优先生效。<br/>取值为undefined时，按照默认值处理。<br/>默认值：UINT32_MAX，可以无限输入。 <br/>取值范围：(0, UINT32_MAX]
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2763,9 +2907,11 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default maxLines(maxLines: int | undefined): this;
     /**
      * 设置是否开启中文与西文的自动间距。
+     * 
+     * 适用于混排中英文内容（如新闻文章、技术文档）等需要改善中西文之间阅读体验的场景。开启后，中文字符与西文字符之间将自动插入间距；关闭后不自动插入间距。
      *
-     * @param { boolean | undefined } enable - 是否开启中文与西文的自动间距。<br/>true为开启自动间距，false为不开启。<br/>取值为undefined时，按照默认值处理。<br
-     *     />默认值：false
+     * @param { boolean | undefined } enable - 是否开启中文与西文的自动间距。<br/>true为开启自动间距，false为不开启。<br/>取值为undefined时，按照默认值处理。
+     *     <br/>默认值：false
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2774,6 +2920,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default enableAutoSpacing(enable: boolean | undefined): this;
     /**
      * 设置键盘外观。
+     * 
+     * 适用于需要根据应用主题或沉浸式场景调整键盘视觉风格的场景，如深色模式下使用DARK外观。
      *
      * @param { KeyboardAppearance | undefined } appearance - 键盘外观。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
      *     KeyboardAppearance.NONE_IMMERSIVE
@@ -2789,7 +2937,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建RichEditor组件时，撤销还原时默认保留原内容样式，不受该接口设置的属性影响
      * 。
      *
-     * @param { UndoStyle | undefined } style - 撤销还原是否保留原样式选项。取值为undefined时，按照UndoStyle.CLEAR_STYLE处理，撤销还原内容不保留原样式。
+     * @param { UndoStyle | undefined } style - 撤销还原是否保留原样式选项。默认值：UndoStyle.CLEAR_STYLE。
+     * 
+     * 设置为undefined或null时，取默认值。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2799,8 +2949,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置组件滚动条颜色。
      *
-     * @param { ColorMetrics | undefined } color - 设置组件滚动条颜色。<br />默认值：'#66182431'，显示为灰色。<br />**说明：** 设置为undefined或设置异常
-     *     值时，按默认值处理。
+     * @param { ColorMetrics | undefined } color - 设置组件滚动条颜色。<br />默认值：'#66182431'，显示为灰色。<br />**说明：** 设置异常值时按默认值处理。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2809,6 +2958,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default scrollBarColor(color: ColorMetrics | undefined): this;
     /**
      * 设置是否阻止返回键传递。
+     * 
+     * 适用于编辑内容未保存时阻止返回避免数据丢失、弹窗编辑等需要防止用户误操作退出编辑的场景。
      *
      * @param { boolean | undefined } isStopped - 是否阻止返回键。<br/>默认值：true，true表示阻止返回键，false表示不阻止返回键。<br/>**说明：** <br/>当不设置
      *     该属性或设置为undefined或设置异常值时，取默认值。
@@ -2820,7 +2971,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default stopBackPress(isStopped: boolean | undefined): this;
 
     /**
-     * 设置是否在首行和尾行增加间距以避免文字截断。不通过该接口设置，默认不增加间距。
+     * 设置是否在首行和尾行增加间距以避免文字截断。
+     * 
+     * 适用于自定义字体行高较小导致文字被裁剪、紧凑排版等场景。不通过该接口设置，默认不增加间距。
      *
      * @param { boolean | undefined } include - 是否在首行和尾行增加间距以避免文字截断。<br/>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。<br/>设置为
      *     undefined时，首行和尾行不增加间距。
@@ -2832,7 +2985,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     default includeFontPadding(include: boolean | undefined): this;
 
     /**
-     * 针对多行文字叠加，支持行高基于文字实际高度自适应。不通过该接口设置，默认行高不基于文字实际高度自适应。
+     * 在多行文字叠加场景下，设置行高是否基于文字实际高度自适应。
+     * 
+     * 适用于混排不同字号文字、聊天消息气泡等需要避免文字重叠的场景。不通过该接口设置，默认行高不基于文字实际高度自适应。
      * 
      * 该接口依赖[RichEditorTextStyle]{@link RichEditorTextStyleResult}的lineHeight属性。当lineHeight设置值小于当前字号下文本渲染出的实际高度时，
      * fallbackLineSpacing属性将生效。
@@ -2865,6 +3020,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置是否开启行首标点符号压缩。
      * 
+     * 适用于行首标点符号需要与正文内容对齐的场景。
+     *
      * > **说明：**
      * >
      * > 行首标点符号默认不压缩。
@@ -2904,6 +3061,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
 
     /**
      * 设置拖动预览样式。
+     * 
+     * 适用于需要自定义拖拽内容外观的场景，如匹配应用主题风格的拖拽预览效果。
      *
      * @param { SelectedDragPreviewStyle | undefined } value - 拖动预览样式。如果设置为undefined，样式将被重置。
      * @returns { RichEditorAttribute }
@@ -2913,14 +3072,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
     /**
-     * 设置文本排版时是否使能孤字优化。不通过该接口设置，默认不使能孤字优化。
+     * 设置文本排版时是否启用孤字优化。
      * 
-     * 孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在
+     * 适用于长文排版、电子书阅读等需要避免段落末行仅剩一个字影响阅读体验的场景。不通过该接口设置，默认不启用孤字优化。
+     * 
+     * 孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。启用后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在
      * [RichEditorParagraphStyle]{@link RichEditorParagraphStyle}的wordBreak属性为非BREAK_ALL并且待排版文本首个
      * [TextStyle]{@link ./../../@ohos.graphics.text:text.TextStyle}的
      * [locale]{@link ./../../@ohos.graphics.text:text.TextStyle}为“zh-Hans”或“zh-Hant”时生效。
      *
-     * @param { boolean | undefined } enabled - 段落最后一行是否使能孤字优化。<br/>true表示使能孤字优化，false表示不使能孤字优化。设置为undefined或null时，不使能孤字
+     * @param { boolean | undefined } enabled - 段落最后一行是否启用孤字优化。<br/>true表示启用孤字优化，false表示不启用孤字优化。设置为undefined或null时，不启用孤字
      *     优化。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2928,7 +3089,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
     /**
-     * 设置当文本宽度超过内容区宽度时是否启用水平滚动。不通过该接口设置，默认禁用水平滚动。
+     * 设置当文本宽度超过内容区宽度时是否启用水平滚动。
+     * 
+     * 适用于需要显示长文本内容（如代码片段、长URL等）而不希望自动换行的场景。不通过该接口设置，默认禁用水平滚动。
      *
      * @param { boolean | undefined } enabled - 是否启用水平滚动。<br/>true表示启用水平滚动，false表示禁用水平滚动，文本将自动换行。设置为undefined或null时，不启用水
      *     平滚动。
@@ -2939,7 +3102,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default horizontalScrolling(enabled: boolean | undefined): this;
     /**
-     * 设置是否启用行尾标点符号悬挂。不通过该接口设置，默认标点符号不悬挂。
+     * 设置是否启用行尾标点符号悬挂。
+     * 
+     * 启用后，允许行尾单个标点符号超出排版宽度而不换行，适用于需要避免行尾标点符号换行至下一行行首以提升排版美观度的场景。不通过该接口设置，默认标点符号不悬挂。
      *
      * @param { boolean | undefined } enabled - 是否启用行尾标点符号悬挂。<br/>true表示启用行尾标点符号悬挂，false表示不启用行尾标点符号悬挂。设置为undefined或null时
      *     ，不启用标点符号悬挂。
@@ -2976,7 +3141,9 @@ export declare interface CutEvent {
  */
 export declare interface CopyEvent {
     /**
-     * 阻止组件的默认复制操作。
+     * 阻止系统默认复制事件。
+     *
+     * 省略时，执行系统默认复制行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -3036,7 +3203,7 @@ export type MenuCallback = (start: int, end: int) => void;
 /**
  * 粘贴完成前，触发回调。
  *
- * @param { PasteEvent } [event] - 定义用户粘贴事件。
+ * @param { PasteEvent } [event] - 定义用户粘贴事件。省略时，不接收粘贴事件信息。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3045,8 +3212,8 @@ export type PasteEventCallback = (event?: PasteEvent) => void;
 /**
  * 鼠标悬浮触发回调。
  *
- * @param { boolean } status - 表示鼠标是否悬浮在组件上，鼠标进入组件时为true，离开组件时为false。
- * @param { HoverEvent } event - 设置悬浮事件。
+ * @param { boolean } status - 表示鼠标是否悬浮在组件上。true表示鼠标悬浮在组件上，false表示鼠标离开组件。
+ * @param { HoverEvent } event - 鼠标悬浮事件对象，包含悬浮事件的详细信息（如鼠标位置等）。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
