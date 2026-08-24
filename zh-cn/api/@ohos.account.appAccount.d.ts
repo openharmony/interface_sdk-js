@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用账号管理
  * @kit BasicServicesKit
  */
 
@@ -26,7 +26,7 @@ import type { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * 本模块提供应用账号信息的添加、删除、修改和查询基础能力，并支持应用间鉴权和分布式数据同步功能。
+ * 本模块提供应用账号信息的添加、删除、修改和查询基础能力。应用账号管理采用应用级账号隔离机制，每个应用的账号信息独立管理。
  *
  * @syscap SystemCapability.Account.AppAccount
  * @since 7 dynamic
@@ -79,7 +79,7 @@ declare namespace appAccount {
      * > 替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。
+     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。最大长度为1024个字符。
      * @param { AsyncCallback<void> } callback - 回调函数。当创建成功时，err为null，否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
@@ -92,13 +92,13 @@ declare namespace appAccount {
      * 根据账号名和额外信息添加应用账号。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [createAccount]{@link appAccount.AppAccountManager.createAccount(name: string, options?: CreateAccountOptions)}
      * > 替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } [extraInfo] - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等），默认为空，表示创建的该账号无额外信息需要添加。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -145,8 +145,9 @@ declare namespace appAccount {
      * 根据账号名和可选项创建应用账号。使用Promise异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { CreateAccountOptions } [options] - 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。不填无影响，默认为空，表示创建的该账号无额外信息需要添加。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @param { CreateAccountOptions } [options] - 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。不填无影响，默认为空，表示创建的该账号无额外信息需要添
+     *     加。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -185,7 +186,7 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * 根据指定的账号所有者隐式地创建应用账号。使用callback异步回调。
+     * 根据指定的账号所有者，由认证器自动完成应用账号创建流程。使用callback异步回调。
      *
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
      * @param { AuthCallback } callback - 认证器回调对象，返回创建结果。
@@ -204,10 +205,10 @@ declare namespace appAccount {
     createAccountImplicitly(owner: string, callback: AuthCallback): void;
 
     /**
-     * 根据指定的账号所有者和可选项隐式地创建应用账号。使用callback异步回调。
+     * 根据指定的账号所有者和可选项，由认证器自动完成应用账号创建流程。使用callback异步回调。
      *
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
-     * @param { CreateAccountImplicitlyOptions } options - 隐式创建账号的选项。
+     * @param { CreateAccountImplicitlyOptions } options - 认证器自动完成创建账号的选项。
      * @param { AuthCallback } callback - 认证器回调对象，返回创建结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -251,7 +252,7 @@ declare namespace appAccount {
      * > 代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -279,7 +280,7 @@ declare namespace appAccount {
      * 删除应用账号。使用Promise异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -292,7 +293,7 @@ declare namespace appAccount {
     removeAccount(name: string): Promise<void>;
 
     /**
-     * 禁止指定第三方应用账号名称对指定的第三方应用进行访问。使用callback异步回调。
+     * 禁止指定第三方应用账号对指定包名称的第三方应用进行访问。使用callback异步回调。
      *
      * > **说明：**
      * >
@@ -302,7 +303,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } bundleName - 第三方应用的包名。最大长度为512个字符。
-     * @param { AsyncCallback<void> } callback - 回调函数。当禁止指定第三方应用账号名称对指定包名称的第三方应用进行访问设置成功时，err为null，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当禁止指定第三方应用账号对指定包名称的第三方应用进行访问设置成功时，err为null，否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -321,7 +322,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 要禁用访问的第三方应用账号的名称。最大长度为512个字符。
      * @param { string } bundleName - 第三方应用的包名。最大长度为512个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -359,7 +360,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } bundleName - 第三方应用的包名。最大长度为512个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -368,12 +369,12 @@ declare namespace appAccount {
     enableAppAccess(name: string, bundleName: string): Promise<void>;
 
     /**
-     * 设置指定应用对特定账号的访问权限。使用callback异步回调。
+     * 设置指定应用对特定账号的数据访问权限。使用callback异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } bundleName - 第三方应用的包名。最大长度为512个字符。
      * @param { boolean } isAccessible - 是否可访问。true表示允许访问，false表示禁止访问。
-     * @param { AsyncCallback<void> } callback - 回调函数，如果设置成功，err为null，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当设置成功时，err为null，否则为错误对象。
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -391,7 +392,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } bundleName - 第三方应用的包名。最大长度为512个字符。
      * @param { boolean } isAccessible - 是否可访问。true表示允许访问，false表示禁止访问。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -522,7 +523,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } credentialType - 凭据类型。自定义的类型，最大长度为1024个字符。
      * @param { string } credential - 凭据取值。自定义的数据，最大长度为1024个字符。
-     * @param { AsyncCallback<void> } callback - 回调函数。当设置此应用程序账号的凭据成功时，err为null，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当设置指定应用账号的凭据成功时，err为null，否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -542,7 +543,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } credentialType - 凭据类型。自定义的类型，最大长度为1024个字符。
      * @param { string } credential - 凭据取值。自定义的数据，最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -575,7 +576,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } credentialType - 凭据类型。自定义的类型，最大长度为1024个字符。
      * @param { string } credential - 凭据取值。自定义的数据，最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -597,7 +598,7 @@ declare namespace appAccount {
      * > 替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。
+     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。最大长度为1024个字符。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置成功时，err为null，否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
@@ -607,7 +608,7 @@ declare namespace appAccount {
     setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
 
     /**
-     * 设置此应用程序账号的额外信息。使用Promise异步回调。
+     * 设置指定应用账号的额外信息。使用Promise异步回调。
      *
      * > **说明：**
      * >
@@ -615,8 +616,8 @@ declare namespace appAccount {
      * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @param { string } extraInfo - 额外信息(能转换string类型的其它信息)，额外信息不能是应用账号的敏感信息（如应用账号密码、token等）。最大长度为1024个字符。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -650,13 +651,12 @@ declare namespace appAccount {
      * > **说明：**
      * >
      * > 从API version 7开始支持，从API version 9开始废弃。建议使用
-     * > [setDataSyncEnabled]{@link appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean)}替代
-     * > 。
+     * > [setDataSyncEnabled]{@link appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean)}替代。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { boolean } isEnable - 是否开启数据同步。true表示开启数据同步，false表示关闭数据同步。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -689,7 +689,7 @@ declare namespace appAccount {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { boolean } isEnabled - 是否开启数据同步。true表示开启数据同步，false表示关闭数据同步。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -712,8 +712,8 @@ declare namespace appAccount {
      * > 替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } key - 关联数据的键名。
-     * @param { string } value - 关联数据的取值。
+     * @param { string } key - 关联数据的键名。最大长度为1024个字符。
+     * @param { string } value - 关联数据的取值。最大长度为1024个字符。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置与此应用账号关联的数据成功时，err为null，否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
@@ -731,9 +731,9 @@ declare namespace appAccount {
      * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } key - 关联数据的键名。
-     * @param { string } value - 关联数据的取值。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @param { string } key - 关联数据的键名。最大长度为1024个字符。
+     * @param { string } value - 关联数据的取值。最大长度为1024个字符。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -746,7 +746,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } key - 自定义数据的键名。最大长度为1024个字符。
-     * @param { string } value - 自定义数据的取值。最大长度为1024个字符。
+     * @param { string } value - 自定义数据的取值。不建议包含敏感数据。最大长度为1024个字符。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置自定义数据成功时，err为null，否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -765,8 +765,8 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } key - 自定义数据的键名。最大长度为1024个字符。
-     * @param { string } value - 自定义数据的取值。最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @param { string } value - 自定义数据的取值。不建议包含敏感数据。最大长度为1024个字符。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -871,7 +871,7 @@ declare namespace appAccount {
      *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - 应用账号信息列表。
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - 回调函数。当获取成功时，err为null，data为应用账号信息列表；否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1039,7 +1039,7 @@ declare namespace appAccount {
      * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @returns { Promise<string> } Promise对象，返回此应用程序账号的额外信息对象。
+     * @returns { Promise<string> } Promise对象，返回指定应用账号的额外信息。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1057,7 +1057,7 @@ declare namespace appAccount {
      * > 替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } key - 关联数据的键名。
+     * @param { string } key - 关联数据的键名。最大长度为1024个字符。
      * @param { AsyncCallback<string> } callback - 回调函数。当获取成功时，err为null，data为关联数据的取值；否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
@@ -1067,7 +1067,7 @@ declare namespace appAccount {
     getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): void;
 
     /**
-     * 获取与此应用程序账号关联的数据。使用Promise异步回调。
+     * 获取指定应用账号的关联数据。使用Promise异步回调。
      *
      * > **说明：**
      * >
@@ -1075,7 +1075,7 @@ declare namespace appAccount {
      * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { string } key - 关联数据的键名。
+     * @param { string } key - 关联数据的键名。最大长度为1024个字符。
      * @returns { Promise<string> } Promise对象，返回关联数据的取值。
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
@@ -1113,7 +1113,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or key.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400002 - Custom data not found
+     * @throws { BusinessError } 12400002 - Custom data not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -1160,7 +1160,7 @@ declare namespace appAccount {
     /**
      * 订阅指定应用的账号信息变更事件。
      *
-     * @param { 'accountChange' } type - 事件回调类型，支持的事件为'accountChange'，当目标应用更新账号信息时，触发该事件。
+     * @param { 'accountChange' } type - 事件回调类型，支持的事件为'accountChange'，当账号所有者更新账号信息时，触发该事件。
      * @param { Array<string> } owners - 应用账号所有者的包名列表。
      * @param { Callback<Array<AppAccountInfo>> } callback - 需要注册的回调函数，返回信息为发生变更的应用账号列表。
      * @throws { BusinessError } 12300001 - System service exception.
@@ -1351,8 +1351,7 @@ declare namespace appAccount {
      * > **说明：**
      * >
      * > 从API version 8开始支持，从API version 9开始废弃。建议使用
-     * > [getAuthToken]{@link appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string)}替
-     * > 代。
+     * > [getAuthToken]{@link appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
@@ -1429,13 +1428,12 @@ declare namespace appAccount {
      * > **说明：**
      * >
      * > 从API version 8开始支持，从API version 9开始废弃。建议使用
-     * > [setAuthToken]{@link appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string)}替
-     * > 代。
+     * > [setAuthToken]{@link appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } token - 授权令牌。最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1468,7 +1466,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } token - 授权令牌。最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -1515,7 +1513,7 @@ declare namespace appAccount {
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } token - 授权令牌。最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1550,7 +1548,7 @@ declare namespace appAccount {
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } token - 授权令牌。最大长度为1024个字符。如果授权令牌不存在，则不执行任何操作。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -1603,7 +1601,7 @@ declare namespace appAccount {
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } bundleName - 被设置可见性的应用包名。最大长度为512个字符。
      * @param { boolean } isVisible - 是否可见。true表示可见，false表示不可见。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1644,7 +1642,7 @@ declare namespace appAccount {
      * @param { string } authType - 鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } bundleName - 被设置可见性的应用包名。最大长度为512个字符。
      * @param { boolean } isVisible - 是否可见。true表示可见，false表示不可见。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1901,7 +1899,7 @@ declare namespace appAccount {
      * > [getAuthCallback]{@link appAccount.AppAccountManager.getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>)}
      * > 替代。
      *
-     * @param { string } sessionId - 鉴权会话的标识。
+     * @param { string } sessionId - 鉴权会话的标识。最大长度为1024个字符。
      * @param { AsyncCallback<AuthenticatorCallback> } callback - 回调函数。当获取鉴权会话的认证器回调函数成功时，err为null，data为认证器回调函数；否则为错误对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
@@ -1918,7 +1916,7 @@ declare namespace appAccount {
      * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getAuthCallback]{@link appAccount.AppAccountManager.getAuthCallback(sessionId: string)}替代。
      *
-     * @param { string } sessionId - 鉴权会话的标识。
+     * @param { string } sessionId - 鉴权会话的标识。最大长度为1024个字符。
      * @returns { Promise<AuthenticatorCallback> } Promise对象，返回鉴权会话的认证器回调对象。
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
@@ -1930,7 +1928,7 @@ declare namespace appAccount {
     /**
      * 获取鉴权会话的认证器回调对象。使用callback异步回调。
      *
-     * @param { string } sessionId - 鉴权会话的标识。
+     * @param { string } sessionId - 鉴权会话的标识。最大长度为1024个字符。
      * @param { AsyncCallback<AuthCallback> } callback - 回调函数。当获取成功时，err为null，data为鉴权会话的认证器回调对象；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1946,7 +1944,7 @@ declare namespace appAccount {
     /**
      * 获取鉴权会话的认证器回调对象。使用Promise异步回调。
      *
-     * @param { string } sessionId - 鉴权会话的标识。
+     * @param { string } sessionId - 鉴权会话的标识。最大长度为1024个字符。
      * @returns { Promise<AuthCallback> } Promise对象，返回鉴权会话的认证器回调对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -2091,7 +2089,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } credentialType - 凭据类型。自定义的类型，最大长度为1024个字符。
-     * @returns { Promise<void> } 无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -2139,7 +2137,7 @@ declare namespace appAccount {
     selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
 
     /**
-     * 验证指定账号的凭据。使用callback异步回调。
+     * 验证指定账号的凭据有效性。使用callback异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
@@ -2158,7 +2156,7 @@ declare namespace appAccount {
      */
     verifyCredential(name: string, owner: string, callback: AuthCallback): void;
     /**
-     * 验证用户凭据。使用callback异步回调。
+     * 验证指定账号的凭据。使用callback异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } owner - 应用账号所有者的包名。最大长度为1024个字符。
@@ -2181,7 +2179,7 @@ declare namespace appAccount {
     /**
      * 设置指定应用的认证器属性。使用callback异步回调。
      *
-     * @param { string } owner - 认证器的所有者的包名。
+     * @param { string } owner - 认证器的所有者的包名。最大长度为1024个字符。
      * @param { AuthCallback } callback - 回调函数，返回设置属性的结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -2196,9 +2194,9 @@ declare namespace appAccount {
      */
     setAuthenticatorProperties(owner: string, callback: AuthCallback): void;
     /**
-     * 设置认证器属性。使用callback异步回调。
+     * 设置指定应用的认证器属性。使用callback异步回调。
      *
-     * @param { string } owner - 认证器的所有者的包名。
+     * @param { string } owner - 认证器的所有者的包名。最大长度为1024个字符。
      * @param { SetPropertiesOptions } options - 设置属性的选项。
      * @param { AuthCallback } callback - 认证器回调，返回设置属性的结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2384,7 +2382,7 @@ declare namespace appAccount {
    */
   interface CreateAccountOptions {
     /**
-     * 自定义数据，默认为空。
+     * 自定义数据，默认为空。不建议包含敏感数据。
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
@@ -2411,7 +2409,7 @@ declare namespace appAccount {
     requiredLabels?: Array<string>;
 
     /**
-     * 令牌的鉴权类型。
+     * 鉴权类型，默认为空。
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
@@ -2574,7 +2572,7 @@ declare namespace appAccount {
      * @deprecated since 9
      * @useinstead appAccount.Constants.ACTION_CREATE_ACCOUNT_IMPLICITLY
      */
-    ACTION_ADD_ACCOUNT_IMPLICITLY = 'addAccountImplicitly',
+    ACTION_ADD_ACCOUNT_IMPLICITLY = "addAccountImplicitly",
 
     /**
      * 表示操作，鉴权。
@@ -2586,7 +2584,7 @@ declare namespace appAccount {
      * @deprecated since 9
      * @useinstead appAccount.Constants.ACTION_AUTH
      */
-    ACTION_AUTHENTICATE = 'authenticate',
+    ACTION_AUTHENTICATE = "authenticate",
 
     /**
      * 表示操作，隐式创建账号。
@@ -2634,7 +2632,7 @@ declare namespace appAccount {
     KEY_NAME = "name",
 
     /**
-     * 表示键名，应用账号所有者的包名。最大长度为1024个字符。
+     * 表示键名，应用账号所有者的包名。
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
@@ -2727,8 +2725,9 @@ declare namespace appAccount {
   /**
    * 表示返回码的枚举。
    *
-   * > **说明：**<br/>
-   * > > 从API version 8开始支持，从API version 9开始废弃。相关信息建议查看
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。相关信息建议查看
    * > [账号管理错误码](docroot://reference/apis-basic-services-kit/errorcode-account.md)替代。
    *
    * @syscap SystemCapability.Account.AppAccount
@@ -2926,12 +2925,12 @@ declare namespace appAccount {
      *
      * > **说明：**
      * >
-     * > 从API version 8开始支持，从API version 9开始废弃。建议使用[onResult](#onresult9)替代。
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用[onResult]{@link AuthCallback.onResult(code: int, result?: AuthResult)}替代。
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead AppAccount.AuthCallback.onResult
+     * @useinstead appAccount.AuthCallback.onResult
      */
     onResult: (code: number, result: { [key: string]: any }) => void;
 
@@ -2940,12 +2939,12 @@ declare namespace appAccount {
      *
      * > **说明：**
      * >
-     * > 从API version 8开始支持，从API version 9开始废弃。建议使用[onRequestRedirected](#onrequestredirected9)替代。
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用[onRequestRedirected]{@link AuthCallback.onRequestRedirected(request: Want)}替代。
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead AppAccount.AuthCallback.onRequestRedirected
+     * @useinstead appAccount.AuthCallback.onRequestRedirected
      */
     onRequestRedirected: (request: Want) => void;
   }
@@ -2990,9 +2989,9 @@ declare namespace appAccount {
    * 认证器基类。
    *
    * @syscap SystemCapability.Account.AppAccount
-   * @name Authenticator
    * @since 8 dynamic
    * @since 23 static
+   * @name Authenticator
    */
   class Authenticator {
     /**
@@ -3000,7 +2999,7 @@ declare namespace appAccount {
      *
      * > **说明：**
      * >
-     * > 从API version 8开始支持, 从API version 9开始废弃。建议使用[createAccountImplicitly](#createaccountimplicitly9-2)替代。
+     * > 从API version 8开始支持, 从API version 9开始废弃。建议使用[createAccountImplicitly]{@link appAccount.Authenticator.createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback)}替代。
      *
      * @param { string } authType - 应用账号的鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { string } callerBundleName - 鉴权请求方的包名。
@@ -3034,7 +3033,7 @@ declare namespace appAccount {
      *
      * > **说明：**
      * >
-     * > 从API version 8开始支持, 从API version 9开始废弃。建议使用[auth](#auth9-2)替代。
+     * > 从API version 8开始支持, 从API version 9开始废弃。建议使用[auth]{@link appAccount.Authenticator.auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback)}替代。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } authType - 应用账号的鉴权类型。自定义数据，最大长度为1024个字符。
@@ -3060,7 +3059,7 @@ declare namespace appAccount {
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { string } authType - 应用账号的鉴权类型。自定义数据，最大长度为1024个字符。
      * @param { Record<string, Object> } options - 鉴权所需要的可选项。
-     * @param { AuthCallback } callback - 认证器回调，用于返回鉴权结果。
+     * @param { AuthCallback } callback - 回调对象，用于返回鉴权结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
@@ -3083,7 +3082,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { VerifyCredentialOptions } options - 验证凭据的可选项。
-     * @param { AuthCallback } callback - 认证器回调，用于返回鉴权结果。
+     * @param { AuthCallback } callback - 认证器回调，用于返回验证结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3094,7 +3093,7 @@ declare namespace appAccount {
      * 设置认证器属性。使用callback异步回调。
      *
      * @param { SetPropertiesOptions } options - 设置属性的可选项。
-     * @param { AuthCallback } callback - 认证器回调，用于返回鉴权结果。
+     * @param { AuthCallback } callback - 认证器回调，用于返回设置结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3106,7 +3105,7 @@ declare namespace appAccount {
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
      * @param { Array<string> } labels - 标签数组。
-     * @param { AuthCallback } callback - 认证器回调，用于返回鉴权结果。
+     * @param { AuthCallback } callback - 认证器回调，用于返回检查结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3117,7 +3116,7 @@ declare namespace appAccount {
      * 判断账号是否可以删除。使用callback异步回调。
      *
      * @param { string } name - 应用账号的名称。最大长度为512个字符。
-     * @param { AuthCallback } callback - 认证器回调，用于返回鉴权结果。
+     * @param { AuthCallback } callback - 认证器回调，用于返回判断结果。
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static

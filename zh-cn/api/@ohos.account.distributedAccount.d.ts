@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 分布式账号管理
  * @kit BasicServicesKit
  */
 
@@ -24,7 +24,7 @@ import type { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * 本模块提供管理分布式账号的一些基础功能，主要包括查询和更新账号登录状态。
+ * 本模块提供管理分布式账号的一些基础功能，主要包括查询和更新账号登录状态。适用于多设备协同场景，提升跨设备账号管理的一致性和用户体验。典型使用场景包括多设备协同、分布式数据同步、跨设备能力调用等。
  *
  * @syscap SystemCapability.Account.OsAccount
  * @since 7 dynamic
@@ -32,7 +32,7 @@ import type { RecordData } from './@ohos.base';
  */
 declare namespace distributedAccount {
   /**
-   * 获取分布式账号单实例对象。
+   * 获取分布式账号的单实例对象。
    *
    * @returns { DistributedAccountAbility } 返回一个实例，实例提供查询和更新分布式账号登录状态方法。
    * @syscap SystemCapability.Account.OsAccount
@@ -42,7 +42,7 @@ declare namespace distributedAccount {
   function getDistributedAccountAbility(): DistributedAccountAbility;
 
   /**
-   * 提供查询和更新分布式账号登录状态方法（需要先获取分布式账号的单实例对象）。
+   * 提供查询和更新分布式账号登录状态方法（使用前需要先获取分布式账号的单实例对象）。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -59,7 +59,8 @@ declare namespace distributedAccount {
      * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - 回调函数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调函数。当获取分布式账号信息成功时，err为undefined，data为获取到的分布式账号信息对象；否则err为错误
+     *     对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -90,7 +91,8 @@ declare namespace distributedAccount {
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - 回调参数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调函数。当获取分布式账号信息成功时，err为undefined，data为获取到的分布式账号信息对象；否则err为错误
+     *     对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -116,14 +118,15 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
-     * 获取指定系统账号的分布式信息。使用callback异步回调。
+     * 获取指定系统账号的分布式账号信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
      *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS) [since 20]
      * @param { int } localId - 系统账号ID。
-     * @param { AsyncCallback<DistributedInfo> } callback - 回调参数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调函数。当获取分布式账号信息成功时，err为undefined，data为获取到的分布式账号信息对象；否则err为错误
+     *     对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -136,7 +139,7 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * 获取指定系统账号的分布式信息。使用Promise异步回调。
+     * 获取指定系统账号的分布式账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
@@ -185,7 +188,7 @@ declare namespace distributedAccount {
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DistributedInfo } accountInfo - 分布式账号信息。
-     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -220,7 +223,7 @@ declare namespace distributedAccount {
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
      * @param { DistributedInfo } accountInfo - 分布式账号信息。
-     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -236,12 +239,12 @@ declare namespace distributedAccount {
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
     /**
-     * 设置指定系统账号的分布式信息。使用callback异步回调。
+     * 设置指定系统账号的分布式账号信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
      * @param { int } localId - 系统账号ID。
      * @param { DistributedInfo } distributedInfo - 分布式账号信息。
-     * @param { AsyncCallback<void> } callback - 回调函数。当设置指定系统账号的分布式信息成功时，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当设置指定系统账号的分布式账号信息成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -260,12 +263,12 @@ declare namespace distributedAccount {
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * 设置指定系统账号的分布式信息。使用Promise异步回调。
+     * 设置指定系统账号的分布式账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
      * @param { int } localId - 系统账号ID。
      * @param { DistributedInfo } distributedInfo - 分布式账号信息。
-     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -312,7 +315,7 @@ declare namespace distributedAccount {
   }
 
   /**
-   * 提供操作系统账号的分布式信息。
+   * 提供操作系统账号的分布式账号信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -340,13 +343,13 @@ declare namespace distributedAccount {
     /**
      * 分布式账号登录状态，包括登录、登出、Token失效和注销，分别对应以下字符串：
      *
-     * - Ohos.account.event.LOGIN
+     * - Ohos.account.event.LOGIN
      *
-     * - Ohos.account.event.LOGOUT
+     * - Ohos.account.event.LOGOUT
      *
-     * - Ohos.account.event.TOKEN_INVALID
+     * - Ohos.account.event.TOKEN_INVALID
      *
-     * - Ohos.account.event.LOGOFF
+     * - Ohos.account.event.LOGOFF
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -355,7 +358,7 @@ declare namespace distributedAccount {
     event: string;
 
     /**
-     * 分布式账号的昵称，默认为空。
+     * 分布式账号的昵称，当需要显示用户昵称时设置。不设置时默认为空，不影响账号功能使用。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -364,7 +367,7 @@ declare namespace distributedAccount {
     nickname?: string;
 
     /**
-     * 分布式账号的头像，默认为空。
+     * 分布式账号的头像，当需要显示用户头像时设置。不设置时默认为空，不影响账号功能使用。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -373,7 +376,7 @@ declare namespace distributedAccount {
     avatar?: string;
 
     /**
-     * 分布式账号的状态，枚举类型，默认为未登录状态。
+     * 分布式账号的状态，枚举类型。当需要查询或设置账号登录状态时使用。不设置时默认为NOT_LOGGED_IN（未登录状态）。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
@@ -382,7 +385,7 @@ declare namespace distributedAccount {
     readonly status?: DistributedAccountStatus;
 
     /**
-     * 分布式账号扩展信息，根据业务所需，以k-v形式传递定制化信息，默认为空。
+     * 分布式账号扩展信息，当需要传递定制化业务信息时设置，以k-v形式传递。不设置时默认为空，不影响账号基本功能。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
