@@ -214,7 +214,8 @@ declare class By {
   /**
    * Specifies the clickable attribute of the target component.
    *
-   * @param { boolean } b - Clickable status of the component. The value **true** indicates that the component is clickable,
+   * @param { boolean } b - Clickable status of the component. 
+   * The value **true** indicates that the component is clickable,
    *     and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the clickable attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
@@ -228,8 +229,9 @@ declare class By {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } b - Whether the specified component is scrollable. The value **true** indicates that the component is scrollable
-   *     , and **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Whether the specified component is scrollable. 
+   * The value **true** indicates that the component is scrollable, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the scrollable attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -242,8 +244,9 @@ declare class By {
   /**
    * Specifies the enabled attribute of the target component.
    *
-   * @param { boolean } b - Enabled status of the component. The value **true** indicates that the component is enabled, and
-   *     **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Enabled status of the component. 
+   * The value **true** indicates that the component is enabled, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the enabled attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -256,8 +259,9 @@ declare class By {
   /**
    * Specifies the focused attribute of the target component.
    *
-   * @param { boolean } b - Focused status of the component. The value **true** indicates that the component is focused, and
-   *     **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Focused status of the component. 
+   * The value **true** indicates that the component is focused, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the focused attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -270,7 +274,8 @@ declare class By {
   /**
    * Specifies the selected status of the target component.
    *
-   * @param { boolean } b - Selected status of the component. The value **true** indicates that the component is selected,
+   * @param { boolean } b - Selected status of the component. 
+   * The value **true** indicates that the component is selected,
    *     and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the selected attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
@@ -407,8 +412,8 @@ declare class UiComponent {
   /**
    * Obtains the clickable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is clickable. The value **true** indicates
-   *     that the component is clickable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is clickable. 
+   * The value **true** indicates that the component is clickable, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -420,8 +425,8 @@ declare class UiComponent {
   /**
    * Obtains the scrollable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is scrollable. The value **true** indicates
-   *     that the component is scrollable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is scrollable. 
+   * The value **true** indicates that the component is scrollable, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -433,8 +438,8 @@ declare class UiComponent {
   /**
    * Obtains the enabled status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is enabled. The value **true** indicates
-   *     that the component is enabled, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is enabled. 
+   * The value **true** indicates that the component is enabled, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -446,8 +451,8 @@ declare class UiComponent {
   /**
    * Obtains the focused status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is focused. The value **true** indicates
-   *     that the component is focused, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is focused.
+   *     The value **true** indicates that the component is focused, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -459,8 +464,8 @@ declare class UiComponent {
   /**
    * Obtains the selected status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is selected. The value **true** indicates
-   *     that the component is selected, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is selected.
+   *     The value **true** indicates that the component is selected, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -690,7 +695,7 @@ declare class UiDriver {
    * API uses a promise to return the result.
    *
    * @param { string } savePath - File save path.
-   * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful. The value **true*
+   * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
    *     The value **true** indicates the screenshot operation is successful, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -2456,10 +2461,10 @@ declare class Component {
   isClickable(): Promise<boolean>;
 
   /**
-   * Obtains the clickable status of this component. This API uses a promise to return the result.
+   * Obtains the long-clickable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component object is clickable.
-   *     The value **true** indicates that the component is clickable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component object is long-clickable.
+   *     The value **true** indicates that the component is long-clickable, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2539,7 +2544,7 @@ declare class Component {
    * Obtains the checked status of this component. This API uses a promise to return the result.
    *
    * @returns { Promise<boolean> } - Promise used to return the checked status of the component object.
-   *     The value **true** indicates indicates that the component is checked, and **false** indicates the opposite.
+   *     The value **true** indicates that the component is checked, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -3897,8 +3902,9 @@ declare class Driver {
    * pressed with mouse scrolling.
    *
    * @param { Point } p - Target coordinates of mouse scrolling.
-   * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
-   *     downward, and **false** indicates the mouse wheel scrolls upward.
+   * @param { boolean } down - Whether the mouse wheel scrolls downward. 
+   * The value **true** indicates the mouse wheel scrolls downward, 
+   * and **false** indicates the mouse wheel scrolls upward.
    * @param { number } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
    *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
@@ -3924,8 +3930,9 @@ declare class Driver {
    * specified scroll speed. This API uses a promise to return the result.
    *
    * @param { Point } p - Target coordinates of mouse scrolling.
-   * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
-   *     downward, and **false** indicates the mouse wheel scrolls upward.
+   * @param { boolean } down - Whether the mouse wheel scrolls downward. 
+   * The value **true** indicates the mouse wheel scrolls downward, 
+   * and **false** indicates the mouse wheel scrolls upward.
    * @param { int } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
    *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
@@ -4399,7 +4406,8 @@ declare class Driver {
    *     The default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value
    *     is **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during a long-click
-   *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
+   *     operation. 
+   * The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4432,7 +4440,8 @@ declare class Driver {
    *     default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value is
    *     **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during the dragging
-   *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
+   *     operation. 
+   * The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4639,8 +4648,8 @@ declare class UiWindow {
    * Checks whether a window is active. This API uses a promise to return the result.
    *
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the window is active. The value **true** indicates that
-   *     the window is active, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the window is active. 
+   * The value **true** indicates that the window is active, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -4791,8 +4800,8 @@ declare class UiWindow {
   /**
    * Checks whether a window is active. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the window is active. The value **true** indicates that
-   *     the window is active, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the window is active. 
+   * The value **true** indicates that the window is active, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -4907,8 +4916,8 @@ declare namespace ON {
    * Specifies the text attribute of the target component. Multiple match patterns are supported.
    *
    * @param { string } txt - the text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
-   *     <br>Default value: MatchPattern.EQUALS
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
+   *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5001,7 +5010,7 @@ declare namespace ON {
   /**
    * Specifies the selected attribute of the target component.
    *
-   * @param { boolean } [b] - the - selected status.
+   * @param { boolean } [b] - the selected status.
    *     <br>Default value: true
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
@@ -5106,8 +5115,7 @@ declare namespace ON {
    * Specifies the ID attribute of the target component.
    *
    * @param { string } id - the id value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
-   *     <br>Default value: {@link MatchPattern.EQUALS}
+   * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5118,8 +5126,7 @@ declare namespace ON {
    * Specifies the type attribute of the target component.
    *
    * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
-   *     <br>Default value: {@link MatchPattern.EQUALS}
+   * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5130,7 +5137,7 @@ declare namespace ON {
    * Specifies the hint attribute of the target component.
    *
    * @param { string } val - the hint value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
@@ -5147,7 +5154,7 @@ declare namespace ON {
    * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not take effect.
    *
    * @param { string } text - the original text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
