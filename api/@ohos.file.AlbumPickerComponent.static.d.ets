@@ -170,7 +170,7 @@ export declare class AlbumInfo {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.0 static
  */
 @Observed
 export declare class AlbumPickerController {
@@ -180,7 +180,7 @@ export declare class AlbumPickerController {
    * @param { int | string } fontSize - font size of album picker component
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.0 static
    */
   public setFontSize(fontSize: int | string): void;
 }

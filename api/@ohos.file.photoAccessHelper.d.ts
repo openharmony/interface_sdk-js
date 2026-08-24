@@ -8078,7 +8078,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
@@ -8782,7 +8782,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   export enum PhotoSource {
     /**
@@ -10699,7 +10699,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     recommendationTypeList?: Array<RecommendationType>;
 
@@ -10715,7 +10715,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @stagemodelonly
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     defaultRecommendationType?: RecommendationType;
   }
