@@ -106,7 +106,7 @@ export interface CommonEventData {
    * Additional information about the common event received by the subscriber. The value of this field is the same as 
    * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
    * when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
