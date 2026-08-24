@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 资源管理
  * @kit LocalizationKit
  */
 
