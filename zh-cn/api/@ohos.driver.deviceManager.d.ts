@@ -32,7 +32,7 @@ import type rpc from './@ohos.rpc';
  * 
  * 本模块的外设访问能力需要多个 API 组合完成，典型调用流程为：**查询设备 → 绑定设备获取通信对象 → 通过通信对象与驱动交互 → 解绑设备释放资源**。设备绑定的生命周期视图如下：
  * 
- * ![DriverDeviceManager_flowchart](docroot://reference/figures/DriverDeviceManager_flowchart.png)
+ * ![DriverDeviceManager_flowchart](docroot://reference/apis-driver-development-kit/figures/DriverDeviceManager_flowchart.png)
  *
  * > **说明：**
  * > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。调用本模块接口需要申请权限 
