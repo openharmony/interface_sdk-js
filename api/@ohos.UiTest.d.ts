@@ -4915,7 +4915,7 @@ declare namespace ON {
   /**
    * Specifies the text attribute of the target component. Multiple match patterns are supported.
    *
-   * @param { string } txt - the text value.
+   * @param { string } txt - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
@@ -4928,7 +4928,7 @@ declare namespace ON {
   /**
    * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - the id value.
+   * @param { string } id - Component ID.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4939,7 +4939,7 @@ declare namespace ON {
   /**
    * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - The type value.
+   * @param { string } tp - Component type.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4950,8 +4950,8 @@ declare namespace ON {
   /**
    * Specifies the clickable attribute of the target component.
    *
-   * @param { boolean } [b] - the clickable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Clickable status of the component. The value **true** indicates that the component is clickable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4962,8 +4962,8 @@ declare namespace ON {
   /**
    * Specifies the long-clickable attribute of the target component.
    *
-   * @param { boolean } [b] - the longClickable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Long-clickable status of the component. The value **true** indicates that the component is long-clickable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4974,8 +4974,8 @@ declare namespace ON {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } [b] - the scrollable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Whether the specified component is scrollable. The value **true** indicates that the component is scrollable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4986,8 +4986,8 @@ declare namespace ON {
   /**
    * Specifies the enabled attribute of the target component.
    *
-   * @param { boolean } [b] - the enabled status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Enabled status of the component. The value **true** indicates that the component is enabled
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4998,8 +4998,8 @@ declare namespace ON {
   /**
    * Specifies the focused attribute of the target component.
    *
-   * @param { boolean } [b] - the focused status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Focused status of the component. The value **true** indicates that the component is focused
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5010,8 +5010,8 @@ declare namespace ON {
   /**
    * Specifies the selected attribute of the target component.
    *
-   * @param { boolean } [b] - the selected status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Selected status of the component. The value **true** indicates that the component is selected
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5022,8 +5022,8 @@ declare namespace ON {
   /**
    * Specifies the checked attribute of the target component.
    *
-   * @param { boolean } [b] - the checked status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Checked status of the component. The value **true** indicates that the component is checked
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5034,8 +5034,8 @@ declare namespace ON {
   /**
    * Specifies the checkable attribute of the target component.
    *
-   * @param { boolean } [b] - the checkable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Checkable status of the component. The value **true** indicates that the component is checkable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5079,7 +5079,7 @@ declare namespace ON {
   /**
    * Specifies that the target component is located within the given application window.
    *
-   * @param { string } bundleName - the bundleName of the specified window.
+   * @param { string } bundleName - Bundle name of the application window.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5090,7 +5090,8 @@ declare namespace ON {
   /**
    * Specifies the display to which the target component belongs.
    *
-   * @param { int } displayId - the Id of the specified display.
+   * @param { int } displayId - ID of the display to which the component belongs. The value is an integer greater than or equal to 0.
+   *      **Note:** If the input displayId does not exist, the exception 17000007 is reported. You can use [getAllDisplays] to obtain all current display objects and then obtain the ID of the display from a display object.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5114,7 +5115,7 @@ declare namespace ON {
   /**
    * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - the id value.
+   * @param { string } id - Component ID.
    * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
@@ -5125,7 +5126,7 @@ declare namespace ON {
   /**
    * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - The type value.
+   * @param { string } tp - Component type.
    * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
