@@ -144,7 +144,7 @@ declare class ServiceExtensionAbility {
   /**
    * 转储客户端信息时调用。
    *
-   * @param { Array<string> } params - 表示命令形式的参数。
+   * @param { Array<string> } params - 转储命令的参数列表。
    * @returns { Array<string> } 表示转存客户端信息数组。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
