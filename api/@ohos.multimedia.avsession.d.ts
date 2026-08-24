@@ -304,7 +304,7 @@ declare namespace avSession {
    *     2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
-   * @throws { BusinessError } 6600104 - The remote session  connection failed.
+   * @throws { BusinessError } 6600104 - The remote session connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9 dynamic
@@ -322,7 +322,7 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
-   * @throws { BusinessError } 6600104 - The remote session  connection failed.
+   * @throws { BusinessError } 6600104 - The remote session connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 23 static
@@ -339,7 +339,7 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600102 - The session does not exist.
-   * @throws { BusinessError } 6600104 - The remote session  connection failed.
+   * @throws { BusinessError } 6600104 - The remote session connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 23 static
@@ -1260,7 +1260,7 @@ declare namespace avSession {
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception.
-   * @throws {BusinessError} 6600102 - session does not exist
+   * @throws {BusinessError} 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
@@ -1277,7 +1277,7 @@ declare namespace avSession {
    * @throws {BusinessError} 201 - permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 6600101 - Session service exception.
-   * @throws {BusinessError} 6600102 - session does not exist
+   * @throws {BusinessError} 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 23 static
@@ -1295,8 +1295,8 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    *     2.Parameter verification failed.
-   * @throws {BusinessError} 6600101 - server exception
-   * @throws {BusinessError} 6600102 - session does not exist
+   * @throws {BusinessError} 6600101 - Session service exception.
+   * @throws {BusinessError} 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
@@ -1312,8 +1312,8 @@ declare namespace avSession {
    * @returns { Promise<AVCastController | undefined> } Promise for the AVCastController
    * @throws {BusinessError} 201 - permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws {BusinessError} 6600101 - server exception
-   * @throws {BusinessError} 6600102 - session does not exist
+   * @throws {BusinessError} 6600101 - Session service exception.
+   * @throws {BusinessError} 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 23 static
@@ -1332,7 +1332,7 @@ declare namespace avSession {
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception.
-   * @throws {BusinessError} 6600108 - Device connecting failed
+   * @throws {BusinessError} 6600108 - Device connecting failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
@@ -1352,7 +1352,7 @@ declare namespace avSession {
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception.
-   * @throws {BusinessError} 6600108 - Device connecting failed
+   * @throws {BusinessError} 6600108 - Device connecting failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
@@ -4615,7 +4615,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -4632,7 +4632,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 23 static
@@ -4650,7 +4650,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -4666,7 +4666,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 23 static
@@ -8797,7 +8797,7 @@ declare namespace avSession {
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
@@ -8811,7 +8811,7 @@ declare namespace avSession {
      *     The callback provide the new device info {@link OutputDeviceInfo}
      *     and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 23 static
      */
@@ -8827,7 +8827,7 @@ declare namespace avSession {
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
@@ -8841,7 +8841,7 @@ declare namespace avSession {
      *     The callback provide the new device info {@link OutputDeviceInfo}
      *     and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 23 static
      */
