@@ -363,8 +363,8 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
  */
 declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttribute> {
   /**
-   * 点击保存控件触发该回调。用户首次点击保存控件时会展示授权弹窗，点击允许后授权成功，应用会获取访问媒体库接口的临时授权（授权持续时间见[SaveButton](docroot://reference/apis-arkui/arkui
-   * -ts/ts-security-components-savebutton.md#savebutton-1)构造函数说明）；点击拒绝或关闭弹窗则授权失败。
+   * 点击保存控件触发该回调。用户首次点击保存控件时会展示授权弹窗，点击允许后授权成功，应用会获取访问媒体库接口的临时授权（授权持续时间见[SaveButton]{@link SaveButton}构造函数说明）；
+   * 点击拒绝或关闭弹窗则授权失败。
    *
    * @param { function } event - 点击事件的回调对象，包含点击事件信息、授权结果和错误信息。
    *     <br>从API version 10-17时, 参数类型为 (event: [ClickEvent]{@link ClickEvent},

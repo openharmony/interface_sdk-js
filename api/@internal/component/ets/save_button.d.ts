@@ -403,8 +403,8 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * Triggered when the **SaveButton** component is clicked. When a user clicks the save button for the first time, an
    * authorization dialog box is displayed. If the user allows authorization, the app obtains temporary access to media
    * library APIs. For details about the authorization duration, see the description of the
-   * [SaveButton](docroot://reference/apis-arkui/arkui-ts/ts-security-components-savebutton.md#savebutton-1)
-   * constructor. Authorization fails if the user declines authorization or closes the dialog box.
+   * [SaveButton]{@link SaveButton} constructor. Authorization fails if the user declines authorization or closes the
+   * dialog box.
    *
    * @param { function } event - Callback object for the click event, which carries click details, authorization result
    *     and error information.
