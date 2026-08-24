@@ -21,6 +21,7 @@
 import Context from './Context';
 import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
+import { ChildProcessInformation } from './ChildProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
 import window from '../@ohos.window';
@@ -390,6 +391,21 @@ declare class ApplicationContext extends Context {
    * @since 23 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * Obtains the information about the UIAbility child processes of the current application. This API uses a promise
+   * to return the result.
+   * The returned child processes are created via startAbility with ProcessMode.NEW_PROCESS_ATTACH_TO_PARENT.
+   *
+   * @returns { Promise<Array<ChildProcessInformation>> } Promise used to return the information about the UIAbility
+   *     child processes of the current application. If no child processes exist, an empty array is returned.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  getUIAbilityChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 
   /**
    * Kills all processes of this application. The application will not execute the normal lifecycle when exiting. This
