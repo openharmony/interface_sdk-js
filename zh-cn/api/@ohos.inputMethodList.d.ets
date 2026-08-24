@@ -14,7 +14,7 @@
  */
 
 /**
- * @brief @ohos.inputMethodList模块是面向系统应用和输入法应用的UI控件模块，提供了输入法切换列表弹窗组件。
+ * @ohos.inputMethodList模块是面向系统应用和输入法应用的UI控件模块，提供了输入法切换列表弹窗组件。
  * <br>
  * <br>本模块是一个声明式UI组件模块，提供`InputMethodListDialog`自定义弹窗组件，用于展示系统默认输入法子类型和第三方输入法应用列表，并可选地提供输入法模式切换入口（如单手模式、全屏模式等）。
  * <br>
@@ -97,7 +97,7 @@
  /*** endif */
 
 /**
- * @brief 输入法模式选项配置，用于定义键盘模式的切换选项。
+ * 输入法模式选项配置，用于定义键盘模式的切换选项。
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -105,7 +105,7 @@
  */
 export interface PatternOptions {
   /**
-   * @brief 默认选择的模式索引，对应patterns数组中的索引值。
+   * 默认选择的模式索引，对应patterns数组中的索引值。
    * <br>
    * <br>使用场景：当默认输入法需要预设一个初始选中的键盘模式时使用此参数。
    * <br>
@@ -123,7 +123,7 @@ export interface PatternOptions {
    */
   defaultSelected?: int;
   /**
-   * @brief 模式选项资源数组，每个Pattern定义一个键盘模式的图标和选中状态图标。
+   * 模式选项资源数组，每个Pattern定义一个键盘模式的图标和选中状态图标。
    * <br>
    * <br>使用场景：当默认输入法需要提供多种键盘模式（如单手模式、全屏模式等）供用户选择时，需配置此参数。
    * <br>
@@ -137,7 +137,7 @@ export interface PatternOptions {
    */
   patterns: Array<Pattern>;
   /**
-   * @brief 模式选项改变时的回调函数。
+   * 模式选项改变时的回调函数。
    * <br>
    * <br>使用场景：当需要在用户切换键盘模式时执行相应逻辑（如更新键盘布局、保存用户偏好等）时，需设置此回调。
    * <br>
@@ -153,7 +153,7 @@ export interface PatternOptions {
 }
 
 /**
- * @brief 输入法模式选项的图标资源定义，用于配置键盘模式在弹窗中的视觉表现。仅当前输入法（即系统预置输入法）可使用。
+ * 输入法模式选项的图标资源定义，用于配置键盘模式在弹窗中的视觉表现。仅当前输入法（即系统预置输入法）可使用。
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -161,7 +161,7 @@ export interface PatternOptions {
  */
 export interface Pattern {
   /**
-   * @brief 输入法模式选项的默认（未选中）状态图标资源。
+   * 输入法模式选项的默认（未选中）状态图标资源。
    * <br>
    * <br>使用场景：用于标识每个键盘模式在未选中时的视觉表现形式，用户在弹窗中可据此识别不同的模式选项。
    * <br>
@@ -175,7 +175,7 @@ export interface Pattern {
    */
   icon: Resource;
   /**
-   * @brief 输入法模式选项的选中状态图标资源。
+   * 输入法模式选项的选中状态图标资源。
    * <br>
    * <br>使用场景：用于标识每个键盘模式在选中时的视觉表现形式，与icon形成选中/未选中的视觉区分，帮助用户识别当前选中的模式。
    * <br>
@@ -192,7 +192,7 @@ export interface Pattern {
 }
 
 /**
- * @brief 输入法切换列表弹窗控件。以弹窗形式展示当前系统中已安装的输入法应用列表，支持用户在输入法之间进行切换；对于默认输入法，还提供键盘模式（如单手模式、全屏模式等）的切换入口。
+ * 输入法切换列表弹窗控件。以弹窗形式展示当前系统中已安装的输入法应用列表，支持用户在输入法之间进行切换；对于默认输入法，还提供键盘模式（如单手模式、全屏模式等）的切换入口。
  * <br>
  * <br>使用场景：当系统应用或输入法应用需要为用户提供可视化的输入法选择和切换功能时使用此控件。例如，在系统设置应用中允许用户选择不同输入法，或在输入法应用中允许用户切换到其他输入法或切换当前输入法的键盘模式。
  * <br>
@@ -216,7 +216,7 @@ export interface Pattern {
 @CustomDialog
 export declare struct InputMethodListDialog {
   /**
-   * @brief 输入法切换列表弹窗控制器，用于控制弹窗的打开和关闭。
+   * 输入法切换列表弹窗控制器，用于控制弹窗的打开和关闭。
    * <br>使用场景：当需要通过代码控制输入法切换列表弹窗的显示与隐藏时，必须提供此参数。
    * <br>使用后效果：设置后，可通过调用controller的[open()](../apis-arkui/arkui-ts/ts-methods-custom-dialog-box.md#open)方法打开弹窗，
    * [close()](../apis-arkui/arkui-ts/ts-methods-custom-dialog-box.md#close)方法关闭弹窗。
@@ -228,7 +228,7 @@ export declare struct InputMethodListDialog {
    */
   controller: CustomDialogController;
   /**
-   * @brief 输入法模式选项配置。仅系统预置输入法支持。
+   * 输入法模式选项配置。仅系统预置输入法支持。
    * <br>使用场景：系统预置输入法需要支持模式切换功能（如单手模式、全屏模式等）时传入此参数，配置模式图标资源和切换回调。
    * <br>默认值：不传入时，控件仅显示输入法列表，不提供模式切换功能。
    * <br>说明：三方输入法应用不可使用此参数。
@@ -240,7 +240,7 @@ export declare struct InputMethodListDialog {
   patternOptions?: PatternOptions;
 
   /**
-   * @brief 输入法切换列表弹窗控件的build函数，开发者无需实现。
+   * 输入法切换列表弹窗控件的build函数，开发者无需实现。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 staticonly

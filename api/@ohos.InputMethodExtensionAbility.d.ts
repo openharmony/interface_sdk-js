@@ -22,7 +22,7 @@ import Want from './@ohos.app.ability.Want';
 import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContext';
 
 /**
- * @brief The **InputMethodExtensionAbility** module provides APIs for developing input methods and managing the lifecycle of
+ * The **InputMethodExtensionAbility** module provides APIs for developing input methods and managing the lifecycle of
  * input method extensions.
  * <br>
  * <br> > **NOTE**
@@ -37,7 +37,7 @@ import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContex
  */
 declare class InputMethodExtensionAbility {
   /**
-   * @brief Context of the **InputMethodExtension**, which is inherited from **ExtensionContext**.
+   * Context of the **InputMethodExtension**, which is inherited from **ExtensionContext**.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -47,7 +47,7 @@ declare class InputMethodExtensionAbility {
   context: InputMethodExtensionContext;
 
   /**
-   * @brief Called when the **InputMethodExtensionAbility** is started to implement initialization.
+   * Called when the **InputMethodExtensionAbility** is started to implement initialization.
    *
    * @param { Want } want - Information related to the **InputMethodExtensionAbility**, including the ability name and
    *     bundle name.
@@ -59,7 +59,7 @@ declare class InputMethodExtensionAbility {
   onCreate(want: Want): void;
 
   /**
-   * @brief Called when this **InputMethodExtensionAbility** is destroyed to clear resources.
+   * Called when this **InputMethodExtensionAbility** is destroyed to clear resources.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly

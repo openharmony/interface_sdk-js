@@ -14,7 +14,7 @@
  */
 
 /**
- * @brief The **inputMethodList** module is oriented to system applications and input method applications.
+ * The **inputMethodList** module is oriented to system applications and input method applications.
  * It provides APIs for implementing an input method list. This list displays the default input method subtypes and
  * third-party input methods. Users can use this list to switch from the default input method to another input method.
  * <br>
@@ -107,7 +107,7 @@
  */
 export interface PatternOptions {
   /**
-   * @brief Optional. Default selected pattern.
+   * Optional. Default selected pattern.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -115,7 +115,7 @@ export interface PatternOptions {
    */
   defaultSelected?: int;
   /**
-   * @brief Mandatory. Resource of the pattern option.
+   * Mandatory. Resource of the pattern option.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -123,7 +123,7 @@ export interface PatternOptions {
    */
   patterns: Array<Pattern>;
   /**
-   * @brief Mandatory. Callback invoked when the pattern option changes.
+   * Mandatory. Callback invoked when the pattern option changes.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -140,7 +140,7 @@ export interface PatternOptions {
  */
 export interface Pattern {
   /**
-   * @brief Mandatory. Default icon.
+   * Mandatory. Default icon.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -148,7 +148,7 @@ export interface Pattern {
    */
   icon: Resource;
   /**
-   * @brief Mandatory. Icon for the selected option.
+   * Mandatory. Icon for the selected option.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -158,7 +158,7 @@ export interface Pattern {
 }
 
 /**
- * @brief InputMethodListDialog({controller: CustomDialogController, patternOptions?: PatternOptions})
+ * InputMethodListDialog({controller: CustomDialogController, patternOptions?: PatternOptions})
  * <br>
  * <br>Implements a dialog box showing the input method list.
  *
@@ -169,7 +169,7 @@ export interface Pattern {
 @CustomDialog
 export declare struct InputMethodListDialog {
   /**
-   * @brief Sets the controller.
+   * Sets the controller.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -177,7 +177,7 @@ export declare struct InputMethodListDialog {
    */
   controller: CustomDialogController;
   /**
-   * @brief Sets the pattern options. This parameter can be left blank when it is not default input method.
+   * Sets the pattern options. This parameter can be left blank when it is not default input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -186,7 +186,7 @@ export declare struct InputMethodListDialog {
   patternOptions?: PatternOptions;
 
   /**
-   * @brief The method to build component.
+   * The method to build component.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 23 staticonly

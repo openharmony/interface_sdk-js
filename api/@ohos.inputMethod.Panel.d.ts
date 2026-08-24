@@ -14,7 +14,7 @@
  */
 
 /**
- * @brief The **inputMethod.Panel** module provides APIs for managing the attributes of the input method panel.
+ * The **inputMethod.Panel** module provides APIs for managing the attributes of the input method panel.
  * <br>
  * <br> > **NOTE**
  * <br> >
@@ -26,7 +26,7 @@
  */
 
 /**
- * @brief Defines the attributes of the input method panel.
+ * Defines the attributes of the input method panel.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -34,7 +34,7 @@
  */
 export interface PanelInfo {
   /**
-   * @brief Type of the input method panel.
+   * Type of the input method panel.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -43,7 +43,7 @@ export interface PanelInfo {
   type: PanelType;
 
   /**
-   * @brief State type of the input method panel.
+   * State type of the input method panel.
    * <br>
    * <br>- The default value is **FLAG_FIXED**.
    * <br>- Currently, this parameter is used to describe the state type of the soft keyboard.
@@ -57,7 +57,7 @@ export interface PanelInfo {
 }
 
 /**
- * @brief Enumerates the state types of the input method panel.
+ * Enumerates the state types of the input method panel.
  * <br>
  * <br> > **NOTE**
  * <br> >
@@ -69,7 +69,7 @@ export interface PanelInfo {
  */
 export enum PanelFlag {
   /**
-   * @brief Fixed state type.
+   * Fixed state type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -78,7 +78,7 @@ export enum PanelFlag {
   FLAG_FIXED = 0,
 
   /**
-   * @brief Floating state type.
+   * Floating state type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -87,7 +87,7 @@ export enum PanelFlag {
   FLAG_FLOATING,
 
   /**
-   * @brief Candidate state type.
+   * Candidate state type.
    * <br>
    * <br>- When in the candidate state type, the input method panel is a window displaying candidates based on user input.
    * <br>- The input method service does not proactively control the visibility of the candidate panel. You need to control 
@@ -101,7 +101,7 @@ export enum PanelFlag {
 }
 
 /**
- * @brief Enumerates the types of the input method panel.
+ * Enumerates the types of the input method panel.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -109,7 +109,7 @@ export enum PanelFlag {
  */
 export enum PanelType {
   /**
-   * @brief Soft keyboard.
+   * Soft keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -118,7 +118,7 @@ export enum PanelType {
   SOFT_KEYBOARD = 0,
 
   /**
-   * @brief Status bar.
+   * Status bar.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic

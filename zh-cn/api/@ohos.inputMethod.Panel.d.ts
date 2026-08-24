@@ -14,7 +14,7 @@
  */
 
 /**
- * @brief @ohos.inputMethod.Panel模块提供输入法面板属性的数据定义，支持配置面板的类型和显示状态，适用于需要精细化控制输入法面板显示行为的场景。
+ * @ohos.inputMethod.Panel模块提供输入法面板属性的数据定义，支持配置面板的类型和显示状态，适用于需要精细化控制输入法面板显示行为的场景。
  * <br>
  * <br>本模块是输入法框架的面板属性数据模块，定义了`PanelInfo`接口以及`PanelType`、`PanelFlag`两个枚举类型，用于描述输入法面板的类型（软键盘或状态栏）和显示状态（固定态、悬浮态、候选词态）。
  * <br>
@@ -49,7 +49,7 @@
  */
 
 /**
- * @brief 输入法面板属性信息。用于描述输入法面板的类型和显示状态，在创建输入法面板时作为配置参数传入。
+ * 输入法面板属性信息。用于描述输入法面板的类型和显示状态，在创建输入法面板时作为配置参数传入。
  * <br>
  * <br>- 含义/功能：定义输入法面板的类型（软键盘或状态栏）和显示状态（固定态、悬浮态或候选词态），作为`InputMethodAbility.createPanel()`的配置参数，决定创建的面板形态。
  * <br>- 使用场景：当输入法应用需要通过`createPanel()`创建输入法面板时使用，用于指定面板的类型和状态。例如：创建默认的固定态软键盘面板、创建可自由拖动的悬浮态软键盘面板、创建独立显示候选词的候选词态面板。
@@ -81,7 +81,7 @@
  */
 export interface PanelInfo {
   /**
-   * @brief 输入法面板类型。决定面板是软键盘还是状态栏。不填写时默认为`SOFT_KEYBOARD`(0)。
+   * 输入法面板类型。决定面板是软键盘还是状态栏。不填写时默认为`SOFT_KEYBOARD`(0)。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -90,7 +90,7 @@ export interface PanelInfo {
   type: PanelType;
 
   /**
-   * @brief 输入法面板状态类型。
+   * 输入法面板状态类型。
    * <br>
    * <br>- 默认值为`FLAG_FIXED`(0)，表示固定态面板类型。
    * <br>- 当前仅用于描述软键盘类型的面板的状态，对`STATUS_BAR`类型面板设置不产生实际效果。
@@ -105,7 +105,7 @@ export interface PanelInfo {
 }
 
 /**
- * @brief 输入法面板状态类型枚举。定义面板的显示状态形态，决定面板是固定态、悬浮态还是候选词态。
+ * 输入法面板状态类型枚举。定义面板的显示状态形态，决定面板是固定态、悬浮态还是候选词态。
  * <br>
  * <br> > **说明：**
  * <br> >
@@ -125,7 +125,7 @@ export interface PanelInfo {
  */
 export enum PanelFlag {
   /**
-   * @brief 固定态面板类型。
+   * 固定态面板类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -134,7 +134,7 @@ export enum PanelFlag {
   FLAG_FIXED = 0,
 
   /**
-   * @brief 悬浮态面板类型。
+   * 悬浮态面板类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -143,7 +143,7 @@ export enum PanelFlag {
   FLAG_FLOATING,
 
   /**
-   * @brief 候选词态面板类型。
+   * 候选词态面板类型。
    * <br>
    * <br>- 当输入面板为候选词态时，面板为显示用户输入候选词的窗口。
    * <br>- 系统不会主动控制候选词态面板的显示和隐藏，需要开发者根据应用场景自行控制候选词态面板的显示和隐藏。
@@ -156,7 +156,7 @@ export enum PanelFlag {
 }
 
 /**
- * @brief 输入法面板类型枚举。定义面板的类别，决定面板是软键盘还是状态栏。
+ * 输入法面板类型枚举。定义面板的类别，决定面板是软键盘还是状态栏。
  * <br>
  * <br>PanelType使用建议：
  * <br>
@@ -171,7 +171,7 @@ export enum PanelFlag {
  */
 export enum PanelType {
   /**
-   * @brief 软键盘类型。
+   * 软键盘类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
@@ -180,7 +180,7 @@ export enum PanelType {
   SOFT_KEYBOARD = 0,
 
   /**
-   * @brief 状态栏类型。
+   * 状态栏类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic

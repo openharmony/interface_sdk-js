@@ -19,7 +19,7 @@
  */
 
 /**
- * @brief @ohos.InputMethodSubtype模块提供输入法子类型的属性数据定义，支持描述输入法在不同语言或模式下的子类型信息。
+ * @ohos.InputMethodSubtype模块提供输入法子类型的属性数据定义，支持描述输入法在不同语言或模式下的子类型信息。
  * <br>
  * <br>本模块是输入法框架的子类型数据模块，定义了`InputMethodSubtype`接口，用于描述输入法的一种具体输入模式或语言——如中文键盘、英文键盘、大写模式键盘等，每个子类型代表输入法在特定语言或模式下的形态。
  * <br>
@@ -56,7 +56,7 @@
  */
 export default interface InputMethodSubtype {
   /**
-   * @brief 输入法子类型的标签。用于在UI界面展示子类型的名称，如"中文（简体）"、"English"等。
+   * 输入法子类型的标签。用于在UI界面展示子类型的名称，如"中文（简体）"、"English"等。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -65,7 +65,7 @@ export default interface InputMethodSubtype {
   readonly label?: string;
 
   /**
-   * @brief 输入法子类型的标签资源号。用于通过资源ID加载标签文本，支持多语言场景下的标签国际化显示。
+   * 输入法子类型的标签资源号。用于通过资源ID加载标签文本，支持多语言场景下的标签国际化显示。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -74,7 +74,7 @@ export default interface InputMethodSubtype {
   readonly labelId?: double;
 
   /**
-   * @brief 输入法子类型所属应用的包名。与输入法应用在module.json5中配置的bundleName保持一致，用于标识该子类型属于哪个输入法应用。
+   * 输入法子类型所属应用的包名。与输入法应用在module.json5中配置的bundleName保持一致，用于标识该子类型属于哪个输入法应用。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -83,7 +83,7 @@ export default interface InputMethodSubtype {
   readonly name: string;
 
   /**
-   * @brief 输入法子类型的id。与输入法应用在module.json5中配置的subtype id保持一致，用于在同一输入法应用内唯一标识一个子类型。
+   * 输入法子类型的id。与输入法应用在module.json5中配置的subtype id保持一致，用于在同一输入法应用内唯一标识一个子类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -92,7 +92,7 @@ export default interface InputMethodSubtype {
   readonly id: string;
 
   /**
-   * @brief 输入法子类型的模式，包括upper（大写）和lower（小写）。用于描述键盘的大小写状态模式。
+   * 输入法子类型的模式，包括upper（大写）和lower（小写）。用于描述键盘的大小写状态模式。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -101,7 +101,7 @@ export default interface InputMethodSubtype {
   readonly mode?: 'upper' | 'lower';
 
   /**
-   * @brief 输入法子类型的区域。遵循ICU Locale格式（下划线分隔，如'zh_CN'），也兼容POSIX风格（连字符分隔，如'zh-CN'）。用于标识子类型的语言和地区。
+   * 输入法子类型的区域。遵循ICU Locale格式（下划线分隔，如'zh_CN'），也兼容POSIX风格（连字符分隔，如'zh-CN'）。用于标识子类型的语言和地区。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -110,7 +110,7 @@ export default interface InputMethodSubtype {
   readonly locale: string;
 
   /**
-   * @brief 输入法子类型的语言，如'zh'（中文）、'en'（英文）。用于标识子类型的语言，是locale的子集。
+   * 输入法子类型的语言，如'zh'（中文）、'en'（英文）。用于标识子类型的语言，是locale的子集。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -119,7 +119,7 @@ export default interface InputMethodSubtype {
   readonly language: string;
 
   /**
-   * @brief 输入法子类型的图标，可以通过iconId查询获取。
+   * 输入法子类型的图标，可以通过iconId查询获取。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -128,7 +128,7 @@ export default interface InputMethodSubtype {
   readonly icon?: string;
 
   /**
-   * @brief 输入法子类型的图标id。用于通过资源ID加载子类型图标。
+   * 输入法子类型的图标id。用于通过资源ID加载子类型图标。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
@@ -137,7 +137,7 @@ export default interface InputMethodSubtype {
   readonly iconId?: double;
 
   /**
-   * @brief 输入法子类型的其他信息。
+   * 输入法子类型的其他信息。
    * <br>
    * <br>说明：
    * <br>- 从API version 10开始为非必填参数。

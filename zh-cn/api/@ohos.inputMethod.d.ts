@@ -30,7 +30,7 @@ import { PanelInfo } from './@ohos.inputMethod.Panel';
 /*** endif */
 
 /**
- * @brief @ohos.inputMethod模块是面向普通前台应用（如备忘录、短信、设置等应用）的输入法客户端模块，提供输入法控制和管理能力。
+ * @ohos.inputMethod模块是面向普通前台应用（如备忘录、短信、设置等应用）的输入法客户端模块，提供输入法控制和管理能力。
  * <br>
  * <br>本模块是输入法框架的客户端接口，为编辑框应用提供与输入法服务的交互能力，包括输入法绑定/解绑、软键盘显示/隐藏、输入法切换、输入法列表查询、编辑框属性与光标更新、文本选择与操作事件监听、自定义消息通信等。
  * <br>
@@ -96,7 +96,7 @@ import { PanelInfo } from './@ohos.inputMethod.Panel';
  */
 declare namespace inputMethod {
   /**
-   * @brief 可支持的最大输入法个数。
+   * 可支持的最大输入法个数。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -105,7 +105,7 @@ declare namespace inputMethod {
   const MAX_TYPE_NUM: int;
 
   /**
-   * @brief 获取客户端设置实例[InputMethodSetting]{@link inputMethod.InputMethodSetting}。
+   * 获取客户端设置实例[InputMethodSetting]{@link inputMethod.InputMethodSetting}。
    *
    * @returns { InputMethodSetting } 返回当前客户端设置实例。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -116,7 +116,7 @@ declare namespace inputMethod {
   function getInputMethodSetting(): InputMethodSetting;
 
   /**
-   * @brief 获取客户端实例[InputMethodController]{@link inputMethod.InputMethodController}。
+   * 获取客户端实例[InputMethodController]{@link inputMethod.InputMethodController}。
    *
    * @returns { InputMethodController } 回调返回当前客户端实例。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -127,7 +127,7 @@ declare namespace inputMethod {
   function getInputMethodController(): InputMethodController;
 
   /**
-   * @brief 获取客户端设置实例[InputMethodSetting]{@link inputMethod.InputMethodSetting}。
+   * 获取客户端设置实例[InputMethodSetting]{@link inputMethod.InputMethodSetting}。
    * <br>
    * <br>含义/功能：获取输入法设置实例，用于查询输入法列表、订阅输入法变化事件、查询面板可见性等配置管理操作。
    * <br>
@@ -145,7 +145,7 @@ declare namespace inputMethod {
   function getSetting(): InputMethodSetting;
 
   /**
-   * @brief 获取客户端实例[InputMethodController]{@link inputMethod.InputMethodController}。
+   * 获取客户端实例[InputMethodController]{@link inputMethod.InputMethodController}。
    * <br>
    * <br>含义/功能：获取当前应用的输入法客户端控制器实例，用于后续与输入法进行交互（绑定、显示/隐藏键盘、同步编辑框状态等）。
    * <br>
@@ -163,7 +163,7 @@ declare namespace inputMethod {
   function getController(): InputMethodController;
 
   /**
-   * @brief 获取默认输入法。
+   * 获取默认输入法。
    *
    * @returns { InputMethodProperty } 返回默认输入法属性对象。
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -175,7 +175,7 @@ declare namespace inputMethod {
   function getDefaultInputMethod(): InputMethodProperty;
 
   /**
-   * @brief 获取指定用户的默认输入法。
+   * 获取指定用户的默认输入法。
    *
    * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
@@ -196,7 +196,7 @@ declare namespace inputMethod {
   function getDefaultInputMethod(userId?: int): InputMethodProperty;
 
   /**
-   * @brief 获取系统输入法设置界面Ability信息。
+   * 获取系统输入法设置界面Ability信息。
    *
    * @returns { ElementName } 系统输入法设置界面Ability的ElementName。
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -208,7 +208,7 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(): ElementName;
 
   /**
-   * @brief 获取指定用户的系统输入法设置界面Ability信息。用于启动系统输入法配置界面。
+   * 获取指定用户的系统输入法设置界面Ability信息。用于启动系统输入法配置界面。
    *
    * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
@@ -229,7 +229,7 @@ declare namespace inputMethod {
   function getSystemInputMethodConfigAbility(userId?: int): ElementName;
 
   /**
-   * @brief 切换输入法，使用callback异步回调。
+   * 切换输入法，使用callback异步回调。
    * <br>
    * <br>含义/功能：将当前输入法切换为指定的目标输入法。
    * <br>
@@ -254,7 +254,7 @@ declare namespace inputMethod {
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
   /**
-   * @brief 切换输入法，使用promise异步回调。
+   * 切换输入法，使用promise异步回调。
    * <br>
    * <br>含义/功能：将当前输入法切换为指定的目标输入法。
    * <br>
@@ -279,7 +279,7 @@ declare namespace inputMethod {
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
   /**
-   * @brief 使用同步方法获取当前输入法。
+   * 使用同步方法获取当前输入法。
    * <br>
    * <br>含义/功能：获取当前正在使用的输入法属性信息。
    * <br>
@@ -295,7 +295,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(): InputMethodProperty;
 
   /**
-   * @brief 获取指定用户的当前输入法。
+   * 获取指定用户的当前输入法。
    *
    * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
@@ -316,7 +316,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(userId?: int): InputMethodProperty;
 
   /**
-   * @brief 切换当前输入法的子类型。使用callback异步回调。
+   * 切换当前输入法的子类型。使用callback异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY [since 9 - 10]
    * @param { InputMethodSubtype } target - 目标输入法子类型。
@@ -334,7 +334,7 @@ declare namespace inputMethod {
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
-   * @brief 切换当前输入法的子类型。使用promise异步回调。
+   * 切换当前输入法的子类型。使用promise异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY [since 9 - 10]
    * @param { InputMethodSubtype } target - 目标输入法子类型。
@@ -353,7 +353,7 @@ declare namespace inputMethod {
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
   /**
-   * @brief 获取当前输入法的子类型。
+   * 获取当前输入法的子类型。
    *
    * @returns { InputMethodSubtype } 返回当前输入法子类型对象。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -363,7 +363,7 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
   /**
-   * @brief 获取指定用户的当前输入法子类型。
+   * 获取指定用户的当前输入法子类型。
    *
    * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
@@ -384,7 +384,7 @@ declare namespace inputMethod {
   function getCurrentInputMethodSubtype(userId?: int): InputMethodSubtype;
 
   /**
-   * @brief 切换至指定输入法的指定子类型，适用于跨输入法切换子类型。使用callback异步回调。
+   * 切换至指定输入法的指定子类型，适用于跨输入法切换子类型。使用callback异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY [since 9 - 10]
    * @param { InputMethodProperty } inputMethodProperty - 目标输入法。
@@ -407,7 +407,7 @@ declare namespace inputMethod {
   ): void;
 
   /**
-   * @brief 切换至指定输入法的指定子类型，适用于跨输入法切换子类型。使用promise异步回调。
+   * 切换至指定输入法的指定子类型，适用于跨输入法切换子类型。使用promise异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY [since 9 - 10]
    * @param { InputMethodProperty } inputMethodProperty - 目标输入法。
@@ -430,7 +430,7 @@ declare namespace inputMethod {
   ): Promise<boolean>;
 
   /**
-   * @brief 切换输入法，使用promise异步回调。
+   * 切换输入法，使用promise异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { string } bundleName - 目标输入法包名。
@@ -451,7 +451,7 @@ declare namespace inputMethod {
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
-   * @brief 切换输入法，使用promise异步回调。
+   * 切换输入法，使用promise异步回调。
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { string } bundleName - 目标输入法的包名。
@@ -477,7 +477,7 @@ declare namespace inputMethod {
   function switchInputMethodWithUserId(bundleName: string, subtypeId?: string, userId?: int): Promise<void>;
 
   /**
-   * @brief 编辑框应用设置简单键盘标志。
+   * 编辑框应用设置简单键盘标志。
    *
    * @param { boolean } enable - 简单键盘是否使能标志，true标识简单键盘使能，false标识简单键盘去使能。<br/> 原生编辑框组件在下一次点击获焦时生效；自绘控件在下一次调用
    *     [attach]{@link inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>)}
@@ -489,7 +489,7 @@ declare namespace inputMethod {
   function setSimpleKeyboardEnabled(enable: boolean): void;
   
   /**
-   * @brief 订阅绑定失败事件。使用callback异步回调。
+   * 订阅绑定失败事件。使用callback异步回调。
    *
    * @param { Callback<AttachFailureReason> } callback - 回调函数，返回绑定失败的原因，仅当注册者进程触发的绑定失败时，调用该回调函数。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -499,7 +499,7 @@ declare namespace inputMethod {
   function onAttachmentDidFail(callback: Callback<AttachFailureReason>): void;
 
   /**
-   * @brief 取消订阅绑定失败事件。使用callback异步回调。
+   * 取消订阅绑定失败事件。使用callback异步回调。
    *
    * @param { Callback<AttachFailureReason> } [callback] - 取消订阅的回调函数，需要与订阅接口传入的保持一致。参数不填写时，取消订阅该事件的所有回调函数。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -509,7 +509,7 @@ declare namespace inputMethod {
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
   /**
-   * @brief 当输入法属性对象及子类型对象变化时的回调函数。
+   * 当输入法属性对象及子类型对象变化时的回调函数。
    *
    * @param { InputMethodProperty } inputMethodProperty - 输入法属性对象。
    * @param { InputMethodSubtype } inputMethodSubtype - 输入法子类型对象。
@@ -519,7 +519,7 @@ declare namespace inputMethod {
   export type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
 
   /**
-   * @brief 输入法变更事件回调，携带发生输入法变更的用户ID。
+   * 输入法变更事件回调，携带发生输入法变更的用户ID。
    *
    * @param { InputMethodProperty } inputMethodProperty - 当前输入法的属性。
    * @param { InputMethodSubtype } inputMethodSubtype - 当前输入法的子类型。
@@ -533,7 +533,7 @@ declare namespace inputMethod {
       (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, userId: int) => void;
 
   /**
-   * @brief 获取编辑框最新状态下光标左侧指定长度的文本内容。
+   * 获取编辑框最新状态下光标左侧指定长度的文本内容。
    *
    * @param { int } length - 需要获取光标左侧文本内容的长度。
    * @returns { string } 光标左侧指定长度的文本内容。
@@ -543,7 +543,7 @@ declare namespace inputMethod {
   export type GetTextCallback = (length: int) => string;
 
   /**
-   * @brief 当光标处文本索引变化时触发的回调函数。
+   * 当光标处文本索引变化时触发的回调函数。
    *
    * @returns { int } 光标处文本索引。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -552,7 +552,7 @@ declare namespace inputMethod {
   export type GetTextIndexAtCursorCallback = () => int;
 
   /**
-   * @brief InputMethodSetting提供输入法配置与查询能力，面向前台应用提供以下功能：
+   * InputMethodSetting提供输入法配置与查询能力，面向前台应用提供以下功能：
    * <br>
    * <br>- 输入法变化订阅：通过
    * [on('imeChange')]{@link inputMethod.InputMethodSetting.on( type: 'imeChange', callback: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void )}
@@ -577,7 +577,7 @@ declare namespace inputMethod {
    */
   interface InputMethodSetting {
     /**
-     * @brief 订阅输入法及子类型变化监听事件。使用callback异步回调。
+     * 订阅输入法及子类型变化监听事件。使用callback异步回调。
      *
      * @param { 'imeChange' } type - 设置监听类型，固定取值为'imeChange'。
      * @param { function } callback - 回调函数，返回输入法属性对象及子类型对象。
@@ -590,7 +590,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief 取消订阅输入法及子类型变化监听事件。使用callback异步回调。
+     * 取消订阅输入法及子类型变化监听事件。使用callback异步回调。
      *
      * @param { 'imeChange' } type - 设置监听类型，固定取值为'imeChange'。
      * @param { function } [callback] - 回调函数，返回取消订阅的输入法属性对象及子类型对象。
@@ -603,7 +603,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。使用callback异步回调。
+     * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。使用callback异步回调。
      * <br>
      * <br>配对调用：
      * <br>
@@ -621,7 +621,7 @@ declare namespace inputMethod {
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。
+     * 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。
      *
      * @param { 'imeShow' } type - 设置监听类型，固定取值'imeShow'。
      * @param { function } [callback] - 取消订阅的回调函数。
@@ -633,7 +633,7 @@ declare namespace inputMethod {
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。使用callback异步回调。
+     * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。使用callback异步回调。
      * <br>
      * <br>配对调用：
      * <br>
@@ -651,7 +651,7 @@ declare namespace inputMethod {
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。
+     * 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。
      *
      * @param { 'imeHide' } type - 设置监听类型，固定取值'imeHide'。
      * @param { function } [callback] - 取消订阅的回调函数。
@@ -663,7 +663,7 @@ declare namespace inputMethod {
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * @brief 查询指定类型的输入法面板是否处于显示状态。
+     * 查询指定类型的输入法面板是否处于显示状态。
      *
      * @param { PanelInfo } panelInfo - 输入法面板的属性。
      * @returns { boolean } 面板显隐状态查询结果。<br/>- true表示被查询的输入法面板处于显示状态。<br/>- false表示被查询的输入法面板处于隐藏状态。
@@ -680,7 +680,7 @@ declare namespace inputMethod {
     isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
-     * @brief 查询指定类型的输入法面板在指定屏幕上是否处于显示状态。
+     * 查询指定类型的输入法面板在指定屏幕上是否处于显示状态。
      *
      * @param { PanelInfo } panelInfo - 输入法面板的属性。
      * @param { long } displayId - 屏幕ID。
@@ -696,7 +696,7 @@ declare namespace inputMethod {
     isPanelShown(panelInfo: PanelInfo, displayId: long): boolean;
 
     /**
-     * @brief 获取指定输入法应用的所有子类型。使用callback异步回调。
+     * 获取指定输入法应用的所有子类型。使用callback异步回调。
      *
      * @param { InputMethodProperty } inputMethodProperty - 输入法应用。
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - 回调函数，返回指定输入法应用的所有子类型。
@@ -715,7 +715,7 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * @brief 获取指定输入法应用的所有子类型。使用promise异步回调。
+     * 获取指定输入法应用的所有子类型。使用promise异步回调。
      *
      * @param { InputMethodProperty } inputMethodProperty - 输入法应用。
      * @returns { Promise<Array<InputMethodSubtype>> } Promise对象，返回指定输入法应用的所有子类型。
@@ -731,7 +731,7 @@ declare namespace inputMethod {
     listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array<InputMethodSubtype>>;
 
     /**
-     * @brief 查询当前输入法应用的所有子类型。使用callback异步回调。
+     * 查询当前输入法应用的所有子类型。使用callback异步回调。
      *
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - 回调函数，当返回当前输入法应用的所有子类型成功，err为undefined，
      *     data为获取到的InputMethodSubtype列表；否则为错误对象。
@@ -745,7 +745,7 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
     /**
-     * @brief 查询当前输入法应用的所有子类型。使用promise异步回调。
+     * 查询当前输入法应用的所有子类型。使用promise异步回调。
      *
      * @returns { Promise<Array<InputMethodSubtype>> } Promise对象，返回当前输入法应用的所有子类型。
      * @throws { BusinessError } 12800001 - bundle manager error.
@@ -758,12 +758,12 @@ declare namespace inputMethod {
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
     /**
-     * @brief 获取指定用户指定输入法的子类型列表。同步接口。
+     * 获取指定用户指定输入法的子类型列表。同步接口。
      *
      * @param { string } bundleName - 指定输入法的包名。
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
      *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
-     * @returns { Array<InputMethodSubtype> } the subtype of target input method.
+     * @returns { Array<InputMethodSubtype> } 返回指定输入法的子类型列表。
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -780,7 +780,7 @@ declare namespace inputMethod {
     getInputMethodSubtypes(bundleName: string, userId?: int): Array<InputMethodSubtype>;
 
     /**
-     * @brief 获取已激活/未激活的输入法应用列表。使用callback异步回调。
+     * 获取已激活/未激活的输入法应用列表。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -803,7 +803,7 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief 获取已激活/未激活的输入法应用列表。使用promise异步回调。
+     * 获取已激活/未激活的输入法应用列表。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -825,7 +825,7 @@ declare namespace inputMethod {
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief 获取已激活/未激活的输入法应用列表。同步接口。
+     * 获取已激活/未激活的输入法应用列表。同步接口。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -849,7 +849,7 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
     /**
-     * @brief 获取指定用户已激活/未激活的输入法应用列表。同步接口。
+     * 获取指定用户已激活/未激活的输入法应用列表。同步接口。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -876,7 +876,7 @@ declare namespace inputMethod {
     getInputMethodsSync(enable: boolean, userId?: int): Array<InputMethodProperty>;
 
     /**
-     * @brief 获取所有输入法应用列表。使用callback异步回调。
+     * 获取所有输入法应用列表。使用callback异步回调。
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - 回调函数。当返回所有输入法列表成功，err为undefined，
      *     data为获取到的InputMethodProperty列表；否则为错误对象。
@@ -890,7 +890,7 @@ declare namespace inputMethod {
     getAllInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief 获取所有输入法应用列表。使用promise异步回调。
+     * 获取所有输入法应用列表。使用promise异步回调。
      *
      * @returns { Promise<Array<InputMethodProperty>> } Promise对象，返回所有输入法列表。
      * @throws { BusinessError } 12800001 - bundle manager error.
@@ -903,7 +903,7 @@ declare namespace inputMethod {
     getAllInputMethods(): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief 获取所有输入法应用列表。同步接口。
+     * 获取所有输入法应用列表。同步接口。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -920,7 +920,7 @@ declare namespace inputMethod {
     getAllInputMethodsSync(): Array<InputMethodProperty>;
 
     /**
-     * @brief 获取指定用户的所有输入法应用列表。同步接口。
+     * 获取指定用户的所有输入法应用列表。同步接口。
      *
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
      *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
@@ -941,7 +941,7 @@ declare namespace inputMethod {
     getAllInputMethodsSync(userId?: int): Array<InputMethodProperty>;
 
     /**
-     * @brief 查询已安装的输入法列表。使用callback异步回调。
+     * 查询已安装的输入法列表。使用callback异步回调。
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - 回调函数。当返回已安装的输入法列表成功，err为undefined，
      *     data为获取到的InputMethodProperty列表；否则为错误对象。
@@ -953,7 +953,7 @@ declare namespace inputMethod {
     listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
     /**
-     * @brief 查询已安装的输入法列表。使用promise异步回调。
+     * 查询已安装的输入法列表。使用promise异步回调。
      *
      * @returns { Promise<Array<InputMethodProperty>> } Promise对象，返回已安装输入法列表。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -964,7 +964,7 @@ declare namespace inputMethod {
     listInputMethod(): Promise<Array<InputMethodProperty>>;
 
     /**
-     * @brief 显示输入法选择对话框。使用callback异步回调。
+     * 显示输入法选择对话框。使用callback异步回调。
      *
      * @param { AsyncCallback<boolean> } callback - 回调函数。当输入法选择对话框显示成功，err为undefined，data为true；否则为错误对象。
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -977,7 +977,7 @@ declare namespace inputMethod {
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief 显示输入法选择对话框。使用promise异步回调。
+     * 显示输入法选择对话框。使用promise异步回调。
      *
      * @returns { Promise<boolean> } Promise对象。返回true表示输入法选择对话框显示成功，返回false表示显示失败。
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -990,7 +990,7 @@ declare namespace inputMethod {
     showOptionalInputMethods(): Promise<boolean>;
 
     /**
-     * @brief 显示输入法选择对话框。使用callback异步回调。
+     * 显示输入法选择对话框。使用callback异步回调。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。当输入法选择对话框显示成功。err为undefined，否则为错误对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1001,7 +1001,7 @@ declare namespace inputMethod {
     displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 显示输入法选择对话框。使用promise异步回调。
+     * 显示输入法选择对话框。使用promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1012,7 +1012,7 @@ declare namespace inputMethod {
     displayOptionalInputMethod(): Promise<void>;
 
     /**
-     * @brief 查询输入法的启用状态。使用promise异步回调。
+     * 查询输入法的启用状态。使用promise异步回调。
      *
      * @returns { Promise<EnabledState> } Promise对象，返回EnabledState.DISABLED表示未启用； 返回EnabledState.BASIC_MODE表示基础模式；
      *     返回EnabledState.FULL_EXPERIENCE_MODE表示完整体验模式
@@ -1026,7 +1026,7 @@ declare namespace inputMethod {
     getInputMethodState(): Promise<EnabledState>;
 
     /**
-     * @brief 修改输入法的启用状态。使用promise异步回调。
+     * 修改输入法的启用状态。使用promise异步回调。
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { string } bundleName - 输入法包名。
@@ -1048,7 +1048,7 @@ declare namespace inputMethod {
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
     /**
-     * @brief 修改指定用户输入法的启用状态。
+     * 修改指定用户输入法的启用状态。
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { string } bundleName - 输入法的包名。
@@ -1077,7 +1077,7 @@ declare namespace inputMethod {
       bundleName: string, extensionName: string, enabledState: EnabledState, userId?: int): Promise<void>;
 
     /**
-     * @brief 订阅输入法及子类型变化监听事件。使用callback异步回调。
+     * 订阅输入法及子类型变化监听事件。使用callback异步回调。
      *
      * @param { ImeChangeCallback } callback - 回调函数，返回输入法属性对象及子类型对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1086,7 +1086,7 @@ declare namespace inputMethod {
     onImeChange(callback: ImeChangeCallback): void;
 
     /**
-     * @brief 取消订阅输入法及子类型变化监听事件。使用callback异步回调。
+     * 取消订阅输入法及子类型变化监听事件。使用callback异步回调。
      *
      * @param { ImeChangeCallback } [callback] - 回调函数，返回取消订阅的输入法属性对象及子类型对象。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1095,7 +1095,7 @@ declare namespace inputMethod {
     offImeChange(callback?: ImeChangeCallback): void;
 
     /**
-     * @brief 订阅输入法及子类型变化监听事件，携带发生输入法变更的用户ID。使用callback异步回调。
+     * 订阅输入法及子类型变化监听事件，携带发生输入法变更的用户ID。使用callback异步回调。
      * <br>
      * <br>配对调用：
      * <br>- 调用onImeChangeWithUserId订阅事件后，必须在使用完毕时调用offImeChangeWithUserId取消订阅。
@@ -1112,7 +1112,7 @@ declare namespace inputMethod {
     onImeChangeWithUserId(callback: ImeChangeWithUserIdCallback): void;
 
     /**
-     * @brief 取消订阅输入法及子类型变化监听事件，携带发生输入法变更的用户ID。使用callback异步回调。
+     * 取消订阅输入法及子类型变化监听事件，携带发生输入法变更的用户ID。使用callback异步回调。
      *
      * @param { ImeChangeWithUserIdCallback } [callback] - 回调函数，返回取消订阅的输入法属性对象、子类型对象及用户ID。<br>参数不填写时，取消订阅所有的回调事件
      * @throws { BusinessError } 202 - not system application.
@@ -1124,7 +1124,7 @@ declare namespace inputMethod {
     offImeChangeWithUserId(callback?: ImeChangeWithUserIdCallback): void;
 
     /**
-     * @brief 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。使用callback异步回调。
+     * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。使用callback异步回调。
      *
      * @param { Callback<Array<InputWindowInfo>> } callback - 回调函数，返回输入法固定态软键盘信息。
      * @throws { BusinessError } 202 - not system application.
@@ -1136,7 +1136,7 @@ declare namespace inputMethod {
     onImeShow(callback: Callback<Array<InputWindowInfo>>):void;
 
     /**
-     * @brief 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。
+     * 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。
      *
      * @param { Callback<Array<InputWindowInfo>> } [callback] - 取消订阅的回调函数。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -1148,7 +1148,7 @@ declare namespace inputMethod {
     offImeShow(callback?: Callback<Array<InputWindowInfo>>):void;
 
     /**
-     * @brief 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。使用callback异步回调。
+     * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。使用callback异步回调。
      *
      * @param { Callback<Array<InputWindowInfo>>} callback - 回调函数，返回输入法固定态软键盘信息。
      * @throws { BusinessError } 202 - not system application.
@@ -1159,7 +1159,7 @@ declare namespace inputMethod {
     onImeHide(callback: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * @brief 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。
+     * 取消订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。
      *
      * @param { Callback<Array<InputWindowInfo>> } [callback] - 取消订阅的回调函数。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -1170,7 +1170,7 @@ declare namespace inputMethod {
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
 
     /**
-     * @brief 获取默认输入法能力。为优化性能，返回的InputMethodProperty对象仅保证能够唯一标识输入法能力的`name`和`id`属性正确，其他属性可能为空。
+     * 获取默认输入法能力。为优化性能，返回的InputMethodProperty对象仅保证能够唯一标识输入法能力的`name`和`id`属性正确，其他属性可能为空。
      *
      * @returns { InputMethodProperty } 默认输入法属性，仅保证`name`和`id`属性正确，其他属性可能为空。
      * @throws { BusinessError } 202 - not system application.
@@ -1184,7 +1184,7 @@ declare namespace inputMethod {
     getDefaultInputMethodAbility(): InputMethodProperty;
 
     /**
-     * @brief 获取指定用户的光标信息。当编辑框未给输入法服务通知光标信息时，返回所有属性值都为0。
+     * 获取指定用户的光标信息。当编辑框未给输入法服务通知光标信息时，返回所有属性值都为0。
      *
      * @param { int } [userId] - 指定的用户ID。
      *     <br>如果调用者不是用户0应用，该值默认为调用者的用户ID。
@@ -1208,7 +1208,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 下列API示例中都需使用[getController]{@link inputMethod.getController}获取到InputMethodController实例，再通过实例调用对应方法。
+   * 下列API示例中都需使用[getController]{@link inputMethod.getController}获取到InputMethodController实例，再通过实例调用对应方法。
    * <br>
    * <br>InputMethodController是输入法客户端控制器，面向前台应用提供与输入法交互的核心能力。通过`inputMethod.getController()`获取实例后，可进行以下操作：
    * <br>
@@ -1240,7 +1240,7 @@ declare namespace inputMethod {
    */
   interface InputMethodController {
     /**
-     * @brief 自绘控件绑定输入法。使用callback异步回调。
+     * 自绘控件绑定输入法。使用callback异步回调。
      * <br>
      * <br>含义/功能：建立自绘控件与输入法应用之间的绑定关系，是自绘控件使用输入法功能的前提。
      * <br>
@@ -1285,7 +1285,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
     /**
-     * @brief 自绘控件绑定输入法。使用promise异步回调。
+     * 自绘控件绑定输入法。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1314,7 +1314,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
     /**
-     * @brief 自绘控件绑定输入法。使用promise异步回调。
+     * 自绘控件绑定输入法。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1344,7 +1344,7 @@ declare namespace inputMethod {
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
-     * @brief 自绘控件绑定输入法。使用promise异步回调。
+     * 自绘控件绑定输入法。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1366,7 +1366,7 @@ declare namespace inputMethod {
     attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>;
 
     /**
-     * @brief 编辑框应用发送“清空正在输入的文字”命令到输入法。使用promise异步回调。
+     * 编辑框应用发送“清空正在输入的文字”命令到输入法。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1385,7 +1385,7 @@ declare namespace inputMethod {
     discardTypingText(): Promise<void>;
 
     /**
-     * @brief 进入文本编辑状态。使用callback异步回调。
+     * 进入文本编辑状态。使用callback异步回调。
      * <br>
      * <br>含义/功能：拉起软键盘，使编辑框进入文本编辑状态。
      * <br>
@@ -1422,7 +1422,7 @@ declare namespace inputMethod {
      */
     showTextInput(callback: AsyncCallback<void>): void;
     /**
-     * @brief 进入文本编辑状态。使用promise异步回调。
+     * 进入文本编辑状态。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1441,7 +1441,7 @@ declare namespace inputMethod {
      */
     showTextInput(): Promise<void>;
     /**
-     * @brief 进入文本编辑状态。使用promise异步回调。
+     * 进入文本编辑状态。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1461,7 +1461,7 @@ declare namespace inputMethod {
      */
     showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
-     * @brief 退出文本编辑状态。使用callback异步回调。
+     * 退出文本编辑状态。使用callback异步回调。
      * <br>
      * <br>含义/功能：隐藏软键盘，使编辑框退出文本编辑状态。
      * <br>
@@ -1503,7 +1503,7 @@ declare namespace inputMethod {
     hideTextInput(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 退出文本编辑状态。使用promise异步回调。
+     * 退出文本编辑状态。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1527,7 +1527,7 @@ declare namespace inputMethod {
     hideTextInput(): Promise<void>;
 
     /**
-     * @brief 自绘控件解除与输入法的绑定。使用callback异步回调。
+     * 自绘控件解除与输入法的绑定。使用callback异步回调。
      * <br>
      * <br>含义/功能：解除自绘控件与输入法应用之间的绑定关系，释放相关资源。
      * <br>
@@ -1551,7 +1551,7 @@ declare namespace inputMethod {
     detach(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 自绘控件解除与输入法的绑定。使用promise异步回调。
+     * 自绘控件解除与输入法的绑定。使用promise异步回调。
      * <br>
      * <br>含义/功能：解除自绘控件与输入法应用之间的绑定关系，释放相关资源。
      * <br>
@@ -1574,7 +1574,7 @@ declare namespace inputMethod {
     detach(): Promise<void>;
 
     /**
-     * @brief 设置要避让软键盘的窗口。使用callback异步回调。
+     * 设置要避让软键盘的窗口。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1599,7 +1599,7 @@ declare namespace inputMethod {
     setCallingWindow(windowId: int, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 设置要避让软键盘的窗口。使用promise异步回调。
+     * 设置要避让软键盘的窗口。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1622,7 +1622,7 @@ declare namespace inputMethod {
     setCallingWindow(windowId: int): Promise<void>;
 
     /**
-     * @brief 当编辑框内的光标信息发生变化时，调用该接口使输入法感知到光标变化。使用callback异步回调。
+     * 当编辑框内的光标信息发生变化时，调用该接口使输入法感知到光标变化。使用callback异步回调。
      * <br> 
      * <br> > **说明：**
      * <br> >
@@ -1645,7 +1645,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 当编辑框内的光标信息发生变化时，调用该接口使输入法感知到光标变化。使用promise异步回调。
+     * 当编辑框内的光标信息发生变化时，调用该接口使输入法感知到光标变化。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1668,7 +1668,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo): Promise<void>;
 
     /**
-     * @brief 当编辑框内被选中的文本信息内容或文本范围发生变化时，可调用该接口更新文本信息，使输入法应用感知到变化。使用callback异步回调。
+     * 当编辑框内被选中的文本信息内容或文本范围发生变化时，可调用该接口更新文本信息，使输入法应用感知到变化。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1693,7 +1693,7 @@ declare namespace inputMethod {
     changeSelection(text: string, start: int, end: int, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 当编辑框内被选中的文本信息内容或文本范围发生变化时，可调用该接口更新文本信息，使输入法应用感知到变化。使用promise异步回调。
+     * 当编辑框内被选中的文本信息内容或文本范围发生变化时，可调用该接口更新文本信息，使输入法应用感知到变化。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1718,7 +1718,7 @@ declare namespace inputMethod {
     changeSelection(text: string, start: int, end: int): Promise<void>;
 
     /**
-     * @brief 更新编辑框属性信息。使用callback异步回调。
+     * 更新编辑框属性信息。使用callback异步回调。
      *
      * @param { InputAttribute } attribute - 编辑框属性对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当编辑框属性信息更新成功时，err为undefined；否则为错误对象。
@@ -1737,7 +1737,7 @@ declare namespace inputMethod {
     updateAttribute(attribute: InputAttribute, callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 更新编辑框属性信息。使用promise异步回调。
+     * 更新编辑框属性信息。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1759,7 +1759,7 @@ declare namespace inputMethod {
      */
     updateAttribute(attribute: InputAttribute): Promise<void>;
     /**
-     * @brief 结束输入会话。使用callback异步回调。
+     * 结束输入会话。使用callback异步回调。
      * <br>
      * <br>含义/功能：结束当前的输入会话，隐藏软键盘。
      * <br>
@@ -1789,7 +1789,7 @@ declare namespace inputMethod {
     stopInputSession(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief 结束输入会话。使用promise异步回调。
+     * 结束输入会话。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1808,7 +1808,7 @@ declare namespace inputMethod {
     stopInputSession(): Promise<boolean>;
 
     /**
-     * @brief 结束输入会话。使用callback异步回调。
+     * 结束输入会话。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1823,7 +1823,7 @@ declare namespace inputMethod {
     stopInput(callback: AsyncCallback<boolean>): void;
 
     /**
-     * @brief 结束输入会话。使用promise异步回调。
+     * 结束输入会话。使用promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1838,7 +1838,7 @@ declare namespace inputMethod {
     stopInput(): Promise<boolean>;
 
     /**
-     * @brief 显示输入法软键盘。使用callback异步回调。
+     * 显示输入法软键盘。使用callback异步回调。
      * <br>
      * <br>含义/功能：强制显示当前输入法的软键盘。
      * <br>
@@ -1873,7 +1873,7 @@ declare namespace inputMethod {
     showSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 显示输入法软键盘。使用Promise异步回调。
+     * 显示输入法软键盘。使用Promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1894,7 +1894,7 @@ declare namespace inputMethod {
     showSoftKeyboard(): Promise<void>;
 
     /**
-     * @brief 在指定屏幕上显示输入法软键盘。使用Promise异步回调。
+     * 在指定屏幕上显示输入法软键盘。使用Promise异步回调。
      * <br>
      * <br>配合使用：
      * <br>
@@ -1924,7 +1924,7 @@ declare namespace inputMethod {
     showSoftKeyboard(displayId: long): Promise<void>;
 
     /**
-     * @brief 隐藏输入法软键盘。使用callback异步回调。
+     * 隐藏输入法软键盘。使用callback异步回调。
      * <br>
      * <br>含义/功能：强制隐藏当前输入法的软键盘。
      * <br>
@@ -1959,7 +1959,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(callback: AsyncCallback<void>): void;
 
     /**
-     * @brief 隐藏输入法软键盘。使用Promise异步回调。
+     * 隐藏输入法软键盘。使用Promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -1980,7 +1980,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(): Promise<void>;
 
     /**
-     * @brief 隐藏指定屏幕上的输入法软键盘。使用Promise异步回调。
+     * 隐藏指定屏幕上的输入法软键盘。使用Promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2004,7 +2004,7 @@ declare namespace inputMethod {
     hideSoftKeyboard(displayId: long): Promise<void>;
 
     /**
-     * @brief 发送自定义通信至输入法应用。使用Promise异步回调。
+     * 发送自定义通信至输入法应用。使用Promise异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2031,7 +2031,7 @@ declare namespace inputMethod {
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
     /**
-     * @brief 注册或取消注册MessageHandler。
+     * 注册或取消注册MessageHandler。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2054,7 +2054,7 @@ declare namespace inputMethod {
     recvMessage(msgHandler?: MessageHandler): void;
 
     /**
-     * @brief 订阅输入法应用按范围选中文本事件。使用callback异步回调。
+     * 订阅输入法应用按范围选中文本事件。使用callback异步回调。
      *
      * @param { 'selectByRange' } type - 设置监听类型，固定取值为'selectByRange'。
      * @param { Callback<Range> } callback - 回调函数，返回需要选中的文本范围。<br/>根据传入的文本范围，开发者在回调函数中编辑框中相应文本。
@@ -2066,7 +2066,7 @@ declare namespace inputMethod {
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
     /**
-     * @brief 取消订阅输入法应用按范围选中文本事件。使用callback异步回调。
+     * 取消订阅输入法应用按范围选中文本事件。使用callback异步回调。
      *
      * @param { 'selectByRange' } type - 设置监听类型，固定取值为'selectByRange'。
      * @param { Callback<Range> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2077,7 +2077,7 @@ declare namespace inputMethod {
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
     /**
-     * @brief 订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
+     * 订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
      *
      * @param { 'selectByMovement' } type - 设置监听类型，固定取值为'selectByMovement'。
      * @param { Callback<Movement> } callback - 回调函数，返回光标移动的方向。<br/>根据传入的光标移动方向，选中编辑框中相应文本。
@@ -2089,7 +2089,7 @@ declare namespace inputMethod {
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
     /**
-     * @brief 取消订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
+     * 取消订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
      *
      * @param { 'selectByMovement' } type - 设置监听类型，固定取值为'selectByMovement'。
      * @param { Callback<Movement> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2100,7 +2100,7 @@ declare namespace inputMethod {
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
     /**
-     * @brief 订阅输入法应用插入文本事件。使用callback异步回调。
+     * 订阅输入法应用插入文本事件。使用callback异步回调。
      *
      * @param { 'insertText' } type - 设置监听类型，固定取值为'insertText'。
      * @param { function } callback - 回调函数，返回需要插入的文本内容。<br/>根据传入的文本，在回调函数中操作编辑框中的内容。
@@ -2113,7 +2113,7 @@ declare namespace inputMethod {
     on(type: 'insertText', callback: (text: string) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用插入文本事件。
+     * 取消订阅输入法应用插入文本事件。
      *
      * @param { 'insertText' } type - 设置监听类型，固定取值为'insertText'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。<br/>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2123,7 +2123,7 @@ declare namespace inputMethod {
     off(type: 'insertText', callback?: (text: string) => void): void;
 
     /**
-     * @brief 订阅输入法应用向左删除文本事件。使用callback异步回调。
+     * 订阅输入法应用向左删除文本事件。使用callback异步回调。
      *
      * @param { 'deleteLeft' } type - 设置监听类型，固定取值为'deleteLeft'。
      * @param { function } callback - 回调函数，返回需要向左删除的文本长度。<br/>根据传入的删除长度，在回调函数中操作编辑框中的文本。
@@ -2136,7 +2136,7 @@ declare namespace inputMethod {
     on(type: 'deleteLeft', callback: (length: number) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用向左删除文本事件。
+     * 取消订阅输入法应用向左删除文本事件。
      *
      * @param { 'deleteLeft' } type - 设置监听，固定取值为'deleteLeft'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2147,7 +2147,7 @@ declare namespace inputMethod {
     off(type: 'deleteLeft', callback?: (length: number) => void): void;
 
     /**
-     * @brief 订阅输入法应用向右删除文本事件。使用callback异步回调。
+     * 订阅输入法应用向右删除文本事件。使用callback异步回调。
      *
      * @param { 'deleteRight' } type - 设置监听类型，固定取值为'deleteRight'。
      * @param { function } callback - 回调函数，返回需要向右删除的文本长度。<br/>根据传入的删除长度，在回调函数中操作编辑框中的文本。
@@ -2160,7 +2160,7 @@ declare namespace inputMethod {
     on(type: 'deleteRight', callback: (length: number) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用向右删除文本事件。
+     * 取消订阅输入法应用向右删除文本事件。
      *
      * @param { 'deleteRight' } type - 设置监听类型，固定取值为`deleteRight`。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2171,7 +2171,7 @@ declare namespace inputMethod {
     off(type: 'deleteRight', callback?: (length: number) => void): void;
 
     /**
-     * @brief 订阅输入法应用发送输入法软键盘状态事件。使用callback异步回调。
+     * 订阅输入法应用发送输入法软键盘状态事件。使用callback异步回调。
      *
      * @param { 'sendKeyboardStatus' } type - 设置监听类型，固定取值为'sendKeyboardStatus'。
      * @param { function } callback - 回调函数，返回软键盘状态。<br/>根据传入的软键盘状态，在回调函数中做相应操作。
@@ -2184,7 +2184,7 @@ declare namespace inputMethod {
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用发送输入法软键盘状态事件。
+     * 取消订阅输入法应用发送输入法软键盘状态事件。
      *
      * @param { 'sendKeyboardStatus' } type - 设置监听类型，固定取值为'sendKeyboardStatus'。
      * @param { function } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
@@ -2194,7 +2194,7 @@ declare namespace inputMethod {
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
-     * @brief 订阅输入法应用发送功能键事件。使用callback异步回调。
+     * 订阅输入法应用发送功能键事件。使用callback异步回调。
      *
      * @param { 'sendFunctionKey' } type - 设置监听类型，固定取值为'sendFunctionKey'。
      * @param { function } callback - 回调函数，返回输入法应用发送的功能键信息。<br/>根据返回的功能键信息，做相应操作。
@@ -2207,7 +2207,7 @@ declare namespace inputMethod {
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用发送功能键事件。
+     * 取消订阅输入法应用发送功能键事件。
      *
      * @param { 'sendFunctionKey' } type - 设置监听类型，固定取值为'sendFunctionKey'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2218,7 +2218,7 @@ declare namespace inputMethod {
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
     /**
-     * @brief 订阅输入法应用移动光标事件。使用callback异步回调。
+     * 订阅输入法应用移动光标事件。使用callback异步回调。
      *
      * @param { 'moveCursor' } type - 设置监听类型，固定取值为'moveCursor'。
      * @param { function } callback - 回调函数，返回光标信息。<br/>根据返回的光标移动方向，改变光标位置，如光标向上或向下。
@@ -2231,7 +2231,7 @@ declare namespace inputMethod {
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用移动光标事件。
+     * 取消订阅输入法应用移动光标事件。
      *
      * @param { 'moveCursor' } type - 设置监听类型，固定取值为'moveCursor'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2242,7 +2242,7 @@ declare namespace inputMethod {
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
     /**
-     * @brief 订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
+     * 订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
      *
      * @param { 'handleExtendAction' } type - 设置监听类型，固定取值为'handleExtendAction'。
      * @param { function } callback - 回调函数，返回扩展编辑操作类型。<br/>根据传入的扩展编辑操作类型，做相应的操作，如剪切、复制等。
@@ -2255,7 +2255,7 @@ declare namespace inputMethod {
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
     /**
-     * @brief 取消订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
+     * 取消订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
      *
      * @param { 'handleExtendAction' } type - 设置监听类型，固定取值为'handleExtendAction'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2266,7 +2266,7 @@ declare namespace inputMethod {
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
     /**
-     * @brief 订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
+     * 订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
      *
      * @param { 'getLeftTextOfCursor' } type - 设置监听类型，固定取值为'getLeftTextOfCursor'。
      * @param { function } callback - 回调函数，获取编辑框最新状态下光标左侧指定长度的文本内容并返回。
@@ -2279,7 +2279,7 @@ declare namespace inputMethod {
     on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void;
 
     /**
-     * @brief 取消订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
      *
      * @param { 'getLeftTextOfCursor' } type - 设置监听类型，固定取值为'getLeftTextOfCursor'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2290,7 +2290,7 @@ declare namespace inputMethod {
     off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
 
     /**
-     * @brief 订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
+     * 订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
      *
      * @param { 'getRightTextOfCursor' } type - 设置监听类型，固定取值为'getRightTextOfCursor'。
      * @param { function } callback - 回调函数，获取编辑框最新状态下光标右侧指定长度的文本内容并返回。
@@ -2303,7 +2303,7 @@ declare namespace inputMethod {
     on(type: 'getRightTextOfCursor', callback: (length: number) => string): void;
 
     /**
-     * @brief 取消订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
      *
      * @param { 'getRightTextOfCursor' } type - 设置监听类型，固定取值为'getRightTextOfCursor'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2314,7 +2314,7 @@ declare namespace inputMethod {
     off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
 
     /**
-     * @brief 订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
+     * 订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
      *
      * @param { 'getTextIndexAtCursor' } type - 设置监听类型，固定取值为'getTextIndexAtCursor'。
      * @param { function } callback - 回调函数，获取编辑框最新状态下光标处文本索引并返回。
@@ -2327,7 +2327,7 @@ declare namespace inputMethod {
     on(type: 'getTextIndexAtCursor', callback: () => number): void;
 
     /**
-     * @brief 取消订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
      *
      * @param { 'getTextIndexAtCursor' } type - 设置监听类型，固定取值为'getTextIndexAtCursor'。
      * @param { function } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2338,7 +2338,7 @@ declare namespace inputMethod {
     off(type: 'getTextIndexAtCursor', callback?: () => number): void;
 
     /**
-     * @brief 订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
+     * 订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2358,7 +2358,7 @@ declare namespace inputMethod {
     on(type: 'setPreviewText', callback: SetPreviewTextCallback): void;
 
     /**
-     * @brief 取消订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
+     * 取消订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
      *
      * @param { 'setPreviewText' } type - 设置监听类型，固定取值为'setPreviewText'。
      * @param { SetPreviewTextCallback } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2369,7 +2369,7 @@ declare namespace inputMethod {
     off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void;
 
     /**
-     * @brief 订阅结束文本预览事件。使用callback异步回调。
+     * 订阅结束文本预览事件。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2389,7 +2389,7 @@ declare namespace inputMethod {
     on(type: 'finishTextPreview', callback: Callback<void>): void;
 
     /**
-     * @brief 取消订阅结束文本预览事件。使用callback异步回调。
+     * 取消订阅结束文本预览事件。使用callback异步回调。
      *
      * @param { 'finishTextPreview' } type - 设置监听类型，固定取值为'finishTextPreview'。
      * @param { Callback<void> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
@@ -2400,7 +2400,7 @@ declare namespace inputMethod {
     off(type: 'finishTextPreview', callback?: Callback<void>): void;
 
     /**
-     * @brief 订阅输入法应用按范围选中文本事件。使用callback异步回调。
+     * 订阅输入法应用按范围选中文本事件。使用callback异步回调。
      *
      * @param { Callback<Range> } callback - 回调函数，返回需要选中的文本范围。<br/>根据传入的文本范围，开发者在回调函数中编辑框中相应文本。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2408,7 +2408,7 @@ declare namespace inputMethod {
      */
     onSelectByRange(callback: Callback<Range>): void;
     /**
-     * @brief 取消订阅输入法应用按范围选中文本事件。使用callback异步回调。
+     * 取消订阅输入法应用按范围选中文本事件。使用callback异步回调。
      *
      * @param { Callback<Range> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2418,7 +2418,7 @@ declare namespace inputMethod {
     offSelectByRange(callback?: Callback<Range>): void;
 
     /**
-     * @brief 订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
+     * 订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
      *
      * @param { Callback<Movement> } callback - 回调函数，返回光标移动的方向。<br/>根据传入的光标移动方向，选中编辑框中相应文本。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2426,7 +2426,7 @@ declare namespace inputMethod {
      */
     onSelectByMovement(callback: Callback<Movement>): void;
     /**
-     * @brief 取消订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
+     * 取消订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
      *
      * @param { Callback<Movement> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2436,7 +2436,7 @@ declare namespace inputMethod {
     offSelectByMovement(callback?: Callback<Movement>): void;
 
    /**
-     * @brief 订阅输入法应用插入文本事件。使用callback异步回调。
+     * 订阅输入法应用插入文本事件。使用callback异步回调。
      *
      * @param { Callback<string> } callback - 回调函数，返回需要插入的文本内容。<br/>根据传入的文本，在回调函数中操作编辑框中的内容。
      * @throws  { BusinessError } 12800009 - input method client detached.
@@ -2445,7 +2445,7 @@ declare namespace inputMethod {
      */
     onInsertText(callback: Callback<string>): void;
   /**
-     * @brief 取消订阅输入法应用插入文本事件。
+     * 取消订阅输入法应用插入文本事件。
      *
      * @param { Callback<string> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。<br/>参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2454,7 +2454,7 @@ declare namespace inputMethod {
     offInsertText(callback?: Callback<string>): void;
 
    /**
-     * @brief 订阅输入法应用向左删除文本事件。使用callback异步回调。
+     * 订阅输入法应用向左删除文本事件。使用callback异步回调。
      *
      * @param { Callback<int> } callback - 回调函数，返回需要向左删除的文本长度。<br/>根据传入的删除长度，在回调函数中操作编辑框中的文本。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2463,7 +2463,7 @@ declare namespace inputMethod {
      */
     onDeleteLeft(callback: Callback<int>): void;
    /**
-     * @brief 取消订阅输入法应用向左删除文本事件。
+     * 取消订阅输入法应用向左删除文本事件。
      *
      * @param { Callback<int> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2473,7 +2473,7 @@ declare namespace inputMethod {
     offDeleteLeft(callback?: Callback<int>): void;
 
     /**
-     * @brief 订阅输入法应用向右删除文本事件。使用callback异步回调。
+     * 订阅输入法应用向右删除文本事件。使用callback异步回调。
      *
      * @param { Callback<int> } callback - 回调函数，返回需要向右删除的文本长度。<br/>根据传入的删除长度，在回调函数中操作编辑框中的文本。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2482,7 +2482,7 @@ declare namespace inputMethod {
      */
     onDeleteRight(callback: Callback<int>): void;
   /**
-     * @brief 取消订阅输入法应用向右删除文本事件。
+     * 取消订阅输入法应用向右删除文本事件。
      *
      * @param { Callback<int> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2501,7 +2501,7 @@ declare namespace inputMethod {
      */
     onSendKeyboardStatus(callback: Callback<KeyboardStatus>): void;
    /**
-     * @brief 取消订阅输入法应用发送输入法软键盘状态事件。
+     * 取消订阅输入法应用发送输入法软键盘状态事件。
      *
      * @param { Callback<KeyboardStatus> } [callback] - 取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2510,7 +2510,7 @@ declare namespace inputMethod {
     offSendKeyboardStatus(callback?: Callback<KeyboardStatus>): void;
 
    /**
-     * @brief 订阅输入法应用发送功能键事件。使用callback异步回调。
+     * 订阅输入法应用发送功能键事件。使用callback异步回调。
      *
      * @param { Callback<FunctionKey> } callback - 回调函数，返回输入法应用发送的功能键信息。<br/>根据返回的功能键信息，做相应操作。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2519,7 +2519,7 @@ declare namespace inputMethod {
      */
     onSendFunctionKey(callback: Callback<FunctionKey>): void;
     /**
-     * @brief 取消订阅输入法应用发送功能键事件。
+     * 取消订阅输入法应用发送功能键事件。
      *
      * @param { Callback<FunctionKey> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2529,7 +2529,7 @@ declare namespace inputMethod {
     offSendFunctionKey(callback?: Callback<FunctionKey>): void;
 
     /**
-     * @brief 订阅输入法应用移动光标事件。使用callback异步回调。
+     * 订阅输入法应用移动光标事件。使用callback异步回调。
      *
      * @param { Callback<Direction> } callback - 回调函数，返回光标信息。<br/>根据返回的光标移动方向，改变光标位置，如光标向上或向下。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2538,7 +2538,7 @@ declare namespace inputMethod {
      */
     onMoveCursor(callback: Callback<Direction>): void;
   /**
-     * @brief 取消订阅输入法应用移动光标事件。
+     * 取消订阅输入法应用移动光标事件。
      *
      * @param { Callback<Direction> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2548,7 +2548,7 @@ declare namespace inputMethod {
     offMoveCursor(callback?: Callback<Direction>): void;
 
   /**
-     * @brief 订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
+     * 订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
      *
      * @param { Callback<ExtendAction> } callback - 回调函数，返回扩展编辑操作类型。<br/>根据传入的扩展编辑操作类型，做相应的操作，如剪切、复制等。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2557,7 +2557,7 @@ declare namespace inputMethod {
      */
     onHandleExtendAction(callback: Callback<ExtendAction>): void;
   /**
-     * @brief 取消订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
+     * 取消订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
      *
      * @param { Callback<ExtendAction> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2567,7 +2567,7 @@ declare namespace inputMethod {
     offHandleExtendAction(callback?: Callback<ExtendAction>): void;
 
   /**
-     * @brief 订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
+     * 订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
      *
      * @param { GetTextCallback } callback - 回调函数，获取编辑框最新状态下光标左侧指定长度的文本内容并返回。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2576,7 +2576,7 @@ declare namespace inputMethod {
      */
     onGetLeftTextOfCursor(callback: GetTextCallback): void;
    /**
-     * @brief 取消订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
      *
      * @param { GetTextCallback } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2586,7 +2586,7 @@ declare namespace inputMethod {
     offGetLeftTextOfCursor(callback?: GetTextCallback): void;
 
    /**
-     * @brief 订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
+     * 订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
      *
      * @param { GetTextCallback } callback - 回调函数，获取编辑框最新状态下光标右侧指定长度的文本内容并返回。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2595,7 +2595,7 @@ declare namespace inputMethod {
      */
     onGetRightTextOfCursor(callback: GetTextCallback): void;
    /**
-     * @brief 取消订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
      *
      * @param { GetTextCallback } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2605,7 +2605,7 @@ declare namespace inputMethod {
     offGetRightTextOfCursor(callback?: GetTextCallback): void;
 
    /**
-     * @brief 订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
+     * 订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
      *
      * @param { GetTextIndexAtCursorCallback } callback - 回调函数，获取编辑框最新状态下光标处文本索引并返回。
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -2614,7 +2614,7 @@ declare namespace inputMethod {
      */
     onGetTextIndexAtCursor(callback: GetTextIndexAtCursorCallback): void;
    /**
-     * @brief 取消订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
+     * 取消订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
      *
      * @param { GetTextIndexAtCursorCallback } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2625,7 +2625,7 @@ declare namespace inputMethod {
     offGetTextIndexAtCursor(callback?:GetTextIndexAtCursorCallback): void;
 
    /**
-     * @brief 订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
+     * 订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2641,7 +2641,7 @@ declare namespace inputMethod {
      */
     onSetPreviewText(callback: SetPreviewTextCallback): void;
    /**
-     * @brief 取消订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
+     * 取消订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
      *
      * @param { SetPreviewTextCallback } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2652,7 +2652,7 @@ declare namespace inputMethod {
     offSetPreviewText(callback?:SetPreviewTextCallback): void;
 
    /**
-     * @brief 订阅结束文本预览事件。使用callback异步回调。
+     * 订阅结束文本预览事件。使用callback异步回调。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -2668,7 +2668,7 @@ declare namespace inputMethod {
      */
     onFinishTextPreview(callback: Callback<void>): void;
     /**
-     * @brief 取消订阅结束文本预览事件。使用callback异步回调。
+     * 取消订阅结束文本预览事件。使用callback异步回调。
      *
      * @param { Callback<void> } [callback] - 取消订阅的回调函数，需要与on接口传入的保持一致。
      *     <br>参数不填写时，取消订阅type对应的所有回调事件。
@@ -2679,7 +2679,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 输入法应用属性。
+   * 输入法应用属性。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -2687,7 +2687,7 @@ declare namespace inputMethod {
    */
   interface InputMethodProperty {
     /**
-     * @brief 输入法包名。必填。
+     * 输入法包名。必填。
      * <br>
      * <br>说明：从API version 8开始支持，从API version 9开始废弃，建议使用name替代。
      *
@@ -2699,7 +2699,7 @@ declare namespace inputMethod {
     readonly packageName: string;
 
     /**
-     * @brief 输入法唯一标识。必填。
+     * 输入法唯一标识。必填。
      * <br>
      * <br>说明：从API version 8开始支持，从API version 9开始废弃，建议使用id替代。
      *
@@ -2711,7 +2711,7 @@ declare namespace inputMethod {
     readonly methodId: string;
 
     /**
-     * @brief 必填。输入法包名。
+     * 必填。输入法包名。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
@@ -2720,7 +2720,7 @@ declare namespace inputMethod {
     readonly name: string;
 
     /**
-     * @brief 必填。输入法扩展在应用内唯一标识，与name一起组成输入法扩展的全局唯一标识。
+     * 必填。输入法扩展在应用内唯一标识，与name一起组成输入法扩展的全局唯一标识。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
@@ -2729,7 +2729,7 @@ declare namespace inputMethod {
     readonly id: string;
 
     /**
-     * @brief 非必填。
+     * 非必填。
      * <br>- 当InputMethodProperty用于切换、查询等接口的入参时，开发者可不填写此字段，通过name和id即可唯一指定一个输入法扩展。
      * <br>- 当InputMethodProperty作为查询接口的返回值时（如[getCurrentInputMethod]{@link inputMethod.getCurrentInputMethod}），此字段表示输入法扩展对外
      * 显示的名称，优先使用InputMethodExtensionAbility中配置的label，若未配置，自动使用应用入口ability的label；当应用入口ability未配置label时，自动使用应用AppScope中配置
@@ -2742,7 +2742,7 @@ declare namespace inputMethod {
     readonly label?: string;
 
     /**
-     * @brief 非必填。
+     * 非必填。
      * <br>- 当InputMethodProperty用于切换、查询等接口的入参时，开发者可不填写此字段，通过name和id即可唯一指定一个输入法扩展。
      * <br>- 当InputMethodProperty作为查询接口的返回值时（如[getCurrentInputMethod]{@link inputMethod.getCurrentInputMethod}），此字段表示label字段
      * 的资源号。
@@ -2754,7 +2754,7 @@ declare namespace inputMethod {
     readonly labelId?: long;
 
     /**
-     * @brief 非必填。
+     * 非必填。
      * <br>- 当InputMethodProperty用于切换、查询等接口的入参时，开发者可不填写此字段，通过name和id即可唯一指定一个输入法扩展。
      * <br>- 当InputMethodProperty作为查询接口的返回值时（如[getCurrentInputMethod]{@link inputMethod.getCurrentInputMethod}），此字段表示输入法图标数
      * 据，可以通过iconId查询获取。
@@ -2766,7 +2766,7 @@ declare namespace inputMethod {
     readonly icon?: string;
 
     /**
-     * @brief 非必填。
+     * 非必填。
      * <br>- 当InputMethodProperty用于切换、查询等接口的入参时，开发者可不填写此字段，通过name和id即可唯一指定一个输入法扩展。
      * <br>- 当InputMethodProperty作为查询接口的返回值时（如[getCurrentInputMethod]{@link inputMethod.getCurrentInputMethod}），此字段表示icon字段的
      * 资源号。
@@ -2778,7 +2778,7 @@ declare namespace inputMethod {
     readonly iconId?: long;
 
     /**
-     * @brief 非必填。
+     * 非必填。
      * <br>- 当InputMethodProperty用于切换、查询等接口的入参时，开发者可不填写此字段，通过name和id即可唯一指定一个输入法扩展
      * <br>- 当InputMethodProperty作为查询接口的返回值时（如[getCurrentInputMethod]{@link inputMethod.getCurrentInputMethod}），此字段表示该输入法启用状
      * 态。
@@ -2790,7 +2790,7 @@ declare namespace inputMethod {
     readonly enabledState?: EnabledState;
 
     /**
-     * @brief 输入法扩展信息。
+     * 输入法扩展信息。
      * <br>
      * <br>- API version 10起：非必填；
      * <br>- API version 9：必填。
@@ -2805,7 +2805,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 光标移动方向。
+   * 光标移动方向。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2813,7 +2813,7 @@ declare namespace inputMethod {
    */
   export enum Direction {
     /**
-     * @brief 向上。
+     * 向上。
      * <br>
      * <br>使用场景：输入法请求光标向上移动时使用，如多行文本中上移光标。
      *
@@ -2824,7 +2824,7 @@ declare namespace inputMethod {
     CURSOR_UP = 1,
 
     /**
-     * @brief 向下。
+     * 向下。
      * <br>
      * <br>使用场景：输入法请求光标向下移动时使用。
      *
@@ -2835,7 +2835,7 @@ declare namespace inputMethod {
     CURSOR_DOWN,
 
     /**
-     * @brief 向左。
+     * 向左。
      * <br>
      * <br>使用场景：输入法请求光标向左移动时使用，如删除左侧字符前移动光标。
      *
@@ -2846,7 +2846,7 @@ declare namespace inputMethod {
     CURSOR_LEFT,
 
     /**
-     * @brief 向右。
+     * 向右。
      * <br>
      * <br>使用场景：输入法请求光标向右移动时使用。
      *
@@ -2858,7 +2858,7 @@ declare namespace inputMethod {
   }
 
   /**
-   *@brief  文本的选中范围。
+   * 文本的选中范围。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2866,7 +2866,7 @@ declare namespace inputMethod {
    */
   export interface Range {
     /**
-     * @brief 选中文本的首字符在编辑框的索引值。该参数应为大于或等于0的整数，不超过文本实际长度。
+     * 选中文本的首字符在编辑框的索引值。该参数应为大于或等于0的整数，不超过文本实际长度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2875,7 +2875,7 @@ declare namespace inputMethod {
     start: int;
 
     /**
-     * @brief 选中文本的末字符在编辑框的索引值。该参数应为大于或等于0的整数，不超过文本实际长度，end值要大于start值。
+     * 选中文本的末字符在编辑框的索引值。该参数应为大于或等于0的整数，不超过文本实际长度，end值要大于start值。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2885,7 +2885,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 选中文本时，光标移动的方向。
+   * 选中文本时，光标移动的方向。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2893,7 +2893,7 @@ declare namespace inputMethod {
    */
   export interface Movement {
     /**
-     * @brief 选中文本时，光标的移动方向。
+     * 选中文本时，光标的移动方向。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -2903,7 +2903,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 文本输入类型。
+   * 文本输入类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -2911,7 +2911,7 @@ declare namespace inputMethod {
    */
   export enum TextInputType {
     /**
-     * @brief NONE。
+     * NONE。
      * <br>
      * <br>使用场景：当编辑框不希望指定特定输入类型时使用，输入法将使用默认键盘布局。
      *
@@ -2922,7 +2922,7 @@ declare namespace inputMethod {
     NONE = -1,
 
     /**
-     * @brief 文本类型。
+     * 文本类型。
      * <br>
      * <br>使用场景：适用于普通文本输入框，如聊天、备忘录等，输入法显示全功能键盘。
      *
@@ -2933,7 +2933,7 @@ declare namespace inputMethod {
     TEXT = 0,
 
     /**
-     * @brief 多行类型。
+     * 多行类型。
      * <br>
      * <br>使用场景：适用于需要多行文本输入的场景，如长文本编辑、评论框等。
      *
@@ -2944,7 +2944,7 @@ declare namespace inputMethod {
     MULTILINE,
 
     /**
-     * @brief 数字类型。
+     * 数字类型。
      * <br>
      * <br>使用场景：适用于仅需要输入数字的场景，如数量输入、年龄输入等，输入法显示数字键盘。
      *
@@ -2955,7 +2955,7 @@ declare namespace inputMethod {
     NUMBER,
 
     /**
-     * @brief 电话号码类型。
+     * 电话号码类型。
      * <br>
      * <br>使用场景：适用于电话号码输入框，输入法显示电话号码键盘（包含数字和常用电话符号）。
      *
@@ -2966,7 +2966,7 @@ declare namespace inputMethod {
     PHONE,
 
     /**
-     * @brief 日期类型。
+     * 日期类型。
      * <br>
      * <br>使用场景：适用于日期时间输入框，输入法显示日期相关的键盘布局。
      *
@@ -2977,7 +2977,7 @@ declare namespace inputMethod {
     DATETIME,
 
     /**
-     * @brief 邮箱地址类型。
+     * 邮箱地址类型。
      * <br>
      * <br>使用场景：适用于邮箱输入框，输入法键盘会突出显示"@""."等常用邮箱符号。
      *
@@ -2988,7 +2988,7 @@ declare namespace inputMethod {
     EMAIL_ADDRESS,
 
     /**
-     * @brief 链接类型。
+     * 链接类型。
      * <br>
      * <br>使用场景：适用于网址输入框，输入法键盘会突出显示"/""."等常用URL符号。
      *
@@ -2999,7 +2999,7 @@ declare namespace inputMethod {
     URL,
 
     /**
-     * @brief 密码类型。
+     * 密码类型。
      * <br>
      * <br>使用场景：适用于密码输入框，输入法显示可见密码键盘，不进行自动建议。
      *
@@ -3010,7 +3010,7 @@ declare namespace inputMethod {
     VISIBLE_PASSWORD,
 
     /**
-     * @brief 数字密码类型。
+     * 数字密码类型。
      * <br>
      * <br>使用场景：适用于仅需输入数字密码的场景，如PIN码输入。
      *
@@ -3021,7 +3021,7 @@ declare namespace inputMethod {
     NUMBER_PASSWORD,
 
     /**
-     * @brief 锁屏密码类型。
+     * 锁屏密码类型。
      * <br>
      * <br>使用场景：适用于锁屏界面的密码输入框。
      *
@@ -3032,7 +3032,7 @@ declare namespace inputMethod {
     SCREEN_LOCK_PASSWORD,
 
     /**
-     * @brief 用户名类型。
+     * 用户名类型。
      * <br>
      * <br>使用场景：适用于用户名输入框，输入法可根据用户名特点优化建议。
      *
@@ -3043,7 +3043,7 @@ declare namespace inputMethod {
     USER_NAME,
 
     /**
-     * @brief 新密码类型。
+     * 新密码类型。
      * <br>
      * <br>使用场景：适用于设置新密码的输入框，输入法可提供密码强度提示。
      *
@@ -3054,7 +3054,7 @@ declare namespace inputMethod {
     NEW_PASSWORD,
 
     /**
-     * @brief 带小数点的数字类型。
+     * 带小数点的数字类型。
      * <br>
      * <br>使用场景：适用于需要输入带小数点数字的场景，如金额输入。
      *
@@ -3065,7 +3065,7 @@ declare namespace inputMethod {
     NUMBER_DECIMAL,
 
     /**
-     * @brief 验证码类型。
+     * 验证码类型。
      * <br>
      * <br>使用场景：适用于验证码输入框，输入法可优化验证码输入体验。
      *
@@ -3077,7 +3077,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief Enter键的功能类型。
+   * Enter键的功能类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3085,7 +3085,7 @@ declare namespace inputMethod {
    */
   export enum EnterKeyType {
     /**
-     * @brief 未指定。
+     * 未指定。
      * <br>
      * <br>使用场景：编辑框不指定Enter键具体功能时使用。
      *
@@ -3096,7 +3096,7 @@ declare namespace inputMethod {
     UNSPECIFIED = 0,
 
     /**
-     * @brief NONE。
+     * NONE。
      * <br>
      * <br>使用场景：Enter键无特定行为，仅作为换行或普通按键使用。
      *
@@ -3107,7 +3107,7 @@ declare namespace inputMethod {
     NONE,
 
     /**
-     * @brief 前往。
+     * 前往。
      * <br>
      * <br>使用场景：适用于URL输入框，Enter键触发"前往"操作，如打开链接。
      *
@@ -3118,7 +3118,7 @@ declare namespace inputMethod {
     GO,
 
     /**
-     * @brief 查找。
+     * 查找。
      * <br>
      * <br>使用场景：适用于搜索框，Enter键触发搜索操作。
      *
@@ -3129,7 +3129,7 @@ declare namespace inputMethod {
     SEARCH,
 
     /**
-     * @brief 发送。
+     * 发送。
      * <br>
      * <br>使用场景：适用于消息发送框，Enter键触发发送操作。
      *
@@ -3140,7 +3140,7 @@ declare namespace inputMethod {
     SEND,
 
     /**
-     * @brief 下一步。
+     * 下一步。
      * <br>
      * <br>使用场景：适用于多步骤表单，Enter键跳转到下一个输入框。
      *
@@ -3151,7 +3151,7 @@ declare namespace inputMethod {
     NEXT,
 
     /**
-     * @brief 完成。
+     * 完成。
      * <br>
      * <br>使用场景：适用于单步骤表单的最后输入框，Enter键表示输入完成。
      *
@@ -3162,7 +3162,7 @@ declare namespace inputMethod {
     DONE,
 
     /**
-     * @brief 上一步。
+     * 上一步。
      * <br>
      * <br>使用场景：适用于多步骤表单，Enter键跳转到上一个输入框。
      *
@@ -3173,7 +3173,7 @@ declare namespace inputMethod {
     PREVIOUS,
 
     /**
-     * @brief 换行。
+     * 换行。
      * <br>
      * <br>使用场景：适用于多行文本编辑框，Enter键插入换行符。
      *
@@ -3185,7 +3185,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 输入法软键盘状态。
+   * 输入法软键盘状态。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3193,7 +3193,7 @@ declare namespace inputMethod {
    */
   export enum KeyboardStatus {
     /**
-     * @brief NONE。
+     * NONE。
      * <br>
      * <br>使用场景：表示键盘状态尚未确定或无法判断时使用。
      *
@@ -3204,7 +3204,7 @@ declare namespace inputMethod {
     NONE = 0,
 
     /**
-     * @brief 隐藏状态。
+     * 隐藏状态。
      * <br>
      * <br>使用场景：表示当前软键盘处于隐藏状态。
      *
@@ -3215,7 +3215,7 @@ declare namespace inputMethod {
     HIDE = 1,
 
     /**
-     * @brief 显示状态。
+     * 显示状态。
      * <br>
      * <br>使用场景：表示当前软键盘处于显示状态。
      *
@@ -3227,7 +3227,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 编辑框属性，包含文本输入类型和Enter键功能类型。
+   * 编辑框属性，包含文本输入类型和Enter键功能类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3235,7 +3235,7 @@ declare namespace inputMethod {
    */
   export interface InputAttribute {
     /**
-     * @brief 文本输入类型。
+     * 文本输入类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3244,7 +3244,7 @@ declare namespace inputMethod {
     textInputType: TextInputType;
 
     /**
-     * @brief Enter键功能类型。
+     * Enter键功能类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3253,7 +3253,7 @@ declare namespace inputMethod {
     enterKeyType: EnterKeyType;
 
     /**
-     * @brief 编辑框设置的占位符信息。 
+     * 编辑框设置的占位符信息。 
      * <br>
      * <br>- 编辑框设置占位符信息时，长度不超过255个字符（如果超出将会自动截断为255个字符），用于提示或引导用户输入临时性文本或符号。（例如：提示输入项为"必填"或"非必填"的输入结果反馈。）
      * <br>- 编辑框没有设置占位符信息时，默认为空字符串。
@@ -3268,7 +3268,7 @@ declare namespace inputMethod {
     placeholder?: string;
 
     /**
-     * @brief 编辑框是否具有完整处理字母、字符、功能等按键的能力。默认值为false。
+     * 编辑框是否具有完整处理字母、字符、功能等按键的能力。默认值为false。
      * <br>
      * <br>- 值为true，表示具备此能力。
      * <br>- 值为false，表示不具备此能力。
@@ -3284,7 +3284,7 @@ declare namespace inputMethod {
     consumeKeyEvents?: boolean;
 
     /**
-     * @brief 编辑框设置的ability名称。
+     * 编辑框设置的ability名称。
      * <br>
      * <br>- 编辑框设置ability名称时，长度不超过127个字符（如果超出将会自动截断为127个字符）。
      * <br>- 编辑框未设置ability名称时，默认为空字符串。
@@ -3300,7 +3300,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 输入法功能键类型。
+   * 输入法功能键类型。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3308,7 +3308,7 @@ declare namespace inputMethod {
    */
   export interface FunctionKey {
     /**
-     * @brief 输入法enter键类型。
+     * 输入法enter键类型。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3318,7 +3318,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 光标信息。
+   * 光标信息。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3326,7 +3326,7 @@ declare namespace inputMethod {
    */
   export interface CursorInfo {
     /**
-     * @brief 光标的横坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
+     * 光标的横坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3335,7 +3335,7 @@ declare namespace inputMethod {
     left: double;
 
     /**
-     * @brief 光标的纵坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
+     * 光标的纵坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3344,7 +3344,7 @@ declare namespace inputMethod {
     top: double;
 
     /**
-     * @brief 光标的宽度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
+     * 光标的宽度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3353,7 +3353,7 @@ declare namespace inputMethod {
     width: double;
 
     /**
-     * @brief 光标的高度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
+     * 光标的高度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3362,7 +3362,7 @@ declare namespace inputMethod {
     height: double;
 
     /**
-     * @brief 光标所在显示器的ID，该参数应为整数，最小值为0，默认值为0。
+     * 光标所在显示器的ID，该参数应为整数，最小值为0，默认值为0。
      *
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3373,7 +3373,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 编辑框的配置信息。
+   * 编辑框的配置信息。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3381,7 +3381,7 @@ declare namespace inputMethod {
    */
   export interface TextConfig {
     /**
-     * @brief 编辑框属性。
+     * 编辑框属性。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3390,7 +3390,7 @@ declare namespace inputMethod {
     inputAttribute: InputAttribute;
 
     /**
-     * @brief 光标信息。
+     * 光标信息。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3399,7 +3399,7 @@ declare namespace inputMethod {
     cursorInfo?: CursorInfo;
 
     /**
-     * @brief 文本选中的范围。
+     * 文本选中的范围。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3408,7 +3408,7 @@ declare namespace inputMethod {
     selection?: Range;
 
     /**
-     * @brief 编辑框所在的窗口Id，该参数应为整数。
+     * 编辑框所在的窗口Id，该参数应为整数。
      * <br>
      * <br>推荐使用[getWindowProperties]{@link @ohos.window:window.Window.getWindowProperties}方法获取窗口id属性。
      *
@@ -3419,7 +3419,7 @@ declare namespace inputMethod {
     windowId?: int;
 
     /**
-     * @brief 表示是否为新编辑框。true表示新编辑框，false表示非新编辑框。默认值为false。
+     * 表示是否为新编辑框。true表示新编辑框，false表示非新编辑框。默认值为false。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3428,7 +3428,7 @@ declare namespace inputMethod {
     newEditBox?: boolean;
 
     /**
-     * @brief 编辑框设置大小写模式。如果没有设置或设置非法值，默认不进行任何首字母大写处理。
+     * 编辑框设置大小写模式。如果没有设置或设置非法值，默认不进行任何首字母大写处理。
      *
      * @default CapitalizeMode.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3439,7 +3439,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
+   * 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3447,7 +3447,7 @@ declare namespace inputMethod {
    */
   export enum ExtendAction {
     /**
-     * @brief 全选。
+     * 全选。
      * <br>
      * <br>使用场景：输入法请求全选编辑框中的文本时使用。
      *
@@ -3458,7 +3458,7 @@ declare namespace inputMethod {
     SELECT_ALL = 0,
 
     /**
-     * @brief 剪切。
+     * 剪切。
      * <br>
      * <br>使用场景：输入法请求剪切选中的文本时使用，将选中文本复制到剪贴板并删除原文本。
      *
@@ -3469,7 +3469,7 @@ declare namespace inputMethod {
     CUT = 3,
 
     /**
-     * @brief 复制。
+     * 复制。
      * <br>
      * <br>使用场景：输入法请求复制选中的文本时使用，将选中文本复制到剪贴板。
      *
@@ -3480,7 +3480,7 @@ declare namespace inputMethod {
     COPY = 4,
 
     /**
-     * @brief 粘贴。
+     * 粘贴。
      * <br>
      * <br>使用场景：输入法请求粘贴剪贴板内容时使用。
      *
@@ -3492,7 +3492,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 输入法软键盘的窗口信息。
+   * 输入法软键盘的窗口信息。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
@@ -3500,7 +3500,7 @@ declare namespace inputMethod {
    */
   export interface InputWindowInfo {
     /**
-     * @brief 输入法窗口的名称。
+     * 输入法窗口的名称。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3509,7 +3509,7 @@ declare namespace inputMethod {
     name: string;
 
     /**
-     * @brief 输入法窗口左上顶点的横坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
+     * 输入法窗口左上顶点的横坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3518,7 +3518,7 @@ declare namespace inputMethod {
     left: int;
 
     /**
-     * @brief 输入法窗口左上顶点的纵坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
+     * 输入法窗口左上顶点的纵坐标，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3527,7 +3527,7 @@ declare namespace inputMethod {
     top: int;
 
     /**
-     * @brief 输入法窗口的宽度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
+     * 输入法窗口的宽度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的宽度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3536,7 +3536,7 @@ declare namespace inputMethod {
     width: long;
 
     /**
-     * @brief 输入法窗口的高度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
+     * 输入法窗口的高度，单位为px。该参数应为整数，最小值为0，最大值为当前屏幕的高度。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -3545,7 +3545,7 @@ declare namespace inputMethod {
     height: long;
 
     /**
-     * @brief 输入法软键盘窗口所在的屏幕ID。
+     * 输入法软键盘窗口所在的屏幕ID。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @stagemodelonly
@@ -3554,7 +3554,7 @@ declare namespace inputMethod {
     displayId?: long;
 
     /**
-     * @brief 显示输入法窗口的用户ID。
+     * 显示输入法窗口的用户ID。
      * <br>
      * <br>该属性仅系统应用可以使用。
      *
@@ -3567,7 +3567,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 当输入法框架需要显示预览文本时触发的回调。
+   * 当输入法框架需要显示预览文本时触发的回调。
    *
    * @param { string } msgId - 接收到的自定义通信数据的标识符。
    * @param { ArrayBuffer } [msgParam] - 接收到的自定义通信数据的消息体。
@@ -3577,7 +3577,7 @@ declare namespace inputMethod {
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
   /**
-   * @brief 自定义通信对象。
+   * 自定义通信对象。
    * <br>
    * <br> > **说明：**
    * <br> >
@@ -3594,7 +3594,7 @@ declare namespace inputMethod {
    */
   interface MessageHandler {
     /**
-     * @brief 接收输入法应用发送的自定义数据回调函数。
+     * 接收输入法应用发送的自定义数据回调函数。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -3608,7 +3608,7 @@ declare namespace inputMethod {
     onMessage: OnMessageCallback;
 
     /**
-     * @brief 监听对象终止回调函数。
+     * 监听对象终止回调函数。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -3622,7 +3622,7 @@ declare namespace inputMethod {
     onTerminated: Callback<void>;
 
     /**
-     * @brief 接收输入法应用发送的自定义数据回调函数。
+     * 接收输入法应用发送的自定义数据回调函数。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -3638,7 +3638,7 @@ declare namespace inputMethod {
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;	
 
     /**
-     * @brief 监听对象终止回调函数。
+     * 监听对象终止回调函数。
      * <br>
      * <br> > **说明：**
      * <br> >
@@ -3653,7 +3653,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 输入法启用状态。
+   * 输入法启用状态。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -3661,7 +3661,7 @@ declare namespace inputMethod {
    */
   export enum EnabledState {
     /**
-     * @brief 未启用。
+     * 未启用。
      * <br>
      * <br>使用场景：输入法已被禁用，不能作为当前输入法使用。
      *
@@ -3672,7 +3672,7 @@ declare namespace inputMethod {
     DISABLED = 0,
 
     /**
-     * @brief 基础模式。
+     * 基础模式。
      * <br>
      * <br>使用场景：输入法已启用但处于基础模式，仅具备基础输入能力，不支持高级功能（如自定义通信）。
      *
@@ -3683,7 +3683,7 @@ declare namespace inputMethod {
     BASIC_MODE,
 
     /**
-     * @brief 完整体验模式。
+     * 完整体验模式。
      * <br>
      * <br>使用场景：输入法已启用且处于完整体验模式，支持所有功能（包括自定义通信、预上屏等）。
      *
@@ -3695,7 +3695,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 请求键盘输入的原因。
+   * 请求键盘输入的原因。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
@@ -3703,7 +3703,7 @@ declare namespace inputMethod {
    */
   export enum RequestKeyboardReason {
     /**
-     * @brief 表示没有特定的原因触发键盘请求。
+     * 表示没有特定的原因触发键盘请求。
      * <br>
      * <br>使用场景：默认值，不指定特定触发原因时使用。
      *
@@ -3713,7 +3713,7 @@ declare namespace inputMethod {
      */
     NONE = 0,
     /**
-     * @brief 表示键盘请求是由鼠标操作触发的。
+     * 表示键盘请求是由鼠标操作触发的。
      * <br>
      * <br>使用场景：用户通过鼠标点击编辑框触发键盘弹出时使用。
      *
@@ -3723,7 +3723,7 @@ declare namespace inputMethod {
      */
     MOUSE = 1,
     /**
-     * @brief 表示键盘请求是由触摸操作触发的。
+     * 表示键盘请求是由触摸操作触发的。
      * <br>
      * <br>使用场景：用户通过触摸点击编辑框触发键盘弹出时使用。
      *
@@ -3733,7 +3733,7 @@ declare namespace inputMethod {
      */
     TOUCH = 2,
     /**
-     * @brief 表示键盘请求是由其他原因触发的。
+     * 表示键盘请求是由其他原因触发的。
      * <br>
      * <br>使用场景：键盘弹出的触发原因不属于鼠标和触摸时使用。
      *
@@ -3745,7 +3745,7 @@ declare namespace inputMethod {
   }
 
   /**
-   * @brief 当输入法框架需要显示预览文本时触发的回调。
+   * 当输入法框架需要显示预览文本时触发的回调。
    *
    * @param { string } text - 预览文本内容。
    * @param { Range } range - 文本的选中范围。
@@ -3756,7 +3756,7 @@ declare namespace inputMethod {
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
 
  /**
-   * @brief 枚举，定义了文本首字母大写的不同模式。
+   * 枚举，定义了文本首字母大写的不同模式。
    * <br>
    * | 名称 | 值 | 说明 |
    * | -------- | -- | -------- |
@@ -3775,7 +3775,7 @@ declare namespace inputMethod {
    */
   export enum CapitalizeMode {
     /**
-     * @brief 不进行任何首字母大写处理。<br/>使用场景：适用于无需自动大写的输入框，如密码输入、验证码输入等。
+     * 不进行任何首字母大写处理。<br/>使用场景：适用于无需自动大写的输入框，如密码输入、验证码输入等。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3784,7 +3784,7 @@ declare namespace inputMethod {
     NONE = 0,
 
     /**
-     * @brief 每个句子的首字母大写。<br/>使用场景：适用于普通文本输入框，如聊天、备忘录等，自动在句号等标点后将首字母大写。
+     * 每个句子的首字母大写。<br/>使用场景：适用于普通文本输入框，如聊天、备忘录等，自动在句号等标点后将首字母大写。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3793,7 +3793,7 @@ declare namespace inputMethod {
     SENTENCES,
 
     /**
-     * @brief 每个单词首字母大写。<br/>使用场景：适用于标题、人名等需要每个单词首字母大写的场景。
+     * 每个单词首字母大写。<br/>使用场景：适用于标题、人名等需要每个单词首字母大写的场景。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3802,7 +3802,7 @@ declare namespace inputMethod {
     WORDS,
 
     /**
-     * @brief 每个字母都大写。<br/>使用场景：适用于全大写输入场景，如缩写词输入（如URL中的域名部分）。
+     * 每个字母都大写。<br/>使用场景：适用于全大写输入场景，如缩写词输入（如URL中的域名部分）。
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
@@ -3812,7 +3812,7 @@ declare namespace inputMethod {
   }
   
   /**
-   * @brief 枚举，绑定失败的原因。
+   * 枚举，绑定失败的原因。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 22 dynamic
@@ -3820,7 +3820,7 @@ declare namespace inputMethod {
    */
   export enum AttachFailureReason {
     /**
-     * @brief 表示调用者非焦点窗口所属应用导致的失败。
+     * 表示调用者非焦点窗口所属应用导致的失败。
      * <br>
      * <br>使用场景：应用窗口未获得焦点时调用attach，会返回此失败原因。
      * <br>
@@ -3833,7 +3833,7 @@ declare namespace inputMethod {
     CALLER_NOT_FOCUSED = 0,
 
     /**
-     * @brief 表示输入法应用异常导致的失败。
+     * 表示输入法应用异常导致的失败。
      * <br>
      * <br>使用场景：输入法应用进程崩溃或未正常运行时，attach会返回此失败原因。
      *
@@ -3844,7 +3844,7 @@ declare namespace inputMethod {
     IME_ABNORMAL,
 
     /**
-     * @brief 表示输入法框架服务异常导致的失败。
+     * 表示输入法框架服务异常导致的失败。
      * <br>
      * <br>使用场景：输入法框架服务进程异常时，attach会返回此失败原因。
      *
@@ -3855,7 +3855,7 @@ declare namespace inputMethod {
     SERVICE_ABNORMAL
   }
   /**
-   * @brief 绑定输入法的附加选项。
+   * 绑定输入法的附加选项。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @stagemodelonly
@@ -3863,7 +3863,7 @@ declare namespace inputMethod {
    */
   export interface AttachOptions {
     /**
-     * @brief 绑定输入法成功后，是否拉起输入法键盘。
+     * 绑定输入法成功后，是否拉起输入法键盘。
      * <br>
      * <br>- true表示拉起。
      * <br>- false表示不拉起。
@@ -3875,7 +3875,7 @@ declare namespace inputMethod {
      */
     showKeyboard?: boolean;
     /**
-     * @brief 请求键盘输入的原因。
+     * 请求键盘输入的原因。
      *
      * @default RequestKeyboardReason.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework

@@ -21,7 +21,7 @@ import type { Callback } from './@ohos.base';
 import { PanelFlag } from '@ohos.inputMethod.Panel';
 
 /**
- * @brief This module provides the input method system panel management functions, which are used for communication and
+ * This module provides the input method system panel management functions, which are used for communication and
  * state synchronization between the input method system panel and the system-default input method application.
  * 
  * > **NOTE**
@@ -37,7 +37,7 @@ import { PanelFlag } from '@ohos.inputMethod.Panel';
  */
 declare namespace inputMethodSystemPanelManager {
   /**
-   * @brief Enumerates input types, which are used to identify the input modes supported by the system panel.
+   * Enumerates input types, which are used to identify the input modes supported by the system panel.
    * Different input types correspond to different input scenarios and panel layouts.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -48,7 +48,7 @@ declare namespace inputMethodSystemPanelManager {
   export enum InputMethodInputType {
     
     /**
-     * @brief No input.
+     * No input.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -57,7 +57,7 @@ declare namespace inputMethodSystemPanelManager {
      */
     NONE = -1,
     /**
-     * @brief Camera input, indicating that the system is in camera input mode. This type is typically used for capture input scenarios.
+     * Camera input, indicating that the system is in camera input mode. This type is typically used for capture input scenarios.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -67,7 +67,7 @@ declare namespace inputMethodSystemPanelManager {
     CAMERA_INPUT = 0,
 
     /**
-     * @brief Security input, indicating that the system panel is in secure input mode. This type is used for entering sensitive information such as passwords.
+     * Security input, indicating that the system panel is in secure input mode. This type is used for entering sensitive information such as passwords.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -77,7 +77,7 @@ declare namespace inputMethodSystemPanelManager {
     SECURITY_INPUT = 1,
 
     /**
-     * @brief Voice input, indicating that the system panel is in voice input mode. This type is used for voice-to-text input.
+     * Voice input, indicating that the system panel is in voice input mode. This type is used for voice-to-text input.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -87,7 +87,7 @@ declare namespace inputMethodSystemPanelManager {
     VOICE_INPUT = 2,
 
     /**
-     * @brief Floating voice input, indicating that the system panel is in floating voice input mode and provides the voice input function in a floating window.
+     * Floating voice input, indicating that the system panel is in floating voice input mode and provides the voice input function in a floating window.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -98,7 +98,7 @@ declare namespace inputMethodSystemPanelManager {
   }
 
   /**
-   * @brief System panel status.
+   * System panel status.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
@@ -107,7 +107,7 @@ declare namespace inputMethodSystemPanelManager {
    */
   interface SystemPanelStatus {
     /**
-     * @brief The input type of the input method.
+     * The input type of the input method.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -117,7 +117,7 @@ declare namespace inputMethodSystemPanelManager {
     inputType: InputMethodInputType;
 
     /**
-     * @brief The panel flag of the input method's soft keyboard panel.
+     * The panel flag of the input method's soft keyboard panel.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -127,7 +127,7 @@ declare namespace inputMethodSystemPanelManager {
     panelFlag: PanelFlag;
 
     /**
-     * @brief Whether the system panel needs to be raised.
+     * Whether the system panel needs to be raised.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -137,7 +137,7 @@ declare namespace inputMethodSystemPanelManager {
     isPanelRaised: boolean;
 
     /**
-     * @brief Whether the system panel's function button is needed.
+     * Whether the system panel's function button is needed.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -148,7 +148,7 @@ declare namespace inputMethodSystemPanelManager {
   }
 
   /**
-   * @brief Describes the private data type, which varies depending on its function.
+   * Describes the private data type, which varies depending on its function.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
@@ -158,7 +158,7 @@ declare namespace inputMethodSystemPanelManager {
   type CommandDataType = int | string | boolean;
 
   /**
-   * @brief Subscribe to the event when the input method application sends private data commands.
+   * Subscribe to the event when the input method application sends private data commands.
    *
    * @param { Callback<Record<string, CommandDataType>> } callback - Callback function, which is triggered
    *  when the input method application or system service sends a private data command.
@@ -171,7 +171,7 @@ declare namespace inputMethodSystemPanelManager {
   function onSystemPrivateCommand(callback: Callback<Record<string, CommandDataType>>): void;
 
   /**
-   * @brief Unsubscribes from events that the system-default input method application sends a private data command.
+   * Unsubscribes from events that the system-default input method application sends a private data command.
    *
    * @param { Callback<Record<string, CommandDataType>> } [callback] - Callback function.
    *  If this parameter is left empty, all callbacks will be unsubscribed from.
@@ -184,7 +184,7 @@ declare namespace inputMethodSystemPanelManager {
   function offSystemPrivateCommand(callback?: Callback<Record<string, CommandDataType>>): void;
 
   /**
-   * @brief Subscribes to system panel state change events.
+   * Subscribes to system panel state change events.
    *
    * @param { Callback<SystemPanelStatus> } callback - Callback function, which is triggered when the system panel state changes.
    * @throws { BusinessError } 202 - not system application.
@@ -196,7 +196,7 @@ declare namespace inputMethodSystemPanelManager {
   function onSystemPanelStatusChange(callback: Callback<SystemPanelStatus>): void;
 
   /**
-   * @brief Unsubscribes from system panel state change events.
+   * Unsubscribes from system panel state change events.
    *
    * @param { Callback<SystemPanelStatus> } [callback] - Callback function. If this parameter is left empty, all callbacks will be unsubscribed from.
    * @throws { BusinessError } 202 - not system application.
@@ -208,7 +208,7 @@ declare namespace inputMethodSystemPanelManager {
   function offSystemPanelStatusChange(callback?: Callback<SystemPanelStatus>): void;
 
   /**
-   * @brief Sends a private command to the system-default input method application.
+   * Sends a private command to the system-default input method application.
    *
    * @param { Record<string, CommandDataType> } commandData - Command data to be sent. The maximum size is 32 KB, and a maximum of five commands are allowed.
    * @returns { Promise<void> } Promise that returns no value.
@@ -224,7 +224,7 @@ declare namespace inputMethodSystemPanelManager {
   function sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>;
 
   /**
-   * @brief Connects to the system channel for communication between the input method system panel and
+   * Connects to the system channel for communication between the input method system panel and
    * the system-default input method application. This API can be called only by the input method system panel.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY

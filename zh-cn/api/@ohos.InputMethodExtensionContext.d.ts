@@ -25,7 +25,7 @@ import ExtensionContext from './application/ExtensionContext';
 import { ConnectOptions } from './ability/connectOptions';
 
 /**
- * @brief @ohos.InputMethodExtensionContext模块是InputMethodExtensionAbility的上下文环境，继承于ExtensionContext，为输入法扩展能力提供上下文级别的操作接口。
+ * @ohos.InputMethodExtensionContext模块是InputMethodExtensionAbility的上下文环境，继承于ExtensionContext，为输入法扩展能力提供上下文级别的操作接口。
  * <br>
  * <br>本模块是输入法ExtensionAbility的上下文类，继承自`ExtensionContext`，作为`InputMethodExtensionAbility`实例的`context`属性提供。它承载了输入法扩展应用在其生命周期内
  * 可使用的上下文能力，包括销毁自身和拉起其他应用。
@@ -90,7 +90,7 @@ import { ConnectOptions } from './ability/connectOptions';
  */
 declare class InputMethodExtensionContext extends ExtensionContext {
   /**
-   * @brief 销毁输入法应用。使用callback异步回调。
+   * 销毁输入法应用。使用callback异步回调。
    * <br>
    * <br>- 含义/功能：销毁当前的InputMethodExtensionAbility，终止输入法应用的运行。调用后系统将触发`InputMethodExtensionAbility.onDestroy()`生命周期回调。
    * <br>- 使用场景：当输入法应用需要主动终止自身运行时使用。例如：输入法应用在处理完特定任务后主动退出、或在`onDestroy`回调中配合销毁以确保资源释放。
@@ -105,7 +105,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(callback: AsyncCallback<void>): void;
 
   /**
-   * @brief 销毁输入法应用。使用Promise异步回调。
+   * 销毁输入法应用。使用Promise异步回调。
    * <br>
    * <br>- 含义/功能：销毁当前的InputMethodExtensionAbility，终止输入法应用的运行。调用后系统将触发`InputMethodExtensionAbility.onDestroy()`生命周期回调。
    * <br>- 使用场景：当输入法应用需要主动终止自身运行时使用。与callback形式功能相同，适合需要使用Promise链式调用的场景。
@@ -120,7 +120,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   destroy(): Promise<void>;
 
   /**
-   * @brief 销毁输入法ExtensionAbility。使用callback异步回调。
+   * 销毁输入法ExtensionAbility。使用callback异步回调。
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当销毁输入法应用成功时，err为undefined；否则为错误对象。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -133,7 +133,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * @brief 销毁输入法ExtensionAbility。使用Promise异步回调。
+   * 销毁输入法ExtensionAbility。使用Promise异步回调。
    *
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -146,7 +146,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   terminateSelf(): Promise<void>;
 
   /**
-   * @brief 拉起目标应用。使用Promise异步回调。
+   * 拉起目标应用。使用Promise异步回调。
    * <br>
    * <br>- 含义/功能：从输入法应用启动指定的Ability，使输入法应用能够与其他应用交互。通过Want参数指定目标应用的Ability名称和Bundle名称。
    * <br>- 使用场景：当输入法应用需要拉起其他应用时使用。例如：输入法应用拉起系统设置页面供用户配置输入法、拉起浏览器打开帮助文档等。
@@ -183,7 +183,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbility(want: Want): Promise<void>;
 
   /**
-   * @brief 以指定账户拉起目标应用。使用callback异步回调。
+   * 以指定账户拉起目标应用。使用callback异步回调。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - 用于指定目标应用的Want类型信息。
@@ -218,7 +218,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * @brief 以指定账户拉起目标应用。使用Promise异步回调。
+   * 以指定账户拉起目标应用。使用Promise异步回调。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - 用于指定目标应用的Want类型信息。
@@ -253,7 +253,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   startAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
   /**
-   * @brief 将当前Ability连接到ServiceExtensionAbility。
+   * 将当前Ability连接到ServiceExtensionAbility。
    * <br>
    * <br> > **说明：**
    * <br> >
@@ -285,7 +285,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * @brief 以指定账户连接ServiceExtensionAbility。
+   * 以指定账户连接ServiceExtensionAbility。
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - 用于指定目标ServiceExtensionAbility的Want类型信息。
@@ -315,7 +315,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectAbilityWithAccount(want: Want, accountId: number): number;
 
   /**
-   * @brief 将当前Ability连接到ServiceExtensionAbility。
+   * 将当前Ability连接到ServiceExtensionAbility。
    * <br>
    * <br> > **说明：**
    * <br> >
@@ -347,7 +347,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * @brief 断开与ServiceExtensionAbility的连接。使用callback异步回调。
+   * 断开与ServiceExtensionAbility的连接。使用callback异步回调。
    *
    * @param { number } connection - 连接的数字标识，由connectAbility/connectServiceExtensionAbility返回。
    * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功时，err为undefined；否则为错误对象。
@@ -365,7 +365,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * @brief 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
+   * 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
    *
    * @param { number } connection - 连接的数字标识，由connectAbility/connectServiceExtensionAbility返回。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -383,7 +383,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * @brief 断开与ServiceExtensionAbility的连接。使用callback异步回调。
+   * 断开与ServiceExtensionAbility的连接。使用callback异步回调。
    *
    * @param { number } connection - 连接的数字标识，由connectServiceExtensionAbility返回。
    * @param { AsyncCallback<void> } callback - 回调函数。当断开连接成功时，err为undefined；否则为错误对象。
@@ -401,7 +401,7 @@ declare class InputMethodExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * @brief 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
+   * 断开与ServiceExtensionAbility的连接。使用Promise异步回调。
    * <br>
    * <br> > **说明：**
    * <br> >
