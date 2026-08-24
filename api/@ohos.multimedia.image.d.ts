@@ -4166,6 +4166,69 @@ declare namespace image {
   }
 
   /**
+   * Enumerates SVG resource limit levels.
+   *
+   * Higher level allows using less resources during parsing and rendering an SVG image.
+   * System-defined default resource limits are always enforced regardless of the specified level.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum SVGResourceLimitLevel {  
+    /**
+     * Uses the system-defined default SVG resource limits.
+     *
+     * This level does not disable SVG resource protection.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NONE = 0,
+
+    /**
+     * Uses low-level restrictions which means allowing using more SVG resource budget.
+     *
+     * This level is suitable for complex SVG images. System-defined default resource
+     * limits are still applied.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    LOW = 1,
+
+    /**
+     * Uses medium-level restrictions which means allowing using moderate SVG resource budget.
+     *
+     * This level balances SVG compatibility and resource consumption and is suitable
+     * for most SVG images.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MEDIUM = 2,
+
+    /**
+     * Uses high-level restrictions which means allowing using less SVG resource budget.
+     *
+     * This level is suitable for simple SVG images, such as icons and basic UI resources.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    HIGH = 3
+  }
+
+  /**
    * Defines image source initialization options.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -4218,6 +4281,20 @@ declare namespace image {
      * @since 23 static
      */
     sourceSize?: Size;
+
+    /**
+     * SVG resource limit level used when parsing and rendering an SVG image.
+     * The limit takes effect before SVG metadata is parsed. Therefore, it is also applied
+     * when image information is obtained. This property has no effect on non-SVG images.
+     * Default value: The default value is {@link SVGResourceLimitLevel.NONE}, which uses the
+     * system-defined default resource limits and does not disable SVG resource protection.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    svgResourceLimitLevel?: SVGResourceLimitLevel;
   }
 
   /**
