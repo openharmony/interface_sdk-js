@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 资源管理
  * @kit LocalizationKit
  */
 
@@ -2333,8 +2333,8 @@ declare namespace resourceManager {
      * 获取指定资源ID对应的DrawableDescriptor对象，用于图标的显示，使用同步方式返回。
      *
      * @param { long } resId - 资源ID值。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
-     * @param { int } type - 图标类型。默认值为0。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [type] - 图标类型。默认值为0。
      *     <br>0：表示获取应用自身图标资源。
      *     <br>1：表示获取主题资源包中应用的分层图标资源。
      * @returns { DrawableDescriptor } 资源ID值对应的DrawableDescriptor对象。
@@ -2355,8 +2355,8 @@ declare namespace resourceManager {
      * 获取指定资源名称对应的DrawableDescriptor对象，用于图标的显示，使用同步方式返回。
      *
      * @param { string } resName - 资源名称。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
-     * @param { int } type - 图标类型。默认值为0。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [type] - 图标类型。默认值为0。
      *     <br>0：表示获取应用自身图标资源。
      *     <br>1：表示获取主题资源包中应用的分层图标资源。
      *     <br>2：表示获取主题资源包中应用的动态图标资源。
@@ -2378,9 +2378,9 @@ declare namespace resourceManager {
      * 获取指定resource对应的DrawableDescriptor对象，用于图标的显示，使用同步方式返回。
      *
      * @param { Resource } resource - 资源信息。
-     * @param { number } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
+     * @param { number } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
      *     [ScreenDensity]{@link resourceManager.ScreenDensity}。
-     * @param { number } type - 图标类型。默认值为0。
+     * @param { number } [type] - 图标类型。默认值为0。
      *     <br>0：表示获取应用自身图标资源。
      *     <br>1：表示获取主题资源包中应用的分层图标资源。
      * @returns { DrawableDescriptor } 资源ID值对应的DrawableDescriptor对象。
@@ -2707,7 +2707,7 @@ declare namespace resourceManager {
      * 获取指定资源ID对应的默认或指定的屏幕密度媒体文件内容，使用同步方式返回。
      *
      * @param { long } resId - 资源ID值。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { Uint8Array } 资源ID对应的媒体文件内容。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2726,7 +2726,7 @@ declare namespace resourceManager {
      * 获取指定resource对象对应的默认或指定的屏幕密度媒体文件内容，使用同步方式返回。
      *
      * @param { Resource } resource - 资源信息。
-     * @param { number } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
+     * @param { number } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
      *     [ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { Uint8Array } resource对象对应的媒体文件内容。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
@@ -2747,7 +2747,7 @@ declare namespace resourceManager {
      * 获取指定资源ID对应的默认或指定的屏幕密度图片资源Base64编码，使用同步方式返回。
      *
      * @param { long } resId - 资源ID值。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { string } 资源ID对应的图片资源Base64编码。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2766,7 +2766,7 @@ declare namespace resourceManager {
      * 获取指定resource对象对应的默认或指定的屏幕密度图片资源Base64编码，使用同步方式返回。
      *
      * @param { Resource } resource - 资源信息。
-     * @param { number } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
+     * @param { number } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举
      *     [ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { string } resource对象对应的图片资源Base64编码。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
@@ -2899,7 +2899,7 @@ declare namespace resourceManager {
      * 获取指定资源名称对应的默认或指定的屏幕密度媒体文件内容，使用同步方式返回。
      *
      * @param { string } resName - 资源名称。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { Uint8Array } 资源名称对应的媒体文件内容。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2918,7 +2918,7 @@ declare namespace resourceManager {
      * 获取指定资源名称对应的默认或指定的屏幕密度图片资源Base64编码，使用同步方式返回。
      *
      * @param { string } resName - 资源名称。
-     * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
+     * @param { int } [density] - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。取值具体请参考枚举[ScreenDensity]{@link resourceManager.ScreenDensity}。
      * @returns { string } 资源名称对应的图片资源Base64编码。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
