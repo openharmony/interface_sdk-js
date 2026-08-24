@@ -1270,14 +1270,6 @@ declare namespace distributedData {
     /**
      * Creates a **Query** object with the device ID as the key prefix.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - Device ID.
      * @returns { Query } **Query** object created.
      * @throws Throws this exception if input is invalid.
@@ -1858,14 +1850,6 @@ declare namespace distributedData {
     /**
      * Deletes data of a device. This API uses an asynchronous callback to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1878,14 +1862,6 @@ declare namespace distributedData {
     /**
      * Deletes data of a device. This API uses a promise to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1897,14 +1873,6 @@ declare namespace distributedData {
 
     /**
      * Synchronizes the KV store manually.
-     *
-     * > **NOTE**
-     * >
-     * > **deviceIds** is **networkId** in <!--RP2-->
-     * > [DeviceInfo]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceInfo}, which can be obtained by
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP2End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string[] } deviceIds - List of **networkId**s of the devices in the same networking environment to be
@@ -2052,14 +2020,6 @@ declare namespace distributedData {
      * Obtains a string value that matches the specified device ID and key. This API uses an asynchronous callback to
      * return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { string } key - Key to match.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback - Callback used to return the value obtained.
@@ -2076,14 +2036,6 @@ declare namespace distributedData {
     /**
      * Obtains a string value that matches the specified device ID and key. This API uses a promise to return the
      * result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { string } key - Key to match.
@@ -2102,14 +2054,6 @@ declare namespace distributedData {
      * Obtains all KV pairs that match the specified device ID and key prefix. This API uses an asynchronous callback to
      *  return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { string } keyPrefix - Key prefix to match.
      * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs obtained.
@@ -2126,14 +2070,6 @@ declare namespace distributedData {
     /**
      * Obtains all KV pairs that match the specified device ID and key prefix. This API uses a promise to return the
      * result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { string } keyPrefix - Key prefix to match.
@@ -2181,14 +2117,6 @@ declare namespace distributedData {
      * Obtains the KV pairs that match the specified device ID and **Query** object. This API uses an asynchronous
      * callback to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
      * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified device ID and
@@ -2205,14 +2133,6 @@ declare namespace distributedData {
      * Obtains the KV pairs that match the specified device ID and **Query** object. This API uses a promise to return
      * the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
      * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified device ID and **Query**
@@ -2227,14 +2147,6 @@ declare namespace distributedData {
     /**
      * Obtains a **KvStoreResultSet** object that matches the specified device ID and key prefix. This API uses an
      * asynchronous callback to return the result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { string } keyPrefix - Key prefix to match.
@@ -2253,14 +2165,6 @@ declare namespace distributedData {
     /**
      * Obtains a **KvStoreResultSet** object that matches the specified device ID and key prefix. This API uses a
      * promise to return the result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { string } keyPrefix - Key prefix to match.
@@ -2311,14 +2215,6 @@ declare namespace distributedData {
      * Obtains a **KvStoreResultSet** object that matches the specified device ID and **Query** object. This API uses an
      *  asynchronous callback to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
      * @param { AsyncCallback<KvStoreResultSet> } callback - Callback used to return the **KvStoreResultSet** object that
@@ -2334,14 +2230,6 @@ declare namespace distributedData {
     /**
      * Obtains a **KvStoreResultSet** object that matches the specified device ID and **Query** object. This API uses a
      * promise to return the result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
@@ -2421,14 +2309,6 @@ declare namespace distributedData {
      * Obtains the number of results that match the specified device ID and **Query** object. This API uses an
      * asynchronous callback to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
      * @param { AsyncCallback<number> } callback - Callback used to return the number of results obtained.
@@ -2444,14 +2324,6 @@ declare namespace distributedData {
      * Obtains the number of results that match the specified device ID and **Query** object. This API uses a promise to
      *  return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @param { Query } query - **Query** object to match.
      * @returns { Promise<number> } Promise used to return the number of results obtained.
@@ -2465,14 +2337,6 @@ declare namespace distributedData {
     /**
      * Deletes data of the specified device from this KV store. This API uses an asynchronous callback to return the
      * result.
-     *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
      *
      * @param { string } deviceId - ID of the target device.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -2488,14 +2352,6 @@ declare namespace distributedData {
     /**
      * Deletes data of the specified device from this KV store. This API uses a promise to return the result.
      *
-     * > **NOTE**
-     * >
-     * > The value of **deviceId** can be obtained by <!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP1End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
-     * > For details about how to obtain **deviceId**, see [sync()]{@link distributedData.SingleKVStore.sync}.
-     *
      * @param { string } deviceId - ID of the target device.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
@@ -2509,14 +2365,6 @@ declare namespace distributedData {
 
     /**
      * Synchronizes the KV store manually.
-     *
-     * > **NOTE**
-     * >
-     * > **deviceIds** is **networkId** in <!--RP2-->
-     * > [DeviceInfo]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceInfo}, which can be obtained by
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}.
-     * > <!--RP2End-->The APIs of the **deviceManager** module are system interfaces and available only to system
-     * > applications.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string[] } deviceIds - **networkId**s of the devices to be synchronized.

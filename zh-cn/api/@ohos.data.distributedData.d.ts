@@ -1277,13 +1277,6 @@ declare namespace distributedData {
     /**
      * 添加设备ID作为key的前缀。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 指示查询的设备ID。
      * @returns { Query } 返回Query对象。
      * @throws Throws this exception if input is invalid.
@@ -1838,13 +1831,6 @@ declare namespace distributedData {
     /**
      * 删除指定设备的数据，使用callback异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 表示要删除设备的名称。
      * @param { AsyncCallback<void> } callback - 回调函数。
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1857,13 +1843,6 @@ declare namespace distributedData {
     /**
      * 删除指定设备的数据，使用Promise异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 表示要删除设备的名称。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1875,13 +1854,6 @@ declare namespace distributedData {
 
     /**
      * 在手动同步方式下，触发数据库同步。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceIds为<!--RP2-->[DeviceInfo]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceInfo}中的
-     * > networkId, 通过调用
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP2End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string[] } deviceIds - 同一组网环境下，需要同步的设备的networkId列表。
@@ -2022,13 +1994,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和key匹配的string值，使用callback异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } key - 表示要查询key值的键。
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback - 回调函数，返回匹配给定条件的字符串值。
@@ -2045,13 +2010,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和key匹配的string值，使用Promise异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } key - 表示要查询key值的键。
      * @returns { Promise<boolean | string | number | Uint8Array> } Promise对象。返回匹配给定条件的字符串值。
@@ -2066,13 +2024,6 @@ declare namespace distributedData {
 
     /**
      * 获取与指定设备ID和key前缀匹配的所有键值对，使用callback异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } keyPrefix - 表示要匹配的键前缀。
@@ -2089,13 +2040,6 @@ declare namespace distributedData {
 
     /**
      * 获取与指定设备ID和key前缀匹配的所有键值对，使用Promise异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } keyPrefix - 表示要匹配的键前缀。
@@ -2141,13 +2085,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和Query对象匹配的键值对列表，使用callback异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 键值对所属的设备ID。
      * @param { Query } query - 表示查询对象。
      * @param { AsyncCallback<Entry[]> } callback - 回调函数。返回与指定设备ID和Query对象匹配的键值对列表。
@@ -2162,13 +2099,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和Query对象匹配的键值对列表，使用Promise异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 键值对所属的设备ID。
      * @param { Query } query - 表示查询对象。
      * @returns { Promise<Entry[]> } Promise对象。返回与指定设备ID和Query对象匹配的键值对列表。
@@ -2181,13 +2111,6 @@ declare namespace distributedData {
 
     /**
      * 获取与指定设备ID和key前缀匹配的KvStoreResultSet对象，使用callback异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } keyPrefix - 表示要匹配的键前缀。
@@ -2204,13 +2127,6 @@ declare namespace distributedData {
 
     /**
      * 获取与指定设备ID和key前缀匹配的KvStoreResultSet对象，使用Promise异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - 标识要查询其数据的设备。
      * @param { string } keyPrefix - 表示要匹配的键前缀。
@@ -2256,13 +2172,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和Query对象匹配的KvStoreResultSet对象，使用callback异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - KvStoreResultSet对象所属的设备ID。
      * @param { Query } query - 表示查询对象。
      * @param { AsyncCallback<KvStoreResultSet> } callback - 回调函数。返回与指定设备ID和Query对象匹配的KvStoreResultSet对象。
@@ -2276,13 +2185,6 @@ declare namespace distributedData {
 
     /**
      * 获取与指定设备ID和Query对象匹配的KvStoreResultSet对象，使用Promise异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - KvStoreResultSet对象所属的设备ID。
      * @param { Query } query - 表示查询对象。
@@ -2356,13 +2258,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和Query对象匹配的结果数，使用callback异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - KvStoreResultSet对象所属的设备ID。
      * @param { Query } query - 表示查询对象。
      * @param { AsyncCallback<number> } callback - 回调函数。返回与指定设备ID和Query对象匹配的结果数。
@@ -2377,13 +2272,6 @@ declare namespace distributedData {
     /**
      * 获取与指定设备ID和Query对象匹配的结果数，使用Promise异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - KvStoreResultSet对象所属的设备ID。
      * @param { Query } query - 表示查询对象。
      * @returns { Promise<number> } Promise对象。返回与指定设备ID和Query对象匹配的结果数。
@@ -2396,13 +2284,6 @@ declare namespace distributedData {
 
     /**
      * 从当前数据库中删除指定设备的数据，使用callback异步回调。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
      *
      * @param { string } deviceId - 标识要删除其数据的设备。
      * @param { AsyncCallback<void> } callback - 回调函数。
@@ -2418,13 +2299,6 @@ declare namespace distributedData {
     /**
      * 从当前数据库中删除指定设备的数据，使用Promise异步回调。
      *
-     * > **说明：**
-     * >
-     * > 其中deviceId通过调用<!--RP1-->
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP1End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
-     * > > deviceId具体获取方式请参考[sync接口示例]{@link distributedData.SingleKVStore.sync}。
-     *
      * @param { string } deviceId - 标识要删除其数据的设备。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
@@ -2438,13 +2312,6 @@ declare namespace distributedData {
 
     /**
      * 在手动同步方式下，触发数据库同步。
-     *
-     * > **说明：**
-     * >
-     * > 其中deviceIds为<!--RP2-->[DeviceInfo]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceInfo}中的
-     * > networkId, 通过调用
-     * > [deviceManager.getTrustedDeviceListSync]{@link @ohos.distributedHardware.deviceManager:deviceManager.DeviceManager.getTrustedDeviceListSync()}
-     * > 方法得到。<!--RP2End-->deviceManager模块的接口均为系统接口，仅系统应用可用。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string[] } deviceIds - 需要同步DeviceKVStore数据库的设备networkId列表。
