@@ -2640,6 +2640,7 @@ declare class Component {
    * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -2663,6 +2664,7 @@ declare class Component {
    * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4082,6 +4084,7 @@ declare class Driver {
    * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4126,6 +4129,7 @@ declare class Driver {
    * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @param { int } [duration] - Click duration, in ms. The value is an integer greater than or equal to 1500. The
@@ -4381,6 +4385,7 @@ declare class Driver {
    * @param { int } [speed] - Rotation speed.
    *     <br>Unit: ticks/s.
    *     <br>Value range: [1, 500]
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 20 is used.
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 20
    * @returns { Promise<void> } - Promise that returns no value.
